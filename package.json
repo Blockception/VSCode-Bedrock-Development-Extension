@@ -1,0 +1,46 @@
+{
+    "author": { 
+        "name": "Blockception Ltd",
+        "url": "https://www.blockception.com/"
+    },    
+    "displayName": "Bedrock Development",
+    "description": "An extension that provides development tools, validations and snippets to help develop minecraft bedrock content",
+    "categories": [ "Language Packs", "Programming Languages", "Snippets", "Other", "Formatters"],
+    "engines": { "vscode": "^1.22.0" },
+    "extensionKind": [
+        "ui"
+    ],    
+    "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+    "license": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "name": "blockception.vscode.minecraft.bedrock.development.extension",
+    "publisher": "Blockception Ltd",
+    "repository": {
+        "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+        "type": "git"
+    },
+
+    "contributes": {
+        "languages": [
+            {
+              "id": "minecraft-mcfunction",
+              "aliases": [ "Minecraft Mcfunctions" ],
+              "extensions": [ ".mcfunction" ],
+              "configuration": "./minecraft-mcfunction/minecraft-mcfunction-language-configuration.json"
+            }
+        ],
+        "grammars": [
+          {
+            "language": "minecraft-mcfunction",
+            "scopeName": "source.minecraft.mcfunction",
+            "path": "./minecraft-mcfunction/syntax/minecraft-mcfunction.tmLanguage.json"
+          }
+        ],
+        "snippets": [
+            { "language": "minecraft-mcfunction", "path": "./minecraft-general/snippets/blocks-names.json" },
+            { "language": "minecraft-mcfunction", "path": "./minecraft-general/snippets/commands.json" },
+            { "language": "minecraft-mcfunction", "path": "./minecraft-general/snippets/effect-names.json" },
+            { "language": "minecraft-mcfunction", "path": "./minecraft-general/snippets/enchant-names.json" },
+            { "language": "minecraft-mcfunction", "path": "./minecraft-mcfunctions/snippets/mcfunction.json" }
+        ]
+    }
+}

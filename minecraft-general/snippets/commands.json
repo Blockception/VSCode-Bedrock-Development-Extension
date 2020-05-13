@@ -1,0 +1,748 @@
+{
+  //alwaysday
+  "minecraft.commands.alwaysday": {
+    "prefix": ["minecraft.commands.alwaysday"],
+    "body": "alwaysday [lock: Boolean]",
+    "description": "Locks and unlocks the day-night cycle."
+  },
+  //clear
+  "minecraft.commands.clear": {
+    "prefix": ["minecraft.commands.clear"],
+    "body": "clear [player: target] [itemName: Item] [data: int] [maxCount: int]",
+    "description": "Clears items from player inventory."
+  },
+  //connect
+  "minecraft.commands.connect": {
+    "prefix": ["minecraft.commands.connect"],
+    "body": "connect <serverUri: text>",
+    "description": "Attempts to connect to the websocket server on the provided URL."
+  },
+  //clone
+  "minecraft.commands.clone": {
+    "prefix": ["minecraft.commands.clone"],
+    "body": "clone <begin: x y z> <end: x y z> <destination: x y z> [replace|masked] [normal|force|move]",
+    "description": "Clones blocks from one region to another."
+  },
+  "minecraft.commands.clone.filtered": {
+    "prefix": ["minecraft.commands.clone.filtered"],
+    "body": "clone <begin: x y z> <end: x y z> <destination: x y z> filtered <normal|force|move> <tileName: Block> <tileData: int>",
+    "description": "Clones blocks from one region to another."
+  },
+  //daylock
+  "minecraft.commands.daylock": {
+    "prefix": ["minecraft.commands.daylock"],
+    "body": "daylock [lock: Boolean]",
+    "description": "Locks and unlocks the day-night cycle."
+  },
+  //deop
+  "minecraft.commands.deop": {
+    "prefix": ["minecraft.commands.deop"],
+    "body": "deop <player: target>",
+    "description": "Revokes operator status from a player."
+  },
+  //difficulty
+  "minecraft.commands.difficulty": {
+    "prefix": ["minecraft.commands.difficulty"],
+    "body": "difficulty <peaceful|easy|normal|hard|e|h|n|p|0|1|2|3>",
+    "description": "Sets the difficulty level."
+  },
+  //effect
+  "minecraft.commands.effect": {
+    "prefix": ["minecraft.commands.effect"],
+    "body": "effect <player: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean]",
+    "description": "Add status effects."
+  },
+  "minecraft.commands.effect.clear": {
+    "prefix": ["minecraft.commands.effect.clear"],
+    "body": "effect <player: target> clear",
+    "description": "Remove status effects."
+  },
+  //enchant
+  "minecraft.commands.enchant": {
+    "prefix": ["minecraft.commands.enchant"],
+    "body": "enchant <player: target> <int|Enchant Name> [level: int]",
+    "description": "Adds an echantment to a player's selected item."
+  },
+  //execute
+  "minecraft.commands.execute": {
+    "prefix": ["minecraft.commands.execute"],
+    "body": "execute <origin: target> <position: x y z> <command: command>",
+    "description": "Executes a command on behalf of one or more entities."
+  },
+  "minecraft.commands.execute.detect": {
+    "prefix": ["minecraft.commands.execute.detect"],
+    "body": "execute <origin: target> <position: x y z> detect <detectPos: x y z> <block: Block> <data: int> <command: command>",
+    "description": "Executes a command on behalf of one or more entities."
+  },
+  //fill
+  "minecraft.commands.fill": {
+    "prefix": ["minecraft.commands.fill"],
+    "body": "fill <from: x y z> <to: x y z> <tileName: Block> [tileData: int] [outline|hollow|destroy|keep]",
+    "description": "Fills all or parts of a region with a specific block."
+  },
+  "minecraft.commands.fill.replace": {
+    "prefix": ["minecraft.commands.fill"],
+    "body": "fill <from: x y z> <to: x y z> <tileName: Block> <tileData: int> replace [replaceTileName: Block] [replaceDataValue: int]",
+    "description": "Fills all or parts of a region with a specific block."
+  },
+  //function
+  "minecraft.commands.function": {
+    "prefix": ["minecraft.commands.function"],
+    "body": "function <function|filepath>",
+    "description": "Runs commands found in the corresponding function file."
+  },
+  //function
+  "minecraft.commands.gamemode": {
+    "prefix": ["minecraft.commands.gamemode"],
+    "body": "gamemode <0|1|2|s|d|c|a|adventure|creative|default|survival> [player: target]",
+    "description": "Sets a player's game mode."
+  },
+  //Gamerule
+  "minecraft.commands.gamerule.commandBlocksEnabled": {
+    "prefix": ["minecraft.commands.gamerule.commandBlocksEnabled"],
+    "body": "gamerule commandBlocksEnabled [value]",
+    "description": "Whether command blocks should be enabled in-game."
+  },
+  "minecraft.commands.gamerule.commandBlockOutput": {
+    "prefix": ["minecraft.commands.gamerule.commandBlockOutput"],
+    "body": "gamerule commandBlockOutput [value]",
+    "description": "Whether command blocks should notify admins when they perform commands."
+  },
+  "minecraft.commands.gamerule.doDaylightCycle": {
+    "prefix": ["minecraft.commands.gamerule.doDaylightCycle"],
+    "body": "gamerule doDaylightCycle [value]",
+    "description": "Whether the day-night cycle and moon phases progress."
+  },
+  "minecraft.commands.gamerule.doEntityDrops": {
+    "prefix": ["minecraft.commands.gamerule.doEntityDrops"],
+    "body": "gamerule doEntityDrops [value]",
+    "description": "Whether entities that are not mobs should have drops."
+  },
+  "minecraft.commands.gamerule.doFireTick": {
+    "prefix": ["minecraft.commands.gamerule.doFireTick"],
+    "body": "gamerule doFireTick [value]",
+    "description": "Whether fire should spread and naturally extinguish."
+  },
+  "minecraft.commands.gamerule.doInsomnia": {
+    "prefix": ["minecraft.commands.gamerule.doInsomnia"],
+    "body": "gamerule doInsomnia [value]",
+    "description": "Whether phantoms can spawn in the nighttime."
+  },
+  "minecraft.commands.gamerule.immediateRespawn": {
+    "prefix": ["minecraft.commands.gamerule.immediateRespawn"],
+    "body": "gamerule immediateRespawn [value]",
+    "description": "Players respawn immediately without showing the death screen."
+  },
+  "minecraft.commands.gamerule.doMobLoot": {
+    "prefix": ["minecraft.commands.gamerule.doMobLoot"],
+    "body": "gamerule doMobLoot [value]",
+    "description": "Whether mobs should drop items."
+  },
+  "minecraft.commands.gamerule.doMobSpawning": {
+    "prefix": ["minecraft.commands.gamerule.doMobSpawning"],
+    "body": "gamerule doMobSpawning [value]",
+    "description": "Whether mobs should naturally spawn. Does not affect monster spawners."
+  },
+  "minecraft.commands.gamerule.doTileDrops": {
+    "prefix": ["minecraft.commands.gamerule.doTileDrops"],
+    "body": "gamerule doTileDrops [value]",
+    "description": "Whether blocks should have drops."
+  },
+  "minecraft.commands.gamerule.doWeatherCycle": {
+    "prefix": ["minecraft.commands.gamerule.doWeatherCycle"],
+    "body": "gamerule doWeatherCycle [value]",
+    "description": "Whether the weather can change naturally. The /weather command can still change weather."
+  },
+  "minecraft.commands.gamerule.drowningDamage": {
+    "prefix": ["minecraft.commands.gamerule.drowningDamage"],
+    "body": "gamerule drowningDamage [value]",
+    "description": "Whether the player should take damage when drowning."
+  },
+  "minecraft.commands.gamerule.fallDamage": {
+    "prefix": ["minecraft.commands.gamerule.fallDamage"],
+    "body": "gamerule fallDamage [value]",
+    "description": "Whether the player should take fall damage."
+  },
+  "minecraft.commands.gamerule.fireDamage": {
+    "prefix": ["minecraft.commands.gamerule.fireDamage"],
+    "body": "gamerule fireDamage [value]",
+    "description": "Whether the player should take fire damage."
+  },
+  "minecraft.commands.gamerule.keepInventory": {
+    "prefix": ["minecraft.commands.gamerule.keepInventory"],
+    "body": "gamerule keepInventory [value]",
+    "description": "Whether the player should keep items and experience in their inventory after death."
+  },
+  "minecraft.commands.gamerule.maxCommandChainLength": {
+    "prefix": ["minecraft.commands.gamerule.maxCommandChainLength"],
+    "body": "gamerule maxCommandChainLength [value]",
+    "description": "Determines the number at which the chain command block acts as a \"chain\"."
+  },
+  "minecraft.commands.gamerule.mobGriefing": {
+    "prefix": ["minecraft.commands.gamerule.mobGriefing"],
+    "body": "gamerule gamerule mobGriefing [value]",
+    "description": "Whether creepers, zombies, endermen, ghasts, withers, ender dragons, rabbits, sheep, villagers, silverfish, and snow golems should be able to change blocks and whether mobs can pick up items. This also affects the capability of zombie-like creatures like zombie pigmen and drowned to pathfind to turtle eggs. This will also prevent villagers from breeding."
+  },
+  "minecraft.commands.gamerule.naturalRegeneration": {
+    "prefix": ["minecraft.commands.gamerule.naturalRegeneration"],
+    "body": "gamerule naturalRegeneration [value]",
+    "description": "Whether the player can regenerate health naturally if their hunger is full enough (doesn't affect external healing, such as golden apples, the Regeneration effect, etc.)."
+  },
+  "minecraft.commands.gamerule.pvp": {
+    "prefix": ["minecraft.commands.gamerule.pvp"],
+    "body": "gamerule pvp [value]",
+    "description": "Whether the player can fight with other players."
+  },
+  "minecraft.commands.gamerule.randomTickSpeed": {
+    "prefix": ["minecraft.commands.gamerule.randomTickSpeed"],
+    "body": "gamerule randomTickSpeed [value]",
+    "description": "How often a random block tick occurs (such as plant growth, leaf decay, etc.) per chunk section per game tick. 0 disables random ticks [needs testing], higher numbers increase random ticks. Setting to a high integer results in high speeds of decay and growth."
+  },
+  "minecraft.commands.gamerule.sendCommandFeedback": {
+    "prefix": ["minecraft.commands.gamerule.sendCommandFeedback"],
+    "body": "gamerule sendCommandFeedback [value]",
+    "description": "Whether the feedback from commands executed by a player should show up in chat. Also affects the default behavior of whether command blocks store their output text."
+  },
+  "minecraft.commands.gamerule.showCoordinates": {
+    "prefix": ["minecraft.commands.gamerule.showCoordinates"],
+    "body": "gamerule showCoordinates [value]",
+    "description": "Whether the player's coordinates are displayed."
+  },
+  "minecraft.commands.gamerule.showDeathMessages": {
+    "prefix": ["minecraft.commands.gamerule.showDeathMessages"],
+    "body": "gamerule showDeathMessages [value]",
+    "description": "Whether death messages are put into chat when a player dies. Also affects whether a message is sent to the pet's owner when the pet dies."
+  },
+  "minecraft.commands.gamerule.spawnRadius": {
+    "prefix": ["minecraft.commands.gamerule.spawnRadius"],
+    "body": "gamerule spawnRadius [value]",
+    "description": "The number of blocks outward from the world spawn coordinates that a player spawns in when first joining a server or when dying without a personal spawnpoint/."
+  },
+  "minecraft.commands.gamerule.tntExplodes": {
+    "prefix": ["minecraft.commands.gamerule.tntExplodes"],
+    "body": "gamerule tntExplodes [value]",
+    "description": "Whether TNT explodes after activation."
+  },
+  "minecraft.commands.gamerule.showTags": {
+    "prefix": ["minecraft.commands.gamerule.showTags"],
+    "body": "gamerule showTags [value]",
+    "description": "Hides the \"Can place on\" and \"Can destroy\" block lists from item lore."
+  },
+  //Give
+  "minecraft.commands.give": {
+    "prefix": ["minecraft.commands.give"],
+    "body": "give <player: target> <itemName: Item> [amount: int] [data: int] [components: json]",
+    "description": "Gives an item to a player."
+  },
+  "minecraft.commands.give.tags": {
+    "prefix": ["minecraft.commands.give.tags"],
+    "body": "give <player: target> <itemName: Item> [amount: int] [data: int] { \"minecraft:can_destroy\": { \"blocks\": [ \"grass\" ]}, \"minecraft:can_place_on\": { \"blocks\": [ \"grass\" ]}}",
+    "description": "Gives an item to a player."
+  },
+  //kill
+  "minecraft.commands.kill": {
+    "prefix": ["minecraft.commands.kill"],
+    "body": "kill [target: target]",
+    "description": "Kills entities"
+  },
+  //Locate
+  "minecraft.commands.locate.buriedtreasure": {
+    "prefix": ["minecraft.commands.locate.buriedtreasure"],
+    "body": "locate buriedtreasure",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.endcity": {
+    "prefix": ["minecraft.commands.locate.endcity"],
+    "body": "locate endcity",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.fortress": {
+    "prefix": ["minecraft.commands.locate.fortress"],
+    "body": "locate fortress",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.mansion": {
+    "prefix": ["minecraft.commands.locate.mansion"],
+    "body": "locate mansion",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.mineshaft": {
+    "prefix": ["minecraft.commands.locate.mineshaft"],
+    "body": "locate mineshaft",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.monument": {
+    "prefix": ["minecraft.commands.locate.monument"],
+    "body": "locate monument",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.ruins": {
+    "prefix": ["minecraft.commands.locate.ruins"],
+    "body": "locate ruins",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.shipwreck": {
+    "prefix": ["minecraft.commands.locate.shipwreck"],
+    "body": "locate shipwreck",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.stronghold": {
+    "prefix": ["minecraft.commands.locate.stronghold"],
+    "body": "locate stronghold",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.temple": {
+    "prefix": ["minecraft.commands.locate.temple"],
+    "body": "locate temple",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.village": {
+    "prefix": ["minecraft.commands.locate.village"],
+    "body": "locate village",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  "minecraft.commands.locate.pillageroutpost": {
+    "prefix": ["minecraft.commands.locate.pillageroutpost"],
+    "body": "locate pillageroutpost",
+    "description": "Display the coordinates for the closest structure of a given type."
+  },
+  //me
+  "minecraft.commands.me": {
+    "prefix": ["minecraft.commands.me"],
+    "body": "me <message: message>",
+    "description": "Displays a message about yourself"
+  },
+  //msg
+  "minecraft.commands.msg": {
+    "prefix": ["minecraft.commands.msg"],
+    "body": "msg <target: target> <message: message>",
+    "description": "Sends a private message to one or more players."
+  },
+  //Mobevents
+  "minecraft.commands.mobevent.pillager_patrols_event": {
+    "prefix": ["minecraft.commands.mobevent.pillager_patrols_event"],
+    "body": "mobevent minecraft:pillager_patrols_event [value: Boolean]",
+    "description": "Controls what mob events are allowed to run."
+  },
+  "minecraft.commands.mobevent.wandering_trader_event": {
+    "prefix": ["minecraft.commands.mobevent.wandering_trader_event"],
+    "body": "mobevent wandering_trader_event [value: Boolean]",
+    "description": "Controls what mob events are allowed to run."
+  },
+  "minecraft.commands.mobevent.events_enabled": {
+    "prefix": ["minecraft.commands.mobevent.events_enabled"],
+    "body": "mobevent events_enabled [value: Boolean]",
+    "description": "Controls what mob events are allowed to run."
+  },
+  //op
+  "minecraft.commands.op": {
+    "prefix": ["minecraft.commands.op"],
+    "body": "op <player: target>",
+    "description": "Grants operator status to a player."
+  },
+  //particle
+  "minecraft.commands.particle": {
+    "prefix": ["minecraft.commands.particle"],
+    "body": "particle <effect: string> <position: x y z>",
+    "description": "Creates a particle emitter"
+  },
+  //playsound
+  "minecraft.commands.playsound": {
+    "prefix": ["minecraft.commands.playsound"],
+    "body": "playsound <sound: string> [player: target] [position: x y z] [volume: float] [pitch: float] [minimumVolume: float]",
+    "description": "Plays a sound."
+  },
+  //replaceitem
+  "minecraft.commands.replaceitem.block": {
+    "prefix": ["minecraft.commands.replaceitem.block"],
+    "body": "replaceitem block <position: x y z> slot.container <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]",
+    "description": "Replaces items in inventories"
+  },
+  "minecraft.commands.replaceitem.entity": {
+    "prefix": ["minecraft.commands.replaceitem.entity"],
+    "body": "replaceitem entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]",
+    "description": "Replaces items in inventories"
+  },
+  //reload
+  "minecraft.commands.reload": {
+    "prefix": ["minecraft.commands.reload"],
+    "body": "reload",
+    "description": "Reloads all function files from all behaviour packs."
+  },
+  //say
+  "minecraft.commands.say": {
+    "prefix": ["minecraft.commands.say"],
+    "body": "say <message: message>",
+    "description": "Sends a message in the chat to other players."
+  },
+  //Scoreboard
+  "minecraft.commands.scoreboard.objectives.list": {
+    "prefix": ["minecraft.commands.scoreboard.objectives.list"],
+    "body": "scoreboard objectives list",
+    "description": "Lists all created variables in the scoreboard"
+  },
+  "minecraft.commands.scoreboard.objectives.add": {
+    "prefix": ["minecraft.commands.scoreboard.objectives.add"],
+    "body": "scoreboard objectives add <name> dummy [display name: string]",
+    "description": "Adds a new variable to the scoreboard"
+  },
+  "minecraft.commands.scoreboard.objectives.remove": {
+    "prefix": ["minecraft.commands.scoreboard.objectives.remove"],
+    "body": "scoreboard objectives remove <name>",
+    "description": "Removes a variable from the scoreboard"
+  },
+
+  "minecraft.commands.scoreboard.objectives.setdisplay": {
+    "prefix": ["minecraft.commands.scoreboard.objectives.setdisplay"],
+    "body": "scoreboard objectives setdisplay <slot> [objective]",
+    "description": "Displays the given variable onto the given slot"
+  },
+  "minecraft.commands.scoreboard.objectives.setdisplay.belowname": {
+    "prefix": ["minecraft.commands.scoreboard.objectives.setdisplay"],
+    "body": "scoreboard objectives setdisplay belowname [objective]",
+    "description": "Displays the given variable under the name"
+  },
+  "minecraft.commands.scoreboard.objectives.setdisplay.list": {
+    "prefix": ["minecraft.commands.scoreboard.objectives.setdisplay"],
+    "body": "scoreboard objectives setdisplay list [objective]",
+    "description": "Displays the given variable in the players list"
+  },
+  "minecraft.commands.scoreboard.objectives.setdisplay.sidebar": {
+    "prefix": ["minecraft.commands.scoreboard.objectives.setdisplay"],
+    "body": "scoreboard objectives setdisplay sidebar [objective]",
+    "description": "Displays the given variable on the right side of the screen"
+  },
+  "minecraft.commands.scoreboard.players.list": {
+    "prefix": ["minecraft.commands.scoreboard.players.list"],
+    "body": "scoreboard players list [entity]",
+    "description": "Display players or the scores of an entity"
+  },
+  "minecraft.commands.scoreboard.players.set": {
+    "prefix": ["minecraft.commands.scoreboard.players.set"],
+    "body": "scoreboard players set <entity: string> <objective> <score>",
+    "description": "Sets the score of an given entity or playername"
+  },
+  "minecraft.commands.scoreboard.players.add": {
+    "prefix": ["minecraft.commands.scoreboard.players.add"],
+    "body": "scoreboard players add <entity: string> <objective> <count>",
+    "description": "Add onto the score of an given entity or playername"
+  },
+  "minecraft.commands.scoreboard.players.remove": {
+    "prefix": ["minecraft.commands.scoreboard.players.remove"],
+    "body": "scoreboard players remove <entity: string> <objective> <count>",
+    "description": "Substracts the score of an given entity or playername"
+  },
+  "minecraft.commands.scoreboard.players.reset": {
+    "prefix": ["minecraft.commands.scoreboard.players.reset"],
+    "body": "scoreboard players reset <entity: string> [objective]",
+    "description": "Resets the score(s) of an given entity or playername"
+  },
+  "minecraft.commands.scoreboard.players.operation": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation"],
+    "body": "scoreboard players operation <targetName> <targetObjective> <operation> <selector> <objective>",
+    "description": "Performs an operation on two or more score carriers"
+  },
+  "minecraft.commands.scoreboard.players.operation.modulus": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.modulus"],
+    "body": "scoreboard players operation <targetName> <targetObjective> %= <selector> <objective>",
+    "description": "Performs the modulus operation, the result is stored in the target"
+  },
+  "minecraft.commands.scoreboard.players.operation.multiply": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.multiply"],
+    "body": "scoreboard players operation <targetName> <targetObjective> *= <selector> <objective>",
+    "description": "Performs the multiply operation, the result is stored in the target"
+  },
+  "minecraft.commands.scoreboard.players.operation.addition": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.addition"],
+    "body": "scoreboard players operation <targetName> <targetObjective> += <selector> <objective>",
+    "description": "Performs the addition operation, the result is stored in the target"
+  },
+  "minecraft.commands.scoreboard.players.operation.substract": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.substract"],
+    "body": "scoreboard players operation <targetName> <targetObjective> -= <selector> <objective>",
+    "description": "Performs the substraction operation, the result is stored in the target"
+  },
+  "minecraft.commands.scoreboard.players.operation.division": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.division"],
+    "body": "scoreboard players operation <targetName> <targetObjective> /= <selector> <objective>",
+    "description": "Performs the division operation, the result is stored in the target"
+  },
+  "minecraft.commands.scoreboard.players.operation.lesserthan": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.lesserthan"],
+    "body": "scoreboard players operation <targetName> <targetObjective> < <selector> <objective>",
+    "description": "Performs the Lesser than operation, the smallest value is assigned to the target"
+  },
+  "minecraft.commands.scoreboard.players.operation.assign": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.assign"],
+    "body": "scoreboard players operation <targetName> <targetObjective> = <selector> <objective>",
+    "description": "Performs the assign operation, can only be done on 2 carriers"
+  },
+  "minecraft.commands.scoreboard.players.operation.greatherthan": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.greatherthan"],
+    "body": "scoreboard players operation <targetName> <targetObjective> > <selector> <objective>",
+    "description": "Performs the Greather than operation, the largest value is assigned to the target"
+  },
+  "minecraft.commands.scoreboard.players.operation.swap": {
+    "prefix": ["minecraft.commands.scoreboard.players.operation.swap"],
+    "body": "scoreboard players operation <targetName> <targetObjective> swap <selector> <objective>",
+    "description": "Performs the swap operation, can only be done on 2 carriers"
+  },
+  "minecraft.commands.scoreboard.players.test": {
+    "prefix": ["minecraft.commands.scoreboard.players.test"],
+    "body": "scoreboard players test <entity> <objective> <min|*> <max|*>",
+    "description": "A test statement to test an entity or playername has the specified value"
+  },
+  "minecraft.commands.scoreboard.players.random": {
+    "prefix": ["minecraft.commands.scoreboard.players.random"],
+    "body": "scoreboard players random <entity> <objective> <min> <max>",
+    "description": "Assigns a random value to the specified entities or playername"
+  },
+  //setblock
+  "minecraft.commands.setblock": {
+    "prefix": ["minecraft.commands.setblock"],
+    "body": "setblock <position: x y z> <tileName: Block> [tileData: int] [replace|destroy|keep]",
+    "description": "Changes a block to another block."
+  },
+  //setworldspawn
+  "minecraft.commands.setmaxplayers": {
+    "prefix": ["minecraft.commands.setmaxplayers"],
+    "body": "setmaxplayers <maxPlayers: int>",
+    "description": "Sets the maximum number of players for this game session."
+  },
+  //setworldspawn
+  "minecraft.commands.setworldspawn": {
+    "prefix": ["minecraft.commands.setworldspawn"],
+    "body": "setworldspawn [spawnPoint: x y z]",
+    "description": "Sets the world spawn."
+  },
+  //spawnpoint
+  "minecraft.commands.spawnpoint": {
+    "prefix": ["minecraft.commands.spawnpoint"],
+    "body": "spawnpoint [player: target] [spawnPos: x y z]",
+    "description": "Sets the spawn point for a player."
+  },
+  //spreadplayers
+  "minecraft.commands.spreadplayers": {
+    "prefix": ["minecraft.commands.spreadplayers"],
+    "body": "spreadplayers <x: value> <z: value> <spreadDistance: float> <maxRange: float> <victim: target>",
+    "description": "Teleports entities to random locations."
+  },
+  //Stopsound
+  "minecraft.commands.stopsound": {
+    "prefix": ["minecraft.commands.stopsound"],
+    "body": "stopsound <player: target> [sound: string]",
+    "description": "Stops a sound."
+  },
+  //summon
+  "minecraft.commands.summon": {
+    "prefix": ["minecraft.commands.summon"],
+    "body": "summon <entityType: EntityType> [spawnPos: x y z] [spawnEvent: string] [nameTag: string]",
+    "description": "Summons an entity."
+  },
+  "minecraft.commands.summon.named": {
+    "prefix": ["minecraft.commands.summon"],
+    "body": "summon <entityType: EntityType> <nameTag: string> [spawnPos: x y z]",
+    "description": "Summons an entity with a name."
+  },
+  //tag
+  "minecraft.commands.tag.remove": {
+    "prefix": ["minecraft.commands.tag.remove"],
+    "body": "tag <targets> remove <name>",
+    "description": "Remove tags stored in entities"
+  },
+  "minecraft.commands.tag.list": {
+    "prefix": ["minecraft.commands.tag.list"],
+    "body": "tag <targets> list",
+    "description": "Lists tags stored in entities"
+  },
+  "minecraft.commands.tag.add": {
+    "prefix": ["minecraft.commands.tag.add"],
+    "body": "tag <targets> add <name>",
+    "description": "Adds tags stored in entities"
+  },
+  //tell
+  "minecraft.commands.tell": {
+    "prefix": ["minecraft.commands.tell"],
+    "body": "tell <target: target> <message: message>",
+    "description": "Sends a private message to one or more players."
+  },
+  //tellraw
+  "minecraft.commands.tellraw": {
+    "prefix": ["minecraft.commands.tell"],
+    "body": "tellraw <player> { \"rawtext\": [ { \"text\": \"\" }, \"\", { \"translate\": \"\" } ] }",
+    "description": "Sends a JSON message to players."
+  },
+  //tp
+  "minecraft.commands.tp": {
+    "prefix": ["minecraft.commands.tp"],
+    "body": "tp <target> <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  "minecraft.commands.tp.facing": {
+    "prefix": ["minecraft.commands.tp.facing"],
+    "body": "tp <target> <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  "minecraft.commands.tp.self": {
+    "prefix": ["minecraft.commands.tp.self"],
+    "body": "tp <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  "minecraft.commands.tp.self.facing": {
+    "prefix": ["minecraft.commands.tp.self.facing"],
+    "body": "tp <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  //teleport
+  "minecraft.commands.teleport": {
+    "prefix": ["minecraft.commands.teleport"],
+    "body": "teleport <target> <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  "minecraft.commands.teleport.facing": {
+    "prefix": ["minecraft.commands.teleport.facing"],
+    "body": "teleport <target> <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  "minecraft.commands.teleport.self": {
+    "prefix": ["minecraft.commands.teleport.self"],
+    "body": "teleport <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  "minecraft.commands.teleport.self.facing": {
+    "prefix": ["minecraft.commands.teleport.self.facing"],
+    "body": "teleport <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]",
+    "description": "Teleports entities"
+  },
+  //testforblock
+  "minecraft.commands.testfor": {
+    "prefix": ["minecraft.commands.testfor"],
+    "body": "testfor <victim: target>",
+    "description": "Counts entities maching specified conditions."
+  },
+  //testforblock
+  "minecraft.commands.testforblock": {
+    "prefix": ["minecraft.commands.testforblock"],
+    "body": "testforblock <position: x y z> <tileName: Block> [dataValue: int]",
+    "description": "Tests whether a certain block is in a specific location."
+  },
+  //testforblocks
+  "minecraft.commands.testforblocks": {
+    "prefix": ["minecraft.commands.testforblocks"],
+    "body": "testforblocks <begin: x y z> <end: x y z> <destination: x y z> [masked|all]",
+    "description": "Tests whether the blocks in two regions match."
+  },
+  //tickingarea
+  "minecraft.commands.tickingarea.list": {
+    "prefix": ["minecraft.commands.tickingarea.list"],
+    "body": "tickingarea list [all-dimensions]",
+    "description": "List ticking areas."
+  },
+  "minecraft.commands.tickingarea.remove_all": {
+    "prefix": ["minecraft.commands.tickingarea.remove_all"],
+    "body": "tickingarea remove_all",
+    "description": "remove all ticking areas."
+  },
+  "minecraft.commands.tickingarea.remove": {
+    "prefix": ["minecraft.commands.tickingarea.remove"],
+    "body": "tickingarea remove <position: x y z|name: string>",
+    "description": "remove ticking areas."
+  },
+  "minecraft.commands.tickingarea.add.circle": {
+    "prefix": ["minecraft.commands.tickingarea.add.circle"],
+    "body": "tickingarea add circle <center: x y z> <radius: int> [name: string]",
+    "description": "Add ticking areas."
+  },
+  "minecraft.commands.tickingarea.add": {
+    "prefix": ["minecraft.commands.tickingarea.add"],
+    "body": "tickingarea add <from: x y z> <to: x y z> [name: string]",
+    "description": "Add ticking areas."
+  },
+  //time
+  "minecraft.commands.time.add": {
+    "prefix": ["minecraft.commands.time.add"],
+    "body": "time add <amount: int>",
+    "description": "Changes or queries the world's game time."
+  },
+  "minecraft.commands.time.set": {
+    "prefix": ["minecraft.commands.time.set"],
+    "body": "time set <time: TimeSpec|amount: int>",
+    "description": "Changes or queries the world's game time."
+  },
+  "minecraft.commands.time.query": {
+    "prefix": ["minecraft.commands.time.query"],
+    "body": "time query <daytime|gametime|day>",
+    "description": "Changes or queries the world's game time."
+  },
+  //Title
+  "minecraft.commands.title.clear": {
+    "prefix": ["minecraft.commands.title.clear"],
+    "body": "title <player: target> clear",
+    "description": "Controls screen titles"
+  },
+  "minecraft.commands.title.reset": {
+    "prefix": ["minecraft.commands.title.reset"],
+    "body": "title <player: target> reset",
+    "description": "Resets the screen title"
+  },
+  "minecraft.commands.title": {
+    "prefix": ["minecraft.commands.title"],
+    "body": "title <player: target> <title|subtitle|actionbar> <titleText: message>",
+    "description": "Controls screen titles"
+  },
+  "minecraft.commands.title.times": {
+    "prefix": ["minecraft.commands.title.times"],
+    "body": "title <player: target> times <fadeIn: int> <stay: int> <fadeOut: int>",
+    "description": "Controls screen titles"
+  },
+  //TitleRaw
+  "minecraft.commands.titleraw.clear": {
+    "prefix": ["minecraft.commands.titleraw.clear"],
+    "body": "titleraw <player: target> clear",
+    "description": "Controls screen titles with JSON messages."
+  },
+  "minecraft.commands.titleraw.reset": {
+    "prefix": ["minecraft.commands.titleraw.reset"],
+    "body": "titleraw <player: target> reset",
+    "description": "Controls screen titles with JSON messages."
+  },
+  "minecraft.commands.titleraw": {
+    "prefix": ["minecraft.commands.titleraw"],
+    "body": "titleraw <player: target> <title|subtitle|actionbar> { \"rawtext\": [ { \"text\": \"\" }, \"\", { \"translate\": \"\" } ] }",
+    "description": "Controls screen titles with JSON messages."
+  },
+  "minecraft.commands.titleraw.times": {
+    "prefix": ["minecraft.commands.titleraw.times"],
+    "body": "titleraw <player: target> times <fadeIn: int> <stay: int> <fadeOut: int>",
+    "description": "Controls screen titles with JSON messages."
+  },
+  //toggledownfall
+  "minecraft.commands.toggledownfall": {
+    "prefix": ["minecraft.commands.toggledownfall"],
+    "body": "toggledownfall",
+    "description": "Toggles the weather."
+  },
+  //weather
+  "minecraft.commands.weather": {
+    "prefix": ["minecraft.commands.weather"],
+    "body": "weather <clear|rain|thunder> [duration: int]",
+    "description": "Sets the weather"
+  },
+  //w
+  "minecraft.commands.w": {
+    "prefix": ["minecraft.commands.w"],
+    "body": "w <target: target> <message: message>",
+    "description": "Sends a private message to one or more players."
+  },
+  //xp
+  "minecraft.commands.xp": {
+    "prefix": ["minecraft.commands.xp"],
+    "body": "xp <amount: int> [player: target]",
+    "description": "Adds or removes player experience."
+  },
+  "minecraft.commands.xp.Levels": {
+    "prefix": ["minecraft.commands.xp"],
+    "body": "xp <amount: int>L [player: target]",
+    "description": "Adds or removes player experience."
+  }
+}

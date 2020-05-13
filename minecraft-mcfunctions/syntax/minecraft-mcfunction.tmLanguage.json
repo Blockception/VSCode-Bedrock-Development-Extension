@@ -1,0 +1,175 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Minecraft Function",
+  "scopeName": "source.minecraft.mcfunction",
+  "patterns": [
+    { "include": "#constants" },
+    { "include": "#headers" },
+    { "include": "#strings" },
+    { "include": "#selectors" },
+    { "include": "#minecraftcommands" },
+    { "include": "#operators" },
+    { "include": "#comments" }
+  ],
+  "foldingStartMarker": "#region",
+  "foldingStopMarker": "#endregion",
+  "fileTypes": ["mcfunction"],
+  "repository": {
+    "headers": {
+      "patterns": [{ "name": "entity.name.function", "match": "(?<=\\.)[a-zA-Z0-9$]{2,}\\b" }]
+    },
+    "selectors": {
+      "patterns": [
+        { "name": "support.function.selector", "match": "(@[cvasrep]\\b)" },
+        { "name": "support.type", "match": "(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        { "name": "constant.numeric", "match": "\\b-\\d+\\b" },
+        { "name": "constant.numeric", "match": "\\b\\d+\\b" },
+        { "name": "constant.numeric", "match": "\\b\\d+s\\b" },
+        { "name": "constant.character", "match": "\\b[Tt]rue\\b" },
+        { "name": "constant.character", "match": "\\b[Ff]alse\\b" },
+        { "name": "string.quoted.double.minecraft-program", "match": "\"[^\"]*\"" }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator",
+          "match": "(~|\\^|\b\\.\\.\b|\\,|\\+|\\-|\\*|\\=)"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.minecraft-program",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "name": "constant.character.escape.minecraft-program", "match": "\\\\." }]
+    },
+    "minecraftcommands": {
+      "patterns": [
+        { "name": "keyword.control.add", "match": "\\badd\\b" },
+        { "name": "keyword.control.alwaysday", "match": "\\balwaysday\\b" },
+        { "name": "keyword.control.belowname", "match": "\\bbelowname\\b" },
+        { "name": "keyword.control.block", "match": "\\bblock\\b" },
+        { "name": "keyword.control.buriedtreasure", "match": "\\bburiedtreasure\\b" },
+        { "name": "keyword.control.circle", "match": "\\bcircle\\b" },
+        { "name": "keyword.control.clear", "match": "\\bclear\\b" },
+        { "name": "keyword.control.clone", "match": "\\bclone\\b" },
+        { "name": "keyword.control.commandBlockOutput", "match": "\\bcommandBlockOutput\\b" },
+        { "name": "keyword.control.commandBlocksEnabled", "match": "\\bcommandBlocksEnabled\\b" },
+        { "name": "keyword.control.connect", "match": "\\bconnect\\b" },
+        { "name": "keyword.control.daylock", "match": "\\bdaylock\\b" },
+        { "name": "keyword.control.deop", "match": "\\bdeop\\b" },
+        { "name": "keyword.control.difficulty", "match": "\\bdifficulty\\b" },
+        { "name": "keyword.control.doDaylightCycle", "match": "\\bdoDaylightCycle\\b" },
+        { "name": "keyword.control.doEntityDrops", "match": "\\bdoEntityDrops\\b" },
+        { "name": "keyword.control.doFireTick", "match": "\\bdoFireTick\\b" },
+        { "name": "keyword.control.doInsomnia", "match": "\\bdoInsomnia\\b" },
+        { "name": "keyword.control.doMobLoot", "match": "\\bdoMobLoot\\b" },
+        { "name": "keyword.control.doMobSpawning", "match": "\\bdoMobSpawning\\b" },
+        { "name": "keyword.control.doTileDrops", "match": "\\bdoTileDrops\\b" },
+        { "name": "keyword.control.doWeatherCycle", "match": "\\bdoWeatherCycle\\b" },
+        { "name": "keyword.control.drowningDamage", "match": "\\bdrowningDamage\\b" },
+        { "name": "keyword.control.effect", "match": "\\beffect\\b" },
+        { "name": "keyword.control.enchant", "match": "\\benchant\\b" },
+        { "name": "keyword.control.endcity", "match": "\\bendcity\\b" },
+        { "name": "keyword.control.entity", "match": "\\bentity\\b" },
+        { "name": "keyword.control.events_enabled", "match": "\\bevents_enabled\\b" },
+        { "name": "keyword.control.execute", "match": "\\bexecute\\b" },
+        { "name": "keyword.control.fallDamage", "match": "\\bfallDamage\\b" },
+        { "name": "keyword.control.fill", "match": "\\bfill\\b" },
+        { "name": "keyword.control.fireDamage", "match": "\\bfireDamage\\b" },
+        { "name": "keyword.control.fortress", "match": "\\bfortress\\b" },
+        { "name": "keyword.control.function", "match": "\\bfunction\\b" },
+        { "name": "keyword.control.gamemode", "match": "\\bgamemode\\b" },
+        { "name": "keyword.control.gamerule", "match": "\\bgamerule\\b" },
+        { "name": "keyword.control.give", "match": "\\bgive\\b" },
+        { "name": "keyword.control.immediateRespawn", "match": "\\bimmediateRespawn\\b" },
+        { "name": "keyword.control.keepInventory", "match": "\\bkeepInventory\\b" },
+        { "name": "keyword.control.kill", "match": "\\bkill\\b" },
+        { "name": "keyword.control.list", "match": "\\blist\\b" },
+        { "name": "keyword.control.list", "match": "\\blist\\b" },
+        { "name": "keyword.control.locate", "match": "\\blocate\\b" },
+        { "name": "keyword.control.mansion", "match": "\\bmansion\\b" },
+        { "name": "keyword.control.maxCommandChainLength", "match": "\\bmaxCommandChainLength\\b" },
+        { "name": "keyword.control.me", "match": "\\bme\\b" },
+        { "name": "keyword.control.minecraft.pillager_patrols_event", "match": "\\bminecraft:pillager_patrols_event\\b" },
+        { "name": "keyword.control.mineshaft", "match": "\\bmineshaft\\b" },
+        { "name": "keyword.control.mobGriefing", "match": "\\bmobGriefing\\b" },
+        { "name": "keyword.control.mobevent", "match": "\\bmobevent\\b" },
+        { "name": "keyword.control.monument", "match": "\\bmonument\\b" },
+        { "name": "keyword.control.msg", "match": "\\bmsg\\b" },
+        { "name": "keyword.control.naturalRegeneration", "match": "\\bnaturalRegeneration\\b" },
+        { "name": "keyword.control.objectives", "match": "\\bobjectives\\b" },
+        { "name": "keyword.control.op", "match": "\\bop\\b" },
+        { "name": "keyword.control.operation", "match": "\\boperation\\b" },
+        { "name": "keyword.control.particle", "match": "\\bparticle\\b" },
+        { "name": "keyword.control.pillageroutpost", "match": "\\bpillageroutpost\\b" },
+        { "name": "keyword.control.players", "match": "\\bplayers\\b" },
+        { "name": "keyword.control.playsound", "match": "\\bplaysound\\b" },
+        { "name": "keyword.control.pvp", "match": "\\bpvp\\b" },
+        { "name": "keyword.control.query", "match": "\\bquery\\b" },
+        { "name": "keyword.control.random", "match": "\\brandom\\b" },
+        { "name": "keyword.control.randomTickSpeed", "match": "\\brandomTickSpeed\\b" },
+        { "name": "keyword.control.reload", "match": "\\breload\\b" },
+        { "name": "keyword.control.remove", "match": "\\bremove\\b" },
+        { "name": "keyword.control.remove_all", "match": "\\bremove_all\\b" },
+        { "name": "keyword.control.replaceitem", "match": "\\breplaceitem\\b" },
+        { "name": "keyword.control.reset", "match": "\\breset\\b" },
+        { "name": "keyword.control.ruins", "match": "\\bruins\\b" },
+        { "name": "keyword.control.say", "match": "\\bsay\\b" },
+        { "name": "keyword.control.scoreboard", "match": "\\bscoreboard\\b" },
+        { "name": "keyword.control.sendCommandFeedback", "match": "\\bsendCommandFeedback\\b" },
+        { "name": "keyword.control.set", "match": "\\bset\\b" },
+        { "name": "keyword.control.setblock", "match": "\\bsetblock\\b" },
+        { "name": "keyword.control.setdisplay", "match": "\\bsetdisplay\\b" },
+        { "name": "keyword.control.setmaxplayers", "match": "\\bsetmaxplayers\\b" },
+        { "name": "keyword.control.setworldspawn", "match": "\\bsetworldspawn\\b" },
+        { "name": "keyword.control.shipwreck", "match": "\\bshipwreck\\b" },
+        { "name": "keyword.control.showCoordinates", "match": "\\bshowCoordinates\\b" },
+        { "name": "keyword.control.showDeathMessages", "match": "\\bshowDeathMessages\\b" },
+        { "name": "keyword.control.showTags", "match": "\\bshowTags\\b" },
+        { "name": "keyword.control.sidebar", "match": "\\bsidebar\\b" },
+        { "name": "keyword.control.spawnRadius", "match": "\\bspawnRadius\\b" },
+        { "name": "keyword.control.spawnpoint", "match": "\\bspawnpoint\\b" },
+        { "name": "keyword.control.spreadplayers", "match": "\\bspreadplayers\\b" },
+        { "name": "keyword.control.stopsound", "match": "\\bstopsound\\b" },
+        { "name": "keyword.control.stronghold", "match": "\\bstronghold\\b" },
+        { "name": "keyword.control.summon", "match": "\\bsummon\\b" },
+        { "name": "keyword.control.tag", "match": "\\btag\\b" },
+        { "name": "keyword.control.teleport", "match": "\\bteleport\\b" },
+        { "name": "keyword.control.tell", "match": "\\btell\\b" },
+        { "name": "keyword.control.tellraw", "match": "\\btellraw\\b" },
+        { "name": "keyword.control.temple", "match": "\\btemple\\b" },
+        { "name": "keyword.control.test", "match": "\\btest\\b" },
+        { "name": "keyword.control.testfor", "match": "\\btestfor\\b" },
+        { "name": "keyword.control.testforblock", "match": "\\btestforblock\\b" },
+        { "name": "keyword.control.testforblocks", "match": "\\btestforblocks\\b" },
+        { "name": "keyword.control.tickingarea", "match": "\\btickingarea\\b" },
+        { "name": "keyword.control.time", "match": "\\btime\\b" },
+        { "name": "keyword.control.title", "match": "\\btitle\\b" },
+        { "name": "keyword.control.titleraw", "match": "\\btitleraw\\b" },
+        { "name": "keyword.control.tntExplodes", "match": "\\btntExplodes\\b" },
+        { "name": "keyword.control.toggledownfall", "match": "\\btoggledownfall\\b" },
+        { "name": "keyword.control.tp", "match": "\\btp\\b" },
+        { "name": "keyword.control.village", "match": "\\bvillage\\b" },
+        { "name": "keyword.control.w", "match": "\\bw\\b" },
+        { "name": "keyword.control.wandering_trader_event", "match": "\\bwandering_trader_event\\b" },
+        { "name": "keyword.control.weather", "match": "\\bweather\\b" },
+        { "name": "keyword.control.xp", "match": "\\bxp\\b" }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment",
+          "begin": "#",
+          "end": "$"
+        }
+      ]
+    }
+  }
+}

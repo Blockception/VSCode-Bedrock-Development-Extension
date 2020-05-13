@@ -1,0 +1,162 @@
+{
+  "minecraft.enchants.aqua_affinity": {
+    "prefix": ["minecraft.enchants.aqua_affinity"],
+    "body": "aqua_affinity",
+    "description": "The enchanting name for 'aqua_affinity'"
+  },
+  "minecraft.enchants.bane_of_arthropods": {
+    "prefix": ["minecraft.enchants.bane_of_arthropods"],
+    "body": "bane_of_arthropods",
+    "description": "The enchanting name for 'bane_of_arthropods'"
+  },
+  "minecraft.enchants.blast_protection": {
+    "prefix": ["minecraft.enchants.blast_protection"],
+    "body": "blast_protection",
+    "description": "The enchanting name for 'blast_protection'"
+  },
+  "minecraft.enchants.channeling": {
+    "prefix": ["minecraft.enchants.channeling"],
+    "body": "channeling",
+    "description": "The enchanting name for 'channeling'"
+  },
+  "minecraft.enchants.depth_strider": {
+    "prefix": ["minecraft.enchants.depth_strider"],
+    "body": "depth_strider",
+    "description": "The enchanting name for 'depth_strider'"
+  },
+  "minecraft.enchants.efficiency": {
+    "prefix": ["minecraft.enchants.efficiency"],
+    "body": "efficiency",
+    "description": "The enchanting name for 'efficiency'"
+  },
+  "minecraft.enchants.feather_falling": {
+    "prefix": ["minecraft.enchants.feather_falling"],
+    "body": "feather_falling",
+    "description": "The enchanting name for 'feather_falling'"
+  },
+  "minecraft.enchants.fire_aspect": {
+    "prefix": ["minecraft.enchants.fire_aspect"],
+    "body": "fire_aspect",
+    "description": "The enchanting name for 'fire_aspect'"
+  },
+  "minecraft.enchants.fire_protection": {
+    "prefix": ["minecraft.enchants.fire_protection"],
+    "body": "fire_protection",
+    "description": "The enchanting name for 'fire_protection'"
+  },
+  "minecraft.enchants.flame": {
+    "prefix": ["minecraft.enchants.flame"],
+    "body": "flame",
+    "description": "The enchanting name for 'flame'"
+  },
+  "minecraft.enchants.fortune": {
+    "prefix": ["minecraft.enchants.fortune"],
+    "body": "fortune",
+    "description": "The enchanting name for 'fortune'"
+  },
+  "minecraft.enchants.frost_walker": {
+    "prefix": ["minecraft.enchants.frost_walker"],
+    "body": "frost_walker",
+    "description": "The enchanting name for 'frost_walker'"
+  },
+  "minecraft.enchants.impaling": {
+    "prefix": ["minecraft.enchants.impaling"],
+    "body": "impaling",
+    "description": "The enchanting name for 'impaling'"
+  },
+  "minecraft.enchants.infinity": {
+    "prefix": ["minecraft.enchants.infinity"],
+    "body": "infinity",
+    "description": "The enchanting name for 'infinity'"
+  },
+  "minecraft.enchants.knockback": {
+    "prefix": ["minecraft.enchants.knockback"],
+    "body": "knockback",
+    "description": "The enchanting name for 'knockback'"
+  },
+  "minecraft.enchants.looting": {
+    "prefix": ["minecraft.enchants.looting"],
+    "body": "looting",
+    "description": "The enchanting name for 'looting'"
+  },
+  "minecraft.enchants.loyalty": {
+    "prefix": ["minecraft.enchants.loyalty"],
+    "body": "loyalty",
+    "description": "The enchanting name for 'loyalty'"
+  },
+  "minecraft.enchants.luck_of_the_sea": {
+    "prefix": ["minecraft.enchants.luck_of_the_sea"],
+    "body": "luck_of_the_sea",
+    "description": "The enchanting name for 'luck_of_the_sea'"
+  },
+  "minecraft.enchants.lure": {
+    "prefix": ["minecraft.enchants.lure"],
+    "body": "lure",
+    "description": "The enchanting name for 'lure'"
+  },
+  "minecraft.enchants.mending": {
+    "prefix": ["minecraft.enchants.mending"],
+    "body": "mending",
+    "description": "The enchanting name for 'mending'"
+  },
+  "minecraft.enchants.multishot": {
+    "prefix": ["minecraft.enchants.multishot"],
+    "body": "multishot",
+    "description": "The enchanting name for 'multishot'"
+  },
+  "minecraft.enchants.piercing": {
+    "prefix": ["minecraft.enchants.piercing"],
+    "body": "piercing",
+    "description": "The enchanting name for 'piercing'"
+  },
+  "minecraft.enchants.power": {
+    "prefix": ["minecraft.enchants.power"],
+    "body": "power",
+    "description": "The enchanting name for 'power'"
+  },
+  "minecraft.enchants.projectile_protection": {
+    "prefix": ["minecraft.enchants.projectile_protection"],
+    "body": "projectile_protection",
+    "description": "The enchanting name for 'projectile_protection'"
+  },
+  "minecraft.enchants.punch": {
+    "prefix": ["minecraft.enchants.punch"],
+    "body": "punch",
+    "description": "The enchanting name for 'punch'"
+  },
+  "minecraft.enchants.respiration": {
+    "prefix": ["minecraft.enchants.respiration"],
+    "body": "respiration",
+    "description": "The enchanting name for 'respiration'"
+  },
+  "minecraft.enchants.riptide": {
+    "prefix": ["minecraft.enchants.riptide"],
+    "body": "riptide",
+    "description": "The enchanting name for 'riptide'"
+  },
+  "minecraft.enchants.sharpness": {
+    "prefix": ["minecraft.enchants.sharpness"],
+    "body": "sharpness",
+    "description": "The enchanting name for 'sharpness'"
+  },
+  "minecraft.enchants.silk_touch": {
+    "prefix": ["minecraft.enchants.silk_touch"],
+    "body": "silk_touch",
+    "description": "The enchanting name for 'silk_touch'"
+  },
+  "minecraft.enchants.smite": {
+    "prefix": ["minecraft.enchants.smite"],
+    "body": "smite",
+    "description": "The enchanting name for 'smite'"
+  },
+  "minecraft.enchants.thorns": {
+    "prefix": ["minecraft.enchants.thorns"],
+    "body": "thorns",
+    "description": "The enchanting name for 'thorns'"
+  },
+  "minecraft.enchants.unbreaking": {
+    "prefix": ["minecraft.enchants.unbreaking"],
+    "body": "unbreaking",
+    "description": "The enchanting name for 'unbreaking'"
+  }
+}
