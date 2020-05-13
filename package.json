@@ -25,7 +25,8 @@
               "id": "minecraft-mcfunction",
               "aliases": [ "Minecraft Mcfunctions" ],
               "extensions": [ ".mcfunction" ],
-              "configuration": "./minecraft-mcfunction/minecraft-mcfunction-language-configuration.json"
+              "configuration": "./minecraft-mcfunction/minecraft-mcfunction-language-configuration.json",
+              "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ],
             }
         ],
         "grammars": [
