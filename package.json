@@ -7,13 +7,10 @@
     "description": "An extension that provides development tools, validations and snippets to help develop minecraft bedrock content",
     "categories": [ "Language Packs", "Programming Languages", "Snippets", "Other", "Formatters"],
     "engines": { "vscode": "^1.22.0" },
-    "extensionKind": [
-        "ui"
-    ],    
+    "extensionKind": [ "ui" ],    
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
     "name": "blockception.vscode.minecraft.bedrock.development.extension",
-    "publisher": "Blockception Ltd",
     "repository": {
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
@@ -26,7 +23,7 @@
               "aliases": [ "Minecraft Mcfunctions" ],
               "extensions": [ ".mcfunction" ],
               "configuration": "./minecraft-mcfunction/minecraft-mcfunction-language-configuration.json",
-              "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ],
+              "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
             }
         ],
         "grammars": [
