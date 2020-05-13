@@ -1,0 +1,1 @@
+# VSCode-Bedrock-Development-Extension
