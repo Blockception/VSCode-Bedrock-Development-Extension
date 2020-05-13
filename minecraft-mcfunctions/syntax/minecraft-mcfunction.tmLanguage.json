@@ -21,7 +21,8 @@
     "selectors": {
       "patterns": [
         { "name": "support.function.selector", "match": "(@[cvasrep]\\b)" },
-        { "name": "support.type", "match": "(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" }
+        { "name": "support.type", "match": "(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
+        { "name": "invalid", "match": "@[cvasrep]\\[.*$" }
       ]
     },
     "constants": {
