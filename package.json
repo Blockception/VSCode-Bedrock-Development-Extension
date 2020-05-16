@@ -78,7 +78,11 @@
             { "language": "bc-minecraft-language", "path": "./minecraft-language-files/snippets/minecraft-language.json" }
         ],
         "jsonValidation": [
-            { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" }
+            { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" },
+            { "fileMatch": "world_behavior_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
+            { "fileMatch": "world_resource_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
+
+            { "fileMatch": "animation_controllers/*.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" }
         ]
     }
 }

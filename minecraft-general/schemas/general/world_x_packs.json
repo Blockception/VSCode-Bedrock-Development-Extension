@@ -4,16 +4,24 @@
   "type": "array",
   "title": "The minecraft world x pack schema",
   "description": "The root schema comprises the entire JSON document.",
+  "definitions": {
+    "uuidv4": {
+      "$ref": "../../../json-schemas/general/UUIDV4.json"
+    },
+    "version": {
+      "$ref": "../../../json-schemas/general/Version.json"
+    }
+  },
   "items": {
     "type": "object",
     "properties": {
       "pack_id": {         
         "description": "The uuid of the pack to include",
-        "$ref": "../../json schemas/UUIDV4.json"
+        "$ref": "#/definitions/uuidv4"
       },
       "version": { 
         "description": "The version of the pack",
-        "$ref": "../../json schemas/Version.json" 
+        "$ref": "#/definitions/version" 
       }
     }
   }
