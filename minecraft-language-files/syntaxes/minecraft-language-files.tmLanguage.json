@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Minecraft Language",
+  "scopeName": "source.bc.minecraft.language",
+  "patterns": [
+    { "include": "#strings" },
+    { "include": "#comments" },
+    { "include": "#characters" }
+  ],
+  "fileTypes": [ "lang" ],
+  "repository": {
+    "strings": {
+      "patterns": [
+        {
+          "name": "entity.name.class",
+          "match": "^[^#=]+(?=\\=)"
+        },
+        {
+          "name": "keyword.operator",
+          "match": "="
+        }
+      ]
+    },
+    "characters": {
+      "patterns": [
+        { "name": "keyword.control", "match": "§[0-9a-fklmnor]" }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line",
+          "begin": "##",
+          "end": "$"
+        }
+      ]
+    }
+  }
+}
