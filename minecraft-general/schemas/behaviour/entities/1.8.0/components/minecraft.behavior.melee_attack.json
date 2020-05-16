@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.melee_attack",
+  "type": "object",
+  "title": "minecraft:behavior.melee_attack 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_speed_multiplier.json",
+  "required": [],
+  "properties": {
+    "melee_fov": {
+      "type": "number",
+      "default": 90.0,
+      "description": "The allowable FOV the actor will use to determine if it can make a valid melee attack"
+    },
+    "track_target": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, this mob will chase after the target as long as it's a valid target"
+    },
+    "attack_types": {
+      "type": "string",
+      "description": "Defines the entity types this mob will attack"
+    },
+    "random_stop_interval": {
+      "type": "integer",
+      "default": 0,
+      "description": "Defines the probability the mob will stop fighting. A value of 0 disables randomly stopping, while a value of 1 defines a 50% chance"
+    },
+    "reach_multiplier": {
+      "type": "number",
+      "default": 2.0,
+      "description": "Multiplier for how far outside its box the mob can reach its target (this can be used to simulate a mob with longer arms by making this bigger)"
+    },
+    "attack_once": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, this mob will attack only one time."
+    },
+    "require_complete_path": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, this goal will only trigger if the mob can reach its target."
+    }
+  }
+}

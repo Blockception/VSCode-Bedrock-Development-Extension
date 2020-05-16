@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.avoid_mob_type",
+  "type": "object",
+  "title": "minecraft:behavior.avoid_mob_type 1.8.0",
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": {
+    "max_dist": {
+      "type": "number",
+      "default": 0
+    },
+    "max_flee": {
+      "type": "number",
+      "default": 0.5
+    },
+    "walk_speed_multiplier": {
+      "type": "number",
+      "default": 1.0
+    },
+    "sprint_speed_multiplier": {
+      "type": "number",
+      "default": 1.0
+    },
+    "probability_per_strength": {
+      "type": "number",
+      "default": 1.0
+    },
+    "ignore_visibility": {
+      "type": "boolean",
+      "default": false
+    },
+    "entity_types": { "$ref": "../base/entity_types1.8.0.json" }
+  },
+  "additionalProperties": false
+}

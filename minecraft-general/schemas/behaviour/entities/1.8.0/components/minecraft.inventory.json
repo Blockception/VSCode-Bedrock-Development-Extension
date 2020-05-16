@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.input_ground_controlled",
+  "type": "object",
+  "title": "minecraft:input_ground_controlled 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": { }
+}
+
+"minecraft:inventory": {
+  "container_type": "minecart_chest",
+  "inventory_size": 27,
+  "can_be_siphoned_from": true
+}"minecraft:inventory": {}"minecraft:inventory": {
+  "container_type": "minecart_hopper",
+  "inventory_size": 5,
+  "can_be_siphoned_from": true
+}

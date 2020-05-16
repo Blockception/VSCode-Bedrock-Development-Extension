@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.charge_attack",
+  "type": "object",
+  "title": "minecraft:behavior.charge_attack 1.8.0",
+  "description": "Allows the mob to attack its target by running at it.",
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": { },
+  "additionalProperties": false
+}

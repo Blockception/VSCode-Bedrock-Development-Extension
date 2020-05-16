@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.movement.skip",
+  "type": "object",
+  "title": "minecraft:movement.skip 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": { }
+}
+
+"minecraft:on_target_escape": {
+  "event": "minecraft:stop_exploding",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:on_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "filters": {
+    "all_of": [
+      {
+        "test": "is_family",
+        "subject": "target",
+        "value": "wolf"
+      },
+      {
+        "test": "has_component",
+        "subject": "target",
+        "operator": "!=",
+        "value": "minecraft:is_tamed"
+      }
+    ]
+  },
+  "event": "minecraft:on_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:stop_aggro",
+  "target": "self"
+}

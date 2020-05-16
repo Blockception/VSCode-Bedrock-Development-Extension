@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.swim_idle",
+  "type": "object",
+  "title": "minecraft:behavior.swim_idle 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": { }
+}
+
+"minecraft:behavior.trade_interest": {
+  "priority": 3,
+  "within_radius": 6.0,
+  "interest_time": 45.0,
+  "remove_item_time": 1.0,
+  "carried_item_switch_time": 2.0,
+  "cooldown": 2.0
+}

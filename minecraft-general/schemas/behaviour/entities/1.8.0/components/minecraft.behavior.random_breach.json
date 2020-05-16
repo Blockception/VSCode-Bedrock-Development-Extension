@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.player_ride_tamed",
+  "type": "object",
+  "title": "minecraft:behavior.player_ride_tamed 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": { }
+}
+
+"minecraft:behavior.random_breach": {
+  "priority": 6,
+  "interval": 50,
+  "xz_dist": 6,
+  "cooldown_time": 2.0
+}

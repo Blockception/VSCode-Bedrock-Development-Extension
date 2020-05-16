@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.beg",
+  "type": "object",
+  "title": "minecraft:behavior.beg 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": {
+    "xz_dist": {
+      "type": "integer",
+      "default": 10,
+      "description": "Distance in blocks on ground that the mob will look for a new spot to move to. Must be at least 1",
+    },
+    "y_dist": {
+      "type": "integer",
+      "default": 7,
+      "description": "Distance in blocks that the mob will look up or down for a new spot to move to. Must be at least 1",
+    },
+    "y_offset": {
+      "type": "number",
+      "default": 0.0,
+      "description": "Height in blocks to add to the selected target position",
+    },
+    "must_reach": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, the point has to be reachable to be a valid target",
+    },
+    "random_reselect": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, the mob will randomly pick a new point while moving to the previously selected one"
+    },
+    "float_duration": {
+      "$ref": "../base/range_number_type.json",
+      "default": [0.0, 0.0],
+      "description": "Range of time in seconds the mob will float around before landing and choosing to do something else"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.movement.skip",
+  "type": "object",
+  "title": "minecraft:movement.skip 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": { }
+}
+
+"minecraft:on_target_acquired": {
+  "event": "minecraft:become_angry",
+  "target": "self"
+}"minecraft:on_target_acquired": {
+  "filters": {
+    "all_of": [
+      {
+        "test": "is_family",
+        "subject": "target",
+        "value": "wolf"
+      },
+      {
+        "test": "has_component",
+        "subject": "target",
+        "operator": "!=",
+        "value": "minecraft:is_tamed"
+      }
+    ]
+  },
+  "event": "minecraft:mad_at_wolf",
+  "target": "self"
+}"minecraft:on_target_acquired": {
+  "event": "minecraft:become_aggressive",
+  "target": "self"
+}"minecraft:on_target_acquired": {
+  "event": "minecraft:become_aggressive",
+  "target": "self"
+}"minecraft:on_target_acquired": {
+  "event": "minecraft:become_aggro",
+  "target": "self"
+}

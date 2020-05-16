@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.charge_held_item",
+  "type": "object",
+  "title": "minecraft:behavior.charge_held_item 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": {
+    "items":{
+      "type": "array",
+      "description": "Allows this mob to charge and use their held item.",
+      "items": {
+        "type":"string"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.loot",
+  "type": "object",
+  "title": "minecraft:loot 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": {
+    "table": {
+      "type": "string",
+      "pattern": ".*\\.json$"
+    }
+  }
+}
+
+"minecraft:equippable": {
+  "slots": [
+    {
+      "slot": 0,
+      "item": "saddle",
+      "accepted_items": [
+        "saddle"
+      ],
+      "on_equip": {
+        "event": "minecraft:horse_saddled"
+      },
+      "on_unequip": {
+        "event": "minecraft:horse_unsaddled"
+      }
+    },
+    {
+      "slot": 1,
+      "item": "horsearmoriron",
+      "accepted_items": [
+        "horsearmorleather",
+        "horsearmoriron",
+        "horsearmorgold",
+        "horsearmordiamond"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.swim_idle",
+  "type": "object",
+  "title": "minecraft:behavior.swim_idle 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": { }
+}
+
+"minecraft:behavior.swoop_attack": {
+  "priority": 2,
+  "delay_range": [
+    10.0,
+    20.0
+  ]
+}

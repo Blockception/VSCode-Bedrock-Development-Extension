@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.1.8.0.minecraft.type_family",
+    "type": "object",
+    "title": "minecraft:type_family 1.8.0",
+    "required": [
+        "family"
+    ],
+    "properties": {
+        "family": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "additionalProperties": false
+}

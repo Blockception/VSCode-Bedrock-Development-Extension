@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.beg",
+  "type": "object",
+  "title": "minecraft:behavior.beg 1.8.0",
+  "description": "Allows the mob to run away from direct sunlight and seek shade.",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": {
+    "speed_multiplier": {
+      "type":"number"
+    }
+  }
+}

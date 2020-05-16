@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.breed",
+  "type": "object",
+  "title": "minecraft:behavior.breed 1.8.0",
+  "$ref": "../base/behaviour_speed_multiplier.json",
+  "required": [],
+  "properties": { },
+  "additionalProperties": false
+}

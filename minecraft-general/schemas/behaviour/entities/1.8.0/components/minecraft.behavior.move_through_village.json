@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.move_through_village",
+  "type": "object",
+  "title": "minecraft:behavior.move_through_village 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_speed_multiplier.json",
+  "required": [],
+  "properties": { 
+    "only_at_night": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, the mob will only move through the village during night time"
+    }
+  }
+}
