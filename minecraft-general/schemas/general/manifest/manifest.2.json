@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.manifest.2",
+  "type": "object",
+  "title": "The minecraft manifest v2 schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "required": [ "format_version", "header" ],
+  "definitions": {
+    "uuidv4": {
+      "$ref": "../../../../json-schemas/general/UUIDV4.json"
+    },
+    "version": {
+      "$ref": "../../../../json-schemas/general/Version.json"
+    }
+  },
+  "properties": {
+    "header": {
+      "additionalProperties": false,
+
+      "required": [
+        "description",
+        "name",
+        "uuid",
+        "version"
+      ],
+      "properties": {
+        "description": { 
+          "type":"string",
+          "description": "The description of the pack"
+        },
+        "name": { 
+          "type":"string",
+          "title": "The name"
+        },
+        "uuid": { "$ref": "#/definitions/uuidv4" },
+        "version": { "$ref": "#/definitions/version" },
+        "min_engine_version": { "$ref": "#/definitions/version" },
+        "lock_template_options": { "type": "boolean" },
+        "base_game_version": { "$ref": "#/definitions/version" }
+      }
+    },
+    "modules":{
+      "additionalProperties": false,
+      "type":"array",
+      "title": "Modules",
+      "items": {
+        "type": "object",
+        "required": [ "type", "uuid", "version" ],
+        "properties": {
+          "type": {
+            "type":"string",
+            "enum": ["world_template", "resources", "skin_pack" ]
+          },
+          "uuid": { "$ref": "#/definitions/uuidv4" },
+          "version": { "$ref": "#/definitions/version" }
+        }
+      }
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "type":"object",
+      "properties": { 
+        "authors": {
+          "type":"array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

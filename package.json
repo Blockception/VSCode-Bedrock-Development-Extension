@@ -70,38 +70,15 @@
             }
         ],
         "snippets": [
-            {
-                "language": "bc-minecraft-mcfunction",
-                "path": "./minecraft-general/snippets/blocks-names.json"
-            },
-            {
-                "language": "bc-minecraft-mcfunction",
-                "path": "./minecraft-general/snippets/commands.json"
-            },
-            {
-                "language": "bc-minecraft-mcfunction",
-                "path": "./minecraft-general/snippets/effect-names.json"
-            },
-            {
-                "language": "bc-minecraft-mcfunction",
-                "path": "./minecraft-general/snippets/enchant-names.json"
-            },
-            {
-                "language": "bc-minecraft-mcfunction",
-                "path": "./minecraft-mcfunctions/snippets/mcfunction.json"
-            },
-            {
-                "language": "bc-minecraft-language",
-                "path": "./minecraft-language-files/snippets/minecraft-language.json"
-            }
+            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/blocks-names.json" },
+            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/commands.json" },
+            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/effect-names.json" },
+            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/enchant-names.json" },
+            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-mcfunctions/snippets/mcfunction.json" },
+            { "language": "bc-minecraft-language", "path": "./minecraft-language-files/snippets/minecraft-language.json" }
         ],
-        "themes": [
-            { 
-                "id": "minecraft.language.theme",
-                "label": "Minecraft language theme",
-                "path": "minecraft-language-files/colorthemes/minecraft-language-files-color-theme.json",
-                "uiTheme": "vs"
-            }
+        "jsonValidation": [
+            { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" }
         ]
     }
 }

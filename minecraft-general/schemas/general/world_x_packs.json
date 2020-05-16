@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.world_x_packs",
+  "type": "array",
+  "title": "The minecraft world x pack schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "pack_id": {         
+        "description": "The uuid of the pack to include",
+        "$ref": "../../json schemas/UUIDV4.json"
+      },
+      "version": { 
+        "description": "The version of the pack",
+        "$ref": "../../json schemas/Version.json" 
+      }
+    }
+  }
+}
