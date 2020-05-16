@@ -1,0 +1,13 @@
+# Linguist overrides
+*.md linguist-detectable=true
+*.md linguist-vendored=false
+*.md linguist-generated=false
+*.md linguist-documentation=false
+README.md linguist-detectable=false
+readme.md linguist-detectable=false
+
+
+*.json linguist-detectable=true
+*.json linguist-vendored=false
+*.json linguist-generated=false
+*.json linguist-documentation=false
