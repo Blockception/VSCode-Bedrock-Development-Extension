@@ -31,5 +31,6 @@
       "start": "#region",
       "end": "#endregion"
     }
-  }
+  },
+  "wordPattern": "\b.+\b"
 }
