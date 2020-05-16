@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entity1.10.0",
+  "type": "object",
+  "title": "The minecraft behaviour entity 1.10.0",
+  "description": "The root schema comprises the entire JSON document.",
+  "required": [
+    "format_version",
+    "minecraft:entity"
+  ],
+  "properties": {
+    "format_version": { "title": "The 1.10.0 format_version", "type": "string", "const": "1.10.0" },
+    "minecraft:entity": { "$ref": "./components/minecraft.entity1.10.0.json" }
+  }
+}
