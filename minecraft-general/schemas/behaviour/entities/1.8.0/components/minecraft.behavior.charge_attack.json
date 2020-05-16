@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.charge_attack 1.8.0",
   "description": "Allows the mob to attack its target by running at it.",
-  "$ref": "../base/behaviour_base.json",
+  "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": { },
   "additionalProperties": false

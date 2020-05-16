@@ -4,11 +4,11 @@
   "type": "object",
   "title": "minecraft:behavior.guardian_attack 1.8.0",
   "additionalProperties": false,
-  "$ref": "../base/behaviour_base.json",
+  "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": { 
     "entity_types": {
-      "$ref": "../base/entity_types1.8.0.json"
+      "$ref": "../types/entity_types1.8.0.json"
     },
     "alert_same_type": {
       "type": "boolean",

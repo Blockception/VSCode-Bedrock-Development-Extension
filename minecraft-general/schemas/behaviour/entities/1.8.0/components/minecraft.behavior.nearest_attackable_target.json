@@ -3,10 +3,10 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.nearest_attackable_target",
   "type": "object",
   "title": "minecraft:behavior.nearest_attackable_target 1.8.0",
-  "$ref": "../base/behaviour_base.json",
+  "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": {
-    "entity_types": { "$ref": "../base/entity_types1.8.0.json" },
+    "entity_types": { "$ref": "../types/entity_types1.8.0.json" },
     "within_radius": {
       "type": "number",
       "default": 0.0,

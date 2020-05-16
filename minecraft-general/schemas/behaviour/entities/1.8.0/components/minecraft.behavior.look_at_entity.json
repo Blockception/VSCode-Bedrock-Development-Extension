@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.look_at_entity 1.8.0",
   "additionalProperties": false,
-  "$ref": "../base/behaviour_base.json",
+  "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": {
     "look_distance": {
@@ -18,7 +18,7 @@
       "description": "The probability of looking at the target. A value of 1.00 is 100%",
     },
     "look_time": {
-      "$ref": "../base/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [2, 4],
       "description": "Time range to look at the entity",
     },

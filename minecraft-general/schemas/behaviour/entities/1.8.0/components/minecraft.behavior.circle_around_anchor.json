@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.circle_around_anchor 1.8.0",
   "additionalProperties": false,
-  "$ref": "../base/behaviour_base.json",
+  "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": {
     "speed_multiplier": {
