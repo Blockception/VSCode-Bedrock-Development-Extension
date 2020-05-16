@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.swim_idle",
+  "type": "object",
+  "title": "minecraft:behavior.swim_idle 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": { }
+}
+
+"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 240,
+  "suffocateTime": 0,
+  "breathesAir": true,
+  "breathesWater": false,
+  "generatesBubbles": false
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesAir": false,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesLava": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesAir": true,
+  "breathesWater": false
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesAir": false,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "suffocateTime": 0,
+  "totalSupply": 15
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesAir": false,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesAir": false,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesAir": false,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesWater": true
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesWater": true
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.rail_movement",
+  "type": "object",
+  "title": "minecraft:rail_movement 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": { }
+}
+
+
+"minecraft:ravager_blocked": {
+  "knockback_strength": 3.0,
+  "reaction_choices": [
+    {
+      "weight": 1,
+      "value": {
+        "event": "minecraft:become_stunned",
+        "target": "self"
+      }
+    },
+    {
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.attack",
+  "type": "object",
+  "title": "minecraft:attack 1.8.0",
+  "required": [
+    "damage"
+  ],
+  "properties": {
+    "damage": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "range_min": {
+              "type": "number"
+            },
+            "range_max": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "effect_name": {
+      "type": "string",
+      "examples": [
+        "wither",
+        "hunger"
+      ]
+    },
+    "effect_duration": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}

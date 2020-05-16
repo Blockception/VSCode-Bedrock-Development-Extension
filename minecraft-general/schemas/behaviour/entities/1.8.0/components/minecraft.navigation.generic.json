@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.movement.skip",
+  "type": "object",
+  "title": "minecraft:movement.skip 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": { }
+}
+
+"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": true,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}

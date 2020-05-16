@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.rail_movement",
+  "type": "object",
+  "title": "minecraft:rail_movement 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": { }
+}
+
+"minecraft:shooter": {
+  "type": "smallfireball",
+  "def": "minecraft:small_fireball"
+}"minecraft:shooter": {
+  "type": "largefireball",
+  "def": "minecraft:fireball"
+}"minecraft:shooter": {
+  "type": "llamaspit",
+  "def": "minecraft:llama_spit"
+}"minecraft:shooter": {
+  "type": "ShulkerBullet",
+  "def": "minecraft:shulker_bullet"
+}"minecraft:shooter": {
+  "type": "Arrow",
+  "def": "minecraft:arrow"
+}"minecraft:shooter": {
+  "def": "minecraft:snowball"
+}"minecraft:shooter": {
+  "type": "Arrow",
+  "def": "minecraft:arrow",
+  "auxVal": 19
+}

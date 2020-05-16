@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.drink_potion",
+  "type": "object",
+  "title": "minecraft:behavior.beg 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": {
+    "speed_modifier": {
+      "type": "number",
+      "default": 0.0
+    },
+    "potions": {
+      "type": "array",
+      "description": "A list of potions that this entity can drink.",
+      "items": {
+        "required": ["id", "chance", "filters"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "default": -1,
+            "description": "The registry ID of the potion to use"
+          },
+          "chance": {
+            "type": "number",
+            "default": 1.0,
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The percent chance (from 0.0 to 1.0) of this potion being selected when searching for a potion to use."
+          },
+          "filters": {
+            "description": "The filters to use when determining if this potion can be selected.",
+            "$ref": "../filters/filters1.8.0.json"
+          }
+        }
+      }
+    }
+  }
+}

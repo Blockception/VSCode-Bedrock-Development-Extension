@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.loot",
+  "type": "object",
+  "title": "minecraft:loot 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": {
+    "table": {
+      "type": "string",
+      "pattern": ".*\\.json$"
+    }
+  }
+}
+
+"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}"minecraft:fall_damage": {
+  "value": 0.0
+}

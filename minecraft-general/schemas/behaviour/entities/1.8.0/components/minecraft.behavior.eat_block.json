@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.eat_block",
+  "type": "object",
+  "title": "minecraft:behavior.eat_block 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": {
+    "on_eat": {
+      "$ref": "../base/trigger1.8.0.json"
+    }
+  }
+}

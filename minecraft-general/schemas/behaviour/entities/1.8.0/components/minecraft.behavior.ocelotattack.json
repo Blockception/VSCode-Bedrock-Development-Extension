@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.guardian_attack",
+  "type": "object",
+  "title": "minecraft:behavior.guardian_attack 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_base.json",
+  "required": [],
+  "properties": { }
+}
+
+
+
+"minecraft:behavior.ocelotattack": {
+  "priority": 4,
+  "walk_speed_multiplier": 0.8,
+  "sprint_speed_multiplier": 1.33,
+  "sneak_speed_multiplier": 0.6
+}"minecraft:behavior.ocelotattack": {
+  "priority": 4,
+  "walk_speed_multiplier": 0.8,
+  "sprint_speed_multiplier": 1.33,
+  "sneak_speed_multiplier": 0.6
+}

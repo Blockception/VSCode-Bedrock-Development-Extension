@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.mount_pathing",
+  "type": "object",
+  "title": "minecraft:behavior.mount_pathing 1.8.0",
+  "additionalProperties": false,
+  "$ref": "../base/behaviour_speed_multiplier.json",
+  "required": [],
+  "properties": { 
+    "target_dist": {
+      "type": "number",
+      "default": 0.0,
+      "description": "The distance at which this mob wants to be away from its target"
+    },
+    "track_target": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, this mob will chase after the target as long as it's a valid target"
+    }
+  }
+}

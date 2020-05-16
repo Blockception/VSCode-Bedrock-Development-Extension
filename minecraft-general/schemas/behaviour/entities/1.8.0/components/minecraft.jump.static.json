@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.jump.dynamic",
+  "type": "object",
+  "title": "minecraft:jump.dynamic 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": { }
+}
+
+"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {
+  "jump_power": 0.6
+}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}"minecraft:jump.static": {}
