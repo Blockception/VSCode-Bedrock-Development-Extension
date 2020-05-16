@@ -5,13 +5,13 @@ An extension that provides development tools, validations and snippets to help d
 ## Features
 
 - Json Validation
-  - [Resource pack](./documentation/Json%20Validation.md#resource-packs)
-  - [Behaviour pack](./documentation/Json%20Validation.md#behaviour-packs)
+  - [Resource pack.](./documentation/Json%20Validation.md#resource-packs)
+  - [Behaviour pack.](./documentation/Json%20Validation.md#behaviour-packs)
 - Snippets
-  - Blocks.
-  - Effects.
-  - Enchantments.
-  - Commands.
+  - [Blocks.](./documentation/Snippets.md)
+  - [Effects.](./documentation/Snippets.md)
+  - [Enchantments.](./documentation/Snippets.md)
+  - [Commands.](./documentation/Snippets.md)
 - Syntax
   - mcfunctions.
   - language files.
