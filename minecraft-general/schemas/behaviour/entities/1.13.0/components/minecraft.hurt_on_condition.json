@@ -1,0 +1,2341 @@
+"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    },
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    },
+    {
+      "filters": {
+        "test": "is_temperature_value",
+        "operator": ">",
+        "value": 1.0
+      },
+      "cause": "temperature",
+      "damage_per_tick": 1
+    },
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    },
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    },
+    {
+      "filters": {
+        "test": "is_temperature_value",
+        "operator": ">",
+        "value": 1.0
+      },
+      "cause": "temperature",
+      "damage_per_tick": 1
+    },
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    },
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    },
+    {
+      "filters": {
+        "test": "is_temperature_value",
+        "operator": ">",
+        "value": 1.0
+      },
+      "cause": "temperature",
+      "damage_per_tick": 1
+    },
+    {
+      "filters": {
+        "test": "in_water_or_rain",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "drowning",
+      "damage_per_tick": 1
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}"minecraft:hurt_on_condition": {
+  "damage_conditions": [
+    {
+      "filters": {
+        "test": "in_lava",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "cause": "lava",
+      "damage_per_tick": 4
+    }
+  ]
+}

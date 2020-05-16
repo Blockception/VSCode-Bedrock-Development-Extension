@@ -1,0 +1,6 @@
+"minecraft:behavior.pickup_items": {
+  "priority": 4,
+  "max_dist": 3,
+  "goal_radius": 2,
+  "speed_multiplier": 0.5
+}

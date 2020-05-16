@@ -1,0 +1,4 @@
+"minecraft:on_target_escape": {
+  "event": "minecraft:lost_target",
+  "target": "self"
+}

@@ -1,0 +1,7 @@
+"minecraft:behavior.move_towards_restriction": {
+  "priority": 10,
+  "speed_multiplier": 0.6
+}"minecraft:behavior.move_towards_restriction": {
+  "priority": 7,
+  "speed_multiplier": 1
+}

@@ -1,0 +1,22 @@
+"minecraft:behavior.move_indoors": {
+  "priority": 4,
+  "speed_multiplier": 0.8
+}"minecraft:behavior.move_indoors": {
+  "priority": 6,
+  "speed_multiplier": 0.8,
+  "timeout_cooldown": 8.0
+}"minecraft:behavior.move_indoors": {
+  "priority": 4,
+  "speed_multiplier": 0.8
+}"minecraft:behavior.move_indoors": {
+  "priority": 6,
+  "speed_multiplier": 0.8,
+  "timeout_cooldown": 8.0
+}"minecraft:behavior.move_indoors": {
+  "priority": 4,
+  "speed_multiplier": 0.8
+}"minecraft:behavior.move_indoors": {
+  "priority": 6,
+  "speed_multiplier": 0.8,
+  "timeout_cooldown": 8.0
+}

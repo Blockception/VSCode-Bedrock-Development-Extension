@@ -1,0 +1,6 @@
+"minecraft:behavior.mount_pathing": {
+  "priority": 5,
+  "speed_multiplier": 1.5,
+  "target_dist": 0.0,
+  "track_target": true
+}

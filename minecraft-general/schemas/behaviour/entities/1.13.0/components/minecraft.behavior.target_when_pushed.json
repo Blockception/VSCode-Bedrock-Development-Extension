@@ -1,0 +1,67 @@
+"minecraft:behavior.target_when_pushed": {
+  "priority": 1,
+  "percent_chance": 5.0,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "value": "monster"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "creeper"
+          }
+        ]
+      }
+    }
+  ]
+}"minecraft:behavior.target_when_pushed": {
+  "priority": 1,
+  "percent_chance": 5.0,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "value": "monster"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "creeper"
+          }
+        ]
+      }
+    }
+  ]
+}"minecraft:behavior.target_when_pushed": {
+  "priority": 1,
+  "percent_chance": 5.0,
+  "entity_types": [
+    {
+      "filters": {
+        "all_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "value": "monster"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "operator": "!=",
+            "value": "creeper"
+          }
+        ]
+      }
+    }
+  ]
+}

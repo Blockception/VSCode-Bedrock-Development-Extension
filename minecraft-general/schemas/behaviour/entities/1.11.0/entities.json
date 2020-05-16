@@ -10,6 +10,6 @@
   ],
   "properties": {
     "format_version": { "title": "The 1.11.0 format_version", "type": "string", "const": "1.11.0" },
-    "minecraft:entity": { "$ref": "./components/minecraft.entity1.11.0.json" }
+    "minecraft:entity": { "$ref": "minecraft.entity.json" }
   }
 }

@@ -1,0 +1,9 @@
+"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6,
+  "probability": 0.02
+}

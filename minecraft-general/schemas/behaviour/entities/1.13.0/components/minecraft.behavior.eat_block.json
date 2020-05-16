@@ -1,0 +1,19 @@
+"minecraft:behavior.eat_block": {
+  "priority": 6,
+  "on_eat": {
+    "event": "minecraft:on_eat_block",
+    "target": "self"
+  }
+}"minecraft:behavior.eat_block": {
+  "priority": 6,
+  "on_eat": {
+    "event": "minecraft:on_eat_block",
+    "target": "self"
+  }
+}"minecraft:behavior.eat_block": {
+  "priority": 6,
+  "on_eat": {
+    "event": "minecraft:on_eat_block",
+    "target": "self"
+  }
+}

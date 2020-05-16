@@ -1,0 +1,6 @@
+"minecraft:behavior.find_underwater_treasure": {
+  "priority": 2,
+  "speed_multiplier": 2.0,
+  "search_range": 30,
+  "stop_distance": 50
+}

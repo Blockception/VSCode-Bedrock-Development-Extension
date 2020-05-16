@@ -1,0 +1,10 @@
+"minecraft:behavior.snacking": {
+  "priority": 2,
+  "snacking_cooldown": 22.5,
+  "snacking_cooldown_min": 20,
+  "snacking_stop_chance": 0.001334,
+  "items": [
+    "bamboo",
+    "cake"
+  ]
+}

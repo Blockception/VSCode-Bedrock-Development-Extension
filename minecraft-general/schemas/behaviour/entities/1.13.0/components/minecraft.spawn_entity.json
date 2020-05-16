@@ -1,0 +1,31 @@
+"minecraft:spawn_entity": [
+  {
+    "min_wait_time": 0,
+    "max_wait_time": 0,
+    "spawn_entity": "llama",
+    "spawn_event": "minecraft:from_wandering_trader",
+    "single_use": true,
+    "num_to_spawn": 2,
+    "should_leash": true
+  }
+]"minecraft:spawn_entity": [
+  {
+    "min_wait_time": 0,
+    "max_wait_time": 0,
+    "spawn_entity": "llama",
+    "spawn_event": "minecraft:from_wandering_trader",
+    "single_use": true,
+    "num_to_spawn": 2,
+    "should_leash": true
+  }
+]"minecraft:spawn_entity": [
+  {
+    "min_wait_time": 0,
+    "max_wait_time": 0,
+    "spawn_entity": "llama",
+    "spawn_event": "minecraft:from_wandering_trader",
+    "single_use": true,
+    "num_to_spawn": 2,
+    "should_leash": true
+  }
+]

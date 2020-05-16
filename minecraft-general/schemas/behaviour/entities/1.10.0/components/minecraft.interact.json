@@ -1,0 +1,23 @@
+"minecraft:interact": {
+  "on_interact": {
+    "filters": {
+      "all_of": [
+        {
+          "test": "has_equipment",
+          "domain": "hand",
+          "subject": "other",
+          "value": "golden_apple"
+        },
+        {
+          "test": "has_component",
+          "subject": "self",
+          "value": "minecraft:effect.weakness"
+        }
+      ]
+    },
+    "event": "villager_converted",
+    "target": "self"
+  },
+  "use_item": true,
+  "interact_text": "action.interact.cure"
+}

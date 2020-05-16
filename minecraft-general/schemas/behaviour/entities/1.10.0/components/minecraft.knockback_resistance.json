@@ -1,0 +1,4 @@
+"minecraft:knockback_resistance": {
+  "value": 100,
+  "max": 100
+}

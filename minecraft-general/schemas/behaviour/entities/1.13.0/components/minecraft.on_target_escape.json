@@ -1,0 +1,103 @@
+"minecraft:on_target_escape": {
+  "event": "minecraft:stop_exploding",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:on_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:lost_target",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "filters": {
+    "all_of": [
+      {
+        "test": "is_family",
+        "subject": "target",
+        "value": "wolf"
+      },
+      {
+        "test": "has_component",
+        "subject": "target",
+        "operator": "!=",
+        "value": "minecraft:is_tamed"
+      }
+    ]
+  },
+  "event": "minecraft:on_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:stop_aggro",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:stop_exploding",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:lost_target",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "filters": {
+    "all_of": [
+      {
+        "test": "is_family",
+        "subject": "target",
+        "value": "wolf"
+      },
+      {
+        "test": "has_component",
+        "subject": "target",
+        "operator": "!=",
+        "value": "minecraft:is_tamed"
+      }
+    ]
+  },
+  "event": "minecraft:on_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:stop_aggro",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:stop_exploding",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:lost_target",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "filters": {
+    "all_of": [
+      {
+        "test": "is_family",
+        "subject": "target",
+        "value": "wolf"
+      },
+      {
+        "test": "has_component",
+        "subject": "target",
+        "operator": "!=",
+        "value": "minecraft:is_tamed"
+      }
+    ]
+  },
+  "event": "minecraft:on_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:become_calm",
+  "target": "self"
+}"minecraft:on_target_escape": {
+  "event": "minecraft:stop_aggro",
+  "target": "self"
+}

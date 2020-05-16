@@ -1,0 +1,211 @@
+"minecraft:loot": {
+  "table": "loot_tables/entities/armor_stand.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/blaze.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/boat.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/spider.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/creeper.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/elder_guardian.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/enderman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/evocation_illager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/fish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/ghast.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/guardian.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/iron_golem.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/phantom.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/pillager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/empty.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/pufferfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/ravager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/shulker.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/silverfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/skeleton.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/snowman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/spider.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/squid.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/stray.json"
+}"minecraft:loot": {
+  "table": "loot_tables/empty.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/tropicalfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/vindication_illager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/witch.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/wither_boss.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/wither_skeleton.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie_pigman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/armor_stand.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/blaze.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/boat.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/spider.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/creeper.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/elder_guardian.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/enderman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/evocation_illager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/fish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/ghast.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/guardian.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/iron_golem.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/phantom.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/pillager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/empty.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/pufferfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/ravager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/shulker.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/silverfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/skeleton.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/snowman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/spider.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/squid.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/stray.json"
+}"minecraft:loot": {
+  "table": "loot_tables/empty.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/tropicalfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/vindication_illager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/witch.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/wither_boss.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/wither_skeleton.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie_pigman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/armor_stand.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/blaze.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/boat.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/spider.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/creeper.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/elder_guardian.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/enderman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/evocation_illager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/fish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/ghast.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/guardian.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/iron_golem.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/phantom.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/pillager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/empty.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/pufferfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/ravager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/shulker.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/silverfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/skeleton.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/snowman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/spider.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/squid.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/stray.json"
+}"minecraft:loot": {
+  "table": "loot_tables/empty.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/tropicalfish.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/vindication_illager.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/witch.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/wither_boss.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/wither_skeleton.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie_pigman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}

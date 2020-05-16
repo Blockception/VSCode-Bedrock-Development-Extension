@@ -1,0 +1,10 @@
+"minecraft:on_hurt": {
+  "event": "minecraft:crystal_explode",
+  "target": "self"
+}"minecraft:on_hurt": {
+  "event": "minecraft:crystal_explode",
+  "target": "self"
+}"minecraft:on_hurt": {
+  "event": "minecraft:crystal_explode",
+  "target": "self"
+}

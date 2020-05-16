@@ -1,0 +1,92 @@
+"minecraft:behavior.random_swim": {
+  "priority": 5,
+  "interval": 0,
+  "xz_dist": 20
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "speed_multiplier": 1.0,
+  "priority": 3,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 7,
+  "interval": 0,
+  "xz_dist": 30,
+  "y_dist": 15
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "speed_multiplier": 1.0,
+  "priority": 3,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 7,
+  "interval": 0,
+  "xz_dist": 30,
+  "y_dist": 15
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "speed_multiplier": 1.0,
+  "priority": 3,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 3,
+  "speed_multiplier": 1.0,
+  "xz_dist": 16,
+  "y_dist": 4,
+  "interval": 0
+}"minecraft:behavior.random_swim": {
+  "priority": 7,
+  "interval": 0,
+  "xz_dist": 30,
+  "y_dist": 15
+}

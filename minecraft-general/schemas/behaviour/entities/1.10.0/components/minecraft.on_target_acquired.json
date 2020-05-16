@@ -1,0 +1,4 @@
+"minecraft:on_target_acquired": {
+  "event": "minecraft:has_target",
+  "target": "self"
+}

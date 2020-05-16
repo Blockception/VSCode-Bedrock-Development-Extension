@@ -1,0 +1,79 @@
+"minecraft:equippable": {
+  "slots": [
+    {
+      "slot": 0,
+      "item": "saddle",
+      "accepted_items": [
+        "saddle"
+      ],
+      "on_equip": {
+        "event": "minecraft:horse_saddled"
+      },
+      "on_unequip": {
+        "event": "minecraft:horse_unsaddled"
+      }
+    },
+    {
+      "slot": 1,
+      "item": "horsearmoriron",
+      "accepted_items": [
+        "horsearmorleather",
+        "horsearmoriron",
+        "horsearmorgold",
+        "horsearmordiamond"
+      ]
+    }
+  ]
+}"minecraft:equippable": {
+  "slots": [
+    {
+      "slot": 0,
+      "item": "saddle",
+      "accepted_items": [
+        "saddle"
+      ],
+      "on_equip": {
+        "event": "minecraft:horse_saddled"
+      },
+      "on_unequip": {
+        "event": "minecraft:horse_unsaddled"
+      }
+    },
+    {
+      "slot": 1,
+      "item": "horsearmoriron",
+      "accepted_items": [
+        "horsearmorleather",
+        "horsearmoriron",
+        "horsearmorgold",
+        "horsearmordiamond"
+      ]
+    }
+  ]
+}"minecraft:equippable": {
+  "slots": [
+    {
+      "slot": 0,
+      "item": "saddle",
+      "accepted_items": [
+        "saddle"
+      ],
+      "on_equip": {
+        "event": "minecraft:horse_saddled"
+      },
+      "on_unequip": {
+        "event": "minecraft:horse_unsaddled"
+      }
+    },
+    {
+      "slot": 1,
+      "item": "horsearmoriron",
+      "accepted_items": [
+        "horsearmorleather",
+        "horsearmoriron",
+        "horsearmorgold",
+        "horsearmordiamond"
+      ]
+    }
+  ]
+}
