@@ -9,10 +9,10 @@
     "engines": { "vscode": "^1.22.0" },
     "extensionKind": [ "ui" ],    
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+    "icon": "resources/logo.png",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
     "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
-    "publisher": "BlockceptionLtd",
-    "icon": "",
+    "publisher": "BlockceptionLtd",    
     "repository": {
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
@@ -21,6 +21,12 @@
 
     "contributes": {
         "languages": [
+          {
+            "id": "bc-minecraft-language",
+            "aliases": [ "Minecraft Language" ],
+            "extensions": [ ".lang" ],
+            "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
+          },
           {
             "id": "bc-minecraft-mcfunction",
             "aliases": [ "Minecraft Mcfunction" ],
@@ -37,6 +43,11 @@
             "embeddedLanguages": { 
               "meta.embedded.block.json": "json"
             }
+          },
+          {
+            "language": "bc-minecraft-language",
+            "scopeName": "source.bc.minecraft.language",
+            "path": "./minecraft-language-files/syntaxes/minecraft-language-files.tmLanguage.json"
           }
         ],
         "snippets": [
@@ -44,7 +55,9 @@
             { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/commands.json" },
             { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/effect-names.json" },
             { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/enchant-names.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-mcfunctions/snippets/mcfunction.json" }
+            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-mcfunctions/snippets/mcfunction.json" },
+
+            { "language": "bc-minecraft-language", "path": "./minecraft-language-files/snippets/minecraft-language.json" }
         ]
     }
 }
