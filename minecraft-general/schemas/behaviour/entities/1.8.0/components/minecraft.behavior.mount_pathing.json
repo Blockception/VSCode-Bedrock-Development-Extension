@@ -3,6 +3,7 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.mount_pathing",
   "type": "object",
   "title": "minecraft:behavior.mount_pathing 1.8.0",
+  "description": "Allows the mob to move around on its own while mounted seeking a target to attack.",
   "additionalProperties": false,
   "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],

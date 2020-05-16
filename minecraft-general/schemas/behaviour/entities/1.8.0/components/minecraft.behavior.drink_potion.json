@@ -3,12 +3,12 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.drink_potion",
   "type": "object",
   "title": "minecraft:behavior.beg 1.8.0",
+  "description": "Allows the mob to drink potions based on specified environment conditions.",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_base.json",
+  "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
   "properties": {
     "speed_modifier": {
-      "type": "number",
       "default": 0.0
     },
     "potions": {
@@ -32,7 +32,7 @@
           },
           "filters": {
             "description": "The filters to use when determining if this potion can be selected.",
-            "$ref": "../filters/filters1.8.0.json"
+            "$ref": "../../1.8.0/filters.json"
           }
         }
       }

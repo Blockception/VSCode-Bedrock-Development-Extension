@@ -3,6 +3,7 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.melee_attack",
   "type": "object",
   "title": "minecraft:behavior.melee_attack 1.8.0",
+  "description": "Allows the mob to use close combat melee attacks.",
   "additionalProperties": false,
   "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
