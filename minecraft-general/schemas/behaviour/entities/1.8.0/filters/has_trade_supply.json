@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.1.8.0.filters.has_trade_supply",
+    "type": "object",
+    "title": "Filters has_trade_supply 1.8.0",
+    "additionalProperties": false,
+    "required": [
+           ],
+    "properties": {
+        "operator": {
+            "$ref": "base_operator.json"
+        },
+        "subject": {
+            "$ref": "base_subject.json"
+        },
+        "value": {
+            "$ref": "base_value.json",
+            "type": "boolean"
+        }
+    }
+}

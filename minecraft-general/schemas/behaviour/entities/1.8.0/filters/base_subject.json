@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.filters.base_subject",
+    "title": "Filters subject 1.8.0",
+    "type": "string",
+    "description": "The subject to evualate",
+    "enum": [
+        "block",
+        "other",
+        "parent",
+        "player",
+        "self",
+        "target"
+    ]
+}

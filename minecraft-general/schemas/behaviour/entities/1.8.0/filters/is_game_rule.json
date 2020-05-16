@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.1.8.0.filters.is_game_rule",
+    "type": "object",
+    "title": "Filters is_game_rule 1.8.0",
+    "additionalProperties": false,
+    "required": [
+           "domain" ],
+    "properties": {
+        "domain": {
+            "$ref": "base_domain.json"
+        },
+        "operator": {
+            "$ref": "base_operator.json"
+        },
+        "subject": {
+            "$ref": "base_subject.json"
+        },
+        "value": {
+            "$ref": "base_value.json",
+            "type": "boolean"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.1.8.0.filters.has_equipment",
+    "type": "object",
+    "title": "Filters has_equipment 1.8.0",
+    "additionalProperties": false,
+    "required": [
+        "value"
+    ],
+    "properties": {
+        "domain": {
+            "$ref": "base_domain.json",
+            "enum": [
+                "any",
+                "armor",
+                "feet",
+                "hand",
+                "head",
+                "leg",
+                "tors"
+            ]
+        },
+        "operator": {
+            "$ref": "base_operator.json"
+        },
+        "subject": {
+            "$ref": "base_subject.json"
+        },
+        "value": {
+            "$ref": "base_value.json",
+            "type": "string"
+        }
+    }
+}
