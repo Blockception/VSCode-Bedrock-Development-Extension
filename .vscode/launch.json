@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "extensionHost",
+            "request": "launch",
+            "name": "Launch Extension",
+            "runtimeExecutable": "${execPath}",
+            "args": [
+                "--disable-extensions",
+                "--extensionDevelopmentPath=${workspaceFolder}"
+            ],
+            "outFiles": [ ]
+        }
+    ]
+}
