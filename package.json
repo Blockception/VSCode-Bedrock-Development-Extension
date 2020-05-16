@@ -3,14 +3,15 @@
         "name": "Blockception Ltd",
         "url": "https://www.blockception.com/"
     },
-    "displayName": "Bedrock Development",
+    "displayName": "Blockception's Minecraft Bedrock Development",
     "description": "An extension that provides development tools, validations and snippets to help develop minecraft bedrock content",
     "categories": [ "Language Packs", "Programming Languages", "Snippets", "Other", "Formatters"],
     "engines": { "vscode": "^1.22.0" },
     "extensionKind": [ "ui" ],    
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
-    "name": "blockception.vscode.minecraft.bedrock.development.extension",
+    "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
+    "publisher": "BlockceptionLtd",
     "repository": {
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
