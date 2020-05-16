@@ -18,8 +18,8 @@
       "items": {
         "type":"object",
         "properties": {
-          "item": {"type": "string"},
-          "growth": {"type": "integer"}
+          "item": {"type": "string", "description": "The item name that can be used to feed"},
+          "growth": {"type": "integer", "description": "The amount that counts for aging"}
         }
       }
     },
@@ -27,7 +27,8 @@
       "type": "array",
       "description": "List of items that the entity drops when it grows up.",
       "items": {
-        "type": "string"
+        "type": "string",
+        "description": "Item names"
       }
     },
     "grow_up": {

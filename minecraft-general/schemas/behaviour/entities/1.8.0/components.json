@@ -79,15 +79,15 @@
         "minecraft:timer": { "$ref": "./components/minecraft.timer.json" },
         "minecraft:type_family": { "$ref": "./components/minecraft.type_family.json" },
         //"minecraft:underwater_movement": { "$ref": "./components/minecraft.underwater_movement.json" },
-        "minecraft:variant": { "$ref": "./components/minecraft.variant.json" }
+        "minecraft:variant": { "$ref": "./components/minecraft.variant.json" },
 
-        /*
+        
         //Behaviour
         "minecraft:behavior.avoid_mob_type" : { "$ref": "./components/minecraft.behavior.avoid_mob_type.json" },
         "minecraft:behavior.beg" : { "$ref": "./components/minecraft.behavior.beg.json" },
         "minecraft:behavior.break_door" : { "$ref": "./components/minecraft.behavior.break_door.json" },
         "minecraft:behavior.breed" : { "$ref": "./components/minecraft.behavior.breed.json" },
-        "minecraft:behavior.charge_attack" : { "$ref": "./components/minecraft.behavior.charge_attack.json" },
+        /*"minecraft:behavior.charge_attack" : { "$ref": "./components/minecraft.behavior.charge_attack.json" },
         "minecraft:behavior.charge_held_item" : { "$ref": "./components/minecraft.behavior.charge_held_item.json" },
         "minecraft:behavior.circle_around_anchor" : { "$ref": "./components/minecraft.behavior.circle_around_anchor.json" },
         "minecraft:behavior.controlled_by_player" : { "$ref": "./components/minecraft.behavior.controlled_by_player.json" },

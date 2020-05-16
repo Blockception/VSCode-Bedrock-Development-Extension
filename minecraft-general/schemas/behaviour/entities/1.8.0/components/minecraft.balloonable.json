@@ -7,6 +7,5 @@
   "required": [ ],
   "properties": {
     "mass": { "type": "number" }
-  }
-  
+  }  
 }
