@@ -20,7 +20,11 @@
 				"showReuseMessage": true,
 				"clear": false
 			},
-			"problemMatcher": null
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }
