@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.melee_attack 1.8.0",
   "additionalProperties": false,
-  "$ref": "../base/behaviour_speed_multiplier.json",
+  "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
   "properties": {
     "melee_fov": {

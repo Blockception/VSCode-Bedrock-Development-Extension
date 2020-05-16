@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.beg 1.8.0",
   "additionalProperties": false,
-  "$ref": "../base/behaviour_base.json",
+  "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": {
     "xz_dist": {
@@ -33,7 +33,7 @@
       "description": "If true, the mob will randomly pick a new point while moving to the previously selected one"
     },
     "float_duration": {
-      "$ref": "../base/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "Range of time in seconds the mob will float around before landing and choosing to do something else"
     }
