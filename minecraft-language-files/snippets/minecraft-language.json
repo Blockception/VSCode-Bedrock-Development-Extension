@@ -1,12 +1,12 @@
 {
     "region.start": {
-      "prefix": ["#region"],
-      "body": "#region",
+      "prefix": ["##region"],
+      "body": "##region",
       "description": "Marks the starts of a region"
     },
     "region.end": {
-      "prefix": ["#endregion"],
-      "body": "endregion",
+      "prefix": ["##endregion"],
+      "body": "##endregion",
       "description": "Marks the end of a region"
     }
   }

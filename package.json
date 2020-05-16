@@ -27,31 +27,21 @@
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
     },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "contributes": {
         "languages": [
             {
                 "id": "bc-minecraft-language",
-                "aliases": [
-                    "Minecraft Language"
-                ],
-                "extensions": [
-                    ".lang"
-                ],
+                "aliases": [ "Minecraft Language" ],
+                "extensions": [ ".lang" ],
                 "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
             },
             {
                 "id": "bc-minecraft-mcfunction",
-                "aliases": [
-                    "Minecraft Mcfunction"
-                ],
-                "extensions": [
-                    ".mcfunction"
-                ],
-                "configuration": "./minecraft-mcfunction/minecraft-mcfunction-language-configuration.json",
-                "filenamePatterns": [
-                    "[a-z0-9_]*\\.mcfunction"
-                ]
+                "aliases": [ "Minecraft Mcfunction" ],
+                "extensions": [ ".mcfunction" ],
+                "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
+                "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
             }
         ],
         "grammars": [
