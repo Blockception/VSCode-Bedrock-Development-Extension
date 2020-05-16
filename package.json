@@ -82,7 +82,8 @@
             { "fileMatch": "world_behavior_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
             { "fileMatch": "world_resource_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
 
-            { "fileMatch": "animation_controllers/*.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" }
+            { "fileMatch": "animation_controllers/*.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" },
+            { "fileMatch": "animations/*.animation.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" }
         ]
     }
 }

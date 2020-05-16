@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.1.8.0.actor_animation",
+  "type": "object",
+  "title": "The minecraft resourcepack actor animation 1.8.0",
+  "description": "The root schema comprises the entire JSON document.",
+  "required": ["format_version", "animations"],
+  "properties": {
+    "format_version": { "title": "The 1.8.0 format_version", "type": "string", "const": "1.8.0" },
+    "animations": {
+      "title": "Animations schema",
+      "description": "The animation 1.8.0 specification",
+      "propertyNames": { "pattern": "^animation\\.[a-z\\.]+" },
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "title": "The animation 1.8.0",
+        "description": "The animation specification for 1.8.0",
+        "properties": {
+          "animation_length": {
+            "title": "Animation Length",
+            "description": "The amount of seconds that defines the length of this animation",
+            "minimum": 0,
+            "type": "number"
+          },
+          "loop": {
+            "title": "Loop",
+            "description": "If marked true then the animation will be looped",
+            "type": "boolean"
+          },
+          "bones": { "$ref": "./types/bones.json" }
+        }
+      }
+    }
+  }
+}

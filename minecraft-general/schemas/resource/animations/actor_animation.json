@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.actor_animation",
+  "allOf": [
+    //Version 1.8.0
+    { 
+      "if": {
+        "properties": { "format_version": { "title": "The 1.8.0 format_version", "type": "string", "const": "1.8.0" } }
+      },
+      "then": { "$ref": "1.8.0/actor_animation.json" }
+    },
+    //Version 1.10.0
+    { 
+      "if": {
+        "properties": { "format_version": { "title": "The 1.10.0 format_version", "type": "string", "const": "1.10.0" } }
+      },
+      "then": { "$ref": "1.10.0/actor_animation.json" }
+    }
+  ]
+}

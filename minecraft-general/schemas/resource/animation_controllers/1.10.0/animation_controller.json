@@ -23,6 +23,20 @@
           }
         }
       ]
+    },
+    "particleEffectItem": {
+      "description": "The effect to be emitted",
+      "type": "object",
+      "properties": {
+        "effect": {
+          "description": "The effects name to apply",
+          "type": "string"
+        },
+        "locator": {
+          "description": "The locator to be using",
+          "type": "string"
+        }
+      }
     }
   },
   "required": ["format_version", "animation_controllers"],
@@ -51,7 +65,7 @@
             "description": "The states of this animation controller",
             "propertyNames": { "pattern": "[a-z\\.]+" },
             "minProperties": 1,
-            "additionalProperties": {              
+            "additionalProperties": {
               "additionalProperties": false,
               "title": "animation state",
               "description": "animation state",
@@ -78,17 +92,10 @@
                   "type": "number"
                 },
                 "particle_effects": {
-                  "type": "object",
+                  "description": "The effects to be emitted",
+                  "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "effect": {
-                        "type": "string"
-                      },
-                      "locator": {
-                        "type": "string"
-                      }
-                    }
+                    "$ref": "#/definitions/particleEffectItem"
                   }
                 }
               }
