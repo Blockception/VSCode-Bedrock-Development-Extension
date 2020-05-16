@@ -12,7 +12,7 @@
       "type": "array",
       "minItems": 3,
       "maxItems": 3,
-      "items": { "$ref": "../../molang/molang_number1.8.0.json" }
+      "items": { "$ref": "../../../../molang/1.8.0/number.json" }
     },
     "timeline": {
       "$id": "timeline specification",
