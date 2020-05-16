@@ -3,11 +3,11 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.attack_damage",
   "type": "object",
   "title": "minecraft:attack_damage 1.8.0",
+  "additionalProperties": false,
   "required": [
     "value"
   ],
   "properties": {
     "value": { "type": "number" }
-  },
-  "additionalProperties": false
+  }
 }
