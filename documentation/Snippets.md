@@ -9,6 +9,7 @@ The following snippets has been added and how to access them.
   - [Minecraft Language Files](#minecraft-language-files)
     - [Region snippets](#region-snippets-1)
 
+---
 ## Mcfunctions
 
 ### Region snippets
@@ -22,7 +23,7 @@ Added region snippets, so you can use comments to region of sections of with cod
 
 The extension recognizes this and allows the code to be folded
 
-
+---
 ## Minecraft Language Files
 
 ### Region snippets
