@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "1.8.0.bones",
+  "type": "object",
+  "title": "The bones schema for 1.8.0",
+  "description": "The root schema comprises the entire JSON document.",
+  "definitions": {
+    "numberSpecifciaton": {
+      "$id": "number specification",
+      "title": "The number schema",
+      "description": "The 3 array number specification",
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "../../molang/molang_number1.8.0.json" }
+    },
+    "timeline": {
+      "$id": "timeline specification",
+      "anyOf": [
+        {
+          "title": "The timeline array schema",
+          "description": "The timeline array specification",
+          "$ref": "#/definitions/numberSpecifciaton"
+        },
+        {
+          "type": "object",
+          "title": "The timeline object schema",
+          "description": "The timeline object specification",
+          "properties": {
+            "pre": { "$ref": "#/definitions/numberSpecifciaton" },
+            "post": { "$ref": "#/definitions/numberSpecifciaton" }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": {
+    "$id": "bones_item1.8.0",
+    "description": "A single bone definition in the animation for 1.8.0",
+    "title": "Bone definition",
+    "type": "object",
+    "properties": {
+      "position": {
+        "$id": "position",
+        "title": "The position definition",
+        "description": "The position definition",
+        "anyOf": [
+          //Single item
+          { "$ref": "#/definitions/numberSpecifciaton" },
+          //Timeline
+          { 
+            "propertyNames": { "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)" }, 
+            "additionalProperties": { "$ref": "#/definitions/timeline" } 
+          }
+        ]
+      },
+      "rotation": {
+        "$id": "rotation",
+        "title": "The rotation definition",
+        "description": "The rotation definition",
+        "anyOf": [
+          //Single item
+          { "$ref": "#/definitions/numberSpecifciaton" },
+          //Timeline
+          { 
+            "propertyNames": { "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)" }, 
+            "additionalProperties": { "$ref": "#/definitions/timeline" } 
+          }
+        ]
+      },
+      "scale": {
+        "$id": "scale",
+        "title": "The scale definition",
+        "description": "The scale definition",
+        "anyOf": [
+          //Single item
+          { "$ref": "#/definitions/numberSpecifciaton" },
+          //Timeline
+          { 
+            "propertyNames": { "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)" }, 
+            "additionalProperties": { "$ref": "#/definitions/timeline" } 
+          }
+        ]
+      },
+      "relative_to": {
+        "description": "A reference to what bone or entity it is bound to",
+        "title": "Relative to bone definition",
+        "type": "object",
+        "properties": {
+          "rotation": {
+            "description": "A reference to what bone or entity it is bound to for rotation",
+            "title": "rotation bounding",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

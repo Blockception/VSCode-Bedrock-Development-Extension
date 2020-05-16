@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.1.10.0.actor_animation",
+  "type": "object",
+  "title": "The minecraft resourcepack actor animation 1.10.0",
+  "description": "The root schema comprises the entire JSON document.",
+  "required": [
+    "format_version",
+    "animations"
+  ],
+  "properties": {
+    "format_version": { "title": "The 1.10.0 format_version", "type": "string", "pattern": "^1.10.0$" },
+    "animations": {
+      "title": "Animations schema",
+      "description": "The animation 1.10.0 specification",
+      "type": "object",
+      "additionalItems": {
+        "type": "object",
+        "propertyNames": { "pattern": "^animation\\.[a-z\\.]+" },
+        "properties": {
+          "animation_length": { "type": "number" },
+          "loop": { "type": "boolean" },
+          "bones": { "$ref": "./types/bones.json" }
+        }
+      }
+    }
+  }
+}
