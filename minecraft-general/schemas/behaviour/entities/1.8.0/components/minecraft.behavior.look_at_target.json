@@ -3,6 +3,7 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.look_at_target",
   "type": "object",
   "title": "minecraft:behavior.look_at_target 1.8.0",
+  "description": "Allows the mob to look at the entity they are targetting.",
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
@@ -10,27 +11,27 @@
     "look_distance": {
       "type": "number",
       "default": 8.0,
-      "description": "The distance in blocks from which the entity will look at",
+      "description": "The distance in blocks from which the entity will look at"
     },
     "probability": {
       "type": "number",
       "default": 0.02,
-      "description": "The probability of looking at the target. A value of 1.00 is 100%",
+      "description": "The probability of looking at the target. A value of 1.00 is 100%"
     },
     "look_time": {
       "$ref": "../types/range_number_type.json",
       "default": [2, 4],
-      "description": "Time range to look at the entity",
+      "description": "Time range to look at the entity"
     },
     "angle_of_view_vertical": {
       "type": "integer",
       "default": 360,
-      "description": "The angle in degrees that the mob can see in the X-axis (left-right)",
+      "description": "The angle in degrees that the mob can see in the X-axis (left-right)"
     },
     "angle_of_view_horizontal": {
       "type": "integer",
       "default": 360,
-      "description": "The angle in degrees that the mob can see in the Y-axis (up-down)",
+      "description": "The angle in degrees that the mob can see in the Y-axis (up-down)"
     }
   }
 }

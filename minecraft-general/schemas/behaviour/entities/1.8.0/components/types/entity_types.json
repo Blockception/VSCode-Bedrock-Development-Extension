@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "filters": {
-          "$ref": "../filters/filters1.8.0.json"
+          "$ref": "../../1.8.0/filters.json"
         },
         "max_dist": {
           "type": "number",

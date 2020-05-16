@@ -3,6 +3,7 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.guardian_attack",
   "type": "object",
   "title": "minecraft:behavior.guardian_attack 1.8.0",
+  "description": "Allows the guardian to use its laser beam attack. Can only be used by Guardians and Elder Guardians.",
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],

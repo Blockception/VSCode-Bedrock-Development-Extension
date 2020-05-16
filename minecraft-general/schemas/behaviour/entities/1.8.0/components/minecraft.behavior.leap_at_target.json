@@ -1,9 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.guardian_attack",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.leap_at_target",
   "type": "object",
-  "title": "minecraft:behavior.guardian_attack 1.8.0",
+  "title": "minecraft:behavior.leap_at_target 1.8.0",
   "additionalProperties": false,
+  "description": "llows monsters to jump at and attack their target. Can only be used by hostile mobs.",
   "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": { 

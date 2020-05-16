@@ -1,34 +1,19 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.guardian_attack",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.move_towards_restriction",
   "type": "object",
-  "title": "minecraft:behavior.guardian_attack 1.8.0",
+  "title": "minecraft:behavior.move_towards_restriction 1.8.0",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_base.json",
+  "description": "Allows Guardians, Iron Golems and Villagers to move within their pre-defined area that the mob should be restricted to. Other mobs don't have a restriction defined.",
+  "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
-  "properties": { }
-}
-
-
-
-"minecraft:behavior.move_towards_restriction": {
-  "priority": 5,
-  "speed_multiplier": 1.0,
-  "control_flags": [
-    "move",
-    "look"
-  ]
-}"minecraft:behavior.move_towards_restriction": {
-  "priority": 5,
-  "speed_multiplier": 1.0,
-  "control_flags": [
-    "move",
-    "look"
-  ]
-}"minecraft:behavior.move_towards_restriction": {
-  "priority": 4,
-  "speed_multiplier": 1
-}"minecraft:behavior.move_towards_restriction": {
-  "priority": 7,
-  "speed_multiplier": 0.6
+  "properties": { 
+    "control_flags":{
+      "type":"array",
+      "items": {
+        "type": "string",
+        "enum": ["move", "look"]
+      }
+    }
+  }
 }

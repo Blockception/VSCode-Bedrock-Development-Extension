@@ -3,6 +3,7 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.move_through_village",
   "type": "object",
   "title": "minecraft:behavior.move_through_village 1.8.0",
+  "description": "Can only be used by Villagers. Allows the villagers to create paths around the village.",
   "additionalProperties": false,
   "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],

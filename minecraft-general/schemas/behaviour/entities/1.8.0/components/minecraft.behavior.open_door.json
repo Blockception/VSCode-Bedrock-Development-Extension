@@ -4,14 +4,14 @@
   "type": "object",
   "title": "minecraft:behavior.guardian_attack 1.8.0",
   "additionalProperties": false,
+  "description": "Allows the mob to open doors. Requires the mob to be able to path through doors, otherwise the mob won't even want to try opening them.",
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { }
-}
-
-
-
-"minecraft:behavior.open_door": {
-  "priority": 6,
-  "close_door_after": true
+  "properties": {
+    "close_door_after": {
+      "type": "boolean",
+      "default": true,
+      "description": "If true, the mob will close the door after opening it and going through it"
+    }
+  }    
 }
