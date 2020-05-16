@@ -1,0 +1,4 @@
+"minecraft:on_start_takeoff": {
+  "event": "minecraft:start_fly",
+  "target": "self"
+}

@@ -1,0 +1,49 @@
+"minecraft:dweller": {
+  "dwelling_type": "village",
+  "dweller_role": "passive",
+  "update_interval_base": 60,
+  "update_interval_variant": 40,
+  "can_find_poi": false,
+  "can_migrate": true,
+  "first_founding_reward": 0
+}"minecraft:dweller": {
+  "dwelling_type": "village",
+  "dweller_role": "inhabitant",
+  "update_interval_base": 60,
+  "update_interval_variant": 40,
+  "can_find_poi": true,
+  "can_migrate": true,
+  "first_founding_reward": 5
+}"minecraft:dweller": {
+  "dwelling_type": "village",
+  "dweller_role": "passive",
+  "update_interval_base": 60,
+  "update_interval_variant": 40,
+  "can_find_poi": false,
+  "can_migrate": true,
+  "first_founding_reward": 0
+}"minecraft:dweller": {
+  "dwelling_type": "village",
+  "dweller_role": "inhabitant",
+  "update_interval_base": 60,
+  "update_interval_variant": 40,
+  "can_find_poi": true,
+  "can_migrate": true,
+  "first_founding_reward": 5
+}"minecraft:dweller": {
+  "dwelling_type": "village",
+  "dweller_role": "passive",
+  "update_interval_base": 60,
+  "update_interval_variant": 40,
+  "can_find_poi": false,
+  "can_migrate": true,
+  "first_founding_reward": 0
+}"minecraft:dweller": {
+  "dwelling_type": "village",
+  "dweller_role": "inhabitant",
+  "update_interval_base": 60,
+  "update_interval_variant": 40,
+  "can_find_poi": true,
+  "can_migrate": true,
+  "first_founding_reward": 5
+}

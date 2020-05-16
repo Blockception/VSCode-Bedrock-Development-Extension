@@ -1,0 +1,5 @@
+"minecraft:equipment": {
+  "table": "loot_tables/entities/zombie_equipment.json"
+}"minecraft:equipment": {
+  "table": "loot_tables/entities/zombie_pigman_gear.json"
+}

@@ -1,0 +1,13 @@
+"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0
+}"minecraft:breathable": {
+  "totalSupply": 15,
+  "suffocateTime": 0,
+  "breathesWater": true,
+  "breathesAir": true,
+  "generatesBubbles": false
+}

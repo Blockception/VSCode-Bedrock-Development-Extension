@@ -1,0 +1,3 @@
+"minecraft:navigation.fly": {
+  "can_path_over_water": true
+}

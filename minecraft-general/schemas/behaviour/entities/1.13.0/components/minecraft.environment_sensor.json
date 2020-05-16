@@ -1,0 +1,229 @@
+"minecraft:environment_sensor": {
+  "triggers": [
+    {
+      "filters": {
+        "test": "is_daytime",
+        "value": false
+      },
+      "event": "minecraft:fox_configure_night"
+    },
+    {
+      "filters": {
+        "test": "is_daytime",
+        "value": true
+      },
+      "event": "minecraft:fox_configure_day"
+    }
+  ]
+}"minecraft:environment_sensor": {
+  "triggers": [
+    {
+      "filters": {
+        "test": "is_underwater",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "event": "minecraft:start_transforming"
+    }
+  ]
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "all_of": [
+        {
+          "test": "has_mob_effect",
+          "subject": "self",
+          "value": "bad_omen"
+        },
+        {
+          "test": "is_in_village",
+          "subject": "self",
+          "value": true
+        }
+      ]
+    },
+    "event": "minecraft:trigger_raid"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "subject": "self",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:melee_mode"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "subject": "self",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:melee_mode"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:start_transforming"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": [
+    {
+      "filters": {
+        "test": "is_daytime",
+        "value": false
+      },
+      "event": "minecraft:fox_configure_night"
+    },
+    {
+      "filters": {
+        "test": "is_daytime",
+        "value": true
+      },
+      "event": "minecraft:fox_configure_day"
+    }
+  ]
+}"minecraft:environment_sensor": {
+  "triggers": [
+    {
+      "filters": {
+        "test": "is_underwater",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "event": "minecraft:start_transforming"
+    }
+  ]
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "all_of": [
+        {
+          "test": "has_mob_effect",
+          "subject": "self",
+          "value": "bad_omen"
+        },
+        {
+          "test": "is_in_village",
+          "subject": "self",
+          "value": true
+        }
+      ]
+    },
+    "event": "minecraft:trigger_raid"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "subject": "self",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:melee_mode"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "subject": "self",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:melee_mode"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:start_transforming"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": [
+    {
+      "filters": {
+        "test": "is_daytime",
+        "value": false
+      },
+      "event": "minecraft:fox_configure_night"
+    },
+    {
+      "filters": {
+        "test": "is_daytime",
+        "value": true
+      },
+      "event": "minecraft:fox_configure_day"
+    }
+  ]
+}"minecraft:environment_sensor": {
+  "triggers": [
+    {
+      "filters": {
+        "test": "is_underwater",
+        "subject": "self",
+        "operator": "==",
+        "value": true
+      },
+      "event": "minecraft:start_transforming"
+    }
+  ]
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "all_of": [
+        {
+          "test": "has_mob_effect",
+          "subject": "self",
+          "value": "bad_omen"
+        },
+        {
+          "test": "is_in_village",
+          "subject": "self",
+          "value": true
+        }
+      ]
+    },
+    "event": "minecraft:trigger_raid"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "subject": "self",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:melee_mode"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "subject": "self",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:melee_mode"
+  }
+}"minecraft:environment_sensor": {
+  "triggers": {
+    "filters": {
+      "test": "is_underwater",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:start_transforming"
+  }
+}

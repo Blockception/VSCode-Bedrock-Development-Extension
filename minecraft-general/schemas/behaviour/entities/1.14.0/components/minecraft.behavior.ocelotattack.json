@@ -1,0 +1,11 @@
+"minecraft:behavior.ocelotattack": {
+  "priority": 4,
+  "walk_speed_multiplier": 0.8,
+  "sprint_speed_multiplier": 1.33,
+  "sneak_speed_multiplier": 0.6
+}"minecraft:behavior.ocelotattack": {
+  "priority": 4,
+  "walk_speed_multiplier": 0.8,
+  "sprint_speed_multiplier": 1.33,
+  "sneak_speed_multiplier": 0.6
+}

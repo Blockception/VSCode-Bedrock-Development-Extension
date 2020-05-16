@@ -1,0 +1,7 @@
+"minecraft:boss": {
+  "should_darken_sky": false,
+  "hud_range": 125
+}"minecraft:boss": {
+  "should_darken_sky": true,
+  "hud_range": 55
+}

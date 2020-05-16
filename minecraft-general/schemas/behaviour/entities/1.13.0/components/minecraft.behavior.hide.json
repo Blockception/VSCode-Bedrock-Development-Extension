@@ -1,0 +1,16 @@
+"minecraft:behavior.hide": {
+  "priority": 0,
+  "speed_multiplier": 0.8,
+  "poi_type": "bed",
+  "duration": 30.0
+}"minecraft:behavior.hide": {
+  "priority": 0,
+  "speed_multiplier": 0.8,
+  "poi_type": "bed",
+  "duration": 30.0
+}"minecraft:behavior.hide": {
+  "priority": 0,
+  "speed_multiplier": 0.8,
+  "poi_type": "bed",
+  "duration": 30.0
+}

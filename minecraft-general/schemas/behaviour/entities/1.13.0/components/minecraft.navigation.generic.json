@@ -1,0 +1,170 @@
+"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": true,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_break_doors": true,
+  "can_swim": false,
+  "can_walk": true,
+  "avoid_sun": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": true,
+  "can_sink": false,
+  "avoid_damage_blocks": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_break_doors": true,
+  "can_swim": false,
+  "can_walk": true,
+  "avoid_sun": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": true,
+  "can_sink": false,
+  "avoid_damage_blocks": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_break_doors": true,
+  "can_swim": false,
+  "can_walk": true,
+  "avoid_sun": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": true
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": false,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": false,
+  "can_breach": false,
+  "can_sink": false
+}"minecraft:navigation.generic": {
+  "is_amphibious": true,
+  "can_path_over_water": false,
+  "can_swim": true,
+  "can_walk": true,
+  "can_sink": false,
+  "avoid_damage_blocks": true
+}

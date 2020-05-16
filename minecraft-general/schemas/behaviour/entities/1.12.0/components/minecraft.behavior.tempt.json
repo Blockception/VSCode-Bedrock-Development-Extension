@@ -1,0 +1,13 @@
+"minecraft:behavior.tempt": {
+  "priority": 4,
+  "speed_multiplier": 1.25,
+  "items": [
+    "bamboo"
+  ]
+}"minecraft:behavior.tempt": {
+  "priority": 3,
+  "speed_multiplier": 1.1,
+  "items": [
+    "seagrass"
+  ]
+}

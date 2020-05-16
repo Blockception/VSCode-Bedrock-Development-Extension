@@ -1,0 +1,13 @@
+"minecraft:behavior.move_towards_target": {
+  "priority": 2,
+  "speed_multiplier": 0.9,
+  "within_radius": 32
+}"minecraft:behavior.move_towards_target": {
+  "priority": 2,
+  "speed_multiplier": 0.9,
+  "within_radius": 32
+}"minecraft:behavior.move_towards_target": {
+  "priority": 2,
+  "speed_multiplier": 0.9,
+  "within_radius": 32
+}

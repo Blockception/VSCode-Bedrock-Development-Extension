@@ -1,0 +1,18 @@
+"minecraft:environment_sensor": [
+  {
+    "filters": {
+      "test": "is_underwater",
+      "subject": "self",
+      "operator": "==",
+      "value": true
+    },
+    "event": "minecraft:start_transforming"
+  }
+]"minecraft:environment_sensor": {
+  "filters": {
+    "test": "is_underwater",
+    "operator": "==",
+    "value": true
+  },
+  "event": "minecraft:start_transforming"
+}

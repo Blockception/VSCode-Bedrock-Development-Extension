@@ -1,0 +1,4 @@
+"minecraft:behavior.panic": {
+  "priority": 3,
+  "speed_multiplier": 0.6
+}

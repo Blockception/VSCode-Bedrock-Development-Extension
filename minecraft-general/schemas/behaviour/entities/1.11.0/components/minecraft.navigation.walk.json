@@ -1,0 +1,11 @@
+"minecraft:navigation.walk": {
+  "can_path_over_water": true,
+  "can_pass_doors": true,
+  "can_open_doors": true,
+  "avoid_water": true
+}"minecraft:navigation.walk": {
+  "is_amphibious": true,
+  "can_pass_doors": true,
+  "can_open_doors": true,
+  "avoid_sun": false
+}

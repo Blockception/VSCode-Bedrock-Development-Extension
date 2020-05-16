@@ -1,0 +1,49 @@
+"minecraft:timer": {
+  "looping": false,
+  "random_time_choices": [
+    {
+      "weight": 50,
+      "value": 2400
+    },
+    {
+      "weight": 50,
+      "value": 3600
+    }
+  ],
+  "time_down_event": {
+    "event": "minecraft:start_despawn",
+    "target": "self"
+  }
+}"minecraft:timer": {
+  "looping": false,
+  "random_time_choices": [
+    {
+      "weight": 50,
+      "value": 2400
+    },
+    {
+      "weight": 50,
+      "value": 3600
+    }
+  ],
+  "time_down_event": {
+    "event": "minecraft:start_despawn",
+    "target": "self"
+  }
+}"minecraft:timer": {
+  "looping": false,
+  "random_time_choices": [
+    {
+      "weight": 50,
+      "value": 2400
+    },
+    {
+      "weight": 50,
+      "value": 3600
+    }
+  ],
+  "time_down_event": {
+    "event": "minecraft:start_despawn",
+    "target": "self"
+  }
+}

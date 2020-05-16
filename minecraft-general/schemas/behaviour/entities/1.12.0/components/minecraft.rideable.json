@@ -1,0 +1,46 @@
+"minecraft:rideable": {
+  "seat_count": 1,
+  "family_types": [
+    "zombie"
+  ],
+  "seats": {
+    "position": [
+      0.0,
+      1.105,
+      0.0
+    ]
+  }
+}"minecraft:rideable": {
+  "seat_count": 1,
+  "interact_text": "action.interact.ride.minecart",
+  "pull_in_entities": true,
+  "seats": {
+    "position": [
+      0.0,
+      -0.2,
+      0.0
+    ]
+  }
+}"minecraft:rideable": {
+  "seat_count": 1,
+  "interact_text": "action.interact.ride.minecart",
+  "pull_in_entities": true,
+  "seats": {
+    "position": [
+      0.0,
+      -0.2,
+      0.0
+    ]
+  }
+}"minecraft:rideable": {
+  "seat_count": 1,
+  "interact_text": "action.interact.ride.minecart",
+  "pull_in_entities": true,
+  "seats": {
+    "position": [
+      0.0,
+      -0.2,
+      0.0
+    ]
+  }
+}

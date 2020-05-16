@@ -1,0 +1,6 @@
+"minecraft:behavior.random_swim": {
+  "priority": 7,
+  "interval": 0,
+  "xz_dist": 30,
+  "y_dist": 15
+}

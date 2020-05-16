@@ -1,0 +1,502 @@
+"minecraft:behavior.look_at_player": {
+  "priority": 9
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 12.0,
+  "probability": 0.01
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8.0,
+  "probability": 8.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 3.0,
+  "probability": 1.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 14,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 12.0,
+  "probability": 0.01
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 1,
+  "look_distance": 8.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "target_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 11
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 1,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 3,
+  "look_distance": 6.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "target_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 12,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 10,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 5,
+  "look_distance": 8.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "target_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 12.0,
+  "probability": 0.01
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8.0,
+  "probability": 8.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 3.0,
+  "probability": 1.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 14,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 12.0,
+  "probability": 0.01
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 11
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 1,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 3,
+  "look_distance": 6.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "target_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 12,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 10,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 5,
+  "look_distance": 8.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "target_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 12.0,
+  "probability": 0.01
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8.0,
+  "probability": 8.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 3.0,
+  "probability": 1.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 14,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 12.0,
+  "probability": 0.01
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 11
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 1,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 3,
+  "look_distance": 6.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "target_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 12,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 10,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 8,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 5,
+  "look_distance": 8.0
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "look_distance": 8
+}"minecraft:behavior.look_at_player": {
+  "priority": 6,
+  "target_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 7,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 8,
+  "look_distance": 6.0,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6,
+  "probability": 0.02
+}"minecraft:behavior.look_at_player": {
+  "priority": 9,
+  "look_distance": 6,
+  "probability": 0.02
+}

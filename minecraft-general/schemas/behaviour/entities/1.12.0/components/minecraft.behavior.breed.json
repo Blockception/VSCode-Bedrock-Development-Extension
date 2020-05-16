@@ -1,0 +1,4 @@
+"minecraft:behavior.breed": {
+  "priority": 3,
+  "speed_multiplier": 1.0
+}

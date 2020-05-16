@@ -1,0 +1,11 @@
+"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/wither_boss.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie_pigman.json"
+}"minecraft:loot": {
+  "table": "loot_tables/entities/zombie.json"
+}

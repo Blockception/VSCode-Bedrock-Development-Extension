@@ -1,0 +1,64 @@
+"minecraft:behavior.beg": {
+  "priority": 9,
+  "look_distance": 8,
+  "look_time": [
+    2,
+    4
+  ],
+  "items": [
+    "bone",
+    "porkchop",
+    "cooked_porkchop",
+    "chicken",
+    "cooked_chicken",
+    "beef",
+    "cooked_beef",
+    "rotten_flesh",
+    "muttonraw",
+    "muttoncooked",
+    "rabbit",
+    "cooked_rabbit"
+  ]
+}"minecraft:behavior.beg": {
+  "priority": 9,
+  "look_distance": 8,
+  "look_time": [
+    2,
+    4
+  ],
+  "items": [
+    "bone",
+    "porkchop",
+    "cooked_porkchop",
+    "chicken",
+    "cooked_chicken",
+    "beef",
+    "cooked_beef",
+    "rotten_flesh",
+    "muttonraw",
+    "muttoncooked",
+    "rabbit",
+    "cooked_rabbit"
+  ]
+}"minecraft:behavior.beg": {
+  "priority": 9,
+  "look_distance": 8,
+  "look_time": [
+    2,
+    4
+  ],
+  "items": [
+    "bone",
+    "porkchop",
+    "cooked_porkchop",
+    "chicken",
+    "cooked_chicken",
+    "beef",
+    "cooked_beef",
+    "rotten_flesh",
+    "muttonraw",
+    "muttoncooked",
+    "rabbit",
+    "cooked_rabbit"
+  ]
+}
