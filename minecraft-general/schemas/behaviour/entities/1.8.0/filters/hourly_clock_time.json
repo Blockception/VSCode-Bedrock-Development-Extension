@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.1.8.0.filters.hourly_clock_time",
+    "type": "object",
+    "title": "Filters hourly_clock_time 1.8.0",
+    "additionalProperties": false,
+    "required": [
+           "value" ],
+    "properties": {
+        "operator": {
+            "$ref": "base_operator.json"
+        },
+        "subject": {
+            "$ref": "base_subject.json"
+        },
+        "value": {
+            "$ref": "base_value.json",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 24000
+        }
+    }
+}

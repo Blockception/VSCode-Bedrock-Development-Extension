@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.1.8.0.filters.has_damage",
+    "type": "object",
+    "title": "Filters has_damage 1.8.0",
+    "additionalProperties": false,
+    "required": [
+        "value"
+    ],
+    "properties": {
+        "operator": {
+            "$ref": "base_operator.json"
+        },
+        "subject": {
+            "$ref": "base_subject.json"
+        },
+        "value": {
+            "$ref": "base_value.json",
+            "type": "string",
+            "enum": [
+                "anvil",
+                "attack",
+                "block_explosion",
+                "contact",
+                "drowning",
+                "entity_explosion",
+                "fall",
+                "falling_block",
+                "fata",
+                "fire",
+                "fire_tick",
+                "fly_into_wall",
+                "lava",
+                "magic",
+                "none",
+                "override",
+                "piston",
+                "projectile",
+                "starve",
+                "suffocation",
+                "suicide",
+                "thorns",
+                "void",
+                "withe"
+            ]
+        }
+    }
+}

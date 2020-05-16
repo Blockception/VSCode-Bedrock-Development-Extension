@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.behaviour.entities.filters.base_operator",
+    "title": "Filters operator 1.8.0",
+    "type": "string",
+    "description": "The operator to apply",
+    "enum": [
+        "!=",
+        "<",
+        "<=",
+        "<>",
+        "=",
+        "==",
+        ">",
+        ">=",
+        "equals",
+        "not"
+    ]
+}
