@@ -15,6 +15,7 @@
         "description": {
           "additionalProperties": false,
           "type": "object",
+          "required": ["identifier", "basic_render_parameters"],
           "properties": {
             "identifier": {
               "type": "string",
@@ -50,6 +51,7 @@
             "minecraft:emitter_rate_manual": { "$ref": "./components/minecraft.emitter_rate_manual.json" },
             "minecraft:emitter_rate_steady": { "$ref": "./components/minecraft.emitter_rate_steady.json" },
 
+            "minecraft:emitter_shape_box": { "$ref": "./components/minecraft.emitter_shape_box.json" },
             "minecraft:emitter_shape_custom": { "$ref": "./components/minecraft.emitter_shape_custom.json" },
             "minecraft:emitter_shape_point": { "$ref": "./components/minecraft.emitter_shape_point.json" },          
             "minecraft:emitter_shape_sphere": { "$ref": "./components/minecraft.emitter_shape_sphere.json" },

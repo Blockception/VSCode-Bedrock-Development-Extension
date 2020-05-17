@@ -14,8 +14,9 @@
             }
         },
         "facing_camera_mode": {
+            "description": "used to orient the billboard.",
             "type": "string",
-            "enum": [ "lookat_xyz", "rotate_xyz" ]
+            "enum": [ "lookat_xyz", "lookat_y", "rotate_xyz", "rotate_y", "direction_x", "direction_y", "direction_z" ]
         },
         "uv": {
             "additionalProperties": false,
