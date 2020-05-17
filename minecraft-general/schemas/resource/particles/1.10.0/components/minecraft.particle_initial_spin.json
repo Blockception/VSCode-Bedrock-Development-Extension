@@ -1,15 +1,15 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.resource.particle.1.10.0.emitter_lifetime_looping",
-    "type": "object",
-    "title": "The emitter_lifetime_looping component for 1.10.0",
+    "$id": "minecraft.resource.particle.1.10.0.particle_initial_spin",
+    "title": "The particle_initial_spin component for 1.10.0",
     "additionalProperties": false,
+    "type": "object",
     "properties": {
-        "active_time": {
+        "rotation": {
             "$ref": "../../../../molang/1.8.0/number.json"
         },
-        "sleep_time": {
+        "rotation_rate": {
             "$ref": "../../../../molang/1.8.0/number.json"
         }
-    }
+    }  
 }
