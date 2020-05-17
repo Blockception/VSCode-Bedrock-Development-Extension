@@ -6,9 +6,25 @@
   "uniqueItems": false,
   "description": "A collection of bones specification",
   "definitions": {
+    "array_2_integer": { "$ref": "../../../../general/array_2_integer.json" },
     "array_3_integer": { "$ref": "../../../../general/array_3_integer.json" },
     "array_2_number": { "$ref": "../../../../general/array_2_number.json" },
-    "array_3_number": { "$ref": "#/definitions/array_3_number" }
+    "array_3_number": { "$ref": "../../../../general/array_3_number.json" },
+    "uv_square": { 
+      "additionalProperties": false,
+      "description": "The uv of the specific face",
+      "type": "object",      
+      "properties": {
+        "uv": {
+          "description": "The uv of the face",
+          "$ref": "#/definitions/array_2_number" 
+        },
+        "uv_size": {
+          "description": "The size of the uv, can be negative for flipping",
+          "$ref": "#/definitions/array_2_number" 
+        }
+      }      
+    }
   },
   "items": {
     "additionalProperties": false,
@@ -50,7 +66,25 @@
             },            
             "uv": {
               "description": "The uv of the cube",
-              "$ref": "#/definitions/array_2_number"
+              "oneOf": [
+                { 
+                  "type": "array",
+                  "$ref": "#/definitions/array_2_number" 
+                },
+                {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "description": "The uv of the cube, with each face described individualy",
+                  "properties": {
+                    "east": { "$ref": "#/definitions/uv_square" },
+                    "west": { "$ref": "#/definitions/uv_square" },
+                    "south": { "$ref": "#/definitions/uv_square" },
+                    "north": { "$ref": "#/definitions/uv_square" },
+                    "up": { "$ref": "#/definitions/uv_square" },
+                    "down": { "$ref": "#/definitions/uv_square" }
+                  }
+                }
+              ]              
             },
             "mirror": {
               "type": "boolean",
