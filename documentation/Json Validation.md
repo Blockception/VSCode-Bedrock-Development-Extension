@@ -75,6 +75,7 @@
 |entity   |entity/*entity.json  |
 |models   |*.geo.json  |
 |particles   |particles/*.json  |
+|render_controllers   |render_controllers/*.json  |
 |sound definitions   |sound_definitions.json  |
 |music definitions   |music_definitions.json  |
 
