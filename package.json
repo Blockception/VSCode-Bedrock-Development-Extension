@@ -78,8 +78,10 @@
             { "fileMatch": "animations/*.animation.json", "url": "./minecraft-general/schemas/resource/animations/actor_animation.json" },
             { "fileMatch": "entity/*entity.json", "url": "./minecraft-general/schemas/resource/entity/entity.json" },
             { "fileMatch": "particles/*.json", "url": "./minecraft-general/schemas/resource/particles/particles.json" },
-            { "fileMatch": "*.geo.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" },       
+            { "fileMatch": "*.geo.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" }, 
+            { "fileMatch": "render_controllers/*.json", "url": "./minecraft-general/schemas/resource/render_controllers/render_controllers.json" }, 
             { "fileMatch": "sound_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/sound_definitions.json" },
+            { "fileMatch": "music_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json" },
 
             { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" }
         ]
