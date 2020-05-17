@@ -4,15 +4,18 @@
   "type": "object",
   "title": "minecraft:collision_box 1.8.0",
   "additionalProperties": false,
+  "description": "Sets the width and height of the Entity's collision box.",
   "required": [],
   "properties": {
-    "width": {
-      "type": "number",
-      "description": "The width of the collision box in blocks"
-    },
     "height": {
       "type": "number",
-      "description": "The height of the collision box in blocks"
+      "default": 1,
+      "description": "Height of the collision box in blocks. A negative value will be assumed to be 0"
+    },
+    "width": {
+      "type": "number",
+      "default": 1,
+      "description": "Width and Depth of the collision box in blocks. A negative value will be assumed to be 0"
     }
   }
 }

@@ -4,9 +4,7 @@
   "type": "object",
   "title": "minecraft:attack_damage 1.8.0",
   "additionalProperties": false,
-  "required": [
-    "value"
-  ],
+  "required": [ "value" ],
   "properties": {
     "value": { "type": "number" }
   }

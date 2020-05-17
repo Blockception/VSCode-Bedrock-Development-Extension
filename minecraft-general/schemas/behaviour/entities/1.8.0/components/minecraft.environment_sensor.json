@@ -6,7 +6,9 @@
   "additionalProperties": false,
   "description": "Allows the entity to power jump like the horse does in vanilla.",
   "required": [],
-  "properties": {}
+  "properties": {
+    
+  }
 }
 
 "minecraft:environment_sensor": {
