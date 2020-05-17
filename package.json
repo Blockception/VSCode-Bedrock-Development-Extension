@@ -12,12 +12,8 @@
         "Other",
         "Formatters"
     ],
-    "engines": {
-        "vscode": "^1.43.0"
-    },
-    "extensionKind": [
-        "ui"
-    ],
+    "engines": { "vscode": "^1.43.0" },
+    "extensionKind": [ "ui" ],
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "icon": "resources/logo.png",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
@@ -27,7 +23,7 @@
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
     },
-    "version": "0.0.3",
+    "version": "0.0.4",
     "contributes": {
         "languages": [
             {
@@ -80,6 +76,7 @@
 
             { "fileMatch": "animation_controllers/*.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" },
             { "fileMatch": "animations/*.animation.json", "url": "./minecraft-general/schemas/resource/animations/actor_animation.json" },
+            { "fileMatch": "*.geo.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" },
 
             { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" }
         ]

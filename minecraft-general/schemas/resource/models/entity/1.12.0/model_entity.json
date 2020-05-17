@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.model.1.12.0",
+  "type": "object",
+  "title": "The minecraft resourcepack model schema for 1.12.0",
+  "description": "The root schema comprises the entire JSON document.",
+  "definitions": {
+    "array_3_integer": { "$ref": "../../../../general/array_3_integer.json" },
+    "array_2_number": { "$ref": "../../../../general/array_2_number.json" },
+    "array_3_number": { "$ref": "#/definitions/array_3_number" }
+  },
+  "required": ["format_version", "minecraft:geometry"],
+  "properties": {
+    "format_version": {
+      "title": "The 1.12.0 format_version",
+      "type": "string",
+      "pattern": "^1.12.0$"
+    },
+    "minecraft:geometry": {
+      "type": "array",
+      "description": "The collection of geometries",
+
+      "items": {
+        "additionalProperties": false,
+        "description": "Model specification",
+        "type": "object",
+
+        "properties": {
+          "description": {
+            "type": "object",
+            "description": "The descriptions of the geometry",
+            "properties": {
+              "identifier": {
+                "type": "string",
+                "description": "The identifier of the geometry",
+                "pattern": "^geometry\\..+"
+              },
+              "texture_width": {
+                "type": "number",
+                "description": "The height of the texture in pixels",
+                "pattern": "^geometry\\..+"
+              },
+              "texture_height": {
+                "type": "number",
+                "description": "The height of the texture in pixels"
+              },
+              "visible_bounds_offset": {
+                "description": "",
+                "$ref": "#/definitions/array_3_number"
+              },
+              "visible_bounds_width": {
+                "type": "number",
+                "description": ""
+              }
+            }
+          },
+          "bones":{
+            "$ref": "../1.8.0/bones.json"
+          }
+        }
+      }
+    }
+  }
+}

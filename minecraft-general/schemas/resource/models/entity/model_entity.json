@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.resource.model",
+    "allOf": [
+        //Version 1.8.0
+        { 
+          "if": { "properties": { "format_version": { "type": "string", "const": "1.8.0" } } },
+          "then": { "$ref": "1.8.0/model_entity.json" }
+        },
+        //Version 1.10.0
+        { 
+          "if": { "properties": { "format_version": { "type": "string", "const": "1.10.0" } } },
+          "then": { "$ref": "1.10.0/model_entity.json" }
+        },
+        //Version 1.12.0
+        { 
+          "if": { "properties": { "format_version": { "type": "string", "const": "1.12.0" } } },
+          "then": { "$ref": "1.12.0/model_entity.json" }
+        }
+    ]
+}
