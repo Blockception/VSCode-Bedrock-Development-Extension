@@ -4,17 +4,13 @@
     "type": "object",
     "title": "Filters is_brightness 1.8.0",
     "additionalProperties": false,
-    "required": [
-           "value" ],
+    "description": "Tests the current brightness against a provided value in the range (0.0f, 1.0f).",
+    "$ref": "./types/base_filter_number.json",
+    "required": [ "value" ],
     "properties": {
-        "operator": {
-            "$ref": "base_operator.json"
-        },
-        "subject": {
-            "$ref": "base_subject.json"
-        },
         "value": {
             "$ref": "base_value.json",
+            "description": "The brightness value to compare with.",
             "type": "number",
             "minimum": 0.0,
             "maximum": 1.0

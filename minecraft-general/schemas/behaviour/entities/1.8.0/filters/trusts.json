@@ -4,18 +4,6 @@
     "type": "object",
     "title": "Filters trusts 1.8.0",
     "additionalProperties": false,
-    "required": [
-           ],
-    "properties": {
-        "operator": {
-            "$ref": "base_operator.json"
-        },
-        "subject": {
-            "$ref": "base_subject.json"
-        },
-        "value": {
-            "$ref": "base_value.json",
-            "type": "boolean"
-        }
-    }
+    "description": "Returns true if the subject is trusted by entity.",
+    "$ref": "./types/base_filter_boolean.json"
 }

@@ -4,12 +4,13 @@
     "type": "object",
     "title": "Filters has_equipment 1.8.0",
     "additionalProperties": false,
-    "required": [
-        "value"
-    ],
+    "description": "Tests for the presence of a named item in the designated slot of the subject entity.",
+    "required": [ "value" ],
     "properties": {
         "domain": {
             "$ref": "base_domain.json",
+            "description": "The equipment location to test",
+            "default": "any",
             "enum": [
                 "any",
                 "armor",
@@ -28,6 +29,7 @@
         },
         "value": {
             "$ref": "base_value.json",
+            "description": "The item name to look for",
             "type": "string"
         }
     }

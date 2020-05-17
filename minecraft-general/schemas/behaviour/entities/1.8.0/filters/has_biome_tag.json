@@ -4,9 +4,8 @@
     "type": "object",
     "title": "Filters has_biome_tag 1.8.0",
     "additionalProperties": false,
-    "required": [
-        "value"
-    ],
+    "description": "Tests whether the biome the subject is in has the specified tag.",
+    "required": [ "value" ],
     "properties": {
         "operator": {
             "$ref": "base_operator.json"
@@ -16,6 +15,7 @@
         },
         "value": {
             "$ref": "base_value.json",
+            "description": "(Required) The tag to look for",
             "type": "string"
         }
     }

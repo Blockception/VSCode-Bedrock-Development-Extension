@@ -4,6 +4,7 @@
     "type": "object",
     "title": "Filters has_ability 1.8.0",
     "additionalProperties": false,
+    "description": "Returns true when the subject entity has the named ability.",
     "required": [ "value" ],
     "properties": {
         "operator": {
@@ -15,6 +16,7 @@
         "value": {
             "$ref": "base_value.json",
             "type": "string",
+            "description": "(Required) The Ability type to test",
             "enum": [
                 "flySpeed",
                 "flying",

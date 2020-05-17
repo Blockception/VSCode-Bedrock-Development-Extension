@@ -4,18 +4,6 @@
     "type": "object",
     "title": "Filters is_underwater 1.8.0",
     "additionalProperties": false,
-    "required": [
-           ],
-    "properties": {
-        "operator": {
-            "$ref": "base_operator.json"
-        },
-        "subject": {
-            "$ref": "base_subject.json"
-        },
-        "value": {
-            "$ref": "base_value.json",
-            "type": "boolean"
-        }
-    }
+    "description": "Returns true when the subject entity is under water. An entity is considered underwater if it is completely submerged in water blocks.",
+    "$ref": "./types/base_filter_boolean.json"
 }

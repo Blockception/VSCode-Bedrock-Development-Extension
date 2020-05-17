@@ -4,10 +4,25 @@
     "type": "object",
     "title": "Filters clock_time 1.8.0",
     "additionalProperties": false,
+    "description": "Compares the current 24 hour time with an int value in the range[0, 24000]",
     "required": [ "value" ],
     "properties": {
-        "operator": { "$ref": "base_operator.json" },
-        "subject": { "$ref": "base_subject.json" },
-        "value": { "$ref": "base_value.json", "type":"number" }
+        "operator": {
+            "$ref": "base_operator.json",
+            "description": "(Optional) The comparison to apply with 'value'.",
+            "default": "equals"
+        },
+        "subject": {
+            "$ref": "base_subject.json",
+            "description": "(Optional) The subject of this filter test.",
+            "default": "self"
+        },
+        "value": {
+            "$ref": "base_value.json",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 240000,
+            "description": "(Required) An integer value."
+        }
     }
 }

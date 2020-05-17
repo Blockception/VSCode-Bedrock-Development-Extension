@@ -4,11 +4,11 @@
     "type": "object",
     "title": "Filters is_game_rule 1.8.0",
     "additionalProperties": false,
-    "required": [
-           "domain" ],
+    "required": [ "domain" ],
     "properties": {
         "domain": {
-            "$ref": "base_domain.json"
+            "$ref": "base_domain.json",
+            "description": "The Game Rule to test."
         },
         "operator": {
             "$ref": "base_operator.json"
@@ -18,6 +18,8 @@
         },
         "value": {
             "$ref": "base_value.json",
+            "description": "Tests whether a named game rule is active.",
+            "default": true,
             "type": "boolean"
         }
     }
