@@ -25,6 +25,7 @@
 |-----------|-------------------|
 |animation_controllers   |animation_controllers/*.json |
 |animations   |animations/*.animation.json  |
+|models   |*.geo.json  |
 
 ## Behaviour packs
 

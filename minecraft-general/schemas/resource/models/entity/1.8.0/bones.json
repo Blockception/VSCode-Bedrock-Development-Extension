@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.model.bones.1.8.0",
+  "title": "The minecraft resourcepack model schema for 1.8.0",
+  "type": "array",
+  "uniqueItems": false,
+  "description": "A collection of bones specification",
+  "definitions": {
+    "array_3_integer": { "$ref": "../../../../general/array_3_integer.json" },
+    "array_2_number": { "$ref": "../../../../general/array_2_number.json" },
+    "array_3_number": { "$ref": "#/definitions/array_3_number" }
+  },
+  "items": {
+    "additionalProperties": false,
+    "description": "A bone specification",
+    "type": "object",
+    "properties": {
+      "bind_pose_rotation": {
+        "description": "I have no idea",
+        "$ref": "#/definitions/array_3_number"
+      },
+      "cubes": {
+        "type": "array",
+        "description": "The collection of cubes that describes this model",
+        "items": {
+          "additionalProperties": false,
+          "type": "object",
+          "description": "A cubes that describes this model",
+          "required": ["origin", "size"],
+          "properties": {
+            "inflate": {
+              "type": "number",
+              "description": "The amount of inflation to apply to the cube"
+            },            
+            "origin": {
+              "description": "The origin of the cube x, y, z",
+              "$ref": "#/definitions/array_3_number"
+            },
+            "pivot": {
+              "description": "The rotation point of the cube.",
+              "$ref": "#/definitions/array_3_number"
+            },
+            "rotation": {
+              "description": "The rotation of the cube x, y, z",
+              "$ref": "#/definitions/array_3_number"
+            },
+            "size": {
+              "description": "The size of the cube x, y, z",
+              "$ref": "#/definitions/array_3_number"
+            },            
+            "uv": {
+              "description": "The uv of the cube",
+              "$ref": "#/definitions/array_2_number"
+            },
+            "mirror": {
+              "type": "boolean",
+              "description": ""
+            }
+          }
+        }
+      },
+      "inflate": {
+        "type": "number",
+        "description": "The amount of inflation to apply to the cube"
+      },
+      "locators": {
+        "minProperties": 1,
+        "additionalProperties": {
+          "$ref": "#/definitions/array_3_number"
+        }
+      },
+      "mirror": {
+        "type": "boolean",
+        "description": ""
+      },
+      "name": {
+        "type": "string",
+        "description": "The name of the bone"
+      },
+      "neverRender": {
+        "type": "boolean",
+        "description": "If marked true then this bone is never rendered"
+      },
+      "parent": {
+        "type": "string",
+        "description": "The name of the bone that counts as the parent"
+      },
+      "pivot": {
+        "description": "The rotation point of the cube.",
+        "$ref": "#/definitions/array_3_number"
+      },
+      "reset": {
+        "description": "",
+        "type": "boolean"
+      },
+      "rotation": {
+        "description": "The rotation of the cube.",
+        "$ref": "#/definitions/array_3_number"
+      },
+      "texture_meshes": {
+        "type": "array",
+        "items": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "local_pivot": {
+              "$ref": "#/definitions/array_3_number",
+              "description": "The local pivot point of the texture"
+            },
+            "position": {
+              "$ref": "#/definitions/array_3_number",
+              "description": "The position of the texture"
+            },
+            "rotation": {
+              "$ref": "#/definitions/array_3_number",
+              "description": "The rotation of the texture"
+            },
+            "scale": {
+              "$ref": "#/definitions/array_3_number",
+              "description": "The scale of the texture"
+            },
+            "texture": {
+              "type": "string",
+              "pattern": "^[a-z0-9_-]*$"
+            }
+          }
+        }
+      }
+    }
+  }
+}
