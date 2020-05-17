@@ -45,12 +45,12 @@
                 "description": "The height of the texture in pixels"
               },
               "visible_bounds_offset": {
-                "description": "",
+                "description": "TODO",
                 "$ref": "#/definitions/array_3_number"
               },
               "visible_bounds_width": {
                 "type": "number",
-                "description": ""
+                "description": "TODO"
               }
             }
           },
