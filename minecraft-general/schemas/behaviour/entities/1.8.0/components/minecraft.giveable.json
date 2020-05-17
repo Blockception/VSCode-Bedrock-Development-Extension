@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.giveable",
+  "type": "object",
+  "title": "minecraft:giveable 1.8.0",
+  "additionalProperties": false,
+  "required": [ ],
+  "properties": {
+    "cooldown": {
+      "type": "number",
+      "default": 0,
+      "description": "An optional cool down in seconds to prevent spamming interactions."
+    },
+    "items": {
+      "type": "array",
+      "description": "The list of items that can be given to the entity to place in their inventory.",
+      "items": {
+        "description": "An items that can be given to the entity to place in their inventory.",
+        "$ref": "../../../../general/items_item.json"
+      }
+    },
+    "on_give": {
+      "type": "string",
+      "default": 0,
+      "description": "Event to fire when the correct item is given."
+    }
+  }
+}
+
