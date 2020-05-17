@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.entity1.8.0",
+  "type": "object",
+  "title": "The minecraft resourcepack actor animation 1.8.0",
+  "description": "The root schema comprises the entire JSON document.",
+  "required": ["format_version", "minecraft:client_entity"],
+  "properties": {
+    "format_version": {
+      "title": "The 1.8.0 format_version",
+      "type": "string",
+      "pattern": "^1.8.0$"
+    },
+    "minecraft:client_entity": {
+      "type": "object",
+      "title": "The client entity",
+      "description": "The client entity definition",
+      "required": ["description"],
+      "properties": {
+        "description": {
+          "title": "Description definition",
+          "type": "object",
+          "required": ["identifier", "geometry"],
+          "properties": {
+            "identifier": {
+              "pattern": "^[a-z:]+",
+              "type": "string"
+            },
+            "materials": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "textures": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "geometry": {
+              "title": "Geometry definition",
+              "type": "object",
+              "propertyNames": { "pattern": "[a-zA-Z0-9_\\.-]+" },
+              "minProperties": 1,
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "scripts": {
+              "type": "object",
+              "properties": {
+                "pre_aninamtion": {
+                  "type": "array",
+                  "items": {
+                    "pattern": ";$",
+                    "$ref": "../../../molang/1.8.0/number.json"
+                  }
+                },
+                "scale": {
+                  "type": "string"
+                },
+                "animate": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "animations": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "animation_controllers": {
+              "type": "array",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "particle_effects": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "render_controllers": {
+              "type": "array",
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "spawn_egg": {
+              "type": "object",
+              "anyOf": [{ "required": ["base_color", "overlay_color"] }, { "required": ["texture", "texture_index"] }],
+              "properties": {
+                "base_colour": {
+                  "type": "string"
+                },
+                "overlay_color": {
+                  "type": "string"
+                },
+                "texture": {
+                  "type": "string"
+                },
+                "texture_index": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}
