@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.particle.1.10.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "type": "string",
+      "const": "1.10.0"
+    },
+    "particle_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "identifier": {
+              "type": "string",
+              "pattern": "^.+$"
+            },
+            "basic_render_parameters": {
+              "additionalProperties": false,
+              "type": "object",
+              "properties": {
+                "material": {
+                  "type": "string",
+                  "examples": ["particles_alpha", "particles_blend"]
+                },
+                "texture": {
+                  "type": "string",
+                  "pattern": "^.+$"
+                }
+              }
+            }
+          }
+        },
+        "components": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "minecraft:emitter_lifetime_expression": { "$ref": "./components/minecraft.emitter_lifetime_expression.json" },
+            "minecraft:emitter_lifetime_once": { "$ref": "./components/minecraft.emitter_lifetime_once.json" },
+            "minecraft:emitter_lifetime_looping": { "$ref": "./components/minecraft.emitter_lifetime_once.json" },
+
+            "minecraft:emitter_local_space": { "$ref": "./components/minecraft.emitter_local_space.json" },
+
+            "minecraft:emitter_rate_instant": { "$ref": "./components/minecraft.emitter_rate_instant.json" },
+            "minecraft:emitter_rate_manual": { "$ref": "./components/minecraft.emitter_rate_manual.json" },
+            "minecraft:emitter_rate_steady": { "$ref": "./components/minecraft.emitter_rate_steady.json" },
+
+            "minecraft:emitter_shape_custom": { "$ref": "./components/minecraft.emitter_shape_custom.json" },
+            "minecraft:emitter_shape_point": { "$ref": "./components/minecraft.emitter_shape_point.json" },          
+            "minecraft:emitter_shape_sphere": { "$ref": "./components/minecraft.emitter_shape_sphere.json" },
+            "minecraft:emitter_shape_entity_aabb": { "$ref": "./components/minecraft.emitter_shape_entity_aabb.json" },
+            
+            "minecraft:particle_appearance_billboard": { "$ref": "./components/minecraft.particle_appearance_billboard.json" },
+            "minecraft:particle_appearance_tinting": { "$ref": "./components/minecraft.particle_appearance_tinting.json" },
+            "minecraft:particle_appearance_lighting": { "$ref": "./components/minecraft.particle_appearance_lighting.json" },
+
+            "minecraft:particle_expire_if_not_in_blocks": { "$ref": "./components/minecraft.particle_expire_if_not_in_blocks.json" },
+            "minecraft:particle_initialization": { "$ref": "./components/minecraft.particle_initialization.json" },
+            "minecraft:particle_initial_speed": { "$ref": "./components/minecraft.particle_initial_speed.json" },
+
+            "minecraft:particle_lifetime_expression": { "$ref": "./components/minecraft.particle_lifetime_expression.json" },
+            "minecraft:particle_lifetime_events": { "$ref": "./components/minecraft.particle_lifetime_events.json" },
+
+            "minecraft:particle_kill_plane": { "$ref": "./components/minecraft.particle_kill_plane.json" },
+            
+            "minecraft:particle_motion_collision": { "$ref": "./components/minecraft.particle_motion_collision.json" },
+            "minecraft:particle_motion_dynamic": { "$ref": "./components/minecraft.particle_motion_dynamic.json" },
+            "minecraft:particle_motion_parametric": { "$ref": "./components/minecraft.particle_motion_parametric.json" }
+          }
+        },
+        "events": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "effect": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

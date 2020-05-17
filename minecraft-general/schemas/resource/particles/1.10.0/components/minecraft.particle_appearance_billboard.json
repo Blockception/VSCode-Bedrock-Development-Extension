@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "minecraft.resource.particle.1.10.0.particle_appearance_billboard",
+    "type": "object",
+    "title": "The particle_appearance_billboard component for 1.10.0",
+    "additionalProperties": false,
+    "properties": {
+        "size": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+                "$ref": "../../../../molang/1.8.0/number.json"
+            }
+        },
+        "facing_camera_mode": {
+            "type": "string",
+            "enum": [ "lookat_xyz", "rotate_xyz" ]
+        },
+        "uv": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "texture_width": {
+                    "type": "integer"
+                },
+                "texture_height": {
+                    "type": "integer"
+                },
+                "flipbook": {
+                    "additionalProperties": false,
+                    "type": "object",
+                    "properties": {
+                        "base_UV": {
+                            "type": "array",
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "items": {
+                                "$ref": "../../../../molang/1.8.0/number.json"
+                            }
+                        },
+                        "size_UV": {
+                            "type": "array",
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "items": {
+                                "$ref": "../../../../molang/1.8.0/number.json"
+                            }
+                        },
+                        "step_UV": {
+                            "type": "array",
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "items": {
+                                "$ref": "../../../../molang/1.8.0/number.json"
+                            }
+                        },
+                        "frames_per_second": {
+                            "$ref": "../../../../molang/1.8.0/number.json"
+                        },
+                        "max_frame": {
+                            "$ref": "../../../../molang/1.8.0/number.json"
+                        },
+                        "stretch_to_lifetime": {
+                            "type": "boolean"
+                        },
+                        "loop": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "uv": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                        "$ref": "../../../../molang/1.8.0/number.json"
+                    }
+                },
+                "uv_size": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                        "$ref": "../../../../molang/1.8.0/number.json"
+                    }
+                }
+            }
+        }
+    }
+}
