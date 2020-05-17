@@ -19,7 +19,8 @@
       "type": "string"
     },
     "sound_definitions": {
-      "additionalProperties": {
+      "additionalProperties": {        
+        "additionalItems": false,
         "type": "object",
         "$id": "#/Sound",
         "title": "Sound specification",
@@ -40,6 +41,7 @@
                   "$ref": "#/definitions/SoundPath"
                 },
                 {
+                  "additionalItems": false,
                   "$id": "#/Sound/sounds/ObjectItem",
                   "type": "object",
                   "required": ["name"],

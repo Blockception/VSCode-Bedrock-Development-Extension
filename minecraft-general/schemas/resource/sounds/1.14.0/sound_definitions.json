@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Minecraft.sound_definition.1.14.0.json",
+  "type": "object",
+  "additionalItems": false,
+  "title": "The minecraft sound definition file for 1.14.0",
+  "description": "The root schema comprises the entire JSON document.",
+  "definitions": {
+    "SoundPath": {
+      "$id": "SoundFilepath",
+      "type": "string",
+      "title": "The sound filepath schema",
+      "description": "The filepath to the sound, starts with 'sounds/'",
+      "pattern": "^(sounds/)",
+      "additionalItems": true
+    }
+  },
+  "properties": {
+    "format_version": {
+      "type": "string"
+    },
+    "sound_definitions": {
+      "additionalProperties": {        
+        "additionalItems": false,
+        "type": "object",
+        "$id": "#/Sound",
+        "title": "Sound specification",
+        "required": ["sounds"],
+        "properties": {
+          "category": {
+            "description": "The category of the sound",
+            "type": "string",
+            "$id": "#/Sound/category",
+            "title": "Sound category",
+            "enum": ["block", "music", "weather", "ui", "bucket", "neutral", "player", "hostile", "record", "bottle", "ambient"]
+          },
+          "sounds": {
+            "items": {
+              "anyOf": [
+                {
+                  "$id": "#/Sound/sounds/stringItem",
+                  "type": "string",
+                  "$ref": "#/definitions/SoundPath"
+                },
+                {
+                  "additionalItems": false,
+                  "$id": "#/Sound/sounds/ObjectItem",
+                  "type": "object",
+                  "required": ["name"],
+                  "properties": {
+                    "pitch": {
+                      "description": "The pitch of the audio, 1 is nomial",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 2
+                    },
+                    "volume": {
+                      "description": "The volume of the audio, 1 is nomial",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 10
+                    },
+                    "load_on_low_memory": {
+                      "type": "boolean",
+                      "description": "marks if this audio should be loaded or not on low memory"
+                    },
+                    "stream": {
+                      "description": "If marked true then minecraft will stream the audio",
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "$id": "#/Sound/sounds/stringItem",
+                      "type": "string",
+                      "$ref": "#/definitions/SoundPath"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "__use_legacy_max_distance": {
+        "type": "string",
+        "enum": ["true", "false"]
+    }
+  }
+}

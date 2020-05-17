@@ -28,7 +28,7 @@
 |entity   |entity/*entity.json  |
 |models   |*.geo.json  |
 |particles   |particles/*.json  |
-|sound defintions   |sound_definitions.json  |
+|sound definitions   |sound_definitions.json  |
 
 ## Behaviour packs
 
