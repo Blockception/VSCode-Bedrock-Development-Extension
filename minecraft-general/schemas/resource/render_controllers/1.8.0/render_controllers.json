@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Minecraft.render_controllers.json",
+  "additionalProperties": false,
+  "type": "object",
+  "title": "Render_Controllers 1.8.0",
+  "description": "Render_Controllers 1.8.0",
+  "definitions": {
+    "color": {
+      "anyOf": [
+        { "type": "number" },
+        { "type": "string" }
+      ]
+    }
+  },
+  "properties": {
+    "format_version": {
+      "title": "The 1.8.0 format_version",
+      "type": "string",
+      "pattern": "^1.8.0$"
+    },
+    "render_controllers": {
+      "type": "object",
+      "propertyNames": { "pattern": "^controller\\.render\\.[a-z\\.]+" },
+      "additionalProperties": {
+        "additionalProperties": false,
+        "type": "object",
+        "description": "A single render_controller",
+        "required": ["geometry", "materials", "textures"],
+        "properties": {
+          "arrays": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "geometries": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[Gg]eometry\\..+"
+                  }
+                }
+              },
+              "materials": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[Mm]aterial\\..+"
+                  }
+                }
+              },
+              "textures": {
+                "type": "object",
+                "minProperties": 1,
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[Tt]exture\\..+"
+                  }
+                }
+              }
+            }
+          },
+          "color": {
+            "type": "object",
+            "properties": {
+              "r": { "$ref": "#/definitions/color" },
+              "g": { "$ref": "#/definitions/color" },
+              "b": { "$ref": "#/definitions/color" },
+              "a": { "$ref": "#/definitions/color" }
+            }
+          },
+          "geometry": {
+            "type": "string"
+          },
+          "ignore_lighting": {
+            "type": "boolean"
+          },
+          "light_color_multiplier": {
+            "type": "number"
+          },
+          "materials": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "overlay_color": {
+            "type": "object",
+            "properties": {
+              "r": { "$ref": "#/definitions/color" },
+              "g": { "$ref": "#/definitions/color" },
+              "b": { "$ref": "#/definitions/color" },
+              "a": { "$ref": "#/definitions/color" }
+            }
+          },
+          "textures": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "part_visibility": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "maxProperties": 1,
+              "minProperties": 1,
+              "additionalProperties": {
+                "oneOf": [
+                  { "type": "string" },
+                  { "type": "boolean" },
+                  { "type": "number" }
+                ]
+              }
+            }
+          },
+          "rebuild_animation_matrices": {
+            "type": "boolean"
+          },
+          "uv_anim": {
+            "type": "object",
+            "properties": {
+              "offset": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "anyOf": [
+                    {"type": "number"},{"type": "string"}
+                  ]
+                }
+              },
+              "scale": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "anyOf": [
+                    {"type": "number"},{"type": "string"}
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
