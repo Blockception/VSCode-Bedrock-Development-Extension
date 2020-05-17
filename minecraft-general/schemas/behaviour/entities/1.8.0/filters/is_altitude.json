@@ -4,18 +4,14 @@
     "type": "object",
     "title": "Filters is_altitude 1.8.0",
     "additionalProperties": false,
-    "required": [
-           "value" ],
+    "description": "Tests the current altitude against a provided value. 0= bedrock elevation.",
+    "$ref": "./types/base_filter_integer.json",
+    "required": [ "value" ],
     "properties": {
-        "operator": {
-            "$ref": "base_operator.json"
-        },
-        "subject": {
-            "$ref": "base_subject.json"
-        },
         "value": {
             "$ref": "base_value.json",
             "type": "integer",
+            "description": "The altitude value to compare with",
             "minimum": 0,
             "maximum": 24000
         }

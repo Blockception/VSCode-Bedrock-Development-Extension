@@ -4,8 +4,9 @@
     "type": "object",
     "title": "Filters hourly_clock_time 1.8.0",
     "additionalProperties": false,
-    "required": [
-           "value" ],
+    "description": "Compares the current 24 hour time with an int value in the range[0, 24000]",
+    "$ref": "./types/base_filter_integer.json",
+    "required": [ "value" ],
     "properties": {
         "operator": {
             "$ref": "base_operator.json"
@@ -16,6 +17,7 @@
         "value": {
             "$ref": "base_value.json",
             "type": "integer",
+            "description": "An integer value.",
             "minimum": 0,
             "maximum": 24000
         }

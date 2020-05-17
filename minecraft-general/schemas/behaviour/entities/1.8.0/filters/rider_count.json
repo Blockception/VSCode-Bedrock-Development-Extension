@@ -4,18 +4,7 @@
     "type": "object",
     "title": "Filters rider_count 1.8.0",
     "additionalProperties": false,
-    "required": [
-          "value" ],
-    "properties": {
-        "operator": {
-            "$ref": "base_operator.json"
-        },
-        "subject": {
-            "$ref": "base_subject.json"
-        },
-        "value": {
-            "$ref": "base_value.json",
-            "type": "integer"
-        }
-    }
+    "description": "Returns the number of riders on this entity.",
+    "required": [ "value" ],
+    "$ref": "./types/base_filter_integer.json"
 }

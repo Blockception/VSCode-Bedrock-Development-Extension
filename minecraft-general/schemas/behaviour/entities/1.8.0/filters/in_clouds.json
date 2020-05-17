@@ -4,18 +4,6 @@
     "type": "object",
     "title": "Filters in_clouds 1.8.0",
     "additionalProperties": false,
-    "required": [
-           ],
-    "properties": {
-        "operator": {
-            "$ref": "base_operator.json"
-        },
-        "subject": {
-            "$ref": "base_subject.json"
-        },
-        "value": {
-            "$ref": "base_value.json",
-            "type": "boolean"
-        }
-    }
+    "description": "Returns true when the subject entity is in the clouds.",
+    "$ref": "./types/base_filter_boolean.json"
 }

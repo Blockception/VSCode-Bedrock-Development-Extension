@@ -3,7 +3,8 @@
     "$id": "minecraft.behaviour.entities.filters.base_operator",
     "title": "Filters operator 1.8.0",
     "type": "string",
-    "description": "The operator to apply",
+    "description": "The comparison to apply with 'value'.",
+    "default": "equals",
     "enum": [
         "!=",
         "<",

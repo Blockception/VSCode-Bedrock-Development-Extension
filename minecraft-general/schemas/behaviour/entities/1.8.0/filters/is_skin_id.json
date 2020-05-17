@@ -4,18 +4,6 @@
     "type": "object",
     "title": "Filters is_skin_id 1.8.0",
     "additionalProperties": false,
-    "required": [
-           "value" ],
-    "properties": {
-        "operator": {
-            "$ref": "base_operator.json"
-        },
-        "subject": {
-            "$ref": "base_subject.json"
-        },
-        "value": {
-            "$ref": "base_value.json",
-            "type": "integer"
-        }
-    }
+    "description": "Returns true if the subject entity is the skin id number provided.",
+    "$ref": "./types/base_filter_integer.json"
 }

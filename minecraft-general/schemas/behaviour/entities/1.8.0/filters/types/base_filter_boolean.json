@@ -1,11 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.filters.has_tag",
+    "$id": "minecraft.behaviour.entities.1.8.0.filters.base.boolean",
     "type": "object",
-    "title": "Filters has_tag 1.8.0",
+    "title": "Filters boolean value 1.8.0",
     "additionalProperties": false,
-    "description": "Returns true if the subject entity has the tag provided.",
-    "required": [ "value" ],
+    "required": [ ],
     "properties": {
         "operator": {
             "$ref": "base_operator.json"
@@ -14,10 +13,10 @@
             "$ref": "base_subject.json"
         },
         "value": {
-            "type": "string",
-            "description": "The tag as a string",
             "$ref": "base_value.json",
-            "pattern": "[a-zA-Z0-9_]+"
+            "type": "boolean",
+            "default": true,
+            "description": "(Optional) true or false."            
         }
     }
 }

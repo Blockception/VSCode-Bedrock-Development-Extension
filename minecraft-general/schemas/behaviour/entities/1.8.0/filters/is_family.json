@@ -4,8 +4,8 @@
     "type": "object",
     "title": "Filters is_family 1.8.0",
     "additionalProperties": false,
-    "required": [
-           "value" ],
+    "description": "Returns true when the subject entity is a member of the named family.",
+    "required": [ "value" ],
     "properties": {
         "operator": {
             "$ref": "base_operator.json"
@@ -15,6 +15,7 @@
         },
         "value": {
             "$ref": "base_value.json",
+            "description": "The Family name to look for",
             "type": "string"
         }
     }

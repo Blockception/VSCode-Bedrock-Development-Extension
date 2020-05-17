@@ -4,9 +4,8 @@
     "type": "object",
     "title": "Filters has_mob_effect 1.8.0",
     "additionalProperties": false,
-    "required": [
-        "value"
-    ],
+    "description": "Tests whether the Subject has the specified mob effect.",
+    "required": [ "value" ],
     "properties": {
         "operator": {
             "$ref": "base_operator.json"
