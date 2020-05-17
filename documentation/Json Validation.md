@@ -27,6 +27,7 @@
 |animations   |animations/*.animation.json  |
 |entity   |entity/*entity.json  |
 |models   |*.geo.json  |
+|particles   |particles/*.json  |
 |sound defintions   |sound_definitions.json  |
 
 ## Behaviour packs
