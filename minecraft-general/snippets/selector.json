@@ -1,0 +1,22 @@
+{
+  "minecraft.selector.self": {
+    "prefix": ["@s", "minecraft.selector.self"],
+    "body": "@s",
+    "description": "A entity selector that refers to the executing entity."
+  },
+  "minecraft.selector.all": {
+    "prefix": ["@a", "minecraft.selector.all"],
+    "body": "@a",
+    "description": "A entity selector that selects all players."
+  },
+  "minecraft.selector.random": {
+    "prefix": ["@r", "minecraft.selector.random"],
+    "body": "@r",
+    "description": "A player selector that selects a random player, or if a type is specified entities."
+  },
+  "minecraft.selector.nearest": {
+    "prefix": ["@p", "minecraft.selector.nearest"],
+    "body": "@p",
+    "description": "A entity selector that selects the nearest player to the executing position."
+  }
+}
