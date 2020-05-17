@@ -6,7 +6,7 @@
     {
       "$id": "molang1.8.0",
       "type": "string",
-      "title": "The minecraft resourcepack actor animation",
+      "title": "The minecraft molang definition",
       "description": "molang definition",
       "minLength": 0
     },

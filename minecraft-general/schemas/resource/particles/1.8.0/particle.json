@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.particle.1.8.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "type": "string",
+      "const": "1.8.0"
+    },
+    "particle_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "identifier": {
+              "type": "string",
+              "pattern": "^.+$"
+            }
+          }
+        },
+        "components": {
+          "additionalProperties": false,
+          "type": "object"
+        }
+      }
+    }
+  }
+}
