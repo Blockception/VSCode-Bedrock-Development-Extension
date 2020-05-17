@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:fall_damage 1.8.0",
   "additionalProperties": false,
-  "description": "",
+  "description": "TODO",
   "required": [ ],
   "properties": {
     "value": {

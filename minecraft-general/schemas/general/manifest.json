@@ -8,15 +8,11 @@
   "allOf": [    
     {
       "if": { "properties": { "format_version": { "const": 1, "type": "number" } } },
-      "then": {
-        "$ref": "./manifest/manifest.1.json"
-      }
+      "then": { "$ref": "./manifest/manifest.1.json" }
     },
     {
       "if": { "properties": { "format_version": { "const": 2, "type": "number" } } },
-      "then": {
-        "$ref": "./manifest/manifest.2.json"
-      }
+      "then": { "$ref": "./manifest/manifest.2.json" }
     }
   ]
 }

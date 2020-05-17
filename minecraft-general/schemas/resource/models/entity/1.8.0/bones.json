@@ -88,7 +88,7 @@
             },
             "mirror": {
               "type": "boolean",
-              "description": ""
+              "description": "TODO"
             }
           }
         }
@@ -105,7 +105,7 @@
       },
       "mirror": {
         "type": "boolean",
-        "description": ""
+        "description": "TODO"
       },
       "name": {
         "type": "string",
@@ -124,7 +124,7 @@
         "$ref": "#/definitions/array_3_number"
       },
       "reset": {
-        "description": "",
+        "description": "TODO",
         "type": "boolean"
       },
       "rotation": {
