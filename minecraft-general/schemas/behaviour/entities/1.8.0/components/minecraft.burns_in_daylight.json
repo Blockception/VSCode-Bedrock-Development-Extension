@@ -4,7 +4,7 @@
     "type": "object",
     "title": "minecraft:burns_in_daylight 1.8.0",
     "additionalProperties": false,
-    "$ref": "../types/behaviour_base.json",
+    "description": "Specifies if/how a mob burns in daylight.",
     "required": [],
     "properties": { }
 }

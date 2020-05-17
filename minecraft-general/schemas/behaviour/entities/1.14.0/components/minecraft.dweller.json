@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.14.0.minecraft.dweller",
+  "type": "object",
+  "title": "minecraft:dweller 1.14.0",
+  "additionalProperties": false,
+  "description": "Allows the entity to power jump like the horse does in vanilla.",
+  "required": [],
+  "properties": {
+    "dwelling_type": {
+      "type": "string"
+    },
+    "dweller_role": {
+      "type": "string"
+    },
+    "update_interval_base": {
+      "type": "integer"
+    },
+    "update_interval_variant": {
+      "type": "integer"
+    },
+    "can_find_poi": {
+      "type": "boolean"
+    },
+    "can_migrate": {
+      "type": "boolean"
+    },
+    "first_founding_reward": {
+      "type": "integer"
+    }
+  }
+}
