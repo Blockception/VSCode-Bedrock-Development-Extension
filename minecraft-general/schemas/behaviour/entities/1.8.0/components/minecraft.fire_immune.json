@@ -4,6 +4,7 @@
     "type": "object",
     "title": "minecraft:fire_immune 1.8.0",
     "additionalProperties": false,
+    "description": "Sets that this entity doesn't take damage from fire.",
     "required": [ ],
     "properties": { }
 }

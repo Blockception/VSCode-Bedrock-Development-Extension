@@ -1,42 +1,54 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.loot",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.equippable",
   "type": "object",
-  "title": "minecraft:loot 1.8.0",
+  "title": "minecraft:equippable 1.8.0",
   "additionalProperties": false,
+  "description": "Defines an entity's behavior for having items equipped to it",
   "required": [ ],
   "properties": {
-    "table": {
-      "type": "string",
-      "pattern": ".*\\.json$"
+    "slots": {
+      "description": "List of slots and the item that can be equipped",
+      "type": "array",
+      "items": {
+        "description": "a slot and the item that can be equipped",
+        "type":"object",
+        "properties": {
+          "slot": {
+            "type": "integer",
+            "default": 0,
+            "description": "The slot number of this slot"
+          },
+          "accepted_items": {
+            "type": "array",
+            "description": "The list of items that can go in this slot",
+            "items": {
+              "type": "string",
+              "description": "A item name"
+            }
+          },
+          "item": {
+            "type": "string",
+            "default": 0,
+            "description": "Identifier of the item that can be equipped for this slot"
+          },
+          "interact_text": {
+            "type": "string",
+            "default": 0,
+            "description": "Text to be displayed when the entity can be equipped with this item when playing with Touch-screen controls"
+          },
+          "on_equip": {
+            "type": "string",
+            "default": 0,
+            "description": "Event to trigger when this entity is equipped with this item"
+          },
+          "on_unequip": {
+            "type": "string",
+            "default": 0,
+            "description": "Event to trigger when this item is removed from this entity"
+          }
+        }
+      }
     }
   }
-}
-
-"minecraft:equippable": {
-  "slots": [
-    {
-      "slot": 0,
-      "item": "saddle",
-      "accepted_items": [
-        "saddle"
-      ],
-      "on_equip": {
-        "event": "minecraft:horse_saddled"
-      },
-      "on_unequip": {
-        "event": "minecraft:horse_unsaddled"
-      }
-    },
-    {
-      "slot": 1,
-      "item": "horsearmoriron",
-      "accepted_items": [
-        "horsearmorleather",
-        "horsearmoriron",
-        "horsearmorgold",
-        "horsearmordiamond"
-      ]
-    }
-  ]
 }
