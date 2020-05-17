@@ -10,10 +10,11 @@
   "properties": {
     "items":{
       "type": "array",
-      "description": "Allows this mob to charge and use their held item.",
+      "description": "The list of items that can be used to charge the held item.",
       "items": {
         "type":"string",
-        "description": "Items names to be used."
+        "description": "Items names to be used.",
+        "$ref": "../../../../general/entities_item.json"
       }
     }
   }

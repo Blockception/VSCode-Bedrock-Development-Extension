@@ -28,7 +28,7 @@
       "items": {
         "type": "string",
         "description": "An item that can be used to get the entity into the 'love' state",
-        "pattern": "^.+$"
+        "$ref": "../../../../general/items_item.json"
       }
     },
     "breeds_with": {
@@ -43,7 +43,8 @@
         "properties": {
           "baby_type": {
             "type": "string",
-            "description": "The entity definition of this entity's babies."
+            "description": "The entity definition of this entity's babies.",
+            "$ref": "../../../../general/entities_item.json"
           },
           "breed_event": {
             "type": "string",
@@ -51,7 +52,8 @@
           },
           "mate_type": {
             "type": "string",
-            "description": "The entity definition of this entity's mate."
+            "description": "The entity definition of this entity's mate.",
+            "$ref": "../../../../general/entities_item.json"
           }
         }
       }
@@ -96,7 +98,7 @@
             "items": {
               "description": "a block type required nearby for the entity to breed.",
               "type": "string",
-              "pattern": "^.+$"
+              "$ref": "../../../../general/blocks_item.json"
             }
           },
           "count": {

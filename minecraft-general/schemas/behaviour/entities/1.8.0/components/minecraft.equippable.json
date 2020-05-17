@@ -24,7 +24,8 @@
             "description": "The list of items that can go in this slot",
             "items": {
               "type": "string",
-              "description": "A item name"
+              "description": "A item name",
+              "$ref": "../../../../general/items_item.json"
             }
           },
           "item": {

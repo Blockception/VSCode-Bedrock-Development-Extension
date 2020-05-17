@@ -19,13 +19,7 @@
             "type": "string",
             "default": "none",
             "description": "Type of damage that triggers the events.",
-            "enum": [
-              "none",
-              "all",
-              "entity_attack",
-              "projectile", 
-              "magic"
-            ]
+            "$ref": "../../../../general/entity_damage.json"
           },
           "deals_damage": {
             "type": "boolean",
