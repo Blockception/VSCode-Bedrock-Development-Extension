@@ -22,12 +22,8 @@
   },
   "additionalProperties": {
     "additionalProperties": false,
-    "type": "object",    
+    "type": "object",
     "properties": {
-      "identifier": {
-        "type":"string",
-        "pattern": "^[^:]*$"
-      },
       "texturewidth": {
         "type":"integer"
       },
