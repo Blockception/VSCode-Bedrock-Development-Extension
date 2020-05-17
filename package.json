@@ -64,8 +64,14 @@
             { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/commands.json" },
             { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/effect-names.json" },
             { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/enchant-names.json" },
+            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/selector.json" },
             { "language": "bc-minecraft-mcfunction", "path": "./minecraft-mcfunctions/snippets/mcfunction.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-language-files/snippets/minecraft-language.json" }
+
+            { "language": "bc-minecraft-language", "path": "./minecraft-language-files/snippets/minecraft-language.json" },
+            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/blocks-names.json" },
+            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/commands.json" },
+            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/effect-names.json" },
+            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/enchant-names.json" }
         ],
         "jsonValidation": [
             { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" },
