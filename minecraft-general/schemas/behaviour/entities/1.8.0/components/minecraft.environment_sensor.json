@@ -1,34 +1,34 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.can_power_jump",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.environment_sensor",
   "type": "object",
-  "title": "minecraft:can_power_jump 1.8.0",
+  "title": "minecraft:environment_sensor 1.8.0",
   "additionalProperties": false,
   "description": "Allows the entity to power jump like the horse does in vanilla.",
+  "definitions": {
+    "environmentsensor":{
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "filters": { "$ref": "../filters.json" },
+        "event": {
+          "type":"string",
+          "pattern": "^.+$"
+        }
+      }
+    }
+  },
   "required": [],
   "properties": {
-    
-  }
-}
-
-"minecraft:environment_sensor": {
-  "on_environment": {
-    "filters": {
-      "test": "is_underwater",
-      "subject": "self",
-      "operator": "==",
-      "value": true
-    },
-    "event": "minecraft:melee_mode"
-  }
-}"minecraft:environment_sensor": {
-  "on_environment": {
-    "filters": {
-      "test": "is_underwater",
-      "subject": "self",
-      "operator": "==",
-      "value": true
-    },
-    "event": "minecraft:melee_mode"
+    "environment_sensor": {
+      "description": "The list of triggers that fire when the environment conditions match the given filter criteria.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "$ref": "#/definitions/environmentsensor" }
+        },
+        { "$ref": "#/definitions/environmentsensor" }
+      ]
+    }
   }
 }
