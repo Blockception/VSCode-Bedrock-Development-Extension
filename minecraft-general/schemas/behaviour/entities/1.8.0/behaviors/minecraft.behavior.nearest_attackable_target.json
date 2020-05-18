@@ -10,7 +10,7 @@
     "priority": { "$ref": "types/base_priority.json" },
     "entity_types": {
       "description": "List of entity types that this mob considers valid targets",
-      "$ref": "../../types/entity_types.json"
+      "$ref": "../types/entity_types.json"
     },
     "attack_interval": {
       "type": "integer",

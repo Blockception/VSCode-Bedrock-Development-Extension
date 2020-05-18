@@ -39,7 +39,7 @@
       "title": "TODO title"
     },
     "float_duration": {
-      "$ref": "../../types/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [
         0.0,
         0.0

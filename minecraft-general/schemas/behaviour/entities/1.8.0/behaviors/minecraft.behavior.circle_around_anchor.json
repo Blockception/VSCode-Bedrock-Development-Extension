@@ -15,7 +15,7 @@
       "title": "TODO title"
     },
     "radius_range": {
-      "$ref": "../../types/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [
         5.0,
         15.0
@@ -30,7 +30,7 @@
       "title": "TODO title"
     },
     "height_above_target_range": {
-      "$ref": "../../types/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [
         0.0,
         0.0
@@ -39,7 +39,7 @@
       "title": "TODO title"
     },
     "height_offset_range": {
-      "$ref": "../../types/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [
         0.0,
         0.0
