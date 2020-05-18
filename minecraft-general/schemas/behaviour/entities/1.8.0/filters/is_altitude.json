@@ -5,14 +5,13 @@
   "title": "Filters is_altitude 1.8.0",
   "additionalProperties": false,
   "description": "Tests the current altitude against a provided value. 0= bedrock elevation.",
-  "$ref": "./types/base_filter_integer.json",
+  "$ref": "base_types/base_filter_integer.json",
   "required": [
     "value"
   ],
   "properties": {
     "value": {
-      "$ref": "base_value.json",
-      "type": "integer",
+            "type": "integer",
       "description": "The altitude value to compare with",
       "minimum": 0,
       "maximum": 24000,

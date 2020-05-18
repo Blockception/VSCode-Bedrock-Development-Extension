@@ -32,6 +32,9 @@
           "type": "boolean",
           "title": "The is experimental property",
           "description": "Marks if true if the entity can is only aviable for experimental"
+        },
+        "runtime_identifier": {
+          "type": "string"
         }
       }
     },

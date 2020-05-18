@@ -5,7 +5,7 @@
   "title": "minecraft:behavior.beg 1.8.0",
   "description": "Allows the mob to drink potions based on specified environment conditions.",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_speed_multiplier.json",
+  "$ref": "types/behaviour_speed_multiplier.json",
   "required": [],
   "properties": {
     "speed_modifier": {
@@ -40,7 +40,7 @@
           },
           "filters": {
             "description": "The filters to use when determining if this potion can be selected.",
-            "$ref": "../../1.8.0/filters.json",
+            "$ref": "../../filters.json",
             "title": "TODO title"
           }
         },

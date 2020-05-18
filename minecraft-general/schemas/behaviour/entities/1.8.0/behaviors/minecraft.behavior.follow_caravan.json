@@ -5,11 +5,11 @@
   "title": "minecraft:behavior.follow_caravan 1.8.0",
   "description": "Allows the mob to follow mobs that are in a caravan.",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_speed_multiplier.json",
+  "$ref": "types/behaviour_speed_multiplier.json",
   "required": [],
   "properties": {
     "entity_types": {
-      "$ref": "../types/entity_types.json",
+      "$ref": "../../types/entity_types.json",
       "description": "List of entity types that this mob can follow in a caravan",
       "title": "TODO title"
     },

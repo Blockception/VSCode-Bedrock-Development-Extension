@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.break_door 1.8.0",
   "description": "Allows this mob to break doors.",
-  "$ref": "../types/behaviour_speed_multiplier.json",
+  "$ref": "types/behaviour_speed_multiplier.json",
   "required": [],
   "properties": { },
   "additionalProperties": false

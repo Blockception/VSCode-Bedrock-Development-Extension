@@ -10,20 +10,19 @@
   ],
   "properties": {
     "operator": {
-      "$ref": "base_operator.json",
+      "$ref": "base_types/base_operator.json",
       "description": "(Optional) The comparison to apply with 'value'.",
       "default": "equals",
       "title": "TODO title"
     },
     "subject": {
-      "$ref": "base_subject.json",
+      "$ref": "base_types/base_subject.json",
       "description": "(Optional) The subject of this filter test.",
       "default": "self",
       "title": "TODO title"
     },
     "value": {
-      "$ref": "base_value.json",
-      "type": "number",
+            "type": "number",
       "minimum": 0,
       "maximum": 240000,
       "description": "(Required) An integer value.",

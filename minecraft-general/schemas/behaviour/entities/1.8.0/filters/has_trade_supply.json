@@ -5,5 +5,5 @@
     "title": "Filters has_trade_supply 1.8.0",
     "additionalProperties": false,
     "description": "Tests whether the target has any trade supply left. Will return false if the target cannot be traded with.",
-    "$ref": "./types/base_filter_boolean.json"
+    "$ref": "base_types/base_filter_boolean.json"
 }

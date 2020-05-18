@@ -5,9 +5,7 @@
   "type": "object",
   "title": "minecraft:addrider 1.8.0",
   "description": "Adds a rider to the entity. Requires minecraft:rideable.",
-  "required": [
-    "entity_type"
-  ],
+  "required": [ "entity_type" ],
   "properties": {
     "entity_type": {
       "type": "string",

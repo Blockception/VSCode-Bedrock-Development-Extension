@@ -4,5 +4,5 @@
     "type": "object",
     "title": "Filters is_mark_variant 1.8.0",
     "description": "Returns true if the subject entity is the mark variant number provided.",
-    "$ref": "./types/base_filter_integer.json"
+    "$ref": "base_types/base_filter_integer.json"
 }

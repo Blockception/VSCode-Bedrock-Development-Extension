@@ -128,6 +128,11 @@
             "description": "TODO description",
             "title": "TODO title"
           },
+          "filter_lighting": {
+            "type": "boolean",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
           "geometry": {
             "type": "string",
             "description": "TODO description",
@@ -225,7 +230,7 @@
             "type": "boolean",
             "description": "TODO description",
             "title": "TODO title"
-          }
+          }          
         },
         "title": "TODO title"
       },

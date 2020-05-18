@@ -14,7 +14,7 @@
         }
       },
       "then": {
-        "$ref": "./1.8.0/entities.json"
+        "$ref": "1.8.0/entities.json"
       }
     },
     {
@@ -29,7 +29,7 @@
         }
       },
       "then": {
-        "$ref": "./1.10.0/entities.json"
+        "$ref": "1.10.0/entities.json"
       }
     },
     {
@@ -44,7 +44,7 @@
         }
       },
       "then": {
-        "$ref": "./1.11.0/entities.json"
+        "$ref": "1.11.0/entities.json"
       }
     },
     {
@@ -59,7 +59,7 @@
         }
       },
       "then": {
-        "$ref": "./1.12.0/entities.json"
+        "$ref": "1.12.0/entities.json"
       }
     },
     {
@@ -74,7 +74,7 @@
         }
       },
       "then": {
-        "$ref": "./1.13.0/entities.json"
+        "$ref": "1.13.0/entities.json"
       }
     },
     {
@@ -89,7 +89,7 @@
         }
       },
       "then": {
-        "$ref": "./1.14.0/entities.json"
+        "$ref": "1.14.0/entities.json"
       }
     }
   ]
