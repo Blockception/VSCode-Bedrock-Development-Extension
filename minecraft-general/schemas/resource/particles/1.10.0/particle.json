@@ -191,6 +191,8 @@
         "events": {
           "type": "object",
           "additionalProperties": {
+            "description": "TODO description",
+            "title": "TODO title",
             "type": "object",
             "properties": {
               "effect": {
@@ -202,12 +204,8 @@
                 "type": "string",
                 "description": "TODO description",
                 "title": "TODO title"
-              },
-              "description": "TODO description",
-              "title": "TODO title"
-            },
-            "description": "TODO description",
-            "title": "TODO title"
+              }
+            }
           },
           "description": "TODO description",
           "title": "TODO title"
