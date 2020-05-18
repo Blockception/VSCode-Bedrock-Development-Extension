@@ -5,9 +5,10 @@
   "title": "minecraft:behavior.move_to_water 1.8.0",
   "additionalProperties": false,
   "description": "Allows the mob to move back into water when on land.",
-  "$ref": "types/behaviour_speed_multiplier.json",
+
   "required": [],
-  "properties": {
+  "properties": { 
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "search_range": {
       "type": "integer",
       "default": 0,

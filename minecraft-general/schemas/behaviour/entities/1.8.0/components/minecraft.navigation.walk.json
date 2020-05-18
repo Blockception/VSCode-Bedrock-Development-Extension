@@ -51,6 +51,11 @@
       "type": "boolean",
       "default": true,
       "description": "Tells the pathfinder whether or not it will be pulled down by gravity while in water"
+    },
+    "is_amphibious": {
+      "type": "boolean",
+      "default": true,
+      "description": "TODO Description"
     }
   }
 }

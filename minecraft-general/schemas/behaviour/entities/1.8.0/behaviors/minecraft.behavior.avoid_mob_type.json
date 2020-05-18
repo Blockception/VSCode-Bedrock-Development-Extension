@@ -1,12 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.avoid_mob_type",
-  "type": "object",
-  "title": "minecraft:behavior.avoid_mob_type 1.8.0",
+  "additionalProperties": false,
   "description": "Allows this entity to avoid certain mob types.",
-  "$ref": "types/behaviour_base.json",
+  "type": "object",
+  "title": "minecraft:behavior.avoid_mob_type 1.8.0",  
   "required": [],
   "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
     "max_dist": {
       "type": "number",
       "default": 0,
@@ -48,6 +49,5 @@
       "description": "TODO description",
       "title": "TODO title"
     }
-  },
-  "additionalProperties": false
+  }
 }

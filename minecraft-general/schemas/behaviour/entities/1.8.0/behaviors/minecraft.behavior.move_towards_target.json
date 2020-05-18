@@ -5,9 +5,10 @@
   "title": "minecraft:behavior.guardian_attack 1.8.0",
   "additionalProperties": false,
   "description": "Allows mob to move towards its current target.",
-  "$ref": "types/behaviour_speed_multiplier.json",
+
   "required": [],
-  "properties": {
+  "properties": { 
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "within_radius": {
       "type": "number",
       "default": 0.0,

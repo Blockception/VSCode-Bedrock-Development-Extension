@@ -5,7 +5,8 @@
   "title": "minecraft:behavior.beg 1.8.0",
   "description": "Allows the mob to run away from direct sunlight and seek shade.",
   "additionalProperties": false,
-  "$ref": "types/behaviour_speed_multiplier.json",
   "required": [],
-  "properties": { }
+  "properties": { 
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" }
+  }
 }

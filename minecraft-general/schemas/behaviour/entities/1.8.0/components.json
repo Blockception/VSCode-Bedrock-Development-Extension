@@ -110,7 +110,7 @@
     //"minecraft:on_target_escape": { "$ref": "components/minecraft.on_target_escape.json" },
     //"minecraft:on_wake_with_owner": { "$ref": "components/minecraft.on_wake_with_owner.json" },
     //"minecraft:peek": { "$ref": "components/minecraft.peek.json" },
-    //"minecraft:preferred_path": { "$ref": "components/minecraft.preferred_path.json" },
+    "minecraft:preferred_path": { "$ref": "components/minecraft.preferred_path.json" },
     //"minecraft:projectile": { "$ref": "components/minecraft.projectile.json" },
     //"minecraft:push_through": { "$ref": "components/minecraft.push_through.json" },
     //"minecraft:raid_trigger": { "$ref": "components/minecraft.raid_trigger.json" },
@@ -178,7 +178,7 @@
     "minecraft:behavior.ocelot_sit_on_block": { "$ref": "behaviors/minecraft.behavior.ocelot_sit_on_block.json" },
     "minecraft:behavior.ocelotattack": { "$ref": "behaviors/minecraft.behavior.ocelotattack.json" },
     "minecraft:behavior.offer_flower": { "$ref": "behaviors/minecraft.behavior.offer_flower.json" },
-    "minecraft:behavior.open_door": { "$ref": "behaviors/minecraft.behavior.open_door.json" }
+    "minecraft:behavior.open_door": { "$ref": "behaviors/minecraft.behavior.open_door.json" },
     //"minecraft.behavior.hide": { "$ref": "behaviors/minecraft.behavior.hide.json" },
     //"minecraft.behavior.move_to_poi": { "$ref": "behaviors/minecraft.behavior.move_to_poi.json" },
     //"minecraft.behavior.scared": { "$ref": "behaviors/minecraft.behavior.scared.json" },
@@ -187,7 +187,7 @@
     //"minecraft:behavior.controlled_by_player": { "$ref": "behaviors/minecraft.behavior.controlled_by_player.json" },
     //"minecraft:behavior.defend_village_target": { "$ref": "behaviors/minecraft.behavior.defend_village_target.json" },
     //"minecraft:behavior.delayed_attack": { "$ref": "behaviors/minecraft.behavior.delayed_attack.json" },
-    //"minecraft:behavior.door_interact": { "$ref": "behaviors/minecraft.behavior.door_interact.json" },
+    "minecraft:behavior.door_interact": { "$ref": "behaviors/minecraft.behavior.door_interact.json" }
     //"minecraft:behavior.dragonchargeplayer": { "$ref": "behaviors/minecraft.behavior.dragonchargeplayer.json" },
     //"minecraft:behavior.dragondeath": { "$ref": "behaviors/minecraft.behavior.dragondeath.json" },
     //"minecraft:behavior.dragonflaming": { "$ref": "behaviors/minecraft.behavior.dragonflaming.json" },

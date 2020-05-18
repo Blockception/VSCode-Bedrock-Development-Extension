@@ -5,9 +5,9 @@
   "title": "minecraft:behavior.float_wander 1.8.0",
   "description": "Allows the mob to float around like the Ghast.",
   "additionalProperties": false,
-  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
     "xz_dist": {
       "type": "integer",
       "default": 10,

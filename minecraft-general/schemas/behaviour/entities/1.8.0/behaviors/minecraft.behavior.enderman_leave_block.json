@@ -5,7 +5,8 @@
   "title": "minecraft:behavior.enderman_leave_block 1.8.0",
   "additionalProperties": false,
   "description": "Allows the enderman to drop a block they are carrying. Can only be used by Endermen.",
-  "$ref": "types/behaviour_base.json",
   "required": [],
-  "properties": { }
+  "properties": {
+    "priority": { "$ref": "types/base_priority.json" }
+  }
 }

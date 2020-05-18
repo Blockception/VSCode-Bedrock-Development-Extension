@@ -5,9 +5,9 @@
   "title": "minecraft:behavior.leap_at_target 1.8.0",
   "additionalProperties": false,
   "description": "llows monsters to jump at and attack their target. Can only be used by hostile mobs.",
-  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
     "yd": {
       "type": "number",
       "default": 0.0,

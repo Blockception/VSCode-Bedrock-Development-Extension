@@ -1,11 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.ocelot_sit_on_block",
+  "additionalProperties": false,
+  "description": "TODO description",
   "type": "object",
   "title": "minecraft:behavior.ocelot_sit_on_block 1.8.0",
-  "additionalProperties": false,
-  "$ref": "types/behaviour_speed_multiplier.json",
   "required": [],
-  "properties": {},
-  "description": "TODO description"
+  "properties": { 
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" }
+  }
 }

@@ -4,8 +4,10 @@
   "type": "object",
   "title": "minecraft:behavior.breed 1.8.0",
   "description": "Allows this mob to breed with other mobs.",
-  "$ref": "types/behaviour_speed_multiplier.json",
+
   "required": [],
-  "properties": { },
+  "properties": { 
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" }
+  },
   "additionalProperties": false
 }

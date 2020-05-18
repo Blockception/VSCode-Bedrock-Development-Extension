@@ -4,8 +4,9 @@
   "type": "object",
   "title": "minecraft:behavior.squid_out_of_water 1.8.0",
   "additionalProperties": false,
-  "$ref": "types/behaviour_base.json",
   "required": [],
-  "properties": {},
+  "properties": {
+    "priority": { "$ref": "types/base_priority.json" }
+  },
   "description": "TODO description"
 }
