@@ -8,8 +8,10 @@
   "required": [],
   "properties": {
     "value": {
-      "type":"boolean",
-      "default": true
+      "type": "boolean",
+      "default": true,
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

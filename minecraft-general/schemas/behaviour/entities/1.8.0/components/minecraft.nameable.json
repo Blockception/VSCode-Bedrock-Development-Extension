@@ -4,22 +4,7 @@
   "type": "object",
   "title": "minecraft:movement.skip 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }
-
-"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {
-  "default_trigger": {
-    "event": "minecraft:stop_johnny",
-    "target": "self"
-  },
-  "name_actions": [
-    {
-      "name_filter": "Johnny",
-      "on_named": {
-        "event": "minecraft:start_johnny",
-        "target": "self"
-      }
-    }
-  ]
-}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}"minecraft:nameable": {}

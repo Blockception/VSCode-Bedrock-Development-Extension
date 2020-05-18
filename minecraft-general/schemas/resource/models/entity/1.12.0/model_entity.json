@@ -5,26 +5,34 @@
   "title": "The minecraft resourcepack model schema for 1.12.0",
   "description": "The root schema comprises the entire JSON document.",
   "definitions": {
-    "array_3_integer": { "$ref": "../../../../general/array_3_integer.json" },
-    "array_2_number": { "$ref": "../../../../general/array_2_number.json" },
-    "array_3_number": { "$ref": "#/definitions/array_3_number" }
+    "array_3_integer": {
+      "$ref": "../../../../general/array_3_integer.json"
+    },
+    "array_2_number": {
+      "$ref": "../../../../general/array_2_number.json"
+    },
+    "array_3_number": {
+      "$ref": "#/definitions/array_3_number"
+    }
   },
-  "required": ["format_version", "minecraft:geometry"],
+  "required": [
+    "format_version",
+    "minecraft:geometry"
+  ],
   "properties": {
     "format_version": {
       "title": "The 1.12.0 format_version",
       "type": "string",
-      "pattern": "^1.12.0$"
+      "pattern": "^1.12.0$",
+      "description": "TODO description"
     },
     "minecraft:geometry": {
       "type": "array",
       "description": "The collection of geometries",
-
       "items": {
         "additionalProperties": false,
         "description": "Model specification",
         "type": "object",
-
         "properties": {
           "description": {
             "type": "object",
@@ -33,32 +41,42 @@
               "identifier": {
                 "type": "string",
                 "description": "The identifier of the geometry",
-                "pattern": "^geometry\\..+"
+                "pattern": "^geometry\\..+",
+                "title": "TODO title"
               },
               "texture_width": {
                 "type": "number",
                 "description": "The height of the texture in pixels",
-                "pattern": "^geometry\\..+"
+                "pattern": "^geometry\\..+",
+                "title": "TODO title"
               },
               "texture_height": {
                 "type": "number",
-                "description": "The height of the texture in pixels"
+                "description": "The height of the texture in pixels",
+                "title": "TODO title"
               },
               "visible_bounds_offset": {
                 "description": "TODO",
-                "$ref": "#/definitions/array_3_number"
+                "$ref": "#/definitions/array_3_number",
+                "title": "TODO title"
               },
               "visible_bounds_width": {
                 "type": "number",
-                "description": "TODO"
+                "description": "TODO",
+                "title": "TODO title"
               }
-            }
+            },
+            "title": "TODO title"
           },
-          "bones":{
-            "$ref": "../1.8.0/bones.json"
+          "bones": {
+            "$ref": "../1.8.0/bones.json",
+            "description": "TODO description",
+            "title": "TODO title"
           }
-        }
-      }
+        },
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     }
   }
 }

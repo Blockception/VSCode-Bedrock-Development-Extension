@@ -4,18 +4,7 @@
   "type": "object",
   "title": "minecraft:movement.fly 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:movement.jump": {
-  "jump_delay": [
-    2.0,
-    6.0
-  ]
-}"minecraft:movement.jump": {
-  "jump_delay": [
-    0.5,
-    1.5
-  ]
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

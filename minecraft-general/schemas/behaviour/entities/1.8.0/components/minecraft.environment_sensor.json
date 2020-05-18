@@ -6,16 +6,24 @@
   "additionalProperties": false,
   "description": "Allows the entity to power jump like the horse does in vanilla.",
   "definitions": {
-    "environmentsensor":{
+    "environmentsensor": {
       "additionalProperties": false,
       "type": "object",
       "properties": {
-        "filters": { "$ref": "../filters.json" },
+        "filters": {
+          "$ref": "../filters.json",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
         "event": {
-          "type":"string",
-          "pattern": "^.+$"
+          "type": "string",
+          "pattern": "^.+$",
+          "description": "TODO description",
+          "title": "TODO title"
         }
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     }
   },
   "required": [],
@@ -25,10 +33,19 @@
       "oneOf": [
         {
           "type": "array",
-          "items": { "$ref": "#/definitions/environmentsensor" }
+          "items": {
+            "$ref": "#/definitions/environmentsensor",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         },
-        { "$ref": "#/definitions/environmentsensor" }
-      ]
+        {
+          "$ref": "#/definitions/environmentsensor"
+        }
+      ],
+      "title": "TODO title"
     }
   }
 }

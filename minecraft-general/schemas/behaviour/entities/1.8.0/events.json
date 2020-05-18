@@ -5,7 +5,7 @@
   "title": "events 1.8.0",
   "description": "The events in minecraft",
   "definitions": {
-    "addremove":{
+    "addremove": {
       "title": "The add/remove schema",
       "description": "The components groups to add or remove",
       "type": "object",
@@ -13,30 +13,55 @@
         "component_groups": {
           "title": "The component_groups schema",
           "description": "The components groups to add or remove",
-          "type":"array",
+          "type": "array",
           "items": {
             "type": "string",
-            "description": "The component group to add or remove"
+            "description": "The component group to add or remove",
+            "title": "TODO title"
           }
         }
       }
     },
     "event_base": {
       "properties": {
-        "add": { "$ref": "#/definitions/addremove" },
-        "remove": { "$ref": "#/definitions/addremove" },
+        "add": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "remove": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
         "randomize": {
           "type": "array",
           "items": {
-            "required": [ "weight" ],
+            "required": [
+              "weight"
+            ],
             "properties": {
-              "add": { "$ref": "#/definitions/addremove" },
-              "remove": { "$ref": "#/definitions/addremove" },
+              "add": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "remove": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
               "weight": {
-                "type": "number"
+                "type": "number",
+                "description": "TODO description",
+                "title": "TODO title"
               }
-            }
-          }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         }
       }
     }
@@ -44,20 +69,28 @@
   "properties": {
     "minecraft:entity_transformed": {
       "description": "Event called on an entity that transforms into another entity.",
-      "$ref": "#/definitions/event_base"
+      "$ref": "#/definitions/event_base",
+      "title": "TODO title"
     },
     "minecraft:minecraft:entity_born": {
       "description": "Event called on an entity that is spawned through two entities breeding.",
-      "$ref": "#/definitions/event_base"
+      "$ref": "#/definitions/event_base",
+      "title": "TODO title"
     },
     "minecraft:entity_spawned": {
       "description": "Event called on an entity that is placed in the level.",
-      "$ref": "#/definitions/event_base"
+      "$ref": "#/definitions/event_base",
+      "title": "TODO title"
     },
     "minecraft:on_prime": {
       "description": "Event called on an entity whose fuse is lit and is ready to explode.",
-      "$ref": "#/definitions/event_base"
+      "$ref": "#/definitions/event_base",
+      "title": "TODO title"
     }
   },
-  "additionalProperties": { "$ref": "#/definitions/event_base" }
+  "additionalProperties": {
+    "$ref": "#/definitions/event_base",
+    "description": "TODO description",
+    "title": "TODO title"
+  }
 }

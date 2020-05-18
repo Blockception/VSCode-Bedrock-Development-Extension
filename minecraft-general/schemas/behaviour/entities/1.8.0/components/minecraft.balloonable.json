@@ -4,8 +4,13 @@
   "additionalProperties": false,
   "type": "object",
   "title": "minecraft:balloonable 1.8.0",
-  "required": [ ],
+  "required": [],
   "properties": {
-    "mass": { "type": "number" }
-  }  
+    "mass": {
+      "type": "number",
+      "description": "TODO description",
+      "title": "TODO title"
+    }
+  },
+  "description": "TODO description"
 }

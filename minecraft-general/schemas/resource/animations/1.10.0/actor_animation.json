@@ -9,19 +9,40 @@
     "animations"
   ],
   "properties": {
-    "format_version": { "title": "The 1.10.0 format_version", "type": "string", "pattern": "^1.10.0$" },
+    "format_version": {
+      "title": "The 1.10.0 format_version",
+      "type": "string",
+      "pattern": "^1.10.0$",
+      "description": "TODO description"
+    },
     "animations": {
       "title": "Animations schema",
       "description": "The animation 1.10.0 specification",
       "type": "object",
       "additionalItems": {
         "type": "object",
-        "propertyNames": { "pattern": "^animation\\.[a-z\\.]+" },
+        "propertyNames": {
+          "pattern": "^animation\\.[a-z\\.]+"
+        },
         "properties": {
-          "animation_length": { "type": "number" },
-          "loop": { "type": "boolean" },
-          "bones": { "$ref": "./types/bones.json" }
-        }
+          "animation_length": {
+            "type": "number",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "loop": {
+            "type": "boolean",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "bones": {
+            "$ref": "./types/bones.json",
+            "description": "TODO description",
+            "title": "TODO title"
+          }
+        },
+        "description": "TODO description",
+        "title": "TODO title"
       }
     }
   }

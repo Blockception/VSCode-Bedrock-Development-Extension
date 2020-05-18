@@ -4,16 +4,7 @@
   "type": "object",
   "title": "minecraft:movement.skip 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:movement.sway": {}"minecraft:movement.sway": {
-  "sway_amplitude": 0.0
-}"minecraft:movement.sway": {}"minecraft:movement.sway": {
-  "sway_amplitude": 0.0
-}"minecraft:movement.sway": {
-  "sway_amplitude": 0.0
-}"minecraft:movement.sway": {
-  "sway_amplitude": 0.0
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

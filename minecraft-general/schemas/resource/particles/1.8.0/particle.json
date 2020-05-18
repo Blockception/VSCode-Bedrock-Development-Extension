@@ -6,7 +6,9 @@
   "properties": {
     "format_version": {
       "type": "string",
-      "const": "1.8.0"
+      "const": "1.8.0",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "particle_effect": {
       "type": "object",
@@ -18,15 +20,25 @@
           "properties": {
             "identifier": {
               "type": "string",
-              "pattern": "^.+$"
+              "pattern": "^.+$",
+              "description": "TODO description",
+              "title": "TODO title"
             }
-          }
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         },
         "components": {
           "additionalProperties": false,
-          "type": "object"
+          "type": "object",
+          "description": "TODO description",
+          "title": "TODO title"
         }
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description",
+  "title": "TODO title"
 }

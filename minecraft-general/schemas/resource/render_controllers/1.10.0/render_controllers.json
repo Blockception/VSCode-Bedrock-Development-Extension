@@ -8,24 +8,39 @@
   "definitions": {
     "color": {
       "anyOf": [
-        { "type": "number" },
-        { "type": "string" }
+        {
+          "type": "number",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        {
+          "type": "string",
+          "description": "TODO description",
+          "title": "TODO title"
+        }
       ]
     }
   },
   "properties": {
     "format_version": {
       "title": "The 1.10.0 format_version",
-      "type": "string"
+      "type": "string",
+      "description": "TODO description"
     },
     "render_controllers": {
       "type": "object",
-      "propertyNames": { "pattern": "^controller\\.render\\.[a-z\\.]+" },
+      "propertyNames": {
+        "pattern": "^controller\\.render\\.[a-z\\.]+"
+      },
       "additionalProperties": {
         "additionalProperties": false,
         "type": "object",
         "description": "A single render_controller",
-        "required": ["geometry", "materials", "textures"],
+        "required": [
+          "geometry",
+          "materials",
+          "textures"
+        ],
         "properties": {
           "arrays": {
             "additionalProperties": false,
@@ -38,9 +53,15 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "pattern": "^[Gg]eometry\\..+"
-                  }
-                }
+                    "pattern": "^[Gg]eometry\\..+",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  },
+                  "description": "TODO description",
+                  "title": "TODO title"
+                },
+                "description": "TODO description",
+                "title": "TODO title"
               },
               "materials": {
                 "type": "object",
@@ -49,9 +70,15 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "pattern": "^[Mm]aterial\\..+"
-                  }
-                }
+                    "pattern": "^[Mm]aterial\\..+",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  },
+                  "description": "TODO description",
+                  "title": "TODO title"
+                },
+                "description": "TODO description",
+                "title": "TODO title"
               },
               "textures": {
                 "type": "object",
@@ -60,23 +87,51 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "pattern": "^[Tt]exture\\..+"
-                  }
-                }
+                    "pattern": "^[Tt]exture\\..+",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  },
+                  "description": "TODO description",
+                  "title": "TODO title"
+                },
+                "description": "TODO description",
+                "title": "TODO title"
               }
-            }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "color": {
             "type": "object",
             "properties": {
-              "r": { "$ref": "#/definitions/color" },
-              "g": { "$ref": "#/definitions/color" },
-              "b": { "$ref": "#/definitions/color" },
-              "a": { "$ref": "#/definitions/color" }
-            }
+              "r": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "g": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "b": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "a": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "geometry": {
-            "type": "string"
+            "type": "string",
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "materials": {
             "type": "array",
@@ -84,25 +139,53 @@
             "items": {
               "type": "object",
               "additionalProperties": {
-                "type": "string"
-              }
-            }
+                "type": "string",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "overlay_color": {
             "type": "object",
             "properties": {
-              "r": { "$ref": "#/definitions/color" },
-              "g": { "$ref": "#/definitions/color" },
-              "b": { "$ref": "#/definitions/color" },
-              "a": { "$ref": "#/definitions/color" }
-            }
+              "r": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "g": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "b": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "a": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "textures": {
             "type": "array",
             "minItems": 1,
             "items": {
-              "type": "string"
-            }
+              "type": "string",
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "part_visibility": {
             "type": "array",
@@ -113,18 +196,41 @@
               "minProperties": 1,
               "additionalProperties": {
                 "oneOf": [
-                  { "type": "string" },
-                  { "type": "boolean" },
-                  { "type": "number" }
-                ]
-              }
-            }
+                  {
+                    "type": "string",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  },
+                  {
+                    "type": "boolean",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  },
+                  {
+                    "type": "number",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  }
+                ],
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "rebuild_animation_matrices": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "TODO description",
+            "title": "TODO title"
           }
-        }
-      }
+        },
+        "title": "TODO title"
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

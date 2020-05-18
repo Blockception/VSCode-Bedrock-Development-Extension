@@ -15,14 +15,18 @@
   "items": {
     "type": "object",
     "properties": {
-      "pack_id": {         
+      "pack_id": {
         "description": "The uuid of the pack to include",
-        "$ref": "#/definitions/uuidv4"
+        "$ref": "#/definitions/uuidv4",
+        "title": "TODO title"
       },
-      "version": { 
+      "version": {
         "description": "The version of the pack",
-        "$ref": "#/definitions/version" 
+        "$ref": "#/definitions/version",
+        "title": "TODO title"
       }
-    }
+    },
+    "description": "TODO description",
+    "title": "TODO title"
   }
 }

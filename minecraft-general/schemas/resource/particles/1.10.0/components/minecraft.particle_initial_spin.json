@@ -1,15 +1,20 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.resource.particle.1.10.0.particle_initial_spin",
-    "title": "The particle_initial_spin component for 1.10.0",
-    "additionalProperties": false,
-    "type": "object",
-    "properties": {
-        "rotation": {
-            "$ref": "../../../../molang/1.8.0/number.json"
-        },
-        "rotation_rate": {
-            "$ref": "../../../../molang/1.8.0/number.json"
-        }
-    }  
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.particle.1.10.0.particle_initial_spin",
+  "title": "The particle_initial_spin component for 1.10.0",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "rotation": {
+      "$ref": "../../../../molang/1.8.0/number.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    },
+    "rotation_rate": {
+      "$ref": "../../../../molang/1.8.0/number.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    }
+  },
+  "description": "TODO description"
 }

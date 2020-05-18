@@ -4,26 +4,30 @@
   "type": "object",
   "title": "minecraft:giveable 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
+  "required": [],
   "properties": {
     "cooldown": {
       "type": "number",
       "default": 0,
-      "description": "An optional cool down in seconds to prevent spamming interactions."
+      "description": "An optional cool down in seconds to prevent spamming interactions.",
+      "title": "TODO title"
     },
     "items": {
       "type": "array",
       "description": "The list of items that can be given to the entity to place in their inventory.",
       "items": {
         "description": "An items that can be given to the entity to place in their inventory.",
-        "$ref": "../../../../general/items_item.json"
-      }
+        "$ref": "../../../../general/items_item.json",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     },
     "on_give": {
       "type": "string",
       "default": 0,
-      "description": "Event to fire when the correct item is given."
+      "description": "Event to fire when the correct item is given.",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description"
 }
-

@@ -12,13 +12,22 @@
         {
           "type": "array",
           "items": {
-            "type": "string"
-          }
+            "type": "string",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         },
         {
-          "type": "string"
+          "type": "string",
+          "description": "TODO description",
+          "title": "TODO title"
         }
-      ]
+      ],
+      "description": "TODO description",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description"
 }

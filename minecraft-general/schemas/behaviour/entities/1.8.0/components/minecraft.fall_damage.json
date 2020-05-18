@@ -5,11 +5,13 @@
   "title": "minecraft:fall_damage 1.8.0",
   "additionalProperties": false,
   "description": "TODO",
-  "required": [ ],
+  "required": [],
   "properties": {
     "value": {
       "type": "number",
-      "default": 1
+      "default": 1,
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

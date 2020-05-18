@@ -1,271 +1,721 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.minecraft.filters",
-    "type": "object",
-    "title": "Filters 1.8.0",
-    "definitions": {
-        "base_filters": {
-            "additionalProperties": false,
-            "type": "object",
-            "description": "The base filter item",
-            "required": [ "test" ],
-            "allOf": [
-                //Apply the syntax of clock_time
-                {
-                    "if": { "properties": { "test": { "const": "clock_time" } } },
-                    "then": { "$ref": "./1.8.0/clock_time.json" }
-                },
-                //Apply the syntax of distance_to_nearest_player
-                {
-                    "if": { "properties": { "test": { "const": "distance_to_nearest_player" } } },
-                    "then": { "$ref": "./1.8.0/distance_to_nearest_player.json" }
-                },
-                //Apply the syntax of has_ability
-                {
-                    "if": { "properties": { "test": { "const": "has_ability" } } },
-                    "then": { "$ref": "./1.8.0/has_ability.json" }
-                },
-                //Apply the syntax of has_biome_tag
-                {
-                    "if": { "properties": { "test": { "const": "has_biome_tag" } } },
-                    "then": { "$ref": "./1.8.0/has_biome_tag.json" }
-                },
-                //Apply the syntax of has_component
-                {
-                    "if": { "properties": { "test": { "const": "has_component" } } },
-                    "then": { "$ref": "./1.8.0/has_component.json" }
-                },
-                //Apply the syntax of has_damage
-                {
-                    "if": { "properties": { "test": { "const": "has_damage" } } },
-                    "then": { "$ref": "./1.8.0/has_damage.json" }
-                },
-                //Apply the syntax of has_equipment
-                {
-                    "if": { "properties": { "test": { "const": "has_equipment" } } },
-                    "then": { "$ref": "./1.8.0/has_equipment.json" }
-                },
-                //Apply the syntax of has_mob_effect
-                {
-                    "if": { "properties": { "test": { "const": "has_mob_effect" } } },
-                    "then": { "$ref": "./1.8.0/has_mob_effect.json" }
-                },
-                //Apply the syntax of has_tag
-                {
-                    "if": { "properties": { "test": { "const": "has_tag" } } },
-                    "then": { "$ref": "./1.8.0/has_tag.json" }
-                },
-                //Apply the syntax of has_trade_supply
-                {
-                    "if": { "properties": { "test": { "const": "has_trade_supply" } } },
-                    "then": { "$ref": "./1.8.0/has_trade_supply.json" }
-                },
-                //Apply the syntax of hourly_clock_time
-                {
-                    "if": { "properties": { "test": { "const": "hourly_clock_time" } } },
-                    "then": { "$ref": "./1.8.0/hourly_clock_time.json" }
-                },
-                //Apply the syntax of in_caravan
-                {
-                    "if": { "properties": { "test": { "const": "in_caravan" } } },
-                    "then": { "$ref": "./1.8.0/in_caravan.json" }
-                },
-                //Apply the syntax of in_clouds
-                {
-                    "if": { "properties": { "test": { "const": "in_clouds" } } },
-                    "then": { "$ref": "./1.8.0/in_clouds.json" }
-                },
-                //Apply the syntax of in_lava
-                {
-                    "if": { "properties": { "test": { "const": "in_lava" } } },
-                    "then": { "$ref": "./1.8.0/in_lava.json" }
-                },
-                //Apply the syntax of in_water
-                {
-                    "if": { "properties": { "test": { "const": "in_water" } } },
-                    "then": { "$ref": "./1.8.0/in_water.json" }
-                },
-                //Apply the syntax of in_water_or_rain
-                {
-                    "if": { "properties": { "test": { "const": "in_water_or_rain" } } },
-                    "then": { "$ref": "./1.8.0/in_water_or_rain.json" }
-                },
-                //Apply the syntax of is_altitude
-                {
-                    "if": { "properties": { "test": { "const": "is_altitude" } } },
-                    "then": { "$ref": "./1.8.0/is_altitude.json" }
-                },
-                //Apply the syntax of is_avoiding_mobs
-                {
-                    "if": { "properties": { "test": { "const": "is_avoiding_mobs" } } },
-                    "then": { "$ref": "./1.8.0/is_avoiding_mobs.json" }
-                },
-                //Apply the syntax of is_biome
-                {
-                    "if": { "properties": { "test": { "const": "is_biome" } } },
-                    "then": { "$ref": "./1.8.0/is_biome.json" }
-                },
-                //Apply the syntax of is_brightness
-                {
-                    "if": { "properties": { "test": { "const": "is_brightness" } } },
-                    "then": { "$ref": "./1.8.0/is_brightness.json" }
-                },
-                //Apply the syntax of is_climbing
-                {
-                    "if": { "properties": { "test": { "const": "is_climbing" } } },
-                    "then": { "$ref": "./1.8.0/is_climbing.json" }
-                },
-                //Apply the syntax of is_color
-                {
-                    "if": { "properties": { "test": { "const": "is_color" } } },
-                    "then": { "$ref": "./1.8.0/is_color.json" }
-                },
-                //Apply the syntax of is_daytime
-                {
-                    "if": { "properties": { "test": { "const": "is_daytime" } } },
-                    "then": { "$ref": "./1.8.0/is_daytime.json" }
-                },
-                //Apply the syntax of is_difficulty
-                {
-                    "if": { "properties": { "test": { "const": "is_difficulty" } } },
-                    "then": { "$ref": "./1.8.0/is_difficulty.json" }
-                },
-                //Apply the syntax of is_family
-                {
-                    "if": { "properties": { "test": { "const": "is_family" } } },
-                    "then": { "$ref": "./1.8.0/is_family.json" }
-                },
-                //Apply the syntax of is_game_rule
-                {
-                    "if": { "properties": { "test": { "const": "is_game_rule" } } },
-                    "then": { "$ref": "./1.8.0/is_game_rule.json" }
-                },
-                //Apply the syntax of is_humid
-                {
-                    "if": { "properties": { "test": { "const": "is_humid" } } },
-                    "then": { "$ref": "./1.8.0/is_humid.json" }
-                },
-                //Apply the syntax of is_immobile
-                {
-                    "if": { "properties": { "test": { "const": "is_immobile" } } },
-                    "then": { "$ref": "./1.8.0/is_immobile.json" }
-                },
-                //Apply the syntax of is_in_village
-                {
-                    "if": { "properties": { "test": { "const": "is_in_village" } } },
-                    "then": { "$ref": "./1.8.0/is_in_village.json" }
-                },
-                //Apply the syntax of is_leashed
-                {
-                    "if": { "properties": { "test": { "const": "is_leashed" } } },
-                    "then": { "$ref": "./1.8.0/is_leashed.json" }
-                },
-                //Apply the syntax of is_mark_variant
-                {
-                    "if": { "properties": { "test": { "const": "is_mark_variant" } } },
-                    "then": { "$ref": "./1.8.0/is_mark_variant.json" }
-                },
-                //Apply the syntax of is_moving
-                {
-                    "if": { "properties": { "test": { "const": "is_moving" } } },
-                    "then": { "$ref": "./1.8.0/is_moving.json" }
-                },
-                //Apply the syntax of is_owner
-                {
-                    "if": { "properties": { "test": { "const": "is_owner" } } },
-                    "then": { "$ref": "./1.8.0/is_owner.json" }
-                },
-                //Apply the syntax of is_riding
-                {
-                    "if": { "properties": { "test": { "const": "is_riding" } } },
-                    "then": { "$ref": "./1.8.0/is_riding.json" }
-                },
-                //Apply the syntax of is_skin_id
-                {
-                    "if": { "properties": { "test": { "const": "is_skin_id" } } },
-                    "then": { "$ref": "./1.8.0/is_skin_id.json" }
-                },
-                //Apply the syntax of is_sneaking
-                {
-                    "if": { "properties": { "test": { "const": "is_sneaking" } } },
-                    "then": { "$ref": "./1.8.0/is_sneaking.json" }
-                },
-                //Apply the syntax of is_snow_covered
-                {
-                    "if": { "properties": { "test": { "const": "is_snow_covered" } } },
-                    "then": { "$ref": "./1.8.0/is_snow_covered.json" }
-                },
-                //Apply the syntax of is_target
-                {
-                    "if": { "properties": { "test": { "const": "is_target" } } },
-                    "then": { "$ref": "./1.8.0/is_target.json" }
-                },
-                //Apply the syntax of is_temperature_type
-                {
-                    "if": { "properties": { "test": { "const": "is_temperature_type" } } },
-                    "then": { "$ref": "./1.8.0/is_temperature_type.json" }
-                },
-                //Apply the syntax of is_temperature_value
-                {
-                    "if": { "properties": { "test": { "const": "is_temperature_value" } } },
-                    "then": { "$ref": "./1.8.0/is_temperature_value.json" }
-                },
-                //Apply the syntax of is_underground
-                {
-                    "if": { "properties": { "test": { "const": "is_underground" } } },
-                    "then": { "$ref": "./1.8.0/is_underground.json" }
-                },
-                //Apply the syntax of is_underwater
-                {
-                    "if": { "properties": { "test": { "const": "is_underwater" } } },
-                    "then": { "$ref": "./1.8.0/is_underwater.json" }
-                },
-                //Apply the syntax of is_variant
-                {
-                    "if": { "properties": { "test": { "const": "is_variant" } } },
-                    "then": { "$ref": "./1.8.0/is_variant.json" }
-                },
-                //Apply the syntax of is_visible
-                {
-                    "if": { "properties": { "test": { "const": "is_visible" } } },
-                    "then": { "$ref": "./1.8.0/is_visible.json" }
-                },
-                //Apply the syntax of moon_intensity
-                {
-                    "if": { "properties": { "test": { "const": "moon_intensity" } } },
-                    "then": { "$ref": "./1.8.0/moon_intensity.json" }
-                },
-                //Apply the syntax of moon_phase
-                {
-                    "if": { "properties": { "test": { "const": "moon_phase" } } },
-                    "then": { "$ref": "./1.8.0/moon_phase.json" }
-                },
-                //Apply the syntax of on_ground
-                {
-                    "if": { "properties": { "test": { "const": "on_ground" } } },
-                    "then": { "$ref": "./1.8.0/on_ground.json" }
-                },
-                //Apply the syntax of on_ladder
-                {
-                    "if": { "properties": { "test": { "const": "on_ladder" } } },
-                    "then": { "$ref": "./1.8.0/on_ladder.json" }
-                }
-            ]
-        },
-        "base_collection_filters": {
-            "type": "array",
-            "items": { "$ref": "#/definitions/base_filters" }
-        }
-    },
-    "anyOf": [
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.filters",
+  "type": "object",
+  "title": "Filters 1.8.0",
+  "definitions": {
+    "base_filters": {
+      "additionalProperties": false,
+      "type": "object",
+      "description": "The base filter item",
+      "required": [
+        "test"
+      ],
+      "allOf": [
         {
+          "if": {
             "properties": {
-                "any_of": { "$ref": "#/definitions/base_collection_filters" },
-                "all_of": { "$ref": "#/definitions/base_collection_filters" }
+              "test": {
+                "const": "clock_time",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
             }
+          },
+          "then": {
+            "$ref": "./1.8.0/clock_time.json"
+          }
         },
         {
-            "$ref": "#/definitions/base_filters"
+          "if": {
+            "properties": {
+              "test": {
+                "const": "distance_to_nearest_player",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/distance_to_nearest_player.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_ability",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_ability.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_biome_tag",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_biome_tag.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_component",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_component.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_damage",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_damage.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_equipment",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_equipment.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_mob_effect",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_mob_effect.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_tag",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_tag.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "has_trade_supply",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/has_trade_supply.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "hourly_clock_time",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/hourly_clock_time.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "in_caravan",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/in_caravan.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "in_clouds",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/in_clouds.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "in_lava",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/in_lava.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "in_water",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/in_water.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "in_water_or_rain",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/in_water_or_rain.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_altitude",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_altitude.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_avoiding_mobs",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_avoiding_mobs.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_biome",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_biome.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_brightness",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_brightness.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_climbing",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_climbing.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_color",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_color.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_daytime",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_daytime.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_difficulty",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_difficulty.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_family",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_family.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_game_rule",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_game_rule.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_humid",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_humid.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_immobile",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_immobile.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_in_village",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_in_village.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_leashed",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_leashed.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_mark_variant",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_mark_variant.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_moving",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_moving.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_owner",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_owner.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_riding",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_riding.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_skin_id",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_skin_id.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_sneaking",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_sneaking.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_snow_covered",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_snow_covered.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_target",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_target.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_temperature_type",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_temperature_type.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_temperature_value",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_temperature_value.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_underground",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_underground.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_underwater",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_underwater.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_variant",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_variant.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "is_visible",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/is_visible.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "moon_intensity",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/moon_intensity.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "moon_phase",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/moon_phase.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "on_ground",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/on_ground.json"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "test": {
+                "const": "on_ladder",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            }
+          },
+          "then": {
+            "$ref": "./1.8.0/on_ladder.json"
+          }
         }
-    ]
+      ],
+      "title": "TODO title"
+    },
+    "base_collection_filters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/base_filters",
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "description": "TODO description",
+      "title": "TODO title"
+    }
+  },
+  "anyOf": [
+    {
+      "properties": {
+        "any_of": {
+          "$ref": "#/definitions/base_collection_filters",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "all_of": {
+          "$ref": "#/definitions/base_collection_filters",
+          "description": "TODO description",
+          "title": "TODO title"
+        }
+      }
+    },
+    {
+      "$ref": "#/definitions/base_filters"
+    }
+  ],
+  "description": "TODO description"
 }

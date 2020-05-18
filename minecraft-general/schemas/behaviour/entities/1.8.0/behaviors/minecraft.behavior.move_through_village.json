@@ -7,11 +7,12 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
-  "properties": { 
+  "properties": {
     "only_at_night": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the mob will only move through the village during night time"
+      "description": "If true, the mob will only move through the village during night time",
+      "title": "TODO title"
     }
   }
 }

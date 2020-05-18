@@ -9,7 +9,9 @@
   "required": [],
   "properties": {
     "on_eat": {
-      "$ref": "./types/trigger.json"
+      "$ref": "./types/trigger.json",
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

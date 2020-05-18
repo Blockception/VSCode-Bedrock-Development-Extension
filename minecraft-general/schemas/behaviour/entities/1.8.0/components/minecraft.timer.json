@@ -10,12 +10,14 @@
     "looping": {
       "type": "boolean",
       "default": true,
-      "description": "If true, the timer will restart every time after it fires"
+      "description": "If true, the timer will restart every time after it fires",
+      "title": "TODO title"
     },
     "randomInterval": {
       "type": "boolean",
       "default": true,
-      "description": "If true, the amount of time on the timer will be random between the min and max values specified in time"
+      "description": "If true, the amount of time on the timer will be random between the min and max values specified in time",
+      "title": "TODO title"
     },
     "time": {
       "oneOf": [
@@ -24,34 +26,50 @@
           "default": [
             0.0,
             0.0
-          ]
+          ],
+          "description": "TODO description",
+          "title": "TODO title"
         },
         {
           "type": "number",
-          "default": 0
+          "default": 0,
+          "description": "TODO description",
+          "title": "TODO title"
         }
       ],
-      "description": "Amount of time in seconds for the timer. Can be specified as a number or a pair of numbers (min and max). Incompatible with random_time_choices."
+      "description": "Amount of time in seconds for the timer. Can be specified as a number or a pair of numbers (min and max). Incompatible with random_time_choices.",
+      "title": "TODO title"
     },
     "time_down_event": {
       "oneOf": [
         {
           "type": "string",
-          "description": "Event to fire when the time on the timer runs out"
+          "description": "Event to fire when the time on the timer runs out",
+          "title": "TODO title"
         },
         {
           "type": "object",
           "properties": {
             "event": {
-              "type": "string"
+              "type": "string",
+              "description": "TODO description",
+              "title": "TODO title"
             },
             "target": {
               "type": "string",
-              "enum": ["self"]
+              "enum": [
+                "self"
+              ],
+              "description": "TODO description",
+              "title": "TODO title"
             }
-          }
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         }
-      ]
+      ],
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "random_time_choices": {
       "type": "array",
@@ -60,13 +78,20 @@
       "items": {
         "properties": {
           "weight": {
-            "type": "integer"
+            "type": "integer",
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "value": {
-            "type": "integer"
+            "type": "integer",
+            "description": "TODO description",
+            "title": "TODO title"
           }
-        }
-      }
+        },
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     }
   }
 }

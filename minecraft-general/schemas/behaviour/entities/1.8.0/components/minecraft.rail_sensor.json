@@ -4,10 +4,7 @@
   "type": "object",
   "title": "minecraft:rail_movement 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:rail_sensor": {
-  "eject_on_activate": true
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

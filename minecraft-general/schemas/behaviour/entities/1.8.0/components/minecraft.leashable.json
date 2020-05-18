@@ -4,73 +4,7 @@
   "type": "object",
   "title": "minecraft:jump.dynamic 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0,
-  "can_be_stolen": true
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
-}"minecraft:leashable": {
-  "soft_distance": 4.0,
-  "hard_distance": 6.0,
-  "max_distance": 10.0
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

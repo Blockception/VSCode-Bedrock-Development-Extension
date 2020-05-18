@@ -12,7 +12,8 @@
     "format_version": {
       "title": "The 1.8.0 format_version",
       "type": "string",
-      "pattern": "^1.8.0$"
+      "pattern": "^1.8.0$",
+      "description": "TODO description"
     }
   }
 }

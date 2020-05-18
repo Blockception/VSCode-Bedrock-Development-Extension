@@ -8,14 +8,16 @@
   "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": {
-    "items":{
+    "items": {
       "type": "array",
       "description": "The list of items that can be used to charge the held item.",
       "items": {
-        "type":"string",
+        "type": "string",
         "description": "Items names to be used.",
-        "$ref": "../../../../general/entities_item.json"
-      }
+        "$ref": "../../../../general/entities_item.json",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     }
   }
 }

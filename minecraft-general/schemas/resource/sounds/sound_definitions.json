@@ -5,15 +5,34 @@
   "title": "The minecraft sound definition file",
   "description": "The root schema comprises the entire JSON document.",
   "allOf": [
-    //No version
-    { 
-      "if": { "properties": { "format_version": { "type": "string" } } },
-      "else": { "$ref": "sound_definitions_unknown.json" }
+    {
+      "if": {
+        "properties": {
+          "format_version": {
+            "type": "string",
+            "description": "TODO description",
+            "title": "TODO title"
+          }
+        }
+      },
+      "else": {
+        "$ref": "sound_definitions_unknown.json"
+      }
     },
-    //Version 1.14.0
-    { 
-      "if": { "properties": { "format_version": { "title": "The 1.14.0 format_version", "type": "string", "const": "1.14.0" } } },
-      "then": { "$ref": "1.14.0/sound_definitions.json" }
+    {
+      "if": {
+        "properties": {
+          "format_version": {
+            "title": "The 1.14.0 format_version",
+            "type": "string",
+            "const": "1.14.0",
+            "description": "TODO description"
+          }
+        }
+      },
+      "then": {
+        "$ref": "1.14.0/sound_definitions.json"
+      }
     }
   ]
 }

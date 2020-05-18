@@ -1,20 +1,27 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.resource.particle.1.10.0.particle_motion_dynamic",
-    "type": "object",
-    "title": "The particle_motion_dynamic component for 1.10.0",
-    "additionalProperties": false,
-    "properties": {
-        "linear_acceleration": {
-            "type": "array",
-            "minItems": 3,
-            "maxItems": 3,
-            "items": {
-                "$ref": "../../../../molang/1.8.0/number.json"
-            }
-        },
-        "linear_drag_coefficient": {
-            "$ref": "../../../../molang/1.8.0/number.json"
-        }
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.particle.1.10.0.particle_motion_dynamic",
+  "type": "object",
+  "title": "The particle_motion_dynamic component for 1.10.0",
+  "additionalProperties": false,
+  "properties": {
+    "linear_acceleration": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "../../../../molang/1.8.0/number.json",
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "description": "TODO description",
+      "title": "TODO title"
+    },
+    "linear_drag_coefficient": {
+      "$ref": "../../../../molang/1.8.0/number.json",
+      "description": "TODO description",
+      "title": "TODO title"
     }
+  },
+  "description": "TODO description"
 }

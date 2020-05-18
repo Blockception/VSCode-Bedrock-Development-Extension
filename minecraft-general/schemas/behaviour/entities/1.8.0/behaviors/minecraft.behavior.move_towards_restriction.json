@@ -7,13 +7,20 @@
   "description": "Allows Guardians, Iron Golems and Villagers to move within their pre-defined area that the mob should be restricted to. Other mobs don't have a restriction defined.",
   "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
-  "properties": { 
-    "control_flags":{
-      "type":"array",
+  "properties": {
+    "control_flags": {
+      "type": "array",
       "items": {
         "type": "string",
-        "enum": ["move", "look"]
-      }
+        "enum": [
+          "move",
+          "look"
+        ],
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

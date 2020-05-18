@@ -6,9 +6,6 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { }
-}
-
-"minecraft:behavior.silverfish_merge_with_stone": {
-  "priority": 5
+  "properties": {},
+  "description": "TODO description"
 }

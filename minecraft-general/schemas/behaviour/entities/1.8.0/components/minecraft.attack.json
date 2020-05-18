@@ -11,7 +11,8 @@
   "properties": {
     "damage": {
       "description": "Range of the random amount of damage the melee attack deals. A negative value can heal the entity instead of hurting it",
-      "$ref": "./types/range_number_type.json" 
+      "$ref": "./types/range_number_type.json",
+      "title": "TODO title"
     },
     "effect_name": {
       "type": "string",
@@ -19,11 +20,13 @@
       "examples": [
         "wither",
         "hunger"
-      ]
+      ],
+      "title": "TODO title"
     },
     "effect_duration": {
       "type": "number",
-      "description": "Duration in seconds of the status ailment applied to the damaged entity"
+      "description": "Duration in seconds of the status ailment applied to the damaged entity",
+      "title": "TODO title"
     }
   }
 }

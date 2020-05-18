@@ -5,22 +5,22 @@
   "title": "The minecraft resourcepack animation_controller 1.10.0",
   "description": "The root schema comprises the entire JSON document.",
   "definitions": {
-    //animation specification
     "animationspec": {
       "anyOf": [
-        //Single string
         {
           "title": "Animation Specification",
           "description": "A single string that specifies which animation there are",
           "type": "string"
         },
-        //Object
         {
           "type": "object",
           "description": "A object specification on how to transition",
           "additionalProperties": {
-            "$ref": "../../../molang/1.8.0/string.json"
-          }
+            "$ref": "../../../molang/1.8.0/string.json",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "title": "TODO title"
         }
       ]
     },
@@ -30,40 +30,52 @@
       "properties": {
         "effect": {
           "description": "The effects name to apply",
-          "type": "string"
+          "type": "string",
+          "title": "TODO title"
         },
         "locator": {
           "description": "The locator to be using",
-          "type": "string"
+          "type": "string",
+          "title": "TODO title"
         }
-      }
+      },
+      "title": "TODO title"
     }
   },
-  "required": ["format_version", "animation_controllers"],
+  "required": [
+    "format_version",
+    "animation_controllers"
+  ],
   "additionalProperties": false,
   "properties": {
     "format_version": {
       "title": "The 1.10.0 format_version",
       "type": "string",
-      "pattern": "^1.10.0$"
+      "pattern": "^1.10.0$",
+      "description": "TODO description"
     },
     "animation_controllers": {
       "title": "The animation controllers schema",
       "description": "The animation controllers schema for 1.10.0",
-      "propertyNames": { "pattern": "^controller\\.[a-z\\.]+" },
+      "propertyNames": {
+        "pattern": "^controller\\.[a-z\\.]+"
+      },
       "additionalProperties": {
         "additionalProperties": false,
         "type": "object",
         "title": "A animation controller",
         "description": "A single animation controller 1.10.0",
-        "required": ["states"],
+        "required": [
+          "states"
+        ],
         "minProperties": 1,
-
         "properties": {
           "states": {
             "title": "The states definition",
             "description": "The states of this animation controller",
-            "propertyNames": { "pattern": "[a-z\\.]+" },
+            "propertyNames": {
+              "pattern": "[a-z\\.]+"
+            },
             "minProperties": 1,
             "additionalProperties": {
               "additionalProperties": false,
@@ -76,7 +88,9 @@
                   "description": "The animations definition for 1.10.0",
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/animationspec"
+                    "$ref": "#/definitions/animationspec",
+                    "description": "TODO description",
+                    "title": "TODO title"
                   }
                 },
                 "transitions": {
@@ -84,28 +98,38 @@
                   "description": "The transition definition for 1.10.0",
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/animationspec"
+                    "$ref": "#/definitions/animationspec",
+                    "description": "TODO description",
+                    "title": "TODO title"
                   }
                 },
                 "blend_transition": {
                   "description": "The amount of time its takes to blend into the animation",
-                  "type": "number"
+                  "type": "number",
+                  "title": "TODO title"
                 },
                 "particle_effects": {
                   "description": "The effects to be emitted",
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/particleEffectItem"
-                  }
+                    "$ref": "#/definitions/particleEffectItem",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  },
+                  "title": "TODO title"
                 }
               }
             }
           },
           "initial_state": {
-            "type": "string"
+            "type": "string",
+            "description": "TODO description",
+            "title": "TODO title"
           },
           "blend_via_shortest_path": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "TODO description",
+            "title": "TODO title"
           }
         }
       }

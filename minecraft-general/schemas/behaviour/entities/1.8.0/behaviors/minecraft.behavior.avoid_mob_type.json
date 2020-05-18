@@ -10,34 +10,44 @@
     "max_dist": {
       "type": "number",
       "default": 0,
-      "description": "Maximum distance to look for an entity"
+      "description": "Maximum distance to look for an entity",
+      "title": "TODO title"
     },
     "max_flee": {
       "type": "number",
       "default": 0.5,
-      "description": "Distance in blocks within the mob considers it should stop fleeing."
+      "description": "Distance in blocks within the mob considers it should stop fleeing.",
+      "title": "TODO title"
     },
     "walk_speed_multiplier": {
       "type": "number",
       "default": 1.0,
-      "description": "Multiplier for walking speed. 1.0 means keep the regular speed, while higher numbers make the walking speed faster"
+      "description": "Multiplier for walking speed. 1.0 means keep the regular speed, while higher numbers make the walking speed faster",
+      "title": "TODO title"
     },
     "sprint_speed_multiplier": {
       "type": "number",
       "default": 1.0,
-      "description": "Multiplier for running speed. 1.0 means keep the regular speed, while higher numbers make the running speed faster"
+      "description": "Multiplier for running speed. 1.0 means keep the regular speed, while higher numbers make the running speed faster",
+      "title": "TODO title"
     },
     "probability_per_strength": {
       "type": "number",
       "default": 1.0,
-      "description": "Determines how likely it is that this entity will stop avoiding another entity based on that entity's strength"
+      "description": "Determines how likely it is that this entity will stop avoiding another entity based on that entity's strength",
+      "title": "TODO title"
     },
     "ignore_visibility": {
       "type": "boolean",
       "default": false,
-      "description": "If true, visbility between this entity and the mob type will not be checked."
+      "description": "If true, visbility between this entity and the mob type will not be checked.",
+      "title": "TODO title"
     },
-    "entity_types": { "$ref": "./types/entity_types.json" }
+    "entity_types": {
+      "$ref": "./types/entity_types.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    }
   },
   "additionalProperties": false
 }

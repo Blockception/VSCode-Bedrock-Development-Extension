@@ -8,51 +8,64 @@
   "$ref": "../types/behaviour_base.json",
   "required": [],
   "properties": {
-    "entity_types": { "$ref": "../types/entity_types.json" },
+    "entity_types": {
+      "$ref": "../types/entity_types.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    },
     "within_radius": {
       "type": "number",
       "default": 0.0,
-      "description": "Distance in blocks that the target can be within to launch an attack"
+      "description": "Distance in blocks that the target can be within to launch an attack",
+      "title": "TODO title"
     },
     "attack_interval": {
       "type": "integer",
       "default": 0,
-      "description": "Time in seconds between attacks"
+      "description": "Time in seconds between attacks",
+      "title": "TODO title"
     },
     "must_see": {
       "type": "boolean",
       "default": false,
-      "description": "If true, only entities in this mob's viewing range can be selected as targets"
+      "description": "If true, only entities in this mob's viewing range can be selected as targets",
+      "title": "TODO title"
     },
     "must_see_forget_duration": {
       "type": "number",
       "default": 3.0,
-      "description": "Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more"
+      "description": "Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more",
+      "title": "TODO title"
     },
     "must_reach": {
       "type": "boolean",
       "default": false,
-      "description": "If trueonly entities that this mob can path to can be selected as targets"
+      "description": "If trueonly entities that this mob can path to can be selected as targets",
+      "title": "TODO title"
     },
     "reselect_targets": {
       "type": "boolean",
       "default": false,
-      "description": "If true the target will change to the current closest entity whenever a different entity is closer"
+      "description": "If true the target will change to the current closest entity whenever a different entity is closer",
+      "title": "TODO title"
     },
     "scan_interval": {
       "type": "integer",
       "default": 10,
-      "description": "How many ticks to wait between scanning for a target."
+      "description": "How many ticks to wait between scanning for a target.",
+      "title": "TODO title"
     },
     "target_search_height": {
       "type": "number",
       "default": -1.0,
-      "description": "Height in blocks to search for a target mob. -1.0f means the height does not matter."
+      "description": "Height in blocks to search for a target mob. -1.0f means the height does not matter.",
+      "title": "TODO title"
     },
     "persist_time": {
       "type": "number",
       "default": 0.0,
-      "description": "Time in seconds for a valid target to stay targeted when it becomes and invalid target."
+      "description": "Time in seconds for a valid target to stay targeted when it becomes and invalid target.",
+      "title": "TODO title"
     }
   }
 }

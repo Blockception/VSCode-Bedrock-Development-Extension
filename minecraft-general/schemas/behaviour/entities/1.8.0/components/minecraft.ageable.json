@@ -3,37 +3,52 @@
   "$id": "minecraft.behaviour.entities.1.8.0.minecraft.ageable",
   "type": "object",
   "title": "minecraft:ageable 1.8.0",
-  "description": "Adds a timer for the entity to grow up. It can be accelerated by giving the entity the items it likes as defined by feedItems.",  
+  "description": "Adds a timer for the entity to grow up. It can be accelerated by giving the entity the items it likes as defined by feedItems.",
   "additionalProperties": false,
-  "required": [  ],
+  "required": [],
   "properties": {
     "duration": {
       "type": "number",
       "default": 1200.0,
-      "description": "Amount of time before the entity grows up, -1 for always a baby."
+      "description": "Amount of time before the entity grows up, -1 for always a baby.",
+      "title": "TODO title"
     },
     "feedItems": {
       "type": "array",
       "description": "List of items that can be fed to the entity. Includes 'item' for the item name and 'growth' to define how much time it grows up by",
       "items": {
-        "type":"object",
+        "type": "object",
         "properties": {
-          "item": {"type": "string", "description": "The item name that can be used to feed"},
-          "growth": {"type": "integer", "description": "The amount that counts for aging"}
-        }
-      }
+          "item": {
+            "type": "string",
+            "description": "The item name that can be used to feed",
+            "title": "TODO title"
+          },
+          "growth": {
+            "type": "integer",
+            "description": "The amount that counts for aging",
+            "title": "TODO title"
+          }
+        },
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     },
     "drop_items": {
       "type": "array",
       "description": "List of items that the entity drops when it grows up.",
       "items": {
         "type": "string",
-        "description": "Item names"
-      }
+        "description": "Item names",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     },
     "grow_up": {
       "type": "string",
-      "description": "Event to run when this entity grows up"
-    }    
+      "description": "Event to run when this entity grows up",
+      "title": "TODO title"
+    }
   }
 }

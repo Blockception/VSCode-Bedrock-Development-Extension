@@ -5,11 +5,19 @@
   "title": "The minecraft resourcepack model schema for 1.10.0",
   "description": "The root schema comprises the entire JSON document.",
   "definitions": {
-    "array_3_integer": { "$ref": "../../../../general/array_3_integer.json" },
-    "array_2_number": { "$ref": "../../../../general/array_2_number.json" },
-    "array_3_number": { "$ref": "../../../../general/array_3_number.json" }
+    "array_3_integer": {
+      "$ref": "../../../../general/array_3_integer.json"
+    },
+    "array_2_number": {
+      "$ref": "../../../../general/array_2_number.json"
+    },
+    "array_3_number": {
+      "$ref": "../../../../general/array_3_number.json"
+    }
   },
-  "required": [ "format_version" ],
+  "required": [
+    "format_version"
+  ],
   "propertyNames": {
     "pattern": "(^geometry\\.|format_version)"
   },
@@ -17,7 +25,8 @@
     "format_version": {
       "title": "The 1.10.0 format_version",
       "type": "string",
-      "pattern": "^1.10.0$"
+      "pattern": "^1.10.0$",
+      "description": "TODO description"
     }
   },
   "additionalProperties": {
@@ -26,26 +35,35 @@
     "properties": {
       "texturewidth": {
         "type": "integer",
-        "description": "The width of the texture in pixels"
+        "description": "The width of the texture in pixels",
+        "title": "TODO title"
       },
       "textureheight": {
         "type": "integer",
-        "description": "The heigth of the texture in pixels"
+        "description": "The heigth of the texture in pixels",
+        "title": "TODO title"
       },
-      "visible_bounds_width":{
+      "visible_bounds_width": {
         "type": "number",
-        "description": "TODO"
+        "description": "TODO",
+        "title": "TODO title"
       },
-      "visible_bounds_height":{
+      "visible_bounds_height": {
         "type": "number",
-        "description": "TODO"
+        "description": "TODO",
+        "title": "TODO title"
       },
-      "visible_bounds_offset":{
-        "$ref": "#/definitions/array_3_integer"
+      "visible_bounds_offset": {
+        "$ref": "#/definitions/array_3_integer",
+        "description": "TODO description",
+        "title": "TODO title"
       },
-      "bones":{
-        "$ref": "../1.8.0/bones.json"
+      "bones": {
+        "$ref": "../1.8.0/bones.json",
+        "description": "TODO description",
+        "title": "TODO title"
       }
-    }
+    },
+    "title": "TODO title"
   }
 }

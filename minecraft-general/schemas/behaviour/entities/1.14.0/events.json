@@ -14,31 +14,62 @@
           "description": "The components groups to add or remove",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "TODO description",
+            "title": "TODO title"
           }
         }
       }
     },
     "event_base": {
       "properties": {
-        "add": { "$ref": "#/definitions/addremove" },
-        "remove": { "$ref": "#/definitions/addremove" },
+        "add": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "remove": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
         "randomize": {
           "type": "array",
           "items": {
-            "required": [ "weight" ],
+            "required": [
+              "weight"
+            ],
             "properties": {
-              "add": { "$ref": "#/definitions/addremove" },
-              "remove": { "$ref": "#/definitions/addremove" },
-              "weight": { "type": "number" }
-            }
-          }
+              "add": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "remove": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "weight": {
+                "type": "number",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         }
       }
     }
   },
   "propertyNames": {},
   "additionalProperties": {
-    "$ref": "#/definitions/event_base"
-  }
+    "$ref": "#/definitions/event_base",
+    "description": "TODO description",
+    "title": "TODO title"
+  },
+  "description": "TODO description"
 }

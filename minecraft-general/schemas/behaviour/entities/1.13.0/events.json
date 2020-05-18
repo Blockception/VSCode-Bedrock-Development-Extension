@@ -24,10 +24,14 @@
     "event_base": {
       "properties": {
         "add": {
-          "$ref": "#/definitions/addremove"
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
         },
         "remove": {
-          "$ref": "#/definitions/addremove"
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
         },
         "randomize": {
           "type": "array",
@@ -37,16 +41,26 @@
             ],
             "properties": {
               "add": {
-                "$ref": "#/definitions/addremove"
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
               },
               "remove": {
-                "$ref": "#/definitions/addremove"
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
               },
               "weight": {
-                "type": "number"
+                "type": "number",
+                "description": "TODO description",
+                "title": "TODO title"
               }
-            }
-          }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         }
       }
     }
@@ -70,6 +84,9 @@
     }
   },
   "additionalProperties": {
-    "$ref": "#/definitions/event_base"
-  }
+    "$ref": "#/definitions/event_base",
+    "description": "TODO description",
+    "title": "TODO title"
+  },
+  "description": "TODO description"
 }

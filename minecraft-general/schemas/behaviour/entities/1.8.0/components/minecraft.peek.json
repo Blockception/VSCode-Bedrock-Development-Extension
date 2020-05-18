@@ -4,18 +4,7 @@
   "type": "object",
   "title": "minecraft:movement.skip 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:peek": {
-  "on_open": {
-    "event": "minecraft:on_open"
-  },
-  "on_close": {
-    "event": "minecraft:on_close"
-  },
-  "on_target_open": {
-    "event": "minecraft:on_open"
-  }
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

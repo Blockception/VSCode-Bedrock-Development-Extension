@@ -4,11 +4,7 @@
   "type": "object",
   "title": "minecraft:movement.skip 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:on_hurt": {
-  "event": "minecraft:crystal_explode",
-  "target": "self"
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

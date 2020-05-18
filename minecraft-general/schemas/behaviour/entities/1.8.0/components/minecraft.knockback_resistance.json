@@ -4,12 +4,7 @@
   "type": "object",
   "title": "minecraft:jump.dynamic 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:knockback_resistance": {
-  "value": 1.0
-}"minecraft:knockback_resistance": {
-  "value": 0.5
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

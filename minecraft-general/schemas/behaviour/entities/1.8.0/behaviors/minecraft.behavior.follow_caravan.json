@@ -7,15 +7,17 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
-  "properties": { 
-    "entity_types": { 
+  "properties": {
+    "entity_types": {
       "$ref": "../types/entity_types.json",
-      "description": "List of entity types that this mob can follow in a caravan"
+      "description": "List of entity types that this mob can follow in a caravan",
+      "title": "TODO title"
     },
     "entity_count": {
       "type": "integer",
       "description": "Number of entities that can be in the caravan",
-      "default": 1
+      "default": 1,
+      "title": "TODO title"
     }
   }
 }

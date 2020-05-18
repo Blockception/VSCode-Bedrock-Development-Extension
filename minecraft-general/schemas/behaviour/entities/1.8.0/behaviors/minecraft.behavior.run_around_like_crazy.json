@@ -6,10 +6,6 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { }
-}
-
-"minecraft:behavior.run_around_like_crazy": {
-  "priority": 1,
-  "speed_multiplier": 1.2
+  "properties": {},
+  "description": "TODO description"
 }

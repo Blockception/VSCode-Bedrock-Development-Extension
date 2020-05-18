@@ -1,46 +1,75 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.events1.10.0",
-    "type": "object",
-    "title": "minecraft:entity 1.10.0",
-    "definitions": {
-        "addremove":{
-          "title": "The add/remove schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.events1.10.0",
+  "type": "object",
+  "title": "minecraft:entity 1.10.0",
+  "definitions": {
+    "addremove": {
+      "title": "The add/remove schema",
+      "description": "The components groups to add or remove",
+      "type": "object",
+      "properties": {
+        "component_groups": {
+          "title": "The component_groups schema",
           "description": "The components groups to add or remove",
-          "type": "object",
-          "properties": {
-            "component_groups": {
-              "title": "The component_groups schema",
-              "description": "The components groups to add or remove",
-              "type":"array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "event_base": {
-          "properties": {
-            "add": { "$ref": "#/definitions/addremove" },
-            "remove": { "$ref": "#/definitions/addremove" },
-            "randomize": {
-              "type": "array",
-              "items": {
-                "required": [ "weight" ],
-                "properties": {
-                  "add": { "$ref": "#/definitions/addremove" },
-                  "remove": { "$ref": "#/definitions/addremove" },
-                  "weight": {
-                    "type": "number"
-                  }
-                }
-              }
-            }
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "TODO description",
+            "title": "TODO title"
           }
         }
-      },
-      "propertyNames": {},
-      "additionalProperties": {
-        "$ref": "#/definitions/event_base"
       }
+    },
+    "event_base": {
+      "properties": {
+        "add": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "remove": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "randomize": {
+          "type": "array",
+          "items": {
+            "required": [
+              "weight"
+            ],
+            "properties": {
+              "add": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "remove": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "weight": {
+                "type": "number",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
+        }
+      }
+    }
+  },
+  "propertyNames": {},
+  "additionalProperties": {
+    "$ref": "#/definitions/event_base",
+    "description": "TODO description",
+    "title": "TODO title"
+  },
+  "description": "TODO description"
 }
