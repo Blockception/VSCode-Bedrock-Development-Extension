@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.filters.is_owner",
+    "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_owner",
     "type": "object",
     "title": "Filters is_owner 1.8.0",
     "additionalProperties": false,

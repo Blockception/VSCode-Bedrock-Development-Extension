@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.filters",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.filters",
   "type": "object",
   "title": "Filters 1.8.0",
   "definitions": {

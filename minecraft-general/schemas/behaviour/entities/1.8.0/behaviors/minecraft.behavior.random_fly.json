@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.random_fly",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.random_fly",
   "type": "object",
   "title": "minecraft:behavior.random_fly 1.8.0",
   "description": "Allows a mob to randomly fly around",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.resource.particle.1.10.0.particle_motion_parametric",
+  "$id": "blockception.minecraft.resource.particle.1.10.0.particle_motion_parametric",
   "type": "object",
   "title": "The particle_motion_parametric component for 1.10.0",
   "additionalProperties": false,

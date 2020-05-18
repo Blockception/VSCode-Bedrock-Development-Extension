@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.14.0.minecraft.dweller",
+  "$id": "blockception.minecraft.behaviour.entities.1.14.0.minecraft.dweller",
   "type": "object",
   "title": "minecraft:dweller 1.14.0",
   "additionalProperties": false,

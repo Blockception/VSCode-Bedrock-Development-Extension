@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.world_x_packs",
+  "$id": "blockception.minecraft.world_x_packs",
   "type": "array",
   "title": "The minecraft world x pack schema",
   "description": "The root schema comprises the entire JSON document.",

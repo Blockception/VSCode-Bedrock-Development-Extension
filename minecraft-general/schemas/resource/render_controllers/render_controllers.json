@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Minecraft.render_controllers.json",
+  "$id": "blockception.minecraft.render_controllers.json",
   "type": "object",
   "title": "Render_Controllers",
   "description": "The root schema comprises the entire JSON document.",

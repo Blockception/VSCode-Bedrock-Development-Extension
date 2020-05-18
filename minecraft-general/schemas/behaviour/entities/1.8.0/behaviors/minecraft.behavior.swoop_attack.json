@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.swim_idle",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.swim_idle",
   "type": "object",
   "title": "minecraft:behavior.swim_idle 1.8.0",
   "additionalProperties": false,

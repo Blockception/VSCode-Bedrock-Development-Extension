@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.look_at_entity",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.look_at_entity",
   "type": "object",
   "title": "minecraft:behavior.look_at_entity 1.8.0",
   "description": "Allows the mob to look at nearby entities.",

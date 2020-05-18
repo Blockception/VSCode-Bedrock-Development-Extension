@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.avoid_mob_type",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.avoid_mob_type",
   "type": "object",
   "title": "minecraft:behavior.avoid_mob_type 1.8.0",
   "description": "Allows this entity to avoid certain mob types.",
