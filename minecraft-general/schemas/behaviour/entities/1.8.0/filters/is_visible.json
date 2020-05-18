@@ -5,5 +5,5 @@
     "title": "Filters is_visible 1.8.0",
     "additionalProperties": false,
     "description": "Returns true if the subject entity is visible.",
-    "$ref": "base_types/base_filter_boolean.json"
+    "$ref": "../filters/types/base_filter_boolean.json"
 }

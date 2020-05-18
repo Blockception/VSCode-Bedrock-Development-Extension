@@ -10,13 +10,13 @@
   ],
   "properties": {
     "operator": {
-      "$ref": "base_types/base_operator.json",
+      "$ref": "../filters/types/base_operator.json",
       "description": "(Optional) The comparison to apply with 'value'.",
       "default": "equals",
       "title": "TODO title"
     },
     "subject": {
-      "$ref": "base_types/base_subject.json",
+      "$ref": "../filters/types/base_subject.json",
       "description": "(Optional) The subject of this filter test.",
       "default": "self",
       "title": "TODO title"
