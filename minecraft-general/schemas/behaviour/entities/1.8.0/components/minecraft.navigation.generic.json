@@ -7,35 +7,10 @@
   "description": "Allows this entity to generate paths in the air like the vanilla Parrots do.",  
   "required": [],
   "properties": {
-    "can_path_over_water": {
+    "avoid_damage_blocks": {
       "type": "boolean",
       "default": false,
-      "description": "Tells the pathfinder whether or not it can travel on the surface of the water"
-    },
-    "can_sink": {
-      "type": "boolean",
-      "default": true,
-      "description": "Tells the pathfinder whether or not it will be pulled down by gravity while in water"
-    },
-    "avoid_sun": {
-      "type": "boolean",
-      "default": false,
-      "description": "Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths"
-    },
-    "can_pass_doors": {
-      "type": "boolean",
-      "default": true,
-      "description": "Whether a path can be created through a door"
-    },
-    "can_open_doors": {
-      "type": "boolean",
-      "default": false,
-      "description": "Tells the pathfinder that it can path through a closed door assuming the AI will open the door"
-    },
-    "can_break_doors": {
-      "type": "boolean",
-      "default": false,
-      "description": "Tells the pathfinder that it can path through a closed door and break it"
+      "description": "Tells the pathfinder to avoid damaging blocks when finding a path"
     },
     "avoid_water": {
       "type": "boolean",
@@ -46,6 +21,36 @@
       "type": "boolean",
       "default": false,
       "description": "Tells the pathfinder to avoid portals (like nether portals) when finding a path"
+    },
+    "avoid_sun": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths"
+    },
+    "can_break_doors": {
+      "type": "boolean",
+      "default": false,
+      "description": "Tells the pathfinder that it can path through a closed door and break it"
+    },
+    "can_open_doors": {
+      "type": "boolean",
+      "default": false,
+      "description": "Tells the pathfinder that it can path through a closed door assuming the AI will open the door"
+    }, 
+    "can_pass_doors": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether a path can be created through a door"
+    },
+    "can_path_over_water": {
+      "type": "boolean",
+      "default": false,
+      "description": "Tells the pathfinder whether or not it can travel on the surface of the water"
+    },
+    "can_sink": {
+      "type": "boolean",
+      "default": true,
+      "description": "Tells the pathfinder whether or not it will be pulled down by gravity while in water"
     }
   }
 }

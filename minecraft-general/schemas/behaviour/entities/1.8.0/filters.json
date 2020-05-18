@@ -201,29 +201,27 @@
           }
         }
       ]
-    },
-    "base_collection_filters": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/filter_spec",
-        "description": "TODO description",
-        "title": "TODO title"
-      },
-      "description": "TODO description",
-      "title": "TODO title"
     }
   },
-  "$ref": "#/definitions/filter_spec",
-  "properties": {
-    "any_of": {
-      "$ref": "#/definitions/base_collection_filters",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "all_of": {
-      "$ref": "#/definitions/base_collection_filters",
-      "description": "TODO description",
-      "title": "TODO title"
+  "oneOf": [
+    { "$ref": "#/definitions/filter_spec" },
+    {
+      "properties": {
+        "any_of": {
+          "type": "array",
+          "description": "One or more tests in an 'any_of' group must pass in order for the group to pass.",
+          "items": {
+            "$ref": "#/definitions/filter_spec"        
+          }
+        },
+        "all_of": {
+          "type": "array",
+          "description": "All tests in an 'all_of' group must pass in order for the group to pass.",
+          "items": {
+            "$ref": "#/definitions/filter_spec"        
+          }
+        }
+      }
     }
-  }
+  ]
 }
