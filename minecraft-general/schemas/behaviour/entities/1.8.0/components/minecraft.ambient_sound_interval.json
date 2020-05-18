@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.ambient_sound_interval",
+  "additionalProperties": false,
+  "type": "object",
+  "title": "minecraft:ambient_sound_interval 1.8.0",
+  "description": "Sets the entity's delay between playing its ambient sound.",
+  "required": [ "entity_type" ],
+  "properties": {
+    "event_name": {
+      "type": "string",
+      "default": "ambient",
+      "description": "Level sound event to be played as the ambient sound."
+    },
+    "max": {
+      "type": "number",
+      "default": 16,
+      "description": "Maximum time in seconds to randomly add to the ambient sound delay time."
+    },
+    "min": {
+      "type": "number",
+      "default": 8,
+      "description": "Minimum time in seconds before the entity plays its ambient sound again"
+    }
+  }
+}
