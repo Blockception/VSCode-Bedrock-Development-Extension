@@ -9,9 +9,3 @@
   "required": [],
   "properties": { }
 }
-
-
-
-"minecraft:behavior.offer_flower": {
-  "priority": 5
-}
