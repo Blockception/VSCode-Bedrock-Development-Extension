@@ -8,12 +8,12 @@
   "required": [ "value" ],
   "properties": {
     "operator": {
-      "$ref": "../filters/types/base_operator.json",
+      "$ref": "types/base_operator.json",
       "description": "TODO description",
       "title": "TODO title"
     },
     "subject": {
-      "$ref": "../filters/types/base_subject.json",
+      "$ref": "types/base_subject.json",
       "description": "TODO description",
       "title": "TODO title"
     },

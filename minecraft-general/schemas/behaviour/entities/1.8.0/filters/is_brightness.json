@@ -5,7 +5,7 @@
   "title": "Filters is_brightness 1.8.0",
   "additionalProperties": false,
   "description": "Tests the current brightness against a provided value in the range (0.0f, 1.0f).",
-  "$ref": "../filters/types/base_filter_number.json",
+  "$ref": "types/base_filter_number.json",
   "required": [
     "value"
   ],

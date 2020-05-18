@@ -5,5 +5,5 @@
     "title": "Filters is_in_village 1.8.0",
     "additionalProperties": false,
     "description": "Tests whether the Subject is inside the bounds of a village.",
-    "$ref": "../filters/types/base_filter_boolean.json"
+    "$ref": "types/base_filter_boolean.json"
 }
