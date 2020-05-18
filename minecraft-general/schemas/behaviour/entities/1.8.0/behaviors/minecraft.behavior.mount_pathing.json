@@ -5,9 +5,9 @@
   "title": "minecraft:behavior.mount_pathing 1.8.0",
   "description": "Allows the mob to move around on its own while mounted seeking a target to attack.",
   "additionalProperties": false,
-
   "required": [],
-  "properties": { 
+  "properties": {
+    "priority": { "$ref": "types/base_priority.json" }, 
     "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "target_dist": {
       "type": "number",

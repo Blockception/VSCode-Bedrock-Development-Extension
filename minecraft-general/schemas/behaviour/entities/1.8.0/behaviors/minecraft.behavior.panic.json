@@ -4,9 +4,9 @@
   "type": "object",
   "title": "minecraft:behavior.guardian_attack 1.8.0",
   "additionalProperties": false,
-
   "required": [],
-  "properties": { 
+  "properties": {
+    "priority": { "$ref": "types/base_priority.json" }, 
     "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "ignore_mob_damage": {
       "type": "boolean",
