@@ -26,7 +26,7 @@
     },
     "look_time": {
       "description": "The range of time in seconds this mob will stare at the player holding a food they like, begging for it",
-      "$ref": "../../types/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [2, 4],      
       "title": "TODO title"
     }

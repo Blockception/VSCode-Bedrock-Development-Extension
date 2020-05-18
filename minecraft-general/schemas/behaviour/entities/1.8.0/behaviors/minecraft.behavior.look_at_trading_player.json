@@ -21,7 +21,7 @@
       "title": "TODO title"
     },
     "look_time": {
-      "$ref": "../../types/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "default": [
         2,
         4

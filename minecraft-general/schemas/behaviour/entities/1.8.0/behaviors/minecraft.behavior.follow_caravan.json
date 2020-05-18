@@ -10,7 +10,7 @@
   "properties": { 
     "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "entity_types": {
-      "$ref": "../../types/entity_types.json",
+      "$ref": "../types/entity_types.json",
       "description": "List of entity types that this mob can follow in a caravan",
       "title": "TODO title"
     },
