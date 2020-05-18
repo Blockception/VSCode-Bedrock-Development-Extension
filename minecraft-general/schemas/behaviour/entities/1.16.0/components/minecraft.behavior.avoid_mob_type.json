@@ -1,0 +1,49 @@
+"minecraft:behavior.avoid_mob_type": {
+  "priority": 2,
+  "entity_types": [
+    {
+      "filters": {
+        "any_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "value": "guardian_elder"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "value": "guardian"
+          }
+        ]
+      },
+      "max_dist": 8,
+      "walk_speed_multiplier": 1.0,
+      "sprint_speed_multiplier": 1.0
+    }
+  ],
+  "probability_per_strength": 0.14
+}"minecraft:behavior.avoid_mob_type": {
+  "priority": 2,
+  "entity_types": [
+    {
+      "filters": {
+        "any_of": [
+          {
+            "test": "is_family",
+            "subject": "other",
+            "value": "guardian_elder"
+          },
+          {
+            "test": "is_family",
+            "subject": "other",
+            "value": "guardian"
+          }
+        ]
+      },
+      "max_dist": 8,
+      "walk_speed_multiplier": 1.0,
+      "sprint_speed_multiplier": 1.0
+    }
+  ],
+  "probability_per_strength": 0.14
+}

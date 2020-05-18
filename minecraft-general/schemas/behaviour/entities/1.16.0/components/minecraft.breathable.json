@@ -1,0 +1,31 @@
+"minecraft:breathable": {
+  "total_supply": 240,
+  "suffocate_time": 0,
+  "breathes_air": true,
+  "breathes_water": false,
+  "generates_bubbles": false
+}"minecraft:breathable": {
+  "total_supply": 15,
+  "suffocate_time": 0
+}"minecraft:breathable": {
+  "total_supply": 15,
+  "suffocate_time": 0
+}"minecraft:breathable": {
+  "total_supply": 15,
+  "suffocate_time": 0
+}"minecraft:breathable": {
+  "total_supply": 240,
+  "suffocate_time": 0,
+  "breathes_air": true,
+  "breathes_water": false,
+  "generates_bubbles": false
+}"minecraft:breathable": {
+  "total_supply": 15,
+  "suffocate_time": 0
+}"minecraft:breathable": {
+  "total_supply": 15,
+  "suffocate_time": 0
+}"minecraft:breathable": {
+  "total_supply": 15,
+  "suffocate_time": 0
+}

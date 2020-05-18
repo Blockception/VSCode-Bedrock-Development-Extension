@@ -1,0 +1,7 @@
+"minecraft:on_target_acquired": {
+  "event": "minecraft:become_angry",
+  "target": "self"
+}"minecraft:on_target_acquired": {
+  "event": "minecraft:become_angry",
+  "target": "self"
+}
