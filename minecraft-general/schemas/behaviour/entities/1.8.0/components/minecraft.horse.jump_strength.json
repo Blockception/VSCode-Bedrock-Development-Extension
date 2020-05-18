@@ -4,28 +4,7 @@
   "type": "object",
   "title": "minecraft:fire_immune 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-
-"minecraft:horse.jump_strength": {
-  "value": 0.5
-}"minecraft:horse.jump_strength": {
-  "value": {
-    "range_min": 0.4,
-    "range_max": 1.0
-  }
-}"minecraft:horse.jump_strength": {
-  "value": 0.5
-}"minecraft:horse.jump_strength": {
-  "value": {
-    "range_min": 0.4,
-    "range_max": 1.0
-  }
-}"minecraft:horse.jump_strength": {
-  "value": {
-    "range_min": 0.4,
-    "range_max": 1.0
-  }
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

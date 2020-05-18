@@ -8,25 +8,39 @@
   "required": [],
   "properties": {
     "dwelling_type": {
-      "type": "string"
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "dweller_role": {
-      "type": "string"
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "update_interval_base": {
-      "type": "integer"
+      "type": "integer",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "update_interval_variant": {
-      "type": "integer"
+      "type": "integer",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "can_find_poi": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "can_migrate": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "first_founding_reward": {
-      "type": "integer"
+      "type": "integer",
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

@@ -9,33 +9,45 @@
   "required": [],
   "properties": {
     "speed_modifier": {
-      "default": 0.0
+      "default": 0.0,
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "potions": {
       "type": "array",
       "description": "A list of potions that this entity can drink.",
       "items": {
-        "required": ["id", "chance", "filters"],
+        "required": [
+          "id",
+          "chance",
+          "filters"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": {
             "type": "integer",
             "default": -1,
-            "description": "The registry ID of the potion to use"
+            "description": "The registry ID of the potion to use",
+            "title": "TODO title"
           },
           "chance": {
             "type": "number",
             "default": 1.0,
             "minimum": 0,
             "maximum": 1,
-            "description": "The percent chance (from 0.0 to 1.0) of this potion being selected when searching for a potion to use."
+            "description": "The percent chance (from 0.0 to 1.0) of this potion being selected when searching for a potion to use.",
+            "title": "TODO title"
           },
           "filters": {
             "description": "The filters to use when determining if this potion can be selected.",
-            "$ref": "../../1.8.0/filters.json"
+            "$ref": "../../1.8.0/filters.json",
+            "title": "TODO title"
           }
-        }
-      }
+        },
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     }
   }
 }

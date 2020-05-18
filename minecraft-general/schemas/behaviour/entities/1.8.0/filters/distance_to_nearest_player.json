@@ -1,23 +1,29 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.filters.distance_to_nearest_player",
-    "type": "object",
-    "title": "Filters distance_to_nearest_player 1.8.0",
-    "additionalProperties": false,
-    "description": "Compares the distance to the nearest Player with a float value.",
-    "required": [ "value" ],
-    "properties": {
-        "operator": { 
-            "$ref": "base_operator.json",
-            "description": "(Optional) The comparison to apply with 'value'."
-        },
-        "subject": { 
-            "$ref": "base_subject.json",
-            "description": "(Optional) The subject of this filter test."
-        },
-        "value": { 
-            "$ref": "base_value.json", "type":"number",
-            "description": "(Required) A floating point value."
-        }
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.filters.distance_to_nearest_player",
+  "type": "object",
+  "title": "Filters distance_to_nearest_player 1.8.0",
+  "additionalProperties": false,
+  "description": "Compares the distance to the nearest Player with a float value.",
+  "required": [
+    "value"
+  ],
+  "properties": {
+    "operator": {
+      "$ref": "base_operator.json",
+      "description": "(Optional) The comparison to apply with 'value'.",
+      "title": "TODO title"
+    },
+    "subject": {
+      "$ref": "base_subject.json",
+      "description": "(Optional) The subject of this filter test.",
+      "title": "TODO title"
+    },
+    "value": {
+      "$ref": "base_value.json",
+      "type": "number",
+      "description": "(Required) A floating point value.",
+      "title": "TODO title"
     }
+  }
 }

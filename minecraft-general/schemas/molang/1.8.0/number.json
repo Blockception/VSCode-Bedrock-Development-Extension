@@ -12,7 +12,8 @@
     },
     {
       "type": "number",
-      "description": "number definition"
+      "description": "number definition",
+      "title": "TODO title"
     }
   ]
 }

@@ -6,14 +6,6 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { }
-}
-
-"minecraft:behavior.raid_garden": {
-  "priority": 5,
-  "blocks": [
-    "carrots"
-  ],
-  "search_range": 16,
-  "goal_radius": 0.8
+  "properties": {},
+  "description": "TODO description"
 }

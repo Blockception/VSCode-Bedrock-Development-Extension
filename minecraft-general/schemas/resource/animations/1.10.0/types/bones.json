@@ -12,7 +12,11 @@
       "type": "array",
       "minItems": 3,
       "maxItems": 3,
-      "items": { "$ref": "../../../../molang/1.8.0/number.json" }
+      "items": {
+        "$ref": "../../../../molang/1.8.0/number.json",
+        "description": "TODO description",
+        "title": "TODO title"
+      }
     },
     "timeline": {
       "$id": "timeline specification",
@@ -27,8 +31,16 @@
           "title": "The timeline object schema",
           "description": "The timeline object specification",
           "properties": {
-            "pre": { "$ref": "#/definitions/numberSpecifciaton" },
-            "post": { "$ref": "#/definitions/numberSpecifciaton" }
+            "pre": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "post": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description",
+              "title": "TODO title"
+            }
           }
         }
       ]
@@ -45,12 +57,18 @@
         "title": "The position definition",
         "description": "The position definition",
         "anyOf": [
-          //Single item
-          { "$ref": "#/definitions/numberSpecifciaton" },
-          //Timeline
-          { 
-            "propertyNames": { "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)" }, 
-            "additionalProperties": { "$ref": "#/definitions/timeline" } 
+          {
+            "$ref": "#/definitions/numberSpecifciaton"
+          },
+          {
+            "propertyNames": {
+              "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/timeline",
+              "description": "TODO description",
+              "title": "TODO title"
+            }
           }
         ]
       },
@@ -59,12 +77,18 @@
         "title": "The rotation definition",
         "description": "The rotation definition",
         "anyOf": [
-          //Single item
-          { "$ref": "#/definitions/numberSpecifciaton" },
-          //Timeline
-          { 
-            "propertyNames": { "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)" }, 
-            "additionalProperties": { "$ref": "#/definitions/timeline" } 
+          {
+            "$ref": "#/definitions/numberSpecifciaton"
+          },
+          {
+            "propertyNames": {
+              "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/timeline",
+              "description": "TODO description",
+              "title": "TODO title"
+            }
           }
         ]
       },
@@ -73,12 +97,18 @@
         "title": "The scale definition",
         "description": "The scale definition",
         "anyOf": [
-          //Single item
-          { "$ref": "#/definitions/numberSpecifciaton" },
-          //Timeline
-          { 
-            "propertyNames": { "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)" }, 
-            "additionalProperties": { "$ref": "#/definitions/timeline" } 
+          {
+            "$ref": "#/definitions/numberSpecifciaton"
+          },
+          {
+            "propertyNames": {
+              "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/timeline",
+              "description": "TODO description",
+              "title": "TODO title"
+            }
           }
         ]
       },

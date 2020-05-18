@@ -1,17 +1,21 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.minecraft.physics",
-    "type": "object",
-    "title": "minecraft:physics 1.8.0",
-    "required": [
-    ],
-    "properties": {
-        "has_collision": {
-            "type": "boolean"
-        },
-        "has_gravity": {
-          "type": "boolean"
-      }
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.physics",
+  "type": "object",
+  "title": "minecraft:physics 1.8.0",
+  "required": [],
+  "properties": {
+    "has_collision": {
+      "type": "boolean",
+      "description": "TODO description",
+      "title": "TODO title"
     },
-    "additionalProperties": false
+    "has_gravity": {
+      "type": "boolean",
+      "description": "TODO description",
+      "title": "TODO title"
+    }
+  },
+  "additionalProperties": false,
+  "description": "TODO description"
 }

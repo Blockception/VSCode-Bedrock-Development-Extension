@@ -6,24 +6,35 @@
   "uniqueItems": false,
   "description": "A collection of bones specification",
   "definitions": {
-    "array_2_integer": { "$ref": "../../../../general/array_2_integer.json" },
-    "array_3_integer": { "$ref": "../../../../general/array_3_integer.json" },
-    "array_2_number": { "$ref": "../../../../general/array_2_number.json" },
-    "array_3_number": { "$ref": "../../../../general/array_3_number.json" },
-    "uv_square": { 
+    "array_2_integer": {
+      "$ref": "../../../../general/array_2_integer.json"
+    },
+    "array_3_integer": {
+      "$ref": "../../../../general/array_3_integer.json"
+    },
+    "array_2_number": {
+      "$ref": "../../../../general/array_2_number.json"
+    },
+    "array_3_number": {
+      "$ref": "../../../../general/array_3_number.json"
+    },
+    "uv_square": {
       "additionalProperties": false,
       "description": "The uv of the specific face",
-      "type": "object",      
+      "type": "object",
       "properties": {
         "uv": {
           "description": "The uv of the face",
-          "$ref": "#/definitions/array_2_number" 
+          "$ref": "#/definitions/array_2_number",
+          "title": "TODO title"
         },
         "uv_size": {
           "description": "The size of the uv, can be negative for flipping",
-          "$ref": "#/definitions/array_2_number" 
+          "$ref": "#/definitions/array_2_number",
+          "title": "TODO title"
         }
-      }      
+      },
+      "title": "TODO title"
     }
   },
   "items": {
@@ -33,7 +44,8 @@
     "properties": {
       "bind_pose_rotation": {
         "description": "I have no idea",
-        "$ref": "#/definitions/array_3_number"
+        "$ref": "#/definitions/array_3_number",
+        "title": "TODO title"
       },
       "cubes": {
         "type": "array",
@@ -42,94 +54,145 @@
           "additionalProperties": false,
           "type": "object",
           "description": "A cubes that describes this model",
-          "required": ["origin", "size"],
+          "required": [
+            "origin",
+            "size"
+          ],
           "properties": {
             "inflate": {
               "type": "number",
-              "description": "The amount of inflation to apply to the cube"
-            },            
+              "description": "The amount of inflation to apply to the cube",
+              "title": "TODO title"
+            },
             "origin": {
               "description": "The origin of the cube x, y, z",
-              "$ref": "#/definitions/array_3_number"
+              "$ref": "#/definitions/array_3_number",
+              "title": "TODO title"
             },
             "pivot": {
               "description": "The rotation point of the cube.",
-              "$ref": "#/definitions/array_3_number"
+              "$ref": "#/definitions/array_3_number",
+              "title": "TODO title"
             },
             "rotation": {
               "description": "The rotation of the cube x, y, z",
-              "$ref": "#/definitions/array_3_number"
+              "$ref": "#/definitions/array_3_number",
+              "title": "TODO title"
             },
             "size": {
               "description": "The size of the cube x, y, z",
-              "$ref": "#/definitions/array_3_number"
-            },            
+              "$ref": "#/definitions/array_3_number",
+              "title": "TODO title"
+            },
             "uv": {
               "description": "The uv of the cube",
               "oneOf": [
-                { 
+                {
                   "type": "array",
-                  "$ref": "#/definitions/array_2_number" 
+                  "$ref": "#/definitions/array_2_number",
+                  "description": "TODO description",
+                  "title": "TODO title"
                 },
                 {
                   "additionalProperties": false,
                   "type": "object",
                   "description": "The uv of the cube, with each face described individualy",
                   "properties": {
-                    "east": { "$ref": "#/definitions/uv_square" },
-                    "west": { "$ref": "#/definitions/uv_square" },
-                    "south": { "$ref": "#/definitions/uv_square" },
-                    "north": { "$ref": "#/definitions/uv_square" },
-                    "up": { "$ref": "#/definitions/uv_square" },
-                    "down": { "$ref": "#/definitions/uv_square" }
-                  }
+                    "east": {
+                      "$ref": "#/definitions/uv_square",
+                      "description": "TODO description",
+                      "title": "TODO title"
+                    },
+                    "west": {
+                      "$ref": "#/definitions/uv_square",
+                      "description": "TODO description",
+                      "title": "TODO title"
+                    },
+                    "south": {
+                      "$ref": "#/definitions/uv_square",
+                      "description": "TODO description",
+                      "title": "TODO title"
+                    },
+                    "north": {
+                      "$ref": "#/definitions/uv_square",
+                      "description": "TODO description",
+                      "title": "TODO title"
+                    },
+                    "up": {
+                      "$ref": "#/definitions/uv_square",
+                      "description": "TODO description",
+                      "title": "TODO title"
+                    },
+                    "down": {
+                      "$ref": "#/definitions/uv_square",
+                      "description": "TODO description",
+                      "title": "TODO title"
+                    }
+                  },
+                  "title": "TODO title"
                 }
-              ]              
+              ],
+              "title": "TODO title"
             },
             "mirror": {
               "type": "boolean",
-              "description": "TODO"
+              "description": "TODO",
+              "title": "TODO title"
             }
-          }
-        }
+          },
+          "title": "TODO title"
+        },
+        "title": "TODO title"
       },
       "inflate": {
         "type": "number",
-        "description": "The amount of inflation to apply to the cube"
+        "description": "The amount of inflation to apply to the cube",
+        "title": "TODO title"
       },
       "locators": {
         "minProperties": 1,
         "additionalProperties": {
-          "$ref": "#/definitions/array_3_number"
-        }
+          "$ref": "#/definitions/array_3_number",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "description": "TODO description",
+        "title": "TODO title"
       },
       "mirror": {
         "type": "boolean",
-        "description": "TODO"
+        "description": "TODO",
+        "title": "TODO title"
       },
       "name": {
         "type": "string",
-        "description": "The name of the bone"
+        "description": "The name of the bone",
+        "title": "TODO title"
       },
       "neverRender": {
         "type": "boolean",
-        "description": "If marked true then this bone is never rendered"
+        "description": "If marked true then this bone is never rendered",
+        "title": "TODO title"
       },
       "parent": {
         "type": "string",
-        "description": "The name of the bone that counts as the parent"
+        "description": "The name of the bone that counts as the parent",
+        "title": "TODO title"
       },
       "pivot": {
         "description": "The rotation point of the cube.",
-        "$ref": "#/definitions/array_3_number"
+        "$ref": "#/definitions/array_3_number",
+        "title": "TODO title"
       },
       "reset": {
         "description": "TODO",
-        "type": "boolean"
+        "type": "boolean",
+        "title": "TODO title"
       },
       "rotation": {
         "description": "The rotation of the cube.",
-        "$ref": "#/definitions/array_3_number"
+        "$ref": "#/definitions/array_3_number",
+        "title": "TODO title"
       },
       "texture_meshes": {
         "type": "array",
@@ -139,27 +202,38 @@
           "properties": {
             "local_pivot": {
               "$ref": "#/definitions/array_3_number",
-              "description": "The local pivot point of the texture"
+              "description": "The local pivot point of the texture",
+              "title": "TODO title"
             },
             "position": {
               "$ref": "#/definitions/array_3_number",
-              "description": "The position of the texture"
+              "description": "The position of the texture",
+              "title": "TODO title"
             },
             "rotation": {
               "$ref": "#/definitions/array_3_number",
-              "description": "The rotation of the texture"
+              "description": "The rotation of the texture",
+              "title": "TODO title"
             },
             "scale": {
               "$ref": "#/definitions/array_3_number",
-              "description": "The scale of the texture"
+              "description": "The scale of the texture",
+              "title": "TODO title"
             },
             "texture": {
               "type": "string",
-              "pattern": "^[a-z0-9_-]*$"
+              "pattern": "^[a-z0-9_-]*$",
+              "description": "TODO description",
+              "title": "TODO title"
             }
-          }
-        }
+          },
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "description": "TODO description",
+        "title": "TODO title"
       }
-    }
+    },
+    "title": "TODO title"
   }
 }

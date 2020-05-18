@@ -6,9 +6,12 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { 
+  "properties": {
     "look_distance": {
-      "type":"number"
+      "type": "number",
+      "description": "TODO description",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description"
 }

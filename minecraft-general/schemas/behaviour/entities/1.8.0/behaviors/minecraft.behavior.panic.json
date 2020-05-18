@@ -8,22 +8,28 @@
   "required": [],
   "properties": {
     "speed_multiplier": {
-      "default": 1
+      "default": 1,
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "ignore_mob_damage": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the mob will not panic in response to damage from other mobs (only fire/lava etc)"
+      "description": "If true, the mob will not panic in response to damage from other mobs (only fire/lava etc)",
+      "title": "TODO title"
     },
     "prefer_water": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the mob will prefer water over land"
+      "description": "If true, the mob will prefer water over land",
+      "title": "TODO title"
     },
     "force": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this mob will not stop panicking until it can't move anymore or the goal is removed from it"
+      "description": "If true, this mob will not stop panicking until it can't move anymore or the goal is removed from it",
+      "title": "TODO title"
     }
-   }
+  },
+  "description": "TODO description"
 }

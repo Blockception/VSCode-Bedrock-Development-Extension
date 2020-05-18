@@ -4,19 +4,7 @@
   "type": "object",
   "title": "minecraft:rail_movement 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:teleport": {
-  "randomTeleports": true,
-  "maxRandomTeleportTime": 30,
-  "randomTeleportCube": [
-    32,
-    32,
-    32
-  ],
-  "targetDistance": 16,
-  "target_teleport_chance": 0.05,
-  "lightTeleportChance": 0.05
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

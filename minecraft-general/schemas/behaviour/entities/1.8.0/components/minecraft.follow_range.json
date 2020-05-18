@@ -4,15 +4,18 @@
   "type": "object",
   "title": "minecraft:follow_range 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { 
+  "required": [],
+  "properties": {
     "value": {
       "type": "integer",
-      "description": "TODO"
+      "description": "TODO",
+      "title": "TODO title"
     },
     "max": {
       "type": "integer",
-      "description": "TODO"
+      "description": "TODO",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description"
 }

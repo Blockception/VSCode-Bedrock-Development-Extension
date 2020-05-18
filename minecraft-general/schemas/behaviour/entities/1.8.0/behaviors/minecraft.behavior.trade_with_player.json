@@ -6,9 +6,6 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { }
-}
-
-"minecraft:behavior.trade_with_player": {
-  "priority": 1
+  "properties": {},
+  "description": "TODO description"
 }

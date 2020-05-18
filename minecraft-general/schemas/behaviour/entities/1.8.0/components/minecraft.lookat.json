@@ -4,28 +4,7 @@
   "type": "object",
   "title": "minecraft:jump.dynamic 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:lookat": {
-  "searchRadius": 64.0,
-  "setTarget": true,
-  "look_cooldown": 5.0,
-  "filters": {
-    "all_of": [
-      {
-        "subject": "other",
-        "test": "is_family",
-        "value": "player"
-      },
-      {
-        "test": "has_equipment",
-        "domain": "head",
-        "subject": "other",
-        "operator": "not",
-        "value": "carved_pumpkin"
-      }
-    ]
-  }
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

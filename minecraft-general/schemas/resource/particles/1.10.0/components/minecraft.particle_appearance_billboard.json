@@ -1,92 +1,142 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.resource.particle.1.10.0.particle_appearance_billboard",
-    "type": "object",
-    "title": "The particle_appearance_billboard component for 1.10.0",
-    "additionalProperties": false,
-    "properties": {
-        "size": {
-            "type": "array",
-            "minItems": 2,
-            "maxItems": 2,
-            "items": {
-                "$ref": "../../../../molang/1.8.0/number.json"
-            }
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.resource.particle.1.10.0.particle_appearance_billboard",
+  "type": "object",
+  "title": "The particle_appearance_billboard component for 1.10.0",
+  "additionalProperties": false,
+  "properties": {
+    "size": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "$ref": "../../../../molang/1.8.0/number.json",
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "description": "TODO description",
+      "title": "TODO title"
+    },
+    "facing_camera_mode": {
+      "description": "used to orient the billboard.",
+      "type": "string",
+      "enum": [
+        "lookat_xyz",
+        "lookat_y",
+        "rotate_xyz",
+        "rotate_y",
+        "direction_x",
+        "direction_y",
+        "direction_z"
+      ],
+      "title": "TODO title"
+    },
+    "uv": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "texture_width": {
+          "type": "integer",
+          "description": "TODO description",
+          "title": "TODO title"
         },
-        "facing_camera_mode": {
-            "description": "used to orient the billboard.",
-            "type": "string",
-            "enum": [ "lookat_xyz", "lookat_y", "rotate_xyz", "rotate_y", "direction_x", "direction_y", "direction_z" ]
+        "texture_height": {
+          "type": "integer",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "flipbook": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "base_UV": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "$ref": "../../../../molang/1.8.0/number.json",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "size_UV": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "$ref": "../../../../molang/1.8.0/number.json",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "step_UV": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "$ref": "../../../../molang/1.8.0/number.json",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "frames_per_second": {
+              "$ref": "../../../../molang/1.8.0/number.json",
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "max_frame": {
+              "$ref": "../../../../molang/1.8.0/number.json",
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "stretch_to_lifetime": {
+              "type": "boolean",
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "loop": {
+              "type": "boolean",
+              "description": "TODO description",
+              "title": "TODO title"
+            }
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         },
         "uv": {
-            "additionalProperties": false,
-            "type": "object",
-            "properties": {
-                "texture_width": {
-                    "type": "integer"
-                },
-                "texture_height": {
-                    "type": "integer"
-                },
-                "flipbook": {
-                    "additionalProperties": false,
-                    "type": "object",
-                    "properties": {
-                        "base_UV": {
-                            "type": "array",
-                            "minItems": 2,
-                            "maxItems": 2,
-                            "items": {
-                                "$ref": "../../../../molang/1.8.0/number.json"
-                            }
-                        },
-                        "size_UV": {
-                            "type": "array",
-                            "minItems": 2,
-                            "maxItems": 2,
-                            "items": {
-                                "$ref": "../../../../molang/1.8.0/number.json"
-                            }
-                        },
-                        "step_UV": {
-                            "type": "array",
-                            "minItems": 2,
-                            "maxItems": 2,
-                            "items": {
-                                "$ref": "../../../../molang/1.8.0/number.json"
-                            }
-                        },
-                        "frames_per_second": {
-                            "$ref": "../../../../molang/1.8.0/number.json"
-                        },
-                        "max_frame": {
-                            "$ref": "../../../../molang/1.8.0/number.json"
-                        },
-                        "stretch_to_lifetime": {
-                            "type": "boolean"
-                        },
-                        "loop": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "uv": {
-                    "type": "array",
-                    "minItems": 2,
-                    "maxItems": 2,
-                    "items": {
-                        "$ref": "../../../../molang/1.8.0/number.json"
-                    }
-                },
-                "uv_size": {
-                    "type": "array",
-                    "minItems": 2,
-                    "maxItems": 2,
-                    "items": {
-                        "$ref": "../../../../molang/1.8.0/number.json"
-                    }
-                }
-            }
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "$ref": "../../../../molang/1.8.0/number.json",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "uv_size": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "$ref": "../../../../molang/1.8.0/number.json",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         }
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     }
+  },
+  "description": "TODO description"
 }

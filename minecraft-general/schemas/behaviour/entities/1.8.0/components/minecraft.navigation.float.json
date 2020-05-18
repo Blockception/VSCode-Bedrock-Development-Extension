@@ -4,12 +4,7 @@
   "type": "object",
   "title": "minecraft:movement.skip 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:navigation.float": {
-  "can_path_over_water": true
-}"minecraft:navigation.float": {
-  "can_path_over_water": true
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

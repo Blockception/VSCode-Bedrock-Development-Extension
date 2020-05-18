@@ -6,5 +6,6 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_speed_multiplier.json",
   "required": [],
-  "properties": { }
+  "properties": {},
+  "description": "TODO description"
 }

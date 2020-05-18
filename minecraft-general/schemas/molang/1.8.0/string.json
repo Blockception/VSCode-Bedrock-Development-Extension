@@ -12,7 +12,8 @@
     },
     {
       "type": "string",
-      "description": "string definition"
+      "description": "string definition",
+      "title": "TODO title"
     }
   ]
 }

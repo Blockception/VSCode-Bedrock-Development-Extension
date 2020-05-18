@@ -1,19 +1,22 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.filters.is_altitude",
-    "type": "object",
-    "title": "Filters is_altitude 1.8.0",
-    "additionalProperties": false,
-    "description": "Tests the current altitude against a provided value. 0= bedrock elevation.",
-    "$ref": "./types/base_filter_integer.json",
-    "required": [ "value" ],
-    "properties": {
-        "value": {
-            "$ref": "base_value.json",
-            "type": "integer",
-            "description": "The altitude value to compare with",
-            "minimum": 0,
-            "maximum": 24000
-        }
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "minecraft.behaviour.entities.1.8.0.filters.is_altitude",
+  "type": "object",
+  "title": "Filters is_altitude 1.8.0",
+  "additionalProperties": false,
+  "description": "Tests the current altitude against a provided value. 0= bedrock elevation.",
+  "$ref": "./types/base_filter_integer.json",
+  "required": [
+    "value"
+  ],
+  "properties": {
+    "value": {
+      "$ref": "base_value.json",
+      "type": "integer",
+      "description": "The altitude value to compare with",
+      "minimum": 0,
+      "maximum": 24000,
+      "title": "TODO title"
     }
+  }
 }

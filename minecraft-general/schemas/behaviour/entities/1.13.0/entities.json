@@ -9,7 +9,16 @@
     "minecraft:entity"
   ],
   "properties": {
-    "format_version": { "title": "The 1.13.0 format_version", "type": "string", "const": "1.13.0" },
-    "minecraft:entity": { "$ref": "minecraft.entity.json" }
+    "format_version": {
+      "title": "The 1.13.0 format_version",
+      "type": "string",
+      "const": "1.13.0",
+      "description": "TODO description"
+    },
+    "minecraft:entity": {
+      "$ref": "minecraft.entity.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    }
   }
 }

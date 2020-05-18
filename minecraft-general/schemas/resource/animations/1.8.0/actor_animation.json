@@ -4,13 +4,23 @@
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.8.0",
   "description": "The root schema comprises the entire JSON document.",
-  "required": ["format_version", "animations"],
+  "required": [
+    "format_version",
+    "animations"
+  ],
   "properties": {
-    "format_version": { "title": "The 1.8.0 format_version", "type": "string", "const": "1.8.0" },
+    "format_version": {
+      "title": "The 1.8.0 format_version",
+      "type": "string",
+      "const": "1.8.0",
+      "description": "TODO description"
+    },
     "animations": {
       "title": "Animations schema",
       "description": "The animation 1.8.0 specification",
-      "propertyNames": { "pattern": "^animation\\.[a-z\\.]+" },
+      "propertyNames": {
+        "pattern": "^animation\\.[a-z\\.]+"
+      },
       "type": "object",
       "additionalProperties": {
         "type": "object",
@@ -28,7 +38,11 @@
             "description": "If marked true then the animation will be looped",
             "type": "boolean"
           },
-          "bones": { "$ref": "./types/bones.json" }
+          "bones": {
+            "$ref": "./types/bones.json",
+            "description": "TODO description",
+            "title": "TODO title"
+          }
         }
       }
     }

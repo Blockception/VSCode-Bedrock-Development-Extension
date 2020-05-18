@@ -5,7 +5,10 @@
   "title": "The minecraft manifest v1 schema",
   "description": "The manifest file contains all the basic information about the pack that Minecraft needs to identify it. The tables below contain all the components of the manifest, their individual properties, and what they mean.",
   "additionalProperties": false,
-  "required": ["format_version", "header"],
+  "required": [
+    "format_version",
+    "header"
+  ],
   "definitions": {
     "uuidv4": {
       "$ref": "../../../../json-schemas/general/UUIDV4.json"
@@ -17,40 +20,60 @@
   "properties": {
     "format_version": {
       "type": "number",
-      "description": "This defines the current version of the manifest. Don't change this unless you have a good reason to"
+      "description": "This defines the current version of the manifest. Don't change this unless you have a good reason to",
+      "title": "TODO title"
     },
     "header": {
       "additionalProperties": false,
-
-      "required": ["description", "name", "uuid", "version"],
+      "required": [
+        "description",
+        "name",
+        "uuid",
+        "version"
+      ],
       "properties": {
         "name": {
           "type": "string",
           "default": 0,
-          "description": "This is the name of the pack as it appears within Minecraft"
+          "description": "This is the name of the pack as it appears within Minecraft",
+          "title": "TODO title"
         },
         "description": {
           "type": "string",
           "default": 0,
-          "description": "This is a short description of the pack. It will appear in the game below the name of the pack. We recommend keeping it to 1-2 lines."
+          "description": "This is a short description of the pack. It will appear in the game below the name of the pack. We recommend keeping it to 1-2 lines.",
+          "title": "TODO title"
         },
         "uuid": {
           "type": "string",
           "$ref": "#/definitions/uuidv4",
-          "description": "This is a special type of identifier that uniquely identifies this pack from any other pack. UUIDs are written in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx where each x is a hexadecimal value (0-9 or a-f). We recommend using an online service to generate this and guarantee their uniqueness (just bing UUID Generator to find some)"
+          "description": "This is a special type of identifier that uniquely identifies this pack from any other pack. UUIDs are written in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx where each x is a hexadecimal value (0-9 or a-f). We recommend using an online service to generate this and guarantee their uniqueness (just bing UUID Generator to find some)",
+          "title": "TODO title"
         },
         "version": {
           "$ref": "#/definitions/version",
-          "description": "This is the version of your pack in the format [majorVersion, minorVersion, revision]."
+          "description": "This is the version of your pack in the format [majorVersion, minorVersion, revision].",
+          "title": "TODO title"
         },
         "min_engine_version": {
           "type": "string",
           "$ref": "#/definitions/version",
-          "description": "This is the minimum version of the game that this pack was written for. This helps the game identify whether any backwards compatibility is needed for your pack. You should always use the highest version currently available when creating packs"
+          "description": "This is the minimum version of the game that this pack was written for. This helps the game identify whether any backwards compatibility is needed for your pack. You should always use the highest version currently available when creating packs",
+          "title": "TODO title"
         },
-        "lock_template_options": { "type": "boolean" },
-        "base_game_version": { "$ref": "#/definitions/version" }
-      }
+        "lock_template_options": {
+          "type": "boolean",
+          "description": "TODO description",
+          "title": "TODO title"
+        },
+        "base_game_version": {
+          "$ref": "#/definitions/version",
+          "description": "TODO description",
+          "title": "TODO title"
+        }
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "modules": {
       "type": "array",
@@ -58,27 +81,45 @@
       "items": {
         "additionalProperties": false,
         "type": "object",
-        "required": ["type", "uuid", "version"],
+        "required": [
+          "type",
+          "uuid",
+          "version"
+        ],
         "properties": {
           "type": {
             "description": "This is the type of the module. Can be any of the following: resources, data, client_data, interface, world_template",
             "type": "string",
-            "enum": ["resources", "data", "client_data", "interface", "world_template"]
+            "enum": [
+              "resources",
+              "data",
+              "client_data",
+              "interface",
+              "world_template"
+            ],
+            "title": "TODO title"
           },
           "description": {
             "type": "string",
-            "description": "This is a short description of the module. This is not user-facing at the moment but is a good place to remind yourself why the module is defined"
+            "description": "This is a short description of the module. This is not user-facing at the moment but is a good place to remind yourself why the module is defined",
+            "title": "TODO title"
           },
           "uuid": {
             "$ref": "#/definitions/uuidv4",
-            "description": "This is a unique identifier for the module in the same format as the pack's UUID in the header. This should be different from the pack's UUID, and different for every module"
+            "description": "This is a unique identifier for the module in the same format as the pack's UUID in the header. This should be different from the pack's UUID, and different for every module",
+            "title": "TODO title"
           },
-          "version": { 
+          "version": {
             "$ref": "#/definitions/version",
-            "description": "This is the version of the module in the same format as the pack's version in the header. This can be used to further identify changes in your pack"
-          }
-        }
-      }
+            "description": "This is the version of the module in the same format as the pack's version in the header. This can be used to further identify changes in your pack",
+            "title": "TODO title"
+          },
+          "title": "TODO title"
+        },
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "description": "TODO description"
     },
     "dependencies": {
       "type": "array",
@@ -90,14 +131,19 @@
           "uuid": {
             "type": "string",
             "$ref": "#/definitions/uuidv4",
-            "description": "This is the unique identifier of the pack that this pack depends on. It needs to be the exact same UUID that the pack has defined in the header section of it's manifest file"
+            "description": "This is the unique identifier of the pack that this pack depends on. It needs to be the exact same UUID that the pack has defined in the header section of it's manifest file",
+            "title": "TODO title"
           },
           "version": {
             "$ref": "#/definitions/version",
-            "description": "This is the specific version of the pack that your pack depends on. Should match the version the other pack has in its manifest file"
+            "description": "This is the specific version of the pack that your pack depends on. Should match the version the other pack has in its manifest file",
+            "title": "TODO title"
           }
-        }
-      }
+        },
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     },
     "capabilities": {
       "additionalProperties": false,
@@ -106,27 +152,35 @@
       "properties": {
         "experimental_custom_ui": {
           "type": "boolean",
-          "description": "Allows HTML files in the pack to be used for custom UI, and scripts in the pack to call and manipulate custom UI"
+          "description": "Allows HTML files in the pack to be used for custom UI, and scripts in the pack to call and manipulate custom UI",
+          "title": "TODO title"
         },
         "chemistry": {
           "type": "boolean",
-          "description": "Allows the pack to add, change or replace Chemistry functionality"
+          "description": "Allows the pack to add, change or replace Chemistry functionality",
+          "title": "TODO title"
         }
-      }
+      },
+      "title": "TODO title"
     },
     "metadata": {
       "authors": {
         "type": "string",
-        "description": "Name of the author(s) of the pack"
+        "description": "Name of the author(s) of the pack",
+        "title": "TODO title"
       },
       "license": {
         "type": "string",
-        "description": "The license of the pack"
+        "description": "The license of the pack",
+        "title": "TODO title"
       },
       "url": {
         "type": "string",
-        "description": "The home website of your pack"
-      }
+        "description": "The home website of your pack",
+        "title": "TODO title"
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

@@ -4,11 +4,7 @@
   "type": "object",
   "title": "minecraft:movement.fly 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-"minecraft:movement.glide": {
-  "start_speed": 0.1,
-  "speed_when_turning": 0.2
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

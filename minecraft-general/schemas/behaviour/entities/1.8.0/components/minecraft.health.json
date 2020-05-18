@@ -4,29 +4,42 @@
   "type": "object",
   "title": "minecraft:health 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
+  "required": [],
   "properties": {
     "value": {
       "oneOf": [
         {
-          "type": "integer"
+          "type": "integer",
+          "description": "TODO description",
+          "title": "TODO title"
         },
         {
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "range_min": {
-              "type": "integer"
+              "type": "integer",
+              "description": "TODO description",
+              "title": "TODO title"
             },
             "range_max": {
-              "type": "integer"
+              "type": "integer",
+              "description": "TODO description",
+              "title": "TODO title"
             }
-          }
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         }
-      ]
+      ],
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "max": {
-      "type": "integer"
+      "type": "integer",
+      "description": "TODO description",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description"
 }

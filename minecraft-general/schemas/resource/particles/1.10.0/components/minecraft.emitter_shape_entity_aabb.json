@@ -7,22 +7,31 @@
   "properties": {
     "direction": {
       "anyOf": [
-          {
-            "type": "string",
-            "enum": [
-                "inwards",
-                "outwards"
-            ]
-          },
+        {
+          "type": "string",
+          "enum": [
+            "inwards",
+            "outwards"
+          ],
+          "description": "TODO description",
+          "title": "TODO title"
+        },
         {
           "type": "array",
           "items": {
             "minItems": 3,
             "maxItems": 3,
-            "$ref": "../../../../molang/1.8.0/number.json"
-          }
+            "$ref": "../../../../molang/1.8.0/number.json",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "description": "TODO description",
+          "title": "TODO title"
         }
-      ]
+      ],
+      "description": "TODO description",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description"
 }

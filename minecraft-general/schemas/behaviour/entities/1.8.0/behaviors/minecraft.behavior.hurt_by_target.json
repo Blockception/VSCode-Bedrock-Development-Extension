@@ -7,17 +7,23 @@
   "description": "Allows the mob to target another mob that hurts them.",
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { 
-    "entity_types": { "$ref": "../types/entity_types.json" },
+  "properties": {
+    "entity_types": {
+      "$ref": "../types/entity_types.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    },
     "alert_same_type": {
       "type": "boolean",
       "default": false,
-      "description": "If true, nearby mobs of the same type will be alerted about the damage"
+      "description": "If true, nearby mobs of the same type will be alerted about the damage",
+      "title": "TODO title"
     },
     "hurt_owner": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the mob will hurt its owner and other mobs with the same owner as itself"
+      "description": "If true, the mob will hurt its owner and other mobs with the same owner as itself",
+      "title": "TODO title"
     }
   }
 }

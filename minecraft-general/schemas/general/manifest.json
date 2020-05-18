@@ -4,15 +4,40 @@
   "type": "object",
   "title": "The minecraft manifest schema",
   "description": "The minecraft manifest schema",
-  "required": ["format_version", "header"],
-  "allOf": [    
+  "required": [
+    "format_version",
+    "header"
+  ],
+  "allOf": [
     {
-      "if": { "properties": { "format_version": { "const": 1, "type": "number" } } },
-      "then": { "$ref": "./manifest/manifest.1.json" }
+      "if": {
+        "properties": {
+          "format_version": {
+            "const": 1,
+            "type": "number",
+            "description": "TODO description",
+            "title": "TODO title"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./manifest/manifest.1.json"
+      }
     },
     {
-      "if": { "properties": { "format_version": { "const": 2, "type": "number" } } },
-      "then": { "$ref": "./manifest/manifest.2.json" }
+      "if": {
+        "properties": {
+          "format_version": {
+            "const": 2,
+            "type": "number",
+            "description": "TODO description",
+            "title": "TODO title"
+          }
+        }
+      },
+      "then": {
+        "$ref": "./manifest/manifest.2.json"
+      }
     }
   ]
 }

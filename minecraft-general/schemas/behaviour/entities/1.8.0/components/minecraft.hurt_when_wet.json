@@ -4,15 +4,7 @@
   "type": "object",
   "title": "minecraft:fire_immune 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
-  "properties": { }
-}
-
-
-"minecraft:hurt_when_wet": {
-  "value": true
-}"minecraft:hurt_when_wet": {
-  "value": true
-}"minecraft:hurt_when_wet": {
-  "value": true
+  "required": [],
+  "properties": {},
+  "description": "TODO description"
 }

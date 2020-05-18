@@ -6,11 +6,6 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { }
-}
-
-"minecraft:behavior.swell": {
-  "start_distance": 2.5,
-  "stop_distance": 6.0,
-  "priority": 2
+  "properties": {},
+  "description": "TODO description"
 }

@@ -6,26 +6,6 @@
   "additionalProperties": false,
   "$ref": "../types/behaviour_base.json",
   "required": [],
-  "properties": { }
-}
-
-"minecraft:behavior.swim_wander": {
-  "priority": 4,
-  "speed_multiplier": 1.0,
-  "interval": 10,
-  "look_ahead": 2.0
-}"minecraft:behavior.swim_wander": {
-  "priority": 5,
-  "speed_multiplier": 1.0,
-  "interval": 0,
-  "look_ahead": 2.0
-}"minecraft:behavior.swim_wander": {
-  "priority": 4,
-  "speed_multiplier": 0.014,
-  "interval": 60
-}"minecraft:behavior.swim_wander": {
-  "priority": 4,
-  "speed_multiplier": 1.0,
-  "interval": 10,
-  "look_ahead": 2.0
+  "properties": {},
+  "description": "TODO description"
 }

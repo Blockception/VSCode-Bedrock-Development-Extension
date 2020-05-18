@@ -4,11 +4,14 @@
   "type": "object",
   "title": "minecraft:loot 1.8.0",
   "additionalProperties": false,
-  "required": [ ],
+  "required": [],
   "properties": {
     "table": {
       "type": "string",
-      "pattern": ".*\\.json$"
+      "pattern": ".*\\.json$",
+      "description": "TODO description",
+      "title": "TODO title"
     }
-  }
+  },
+  "description": "TODO description"
 }

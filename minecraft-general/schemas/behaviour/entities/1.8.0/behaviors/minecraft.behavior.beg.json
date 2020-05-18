@@ -12,18 +12,26 @@
       "type": "array",
       "description": "List of items that this mob likes",
       "items": {
-        "type": "string"
-      }
+        "type": "string",
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     },
     "look_distance": {
-      "type":"number",
+      "type": "number",
       "description": "Distance in blocks the mob will beg from",
-      "default": 8.0
+      "default": 8.0,
+      "title": "TODO title"
     },
     "look_time": {
       "description": "The range of time in seconds this mob will stare at the player holding a food they like, begging for it",
       "$ref": "./types/range_number_type.json",
-      "default": [2, 4]
+      "default": [
+        2,
+        4
+      ],
+      "title": "TODO title"
     }
   }
 }

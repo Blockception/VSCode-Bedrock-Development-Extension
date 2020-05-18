@@ -5,19 +5,20 @@
   "title": "minecraft:equippable 1.8.0",
   "additionalProperties": false,
   "description": "Defines an entity's behavior for having items equipped to it",
-  "required": [ ],
+  "required": [],
   "properties": {
     "slots": {
       "description": "List of slots and the item that can be equipped",
       "type": "array",
       "items": {
         "description": "a slot and the item that can be equipped",
-        "type":"object",
+        "type": "object",
         "properties": {
           "slot": {
             "type": "integer",
             "default": 0,
-            "description": "The slot number of this slot"
+            "description": "The slot number of this slot",
+            "title": "TODO title"
           },
           "accepted_items": {
             "type": "array",
@@ -25,31 +26,39 @@
             "items": {
               "type": "string",
               "description": "A item name",
-              "$ref": "../../../../general/items_item.json"
-            }
+              "$ref": "../../../../general/items_item.json",
+              "title": "TODO title"
+            },
+            "title": "TODO title"
           },
           "item": {
             "type": "string",
             "default": 0,
-            "description": "Identifier of the item that can be equipped for this slot"
+            "description": "Identifier of the item that can be equipped for this slot",
+            "title": "TODO title"
           },
           "interact_text": {
             "type": "string",
             "default": 0,
-            "description": "Text to be displayed when the entity can be equipped with this item when playing with Touch-screen controls"
+            "description": "Text to be displayed when the entity can be equipped with this item when playing with Touch-screen controls",
+            "title": "TODO title"
           },
           "on_equip": {
             "type": "string",
             "default": 0,
-            "description": "Event to trigger when this entity is equipped with this item"
+            "description": "Event to trigger when this entity is equipped with this item",
+            "title": "TODO title"
           },
           "on_unequip": {
             "type": "string",
             "default": 0,
-            "description": "Event to trigger when this item is removed from this entity"
+            "description": "Event to trigger when this item is removed from this entity",
+            "title": "TODO title"
           }
-        }
-      }
+        },
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     }
   }
 }

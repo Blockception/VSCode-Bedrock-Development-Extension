@@ -11,7 +11,7 @@
       "type": "array",
       "description": "List of triggers with the events to call when taking specific kinds of damage.",
       "items": {
-        "type":"object",
+        "type": "object",
         "description": "A trigger with the events to call when taking specific kinds of damage.",
         "additionalProperties": false,
         "properties": {
@@ -19,28 +19,44 @@
             "type": "string",
             "default": "none",
             "description": "Type of damage that triggers the events.",
-            "$ref": "../../../../general/entity_damage.json"
+            "$ref": "../../../../general/entity_damage.json",
+            "title": "TODO title"
           },
           "deals_damage": {
             "type": "boolean",
             "default": true,
-            "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage."
+            "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage.",
+            "title": "TODO title"
           },
           "on_damage": {
             "additionalProperties": false,
-            "type": "object",            
+            "type": "object",
             "properties": {
-              "filters": { "$ref": "../filters.json" },
-              "event": { "type": "string", "pattern": "^.*$" },
-              "target": { 
+              "filters": {
+                "$ref": "../filters.json",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "event": {
                 "type": "string",
-                "$ref": "../filters/types/base_subject.json"
+                "pattern": "^.*$",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "target": {
+                "type": "string",
+                "$ref": "../filters/types/base_subject.json",
+                "description": "TODO description",
+                "title": "TODO title"
               }
             },
-            "description": "Specifies filters for entity definitions and events."
+            "description": "Specifies filters for entity definitions and events.",
+            "title": "TODO title"
           }
-        }
-      }
+        },
+        "title": "TODO title"
+      },
+      "title": "TODO title"
     }
   }
 }
