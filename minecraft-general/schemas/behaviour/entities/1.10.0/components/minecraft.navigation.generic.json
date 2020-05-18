@@ -1,8 +1,0 @@
-"minecraft:navigation.generic": {
-  "is_amphibious": true,
-  "can_path_over_water": false,
-  "can_break_doors": true,
-  "can_swim": false,
-  "can_walk": true,
-  "avoid_sun": true
-}

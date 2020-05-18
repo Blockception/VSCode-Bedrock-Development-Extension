@@ -1,5 +1,0 @@
-"minecraft:loot": {
-  "table": "loot_tables/empty.json"
-}"minecraft:loot": {
-  "table": "loot_tables/entities/zombie.json"
-}

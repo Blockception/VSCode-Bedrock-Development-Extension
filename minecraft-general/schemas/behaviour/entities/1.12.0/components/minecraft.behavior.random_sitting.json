@@ -1,7 +1,0 @@
-"minecraft:behavior.random_sitting": {
-  "priority": 5,
-  "start_chance": 0.01,
-  "stop_chance": 0.3,
-  "cooldown": 30,
-  "min_sit_time": 10
-}

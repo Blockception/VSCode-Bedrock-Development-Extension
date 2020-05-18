@@ -1,4 +1,0 @@
-"minecraft:behavior.move_indoors": {
-  "priority": 4,
-  "speed_multiplier": 0.8
-}

@@ -1,4 +1,0 @@
-"minecraft:on_start_landing": {
-  "event": "minecraft:start_land",
-  "target": "self"
-}
