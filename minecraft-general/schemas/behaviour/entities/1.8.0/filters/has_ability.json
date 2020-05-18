@@ -7,6 +7,11 @@
   "description": "Returns true when the subject entity has the named ability.",
   "required": [ "value" ],
   "properties": {
+    "test": {
+      "type": "string",
+      "title": "the test",
+      "description": "the test property"
+    },
     "operator": {
       "$ref": "types/base_operator.json",
       "description": "TODO description",

@@ -9,6 +9,11 @@
     "value"
   ],
   "properties": {
+    "test": {
+      "type": "string",
+      "title": "the test",
+      "description": "the test property"
+    },
     "operator": {
       "$ref": "types/base_operator.json",
       "description": "TODO description",
