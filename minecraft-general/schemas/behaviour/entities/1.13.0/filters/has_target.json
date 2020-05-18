@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.behaviour.entities.1.13.0.filters.has_target",
+    "type": "object",
+    "title": "Filters has_target 1.13.0",
+    "additionalProperties": false,
+    "description": "Returns true if the subject entity has a valid target.",
+    "properties": {
+    "test": {
+      "type": "string",
+      "title": "the test",
+      "description": "the test property"
+    },
+    "operator": {
+      "$ref": "types/base_operator.json",
+      "description": "todo description",
+      "title": "todo title"
+    },
+    "subject": {
+      "$ref": "types/base_subject.json",
+      "description": "todo description",
+      "title": "todo title"
+    },
+    "value": {
+      "type": "boolean",
+      "default": true,
+      "description": "todo description",
+      "title": "todo title"
+    }
+  }
+}
