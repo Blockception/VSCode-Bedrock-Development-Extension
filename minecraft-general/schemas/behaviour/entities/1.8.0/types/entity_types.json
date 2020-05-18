@@ -3,14 +3,14 @@
   "$id": "blockception.minecraft.behaviour.entities.type.entity_types.1.8.0",
   "title": "entity_types 1.8.0",
   "type": "array",
-  "description": "List of entity types this mob avoids.",
   "items": {
+    "description": "The entity type",
+    "title": "The entity type",
     "type": "object",
     "properties": {
       "filters": {
-        "$ref": "../filters.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "type": "object",
+        "$ref": "../filters.json"
       },
       "max_dist": {
         "type": "number",
@@ -42,8 +42,6 @@
         "default": 3,
         "title": "TODO title"
       }
-    },
-    "description": "TODO description",
-    "title": "TODO title"
+    }
   }
 }
