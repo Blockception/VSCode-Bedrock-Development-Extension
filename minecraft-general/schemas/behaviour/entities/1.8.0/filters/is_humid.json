@@ -5,5 +5,27 @@
     "title": "Filters is_humid 1.8.0",
     "additionalProperties": false,
     "description": "Tests whether the Subject is in an area with humidity",
-    "$ref": "types/base_filter_boolean.json"
+    "properties": {
+    "test": {
+      "type": "string",
+      "title": "the test",
+      "description": "the test property"
+    },
+    "operator": {
+      "$ref": "types/base_operator.json",
+      "description": "todo description",
+      "title": "todo title"
+    },
+    "subject": {
+      "$ref": "types/base_subject.json",
+      "description": "todo description",
+      "title": "todo title"
+    },
+    "value": {
+      "type": "boolean",
+      "default": true,
+      "description": "todo description",
+      "title": "todo title"
+    }
+  }
 }

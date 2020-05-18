@@ -5,10 +5,13 @@
   "title": "Filters distance_to_nearest_player 1.8.0",
   "additionalProperties": false,
   "description": "Compares the distance to the nearest Player with a float value.",
-  "required": [
-    "value"
-  ],
+  "required": ["value"],
   "properties": {
+    "test": {
+      "type": "string",
+      "title": "the test",
+      "description": "the test property"
+    },
     "operator": {
       "$ref": "types/base_operator.json",
       "description": "(Optional) The comparison to apply with 'value'.",
@@ -20,7 +23,7 @@
       "title": "TODO title"
     },
     "value": {
-            "type": "number",
+      "type": "number",
       "description": "(Required) A floating point value.",
       "title": "TODO title"
     }
