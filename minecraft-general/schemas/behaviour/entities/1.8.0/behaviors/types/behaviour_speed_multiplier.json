@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.behaviour_speed_multiplier.1.8.0",
+  "$id": "blockception.minecraft.behaviour.entities.behaviour_speed_multiplier.1.8.0",
   "title": "behaviour_speed_multiplier",
   "$ref": "behaviour_base.json",
   "properties": {

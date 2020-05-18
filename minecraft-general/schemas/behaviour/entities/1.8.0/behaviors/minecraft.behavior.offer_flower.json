@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.offer_flower",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.offer_flower",
   "type": "object",
   "title": "minecraft:behavior.offer_flower 1.8.0",
   "additionalProperties": false,

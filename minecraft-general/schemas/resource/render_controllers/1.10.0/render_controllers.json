@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Minecraft.render_controllers.json",
+  "$id": "blockception.minecraft.render_controllers.json",
   "additionalProperties": false,
   "type": "object",
   "title": "render_controllers 1.10.0",

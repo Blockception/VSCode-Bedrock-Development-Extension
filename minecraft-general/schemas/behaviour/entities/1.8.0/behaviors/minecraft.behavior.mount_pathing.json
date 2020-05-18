@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.minecraft.behavior.mount_pathing",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.mount_pathing",
   "type": "object",
   "title": "minecraft:behavior.mount_pathing 1.8.0",
   "description": "Allows the mob to move around on its own while mounted seeking a target to attack.",

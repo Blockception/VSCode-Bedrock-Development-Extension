@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entity.1.8.0",
+  "$id": "blockception.minecraft.behaviour.entity.1.8.0",
   "type": "object",
   "title": "The minecraft behaviour entity 1.8.0",
   "description": "The root schema comprises the entire JSON document.",

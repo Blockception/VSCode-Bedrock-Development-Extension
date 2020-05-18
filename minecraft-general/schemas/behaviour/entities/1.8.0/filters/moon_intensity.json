@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.filters.moon_intensity",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.moon_intensity",
   "type": "object",
   "title": "Filters moon_intensity 1.8.0",
   "additionalProperties": false,

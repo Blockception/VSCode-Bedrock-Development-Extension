@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.events1.10.0",
+  "$id": "blockception.minecraft.behaviour.entities.events1.10.0",
   "type": "object",
   "title": "minecraft:entity 1.10.0",
   "definitions": {

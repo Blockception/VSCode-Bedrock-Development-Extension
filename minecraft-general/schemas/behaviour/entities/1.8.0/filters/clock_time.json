@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.behaviour.entities.1.8.0.filters.clock_time",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.clock_time",
   "type": "object",
   "title": "Filters clock_time 1.8.0",
   "additionalProperties": false,

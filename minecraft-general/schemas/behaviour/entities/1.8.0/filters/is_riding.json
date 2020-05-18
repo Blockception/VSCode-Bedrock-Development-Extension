@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.filters.is_riding",
+    "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_riding",
     "type": "object",
     "title": "Filters is_riding 1.8.0",
     "additionalProperties": false,

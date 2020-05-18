@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.resource.1.10.0.actor_animation",
+  "$id": "blockception.minecraft.resource.1.10.0.actor_animation",
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.10.0",
   "description": "The root schema comprises the entire JSON document.",

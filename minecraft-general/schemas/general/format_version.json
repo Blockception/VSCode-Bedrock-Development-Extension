@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.format_version",
+    "$id": "blockception.minecraft.format_version",
     "type": "string",
     "title": "Format Version Schema",
     "description": "The minecraft format version specification",

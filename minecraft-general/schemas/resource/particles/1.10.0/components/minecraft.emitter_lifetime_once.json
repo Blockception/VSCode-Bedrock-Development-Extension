@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.resource.particle.1.10.0.emitter_lifetime_once",
+  "$id": "blockception.minecraft.resource.particle.1.10.0.emitter_lifetime_once",
   "type": "object",
   "title": "The emitter_lifetime_once component for 1.10.0",
   "additionalProperties": false,

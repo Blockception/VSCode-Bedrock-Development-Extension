@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.resource.particle.1.10.0.particle_lifetime_events",
+  "$id": "blockception.minecraft.resource.particle.1.10.0.particle_lifetime_events",
   "type": "object",
   "title": "The particle_lifetime_events component for 1.10.0",
   "additionalProperties": false,

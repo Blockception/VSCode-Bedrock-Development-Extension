@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.filters.is_skin_id",
+    "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_skin_id",
     "type": "object",
     "title": "Filters is_skin_id 1.8.0",
     "additionalProperties": false,

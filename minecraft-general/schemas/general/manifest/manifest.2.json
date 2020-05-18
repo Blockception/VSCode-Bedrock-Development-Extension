@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.manifest.2",
+  "$id": "blockception.minecraft.manifest.2",
   "type": "object",
   "title": "The minecraft manifest v2 schema",
   "description": "The root schema comprises the entire JSON document.",

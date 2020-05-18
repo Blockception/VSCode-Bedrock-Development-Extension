@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "minecraft.behaviour.entities.1.8.0.filters.in_caravan",
+    "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.in_caravan",
     "type": "object",
     "title": "Filters in_caravan 1.8.0",
     "additionalProperties": false,

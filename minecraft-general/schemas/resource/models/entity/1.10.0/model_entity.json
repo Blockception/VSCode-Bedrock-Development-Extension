@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "minecraft.resource.model.1.10.0",
+  "$id": "blockception.minecraft.resource.model.1.10.0",
   "type": "object",
   "title": "The minecraft resourcepack model schema for 1.10.0",
   "description": "The root schema comprises the entire JSON document.",
