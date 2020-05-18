@@ -14,61 +14,18 @@
     "minecraft:client_entity": {
       "type": "object",
       "title": "The client entity",
-      "description": "The client entity definition",
+      "description": "The client entity definition for 1.8.0",
       "required": ["description"],
       "properties": {
         "description": {
+          "additionalProperties": false,
           "title": "Description definition",
           "type": "object",
           "required": ["identifier", "geometry"],
           "properties": {
-            "identifier": {
-              "pattern": "^[a-z:]+",
-              "type": "string"
-            },
-            "materials": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "textures": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "geometry": {
-              "title": "Geometry definition",
-              "type": "object",
-              "propertyNames": { "pattern": "[a-zA-Z0-9_\\.-]+" },
-              "minProperties": 1,
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "scripts": {
-              "type": "object",
-              "properties": {
-                "pre_aninamtion": {
-                  "type": "array",
-                  "items": {
-                    "pattern": ";$",
-                    "$ref": "../../../molang/1.8.0/number.json"
-                  }
-                },
-                "scale": {
-                  "type": "string"
-                },
-                "animate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            },
             "animations": {
+              "description": "The connecting of animations in animations controllers with the actuall animations, names should corosponds",
+              "title": "The animations schema",
               "type": "object",
               "additionalProperties": {
                 "type": "string"
@@ -82,6 +39,32 @@
                   "type": "string"
                 }
               }
+            },
+            "enable_attachables": {
+              "type": "boolean"
+            },
+            "geometry": {
+              "title": "Geometry definition",
+              "type": "object",
+              "propertyNames": { "pattern": "[a-zA-Z0-9_\\.-]+" },
+              "minProperties": 1,
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "identifier": {
+              "pattern": "^[a-z:]+",
+              "type": "string"
+            },
+            "materials": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "min_engine_version": {
+              "type": "string",
+              "pattern": "[0-9]+\\.[0-9]+\\.[0-9]+"
             },
             "particle_effects": {
               "type": "object",
@@ -124,9 +107,45 @@
                   "type": "number"
                 }
               }
-            }
-          },
-          "additionalProperties": false
+            },
+            "scripts": {
+              "type": "object",
+              "properties": {
+                "pre_aninamtion": {
+                  "type": "array",
+                  "items": {
+                    "pattern": ";$",
+                    "$ref": "../../../molang/1.8.0/number.json"
+                  }
+                },
+                "scale": {
+                  "type": "string"
+                },
+                "animate": {
+                  "type": "array",
+                  "title": "animate schema",
+                  "items": {
+                    "oneOf": [
+                      {"type": "string"},
+                      { 
+                        "type": "object",
+                        "minProperties": 1,
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      }
+                    ]                    
+                  }
+                }
+              }
+            },  
+            "textures": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }            
+          }
         }
       }
     }
