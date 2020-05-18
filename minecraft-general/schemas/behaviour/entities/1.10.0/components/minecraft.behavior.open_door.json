@@ -1,4 +1,0 @@
-"minecraft:behavior.open_door": {
-  "priority": 6,
-  "close_door_after": true
-}

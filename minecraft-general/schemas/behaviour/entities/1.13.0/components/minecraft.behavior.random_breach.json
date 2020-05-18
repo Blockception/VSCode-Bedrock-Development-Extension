@@ -1,6 +1,0 @@
-"minecraft:behavior.random_breach": {
-  "priority": 6,
-  "interval": 50,
-  "xz_dist": 6,
-  "cooldown_time": 2.0
-}

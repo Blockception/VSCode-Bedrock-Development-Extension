@@ -1,7 +1,0 @@
-"minecraft:behavior.move_to_water": {
-  "priority": 4,
-  "search_range": 16,
-  "search_height": 5,
-  "search_count": 1,
-  "goal_radius": 0.1
-}

@@ -1,8 +1,0 @@
-"minecraft:navigation.generic": {
-  "is_amphibious": true,
-  "can_path_over_water": false,
-  "can_swim": true,
-  "can_walk": true,
-  "can_sink": false,
-  "avoid_damage_blocks": true
-}

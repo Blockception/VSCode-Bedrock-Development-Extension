@@ -1,7 +1,0 @@
-"minecraft:on_target_escape": {
-  "event": "minecraft:on_calm",
-  "target": "self"
-}"minecraft:on_target_escape": {
-  "event": "minecraft:on_calm",
-  "target": "self"
-}

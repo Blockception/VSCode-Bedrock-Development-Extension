@@ -1,4 +1,0 @@
-"minecraft:on_death": {
-  "event": "minecraft:start_death",
-  "target": "self"
-}

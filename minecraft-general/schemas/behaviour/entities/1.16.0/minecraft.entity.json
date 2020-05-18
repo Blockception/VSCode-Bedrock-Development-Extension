@@ -7,9 +7,7 @@
   ],
   "properties": {
     "description": {
-      "required": [
-        "identifier"
-      ],
+      "required": [ "identifier" ],
       "title": "The description schema",
       "description": "The description of the this entity",
       "properties": {

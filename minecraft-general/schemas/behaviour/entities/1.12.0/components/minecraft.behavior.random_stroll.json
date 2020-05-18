@@ -1,6 +1,0 @@
-"minecraft:behavior.random_stroll": {
-  "priority": 14,
-  "speed_multiplier": 0.8
-}"minecraft:behavior.random_stroll": {
-  "priority": 5
-}
