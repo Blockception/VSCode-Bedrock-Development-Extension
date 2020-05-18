@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.navigation.climb",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.navigation.swim",
   "type": "object",
-  "title": "minecraft:navigation.walk.climb 1.8.0",
+  "title": "minecraft:navigation.walk.swim 1.8.0",
   "additionalProperties": false,
-  "description": "Allows this entity to generate paths that include vertical walls like the vanilla Spiders do.",  
+  "description": "Allows this entity to generate paths that include water.",  
   "required": [],
   "properties": {
     "can_path_over_water": {

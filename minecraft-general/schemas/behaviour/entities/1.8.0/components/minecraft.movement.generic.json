@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.movement.sway",
-  "description": "This move control causes the mob to sway side to side giving the impression it is swimming.",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.movement.generic",
+  "description": "This move control allows a mob to fly, swim, climb, etc.",
   "type": "object",
-  "title": "minecraft:movement.sway 1.8.0",
+  "title": "minecraft:movement.generic 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {
