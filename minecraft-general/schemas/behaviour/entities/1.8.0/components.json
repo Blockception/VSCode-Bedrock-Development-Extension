@@ -179,10 +179,9 @@
     "minecraft:behavior.ocelotattack": { "$ref": "behaviors/minecraft.behavior.ocelotattack.json" },
     "minecraft:behavior.offer_flower": { "$ref": "behaviors/minecraft.behavior.offer_flower.json" },
     "minecraft:behavior.open_door": { "$ref": "behaviors/minecraft.behavior.open_door.json" },
-    //"minecraft.behavior.hide": { "$ref": "behaviors/minecraft.behavior.hide.json" },
-    //"minecraft.behavior.move_to_poi": { "$ref": "behaviors/minecraft.behavior.move_to_poi.json" },
-    //"minecraft.behavior.scared": { "$ref": "behaviors/minecraft.behavior.scared.json" },
-    //"minecraft.behavior.work": { "$ref": "behaviors/minecraft.behavior.work.json" }
+    "minecraft.behavior.hide": { "$ref": "behaviors/minecraft.behavior.hide.json" },
+    "minecraft.behavior.move_to_poi": { "$ref": "behaviors/minecraft.behavior.move_to_poi.json" },
+    "minecraft.behavior.scared": { "$ref": "behaviors/minecraft.behavior.scared.json" },
     //"minecraft.behavior.work": { "$ref": "behaviors/minecraft.behavior.work.json" },
     //"minecraft:behavior.controlled_by_player": { "$ref": "behaviors/minecraft.behavior.controlled_by_player.json" },
     //"minecraft:behavior.defend_village_target": { "$ref": "behaviors/minecraft.behavior.defend_village_target.json" },
