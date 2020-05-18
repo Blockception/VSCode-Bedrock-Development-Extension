@@ -5,9 +5,9 @@
   "title": "minecraft:behavior.circle_around_anchor 1.8.0",
   "additionalProperties": false,
   "description": "Allows the mob to move in a circle around a point or a target.",
-  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
     "speed_multiplier": {
       "type": "number",
       "default": 1.0,

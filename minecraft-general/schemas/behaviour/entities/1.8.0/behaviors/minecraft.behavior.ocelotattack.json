@@ -5,9 +5,9 @@
   "title": "minecraft:behavior.ocelotattack 1.8.0",
   "additionalProperties": false,
   "description": "Can only be used by the Ocelot. Allows it to perform the sneak and pounce attack.",
-  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
     "walk_speed_multiplier": {
       "type": "number",
       "default": 1.0,

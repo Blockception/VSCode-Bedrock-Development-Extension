@@ -5,9 +5,9 @@
   "title": "minecraft:behavior.nearest_attackable_target 1.8.0",
   "description": "Allows the mob to check for and pursue the nearest valid target.",
   "additionalProperties": false,
-  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
     "entity_types": {
       "description": "List of entity types that this mob considers valid targets",
       "$ref": "../../types/entity_types.json"

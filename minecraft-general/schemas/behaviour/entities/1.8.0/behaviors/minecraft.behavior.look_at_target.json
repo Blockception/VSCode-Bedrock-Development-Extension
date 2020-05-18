@@ -5,9 +5,9 @@
   "title": "minecraft:behavior.look_at_target 1.8.0",
   "description": "Allows the mob to look at the entity they are targetting.",
   "additionalProperties": false,
-  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
     "look_distance": {
       "type": "number",
       "default": 8.0,

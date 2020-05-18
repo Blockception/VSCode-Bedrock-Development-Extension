@@ -4,14 +4,10 @@
   "type": "object",
   "title": "minecraft:behavior.guardian_attack 1.8.0",
   "additionalProperties": false,
-  "$ref": "types/behaviour_speed_multiplier.json",
+
   "required": [],
-  "properties": {
-    "speed_multiplier": {
-      "default": 1,
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+  "properties": { 
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "ignore_mob_damage": {
       "type": "boolean",
       "default": false,

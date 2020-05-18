@@ -5,7 +5,8 @@
   "title": "minecraft:behavior.enderman_take_block 1.8.0",
   "description": "Allows the enderman to take a block and carry it around. Can only be used by Endermen.",
   "additionalProperties": false,
-  "$ref": "types/behaviour_base.json",
   "required": [],
-  "properties": { }
+  "properties": {
+    "priority": { "$ref": "types/base_priority.json" }
+  }
 }
