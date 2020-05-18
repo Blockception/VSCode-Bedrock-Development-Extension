@@ -3,21 +3,19 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.type_family",
   "type": "object",
   "title": "minecraft:type_family 1.8.0",
-  "required": [
-    "family"
-  ],
+  "additionalProperties": false,
+  "description": "Defines the families this entity belongs to.",
+  "required": [ "family" ],
   "properties": {
     "family": {
       "type": "array",
       "items": {
         "type": "string",
-        "description": "TODO description",
+        "description": "family name",
         "title": "TODO title"
       },
-      "description": "TODO description",
+      "description": "List of family names",
       "title": "TODO title"
     }
-  },
-  "additionalProperties": false,
-  "description": "TODO description"
+  }
 }

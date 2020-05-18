@@ -25,7 +25,7 @@
       "title": "TODO title"
     },
     "value": {
-            "type": "integer",
+      "type": "integer",
       "description": "An integer value.",
       "minimum": 0,
       "maximum": 7,
