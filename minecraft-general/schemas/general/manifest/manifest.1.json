@@ -113,8 +113,7 @@
             "$ref": "#/definitions/version",
             "description": "This is the version of the module in the same format as the pack's version in the header. This can be used to further identify changes in your pack",
             "title": "TODO title"
-          },
-          "title": "TODO title"
+          }
         },
         "description": "TODO description",
         "title": "TODO title"
