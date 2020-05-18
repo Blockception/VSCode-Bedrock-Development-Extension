@@ -1,0 +1,9 @@
+"minecraft:behavior.move_to_water": {
+  "priority": 1,
+  "search_range": 15,
+  "search_height": 5
+}"minecraft:behavior.move_to_water": {
+  "priority": 1,
+  "search_range": 15,
+  "search_height": 5
+}

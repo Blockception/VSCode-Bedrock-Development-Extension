@@ -1,0 +1,7 @@
+"minecraft:behavior.leap_at_target": {
+  "priority": 3,
+  "target_dist": 0.3
+}"minecraft:behavior.leap_at_target": {
+  "priority": 3,
+  "target_dist": 0.3
+}
