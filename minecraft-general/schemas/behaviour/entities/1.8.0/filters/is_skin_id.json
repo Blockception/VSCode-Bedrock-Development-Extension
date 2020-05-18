@@ -5,5 +5,5 @@
     "title": "Filters is_skin_id 1.8.0",
     "additionalProperties": false,
     "description": "Returns true if the subject entity is the skin id number provided.",
-    "$ref": "../filters/types/base_filter_integer.json"
+    "$ref": "types/base_filter_integer.json"
 }

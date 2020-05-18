@@ -6,5 +6,5 @@
     "additionalProperties": false,
     "description": "Returns true if the subject entity is the variant number provided.",
     "required": [ "value" ],
-    "$ref": "../filters/types/base_filter_integer.json"
+    "$ref": "types/base_filter_integer.json"
 }
