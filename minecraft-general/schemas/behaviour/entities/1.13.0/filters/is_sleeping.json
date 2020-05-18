@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_sleeping",
+    "type": "object",
+    "title": "Filters is_sleeping 1.8.0",
+    "additionalProperties": false,
+    "description": "Tests whether the Subject is sleeping.",
+    "properties": {
+    "test": {
+      "type": "string",
+      "title": "the test",
+      "description": "the test property"
+    },
+    "operator": {
+      "$ref": "types/base_operator.json",
+      "description": "todo description",
+      "title": "todo title"
+    },
+    "subject": {
+      "$ref": "types/base_subject.json",
+      "description": "todo description",
+      "title": "todo title"
+    },
+    "value": {
+      "type": "boolean",
+      "default": true,
+      "description": "todo description",
+      "title": "todo title"
+    }
+  }
+}
