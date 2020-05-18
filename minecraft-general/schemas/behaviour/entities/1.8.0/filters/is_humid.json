@@ -5,5 +5,5 @@
     "title": "Filters is_humid 1.8.0",
     "additionalProperties": false,
     "description": "Tests whether the Subject is in an area with humidity",
-    "$ref": "base_types/base_filter_boolean.json"
+    "$ref": "../filters/types/base_filter_boolean.json"
 }

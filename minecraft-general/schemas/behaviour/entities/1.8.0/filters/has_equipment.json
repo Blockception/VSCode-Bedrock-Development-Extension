@@ -10,7 +10,6 @@
   ],
   "properties": {
     "domain": {
-      "$ref": "base_types/base_domain.json",
       "description": "The equipment location to test",
       "default": "any",
       "enum": [
@@ -25,12 +24,12 @@
       "title": "TODO title"
     },
     "operator": {
-      "$ref": "base_types/base_operator.json",
+      "$ref": "../filters/types/base_operator.json",
       "description": "TODO description",
       "title": "TODO title"
     },
     "subject": {
-      "$ref": "base_types/base_subject.json",
+      "$ref": "../filters/types/base_subject.json",
       "description": "TODO description",
       "title": "TODO title"
     },

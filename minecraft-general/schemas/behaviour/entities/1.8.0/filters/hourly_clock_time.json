@@ -5,18 +5,18 @@
   "title": "Filters hourly_clock_time 1.8.0",
   "additionalProperties": false,
   "description": "Compares the current 24 hour time with an int value in the range[0, 24000]",
-  "$ref": "base_types/base_filter_integer.json",
+  "$ref": "../filters/types/base_filter_integer.json",
   "required": [
     "value"
   ],
   "properties": {
     "operator": {
-      "$ref": "base_types/base_operator.json",
+      "$ref": "../filters/types/base_operator.json",
       "description": "TODO description",
       "title": "TODO title"
     },
     "subject": {
-      "$ref": "base_types/base_subject.json",
+      "$ref": "../filters/types/base_subject.json",
       "description": "TODO description",
       "title": "TODO title"
     },
