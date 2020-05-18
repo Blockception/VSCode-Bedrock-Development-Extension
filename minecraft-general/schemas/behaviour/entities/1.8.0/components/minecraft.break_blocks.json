@@ -9,13 +9,11 @@
   "properties": {
     "breakable_blocks": {
       "type": "array",
+      "title": "TODO title",
       "description": "A list of the blocks that can be broken as this entity moves around",
       "items": {
-        "type": "string",
-        "description": "A block name",
-        "title": "TODO title"
-      },
-      "title": "TODO title"
+        "$ref": "../../../../general/blocks_item.json"
+      }
     }
   }
 }
