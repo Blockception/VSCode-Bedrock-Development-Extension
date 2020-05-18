@@ -5,5 +5,5 @@
     "title": "Filters on_ground 1.8.0",
     "additionalProperties": false,
     "description": "Returns true when the subject entity is on ground.",
-    "$ref": "./types/base_filter_boolean.json"
+    "$ref": "base_types/base_filter_boolean.json"
 }

@@ -5,7 +5,7 @@
   "title": "minecraft:behavior.find_underwater_treasure 1.8.0",
   "description": "Allows the mob to move towards the nearest underwater ruin or shipwreck.",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_speed_multiplier.json",
+  "$ref": "types/behaviour_speed_multiplier.json",
   "required": [],
   "properties": {
     "search_range": {

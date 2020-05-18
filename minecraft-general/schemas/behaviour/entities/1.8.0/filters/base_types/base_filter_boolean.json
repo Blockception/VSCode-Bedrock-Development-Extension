@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.base.integer",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.base.boolean",
   "type": "object",
-  "title": "Filters integer value 1.8.0",
+  "title": "Filters boolean value 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {
@@ -17,9 +17,9 @@
       "title": "TODO title"
     },
     "value": {
-      "$ref": "base_value.json",
-      "type": "integer",
-      "description": "An integer value.",
+      "type": "boolean",
+      "default": true,
+      "description": "(Optional) true or false.",
       "title": "TODO title"
     }
   },

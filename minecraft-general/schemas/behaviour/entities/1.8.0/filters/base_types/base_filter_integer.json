@@ -17,9 +17,8 @@
       "title": "TODO title"
     },
     "value": {
-      "$ref": "base_value.json",
-      "type": "number",
-      "description": "A decimal value.",
+      "type": "integer",
+      "description": "An integer value.",
       "title": "TODO title"
     }
   },

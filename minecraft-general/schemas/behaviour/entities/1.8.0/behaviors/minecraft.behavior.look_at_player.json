@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.guardian_attack 1.8.0",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_base.json",
+  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
     "look_distance": {
@@ -20,7 +20,7 @@
       "title": "TODO title"
     },
     "look_time": {
-      "$ref": "../types/range_number_type.json",
+      "$ref": "../../types/range_number_type.json",
       "default": [
         2,
         4

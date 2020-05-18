@@ -11,7 +11,7 @@
   "properties": {
     "damage": {
       "description": "Range of the random amount of damage the melee attack deals. A negative value can heal the entity instead of hurting it",
-      "$ref": "./types/range_number_type.json",
+      "$ref": "../types/range_number_type.json",
       "title": "TODO title"
     },
     "effect_name": {

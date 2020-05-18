@@ -11,7 +11,7 @@
       "title": "TODO title"
     },
     "target": {
-      "$ref": "../filters/1.8.0/base_subject.json",
+      "$ref": "../filters/base_types/base_subject.json",
       "description": "The entity to target",
       "title": "TODO title"
     }

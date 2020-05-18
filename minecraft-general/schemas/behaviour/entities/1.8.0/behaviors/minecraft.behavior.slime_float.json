@@ -4,7 +4,7 @@
   "type": "object",
   "title": "minecraft:behavior.slime_float 1.8.0",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_base.json",
+  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {},
   "description": "TODO description"

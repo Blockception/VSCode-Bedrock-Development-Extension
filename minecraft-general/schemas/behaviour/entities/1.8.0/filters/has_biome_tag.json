@@ -10,18 +10,17 @@
   ],
   "properties": {
     "operator": {
-      "$ref": "base_operator.json",
+      "$ref": "base_types/base_operator.json",
       "description": "TODO description",
       "title": "TODO title"
     },
     "subject": {
-      "$ref": "base_subject.json",
+      "$ref": "base_types/base_subject.json",
       "description": "TODO description",
       "title": "TODO title"
     },
     "value": {
-      "$ref": "base_value.json",
-      "description": "(Required) The tag to look for",
+            "description": "(Required) The tag to look for",
       "type": "string",
       "title": "TODO title"
     }

@@ -5,11 +5,11 @@
   "title": "minecraft:behavior.eat_block 1.8.0",
   "description": "behaviour_base",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_base.json",
+  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
     "on_eat": {
-      "$ref": "./types/trigger.json",
+      "$ref": "../../types/trigger.json",
       "description": "TODO description",
       "title": "TODO title"
     }

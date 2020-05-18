@@ -5,7 +5,7 @@
   "title": "minecraft:behavior.look_at_target 1.8.0",
   "description": "Allows the mob to look at the entity they are targetting.",
   "additionalProperties": false,
-  "$ref": "../types/behaviour_base.json",
+  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
     "look_distance": {
@@ -21,7 +21,7 @@
       "title": "TODO title"
     },
     "look_time": {
-      "$ref": "../types/range_number_type.json",
+      "$ref": "../../types/range_number_type.json",
       "default": [
         2,
         4

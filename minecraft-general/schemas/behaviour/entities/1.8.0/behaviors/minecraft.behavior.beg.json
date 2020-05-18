@@ -5,7 +5,7 @@
   "title": "minecraft:behavior.beg 1.8.0",
   "additionalProperties": false,
   "description": "Allows this mob to look at and follow the player that holds food they like.",
-  "$ref": "../types/behaviour_base.json",
+  "$ref": "types/behaviour_base.json",
   "required": [],
   "properties": {
     "items": {
@@ -26,7 +26,7 @@
     },
     "look_time": {
       "description": "The range of time in seconds this mob will stare at the player holding a food they like, begging for it",
-      "$ref": "./types/range_number_type.json",
+      "$ref": "../../types/range_number_type.json",
       "default": [
         2,
         4
