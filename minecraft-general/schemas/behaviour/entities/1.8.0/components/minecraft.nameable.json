@@ -1,10 +1,39 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.movement.skip",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.nameable",
   "type": "object",
-  "title": "minecraft:movement.skip 1.8.0",
+  "title": "minecraft:nameable 1.8.0",
   "additionalProperties": false,
+  "description": "TODO description",
   "required": [],
-  "properties": {},
-  "description": "TODO description"
+  "properties": {
+    "name_actions": {
+      "type": "object",
+      "description": "Describes the special names for this entity and the events to call when the entity acquires those names",
+      "properties": {
+        "on_named": {
+          "type": "string",
+          "description": "Event to be called when this entity acquires the name specified in 'name_filter'"
+        },
+        "name_filter": {
+          "type": "string",
+          "description": "List of special names that will cause the events defined in 'on_named' to fire"
+        }
+      }
+    },
+    "default_trigger": {
+      "type": "string",
+      "description": "Trigger to run when the entity gets named"
+    },
+    "alwaysShow": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, the name will always be shown"
+    },
+    "allowNameTagRenaming": {
+      "type": "boolean",
+      "default": true,
+      "description": "If true, this entity can be renamed with name tags"
+    }
+  }
 }
