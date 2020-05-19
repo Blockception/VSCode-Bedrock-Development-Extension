@@ -6,12 +6,8 @@
   "description": "Allows a mob to randomly stroll around.",
   "required": [],
   "properties": {
-    "speed_multiplier": {
-      "type": "integer",
-      "default": 1.0,
-      "description": "Movement speed multiplier of the mob when using this AI Goal",
-      "title": "TODO title"
-    },
+    "priority": { "ref": "types/base_priority.json" },
+    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
     "xz_dist": {
       "type": "integer",
       "default": 10,
