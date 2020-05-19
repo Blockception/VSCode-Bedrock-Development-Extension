@@ -9,7 +9,7 @@
   "properties": {
     "test": {
       "type": "string",
-      "title": "The test",
+      "title": "The test property",
       "description": "The test property",
       "const": "hourly_clock_time"
     },

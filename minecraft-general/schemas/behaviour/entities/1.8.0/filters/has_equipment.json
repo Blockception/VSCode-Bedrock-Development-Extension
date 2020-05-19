@@ -24,17 +24,13 @@
       "title": "TODO title"
     },
     "operator": {
-      "$ref": "types/base_operator.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "$ref": "types/base_operator.json"
     },
     "subject": {
-      "$ref": "types/base_subject.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "$ref": "types/base_subject.json"
     },
     "value": {
-            "description": "The item name to look for",
+      "description": "The item name to look for",
       "type": "string",
       "title": "TODO title"
     }
