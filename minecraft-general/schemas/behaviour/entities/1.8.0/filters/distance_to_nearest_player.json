@@ -9,7 +9,7 @@
   "properties": {
     "test": {
       "type": "string",
-      "title": "the test",
+      "title": "The test property",
       "description": "the test property"
     },
     "operator": {

@@ -11,18 +11,14 @@
   "properties": {
     "test": {
       "type": "string",
-      "title": "the test",
+      "title": "The test property",
       "description": "the test property"
     },
     "operator": {
-      "$ref": "types/base_operator.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "$ref": "types/base_operator.json"
     },
     "subject": {
-      "$ref": "types/base_subject.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "$ref": "types/base_subject.json"
     },
     "value": {
       "type": "string",
