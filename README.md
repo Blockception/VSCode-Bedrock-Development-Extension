@@ -1,5 +1,7 @@
 # VSCode-Bedrock-Development-Extension
 
+**WIP**
+
 ![logo](./resources/logo.png)
 
 An extension that provides development tools, validations and snippets to help develop minecraft bedrock content
