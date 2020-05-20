@@ -11,3 +11,10 @@ readme.md linguist-detectable=false
 *.json linguist-vendored=false
 *.json linguist-generated=false
 *.json linguist-documentation=false
+
+## Detect
+*.png linguist-detectable=true
+*.jpg linguist-detectable=true
+*.html linguist-detectable=true
+*.pdf linguist-detectable=true
+*.md linguist-detectable=true
