@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.on_hurt",
-  "description": "Adds a trigger to call when this entity takes damage.",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.on_ignite",
+  "description": "Adds a trigger to call when this entity is set on fire.",
   "type": "object",
-  "title": "minecraft:on_hurt 1.8.0",
+  "title": "minecraft:on_ignite 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {
