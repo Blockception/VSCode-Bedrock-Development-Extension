@@ -1,0 +1,1107 @@
+{
+  "minecraft.items.acacia_door": {
+    "prefix": "minecraft.items.acacia_door",
+    "body": "acacia_door",
+    "description": "Returns the bedrock value for 'Acacia Door'"
+  },
+  "minecraft.items.apple": {
+    "prefix": "minecraft.items.apple",
+    "body": "apple",
+    "description": "Returns the bedrock value for 'Apple'"
+  },
+  "minecraft.items.appleenchanted": {
+    "prefix": "minecraft.items.appleenchanted",
+    "body": "appleenchanted",
+    "description": "Returns the bedrock value for 'Enchanted Golden Apple'"
+  },
+  "minecraft.items.armor_stand": {
+    "prefix": "minecraft.items.armor_stand",
+    "body": "armor_stand",
+    "description": "Returns the bedrock value for 'Armor Stand'"
+  },
+  "minecraft.items.arrow": {
+    "prefix": "minecraft.items.arrow",
+    "body": "arrow",
+    "description": "Returns the bedrock value for 'Arrow'"
+  },
+  "minecraft.items.baked_potato": {
+    "prefix": "minecraft.items.baked_potato",
+    "body": "baked_potato",
+    "description": "Returns the bedrock value for 'Baked Potato'"
+  },
+  "minecraft.items.balloon": {
+    "prefix": "minecraft.items.balloon",
+    "body": "balloon",
+    "description": "Returns the bedrock value for 'White Balloon'"
+  },
+  "minecraft.items.banner": {
+    "prefix": "minecraft.items.banner",
+    "body": "banner",
+    "description": "Returns the bedrock value for 'Banner'"
+  },
+  "minecraft.items.bed": {
+    "prefix": "minecraft.items.bed",
+    "body": "bed",
+    "description": "Returns the bedrock value for 'Bed'"
+  },
+  "minecraft.items.beef": {
+    "prefix": "minecraft.items.beef",
+    "body": "beef",
+    "description": "Returns the bedrock value for 'Raw Beef'"
+  },
+  "minecraft.items.beetroot": {
+    "prefix": "minecraft.items.beetroot",
+    "body": "beetroot",
+    "description": "Returns the bedrock value for 'Beetroot'"
+  },
+  "minecraft.items.beetroot_seeds": {
+    "prefix": "minecraft.items.beetroot_seeds",
+    "body": "beetroot_seeds",
+    "description": "Returns the bedrock value for 'Beetroot Seeds'"
+  },
+  "minecraft.items.beetroot_soup": {
+    "prefix": "minecraft.items.beetroot_soup",
+    "body": "beetroot_soup",
+    "description": "Returns the bedrock value for 'Beetroot Soup'"
+  },
+  "minecraft.items.birch_door": {
+    "prefix": "minecraft.items.birch_door",
+    "body": "birch_door",
+    "description": "Returns the bedrock value for 'Birch Door'"
+  },
+  "minecraft.items.blaze_powder": {
+    "prefix": "minecraft.items.blaze_powder",
+    "body": "blaze_powder",
+    "description": "Returns the bedrock value for 'Blaze Powder'"
+  },
+  "minecraft.items.blaze_rod": {
+    "prefix": "minecraft.items.blaze_rod",
+    "body": "blaze_rod",
+    "description": "Returns the bedrock value for 'Blaze Rod'"
+  },
+  "minecraft.items.bleach": {
+    "prefix": "minecraft.items.bleach",
+    "body": "bleach",
+    "description": "Returns the bedrock value for 'Bleach'"
+  },
+  "minecraft.items.board": {
+    "prefix": "minecraft.items.education.board",
+    "body": "board",
+    "description": "Returns the bedrock value for 'Chalkboard'"
+  },
+  "minecraft.items.boat": {
+    "prefix": "minecraft.items.boat",
+    "body": "boat",
+    "description": "Returns the bedrock value for 'Boat'"
+  },
+  "minecraft.items.bone": {
+    "prefix": "minecraft.items.bone",
+    "body": "bone",
+    "description": "Returns the bedrock value for 'Bone'"
+  },
+  "minecraft.items.book": {
+    "prefix": "minecraft.items.book",
+    "body": "book",
+    "description": "Returns the bedrock value for 'Book'"
+  },
+  "minecraft.items.bow": {
+    "prefix": "minecraft.items.bow",
+    "body": "bow",
+    "description": "Returns the bedrock value for 'Bow'"
+  },
+  "minecraft.items.bowl": {
+    "prefix": "minecraft.items.bowl",
+    "body": "bowl",
+    "description": "Returns the bedrock value for 'Bowl'"
+  },
+  "minecraft.items.bread": {
+    "prefix": "minecraft.items.bread",
+    "body": "bread",
+    "description": "Returns the bedrock value for 'Bread'"
+  },
+  "minecraft.items.brewing_stand": {
+    "prefix": "minecraft.items.brewing_stand",
+    "body": "brewing_stand",
+    "description": "Returns the bedrock value for 'Brewing Stand'"
+  },
+  "minecraft.items.brick": {
+    "prefix": "minecraft.items.brick",
+    "body": "brick",
+    "description": "Returns the bedrock value for 'Brick'"
+  },
+  "minecraft.items.bucket": {
+    "prefix": "minecraft.items.bucket",
+    "body": "bucket",
+    "description": "Returns the bedrock value for 'Bucket'"
+  },
+  "minecraft.items.cake": {
+    "prefix": "minecraft.items.cake",
+    "body": "cake",
+    "description": "Returns the bedrock value for 'Cake'"
+  },
+  "minecraft.items.camera": {
+    "prefix": "minecraft.items.education.camera",
+    "body": "camera",
+    "description": "Returns the bedrock value for 'Camera'"
+  },
+  "minecraft.items.carrot": {
+    "prefix": "minecraft.items.carrot",
+    "body": "carrot",
+    "description": "Returns the bedrock value for 'Carrot'"
+  },
+  "minecraft.items.carrotonastick": {
+    "prefix": "minecraft.items.carrotonastick",
+    "body": "carrotonastick",
+    "description": "Returns the bedrock value for 'Carrot on a Stick'"
+  },
+  "minecraft.items.cauldron": {
+    "prefix": "minecraft.items.cauldron",
+    "body": "cauldron",
+    "description": "Returns the bedrock value for 'Cauldron'"
+  },
+  "minecraft.items.chainmail_boots": {
+    "prefix": "minecraft.items.chainmail_boots",
+    "body": "chainmail_boots",
+    "description": "Returns the bedrock value for 'Chain Boots'"
+  },
+  "minecraft.items.chainmail_chestplate": {
+    "prefix": "minecraft.items.chainmail_chestplate",
+    "body": "chainmail_chestplate",
+    "description": "Returns the bedrock value for 'Chain Chestplate'"
+  },
+  "minecraft.items.chainmail_helmet": {
+    "prefix": "minecraft.items.chainmail_helmet",
+    "body": "chainmail_helmet",
+    "description": "Returns the bedrock value for 'Chain Helmet'"
+  },
+  "minecraft.items.chainmail_leggings": {
+    "prefix": "minecraft.items.chainmail_leggings",
+    "body": "chainmail_leggings",
+    "description": "Returns the bedrock value for 'Chain Leggings'"
+  },
+  "minecraft.items.chest_minecart": {
+    "prefix": "minecraft.items.chest_minecart",
+    "body": "chest_minecart",
+    "description": "Returns the bedrock value for 'Minecart with Chest'"
+  },
+  "minecraft.items.chicken": {
+    "prefix": "minecraft.items.chicken",
+    "body": "chicken",
+    "description": "Returns the bedrock value for 'Raw Chicken'"
+  },
+  "minecraft.items.chorus_fruit": {
+    "prefix": "minecraft.items.chorus_fruit",
+    "body": "chorus_fruit",
+    "description": "Returns the bedrock value for 'Chorus Fruit'"
+  },
+  "minecraft.items.chorus_fruit_popped": {
+    "prefix": "minecraft.items.chorus_fruit_popped",
+    "body": "chorus_fruit_popped",
+    "description": "Returns the bedrock value for 'Popped Chorus Fruit'"
+  },
+  "minecraft.items.clay_ball": {
+    "prefix": "minecraft.items.clay_ball",
+    "body": "clay_ball",
+    "description": "Returns the bedrock value for 'Clay'"
+  },
+  "minecraft.items.clock": {
+    "prefix": "minecraft.items.clock",
+    "body": "clock",
+    "description": "Returns the bedrock value for 'Clock'"
+  },
+  "minecraft.items.clownfish": {
+    "prefix": "minecraft.items.clownfish",
+    "body": "clownfish",
+    "description": "Returns the bedrock value for 'Clownfish'"
+  },
+  "minecraft.items.coal": {
+    "prefix": "minecraft.items.coal",
+    "body": "coal",
+    "description": "Returns the bedrock value for 'Coal'"
+  },
+  "minecraft.items.command_block_minecart": {
+    "prefix": "minecraft.items.command_block_minecart",
+    "body": "command_block_minecart",
+    "description": "Returns the bedrock value for 'Minecart with Command Block'"
+  },
+  "minecraft.items.comparator": {
+    "prefix": "minecraft.items.comparator",
+    "body": "comparator",
+    "description": "Returns the bedrock value for 'Redstone Comparator'"
+  },
+  "minecraft.items.compass": {
+    "prefix": "minecraft.items.compass",
+    "body": "compass",
+    "description": "Returns the bedrock value for 'Compass'"
+  },
+  "minecraft.items.compound": {
+    "prefix": "minecraft.items.compound",
+    "body": "compound",
+    "description": "Returns the bedrock value for 'Salt'"
+  },
+  "minecraft.items.cooked_beef": {
+    "prefix": "minecraft.items.cooked_beef",
+    "body": "cooked_beef",
+    "description": "Returns the bedrock value for 'Steak'"
+  },
+  "minecraft.items.cooked_chicken": {
+    "prefix": "minecraft.items.cooked_chicken",
+    "body": "cooked_chicken",
+    "description": "Returns the bedrock value for 'Cooked Chicken'"
+  },
+  "minecraft.items.cooked_fish": {
+    "prefix": "minecraft.items.cooked_fish",
+    "body": "cooked_fish",
+    "description": "Returns the bedrock value for 'Cooked Fish'"
+  },
+  "minecraft.items.cooked_porkchop": {
+    "prefix": "minecraft.items.cooked_porkchop",
+    "body": "cooked_porkchop",
+    "description": "Returns the bedrock value for 'Cooked Porkchop'"
+  },
+  "minecraft.items.cooked_rabbit": {
+    "prefix": "minecraft.items.cooked_rabbit",
+    "body": "cooked_rabbit",
+    "description": "Returns the bedrock value for 'Cooked Rabbit'"
+  },
+  "minecraft.items.cooked_salmon": {
+    "prefix": "minecraft.items.cooked_salmon",
+    "body": "cooked_salmon",
+    "description": "Returns the bedrock value for 'Cooked Salmon'"
+  },
+  "minecraft.items.cookie": {
+    "prefix": "minecraft.items.cookie",
+    "body": "cookie",
+    "description": "Returns the bedrock value for 'Cookie'"
+  },
+  "minecraft.items.dark_oak_door": {
+    "prefix": "minecraft.items.dark_oak_door",
+    "body": "dark_oak_door",
+    "description": "Returns the bedrock value for 'Dark Oak Door'"
+  },
+  "minecraft.items.diamond": {
+    "prefix": "minecraft.items.diamond",
+    "body": "diamond",
+    "description": "Returns the bedrock value for 'Diamond'"
+  },
+  "minecraft.items.diamond_axe": {
+    "prefix": "minecraft.items.diamond_axe",
+    "body": "diamond_axe",
+    "description": "Returns the bedrock value for 'Diamond Axe'"
+  },
+  "minecraft.items.diamond_boots": {
+    "prefix": "minecraft.items.diamond_boots",
+    "body": "diamond_boots",
+    "description": "Returns the bedrock value for 'Diamond Boots'"
+  },
+  "minecraft.items.diamond_chestplate": {
+    "prefix": "minecraft.items.diamond_chestplate",
+    "body": "diamond_chestplate",
+    "description": "Returns the bedrock value for 'Diamond Chestplate'"
+  },
+  "minecraft.items.diamond_helmet": {
+    "prefix": "minecraft.items.diamond_helmet",
+    "body": "diamond_helmet",
+    "description": "Returns the bedrock value for 'Diamond Helmet'"
+  },
+  "minecraft.items.diamond_hoe": {
+    "prefix": "minecraft.items.diamond_hoe",
+    "body": "diamond_hoe",
+    "description": "Returns the bedrock value for 'Diamond Hoe'"
+  },
+  "minecraft.items.diamond_leggings": {
+    "prefix": "minecraft.items.diamond_leggings",
+    "body": "diamond_leggings",
+    "description": "Returns the bedrock value for 'Diamond Leggings'"
+  },
+  "minecraft.items.diamond_pickaxe": {
+    "prefix": "minecraft.items.diamond_pickaxe",
+    "body": "diamond_pickaxe",
+    "description": "Returns the bedrock value for 'Diamond Pickaxe'"
+  },
+  "minecraft.items.diamond_shovel": {
+    "prefix": "minecraft.items.diamond_shovel",
+    "body": "diamond_shovel",
+    "description": "Returns the bedrock value for 'Diamond Shovel'"
+  },
+  "minecraft.items.diamond_sword": {
+    "prefix": "minecraft.items.diamond_sword",
+    "body": "diamond_sword",
+    "description": "Returns the bedrock value for 'Diamond Sword'"
+  },
+  "minecraft.items.dragon_breath": {
+    "prefix": "minecraft.items.dragon_breath",
+    "body": "dragon_breath",
+    "description": "Returns the bedrock value for 'Dragon's Breath'"
+  },
+  "minecraft.items.dried_kelp": {
+    "prefix": "minecraft.items.dried_kelp",
+    "body": "dried_kelp",
+    "description": "Returns the bedrock value for 'Dried Kelp'"
+  },
+  "minecraft.items.dye": {
+    "prefix": "minecraft.items.dye",
+    "body": "dye",
+    "description": "Returns the bedrock value for 'Dye'"
+  },
+  "minecraft.items.egg": {
+    "prefix": "minecraft.items.egg",
+    "body": "egg",
+    "description": "Returns the bedrock value for 'Egg'"
+  },
+  "minecraft.items.elytra": {
+    "prefix": "minecraft.items.elytra",
+    "body": "elytra",
+    "description": "Returns the bedrock value for 'Elytra'"
+  },
+  "minecraft.items.emerald": {
+    "prefix": "minecraft.items.emerald",
+    "body": "emerald",
+    "description": "Returns the bedrock value for 'Emerald'"
+  },
+  "minecraft.items.emptymap": {
+    "prefix": "minecraft.items.emptymap",
+    "body": "emptymap",
+    "description": "Returns the bedrock value for 'Empty Map'"
+  },
+  "minecraft.items.enchanted_book": {
+    "prefix": "minecraft.items.enchanted_book",
+    "body": "enchanted_book",
+    "description": "Returns the bedrock value for 'Enchanted Book'"
+  },
+  "minecraft.items.end_crystal": {
+    "prefix": "minecraft.items.end_crystal",
+    "body": "end_crystal",
+    "description": "Returns the bedrock value for 'End Crystal'"
+  },
+  "minecraft.items.ender_eye": {
+    "prefix": "minecraft.items.ender_eye",
+    "body": "ender_eye",
+    "description": "Returns the bedrock value for 'Eye of Ender'"
+  },
+  "minecraft.items.ender_pearl": {
+    "prefix": "minecraft.items.ender_pearl",
+    "body": "ender_pearl",
+    "description": "Returns the bedrock value for 'Ender Pearl'"
+  },
+  "minecraft.items.experience_bottle": {
+    "prefix": "minecraft.items.experience_bottle",
+    "body": "experience_bottle",
+    "description": "Returns the bedrock value for 'Bottle o' Enchanting'"
+  },
+  "minecraft.items.eye_drop": {
+    "prefix": "minecraft.items.eye_drop",
+    "body": "eye_drop",
+    "description": "Returns the bedrock value for 'Eye Drops'"
+  },
+  "minecraft.items.feather": {
+    "prefix": "minecraft.items.feather",
+    "body": "feather",
+    "description": "Returns the bedrock value for 'Feather'"
+  },
+  "minecraft.items.fermented_spider_eye": {
+    "prefix": "minecraft.items.fermented_spider_eye",
+    "body": "fermented_spider_eye",
+    "description": "Returns the bedrock value for 'Fermented Spider Eye'"
+  },
+  "minecraft.items.fireball": {
+    "prefix": "minecraft.items.fireball",
+    "body": "fireball",
+    "description": "Returns the bedrock value for 'Fire Charge'"
+  },
+  "minecraft.items.fireworks": {
+    "prefix": "minecraft.items.fireworks",
+    "body": "fireworks",
+    "description": "Returns the bedrock value for 'Firework Rocket'"
+  },
+  "minecraft.items.fireworkscharge": {
+    "prefix": "minecraft.items.fireworkscharge",
+    "body": "fireworkscharge",
+    "description": "Returns the bedrock value for 'Firework Star'"
+  },
+  "minecraft.items.fish": {
+    "prefix": "minecraft.items.fish",
+    "body": "fish",
+    "description": "Returns the bedrock value for 'Raw Fish'"
+  },
+  "minecraft.items.fishing_rod": {
+    "prefix": "minecraft.items.fishing_rod",
+    "body": "fishing_rod",
+    "description": "Returns the bedrock value for 'Fishing Rod'"
+  },
+  "minecraft.items.flint": {
+    "prefix": "minecraft.items.flint",
+    "body": "flint",
+    "description": "Returns the bedrock value for 'Flint'"
+  },
+  "minecraft.items.flint_and_steel": {
+    "prefix": "minecraft.items.flint_and_steel",
+    "body": "flint_and_steel",
+    "description": "Returns the bedrock value for 'Flint and Steel'"
+  },
+  "minecraft.items.flower_pot": {
+    "prefix": "minecraft.items.flower_pot",
+    "body": "flower_pot",
+    "description": "Returns the bedrock value for 'Flower Pot'"
+  },
+  "minecraft.items.frame": {
+    "prefix": "minecraft.items.frame",
+    "body": "frame",
+    "description": "Returns the bedrock value for 'Item Frame'"
+  },
+  "minecraft.items.ghast_tear": {
+    "prefix": "minecraft.items.ghast_tear",
+    "body": "ghast_tear",
+    "description": "Returns the bedrock value for 'Ghast Tear'"
+  },
+  "minecraft.items.glass_bottle": {
+    "prefix": "minecraft.items.glass_bottle",
+    "body": "glass_bottle",
+    "description": "Returns the bedrock value for 'Glass Bottle'"
+  },
+  "minecraft.items.glowstone_dust": {
+    "prefix": "minecraft.items.glowstone_dust",
+    "body": "glowstone_dust",
+    "description": "Returns the bedrock value for 'Glowstone Dust'"
+  },
+  "minecraft.items.gold_ingot": {
+    "prefix": "minecraft.items.gold_ingot",
+    "body": "gold_ingot",
+    "description": "Returns the bedrock value for 'Gold Ingot'"
+  },
+  "minecraft.items.gold_nugget": {
+    "prefix": "minecraft.items.gold_nugget",
+    "body": "gold_nugget",
+    "description": "Returns the bedrock value for 'Gold Nugget'"
+  },
+  "minecraft.items.golden_apple": {
+    "prefix": "minecraft.items.golden_apple",
+    "body": "golden_apple",
+    "description": "Returns the bedrock value for 'Golden Apple'"
+  },
+  "minecraft.items.golden_axe": {
+    "prefix": "minecraft.items.golden_axe",
+    "body": "golden_axe",
+    "description": "Returns the bedrock value for 'Golden Axe'"
+  },
+  "minecraft.items.golden_boots": {
+    "prefix": "minecraft.items.golden_boots",
+    "body": "golden_boots",
+    "description": "Returns the bedrock value for 'Golden Boots'"
+  },
+  "minecraft.items.golden_carrot": {
+    "prefix": "minecraft.items.golden_carrot",
+    "body": "golden_carrot",
+    "description": "Returns the bedrock value for 'Golden Carrot'"
+  },
+  "minecraft.items.golden_chestplate": {
+    "prefix": "minecraft.items.golden_chestplate",
+    "body": "golden_chestplate",
+    "description": "Returns the bedrock value for 'Golden Chestplate'"
+  },
+  "minecraft.items.golden_helmet": {
+    "prefix": "minecraft.items.golden_helmet",
+    "body": "golden_helmet",
+    "description": "Returns the bedrock value for 'Golden Helmet'"
+  },
+  "minecraft.items.golden_hoe": {
+    "prefix": "minecraft.items.golden_hoe",
+    "body": "golden_hoe",
+    "description": "Returns the bedrock value for 'Golden Hoe'"
+  },
+  "minecraft.items.golden_leggings": {
+    "prefix": "minecraft.items.golden_leggings",
+    "body": "golden_leggings",
+    "description": "Returns the bedrock value for 'Golden Leggings'"
+  },
+  "minecraft.items.golden_pickaxe": {
+    "prefix": "minecraft.items.golden_pickaxe",
+    "body": "golden_pickaxe",
+    "description": "Returns the bedrock value for 'Golden Pickaxe'"
+  },
+  "minecraft.items.golden_shovel": {
+    "prefix": "minecraft.items.golden_shovel",
+    "body": "golden_shovel",
+    "description": "Returns the bedrock value for 'Golden Shovel'"
+  },
+  "minecraft.items.golden_sword": {
+    "prefix": "minecraft.items.golden_sword",
+    "body": "golden_sword",
+    "description": "Returns the bedrock value for 'Golden Sword'"
+  },
+  "minecraft.items.gunpowder": {
+    "prefix": "minecraft.items.gunpowder",
+    "body": "gunpowder",
+    "description": "Returns the bedrock value for 'Gunpowder'"
+  },
+  "minecraft.items.heart_of_the_sea": {
+    "prefix": "minecraft.items.heart_of_the_sea",
+    "body": "heart_of_the_sea",
+    "description": "Returns the bedrock value for 'Heart of the Sea'"
+  },
+  "minecraft.items.hopper": {
+    "prefix": "minecraft.items.hopper",
+    "body": "hopper",
+    "description": "Returns the bedrock value for 'Hopper'"
+  },
+  "minecraft.items.hopper_minecart": {
+    "prefix": "minecraft.items.hopper_minecart",
+    "body": "hopper_minecart",
+    "description": "Returns the bedrock value for 'Minecart with Hopper'"
+  },
+  "minecraft.items.horsearmordiamond": {
+    "prefix": "minecraft.items.horsearmordiamond",
+    "body": "horsearmordiamond",
+    "description": "Returns the bedrock value for 'Diamond Horse Armor'"
+  },
+  "minecraft.items.horsearmorgold": {
+    "prefix": "minecraft.items.horsearmorgold",
+    "body": "horsearmorgold",
+    "description": "Returns the bedrock value for 'Golden Horse Armor'"
+  },
+  "minecraft.items.horsearmoriron": {
+    "prefix": "minecraft.items.horsearmoriron",
+    "body": "horsearmoriron",
+    "description": "Returns the bedrock value for 'Iron Horse Armor'"
+  },
+  "minecraft.items.horsearmorleather": {
+    "prefix": "minecraft.items.horsearmorleather",
+    "body": "horsearmorleather",
+    "description": "Returns the bedrock value for 'Leather Horse Armor'"
+  },
+  "minecraft.items.ice_bomb": {
+    "prefix": "minecraft.items.ice_bomb",
+    "body": "ice_bomb",
+    "description": "Returns the bedrock value for 'Ice Bomb'"
+  },
+  "minecraft.items.iron_axe": {
+    "prefix": "minecraft.items.iron_axe",
+    "body": "iron_axe",
+    "description": "Returns the bedrock value for 'Iron Axe'"
+  },
+  "minecraft.items.iron_boots": {
+    "prefix": "minecraft.items.iron_boots",
+    "body": "iron_boots",
+    "description": "Returns the bedrock value for 'Iron Boots'"
+  },
+  "minecraft.items.iron_chestplate": {
+    "prefix": "minecraft.items.iron_chestplate",
+    "body": "iron_chestplate",
+    "description": "Returns the bedrock value for 'Iron Chestplate'"
+  },
+  "minecraft.items.iron_door": {
+    "prefix": "minecraft.items.iron_door",
+    "body": "iron_door",
+    "description": "Returns the bedrock value for 'Iron Door'"
+  },
+  "minecraft.items.iron_helmet": {
+    "prefix": "minecraft.items.iron_helmet",
+    "body": "iron_helmet",
+    "description": "Returns the bedrock value for 'Iron Helmet'"
+  },
+  "minecraft.items.iron_hoe": {
+    "prefix": "minecraft.items.iron_hoe",
+    "body": "iron_hoe",
+    "description": "Returns the bedrock value for 'Iron Hoe'"
+  },
+  "minecraft.items.iron_ingot": {
+    "prefix": "minecraft.items.iron_ingot",
+    "body": "iron_ingot",
+    "description": "Returns the bedrock value for 'Iron Ingot'"
+  },
+  "minecraft.items.iron_leggings": {
+    "prefix": "minecraft.items.iron_leggings",
+    "body": "iron_leggings",
+    "description": "Returns the bedrock value for 'Iron Leggings'"
+  },
+  "minecraft.items.iron_nugget": {
+    "prefix": "minecraft.items.iron_nugget",
+    "body": "iron_nugget",
+    "description": "Returns the bedrock value for 'Iron Nugget'"
+  },
+  "minecraft.items.iron_pickaxe": {
+    "prefix": "minecraft.items.iron_pickaxe",
+    "body": "iron_pickaxe",
+    "description": "Returns the bedrock value for 'Iron Pickaxe'"
+  },
+  "minecraft.items.iron_shovel": {
+    "prefix": "minecraft.items.iron_shovel",
+    "body": "iron_shovel",
+    "description": "Returns the bedrock value for 'Iron Shovel'"
+  },
+  "minecraft.items.iron_sword": {
+    "prefix": "minecraft.items.iron_sword",
+    "body": "iron_sword",
+    "description": "Returns the bedrock value for 'Iron Sword'"
+  },
+  "minecraft.items.jungle_door": {
+    "prefix": "minecraft.items.jungle_door",
+    "body": "jungle_door",
+    "description": "Returns the bedrock value for 'Jungle Door'"
+  },
+  "minecraft.items.kelp": {
+    "prefix": "minecraft.items.kelp",
+    "body": "kelp",
+    "description": "Returns the bedrock value for 'Kelp'"
+  },
+  "minecraft.items.lead": {
+    "prefix": "minecraft.items.lead",
+    "body": "lead",
+    "description": "Returns the bedrock value for 'Lead'"
+  },
+  "minecraft.items.leather": {
+    "prefix": "minecraft.items.leather",
+    "body": "leather",
+    "description": "Returns the bedrock value for 'Leather'"
+  },
+  "minecraft.items.leather_boots": {
+    "prefix": "minecraft.items.leather_boots",
+    "body": "leather_boots",
+    "description": "Returns the bedrock value for 'Leather Boots'"
+  },
+  "minecraft.items.leather_chestplate": {
+    "prefix": "minecraft.items.leather_chestplate",
+    "body": "leather_chestplate",
+    "description": "Returns the bedrock value for 'Leather Tunic'"
+  },
+  "minecraft.items.leather_helmet": {
+    "prefix": "minecraft.items.leather_helmet",
+    "body": "leather_helmet",
+    "description": "Returns the bedrock value for 'Leather Cap'"
+  },
+  "minecraft.items.leather_leggings": {
+    "prefix": "minecraft.items.leather_leggings",
+    "body": "leather_leggings",
+    "description": "Returns the bedrock value for 'Leather Pants'"
+  },
+  "minecraft.items.lingering_potion": {
+    "prefix": "minecraft.items.lingering_potion",
+    "body": "lingering_potion",
+    "description": "Returns the bedrock value for 'Lingering Potion'"
+  },
+  "minecraft.items.magma_cream": {
+    "prefix": "minecraft.items.magma_cream",
+    "body": "magma_cream",
+    "description": "Returns the bedrock value for 'Magma Cream'"
+  },
+  "minecraft.items.map_filled": {
+    "prefix": "minecraft.items.map_filled",
+    "body": "map_filled",
+    "description": "Returns the bedrock value for 'Filled Map'"
+  },
+  "minecraft.items.melon": {
+    "prefix": "minecraft.items.melon",
+    "body": "melon",
+    "description": "Returns the bedrock value for 'Melon'"
+  },
+  "minecraft.items.melon_seeds": {
+    "prefix": "minecraft.items.melon_seeds",
+    "body": "melon_seeds",
+    "description": "Returns the bedrock value for 'Melon Seeds'"
+  },
+  "minecraft.items.minecart": {
+    "prefix": "minecraft.items.minecart",
+    "body": "minecart",
+    "description": "Returns the bedrock value for 'Minecart'"
+  },
+  "minecraft.items.mushroom_stew": {
+    "prefix": "minecraft.items.mushroom_stew",
+    "body": "mushroom_stew",
+    "description": "Returns the bedrock value for 'Mushroom Stew'"
+  },
+  "minecraft.items.muttoncooked": {
+    "prefix": "minecraft.items.muttoncooked",
+    "body": "muttoncooked",
+    "description": "Returns the bedrock value for 'Cooked Mutton'"
+  },
+  "minecraft.items.muttonraw": {
+    "prefix": "minecraft.items.muttonraw",
+    "body": "muttonraw",
+    "description": "Returns the bedrock value for 'Raw Mutton'"
+  },
+  "minecraft.items.nametag": {
+    "prefix": "minecraft.items.nametag",
+    "body": "nametag",
+    "description": "Returns the bedrock value for 'Name Tag'"
+  },
+  "minecraft.items.nautilus_shell": {
+    "prefix": "minecraft.items.nautilus_shell",
+    "body": "nautilus_shell",
+    "description": "Returns the bedrock value for 'Nautilus Shell'"
+  },
+  "minecraft.items.nether_wart": {
+    "prefix": "minecraft.items.nether_wart",
+    "body": "nether_wart",
+    "description": "Returns the bedrock value for 'Nether Wart'"
+  },
+  "minecraft.items.netherbrick": {
+    "prefix": "minecraft.items.netherbrick",
+    "body": "netherbrick",
+    "description": "Returns the bedrock value for 'Nether Brick'"
+  },
+  "minecraft.items.netherstar": {
+    "prefix": "minecraft.items.netherstar",
+    "body": "netherstar",
+    "description": "Returns the bedrock value for 'Nether Star'"
+  },
+  "minecraft.items.painting": {
+    "prefix": "minecraft.items.painting",
+    "body": "painting",
+    "description": "Returns the bedrock value for 'Painting'"
+  },
+  "minecraft.items.paper": {
+    "prefix": "minecraft.items.paper",
+    "body": "paper",
+    "description": "Returns the bedrock value for 'Paper'"
+  },
+  "minecraft.items.phantom_membrane": {
+    "prefix": "minecraft.items.phantom_membrane",
+    "body": "phantom_membrane",
+    "description": "Returns the bedrock value for 'Phantom Membrane'"
+  },
+  "minecraft.items.poisonous_potato": {
+    "prefix": "minecraft.items.poisonous_potato",
+    "body": "poisonous_potato",
+    "description": "Returns the bedrock value for 'Poisonous Potato'"
+  },
+  "minecraft.items.porkchop": {
+    "prefix": "minecraft.items.porkchop",
+    "body": "porkchop",
+    "description": "Returns the bedrock value for 'Raw Porkchop'"
+  },
+  "minecraft.items.portfolio": {
+    "prefix": "minecraft.items.education.portfolio",
+    "body": "portfolio",
+    "description": "Returns the bedrock value for 'Portfolio'"
+  },
+  "minecraft.items.potato": {
+    "prefix": "minecraft.items.potato",
+    "body": "potato",
+    "description": "Returns the bedrock value for 'Potato'"
+  },
+  "minecraft.items.potion": {
+    "prefix": "minecraft.items.potion",
+    "body": "potion",
+    "description": "Returns the bedrock value for 'Potion'"
+  },
+  "minecraft.items.prismarine_crystals": {
+    "prefix": "minecraft.items.prismarine_crystals",
+    "body": "prismarine_crystals",
+    "description": "Returns the bedrock value for 'Prismarine Crystals'"
+  },
+  "minecraft.items.prismarine_shard": {
+    "prefix": "minecraft.items.prismarine_shard",
+    "body": "prismarine_shard",
+    "description": "Returns the bedrock value for 'Prismarine Shard'"
+  },
+  "minecraft.items.pufferfish": {
+    "prefix": "minecraft.items.pufferfish",
+    "body": "pufferfish",
+    "description": "Returns the bedrock value for 'Pufferfish'"
+  },
+  "minecraft.items.pumpkin_pie": {
+    "prefix": "minecraft.items.pumpkin_pie",
+    "body": "pumpkin_pie",
+    "description": "Returns the bedrock value for 'Pumpkin Pie'"
+  },
+  "minecraft.items.pumpkin_seeds": {
+    "prefix": "minecraft.items.pumpkin_seeds",
+    "body": "pumpkin_seeds",
+    "description": "Returns the bedrock value for 'Pumpkin Seeds'"
+  },
+  "minecraft.items.quartz": {
+    "prefix": "minecraft.items.quartz",
+    "body": "quartz",
+    "description": "Returns the bedrock value for 'Nether Quartz'"
+  },
+  "minecraft.items.rabbit": {
+    "prefix": "minecraft.items.rabbit",
+    "body": "rabbit",
+    "description": "Returns the bedrock value for 'Raw Rabbit'"
+  },
+  "minecraft.items.rabbit_foot": {
+    "prefix": "minecraft.items.rabbit_foot",
+    "body": "rabbit_foot",
+    "description": "Returns the bedrock value for 'Rabbit's Foot'"
+  },
+  "minecraft.items.rabbit_hide": {
+    "prefix": "minecraft.items.rabbit_hide",
+    "body": "rabbit_hide",
+    "description": "Returns the bedrock value for 'Rabbit Hide'"
+  },
+  "minecraft.items.rabbit_stew": {
+    "prefix": "minecraft.items.rabbit_stew",
+    "body": "rabbit_stew",
+    "description": "Returns the bedrock value for 'Rabbit Stew'"
+  },
+  "minecraft.items.record_11": {
+    "prefix": "minecraft.items.record_11",
+    "body": "record_11",
+    "description": "Returns the bedrock value for '11 Disc'"
+  },
+  "minecraft.items.record_13": {
+    "prefix": "minecraft.items.record_13",
+    "body": "record_13",
+    "description": "Returns the bedrock value for '13 Disc'"
+  },
+  "minecraft.items.record_blocks": {
+    "prefix": "minecraft.items.record_blocks",
+    "body": "record_blocks",
+    "description": "Returns the bedrock value for 'Blocks Disc'"
+  },
+  "minecraft.items.record_cat": {
+    "prefix": "minecraft.items.record_cat",
+    "body": "record_cat",
+    "description": "Returns the bedrock value for 'Cat Disc'"
+  },
+  "minecraft.items.record_chirp": {
+    "prefix": "minecraft.items.record_chirp",
+    "body": "record_chirp",
+    "description": "Returns the bedrock value for 'Chirp Disc'"
+  },
+  "minecraft.items.record_far": {
+    "prefix": "minecraft.items.record_far",
+    "body": "record_far",
+    "description": "Returns the bedrock value for 'Far Disc'"
+  },
+  "minecraft.items.record_mall": {
+    "prefix": "minecraft.items.record_mall",
+    "body": "record_mall",
+    "description": "Returns the bedrock value for 'Mall Disc'"
+  },
+  "minecraft.items.record_mellohi": {
+    "prefix": "minecraft.items.record_mellohi",
+    "body": "record_mellohi",
+    "description": "Returns the bedrock value for 'Mellohi Disc'"
+  },
+  "minecraft.items.record_stal": {
+    "prefix": "minecraft.items.record_stal",
+    "body": "record_stal",
+    "description": "Returns the bedrock value for 'Stal Disc'"
+  },
+  "minecraft.items.record_strad": {
+    "prefix": "minecraft.items.record_strad",
+    "body": "record_strad",
+    "description": "Returns the bedrock value for 'Strad Disc'"
+  },
+  "minecraft.items.record_wait": {
+    "prefix": "minecraft.items.record_wait",
+    "body": "record_wait",
+    "description": "Returns the bedrock value for 'Wait Disc'"
+  },
+  "minecraft.items.record_ward": {
+    "prefix": "minecraft.items.record_ward",
+    "body": "record_ward",
+    "description": "Returns the bedrock value for 'Ward Disc'"
+  },
+  "minecraft.items.redstone": {
+    "prefix": "minecraft.items.redstone",
+    "body": "redstone",
+    "description": "Returns the bedrock value for 'Redstone'"
+  },
+  "minecraft.items.reeds": {
+    "prefix": "minecraft.items.reeds",
+    "body": "reeds",
+    "description": "Returns the bedrock value for 'Sugar Cane'"
+  },
+  "minecraft.items.repeater": {
+    "prefix": "minecraft.items.repeater",
+    "body": "repeater",
+    "description": "Returns the bedrock value for 'Redstone Repeater'"
+  },
+  "minecraft.items.rotten_flesh": {
+    "prefix": "minecraft.items.rotten_flesh",
+    "body": "rotten_flesh",
+    "description": "Returns the bedrock value for 'Rotten Flesh'"
+  },
+  "minecraft.items.saddle": {
+    "prefix": "minecraft.items.saddle",
+    "body": "saddle",
+    "description": "Returns the bedrock value for 'Saddle'"
+  },
+  "minecraft.items.salmon": {
+    "prefix": "minecraft.items.salmon",
+    "body": "salmon",
+    "description": "Returns the bedrock value for 'Raw Salmon'"
+  },
+  "minecraft.items.shears": {
+    "prefix": "minecraft.items.shears",
+    "body": "shears",
+    "description": "Returns the bedrock value for 'Shears'"
+  },
+  "minecraft.items.shulker_shell": {
+    "prefix": "minecraft.items.shulker_shell",
+    "body": "shulker_shell",
+    "description": "Returns the bedrock value for 'Shulker Shell'"
+  },
+  "minecraft.items.sign": {
+    "prefix": "minecraft.items.sign",
+    "body": "sign",
+    "description": "Returns the bedrock value for 'Sign'"
+  },
+  "minecraft.items.skull": {
+    "prefix": "minecraft.items.skull",
+    "body": "skull",
+    "description": "Returns the bedrock value for 'Mob head'"
+  },
+  "minecraft.items.slimeball": {
+    "prefix": "minecraft.items.slimeball",
+    "body": "slimeball",
+    "description": "Returns the bedrock value for 'Slimeball'"
+  },
+  "minecraft.items.snowball": {
+    "prefix": "minecraft.items.snowball",
+    "body": "snowball",
+    "description": "Returns the bedrock value for 'Snowball'"
+  },
+  "minecraft.items.sparkler": {
+    "prefix": "minecraft.items.sparkler",
+    "body": "sparkler",
+    "description": "Returns the bedrock value for 'Orange Sparkler'"
+  },
+  "minecraft.items.spawn_egg": {
+    "prefix": "minecraft.items.spawn_egg",
+    "body": "spawn_egg",
+    "description": "Returns the bedrock value for 'Spawn Egg'"
+  },
+  "minecraft.items.speckled_melon": {
+    "prefix": "minecraft.items.speckled_melon",
+    "body": "speckled_melon",
+    "description": "Returns the bedrock value for 'Glistering Melon'"
+  },
+  "minecraft.items.spider_eye": {
+    "prefix": "minecraft.items.spider_eye",
+    "body": "spider_eye",
+    "description": "Returns the bedrock value for 'Spider Eye'"
+  },
+  "minecraft.items.splash_potion": {
+    "prefix": "minecraft.items.splash_potion",
+    "body": "splash_potion",
+    "description": "Returns the bedrock value for 'Splash Potion'"
+  },
+  "minecraft.items.spruce_door": {
+    "prefix": "minecraft.items.spruce_door",
+    "body": "spruce_door",
+    "description": "Returns the bedrock value for 'Spruce Door'"
+  },
+  "minecraft.items.stick": {
+    "prefix": "minecraft.items.stick",
+    "body": "stick",
+    "description": "Returns the bedrock value for 'Stick'"
+  },
+  "minecraft.items.stone_axe": {
+    "prefix": "minecraft.items.stone_axe",
+    "body": "stone_axe",
+    "description": "Returns the bedrock value for 'Stone Axe'"
+  },
+  "minecraft.items.stone_hoe": {
+    "prefix": "minecraft.items.stone_hoe",
+    "body": "stone_hoe",
+    "description": "Returns the bedrock value for 'Stone Hoe'"
+  },
+  "minecraft.items.stone_pickaxe": {
+    "prefix": "minecraft.items.stone_pickaxe",
+    "body": "stone_pickaxe",
+    "description": "Returns the bedrock value for 'Stone Pickaxe'"
+  },
+  "minecraft.items.stone_shovel": {
+    "prefix": "minecraft.items.stone_shovel",
+    "body": "stone_shovel",
+    "description": "Returns the bedrock value for 'Stone Shovel'"
+  },
+  "minecraft.items.stone_sword": {
+    "prefix": "minecraft.items.stone_sword",
+    "body": "stone_sword",
+    "description": "Returns the bedrock value for 'Stone Sword'"
+  },
+  "minecraft.items.string": {
+    "prefix": "minecraft.items.string",
+    "body": "string",
+    "description": "Returns the bedrock value for 'String'"
+  },
+  "minecraft.items.sugar": {
+    "prefix": "minecraft.items.sugar",
+    "body": "sugar",
+    "description": "Returns the bedrock value for 'Sugar'"
+  },
+  "minecraft.items.super_fertilizer": {
+    "prefix": "minecraft.items.super_fertilizer",
+    "body": "super_fertilizer",
+    "description": "Returns the bedrock value for 'Super Fertilizer'"
+  },
+  "minecraft.items.tnt_minecart": {
+    "prefix": "minecraft.items.tnt_minecart",
+    "body": "tnt_minecart",
+    "description": "Returns the bedrock value for 'Minecart with TNT'"
+  },
+  "minecraft.items.totem": {
+    "prefix": "minecraft.items.totem",
+    "body": "totem",
+    "description": "Returns the bedrock value for 'Totem of Undying'"
+  },
+  "minecraft.items.trident": {
+    "prefix": "minecraft.items.trident",
+    "body": "trident",
+    "description": "Returns the bedrock value for 'Trident'"
+  },
+  "minecraft.items.turtle_helmet": {
+    "prefix": "minecraft.items.turtle_helmet",
+    "body": "turtle_helmet",
+    "description": "Returns the bedrock value for 'Turtle Shell'"
+  },
+  "minecraft.items.turtle_shell_piece": {
+    "prefix": "minecraft.items.turtle_shell_piece",
+    "body": "turtle_shell_piece",
+    "description": "Returns the bedrock value for 'Scute'"
+  },
+  "minecraft.items.wheat": {
+    "prefix": "minecraft.items.wheat",
+    "body": "wheat",
+    "description": "Returns the bedrock value for 'Wheat'"
+  },
+  "minecraft.items.wheat_seeds": {
+    "prefix": "minecraft.items.wheat_seeds",
+    "body": "wheat_seeds",
+    "description": "Returns the bedrock value for 'Seeds'"
+  },
+  "minecraft.items.wooden_axe": {
+    "prefix": "minecraft.items.wooden_axe",
+    "body": "wooden_axe",
+    "description": "Returns the bedrock value for 'Wooden Axe'"
+  },
+  "minecraft.items.wooden_door": {
+    "prefix": "minecraft.items.wooden_door",
+    "body": "wooden_door",
+    "description": "Returns the bedrock value for 'Wooden Door'"
+  },
+  "minecraft.items.wooden_hoe": {
+    "prefix": "minecraft.items.wooden_hoe",
+    "body": "wooden_hoe",
+    "description": "Returns the bedrock value for 'Wooden Hoe'"
+  },
+  "minecraft.items.wooden_pickaxe": {
+    "prefix": "minecraft.items.wooden_pickaxe",
+    "body": "wooden_pickaxe",
+    "description": "Returns the bedrock value for 'Wooden Pickaxe'"
+  },
+  "minecraft.items.wooden_shovel": {
+    "prefix": "minecraft.items.wooden_shovel",
+    "body": "wooden_shovel",
+    "description": "Returns the bedrock value for 'Wooden Shovel'"
+  },
+  "minecraft.items.wooden_sword": {
+    "prefix": "minecraft.items.wooden_sword",
+    "body": "wooden_sword",
+    "description": "Returns the bedrock value for 'Wooden Sword'"
+  },
+  "minecraft.items.writable_book": {
+    "prefix": "minecraft.items.writable_book",
+    "body": "writable_book",
+    "description": "Returns the bedrock value for 'Book and Quill'"
+  },
+  "minecraft.items.written_book": {
+    "prefix": "minecraft.items.written_book",
+    "body": "written_book",
+    "description": "Returns the bedrock value for 'Written Book'"
+  }
+}
