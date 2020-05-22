@@ -1,10 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.movement.skip",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.peek",
+  "description": "Defines the entity's 'peek' behavior, defining the events that should be called during it",
   "type": "object",
-  "title": "minecraft:movement.skip 1.8.0",
+  "title": "minecraft:peek 1.8.0",
   "additionalProperties": false,
   "required": [],
-  "properties": {},
-  "description": "TODO description"
+  "properties": {
+    "on_close": {
+      "type": "string",
+      "description": "Event to call when the entity is done peeking"
+    },
+    "on_open": {
+      "type": "string",
+      "description": "Event to call when the entity starts peeking"
+    },
+    "on_target_open": {
+      "type": "string",
+      "description": "Event to call when the entity's target entity starts peeking"
+    }
+  }
 }
