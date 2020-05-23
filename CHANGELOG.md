@@ -1,0 +1,21 @@
+# Changelog 
+- Added Loot table
+- Updated Components
+- Updated Components
+- Updated
+- Added Items names
+- Updated
+- Updatedf
+- Updated Package to 0.0.8
+- UPdated
+- Updated
+- Updated filters content
+- Updated Components
+- Updated Code
+- Updated
+- Updated
+- Updated Components
+- Updated Components
+- Updated
+- Updated Priority
+- Updated
