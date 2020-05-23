@@ -10,7 +10,7 @@
 		},
 		{
 			"label": "build extension",
-			"command": "vsce package",
+			"command": "start build.bat",
 			"type": "shell",
 			"presentation": {
 				"echo": true,
