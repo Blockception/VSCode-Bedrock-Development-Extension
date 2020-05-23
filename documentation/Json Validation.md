@@ -60,6 +60,8 @@
 |Component  |Json file pattern  |
 |-----------|-------------------|
 |manifest   |manifest.json |
+|languages   |languages.json |
+|language_names   |language_names.json |
 
 ## World
 
@@ -79,6 +81,7 @@
 |particles   |particles/*.json  |
 |render_controllers   |render_controllers/*.json  |
 |sound definitions   |sound_definitions.json  |
+|terrain texture   |terrain_texture.json  |
 |music definitions   |music_definitions.json  |
 
 ## Behaviour packs

@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.resource.texture.item_texture",
+    "additionalProperties": false,
+    "type": "object",
+    "title": "The minecraft item texture file",
+    "description": "",
+    "definitions": {
+        "texture": {
+            "oneOf": [
+                { 
+                    "description": "A texture file",
+                    "type": "string",
+                    "pattern": "^textures/.+$" 
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "overlay_color": {
+                            "description": "The color to apply to the texture",
+                            "format": "color-hex"
+                        },
+                        "path": {
+                            "description": "A texture file",
+                            "type": "string",
+                            "pattern": "^textures/.+$" 
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "properties": {
+        "resource_pack_name": {
+            "type": "string"
+        },
+        "texture_data": {
+            "type": "object",
+            "propertyNames": {
+                "pattern": "^[\\w_-]+$"
+            },
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "textures": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/texture"
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/texture"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "texture_name": {
+            "type": "string"
+        }
+    }
+}
