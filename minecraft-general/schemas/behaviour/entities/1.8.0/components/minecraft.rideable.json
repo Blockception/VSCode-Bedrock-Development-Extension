@@ -5,6 +5,39 @@
   "type": "object",
   "title": "minecraft:rideable 1.8.0",
   "additionalProperties": false,
+  "definitions": {
+    "seats_spec":{
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "lock_rider_rotation": {
+          "type": "number",
+          "default": 181,
+          "description": "Angle in degrees that a rider is allowed to rotate while riding this entity. Omit this property for no limit"
+        },
+        "max_rider_count": {
+          "type": "integer",
+          "default": 0,
+          "description": "Defines the maximum number of riders that can be riding this entity for this seat to be valid"
+        },
+        "min_rider_count": {
+          "type": "integer",
+          "default": 0,
+          "description": "Defines the minimum number of riders that need to be riding this entity before this seat can be used"
+        },
+        "position": {
+          "$ref": "../../../../general/array_3_number.json",
+          "default": [0.0, 0.0, 0.0],
+          "description": "Position of this seat relative to this entity's position"
+        },
+        "rotate_rider_by": {
+          "type": "number",
+          "default": 0,
+          "description": "Offset to rotate riders by"
+        }      
+      }
+    }
+  },
   "required": [],
   "properties": {
     "controlling_seat": {
@@ -45,39 +78,19 @@
       "description": "The number of entities that can ride this entity at the same time"
     },
     "seats": {
-      "type": "array",
       "description": "The list of positions and number of riders for each position for entities riding this entity",
-      "items": {
-        "additionalProperties": false,
-        "type": "object",
-        "properties": {
-          "lock_rider_rotation": {
-            "type": "number",
-            "default": 181,
-            "description": "Angle in degrees that a rider is allowed to rotate while riding this entity. Omit this property for no limit"
-          },
-          "max_rider_count": {
-            "type": "integer",
-            "default": 0,
-            "description": "Defines the maximum number of riders that can be riding this entity for this seat to be valid"
-          },
-          "min_rider_count": {
-            "type": "integer",
-            "default": 0,
-            "description": "Defines the minimum number of riders that need to be riding this entity before this seat can be used"
-          },
-          "position": {
-            "$ref": "../types/range_number_type.json",
-            "default": [0.0, 0.0, 0.0],
-            "description": "Position of this seat relative to this entity's position"
-          },
-          "rotate_rider_by": {
-            "type": "number",
-            "default": 0,
-            "description": "Offset to rotate riders by"
-          }      
+      "oneOf": [
+        {
+          "type": "object",
+          "$ref": "#/definitions/seats_spec"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/seats_spec"
+          }
         }
-      }
+      ]
     }
   }
 }

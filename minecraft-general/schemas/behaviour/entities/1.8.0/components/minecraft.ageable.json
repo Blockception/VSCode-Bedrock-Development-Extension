@@ -14,22 +14,30 @@
       "title": "TODO title"
     },
     "feedItems": {
-      "type": "array",
       "description": "List of items that can be fed to the entity. Includes 'item' for the item name and 'growth' to define how much time it grows up by",
       "items": {
-        "type": "object",
-        "properties": {
-          "item": {
-            "type": "string",
-            "description": "The item name that can be used to feed",
-            "title": "TODO title"
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string",
+                "description": "The item name that can be used to feed",
+                "title": "TODO title",
+                "$ref": "../../../../general/items_item.json"
+              },
+              "growth": {
+                "type": "integer",
+                "description": "The amount that counts for aging",
+                "title": "TODO title"
+              }
+            }
           },
-          "growth": {
-            "type": "integer",
-            "description": "The amount that counts for aging",
-            "title": "TODO title"
+          {
+            "type": "string",
+            "$ref": "../../../../general/items_item.json"
           }
-        },
+        ],
         "description": "TODO description",
         "title": "TODO title"
       },
@@ -41,7 +49,8 @@
       "items": {
         "type": "string",
         "description": "Item names",
-        "title": "TODO title"
+        "title": "TODO title",
+        "$ref": "../../../../general/items_item.json"
       },
       "title": "TODO title"
     },

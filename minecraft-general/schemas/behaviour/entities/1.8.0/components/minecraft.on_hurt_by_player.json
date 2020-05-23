@@ -17,8 +17,10 @@
     },
     "target": {
       "type": "string",
+      "$ref": "../filters/types/base_subject.json",
       "default": "self",
       "description": "The target of the event"
     }
+
   }
 }
