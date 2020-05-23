@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.resource.texture.flipbook",
+    "additionalProperties": false,
+    "type": "array",
+    "title": "The minecraft flipbook texture file",
+    "description": "",
+    "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "description": "flipbook texture",
+        "properties": {
+            "atlas_index": {
+                "type": "integer"
+            },
+            "atlas_tile": {
+                "type": "string",
+                "pattern": "^[a-z0-9_-]*$"
+            },            
+            "atlas_tile_variant": {
+                "type": "integer"
+            },
+            "blend_frames": {
+                "type": "boolean"
+            },
+            "flipbook_texture": {
+                "description": "A texture file",
+                "type": "string",
+                "pattern": "^textures/.+$" 
+            },
+            "frames": {
+                "type": "array",
+                "items": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            },
+            "replicate": {
+                "type": "integer"
+            },
+            "ticks_per_frame": {
+                "type": "integer"
+            }
+        }
+    }
+}
