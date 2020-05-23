@@ -76,6 +76,7 @@
 |-----------|-------------------|
 |animation_controllers   |animation_controllers/*.json |
 |animations   |animations/*.animation.json  |
+|biomes_client   |biomes_client.json  |
 |entity   |entity/*entity.json  |
 |models   |*.geo.json  |
 |particles   |particles/*.json  |
