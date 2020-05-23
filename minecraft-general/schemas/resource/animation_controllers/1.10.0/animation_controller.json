@@ -40,6 +40,11 @@
         }
       },
       "title": "TODO title"
+    },
+    "commands": {
+      "type": "string",
+      "description": "The event or commands to execute",
+      "pattern": "^(@s .+|\/.+)$"
     }
   },
   "required": [
@@ -117,6 +122,20 @@
                     "title": "TODO title"
                   },
                   "title": "TODO title"
+                },
+                "on_entry": {
+                  "type": "array",
+                  "description": "events, commands or transitions to preform",
+                  "items": {
+                    "$ref": "#/definitions/commands"
+                  }
+                },
+                "on_exit": {
+                  "type": "array",
+                  "description": "events, commands or transitions to preform",
+                  "items": {
+                    "$ref": "#/definitions/commands"
+                  }
                 }
               }
             }

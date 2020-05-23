@@ -36,8 +36,7 @@
       "title": "TODO title"
     },
     "calm_event": {
-      "type": "string",
-      "default": 0,
+      "$ref": "../types/event.json",
       "description": "Event to run after the number of seconds specified in duration expires (when the entity stops being 'angry')",
       "title": "TODO title"
     },
@@ -52,6 +51,16 @@
       "default": 0,
       "description": "Variance in seconds added to the duration [-delta, delta]",
       "title": "TODO title"
+    },
+    "broadcastAnger": {
+      "type": "boolean",
+      "description": "TODO",
+      "title": "TODO"
+    },
+    "broadcastRange": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "TODO"
     }
   }
 }

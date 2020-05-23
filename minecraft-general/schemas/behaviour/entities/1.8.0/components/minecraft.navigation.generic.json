@@ -7,6 +7,11 @@
   "description": "Allows this entity to generate paths in the air like the vanilla Parrots do.",  
   "required": [],
   "properties": {
+    "is_amphibious": {
+      "type": "boolean",
+      "default": false,
+      "description": "TODO"
+    },
     "avoid_damage_blocks": {
       "type": "boolean",
       "default": false,
@@ -51,6 +56,21 @@
       "type": "boolean",
       "default": true,
       "description": "Tells the pathfinder whether or not it will be pulled down by gravity while in water"
+    },
+    "can_swim": {
+      "type": "boolean",
+      "default": true,
+      "description": "Tells the pathfinder whether or not this entity can swim"
+    },
+    "can_walk": {
+      "type": "boolean",
+      "default": true,
+      "description": "Tells the pathfinder whether or not this entity can walk"
+    },
+    "can_breach": {      
+      "type": "boolean",
+      "default": true,
+      "description": "Tells the pathfinder whether or not this entity can breach"
     }
   }
 }

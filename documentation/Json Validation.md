@@ -40,7 +40,8 @@
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|entity behaviour|entities/*.json|
+|animation_controllers   |animation_controllers/*.json |
+|entity behaviour |entities/*.json|
 # Json Validation
 
 - [Json Validation](#json-validation)

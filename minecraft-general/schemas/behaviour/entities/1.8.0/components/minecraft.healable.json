@@ -35,8 +35,7 @@
           "item": {
             "type": "string",
             "description": "Item identifier that can be used to heal this entity"
-          },
-      
+          }      
         }
       }
     }
