@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.behaviour.loot_tables.random_block_state",
+    "additionalProperties": false,
+    "description": "The function random_block_state",
+    "title": "random_block_state",
+    "properties": {
+        "function": {
+            "type": "string",
+            "const": "random_block_state"
+        },
+        "block_state": {
+            "type": "string"
+        },
+        "values": {
+            "type": "object",
+            "properties": {
+                "min": {
+                    "type": "integer"
+                },
+                "max": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
