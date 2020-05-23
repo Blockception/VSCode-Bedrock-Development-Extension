@@ -1,4 +1,5 @@
 # Changelog 
+- Added Autobuild
 - Added Loot table
 - Updated Components
 - Updated Components
@@ -18,4 +19,3 @@
 - Updated Components
 - Updated
 - Updated Priority
-- Updated
