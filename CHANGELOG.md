@@ -1,4 +1,9 @@
 # Changelog 
+- Added Blocks
+- Added item textures validation
+- Added Flipbook textures validation
+- Added Language validation
+- Upgraded version to 0.0.10
 - Added Autobuild
 - Added Loot table
 - Updated Components
@@ -14,8 +19,3 @@
 - Updated Components
 - Updated Code
 - Updated
-- Updated
-- Updated Components
-- Updated Components
-- Updated
-- Updated Priority
