@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.loot_tables",
+  "additionalProperties": false,
+  "description": "A minecraft loot table",
+  "title": "Loot Table",
+  "properties": {
+    "pools": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": ["rolls"],
+        "properties": {
+          "conditions": {},
+          "rolls": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "object",
+                "required": ["min", "max"],
+                "properties": {
+                  "min": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "max": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                }
+              }
+            ]
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [ "type" ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["item", "empty" ]
+                },
+                "name": {
+                  "type": "string",
+                  "description": "An item or loottable",
+                  "pattern": "^([\\w]+:|loot_tables/)"
+                },
+                "weight": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "functions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["function"],
+                    "allOf": [
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "enchant_random_gear" } } }, 
+                        "Then": { "$ref": "functions/enchant_random_gear.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "enchant_randomly" } } }, 
+                        "Then": { "$ref": "functions/enchant_randomly.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "enchant_with_levels" } } }, 
+                        "Then": { "$ref": "functions/enchant_with_levels.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "exploration_map" } } }, 
+                        "Then": { "$ref": "functions/exploration_map.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "fill_container" } } }, 
+                        "Then": { "$ref": "functions/fill_container.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "furnace_smelt" } } }, 
+                        "Then": { "$ref": "functions/furnace_smelt.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "looting_enchant" } } }, 
+                        "Then": { "$ref": "functions/furnace_smeltlooting_enchant.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "random_aux_value" } } }, 
+                        "Then": { "$ref": "functions/looting_enchantrandom_aux_value.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "random_block_state" } } }, 
+                        "Then": { "$ref": "functions/random_block_state.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_actor_id" } } }, 
+                        "Then": { "$ref": "functions/set_actor_id.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_banner_details" } } }, 
+                        "Then": { "$ref": "functions/set_banner_details.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_book_contents" } } }, 
+                        "Then": { "$ref": "functions/set_book_contents.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_count" } } }, 
+                        "Then": { "$ref": "functions/set_count.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_damage" } } }, 
+                        "Then": { "$ref": "functions/set_damage.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_data" } } }, 
+                        "Then": { "$ref": "functions/set_data.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_data_from_color_index" } } }, 
+                        "Then": { "$ref": "functions/set_data_from_color_index.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_lore" } } }, 
+                        "Then": { "$ref": "functions/set_lore.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "set_name" } } }, 
+                        "Then": { "$ref": "functions/set_name.json" } },
+                      { 
+                        "If": { "properties": { "function": { "type": "string", "const": "specific_enchants" } } }, 
+                        "Then": { "$ref": "functions/specific_enchants.json" } }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

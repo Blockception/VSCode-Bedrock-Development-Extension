@@ -86,3 +86,5 @@
 |Component  |Json file pattern  |
 |-----------|-------------------|
 |entity behaviour|entities/*.json|
+|animation_controllers   |animation_controllers/*.json |
+|items   |items/*.json |
