@@ -10,13 +10,15 @@
       "anyOf": [
         {
           "type": "number",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "A color definition as number, between 0 and 1",
+          "minimum": 0,
+          "maximum": 1,
+          "title": "color number"
         },
         {
           "type": "string",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "A color definition in molang",
+          "title": "Molang color"
         }
       ]
     }
@@ -26,7 +28,7 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "TODO description"
+      "description": "The version of the document"
     },
     "render_controllers": {
       "type": "object",
