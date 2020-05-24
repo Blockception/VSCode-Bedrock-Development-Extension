@@ -16,9 +16,10 @@ An extension that provides development tools, validations and snippets to help d
   
 - Snippets
   - [Blocks.](./documentation/Snippets.md#block-names)
+  - [Commands.](./documentation/Snippets.md#commands)
   - [Effects.](./documentation/Snippets.md#effect-names)
   - [Enchantments.](./documentation/Snippets.md#enchant-names)
-  - [Commands.](./documentation/Snippets.md#commands)
+  - [Items.](./documentation/Snippets.md#item-names)
   - [Selector.](./documentation/Snippets.md#selector)
   
 - Syntax
