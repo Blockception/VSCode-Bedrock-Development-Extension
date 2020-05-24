@@ -9,6 +9,10 @@
     "value"
   ],
   "properties": {
+    "test": {
+      "type": "string",
+      "const": "has_equipment"
+    },
     "domain": {
       "description": "The equipment location to test",
       "default": "any",
@@ -32,7 +36,7 @@
     "value": {
       "description": "The item name to look for",
       "type": "string",
-      "title": "TODO title"
+      "$ref": "../../../../general/items_item.json"
     }
   }
 }
