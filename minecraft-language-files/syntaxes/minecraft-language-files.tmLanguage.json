@@ -17,6 +17,7 @@
     },
     "characters": {
       "patterns": [
+        { "name": "entity.name.function.keyword", "match": "%s"},
         { "name": "markup.bold", "match": "§l"},
         { "name": "markup.deleted", "match": "§k"},
         { "name": "keyword.control", "match": "§m"},

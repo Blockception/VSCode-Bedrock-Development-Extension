@@ -8,11 +8,7 @@
     {
       "if": {
         "properties": {
-          "format_version": {
-            "type": "string",
-            "description": "TODO description",
-            "title": "TODO title"
-          }
+          "format_version": { "type": "string", "description": "TODO description", "title": "TODO title" }
         }
       },
       "else": {
