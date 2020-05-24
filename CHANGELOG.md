@@ -1,4 +1,17 @@
 # Changelog 
+- Updated Json Validation
+- Updated Json Validation
+- Updated Color Specification
+- Updated
+- Added
+- Updated
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Updated
+- Create CONTRIBUTING.md
+- Update issue templates
+- Updated
+- Updated
+- Updated to 0.0.11
 - Added Blocks
 - Added item textures validation
 - Added Flipbook textures validation
@@ -6,16 +19,3 @@
 - Upgraded version to 0.0.10
 - Added Autobuild
 - Added Loot table
-- Updated Components
-- Updated Components
-- Updated
-- Added Items names
-- Updated
-- Updatedf
-- Updated Package to 0.0.8
-- UPdated
-- Updated
-- Updated filters content
-- Updated Components
-- Updated Code
-- Updated
