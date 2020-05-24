@@ -48,6 +48,7 @@
                                 "$ref": "#/definitions/texture"
                             },
                             {
+                                "description": "A collection of textures",
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/definitions/texture"
