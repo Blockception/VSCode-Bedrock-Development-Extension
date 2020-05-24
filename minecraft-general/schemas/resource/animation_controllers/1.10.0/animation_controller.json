@@ -113,6 +113,11 @@
                   "type": "number",
                   "title": "TODO title"
                 },
+                "blend_via_shortest_path": {
+                  "description": "TODO description",
+                  "type": "boolean",
+                  "title": "TODO title"
+                },
                 "particle_effects": {
                   "description": "The effects to be emitted",
                   "type": "array",

@@ -204,32 +204,19 @@
             "type": "array",
             "minItems": 1,
             "items": {
+              "description": "A collection of object that describe which bones are hidden or not",
+              "title": "Part visibilty",
               "type": "object",
-              "maxProperties": 1,
               "minProperties": 1,
               "additionalProperties": {
                 "oneOf": [
-                  {
-                    "type": "string",
-                    "description": "TODO description",
-                    "title": "TODO title"
-                  },
-                  {
-                    "type": "boolean",
-                    "description": "TODO description",
-                    "title": "TODO title"
-                  },
-                  {
-                    "type": "number",
-                    "description": "TODO description",
-                    "title": "TODO title"
-                  }
+                  { "type": "string" },
+                  { "type": "boolean" },
+                  { "type": "number" }
                 ],
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "description": "TODO description",
-              "title": "TODO title"
+                "description": "Describes which bones are visible or not, can be a string, boolean or number",
+                "title": "Part visibilty"
+              }
             },
             "description": "TODO description",
             "title": "TODO title"
