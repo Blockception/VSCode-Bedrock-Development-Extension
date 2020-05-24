@@ -23,7 +23,7 @@
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
     },
-    "version": "0.0.11",
+    "version": "0.0.12",
     "contributes": {
         "languages": [
             {
