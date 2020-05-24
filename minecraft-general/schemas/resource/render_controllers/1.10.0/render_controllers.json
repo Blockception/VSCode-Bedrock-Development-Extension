@@ -198,9 +198,9 @@
             "type": "array",
             "minItems": 1,
             "items": {
+              "description": "The object that describe different bone visibility",
+              "title": "part visibility",
               "type": "object",
-              "maxProperties": 1,
-              "minProperties": 1,
               "additionalProperties": {
                 "oneOf": [
                   {
@@ -218,12 +218,8 @@
                     "description": "TODO description",
                     "title": "TODO title"
                   }
-                ],
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "description": "TODO description",
-              "title": "TODO title"
+                ]
+              }
             },
             "description": "TODO description",
             "title": "TODO title"
