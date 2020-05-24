@@ -1,2 +1,5 @@
 tools/
 build.bat
+.github/
+CODE_OF_CONDUCT.md
+*.vsix
