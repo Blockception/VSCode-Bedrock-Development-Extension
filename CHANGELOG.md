@@ -1,4 +1,8 @@
 # Changelog 
+- Added Poly support for models
+- Fixed fatal damage
+- Updated Code
+- Updated to 0.0.13
 - Updated
 - Updated
 - Updated
@@ -16,6 +20,3 @@
 - Updated
 - Updated
 - Updated to 0.0.11
-- Added Blocks
-- Added item textures validation
-- Added Flipbook textures validation
