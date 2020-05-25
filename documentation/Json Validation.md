@@ -32,7 +32,7 @@
 |animations   |animations/*.animation.json  |
 |biomes_client   |biomes_client.json  |
 |entity   |entity/*entity.json  |
-|models   |*.geo.json  |
+|models   |'*.geo.json' or '*.geometry.json' |
 |particles   |particles/*.json  |
 |sound definitions   |sound_definitions.json  |
 

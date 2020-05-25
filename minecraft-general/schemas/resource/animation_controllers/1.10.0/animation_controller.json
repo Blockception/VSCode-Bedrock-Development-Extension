@@ -44,13 +44,10 @@
     "commands": {
       "type": "string",
       "description": "The event or commands to execute",
-      "pattern": "^(@s .+|\/.+)$"
+      "pattern": "^(@s .+|/.+)$"
     }
   },
-  "required": [
-    "format_version",
-    "animation_controllers"
-  ],
+  "required": ["format_version", "animation_controllers"],
   "additionalProperties": false,
   "properties": {
     "format_version": {
@@ -63,24 +60,20 @@
       "title": "The animation controllers schema",
       "description": "The animation controllers schema for 1.10.0",
       "propertyNames": {
-        "pattern": "^controller\\.[a-z\\.]+"
+        "pattern": "^controller\\.animation\\.[a-z\\.]+"
       },
       "additionalProperties": {
         "additionalProperties": false,
         "type": "object",
         "title": "A animation controller",
         "description": "A single animation controller 1.10.0",
-        "required": [
-          "states"
-        ],
+        "required": ["states"],
         "minProperties": 1,
         "properties": {
           "states": {
             "title": "The states definition",
             "description": "The states of this animation controller",
-            "propertyNames": {
-              "pattern": "[a-z\\.]+"
-            },
+            "propertyNames": { "pattern": "[a-z\\.]+" },
             "minProperties": 1,
             "additionalProperties": {
               "additionalProperties": false,
@@ -98,20 +91,22 @@
                     "title": "TODO title"
                   }
                 },
-                "transitions": {
-                  "title": "Transition definition",
-                  "description": "The transition definition for 1.10.0",
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/animationspec",
-                    "description": "TODO description",
-                    "title": "TODO title"
-                  }
-                },
                 "blend_transition": {
-                  "description": "The amount of time its takes to blend into the animation",
-                  "type": "number",
-                  "title": "TODO title"
+                  "title": "TODO title",
+                  "oneOf": [
+                    { 
+                      "type": "number",
+                      "description": "A short-hand version of blend_out that simply sets the amount of time to fade out if the animation is interrupted"
+                    },
+                    {
+                      "type": "object",
+                      "description": "Specifies the cross-fade time in seconds when transitioning to another state",
+                      "additionalProperties": {
+                        "type": "number",
+                        "description": "Mapping of time since the animation was canceled, to the blend value at that time. A default key of time=0 to a blend value of 1.0 is provided if any other key is set and a blend value at time=0 hasn't already been set."
+                      }
+                    }
+                  ]
                 },
                 "blend_via_shortest_path": {
                   "description": "TODO description",
@@ -141,17 +136,53 @@
                   "items": {
                     "$ref": "#/definitions/commands"
                   }
+                },
+                "sound_effects": {
+                  "type": "array",
+                  "description": "Collection of sounds to trigger on entry to this animation state.",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "effect": {
+                        "description": "Valid sound effect names should be listed in the entity's resource_definition json file.",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "transitions": {
+                  "title": "Transition definition",
+                  "description": "The transition definition for 1.10.0",
+                  "minProperties": 1,
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/animationspec",
+                    "description": "TODO description",
+                    "title": "TODO title"
+                  }
+                },
+                "variables": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "input": {
+                        "$ref": "../../../../molang/1.8.0/number.json"
+                      },
+                      "remap_curve": {
+                        "additionalProperties": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           },
           "initial_state": {
             "type": "string",
-            "description": "TODO description",
-            "title": "TODO title"
-          },
-          "blend_via_shortest_path": {
-            "type": "boolean",
             "description": "TODO description",
             "title": "TODO title"
           }
