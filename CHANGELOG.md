@@ -1,4 +1,8 @@
 # Changelog 
+- Updated
+- Updated
+- Updated
+- Updated to 1.12
 - Updated Json Validation
 - Updated Json Validation
 - Updated Color Specification
@@ -15,7 +19,3 @@
 - Added Blocks
 - Added item textures validation
 - Added Flipbook textures validation
-- Added Language validation
-- Upgraded version to 0.0.10
-- Added Autobuild
-- Added Loot table
