@@ -7,17 +7,6 @@
   "required": [
     "format_version"
   ],
-  "definitions": {
-    "array_3_integer": {
-      "$ref": "../../../../general/array_3_integer.json"
-    },
-    "array_2_number": {
-      "$ref": "../../../../general/array_2_number.json"
-    },
-    "array_3_number": {
-      "$ref": "../../../../general/array_3_number.json"
-    }
-  },
   "properties": {
     "format_version": {
       "title": "The 1.8.0 format_version",
@@ -27,12 +16,22 @@
     }
   },
   "propertyNames": {
-    "pattern": "(^geometry\\.|format_version)"
+    "pattern": "(^geometry\\.[a-zA-Z0-9_.'-:]+|format_version)"
   },
   "additionalProperties": {
     "additionalProperties": false,
     "type": "object",
+    "description": "Geometry specification",
+    "title": "Geometry",
     "properties": {
+      "bones": {
+        "$ref": "bones.json",
+        "description": "TODO description",
+        "title": "TODO title"
+      },
+      "cape": {
+        "type": "string"
+      },
       "texturewidth": {
         "type": "integer",
         "description": "TODO description",
@@ -44,27 +43,25 @@
         "title": "TODO title"
       },
       "visible_bounds_width": {
-        "type": "number",
+        "type": "integer",
         "description": "TODO description",
         "title": "TODO title"
       },
       "visible_bounds_height": {
-        "type": "number",
+        "type": "integer",
         "description": "TODO description",
         "title": "TODO title"
       },
       "visible_bounds_offset": {
-        "$ref": "#/definitions/array_3_number",
+        "type": "array",
         "description": "TODO description",
-        "title": "TODO title"
-      },
-      "bones": {
-        "$ref": "bones.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "title": "TODO title",
+        "items": [
+          { "type": "number" },
+          { "type": "number" },
+          { "type": "number" }
+        ]
       }
-    },
-    "description": "TODO description",
-    "title": "TODO title"
+    }
   }
 }

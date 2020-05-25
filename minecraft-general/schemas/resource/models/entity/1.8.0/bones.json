@@ -54,10 +54,7 @@
           "additionalProperties": false,
           "type": "object",
           "description": "A cubes that describes this model",
-          "required": [
-            "origin",
-            "size"
-          ],
+          "required": [ "origin", "size" ],
           "properties": {
             "inflate": {
               "type": "number",
@@ -150,6 +147,7 @@
         "title": "TODO title"
       },
       "locators": {
+        "type": "object",
         "minProperties": 1,
         "additionalProperties": {
           "$ref": "#/definitions/array_3_number",
@@ -183,6 +181,42 @@
         "description": "The rotation point of the cube.",
         "$ref": "#/definitions/array_3_number",
         "title": "TODO title"
+      },
+      "poly_mesh": {
+        "type": "object",
+        "required": ["polys"],
+        "properties": {
+          "normalized_uvs": {
+            "type": "boolean"
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/array_3_number"
+            }
+          },
+          "normals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/array_3_number"
+            }
+          },
+          "polys": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 4,
+              "items": {
+                "$ref": "#/definitions/array_3_number"
+              }              
+            }
+          }
+        }
+      },
+      "render_group_id": {
+        "type": "number",
+        "minimum": 0
       },
       "reset": {
         "description": "TODO",

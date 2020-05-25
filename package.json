@@ -87,6 +87,7 @@
             { "fileMatch": "item_texture.json", "url": "./minecraft-general/schemas/resource/textures/item_texture.json" },
             { "fileMatch": "particles/*.json", "url": "./minecraft-general/schemas/resource/particles/particles.json" },
             { "fileMatch": "*.geo.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" }, 
+            { "fileMatch": "*.geometry.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" }, 
             { "fileMatch": "render_controllers/*.json", "url": "./minecraft-general/schemas/resource/render_controllers/render_controllers.json" }, 
             { "fileMatch": "sound_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/sound_definitions.json" },
             { "fileMatch": "terrain_texture.json", "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json" },

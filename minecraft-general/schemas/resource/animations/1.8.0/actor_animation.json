@@ -4,10 +4,31 @@
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.8.0",
   "description": "The root schema comprises the entire JSON document.",
-  "required": [
-    "format_version",
-    "animations"
-  ],
+  "definitions": {
+    "particle_effect_spec": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "bind_to_actor": {
+          "type": "boolean",
+          "description": "Set to false to have the effect spawned in the world without being bound to an actor (by default an effect is bound to the actor)."
+        },
+        "effect": {
+          "type": "string",
+          "description": "The name of a particle effect that should be played"
+        },
+        "locator": {
+          "type": "string",
+          "description": "The name of a locator on the actor where the effect should be located"
+        },
+        "pre_effect_script": {
+          "type": "string",
+          "description": "A molang script that will be run when the particle emitter is initialized"
+        }
+      }
+    }
+  },
+  "required": ["format_version", "animations"],
   "properties": {
     "format_version": {
       "title": "The 1.8.0 format_version",
@@ -24,24 +45,95 @@
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "title": "The animation 1.8.0",
+        "title": "Animation 1.8.0",
         "description": "The animation specification for 1.8.0",
         "properties": {
+          "anim_time_update": {
+            "title": "",
+            "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
+            "type": "string"
+          },
           "animation_length": {
             "title": "Animation Length",
             "description": "The amount of seconds that defines the length of this animation",
             "minimum": 0,
             "type": "number"
           },
-          "loop": {
-            "title": "Loop",
-            "description": "If marked true then the animation will be looped",
-            "type": "boolean"
+          "blend_weight": {
+            "title": "",
+            "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
+            "type": "string"
           },
           "bones": {
             "$ref": "types/bones.json",
             "description": "TODO description",
             "title": "TODO title"
+          },
+          "loop": {
+            "title": "Loop",
+            "description": "Should this animation loop or stop playing when finished",
+            "type": "boolean"
+          },
+          "override_previous_animation": {
+            "title": "TODO",
+            "type": "string",
+            "description": "reset bones in this animation to the default pose before applying this animation"
+          },
+          "particle_effects": {
+            "oneOf": [
+              {
+                "type": "object",
+                "$ref": "#/definitions/particle_effect_spec"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/particle_effect_spec"
+                }
+              }
+            ]
+          },
+          "sound_effects": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "type": "object",
+                "properties": {
+                  "effect": {
+                    "type": "string",
+                    "description": "Valid sound effect names should be listed in the entity's resource_definition json file."
+                  }
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "properties": {
+                    "effect": {
+                      "type": "string",
+                      "description": "Valid sound effect names should be listed in the entity's resource_definition json file."
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "timeline": {
+            "oneOf": [
+              { 
+                "type": "string",
+                "description": "TODO"
+              },
+              {
+                "type": "array",
+                "description": "TODO",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
           }
         }
       }

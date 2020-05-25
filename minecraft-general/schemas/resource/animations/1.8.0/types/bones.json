@@ -61,14 +61,40 @@
             "$ref": "#/definitions/numberSpecifciaton"
           },
           {
+            "type": "string",
             "propertyNames": {
               "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+            },
+            "properties": {
+              "lerp_mode": {
+                "type": "string",
+                "enum": [ "linear", "catmullrom" ]
+              },
+              "pre": {
+                "type": "array",
+                "items": [
+                  { "$ref": "../../../../molang/1.8.0/number.json"},
+                  { "$ref": "../../../../molang/1.8.0/number.json"},
+                  { "$ref": "../../../../molang/1.8.0/number.json"}
+                ]
+              },
+              "post": {
+                "type": "array",
+                "items": [
+                  { "$ref": "../../../../molang/1.8.0/number.json"},
+                  { "$ref": "../../../../molang/1.8.0/number.json"},
+                  { "$ref": "../../../../molang/1.8.0/number.json"}
+                ]
+              }
             },
             "additionalProperties": {
               "$ref": "#/definitions/timeline",
               "description": "TODO description",
               "title": "TODO title"
             }
+          },
+          {
+            "type": "string"
           }
         ]
       },
@@ -109,6 +135,9 @@
               "description": "TODO description",
               "title": "TODO title"
             }
+          },
+          {
+            "type": "string"
           }
         ]
       },
