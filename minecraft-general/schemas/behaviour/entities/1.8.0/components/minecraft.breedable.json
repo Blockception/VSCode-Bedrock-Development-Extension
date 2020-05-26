@@ -190,12 +190,6 @@
       "description": "If true, the entities need to be tamed first before they can breed.",
       "default": true,
       "title": "TODO title"
-    },
-    "requireTame": {
-      "type": "boolean",
-      "description": "If true, the entities need to be tamed first before they can breed.",
-      "default": true,
-      "title": "TODO title"
     }
   }
 }
