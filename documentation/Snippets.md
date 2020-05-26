@@ -16,7 +16,11 @@ The following snippets have been added and how to access them.
   - [Minecraft Language Files](#minecraft-language-files)
     - [Region snippets](#region-snippets-1)
 
+
+
 ## General
+
+![image](../resources/logo.png)
 
 ### Block names
 

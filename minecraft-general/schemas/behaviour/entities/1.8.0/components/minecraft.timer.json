@@ -20,56 +20,28 @@
       "title": "TODO title"
     },
     "time": {
+      "description": "Amount of time in seconds for the timer. Can be specified as a number or a pair of numbers (min and max). Incompatible with random_time_choices.",      
+      "title": "TODO title",
       "oneOf": [
         {
           "type": "array",
-          "default": [
-            0.0,
-            0.0
+          "default": [ 0.0, 0.0 ],
+          "items": [
+            { "type": "number", "title": "a" },
+            { "type": "number", "title": "b" }
           ],
-          "description": "TODO description",
           "title": "TODO title"
         },
         {
           "type": "number",
-          "default": 0,
-          "description": "TODO description",
-          "title": "TODO title"
+          "default": 0
         }
-      ],
-      "description": "Amount of time in seconds for the timer. Can be specified as a number or a pair of numbers (min and max). Incompatible with random_time_choices.",
-      "title": "TODO title"
+      ]
     },
     "time_down_event": {
-      "oneOf": [
-        {
-          "type": "string",
-          "description": "Event to fire when the time on the timer runs out",
-          "title": "TODO title"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "event": {
-              "type": "string",
-              "description": "TODO description",
-              "title": "TODO title"
-            },
-            "target": {
-              "type": "string",
-              "enum": [
-                "self"
-              ],
-              "description": "TODO description",
-              "title": "TODO title"
-            }
-          },
-          "description": "TODO description",
-          "title": "TODO title"
-        }
-      ],
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "Event to fire when the time on the timer runs out",
+      "title": "TODO",
+      "$ref": "../types/event.json"
     },
     "random_time_choices": {
       "type": "array",
