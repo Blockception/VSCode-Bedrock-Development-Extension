@@ -104,6 +104,10 @@
               "description": "A bones specification",
               "required": ["name"],
               "properties": {
+                "average_normals":{
+                  "type": "object",
+                  "examples": [ null ]
+                },
                 "cubes": {
                   "type": "array",
                   "description": "This is the list of cubes associated with this bone.",
@@ -201,6 +205,9 @@
                       }
                     }
                   }
+                },
+                "debug": {
+                  "type": "boolean"
                 },
                 "inflate": {
                   "type": "number",

@@ -141,6 +141,9 @@
         },
         "title": "TODO title"
       },
+      "debug": {
+        "type": "boolean"
+      },
       "inflate": {
         "type": "number",
         "description": "The amount of inflation to apply to the cube",
