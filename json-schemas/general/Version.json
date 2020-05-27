@@ -6,12 +6,9 @@
   "description": "A version made of 3 numbers",
   "minItems": 3,
   "maxItems": 3,
-  "items": {
-    "minItems": 3,
-    "maxItems": 3,
-    "minimum": 0,
-    "type": "integer",
-    "description": "A version numbering",
-    "title": "TODO title"
-  }
+  "items": [
+    { "type": "number", "minimum": 1 },
+    { "type": "number" },
+    { "type": "number" }
+  ]
 }
