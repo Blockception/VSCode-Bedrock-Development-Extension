@@ -1,5 +1,9 @@
 # Json Validation
 
+Json validation is only applied to the specific filename or when it is placed in the appropriate folder. If * is present in the json file pattern then it mean that any amount of random character can be placed there. For version specific json validation is automaticly applied.
+All elements should have received a description, and title. if none are present. then that version hasn't been supported yet. You can request one as an issue.
+If a json validation is missing. Then also post an issue. and one will be made in the future, unless a good reason why not has been given.
+
 - [Json Validation](#json-validation)
   - [General](#general)
   - [World](#world)
