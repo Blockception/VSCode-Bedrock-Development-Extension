@@ -1,5 +1,9 @@
 # Changelog 
-- Added Poly support for models
+- Updated 1.16.0 components
+- Finished 1.8.0 entity behaviours
+- Updated Components
+- Added Debug
+- Updated to 0.0.14
 - Fixed fatal damage
 - Updated Code
 - Updated to 0.0.13
@@ -15,8 +19,3 @@
 - Updated
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated
-- Create CONTRIBUTING.md
-- Update issue templates
-- Updated
-- Updated
-- Updated to 0.0.11
