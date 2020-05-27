@@ -20,7 +20,7 @@ The following snippets have been added and how to access them.
 
 ## General
 
-![image](../resources/logo.png)
+![image](resources/snippets_mcfunctions.png)
 
 ### Block names
 
