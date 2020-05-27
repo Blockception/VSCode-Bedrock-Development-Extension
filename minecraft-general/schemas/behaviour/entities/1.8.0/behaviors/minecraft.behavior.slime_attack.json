@@ -7,6 +7,11 @@
   "title": "minecraft:behavior.slime_attack 1.8.0",  
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" }
+    "priority": { "$ref": "types/base_priority.json" },
+    "set_persistent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Allows the actor to be set to persist upon targeting a player"
+    }
   }
 }
