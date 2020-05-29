@@ -5,6 +5,7 @@
   "type": "object",
   "title": "Render_Controllers 1.8.0",
   "description": "Render_Controllers 1.8.0",
+  "required": ["render_controllers", "format_version"],
   "definitions": {
     "color": {
       "anyOf": [
@@ -38,20 +39,22 @@
       "additionalProperties": {
         "additionalProperties": false,
         "type": "object",
+        "title": "TODO title",
         "description": "A single render_controller",
-        "required": [
-          "geometry",
-          "materials",
-          "textures"
-        ],
+        "required": [ "geometry", "materials", "textures" ],
         "properties": {
           "arrays": {
             "additionalProperties": false,
+            "description": "TODO description",
+            "title": "TODO title",
             "type": "object",
             "properties": {
               "geometries": {
                 "type": "object",
                 "minProperties": 1,
+                "propertyNames": {
+                  "pattern": "^array\\..+"
+                },
                 "additionalProperties": {
                   "type": "array",
                   "items": {
@@ -69,6 +72,9 @@
               "materials": {
                 "type": "object",
                 "minProperties": 1,
+                "propertyNames": {
+                  "pattern": "^array\\..+"
+                },
                 "additionalProperties": {
                   "type": "array",
                   "items": {
@@ -86,6 +92,9 @@
               "textures": {
                 "type": "object",
                 "minProperties": 1,
+                "propertyNames": {
+                  "pattern": "^array\\..+"
+                },
                 "additionalProperties": {
                   "type": "array",
                   "items": {
@@ -100,9 +109,7 @@
                 "description": "TODO description",
                 "title": "TODO title"
               }
-            },
-            "description": "TODO description",
-            "title": "TODO title"
+            }
           },
           "color": {
             "type": "object",
@@ -131,6 +138,11 @@
             "description": "TODO description",
             "title": "TODO title"
           },
+          "filter_lighting": {
+            "type": "boolean",
+            "description": "TODO description",
+            "title": "TODO title"
+          },
           "geometry": {
             "type": "string",
             "description": "TODO description",
@@ -141,8 +153,35 @@
             "description": "TODO description",
             "title": "TODO title"
           },
+          "is_hurt_color": {
+            "type": "object",
+            "properties": {
+              "r": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "g": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "b": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "a": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
+            },
+            "description": "TODO description",
+            "title": "TODO title"
+          },
           "light_color_multiplier": {
-            "type": "number",
+            "$ref": "../../../molang/1.8.0/number.json",
             "description": "TODO description",
             "title": "TODO title"
           },
@@ -158,6 +197,33 @@
               },
               "description": "TODO description",
               "title": "TODO title"
+            },
+            "description": "TODO description",
+            "title": "TODO title"
+          },
+          "on_fire_color": {
+            "type": "object",
+            "properties": {
+              "r": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "g": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "b": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              },
+              "a": {
+                "$ref": "#/definitions/color",
+                "description": "TODO description",
+                "title": "TODO title"
+              }
             },
             "description": "TODO description",
             "title": "TODO title"
@@ -189,17 +255,6 @@
             "description": "TODO description",
             "title": "TODO title"
           },
-          "textures": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "type": "string",
-              "description": "TODO description",
-              "title": "TODO title"
-            },
-            "description": "TODO description",
-            "title": "TODO title"
-          },
           "part_visibility": {
             "type": "array",
             "minItems": 1,
@@ -226,26 +281,27 @@
             "description": "TODO description",
             "title": "TODO title"
           },
+          "textures": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "description": "TODO description",
+            "title": "TODO title"
+          },
           "uv_anim": {
             "type": "object",
+            "required": ["offset", "scale"],
             "properties": {
               "offset": {
                 "type": "array",
                 "minItems": 2,
                 "maxItems": 2,
                 "items": {
-                  "anyOf": [
-                    {
-                      "type": "number",
-                      "description": "TODO description",
-                      "title": "TODO title"
-                    },
-                    {
-                      "type": "string",
-                      "description": "TODO description",
-                      "title": "TODO title"
-                    }
-                  ],
+                  "$ref": "../../../molang/1.8.0/number.json",
                   "description": "TODO description",
                   "title": "TODO title"
                 },
@@ -254,33 +310,21 @@
               },
               "scale": {
                 "type": "array",
+                "description": "TODO description",
+                "title": "TODO title",
                 "minItems": 2,
                 "maxItems": 2,
                 "items": {
-                  "anyOf": [
-                    {
-                      "type": "number",
-                      "description": "TODO description",
-                      "title": "TODO title"
-                    },
-                    {
-                      "type": "string",
-                      "description": "TODO description",
-                      "title": "TODO title"
-                    }
-                  ],
+                  "$ref": "../../../molang/1.8.0/number.json",
                   "description": "TODO description",
                   "title": "TODO title"
-                },
-                "description": "TODO description",
-                "title": "TODO title"
+                }
               }
             },
             "description": "TODO description",
             "title": "TODO title"
           }
-        },
-        "title": "TODO title"
+        }
       },
       "description": "TODO description",
       "title": "TODO title"
