@@ -1,4 +1,16 @@
 # Changelog 
+- Updated
+- Updated Geomtry
+- Updated render controller
+- Updated animation
+- Updated animation controller
+- Updated Entity
+- Added attachables
+- Updated Version validation
+- Updated pictures
+- Moved picture
+- Updated
+- Updated to 0.0.15
 - Updated 1.16.0 components
 - Finished 1.8.0 entity behaviours
 - Updated Components
@@ -7,15 +19,3 @@
 - Fixed fatal damage
 - Updated Code
 - Updated to 0.0.13
-- Updated
-- Updated
-- Updated
-- Updated to 1.12
-- Updated Json Validation
-- Updated Json Validation
-- Updated Color Specification
-- Updated
-- Added
-- Updated
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated
