@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.behaviour.entities.1.16.0.filters.surface_mob",
+    "type": "object",
+    "title": "Filters surface_mob 1.16.0",
+    "additionalProperties": false,
+    "description": "Tests if the subject is a surface mob.",
+    "properties": {
+      "test": {
+        "type": "string",
+        "title": "The test property",
+        "description": "the test property"
+      },
+      "operator": {
+        "$ref": "types/base_operator.json"
+      },
+      "subject": {
+        "$ref": "types/base_subject.json"
+      },
+      "value": {
+        "description": "true or false.",
+        "type": "string",
+        "title": "Value"
+      }
+    }
+  }
