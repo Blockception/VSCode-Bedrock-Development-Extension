@@ -24,22 +24,28 @@
         }
       ]
     },
-    "particleEffectItem": {
-      "description": "The effect to be emitted",
+    "particle_effect_spec": {
+      "additionalProperties": false,
       "type": "object",
+      "required": [ "effect" ],
       "properties": {
+        "bind_to_actor": {
+          "type": "boolean",
+          "description": "Set to false to have the effect spawned in the world without being bound to an actor (by default an effect is bound to the actor)."
+        },
         "effect": {
-          "description": "The effects name to apply",
           "type": "string",
-          "title": "TODO title"
+          "description": "The name of a particle effect that should be played"
         },
         "locator": {
-          "description": "The locator to be using",
           "type": "string",
-          "title": "TODO title"
+          "description": "The name of a locator on the actor where the effect should be located"
+        },
+        "pre_effect_script": {
+          "type": "string",
+          "description": "A molang script that will be run when the particle emitter is initialized"
         }
-      },
-      "title": "TODO title"
+      }
     },
     "commands": {
       "type": "string",
@@ -57,6 +63,7 @@
       "description": "TODO description"
     },
     "animation_controllers": {
+      "type": "object",
       "title": "The animation controllers schema",
       "description": "The animation controllers schema for 1.10.0",
       "propertyNames": {
@@ -109,7 +116,7 @@
                   ]
                 },
                 "blend_via_shortest_path": {
-                  "description": "TODO description",
+                  "description": "When blending a transition to another state, animate each euler axis through the shortest rotation, instead of by value",
                   "type": "boolean",
                   "title": "TODO title"
                 },
@@ -117,7 +124,7 @@
                   "description": "The effects to be emitted",
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/particleEffectItem",
+                    "$ref": "#/definitions/particle_effect_spec",
                     "description": "TODO description",
                     "title": "TODO title"
                   },
@@ -143,6 +150,7 @@
                   "items": {
                     "type": "object",
                     "additionalProperties": false,
+                    "required": ["effect"],
                     "properties": {
                       "effect": {
                         "description": "Valid sound effect names should be listed in the entity's resource_definition json file.",
@@ -165,10 +173,12 @@
                 "variables": {
                   "type": "object",
                   "additionalProperties": {
+                    "additionalProperties": false,
                     "type": "object",
+                    "required": ["input"],
                     "properties": {
                       "input": {
-                        "$ref": "../../../../molang/1.8.0/number.json"
+                        "$ref": "../../../molang/1.8.0/number.json"
                       },
                       "remap_curve": {
                         "additionalProperties": {
