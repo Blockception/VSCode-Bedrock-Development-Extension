@@ -19,7 +19,17 @@
       },
       "value": {
         "description": "true or false.",
-        "type": "string",
+        "oneOf": [
+          {
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "type": "string",
+            "enum": ["true", "false"]
+          }
+        ],
+        
         "title": "Value"
       }
     }
