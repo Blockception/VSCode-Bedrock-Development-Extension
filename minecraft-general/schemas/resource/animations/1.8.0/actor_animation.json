@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.resource.1.8.0.actor_animation",
+  "additionalProperties": false,
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.8.0",
   "description": "The root schema comprises the entire JSON document.",
@@ -8,6 +9,7 @@
     "particle_effect_spec": {
       "additionalProperties": false,
       "type": "object",
+      "required": [ "effect" ],
       "properties": {
         "bind_to_actor": {
           "type": "boolean",
@@ -24,6 +26,72 @@
         "pre_effect_script": {
           "type": "string",
           "description": "A molang script that will be run when the particle emitter is initialized"
+        }
+      }
+    },
+    "numberSpecifciaton": {
+      "$id": "number specification",
+      "title": "The number schema",
+      "description": "The 3 array number specification",
+      "type": "array",
+      "items": [
+        {
+          "$ref": "../../../molang/1.8.0/number.json",
+          "description": "x",
+          "title": "X"
+        },
+        {
+          "$ref": "../../../molang/1.8.0/number.json",
+          "description": "y",
+          "title": "Y"
+        },
+        {
+          "$ref": "../../../molang/1.8.0/number.json",
+          "description": "z",
+          "title": "Z"
+        }
+      ]
+    },
+    "timeline": {
+      "$id": "timeline specification",
+      "anyOf": [
+        {
+          "title": "The timeline array schema",
+          "description": "The timeline array specification",
+          "$ref": "#/definitions/numberSpecifciaton"
+        },
+        {
+          "type": "object",
+          "title": "The timeline object schema",
+          "description": "The timeline object specification",
+          "properties": {
+            "lerp_mode": {
+              "type": "string",
+              "enum": [ "linear", "catmullrom" ]
+            },
+            "pre": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description",
+              "title": "TODO title"
+            },
+            "post": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description",
+              "title": "TODO title"
+            }
+          }
+        }
+      ]
+    },
+    "sound_effect_spec": {
+      "additionalProperties": false,
+      "description": "Valid sound effect names should be listed in the entity's resource_definition json file.",
+      "type": "object",
+      "required": ["effect"],
+      "properties": {
+        "effect": {
+          "type": "string",
+          "description": "Valid sound effect names should be listed in the entity's resource_definition json file."
         }
       }
     }
@@ -44,39 +112,123 @@
       },
       "type": "object",
       "additionalProperties": {
+        "additionalProperties": false,
         "type": "object",
         "title": "Animation 1.8.0",
         "description": "The animation specification for 1.8.0",
         "properties": {
           "anim_time_update": {
-            "title": "",
+            "title": "animation time update",
             "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
-            "type": "string"
+            "$ref": "../../../molang/1.8.0/number.json"
           },
           "animation_length": {
             "title": "Animation Length",
-            "description": "The amount of seconds that defines the length of this animation",
+            "description": "Override calculated value (set as the last keyframe time) and set animation length in seconds.",
             "minimum": 0,
             "type": "number"
           },
           "blend_weight": {
             "title": "",
             "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
-            "type": "string"
+            "$ref": "../../../molang/1.8.0/number.json"
           },
           "bones": {
-            "$ref": "types/bones.json",
-            "description": "TODO description",
-            "title": "TODO title"
+            "type": "object",
+            "title": "The bones schema for 1.8.0",
+            "description": "The root schema comprises the entire JSON document.",
+            "additionalProperties": {
+              "$id": "bones_item1.8.0",
+              "description": "A single bone definition in the animation for 1.8.0",
+              "title": "Bone definition",
+              "type": "object",
+              "properties": {
+                "position": {
+                  "$id": "position",
+                  "title": "The position definition",
+                  "description": "The position definition",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "$ref": "#/definitions/numberSpecifciaton"
+                    },
+                    {
+                      "propertyNames": {
+                        "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/timeline",
+                        "description": "TODO description",
+                        "title": "TODO title"
+                      }
+                    }
+                  ]
+                },
+                "rotation": {
+                  "$id": "rotation",
+                  "title": "The rotation definition",
+                  "description": "The rotation definition",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "$ref": "#/definitions/numberSpecifciaton"
+                    },
+                    {
+                      "propertyNames": {
+                        "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/timeline",
+                        "description": "TODO description",
+                        "title": "TODO title"
+                      }
+                    }
+                  ]
+                },
+                "scale": {
+                  "$id": "scale",
+                  "title": "The scale definition",
+                  "description": "The scale definition",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "$ref": "#/definitions/numberSpecifciaton"
+                    },
+                    {
+                      "propertyNames": {
+                        "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/timeline",
+                        "description": "TODO description",
+                        "title": "TODO title"
+                      }
+                    }
+                  ]
+                },
+                "relative_to": {
+                  "description": "A reference to what bone or entity it is bound to",
+                  "title": "Relative to bone definition",
+                  "type": "object",
+                  "properties": {
+                    "rotation": {
+                      "description": "if set, makes the bone rotation relative to the entity instead of the bone's parent",
+                      "title": "rotation bounding",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "loop": {
+            "description": "Should this animation loop or stop playing when finished.",
             "title": "Loop",
-            "description": "Should this animation loop or stop playing when finished",
             "type": "boolean"
           },
           "override_previous_animation": {
             "title": "TODO",
-            "type": "string",
+            "type": "boolean",
             "description": "reset bones in this animation to the default pose before applying this animation"
           },
           "particle_effects": {
@@ -96,33 +248,20 @@
           "sound_effects": {
             "oneOf": [
               {
-                "additionalProperties": false,
                 "type": "object",
-                "properties": {
-                  "effect": {
-                    "type": "string",
-                    "description": "Valid sound effect names should be listed in the entity's resource_definition json file."
-                  }
-                }
+                "$ref": "#/definitions/sound_effect_spec"
               },
               {
                 "type": "array",
                 "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "properties": {
-                    "effect": {
-                      "type": "string",
-                      "description": "Valid sound effect names should be listed in the entity's resource_definition json file."
-                    }
-                  }
+                  "$ref": "#/definitions/sound_effect_spec"
                 }
               }
             ]
           },
           "timeline": {
             "oneOf": [
-              { 
+              {
                 "type": "string",
                 "description": "TODO"
               },
@@ -130,7 +269,8 @@
                 "type": "array",
                 "description": "TODO",
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "TODO"
                 }
               }
             ]
