@@ -48,7 +48,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "has_ranged_weapon" } } },
-          "then": { "$ref": "../1.8.0/filters/has_ranged_weapon.json" }
+          "then": { "$ref": "filters/has_ranged_weapon.json" }
         },
         {
           "if": { "properties": { "test": { "const": "has_tag" } } },
@@ -56,7 +56,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "has_target" } } },
-          "then": { "$ref": "../1.8.0/filters/has_target.json" }
+          "then": { "$ref": "filters/has_target.json" }
         },
         {
           "if": { "properties": { "test": { "const": "has_trade_supply" } } },
@@ -80,7 +80,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "in_nether" } } },
-          "then": { "$ref": "../1.8.0/filters/in_nether.json" }
+          "then": { "$ref": "filters/in_nether.json" }
         },
         {
           "if": { "properties": { "test": { "const": "in_water" } } },
@@ -92,7 +92,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "inactivity_timer" } } },
-          "then": { "$ref": "../1.8.0/filters/inactivity_timer.json" }
+          "then": { "$ref": "filters/inactivity_timer.json" }
         },
         {
           "if": { "properties": { "test": { "const": "is_altitude" } } },
@@ -108,7 +108,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "is_block" } } },
-          "then": { "$ref": "../1.8.0/filters/is_block.json" }
+          "then": { "$ref": "filters/is_block.json" }
         },
         {
           "if": { "properties": { "test": { "const": "is_brightness" } } },
@@ -156,7 +156,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "is_leashed_to" } } },
-          "then": { "$ref": "../1.8.0/filters/is_leashed_to.json" }
+          "then": { "$ref": "filters/is_leashed_to.json" }
         },
         {
           "if": { "properties": { "test": { "const": "is_mark_variant" } } },
@@ -172,7 +172,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "is_persistent" } } },
-          "then": { "$ref": "../1.8.0/filters/is_persistent.json" }
+          "then": { "$ref": "filters/is_persistent.json" }
         },
         {
           "if": { "properties": { "test": { "const": "is_riding" } } },
@@ -184,7 +184,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "is_sleeping" } } },
-          "then": { "$ref": "../1.8.0/filters/is_sleeping.json" }
+          "then": { "$ref": "is_sleeping.json" }
         },
         {
           "if": { "properties": { "test": { "const": "is_sneaking" } } },
@@ -231,7 +231,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "light_level" } } },
-          "then": { "$ref": "../1.8.0/filters/light_level.json" }
+          "then": { "$ref": "light_level.json" }
         },
         {
           "if": { "properties": { "test": { "const": "moon_intensity" } } },
@@ -251,15 +251,15 @@
         },
         {
           "if": { "properties": { "test": { "const": "random_chance" } } },
-          "then": { "$ref": "../1.8.0/filters/random_chance.json" }
+          "then": { "$ref": "filters/random_chance.json" }
         },
         {
           "if": { "properties": { "test": { "const": "rider_count" } } },
-          "then": { "$ref": "../1.8.0/filters/rider_count.json" }
+          "then": { "$ref": "filters/rider_count.json" }
         },
         {
           "if": { "properties": { "test": { "const": "surface_mob" } } },
-          "then": { "$ref": "../1.8.0/filters/surface_mob.json" }
+          "then": { "$ref": "filters/surface_mob.json" }
         },
         {
           "if": { "properties": { "test": { "const": "trusts" } } },
