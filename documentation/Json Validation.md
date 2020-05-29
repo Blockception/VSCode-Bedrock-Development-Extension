@@ -34,6 +34,7 @@ If a json validation is missing. Then also post an issue. and one will be made i
 |-----------|-------------------|
 |animation_controllers   |animation_controllers/*.json |
 |animations   |animations/*.animation.json  |
+|attachables   |attachables/*.json  |
 |biomes_client   |biomes_client.json  |
 |entity   |entity/*entity.json  |
 |models   |'*.geo.json' or '*.geometry.json' |
@@ -46,6 +47,7 @@ If a json validation is missing. Then also post an issue. and one will be made i
 |-----------|-------------------|
 |animation_controllers   |animation_controllers/*.json |
 |entity behaviour |entities/*.json|
+
 # Json Validation
 
 - [Json Validation](#json-validation)
