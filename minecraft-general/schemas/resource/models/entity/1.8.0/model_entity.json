@@ -4,10 +4,11 @@
   "type": "object",
   "title": "The minecraft resourcepack model schema for 1.8.0",
   "description": "The root schema comprises the entire JSON document.",
-  "required": [
-    "format_version"
-  ],
+  "required": [ "format_version" ],
   "properties": {
+    "debug": {
+      "type": "boolean"
+    },
     "format_version": {
       "title": "The 1.8.0 format_version",
       "type": "string",
@@ -25,12 +26,201 @@
     "title": "Geometry",
     "properties": {
       "bones": {
-        "$ref": "bones.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "type": "array",
+        "description": "The bones definitions",
+        "title": "Bones",
+        "items": {
+          "additionalProperties": false,
+          "type": "object",          
+          "description": "The bone definition",
+          "title": "Bone",
+          "required": ["name"],
+          "properties": {
+            "bind_pose_rotation": {
+              "type": "array",
+              "items": [
+                { "type": "number" },
+                { "type": "number" },
+                { "type": "number" }
+              ]
+            },
+            "cubes": {
+              "type": "array",
+              "items": {
+                "additionalProperties": false,
+                "type": "object",
+                "properties": {
+                  "inflate": {
+                    "type": "number"
+                  },
+                  "mirror": {
+                    "type": "boolean"
+                  },
+                  "origin": {
+                    "type": "array",
+                    "items": [
+                      { "type": "number" },
+                      { "type": "number" },
+                      { "type": "number" }
+                    ]
+                  },
+                  "size": {
+                    "type": "array",
+                    "items": [
+                      { "type": "number" },
+                      { "type": "number" },
+                      { "type": "number" }
+                    ]
+                  },
+                  "uv": {
+                    "type": "array",
+                    "items": [
+                      { "type": "number" },
+                      { "type": "number" }
+                    ]
+                  }
+                }
+              }
+            },
+            "debug": {
+              "type": "boolean"
+            },
+            "inflate": {
+              "type": "number"
+            },
+            "locators": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "mirror": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "neverRender": {
+              "type": "boolean"
+            },            
+            "parent": {
+              "type": "string"
+            },
+            "pivot": {
+              "type": "array",
+              "items": [
+                { "type": "number" },
+                { "type": "number" },
+                { "type": "number" }
+              ]
+            },
+            "poly_mesh": {
+              "type": "object",
+              "required": ["polys"],
+              "properties": {
+                "normalized_uvs": {
+                  "type": "boolean"
+                },
+                "positions": {
+                  "type": "array",
+                  "items": [
+                    { "type": "number" },
+                    { "type": "number" },
+                    { "type": "number" }
+                  ]
+                },
+                "normals": {
+                  "type": "array",
+                  "items": [
+                    { "type": "number" },
+                    { "type": "number" },
+                    { "type": "number" }
+                  ]
+                },
+                "polys": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 4,
+                    "items": [
+                      { "type": "number" },
+                      { "type": "number" },
+                      { "type": "number" }
+                    ]            
+                  }
+                }
+              }
+            },
+            "render_group_id": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "reset": {
+              "type": "boolean"
+            },
+            "rotation": {
+              "type": "array",
+              "items": [
+                { "type": "number" },
+                { "type": "number" },
+                { "type": "number" }
+              ]
+            },
+            "texture_meshes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "texture": {
+                    "type": "string"
+                  },
+                  "local_pivot": {
+                    "type": "array",
+                    "items": [
+                      {"type": "number"},
+                      {"type": "number"},
+                      {"type": "number"}
+                    ]
+                  },
+                  "position": {
+                    "type": "array",
+                    "items": [
+                      {"type": "number"},
+                      {"type": "number"},
+                      {"type": "number"}
+                    ]
+                  },
+                  "rotation": {
+                    "type": "array",
+                    "items": [
+                      {"type": "number"},
+                      {"type": "number"},
+                      {"type": "number"}
+                    ]
+                  },
+                  "scale": {
+                    "type": "array",
+                    "items": [
+                      {"type": "number"},
+                      {"type": "number"},
+                      {"type": "number"}
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "cape": {
         "type": "string"
+      },
+      "debug": {
+        "type": "boolean"
       },
       "texturewidth": {
         "type": "integer",
