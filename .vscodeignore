@@ -5,3 +5,5 @@ build.bat
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 documentation/
+.gitignore
+.gitattributes
