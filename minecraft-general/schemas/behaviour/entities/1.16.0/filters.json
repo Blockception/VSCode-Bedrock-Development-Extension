@@ -6,7 +6,9 @@
     "filters_spec": {
       "title": "filters_spec 1.16.0",
       "type": "object",
-      "description": "The base filter item",
+      "propertyNames": {
+        "enum": [ "test", "operator", "value", "domain", "subject" ]
+      },
       "allOf": [
         {
           "if": { "properties": { "test": { "const": "clock_time" } } },
@@ -222,7 +224,10 @@
         },
         {
           "if": { "properties": { "test": { "const": "is_weather" } } },
-          "then": { "$ref": "../1.8.0/filters/is_weather.json" }
+          "then": { 
+            "title": "DEPRECATED",
+            "description": "DEPRECATED use weather"
+          }
         },
         {
           "if": { "properties": { "test": { "const": "light_level" } } },
@@ -258,15 +263,15 @@
         },
         {
           "if": { "properties": { "test": { "const": "trusts" } } },
-          "then": { "$ref": "../1.8.0/filters/trusts.json" }
+          "then": { "$ref": "filters/trusts.json" }
         },
         {
           "if": { "properties": { "test": { "const": "weather" } } },
-          "then": { "$ref": "../1.8.0/filters/weather.json" }
+          "then": { "$ref": "filters/weather.json" }
         },
         {
           "if": { "properties": { "test": { "const": "weather_at_position" } } },
-          "then": { "$ref": "../1.8.0/filters/weather_at_position.json" }
+          "then": { "$ref": "filters/weather_at_position.json" }
         }
       ]
     }
