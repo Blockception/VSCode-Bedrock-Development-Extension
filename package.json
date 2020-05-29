@@ -80,6 +80,7 @@
             { "fileMatch": "language_names.json", "url": "./minecraft-general/schemas/language/language_names.json" },
             
             { "fileMatch": "animations/*.animation.json", "url": "./minecraft-general/schemas/resource/animations/actor_animation.json" },
+            { "fileMatch": "attachables/*.json", "url": "./minecraft-general/schemas/resource/attachables/attachables.json" },
             { "fileMatch": "biomes_client.json", "url": "./minecraft-general/schemas/resource/biomes_client.json" },
             { "fileMatch": "blocks.json", "url": "./minecraft-general/schemas/resource/blocks.json" },
             { "fileMatch": "entity/*entity.json", "url": "./minecraft-general/schemas/resource/entity/entity.json" },
@@ -93,10 +94,10 @@
             { "fileMatch": "terrain_texture.json", "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json" },
             { "fileMatch": "music_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json" },
 
-            { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" },
-            { "fileMatch": "items/*.json", "url": "./minecraft-general/schemas/behaviour/items/items.json" },
             { "fileMatch": "loot_tables/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
-            { "fileMatch": "loot_tables/*/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" }
+            { "fileMatch": "loot_tables/*/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
+            { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" },
+            { "fileMatch": "items/*.json", "url": "./minecraft-general/schemas/behaviour/items/items.json" }
         ]
     }
 }
