@@ -32,7 +32,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "has_container_open" } } },
-          "then": { "$ref": "../1.8.0/filters/has_container_open.json" }
+          "then": { "$ref": "filters/has_container_open.json" }
         },
         {
           "if": { "properties": { "test": { "const": "has_damage" } } },
