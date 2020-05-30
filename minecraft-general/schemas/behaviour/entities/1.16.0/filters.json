@@ -184,7 +184,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "is_sleeping" } } },
-          "then": { "$ref": "is_sleeping.json" }
+          "then": { "$ref": "filters/is_sleeping.json" }
         },
         {
           "if": { "properties": { "test": { "const": "is_sneaking" } } },
@@ -231,7 +231,7 @@
         },
         {
           "if": { "properties": { "test": { "const": "light_level" } } },
-          "then": { "$ref": "light_level.json" }
+          "then": { "$ref": "filters/light_level.json" }
         },
         {
           "if": { "properties": { "test": { "const": "moon_intensity" } } },
