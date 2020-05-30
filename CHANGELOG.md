@@ -1,21 +1,21 @@
 # Changelog 
+- Updated
+- Updated 1.16.0 Components
+- Updated Filters
+- fixed filter boolean check
+- Updated
+- Fixed Regex
+- Fixed Regex in events
+- Updated
+- Fixed tellraw
+- Updated
+- Updated 1.16.0 components
+- Updated Events
+- Fixed 1.16.0 Filters
+- Adde 1.16.0 types
+- Updated 1.16.0 filters
+- Updated 1.16.0 filters
+- Updated 1.16.0 filters
+- Updated
 - Updated to 0.0.16
 - Updated
-- Updated Geomtry
-- Updated render controller
-- Updated animation
-- Updated animation controller
-- Updated Entity
-- Added attachables
-- Updated Version validation
-- Updated pictures
-- Moved picture
-- Updated
-- Updated to 0.0.15
-- Updated 1.16.0 components
-- Finished 1.8.0 entity behaviours
-- Updated Components
-- Added Debug
-- Updated to 0.0.14
-- Fixed fatal damage
-- Updated Code
