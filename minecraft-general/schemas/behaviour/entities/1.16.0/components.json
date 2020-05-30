@@ -181,7 +181,7 @@
     "minecraft:behavior.enderman_take_block": { "$ref": "../1.8.0/behaviors/minecraft.behavior.enderman_take_block.json" },
     "minecraft:behavior.explore_outskirts": { "$ref": "../1.8.0/behaviors/minecraft.behavior.explore_outskirts.json" },
     //"minecraft:behavior.find_cover": { "$ref": "../1.8.0/behaviors/minecraft.behavior.find_cover.json" },
-    "minecraft:behavior.find_mount": { "$ref": "../1.8.0/behaviors/minecraft.behavior.find_mount.json" },
+    "minecraft:behavior.find_mount": { "$ref": "behaviors/minecraft.behavior.find_mount.json" },
     "minecraft:behavior.find_underwater_treasure": { "$ref": "../1.8.0/behaviors/minecraft.behavior.find_underwater_treasure.json" },
     "minecraft:behavior.flee_sun": { "$ref": "../1.8.0/behaviors/minecraft.behavior.flee_sun.json" },
     "minecraft:behavior.float": { "$ref": "../1.8.0/behaviors/minecraft.behavior.float.json" },
