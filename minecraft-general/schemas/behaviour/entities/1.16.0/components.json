@@ -42,7 +42,7 @@
     "minecraft:despawn": { "$ref": "../1.8.0/components/minecraft.despawn.json" },
     "minecraft:economy_trade_table": { "$ref": "../1.8.0/components/minecraft.economy_trade_table.json" },
     //"minecraft:entity_sensor": { "$ref": "../1.8.0/components/minecraft.entity_sensor.json" },
-    "minecraft:environment_sensor": { "$ref": "../1.8.0/components/minecraft.environment_sensor.json" },
+    "minecraft:environment_sensor": { "$ref": "components/minecraft.environment_sensor.json" },
     //"minecraft:equip_item": { "$ref": "../1.8.0/components/minecraft.equip_item.json" },
     "minecraft:equipment": { "$ref": "../1.8.0/components/minecraft.equipment.json" },
     "minecraft:equippable": { "$ref": "../1.8.0/components/minecraft.equippable.json" },
