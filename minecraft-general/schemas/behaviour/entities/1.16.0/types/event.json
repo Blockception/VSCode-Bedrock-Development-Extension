@@ -6,7 +6,7 @@
   "oneOf": [
     {
       "type": "string",
-      "pattern": "^[a-zA-Z0-9_-:]+$",
+      "pattern": "^[a-zA-Z0-9_\\-:]+$",
       "description": "The event to fire"
     },
     {
@@ -14,7 +14,7 @@
       "properties": {
         "event": {
           "type": "string",
-          "pattern": "^[a-zA-Z0-9_-:]+$",
+          "pattern": "^[a-zA-Z0-9_\\-:]+$",
           "description": "The event to fire",
           "title": "Event"
         },
