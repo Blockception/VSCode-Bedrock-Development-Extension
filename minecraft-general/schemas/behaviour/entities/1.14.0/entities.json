@@ -16,9 +16,7 @@
       "description": "TODO description"
     },
     "minecraft:entity": {
-      "$ref": "minecraft.entity.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "$ref": "minecraft.entity.json"
     }
   }
 }
