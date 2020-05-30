@@ -12,8 +12,28 @@
         "Other",
         "Formatters"
     ],
-    "engines": { "vscode": "^1.43.0" },
-    "extensionKind": [ "ui" ],
+    "compile": "tsc -watch -p ./",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "lint": "eslint . --ext .ts,.tsx",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^12.12.0",
+        "@typescript-eslint/eslint-plugin": "^3.0.2",
+        "@typescript-eslint/parser": "^3.0.2",
+        "eslint": "^7.1.0",
+        "typescript": "^3.9.4",
+        "@types/vscode": "^1.32.0"
+    },
+    "main": "./out/extension.js",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "extensionKind": [
+        "ui"
+    ],
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "icon": "resources/logo.png",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
@@ -28,16 +48,26 @@
         "languages": [
             {
                 "id": "bc-minecraft-language",
-                "aliases": [ "Minecraft Language" ],
-                "extensions": [ ".lang" ],
+                "aliases": [
+                    "Minecraft Language"
+                ],
+                "extensions": [
+                    ".lang"
+                ],
                 "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
             },
             {
                 "id": "bc-minecraft-mcfunction",
-                "aliases": [ "Minecraft Mcfunction" ],
-                "extensions": [ ".mcfunction" ],
+                "aliases": [
+                    "Minecraft Mcfunction"
+                ],
+                "extensions": [
+                    ".mcfunction"
+                ],
                 "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
-                "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
+                "filenamePatterns": [
+                    "[a-z0-9_]*\\.mcfunction"
+                ]
             }
         ],
         "grammars": [
@@ -56,48 +86,152 @@
             }
         ],
         "snippets": [
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/blocks-names.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/commands.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/effect-names.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/enchant-names.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/items.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/selector.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-mcfunctions/snippets/mcfunction.json" },
-
-            { "language": "bc-minecraft-language", "path": "./minecraft-language-files/snippets/minecraft-language.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/blocks-names.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/commands.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/effect-names.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/enchant-names.json" }
+            {
+                "language": "bc-minecraft-mcfunction",
+                "path": "./minecraft-general/snippets/blocks-names.json"
+            },
+            {
+                "language": "bc-minecraft-mcfunction",
+                "path": "./minecraft-general/snippets/commands.json"
+            },
+            {
+                "language": "bc-minecraft-mcfunction",
+                "path": "./minecraft-general/snippets/effect-names.json"
+            },
+            {
+                "language": "bc-minecraft-mcfunction",
+                "path": "./minecraft-general/snippets/enchant-names.json"
+            },
+            {
+                "language": "bc-minecraft-mcfunction",
+                "path": "./minecraft-general/snippets/items.json"
+            },
+            {
+                "language": "bc-minecraft-mcfunction",
+                "path": "./minecraft-general/snippets/selector.json"
+            },
+            {
+                "language": "bc-minecraft-mcfunction",
+                "path": "./minecraft-mcfunctions/snippets/mcfunction.json"
+            },
+            {
+                "language": "bc-minecraft-language",
+                "path": "./minecraft-language-files/snippets/minecraft-language.json"
+            },
+            {
+                "language": "bc-minecraft-language",
+                "path": "./minecraft-general/snippets/blocks-names.json"
+            },
+            {
+                "language": "bc-minecraft-language",
+                "path": "./minecraft-general/snippets/commands.json"
+            },
+            {
+                "language": "bc-minecraft-language",
+                "path": "./minecraft-general/snippets/effect-names.json"
+            },
+            {
+                "language": "bc-minecraft-language",
+                "path": "./minecraft-general/snippets/enchant-names.json"
+            }
         ],
         "jsonValidation": [
-            { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" },
-            { "fileMatch": "world_behavior_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
-            { "fileMatch": "world_resource_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
-
-            { "fileMatch": "animation_controllers/*.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" },
-            { "fileMatch": "languages.json", "url": "./minecraft-general/schemas/language/languages.json" },
-            { "fileMatch": "language_names.json", "url": "./minecraft-general/schemas/language/language_names.json" },
-            
-            { "fileMatch": "animations/*.animation.json", "url": "./minecraft-general/schemas/resource/animations/actor_animation.json" },
-            { "fileMatch": "attachables/*.json", "url": "./minecraft-general/schemas/resource/attachables/attachables.json" },
-            { "fileMatch": "biomes_client.json", "url": "./minecraft-general/schemas/resource/biomes_client.json" },
-            { "fileMatch": "blocks.json", "url": "./minecraft-general/schemas/resource/blocks.json" },
-            { "fileMatch": "entity/*entity.json", "url": "./minecraft-general/schemas/resource/entity/entity.json" },
-            { "fileMatch": "flipbook_textures.json", "url": "./minecraft-general/schemas/resource/textures/flipbook_textures.json" },
-            { "fileMatch": "item_texture.json", "url": "./minecraft-general/schemas/resource/textures/item_texture.json" },
-            { "fileMatch": "particles/*.json", "url": "./minecraft-general/schemas/resource/particles/particles.json" },
-            { "fileMatch": "*.geo.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" }, 
-            { "fileMatch": "*.geometry.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" }, 
-            { "fileMatch": "render_controllers/*.json", "url": "./minecraft-general/schemas/resource/render_controllers/render_controllers.json" }, 
-            { "fileMatch": "sound_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/sound_definitions.json" },
-            { "fileMatch": "terrain_texture.json", "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json" },
-            { "fileMatch": "music_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json" },
-
-            { "fileMatch": "loot_tables/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
-            { "fileMatch": "loot_tables/*/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
-            { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" },
-            { "fileMatch": "items/*.json", "url": "./minecraft-general/schemas/behaviour/items/items.json" }
+            {
+                "fileMatch": "manifest.json",
+                "url": "./minecraft-general/schemas/general/manifest.json"
+            },
+            {
+                "fileMatch": "world_behavior_packs.json",
+                "url": "./minecraft-general/schemas/world_x_packs.json"
+            },
+            {
+                "fileMatch": "world_resource_packs.json",
+                "url": "./minecraft-general/schemas/world_x_packs.json"
+            },
+            {
+                "fileMatch": "animation_controllers/*.json",
+                "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json"
+            },
+            {
+                "fileMatch": "languages.json",
+                "url": "./minecraft-general/schemas/language/languages.json"
+            },
+            {
+                "fileMatch": "language_names.json",
+                "url": "./minecraft-general/schemas/language/language_names.json"
+            },
+            {
+                "fileMatch": "animations/*.animation.json",
+                "url": "./minecraft-general/schemas/resource/animations/actor_animation.json"
+            },
+            {
+                "fileMatch": "attachables/*.json",
+                "url": "./minecraft-general/schemas/resource/attachables/attachables.json"
+            },
+            {
+                "fileMatch": "biomes_client.json",
+                "url": "./minecraft-general/schemas/resource/biomes_client.json"
+            },
+            {
+                "fileMatch": "blocks.json",
+                "url": "./minecraft-general/schemas/resource/blocks.json"
+            },
+            {
+                "fileMatch": "entity/*entity.json",
+                "url": "./minecraft-general/schemas/resource/entity/entity.json"
+            },
+            {
+                "fileMatch": "flipbook_textures.json",
+                "url": "./minecraft-general/schemas/resource/textures/flipbook_textures.json"
+            },
+            {
+                "fileMatch": "item_texture.json",
+                "url": "./minecraft-general/schemas/resource/textures/item_texture.json"
+            },
+            {
+                "fileMatch": "particles/*.json",
+                "url": "./minecraft-general/schemas/resource/particles/particles.json"
+            },
+            {
+                "fileMatch": "*.geo.json",
+                "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json"
+            },
+            {
+                "fileMatch": "*.geometry.json",
+                "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json"
+            },
+            {
+                "fileMatch": "render_controllers/*.json",
+                "url": "./minecraft-general/schemas/resource/render_controllers/render_controllers.json"
+            },
+            {
+                "fileMatch": "sound_definitions.json",
+                "url": "./minecraft-general/schemas/resource/sounds/sound_definitions.json"
+            },
+            {
+                "fileMatch": "terrain_texture.json",
+                "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json"
+            },
+            {
+                "fileMatch": "music_definitions.json",
+                "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json"
+            },
+            {
+                "fileMatch": "loot_tables/*.json",
+                "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json"
+            },
+            {
+                "fileMatch": "loot_tables/*/*.json",
+                "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json"
+            },
+            {
+                "fileMatch": "entities/*.json",
+                "url": "./minecraft-general/schemas/behaviour/entities/entities.json"
+            },
+            {
+                "fileMatch": "items/*.json",
+                "url": "./minecraft-general/schemas/behaviour/items/items.json"
+            }
         ]
     }
 }
