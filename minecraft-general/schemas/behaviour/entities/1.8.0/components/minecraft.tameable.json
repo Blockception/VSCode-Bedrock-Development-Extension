@@ -15,7 +15,7 @@
       "maximum": 1
     },
     "tame_event": {
-      "type": "string",
+      "$ref": "../types/event.json",
       "description": "Event to run when this entity becomes tamed"
     },
     "tame_items": {

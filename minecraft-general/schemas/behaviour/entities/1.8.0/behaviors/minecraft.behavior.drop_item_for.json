@@ -35,7 +35,7 @@
       "description": "The distance in blocks the mob will try to be away from the entity when it drops the item."
     },
     "on_drop_attempt": {
-      "type": "string",
+      "$ref": "../types/event.json",
       "description": "Event to run when this mob attempts to drop an item."
     },
     "search_height": {
