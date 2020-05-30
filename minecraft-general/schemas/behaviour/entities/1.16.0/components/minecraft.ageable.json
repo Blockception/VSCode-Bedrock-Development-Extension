@@ -42,7 +42,7 @@
       ]
     },
     "grow_up": {
-      "$ref": "../types/event.json",
+      //"$ref": "../types/event.json",
       "description": "Event to run when this entity grows up."
     }
   }
