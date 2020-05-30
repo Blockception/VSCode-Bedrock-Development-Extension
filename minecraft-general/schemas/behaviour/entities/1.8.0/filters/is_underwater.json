@@ -18,10 +18,12 @@
       "$ref": "types/base_subject.json"
     },
     "value": {
-      "type": "boolean",
-      "default": true,
-      "description": "todo description",
-      "title": "todo title"
+      "title": "Value",
+      "description": "true or false.",      
+      "oneOf": [
+        { "type": "boolean", "default": true },
+        { "type": "string", "default": "true", "enum": ["true", "false"] }
+      ]
     }
   }
 }
