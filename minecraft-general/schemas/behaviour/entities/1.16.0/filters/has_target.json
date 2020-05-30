@@ -8,7 +8,7 @@
     "properties": {
       "test": {
         "type": "string",
-        "title": "The test property",
+        "title": "Test",
         "description": "the test property"
       },
       "operator": {
