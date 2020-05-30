@@ -43,7 +43,7 @@
         "texture_data": {
             "type": "object",
             "propertyNames": {
-                "pattern": "^[\\w_-]+$"
+                "pattern": "^[\\w_\\-]+$"
             },
             "additionalProperties": {
                 "type": "object",

@@ -17,7 +17,7 @@
     }
   },
   "propertyNames": {
-    "pattern": "(^geometry\\.[a-zA-Z0-9_.'-:]+|format_version)"
+    "pattern": "(^geometry\\.[a-zA-Z0-9_.'\\-:]+|format_version)"
   },
   "additionalProperties": {
     "additionalProperties": false,
