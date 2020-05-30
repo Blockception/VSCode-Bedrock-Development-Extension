@@ -1,4 +1,3 @@
-  
 {
 	"compilerOptions": {
 		"module": "commonjs",
@@ -7,10 +6,19 @@
 		"outDir": "out",
 		"sourceMap": true,
 		"strict": true,
-		"rootDir": "src"
+		"rootDir": "src", 
+		"baseUrl": "src",
+		"paths": {
+			"http://*": ["../../../.deno/deps/http/*"],
+			"https://*": ["../../../.deno/deps/https/*"],
+			"*.ts": ["*"]
+		},
 	},
 	"exclude": [
 		"node_modules",
 		".vscode-test"
+	],
+	"include": [
+		"./scr/**/*.ts"
 	]
 }
