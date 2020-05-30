@@ -223,11 +223,7 @@
           "then": { "$ref": "../1.8.0/filters/is_visible.json" }
         },
         {
-          "if": { "properties": { "test": { "const": "is_weather" } } },
-          "then": { 
-            "title": "DEPRECATED",
-            "description": "DEPRECATED use weather"
-          }
+          "not": { "properties": { "test": { "const": "is_weather" } }, "$comment": "DEPRECATED" }
         },
         {
           "if": { "properties": { "test": { "const": "light_level" } } },
