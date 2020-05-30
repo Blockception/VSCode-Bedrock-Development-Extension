@@ -12,20 +12,20 @@
           "additionalProperties": false,
           "type": "object",
           "properties": {
-            "down": { "type": "string", "pattern": "^[\\w_-]+$" },
-            "up": { "type": "string", "pattern": "^[\\w_-]+$" },
-            "side": { "type": "string", "pattern": "^[\\w_-]+$" },
-            "south": { "type": "string", "pattern": "^[\\w_-]+$" },
-            "north": { "type": "string", "pattern": "^[\\w_-]+$" },
-            "west": { "type": "string", "pattern": "^[\\w_-]+$" },
-            "east": { "type": "string", "pattern": "^[\\w_-]+$" }
+            "down": { "type": "string", "pattern": "^[\\w_\\-]+$" },
+            "up": { "type": "string", "pattern": "^[\\w_\\-]+$" },
+            "side": { "type": "string", "pattern": "^[\\w_\\-]+$" },
+            "south": { "type": "string", "pattern": "^[\\w_\\-]+$" },
+            "north": { "type": "string", "pattern": "^[\\w_\\-]+$" },
+            "west": { "type": "string", "pattern": "^[\\w_\\-]+$" },
+            "east": { "type": "string", "pattern": "^[\\w_\\-]+$" }
           }
         }
       ]
     }
   },
   "propertyNames": {
-    "pattern": "^[\\w_-]+$"
+    "pattern": "^[\\w_\\-]+$"
   },
   "properties": {
     "format_version": {

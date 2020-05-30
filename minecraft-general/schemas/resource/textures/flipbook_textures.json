@@ -15,7 +15,7 @@
             },
             "atlas_tile": {
                 "type": "string",
-                "pattern": "^[a-z0-9_-]*$"
+                "pattern": "^[a-z0-9_\\-]*$"
             },            
             "atlas_tile_variant": {
                 "type": "integer"
