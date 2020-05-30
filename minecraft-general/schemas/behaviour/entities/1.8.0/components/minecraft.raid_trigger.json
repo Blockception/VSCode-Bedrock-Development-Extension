@@ -8,7 +8,7 @@
   "required": [],
   "properties": {
     "triggered_event": {
-      "type": "string",
+      "$ref": "../types/event.json",
       "description": "Event to run we attempt to trigger a raid on the village."
     }
   }

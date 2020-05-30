@@ -40,7 +40,6 @@
     },
     "sound_event": {
       "type": "string",
-      "default": "",
       "description": "The sound event to play when the attack starts"
     },
     "track_target": {

@@ -18,7 +18,7 @@
       "description": "Maximum distance in blocks that another entity will be considered in the 'inside' range"
     },
     "on_inside_range": {
-      "type": "string",
+      "$ref": "../types/event.json",
       "description": "Event to call when an entity gets in the inside range. Can specify 'event' for the name of the event and 'target' for the target of the event"
     },
     "on_outside_range": {

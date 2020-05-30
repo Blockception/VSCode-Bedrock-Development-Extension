@@ -8,15 +8,15 @@
   "required": [],
   "properties": {
     "on_close": {
-      "type": "string",
+      "$ref": "../types/event.json",
       "description": "Event to call when the entity is done peeking"
     },
     "on_open": {
-      "type": "string",
+      "$ref": "../types/event.json",
       "description": "Event to call when the entity starts peeking"
     },
     "on_target_open": {
-      "type": "string",
+      "$ref": "../types/event.json",
       "description": "Event to call when the entity's target entity starts peeking"
     }
   }
