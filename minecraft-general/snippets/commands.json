@@ -568,7 +568,7 @@
   },
   //tellraw
   "minecraft.commands.tellraw": {
-    "prefix": ["tellraw", "minecraft.commands.tell"],
+    "prefix": ["tellraw", "minecraft.commands.tellraw"],
     "body": "tellraw <player> { \"rawtext\": [ { \"text\": \"\" }, \"\", { \"translate\": \"\" } ] }",
     "description": "Sends a JSON message to players."
   },
