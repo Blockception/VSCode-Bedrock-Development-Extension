@@ -1,4 +1,6 @@
 # Changelog 
+- Updated Commands
+- Updated Code
 - Fixed
 - Added mcfunctions
 - Added Selector
@@ -17,5 +19,3 @@
 - Updated
 - Fixed tellraw
 - Updated
-- Updated 1.16.0 components
-- Updated Events
