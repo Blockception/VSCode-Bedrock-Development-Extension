@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import * as StringCode from '../general/words'
-import * as CompletionFunction from "./CompletionFunctions"
+import * as CompletionFunction from "./functions/CompletionFunctions"
+import * as Functions from "./functions/Functions"
 import * as Scoreboard from "./commands/Scoreboard"
 
 export class McFunctionCompletion implements vscode.CompletionItemProvider {
@@ -68,20 +68,21 @@ export class McFunctionCompletion implements vscode.CompletionItemProvider {
         var Line = document.lineAt(position);
         var Text = Line.text;
 
-        if (Line.isEmptyOrWhitespace || position.character == 0 || Text.substr(0, 1) == "#")
+        if (Line.isEmptyOrWhitespace || position.character == 0)
             return this.AllCommands;
 
-
-        var Words = StringCode.GetWords2(Text, position.character);
-
-        if (Words.length == 0)
-            return this.AllCommands;
-
+        var PrefixText = Text.substring(0, position.character);
         var Collection = new vscode.CompletionList();
 
-        switch(Words[0]){
+        if (PrefixText.startsWith("#")){
+            Collection.items.push(CompletionFunction.createCompletionItem("region\n# endregion", "region", "A comment region"))
+        }
+
+        var Command = Functions.GetCommand(Text);
+
+        switch(Command){
             case "scoreboard":
-                Collection.items.push(CompletionFunction.createCompletionItem("scoreboard", "scoreboard", "something"));
+                Scoreboard.CompletionItems(PrefixText, position, Collection);
                 break;
         };
 
