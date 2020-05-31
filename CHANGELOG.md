@@ -1,4 +1,9 @@
 # Changelog 
+- Fixed
+- Added mcfunctions
+- Added Selector
+- Updated
+- Added Code
 - Updating typescript
 - UPdated
 - Updated to 0.0.17
@@ -14,8 +19,3 @@
 - Updated
 - Updated 1.16.0 components
 - Updated Events
-- Fixed 1.16.0 Filters
-- Adde 1.16.0 types
-- Updated 1.16.0 filters
-- Updated 1.16.0 filters
-- Updated 1.16.0 filters
