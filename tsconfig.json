@@ -5,20 +5,16 @@
 		"lib": ["ES2019"],
 		"outDir": "out",
 		"sourceMap": true,
-		"strict": true,
-		"rootDir": "src", 
-		"baseUrl": "src",
-		"paths": {
-			"http://*": ["../../../.deno/deps/http/*"],
-			"https://*": ["../../../.deno/deps/https/*"],
-			"*.ts": ["*"]
-		},
+		"strict": true,		
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
 	},
 	"exclude": [
 		"node_modules",
 		".vscode-test"
 	],
 	"include": [
-		"./scr/**/*.ts"
+		"src/**/*"
 	]
 }
