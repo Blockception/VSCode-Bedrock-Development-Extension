@@ -1,4 +1,6 @@
 # Changelog 
+- Updating typescript
+- UPdated
 - Updated to 0.0.17
 - Updated
 - Updated 1.16.0 Components
@@ -17,5 +19,3 @@
 - Updated 1.16.0 filters
 - Updated 1.16.0 filters
 - Updated 1.16.0 filters
-- Updated
-- Updated to 0.0.16
