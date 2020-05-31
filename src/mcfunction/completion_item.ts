@@ -1,13 +1,18 @@
 import * as vscode from 'vscode';
-import * as CompletionFunction from "./functions/CompletionFunctions"
+import * as CompletionFunction from "../general/CompletionFunctions"
+import * as WordFunction from "../general/Words"
 import * as Functions from "./functions/Functions"
+import * as Comtree from "../completion-tree/completiontree"
 import * as Scoreboard from "./commands/Scoreboard"
 
 export class McFunctionCompletion implements vscode.CompletionItemProvider {
 
+    Tree: Comtree.CompletionTree;
+
     AllCommands: vscode.CompletionItem[];
 
     constructor(){
+        this.Tree = new Comtree.CompletionTree();
         this.AllCommands = [
             CompletionFunction.createCompletionItem("alwaysday", "alwaysday", "Locks and unlocks the day-night cycle."),
             CompletionFunction.createCompletionItem("clear", "clear", "Clears items from player inventory."),
@@ -59,11 +64,11 @@ export class McFunctionCompletion implements vscode.CompletionItemProvider {
             CompletionFunction.createCompletionItem("weather", "weather", "Sets the weather"),
             CompletionFunction.createCompletionItem("w", "w", "Sends a private message to one or more players."),
             CompletionFunction.createCompletionItem("xp", "xp", "Adds or removes player experience.")
-        ];        
+        ];
     }
 
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context : vscode.CompletionContext) 
-    : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+        : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
 
         var Line = document.lineAt(position);
         var Text = Line.text;
@@ -78,16 +83,10 @@ export class McFunctionCompletion implements vscode.CompletionItemProvider {
             Collection.items.push(CompletionFunction.createCompletionItem("region\n# endregion", "region", "A comment region"))
         }
 
-        var Command = Functions.GetCommand(Text);
+        var Words = WordFunction.GetWordsFromRange(Text, position.character);
 
-        switch(Command){
-            case "scoreboard":
-                Scoreboard.CompletionItems(PrefixText, position, Collection);
-                break;
-        };
+        this.Tree.Get(Words, Collection);
 
         return Collection;
     }
-
-
 }
