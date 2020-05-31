@@ -1,9 +1,5 @@
 import * as vscode from 'vscode';
 import * as CompletionFunction from "../general/CompletionFunctions"
-import * as WordFunction from "../general/Words"
-import * as Functions from "./functions/Functions"
-import * as Comtree from "../completion-tree/completiontree"
-import * as Scoreboard from "./commands/Scoreboard"
 
 export class SelectorCompletion implements vscode.CompletionItemProvider {
 
