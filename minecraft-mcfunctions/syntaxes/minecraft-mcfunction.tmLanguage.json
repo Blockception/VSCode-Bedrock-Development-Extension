@@ -81,8 +81,9 @@
         { "name": "entity.name.function.set", "match": "\\bset\\b" },
         { "name": "entity.name.function.shipwreck", "match": "\\bshipwreck\\b" },
         { "name": "entity.name.function.sidebar", "match": "\\bsidebar\\b" },
+        { "name": "entity.name.function.subtitle", "match": "\\bsubtitle\\b" },
         { "name": "entity.name.function.village", "match": "\\bvillage\\b" },
-        { "name": "entity.name.function.wandering_trader_event", "match": "\\bwandering_trader_event\\b" },
+        { "name": "entity.name.function.wandering_trader_event", "match": "\\bwandering_trader_event\\b" },        
 
         { "name": "entity.name.variable", "match": "\\bslot\\.[a-z\\.]+\\b" },
         { "name": "entity.name.variable", "match": "\\bdummy\\b" },
