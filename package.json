@@ -111,8 +111,8 @@
         ],
         "jsonValidation": [
             { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" },
-            { "fileMatch": "world_behavior_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
-            { "fileMatch": "world_resource_packs.json", "url": "./minecraft-general/schemas/world_x_packs.json" },
+            { "fileMatch": "world_behavior_packs.json", "url": "./minecraft-general/schemas/general/world_x_packs.json" },
+            { "fileMatch": "world_resource_packs.json", "url": "./minecraft-general/schemas/general/world_x_packs.json" },
             { "fileMatch": "animation_controllers/*.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" },
             { "fileMatch": "languages.json", "url": "./minecraft-general/schemas/language/languages.json" },
             { "fileMatch": "language_names.json", "url": "./minecraft-general/schemas/language/language_names.json" },
