@@ -3,6 +3,7 @@ import * as CompletionFunction from "../general/CompletionFunctions";
 import * as WordFunction from "../general/Words";
 import * as Selector from "./selectors/completion_item";
 import * as SF from "./selectors/functions"
+import * as FunctionCommand from "./commands/function/completion_item";
 
 export class McFunctionCompletion implements vscode.CompletionItemProvider {
   AllCommands: vscode.CompletionItem[];
@@ -74,12 +75,16 @@ export class McFunctionCompletion implements vscode.CompletionItemProvider {
     var PrefixText = Text.substring(0, position.character);
     var Collection = new vscode.CompletionList();
 
-    if (PrefixText.startsWith("#")) {
+    if (PrefixText == "#" || PrefixText == "# "|| PrefixText == "#\t") {
       Collection.items.push(CompletionFunction.createCompletionItem("region\n# endregion", "region", "A comment region"));
     }
 
     if (SF.IsInSelector(document, position)) {
         this.SelectorCompletion.provideCompletionItems(document, position, token, context);
+    }
+
+    if (PrefixText.startsWith("function")) {
+      FunctionCommand.provideCompletionItems(document, position, token, context, Collection);
     }
 
     return Collection;
