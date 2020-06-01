@@ -4,7 +4,7 @@
 
 ![logo](./resources/logo.png)
 
-An extension that provides development tools, validations and snippets to help develop minecraft bedrock content
+An extension that provides development tools, validations, formatters, and snippets to help develop minecraft bedrock content.
 
 ## Features
 
@@ -24,4 +24,7 @@ An extension that provides development tools, validations and snippets to help d
   
 - Syntax
   - mcfunctions.
+    - Selectors
+      - validation
+      - code completion
   - language files.
