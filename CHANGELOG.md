@@ -1,4 +1,10 @@
 # Changelog 
+- Adapted colors
+- Fixed Particles
+- Fixed particles shapes
+- Added subtitle
+- Fixed json validation for world_x_packs.json
+- Updated 0.1.1
 - Updated
 - Added Function diagnosits and completion
 - Updated
@@ -13,9 +19,3 @@
 - Fixed
 - Added mcfunctions
 - Added Selector
-- Updated
-- Added Code
-- Updating typescript
-- UPdated
-- Updated to 0.0.17
-- Updated
