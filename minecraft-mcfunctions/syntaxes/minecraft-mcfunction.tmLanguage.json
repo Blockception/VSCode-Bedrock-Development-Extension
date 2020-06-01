@@ -18,7 +18,10 @@
     "selectors": {
       "patterns": [
         { "name": "support.function.selector", "match": "(@[cvasrep]\\b)" },
-        { "name": "keyword.control", "match": "(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
+        { "name": "entity.name.variable", "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
+        { "name": "entity.name.variable", "match": "\\b[a-z0-9]+(?=\\=)" },
+        { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+"},
+        { "name": "string.regexp", "match": "\\b(?<=tag=!)[a-zA-Z_\\-0-9]+"},
         { "name": "invalid", "match": "@[cvasrep]\\[.*$" }
       ]
     },
@@ -29,9 +32,13 @@
         { "name": "constant.numeric", "match": "\\b\\d+s\\b" },
         { "name": "constant.numeric.xp", "match": "\\b\\d+[Ll]\\b" },
         { "name": "constant.numeric.xp", "match": "\\b-\\d+[Ll]\\b" },
+        { "name": "keyword.control", "match": "(?<==)!" },
+        { "name": "keyword.control", "match": "\\.\\." },
         { "name": "constant.character", "match": "\\b[Tt]rue\\b" },
         { "name": "constant.character", "match": "\\b[Ff]alse\\b" },
-        { "name": "string.quoted.double.minecraft-program", "match": "\"[^\"]*\"" }
+        { "name": "string.jade", "match": "\\b(?<=function )[a-z\/_]+\\b" },
+        { "name": "string.quoted.double.minecraft-program", "match": "\"[^\"]*\"" },        
+        { "name": "entity.name.function.identifier", "match": "[a-z0-9_]+\\:[a-z0-9_]+"}
       ]
     },
     "operators": {

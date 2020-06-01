@@ -37,6 +37,16 @@
       "description": "TODO description",
       "title": "TODO title"
     },
+    "offset": {
+      "type": "array",
+      "items": {
+        "minItems": 3,
+        "maxItems": 3,
+        "$ref": "../../../../molang/1.8.0/number.json",
+        "description": "TODO description",
+        "title": "TODO title"
+      }
+    },
     "surface_only": {
       "type": "boolean",
       "description": "TODO description",
