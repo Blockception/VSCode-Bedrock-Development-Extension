@@ -1,4 +1,7 @@
 # Changelog 
+- Updated
+- Added Function diagnosits and completion
+- Updated
 - Updated to 0.1.0
 - Added Selector diagnostics
 - Updated to 0.1.0
@@ -16,6 +19,3 @@
 - UPdated
 - Updated to 0.0.17
 - Updated
-- Updated 1.16.0 Components
-- Updated Filters
-- fixed filter boolean check
