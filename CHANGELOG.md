@@ -1,4 +1,5 @@
 # Changelog 
+- Added Selector diagnostics
 - Updated to 0.1.0
 - Updated to 0.0.18
 - Merge pull request #1 from Blockception/mcfunction-syntax
@@ -18,4 +19,3 @@
 - Updated Filters
 - fixed filter boolean check
 - Updated
-- Fixed Regex
