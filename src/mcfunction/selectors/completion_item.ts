@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import * as CompletionFunction from "../../general/CompletionFunctions";
+import * as SF from "./functions"
 
 export class SelectorCompletion implements vscode.CompletionItemProvider {
   default: vscode.CompletionList;
@@ -89,45 +90,11 @@ export class SelectorCompletion implements vscode.CompletionItemProvider {
         return this.letters;
 
       default:
-        if (this.IsInSelector(document, position)) {
+        if (SF.IsInSelector(document, position)) {
           return this.items;
         }
     
         return null;
     }
-  }
-
-  IsInSelector(document: vscode.TextDocument, position: vscode.Position): boolean {
-    var Line = document.lineAt(position.line);
-    var Text = Line.text;
-
-    for (let index = position.character - 1; index > 0; index--) {
-      var c = Text.charAt(index);
-
-      switch (c) {
-        case "@":
-          return true;
-        case "]":
-          return false;
-
-        case "[":
-          if (Text.charAt(index - 2) == "@") {
-            var C = Text.charAt(index - 1);
-
-            switch (C) {
-              case "a":
-              case "s":
-              case "e":
-              case "r":
-              case "p":
-                return true;
-            }
-          }
-
-          return false;
-      }
-    }
-
-    return false;
   }
 }
