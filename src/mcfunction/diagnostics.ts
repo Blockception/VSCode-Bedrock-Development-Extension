@@ -4,7 +4,7 @@ import * as path from 'path';
 import * as Words from '../general/Words'
 import * as Selector from "./selectors/selector"
 import * as SelectorDiag from "./selectors/diagnostics"
-
+import * as FunctionCommand from "./commands/function/diagnostics";
 
 export function activate(context: vscode.ExtensionContext) {
     const collection = vscode.languages.createDiagnosticCollection("debugs");
@@ -47,17 +47,25 @@ export function updateDiagnostics(document: vscode.TextDocument, collection: vsc
 }
 
 export function CheckLine(line: vscode.TextLine, document: vscode.TextDocument, collection: vscode.Diagnostic[]) : void {
+    if (line.text == "")
+        return;
+
     var words = Words.RangedWord.GetWords(line.text);    
+
+    if (words.length == 0)
+        return;
+
+    switch(words[0].text){
+        case "function":
+            FunctionCommand.provideDiagnostics(line, document, collection);
+            return;
+    }
 
     for (let index = 0; index < words.length; index++) {
         var w = words[index];
         
         if (Selector.IsSelector(w.text)){
             SelectorDiag.CheckSelector(line, w, document, collection);
-        }
-        else
-        {
-            
         }
     }
 }

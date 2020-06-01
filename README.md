@@ -23,8 +23,9 @@ An extension that provides development tools, validations, formatters, and snipp
   - [Selector.](./documentation/Snippets.md#selector)
   
 - Syntax
-  - mcfunctions.
+  - Mcfunctions.
     - Selectors
-      - validation
-      - code completion
-  - language files.
+      - Validation.
+      - Code completion.
+    - Region support.
+  - Language files.

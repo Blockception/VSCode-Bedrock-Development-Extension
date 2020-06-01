@@ -18,7 +18,7 @@ function CompletionItems(context: vscode.ExtensionContext) : void {
 	context.subscriptions.push(vscode.languages.registerCompletionItemProvider(
 		constants.McLanguageIdentifier, 
 		new McfunctionCompletionItems.McFunctionCompletion(), 
-		" ", "\n" ));
+		" ", "\n", "#" ));
 
 	context.subscriptions.push(vscode.languages.registerCompletionItemProvider(
 		constants.McLanguageIdentifier, 
