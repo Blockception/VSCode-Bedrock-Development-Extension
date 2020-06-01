@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import * as CompletionFunction from "../general/CompletionFunctions";
 import * as WordFunction from "../general/Words";
 import * as Selector from "./selectors/completion_item";
+import * as SF from "./selectors/functions"
 
 export class McFunctionCompletion implements vscode.CompletionItemProvider {
   AllCommands: vscode.CompletionItem[];
@@ -77,7 +78,7 @@ export class McFunctionCompletion implements vscode.CompletionItemProvider {
       Collection.items.push(CompletionFunction.createCompletionItem("region\n# endregion", "region", "A comment region"));
     }
 
-    if (this.SelectorCompletion.IsInSelector(document, position)) {
+    if (SF.IsInSelector(document, position)) {
         this.SelectorCompletion.provideCompletionItems(document, position, token, context);
     }
 
