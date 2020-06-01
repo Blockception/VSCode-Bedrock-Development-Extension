@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 0.0.18
 - Merge pull request #1 from Blockception/mcfunction-syntax
 - Updated
 - Updated Commands
@@ -18,4 +19,3 @@
 - Updated
 - Fixed Regex
 - Fixed Regex in events
-- Updated

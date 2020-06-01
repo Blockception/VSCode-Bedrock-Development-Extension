@@ -1,4 +1,5 @@
 tools/
+src/
 build.bat
 .github/
 *.vsix
