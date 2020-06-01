@@ -37,12 +37,8 @@
 		"vscode-test": "^1.3.0"
 	},
     "main": "./out/extension.js",
-    "engines": {
-        "vscode": "^1.43.0"
-    },
-    "extensionKind": [
-        "ui"
-    ],
+    "engines": { "vscode": "^1.43.0" },
+    "extensionKind": [ "ui" ],
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "icon": "resources/logo.png",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
