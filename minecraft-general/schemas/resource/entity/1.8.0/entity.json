@@ -4,10 +4,7 @@
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.8.0",
   "description": "The root schema comprises the entire JSON document.",
-  "required": [
-    "format_version",
-    "minecraft:client_entity"
-  ],
+  "required": [ "format_version", "minecraft:client_entity" ],
   "properties": {
     "description": {
       "additionalProperties": false,
