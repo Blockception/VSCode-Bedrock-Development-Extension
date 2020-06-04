@@ -123,6 +123,7 @@
           }
         },
         "spawn_egg": {
+          "additionalProperties": false,
           "type": "object",
           "description": "TODO description",
           "title": "TODO title",
@@ -133,7 +134,7 @@
             "overlay_color": [ "base_colour" ]
           },
           "properties": {
-            "base_colour": {
+            "base_color": {
               "type": "string",
               "description": "TODO description",
               "title": "TODO title"
