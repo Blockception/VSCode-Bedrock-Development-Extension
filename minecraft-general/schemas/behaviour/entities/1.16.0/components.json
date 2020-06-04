@@ -156,10 +156,10 @@
     "minecraft:water_movement": { "$ref": "../1.8.0/components/minecraft.water_movement.json" },
 
     //Behaviors
-    "minecraft.behavior.hide": { "$ref": "../1.8.0/behaviors/minecraft.behavior.hide.json" },
-    "minecraft.behavior.move_to_poi": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_poi.json" },
-    "minecraft.behavior.scared": { "$ref": "../1.8.0/behaviors/minecraft.behavior.scared.json" },
-    "minecraft.behavior.work": { "$ref": "../1.8.0/behaviors/minecraft.behavior.work.json" },
+    "minecraft:behavior.hide": { "$ref": "../1.8.0/behaviors/minecraft.behavior.hide.json" },
+    "minecraft:behavior.move_to_poi": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_poi.json" },
+    "minecraft:behavior.scared": { "$ref": "../1.8.0/behaviors/minecraft.behavior.scared.json" },
+    "minecraft:behavior.work": { "$ref": "../1.8.0/behaviors/minecraft.behavior.work.json" },
     //"minecraft:behavior.admire_item": { "$ref": "../1.8.0/behaviors/minecraft.behavior.admire_item.json" },
     //"minecraft:behavior.barter": { "$ref": "../1.8.0/behaviors/minecraft.behavior.barter.json" },
     "minecraft:behavior.beg": { "$ref": "../1.8.0/behaviors/minecraft.behavior.beg.json" },
