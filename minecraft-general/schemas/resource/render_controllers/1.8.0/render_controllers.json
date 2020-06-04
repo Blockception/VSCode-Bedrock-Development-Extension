@@ -12,9 +12,9 @@
         {
           "type": "number",
           "description": "A color definition as number, between 0 and 1",
+          "title": "color number",
           "minimum": 0,
-          "maximum": 1,
-          "title": "color number"
+          "maximum": 1          
         },
         {
           "type": "string",
@@ -112,28 +112,13 @@
             }
           },
           "color": {
+            "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "g": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "b": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "a": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              }
+              "r": { "$ref": "#/definitions/color" },
+              "g": { "$ref": "#/definitions/color" },
+              "b": { "$ref": "#/definitions/color" },
+              "a": { "$ref": "#/definitions/color" }
             },
             "description": "TODO description",
             "title": "TODO title"
@@ -154,28 +139,13 @@
             "title": "TODO title"
           },
           "is_hurt_color": {
+            "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "g": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "b": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "a": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              }
+              "r": { "$ref": "#/definitions/color" },
+              "g": { "$ref": "#/definitions/color" },
+              "b": { "$ref": "#/definitions/color" },
+              "a": { "$ref": "#/definitions/color" }
             },
             "description": "TODO description",
             "title": "TODO title"
@@ -202,55 +172,25 @@
             "title": "TODO title"
           },
           "on_fire_color": {
+            "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "g": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "b": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "a": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              }
+              "r": { "$ref": "#/definitions/color" },
+              "g": { "$ref": "#/definitions/color" },
+              "b": { "$ref": "#/definitions/color" },
+              "a": { "$ref": "#/definitions/color" }
             },
             "description": "TODO description",
             "title": "TODO title"
           },
           "overlay_color": {
+            "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "g": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "b": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "a": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              }
+              "r": { "$ref": "#/definitions/color" },
+              "g": { "$ref": "#/definitions/color" },
+              "b": { "$ref": "#/definitions/color" },
+              "a": { "$ref": "#/definitions/color" }
             },
             "description": "TODO description",
             "title": "TODO title"
@@ -293,6 +233,7 @@
             "title": "TODO title"
           },
           "uv_anim": {
+            "additionalProperties": false,
             "type": "object",
             "required": ["offset", "scale"],
             "properties": {

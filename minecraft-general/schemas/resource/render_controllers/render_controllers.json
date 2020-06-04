@@ -6,49 +6,16 @@
   "description": "The root schema comprises the entire JSON document.",
   "allOf": [
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.8.0 format_version",
-            "type": "string",
-            "const": "1.8.0",
-            "description": "TODO description"
-          }
-        }
-      },
-      "then": {
-        "$ref": "1.8.0/render_controllers.json"
-      }
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.8.0" } } },
+      "then": { "$ref": "1.8.0/render_controllers.json" }
     },
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.10.0 format_version",
-            "type": "string",
-            "const": "1.10",
-            "description": "TODO description"
-          }
-        }
-      },
-      "then": {
-        "$ref": "1.10.0/render_controllers.json"
-      }
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.10" } } },
+      "then": { "$ref": "1.10.0/render_controllers.json" }
     },
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.10.0 format_version",
-            "type": "string",
-            "const": "1.10.0",
-            "description": "TODO description"
-          }
-        }
-      },
-      "then": {
-        "$ref": "1.10.0/render_controllers.json"
-      }
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.10.0" } } },
+      "then": { "$ref": "1.10.0/render_controllers.json" }
     }
   ]
 }
