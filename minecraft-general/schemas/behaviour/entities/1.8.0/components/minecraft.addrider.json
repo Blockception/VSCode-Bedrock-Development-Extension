@@ -17,10 +17,5 @@
       "description": "The spawn event that will be used when the riding entity is created",
       "title": "TODO title"
     }
-  },
-  "dependencies": {
-    "minecraft:addrider": [
-      "minecraft:rideable"
-    ]
   }
 }
