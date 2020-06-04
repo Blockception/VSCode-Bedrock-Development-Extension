@@ -1,4 +1,9 @@
 # Changelog 
+- Included Number in function paths
+- Updated logo
+- Updated
+- Events are not required in triggers
+- Updated to 0.1.3
 - Adapted colors
 - Fixed Particles
 - Fixed particles shapes
@@ -14,8 +19,3 @@
 - Updated to 0.0.18
 - Merge pull request #1 from Blockception/mcfunction-syntax
 - Updated
-- Updated Commands
-- Updated Code
-- Fixed
-- Added mcfunctions
-- Added Selector
