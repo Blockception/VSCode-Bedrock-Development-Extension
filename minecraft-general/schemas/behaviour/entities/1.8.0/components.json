@@ -1,10 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.components.1.8.0",
+  "$id": "blockception.minecraft.behaviour.entities.components.1.8.0",  
+  "additionalProperties": false,
   "type": "object",
   "title": "Components 1.8.0",
   "description": "A collection of components",
   "required": [],
+  "dependencies": {
+    "minecraft:addrider": [
+      "minecraft:rideable"
+    ]
+  },
   "properties": {
     //Components
     "minecraft:addrider": { "$ref": "components/minecraft.addrider.json" },
@@ -140,10 +146,10 @@
     "minecraft:water_movement": { "$ref": "components/minecraft.water_movement.json" },
 
     //Behaviour
-    "minecraft.behavior.hide": { "$ref": "behaviors/minecraft.behavior.hide.json" },
-    "minecraft.behavior.move_to_poi": { "$ref": "behaviors/minecraft.behavior.move_to_poi.json" },
-    "minecraft.behavior.scared": { "$ref": "behaviors/minecraft.behavior.scared.json" },
-    "minecraft.behavior.work": { "$ref": "behaviors/minecraft.behavior.work.json" },
+    "minecraft:behavior.hide": { "$ref": "behaviors/minecraft.behavior.hide.json" },
+    "minecraft:behavior.move_to_poi": { "$ref": "behaviors/minecraft.behavior.move_to_poi.json" },
+    "minecraft:behavior.scared": { "$ref": "behaviors/minecraft.behavior.scared.json" },
+    "minecraft:behavior.work": { "$ref": "behaviors/minecraft.behavior.work.json" },
     "minecraft:behavior.avoid_mob_type": { "$ref": "behaviors/minecraft.behavior.avoid_mob_type.json" },
     "minecraft:behavior.beg": { "$ref": "behaviors/minecraft.behavior.beg.json" },
     "minecraft:behavior.break_door": { "$ref": "behaviors/minecraft.behavior.break_door.json" },
@@ -262,6 +268,5 @@
     "minecraft:behavior.vex_random_move": { "$ref": "behaviors/minecraft.behavior.vex_random_move.json" },
     "minecraft:behavior.wither_random_attack_pos_goal": { "$ref": "behaviors/minecraft.behavior.wither_random_attack_pos_goal.json" },
     "minecraft:behavior.wither_target_highest_damage": { "$ref": "behaviors/minecraft.behavior.wither_target_highest_damage.json" }
-  },
-  "additionalProperties": false
+  }
 }
