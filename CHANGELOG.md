@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 0.1.4.2
 - Updated
 - Fixed Entity
 - Fixed entity 1.10.0
@@ -18,4 +19,3 @@
 - Updated
 - Added Function diagnosits and completion
 - Updated
-- Updated to 0.1.0
