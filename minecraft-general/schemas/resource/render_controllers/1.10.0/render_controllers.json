@@ -104,28 +104,13 @@
             "title": "TODO title"
           },
           "color": {
+            "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "g": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "b": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "a": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              }
+              "r": { "$ref": "#/definitions/color", "description": "TODO description", "title": "TODO title" },
+              "g": { "$ref": "#/definitions/color", "description": "TODO description", "title": "TODO title" },
+              "b": { "$ref": "#/definitions/color","description": "TODO description", "title": "TODO title" },
+              "a": { "$ref": "#/definitions/color", "description": "TODO description", "title": "TODO title" }
             },
             "description": "TODO description",
             "title": "TODO title"
@@ -157,28 +142,13 @@
             "title": "TODO title"
           },
           "overlay_color": {
+            "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "g": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "b": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              },
-              "a": {
-                "$ref": "#/definitions/color",
-                "description": "TODO description",
-                "title": "TODO title"
-              }
+              "r": { "$ref": "#/definitions/color", "description": "TODO description", "title": "TODO title" },
+              "g": { "$ref": "#/definitions/color", "description": "TODO description", "title": "TODO title" },
+              "b": { "$ref": "#/definitions/color","description": "TODO description", "title": "TODO title" },
+              "a": { "$ref": "#/definitions/color", "description": "TODO description", "title": "TODO title" }
             },
             "description": "TODO description",
             "title": "TODO title"
@@ -203,21 +173,9 @@
               "type": "object",
               "additionalProperties": {
                 "oneOf": [
-                  {
-                    "type": "string",
-                    "description": "TODO description",
-                    "title": "TODO title"
-                  },
-                  {
-                    "type": "boolean",
-                    "description": "TODO description",
-                    "title": "TODO title"
-                  },
-                  {
-                    "type": "number",
-                    "description": "TODO description",
-                    "title": "TODO title"
-                  }
+                  { "type": "string" },
+                  { "type": "boolean" },
+                  { "type": "number" }
                 ]
               }
             },
