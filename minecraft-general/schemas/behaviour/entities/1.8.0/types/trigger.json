@@ -4,6 +4,7 @@
   "title": "trigger1.8.0",
   "type": "object",
   "description": "Trigger to fire",
+  "minProperties": 1,
   "properties": {
     "event": {
       "type": "string",
