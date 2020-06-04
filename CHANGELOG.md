@@ -1,4 +1,9 @@
 # Changelog 
+- Updated
+- Fixed Entity
+- Fixed entity 1.10.0
+- Include 0 in function path
+- Updated
 - Included Number in function paths
 - Updated logo
 - Updated
@@ -14,8 +19,3 @@
 - Added Function diagnosits and completion
 - Updated
 - Updated to 0.1.0
-- Added Selector diagnostics
-- Updated to 0.1.0
-- Updated to 0.0.18
-- Merge pull request #1 from Blockception/mcfunction-syntax
-- Updated
