@@ -53,26 +53,16 @@
         "languages": [
             {
                 "id": "bc-minecraft-language",
-                "aliases": [
-                    "Minecraft Language"
-                ],
-                "extensions": [
-                    ".lang"
-                ],
+                "aliases": [ "Minecraft Language" ],
+                "extensions": [ ".lang" ],
                 "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
             },
             {
                 "id": "bc-minecraft-mcfunction",
-                "aliases": [
-                    "Minecraft Mcfunction"
-                ],
-                "extensions": [
-                    ".mcfunction"
-                ],
+                "aliases": [ "Minecraft Mcfunction" ],
+                "extensions": [ ".mcfunction" ],
                 "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
-                "filenamePatterns": [
-                    "[a-z0-9_]*\\.mcfunction"
-                ]
+                "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
             }
         ],
         "grammars": [
@@ -80,9 +70,7 @@
                 "language": "bc-minecraft-mcfunction",
                 "scopeName": "source.bc.minecraft.mcfunction",
                 "path": "./minecraft-mcfunctions/syntaxes/minecraft-mcfunction.tmLanguage.json",
-                "embeddedLanguages": {
-                    "meta.embedded.block.json": "json"
-                }
+                "embeddedLanguages": { "meta.embedded.block.json": "json" }
             },
             {
                 "language": "bc-minecraft-language",
