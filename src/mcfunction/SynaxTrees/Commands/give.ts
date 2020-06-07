@@ -24,11 +24,11 @@ function creategive() : CommandStructureTree {
 	item_Item.Description = "Item";
 	item_Item.IsOptional = false;
 
-	var item_amountint = Tree.Add("amount: int", CommandStructureType.Any);
+	var item_amountint = Tree.Add("amount", CommandStructureType.Integer);
 	item_amountint.Description = "amount: int";
 	item_amountint.IsOptional = true;
 
-	var item_dataint = Tree.Add("data: int", CommandStructureType.Any);
+	var item_dataint = Tree.Add("data", CommandStructureType.Integer);
 	item_dataint.Description = "data: int";
 	item_dataint.IsOptional = true;
 

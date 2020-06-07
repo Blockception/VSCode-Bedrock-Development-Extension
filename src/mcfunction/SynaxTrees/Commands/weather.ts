@@ -12,7 +12,7 @@ function createweather() : CommandStructureTree {
 	item_clear|rain|thunder.Description = "clear|rain|thunder";
 	item_clear|rain|thunder.IsOptional = false;
 
-	var item_durationint = Tree.Add("duration: int", CommandStructureType.Any);
+	var item_durationint = Tree.Add("duration", CommandStructureType.Integer);
 	item_durationint.Description = "duration: int";
 	item_durationint.IsOptional = true;
 

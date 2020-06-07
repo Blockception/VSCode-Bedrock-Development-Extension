@@ -50,7 +50,7 @@ function createfill() : CommandStructureTree {
 
 	//Branch: item_Block.[tileData: int]
 	{
-	var item_tileDataint = item_Block.Add("tileData: int", CommandStructureType.Any);
+	var item_tileDataint = item_Block.Add("tileData", CommandStructureType.Integer);
 	item_tileDataint.Description = "tileData: int";
 	item_tileDataint.IsOptional = true;
 
@@ -78,7 +78,7 @@ function createfill() : CommandStructureTree {
 	item_replaceTileNameBlock.Description = "replaceTileName: Block";
 	item_replaceTileNameBlock.IsOptional = true;
 
-	var item_replaceDataValueint = Tree.Add("replaceDataValue: int", CommandStructureType.Any);
+	var item_replaceDataValueint = Tree.Add("replaceDataValue", CommandStructureType.Integer);
 	item_replaceDataValueint.Description = "replaceDataValue: int";
 	item_replaceDataValueint.IsOptional = true;
 

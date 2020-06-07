@@ -32,7 +32,7 @@ function createsetblock() : CommandStructureTree {
 	item_Block.Description = "Block";
 	item_Block.IsOptional = false;
 
-	var item_tileDataint = Tree.Add("tileData: int", CommandStructureType.Any);
+	var item_tileDataint = Tree.Add("tileData", CommandStructureType.Integer);
 	item_tileDataint.Description = "tileData: int";
 	item_tileDataint.IsOptional = true;
 

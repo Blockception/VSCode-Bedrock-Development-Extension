@@ -32,7 +32,7 @@ function createtestforblock() : CommandStructureTree {
 	item_Block.Description = "Block";
 	item_Block.IsOptional = false;
 
-	var item_dataValueint = Tree.Add("dataValue: int", CommandStructureType.Any);
+	var item_dataValueint = Tree.Add("dataValue", CommandStructureType.Integer);
 	item_dataValueint.Description = "dataValue: int";
 	item_dataValueint.IsOptional = true;
 
