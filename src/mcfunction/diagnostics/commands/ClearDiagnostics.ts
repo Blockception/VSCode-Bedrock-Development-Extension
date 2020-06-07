@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class clearDiagnosticProvider implements DiagnosticProvider {
+export class ClearDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
@@ -14,23 +14,29 @@ export class clearDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser?.provideDiagnostic(Player, lineIndex, collector, dm, document);
 
+		var Item = item.Child;
+
 		//[itemName: Item]
-		if (word == undefined) {
+		if (Item == undefined) {
 			return;
 		}
-		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.ItemDiagnoser?.provideDiagnostic(Item, lineIndex, collector, dm, document);
+
+		var ItemData = Item.Child;
 
 		//[data: int]
-		if (word == undefined) {
+		if (ItemData == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(ItemData, lineIndex, collector, dm, document);
+
+		var MaxCount = Item.Child;
 
 		//[maxCount: int]
-		if (word == undefined) {
+		if (MaxCount == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(MaxCount, lineIndex, collector, dm, document);
 
 	}
 

@@ -10,26 +10,37 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
   provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
     var Selector = item.Text;
 
-    if (Selector.text.length <= 2) {
-      switch (Selector.text) {
-        case "@a":
-        case "@e":
-        case "@r":
-        case "@s":
-        case "@p":
-          break;
-
-        default:
-          collector.push(new vscode.Diagnostic(
-            new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
-            "Missing or invalid selector",
-            vscode.DiagnosticSeverity.Error
-          ));
-          return;
+    if (Selector.text.startsWith('"')){
+      if (!Selector.text.endsWith('"')){
+        collector.push(new vscode.Diagnostic(
+          new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
+          "Target needs to be closed with a \"",
+          vscode.DiagnosticSeverity.Error
+        ));
       }
     }
-    else {
-      CheckSelector(lineIndex, Selector, document, collector);
+    else if (Selector.text.startsWith("@")) {
+      if (Selector.text.length <= 2) {
+        switch (Selector.text) {
+          case "@a":
+          case "@e":
+          case "@r":
+          case "@s":
+          case "@p":
+            break;
+
+          default:
+            collector.push(new vscode.Diagnostic(
+              new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
+              "Missing or invalid selector",
+              vscode.DiagnosticSeverity.Error
+            ));
+            return;
+        }
+      }
+      else {
+        CheckSelector(lineIndex, Selector, document, collector);
+      }
     }
   }
 }
