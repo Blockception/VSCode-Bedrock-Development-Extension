@@ -1,4 +1,4 @@
-import { CommandStructureTree, CommandStructureType } from "../CommandStructure";
+import { CommandStructureTree, CommandStructureType, CommandStructureItem } from "../CommandStructure";
 
 //The tree structure of clone
 export const cloneTree = createclone();
@@ -8,93 +8,99 @@ function createclone() : CommandStructureTree {
 	Tree.Description = "Clones blocks from one region to another.";
 	Tree.CanEnd = true;
 
-	var item_begin = Tree.Add("begin:", CommandStructureType.Any);
-	item_begin.Description = "begin:";
-	item_begin.IsOptional = false;
+	var item_xstart = Tree.Add("Source Start x", CommandStructureType.Coordinate);
+	item_xstart.Description = "The x coordinate the source starts at";
+	item_xstart.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_ystart = item_xstart.Add("Source Start y", CommandStructureType.Coordinate);
+	item_ystart.Description = "The y coordinate the source starts at";
+	item_ystart.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
+	var item_zstart = item_ystart.Add("Source Start z", CommandStructureType.Coordinate);
+	item_zstart.Description = "The z coordinate the source starts at";
+	item_zstart.IsOptional = false;
 
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
+	var item_xend = item_zstart.Add("Source End x", CommandStructureType.Coordinate);
+	item_xend.Description = "The x coordinate";
+	item_xend.IsOptional = false;
 
-	var item_end = Tree.Add("end:", CommandStructureType.Any);
-	item_end.Description = "end:";
-	item_end.IsOptional = false;
+	var item_yend = item_xend.Add("Source End y", CommandStructureType.Coordinate);
+	item_yend.Description = "The y coordinate";
+	item_yend.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_zend = item_yend.Add("Source End z", CommandStructureType.Coordinate);
+	item_zend.Description = "The z coordinate";
+	item_zend.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
+	var item_xdestination = item_zend.Add("Destination x", CommandStructureType.Coordinate);
+	item_xdestination.Description = "The x coordinate of the destination of the cloning";
+	item_xdestination.IsOptional = false;
 
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
+	var item_ydestination = item_xdestination.Add("Destination y", CommandStructureType.Coordinate);
+	item_ydestination.Description = "The y coordinate of the destination of the cloning";
+	item_ydestination.IsOptional = false;
 
-	var item_destination = Tree.Add("destination:", CommandStructureType.Any);
-	item_destination.Description = "destination:";
-	item_destination.IsOptional = false;
+	var item_zdestination = item_ydestination.Add("Destination z", CommandStructureType.Coordinate);
+	item_zdestination.Description = "The z coordinate of the destination of the cloning";
+	item_zdestination.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	//Branch: item_z.[replace|masked]
-	{
-	var item_replace|masked = item_z.Add("replace|masked", CommandStructureType.Any);
-	item_replace|masked.Description = "replace|masked";
-	item_replace|masked.IsOptional = true;
-
-	var item_normal|force|move = Tree.Add("normal|force|move", CommandStructureType.Any);
-	item_normal|force|move.Description = "normal|force|move";
-	item_normal|force|move.IsOptional = true;
-
-	}
-
-	//Branch: item_z.filtered
-	{
-	var item_filtered = item_z.Add("filtered", CommandStructureType.Any);
-	item_filtered.Description = "filtered";
-	item_filtered.IsOptional = false;
-
-	var item_normal|force|move = Tree.Add("normal|force|move", CommandStructureType.Any);
-	item_normal|force|move.Description = "normal|force|move";
-	item_normal|force|move.IsOptional = false;
-
-	var item_tileName = Tree.Add("tileName:", CommandStructureType.Any);
-	item_tileName.Description = "tileName:";
-	item_tileName.IsOptional = false;
-
-	var item_Block = Tree.Add("Block", CommandStructureType.Any);
-	item_Block.Description = "Block";
-	item_Block.IsOptional = false;
-
-	var item_tileData = Tree.Add("tileData:", CommandStructureType.Any);
-	item_tileData.Description = "tileData:";
-	item_tileData.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
-
-	}
+	//Branch: item_z.replace
+	branchReplace(item_zdestination);
+	branchMasked(item_zdestination);
+	branchFiltered(item_zdestination);
 
 	return Tree;
+}
+
+
+function branchReplace(Item : CommandStructureItem) {
+	var item_replace = Item.Add("replace", CommandStructureType.Any);
+	item_replace.Description = "replace";
+	item_replace.IsOptional = true;
+
+	branchNormalForceMove(item_replace, false);
+}
+
+function branchMasked(Item : CommandStructureItem) {
+	var item_masked = Item.Add("replace|masked", CommandStructureType.Any);
+	item_masked.Description = "replace|masked";
+	item_masked.IsOptional = true;
+
+	branchNormalForceMove(item_masked, false);
+}
+
+function branchFiltered(Item : CommandStructureItem) {
+	var item_filtered = Item.Add("filtered", CommandStructureType.Any);
+	item_filtered.Description = "filtered";
+	item_filtered.IsOptional = false;	
+
+	branchNormalForceMove(item_filtered, true);
+}
+
+function branchNormalForceMove(Item : CommandStructureItem, includeBlocks : boolean){
+	var item_normal = Item.Add("normal", CommandStructureType.Any);
+	item_normal.Description = "normal";
+	item_normal.IsOptional = true;
+
+	var item_force = Item.Add("force", CommandStructureType.Any);
+	item_force.Description = "force";
+	item_force.IsOptional = true;
+
+	var item_move = Item.Add("move", CommandStructureType.Any);
+	item_move.Description = "move";
+	item_move.IsOptional = true;
+
+	if (includeBlocks){
+		var item_tileName = new CommandStructureItem("tile name", CommandStructureType.Block);
+		item_tileName.Description = "The name of the block";
+		item_tileName.IsOptional = false;
+	
+		var item_tileData = item_tileName.Add("tile data", CommandStructureType.Number);
+		item_tileData.Description = "tileData:";
+		item_tileData.IsOptional = false;
+
+		item_normal.Childs.push(item_tileName);
+		item_force.Childs.push(item_tileName);
+		item_force.Childs.push(item_tileName);
+	}	
 }
