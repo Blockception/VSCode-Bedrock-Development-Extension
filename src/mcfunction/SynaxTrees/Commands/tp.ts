@@ -10,7 +10,7 @@ function createtp() : CommandStructureTree {
 
 	//Branch: tp.<target>
 	{
-	var item_target = Tree.Add("target", CommandStructureType.Any);
+	var item_target = Tree.Add("target", CommandStructureType.Target);
 	item_target.Description = "target";
 	item_target.IsOptional = false;
 
@@ -44,7 +44,7 @@ function createtp() : CommandStructureTree {
 
 	//Branch: item_y.z|target>
 	{
-	var item_z|target = item_y.Add("z|target", CommandStructureType.Any);
+	var item_z|target = item_y.Add("z|target", CommandStructureType.Target);
 	item_z|target.Description = "z|target";
 	item_z|target.IsOptional = false;
 
@@ -108,7 +108,7 @@ function createtp() : CommandStructureTree {
 
 	//Branch: item_y.z|target>
 	{
-	var item_z|target = item_y.Add("z|target", CommandStructureType.Any);
+	var item_z|target = item_y.Add("z|target", CommandStructureType.Target);
 	item_z|target.Description = "z|target";
 	item_z|target.IsOptional = false;
 

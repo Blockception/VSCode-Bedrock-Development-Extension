@@ -12,8 +12,8 @@ function creategamemode() : CommandStructureTree {
 	item_0|1|2|s|d|c|a|adventure|creative|default|survival.Description = "0|1|2|s|d|c|a|adventure|creative|default|survival";
 	item_0|1|2|s|d|c|a|adventure|creative|default|survival.IsOptional = false;
 
-	var item_playertarget = Tree.Add("player: target", CommandStructureType.Any);
-	item_playertarget.Description = "player: target";
+	var item_playertarget = Tree.Add("player: target", CommandStructureType.Target);
+	item_playertarget.Description = "The target/selector that targets a player";
 	item_playertarget.IsOptional = true;
 
 	return Tree;

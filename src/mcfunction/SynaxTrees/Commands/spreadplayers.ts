@@ -44,7 +44,7 @@ function createspreadplayers() : CommandStructureTree {
 	item_victim.Description = "victim:";
 	item_victim.IsOptional = false;
 
-	var item_target = Tree.Add("target", CommandStructureType.Any);
+	var item_target = Tree.Add("target", CommandStructureType.Target);
 	item_target.Description = "target";
 	item_target.IsOptional = false;
 

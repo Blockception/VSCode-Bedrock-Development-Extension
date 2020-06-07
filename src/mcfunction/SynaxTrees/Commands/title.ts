@@ -12,7 +12,7 @@ function createtitle() : CommandStructureTree {
 	item_player.Description = "player:";
 	item_player.IsOptional = false;
 
-	var item_target = Tree.Add("target", CommandStructureType.Any);
+	var item_target = Tree.Add("target", CommandStructureType.Target);
 	item_target.Description = "target";
 	item_target.IsOptional = false;
 
