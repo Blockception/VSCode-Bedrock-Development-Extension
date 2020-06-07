@@ -8,8 +8,8 @@ function createsay() : CommandStructureTree {
 	Tree.Description = "Sends a message in the chat to other players.";
 	Tree.CanEnd = true;
 
-	var item_messagemessage = Tree.Add("message: message", CommandStructureType.Any);
-	item_messagemessage.Description = "message: message";
+	var item_messagemessage = Tree.Add("message", CommandStructureType.Any);
+	item_messagemessage.Description = "message";
 	item_messagemessage.IsOptional = false;
 
 	return Tree;

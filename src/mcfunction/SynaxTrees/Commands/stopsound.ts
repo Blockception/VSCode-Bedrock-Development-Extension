@@ -12,7 +12,7 @@ function createstopsound() : CommandStructureTree {
 	item_playertarget.Description = "The player target/selector";
 	item_playertarget.IsOptional = false;
 
-	var item_soundstring = item_playertarget.Add("sound: string", CommandStructureType.Any);
+	var item_soundstring = item_playertarget.Add("sound: string", CommandStructureType.Sound);
 	item_soundstring.Description = "sound: string";
 	item_soundstring.IsOptional = true;
 

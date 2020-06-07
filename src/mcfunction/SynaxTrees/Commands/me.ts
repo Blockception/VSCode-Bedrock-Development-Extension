@@ -8,8 +8,8 @@ function createme() : CommandStructureTree {
 	Tree.Description = "Displays a message about yourself";
 	Tree.CanEnd = true;
 
-	var item_messagemessage = Tree.Add("message: message", CommandStructureType.Any);
-	item_messagemessage.Description = "message: message";
+	var item_messagemessage = Tree.Add("message", CommandStructureType.Any);
+	item_messagemessage.Description = "displays a message about yourself";
 	item_messagemessage.IsOptional = false;
 
 	return Tree;
