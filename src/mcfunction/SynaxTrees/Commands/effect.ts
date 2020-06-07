@@ -1,4 +1,4 @@
-import { CommandStructureTree, CommandStructureType } from "../CommandStructure";
+import { CommandStructureTree, CommandStructureType, CommandStructureItem } from "../CommandStructure";
 
 //The tree structure of effect
 export const effectTree = createeffect();
@@ -8,45 +8,33 @@ function createeffect() : CommandStructureTree {
 	Tree.Description = "Add status effects.";
 	Tree.CanEnd = true;
 
-	var item_player = Tree.Add("player:", CommandStructureType.Any);
-	item_player.Description = "player:";
-	item_player.IsOptional = false;
+	var item_playertarget = Tree.Add("entity: target", CommandStructureType.Target);
+	item_playertarget.Description = "The entity target/selector";
+	item_playertarget.IsOptional = false;
 
-	var item_target = Tree.Add("target", CommandStructureType.Target);
-	item_target.Description = "target";
-	item_target.IsOptional = false;
+	branchGive(item_playertarget);
 
-	//Branch: item_target.<effect:
-	{
-	var item_effect = item_target.Add("effect:", CommandStructureType.Any);
-	item_effect.Description = "effect:";
-	item_effect.IsOptional = false;
-
-	var item_Effect = Tree.Add("Effect", CommandStructureType.Any);
-	item_Effect.Description = "Effect";
-	item_Effect.IsOptional = false;
-
-	var item_secondsint = Tree.Add("seconds", CommandStructureType.Integer);
-	item_secondsint.Description = "seconds: int";
-	item_secondsint.IsOptional = true;
-
-	var item_amplifierint = Tree.Add("amplifier", CommandStructureType.Integer);
-	item_amplifierint.Description = "amplifier: int";
-	item_amplifierint.IsOptional = true;
-
-	var item_hideParticlesBoolean = Tree.Add("hideParticles", CommandStructureType.Boolean);
-	item_hideParticlesBoolean.Description = "hideParticles: Boolean";
-	item_hideParticlesBoolean.IsOptional = true;
-
-	}
-
-	//Branch: item_target.clear
-	{
-	var item_clear = item_target.Add("clear", CommandStructureType.Any);
+	var item_clear = item_playertarget.Add("clear", CommandStructureType.SameAsName);
 	item_clear.Description = "clear";
 	item_clear.IsOptional = false;
 
-	}
-
 	return Tree;
+}
+
+function branchGive(Item : CommandStructureItem){
+	var item_effect = Item.Add("effect", CommandStructureType.Effect);
+	item_effect.Description = "The effect to give to entity";
+	item_effect.IsOptional = false;
+
+	var item_seconds = item_effect.Add("seconds", CommandStructureType.Integer);
+	item_seconds.Description = "seconds: int";
+	item_seconds.IsOptional = true;
+
+	var item_amplifier = item_seconds.Add("amplifier", CommandStructureType.Integer);
+	item_amplifier.Description = "amplifier: int";
+	item_amplifier.IsOptional = true;
+
+	var item_hideParticles = item_amplifier.Add("hideParticles", CommandStructureType.Boolean);
+	item_hideParticles.Description = "If true then the particles are hidden";
+	item_hideParticles.IsOptional = true;
 }
