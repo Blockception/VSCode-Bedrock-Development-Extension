@@ -6,11 +6,13 @@ export class DiagnosticsManager {
 
     public SelectorDiagnoser : DiagnosticProvider | undefined;
     public CoordinateDiagnoser : DiagnosticProvider | undefined;
+    public BooleanDiagnoser : DiagnosticProvider | undefined;
 
     constructor(){
         this.Items = new  Map<string, DiagnosticProvider>();
         this.SelectorDiagnoser = undefined;
         this.CoordinateDiagnoser = undefined;
+        this.BooleanDiagnoser = undefined;
     }
 
     hasDiagnostic(Item : SyntaxItem) {
