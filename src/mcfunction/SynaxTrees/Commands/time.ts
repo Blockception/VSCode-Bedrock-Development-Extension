@@ -14,13 +14,9 @@ function createtime() : CommandStructureTree {
 	item_add.Description = "add";
 	item_add.IsOptional = false;
 
-	var item_amount = Tree.Add("amount:", CommandStructureType.Any);
-	item_amount.Description = "amount:";
-	item_amount.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_amountint = item_add.Add("amount", CommandStructureType.Integer);
+	item_amountint.Description = "amount: int";
+	item_amountint.IsOptional = false;
 
 	}
 
@@ -30,17 +26,9 @@ function createtime() : CommandStructureTree {
 	item_set.Description = "set";
 	item_set.IsOptional = false;
 
-	var item_time = Tree.Add("time:", CommandStructureType.Any);
-	item_time.Description = "time:";
-	item_time.IsOptional = false;
-
-	var item_TimeSpec|amount = Tree.Add("TimeSpec|amount:", CommandStructureType.Any);
-	item_TimeSpec|amount.Description = "TimeSpec|amount:";
-	item_TimeSpec|amount.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_timeTimeSpec|amountint = item_set.Add("time: TimeSpec|amount", CommandStructureType.Integer);
+	item_timeTimeSpec|amountint.Description = "time: TimeSpec|amount: int";
+	item_timeTimeSpec|amountint.IsOptional = false;
 
 	}
 
@@ -50,7 +38,7 @@ function createtime() : CommandStructureTree {
 	item_query.Description = "query";
 	item_query.IsOptional = false;
 
-	var item_daytime|gametime|day = Tree.Add("daytime|gametime|day", CommandStructureType.Any);
+	var item_daytime|gametime|day = item_query.Add("daytime|gametime|day", CommandStructureType.Any);
 	item_daytime|gametime|day.Description = "daytime|gametime|day";
 	item_daytime|gametime|day.IsOptional = false;
 

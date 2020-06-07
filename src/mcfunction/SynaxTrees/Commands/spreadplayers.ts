@@ -8,45 +8,25 @@ function createspreadplayers() : CommandStructureTree {
 	Tree.Description = "Teleports entities to random locations.";
 	Tree.CanEnd = true;
 
-	var item_x = Tree.Add("x:", CommandStructureType.Any);
-	item_x.Description = "x:";
-	item_x.IsOptional = false;
+	var item_xvalue = Tree.Add("x: value", CommandStructureType.Any);
+	item_xvalue.Description = "x: value";
+	item_xvalue.IsOptional = false;
 
-	var item_value = Tree.Add("value", CommandStructureType.Any);
-	item_value.Description = "value";
-	item_value.IsOptional = false;
+	var item_zvalue = item_xvalue.Add("z: value", CommandStructureType.Any);
+	item_zvalue.Description = "z: value";
+	item_zvalue.IsOptional = false;
 
-	var item_z = Tree.Add("z:", CommandStructureType.Any);
-	item_z.Description = "z:";
-	item_z.IsOptional = false;
+	var item_spreadDistancefloat = item_zvalue.Add("spreadDistance: float", CommandStructureType.Any);
+	item_spreadDistancefloat.Description = "spreadDistance: float";
+	item_spreadDistancefloat.IsOptional = false;
 
-	var item_value = Tree.Add("value", CommandStructureType.Any);
-	item_value.Description = "value";
-	item_value.IsOptional = false;
+	var item_maxRangefloat = item_spreadDistancefloat.Add("maxRange: float", CommandStructureType.Any);
+	item_maxRangefloat.Description = "maxRange: float";
+	item_maxRangefloat.IsOptional = false;
 
-	var item_spreadDistance = Tree.Add("spreadDistance:", CommandStructureType.Any);
-	item_spreadDistance.Description = "spreadDistance:";
-	item_spreadDistance.IsOptional = false;
-
-	var item_float = Tree.Add("float", CommandStructureType.Any);
-	item_float.Description = "float";
-	item_float.IsOptional = false;
-
-	var item_maxRange = Tree.Add("maxRange:", CommandStructureType.Any);
-	item_maxRange.Description = "maxRange:";
-	item_maxRange.IsOptional = false;
-
-	var item_float = Tree.Add("float", CommandStructureType.Any);
-	item_float.Description = "float";
-	item_float.IsOptional = false;
-
-	var item_victim = Tree.Add("victim:", CommandStructureType.Any);
-	item_victim.Description = "victim:";
-	item_victim.IsOptional = false;
-
-	var item_target = Tree.Add("target", CommandStructureType.Target);
-	item_target.Description = "target";
-	item_target.IsOptional = false;
+	var item_victimtarget = item_maxRangefloat.Add("victim", CommandStructureType.Target);
+	item_victimtarget.Description = "victim: target";
+	item_victimtarget.IsOptional = false;
 
 	return Tree;
 }

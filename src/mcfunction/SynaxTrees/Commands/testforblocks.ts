@@ -8,55 +8,19 @@ function createtestforblocks() : CommandStructureTree {
 	Tree.Description = "Tests whether the blocks in two regions match.";
 	Tree.CanEnd = true;
 
-	var item_begin = Tree.Add("begin:", CommandStructureType.Any);
-	item_begin.Description = "begin:";
-	item_begin.IsOptional = false;
+	var item_beginxyz = Tree.Add("begin: x y z", CommandStructureType.Any);
+	item_beginxyz.Description = "begin: x y z";
+	item_beginxyz.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_endxyz = item_beginxyz.Add("end: x y z", CommandStructureType.Any);
+	item_endxyz.Description = "end: x y z";
+	item_endxyz.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
+	var item_destinationxyz = item_endxyz.Add("destination: x y z", CommandStructureType.Any);
+	item_destinationxyz.Description = "destination: x y z";
+	item_destinationxyz.IsOptional = false;
 
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_end = Tree.Add("end:", CommandStructureType.Any);
-	item_end.Description = "end:";
-	item_end.IsOptional = false;
-
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_destination = Tree.Add("destination:", CommandStructureType.Any);
-	item_destination.Description = "destination:";
-	item_destination.IsOptional = false;
-
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_masked|all = Tree.Add("masked|all", CommandStructureType.Any);
+	var item_masked|all = item_destinationxyz.Add("masked|all", CommandStructureType.Any);
 	item_masked|all.Description = "masked|all";
 	item_masked|all.IsOptional = true;
 

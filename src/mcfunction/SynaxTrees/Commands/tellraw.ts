@@ -12,7 +12,7 @@ function createtellraw() : CommandStructureTree {
 	item_player.Description = "player";
 	item_player.IsOptional = false;
 
-	var item_{"rawtext"[{"text"""},"",{"translate"""}]} = Tree.Add("{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }", CommandStructureType.Any);
+	var item_{"rawtext"[{"text"""},"",{"translate"""}]} = item_player.Add("{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }", CommandStructureType.Any);
 	item_{"rawtext"[{"text"""},"",{"translate"""}]}.Description = "{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }";
 	item_{"rawtext"[{"text"""},"",{"translate"""}]}.IsOptional = false;
 

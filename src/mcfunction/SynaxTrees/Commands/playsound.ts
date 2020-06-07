@@ -8,31 +8,27 @@ function createplaysound() : CommandStructureTree {
 	Tree.Description = "Plays a sound.";
 	Tree.CanEnd = true;
 
-	var item_sound = Tree.Add("sound:", CommandStructureType.Any);
-	item_sound.Description = "sound:";
-	item_sound.IsOptional = false;
+	var item_soundstring = Tree.Add("sound: string", CommandStructureType.Any);
+	item_soundstring.Description = "sound: string";
+	item_soundstring.IsOptional = false;
 
-	var item_string = Tree.Add("string", CommandStructureType.Any);
-	item_string.Description = "string";
-	item_string.IsOptional = false;
-
-	var item_playertarget = Tree.Add("player: target", CommandStructureType.Target);
-	item_playertarget.Description = "The target/selector that targets a player";
+	var item_playertarget = item_soundstring.Add("player", CommandStructureType.Target);
+	item_playertarget.Description = "The player target/selector";
 	item_playertarget.IsOptional = true;
 
-	var item_positionxyz = Tree.Add("position: x y z", CommandStructureType.Any);
+	var item_positionxyz = item_playertarget.Add("position: x y z", CommandStructureType.Any);
 	item_positionxyz.Description = "position: x y z";
 	item_positionxyz.IsOptional = true;
 
-	var item_volumefloat = Tree.Add("volume: float", CommandStructureType.Any);
+	var item_volumefloat = item_positionxyz.Add("volume: float", CommandStructureType.Any);
 	item_volumefloat.Description = "volume: float";
 	item_volumefloat.IsOptional = true;
 
-	var item_pitchfloat = Tree.Add("pitch: float", CommandStructureType.Any);
+	var item_pitchfloat = item_volumefloat.Add("pitch: float", CommandStructureType.Any);
 	item_pitchfloat.Description = "pitch: float";
 	item_pitchfloat.IsOptional = true;
 
-	var item_minimumVolumefloat = Tree.Add("minimumVolume: float", CommandStructureType.Any);
+	var item_minimumVolumefloat = item_pitchfloat.Add("minimumVolume: float", CommandStructureType.Any);
 	item_minimumVolumefloat.Description = "minimumVolume: float";
 	item_minimumVolumefloat.IsOptional = true;
 

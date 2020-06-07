@@ -28,15 +28,15 @@ function createscoreboard() : CommandStructureTree {
 	item_add.Description = "add";
 	item_add.IsOptional = false;
 
-	var item_name = Tree.Add("name", CommandStructureType.Any);
+	var item_name = item_add.Add("name", CommandStructureType.Any);
 	item_name.Description = "name";
 	item_name.IsOptional = false;
 
-	var item_dummy = Tree.Add("dummy", CommandStructureType.Any);
+	var item_dummy = item_name.Add("dummy", CommandStructureType.Any);
 	item_dummy.Description = "dummy";
 	item_dummy.IsOptional = false;
 
-	var item_displaynamestring = Tree.Add("display name: string", CommandStructureType.Any);
+	var item_displaynamestring = item_dummy.Add("display name: string", CommandStructureType.Any);
 	item_displaynamestring.Description = "display name: string";
 	item_displaynamestring.IsOptional = true;
 
@@ -48,7 +48,7 @@ function createscoreboard() : CommandStructureTree {
 	item_remove.Description = "remove";
 	item_remove.IsOptional = false;
 
-	var item_name = Tree.Add("name", CommandStructureType.Any);
+	var item_name = item_remove.Add("name", CommandStructureType.Any);
 	item_name.Description = "name";
 	item_name.IsOptional = false;
 
@@ -66,7 +66,7 @@ function createscoreboard() : CommandStructureTree {
 	item_slot.Description = "slot";
 	item_slot.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_slot.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = true;
 
@@ -78,7 +78,7 @@ function createscoreboard() : CommandStructureTree {
 	item_belowname.Description = "belowname";
 	item_belowname.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_belowname.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = true;
 
@@ -90,7 +90,7 @@ function createscoreboard() : CommandStructureTree {
 	item_list.Description = "list";
 	item_list.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_list.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = true;
 
@@ -102,7 +102,7 @@ function createscoreboard() : CommandStructureTree {
 	item_sidebar.Description = "sidebar";
 	item_sidebar.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_sidebar.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = true;
 
@@ -124,7 +124,7 @@ function createscoreboard() : CommandStructureTree {
 	item_list.Description = "list";
 	item_list.IsOptional = false;
 
-	var item_entity = Tree.Add("entity", CommandStructureType.Any);
+	var item_entity = item_list.Add("entity", CommandStructureType.Any);
 	item_entity.Description = "entity";
 	item_entity.IsOptional = true;
 
@@ -136,19 +136,15 @@ function createscoreboard() : CommandStructureTree {
 	item_set.Description = "set";
 	item_set.IsOptional = false;
 
-	var item_entity = Tree.Add("entity:", CommandStructureType.Any);
-	item_entity.Description = "entity:";
-	item_entity.IsOptional = false;
+	var item_entitystring = item_set.Add("entity: string", CommandStructureType.Any);
+	item_entitystring.Description = "entity: string";
+	item_entitystring.IsOptional = false;
 
-	var item_string = Tree.Add("string", CommandStructureType.Any);
-	item_string.Description = "string";
-	item_string.IsOptional = false;
-
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_entitystring.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
-	var item_score = Tree.Add("score", CommandStructureType.Any);
+	var item_score = item_objective.Add("score", CommandStructureType.Any);
 	item_score.Description = "score";
 	item_score.IsOptional = false;
 
@@ -160,19 +156,15 @@ function createscoreboard() : CommandStructureTree {
 	item_add.Description = "add";
 	item_add.IsOptional = false;
 
-	var item_entity = Tree.Add("entity:", CommandStructureType.Any);
-	item_entity.Description = "entity:";
-	item_entity.IsOptional = false;
+	var item_entitystring = item_add.Add("entity: string", CommandStructureType.Any);
+	item_entitystring.Description = "entity: string";
+	item_entitystring.IsOptional = false;
 
-	var item_string = Tree.Add("string", CommandStructureType.Any);
-	item_string.Description = "string";
-	item_string.IsOptional = false;
-
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_entitystring.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
-	var item_count = Tree.Add("count", CommandStructureType.Any);
+	var item_count = item_objective.Add("count", CommandStructureType.Any);
 	item_count.Description = "count";
 	item_count.IsOptional = false;
 
@@ -184,19 +176,15 @@ function createscoreboard() : CommandStructureTree {
 	item_remove.Description = "remove";
 	item_remove.IsOptional = false;
 
-	var item_entity = Tree.Add("entity:", CommandStructureType.Any);
-	item_entity.Description = "entity:";
-	item_entity.IsOptional = false;
+	var item_entitystring = item_remove.Add("entity: string", CommandStructureType.Any);
+	item_entitystring.Description = "entity: string";
+	item_entitystring.IsOptional = false;
 
-	var item_string = Tree.Add("string", CommandStructureType.Any);
-	item_string.Description = "string";
-	item_string.IsOptional = false;
-
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_entitystring.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
-	var item_count = Tree.Add("count", CommandStructureType.Any);
+	var item_count = item_objective.Add("count", CommandStructureType.Any);
 	item_count.Description = "count";
 	item_count.IsOptional = false;
 
@@ -208,15 +196,11 @@ function createscoreboard() : CommandStructureTree {
 	item_reset.Description = "reset";
 	item_reset.IsOptional = false;
 
-	var item_entity = Tree.Add("entity:", CommandStructureType.Any);
-	item_entity.Description = "entity:";
-	item_entity.IsOptional = false;
+	var item_entitystring = item_reset.Add("entity: string", CommandStructureType.Any);
+	item_entitystring.Description = "entity: string";
+	item_entitystring.IsOptional = false;
 
-	var item_string = Tree.Add("string", CommandStructureType.Any);
-	item_string.Description = "string";
-	item_string.IsOptional = false;
-
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_entitystring.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = true;
 
@@ -228,11 +212,11 @@ function createscoreboard() : CommandStructureTree {
 	item_operation.Description = "operation";
 	item_operation.IsOptional = false;
 
-	var item_targetName = Tree.Add("targetName", CommandStructureType.Any);
+	var item_targetName = item_operation.Add("targetName", CommandStructureType.Any);
 	item_targetName.Description = "targetName";
 	item_targetName.IsOptional = false;
 
-	var item_targetObjective = Tree.Add("targetObjective", CommandStructureType.Any);
+	var item_targetObjective = item_targetName.Add("targetObjective", CommandStructureType.Any);
 	item_targetObjective.Description = "targetObjective";
 	item_targetObjective.IsOptional = false;
 
@@ -242,11 +226,11 @@ function createscoreboard() : CommandStructureTree {
 	item_operation.Description = "operation";
 	item_operation.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_operation.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
@@ -258,11 +242,11 @@ function createscoreboard() : CommandStructureTree {
 	item_%=.Description = "%=";
 	item_%=.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_%=.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
@@ -274,11 +258,11 @@ function createscoreboard() : CommandStructureTree {
 	item_*=.Description = "*=";
 	item_*=.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_*=.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
@@ -290,11 +274,11 @@ function createscoreboard() : CommandStructureTree {
 	item_+=.Description = "+=";
 	item_+=.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_+=.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
@@ -306,11 +290,11 @@ function createscoreboard() : CommandStructureTree {
 	item_-=.Description = "-=";
 	item_-=.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_-=.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
@@ -322,29 +306,21 @@ function createscoreboard() : CommandStructureTree {
 	item_/=.Description = "/=";
 	item_/=.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_/=.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
 	}
 
-	//Branch: item_targetObjective.<
+	//Branch: item_targetObjective.< <selector> <objective>
 	{
-	var item_ = item_targetObjective.Add("", CommandStructureType.Any);
-	item_.Description = "";
-	item_.IsOptional = false;
-
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
-	item_selector.Description = "selector";
-	item_selector.IsOptional = false;
-
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
-	item_objective.Description = "objective";
-	item_objective.IsOptional = false;
+	var item_<selector><objective = item_targetObjective.Add("<selector> <objective", CommandStructureType.Any);
+	item_<selector><objective.Description = "<selector> <objective";
+	item_<selector><objective.IsOptional = false;
 
 	}
 
@@ -354,29 +330,21 @@ function createscoreboard() : CommandStructureTree {
 	item_=.Description = "=";
 	item_=.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_=.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
 	}
 
-	//Branch: item_targetObjective.>
+	//Branch: item_targetObjective.> <selector> <objective>
 	{
-	var item_ = item_targetObjective.Add("", CommandStructureType.Any);
-	item_.Description = "";
-	item_.IsOptional = false;
-
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
-	item_selector.Description = "selector";
-	item_selector.IsOptional = false;
-
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
-	item_objective.Description = "objective";
-	item_objective.IsOptional = false;
+	var item_<selector><objective = item_targetObjective.Add("<selector> <objective", CommandStructureType.Any);
+	item_<selector><objective.Description = "<selector> <objective";
+	item_<selector><objective.IsOptional = false;
 
 	}
 
@@ -386,11 +354,11 @@ function createscoreboard() : CommandStructureTree {
 	item_swap.Description = "swap";
 	item_swap.IsOptional = false;
 
-	var item_selector = Tree.Add("selector", CommandStructureType.Any);
+	var item_selector = item_swap.Add("selector", CommandStructureType.Any);
 	item_selector.Description = "selector";
 	item_selector.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_selector.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
@@ -404,19 +372,19 @@ function createscoreboard() : CommandStructureTree {
 	item_test.Description = "test";
 	item_test.IsOptional = false;
 
-	var item_entity = Tree.Add("entity", CommandStructureType.Any);
+	var item_entity = item_test.Add("entity", CommandStructureType.Any);
 	item_entity.Description = "entity";
 	item_entity.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_entity.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
-	var item_min|* = Tree.Add("min|*", CommandStructureType.Any);
+	var item_min|* = item_objective.Add("min|*", CommandStructureType.Any);
 	item_min|*.Description = "min|*";
 	item_min|*.IsOptional = false;
 
-	var item_max|* = Tree.Add("max|*", CommandStructureType.Any);
+	var item_max|* = item_min|*.Add("max|*", CommandStructureType.Any);
 	item_max|*.Description = "max|*";
 	item_max|*.IsOptional = false;
 
@@ -428,19 +396,19 @@ function createscoreboard() : CommandStructureTree {
 	item_random.Description = "random";
 	item_random.IsOptional = false;
 
-	var item_entity = Tree.Add("entity", CommandStructureType.Any);
+	var item_entity = item_random.Add("entity", CommandStructureType.Any);
 	item_entity.Description = "entity";
 	item_entity.IsOptional = false;
 
-	var item_objective = Tree.Add("objective", CommandStructureType.Any);
+	var item_objective = item_entity.Add("objective", CommandStructureType.Any);
 	item_objective.Description = "objective";
 	item_objective.IsOptional = false;
 
-	var item_min = Tree.Add("min", CommandStructureType.Any);
+	var item_min = item_objective.Add("min", CommandStructureType.Any);
 	item_min.Description = "min";
 	item_min.IsOptional = false;
 
-	var item_max = Tree.Add("max", CommandStructureType.Any);
+	var item_max = item_min.Add("max", CommandStructureType.Any);
 	item_max.Description = "max";
 	item_max.IsOptional = false;
 

@@ -18,7 +18,7 @@ function createtag() : CommandStructureTree {
 	item_remove.Description = "remove";
 	item_remove.IsOptional = false;
 
-	var item_name = Tree.Add("name", CommandStructureType.Any);
+	var item_name = item_remove.Add("name", CommandStructureType.Any);
 	item_name.Description = "name";
 	item_name.IsOptional = false;
 
@@ -38,7 +38,7 @@ function createtag() : CommandStructureTree {
 	item_add.Description = "add";
 	item_add.IsOptional = false;
 
-	var item_name = Tree.Add("name", CommandStructureType.Any);
+	var item_name = item_add.Add("name", CommandStructureType.Any);
 	item_name.Description = "name";
 	item_name.IsOptional = false;
 

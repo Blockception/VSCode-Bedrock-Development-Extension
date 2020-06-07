@@ -14,51 +14,31 @@ function createreplaceitem() : CommandStructureTree {
 	item_block.Description = "block";
 	item_block.IsOptional = false;
 
-	var item_position = Tree.Add("position:", CommandStructureType.Any);
-	item_position.Description = "position:";
-	item_position.IsOptional = false;
+	var item_positionxyz = item_block.Add("position: x y z", CommandStructureType.Any);
+	item_positionxyz.Description = "position: x y z";
+	item_positionxyz.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_slot.container = Tree.Add("slot.container", CommandStructureType.Any);
+	var item_slot.container = item_positionxyz.Add("slot.container", CommandStructureType.Any);
 	item_slot.container.Description = "slot.container";
 	item_slot.container.IsOptional = false;
 
-	var item_slotId = Tree.Add("slotId:", CommandStructureType.Any);
-	item_slotId.Description = "slotId:";
-	item_slotId.IsOptional = false;
+	var item_slotIdint = item_slot.container.Add("slotId", CommandStructureType.Integer);
+	item_slotIdint.Description = "slotId: int";
+	item_slotIdint.IsOptional = false;
 
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_itemNameItem = item_slotIdint.Add("itemName: Item", CommandStructureType.Item);
+	item_itemNameItem.Description = "itemName: Item";
+	item_itemNameItem.IsOptional = false;
 
-	var item_itemName = Tree.Add("itemName:", CommandStructureType.Any);
-	item_itemName.Description = "itemName:";
-	item_itemName.IsOptional = false;
-
-	var item_Item = Tree.Add("Item", CommandStructureType.Any);
-	item_Item.Description = "Item";
-	item_Item.IsOptional = false;
-
-	var item_amountint = Tree.Add("amount", CommandStructureType.Integer);
+	var item_amountint = item_itemNameItem.Add("amount", CommandStructureType.Integer);
 	item_amountint.Description = "amount: int";
 	item_amountint.IsOptional = true;
 
-	var item_dataint = Tree.Add("data", CommandStructureType.Integer);
+	var item_dataint = item_amountint.Add("data", CommandStructureType.Integer);
 	item_dataint.Description = "data: int";
 	item_dataint.IsOptional = true;
 
-	var item_componentsjson = Tree.Add("components: json", CommandStructureType.Any);
+	var item_componentsjson = item_dataint.Add("components: json", CommandStructureType.Any);
 	item_componentsjson.Description = "components: json";
 	item_componentsjson.IsOptional = true;
 
@@ -70,47 +50,31 @@ function createreplaceitem() : CommandStructureTree {
 	item_entity.Description = "entity";
 	item_entity.IsOptional = false;
 
-	var item_target = Tree.Add("target:", CommandStructureType.Any);
-	item_target.Description = "target:";
-	item_target.IsOptional = false;
+	var item_targettarget = item_entity.Add("target", CommandStructureType.Target);
+	item_targettarget.Description = "target: target";
+	item_targettarget.IsOptional = false;
 
-	var item_target = Tree.Add("target", CommandStructureType.Target);
-	item_target.Description = "target";
-	item_target.IsOptional = false;
+	var item_slotTypeEntityEquipmentSlot = item_targettarget.Add("slotType: EntityEquipmentSlot", CommandStructureType.Any);
+	item_slotTypeEntityEquipmentSlot.Description = "slotType: EntityEquipmentSlot";
+	item_slotTypeEntityEquipmentSlot.IsOptional = false;
 
-	var item_slotType = Tree.Add("slotType:", CommandStructureType.Any);
-	item_slotType.Description = "slotType:";
-	item_slotType.IsOptional = false;
+	var item_slotIdint = item_slotTypeEntityEquipmentSlot.Add("slotId", CommandStructureType.Integer);
+	item_slotIdint.Description = "slotId: int";
+	item_slotIdint.IsOptional = false;
 
-	var item_EntityEquipmentSlot = Tree.Add("EntityEquipmentSlot", CommandStructureType.Any);
-	item_EntityEquipmentSlot.Description = "EntityEquipmentSlot";
-	item_EntityEquipmentSlot.IsOptional = false;
+	var item_itemNameItem = item_slotIdint.Add("itemName: Item", CommandStructureType.Item);
+	item_itemNameItem.Description = "itemName: Item";
+	item_itemNameItem.IsOptional = false;
 
-	var item_slotId = Tree.Add("slotId:", CommandStructureType.Any);
-	item_slotId.Description = "slotId:";
-	item_slotId.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
-
-	var item_itemName = Tree.Add("itemName:", CommandStructureType.Any);
-	item_itemName.Description = "itemName:";
-	item_itemName.IsOptional = false;
-
-	var item_Item = Tree.Add("Item", CommandStructureType.Any);
-	item_Item.Description = "Item";
-	item_Item.IsOptional = false;
-
-	var item_amountint = Tree.Add("amount", CommandStructureType.Integer);
+	var item_amountint = item_itemNameItem.Add("amount", CommandStructureType.Integer);
 	item_amountint.Description = "amount: int";
 	item_amountint.IsOptional = true;
 
-	var item_dataint = Tree.Add("data", CommandStructureType.Integer);
+	var item_dataint = item_amountint.Add("data", CommandStructureType.Integer);
 	item_dataint.Description = "data: int";
 	item_dataint.IsOptional = true;
 
-	var item_componentsjson = Tree.Add("components: json", CommandStructureType.Any);
+	var item_componentsjson = item_dataint.Add("components: json", CommandStructureType.Any);
 	item_componentsjson.Description = "components: json";
 	item_componentsjson.IsOptional = true;
 

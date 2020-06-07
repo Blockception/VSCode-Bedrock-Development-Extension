@@ -8,75 +8,55 @@ function createtitle() : CommandStructureTree {
 	Tree.Description = "Controls screen titles";
 	Tree.CanEnd = true;
 
-	var item_player = Tree.Add("player:", CommandStructureType.Any);
-	item_player.Description = "player:";
-	item_player.IsOptional = false;
+	var item_playertarget = Tree.Add("player", CommandStructureType.Target);
+	item_playertarget.Description = "The player target/selector";
+	item_playertarget.IsOptional = false;
 
-	var item_target = Tree.Add("target", CommandStructureType.Target);
-	item_target.Description = "target";
-	item_target.IsOptional = false;
-
-	//Branch: item_target.clear
+	//Branch: item_playertarget.clear
 	{
-	var item_clear = item_target.Add("clear", CommandStructureType.Any);
+	var item_clear = item_playertarget.Add("clear", CommandStructureType.Any);
 	item_clear.Description = "clear";
 	item_clear.IsOptional = false;
 
 	}
 
-	//Branch: item_target.reset
+	//Branch: item_playertarget.reset
 	{
-	var item_reset = item_target.Add("reset", CommandStructureType.Any);
+	var item_reset = item_playertarget.Add("reset", CommandStructureType.Any);
 	item_reset.Description = "reset";
 	item_reset.IsOptional = false;
 
 	}
 
-	//Branch: item_target.<title|subtitle|actionbar>
+	//Branch: item_playertarget.<title|subtitle|actionbar>
 	{
-	var item_title|subtitle|actionbar = item_target.Add("title|subtitle|actionbar", CommandStructureType.Any);
+	var item_title|subtitle|actionbar = item_playertarget.Add("title|subtitle|actionbar", CommandStructureType.Any);
 	item_title|subtitle|actionbar.Description = "title|subtitle|actionbar";
 	item_title|subtitle|actionbar.IsOptional = false;
 
-	var item_titleText = Tree.Add("titleText:", CommandStructureType.Any);
-	item_titleText.Description = "titleText:";
-	item_titleText.IsOptional = false;
-
-	var item_message = Tree.Add("message", CommandStructureType.Any);
-	item_message.Description = "message";
-	item_message.IsOptional = false;
+	var item_titleTextmessage = item_title|subtitle|actionbar.Add("titleText: message", CommandStructureType.Any);
+	item_titleTextmessage.Description = "titleText: message";
+	item_titleTextmessage.IsOptional = false;
 
 	}
 
-	//Branch: item_target.times
+	//Branch: item_playertarget.times
 	{
-	var item_times = item_target.Add("times", CommandStructureType.Any);
+	var item_times = item_playertarget.Add("times", CommandStructureType.Any);
 	item_times.Description = "times";
 	item_times.IsOptional = false;
 
-	var item_fadeIn = Tree.Add("fadeIn:", CommandStructureType.Any);
-	item_fadeIn.Description = "fadeIn:";
-	item_fadeIn.IsOptional = false;
+	var item_fadeInint = item_times.Add("fadeIn", CommandStructureType.Integer);
+	item_fadeInint.Description = "fadeIn: int";
+	item_fadeInint.IsOptional = false;
 
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_stayint = item_fadeInint.Add("stay", CommandStructureType.Integer);
+	item_stayint.Description = "stay: int";
+	item_stayint.IsOptional = false;
 
-	var item_stay = Tree.Add("stay:", CommandStructureType.Any);
-	item_stay.Description = "stay:";
-	item_stay.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
-
-	var item_fadeOut = Tree.Add("fadeOut:", CommandStructureType.Any);
-	item_fadeOut.Description = "fadeOut:";
-	item_fadeOut.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_fadeOutint = item_stayint.Add("fadeOut", CommandStructureType.Integer);
+	item_fadeOutint.Description = "fadeOut: int";
+	item_fadeOutint.IsOptional = false;
 
 	}
 

@@ -8,29 +8,13 @@ function createparticle() : CommandStructureTree {
 	Tree.Description = "Creates a particle emitter";
 	Tree.CanEnd = true;
 
-	var item_effect = Tree.Add("effect:", CommandStructureType.Any);
-	item_effect.Description = "effect:";
-	item_effect.IsOptional = false;
+	var item_effectstring = Tree.Add("effect: string", CommandStructureType.Any);
+	item_effectstring.Description = "effect: string";
+	item_effectstring.IsOptional = false;
 
-	var item_string = Tree.Add("string", CommandStructureType.Any);
-	item_string.Description = "string";
-	item_string.IsOptional = false;
-
-	var item_position = Tree.Add("position:", CommandStructureType.Any);
-	item_position.Description = "position:";
-	item_position.IsOptional = false;
-
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
+	var item_positionxyz = item_effectstring.Add("position: x y z", CommandStructureType.Any);
+	item_positionxyz.Description = "position: x y z";
+	item_positionxyz.IsOptional = false;
 
 	return Tree;
 }

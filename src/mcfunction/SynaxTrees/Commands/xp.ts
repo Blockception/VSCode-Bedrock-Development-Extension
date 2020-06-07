@@ -8,30 +8,26 @@ function createxp() : CommandStructureTree {
 	Tree.Description = "Adds or removes player experience.";
 	Tree.CanEnd = true;
 
-	var item_amount = Tree.Add("amount:", CommandStructureType.Any);
-	item_amount.Description = "amount:";
-	item_amount.IsOptional = false;
-
-	//Branch: item_amount.int>
+	//Branch: xp.<amount: int>
 	{
-	var item_int = item_amount.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_amountint = Tree.Add("amount", CommandStructureType.Integer);
+	item_amountint.Description = "amount: int";
+	item_amountint.IsOptional = false;
 
-	var item_playertarget = Tree.Add("player: target", CommandStructureType.Target);
-	item_playertarget.Description = "The target/selector that targets a player";
+	var item_playertarget = item_amountint.Add("player", CommandStructureType.Target);
+	item_playertarget.Description = "The player target/selector";
 	item_playertarget.IsOptional = true;
 
 	}
 
-	//Branch: item_amount.int>L
+	//Branch: xp.<amount: int>L
 	{
-	var item_int>L = item_amount.Add("int>L", CommandStructureType.Any);
-	item_int>L.Description = "int>L";
-	item_int>L.IsOptional = false;
+	var item_amountint>L = Tree.Add("amount: int>L", CommandStructureType.Any);
+	item_amountint>L.Description = "amount: int>L";
+	item_amountint>L.IsOptional = false;
 
-	var item_playertarget = Tree.Add("player: target", CommandStructureType.Target);
-	item_playertarget.Description = "The target/selector that targets a player";
+	var item_playertarget = item_amountint>L.Add("player", CommandStructureType.Target);
+	item_playertarget.Description = "The player target/selector";
 	item_playertarget.IsOptional = true;
 
 	}
