@@ -3,6 +3,7 @@ export enum CommandStructureType {
     Boolean,
     Coordinate,
     Entity,
+    Integer,
     Item,
     Json,    
     Number,    

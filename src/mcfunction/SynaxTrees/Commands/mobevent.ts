@@ -14,7 +14,7 @@ function createmobevent() : CommandStructureTree {
 	item_minecraftpillager_patrols_event.Description = "minecraft:pillager_patrols_event";
 	item_minecraftpillager_patrols_event.IsOptional = false;
 
-	var item_valueBoolean = Tree.Add("value: Boolean", CommandStructureType.Any);
+	var item_valueBoolean = Tree.Add("value", CommandStructureType.Boolean);
 	item_valueBoolean.Description = "value: Boolean";
 	item_valueBoolean.IsOptional = true;
 
@@ -26,7 +26,7 @@ function createmobevent() : CommandStructureTree {
 	item_wandering_trader_event.Description = "wandering_trader_event";
 	item_wandering_trader_event.IsOptional = false;
 
-	var item_valueBoolean = Tree.Add("value: Boolean", CommandStructureType.Any);
+	var item_valueBoolean = Tree.Add("value", CommandStructureType.Boolean);
 	item_valueBoolean.Description = "value: Boolean";
 	item_valueBoolean.IsOptional = true;
 
@@ -38,7 +38,7 @@ function createmobevent() : CommandStructureTree {
 	item_events_enabled.Description = "events_enabled";
 	item_events_enabled.IsOptional = false;
 
-	var item_valueBoolean = Tree.Add("value: Boolean", CommandStructureType.Any);
+	var item_valueBoolean = Tree.Add("value", CommandStructureType.Boolean);
 	item_valueBoolean.Description = "value: Boolean";
 	item_valueBoolean.IsOptional = true;
 

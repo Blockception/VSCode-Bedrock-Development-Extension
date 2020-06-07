@@ -26,15 +26,15 @@ function createeffect() : CommandStructureTree {
 	item_Effect.Description = "Effect";
 	item_Effect.IsOptional = false;
 
-	var item_secondsint = Tree.Add("seconds: int", CommandStructureType.Any);
+	var item_secondsint = Tree.Add("seconds", CommandStructureType.Integer);
 	item_secondsint.Description = "seconds: int";
 	item_secondsint.IsOptional = true;
 
-	var item_amplifierint = Tree.Add("amplifier: int", CommandStructureType.Any);
+	var item_amplifierint = Tree.Add("amplifier", CommandStructureType.Integer);
 	item_amplifierint.Description = "amplifier: int";
 	item_amplifierint.IsOptional = true;
 
-	var item_hideParticlesBoolean = Tree.Add("hideParticles: Boolean", CommandStructureType.Any);
+	var item_hideParticlesBoolean = Tree.Add("hideParticles", CommandStructureType.Boolean);
 	item_hideParticlesBoolean.Description = "hideParticles: Boolean";
 	item_hideParticlesBoolean.IsOptional = true;
 

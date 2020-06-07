@@ -8,9 +8,9 @@ function createalwaysday() : CommandStructureTree {
 	Tree.Description = "Locks and unlocks the day-night cycle.";
 	Tree.CanEnd = true;
 
-	var item_lockBoolean = Tree.Add("lock: Boolean", CommandStructureType.Any);
-	item_lockBoolean.Description = "lock: Boolean";
-	item_lockBoolean.IsOptional = true;
+	var item_lock = Tree.Add("lock", CommandStructureType.Boolean);
+	item_lock.Description = "True or false to wheter or not the day must be locked";
+	item_lock.IsOptional = true;
 
 	return Tree;
 }

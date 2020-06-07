@@ -24,7 +24,7 @@ function createenchant() : CommandStructureTree {
 	item_Name.Description = "Name";
 	item_Name.IsOptional = false;
 
-	var item_levelint = Tree.Add("level: int", CommandStructureType.Any);
+	var item_levelint = Tree.Add("level", CommandStructureType.Integer);
 	item_levelint.Description = "level: int";
 	item_levelint.IsOptional = true;
 

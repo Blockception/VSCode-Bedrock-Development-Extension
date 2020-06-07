@@ -36,7 +36,7 @@ function createteleport() : CommandStructureTree {
 	item_xRotvalue.Description = "xRot: value";
 	item_xRotvalue.IsOptional = true;
 
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks: Boolean", CommandStructureType.Any);
+	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
 
@@ -68,7 +68,7 @@ function createteleport() : CommandStructureTree {
 	item_z.Description = "z";
 	item_z.IsOptional = false;
 
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks: Boolean", CommandStructureType.Any);
+	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
 
@@ -100,7 +100,7 @@ function createteleport() : CommandStructureTree {
 	item_xRotvalue.Description = "xRot: value";
 	item_xRotvalue.IsOptional = true;
 
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks: Boolean", CommandStructureType.Any);
+	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
 
@@ -132,7 +132,7 @@ function createteleport() : CommandStructureTree {
 	item_z.Description = "z";
 	item_z.IsOptional = false;
 
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks: Boolean", CommandStructureType.Any);
+	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
 
