@@ -1,14 +1,16 @@
 export enum CommandStructureType {
     Any,
     Boolean,
-    Block
+    Block,
     Coordinate,
-    Entity,
+    Effect,
+    Entity,    
     Integer,
     Item,
     Json,    
     Number,    
     Objective,
+    Particle,
     SameAsName,
     Tag,
     Target
