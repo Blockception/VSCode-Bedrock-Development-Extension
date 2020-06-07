@@ -12,17 +12,17 @@ function createclear() : CommandStructureTree {
 	item_playertarget.Description = "The target/selector that targets a player";
 	item_playertarget.IsOptional = true;
 
-	var item_itemNameItem = Tree.Add("Item name", CommandStructureType.Item);
-	item_itemNameItem.Description = "The name of the item to remove";
-	item_itemNameItem.IsOptional = true;
+	var item_itemName = item_playertarget.Add("Item name", CommandStructureType.Item);
+	item_itemName.Description = "The name of the item to remove";
+	item_itemName.IsOptional = true;
 
-	var item_dataint = Tree.Add("data", CommandStructureType.Integer);
-	item_dataint.Description = "The data value to remove";
-	item_dataint.IsOptional = true;
+	var item_data = item_itemName.Add("data", CommandStructureType.Integer);
+	item_data.Description = "The data value to remove";
+	item_data.IsOptional = true;
 
-	var item_maxCountint = Tree.Add("maxCount", CommandStructureType.Integer);
-	item_maxCountint.Description = "The maximum amount of item that need to be removed";
-	item_maxCountint.IsOptional = true;
+	var item_maxCount = item_data.Add("maxCount", CommandStructureType.Integer);
+	item_maxCount.Description = "The maximum amount of item that need to be removed";
+	item_maxCount.IsOptional = true;
 
 	return Tree;
 }
