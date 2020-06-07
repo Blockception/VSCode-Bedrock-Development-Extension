@@ -64,13 +64,13 @@ export class cloneDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.BlockDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<tileData: int>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	}

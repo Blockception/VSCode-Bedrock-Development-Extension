@@ -44,25 +44,25 @@ export class replaceitemDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<itemName: Item>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.ItemDiagnoser(word, lineIndex, collector, dm, document);
+		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[amount: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[data: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[components: json]
 		if (word == undefined) {
@@ -81,7 +81,7 @@ export class replaceitemDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<slotType: EntityEquipmentSlot>
 		if (word == undefined) {
@@ -92,25 +92,25 @@ export class replaceitemDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<itemName: Item>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.ItemDiagnoser(word, lineIndex, collector, dm, document);
+		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[amount: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[data: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[components: json]
 		if (word == undefined) {

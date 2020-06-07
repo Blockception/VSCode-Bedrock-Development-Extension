@@ -11,7 +11,7 @@ export class particleDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<position: x y z>
 		if (word == undefined) {

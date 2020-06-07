@@ -11,7 +11,7 @@ export class titlerawDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		switch(item.text) {
 		case 'clear':
@@ -74,19 +74,19 @@ export class titlerawDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<stay: int>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<fadeOut: int>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	}

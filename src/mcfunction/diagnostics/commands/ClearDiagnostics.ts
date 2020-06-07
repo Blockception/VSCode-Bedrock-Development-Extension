@@ -6,30 +6,31 @@ export class clearDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Player = item.Child;
 
 		//[player: target]
-		if (word == undefined) {
+		if (Player == undefined) {
 			return;
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(Player, lineIndex, collector, dm, document);
 
 		//[itemName: Item]
 		if (word == undefined) {
 			return;
 		}
-		dm.ItemDiagnoser(word, lineIndex, collector, dm, document);
+		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[data: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[maxCount: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 

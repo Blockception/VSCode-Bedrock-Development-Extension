@@ -11,7 +11,7 @@ export class executeDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<position: x y z>
 		if (word == undefined) {
@@ -55,13 +55,13 @@ export class executeDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.BlockDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<data: int>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<command: command>
 		if (word == undefined) {

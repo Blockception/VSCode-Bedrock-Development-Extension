@@ -11,7 +11,7 @@ export class daylockDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 

@@ -11,13 +11,13 @@ export class stopsoundDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[sound: string]
 		if (word == undefined) {
 			return;
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 

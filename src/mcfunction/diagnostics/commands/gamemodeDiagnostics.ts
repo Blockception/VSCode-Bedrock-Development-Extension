@@ -16,7 +16,7 @@ export class gamemodeDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 
