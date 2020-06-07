@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.languages.registerWorkspaceSymbolProvider(SymbolProvider)
     );
 
-    SymbolProvider.traverseWorkspaceSymbols();
+    //SymbolProvider.traverseWorkspaceSymbols();
 }
 
 export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider, vscode.WorkspaceSymbolProvider {
@@ -19,28 +19,16 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider, 
 
     //The data of the object
     public Data: DocumentDataCollection<vscode.SymbolInformation>;
-    public DataItems: Array<vscode.SymbolInformation>;
 
     constructor() {
         McfunctionSymbolProvider.instance = this;
         this.Data = new DocumentDataCollection<vscode.SymbolInformation>();
-        this.DataItems = new Array<vscode.SymbolInformation>();
     }
 
     public traverseWorkspaceSymbols(): void {
         vscode.workspace.workspaceFolders?.forEach((x) => {
             vscode.workspace.fs.readDirectory(x.uri).then((Items) => Items.forEach((item) => this.traverseFolder(item, x.uri.fsPath)));
         });
-    }
-
-    private async createSet() {
-        var Items = Array<vscode.SymbolInformation>();
-
-        this.Data.forEach((x) => {
-            Items.push(...x.Values)
-        });
-
-        this.DataItems = Items;
     }
 
     private traverseFolder(path: [string, vscode.FileType], folder: string) {
@@ -67,11 +55,10 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider, 
     }
 
     public provideWorkspaceSymbols(query: string, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[]> {
+        var Items = new Array<vscode.SymbolInformation>();
         if (query === ""){
-            return this.DataItems;
+            return Items;
         }
-
-        var Items = Array<vscode.SymbolInformation>(this.DataItems.length);
 
         this.Data.forEach((x) => {
             x.Values.forEach(y=>{
@@ -93,7 +80,6 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider, 
             InternalprovideDocumentSymbols(document, Items);
             var Temp = this.Data.Get(document.uri);
             Temp.Values = Items;
-            this.createSet();
         }
 
         return Items;
@@ -148,7 +134,7 @@ function examineMcfunctionLines(document: vscode.TextDocument, filename: string,
         //scoreboard objectives created
         var index = Text.indexOf("scoreboard objectives add ");
         if (index > -1) {
-            createScoreboardObject(Text, new vscode.Location(document.uri, new vscode.Position(I, index + 26)), Collector);
+            createScoreboardObject(Text, new vscode.Location(document.uri, new vscode.Range(I, index + 26, I, index + 26)), Collector);
         }
 
         getSelector(Text, document, I, Collector);
