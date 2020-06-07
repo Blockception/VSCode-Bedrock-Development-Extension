@@ -2,13 +2,15 @@ import * as vscode from 'vscode';
 import * as McfunctionCompletionItems from './completion_item';
 import * as Selector from "./selectors/completion_item"
 import * as Diagnostics from "./diagnostics"
-import * as constants from "./constants"
+import * as constants from "../constants"
 import * as Formatting from "./formatters"
+import * as Symboles from "./SymbolProvider"
 
 export function activate(context: vscode.ExtensionContext) {
 	CompletionItems(context);
 	Hovers(context);
 	Formatters(context);
+	Symboles.activate(context);
 
 	Diagnostics.activate(context);
 }
