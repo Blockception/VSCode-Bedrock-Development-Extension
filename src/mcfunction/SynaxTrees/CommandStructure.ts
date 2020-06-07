@@ -1,6 +1,7 @@
 export enum CommandStructureType {
     Any,
     Boolean,
+    Block
     Coordinate,
     Entity,
     Integer,
