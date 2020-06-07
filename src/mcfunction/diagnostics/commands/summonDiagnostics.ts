@@ -11,7 +11,7 @@ export class summonDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.EntityDiagnoser(word, lineIndex, collector, dm, document);
+		dm.EntityDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		switch(item.text) {
 		case '[spawnPos: x y z]':
@@ -37,13 +37,13 @@ export class summonDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[nameTag: string]
 		if (word == undefined) {
 			return;
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	branchnameTag(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
@@ -52,7 +52,7 @@ export class summonDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[spawnPos: x y z]
 		if (word == undefined) {

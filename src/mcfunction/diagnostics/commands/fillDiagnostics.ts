@@ -21,7 +21,7 @@ export class fillDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.BlockDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		switch(item.text) {
 		case '[tileData: int]':
@@ -42,7 +42,7 @@ export class fillDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[outline|hollow|destroy|keep]
 		if (word == undefined) {
@@ -56,7 +56,7 @@ export class fillDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//replace
 		if (word == undefined) {
@@ -67,13 +67,13 @@ export class fillDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.BlockDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[replaceDataValue: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	}

@@ -16,7 +16,7 @@ export class weatherDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 

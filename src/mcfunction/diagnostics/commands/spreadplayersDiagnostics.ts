@@ -21,19 +21,19 @@ export class spreadplayersDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.floatDiagnoser(word, lineIndex, collector, dm, document);
+		dm.floatDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<maxRange: float>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.floatDiagnoser(word, lineIndex, collector, dm, document);
+		dm.floatDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<victim: target>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 

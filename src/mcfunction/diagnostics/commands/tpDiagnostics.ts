@@ -70,7 +70,7 @@ export class tpDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	branchx y z_target(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
@@ -89,13 +89,13 @@ export class tpDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[checkForBlocks: Boolean]
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	}
@@ -120,7 +120,7 @@ export class tpDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	branchx y z_target(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
@@ -139,13 +139,13 @@ export class tpDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[checkForBlocks: Boolean]
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 }

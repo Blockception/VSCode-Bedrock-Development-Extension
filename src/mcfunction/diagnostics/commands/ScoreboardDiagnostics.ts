@@ -82,7 +82,7 @@ export class scoreboardDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	branchremove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
@@ -252,7 +252,7 @@ export class scoreboardDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<objective>
 		if (word == undefined) {
@@ -276,7 +276,7 @@ export class scoreboardDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<objective>
 		if (word == undefined) {
@@ -300,7 +300,7 @@ export class scoreboardDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<objective>
 		if (word == undefined) {
@@ -324,7 +324,7 @@ export class scoreboardDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[objective]
 		if (word == undefined) {

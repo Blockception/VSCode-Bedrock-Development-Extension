@@ -11,25 +11,25 @@ export class giveDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<itemName: Item>
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.ItemDiagnoser(word, lineIndex, collector, dm, document);
+		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[amount: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[data: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		switch(item.text) {
 		case '[components: json]':

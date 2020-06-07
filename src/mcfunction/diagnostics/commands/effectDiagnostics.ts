@@ -11,7 +11,7 @@ export class effectDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.SelectorDiagnoser(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		switch(item.text) {
 		case '<effect: Effect>':
@@ -32,25 +32,25 @@ export class effectDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			//MISSING ERROR
 		}
-		dm.EffectDiagnoser(word, lineIndex, collector, dm, document);
+		dm.EffectDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[seconds: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[amplifier: int]
 		if (word == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//[hideParticles: Boolean]
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	branchclear(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {

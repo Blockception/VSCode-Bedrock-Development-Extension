@@ -38,7 +38,7 @@ export class mobeventDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	branchwandering_trader_event(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
@@ -52,7 +52,7 @@ export class mobeventDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 	branchevents_enabled(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
@@ -66,7 +66,7 @@ export class mobeventDiagnosticProvider implements DiagnosticProvider {
 		if (word == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 	}
 }
