@@ -1,4 +1,5 @@
 # Changelog 
+- Reworked
 - Updated
 - Updated
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
@@ -18,4 +19,3 @@
 - Included Number in function paths
 - Updated logo
 - Updated
-- Added dye:x

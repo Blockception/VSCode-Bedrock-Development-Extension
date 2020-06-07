@@ -1,28 +1,22 @@
 import * as vscode from "vscode";
-import * as S from "./selector";
+import { Selector } from "../selectors/selector";
+import * as Functions from "../selectors/functions";
 import { RangedWord } from "../../general/Words";
 import { isNumber } from "util";
 
-function MultipleScores(selectorText: string): boolean {
-  var index = selectorText.indexOf("scores={");
 
-  if (index < 0) return false;
-
-  index = selectorText.indexOf("scores={", index + 1);
-
-  if (index >= 0) {
-    return true;
-  }
-
-  return false;
+//Provides diagnostis for the command function
+export function provideDiagnostics(document: vscode.TextDocument, lineIndex : number, collection: vscode.Diagnostic[]) : void {
+  
 }
 
-export function CheckSelector(line: vscode.TextLine, selectorText: RangedWord, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
+//Checks the selector
+function CheckSelector(line: vscode.TextLine, selectorText: string, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
 
   if (selectorText.text.length <= 2)
     return;
 
-  var sObject = S.Selector.Parse(selectorText.text);
+  var sObject = Selector.Parse(selectorText.text);
   var Range = new vscode.Range(line.lineNumber, selectorText.startindex, line.lineNumber, selectorText.endindex);
   var coordsSpec = false;
   var BoxSpec = false;
@@ -66,16 +60,33 @@ export function CheckSelector(line: vscode.TextLine, selectorText: RangedWord, d
   }
 }
 
-function CheckCoordinateIf(sObject: S.Selector, name : string, range: vscode.Range, collection: vscode.Diagnostic[]) : boolean {
-    if (sObject.hasParameter(name)) {
-        CheckCoordinate(sObject.getParameter(name), range, collection);
-        return true;
-    }
+//Check the scores
+function MultipleScores(selectorText: string): boolean {
+  var index = selectorText.indexOf("scores={");
 
-    return false;
+  if (index < 0) return false;
+
+  index = selectorText.indexOf("scores={", index + 1);
+
+  if (index >= 0) {
+    return true;
+  }
+
+  return false;
 }
 
-function CheckCoordinate(Parameter: S.SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
+//Checks the coordinate if it is there
+function CheckCoordinateIf(sObject: Selector, name: string, range: vscode.Range, collection: vscode.Diagnostic[]): boolean {
+  if (sObject.hasParameter(name)) {
+    CheckCoordinate(sObject.getParameter(name), range, collection);
+    return true;
+  }
+
+  return false;
+}
+
+//Checks the coordinate
+function CheckCoordinate(Parameter: SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
   if (Parameter.value.indexOf("^") > -1) {
     collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": ^ coordinate references are not allowed in selectors", vscode.DiagnosticSeverity.Error));
     return;
@@ -94,16 +105,18 @@ function CheckCoordinate(Parameter: S.SelectorParameter, range: vscode.Range, co
   }
 }
 
-function CheckNumberIf(sObject: S.Selector, name : string, range: vscode.Range, collection: vscode.Diagnostic[]): boolean {
-    if (sObject.hasParameter(name)) {
-        CheckNumber(sObject.getParameter(name), range, collection);
-        return true;
-    }
+//Checks the number if it is there
+function CheckNumberIf(sObject: Selector, name: string, range: vscode.Range, collection: vscode.Diagnostic[]): boolean {
+  if (sObject.hasParameter(name)) {
+    CheckNumber(sObject.getParameter(name), range, collection);
+    return true;
+  }
 
-    return false;
+  return false;
 }
 
-function CheckNumber(Parameter: S.SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
+//Checks the number
+function CheckNumber(Parameter: SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
   var Number = Parameter.value;
 
   if (!IsNumber(Number)) {
@@ -111,6 +124,7 @@ function CheckNumber(Parameter: S.SelectorParameter, range: vscode.Range, collec
   }
 }
 
+//Check if the given value is a number
 function IsNumber(value: string): boolean {
   for (let index = 0; index < value.length; index++) {
     switch (value.charAt(index)) {
@@ -135,7 +149,8 @@ function IsNumber(value: string): boolean {
   return true;
 }
 
-function DuplicateCheck(selector: S.Selector, names: string[], range: vscode.Range, collection: vscode.Diagnostic[]): void {
+//Checks for duplicates
+function DuplicateCheck(selector: Selector, names: string[], range: vscode.Range, collection: vscode.Diagnostic[]): void {
   for (var i = 0; i < names.length; i++) {
     var name = names[i];
     var Count = selector.countParameter(name);
@@ -146,58 +161,60 @@ function DuplicateCheck(selector: S.Selector, names: string[], range: vscode.Ran
   }
 }
 
-function nameCheck(sObject: S.Selector, range: vscode.Range, collection: vscode.Diagnostic[]) : void {
+//Checks the names
+function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[]): void {
 
-    if (!sObject.hasParameter("name"))
-        return;
+  if (!sObject.hasParameter("name"))
+    return;
 
-    var Parameter = sObject.getParameter("name");
+  var Parameter = sObject.getParameter("name");
 
-    if (Parameter.name.startsWith("\"")) {
-        if (Parameter.name.endsWith("\"")){
-            return;
-        }
-
-        collection.push(
-            new vscode.Diagnostic(
-                range, 
-                "name parameter has no closing quote", 
-                vscode.DiagnosticSeverity.Error));
-        return;
+  if (Parameter.name.startsWith("\"")) {
+    if (Parameter.name.endsWith("\"")) {
+      return;
     }
 
-    for (var index = 0; index < Parameter.value.length; index++){
-        var C = Parameter.value.charAt(index);
-        if (C == " " || C == "\t"){
-            collection.push(
-                new vscode.Diagnostic(
-                    range, 
-                    "name parameter has spaces/tabs, these are only allowed when using quotes", 
-                    vscode.DiagnosticSeverity.Error));
-        }
+    collection.push(
+      new vscode.Diagnostic(
+        range,
+        "name parameter has no closing quote",
+        vscode.DiagnosticSeverity.Error));
+    return;
+  }
+
+  for (var index = 0; index < Parameter.value.length; index++) {
+    var C = Parameter.value.charAt(index);
+    if (C == " " || C == "\t") {
+      collection.push(
+        new vscode.Diagnostic(
+          range,
+          "name parameter has spaces/tabs, these are only allowed when using quotes",
+          vscode.DiagnosticSeverity.Error));
     }
+  }
 }
 
-function typeCheck(sObject: S.Selector, range: vscode.Range, collection: vscode.Diagnostic[]) : void {
-    var Parameters = sObject.parameters;
-    var PositiveTest = false;
+//Checks the type
+function typeCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[]): void {
+  var Parameters = sObject.parameters;
+  var PositiveTest = false;
 
-    for (var index = 0; index < Parameters.length; index++){
-        var P = Parameters[index];
+  for (var index = 0; index < Parameters.length; index++) {
+    var P = Parameters[index];
 
-        if (P.name == "type"){
-            if (!P.value.startsWith("!")) {
-                if (PositiveTest) {
-                    collection.push(new vscode.Diagnostic(
-                        range,
-                        "type: cannot test for multiple types that it must match, excludes can only be tested multiple times",
-                        vscode.DiagnosticSeverity.Error
-                    ));
-                }
-                else{
-                    PositiveTest = true;
-                }
-            }
+    if (P.name == "type") {
+      if (!P.value.startsWith("!")) {
+        if (PositiveTest) {
+          collection.push(new vscode.Diagnostic(
+            range,
+            "type: cannot test for multiple types that it must match, excludes can only be tested multiple times",
+            vscode.DiagnosticSeverity.Error
+          ));
         }
+        else {
+          PositiveTest = true;
+        }
+      }
     }
+  }
 }
