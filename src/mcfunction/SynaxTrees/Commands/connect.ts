@@ -8,13 +8,9 @@ function createconnect() : CommandStructureTree {
 	Tree.Description = "Attempts to connect to the websocket server on the provided URL.";
 	Tree.CanEnd = true;
 
-	var item_serverUri = Tree.Add("serverUri:", CommandStructureType.Any);
-	item_serverUri.Description = "serverUri:";
+	var item_serverUri = Tree.Add("server uri", CommandStructureType.Any);
+	item_serverUri.Description = "The uri to a server";
 	item_serverUri.IsOptional = false;
-
-	var item_text = Tree.Add("text", CommandStructureType.Any);
-	item_text.Description = "text";
-	item_text.IsOptional = false;
-
+	
 	return Tree;
 }
