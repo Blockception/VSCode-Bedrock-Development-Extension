@@ -21,15 +21,15 @@ function createclone() : CommandStructureTree {
 	item_zstart.IsOptional = false;
 
 	var item_xend = item_zstart.Add("Source End x", CommandStructureType.Coordinate);
-	item_xend.Description = "The x coordinate";
+	item_xend.Description = "The x coordinate the source ends at";
 	item_xend.IsOptional = false;
 
 	var item_yend = item_xend.Add("Source End y", CommandStructureType.Coordinate);
-	item_yend.Description = "The y coordinate";
+	item_yend.Description = "The y coordinate the source ends at";
 	item_yend.IsOptional = false;
 
 	var item_zend = item_yend.Add("Source End z", CommandStructureType.Coordinate);
-	item_zend.Description = "The z coordinate";
+	item_zend.Description = "The z coordinate the source ends at";
 	item_zend.IsOptional = false;
 
 	var item_xdestination = item_zend.Add("Destination x", CommandStructureType.Coordinate);

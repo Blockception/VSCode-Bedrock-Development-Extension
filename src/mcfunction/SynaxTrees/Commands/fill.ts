@@ -8,81 +8,66 @@ function createfill() : CommandStructureTree {
 	Tree.Description = "Fills all or parts of a region with a specific block.";
 	Tree.CanEnd = true;
 
-	var item_from = Tree.Add("from:", CommandStructureType.Any);
-	item_from.Description = "from:";
-	item_from.IsOptional = false;
+	var item_xstart = Tree.Add("area Start x", CommandStructureType.Coordinate);
+	item_xstart.Description = "The x coordinate the area starts at";
+	item_xstart.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_ystart = item_xstart.Add("area Start y", CommandStructureType.Coordinate);
+	item_ystart.Description = "The y coordinate the area starts at";
+	item_ystart.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
+	var item_zstart = item_ystart.Add("area Start z", CommandStructureType.Coordinate);
+	item_zstart.Description = "The z coordinate the area starts at";
+	item_zstart.IsOptional = false;
 
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
+	var item_xend = item_zstart.Add("area End x", CommandStructureType.Coordinate);
+	item_xend.Description = "The x coordinate the area ends at";
+	item_xend.IsOptional = false;
 
-	var item_to = Tree.Add("to:", CommandStructureType.Any);
-	item_to.Description = "to:";
-	item_to.IsOptional = false;
+	var item_yend = item_xend.Add("area End y", CommandStructureType.Coordinate);
+	item_yend.Description = "The y coordinate the area ends at";
+	item_yend.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_zend = item_yend.Add("area End z", CommandStructureType.Coordinate);
+	item_zend.Description = "The z coordinate the area ends at";
+	item_zend.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
+	var item_tileNameBlock = item_zend.Add("block", CommandStructureType.Block);
+	item_tileNameBlock.Description = "block";
+	item_tileNameBlock.IsOptional = false;
 
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_tileName = Tree.Add("tileName:", CommandStructureType.Any);
-	item_tileName.Description = "tileName:";
-	item_tileName.IsOptional = false;
-
-	var item_Block = Tree.Add("Block", CommandStructureType.Any);
-	item_Block.Description = "Block";
-	item_Block.IsOptional = false;
-
-	//Branch: item_Block.[tileData: int]
-	{
-	var item_tileDataint = item_Block.Add("tileData", CommandStructureType.Integer);
-	item_tileDataint.Description = "tileData: int";
+	var item_tileDataint = item_tileNameBlock.Add("block data", CommandStructureType.Integer);
+	item_tileDataint.Description = "The data value of the block";
 	item_tileDataint.IsOptional = true;
 
-	var item_outline|hollow|destroy|keep = Tree.Add("outline|hollow|destroy|keep", CommandStructureType.Any);
-	item_outline|hollow|destroy|keep.Description = "outline|hollow|destroy|keep";
-	item_outline|hollow|destroy|keep.IsOptional = true;
+	var item_outline = item_tileDataint.Add("outline", CommandStructureType.SameAsName);
+	item_outline.Description = "The outline of the area";
+	item_outline.IsOptional = true;
 
-	}
+	var item_hollow = item_tileDataint.Add("hollow", CommandStructureType.SameAsName);
+	item_hollow.Description = "Make the filled area hollow";
+	item_hollow.IsOptional = true;
 
-	//Branch: item_Block.<tileData:
-	{
-	var item_tileData = item_Block.Add("tileData:", CommandStructureType.Any);
-	item_tileData.Description = "tileData:";
-	item_tileData.IsOptional = false;
+	var item_destroy = item_tileDataint.Add("destroy", CommandStructureType.SameAsName);
+	item_destroy.Description = "Destroys the old blocks";
+	item_destroy.IsOptional = true;
 
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_keep = item_tileDataint.Add("keep", CommandStructureType.SameAsName);
+	item_keep.Description = "Keeps the old blocks, air not included";
+	item_keep.IsOptional = true;
 
-	var item_replace = Tree.Add("replace", CommandStructureType.Any);
+	//Branch: replace
+	var item_replace = item_tileDataint.Add("replace", CommandStructureType.SameAsName);
 	item_replace.Description = "replace";
 	item_replace.IsOptional = false;
 
-	var item_replaceTileNameBlock = Tree.Add("replaceTileName: Block", CommandStructureType.Any);
-	item_replaceTileNameBlock.Description = "replaceTileName: Block";
-	item_replaceTileNameBlock.IsOptional = true;
+	var item_replacetileNameBlock = item_zend.Add("block", CommandStructureType.Block);
+	item_replacetileNameBlock.Description = "The block to replace";
+	item_replacetileNameBlock.IsOptional = false;
 
-	var item_replaceDataValueint = Tree.Add("replaceDataValue", CommandStructureType.Integer);
-	item_replaceDataValueint.Description = "replaceDataValue: int";
-	item_replaceDataValueint.IsOptional = true;
-
-	}
+	var item_replacetileDataint = item_tileNameBlock.Add("block data", CommandStructureType.Integer);
+	item_replacetileDataint.Description = "The data value of the block to replace";
+	item_replacetileDataint.IsOptional = true;
 
 	return Tree;
 }
