@@ -15,27 +15,28 @@ export function activate(context: vscode.ExtensionContext): void {
         }
     });
 
-    //formatter for whole document
-    vscode.languages.registerDocumentFormattingEditProvider(constants.McLanguageIdentifier, {
-        provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
-            return format(document);
-        }
-    });
+    context.subscriptions.push(
+        //formatter for whole document
+        vscode.languages.registerDocumentFormattingEditProvider(constants.McLanguageIdentifier, {
+            provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
+                return format(document);
+            }
+        }),
 
-    //formatter for ranged document
-    vscode.languages.registerDocumentRangeFormattingEditProvider(constants.McLanguageIdentifier, {
-        provideDocumentRangeFormattingEdits(document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token : vscode.CancellationToken) 
-        : vscode.ProviderResult<vscode.TextEdit[]> {
-            var collection = new Array<vscode.TextEdit>();
+        //formatter for ranged document
+        vscode.languages.registerDocumentRangeFormattingEditProvider(constants.McLanguageIdentifier, {
+            provideDocumentRangeFormattingEdits(document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token : vscode.CancellationToken) 
+            : vscode.ProviderResult<vscode.TextEdit[]> {
+                var collection = new Array<vscode.TextEdit>();
 
-            for (let index = range.start.line; index < range.end.line; index++) {
-                formatline(index, document, collection);        
-            } 
+                for (let index = range.start.line; index < range.end.line; index++) {
+                    formatline(index, document, collection);        
+                } 
 
-            return collection;
-        }
-    });
-
+                return collection;
+            }
+        })
+    );
 }
 
 //formatts the whole document

@@ -1,4 +1,6 @@
 # Changelog 
+- Updated
+- Updated
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated Trigger
 - Fixed Dependencies
@@ -17,5 +19,3 @@
 - Updated logo
 - Updated
 - Added dye:x
-- Events are not required in triggers
-- Updated to 0.1.3
