@@ -4,15 +4,14 @@ import { SyntaxTree, SyntaxItem } from '../../general/include';
 export class DiagnosticsManager {
     private Items : Map<string, DiagnosticProvider>;
 
-    public SelectorDiagnoser : DiagnosticProvider | undefined;
-    public CoordinateDiagnoser : DiagnosticProvider | undefined;
     public BooleanDiagnoser : DiagnosticProvider | undefined;
+    public CoordinateDiagnoser : DiagnosticProvider | undefined;    
+    public IntegerDiagnoser : DiagnosticProvider | undefined;
+    public ItemDiagnoser : DiagnosticProvider | undefined;
+    public SelectorDiagnoser : DiagnosticProvider | undefined;    
 
     constructor(){
         this.Items = new  Map<string, DiagnosticProvider>();
-        this.SelectorDiagnoser = undefined;
-        this.CoordinateDiagnoser = undefined;
-        this.BooleanDiagnoser = undefined;
     }
 
     hasDiagnostic(Item : SyntaxItem) {
