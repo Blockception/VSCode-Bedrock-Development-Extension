@@ -96,8 +96,6 @@ export function GetWordsFromRange(text : string, endindex : number) : string[] {
     return out;
 }
 
-
-
 export class RangedWord {
     text: string;
     startindex : number;
