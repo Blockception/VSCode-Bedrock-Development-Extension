@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import * as ECD from "./ExecuteDiagnostics"
+import * as ECD from "./commands/ExecuteDiagnostic"
 import * as FCD from "./FunctionCommandDiagnostics";
 import * as SD from "./SelectorDiagnostics";
 import * as CD from "./CoordinateDiagnostics";
@@ -12,11 +12,13 @@ export function activate(context: vscode.ExtensionContext) {
     var Manager = Diagnostics.Manager;
     console.log("activating diagnostics");
     
+    Manager.SelectorDiagnoser = new SD.SelectorDiagnosticProvider();
+    Manager.CoordinateDiagnoser = new CD.CoordinateDiagnosticProvider();
+
     FCD.activate(Manager);
     ECD.activate(Manager)
     SCD.activate(Manager);
-    Manager.SelectorDiagnoser = new SD.SelectorDiagnosticProvider();
-    Manager.CoordinateDiagnoser = new CD.CoordinateDiagnosticProvider();
+
 
     //If window is open, create new diagnostics
 	if (vscode.window.activeTextEditor) {

@@ -1,6 +1,4 @@
 import * as vscode from 'vscode';
-import * as FCD from "./FunctionCommandDiagnostics"
-import * as SD from "./SelectorDiagnostics"
 import { SyntaxTree, SyntaxItem } from '../../general/include';
 
 export class DiagnosticsManager {
