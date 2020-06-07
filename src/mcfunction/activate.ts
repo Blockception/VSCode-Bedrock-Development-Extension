@@ -1,14 +1,15 @@
 import * as vscode from 'vscode';
 import * as McfunctionCompletionItems from './completion_item';
-import * as Diagnostics from "./diagnostics"
 import * as constants from "../constants"
 import * as Formatting from "./formatters"
 import * as Symboles from "./SymbolProvider"
 import * as Completion from "./completion items/activate"
+import * as Diagnostics from "./diagnostics/activate"
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log("activating mcfunction extension");
 	Completion.activate(context)
+	Diagnostics.activate(context);
 
 
 	//Old redo

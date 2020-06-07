@@ -4,14 +4,13 @@ import * as SF from "../selectors/functions"
 import * as Functions from "../../general/include";
 import { mcfunctionDatabase } from "../Database";
 
-export function activate(context: vscode.ExtensionContext) {
-    
+export function activate(context: vscode.ExtensionContext) {    
     context.subscriptions.push(
         vscode.languages.registerCompletionItemProvider(constants.McLanguageIdentifier, new SelectorCompletionProvider(), "[", ",", "{", "=")
     );
 }
 
-export class SelectorCompletionProvider implements vscode.CompletionItemProvider {
+class SelectorCompletionProvider implements vscode.CompletionItemProvider {
 
     default: vscode.CompletionList;
     letters: vscode.CompletionList;
