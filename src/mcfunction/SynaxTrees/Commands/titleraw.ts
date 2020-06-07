@@ -18,7 +18,7 @@ function createtitleraw() : CommandStructureTree {
 
 	//Branch: item_target.clear
 	{
-	var item_clear = Tree.Add("clear", CommandStructureType.Any);
+	var item_clear = item_target.Add("clear", CommandStructureType.Any);
 	item_clear.Description = "clear";
 	item_clear.IsOptional = false;
 
@@ -26,7 +26,7 @@ function createtitleraw() : CommandStructureTree {
 
 	//Branch: item_target.reset
 	{
-	var item_reset = Tree.Add("reset", CommandStructureType.Any);
+	var item_reset = item_target.Add("reset", CommandStructureType.Any);
 	item_reset.Description = "reset";
 	item_reset.IsOptional = false;
 
@@ -34,7 +34,7 @@ function createtitleraw() : CommandStructureTree {
 
 	//Branch: item_target.<title|subtitle|actionbar>
 	{
-	var item_title|subtitle|actionbar = Tree.Add("title|subtitle|actionbar", CommandStructureType.Any);
+	var item_title|subtitle|actionbar = item_target.Add("title|subtitle|actionbar", CommandStructureType.Any);
 	item_title|subtitle|actionbar.Description = "title|subtitle|actionbar";
 	item_title|subtitle|actionbar.IsOptional = false;
 
@@ -46,7 +46,7 @@ function createtitleraw() : CommandStructureTree {
 
 	//Branch: item_target.times
 	{
-	var item_times = Tree.Add("times", CommandStructureType.Any);
+	var item_times = item_target.Add("times", CommandStructureType.Any);
 	item_times.Description = "times";
 	item_times.IsOptional = false;
 

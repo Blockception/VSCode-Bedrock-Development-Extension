@@ -14,7 +14,7 @@ function createtag() : CommandStructureTree {
 
 	//Branch: item_targets.remove
 	{
-	var item_remove = Tree.Add("remove", CommandStructureType.Any);
+	var item_remove = item_targets.Add("remove", CommandStructureType.Any);
 	item_remove.Description = "remove";
 	item_remove.IsOptional = false;
 
@@ -26,7 +26,7 @@ function createtag() : CommandStructureTree {
 
 	//Branch: item_targets.list
 	{
-	var item_list = Tree.Add("list", CommandStructureType.Any);
+	var item_list = item_targets.Add("list", CommandStructureType.Any);
 	item_list.Description = "list";
 	item_list.IsOptional = false;
 
@@ -34,7 +34,7 @@ function createtag() : CommandStructureTree {
 
 	//Branch: item_targets.add
 	{
-	var item_add = Tree.Add("add", CommandStructureType.Any);
+	var item_add = item_targets.Add("add", CommandStructureType.Any);
 	item_add.Description = "add";
 	item_add.IsOptional = false;
 

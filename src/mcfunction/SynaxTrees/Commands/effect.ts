@@ -18,7 +18,7 @@ function createeffect() : CommandStructureTree {
 
 	//Branch: item_target.<effect:
 	{
-	var item_effect = Tree.Add("effect:", CommandStructureType.Any);
+	var item_effect = item_target.Add("effect:", CommandStructureType.Any);
 	item_effect.Description = "effect:";
 	item_effect.IsOptional = false;
 
@@ -34,7 +34,7 @@ function createeffect() : CommandStructureTree {
 	item_amplifierint.Description = "amplifier: int";
 	item_amplifierint.IsOptional = true;
 
-	var item_hideParticlesBoolean = Tree.Add("hideParticles: Boolean", CommandStructureType.Boolean);
+	var item_hideParticlesBoolean = Tree.Add("hideParticles: Boolean", CommandStructureType.Any);
 	item_hideParticlesBoolean.Description = "hideParticles: Boolean";
 	item_hideParticlesBoolean.IsOptional = true;
 
@@ -42,7 +42,7 @@ function createeffect() : CommandStructureTree {
 
 	//Branch: item_target.clear
 	{
-	var item_clear = Tree.Add("clear", CommandStructureType.Any);
+	var item_clear = item_target.Add("clear", CommandStructureType.Any);
 	item_clear.Description = "clear";
 	item_clear.IsOptional = false;
 

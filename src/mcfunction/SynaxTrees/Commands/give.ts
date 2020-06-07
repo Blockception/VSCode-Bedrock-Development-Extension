@@ -34,7 +34,7 @@ function creategive() : CommandStructureTree {
 
 	//Branch: item_dataint.[components: json]
 	{
-	var item_componentsjson = Tree.Add("components: json", CommandStructureType.Any);
+	var item_componentsjson = item_dataint.Add("components: json", CommandStructureType.Any);
 	item_componentsjson.Description = "components: json";
 	item_componentsjson.IsOptional = true;
 
@@ -42,7 +42,7 @@ function creategive() : CommandStructureTree {
 
 	//Branch: item_dataint.{ "minecraft:can_destroy": { "blocks": [ "grass" ]}, "minecraft:can_place_on": { "blocks": [ "grass" ]}}
 	{
-	var item_{"minecraftcan_destroy"{"blocks"["grass"]},"minecraftcan_place_on"{"blocks"["grass"]}} = Tree.Add("{ "minecraft:can_destroy": { "blocks": [ "grass" ]}, "minecraft:can_place_on": { "blocks": [ "grass" ]}}", CommandStructureType.Any);
+	var item_{"minecraftcan_destroy"{"blocks"["grass"]},"minecraftcan_place_on"{"blocks"["grass"]}} = item_dataint.Add("{ "minecraft:can_destroy": { "blocks": [ "grass" ]}, "minecraft:can_place_on": { "blocks": [ "grass" ]}}", CommandStructureType.Any);
 	item_{"minecraftcan_destroy"{"blocks"["grass"]},"minecraftcan_place_on"{"blocks"["grass"]}}.Description = "{ "minecraft:can_destroy": { "blocks": [ "grass" ]}, "minecraft:can_place_on": { "blocks": [ "grass" ]}}";
 	item_{"minecraftcan_destroy"{"blocks"["grass"]},"minecraftcan_place_on"{"blocks"["grass"]}}.IsOptional = false;
 

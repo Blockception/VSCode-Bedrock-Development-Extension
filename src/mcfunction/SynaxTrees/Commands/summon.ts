@@ -18,7 +18,7 @@ function createsummon() : CommandStructureTree {
 
 	//Branch: item_EntityType.[spawnPos: x y z]
 	{
-	var item_spawnPosxyz = Tree.Add("spawnPos: x y z", CommandStructureType.Any);
+	var item_spawnPosxyz = item_EntityType.Add("spawnPos: x y z", CommandStructureType.Any);
 	item_spawnPosxyz.Description = "spawnPos: x y z";
 	item_spawnPosxyz.IsOptional = true;
 
@@ -34,7 +34,7 @@ function createsummon() : CommandStructureTree {
 
 	//Branch: item_EntityType.<nameTag:
 	{
-	var item_nameTag = Tree.Add("nameTag:", CommandStructureType.Any);
+	var item_nameTag = item_EntityType.Add("nameTag:", CommandStructureType.Any);
 	item_nameTag.Description = "nameTag:";
 	item_nameTag.IsOptional = false;
 

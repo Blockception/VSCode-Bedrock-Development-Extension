@@ -14,7 +14,7 @@ function createxp() : CommandStructureTree {
 
 	//Branch: item_amount.int>
 	{
-	var item_int = Tree.Add("int", CommandStructureType.Any);
+	var item_int = item_amount.Add("int", CommandStructureType.Any);
 	item_int.Description = "int";
 	item_int.IsOptional = false;
 
@@ -26,7 +26,7 @@ function createxp() : CommandStructureTree {
 
 	//Branch: item_amount.int>L
 	{
-	var item_int>L = Tree.Add("int>L", CommandStructureType.Any);
+	var item_int>L = item_amount.Add("int>L", CommandStructureType.Any);
 	item_int>L.Description = "int>L";
 	item_int>L.IsOptional = false;
 
