@@ -12,7 +12,7 @@ function createw() : CommandStructureTree {
 	item_target.Description = "target:";
 	item_target.IsOptional = false;
 
-	var item_target = Tree.Add("target", CommandStructureType.Any);
+	var item_target = Tree.Add("target", CommandStructureType.Target);
 	item_target.Description = "target";
 	item_target.IsOptional = false;
 

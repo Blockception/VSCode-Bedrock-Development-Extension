@@ -12,7 +12,7 @@ function createexecute() : CommandStructureTree {
 	item_origin.Description = "origin:";
 	item_origin.IsOptional = false;
 
-	var item_target = Tree.Add("target", CommandStructureType.Any);
+	var item_target = Tree.Add("target", CommandStructureType.Target);
 	item_target.Description = "target";
 	item_target.IsOptional = false;
 

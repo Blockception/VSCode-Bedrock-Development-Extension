@@ -18,8 +18,8 @@ function createxp() : CommandStructureTree {
 	item_int.Description = "int";
 	item_int.IsOptional = false;
 
-	var item_playertarget = Tree.Add("player: target", CommandStructureType.Any);
-	item_playertarget.Description = "player: target";
+	var item_playertarget = Tree.Add("player: target", CommandStructureType.Target);
+	item_playertarget.Description = "The target/selector that targets a player";
 	item_playertarget.IsOptional = true;
 
 	}
@@ -30,8 +30,8 @@ function createxp() : CommandStructureTree {
 	item_int>L.Description = "int>L";
 	item_int>L.IsOptional = false;
 
-	var item_playertarget = Tree.Add("player: target", CommandStructureType.Any);
-	item_playertarget.Description = "player: target";
+	var item_playertarget = Tree.Add("player: target", CommandStructureType.Target);
+	item_playertarget.Description = "The target/selector that targets a player";
 	item_playertarget.IsOptional = true;
 
 	}
