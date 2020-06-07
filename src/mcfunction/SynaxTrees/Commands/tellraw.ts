@@ -8,13 +8,13 @@ function createtellraw() : CommandStructureTree {
 	Tree.Description = "Sends a JSON message to players.";
 	Tree.CanEnd = true;
 
-	var item_player = Tree.Add("player", CommandStructureType.Any);
+	var item_player = Tree.Add("player", CommandStructureType.Target);
 	item_player.Description = "player";
 	item_player.IsOptional = false;
 
-	var item_{"rawtext"[{"text"""},"",{"translate"""}]} = item_player.Add("{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }", CommandStructureType.Any);
-	item_{"rawtext"[{"text"""},"",{"translate"""}]}.Description = "{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }";
-	item_{"rawtext"[{"text"""},"",{"translate"""}]}.IsOptional = false;
+	var item_json = item_player.Add("json", CommandStructureType.Json);
+	item_json.Description = "the tellraw";
+	item_json.IsOptional = false;
 
 	return Tree;
 }

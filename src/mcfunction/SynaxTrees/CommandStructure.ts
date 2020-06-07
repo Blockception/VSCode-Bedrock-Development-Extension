@@ -12,8 +12,10 @@ export enum CommandStructureType {
     Json,    
     Number,    
     Objective,
-    Particle,
+    Sound,
+    Particle,    
     SameAsName,
+    String,
     Tag,
     Target
 }

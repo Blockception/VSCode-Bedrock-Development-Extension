@@ -8,19 +8,19 @@ function createspreadplayers() : CommandStructureTree {
 	Tree.Description = "Teleports entities to random locations.";
 	Tree.CanEnd = true;
 
-	var item_xvalue = Tree.Add("x: value", CommandStructureType.Any);
-	item_xvalue.Description = "x: value";
+	var item_xvalue = Tree.Add("x", CommandStructureType.Number);
+	item_xvalue.Description = "x";
 	item_xvalue.IsOptional = false;
 
-	var item_zvalue = item_xvalue.Add("z: value", CommandStructureType.Any);
-	item_zvalue.Description = "z: value";
+	var item_zvalue = item_xvalue.Add("z", CommandStructureType.Number);
+	item_zvalue.Description = "z";
 	item_zvalue.IsOptional = false;
 
-	var item_spreadDistancefloat = item_zvalue.Add("spreadDistance: float", CommandStructureType.Any);
+	var item_spreadDistancefloat = item_zvalue.Add("spreadDistance", CommandStructureType.Number);
 	item_spreadDistancefloat.Description = "spreadDistance: float";
 	item_spreadDistancefloat.IsOptional = false;
 
-	var item_maxRangefloat = item_spreadDistancefloat.Add("maxRange: float", CommandStructureType.Any);
+	var item_maxRangefloat = item_spreadDistancefloat.Add("maxRange", CommandStructureType.Number);
 	item_maxRangefloat.Description = "maxRange: float";
 	item_maxRangefloat.IsOptional = false;
 

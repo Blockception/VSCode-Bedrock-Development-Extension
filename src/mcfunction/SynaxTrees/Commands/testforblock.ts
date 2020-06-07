@@ -8,11 +8,19 @@ function createtestforblock() : CommandStructureTree {
 	Tree.Description = "Tests whether a certain block is in a specific location.";
 	Tree.CanEnd = true;
 
-	var item_positionxyz = Tree.Add("position: x y z", CommandStructureType.Any);
-	item_positionxyz.Description = "position: x y z";
-	item_positionxyz.IsOptional = false;
+	var item_x = Tree.Add("position: x", CommandStructureType.Coordinate);
+	item_x.Description = "The x coordinate to look at";
+	item_x.IsOptional = false;
 
-	var item_tileNameBlock = item_positionxyz.Add("tileName: Block", CommandStructureType.Any);
+	var item_y = item_x.Add("position: y", CommandStructureType.Coordinate);
+	item_y.Description = "The y coordinate to look at";
+	item_y.IsOptional = false;
+
+	var item_z = item_y.Add("position: z", CommandStructureType.Coordinate);
+	item_z.Description = "The z coordinate to look at";
+	item_z.IsOptional = false;
+
+	var item_tileNameBlock = item_z.Add("tileName: Block", CommandStructureType.Block);
 	item_tileNameBlock.Description = "tileName: Block";
 	item_tileNameBlock.IsOptional = false;
 
