@@ -34,7 +34,7 @@ function createexecute() : CommandStructureTree {
 
 	//Branch: item_z.<command:
 	{
-	var item_command = Tree.Add("command:", CommandStructureType.Any);
+	var item_command = item_z.Add("command:", CommandStructureType.Any);
 	item_command.Description = "command:";
 	item_command.IsOptional = false;
 
@@ -46,7 +46,7 @@ function createexecute() : CommandStructureTree {
 
 	//Branch: item_z.detect
 	{
-	var item_detect = Tree.Add("detect", CommandStructureType.Any);
+	var item_detect = item_z.Add("detect", CommandStructureType.Any);
 	item_detect.Description = "detect";
 	item_detect.IsOptional = false;
 

@@ -16,7 +16,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_objectives.list
 	{
-	var item_list = Tree.Add("list", CommandStructureType.Any);
+	var item_list = item_objectives.Add("list", CommandStructureType.Any);
 	item_list.Description = "list";
 	item_list.IsOptional = false;
 
@@ -24,7 +24,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_objectives.add
 	{
-	var item_add = Tree.Add("add", CommandStructureType.Any);
+	var item_add = item_objectives.Add("add", CommandStructureType.Any);
 	item_add.Description = "add";
 	item_add.IsOptional = false;
 
@@ -44,7 +44,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_objectives.remove
 	{
-	var item_remove = Tree.Add("remove", CommandStructureType.Any);
+	var item_remove = item_objectives.Add("remove", CommandStructureType.Any);
 	item_remove.Description = "remove";
 	item_remove.IsOptional = false;
 
@@ -56,13 +56,13 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_objectives.setdisplay
 	{
-	var item_setdisplay = Tree.Add("setdisplay", CommandStructureType.Any);
+	var item_setdisplay = item_objectives.Add("setdisplay", CommandStructureType.Any);
 	item_setdisplay.Description = "setdisplay";
 	item_setdisplay.IsOptional = false;
 
 	//Branch: item_setdisplay.<slot>
 	{
-	var item_slot = Tree.Add("slot", CommandStructureType.Any);
+	var item_slot = item_setdisplay.Add("slot", CommandStructureType.Any);
 	item_slot.Description = "slot";
 	item_slot.IsOptional = false;
 
@@ -74,7 +74,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_setdisplay.belowname
 	{
-	var item_belowname = Tree.Add("belowname", CommandStructureType.Any);
+	var item_belowname = item_setdisplay.Add("belowname", CommandStructureType.Any);
 	item_belowname.Description = "belowname";
 	item_belowname.IsOptional = false;
 
@@ -86,7 +86,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_setdisplay.list
 	{
-	var item_list = Tree.Add("list", CommandStructureType.Any);
+	var item_list = item_setdisplay.Add("list", CommandStructureType.Any);
 	item_list.Description = "list";
 	item_list.IsOptional = false;
 
@@ -98,7 +98,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_setdisplay.sidebar
 	{
-	var item_sidebar = Tree.Add("sidebar", CommandStructureType.Any);
+	var item_sidebar = item_setdisplay.Add("sidebar", CommandStructureType.Any);
 	item_sidebar.Description = "sidebar";
 	item_sidebar.IsOptional = false;
 
@@ -120,7 +120,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.list
 	{
-	var item_list = Tree.Add("list", CommandStructureType.Any);
+	var item_list = item_players.Add("list", CommandStructureType.Any);
 	item_list.Description = "list";
 	item_list.IsOptional = false;
 
@@ -132,7 +132,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.set
 	{
-	var item_set = Tree.Add("set", CommandStructureType.Any);
+	var item_set = item_players.Add("set", CommandStructureType.Any);
 	item_set.Description = "set";
 	item_set.IsOptional = false;
 
@@ -156,7 +156,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.add
 	{
-	var item_add = Tree.Add("add", CommandStructureType.Any);
+	var item_add = item_players.Add("add", CommandStructureType.Any);
 	item_add.Description = "add";
 	item_add.IsOptional = false;
 
@@ -180,7 +180,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.remove
 	{
-	var item_remove = Tree.Add("remove", CommandStructureType.Any);
+	var item_remove = item_players.Add("remove", CommandStructureType.Any);
 	item_remove.Description = "remove";
 	item_remove.IsOptional = false;
 
@@ -204,7 +204,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.reset
 	{
-	var item_reset = Tree.Add("reset", CommandStructureType.Any);
+	var item_reset = item_players.Add("reset", CommandStructureType.Any);
 	item_reset.Description = "reset";
 	item_reset.IsOptional = false;
 
@@ -224,7 +224,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.operation
 	{
-	var item_operation = Tree.Add("operation", CommandStructureType.Any);
+	var item_operation = item_players.Add("operation", CommandStructureType.Any);
 	item_operation.Description = "operation";
 	item_operation.IsOptional = false;
 
@@ -238,7 +238,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.<operation>
 	{
-	var item_operation = Tree.Add("operation", CommandStructureType.Any);
+	var item_operation = item_targetObjective.Add("operation", CommandStructureType.Any);
 	item_operation.Description = "operation";
 	item_operation.IsOptional = false;
 
@@ -254,7 +254,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.%=
 	{
-	var item_%= = Tree.Add("%=", CommandStructureType.Any);
+	var item_%= = item_targetObjective.Add("%=", CommandStructureType.Any);
 	item_%=.Description = "%=";
 	item_%=.IsOptional = false;
 
@@ -270,7 +270,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.*=
 	{
-	var item_*= = Tree.Add("*=", CommandStructureType.Any);
+	var item_*= = item_targetObjective.Add("*=", CommandStructureType.Any);
 	item_*=.Description = "*=";
 	item_*=.IsOptional = false;
 
@@ -286,7 +286,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.+=
 	{
-	var item_+= = Tree.Add("+=", CommandStructureType.Any);
+	var item_+= = item_targetObjective.Add("+=", CommandStructureType.Any);
 	item_+=.Description = "+=";
 	item_+=.IsOptional = false;
 
@@ -302,7 +302,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.-=
 	{
-	var item_-= = Tree.Add("-=", CommandStructureType.Any);
+	var item_-= = item_targetObjective.Add("-=", CommandStructureType.Any);
 	item_-=.Description = "-=";
 	item_-=.IsOptional = false;
 
@@ -318,7 +318,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective./=
 	{
-	var item_/= = Tree.Add("/=", CommandStructureType.Any);
+	var item_/= = item_targetObjective.Add("/=", CommandStructureType.Any);
 	item_/=.Description = "/=";
 	item_/=.IsOptional = false;
 
@@ -334,7 +334,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.<
 	{
-	var item_ = Tree.Add("", CommandStructureType.Any);
+	var item_ = item_targetObjective.Add("", CommandStructureType.Any);
 	item_.Description = "";
 	item_.IsOptional = false;
 
@@ -350,7 +350,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.=
 	{
-	var item_= = Tree.Add("=", CommandStructureType.Any);
+	var item_= = item_targetObjective.Add("=", CommandStructureType.Any);
 	item_=.Description = "=";
 	item_=.IsOptional = false;
 
@@ -366,7 +366,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.>
 	{
-	var item_ = Tree.Add("", CommandStructureType.Any);
+	var item_ = item_targetObjective.Add("", CommandStructureType.Any);
 	item_.Description = "";
 	item_.IsOptional = false;
 
@@ -382,7 +382,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_targetObjective.swap
 	{
-	var item_swap = Tree.Add("swap", CommandStructureType.Any);
+	var item_swap = item_targetObjective.Add("swap", CommandStructureType.Any);
 	item_swap.Description = "swap";
 	item_swap.IsOptional = false;
 
@@ -400,7 +400,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.test
 	{
-	var item_test = Tree.Add("test", CommandStructureType.Any);
+	var item_test = item_players.Add("test", CommandStructureType.Any);
 	item_test.Description = "test";
 	item_test.IsOptional = false;
 
@@ -424,7 +424,7 @@ function createscoreboard() : CommandStructureTree {
 
 	//Branch: item_players.random
 	{
-	var item_random = Tree.Add("random", CommandStructureType.Any);
+	var item_random = item_players.Add("random", CommandStructureType.Any);
 	item_random.Description = "random";
 	item_random.IsOptional = false;
 

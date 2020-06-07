@@ -58,7 +58,7 @@ function createclone() : CommandStructureTree {
 
 	//Branch: item_z.[replace|masked]
 	{
-	var item_replace|masked = Tree.Add("replace|masked", CommandStructureType.Any);
+	var item_replace|masked = item_z.Add("replace|masked", CommandStructureType.Any);
 	item_replace|masked.Description = "replace|masked";
 	item_replace|masked.IsOptional = true;
 
@@ -70,7 +70,7 @@ function createclone() : CommandStructureTree {
 
 	//Branch: item_z.filtered
 	{
-	var item_filtered = Tree.Add("filtered", CommandStructureType.Any);
+	var item_filtered = item_z.Add("filtered", CommandStructureType.Any);
 	item_filtered.Description = "filtered";
 	item_filtered.IsOptional = false;
 

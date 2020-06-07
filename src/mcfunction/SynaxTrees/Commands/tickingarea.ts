@@ -64,7 +64,7 @@ function createtickingarea() : CommandStructureTree {
 
 	//Branch: item_add.circle
 	{
-	var item_circle = Tree.Add("circle", CommandStructureType.Any);
+	var item_circle = item_add.Add("circle", CommandStructureType.Any);
 	item_circle.Description = "circle";
 	item_circle.IsOptional = false;
 
@@ -100,7 +100,7 @@ function createtickingarea() : CommandStructureTree {
 
 	//Branch: item_add.<from:
 	{
-	var item_from = Tree.Add("from:", CommandStructureType.Any);
+	var item_from = item_add.Add("from:", CommandStructureType.Any);
 	item_from.Description = "from:";
 	item_from.IsOptional = false;
 
