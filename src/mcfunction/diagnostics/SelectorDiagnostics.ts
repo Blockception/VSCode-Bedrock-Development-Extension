@@ -1,23 +1,43 @@
 import * as vscode from "vscode";
-import { Selector } from "../selectors/selector";
-import * as Functions from "../selectors/functions";
-import { RangedWord } from "../../general/Words";
-import { isNumber } from "util";
+import { Selector, SelectorParameter } from "../selectors/selector";
+import * as SF from "../selectors/functions";
+import { DiagnosticsManager, DiagnosticProvider } from "../diagnostics/DiagnosticsManager";
+import { SyntaxItem, RangedWord } from "../../general/include";
 
+export class SelectorDiagnosticProvider implements DiagnosticProvider {
 
-//Provides diagnostis for the command function
-export function provideDiagnostics(document: vscode.TextDocument, lineIndex : number, collection: vscode.Diagnostic[]) : void {
-  
+  //provides diagnostics
+  provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+    var Selector = item.Text;
+
+    if (Selector.text.length <= 2) {
+      switch (Selector.text) {
+        case "@a":
+        case "@e":
+        case "@r":
+        case "@s":
+        case "@p":
+          break;
+
+        default:
+          collector.push(new vscode.Diagnostic(
+            new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
+            "Missing or invalid selector",
+            vscode.DiagnosticSeverity.Error
+          ));
+          return;
+      }
+    }
+    else {
+      CheckSelector(lineIndex, Selector, document, collector);
+    }
+  }
 }
 
 //Checks the selector
-function CheckSelector(line: vscode.TextLine, selectorText: string, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
-
-  if (selectorText.text.length <= 2)
-    return;
-
+function CheckSelector(lineIndex: number, selectorText: RangedWord, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
   var sObject = Selector.Parse(selectorText.text);
-  var Range = new vscode.Range(line.lineNumber, selectorText.startindex, line.lineNumber, selectorText.endindex);
+  var Range = new vscode.Range(lineIndex, selectorText.startindex, lineIndex, selectorText.endindex);
   var coordsSpec = false;
   var BoxSpec = false;
   var SphereSpec = false;

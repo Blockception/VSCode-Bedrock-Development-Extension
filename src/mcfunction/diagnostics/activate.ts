@@ -1,19 +1,22 @@
 import * as vscode from 'vscode';
-import * as FCD from "./FunctionCommandDiagnostics"
-import * as SD from "./SelectorDiagnostics"
-import { SyntaxTree, SyntaxItem } from '../../general/include';
-import { DiagnosticsManager, DiagnosticProvider } from './DiagnosticsManager';
-
-
-module Diagnostics {
-    export const Manager = new DiagnosticsManager();
-    export const collection = vscode.languages.createDiagnosticCollection("mcfunction-diagnostics");
-}
+import * as ECD from "./ExecuteDiagnostics"
+import * as FCD from "./FunctionCommandDiagnostics";
+import * as SD from "./SelectorDiagnostics";
+import * as CD from "./CoordinateDiagnostics";
+import * as SCD from "./ScoreboardDiagnostics";
+import { SyntaxTree } from '../../general/include';
+import { DiagnosticProvider } from './DiagnosticsManager';
+import * as Diagnostics from "./Diagnostics";
 
 export function activate(context: vscode.ExtensionContext) {
+    var Manager = Diagnostics.Manager;
     console.log("activating diagnostics");
     
-    
+    FCD.activate(Manager);
+    ECD.activate(Manager)
+    SCD.activate(Manager);
+    Manager.SelectorDiagnoser = new SD.SelectorDiagnosticProvider();
+    Manager.CoordinateDiagnoser = new CD.CoordinateDiagnosticProvider();
 
     //If window is open, create new diagnostics
 	if (vscode.window.activeTextEditor) {
@@ -62,7 +65,7 @@ function updateDiagnostics(document : vscode.TextDocument, collection : vscode.D
             Diagnoser = Diagnostics.Manager.get(Item);
 
             if (Diagnoser != undefined) {
-                Diagnoser.provideDiagnostic(Item, index, docCollection, Diagnostics.Manager);
+                Diagnoser.provideDiagnostic(Item, index, docCollection, Diagnostics.Manager, document);
             }
         }
     }

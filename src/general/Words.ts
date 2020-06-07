@@ -13,37 +13,49 @@ export class RangedWord {
         var out = new Array<RangedWord>();
         var level = 0;
         var startindex = 0;
-    
+        var Instring = false;
+                
         for (var index = 0; index < text.length; index++){
             var c = text.charAt(index);
-    
-            switch (c){
-                case "[":
-                case "(":
-                case "{":
-                    level++;
-                    break;
-    
-                case "]":
-                case ")":
-                case "}":
-                    level--;
-                    break;
-    
-                case " ":
-                case "\t":
-                    if (level == 0){
-                        if (startindex < index){
-                            var RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
-                            out.push(RW);
+
+            if (Instring){
+                if (c == '"')
+                    Instring = false;
+            }
+            else
+            {        
+                switch (c){
+                    case '"':
+                        Instring = true;
+                        break;
+
+                    case "[":
+                    case "(":
+                    case "{":
+                        level++;
+                        break;
+        
+                    case "]":
+                    case ")":
+                    case "}":
+                        level--;
+                        break;
+        
+                    case " ":
+                    case "\t":
+                        if (level == 0){
+                            if (startindex < index){
+                                var RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
+                                out.push(RW);
+                            }
+        
+                            startindex = index + 1;
                         }
-    
-                        startindex = index + 1;
-                    }
-    
-                    break;
-                default:
-                    break;
+        
+                        break;
+                    default:
+                        break;
+                }
             }
     
             if (level < 0)

@@ -8,7 +8,7 @@ export function activate(context: DiagnosticsManager) {
 }
 
 class FunctionCommandDiagnosticProvider implements DiagnosticProvider {
-
+    //provides diagnostics
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void{
         var Word = item.Child?.Text;
 
