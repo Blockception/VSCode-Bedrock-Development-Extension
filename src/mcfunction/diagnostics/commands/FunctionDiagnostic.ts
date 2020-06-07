@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from "fs";
-import { DiagnosticsManager, DiagnosticProvider } from "../diagnostics/DiagnosticsManager";
-import { SyntaxItem } from "../../general/include";
+import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
+import { SyntaxItem } from "../../../general/include";
 
 export class FunctionCommandDiagnosticProvider implements DiagnosticProvider {
     //provides diagnostics

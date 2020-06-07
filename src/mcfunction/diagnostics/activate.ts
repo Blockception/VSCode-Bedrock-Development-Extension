@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as SD from "./SelectorDiagnostics";
 import * as CD from "./CoordinateDiagnostics";
+import * as BD from "./BooleanDiagnostics";
 import { SyntaxTree } from '../../general/include';
 import { DiagnosticProvider } from './DiagnosticsManager';
 import * as Diagnostics from "./Diagnostics";
@@ -10,10 +11,14 @@ export function activate(context: vscode.ExtensionContext) {
     var Manager = Diagnostics.Manager;
     console.log("activating diagnostics");
     
+    //set up base types diagnosers
     Manager.SelectorDiagnoser = new SD.SelectorDiagnosticProvider();
     Manager.CoordinateDiagnoser = new CD.CoordinateDiagnosticProvider();
+    Manager.BooleanDiagnoser = new BD.BooleanDiagnosticProvider();
+
+    //activate commands
     Commands.activate(Manager);
-    
+
     //If window is open, create new diagnostics
 	if (vscode.window.activeTextEditor) {
 		updateDiagnostics(vscode.window.activeTextEditor.document, Diagnostics.collection);

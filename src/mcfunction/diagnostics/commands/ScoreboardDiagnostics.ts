@@ -1,126 +1,615 @@
 import * as vscode from 'vscode';
-import * as fs from "fs";
-import { DiagnosticsManager, DiagnosticProvider } from "../diagnostics/DiagnosticsManager";
-import { SyntaxItem } from "../../general/include";
+import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { SyntaxItem } from '../../../general/include';
 
-export function activate(context: DiagnosticsManager) {
-    context.set(new ScoreboardDiagnosticProvider(), ["scoreboard"]);
-}
+export class scoreboardDiagnosticProvider implements DiagnosticProvider {
 
-class ScoreboardDiagnosticProvider implements DiagnosticProvider {
-    provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-        var Child = item.Child;
+	//provides diagnostics
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-        if (Child == undefined) {
-            return;
-        }
+		switch(item.text) {
+		case 'objectives':
+			this.branchobjectives(item, lineIndex, collector, dm, document);
+			return;
 
-        switch (Child.Text.text) {
-            case "players":
-                this.playerDiagnostic(Child, lineIndex, collector, dm, document);
-                return;
-            case "objectives":
-                this.objectiveDiagnostic(Child, lineIndex, collector, dm, document);
-                return;
-            default:
-                collector.push(new vscode.Diagnostic(
-                    new vscode.Range(lineIndex, Child.Text.startindex, lineIndex, Child.Text.endindex),
-                    "unknown scoreboard command",
-                    vscode.DiagnosticSeverity.Error
-                ));
-                return;
-        }
-    }
+		case 'players':
+			this.branchplayers(item, lineIndex, collector, dm, document);
+			return;
 
-    playerDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		default:
+			//NOT FOUND ERROR
+			return;
+		}
 
-    }
+	}
 
-    objectiveDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-        var Child = item.Child;
+	branchobjectives(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-        if (Child == undefined) {
-            collector.push(new vscode.Diagnostic(
-                new vscode.Range(lineIndex, item.Text.startindex, lineIndex, item.Text.endindex),
-                "scoreboard objectives needs a follow up",
-                vscode.DiagnosticSeverity.Error
-            ));
-            return;
-        }
+		//objectives
+		if (word == undefined) {
+			//MISSING ERROR
+		}
 
-        switch (Child.Text.text) {
-            case "list":
-                return;
+		switch(item.text) {
+		case 'list':
+			this.branchlist(item, lineIndex, collector, dm, document);
+			return;
 
-            case "remove":
-            case "add":
-                this.objectiveNameDiagnostic(Child, lineIndex, collector);
-                return;
+		case 'add':
+			this.branchadd(item, lineIndex, collector, dm, document);
+			return;
 
-            case "setdisplay":
-                this.setDisplayDiagnostic(Child, lineIndex, collector);
-                return;
+		case 'remove':
+			this.branchremove(item, lineIndex, collector, dm, document);
+			return;
 
-            default:
-                collector.push(new vscode.Diagnostic(
-                    new vscode.Range(lineIndex, Child.Text.startindex, lineIndex, Child.Text.endindex),
-                    "unknown scoreboard objectives command",
-                    vscode.DiagnosticSeverity.Error
-                ));
-                return;
-        }
-    }
+		case 'setdisplay':
+			this.branchsetdisplay(item, lineIndex, collector, dm, document);
+			return;
 
-    objectiveNameDiagnostic(parent: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[]): void {
-        var Child = parent.Child;
+		default:
+			//NOT FOUND ERROR
+			return;
+		}
+	}
 
-        if (Child == undefined) {
-            collector.push(new vscode.Diagnostic(
-                new vscode.Range(lineIndex, parent.Text.endindex + 1, lineIndex, parent.Text.endindex + 2),
-                "expected a scoreboard name",
-                vscode.DiagnosticSeverity.Error
-            ));
-            return;
-        }
+	branchlist(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-        if (!Child.Text.text.match("^[a-zA-Z_0-9][a-zA-Z\-_0-9\.+]$")) {
-            collector.push(new vscode.Diagnostic(
-                new vscode.Range(lineIndex, Child.Text.endindex + 1, lineIndex, Child.Text.endindex + 2),
-                "invalid scoreboard name",
-                vscode.DiagnosticSeverity.Error
-            ));
-            return;
-        }
-    }
+		//list
+		if (word == undefined) {
+			//MISSING ERROR
+		}
 
-    setDisplayDiagnostic(parent: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[]): void {
-        var Child = parent.Child;
+	}
+	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-        if (Child == undefined) {
-            collector.push(new vscode.Diagnostic(
-                new vscode.Range(lineIndex, parent.Text.startindex, lineIndex, parent.Text.endindex),
-                "scoreboard objectives setdisplay needs a follow up"
-            ));
-            return;
-        }
+		//add
+		if (word == undefined) {
+			//MISSING ERROR
+		}
 
-        switch (Child.Text.text) {
-            case "belowname":
-            case "list":
-            case "sidebar":
-                if (Child.Child == undefined)
-                    return;
-                    
-                this.objectiveNameDiagnostic(Child, lineIndex, collector);
-                return;
+		//<name>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
 
-            default:
-                collector.push(new vscode.Diagnostic(
-                    new vscode.Range(lineIndex, Child.Text.endindex + 1, lineIndex, Child.Text.endindex + 2),
-                    "invalid scoreboard objectives setdisplay name",
-                    vscode.DiagnosticSeverity.Error
-                ));
-                return;
-        }
-    }
+		//dummy
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//[display name: string]
+		if (word == undefined) {
+			return;
+		}
+		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+
+	}
+	branchremove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//remove
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<name>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branchsetdisplay(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//setdisplay
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		switch(item.text) {
+		case '<slot>':
+			this.branchslot(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'belowname':
+			this.branchbelowname(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'list':
+			this.branchlist(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'sidebar':
+			this.branchsidebar(item, lineIndex, collector, dm, document);
+			return;
+
+		default:
+			//NOT FOUND ERROR
+			return;
+		}
+	}
+
+	branchslot(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//<slot>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//[objective]
+		if (word == undefined) {
+			return;
+		}
+
+	}
+	branchbelowname(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//belowname
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//[objective]
+		if (word == undefined) {
+			return;
+		}
+
+	}
+	branchlist(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//list
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//[objective]
+		if (word == undefined) {
+			return;
+		}
+
+	}
+	branchsidebar(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//sidebar
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//[objective]
+		if (word == undefined) {
+			return;
+		}
+
+	}
+	}
+	}
+	branchplayers(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//players
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		switch(item.text) {
+		case 'list':
+			this.branchlist(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'set':
+			this.branchset(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'add':
+			this.branchadd(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'remove':
+			this.branchremove(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'reset':
+			this.branchreset(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'operation':
+			this.branchoperation(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'test':
+			this.branchtest(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'random':
+			this.branchrandom(item, lineIndex, collector, dm, document);
+			return;
+
+		default:
+			//NOT FOUND ERROR
+			return;
+		}
+	}
+
+	branchlist(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//list
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//[entity]
+		if (word == undefined) {
+			return;
+		}
+
+	}
+	branchset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//set
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<entity: string>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<score>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//add
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<entity: string>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<count>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branchremove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//remove
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<entity: string>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<count>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branchreset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//reset
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<entity: string>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+		dm.StringDiagnoser(word, lineIndex, collector, dm, document);
+
+		//[objective]
+		if (word == undefined) {
+			return;
+		}
+
+	}
+	branchoperation(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//operation
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<targetName>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<targetObjective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		switch(item.text) {
+		case '<operation>':
+			this.branchoperation(item, lineIndex, collector, dm, document);
+			return;
+
+		case '%=':
+			this.branch%=(item, lineIndex, collector, dm, document);
+			return;
+
+		case '*=':
+			this.branch*=(item, lineIndex, collector, dm, document);
+			return;
+
+		case '+=':
+			this.branch+=(item, lineIndex, collector, dm, document);
+			return;
+
+		case '-=':
+			this.branch-=(item, lineIndex, collector, dm, document);
+			return;
+
+		case '/=':
+			this.branch/=(item, lineIndex, collector, dm, document);
+			return;
+
+		case '< <selector> <objective>':
+			this.branch<selector> <objective(item, lineIndex, collector, dm, document);
+			return;
+
+		case '=':
+			this.branch=(item, lineIndex, collector, dm, document);
+			return;
+
+		case '> <selector> <objective>':
+			this.branch<selector> <objective(item, lineIndex, collector, dm, document);
+			return;
+
+		case 'swap':
+			this.branchswap(item, lineIndex, collector, dm, document);
+			return;
+
+		default:
+			//NOT FOUND ERROR
+			return;
+		}
+	branchoperation(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//<operation>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch%=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//%=
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch*=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//*=
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch+=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//+=
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch-=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//-=
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch/=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		///=
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch<selector> <objective(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//< <selector> <objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//=
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branch<selector> <objective(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//> <selector> <objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branchswap(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//swap
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<selector>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	}
+	branchtest(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//test
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<entity>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<min|*>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<max|*>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	branchrandom(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+		//random
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<entity>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<objective>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<min>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+		//<max>
+		if (word == undefined) {
+			//MISSING ERROR
+		}
+
+	}
+	}
 }
