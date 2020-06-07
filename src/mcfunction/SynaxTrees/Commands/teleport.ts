@@ -10,65 +10,45 @@ function createteleport() : CommandStructureTree {
 
 	//Branch: teleport.<target>
 	{
-	var item_target = Tree.Add("target", CommandStructureType.Target);
+	var item_target = Tree.Add("target", CommandStructureType.Any);
 	item_target.Description = "target";
 	item_target.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	//Branch: item_y.z|destination>
+	//Branch: item_target.<x y z|destination>
 	{
-	var item_z|destination = item_y.Add("z|destination", CommandStructureType.Any);
-	item_z|destination.Description = "z|destination";
-	item_z|destination.IsOptional = false;
+	var item_xyz|destination = item_target.Add("x y z|destination", CommandStructureType.Any);
+	item_xyz|destination.Description = "x y z|destination";
+	item_xyz|destination.IsOptional = false;
 
-	var item_yRotvalue = Tree.Add("yRot: value", CommandStructureType.Any);
+	var item_yRotvalue = item_xyz|destination.Add("yRot: value", CommandStructureType.Any);
 	item_yRotvalue.Description = "yRot: value";
 	item_yRotvalue.IsOptional = true;
 
-	var item_xRotvalue = Tree.Add("xRot: value", CommandStructureType.Any);
+	var item_xRotvalue = item_yRotvalue.Add("xRot: value", CommandStructureType.Any);
 	item_xRotvalue.Description = "xRot: value";
 	item_xRotvalue.IsOptional = true;
 
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
+	var item_checkForBlocksBoolean = item_xRotvalue.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
 
 	}
 
-	//Branch: item_y.z|target>
+	//Branch: item_target.<x y z|target>
 	{
-	var item_z|target = item_y.Add("z|target", CommandStructureType.Target);
-	item_z|target.Description = "z|target";
-	item_z|target.IsOptional = false;
+	var item_xyz|target = item_target.Add("x y z|target", CommandStructureType.Any);
+	item_xyz|target.Description = "x y z|target";
+	item_xyz|target.IsOptional = false;
 
-	var item_facing = Tree.Add("facing", CommandStructureType.Any);
+	var item_facing = item_xyz|target.Add("facing", CommandStructureType.Any);
 	item_facing.Description = "facing";
 	item_facing.IsOptional = false;
 
-	var item_lookAtEntity = Tree.Add("lookAtEntity:", CommandStructureType.Any);
-	item_lookAtEntity.Description = "lookAtEntity:";
-	item_lookAtEntity.IsOptional = false;
+	var item_lookAtEntitytarget|xyz = item_facing.Add("lookAtEntity: target|x y z", CommandStructureType.Any);
+	item_lookAtEntitytarget|xyz.Description = "lookAtEntity: target|x y z";
+	item_lookAtEntitytarget|xyz.IsOptional = false;
 
-	var item_target|x = Tree.Add("target|x", CommandStructureType.Any);
-	item_target|x.Description = "target|x";
-	item_target|x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
+	var item_checkForBlocksBoolean = item_lookAtEntitytarget|xyz.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
 
@@ -76,67 +56,43 @@ function createteleport() : CommandStructureTree {
 
 	}
 
-	//Branch: teleport.<x
+	//Branch: teleport.<x y z|destination>
 	{
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_xyz|destination = Tree.Add("x y z|destination", CommandStructureType.Any);
+	item_xyz|destination.Description = "x y z|destination";
+	item_xyz|destination.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	//Branch: item_y.z|destination>
-	{
-	var item_z|destination = item_y.Add("z|destination", CommandStructureType.Any);
-	item_z|destination.Description = "z|destination";
-	item_z|destination.IsOptional = false;
-
-	var item_yRotvalue = Tree.Add("yRot: value", CommandStructureType.Any);
+	var item_yRotvalue = item_xyz|destination.Add("yRot: value", CommandStructureType.Any);
 	item_yRotvalue.Description = "yRot: value";
 	item_yRotvalue.IsOptional = true;
 
-	var item_xRotvalue = Tree.Add("xRot: value", CommandStructureType.Any);
+	var item_xRotvalue = item_yRotvalue.Add("xRot: value", CommandStructureType.Any);
 	item_xRotvalue.Description = "xRot: value";
 	item_xRotvalue.IsOptional = true;
 
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
+	var item_checkForBlocksBoolean = item_xRotvalue.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
 
 	}
 
-	//Branch: item_y.z|target>
+	//Branch: teleport.<x y z|target>
 	{
-	var item_z|target = item_y.Add("z|target", CommandStructureType.Target);
-	item_z|target.Description = "z|target";
-	item_z|target.IsOptional = false;
+	var item_xyz|target = Tree.Add("x y z|target", CommandStructureType.Any);
+	item_xyz|target.Description = "x y z|target";
+	item_xyz|target.IsOptional = false;
 
-	var item_facing = Tree.Add("facing", CommandStructureType.Any);
+	var item_facing = item_xyz|target.Add("facing", CommandStructureType.Any);
 	item_facing.Description = "facing";
 	item_facing.IsOptional = false;
 
-	var item_lookAtEntity = Tree.Add("lookAtEntity:", CommandStructureType.Any);
-	item_lookAtEntity.Description = "lookAtEntity:";
-	item_lookAtEntity.IsOptional = false;
+	var item_lookAtEntitytarget|xyz = item_facing.Add("lookAtEntity: target|x y z", CommandStructureType.Any);
+	item_lookAtEntitytarget|xyz.Description = "lookAtEntity: target|x y z";
+	item_lookAtEntitytarget|xyz.IsOptional = false;
 
-	var item_target|x = Tree.Add("target|x", CommandStructureType.Any);
-	item_target|x.Description = "target|x";
-	item_target|x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_checkForBlocksBoolean = Tree.Add("checkForBlocks", CommandStructureType.Boolean);
+	var item_checkForBlocksBoolean = item_lookAtEntitytarget|xyz.Add("checkForBlocks", CommandStructureType.Boolean);
 	item_checkForBlocksBoolean.Description = "checkForBlocks: Boolean";
 	item_checkForBlocksBoolean.IsOptional = true;
-
-	}
 
 	}
 

@@ -8,31 +8,15 @@ function createtestforblock() : CommandStructureTree {
 	Tree.Description = "Tests whether a certain block is in a specific location.";
 	Tree.CanEnd = true;
 
-	var item_position = Tree.Add("position:", CommandStructureType.Any);
-	item_position.Description = "position:";
-	item_position.IsOptional = false;
+	var item_positionxyz = Tree.Add("position: x y z", CommandStructureType.Any);
+	item_positionxyz.Description = "position: x y z";
+	item_positionxyz.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_tileNameBlock = item_positionxyz.Add("tileName: Block", CommandStructureType.Any);
+	item_tileNameBlock.Description = "tileName: Block";
+	item_tileNameBlock.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_tileName = Tree.Add("tileName:", CommandStructureType.Any);
-	item_tileName.Description = "tileName:";
-	item_tileName.IsOptional = false;
-
-	var item_Block = Tree.Add("Block", CommandStructureType.Any);
-	item_Block.Description = "Block";
-	item_Block.IsOptional = false;
-
-	var item_dataValueint = Tree.Add("dataValue", CommandStructureType.Integer);
+	var item_dataValueint = item_tileNameBlock.Add("dataValue", CommandStructureType.Integer);
 	item_dataValueint.Description = "dataValue: int";
 	item_dataValueint.IsOptional = true;
 

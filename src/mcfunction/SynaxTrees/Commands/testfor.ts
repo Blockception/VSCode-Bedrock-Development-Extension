@@ -8,13 +8,9 @@ function createtestfor() : CommandStructureTree {
 	Tree.Description = "Counts entities maching specified conditions.";
 	Tree.CanEnd = true;
 
-	var item_victim = Tree.Add("victim:", CommandStructureType.Any);
-	item_victim.Description = "victim:";
-	item_victim.IsOptional = false;
-
-	var item_target = Tree.Add("target", CommandStructureType.Target);
-	item_target.Description = "target";
-	item_target.IsOptional = false;
+	var item_victimtarget = Tree.Add("victim", CommandStructureType.Target);
+	item_victimtarget.Description = "victim: target";
+	item_victimtarget.IsOptional = false;
 
 	return Tree;
 }

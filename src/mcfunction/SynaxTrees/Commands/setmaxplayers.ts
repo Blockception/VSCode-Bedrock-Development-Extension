@@ -8,13 +8,9 @@ function createsetmaxplayers() : CommandStructureTree {
 	Tree.Description = "Sets the maximum number of players for this game session.";
 	Tree.CanEnd = true;
 
-	var item_maxPlayers = Tree.Add("maxPlayers:", CommandStructureType.Any);
-	item_maxPlayers.Description = "maxPlayers:";
-	item_maxPlayers.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
+	var item_maxPlayersint = Tree.Add("maxPlayers", CommandStructureType.Integer);
+	item_maxPlayersint.Description = "maxPlayers: int";
+	item_maxPlayersint.IsOptional = false;
 
 	return Tree;
 }

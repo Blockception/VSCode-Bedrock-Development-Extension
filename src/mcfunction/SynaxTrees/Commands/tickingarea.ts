@@ -14,7 +14,7 @@ function createtickingarea() : CommandStructureTree {
 	item_list.Description = "list";
 	item_list.IsOptional = false;
 
-	var item_all-dimensions = Tree.Add("all-dimensions", CommandStructureType.Any);
+	var item_all-dimensions = item_list.Add("all-dimensions", CommandStructureType.Any);
 	item_all-dimensions.Description = "all-dimensions";
 	item_all-dimensions.IsOptional = true;
 
@@ -34,25 +34,9 @@ function createtickingarea() : CommandStructureTree {
 	item_remove.Description = "remove";
 	item_remove.IsOptional = false;
 
-	var item_position = Tree.Add("position:", CommandStructureType.Any);
-	item_position.Description = "position:";
-	item_position.IsOptional = false;
-
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z|name = Tree.Add("z|name:", CommandStructureType.Any);
-	item_z|name.Description = "z|name:";
-	item_z|name.IsOptional = false;
-
-	var item_string = Tree.Add("string", CommandStructureType.Any);
-	item_string.Description = "string";
-	item_string.IsOptional = false;
+	var item_positionxyz|namestring = item_remove.Add("position: x y z|name: string", CommandStructureType.Any);
+	item_positionxyz|namestring.Description = "position: x y z|name: string";
+	item_positionxyz|namestring.IsOptional = false;
 
 	}
 
@@ -68,71 +52,31 @@ function createtickingarea() : CommandStructureTree {
 	item_circle.Description = "circle";
 	item_circle.IsOptional = false;
 
-	var item_center = Tree.Add("center:", CommandStructureType.Any);
-	item_center.Description = "center:";
-	item_center.IsOptional = false;
+	var item_centerxyz = item_circle.Add("center: x y z", CommandStructureType.Any);
+	item_centerxyz.Description = "center: x y z";
+	item_centerxyz.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_radiusint = item_centerxyz.Add("radius", CommandStructureType.Integer);
+	item_radiusint.Description = "radius: int";
+	item_radiusint.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_radius = Tree.Add("radius:", CommandStructureType.Any);
-	item_radius.Description = "radius:";
-	item_radius.IsOptional = false;
-
-	var item_int = Tree.Add("int", CommandStructureType.Any);
-	item_int.Description = "int";
-	item_int.IsOptional = false;
-
-	var item_namestring = Tree.Add("name: string", CommandStructureType.Any);
+	var item_namestring = item_radiusint.Add("name: string", CommandStructureType.Any);
 	item_namestring.Description = "name: string";
 	item_namestring.IsOptional = true;
 
 	}
 
-	//Branch: item_add.<from:
+	//Branch: item_add.<from: x y z>
 	{
-	var item_from = item_add.Add("from:", CommandStructureType.Any);
-	item_from.Description = "from:";
-	item_from.IsOptional = false;
+	var item_fromxyz = item_add.Add("from: x y z", CommandStructureType.Any);
+	item_fromxyz.Description = "from: x y z";
+	item_fromxyz.IsOptional = false;
 
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
+	var item_toxyz = item_fromxyz.Add("to: x y z", CommandStructureType.Any);
+	item_toxyz.Description = "to: x y z";
+	item_toxyz.IsOptional = false;
 
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_to = Tree.Add("to:", CommandStructureType.Any);
-	item_to.Description = "to:";
-	item_to.IsOptional = false;
-
-	var item_x = Tree.Add("x", CommandStructureType.Any);
-	item_x.Description = "x";
-	item_x.IsOptional = false;
-
-	var item_y = Tree.Add("y", CommandStructureType.Any);
-	item_y.Description = "y";
-	item_y.IsOptional = false;
-
-	var item_z = Tree.Add("z", CommandStructureType.Any);
-	item_z.Description = "z";
-	item_z.IsOptional = false;
-
-	var item_namestring = Tree.Add("name: string", CommandStructureType.Any);
+	var item_namestring = item_toxyz.Add("name: string", CommandStructureType.Any);
 	item_namestring.Description = "name: string";
 	item_namestring.IsOptional = true;
 
