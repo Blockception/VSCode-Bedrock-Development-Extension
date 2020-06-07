@@ -2,21 +2,22 @@ import * as vscode from "vscode";
 import * as fs from "fs";
 import * as constants from "../../constants";
 
+export function activate(context: vscode.ExtensionContext) {    
+    context.subscriptions.push(
+        vscode.languages.registerCompletionItemProvider(constants.McLanguageIdentifier, new FunctionCommandCompletionProvider(), " ")
+    );
+}
 
-class FunctionCommandCompletionProvider implements DiagnosticProvider {
+class FunctionCommandCompletionProvider implements vscode.CompletionItemProvider {
 
-    provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void {
-        
-
-
-
+    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var receiver = new vscode.CompletionList();
         var filepath = document.uri.fsPath;
         var index = filepath.indexOf("\\functions\\");
-
+    
         if (index > 0) {
             var folder = filepath.substring(0, index + 11);
-
+    
             this.explore(folder, folder, receiver);
         }
 

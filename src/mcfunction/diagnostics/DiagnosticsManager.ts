@@ -6,8 +6,13 @@ import { SyntaxTree, SyntaxItem } from '../../general/include';
 export class DiagnosticsManager {
     private Items : Map<string, DiagnosticProvider>;
 
+    public SelectorDiagnoser : DiagnosticProvider | undefined;
+    public CoordinateDiagnoser : DiagnosticProvider | undefined;
+
     constructor(){
         this.Items = new  Map<string, DiagnosticProvider>();
+        this.SelectorDiagnoser = undefined;
+        this.CoordinateDiagnoser = undefined;
     }
 
     hasDiagnostic(Item : SyntaxItem) {
