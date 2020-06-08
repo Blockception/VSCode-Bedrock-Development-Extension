@@ -15,7 +15,14 @@ export class TitleDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		switch (Target.Text.text) {
+		var Mode = Target.Child;
+
+		if (Mode == undefined){
+			Errors.Missing('mode', 'title', lineIndex, item, collector);
+			return;
+		}
+
+		switch (Mode.Text.text) {
 			case 'reset':
 			case 'clear':
 				return;
@@ -23,15 +30,15 @@ export class TitleDiagnosticProvider implements DiagnosticProvider {
 			case 'title':
 			case 'subtitle':
 			case 'actionbar':
-				this.branchTitle_Subtitle_Actionbar(item, lineIndex, collector, dm, document);
+				this.branchTitle_Subtitle_Actionbar(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'times':
-				this.branchtimes(item, lineIndex, collector, dm, document);
+				this.branchtimes(Mode, lineIndex, collector, dm, document);
 				return;
 
 			default:
-				Errors.UnknownWords('actionbar, clear, reset, title, subtitle, times', lineIndex, Target, collector);
+				Errors.UnknownWords('actionbar, clear, reset, title, subtitle, times', lineIndex, Mode, collector);
 				return;
 		}
 	}

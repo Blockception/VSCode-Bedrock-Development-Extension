@@ -1,20 +1,26 @@
 import * as vscode from 'vscode';
-import * as SD from "./SelectorDiagnostics";
-import * as CD from "./CoordinateDiagnostics";
-import * as BD from "./BooleanDiagnostics";
 import { SyntaxTree } from '../../general/include';
 import { DiagnosticProvider } from './DiagnosticsManager';
 import * as Diagnostics from "./Diagnostics";
 import * as Commands from "./commands/activate";
+import { SelectorDiagnosticProvider } from './SelectorDiagnostics';
+import { CoordinateDiagnosticProvider } from './CoordinateDiagnostics';
+import { BooleanDiagnosticProvider } from './BooleanDiagnostics';
+import { FloatDiagnosticProvider } from './FloatDiagnostics';
+import { IntegerDiagnosticProvider } from './IntegerDiagnostics';
+import { JsonTextDiagnoserProvider } from './JsonTextDiagnoser';
 
 export function activate(context: vscode.ExtensionContext) {
     var Manager = Diagnostics.Manager;
     console.log("activating diagnostics");
     
     //set up base types diagnosers
-    Manager.SelectorDiagnoser = new SD.SelectorDiagnosticProvider();
-    Manager.CoordinateDiagnoser = new CD.CoordinateDiagnosticProvider();
-    Manager.BooleanDiagnoser = new BD.BooleanDiagnosticProvider();
+    Manager.SelectorDiagnoser = new SelectorDiagnosticProvider();
+    Manager.CoordinateDiagnoser = new CoordinateDiagnosticProvider();
+    Manager.BooleanDiagnoser = new BooleanDiagnosticProvider();
+    Manager.FloatDiagnoser = new FloatDiagnosticProvider();
+    Manager.IntegerDiagnoser = new IntegerDiagnosticProvider();
+    Manager.JsonTextDiagnoser = new JsonTextDiagnoserProvider();
 
     //activate commands
     Commands.activate(Manager);
@@ -47,6 +53,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 //Updates the content of the collection of diagnostis for the specified document
 function updateDiagnostics(document : vscode.TextDocument, collection : vscode.DiagnosticCollection){
+    console.log("running diagnostics start:\t" + document.fileName);
+
     if (!document.uri.fsPath.endsWith(".mcfunction"))
         return;
 
@@ -72,4 +80,5 @@ function updateDiagnostics(document : vscode.TextDocument, collection : vscode.D
     }
 
     collection.set(document.uri, docCollection);
+    console.log("running diagnostics done:\t" + document.fileName);
 }

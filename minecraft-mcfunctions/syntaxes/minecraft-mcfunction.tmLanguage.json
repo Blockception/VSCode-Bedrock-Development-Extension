@@ -9,6 +9,7 @@
     { "include": "#selectors" },
     { "include": "#minecraftcommands" },
     { "include": "#operators" },
+    { "include": "#characters" },
     { "include": "#comments" }
   ],
   "foldingStartMarker": "#region",
@@ -23,6 +24,34 @@
         { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+"},
         { "name": "string.regexp", "match": "\\b(?<=tag=!)[a-zA-Z_\\-0-9]+"},
         { "name": "invalid", "match": "@[cvasrep]\\[.*$" }
+      ]
+    },
+   "characters": {
+      "patterns": [
+        { "name": "entity.name.function.keyword", "match": "%s"},
+        { "name": "markup.bold", "match": "§l"},
+        { "name": "markup.deleted", "match": "§k"},
+        { "name": "keyword.control", "match": "§m"},
+        { "name": "markup.underline", "match": "§n"},
+        { "name": "markup.italic", "match": "§o"},
+        { "name": "keyword.control", "match": "§r"},
+
+        { "name": "punctuation.tag.js", "match": "§0" },
+        { "name": "markup.heading", "match": "§1" },
+        { "name": "comment", "match": "§2" },
+        { "name": "entity.other.attribute-name", "match": "§3" },
+        { "name": "string.regexp", "match": "§4" }, 
+        { "name": "constant.regexp", "match": "§5" },
+        { "name": "entity.name.selector", "match": "§6" },
+        { "name": "punctuation.tag.tsx", "match": "§7" },
+        { "name": "punctuation.tag.js", "match": "§8" },
+        { "name": "keyword.operator.new", "match": "§9" },
+        { "name": "meta.preprocessor.numeric", "match": "§a" }, 
+        { "name": "entity.other.attribute-name", "match": "§b" },
+        { "name": "invalid", "match": "§c" },
+        { "name": "constant.regexp", "match": "§d" },
+        { "name": "entity.name.selector", "match": "§e" },
+        { "name": "constant.rgb-value", "match": "§f" } 
       ]
     },
     "constants": {
@@ -65,23 +94,30 @@
     "minecraftcommands": {
       "patterns": [
         { "name": "entity.name.function.add", "match": "\\badd\\b" },
+        { "name": "entity.name.function.actionbar", "match": "\\bactionbar\\b" },
         { "name": "entity.name.function.belowname", "match": "\\bbelowname\\b" },
         { "name": "entity.name.function.block", "match": "\\bblock\\b" },
         { "name": "entity.name.function.buriedtreasure", "match": "\\bburiedtreasure\\b" },
         { "name": "entity.name.function.circle", "match": "\\bcircle\\b" },
         { "name": "entity.name.function.class.endcity", "match": "\\bendcity\\b" },
         { "name": "entity.name.function.fortress", "match": "\\bfortress\\b" },
+        { "name": "entity.name.function.force", "match": "\\bforce\\b" },
+        { "name": "entity.name.function.filtered", "match": "\\bfiltered\\b" },
         { "name": "entity.name.function.immediateRespawn", "match": "\\bimmediateRespawn\\b" },
         { "name": "entity.name.function.keepInventory", "match": "\\bkeepInventory\\b" },
         { "name": "entity.name.function.mansion", "match": "\\bmansion\\b" },
         { "name": "entity.name.function.me", "match": "\\bme\\b" },
+        { "name": "entity.name.function.masked", "match": "\\bmasked\\b" },
         { "name": "entity.name.function.minecraft.pillager_patrols_event", "match": "\\bminecraft:pillager_patrols_event\\b" },
         { "name": "entity.name.function.mineshaft", "match": "\\bmineshaft\\b" },
+        { "name": "entity.name.function.move", "match": "\\bmove\\b" },
+        { "name": "entity.name.function.normal", "match": "\\bnormal\\b" },
         { "name": "entity.name.function.objectives", "match": "\\bobjectives\\b" },
         { "name": "entity.name.function.operation", "match": "\\boperation\\b" },
         { "name": "entity.name.function.players", "match": "\\bplayers\\b" },
         { "name": "entity.name.function.remove", "match": "\\bremove\\b" },
         { "name": "entity.name.function.remove_all", "match": "\\bremove_all\\b" },
+        { "name": "entity.name.function.replace", "match": "\\breplace\\b" },
         { "name": "entity.name.function.reset", "match": "\\breset\\b" },
         { "name": "entity.name.function.ruins", "match": "\\bruins\\b" },
         { "name": "entity.name.function.monument", "match": "\\bmonument\\b" },

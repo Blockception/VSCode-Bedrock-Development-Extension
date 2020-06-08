@@ -3,12 +3,11 @@ import * as constants from "../../constants";
 
 export function activate(context: vscode.ExtensionContext) {    
     context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(constants.McLanguageIdentifier, new RegionCompletionProvider(), "#")
+        vscode.languages.registerCompletionItemProvider(constants.McLanguageIdentifier, new RegionCompletionProvider(), "#", "\n")
     );
 }
 
 class RegionCompletionProvider implements vscode.CompletionItemProvider {
-
     Default : vscode.CompletionList;
 
     constructor() {

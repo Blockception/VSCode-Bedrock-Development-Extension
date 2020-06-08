@@ -53,6 +53,8 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+
 		var Destination = Target.Child;
 
 		//in case that the target was the destination
@@ -77,7 +79,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			case '9':
 			case '~':
 			case '^':
-				this.branchDestination(Destination, lineIndex, collector, dm, document);
+				this.branchDestination(Target, lineIndex, collector, dm, document);
 				return;
 
 			default:
@@ -110,7 +112,6 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			this.branchFacing(Next, lineIndex, collector, dm, document);
 			return;
 		}
-
 
 		switch (Next.Text.text.charAt(0)) {
 			case '-':
@@ -162,7 +163,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 
 		//<target>
 		if (Target == undefined) {
-			Errors.Missing('target/selector', 'teleport', lineIndex, item, collector);
+			Errors.Missing('target/selector | position', 'teleport', lineIndex, item, collector);
 			return;
 		}
 
@@ -184,7 +185,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			case '9':
 			case '~':
 			case '^':
-				var Out = Functions.provideDiagnosticsXYZ('teleport facing', Target, lineIndex, collector, dm, document);
+				var Out = Functions.provideDiagnosticsXYZ('teleport facing', item, lineIndex, collector, dm, document);
 
 				if (Out[1] == false)
 					return;

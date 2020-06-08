@@ -38,11 +38,11 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 		switch(mode.Text.text) {
 		case 'masked':
 		case 'replace':
-			this.branchreplace_masked(item, lineIndex, collector, dm, document);
+			this.branchreplace_masked(mode, lineIndex, collector, dm, document);
 			return;
 
 		case 'filtered':
-			this.branchfiltered(item, lineIndex, collector, dm, document);
+			this.branchfiltered(mode, lineIndex, collector, dm, document);
 			return;
 
 		default:
