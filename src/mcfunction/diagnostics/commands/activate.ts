@@ -28,6 +28,11 @@ import { ReloadDiagnosticProvider } from "./reloadDiagnostics";
 import { PlaysoundDiagnosticProvider } from "./playsoundDiagnostics";
 import { SayDiagnosticProvider } from "./sayDiagnostics";
 import { ReplaceItemDiagnosticProvider } from "./replaceitemDiagnostics";
+import { ScoreboardDiagnosticProvider } from "./scoreboardDiagnostics";
+import { SetblockDiagnosticProvider } from "./setblockDiagnostics";
+import { SetmaxplayersDiagnosticProvider } from "./setmaxplayersDiagnostics";
+import { SetWorldSpawnDiagnosticProvider } from "./setworldspawnDiagnostics";
+import { SpawnpointDiagnosticProvider } from "./spawnpointDiagnostics";
 
 //Add commands to the diagnoser
 export function activate(context: DiagnosticsManager) {
@@ -57,6 +62,11 @@ export function activate(context: DiagnosticsManager) {
     context.set(new ReloadDiagnosticProvider(), [ "reload" ]);
     context.set(new ReplaceItemDiagnosticProvider(), [ "replaceitem" ]);
     context.set(new SayDiagnosticProvider(), [ "say" ]);
+    context.set(new ScoreboardDiagnosticProvider(), [ "scoreboard" ]);
+    context.set(new SetblockDiagnosticProvider(), [ "setblock" ]);
+    context.set(new SetmaxplayersDiagnosticProvider(), [ "setmaxplayers" ]);
+    context.set(new SetWorldSpawnDiagnosticProvider(), [ "setworldspawn" ]);
+    context.set(new SpawnpointDiagnosticProvider(), [ "spawnpoint" ]);
 
 
     
