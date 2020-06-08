@@ -106,3 +106,47 @@ export function IsSelector(text : string): boolean {
 
     return false;
 }
+
+export function InScoreSection(document: vscode.TextDocument, position: vscode.Position) {
+  var Line = document.lineAt(position.line);
+  var Text = Line.text;
+
+  for (let index = position.character - 1; index > 0; index--) {
+    var c = Text.charAt(index);
+
+    switch (c) {
+      case "@a":
+      case "[":
+        return false;        
+      case "{":
+        return true;
+    }
+  }
+
+  return false;
+}
+
+//Returns the parameter name
+export function GetParameterName(document: vscode.TextDocument, position: vscode.Position) : string {
+  var text = document.lineAt(position.line).text;
+  var endindex = position.character
+  var startindex = endindex - 1;
+
+  var char = text.charAt(startindex);
+  var loop = true;
+
+  while (loop){
+    switch(char){
+      case "[":
+      case ",":
+        loop = false;
+        break;
+      default:
+        loop = true;
+        startindex--;
+        break;
+    }
+  }
+
+  return text.substring(startindex, endindex).trim();
+}

@@ -1,21 +1,21 @@
 # Changelog 
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated Trigger
-- Fixed Dependencies
-- Fixed components
-- Updated Breathable
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated to 0.1.5
-- Fixed render controller
-- Updated to 0.1.4.2
 - Updated
-- Fixed Entity
-- Fixed entity 1.10.0
-- Include 0 in function path
+- Prepared
+- Finished enchant to gamerule
+- Added additional diagnostics functionallity
+- Finished and updated
+- Fixed
+- Fixed Diagnostion
+- produced batch
 - Updated
-- Included Number in function paths
-- Updated logo
 - Updated
-- Added dye:x
-- Events are not required in triggers
-- Updated to 0.1.3
+- Added Diagnostics
+- Updated
+- Updated
+- Finished gamerule
+- Updated
+- Finished enchant
+- Finished effect
+- Finished trees
+- Updated Clone
+- Added Block support
