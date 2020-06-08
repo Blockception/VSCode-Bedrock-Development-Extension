@@ -45,6 +45,10 @@ import { ToggledownfallDiagnosticProvider } from "./toggledownfallDiagnostics";
 import { TitlerawDiagnosticProvider } from "./titlerawDiagnostics";
 import { TitleDiagnosticProvider } from "./titleDiagnostics";
 import { TimeDiagnosticProvider } from "./timeDiagnostics";
+import { TickingAreaDiagnosticProvider } from "./tickingareaDiagnostics";
+import { TestforDiagnosticProvider } from "./testforDiagnostics";
+import { TestforBlockDiagnosticProvider } from "./testforblockDiagnostics";
+import { TestforBlocksDiagnosticProvider } from "./testforblocksDiagnostics";
 
 //Add commands to the diagnoser
 export function activate(context: DiagnosticsManager) {
@@ -91,9 +95,10 @@ export function activate(context: DiagnosticsManager) {
     context.set(new TitleDiagnosticProvider(), [ "title" ]);
     context.set(new TitlerawDiagnosticProvider(), [ "titleraw" ]);
     context.set(new TimeDiagnosticProvider(), [ "time" ]);
-
-
-    
+    context.set(new TickingAreaDiagnosticProvider(), [ "tickingarea" ]);
+    context.set(new TestforDiagnosticProvider(), [ "testfor" ]);
+    context.set(new TestforBlockDiagnosticProvider(), [ "testforblock" ]);    
+    context.set(new TestforBlocksDiagnosticProvider(), [ "testforblocks" ]);    
     context.set(new WeatherDiagnosticProvider(), [ "weather" ]);
     context.set(new XpDiagnosticProvider(), [ "xp" ]);
 }

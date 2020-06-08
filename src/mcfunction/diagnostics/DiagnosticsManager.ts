@@ -15,6 +15,7 @@ export class DiagnosticsManager {
     public ItemDiagnoser : DiagnosticProvider | undefined; //TODO
     public JsonItemComponentDiagnoser : DiagnosticProvider | undefined; //TODO
     public JsonTextDiagnoser : DiagnosticProvider | undefined; //TODO
+    public TickingAreaDiagnoser : DiagnosticProvider | undefined; //TODO
     public ParticleDiagnoser : DiagnosticProvider | undefined; //TODO
     public SelectorDiagnoser : DiagnosticProvider | undefined;
     public ScoreDiagnoser : DiagnosticProvider | undefined; //TODO

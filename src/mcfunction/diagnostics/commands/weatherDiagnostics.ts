@@ -21,7 +21,7 @@ export class WeatherDiagnosticProvider implements DiagnosticProvider {
 			case 'thunder':
 				break;
 			default:
-				Errors.UnknownWords('weather', 'clear, rain, thunder', lineIndex, WeatherType, collector);
+				Errors.UnknownWords('clear, rain, thunder', lineIndex, WeatherType, collector);
 		}
 
 		var Duration = WeatherType.Child;

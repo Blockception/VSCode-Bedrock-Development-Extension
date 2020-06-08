@@ -30,7 +30,7 @@ export class LocateDiagnosticProvider implements DiagnosticProvider {
 			return;
 			
 		default:
-			Errors.UnknownWords('locate', 'see the wiki', lineIndex, structure, collector);
+			Errors.UnknownWords('see the wiki', lineIndex, structure, collector);
 			return;
 		}
 

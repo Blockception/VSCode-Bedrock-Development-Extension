@@ -1,30 +1,36 @@
 import * as vscode from 'vscode';
 import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
+import { Functions } from '../DiagnosticsFunctions';
 
-export class testforblockDiagnosticProvider implements DiagnosticProvider {
+export class TestforBlockDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
 		//<position: x y z>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		var Out = Functions.provideDiagnosticsXYZ('testforblock', item, lineIndex, collector, dm, document);
+
+		if (Out[1] == false) {
 			return;
 		}
+
+		var Block = item.Child;
 
 		//<tileName: Block>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Block == undefined) {
+			Errors.Missing('block', 'testforblock', lineIndex, Out[0], collector);
 			return;
 		}
-		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
+
+		var Data = Block.Child;
 
 		//[dataValue: int]
-		if (word == undefined) {
+		if (Data == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 
 	}
 

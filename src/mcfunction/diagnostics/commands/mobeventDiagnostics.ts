@@ -28,7 +28,7 @@ export class MobeventDiagnosticProvider implements DiagnosticProvider {
 
 			return;
 		default:
-			Errors.UnknownWords('mobevent', 'minecraft:pillager_patrols_event, wandering_trader_event, events_enabled', lineIndex, event, collector);
+			Errors.UnknownWords('minecraft:pillager_patrols_event, wandering_trader_event, events_enabled', lineIndex, event, collector);
 			return;
 		}
 	}
