@@ -4,7 +4,7 @@ import * as constants from "../../constants";
 
 export function activate(context: vscode.ExtensionContext) {    
     context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(constants.McLanguageIdentifier, new FunctionCommandCompletionProvider(), " ")
+        vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new FunctionCommandCompletionProvider(), " ")
     );
 }
 

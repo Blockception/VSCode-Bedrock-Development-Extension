@@ -7,7 +7,7 @@ export function activate(context: vscode.ExtensionContext): void {
     vscode.commands.registerCommand("blockception.mcfunction.formatter", () => {
         const { activeTextEditor } = vscode.window;
 
-        if (activeTextEditor && activeTextEditor.document.languageId === constants.McLanguageIdentifier) {
+        if (activeTextEditor && activeTextEditor.document.languageId === constants.McFunctionIdentifier) {
             return McfunctionFormatter.format(activeTextEditor.document);
         }
     });
@@ -16,10 +16,10 @@ export function activate(context: vscode.ExtensionContext): void {
 
     context.subscriptions.push(
         //formatter for whole document
-        vscode.languages.registerDocumentFormattingEditProvider(constants.McLanguageIdentifier, Formatter),
+        vscode.languages.registerDocumentFormattingEditProvider(constants.McFunctionIdentifier, Formatter),
 
         //formatter for ranged document
-        vscode.languages.registerDocumentRangeFormattingEditProvider(constants.McLanguageIdentifier, Formatter)
+        vscode.languages.registerDocumentRangeFormattingEditProvider(constants.McFunctionIdentifier, Formatter)
     );
 }
 

@@ -6,7 +6,7 @@ import { mcfunctionDatabase } from "../Database";
 
 export function activate(context: vscode.ExtensionContext) {    
     context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(constants.McLanguageIdentifier, new SelectorCompletionProvider(), "[", ",", "{", "=")
+        vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new SelectorCompletionProvider(), "[", ",", "{", "=")
     );
 }
 

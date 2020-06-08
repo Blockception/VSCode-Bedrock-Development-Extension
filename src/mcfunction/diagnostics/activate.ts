@@ -12,7 +12,7 @@ import { JsonTextDiagnoserProvider } from './JsonTextDiagnoser';
 
 export function activate(context: vscode.ExtensionContext) {
     var Manager = Diagnostics.Manager;
-    console.log("activating diagnostics");
+    console.log("activating mcfunction diagnostics");
     
     //set up base types diagnosers
     Manager.SelectorDiagnoser = new SelectorDiagnosticProvider();
@@ -39,24 +39,16 @@ export function activate(context: vscode.ExtensionContext) {
             if (editor) {
                 updateDiagnostics(editor.document, Diagnostics.collection);
             }
-        }),
-        //When closed remove data
-        vscode.workspace.onDidCloseTextDocument(doc => Diagnostics.collection.delete(doc.uri)),
-        //on save
-        vscode.workspace.onDidSaveTextDocument(doc => {
-            if (doc) {
-                updateDiagnostics(doc, Diagnostics.collection);
-            }
         })
     );
 }
 
 //Updates the content of the collection of diagnostis for the specified document
 function updateDiagnostics(document : vscode.TextDocument, collection : vscode.DiagnosticCollection){
-    console.log("running diagnostics start:\t" + document.fileName);
-
     if (!document.uri.fsPath.endsWith(".mcfunction"))
         return;
+
+    console.log("running diagnostics start:\t" + document.fileName);
 
     var docCollection = new Array<vscode.Diagnostic>();
     var Diagnoser : DiagnosticProvider | undefined;

@@ -3,7 +3,7 @@ import * as constants from "../../constants";
 
 export function activate(context: vscode.ExtensionContext) {    
     context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(constants.McLanguageIdentifier, new RegionCompletionProvider(), "#", "\n")
+        vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), "#", "\n")
     );
 }
 
