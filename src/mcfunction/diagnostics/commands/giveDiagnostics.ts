@@ -50,23 +50,6 @@ export class GiveDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var object = JSON.parse(Components.Text.text);
-
-		for (var jproperty in object){
-			switch(jproperty){
-				case 'minecraft:can_destroy':
-				case 'minecraft:can_place_on':
-					break;
-				default:
-					collector.push(new vscode.Diagnostic(
-						Components.Text.ToRange(lineIndex),
-						"unknown json property, expected: minecraft:can_place_on, or minecraft:can_destroy",
-						vscode.DiagnosticSeverity.Error
-					));
-					break;
-			}
-		}
-	
+		dm.ItemComponentDiagnoser?.provideDiagnostic(Components, lineIndex, collector, dm, document);
 	}
-
 }

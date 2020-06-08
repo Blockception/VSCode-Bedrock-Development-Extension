@@ -1,13 +1,22 @@
 import * as vscode from 'vscode';
 import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
+import { Functions } from '../DiagnosticsFunctions';
 
-export class replaceitemDiagnosticProvider implements DiagnosticProvider {
+export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		switch(item.text) {
+		var Mode = item.Child;
+
+		if (Mode == undefined){
+			Errors.Missing('block | entity', 'replaceitem', lineIndex, item, collector);
+			return;
+		}
+
+
+		switch(Mode.Text.text) {
 		case 'block':
 			this.branchblock(item, lineIndex, collector, dm, document);
 			return;
@@ -17,7 +26,7 @@ export class replaceitemDiagnosticProvider implements DiagnosticProvider {
 			return;
 
 		default:
-			//NOT FOUND ERROR
+			Errors.UnknownWords('entity, block', lineIndex, Mode, collector);
 			return;
 		}
 
@@ -25,107 +34,91 @@ export class replaceitemDiagnosticProvider implements DiagnosticProvider {
 
 	branchblock(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//block
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
 		//<position: x y z>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		var Out = Functions.provideDiagnosticsXYZ('replaceitem', item, lineIndex, collector, dm, document);
+
+		if (Out[1] == false)
 			return;
-		}
+
+		var slot = Out[0].Child;
 
 		//slot.container
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (slot == undefined) {
+			Errors.Missing('slot.container', 'replaceitem', lineIndex, Out[0], collector);
 			return;
 		}
 
-		//<slotId: int>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		//TODO check slot containers
 
-		//<itemName: Item>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//[amount: int]
-		if (word == undefined) {
-			return;
-		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//[data: int]
-		if (word == undefined) {
-			return;
-		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//[components: json]
-		if (word == undefined) {
-			return;
-		}
-
+		this.branchMerged(slot,lineIndex, collector, dm, document);
 	}
-	branchentity(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//entity
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	branchentity(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Target = item.Child;
 
 		//<target: target>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Target == undefined) {
+			Errors.Missing('target/selector', 'replaceitem', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+
+		var slot = Target.Child;
 
 		//<slotType: EntityEquipmentSlot>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (slot == undefined) {
+			Errors.Missing('entity slot', 'replaceitem', lineIndex, Target, collector);
 			return;
 		}
+
+		//TODO entity slot
+
+		this.branchMerged(slot ,lineIndex, collector, dm, document);
+	}
+
+	branchMerged(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void{
+
+		var SlotID = item.Child;
 
 		//<slotId: int>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (SlotID == undefined) {
+			Errors.Missing('integer', 'replaceitem', lineIndex, item, collector);
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(SlotID, lineIndex, collector, dm, document);
+
+		var Item = SlotID.Child;
 
 		//<itemName: Item>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Item == undefined) {
+			Errors.Missing('item', 'replaceitem', lineIndex, SlotID, collector);
 			return;
 		}
-		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.ItemDiagnoser?.provideDiagnostic(Item, lineIndex, collector, dm, document);
+
+		var Amount = Item.Child;
 
 		//[amount: int]
-		if (word == undefined) {
+		if (Amount == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(Amount, lineIndex, collector, dm, document);
+
+		var Data = Amount.Child;
 
 		//[data: int]
-		if (word == undefined) {
+		if (Data == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
+
+		var components = Data.Child;
 
 		//[components: json]
-		if (word == undefined) {
+		if (components == undefined) {
 			return;
 		}
 
+		dm.ItemComponentDiagnoser?.provideDiagnostic(components, lineIndex, collector, dm, document);
 	}
 }

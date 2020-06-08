@@ -12,6 +12,7 @@ export class DiagnosticsManager {
     public FloatDiagnoser : DiagnosticProvider | undefined;
     public IntegerDiagnoser : DiagnosticProvider | undefined;
     public ItemDiagnoser : DiagnosticProvider | undefined;
+    public ItemComponentDiagnoser : DiagnosticProvider | undefined; //TODO
     public ParticleDiagnoser : DiagnosticProvider | undefined;
     public SelectorDiagnoser : DiagnosticProvider | undefined;
     public SoundDiagnoser : DiagnosticProvider | undefined;

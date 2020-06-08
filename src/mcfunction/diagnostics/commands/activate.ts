@@ -27,6 +27,7 @@ import { ParticleDiagnosticProvider } from "./particleDiagnostics";
 import { ReloadDiagnosticProvider } from "./reloadDiagnostics";
 import { PlaysoundDiagnosticProvider } from "./playsoundDiagnostics";
 import { SayDiagnosticProvider } from "./sayDiagnostics";
+import { ReplaceItemDiagnosticProvider } from "./replaceitemDiagnostics";
 
 //Add commands to the diagnoser
 export function activate(context: DiagnosticsManager) {
@@ -54,6 +55,7 @@ export function activate(context: DiagnosticsManager) {
     context.set(new ParticleDiagnosticProvider(), [ "particle" ]);
     context.set(new PlaysoundDiagnosticProvider(), [ "playsound" ]);
     context.set(new ReloadDiagnosticProvider(), [ "reload" ]);
+    context.set(new ReplaceItemDiagnosticProvider(), [ "replaceitem" ]);
     context.set(new SayDiagnosticProvider(), [ "say" ]);
 
 
