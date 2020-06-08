@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class tagDiagnosticProvider implements DiagnosticProvider {
@@ -9,7 +9,8 @@ export class tagDiagnosticProvider implements DiagnosticProvider {
 
 		//<targets>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		switch(item.text) {
@@ -33,12 +34,14 @@ export class tagDiagnosticProvider implements DiagnosticProvider {
 
 		//remove
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<name>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -46,7 +49,8 @@ export class tagDiagnosticProvider implements DiagnosticProvider {
 
 		//list
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -54,12 +58,14 @@ export class tagDiagnosticProvider implements DiagnosticProvider {
 
 		//add
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<name>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}

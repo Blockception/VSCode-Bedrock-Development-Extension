@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class locateDiagnosticProvider implements DiagnosticProvider {
@@ -67,7 +67,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//buriedtreasure
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -75,7 +76,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//endcity
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -83,7 +85,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//fortress
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -91,7 +94,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//mansion
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -99,7 +103,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//mineshaft
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -107,7 +112,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//monument
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -115,7 +121,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//ruins
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -123,7 +130,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//shipwreck
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -131,7 +139,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//stronghold
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -139,7 +148,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//temple
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -147,7 +157,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//village
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -155,7 +166,8 @@ export class locateDiagnosticProvider implements DiagnosticProvider {
 
 		//pillageroutpost
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}

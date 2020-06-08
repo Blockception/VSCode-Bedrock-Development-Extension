@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class testforblockDiagnosticProvider implements DiagnosticProvider {
@@ -9,12 +9,14 @@ export class testforblockDiagnosticProvider implements DiagnosticProvider {
 
 		//<position: x y z>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<tileName: Block>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 

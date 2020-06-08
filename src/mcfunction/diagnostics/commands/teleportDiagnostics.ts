@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class teleportDiagnosticProvider implements DiagnosticProvider {
@@ -31,7 +31,8 @@ export class teleportDiagnosticProvider implements DiagnosticProvider {
 
 		//<target>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		switch(item.text) {
@@ -53,7 +54,8 @@ export class teleportDiagnosticProvider implements DiagnosticProvider {
 
 		//<x y z|destination>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//[yRot: value]
@@ -77,17 +79,20 @@ export class teleportDiagnosticProvider implements DiagnosticProvider {
 
 		//<x y z|target>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//facing
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<lookAtEntity: target|x y z>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -103,7 +108,8 @@ export class teleportDiagnosticProvider implements DiagnosticProvider {
 
 		//<x y z|destination>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//[yRot: value]
@@ -127,17 +133,20 @@ export class teleportDiagnosticProvider implements DiagnosticProvider {
 
 		//<x y z|target>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//facing
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<lookAtEntity: target|x y z>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class tickingareaDiagnosticProvider implements DiagnosticProvider {
@@ -35,7 +35,8 @@ export class tickingareaDiagnosticProvider implements DiagnosticProvider {
 
 		//list
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//[all-dimensions]
@@ -48,7 +49,8 @@ export class tickingareaDiagnosticProvider implements DiagnosticProvider {
 
 		//remove_all
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -56,12 +58,14 @@ export class tickingareaDiagnosticProvider implements DiagnosticProvider {
 
 		//remove
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<position: x y z|name: string>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -70,7 +74,8 @@ export class tickingareaDiagnosticProvider implements DiagnosticProvider {
 
 		//add
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		switch(item.text) {
@@ -92,17 +97,20 @@ export class tickingareaDiagnosticProvider implements DiagnosticProvider {
 
 		//circle
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<center: x y z>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<radius: int>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -117,12 +125,14 @@ export class tickingareaDiagnosticProvider implements DiagnosticProvider {
 
 		//<from: x y z>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<to: x y z>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//[name: string]

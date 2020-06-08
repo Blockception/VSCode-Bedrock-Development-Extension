@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class timeDiagnosticProvider implements DiagnosticProvider {
@@ -31,12 +31,14 @@ export class timeDiagnosticProvider implements DiagnosticProvider {
 
 		//add
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<amount: int>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -45,12 +47,14 @@ export class timeDiagnosticProvider implements DiagnosticProvider {
 
 		//set
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<time: TimeSpec|amount: int>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -59,12 +63,14 @@ export class timeDiagnosticProvider implements DiagnosticProvider {
 
 		//query
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<daytime|gametime|day>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}

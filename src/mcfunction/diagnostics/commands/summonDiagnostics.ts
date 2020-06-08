@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class summonDiagnosticProvider implements DiagnosticProvider {
@@ -9,7 +9,8 @@ export class summonDiagnosticProvider implements DiagnosticProvider {
 
 		//<entityType: EntityType>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.EntityDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -50,7 +51,8 @@ export class summonDiagnosticProvider implements DiagnosticProvider {
 
 		//<nameTag: string>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
