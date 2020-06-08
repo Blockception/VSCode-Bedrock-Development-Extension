@@ -1,76 +1,107 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class timeDiagnosticProvider implements DiagnosticProvider {
+export class TimeDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		switch(item.text) {
-		case 'add':
-			this.branchadd(item, lineIndex, collector, dm, document);
-			return;
+		var Mode = item.Child;
 
-		case 'set':
-			this.branchset(item, lineIndex, collector, dm, document);
+		if (Mode == undefined) {
+			Errors.Missing('mode', 'time', lineIndex, item, collector);
 			return;
+		}
 
-		case 'query':
-			this.branchquery(item, lineIndex, collector, dm, document);
-			return;
+		switch (Mode.Text.text) {
+			case 'add':
+				this.branchadd(item, lineIndex, collector, dm, document);
+				return;
 
-		default:
-			//NOT FOUND ERROR
-			return;
+			case 'set':
+				this.branchset(item, lineIndex, collector, dm, document);
+				return;
+
+			case 'query':
+				this.branchquery(item, lineIndex, collector, dm, document);
+				return;
+
+			default:
+				Errors.UnknownWords('add, set, query', lineIndex, Mode, collector);
+				return;
 		}
 
 	}
 
-	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//add
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Amount = item.Child;
 
 		//<amount: int>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Amount == undefined) {
+			Errors.Missing('integer', 'time', lineIndex, item, collector);
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
+		dm.IntegerDiagnoser?.provideDiagnostic(Amount, lineIndex, collector, dm, document);
 	}
-	branchset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//set
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+	branchset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Amount = item.Child;
+
+		//<amount: int>
+		if (Amount == undefined) {
+			Errors.Missing('integer | timespec', 'time', lineIndex, item, collector);
 			return;
 		}
 
-		//<time: TimeSpec|amount: int>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		switch (Amount.Text.text.charAt(0)) {
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				//time integer
+				dm.IntegerDiagnoser?.provideDiagnostic(Amount, lineIndex, collector, dm, document);
+				return;
 
+			default:
+				//timespec
+				switch (Amount.Text.text) {
+					case 'day':
+					case 'midnight':
+					case 'noon':
+					case 'sunrise':
+					case 'sunset':
+						return;
+					default:
+						Errors.UnknownWords('day, midnight, night, noon, sunrise, sunset', lineIndex, Amount, collector);
+						return;
+				}
+		}
 	}
-	branchquery(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//query
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	branchquery(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var mode = item.Child;
 
 		//<daytime|gametime|day>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (mode == undefined) {
+			Errors.Missing('daytime | gametime | day', 'time', lineIndex, item, collector);
 			return;
+		}
+
+		switch(mode.Text.text){
+			case 'daytime': 
+			case 'gametime': 
+			case'day':
+				return;
+			default:
+				Errors.UnknownWords('daytime | gametime | day', lineIndex, mode, collector);
 		}
 
 	}

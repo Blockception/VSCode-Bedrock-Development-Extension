@@ -9,15 +9,18 @@ export class DiagnosticsManager {
     public BlockDiagnoser : DiagnosticProvider | undefined; //TODO
     public CoordinateDiagnoser : DiagnosticProvider | undefined;
     public EffectDiagnoser : DiagnosticProvider | undefined; //TODO
+    public EntityDiagnoser : DiagnosticProvider | undefined; //TODO
     public FloatDiagnoser : DiagnosticProvider | undefined; //TODO
     public IntegerDiagnoser : DiagnosticProvider | undefined; //TODO
     public ItemDiagnoser : DiagnosticProvider | undefined; //TODO
-    public ItemComponentDiagnoser : DiagnosticProvider | undefined; //TODO
+    public JsonItemComponentDiagnoser : DiagnosticProvider | undefined; //TODO
+    public JsonTextDiagnoser : DiagnosticProvider | undefined; //TODO
     public ParticleDiagnoser : DiagnosticProvider | undefined; //TODO
     public SelectorDiagnoser : DiagnosticProvider | undefined;
     public ScoreDiagnoser : DiagnosticProvider | undefined; //TODO
     public SoundDiagnoser : DiagnosticProvider | undefined; //TODO
     public StringDiagnoser : DiagnosticProvider | undefined; //TODO
+    public TagDiagnoser : DiagnosticProvider | undefined; //TODO
 
     constructor(){
         this.Items = new  Map<string, DiagnosticProvider>();

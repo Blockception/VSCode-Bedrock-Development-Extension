@@ -2,102 +2,80 @@ import * as vscode from 'vscode';
 import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class titlerawDiagnosticProvider implements DiagnosticProvider {
+export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Target = item.Child;
 
 		//<player: target>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Target == undefined) {
+			Errors.Missing('target/selector', 'titleraw', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		switch(item.text) {
-		case 'clear':
-			this.branchclear(item, lineIndex, collector, dm, document);
-			return;
+		switch (Target.Text.text) {
+			case 'reset':
+			case 'clear':
+				return;
 
-		case 'reset':
-			this.branchreset(item, lineIndex, collector, dm, document);
-			return;
+			case 'title':
+			case 'subtitle':
+			case 'actionbar':
+				this.branchTitle_Subtitle_Actionbar(item, lineIndex, collector, dm, document);
+				return;
 
-		case '<title|subtitle|actionbar>':
-			this.branchtitle_subtitle_actionbar(item, lineIndex, collector, dm, document);
-			return;
+			case 'times':
+				this.branchtimes(item, lineIndex, collector, dm, document);
+				return;
 
-		case 'times':
-			this.branchtimes(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
-			return;
+			default:
+				Errors.UnknownWords('actionbar, clear, reset, title, subtitle, times', lineIndex, Target, collector);
+				return;
 		}
-	branchclear(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//clear
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
 	}
-	branchreset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//reset
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+	branchTitle_Subtitle_Actionbar(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var Message = item.Child;
+
+		//<titleText: message>
+		if (Message == undefined) {
+			Errors.Missing('json', 'titleraw', lineIndex, item, collector);
 			return;
 		}
 
+		dm.JsonTextDiagnoser?.provideDiagnostic(item, lineIndex, collector, dm, document);
 	}
-	branchtitle_subtitle_actionbar(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//<title|subtitle|actionbar>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branchtimes(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//times
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	branchtimes(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var FadeIn = item.Child;
 
 		//<fadeIn: int>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (FadeIn == undefined) {
+			Errors.Missing('integer', 'titleraw', lineIndex, item, collector);
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(FadeIn, lineIndex, collector, dm, document);
+
+		var stay = FadeIn.Child;
 
 		//<stay: int>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (stay == undefined) {
+			Errors.Missing('integer', 'titleraw', lineIndex, FadeIn, collector);
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(stay, lineIndex, collector, dm, document);
+
+		var fadeOut = FadeIn.Child;
 
 		//<fadeOut: int>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (fadeOut == undefined) {
+			Errors.Missing('integer', 'titleraw', lineIndex, fadeOut, collector);
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(fadeOut, lineIndex, collector, dm, document);
 
 	}
-	}
-
 }

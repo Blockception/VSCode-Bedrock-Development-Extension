@@ -1,160 +1,212 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
+import { Functions } from '../DiagnosticsFunctions';
 
-export class teleportDiagnosticProvider implements DiagnosticProvider {
+export class TeleportDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		switch(item.text) {
-		case '<target>':
-			this.branchtarget(item, lineIndex, collector, dm, document);
-			return;
+		var First = item.Child;
 
-		case '<x y z|destination>':
-			this.branchx y z_destination(item, lineIndex, collector, dm, document);
-			return;
-
-		case '<x y z|target>':
-			this.branchx y z_target(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
+		if (First == undefined) {
+			Errors.Missing('x y z | target/selector', 'teleport', lineIndex, item, collector);
 			return;
 		}
 
+		var firstChar = First.Text.text.charAt(0);
+
+		switch (firstChar) {
+			case '-':
+			case '+':
+			case '.':
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+			case '~':
+			case '^':
+				this.branchDestination(First, lineIndex, collector, dm, document);
+				return;
+
+			default:
+			case '"':
+			case '@':
+				this.branchTarget(First, lineIndex, collector, dm, document);
+				return;
+		}
 	}
 
-	branchtarget(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	branchTarget(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Target = item;
 
 		//<target>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Target == undefined) {
+			Errors.Missing('target/selector', 'teleport', lineIndex, item, collector);
 			return;
 		}
 
-		switch(item.text) {
-		case '<x y z|destination>':
-			this.branchx y z_destination(item, lineIndex, collector, dm, document);
+		var Destination = Target.Child;
+
+		//in case that the target was the destination
+		if (Destination == undefined)
 			return;
 
-		case '<x y z|target>':
-			this.branchx y z_target(item, lineIndex, collector, dm, document);
-			return;
+		var destText = Destination.Text.text;
 
-		default:
-			//NOT FOUND ERROR
-			return;
+		switch (destText.charAt(0)) {
+			case '-':
+			case '+':
+			case '.':
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+			case '~':
+			case '^':
+				this.branchDestination(Destination, lineIndex, collector, dm, document);
+				return;
+
+			default:
+				if (destText == 'true' || destText == 'True' || destText == 'false' || destText == 'False') {
+					dm.BooleanDiagnoser?.provideDiagnostic(Destination, lineIndex, collector, dm, document);
+					return;
+				}
+
+			case '"':
+			case '@':
+				this.branchTarget(Destination, lineIndex, collector, dm, document);
+				return;
 		}
 	}
 
-	branchx y z_destination(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	branchDestination(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		//<x y z|destination>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		var Out = Functions.provideDiagnosticsXYZ('teleport', item, lineIndex, collector, dm, document);
+
+		if (Out[1] == false)
+			return;
+
+		var Next = Out[0].Child;
+
+		if (Next == undefined)
+			return;
+
+		//if the keyword facing is there
+		if (Next.Text.text == "facing") {
+			this.branchFacing(Next, lineIndex, collector, dm, document);
 			return;
 		}
 
-		//[yRot: value]
-		if (word == undefined) {
-			return;
+
+		switch (Next.Text.text.charAt(0)) {
+			case '-':
+			case '+':
+			case '.':
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+			case '~':
+			case '^':
+				//[yRot: value]
+				
+				dm.CoordinateDiagnoser?.provideDiagnostic(Next, lineIndex, collector, dm, document);
+
+				var XRot = Next.Child;
+
+				//[xRot: value]
+				if (XRot == undefined) {
+					return;
+				}
+
+				dm.CoordinateDiagnoser?.provideDiagnostic(XRot, lineIndex, collector, dm, document);
+				Next = XRot;
+				break;
+
+			default:
+				break;
 		}
 
-		//[xRot: value]
-		if (word == undefined) {
-			return;
-		}
+		var checkForBlocks = Next.Child;
 
 		//[checkForBlocks: Boolean]
-		if (word == undefined) {
+		if (checkForBlocks == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
+		dm.BooleanDiagnoser?.provideDiagnostic(checkForBlocks, lineIndex, collector, dm, document);
 	}
-	branchx y z_target(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//<x y z|target>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+	branchFacing(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var Target = item.Child;
+
+		//<target>
+		if (Target == undefined) {
+			Errors.Missing('target/selector', 'teleport', lineIndex, item, collector);
 			return;
 		}
 
-		//facing
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
+		var Tartext = Target.Text.text;
+
+		switch (Tartext.charAt(0)) {
+			case '-':
+			case '+':
+			case '.':
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+			case '~':
+			case '^':
+				var Out = Functions.provideDiagnosticsXYZ('teleport facing', Target, lineIndex, collector, dm, document);
+
+				if (Out[1] == false)
+					return;
+
+				Target = Out[0];
+
+				break;
+
+			default:
+			case '"':
+			case '@':
+				
+				dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+				break;
 		}
 
-		//<lookAtEntity: target|x y z>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		var checkForBlocks = Target.Child;
 
 		//[checkForBlocks: Boolean]
-		if (word == undefined) {
+		if (checkForBlocks == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-	}
-	}
-	branchx y z_destination(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//<x y z|destination>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//[yRot: value]
-		if (word == undefined) {
-			return;
-		}
-
-		//[xRot: value]
-		if (word == undefined) {
-			return;
-		}
-
-		//[checkForBlocks: Boolean]
-		if (word == undefined) {
-			return;
-		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-	}
-	branchx y z_target(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//<x y z|target>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//facing
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<lookAtEntity: target|x y z>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//[checkForBlocks: Boolean]
-		if (word == undefined) {
-			return;
-		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
+		dm.BooleanDiagnoser?.provideDiagnostic(checkForBlocks, lineIndex, collector, dm, document);
 	}
 }

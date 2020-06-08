@@ -1,67 +1,135 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class summonDiagnosticProvider implements DiagnosticProvider {
+export class SummonDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var EntityType = item.Child;
 
 		//<entityType: EntityType>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (EntityType == undefined) {
+			Errors.Missing('entity type', 'summon', lineIndex, item, collector);
 			return;
 		}
-		dm.EntityDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
-		switch(item.text) {
-		case '[spawnPos: x y z]':
-			this.branchspawnPos(item, lineIndex, collector, dm, document);
+		dm.EntityDiagnoser?.provideDiagnostic(EntityType, lineIndex, collector, dm, document);
+
+		var Next = EntityType.Child;
+
+		if (Next == undefined)
 			return;
 
-		case '<nameTag: string>':
-			this.branchnameTag(item, lineIndex, collector, dm, document);
-			return;
+		var NextText = Next.Text.text;
+		var FirstChar = NextText.charAt(0);
 
-		default:
-			//NOT FOUND ERROR
+		switch (FirstChar) {
+			case '-':
+			case '+':
+			case '.':
+			case '0':
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+			case '~':
+			case '^':
+				this.branchspawnPos(Next, lineIndex, collector, dm, document);
+				return;
+
+			default:
+			case '"':
+				this.branchnameTag(Next, lineIndex, collector, dm, document);
+				return;
+		}
+	}
+
+	branchspawnPos(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var XCoord = item;
+
+		//[position: x y z]
+		if (XCoord == undefined) {
 			return;
 		}
-	branchspawnPos(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//[spawnPos: x y z]
-		if (word == undefined) {
-			return;
+		var SpawnEvent: SyntaxItem | undefined;
+		if (XCoord.Text.text != "~~~") {
+			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
+
+			var YCoord = XCoord.Child;
+
+			//[position: x y z]
+			if (YCoord == undefined) {
+				return;
+			}
+			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
+
+			var ZCoord = YCoord.Child;
+
+			//[position: x y z]
+			if (ZCoord == undefined) {
+				return;
+			}
+			dm.CoordinateDiagnoser?.provideDiagnostic(ZCoord, lineIndex, collector, dm, document);
+
+			SpawnEvent = ZCoord.Child;
+		}
+		else {
+			SpawnEvent = XCoord.Child;
 		}
 
 		//[spawnEvent: string]
-		if (word == undefined) {
+		if (SpawnEvent == undefined) {
 			return;
 		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		//TODO Event trigger?
+
+		var Name = SpawnEvent.Child;
 
 		//[nameTag: string]
-		if (word == undefined) {
-			return;
-		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-	}
-	branchnameTag(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//<nameTag: string>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//[spawnPos: x y z]
-		if (word == undefined) {
+		if (Name == undefined) {
 			return;
 		}
 
-	}
+		dm.StringDiagnoser?.provideDiagnostic(Name, lineIndex, collector, dm, document);
 	}
 
+
+	branchnameTag(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var XCoord = item.Child;
+
+		//[position: x y z]
+		if (XCoord == undefined) {
+			return;
+		}
+
+		if (XCoord.Text.text != "~~~") {
+			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
+
+			var YCoord = XCoord.Child;
+
+			//[position: x y z]
+			if (YCoord == undefined) {
+				return;
+			}
+			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
+
+			var ZCoord = YCoord.Child;
+
+			//[position: x y z]
+			if (ZCoord == undefined) {
+				return;
+			}
+			dm.CoordinateDiagnoser?.provideDiagnostic(ZCoord, lineIndex, collector, dm, document);
+
+		}
+	}
 }
+
