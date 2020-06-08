@@ -1,10 +1,8 @@
 import * as vscode from "vscode";
-import { Selector, SelectorParameter } from "../selectors/selector";
-import * as SF from "../selectors/functions";
-import { DiagnosticsManager, DiagnosticProvider } from "../diagnostics/DiagnosticsManager";
+import { DiagnosticsManager, DiagnosticProvider } from "./DiagnosticsManager";
 import { SyntaxItem, RangedWord } from "../../general/include";
 
-export class CoordinateDiagnosticProvider implements DiagnosticProvider {
+export class IntegerDiagnosticProvider implements DiagnosticProvider {
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void{
         if (item == undefined)
             return;
@@ -15,7 +13,7 @@ export class CoordinateDiagnosticProvider implements DiagnosticProvider {
         if (text == "~" || text == "^")
             return;
 
-        if (text.match("(^[\-+0-9.]+$|^[\^\~][\-+0-9.]*$)")?.length == 0){
+        if (text.match("^[\-+0-9]+$")?.length == 0){
             collector.push(new vscode.Diagnostic(
                 new vscode.Range(lineIndex, word.startindex, lineIndex, word.endindex),
                 "Invalid coordinate",

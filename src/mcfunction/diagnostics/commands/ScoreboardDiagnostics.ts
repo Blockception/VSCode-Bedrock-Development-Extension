@@ -16,11 +16,11 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		switch (Sub.Text.text) {
 			case 'objectives':
-				this.branchObjectives(item, lineIndex, collector, dm, document);
+				this.branchObjectives(Sub, lineIndex, collector, dm, document);
 				return;
 
 			case 'players':
-				this.branchPlayers(item, lineIndex, collector, dm, document);
+				this.branchPlayers(Sub, lineIndex, collector, dm, document);
 				return;
 
 			default:
@@ -45,15 +45,15 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 				return;
 
 			case 'add':
-				this.branchAdd(item, lineIndex, collector, dm, document);
+				this.branchAdd(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'remove':
-				this.branchRemove(item, lineIndex, collector, dm, document);
+				this.branchRemove(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'setdisplay':
-				this.branchSetdisplay(item, lineIndex, collector, dm, document);
+				this.branchSetdisplay(Mode, lineIndex, collector, dm, document);
 				return;
 
 			default:
@@ -180,39 +180,39 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		switch (Mode.Text.text) {
 			case 'list':
-				this.branchList(item, lineIndex, collector, dm, document);
+				this.branchList(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'set':
-				this.branchSetAddRemove(item, lineIndex, collector, dm, document, 'set');
+				this.branchSetAddRemove(Mode, lineIndex, collector, dm, document, 'set');
 				return;
 
 			case 'add':
-				this.branchSetAddRemove(item, lineIndex, collector, dm, document, 'add');
+				this.branchSetAddRemove(Mode, lineIndex, collector, dm, document, 'add');
 				return;
 
 			case 'remove':
-				this.branchSetAddRemove(item, lineIndex, collector, dm, document, 'remove');
+				this.branchSetAddRemove(Mode, lineIndex, collector, dm, document, 'remove');
 				return;
 
 			case 'reset':
-				this.branchReset(item, lineIndex, collector, dm, document);
+				this.branchReset(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'operation':
-				this.branchOperation(item, lineIndex, collector, dm, document);
+				this.branchOperation(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'test':
-				this.branchTest(item, lineIndex, collector, dm, document);
+				this.branchTest(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'random':
-				this.branchRandom(item, lineIndex, collector, dm, document);
+				this.branchRandom(Mode, lineIndex, collector, dm, document);
 				return;
 
 			default:
-				//NOT FOUND ERROR
+				Errors.UnknownWords('list, set, add, remove, reset, operation, test, random', lineIndex, Mode, collector);
 				return;
 		}
 	}

@@ -42,6 +42,16 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
         CheckSelector(lineIndex, Selector, document, collector);
       }
     }
+    else{
+      var match = Selector.text.match("^[\w_\-]+$");
+      if (match == undefined || match.length == 0){
+        collector.push(new vscode.Diagnostic(
+          new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
+          "invalid target/selector",
+          vscode.DiagnosticSeverity.Error
+        ));
+      }
+    }
   }
 }
 

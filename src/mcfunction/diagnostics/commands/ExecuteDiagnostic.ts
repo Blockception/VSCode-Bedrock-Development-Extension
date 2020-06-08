@@ -128,6 +128,13 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             if (Diagnoser != undefined) {
                 Diagnoser.provideDiagnostic(Next, lineIndex, collector, dm, document);
             }
+            else {
+                collector.push(new vscode.Diagnostic(
+                    Next.Text.ToRange(lineIndex),
+                    "Unexpected command",
+                    vscode.DiagnosticSeverity.Warning
+                ));
+            }
         }
         return;
     }
