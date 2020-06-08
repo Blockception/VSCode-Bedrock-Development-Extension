@@ -119,6 +119,6 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ItemComponentDiagnoser?.provideDiagnostic(components, lineIndex, collector, dm, document);
+		dm.JsonItemComponentDiagnoser?.provideDiagnostic(components, lineIndex, collector, dm, document);
 	}
 }

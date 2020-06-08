@@ -72,7 +72,7 @@ export class TitleDiagnosticProvider implements DiagnosticProvider {
 
 		//<fadeOut: int>
 		if (fadeOut == undefined) {
-			Errors.Missing('integer', 'title', lineIndex, fadeOut, collector);
+			Errors.Missing('integer', 'title', lineIndex, stay, collector);
 			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(fadeOut, lineIndex, collector, dm, document);

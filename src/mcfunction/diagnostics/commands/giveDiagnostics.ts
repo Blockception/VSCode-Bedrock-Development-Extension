@@ -50,6 +50,6 @@ export class GiveDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ItemComponentDiagnoser?.provideDiagnostic(Components, lineIndex, collector, dm, document);
+		dm.JsonItemComponentDiagnoser?.provideDiagnostic(Components, lineIndex, collector, dm, document);
 	}
 }
