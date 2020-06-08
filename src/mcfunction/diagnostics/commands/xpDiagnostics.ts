@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class xpDiagnosticProvider implements DiagnosticProvider {
@@ -27,7 +27,8 @@ export class xpDiagnosticProvider implements DiagnosticProvider {
 
 		//<amount: int>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -42,7 +43,8 @@ export class xpDiagnosticProvider implements DiagnosticProvider {
 
 		//<amount: int>L
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 

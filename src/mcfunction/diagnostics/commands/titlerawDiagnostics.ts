@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class titlerawDiagnosticProvider implements DiagnosticProvider {
@@ -9,7 +9,8 @@ export class titlerawDiagnosticProvider implements DiagnosticProvider {
 
 		//<player: target>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -38,7 +39,8 @@ export class titlerawDiagnosticProvider implements DiagnosticProvider {
 
 		//clear
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -46,7 +48,8 @@ export class titlerawDiagnosticProvider implements DiagnosticProvider {
 
 		//reset
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -54,12 +57,14 @@ export class titlerawDiagnosticProvider implements DiagnosticProvider {
 
 		//<title|subtitle|actionbar>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
@@ -67,24 +72,28 @@ export class titlerawDiagnosticProvider implements DiagnosticProvider {
 
 		//times
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 		//<fadeIn: int>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<stay: int>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<fadeOut: int>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 

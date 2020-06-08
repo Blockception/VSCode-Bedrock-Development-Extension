@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
 export class giveDiagnosticProvider implements DiagnosticProvider {
@@ -9,13 +9,15 @@ export class giveDiagnosticProvider implements DiagnosticProvider {
 
 		//<player: target>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
 		//<itemName: Item>
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
@@ -56,7 +58,8 @@ export class giveDiagnosticProvider implements DiagnosticProvider {
 
 		//{ "minecraft:can_destroy": { "blocks": [ "grass" ]}, "minecraft:can_place_on": { "blocks": [ "grass" ]}}
 		if (word == undefined) {
-			//MISSING ERROR
+			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+			return;
 		}
 
 	}
