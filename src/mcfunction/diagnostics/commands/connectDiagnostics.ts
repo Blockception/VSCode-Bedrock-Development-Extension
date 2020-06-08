@@ -1,17 +1,18 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class connectDiagnosticProvider implements DiagnosticProvider {
+export class ConnectDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
+		var Uri = item.Child;
+
 		//<serverUri: text>
-		if (word == undefined) {
-			//MISSING ERROR
+		if (Uri == undefined) {
+			Errors.Missing('uri', 'connect', lineIndex, item, collector);
+			return;
 		}
-
 	}
-
 }

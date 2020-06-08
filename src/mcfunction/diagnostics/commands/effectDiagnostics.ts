@@ -1,66 +1,65 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class effectDiagnosticProvider implements DiagnosticProvider {
+export class EffectDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var Target = item.Child;
 
 		//<player: target>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		switch(item.text) {
-		case '<effect: Effect>':
-			this.brancheffect(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'clear':
-			this.branchclear(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
+		if (Target == undefined) {
+			Errors.Missing('target', 'effect', lineIndex, item, collector);
 			return;
 		}
-	brancheffect(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//<effect: Effect>
-		if (word == undefined) {
-			//MISSING ERROR
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+
+		var Next = Target.Child;
+
+		if (Next == undefined) {
+			Errors.Missing('effect | clear', 'effect', lineIndex, Target, collector);
+			return;
 		}
-		dm.EffectDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+
+		if (Next.Text.text == "clear") {
+			return;
+		}
+
+		this.brancheffect(item, lineIndex, collector, dm, document);
+		return;
+	}
+
+	//When an effect has been specified
+	brancheffect(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		dm.EffectDiagnoser?.provideDiagnostic(item, lineIndex, collector, dm, document);
+
+		var Seconds = item.Child;
 
 		//[seconds: int]
-		if (word == undefined) {
+		if (Seconds == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(Seconds, lineIndex, collector, dm, document);
+
+		var amplifier = Seconds.Child;
 
 		//[amplifier: int]
-		if (word == undefined) {
+		if (amplifier == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.IntegerDiagnoser?.provideDiagnostic(amplifier, lineIndex, collector, dm, document);
+
+		var HideParticles = amplifier.Child;
 
 		//[hideParticles: Boolean]
-		if (word == undefined) {
+		if (HideParticles == undefined) {
 			return;
 		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.BooleanDiagnoser?.provideDiagnostic(HideParticles, lineIndex, collector, dm, document);
 
 	}
-	branchclear(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//clear
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-
-	}
-	}
-
 }
