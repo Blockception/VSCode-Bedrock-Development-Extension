@@ -1,11 +1,14 @@
 import * as vscode from 'vscode';
-import { SyntaxTree, SyntaxItem } from '../../general/include';
+import { SyntaxTree, SyntaxItem, RangedWord } from '../../general/include';
+export * from './DiagnosticsFunctions'
 
 export class DiagnosticsManager {
     private Items : Map<string, DiagnosticProvider>;
 
     public BooleanDiagnoser : DiagnosticProvider | undefined;
-    public CoordinateDiagnoser : DiagnosticProvider | undefined;    
+    public BlockDiagnoser : DiagnosticProvider | undefined;
+    public CoordinateDiagnoser : DiagnosticProvider | undefined;
+    public EffectDiagnoser : DiagnosticProvider | undefined;
     public IntegerDiagnoser : DiagnosticProvider | undefined;
     public ItemDiagnoser : DiagnosticProvider | undefined;
     public SelectorDiagnoser : DiagnosticProvider | undefined;    
@@ -32,3 +35,5 @@ export interface DiagnosticProvider {
     //Provides diagnostics of the current syntax tree
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void;
 }
+
+
