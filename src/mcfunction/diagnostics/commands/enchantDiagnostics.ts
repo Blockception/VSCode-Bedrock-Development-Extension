@@ -1,29 +1,36 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class enchantDiagnosticProvider implements DiagnosticProvider {
+export class EnchantDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Target = item.Child;
 
 		//<player: target>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//<int|Enchant Name>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-
-		//[level: int]
-		if (word == undefined) {
+		if (Target == undefined) {
+			Errors.Missing('target', 'enchant', lineIndex, item, collector);
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+
+		var Enchant = Target.Child;
+
+		//<int|Enchant Name>
+		if (Enchant == undefined) {
+			Errors.Missing('enchant|int', 'enchant <target>', lineIndex, item, collector);
+			return;
+		}
+
+		var Level = Enchant.Child;
+
+		//[level: int]
+		if (Level == undefined) {
+			return;
+		}
+
+		dm.IntegerDiagnoser?.provideDiagnostic(Level, lineIndex, collector, dm, document);
 	}
-
 }

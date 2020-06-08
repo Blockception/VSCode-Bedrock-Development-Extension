@@ -1,6 +1,8 @@
 import * as vscode from "vscode";
 import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
 import { SyntaxItem, RangedWord } from "../../../general/include";
+import { Functions, Errors } from "../DiagnosticsFunctions";
+import { doesNotReject } from "assert";
 
 export function activate(context: DiagnosticsManager) {    
     context.set(new ExecuteDiagnosticProvider(), [ "execute" ]);
@@ -18,60 +20,108 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
         }
 
         //X Coordinate
-        var Coord = Selector.Child;
-        if (Coord == undefined)
+        var XCoord = Selector.Child;
+        var Parent : SyntaxItem;
+        if (XCoord == undefined) {
+            Errors.Missing('coordinate', 'execute <target>', lineIndex, Selector, collector);
             return;
-
-        if (Coord.Text.text != "~~~") {
-            //X coordinate
-            dm.CoordinateDiagnoser?.provideDiagnostic(Coord, lineIndex, collector, dm, document);
-            
-            //Y Coordinate
-            Coord = Coord.Child;
-            if (Coord == undefined)
-                return;
-
-            dm.CoordinateDiagnoser?.provideDiagnostic(Coord, lineIndex, collector, dm, document);
-
-            //Z Coordinate
-            Coord = Coord.Child;
-            if (Coord == undefined)
-                return;
-
-            dm.CoordinateDiagnoser?.provideDiagnostic(Coord, lineIndex, collector, dm, document);
         }
 
-        var Next = Coord.Child;
+        if (XCoord.Text.text != "~~~") {
+            //X coordinate
+            dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
+            
+            //Y Coordinate
+            var YCoord = XCoord.Child;
+            if (YCoord == undefined) {
+                Errors.Missing('coordinate', 'execute <target> <x>', lineIndex, XCoord, collector);
+                return;
+            }
 
-        if (Next == undefined)
+            dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
+
+            //Z Coordinate
+            var ZCoord = YCoord.Child;
+            if (ZCoord == undefined) {
+                Errors.Missing('coordinate', 'execute <target> <x y>', lineIndex, YCoord, collector);
+                return;
+            }
+
+            dm.CoordinateDiagnoser?.provideDiagnostic(ZCoord, lineIndex, collector, dm, document);
+            Parent = ZCoord;
+        }
+        else {
+            Parent = XCoord;
+        }
+
+        //detect or a command
+        var Next = Parent.Child;
+
+        if (Next == undefined){
+            Errors.Missing('command | detect', 'execute <target> <x y z>', lineIndex, Parent, collector);
             return;
+        }
 
+        //if next is detect
         if (Next.Text.text == "detect"){
-            Coord = Next.Child;
-            if (Coord == undefined)
+            var XCoord = Next.Child;
+
+            if (XCoord == undefined) {
+                Errors.Missing('coordinate', 'execute <target> <x y z> detect', lineIndex, Selector, collector);
                 return;
+            }
 
-            //X coordinate
-            dm.CoordinateDiagnoser?.provideDiagnostic(Coord, lineIndex, collector, dm, document);
-            
-            //Y Coordinate
-            Coord = Selector.Child;
-            if (Coord == undefined)
+            if (XCoord.Text.text != "~~~") {
+                //X coordinate
+                dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
+                
+                //Y Coordinate
+                var YCoord = XCoord.Child;
+                if (YCoord == undefined) {
+                    Errors.Missing('coordinate', 'execute <target> <x y z> detect <x>', lineIndex, XCoord, collector);
+                    return;
+                }
+    
+                dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
+    
+                //Z Coordinate
+                var ZCoord = YCoord.Child;
+                if (ZCoord == undefined) {
+                    Errors.Missing('coordinate', 'execute <target> <x y z> detect <x y>', lineIndex, YCoord, collector);
+                    return;
+                }
+    
+                dm.CoordinateDiagnoser?.provideDiagnostic(ZCoord, lineIndex, collector, dm, document);
+                Parent = ZCoord;
+            }
+            else {
+                Parent = XCoord;
+            }
+
+            //block
+            var Block = Parent.Child;
+
+            if (Block == undefined){
+                Errors.Missing('block', 'execute <target> <x y z> detect <x y z>', lineIndex, Parent, collector);
                 return;
+            }
 
-            dm.CoordinateDiagnoser?.provideDiagnostic(Coord, lineIndex, collector, dm, document);
+            dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
 
-            //Z Coordinate
-            Coord = Selector.Child;
-            if (Coord == undefined)
+            //Data
+            var Data = Block.Child;
+
+            if (Data == undefined){
+                Errors.Missing('block', 'execute <target> <x y z> detect <x y z>', lineIndex, Block, collector);
                 return;
+            }
 
-            dm.CoordinateDiagnoser?.provideDiagnostic(Coord, lineIndex, collector, dm, document);
+            dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 
-            //block, data, command
-            Next = Coord.Child?.Child?.Child;
+            Next = Data.Child;
         }
 
+        //Command
         if (Next != undefined){
             var Diagnoser = dm.get(Next);
 

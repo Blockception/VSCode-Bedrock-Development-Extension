@@ -1,81 +1,81 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
+import { Functions } from '../DiagnosticsFunctions';
 
-export class fillDiagnosticProvider implements DiagnosticProvider {
+export class FillDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//<from: x y z>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
+		//from x y z
+		var Out = Functions.provideDiagnosticsXYZ('fill', item, lineIndex, collector, dm, document);
+
+		if (Out[1] == false)
+			return;
 
 		//<to: x y z>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
+		Out = Functions.provideDiagnosticsXYZ('fill <from x y z>', Out[0], lineIndex, collector, dm, document);
+
+		if (Out[1] == false)
+			return;
+		
+		var Block = Out[0].Child;
 
 		//<tileName: Block>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		switch(item.text) {
-		case '[tileData: int]':
-			this.branchtileData(item, lineIndex, collector, dm, document);
-			return;
-
-		case '<tileData: int>':
-			this.branchtileData(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
-			return;
-		}
-	branchtileData(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//[tileData: int]
-		if (word == undefined) {
-			return;
-		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//[outline|hollow|destroy|keep]
-		if (word == undefined) {
+		if (Block == undefined) {
+			Errors.Missing('block', 'fill <from x y z> <to x y z>', lineIndex, Out[0], collector);
 			return;
 		}
 
+		dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
+
+		var Data = Block.Child;
+
+		//optional
+		if (Data == undefined)
+			return;
+
+		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
+
+		var Mode = Data.Child;
+
+		//optional
+		if (Mode == undefined)
+			return;
+
+		switch(Mode.Text.text)	{
+			case 'outline':
+			case 'hollow':
+			case 'destroy':
+			case 'keep':
+				return;
+			case 'replace':
+				this.branchReplace(Mode, lineIndex, collector, dm, document);
+				return;
+			default:
+				Errors.UnknownWords('fill <from x y z> <to x y z> <block> [data]', 'outline, hollow, destroy, keep, replace', lineIndex, Mode, collector);
+				return;
+		}
 	}
-	branchtileData(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//<tileData: int>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+	branchReplace(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Block = item.Child;
 
-		//replace
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-
-		//[replaceTileName: Block]
-		if (word == undefined) {
+		//<tileName: Block>
+		if (Block == undefined) {
 			return;
 		}
-		dm.BlockDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
-		//[replaceDataValue: int]
-		if (word == undefined) {
+		dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
+
+		var Data = Block.Child;
+
+		//optional
+		if (Data == undefined)
 			return;
-		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
-	}
+		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 	}
 
 }

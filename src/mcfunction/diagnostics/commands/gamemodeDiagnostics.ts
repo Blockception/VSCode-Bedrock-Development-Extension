@@ -1,23 +1,46 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class gamemodeDiagnosticProvider implements DiagnosticProvider {
+export class GamemodeDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var Gamemode = item.Child;
 
 		//<0|1|2|s|d|c|a|adventure|creative|default|survival>
-		if (word == undefined) {
-			//MISSING ERROR
-		}
-
-		//[player: target]
-		if (word == undefined) {
+		if (Gamemode == undefined) {
+			Errors.Missing('gamemode', 'gamemode', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
+		switch (Gamemode.Text.text) {
+			case '0':
+			case '1':
+			case '2':
+			case 's':
+			case 'd':
+			case 'c':
+			case 'a':
+			case 'adventure':
+			case 'creative':
+			case 'default':
+			case 'survival':
+				break;
+			default:
+				Errors.UnknownWords('gamemode', '0, 1, 2, s, d, c, a, adventure, creative, default, survival', lineIndex, Gamemode, collector);
+				return;
+		}
+
+		var Target = Gamemode.Child;
+
+		//[player: target]
+		if (Target == undefined) {
+			return;
+		}
+
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
 	}
 
 }
