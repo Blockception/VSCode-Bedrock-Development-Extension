@@ -9,9 +9,12 @@ export class DiagnosticsManager {
     public BlockDiagnoser : DiagnosticProvider | undefined;
     public CoordinateDiagnoser : DiagnosticProvider | undefined;
     public EffectDiagnoser : DiagnosticProvider | undefined;
+    public FloatDiagnoser : DiagnosticProvider | undefined;
     public IntegerDiagnoser : DiagnosticProvider | undefined;
     public ItemDiagnoser : DiagnosticProvider | undefined;
-    public SelectorDiagnoser : DiagnosticProvider | undefined;    
+    public ParticleDiagnoser : DiagnosticProvider | undefined;
+    public SelectorDiagnoser : DiagnosticProvider | undefined;
+    public SoundDiagnoser : DiagnosticProvider | undefined;
 
     constructor(){
         this.Items = new  Map<string, DiagnosticProvider>();
