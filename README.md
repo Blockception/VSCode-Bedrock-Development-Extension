@@ -8,13 +8,13 @@ An extension that provides development tools, validations, formatters, and snipp
 
 ## Features
 
-- Json Validation
+### Json Validation
   - [General.](./documentation/Json%20Validation.md#general)
   - [World.](./documentation/Json%20Validation.md#world)
   - [Resource pack.](./documentation/Json%20Validation.md#resource-packs)
   - [Behaviour pack.](./documentation/Json%20Validation.md#behaviour-packs)
   
-- Snippets
+### Snippets
   - [Blocks.](./documentation/Snippets.md#block-names)
   - [Commands.](./documentation/Snippets.md#commands)
   - [Effects.](./documentation/Snippets.md#effect-names)
@@ -22,10 +22,10 @@ An extension that provides development tools, validations, formatters, and snipp
   - [Items.](./documentation/Snippets.md#item-names)
   - [Selector.](./documentation/Snippets.md#selector)
   
-- Syntax
-  - Mcfunctions.
-    - Selectors
-      - Validation.
-      - Code completion.
-    - Region support.
-  - Language files.
+### Syntax
+
+Added syntax highligthing for mcfunction and language files.
+
+### Diagnostics
+
+Includes validation and code completion for mcfunctions.
