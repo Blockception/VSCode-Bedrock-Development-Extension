@@ -16,14 +16,14 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 		}
 
 		//end x y z
-		out = Functions.provideDiagnosticsXYZ('clone <begin x y z>', out[0], lineIndex, collector, dm, document);
+		out = Functions.provideDiagnosticsXYZ('clone', out[0], lineIndex, collector, dm, document);
 
 		if (out[1] == false){
 			return;
 		}
 
 		//destination x y z
-		out = Functions.provideDiagnosticsXYZ('clone <begin x y z> <end: x y z>', out[0], lineIndex, collector, dm, document);
+		out = Functions.provideDiagnosticsXYZ('clone', out[0], lineIndex, collector, dm, document);
 
 		if (out[1] == false){
 			return;
@@ -46,7 +46,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 			return;
 
 		default:
-			Errors.UnknownWords('clone <begin x y z> <end: x y z> <destination: x y z>', 'masked, replace, filtered', lineIndex, mode, collector);
+			Errors.UnknownWords('masked, replace, filtered', lineIndex, mode, collector);
 			return;
 		}
 	}
@@ -64,7 +64,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 		case 'move':
 			return;
 		default:
-			Errors.UnknownWords('clone <begin x y z> <end: x y z> <destination: x y z> [mode]', 'normal, force, move', lineIndex, mode, collector);
+			Errors.UnknownWords('normal, force, move', lineIndex, mode, collector);
 			return;
 		}
 	}
@@ -73,7 +73,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 	branchfiltered(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 		var mode = item.Child;
 		if (mode == undefined){
-			Errors.Missing('clone mode', 'clone <begin x y z> <end: x y z> <destination: x y z> filtered', lineIndex, item, collector);
+			Errors.Missing('clone mode', 'clone', lineIndex, item, collector);
 			return;
 		}
 
@@ -83,7 +83,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 		case 'move':
 			break;
 		default:
-			Errors.UnknownWords('clone <begin x y z> <end: x y z> <destination: x y z> [mode]', 'normal, force, move', lineIndex, mode, collector);
+			Errors.UnknownWords('normal, force, move', lineIndex, mode, collector);
 			return;
 		}
 
@@ -91,7 +91,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 
 		//<tileName: Block>
 		if (block == undefined) {
-			Errors.Missing('block', 'clone <begin x y z> <end: x y z> <destination: x y z> filtered <clone mode>', lineIndex, mode, collector);
+			Errors.Missing('block', 'clone', lineIndex, mode, collector);
 			return;
 		}
 		dm.BlockDiagnoser?.provideDiagnostic(block, lineIndex, collector, dm, document);
@@ -100,7 +100,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 
 		//<tileData: int>
 		if (blockData == undefined) {
-			Errors.Missing('integer', 'clone <begin x y z> <end: x y z> <destination: x y z> filtered <clone mode> <block>', lineIndex, block, collector);
+			Errors.Missing('integer', 'clone', lineIndex, block, collector);
 			return;
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(blockData, lineIndex, collector, dm, document);

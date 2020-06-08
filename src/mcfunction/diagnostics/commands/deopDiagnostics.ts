@@ -10,10 +10,7 @@ export class DeopDiagnosticProvider implements DiagnosticProvider {
 
 		//<player: target>
 		if (Child == undefined) {
-			collector.push(new vscode.Diagnostic(
-				new vscode.Range(lineIndex, item.Text.endindex + 1, lineIndex, item.Text.endindex + 2),
-				"expecting a target/selector for the deop command"
-			));
+			Errors.Missing('target/selector', 'deop', lineIndex, item, collector);
 			return;
 		}
 

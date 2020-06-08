@@ -29,7 +29,7 @@ export class DifficultyDiagnosticProvider implements DiagnosticProvider {
 			case '3':
 				return;
 			default:
-				Errors.UnknownWords('difficulty', 'peaceful, easy, normal, hard, e, h, n, p, 0, 1, 2, 3', lineIndex, Difficulty, collector);
+				Errors.UnknownWords('peaceful, easy, normal, hard, e, h, n, p, 0, 1, 2, 3', lineIndex, Difficulty, collector);
 		}
 	}
 }

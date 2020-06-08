@@ -60,7 +60,7 @@ export class GameruleDiagnosticProvider implements DiagnosticProvider {
 
 			return;
 		default:
-			Errors.UnknownWords('gamerule', 'see gamerule on the wiki', lineIndex, Gamerule, collector);
+			Errors.UnknownWords('see gamerule on the wiki', lineIndex, Gamerule, collector);
 			return;
 		}
 

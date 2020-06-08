@@ -20,7 +20,7 @@ export class EnchantDiagnosticProvider implements DiagnosticProvider {
 
 		//<int|Enchant Name>
 		if (Enchant == undefined) {
-			Errors.Missing('enchant|int', 'enchant <target>', lineIndex, item, collector);
+			Errors.Missing('enchant|int', 'enchant', lineIndex, item, collector);
 			return;
 		}
 

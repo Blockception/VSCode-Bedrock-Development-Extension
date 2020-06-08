@@ -5,15 +5,15 @@ import { doesNotReject } from 'assert';
 
 export module Errors {
 
-    export function Missing(type : string, path : string, lineIndex : number, parent : SyntaxItem, collector: vscode.Diagnostic[]) : void {
+    export function Missing(type : string, command : string, lineIndex : number, parent : SyntaxItem, collector: vscode.Diagnostic[]) : void {
         collector.push(new vscode.Diagnostic(
             new vscode.Range(lineIndex, parent.Text.endindex + 1, lineIndex, parent.Text.endindex + 2),
-            `Missing '${type}' at ${path}`,
+            `Missing a '${type}' for the '${command}' command`,
             vscode.DiagnosticSeverity.Error
         ));
     }
 
-    export function UnknownWords(path : string, AcceptValues : string, lineIndex : number, item : SyntaxItem, collector: vscode.Diagnostic[]) : void {
+    export function UnknownWords(AcceptValues : string, lineIndex : number, item : SyntaxItem, collector: vscode.Diagnostic[]) : void {
         collector.push(new vscode.Diagnostic(
             new vscode.Range(lineIndex, item.Text.startindex, lineIndex, item.Text.endindex),
             `Unknown value: '${item.Text.text}', accepted values are: '${AcceptValues}'`,
