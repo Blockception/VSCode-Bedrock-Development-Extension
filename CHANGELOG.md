@@ -1,4 +1,13 @@
 # Changelog 
+- Merge pull request #2 from Blockception/Improved-Ts-code
+- Updated
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Fixed target_nearby_sensor "inside_range"
+- Finished
+- Finished
+- Finished
+- Finished
+- Updated
 - Updated
 - Prepared
 - Finished enchant to gamerule
@@ -10,12 +19,3 @@
 - Updated
 - Updated
 - Added Diagnostics
-- Updated
-- Updated
-- Finished gamerule
-- Updated
-- Finished enchant
-- Finished effect
-- Finished trees
-- Updated Clone
-- Added Block support

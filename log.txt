@@ -1,0 +1,30 @@
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> blockceptionvscodeminecraftbedrockdevelopmentextension@0.1.6 vscode:prepublish D:\Mijn Projecten\Blockception\VSCode-Bedrock-Development-Extension
+> webpack --mode production
+
+Hash: b521e587540b0abd60fb
+Version: webpack 4.43.0
+Time: 5891ms
+Built at: 06/08/2020 3:42:25 PM
+           Asset      Size  Chunks                   Chunk Names
+    extension.js  70.6 KiB       0  [emitted]        main
+extension.js.map   239 KiB       0  [emitted] [dev]  main
+Entrypoint main = extension.js extension.js.map
+ [1] external "vscode" 42 bytes {0} [built]
+ [3] ./src/general/include.ts 828 bytes {0} [built]
+ [8] ./src/extension.ts 259 bytes {0} [built]
+ [9] ./src/mcfunction/activate.ts 410 bytes {0} [built]
+[10] ./src/mcfunction/completion items/activate.ts 444 bytes {0} [built]
+[11] ./src/mcfunction/completion items/SelectorCompletion.ts 9.26 KiB {0} [built]
+[17] ./src/mcfunction/completion items/RegionCompletion.ts 1.02 KiB {0} [built]
+[18] ./src/mcfunction/completion items/FunctionCommandCompletion.ts 1.77 KiB {0} [built]
+[19] ./src/mcfunction/diagnostics/activate.ts 2.92 KiB {0} [built]
+[20] ./src/mcfunction/diagnostics/Diagnostics.ts 384 bytes {0} [built]
+[21] ./src/mcfunction/diagnostics/commands/activate.ts 7.24 KiB {0} [built]
+[70] ./src/mcfunction/diagnostics/SelectorDiagnostics.ts 8.15 KiB {0} [built]
+[72] ./src/mcfunction/diagnostics/CoordinateDiagnostics.ts 856 bytes {0} [built]
+[73] ./src/mcfunction/diagnostics/BooleanDiagnostics.ts 652 bytes {0} [built]
+[74] ./src/mcfunction/diagnostics/FloatDiagnostics.ts 815 bytes {0} [built]
+    + 62 hidden modules
+ DONE  Packaged: D:\Mijn Projecten\Blockception\VSCode-Bedrock-Development-Extension\blockceptionvscodeminecraftbedrockdevelopmentextension-0.1.6.vsix (516 files, 453.74KB)

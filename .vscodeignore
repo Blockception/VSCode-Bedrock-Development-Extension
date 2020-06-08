@@ -8,3 +8,9 @@ CONTRIBUTING.md
 documentation/
 .gitignore
 .gitattributes
+.vscode
+node_modules
+out/
+src/
+tsconfig.json
+webpack.config.js
