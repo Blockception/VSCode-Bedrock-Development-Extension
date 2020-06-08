@@ -2,23 +2,28 @@ import * as vscode from 'vscode';
 import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class tellrawDiagnosticProvider implements DiagnosticProvider {
+export class TellrawDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var target = item.Child;
 
-		//<player>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		//<player: target>
+		if (target == undefined) {
+			Errors.Missing('target/selector', 'tellraw', lineIndex, item, collector);
 			return;
 		}
 
-		//{ "rawtext": [ { "text": "" }, "", { "translate": "" } ] }
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		dm.SelectorDiagnoser?.provideDiagnostic(target, lineIndex, collector, dm, document);
+
+		var Message = target.Child;
+
+		//<message: message>
+		if (Message == undefined) {
+			Errors.Missing('json', 'tellraw', lineIndex, target, collector);
 			return;
 		}
 
+		dm.JsonTextDiagnoser?.provideDiagnostic(Message, lineIndex, collector, dm, document);
 	}
-
 }

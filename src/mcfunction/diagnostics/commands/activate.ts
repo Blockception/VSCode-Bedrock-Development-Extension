@@ -33,6 +33,18 @@ import { SetblockDiagnosticProvider } from "./setblockDiagnostics";
 import { SetmaxplayersDiagnosticProvider } from "./setmaxplayersDiagnostics";
 import { SetWorldSpawnDiagnosticProvider } from "./setworldspawnDiagnostics";
 import { SpawnpointDiagnosticProvider } from "./spawnpointDiagnostics";
+import { StopsoundDiagnosticProvider } from "./stopsoundDiagnostics";
+import { SpreadPlayersDiagnosticProvider } from "./spreadplayersDiagnostics";
+import { TagDiagnosticProvider } from "./tagDiagnostics";
+import { SummonDiagnosticProvider } from "./summonDiagnostics";
+import { TellDiagnosticProvider } from "./tellDiagnostics";
+import { TellrawDiagnosticProvider } from "./tellrawDiagnostics";
+import { TeleportDiagnosticProvider } from "./teleportDiagnostics";
+import { WDiagnosticProvider } from "./wDiagnostics";
+import { ToggledownfallDiagnosticProvider } from "./toggledownfallDiagnostics";
+import { TitlerawDiagnosticProvider } from "./titlerawDiagnostics";
+import { TitleDiagnosticProvider } from "./titleDiagnostics";
+import { TimeDiagnosticProvider } from "./timeDiagnostics";
 
 //Add commands to the diagnoser
 export function activate(context: DiagnosticsManager) {
@@ -67,6 +79,18 @@ export function activate(context: DiagnosticsManager) {
     context.set(new SetmaxplayersDiagnosticProvider(), [ "setmaxplayers" ]);
     context.set(new SetWorldSpawnDiagnosticProvider(), [ "setworldspawn" ]);
     context.set(new SpawnpointDiagnosticProvider(), [ "spawnpoint" ]);
+    context.set(new StopsoundDiagnosticProvider(), [ "stopsound" ]);
+    context.set(new SpreadPlayersDiagnosticProvider(), [ "spreadplayers" ]);
+    context.set(new SummonDiagnosticProvider(), [ "summon" ]);
+    context.set(new TagDiagnosticProvider(), [ "tag" ]);
+    context.set(new TellDiagnosticProvider(), [ "tell" ]);
+    context.set(new TellrawDiagnosticProvider(), [ "tellraw" ]);
+    context.set(new TeleportDiagnosticProvider(), [ "teleport", "tp" ]);
+    context.set(new WDiagnosticProvider(), [ "w" ]);
+    context.set(new ToggledownfallDiagnosticProvider(), [ "toggledownfall" ]);
+    context.set(new TitleDiagnosticProvider(), [ "title" ]);
+    context.set(new TitlerawDiagnosticProvider(), [ "titleraw" ]);
+    context.set(new TimeDiagnosticProvider(), [ "time" ]);
 
 
     
