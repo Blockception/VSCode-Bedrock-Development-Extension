@@ -1,4 +1,5 @@
 # Changelog 
+- Made Changed
 - Added
 - Added webpack for smaller packages
 - Merge pull request #2 from Blockception/Improved-Ts-code
@@ -18,4 +19,3 @@
 - Fixed
 - Fixed Diagnostion
 - produced batch
-- Updated
