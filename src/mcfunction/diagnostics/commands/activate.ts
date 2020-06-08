@@ -23,6 +23,10 @@ import { MobeventDiagnosticProvider } from "./mobeventDiagnostics";
 import { KillDiagnosticProvider } from "./KillDiagnostics";
 import { MsgDiagnosticProvider } from "./msgDiagnostics";
 import { GiveDiagnosticProvider } from "./giveDiagnostics";
+import { ParticleDiagnosticProvider } from "./particleDiagnostics";
+import { ReloadDiagnosticProvider } from "./reloadDiagnostics";
+import { PlaysoundDiagnosticProvider } from "./playsoundDiagnostics";
+import { SayDiagnosticProvider } from "./sayDiagnostics";
 
 //Add commands to the diagnoser
 export function activate(context: DiagnosticsManager) {
@@ -47,6 +51,10 @@ export function activate(context: DiagnosticsManager) {
     context.set(new MobeventDiagnosticProvider(), [ "mobevent" ]);
     context.set(new KillDiagnosticProvider(), [ "kill" ]);
     context.set(new MsgDiagnosticProvider(), [ "msg" ]);
+    context.set(new ParticleDiagnosticProvider(), [ "particle" ]);
+    context.set(new PlaysoundDiagnosticProvider(), [ "playsound" ]);
+    context.set(new ReloadDiagnosticProvider(), [ "reload" ]);
+    context.set(new SayDiagnosticProvider(), [ "say" ]);
 
 
     

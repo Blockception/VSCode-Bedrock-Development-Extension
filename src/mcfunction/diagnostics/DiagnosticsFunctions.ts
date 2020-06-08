@@ -25,12 +25,12 @@ export module Errors {
 
 export module Functions {
 
-    export function provideDiagnosticsXYZ(path : string, item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : [SyntaxItem, boolean] {
+    export function provideDiagnosticsXYZ(command : string, item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : [SyntaxItem, boolean] {
         var item_x = item.Child;
 
         //x
 		if (item_x == undefined) {
-			Errors.Missing('coordinate', path + ' x', lineIndex, item, collector);
+			Errors.Missing('coordinate', command, lineIndex, item, collector);
 			return [item, false];
         }
 
@@ -44,7 +44,7 @@ export module Functions {
 
 		//y
 		if (item_y == undefined) {
-			Errors.Missing('coordinate', path + ' x y', lineIndex, item_x, collector);
+			Errors.Missing('coordinate', command, lineIndex, item_x, collector);
 			return [item_x, false];
         }
         dm.CoordinateDiagnoser?.provideDiagnostic(item_x, lineIndex, collector, dm, document);
@@ -53,7 +53,7 @@ export module Functions {
 
 		//z
 		if (item_z == undefined) {
-			Errors.Missing('coordinate', path + ' x y z', lineIndex, item_y, collector);
+			Errors.Missing('coordinate', command, lineIndex, item_y, collector);
 			return [item_y, false];
         }
         dm.CoordinateDiagnoser?.provideDiagnostic(item_x, lineIndex, collector, dm, document);

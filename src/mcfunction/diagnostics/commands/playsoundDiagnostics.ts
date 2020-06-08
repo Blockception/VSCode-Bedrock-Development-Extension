@@ -1,47 +1,83 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class playsoundDiagnosticProvider implements DiagnosticProvider {
+export class PlaysoundDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var Sound = item.Child;
 
 		//<sound: string>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Sound == undefined) {
+			Errors.Missing('sound', 'playsound', lineIndex, item, collector);
 			return;
 		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.SoundDiagnoser?.provideDiagnostic(Sound, lineIndex, collector, dm, document);
+
+		var Target = Sound.Child;
 
 		//[player: target]
-		if (word == undefined) {
+		if (Target == undefined) {
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+
+		var XCoord = Target.Child;
 
 		//[position: x y z]
-		if (word == undefined) {
+		if (XCoord == undefined) {
 			return;
+		}
+
+		var volume: SyntaxItem | undefined;
+		if (XCoord.Text.text != "~~~") {
+			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
+
+			var YCoord = XCoord.Child;
+
+			//[position: x y z]
+			if (YCoord == undefined) {
+				return;
+			}
+			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
+
+			var ZCoord = YCoord.Child;
+
+			//[position: x y z]
+			if (ZCoord == undefined) {
+				return;
+			}
+			dm.CoordinateDiagnoser?.provideDiagnostic(ZCoord, lineIndex, collector, dm, document);
+
+			volume = ZCoord.Child;
+		}
+		else {
+			volume = XCoord.Child;
 		}
 
 		//[volume: float]
-		if (word == undefined) {
+		if (volume == undefined) {
 			return;
 		}
-		dm.floatDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.FloatDiagnoser?.provideDiagnostic(volume, lineIndex, collector, dm, document);
+
+		var pitch = volume.Child;
 
 		//[pitch: float]
-		if (word == undefined) {
+		if (pitch == undefined) {
 			return;
 		}
-		dm.floatDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.FloatDiagnoser?.provideDiagnostic(pitch, lineIndex, collector, dm, document);
+
+		var minVolume = pitch.Child;
 
 		//[minimumVolume: float]
-		if (word == undefined) {
+		if (minVolume == undefined) {
 			return;
 		}
-		dm.floatDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.FloatDiagnoser?.provideDiagnostic(minVolume, lineIndex, collector, dm, document);
 
 	}
 
