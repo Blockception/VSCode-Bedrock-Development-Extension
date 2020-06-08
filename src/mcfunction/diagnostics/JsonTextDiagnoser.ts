@@ -68,6 +68,7 @@ export class JsonTextDiagnoserProvider implements DiagnosticProvider {
                                 ));
                             }
 
+                            break;
                         case 'translate':
                             var p = itemObject[property];
                             if (typeof p != 'string') {
@@ -77,12 +78,16 @@ export class JsonTextDiagnoserProvider implements DiagnosticProvider {
                                     vscode.DiagnosticSeverity.Error
                                 ));
                             }
+
+                            break;
                         default:
                             collector.push(new vscode.Diagnostic(
                                 json.Text.ToRange(lineIndex),
                                 "Found unknown property: " + property,
                                 vscode.DiagnosticSeverity.Error
                             ));
+
+                            break;
                     }
                 }
             }

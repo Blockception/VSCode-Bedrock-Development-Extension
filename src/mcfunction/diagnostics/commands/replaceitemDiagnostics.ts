@@ -1,38 +1,37 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 import { Functions } from '../DiagnosticsFunctions';
 
 export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
 		var Mode = item.Child;
 
-		if (Mode == undefined){
+		if (Mode == undefined) {
 			Errors.Missing('block | entity', 'replaceitem', lineIndex, item, collector);
 			return;
 		}
 
+		switch (Mode.Text.text) {
+			case 'block':
+				this.branchblock(Mode, lineIndex, collector, dm, document);
+				return;
 
-		switch(Mode.Text.text) {
-		case 'block':
-			this.branchblock(item, lineIndex, collector, dm, document);
-			return;
+			case 'entity':
+				this.branchentity(Mode, lineIndex, collector, dm, document);
+				return;
 
-		case 'entity':
-			this.branchentity(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			Errors.UnknownWords('entity, block', lineIndex, Mode, collector);
-			return;
+			default:
+				Errors.UnknownWords('entity, block', lineIndex, Mode, collector);
+				return;
 		}
 
 	}
 
-	branchblock(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	branchblock(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
 		//<position: x y z>
 		var Out = Functions.provideDiagnosticsXYZ('replaceitem', item, lineIndex, collector, dm, document);
@@ -50,10 +49,10 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 
 		//TODO check slot containers
 
-		this.branchMerged(slot,lineIndex, collector, dm, document);
+		this.branchMerged(slot, lineIndex, collector, dm, document);
 	}
 
-	branchentity(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	branchentity(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 		var Target = item.Child;
 
 		//<target: target>
@@ -73,10 +72,10 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 
 		//TODO entity slot
 
-		this.branchMerged(slot ,lineIndex, collector, dm, document);
+		this.branchMerged(slot, lineIndex, collector, dm, document);
 	}
 
-	branchMerged(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void{
+	branchMerged(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
 		var SlotID = item.Child;
 

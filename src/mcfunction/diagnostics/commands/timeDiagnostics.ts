@@ -16,15 +16,15 @@ export class TimeDiagnosticProvider implements DiagnosticProvider {
 
 		switch (Mode.Text.text) {
 			case 'add':
-				this.branchadd(item, lineIndex, collector, dm, document);
+				this.branchadd(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'set':
-				this.branchset(item, lineIndex, collector, dm, document);
+				this.branchset(Mode, lineIndex, collector, dm, document);
 				return;
 
 			case 'query':
-				this.branchquery(item, lineIndex, collector, dm, document);
+				this.branchquery(Mode, lineIndex, collector, dm, document);
 				return;
 
 			default:

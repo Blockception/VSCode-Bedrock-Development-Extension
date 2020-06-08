@@ -18,6 +18,8 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
           vscode.DiagnosticSeverity.Error
         ));
       }
+
+      return;
     }
     else if (Selector.text.startsWith("@")) {
       if (Selector.text.length <= 2) {
@@ -220,6 +222,17 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
         range,
         "name parameter has no closing quote",
         vscode.DiagnosticSeverity.Error));
+    return;
+  }
+
+  if (Parameter.value.startsWith('"')){
+    if (!Parameter.value.endsWith('"')){
+      new vscode.Diagnostic(
+        range,
+        "Started on a quoted name but never finished it",
+        vscode.DiagnosticSeverity.Error);
+    }
+
     return;
   }
 

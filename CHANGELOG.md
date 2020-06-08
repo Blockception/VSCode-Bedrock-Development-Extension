@@ -1,4 +1,6 @@
 # Changelog 
+- Added
+- Added webpack for smaller packages
 - Merge pull request #2 from Blockception/Improved-Ts-code
 - Updated
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
@@ -17,5 +19,3 @@
 - Fixed Diagnostion
 - produced batch
 - Updated
-- Updated
-- Added Diagnostics

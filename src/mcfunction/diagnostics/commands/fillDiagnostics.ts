@@ -50,9 +50,11 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 			case 'destroy':
 			case 'keep':
 				return;
+				
 			case 'replace':
 				this.branchReplace(Mode, lineIndex, collector, dm, document);
 				return;
+
 			default:
 				Errors.UnknownWords('outline, hollow, destroy, keep, replace', lineIndex, Mode, collector);
 				return;

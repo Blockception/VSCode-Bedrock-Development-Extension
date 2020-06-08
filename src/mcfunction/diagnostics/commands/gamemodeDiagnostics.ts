@@ -28,6 +28,7 @@ export class GamemodeDiagnosticProvider implements DiagnosticProvider {
 			case 'default':
 			case 'survival':
 				break;
+				
 			default:
 				Errors.UnknownWords('0, 1, 2, s, d, c, a, adventure, creative, default, survival', lineIndex, Gamemode, collector);
 				return;
