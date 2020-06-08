@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 0.2.0
 - Made Changed
 - Added
 - Added webpack for smaller packages
@@ -18,4 +19,3 @@
 - Finished and updated
 - Fixed
 - Fixed Diagnostion
-- produced batch

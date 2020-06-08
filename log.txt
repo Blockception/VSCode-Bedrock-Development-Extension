@@ -148,3 +148,33 @@ Entrypoint main = extension.js extension.js.map
 [77] ./src/language/diagnostic.ts 2.34 KiB {0} [built]
     + 63 hidden modules
  DONE  Packaged: D:\Mijn Projecten\Blockception\VSCode-Bedrock-Development-Extension\blockceptionvscodeminecraftbedrockdevelopmentextension-0.1.6.vsix (516 files, 455.56KB)
+Executing prepublish script 'npm run vscode:prepublish'...
+
+> blockceptionvscodeminecraftbedrockdevelopmentextension@0.2.0 vscode:prepublish D:\Mijn Projecten\Blockception\VSCode-Bedrock-Development-Extension
+> webpack --mode production
+
+Hash: fe794622f880e11934e5
+Version: webpack 4.43.0
+Time: 10178ms
+Built at: 06/08/2020 6:09:28 PM
+           Asset      Size  Chunks                   Chunk Names
+    extension.js  71.9 KiB       0  [emitted]        main
+extension.js.map   244 KiB       0  [emitted] [dev]  main
+Entrypoint main = extension.js extension.js.map
+ [1] external "vscode" 42 bytes {0} [built]
+ [3] ./src/general/include.ts 828 bytes {0} [built]
+ [8] ./src/extension.ts 344 bytes {0} [built]
+ [9] ./src/mcfunction/activate.ts 410 bytes {0} [built]
+[10] ./src/mcfunction/completion items/activate.ts 444 bytes {0} [built]
+[11] ./src/mcfunction/completion items/SelectorCompletion.ts 9.26 KiB {0} [built]
+[17] ./src/mcfunction/completion items/RegionCompletion.ts 1.02 KiB {0} [built]
+[18] ./src/mcfunction/completion items/FunctionCommandCompletion.ts 1.77 KiB {0} [built]
+[19] ./src/mcfunction/diagnostics/activate.ts 2.7 KiB {0} [built]
+[20] ./src/mcfunction/diagnostics/Diagnostics.ts 384 bytes {0} [built]
+[21] ./src/mcfunction/diagnostics/commands/activate.ts 7.24 KiB {0} [built]
+[70] ./src/mcfunction/diagnostics/SelectorDiagnostics.ts 8.42 KiB {0} [built]
+[72] ./src/mcfunction/diagnostics/CoordinateDiagnostics.ts 856 bytes {0} [built]
+[73] ./src/mcfunction/diagnostics/BooleanDiagnostics.ts 652 bytes {0} [built]
+[77] ./src/language/diagnostic.ts 2.34 KiB {0} [built]
+    + 63 hidden modules
+ DONE  Packaged: D:\Mijn Projecten\Blockception\VSCode-Bedrock-Development-Extension\blockceptionvscodeminecraftbedrockdevelopmentextension-0.2.0.vsix (516 files, 455.59KB)
