@@ -1,682 +1,420 @@
 import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
+import { DiagnosticsManager, DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class scoreboardDiagnosticProvider implements DiagnosticProvider {
+export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		switch(item.text) {
-		case 'objectives':
-			this.branchobjectives(item, lineIndex, collector, dm, document);
-			return;
+		var Sub = item.Child;
 
-		case 'players':
-			this.branchplayers(item, lineIndex, collector, dm, document);
+		if (Sub == undefined) {
+			Errors.Missing('mode', 'scoreboard', lineIndex, item, collector);
 			return;
+		}
 
-		default:
-			//NOT FOUND ERROR
-			return;
+		switch (Sub.Text.text) {
+			case 'objectives':
+				this.branchObjectives(item, lineIndex, collector, dm, document);
+				return;
+
+			case 'players':
+				this.branchPlayers(item, lineIndex, collector, dm, document);
+				return;
+
+			default:
+				Errors.UnknownWords('objectives, players', lineIndex, Sub, collector);
+				return;
 		}
 
 	}
 
-	branchobjectives(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	//All the objectives
+	branchObjectives(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Mode = item.Child;
 
 		//objectives
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Mode == undefined) {
+			Errors.Missing('mode', 'scoreboard objectives', lineIndex, item, collector);
 			return;
 		}
 
-		switch(item.text) {
-		case 'list':
-			this.branchlist(item, lineIndex, collector, dm, document);
-			return;
+		switch (Mode.Text.text) {
+			case 'list':
+				return;
 
-		case 'add':
-			this.branchadd(item, lineIndex, collector, dm, document);
-			return;
+			case 'add':
+				this.branchAdd(item, lineIndex, collector, dm, document);
+				return;
 
-		case 'remove':
-			this.branchremove(item, lineIndex, collector, dm, document);
-			return;
+			case 'remove':
+				this.branchRemove(item, lineIndex, collector, dm, document);
+				return;
 
-		case 'setdisplay':
-			this.branchsetdisplay(item, lineIndex, collector, dm, document);
-			return;
+			case 'setdisplay':
+				this.branchSetdisplay(item, lineIndex, collector, dm, document);
+				return;
 
-		default:
-			//NOT FOUND ERROR
-			return;
+			default:
+				Errors.UnknownWords('list, add, remove, setdisplay', lineIndex, Mode, collector);
+				return;
 		}
 	}
 
-	branchlist(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	//scoreboard objectives add
+	branchAdd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		//list
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//add
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+		var ScoreName = item.Child;
 
 		//<name>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (ScoreName == undefined) {
+			Errors.Missing('objective', 'scoreboard objectives add', lineIndex, item, collector);
 			return;
 		}
+
+		dm.ScoreDiagnoser?.provideDiagnostic(ScoreName, lineIndex, collector, dm, document);
+
+		var Dummy = ScoreName.Child;
 
 		//dummy
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Dummy == undefined) {
+			Errors.Missing('dummy', 'scoreboard objectives add', lineIndex, ScoreName, collector);
 			return;
 		}
+
+		if (Dummy.Text.text != "dummy") {
+			collector.push(new vscode.Diagnostic(
+				Dummy.Text.ToRange(lineIndex),
+				"only objective type dummy is allowed",
+				vscode.DiagnosticSeverity.Error
+			));
+		}
+
+		var Display = Dummy.Child;
 
 		//[display name: string]
-		if (word == undefined) {
+		if (Display == undefined) {
 			return;
 		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.StringDiagnoser?.provideDiagnostic(Display, lineIndex, collector, dm, document);
 
 	}
-	branchremove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//remove
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	//scoreboard objectives remove
+	branchRemove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var ScoreName = item.Child;
 
 		//<name>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (ScoreName == undefined) {
+			Errors.Missing('objective', 'scoreboard objectives add', lineIndex, item, collector);
 			return;
 		}
 
+		dm.ScoreDiagnoser?.provideDiagnostic(ScoreName, lineIndex, collector, dm, document);
 	}
-	branchsetdisplay(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+
+	branchSetdisplay(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+
+		var DisplayType = item.Child;
 
 		//setdisplay
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (DisplayType == undefined) {
+			Errors.Missing('display type', 'scoreboard objectives setdisplay', lineIndex, item, collector);
 			return;
 		}
 
-		switch(item.text) {
-		case '<slot>':
-			this.branchslot(item, lineIndex, collector, dm, document);
-			return;
+		var Sortable = false;
 
-		case 'belowname':
-			this.branchbelowname(item, lineIndex, collector, dm, document);
-			return;
+		switch (DisplayType.Text.text) {
+			case 'belowname':
+				break;
 
-		case 'list':
-			this.branchlist(item, lineIndex, collector, dm, document);
-			return;
+			case 'list':
+			case 'sidebar':
+				Sortable = true;
+				break;
 
-		case 'sidebar':
-			this.branchsidebar(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
-			return;
+			default:
+				Errors.UnknownWords('belowname, list, sidebar', lineIndex, DisplayType, collector);
+				return;
 		}
-	}
 
-	branchslot(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Objective = DisplayType.Child;
 
-		//<slot>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Objective == undefined) {
 			return;
 		}
 
-		//[objective]
-		if (word == undefined) {
+		dm.ScoreDiagnoser?.provideDiagnostic(Objective, lineIndex, collector, dm, document);
+
+		if (!Sortable)
+			return;
+
+		var Sort = Objective.Child;
+
+		if (Sort == undefined) {
 			return;
 		}
 
-	}
-	branchbelowname(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		switch (Sort.Text.text) {
+			case 'ascending':
+			case 'descending':
+				return;
 
-		//belowname
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//[objective]
-		if (word == undefined) {
-			return;
-		}
-
-	}
-	branchlist(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//list
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//[objective]
-		if (word == undefined) {
-			return;
-		}
-
-	}
-	branchsidebar(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//sidebar
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//[objective]
-		if (word == undefined) {
-			return;
-		}
-
-	}
-	}
-	}
-	branchplayers(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//players
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		switch(item.text) {
-		case 'list':
-			this.branchlist(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'set':
-			this.branchset(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'add':
-			this.branchadd(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'remove':
-			this.branchremove(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'reset':
-			this.branchreset(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'operation':
-			this.branchoperation(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'test':
-			this.branchtest(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'random':
-			this.branchrandom(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
-			return;
+			default:
+				Errors.UnknownWords('ascending, descending', lineIndex, DisplayType, collector);
+				return;
 		}
 	}
 
-	branchlist(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+	branchPlayers(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		//list
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		var Mode = item.Child;
+
+		if (Mode == undefined) {
+			Errors.Missing('mode', 'scoreboard players', lineIndex, item, collector);
 			return;
 		}
+
+		switch (Mode.Text.text) {
+			case 'list':
+				this.branchList(item, lineIndex, collector, dm, document);
+				return;
+
+			case 'set':
+				this.branchSetAddRemove(item, lineIndex, collector, dm, document, 'set');
+				return;
+
+			case 'add':
+				this.branchSetAddRemove(item, lineIndex, collector, dm, document, 'add');
+				return;
+
+			case 'remove':
+				this.branchSetAddRemove(item, lineIndex, collector, dm, document, 'remove');
+				return;
+
+			case 'reset':
+				this.branchReset(item, lineIndex, collector, dm, document);
+				return;
+
+			case 'operation':
+				this.branchOperation(item, lineIndex, collector, dm, document);
+				return;
+
+			case 'test':
+				this.branchTest(item, lineIndex, collector, dm, document);
+				return;
+
+			case 'random':
+				this.branchRandom(item, lineIndex, collector, dm, document);
+				return;
+
+			default:
+				//NOT FOUND ERROR
+				return;
+		}
+	}
+
+	//scoreboard players list
+	branchList(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Entity = item.Child;
 
 		//[entity]
-		if (word == undefined) {
+		if (Entity == undefined) {
 			return;
 		}
 
+		dm.SelectorDiagnoser?.provideDiagnostic(Entity, lineIndex, collector, dm, document);
 	}
-	branchset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//set
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	//scoreboard players set/add/remove
+	branchSetAddRemove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument, Mode: string): void {
+		var Entity = item.Child;
 
 		//<entity: string>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Entity == undefined) {
+			Errors.Missing('target/selector', `scoreboard players ${Mode}`, lineIndex, item, collector);
 			return;
 		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+
+		dm.SelectorDiagnoser?.provideDiagnostic(Entity, lineIndex, collector, dm, document);
+
+		var Objective = Entity.Child;
 
 		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Objective == undefined) {
+			Errors.Missing('objective', `scoreboard players ${Mode}`, lineIndex, Entity, collector);
 			return;
 		}
+
+		dm.ScoreDiagnoser?.provideDiagnostic(Objective, lineIndex, collector, dm, document);
+
+		var Score = Objective.Child;
 
 		//<score>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Score == undefined) {
+			Errors.Missing('integer', `scoreboard players ${Mode}`, lineIndex, Objective, collector);
 			return;
 		}
 
+		dm.IntegerDiagnoser?.provideDiagnostic(Score, lineIndex, collector, dm, document);
 	}
-	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//add
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	//scoreboard players reset
+	branchReset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Entity = item.Child;
 
 		//<entity: string>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Entity == undefined) {
+			Errors.Missing('target/selector', 'scoreboard players reset', lineIndex, item, collector);
 			return;
 		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser?.provideDiagnostic(Entity, lineIndex, collector, dm, document);
+		var Objective = Entity.Child;
 
 		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Objective == undefined) {
 			return;
 		}
 
-		//<count>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
+		dm.ScoreDiagnoser?.provideDiagnostic(Objective, lineIndex, collector, dm, document);
 	}
-	branchremove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//remove
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<entity: string>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<count>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branchreset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//reset
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<entity: string>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-		dm.StringDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-		//[objective]
-		if (word == undefined) {
-			return;
-		}
-
-	}
-	branchoperation(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//operation
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	//scoreboard players operation
+	branchOperation(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Target = item.Child;
 
 		//<targetName>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Target == undefined) {
+			Errors.Missing('target/selector', 'scoreboard players reset', lineIndex, item, collector);
 			return;
 		}
+
+		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+
+		var TargetObjective = Target.Child;
 
 		//<targetObjective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (TargetObjective == undefined) {
+			Errors.Missing('objective', 'scoreboard players operation', lineIndex, Target, collector);
 			return;
 		}
 
-		switch(item.text) {
-		case '<operation>':
-			this.branchoperation(item, lineIndex, collector, dm, document);
-			return;
+		dm.ScoreDiagnoser?.provideDiagnostic(TargetObjective, lineIndex, collector, dm, document);
 
-		case '%=':
-			this.branch%=(item, lineIndex, collector, dm, document);
-			return;
+		var Operation = TargetObjective.Child;
 
-		case '*=':
-			this.branch*=(item, lineIndex, collector, dm, document);
-			return;
-
-		case '+=':
-			this.branch+=(item, lineIndex, collector, dm, document);
-			return;
-
-		case '-=':
-			this.branch-=(item, lineIndex, collector, dm, document);
-			return;
-
-		case '/=':
-			this.branch/=(item, lineIndex, collector, dm, document);
-			return;
-
-		case '< <selector> <objective>':
-			this.branch<selector> <objective(item, lineIndex, collector, dm, document);
-			return;
-
-		case '=':
-			this.branch=(item, lineIndex, collector, dm, document);
-			return;
-
-		case '> <selector> <objective>':
-			this.branch<selector> <objective(item, lineIndex, collector, dm, document);
-			return;
-
-		case 'swap':
-			this.branchswap(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
-			return;
-		}
-	branchoperation(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//<operation>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Operation == undefined) {
+			Errors.Missing('operation', 'scoreboard players operation', lineIndex, TargetObjective, collector);
 			return;
 		}
 
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		switch (Operation.Text.text) {
+			case '%=':
+			case '*=':
+			case '+=':
+			case '-=':
+			case '/=':
+			case '<':
+			case '=':
+			case '>':
+			case '><':
+				break;
+			default:
+				Errors.UnknownWords('', lineIndex, Operation, collector);
+				return;
+		}
+
+		var SourceTarget = Operation.Child;
+
+		//<targetName>
+		if (SourceTarget == undefined) {
+			Errors.Missing('target/selector', 'scoreboard players reset', lineIndex, item, collector);
 			return;
 		}
 
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		dm.SelectorDiagnoser?.provideDiagnostic(SourceTarget, lineIndex, collector, dm, document);
+
+		var SourceTargetObjective = SourceTarget.Child;
+
+		//<targetObjective>
+		if (SourceTargetObjective == undefined) {
+			Errors.Missing('objective', 'scoreboard players operation', lineIndex, SourceTarget, collector);
 			return;
 		}
 
+		dm.ScoreDiagnoser?.provideDiagnostic(SourceTargetObjective, lineIndex, collector, dm, document);
 	}
-	branch%=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//%=
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branch*=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//*=
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branch+=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//+=
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branch-=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//-=
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branch/=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		///=
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branch<selector> <objective(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//< <selector> <objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branch=(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//=
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branch<selector> <objective(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//> <selector> <objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	branchswap(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//swap
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<selector>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-	}
-	}
-	branchtest(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//test
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	//scoreboard players test
+	branchTest(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Target = item.Child;
 
 		//<entity>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Target == undefined) {
+			Errors.Missing('target/selector', 'scoreboard players test', lineIndex, item, collector);
 			return;
 		}
 
+		var Objective = Target.Child;
+
 		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Objective == undefined) {
+			Errors.Missing('objective', 'scoreboard players test', lineIndex, Target, collector);
 			return;
 		}
+
+		var Min = Objective.Child;
 
 		//<min|*>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Min == undefined) {
+			Errors.Missing('TODO Type', 'scoreboard players test', lineIndex, Objective, collector);
 			return;
 		}
+
+		var Max = Min.Child;
 
 		//<max|*>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Max == undefined) {
+			Errors.Missing('TODO Type', 'scoreboard players test', lineIndex, Min, collector);
 			return;
 		}
-
 	}
-	branchrandom(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		//random
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
+	//scoreboard players random
+	branchRandom(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
+		var Target = item.Child;
 
 		//<entity>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Target == undefined) {
+			Errors.Missing('target/selector', 'scoreboard players random', lineIndex, item, collector);
 			return;
 		}
+
+		var Objective = Target.Child;
 
 		//<objective>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Objective == undefined) {
+			Errors.Missing('objective', 'scoreboard players random', lineIndex, Target, collector);
 			return;
 		}
 
-		//<min>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		var Min = Objective.Child;
+
+		//<min|*>
+		if (Min == undefined) {
+			Errors.Missing('TODO Type', 'scoreboard players random', lineIndex, Objective, collector);
 			return;
 		}
 
-		//<max>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		var Max = Min.Child;
+
+		//<max|*>
+		if (Max == undefined) {
+			Errors.Missing('TODO Type', 'scoreboard players random', lineIndex, Min, collector);
 			return;
 		}
-
-	}
 	}
 }
