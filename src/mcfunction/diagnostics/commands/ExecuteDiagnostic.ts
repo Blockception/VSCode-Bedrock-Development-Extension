@@ -23,7 +23,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
         var XCoord = Selector.Child;
         var Parent : SyntaxItem;
         if (XCoord == undefined) {
-            Errors.Missing('coordinate', 'execute <target>', lineIndex, Selector, collector);
+            Errors.Missing('coordinate', 'execute', lineIndex, Selector, collector);
             return;
         }
 
@@ -34,7 +34,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             //Y Coordinate
             var YCoord = XCoord.Child;
             if (YCoord == undefined) {
-                Errors.Missing('coordinate', 'execute <target> <x>', lineIndex, XCoord, collector);
+                Errors.Missing('coordinate', 'execute', lineIndex, XCoord, collector);
                 return;
             }
 
@@ -43,7 +43,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             //Z Coordinate
             var ZCoord = YCoord.Child;
             if (ZCoord == undefined) {
-                Errors.Missing('coordinate', 'execute <target> <x y>', lineIndex, YCoord, collector);
+                Errors.Missing('coordinate', 'execute', lineIndex, YCoord, collector);
                 return;
             }
 
@@ -58,7 +58,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
         var Next = Parent.Child;
 
         if (Next == undefined){
-            Errors.Missing('command | detect', 'execute <target> <x y z>', lineIndex, Parent, collector);
+            Errors.Missing('command | detect', 'execute', lineIndex, Parent, collector);
             return;
         }
 
@@ -67,7 +67,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             var XCoord = Next.Child;
 
             if (XCoord == undefined) {
-                Errors.Missing('coordinate', 'execute <target> <x y z> detect', lineIndex, Selector, collector);
+                Errors.Missing('coordinate', 'execute', lineIndex, Selector, collector);
                 return;
             }
 
@@ -78,7 +78,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
                 //Y Coordinate
                 var YCoord = XCoord.Child;
                 if (YCoord == undefined) {
-                    Errors.Missing('coordinate', 'execute <target> <x y z> detect <x>', lineIndex, XCoord, collector);
+                    Errors.Missing('coordinate', 'execute', lineIndex, XCoord, collector);
                     return;
                 }
     
@@ -87,7 +87,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
                 //Z Coordinate
                 var ZCoord = YCoord.Child;
                 if (ZCoord == undefined) {
-                    Errors.Missing('coordinate', 'execute <target> <x y z> detect <x y>', lineIndex, YCoord, collector);
+                    Errors.Missing('coordinate', 'execute', lineIndex, YCoord, collector);
                     return;
                 }
     
@@ -102,7 +102,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             var Block = Parent.Child;
 
             if (Block == undefined){
-                Errors.Missing('block', 'execute <target> <x y z> detect <x y z>', lineIndex, Parent, collector);
+                Errors.Missing('block', 'execute', lineIndex, Parent, collector);
                 return;
             }
 
@@ -112,7 +112,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             var Data = Block.Child;
 
             if (Data == undefined){
-                Errors.Missing('block', 'execute <target> <x y z> detect <x y z>', lineIndex, Block, collector);
+                Errors.Missing('block', 'execute', lineIndex, Block, collector);
                 return;
             }
 

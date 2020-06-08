@@ -1,3 +1,5 @@
+import * as vscode from 'vscode';
+
 export class RangedWord {
     text: string;
     startindex : number;
@@ -7,6 +9,10 @@ export class RangedWord {
         this.text = text;
         this.startindex = startindex;
         this.endindex = endindex; 
+    }
+
+    ToRange(lineIndex : number) : vscode.Range {
+        return new vscode.Range(lineIndex, this.startindex, lineIndex, this.endindex);
     }
 
     static GetWords(text : string) : RangedWord[] {

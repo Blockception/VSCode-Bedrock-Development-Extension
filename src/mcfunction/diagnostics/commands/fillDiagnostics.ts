@@ -15,7 +15,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 			return;
 
 		//<to: x y z>
-		Out = Functions.provideDiagnosticsXYZ('fill <from x y z>', Out[0], lineIndex, collector, dm, document);
+		Out = Functions.provideDiagnosticsXYZ('fill', Out[0], lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
@@ -24,7 +24,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 
 		//<tileName: Block>
 		if (Block == undefined) {
-			Errors.Missing('block', 'fill <from x y z> <to x y z>', lineIndex, Out[0], collector);
+			Errors.Missing('block', 'fill', lineIndex, Out[0], collector);
 			return;
 		}
 
@@ -54,7 +54,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 				this.branchReplace(Mode, lineIndex, collector, dm, document);
 				return;
 			default:
-				Errors.UnknownWords('fill <from x y z> <to x y z> <block> [data]', 'outline, hollow, destroy, keep, replace', lineIndex, Mode, collector);
+				Errors.UnknownWords('outline, hollow, destroy, keep, replace', lineIndex, Mode, collector);
 				return;
 		}
 	}

@@ -6,14 +6,14 @@ export class opDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Child = item.Child;
 
 		//<player: target>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Child == undefined) {
+			Errors.Missing('target/selector', 'op', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
+		dm.SelectorDiagnoser?.provideDiagnostic(Child, lineIndex, collector, dm, document);
 	}
-
 }

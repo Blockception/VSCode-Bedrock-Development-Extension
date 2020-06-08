@@ -2,67 +2,71 @@ import * as vscode from 'vscode';
 import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class giveDiagnosticProvider implements DiagnosticProvider {
+export class GiveDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var target = item.Child;
 
 		//<player: target>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (target == undefined) {
+			Errors.Missing('target/selector', 'give', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+
+		dm.SelectorDiagnoser?.provideDiagnostic(target, lineIndex, collector, dm, document);
+
+		var Item = target.Child;
 
 		//<itemName: Item>
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
+		if (Item == undefined) {
+			Errors.Missing('item', 'give', lineIndex, target, collector);
 			return;
 		}
-		dm.ItemDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		dm.ItemDiagnoser?.provideDiagnostic(Item, lineIndex, collector, dm, document);
+
+		var Amount = Item.Child;
 
 		//[amount: int]
-		if (word == undefined) {
+		if (Amount == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
+		
+		dm.IntegerDiagnoser?.provideDiagnostic(Amount, lineIndex, collector, dm, document);
+
+		var Data = Amount.Child;
 
 		//[data: int]
-		if (word == undefined) {
+		if (Data == undefined) {
 			return;
 		}
-		dm.IntegerDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
 
-		switch(item.text) {
-		case '[components: json]':
-			this.branchcomponents(item, lineIndex, collector, dm, document);
-			return;
+		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 
-		case '{ "minecraft:can_destroy": { "blocks": [ "grass" ]}, "minecraft:can_place_on": { "blocks": [ "grass" ]}}':
-			this.branch{ "minecraft(item, lineIndex, collector, dm, document);
-			return;
-
-		default:
-			//NOT FOUND ERROR
-			return;
-		}
-	branchcomponents(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var Components = item.Child;
 
 		//[components: json]
-		if (word == undefined) {
+		if (Components == undefined){
 			return;
 		}
 
-	}
-	branch{ "minecraft(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
+		var object = JSON.parse(Components.Text.text);
 
-		//{ "minecraft:can_destroy": { "blocks": [ "grass" ]}, "minecraft:can_place_on": { "blocks": [ "grass" ]}}
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
+		for (var jproperty in object){
+			switch(jproperty){
+				case 'minecraft:can_destroy':
+				case 'minecraft:can_place_on':
+					break;
+				default:
+					collector.push(new vscode.Diagnostic(
+						Components.Text.ToRange(lineIndex),
+						"unknown json property, expected: minecraft:can_place_on, or minecraft:can_destroy",
+						vscode.DiagnosticSeverity.Error
+					));
+					break;
+			}
 		}
-
-	}
+	
 	}
 
 }

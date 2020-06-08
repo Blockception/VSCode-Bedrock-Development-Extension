@@ -2,74 +2,34 @@ import * as vscode from 'vscode';
 import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
 import { SyntaxItem } from '../../../general/include';
 
-export class mobeventDiagnosticProvider implements DiagnosticProvider {
+export class MobeventDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		switch(item.text) {
+		var event = item.Child;
+
+		if (event == undefined){
+			Errors.Missing('event', 'mobevent', lineIndex, item, collector);
+			return
+		}
+
+		switch(event.Text.text) {
 		case 'minecraft:pillager_patrols_event':
-			this.branchminecraft(item, lineIndex, collector, dm, document);
-			return;
-
 		case 'wandering_trader_event':
-			this.branchwandering_trader_event(item, lineIndex, collector, dm, document);
-			return;
-
 		case 'events_enabled':
-			this.branchevents_enabled(item, lineIndex, collector, dm, document);
-			return;
+			var Value = event.Child;
 
+			if (Value == undefined){
+				return;
+			}
+
+			dm.BooleanDiagnoser?.provideDiagnostic(Value, lineIndex, collector, dm, document);
+
+			return;
 		default:
-			//NOT FOUND ERROR
+			Errors.UnknownWords('mobevent', 'minecraft:pillager_patrols_event, wandering_trader_event, events_enabled', lineIndex, event, collector);
 			return;
 		}
-
-	}
-
-	branchminecraft(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//minecraft:pillager_patrols_event
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//[value: Boolean]
-		if (word == undefined) {
-			return;
-		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-	}
-	branchwandering_trader_event(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//wandering_trader_event
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//[value: Boolean]
-		if (word == undefined) {
-			return;
-		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
-	}
-	branchevents_enabled(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-
-		//events_enabled
-		if (word == undefined) {
-			Errors.Missing('TODO Type', 'TODO Path', lineIndex, Out[0], collector);
-			return;
-		}
-
-		//[value: Boolean]
-		if (word == undefined) {
-			return;
-		}
-		dm.BooleanDiagnoser?.provideDiagnostic(word, lineIndex, collector, dm, document);
-
 	}
 }
