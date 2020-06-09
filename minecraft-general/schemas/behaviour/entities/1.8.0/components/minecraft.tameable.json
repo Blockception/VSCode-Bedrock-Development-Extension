@@ -15,15 +15,20 @@
       "maximum": 1
     },
     "tame_event": {
+      "title": "Tame Event",
       "$ref": "../types/event.json",
       "description": "Event to run when this entity becomes tamed"
     },
     "tame_items": {
-      "type": "array",
+      "title": "Tame Items",
       "description": "The list of items that can be used to tame this entity",
-      "items": {
-        "$ref": "../../../../general/items_item.json"
-      }
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "$ref": "../../../../general/items_item.json" }
+        },
+        { "$ref": "../../../../general/items_item.json" }
+      ]      
     }
   }
 }

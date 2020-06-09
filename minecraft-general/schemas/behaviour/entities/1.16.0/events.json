@@ -5,6 +5,7 @@
   "title": "minecraft:entity 1.16.0",
   "definitions": {
     "addremove": {
+      "additionalProperties": false,
       "title": "The add/remove schema",
       "description": "The components groups to add or remove",
       "type": "object",
@@ -86,6 +87,9 @@
           },
           "description": "A series of filters and components to be added",
           "title": "Sequences"
+        },
+        "filters": {
+          "$ref": "./filters.json" 
         }
       }
     }

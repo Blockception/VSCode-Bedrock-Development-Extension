@@ -271,6 +271,29 @@
           "then": { "$ref": "filters/weather_at_position.json" }
         }
       ]
+    },
+    "groups_spec": {
+      "anyOf": [
+        { "$ref": "#/definitions/filters_spec" },
+        {
+          "properties": {
+            "any_of": {
+              "type": "array",
+              "description": "One or more tests in an 'any_of' group must pass in order for the group to pass.",
+              "items": {
+                "$ref": "#/definitions/filters_spec"
+              }
+            },
+            "all_of": {
+              "type": "array",
+              "description": "All tests in an 'all_of' group must pass in order for the group to pass.",
+              "items": {
+                "$ref": "#/definitions/filters_spec"
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "anyOf": [
@@ -281,14 +304,14 @@
           "type": "array",
           "description": "One or more tests in an 'any_of' group must pass in order for the group to pass.",
           "items": {
-            "$ref": "#/definitions/filters_spec"
+            "$ref": "#/definitions/groups_spec"
           }
         },
         "all_of": {
           "type": "array",
           "description": "All tests in an 'all_of' group must pass in order for the group to pass.",
           "items": {
-            "$ref": "#/definitions/filters_spec"
+            "$ref": "#/definitions/groups_spec"
           }
         }
       }

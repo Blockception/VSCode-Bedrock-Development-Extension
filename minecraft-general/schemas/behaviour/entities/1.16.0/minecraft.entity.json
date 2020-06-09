@@ -38,22 +38,16 @@
     },
     "component_groups": {
       "title": "Component groups",
-      "description": "collection of component groups",
+      "description": "Collection of component groups",
       "additionalProperties": {
-        "$ref": "components.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "$ref": "components.json"
       }
     },
     "components": {
-      "$ref": "components.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "$ref": "components.json"
     },
     "events": {
-      "$ref": "events.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "$ref": "events.json"
     }
   }
 }

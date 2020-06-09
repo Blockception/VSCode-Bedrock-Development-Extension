@@ -91,28 +91,28 @@
       "type": "array",
       "description": "List of blocks this entity can breathe in, in addition to the above",
       "items": {
-        "$ref": "../../../../general/blocks_names_item.json"
+        "$ref": "../../../../general/blocks_identifiers.json"
       }
     },
     "breathe_blocks": {
       "type": "array",
       "description": "List of blocks this entity can breathe in, in addition to the above",
       "items": {
-        "$ref": "../../../../general/blocks_names_item.json"
+        "$ref": "../../../../general/blocks_identifiers.json"
       }
     },
     "nonBreatheBlocks": {
       "type": "array",
       "description": "List of blocks this entity can't breathe in, in addition to the above",
       "items": {
-        "$ref": "../../../../general/blocks_names_item.json"
+        "$ref": "../../../../general/blocks_identifiers.json"
       }
     },
     "non_breathe_blocks": {
       "type": "array",
       "description": "List of blocks this entity can't breathe in, in addition to the above",
       "items": {
-        "$ref": "../../../../general/blocks_names_item.json"
+        "$ref": "../../../../general/blocks_identifiers.json"
       }
     }
   }

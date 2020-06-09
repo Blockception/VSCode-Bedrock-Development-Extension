@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.breedable",
+  "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.breedable",
   "type": "object",
-  "title": "minecraft:breedable 1.8.0",
+  "title": "minecraft:breedable 1.16.0",
   "additionalProperties": false,
   "description": "Specifies the blocks that this entity can break as it moves around.",
   "definitions": {
@@ -83,12 +83,6 @@
         }
       ]
     },
-    "causes_pregnancy": {
-      "type": "boolean",
-      "default": false,
-      "description": "If true, the entity will become pregnant instead of spawning a baby.",
-      "title": "TODO title"
-    },
     "deny_parents_variant": {
       "type": "object",
       "description": "Determines how likely the baby of parents with the same variant will deny that variant and take a random variant within the given range instead.",
@@ -157,12 +151,6 @@
       "maximum": 1.0,
       "title": "TODO title"
     },
-    "inherit_tamed": {
-      "description": "If true, the babies will be automatically tamed if its parents are",
-      "type": "boolean",
-      "default": true,
-      "title": "TODO title"
-    },
     "love_filters": {
       "$ref": "../filters.json",
       "description": "The filters to run when attempting to fall in love.",
@@ -200,11 +188,29 @@
       },
       "title": "TODO title"
     },
+    "causes_pregnancy": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, the entity will become pregnant instead of spawning a baby.",
+      "title": "causes_pregnancy"
+    },
+    "inherit_tamed": {
+      "type": "boolean",
+      "default": true,
+      "description": "If true, the babies will be automatically tamed if its parents are",
+      "title": "inherit_tamed"
+    },
+    "require_full_health": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, the entity needs to be at full health before it can breed.",
+      "title": "require_full_health"
+    },
     "require_tame": {
       "type": "boolean",
-      "description": "If true, the entities need to be tamed first before they can breed.",
       "default": true,
-      "title": "TODO title"
+      "description": "If true, the entities need to be tamed first before they can breed.",
+      "title": "require_tame"
     }
   }
 }

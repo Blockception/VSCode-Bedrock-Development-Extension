@@ -5,7 +5,7 @@
   "title": "The particle_expire_if_not_in_blocks component for 1.10.0",
   "additionalProperties": false,
   "items": {
-    "$ref": "../../../../general/blocks_names_item.json",
+    "$ref": "../../../../general/blocks_identifiers.json",
     "description": "TODO description",
     "title": "TODO title"
   },
