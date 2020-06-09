@@ -53,7 +53,7 @@
                 "type": "object",
                 "minProperties": 1,
                 "propertyNames": {
-                  "pattern": "^array\\..+"
+                  "pattern": "^[Aa]rray\\..+"
                 },
                 "additionalProperties": {
                   "type": "array",
