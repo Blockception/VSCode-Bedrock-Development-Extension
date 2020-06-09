@@ -54,6 +54,7 @@ export function activate(context: vscode.ExtensionContext): void {
     );
 }
 
+//Mcfunction formatter
 class McfunctionFormatter implements vscode.DocumentFormattingEditProvider, vscode.DocumentRangeFormattingEditProvider {
     provideDocumentRangeFormattingEdits(document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token : vscode.CancellationToken) : vscode.ProviderResult<vscode.TextEdit[]> {
         var collection = new Array<vscode.TextEdit>();

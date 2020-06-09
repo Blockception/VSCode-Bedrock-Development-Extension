@@ -13,32 +13,7 @@
           "default": "none",
           "description": "Type of damage that triggers the events.",
           "title": "cause",
-          "enum": [
-            "anvil",
-            "attack",
-            "block_explosion",
-            "contact",
-            "drowning",
-            "entity_explosion",
-            "fall",
-            "falling_block",
-            "fata",
-            "fire",
-            "fire_tick",
-            "fly_into_wall",
-            "lava",
-            "magic",
-            "none",
-            "override",
-            "piston",
-            "projectile",
-            "starve",
-            "suffocation",
-            "suicide",
-            "thorns",
-            "void",
-            "wither"
-          ] 
+          "enum": ["anvil", "attack", "block_explosion", "contact", "drowning", "entity_explosion", "fall", "falling_block", "fata", "fire", "fire_tick", "fly_into_wall", "lava", "magic", "none", "override", "piston", "projectile", "starve", "suffocation", "suicide", "thorns", "void", "wither"]
         },
         "damage_multiplier": {
           "type": "number",
@@ -52,7 +27,7 @@
           "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage.",
           "title": "deals_damage"
         },
-        "on_damage": {          
+        "on_damage": {
           "additionalProperties": false,
           "type": "object",
           "description": "Specifies filters for entity definitions and events.",
@@ -74,12 +49,13 @@
               "description": "TODO description",
               "title": "TODO title"
             }
-        },
-        "on_damage_sound_event": {
-          "type": "string",
-          "description": "Defines what sound to play, if any, when the on_damage filters are met.",
-          "title": "on_damage_sound_event"
-        }    
+          },
+          "on_damage_sound_event": {
+            "type": "string",
+            "description": "Defines what sound to play, if any, when the on_damage filters are met.",
+            "title": "on_damage_sound_event"
+          }
+        }
       }
     }
   },
@@ -88,16 +64,8 @@
       "description": "The list of triggers that fire when the environment conditions match the given filter criteria.",
       "title": "Triggers",
       "oneOf": [
-        {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/trigger"
-          }
-        },
-        {
-          "type": "object",
-          "$ref": "#/definitions/trigger"
-        }
+        { "type": "array", "items": { "$ref": "#/definitions/trigger" } },
+        { "type": "object", "$ref": "#/definitions/trigger" }
       ]
     }
   }
