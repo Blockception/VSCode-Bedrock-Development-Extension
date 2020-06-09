@@ -80,7 +80,13 @@
     },
     "can_walk": {
       "type": "boolean",
+      "default": false,
       "$comment": "NOT DOCUMENTATED BY MINECRAFT"
+    },
+    "is_amphibious": {
+      "type": "boolean",
+      "default": true,
+      "description": "TODO Description"
     }
   }
 }

@@ -10,6 +10,7 @@
         "enum": [ "test", "operator", "value", "domain", "subject" ]
       },
       "allOf": [
+        //All filters from 1.16.0 have been included
         {
           "if": { "properties": { "test": { "const": "clock_time" } } },
           "then": { "$ref": "../1.8.0/filters/clock_time.json" }
