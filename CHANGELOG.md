@@ -1,4 +1,8 @@
 # Changelog 
+- Reenabled formatter
+- Fixed arrays for render_controllers
+- Updated Information
+- Updated
 - Updated to 0.2.0
 - Made Changed
 - Added
@@ -15,7 +19,3 @@
 - Updated
 - Prepared
 - Finished enchant to gamerule
-- Added additional diagnostics functionallity
-- Finished and updated
-- Fixed
-- Fixed Diagnostion
