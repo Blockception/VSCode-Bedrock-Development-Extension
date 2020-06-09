@@ -3,6 +3,7 @@ import * as constants from "../constants";
 import * as Functions from "../general/include"
 
 export function activate(context: vscode.ExtensionContext): void {
+    console.log("activating formatter");
     //register command
     vscode.commands.registerCommand("blockception.mcfunction.formatter", () => {
         const { activeTextEditor } = vscode.window;
