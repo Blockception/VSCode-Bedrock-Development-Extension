@@ -10,13 +10,13 @@
     "filters": {
       "$ref": "../filters.json",
       "description": "The list of conditions that must be satisfied before the Actor is despawned",
-      "title": "TODO title"
+      "title": "Filters"
     },
     "remove_child_entities": {
       "type": "boolean",
       "default": false,
       "description": "If true, all entities linked to this entity in a child relationship (eg. leashed) will also be despawned",
-      "title": "TODO title"
+      "title": "Remove Child Entities"
     }
   }
 }

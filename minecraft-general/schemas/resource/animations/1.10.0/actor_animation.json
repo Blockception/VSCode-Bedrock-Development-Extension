@@ -13,7 +13,7 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "pattern": "^1.10.0$",
-      "description": "TODO description"
+      "description": "TODO description: format version"
     },
     "animations": {
       "title": "Animations schema",
@@ -27,22 +27,22 @@
         "properties": {
           "animation_length": {
             "type": "number",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: animation length",
+            "title": "Animation Length"
           },
           "loop": {
             "type": "boolean",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: loop",
+            "title": "Loop"
           },
           "bones": {
             "$ref": "types/bones.json",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: bones",
+            "title": "Bones"
           }
         },
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: additionalItems",
+        "title": "Additional Items"
       }
     }
   }

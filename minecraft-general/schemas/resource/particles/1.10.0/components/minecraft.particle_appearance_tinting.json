@@ -11,11 +11,11 @@
           "type": "array",
           "items": {
             "$ref": "../../../../molang/1.8.0/number.json",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: anyOf[0]",
+            "title": "Any Of[0]"
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: anyOf[0]",
+          "title": "Any Of[0]"
         },
         {
           "type": "object",
@@ -27,28 +27,28 @@
                 "type": "array",
                 "items": {
                   "$ref": "../../../../molang/1.8.0/number.json",
-                  "description": "TODO description",
-                  "title": "TODO title"
+                  "description": "TODO description: gradient",
+                  "title": "Gradient"
                 },
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: gradient",
+                "title": "Gradient"
               },
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: gradient",
+              "title": "Gradient"
             },
             "interpolant": {
               "$ref": "../../../../molang/1.8.0/number.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: interpolant",
+              "title": "Interpolant"
             }
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: anyOf[1]",
+          "title": "Any Of[1]"
         }
       ],
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: color",
+      "title": "Color"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

@@ -8,9 +8,9 @@
   "properties": {
     "mass": {
       "type": "number",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: mass",
+      "title": "Mass"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

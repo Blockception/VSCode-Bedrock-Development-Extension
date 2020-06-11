@@ -7,14 +7,14 @@
   "properties": {
     "per_update_expression": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: per update expression",
+      "title": "Per Update Expression"
     },
     "per_render_expression": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: per render expression",
+      "title": "Per Render Expression"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

@@ -5,7 +5,7 @@
   "additionalProperties": false,
   "description": "Defines what events to call when this entity is damaged by specific entities or items.",
   "definitions": {
-    "damagespec":{
+    "damagespec": {
       "type": "object",
       "description": "A trigger with the events to call when taking specific kinds of damage.",
       "additionalProperties": false,
@@ -15,13 +15,13 @@
           "default": "none",
           "description": "Type of damage that triggers the events.",
           "$ref": "../../../../general/entity_damage.json",
-          "title": "TODO title"
+          "title": "Cause"
         },
         "deals_damage": {
           "type": "boolean",
           "default": true,
           "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage.",
-          "title": "TODO title"
+          "title": "Deals Damage"
         },
         "on_damage": {
           "additionalProperties": false,
@@ -29,35 +29,33 @@
           "properties": {
             "filters": {
               "$ref": "../filters.json"
-              //"description": "The filter specification for on_damage",
-              //"title": "Filters On Damage"
             },
             "event": {
               "type": "string",
               "pattern": "^.*$",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: event",
+              "title": "Event"
             },
             "target": {
               "$ref": "../filters/types/base_subject.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: target",
+              "title": "Target"
             }
           },
           "description": "Specifies filters for entity definitions and events.",
-          "title": "TODO title"
+          "title": "On Damage"
         }
       },
-      "title": "TODO title"
+      "title": "Damagespec"
     }
   },
   "required": [],
   "oneOf": [
-    { 
+    {
       "type": "object",
       "$ref": "#/definitions/damagespec"
     },
-    { 
+    {
       "type": "array",
       "items": {
         "$ref": "#/definitions/damagespec"

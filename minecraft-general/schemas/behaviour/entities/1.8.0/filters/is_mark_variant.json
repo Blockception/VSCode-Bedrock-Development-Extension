@@ -20,7 +20,7 @@
       "type": "integer",
       "description": "The altitude value to compare with",
       "minimum": 0,
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

@@ -7,9 +7,9 @@
   "properties": {
     "max_lifetime": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: max lifetime",
+      "title": "Max Lifetime"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

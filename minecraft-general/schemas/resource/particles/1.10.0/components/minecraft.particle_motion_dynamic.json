@@ -11,17 +11,17 @@
       "maxItems": 3,
       "items": {
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: linear acceleration",
+        "title": "Linear Acceleration"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: linear acceleration",
+      "title": "Linear Acceleration"
     },
     "linear_drag_coefficient": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: linear drag coefficient",
+      "title": "Linear Drag Coefficient"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

@@ -9,9 +9,9 @@
     "table": {
       "type": "string",
       "pattern": ".*\\.json$",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: table",
+      "title": "Table"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

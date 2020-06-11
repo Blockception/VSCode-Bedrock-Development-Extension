@@ -18,15 +18,15 @@
       "pack_id": {
         "description": "The uuid of the pack to include",
         "$ref": "#/definitions/uuidv4",
-        "title": "TODO title"
+        "title": "Pack Id"
       },
       "version": {
         "description": "The version of the pack",
         "$ref": "#/definitions/version",
-        "title": "TODO title"
+        "title": "Version"
       }
     },
-    "description": "TODO description",
-    "title": "TODO title"
+    "description": "TODO description: items",
+    "title": "Items"
   }
 }

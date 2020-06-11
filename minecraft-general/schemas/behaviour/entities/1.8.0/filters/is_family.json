@@ -5,7 +5,9 @@
   "title": "Filters is_family 1.8.0",
   "additionalProperties": false,
   "description": "Returns true when the subject entity is a member of the named family.",
-  "required": ["value"],
+  "required": [
+    "value"
+  ],
   "properties": {
     "test": {
       "type": "string",
@@ -21,7 +23,7 @@
     "value": {
       "description": "The Family name to look for",
       "type": "string",
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

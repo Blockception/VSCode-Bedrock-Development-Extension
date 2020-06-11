@@ -17,17 +17,19 @@
           "description": "A object specification on how to transition",
           "additionalProperties": {
             "$ref": "../../../molang/1.8.0/string.json",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: additionalProperties",
+            "title": "Additional Properties"
           },
-          "title": "TODO title"
+          "title": "Any Of[1]"
         }
       ]
     },
     "particle_effect_spec": {
       "additionalProperties": false,
       "type": "object",
-      "required": [ "effect" ],
+      "required": [
+        "effect"
+      ],
       "properties": {
         "bind_to_actor": {
           "type": "boolean",
@@ -53,14 +55,17 @@
       "pattern": "^(@s .+|/.+)$"
     }
   },
-  "required": ["format_version", "animation_controllers"],
+  "required": [
+    "format_version",
+    "animation_controllers"
+  ],
   "additionalProperties": false,
   "properties": {
     "format_version": {
       "title": "The 1.10.0 format_version",
       "type": "string",
       "pattern": "^1.10.0$",
-      "description": "TODO description"
+      "description": "TODO description: format version"
     },
     "animation_controllers": {
       "type": "object",
@@ -74,13 +79,17 @@
         "type": "object",
         "title": "A animation controller",
         "description": "A single animation controller 1.10.0",
-        "required": ["states"],
+        "required": [
+          "states"
+        ],
         "minProperties": 1,
         "properties": {
           "states": {
             "title": "The states definition",
             "description": "The states of this animation controller",
-            "propertyNames": { "pattern": "[a-z\\.]+" },
+            "propertyNames": {
+              "pattern": "[a-z\\.]+"
+            },
             "minProperties": 1,
             "additionalProperties": {
               "additionalProperties": false,
@@ -94,14 +103,14 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/animationspec",
-                    "description": "TODO description",
-                    "title": "TODO title"
+                    "description": "TODO description: animations",
+                    "title": "Animations"
                   }
                 },
                 "blend_transition": {
-                  "title": "TODO title",
+                  "title": "Blend Transition",
                   "oneOf": [
-                    { 
+                    {
                       "type": "number",
                       "description": "A short-hand version of blend_out that simply sets the amount of time to fade out if the animation is interrupted"
                     },
@@ -118,17 +127,17 @@
                 "blend_via_shortest_path": {
                   "description": "When blending a transition to another state, animate each euler axis through the shortest rotation, instead of by value",
                   "type": "boolean",
-                  "title": "TODO title"
+                  "title": "Blend Via Shortest Path"
                 },
                 "particle_effects": {
                   "description": "The effects to be emitted",
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/particle_effect_spec",
-                    "description": "TODO description",
-                    "title": "TODO title"
+                    "description": "TODO description: particle effects",
+                    "title": "Particle Effects"
                   },
-                  "title": "TODO title"
+                  "title": "Particle Effects"
                 },
                 "on_entry": {
                   "type": "array",
@@ -150,7 +159,9 @@
                   "items": {
                     "type": "object",
                     "additionalProperties": false,
-                    "required": ["effect"],
+                    "required": [
+                      "effect"
+                    ],
                     "properties": {
                       "effect": {
                         "description": "Valid sound effect names should be listed in the entity's resource_definition json file.",
@@ -166,8 +177,8 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/animationspec",
-                    "description": "TODO description",
-                    "title": "TODO title"
+                    "description": "TODO description: transitions",
+                    "title": "Transitions"
                   }
                 },
                 "variables": {
@@ -175,7 +186,9 @@
                   "additionalProperties": {
                     "additionalProperties": false,
                     "type": "object",
-                    "required": ["input"],
+                    "required": [
+                      "input"
+                    ],
                     "properties": {
                       "input": {
                         "$ref": "../../../molang/1.8.0/number.json"
@@ -193,8 +206,8 @@
           },
           "initial_state": {
             "type": "string",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: initial state",
+            "title": "Initial State"
           }
         }
       }

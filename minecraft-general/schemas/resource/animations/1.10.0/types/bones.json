@@ -14,8 +14,8 @@
       "maxItems": 3,
       "items": {
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: numberSpecifciaton",
+        "title": "Number Specifciaton"
       }
     },
     "timeline": {
@@ -33,13 +33,13 @@
           "properties": {
             "pre": {
               "$ref": "#/definitions/numberSpecifciaton",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: pre",
+              "title": "Pre"
             },
             "post": {
               "$ref": "#/definitions/numberSpecifciaton",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: post",
+              "title": "Post"
             }
           }
         }
@@ -66,8 +66,8 @@
             },
             "additionalProperties": {
               "$ref": "#/definitions/timeline",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: additionalProperties",
+              "title": "Additional Properties"
             }
           }
         ]
@@ -86,8 +86,8 @@
             },
             "additionalProperties": {
               "$ref": "#/definitions/timeline",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: additionalProperties",
+              "title": "Additional Properties"
             }
           }
         ]
@@ -106,8 +106,8 @@
             },
             "additionalProperties": {
               "$ref": "#/definitions/timeline",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: additionalProperties",
+              "title": "Additional Properties"
             }
           }
         ]

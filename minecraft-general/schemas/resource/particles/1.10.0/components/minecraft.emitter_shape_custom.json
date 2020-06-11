@@ -11,11 +11,11 @@
         "minItems": 3,
         "maxItems": 3,
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: direction",
+        "title": "Direction"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: direction",
+      "title": "Direction"
     },
     "offset": {
       "type": "array",
@@ -23,12 +23,12 @@
         "minItems": 3,
         "maxItems": 3,
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: offset",
+        "title": "Offset"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: offset",
+      "title": "Offset"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

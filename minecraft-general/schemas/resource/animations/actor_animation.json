@@ -9,7 +9,7 @@
             "title": "The 1.8.0 format_version",
             "type": "string",
             "const": "1.8.0",
-            "description": "TODO description"
+            "description": "TODO description: format version"
           }
         }
       },
@@ -24,7 +24,7 @@
             "title": "The 1.10.0 format_version",
             "type": "string",
             "const": "1.10.0",
-            "description": "TODO description"
+            "description": "TODO description: format version"
           }
         }
       },

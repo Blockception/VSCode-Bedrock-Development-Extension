@@ -23,7 +23,7 @@
     "value": {
       "description": "(Required) The tag to look for",
       "type": "string",
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

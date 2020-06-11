@@ -36,23 +36,23 @@
       "description": "If true, entities can breed while sitting.",
       "type": "boolean",
       "default": false,
-      "title": "TODO title"
+      "title": "Allow Sitting"
     },
     "blend_attributes": {
       "description": "If true, the entities will blend their attributes in the offspring after they breed. For example, horses blend their health, movement, and jump_strength in their offspring.",
       "type": "boolean",
       "default": true,
-      "title": "TODO title"
+      "title": "Blend Attributes"
     },
     "breed_cooldown": {
       "description": "Time in seconds before the Entity can breed again.",
       "type": "number",
       "default": 60.0,
-      "title": "TODO title"
+      "title": "Breed Cooldown"
     },
     "breed_items": {
       "description": "The list of items that can be used to get the entity into the 'love' state",
-      "title": "TODO title",
+      "title": "Breed Items",
       "oneOf": [
         {
           "type": "array",
@@ -60,25 +60,29 @@
             "type": "string",
             "description": "An item that can be used to get the entity into the 'love' state",
             "$ref": "../../../../general/items_item.json",
-            "title": "TODO title"
+            "title": "One Of[0]"
           }
         },
         {
           "type": "string",
           "$ref": "../../../../general/items_item.json",
-          "title": "TODO title"
+          "title": "One Of[1]"
         }
       ]
     },
     "breeds_with": {
       "description": "The list of entity definitions that this entity can breed with.",
       "oneOf": [
-        { "type": "object", "$ref": "#/definitions/breeds_with_spec" },
-        { 
+        {
+          "type": "object",
+          "$ref": "#/definitions/breeds_with_spec"
+        },
+        {
           "uniqueItems": true,
-          "type": "array", 
+          "type": "array",
           "items": {
-            "type": "object", "$ref": "#/definitions/breeds_with_spec"
+            "type": "object",
+            "$ref": "#/definitions/breeds_with_spec"
           }
         }
       ]
@@ -87,7 +91,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the entity will become pregnant instead of spawning a baby.",
-      "title": "TODO title"
+      "title": "Causes Pregnancy"
     },
     "deny_parents_variant": {
       "type": "object",
@@ -98,22 +102,22 @@
           "type": "number",
           "default": 0,
           "description": "The percentage chance of denying the parents' variant.",
-          "title": "TODO title"
+          "title": "Chance"
         },
         "max_variant": {
           "type": "integer",
           "default": 0,
           "description": "The inclusive maximum of the variant range.",
-          "title": "TODO title"
+          "title": "Max Variant"
         },
         "min_variant": {
           "type": "integer",
           "default": 0,
           "description": "The inclusive minimum of the variant range.",
-          "title": "TODO title"
+          "title": "Min Variant"
         }
       },
-      "title": "TODO title"
+      "title": "Deny Parents Variant"
     },
     "environment_requirements": {
       "type": "array",
@@ -129,25 +133,25 @@
               "description": "a block type required nearby for the entity to breed.",
               "type": "string",
               "$ref": "../../../../general/blocks_item.json",
-              "title": "TODO title"
+              "title": "Blocks"
             },
-            "title": "TODO title"
+            "title": "Blocks"
           },
           "count": {
             "type": "number",
             "description": "The number of the required block types nearby for the entity to breed.",
-            "title": "TODO title"
+            "title": "Count"
           },
           "radius": {
             "type": "number",
             "description": "How many blocks radius from the mob's center to search in for the required blocks. Bounded between 0 and 16.",
             "minimum": 0,
-            "title": "TODO title"
+            "title": "Radius"
           }
         },
-        "title": "TODO title"
+        "title": "Environment Requirements"
       },
-      "title": "TODO title"
+      "title": "Environment Requirements"
     },
     "extra_baby_chance": {
       "type": "number",
@@ -155,18 +159,18 @@
       "description": "Chance that up to 16 babies will spawn between 0.0 and 1.0, where 1.0 is 100%.",
       "minimum": 0.0,
       "maximum": 1.0,
-      "title": "TODO title"
+      "title": "Extra Baby Chance"
     },
     "inherit_tamed": {
       "description": "If true, the babies will be automatically tamed if its parents are",
       "type": "boolean",
       "default": true,
-      "title": "TODO title"
+      "title": "Inherit Tamed"
     },
     "love_filters": {
       "$ref": "../filters.json",
       "description": "The filters to run when attempting to fall in love.",
-      "title": "TODO title"
+      "title": "Love Filters"
     },
     "mutation_factor": {
       "type": "object",
@@ -179,7 +183,7 @@
           "minimum": 0.0,
           "maximum": 1.0,
           "description": "The percentage chance of a mutation on the entity's color.",
-          "title": "TODO title"
+          "title": "Color"
         },
         "extra_variant": {
           "type": "number",
@@ -187,7 +191,7 @@
           "minimum": 0.0,
           "maximum": 1.0,
           "description": "The percentage chance of a mutation on the entity's extra variant type.",
-          "title": "TODO title"
+          "title": "Extra Variant"
         },
         "variant": {
           "type": "number",
@@ -195,16 +199,16 @@
           "minimum": 0.0,
           "maximum": 1.0,
           "description": "The percentage chance of a mutation on the entity's variant type.",
-          "title": "TODO title"
+          "title": "Variant"
         }
       },
-      "title": "TODO title"
+      "title": "Mutation Factor"
     },
     "require_tame": {
       "type": "boolean",
       "description": "If true, the entities need to be tamed first before they can breed.",
       "default": true,
-      "title": "TODO title"
+      "title": "Require Tame"
     }
   }
 }

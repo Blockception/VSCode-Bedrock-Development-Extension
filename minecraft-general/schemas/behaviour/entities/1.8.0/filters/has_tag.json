@@ -24,7 +24,7 @@
       "type": "string",
       "description": "The tag as a string",
       "pattern": "[a-zA-Z0-9_]+",
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

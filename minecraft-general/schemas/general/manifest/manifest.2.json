@@ -4,10 +4,17 @@
   "type": "object",
   "title": "The minecraft manifest v2 schema",
   "description": "The manifest file contains all the basic information about the pack that Minecraft needs to identify it. The tables below contain all the components of the manifest, their individual properties, and what they mean.",
-  "required": [ "format_version", "header" ],
+  "required": [
+    "format_version",
+    "header"
+  ],
   "definitions": {
-    "uuidv4": { "$ref": "../../../../json-schemas/general/UUIDV4.json" },
-    "version": { "$ref": "../../../../json-schemas/general/Version.json" }
+    "uuidv4": {
+      "$ref": "../../../../json-schemas/general/UUIDV4.json"
+    },
+    "version": {
+      "$ref": "../../../../json-schemas/general/Version.json"
+    }
   },
   "properties": {
     "capabilities": {
@@ -18,15 +25,15 @@
         "experimental_custom_ui": {
           "type": "boolean",
           "description": "Allows HTML files in the pack to be used for custom UI, and scripts in the pack to call and manipulate custom UI",
-          "title": "TODO title"
+          "title": "Experimental Custom Ui"
         },
         "chemistry": {
           "type": "boolean",
           "description": "Allows the pack to add, change or replace Chemistry functionality",
-          "title": "TODO title"
+          "title": "Chemistry"
         }
       },
-      "title": "TODO title"
+      "title": "Capabilities"
     },
     "dependencies": {
       "type": "array",
@@ -39,24 +46,29 @@
             "type": "string",
             "$ref": "#/definitions/uuidv4",
             "description": "This is the unique identifier of the pack that this pack depends on. It needs to be the exact same UUID that the pack has defined in the header section of it's manifest file",
-            "title": "TODO title"
+            "title": "Uuid"
           },
           "version": {
             "$ref": "#/definitions/version",
             "description": "This is the specific version of the pack that your pack depends on. Should match the version the other pack has in its manifest file",
-            "title": "TODO title"
+            "title": "Version"
           }
         },
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: dependencies",
+        "title": "Dependencies"
       },
-      "title": "TODO title"
+      "title": "Dependencies"
     },
     "header": {
       "additionalProperties": false,
       "description": "This is the heading of the manifest and is required for the manifest to be valid.",
-      "title": "TODO title",
-      "required": [ "description", "name", "uuid", "version" ],
+      "title": "Header",
+      "required": [
+        "description",
+        "name",
+        "uuid",
+        "version"
+      ],
       "properties": {
         "base_game_version": {
           "$ref": "#/definitions/version",
@@ -110,24 +122,24 @@
               "interface",
               "world_template"
             ],
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: type",
+            "title": "Type"
           },
           "uuid": {
             "$ref": "#/definitions/uuidv4",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: uuid",
+            "title": "Uuid"
           },
           "version": {
             "$ref": "#/definitions/version",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: version",
+            "title": "Version"
           }
         },
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: modules",
+        "title": "Modules"
       },
-      "description": "TODO description"
+      "description": "TODO description: modules"
     },
     "metadata": {
       "additionalProperties": false,
@@ -149,10 +161,10 @@
           "type": "string",
           "format": "uri",
           "description": "The home website of your pack"
-        }    
+        }
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: metadata",
+      "title": "Metadata"
     }
   }
 }

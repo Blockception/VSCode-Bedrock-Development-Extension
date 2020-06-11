@@ -7,48 +7,52 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" }, 
-    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "$ref": "types/base_priority.json"
+    },
+    "speed_multiplier": {
+      "$ref": "types/base_speed_multiplier.json"
+    },
     "melee_fov": {
       "type": "number",
       "default": 90.0,
       "description": "The allowable FOV the actor will use to determine if it can make a valid melee attack",
-      "title": "TODO title"
+      "title": "Melee Fov"
     },
     "track_target": {
       "type": "boolean",
       "default": false,
       "description": "If true, this mob will chase after the target as long as it's a valid target",
-      "title": "TODO title"
+      "title": "Track Target"
     },
     "attack_types": {
       "type": "string",
       "description": "Defines the entity types this mob will attack",
-      "title": "TODO title"
+      "title": "Attack Types"
     },
     "random_stop_interval": {
       "type": "integer",
       "default": 0,
       "description": "Defines the probability the mob will stop fighting. A value of 0 disables randomly stopping, while a value of 1 defines a 50% chance",
-      "title": "TODO title"
+      "title": "Random Stop Interval"
     },
     "reach_multiplier": {
       "type": "number",
       "default": 2.0,
       "description": "Multiplier for how far outside its box the mob can reach its target (this can be used to simulate a mob with longer arms by making this bigger)",
-      "title": "TODO title"
+      "title": "Reach Multiplier"
     },
     "attack_once": {
       "type": "boolean",
       "default": false,
       "description": "If true, this mob will attack only one time.",
-      "title": "TODO title"
+      "title": "Attack Once"
     },
     "require_complete_path": {
       "type": "boolean",
       "default": false,
       "description": "If true, this goal will only trigger if the mob can reach its target.",
-      "title": "TODO title"
+      "title": "Require Complete Path"
     }
   }
 }

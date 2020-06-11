@@ -17,7 +17,7 @@
           "items": {
             "type": "string",
             "description": "The component group to add or remove",
-            "title": "TODO title"
+            "title": "Component Groups"
           }
         }
       }
@@ -26,13 +26,13 @@
       "properties": {
         "add": {
           "$ref": "#/definitions/addremove",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: add",
+          "title": "Add"
         },
         "remove": {
           "$ref": "#/definitions/addremove",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: remove",
+          "title": "Remove"
         },
         "randomize": {
           "type": "array",
@@ -43,25 +43,25 @@
             "properties": {
               "add": {
                 "$ref": "#/definitions/addremove",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: add",
+                "title": "Add"
               },
               "remove": {
                 "$ref": "#/definitions/addremove",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: remove",
+                "title": "Remove"
               },
               "weight": {
                 "type": "number",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: weight",
+                "title": "Weight"
               }
             },
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: randomize",
+            "title": "Randomize"
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: randomize",
+          "title": "Randomize"
         }
       }
     }
@@ -70,27 +70,27 @@
     "minecraft:entity_transformed": {
       "description": "Event called on an entity that transforms into another entity.",
       "$ref": "#/definitions/event_base",
-      "title": "TODO title"
+      "title": "Minecraft:entity Transformed"
     },
     "minecraft:minecraft:entity_born": {
       "description": "Event called on an entity that is spawned through two entities breeding.",
       "$ref": "#/definitions/event_base",
-      "title": "TODO title"
+      "title": "Minecraft:minecraft:entity Born"
     },
     "minecraft:entity_spawned": {
       "description": "Event called on an entity that is placed in the level.",
       "$ref": "#/definitions/event_base",
-      "title": "TODO title"
+      "title": "Minecraft:entity Spawned"
     },
     "minecraft:on_prime": {
       "description": "Event called on an entity whose fuse is lit and is ready to explode.",
       "$ref": "#/definitions/event_base",
-      "title": "TODO title"
+      "title": "Minecraft:on Prime"
     }
   },
   "additionalProperties": {
     "$ref": "#/definitions/event_base",
-    "description": "TODO description",
-    "title": "TODO title"
+    "description": "TODO description: additionalProperties",
+    "title": "Additional Properties"
   }
 }

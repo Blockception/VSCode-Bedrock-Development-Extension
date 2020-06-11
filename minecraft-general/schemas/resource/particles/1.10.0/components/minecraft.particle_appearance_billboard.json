@@ -11,11 +11,11 @@
       "maxItems": 2,
       "items": {
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: size",
+        "title": "Size"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: size",
+      "title": "Size"
     },
     "facing_camera_mode": {
       "description": "used to orient the billboard.",
@@ -29,7 +29,7 @@
         "direction_y",
         "direction_z"
       ],
-      "title": "TODO title"
+      "title": "Facing Camera Mode"
     },
     "uv": {
       "additionalProperties": false,
@@ -37,13 +37,13 @@
       "properties": {
         "texture_width": {
           "type": "integer",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: texture width",
+          "title": "Texture Width"
         },
         "texture_height": {
           "type": "integer",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: texture height",
+          "title": "Texture Height"
         },
         "flipbook": {
           "additionalProperties": false,
@@ -55,11 +55,11 @@
               "maxItems": 2,
               "items": {
                 "$ref": "../../../../molang/1.8.0/number.json",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: base UV",
+                "title": "Base U V"
               },
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: base UV",
+              "title": "Base U V"
             },
             "size_UV": {
               "type": "array",
@@ -67,11 +67,11 @@
               "maxItems": 2,
               "items": {
                 "$ref": "../../../../molang/1.8.0/number.json",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: size UV",
+                "title": "Size U V"
               },
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: size UV",
+              "title": "Size U V"
             },
             "step_UV": {
               "type": "array",
@@ -79,35 +79,35 @@
               "maxItems": 2,
               "items": {
                 "$ref": "../../../../molang/1.8.0/number.json",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: step UV",
+                "title": "Step U V"
               },
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: step UV",
+              "title": "Step U V"
             },
             "frames_per_second": {
               "$ref": "../../../../molang/1.8.0/number.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: frames per second",
+              "title": "Frames Per Second"
             },
             "max_frame": {
               "$ref": "../../../../molang/1.8.0/number.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: max frame",
+              "title": "Max Frame"
             },
             "stretch_to_lifetime": {
               "type": "boolean",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: stretch to lifetime",
+              "title": "Stretch To Lifetime"
             },
             "loop": {
               "type": "boolean",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: loop",
+              "title": "Loop"
             }
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: flipbook",
+          "title": "Flipbook"
         },
         "uv": {
           "type": "array",
@@ -115,11 +115,11 @@
           "maxItems": 2,
           "items": {
             "$ref": "../../../../molang/1.8.0/number.json",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: uv",
+            "title": "Uv"
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: uv",
+          "title": "Uv"
         },
         "uv_size": {
           "type": "array",
@@ -127,16 +127,16 @@
           "maxItems": 2,
           "items": {
             "$ref": "../../../../molang/1.8.0/number.json",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: uv size",
+            "title": "Uv Size"
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: uv size",
+          "title": "Uv Size"
         }
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: uv",
+      "title": "Uv"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

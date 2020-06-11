@@ -10,9 +10,9 @@
   "properties": {
     "value": {
       "type": "number",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: value",
+      "title": "Value"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

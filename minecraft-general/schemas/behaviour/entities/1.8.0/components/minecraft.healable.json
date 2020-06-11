@@ -10,7 +10,7 @@
     "filters": {
       "$ref": "../filters.json",
       "description": "The filter group that defines the conditions for this trigger",
-      "title": "TODO title"
+      "title": "Filters"
     },
     "force_use": {
       "type": "boolean",
@@ -19,7 +19,7 @@
     },
     "items": {
       "description": "The array of items that can be used to heal this entity",
-      "type":"array",
+      "type": "array",
       "items": {
         "type": "object",
         "properties": {
@@ -35,7 +35,7 @@
           "item": {
             "type": "string",
             "description": "Item identifier that can be used to heal this entity"
-          }      
+          }
         }
       }
     }

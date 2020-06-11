@@ -5,7 +5,9 @@
   "title": "Filters is_brightness 1.8.0",
   "additionalProperties": false,
   "description": "Tests the current brightness against a provided value in the range (0.0f, 1.0f).",
-  "required": [ "value" ],
+  "required": [
+    "value"
+  ],
   "properties": {
     "test": {
       "type": "string",
@@ -23,7 +25,7 @@
       "type": "number",
       "minimum": 0.0,
       "maximum": 1.0,
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

@@ -18,7 +18,7 @@
             "type": "integer",
             "default": 0,
             "description": "The slot number of this slot",
-            "title": "TODO title"
+            "title": "Slot"
           },
           "accepted_items": {
             "type": "array",
@@ -27,38 +27,38 @@
               "type": "string",
               "description": "A item name",
               "$ref": "../../../../general/items_item.json",
-              "title": "TODO title"
+              "title": "Accepted Items"
             },
-            "title": "TODO title"
+            "title": "Accepted Items"
           },
           "item": {
             "type": "string",
             "default": 0,
             "description": "Identifier of the item that can be equipped for this slot",
-            "title": "TODO title"
+            "title": "Item"
           },
           "interact_text": {
             "type": "string",
             "default": 0,
             "description": "Text to be displayed when the entity can be equipped with this item when playing with Touch-screen controls",
-            "title": "TODO title"
+            "title": "Interact Text"
           },
           "on_equip": {
             "type": "string",
             "default": 0,
             "description": "Event to trigger when this entity is equipped with this item",
-            "title": "TODO title"
+            "title": "On Equip"
           },
           "on_unequip": {
             "type": "string",
             "default": 0,
             "description": "Event to trigger when this item is removed from this entity",
-            "title": "TODO title"
+            "title": "On Unequip"
           }
         },
-        "title": "TODO title"
+        "title": "Slots"
       },
-      "title": "TODO title"
+      "title": "Slots"
     }
   }
 }

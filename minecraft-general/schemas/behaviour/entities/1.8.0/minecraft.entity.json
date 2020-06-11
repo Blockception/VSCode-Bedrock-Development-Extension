@@ -2,18 +2,26 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.minecraft:entity.1.8.0",
   "title": "minecraft:entity 1.8.0",
-  "required": [ "description" ],
-  "dependencies": { "component_groups": [ "events" ] },
+  "required": [
+    "description"
+  ],
+  "dependencies": {
+    "component_groups": [
+      "events"
+    ]
+  },
   "properties": {
     "description": {
-      "required": [ "identifier" ],
+      "required": [
+        "identifier"
+      ],
       "title": "The description schema",
       "description": "The description of the this entity",
       "properties": {
         "identifier": {
           "$ref": "../../../general/entity/identifier.json",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: identifier",
+          "title": "Identifier"
         },
         "is_spawnable": {
           "type": "boolean",

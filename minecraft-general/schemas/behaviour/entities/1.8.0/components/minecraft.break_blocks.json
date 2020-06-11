@@ -9,7 +9,7 @@
   "properties": {
     "breakable_blocks": {
       "type": "array",
-      "title": "TODO title",
+      "title": "Breakable Blocks",
       "description": "A list of the blocks that can be broken as this entity moves around",
       "items": {
         "$ref": "../../../../general/blocks_item.json"

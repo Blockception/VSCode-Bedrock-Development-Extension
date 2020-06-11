@@ -11,12 +11,12 @@
       },
       "additionalProperties": {
         "type": "string",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: additionalProperties",
+        "title": "Additional Properties"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: timeline",
+      "title": "Timeline"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

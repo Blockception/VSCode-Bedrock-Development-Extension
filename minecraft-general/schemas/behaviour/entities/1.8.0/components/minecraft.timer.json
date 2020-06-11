@@ -11,26 +11,35 @@
       "type": "boolean",
       "default": true,
       "description": "If true, the timer will restart every time after it fires",
-      "title": "TODO title"
+      "title": "Looping"
     },
     "randomInterval": {
       "type": "boolean",
       "default": true,
       "description": "If true, the amount of time on the timer will be random between the min and max values specified in time",
-      "title": "TODO title"
+      "title": "Random Interval"
     },
     "time": {
-      "description": "Amount of time in seconds for the timer. Can be specified as a number or a pair of numbers (min and max). Incompatible with random_time_choices.",      
-      "title": "TODO title",
+      "description": "Amount of time in seconds for the timer. Can be specified as a number or a pair of numbers (min and max). Incompatible with random_time_choices.",
+      "title": "Time",
       "oneOf": [
         {
           "type": "array",
-          "default": [ 0.0, 0.0 ],
-          "items": [
-            { "type": "number", "title": "a" },
-            { "type": "number", "title": "b" }
+          "default": [
+            0.0,
+            0.0
           ],
-          "title": "TODO title"
+          "items": [
+            {
+              "type": "number",
+              "title": "a"
+            },
+            {
+              "type": "number",
+              "title": "b"
+            }
+          ],
+          "title": "One Of[0]"
         },
         {
           "type": "number",
@@ -51,19 +60,19 @@
         "properties": {
           "weight": {
             "type": "integer",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: weight",
+            "title": "Weight"
           },
           "value": {
             "type": "integer",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: value",
+            "title": "Value"
           }
         },
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: random time choices",
+        "title": "Random Time Choices"
       },
-      "title": "TODO title"
+      "title": "Random Time Choices"
     }
   }
 }

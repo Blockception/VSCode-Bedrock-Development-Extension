@@ -7,13 +7,17 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" }, 
-    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "$ref": "types/base_priority.json"
+    },
+    "speed_multiplier": {
+      "$ref": "types/base_speed_multiplier.json"
+    },
     "only_at_night": {
       "type": "boolean",
       "default": false,
       "description": "If true, the mob will only move through the village during night time",
-      "title": "TODO title"
+      "title": "Only At Night"
     }
   }
 }

@@ -7,11 +7,13 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json"
+    },
     "on_eat": {
       "$ref": "../types/trigger.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: on eat",
+      "title": "On Eat"
     }
   }
 }

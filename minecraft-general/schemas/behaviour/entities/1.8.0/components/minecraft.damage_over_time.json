@@ -11,13 +11,13 @@
       "type": "integer",
       "default": 1,
       "description": "Amount of damage caused each hurt.",
-      "title": "TODO title"
+      "title": "Damage Per Hurt"
     },
     "time_between_hurt": {
       "type": "number",
       "default": 0,
       "description": "Time in seconds between damage.",
-      "title": "TODO title"
+      "title": "Time Between Hurt"
     }
   }
 }

@@ -20,7 +20,7 @@
     "value": {
       "type": "integer",
       "description": "The altitude value to compare with",
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

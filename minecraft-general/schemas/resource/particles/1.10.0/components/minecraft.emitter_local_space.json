@@ -7,14 +7,14 @@
   "properties": {
     "position": {
       "type": "boolean",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: position",
+      "title": "Position"
     },
     "rotation": {
       "type": "boolean",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: rotation",
+      "title": "Rotation"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

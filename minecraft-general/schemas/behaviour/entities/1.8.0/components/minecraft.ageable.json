@@ -11,7 +11,7 @@
       "type": "number",
       "default": 1200.0,
       "description": "Amount of time before the entity grows up, -1 for always a baby.",
-      "title": "TODO title"
+      "title": "Duration"
     },
     "feedItems": {
       "description": "List of items that can be fed to the entity. Includes 'item' for the item name and 'growth' to define how much time it grows up by",
@@ -23,13 +23,13 @@
               "item": {
                 "type": "string",
                 "description": "The item name that can be used to feed",
-                "title": "TODO title",
+                "title": "Item",
                 "$ref": "../../../../general/items_item.json"
               },
               "growth": {
                 "type": "integer",
                 "description": "The amount that counts for aging",
-                "title": "TODO title"
+                "title": "Growth"
               }
             }
           },
@@ -38,10 +38,10 @@
             "$ref": "../../../../general/items_item.json"
           }
         ],
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: feedItems",
+        "title": "Feed Items"
       },
-      "title": "TODO title"
+      "title": "Feed Items"
     },
     "drop_items": {
       "type": "array",
@@ -49,16 +49,18 @@
       "items": {
         "type": "string",
         "description": "Item names",
-        "title": "TODO title",
+        "title": "Drop Items",
         "$ref": "../../../../general/items_item.json"
       },
-      "title": "TODO title"
+      "title": "Drop Items"
     },
     "grow_up": {
       "description": "Event to run when this entity grows up",
       "oneOf": [
-        { "type": "string" },
-        { 
+        {
+          "type": "string"
+        },
+        {
           "type": "object",
           "properties": {
             "event": {

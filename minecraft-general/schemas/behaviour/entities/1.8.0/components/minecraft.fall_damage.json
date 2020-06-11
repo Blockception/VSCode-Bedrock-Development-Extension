@@ -10,8 +10,8 @@
     "value": {
       "type": "number",
       "default": 1,
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: value",
+      "title": "Value"
     }
   }
 }

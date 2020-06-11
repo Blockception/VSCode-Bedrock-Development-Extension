@@ -10,8 +10,8 @@
     "value": {
       "type": "boolean",
       "default": true,
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: value",
+      "title": "Value"
     }
   }
 }

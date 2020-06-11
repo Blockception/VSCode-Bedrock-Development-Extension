@@ -11,16 +11,16 @@
         "minItems": 3,
         "maxItems": 3,
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: direction",
+        "title": "Direction"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: direction",
+      "title": "Direction"
     },
     "radius": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: radius",
+      "title": "Radius"
     },
     "offset": {
       "type": "array",
@@ -28,8 +28,8 @@
         "minItems": 3,
         "maxItems": 3,
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: offset",
+        "title": "Offset"
       }
     },
     "half_dimensions": {
@@ -38,17 +38,17 @@
         "minItems": 3,
         "maxItems": 3,
         "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: half dimensions",
+        "title": "Half Dimensions"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: half dimensions",
+      "title": "Half Dimensions"
     },
     "surface_only": {
       "type": "boolean",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: surface only",
+      "title": "Surface Only"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

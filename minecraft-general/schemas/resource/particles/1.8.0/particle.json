@@ -7,8 +7,8 @@
     "format_version": {
       "type": "string",
       "const": "1.8.0",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: format version",
+      "title": "Format Version"
     },
     "particle_effect": {
       "type": "object",
@@ -21,24 +21,24 @@
             "identifier": {
               "type": "string",
               "pattern": "^.+$",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: identifier",
+              "title": "Identifier"
             }
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: description",
+          "title": "Description"
         },
         "components": {
           "additionalProperties": false,
           "type": "object",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: components",
+          "title": "Components"
         }
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: particle effect",
+      "title": "Particle Effect"
     }
   },
-  "description": "TODO description",
+  "description": "TODO description: ",
   "title": "TODO title"
 }

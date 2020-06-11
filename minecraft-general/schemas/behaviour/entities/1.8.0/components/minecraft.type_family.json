@@ -5,17 +5,19 @@
   "title": "minecraft:type_family 1.8.0",
   "additionalProperties": false,
   "description": "Defines the families this entity belongs to.",
-  "required": [ "family" ],
+  "required": [
+    "family"
+  ],
   "properties": {
     "family": {
       "type": "array",
       "items": {
         "type": "string",
         "description": "family name",
-        "title": "TODO title"
+        "title": "Family"
       },
       "description": "List of family names",
-      "title": "TODO title"
+      "title": "Family"
     }
   }
 }

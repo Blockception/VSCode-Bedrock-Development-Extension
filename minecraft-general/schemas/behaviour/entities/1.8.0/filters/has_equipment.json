@@ -25,7 +25,7 @@
         "leg",
         "tors"
       ],
-      "title": "TODO title"
+      "title": "Domain"
     },
     "operator": {
       "$ref": "types/base_operator.json"

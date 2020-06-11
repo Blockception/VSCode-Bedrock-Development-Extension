@@ -7,28 +7,28 @@
   "properties": {
     "collision_drag": {
       "type": "number",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: collision drag",
+      "title": "Collision Drag"
     },
     "coefficient_of_restitution": {
       "type": "number",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: coefficient of restitution",
+      "title": "Coefficient Of Restitution"
     },
     "collision_radius": {
       "type": "number",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: collision radius",
+      "title": "Collision Radius"
     },
     "enabled": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: enabled",
+      "title": "Enabled"
     },
     "expire_on_contact": {
       "type": "boolean",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: expire on contact",
+      "title": "Expire On Contact"
     },
     "events": {
       "type": "array",
@@ -37,21 +37,21 @@
           "additionalProperties": false,
           "event": {
             "type": "string",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: event",
+            "title": "Event"
           },
           "min_speed": {
             "type": "number",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: min speed",
+            "title": "Min Speed"
           }
         },
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: events",
+        "title": "Events"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: events",
+      "title": "Events"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description: "
 }

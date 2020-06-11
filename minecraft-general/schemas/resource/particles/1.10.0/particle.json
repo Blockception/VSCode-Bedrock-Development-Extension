@@ -7,8 +7,8 @@
     "format_version": {
       "type": "string",
       "const": "1.10.0",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: format version",
+      "title": "Format Version"
     },
     "particle_effect": {
       "type": "object",
@@ -25,8 +25,8 @@
             "identifier": {
               "type": "string",
               "pattern": "^.+$",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: identifier",
+              "title": "Identifier"
             },
             "basic_render_parameters": {
               "additionalProperties": false,
@@ -38,22 +38,22 @@
                     "particles_alpha",
                     "particles_blend"
                   ],
-                  "description": "TODO description",
-                  "title": "TODO title"
+                  "description": "TODO description: material",
+                  "title": "Material"
                 },
                 "texture": {
                   "type": "string",
                   "pattern": "^.+$",
-                  "description": "TODO description",
-                  "title": "TODO title"
+                  "description": "TODO description: texture",
+                  "title": "Texture"
                 }
               },
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: basic render parameters",
+              "title": "Basic Render Parameters"
             }
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: description",
+          "title": "Description"
         },
         "components": {
           "additionalProperties": false,
@@ -61,160 +61,160 @@
           "properties": {
             "minecraft:emitter_lifetime_expression": {
               "$ref": "components/minecraft.emitter_lifetime_expression.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter lifetime expression",
+              "title": "Minecraft:emitter Lifetime Expression"
             },
             "minecraft:emitter_lifetime_once": {
               "$ref": "components/minecraft.emitter_lifetime_once.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter lifetime once",
+              "title": "Minecraft:emitter Lifetime Once"
             },
             "minecraft:emitter_lifetime_looping": {
               "$ref": "components/minecraft.emitter_lifetime_looping.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter lifetime looping",
+              "title": "Minecraft:emitter Lifetime Looping"
             },
             "minecraft:emitter_local_space": {
               "$ref": "components/minecraft.emitter_local_space.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter local space",
+              "title": "Minecraft:emitter Local Space"
             },
             "minecraft:emitter_rate_instant": {
               "$ref": "components/minecraft.emitter_rate_instant.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter rate instant",
+              "title": "Minecraft:emitter Rate Instant"
             },
             "minecraft:emitter_rate_manual": {
               "$ref": "components/minecraft.emitter_rate_manual.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter rate manual",
+              "title": "Minecraft:emitter Rate Manual"
             },
             "minecraft:emitter_rate_steady": {
               "$ref": "components/minecraft.emitter_rate_steady.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter rate steady",
+              "title": "Minecraft:emitter Rate Steady"
             },
             "minecraft:emitter_shape_box": {
               "$ref": "components/minecraft.emitter_shape_box.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter shape box",
+              "title": "Minecraft:emitter Shape Box"
             },
             "minecraft:emitter_shape_custom": {
               "$ref": "components/minecraft.emitter_shape_custom.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter shape custom",
+              "title": "Minecraft:emitter Shape Custom"
             },
             "minecraft:emitter_shape_disc": {
               "$ref": "components/minecraft.emitter_shape_disc.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter shape disc",
+              "title": "Minecraft:emitter Shape Disc"
             },
             "minecraft:emitter_shape_entity_aabb": {
               "$ref": "components/minecraft.emitter_shape_entity_aabb.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter shape entity aabb",
+              "title": "Minecraft:emitter Shape Entity Aabb"
             },
             "minecraft:emitter_shape_point": {
               "$ref": "components/minecraft.emitter_shape_point.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter shape point",
+              "title": "Minecraft:emitter Shape Point"
             },
             "minecraft:emitter_shape_sphere": {
               "$ref": "components/minecraft.emitter_shape_sphere.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:emitter shape sphere",
+              "title": "Minecraft:emitter Shape Sphere"
             },
             "minecraft:particle_appearance_billboard": {
               "$ref": "components/minecraft.particle_appearance_billboard.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle appearance billboard",
+              "title": "Minecraft:particle Appearance Billboard"
             },
             "minecraft:particle_appearance_tinting": {
               "$ref": "components/minecraft.particle_appearance_tinting.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle appearance tinting",
+              "title": "Minecraft:particle Appearance Tinting"
             },
             "minecraft:particle_appearance_lighting": {
               "$ref": "components/minecraft.particle_appearance_lighting.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle appearance lighting",
+              "title": "Minecraft:particle Appearance Lighting"
             },
             "minecraft:particle_expire_if_not_in_blocks": {
               "$ref": "components/minecraft.particle_expire_if_not_in_blocks.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle expire if not in blocks",
+              "title": "Minecraft:particle Expire If Not In Blocks"
             },
             "minecraft:particle_initialization": {
               "$ref": "components/minecraft.particle_initialization.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle initialization",
+              "title": "Minecraft:particle Initialization"
             },
             "minecraft:particle_initial_speed": {
               "$ref": "components/minecraft.particle_initial_speed.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle initial speed",
+              "title": "Minecraft:particle Initial Speed"
             },
             "minecraft:particle_lifetime_expression": {
               "$ref": "components/minecraft.particle_lifetime_expression.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle lifetime expression",
+              "title": "Minecraft:particle Lifetime Expression"
             },
             "minecraft:particle_lifetime_events": {
               "$ref": "components/minecraft.particle_lifetime_events.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle lifetime events",
+              "title": "Minecraft:particle Lifetime Events"
             },
             "minecraft:particle_kill_plane": {
               "$ref": "components/minecraft.particle_kill_plane.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle kill plane",
+              "title": "Minecraft:particle Kill Plane"
             },
             "minecraft:particle_motion_collision": {
               "$ref": "components/minecraft.particle_motion_collision.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle motion collision",
+              "title": "Minecraft:particle Motion Collision"
             },
             "minecraft:particle_motion_dynamic": {
               "$ref": "components/minecraft.particle_motion_dynamic.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle motion dynamic",
+              "title": "Minecraft:particle Motion Dynamic"
             },
             "minecraft:particle_motion_parametric": {
               "$ref": "components/minecraft.particle_motion_parametric.json",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: minecraft:particle motion parametric",
+              "title": "Minecraft:particle Motion Parametric"
             }
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: components",
+          "title": "Components"
         },
         "events": {
           "type": "object",
           "additionalProperties": {
-            "description": "TODO description",
-            "title": "TODO title",
+            "description": "TODO description: additionalProperties",
+            "title": "Additional Properties",
             "type": "object",
             "properties": {
               "effect": {
                 "type": "string",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: effect",
+                "title": "Effect"
               },
               "type": {
                 "type": "string",
-                "description": "TODO description",
-                "title": "TODO title"
+                "description": "TODO description: type",
+                "title": "Type"
               }
             }
           },
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: events",
+          "title": "Events"
         }
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: particle effect",
+      "title": "Particle Effect"
     }
   },
-  "description": "TODO description",
+  "description": "TODO description: ",
   "title": "TODO title"
 }

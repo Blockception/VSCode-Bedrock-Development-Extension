@@ -21,9 +21,9 @@
       "$ref": "types/base_subject.json"
     },
     "value": {
-            "type": "string",
-      "description": "TODO description",
-      "title": "TODO title"
+      "type": "string",
+      "description": "TODO description: value",
+      "title": "Value"
     }
   }
 }

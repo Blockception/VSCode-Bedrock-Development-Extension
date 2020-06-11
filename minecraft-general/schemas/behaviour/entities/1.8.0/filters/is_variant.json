@@ -5,7 +5,9 @@
   "title": "Filters is_variant 1.8.0",
   "additionalProperties": false,
   "description": "Returns true if the subject entity is the variant number provided.",
-  "required": ["value"],
+  "required": [
+    "value"
+  ],
   "properties": {
     "test": {
       "type": "string",
@@ -21,7 +23,7 @@
     "value": {
       "type": "integer",
       "description": "The altitude value to compare with",
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

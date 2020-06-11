@@ -5,13 +5,13 @@
   "type": "object",
   "title": "minecraft:variant 1.8.0",
   "description": "Used to differentiate the component group of a variant of an entity from others (e.g. ocelot, villager) Parameters",
-  "required": [ ],
+  "required": [],
   "properties": {
     "value": {
       "type": "integer",
       "default": 0,
       "description": "The ID of the variant. By convention, 0 is the ID of the base entity",
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

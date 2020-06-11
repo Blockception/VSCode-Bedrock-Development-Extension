@@ -15,8 +15,8 @@
           "format_version": {
             "const": 1,
             "type": "number",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: format version",
+            "title": "Format Version"
           }
         }
       },
@@ -30,8 +30,8 @@
           "format_version": {
             "const": 2,
             "type": "number",
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: format version",
+            "title": "Format Version"
           }
         }
       },

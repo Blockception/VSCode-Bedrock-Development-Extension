@@ -9,7 +9,9 @@
     "particle_effect_spec": {
       "additionalProperties": false,
       "type": "object",
-      "required": [ "effect" ],
+      "required": [
+        "effect"
+      ],
       "properties": {
         "bind_to_actor": {
           "type": "boolean",
@@ -67,17 +69,20 @@
           "properties": {
             "lerp_mode": {
               "type": "string",
-              "enum": [ "linear", "catmullrom" ]
+              "enum": [
+                "linear",
+                "catmullrom"
+              ]
             },
             "pre": {
               "$ref": "#/definitions/numberSpecifciaton",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: pre",
+              "title": "Pre"
             },
             "post": {
               "$ref": "#/definitions/numberSpecifciaton",
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: post",
+              "title": "Post"
             }
           }
         }
@@ -87,7 +92,9 @@
       "additionalProperties": false,
       "description": "Valid sound effect names should be listed in the entity's resource_definition json file.",
       "type": "object",
-      "required": ["effect"],
+      "required": [
+        "effect"
+      ],
       "properties": {
         "effect": {
           "type": "string",
@@ -96,13 +103,16 @@
       }
     }
   },
-  "required": ["format_version", "animations"],
+  "required": [
+    "format_version",
+    "animations"
+  ],
   "properties": {
     "format_version": {
       "title": "The 1.8.0 format_version",
       "type": "string",
       "const": "1.8.0",
-      "description": "TODO description"
+      "description": "TODO description: format version"
     },
     "animations": {
       "title": "Animations schema",
@@ -158,8 +168,8 @@
                       },
                       "additionalProperties": {
                         "$ref": "#/definitions/timeline",
-                        "description": "TODO description",
-                        "title": "TODO title"
+                        "description": "TODO description: additionalProperties",
+                        "title": "Additional Properties"
                       }
                     }
                   ]
@@ -179,8 +189,8 @@
                       },
                       "additionalProperties": {
                         "$ref": "#/definitions/timeline",
-                        "description": "TODO description",
-                        "title": "TODO title"
+                        "description": "TODO description: additionalProperties",
+                        "title": "Additional Properties"
                       }
                     }
                   ]
@@ -200,8 +210,8 @@
                       },
                       "additionalProperties": {
                         "$ref": "#/definitions/timeline",
-                        "description": "TODO description",
-                        "title": "TODO title"
+                        "description": "TODO description: additionalProperties",
+                        "title": "Additional Properties"
                       }
                     }
                   ]

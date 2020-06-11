@@ -15,8 +15,8 @@
       "properties": {
         "identifier": {
           "$ref": "../../../general/entity/identifier.json",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: identifier",
+          "title": "Identifier"
         },
         "is_spawnable": {
           "type": "boolean",
@@ -43,19 +43,19 @@
       "description": "collection of component groups",
       "additionalProperties": {
         "$ref": "components.json",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: additionalProperties",
+        "title": "Additional Properties"
       }
     },
     "components": {
       "$ref": "components.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: components",
+      "title": "Components"
     },
     "events": {
       "$ref": "events.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: events",
+      "title": "Events"
     }
   }
 }

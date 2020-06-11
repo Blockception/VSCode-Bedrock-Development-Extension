@@ -17,8 +17,8 @@
   "properties": {
     "format_version": {
       "type": "string",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: format version",
+      "title": "Format Version"
     },
     "sound_definitions": {
       "additionalProperties": {
@@ -45,7 +45,7 @@
               "hostile",
               "record"
             ],
-            "description": "TODO description"
+            "description": "TODO description: category"
           },
           "sounds": {
             "items": {
@@ -54,8 +54,8 @@
                   "$id": "#/Sound/sounds/stringItem",
                   "type": "string",
                   "$ref": "#/definitions/SoundPath",
-                  "description": "TODO description",
-                  "title": "TODO title"
+                  "description": "TODO description: anyOf[0]",
+                  "title": "Any Of[0]"
                 },
                 {
                   "additionalItems": false,
@@ -70,48 +70,48 @@
                       "type": "number",
                       "minimum": 0,
                       "maximum": 2,
-                      "title": "TODO title"
+                      "title": "Pitch"
                     },
                     "volume": {
                       "description": "The volume of the audio, 1 is nomial",
                       "type": "number",
                       "minimum": 0,
                       "maximum": 2,
-                      "title": "TODO title"
+                      "title": "Volume"
                     },
                     "load_on_low_memory": {
                       "type": "boolean",
                       "description": "marks if this audio should be loaded or not on low memory",
-                      "title": "TODO title"
+                      "title": "Load On Low Memory"
                     },
                     "stream": {
                       "description": "If marked true then minecraft will stream the audio",
                       "type": "boolean",
-                      "title": "TODO title"
+                      "title": "Stream"
                     },
                     "name": {
                       "$id": "#/Sound/sounds/stringItem",
                       "type": "string",
                       "$ref": "#/definitions/SoundPath",
-                      "description": "TODO description",
-                      "title": "TODO title"
+                      "description": "TODO description: name",
+                      "title": "Name"
                     }
                   },
-                  "description": "TODO description",
-                  "title": "TODO title"
+                  "description": "TODO description: anyOf[1]",
+                  "title": "Any Of[1]"
                 }
               ],
-              "description": "TODO description",
-              "title": "TODO title"
+              "description": "TODO description: sounds",
+              "title": "Sounds"
             },
-            "description": "TODO description",
-            "title": "TODO title"
+            "description": "TODO description: sounds",
+            "title": "Sounds"
           }
         },
-        "description": "TODO description"
+        "description": "TODO description: additionalProperties"
       },
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: sound definitions",
+      "title": "Sound Definitions"
     }
   }
 }

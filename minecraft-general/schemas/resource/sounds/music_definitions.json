@@ -21,57 +21,57 @@
             "music.game.credits",
             "music.menu"
           ],
-          "title": "TODO title"
+          "title": "Event Name"
         },
         "min_delay": {
           "type": "integer",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: min delay",
+          "title": "Min Delay"
         },
         "max_delay": {
           "type": "integer",
-          "description": "TODO description",
-          "title": "TODO title"
+          "description": "TODO description: max delay",
+          "title": "Max Delay"
         }
       },
-      "title": "TODO title"
+      "title": "Music"
     }
   },
   "properties": {
     "game": {
       "$ref": "#/definitions/music",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: game",
+      "title": "Game"
     },
     "creative": {
       "$ref": "#/definitions/music",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: creative",
+      "title": "Creative"
     },
     "end": {
       "$ref": "#/definitions/music",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: end",
+      "title": "End"
     },
     "endboss": {
       "$ref": "#/definitions/music",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: endboss",
+      "title": "Endboss"
     },
     "nether": {
       "$ref": "#/definitions/music",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: nether",
+      "title": "Nether"
     },
     "credits": {
       "$ref": "#/definitions/music",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: credits",
+      "title": "Credits"
     },
     "menu": {
       "$ref": "#/definitions/music",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "TODO description: menu",
+      "title": "Menu"
     }
   }
 }

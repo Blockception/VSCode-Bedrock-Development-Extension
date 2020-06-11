@@ -4,7 +4,9 @@
   "type": "object",
   "title": "The minecraft resourcepack model schema for 1.8.0",
   "description": "The root schema comprises the entire JSON document.",
-  "required": [ "format_version" ],
+  "required": [
+    "format_version"
+  ],
   "properties": {
     "debug": {
       "type": "boolean"
@@ -13,7 +15,7 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "TODO description"
+      "description": "TODO description: format version"
     }
   },
   "propertyNames": {
@@ -31,17 +33,25 @@
         "title": "Bones",
         "items": {
           "additionalProperties": false,
-          "type": "object",          
+          "type": "object",
           "description": "The bone definition",
           "title": "Bone",
-          "required": ["name"],
+          "required": [
+            "name"
+          ],
           "properties": {
             "bind_pose_rotation": {
               "type": "array",
               "items": [
-                { "type": "number" },
-                { "type": "number" },
-                { "type": "number" }
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
               ]
             },
             "cubes": {
@@ -59,24 +69,40 @@
                   "origin": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "size": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "uv": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   }
                 }
@@ -105,21 +131,29 @@
             },
             "neverRender": {
               "type": "boolean"
-            },            
+            },
             "parent": {
               "type": "string"
             },
             "pivot": {
               "type": "array",
               "items": [
-                { "type": "number" },
-                { "type": "number" },
-                { "type": "number" }
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
               ]
             },
             "poly_mesh": {
               "type": "object",
-              "required": ["polys"],
+              "required": [
+                "polys"
+              ],
               "properties": {
                 "normalized_uvs": {
                   "type": "boolean"
@@ -127,17 +161,29 @@
                 "positions": {
                   "type": "array",
                   "items": [
-                    { "type": "number" },
-                    { "type": "number" },
-                    { "type": "number" }
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
                   ]
                 },
                 "normals": {
                   "type": "array",
                   "items": [
-                    { "type": "number" },
-                    { "type": "number" },
-                    { "type": "number" }
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
                   ]
                 },
                 "polys": {
@@ -147,10 +193,16 @@
                     "minItems": 3,
                     "maxItems": 4,
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
-                    ]            
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
                   }
                 }
               }
@@ -165,9 +217,15 @@
             "rotation": {
               "type": "array",
               "items": [
-                { "type": "number" },
-                { "type": "number" },
-                { "type": "number" }
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
               ]
             },
             "texture_meshes": {
@@ -181,33 +239,57 @@
                   "local_pivot": {
                     "type": "array",
                     "items": [
-                      {"type": "number"},
-                      {"type": "number"},
-                      {"type": "number"}
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "position": {
                     "type": "array",
                     "items": [
-                      {"type": "number"},
-                      {"type": "number"},
-                      {"type": "number"}
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "rotation": {
                     "type": "array",
                     "items": [
-                      {"type": "number"},
-                      {"type": "number"},
-                      {"type": "number"}
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "scale": {
                     "type": "array",
                     "items": [
-                      {"type": "number"},
-                      {"type": "number"},
-                      {"type": "number"}
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   }
                 }
@@ -224,32 +306,38 @@
       },
       "texturewidth": {
         "type": "integer",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: texturewidth",
+        "title": "Texturewidth"
       },
       "textureheight": {
         "type": "integer",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: textureheight",
+        "title": "Textureheight"
       },
       "visible_bounds_width": {
         "type": "integer",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: visible bounds width",
+        "title": "Visible Bounds Width"
       },
       "visible_bounds_height": {
         "type": "integer",
-        "description": "TODO description",
-        "title": "TODO title"
+        "description": "TODO description: visible bounds height",
+        "title": "Visible Bounds Height"
       },
       "visible_bounds_offset": {
         "type": "array",
-        "description": "TODO description",
-        "title": "TODO title",
+        "description": "TODO description: visible bounds offset",
+        "title": "Visible Bounds Offset",
         "items": [
-          { "type": "number" },
-          { "type": "number" },
-          { "type": "number" }
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
         ]
       }
     }
