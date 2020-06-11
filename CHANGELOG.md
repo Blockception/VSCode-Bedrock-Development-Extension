@@ -1,4 +1,10 @@
 # Changelog 
+- Removed
+- Updated Components
+- Updated Components 1.16.0
+- Updated
+- Code cleanup and added the license notice
+- Updated to 0.2.3
 - Reenabled formatter
 - Fixed arrays for render_controllers
 - Updated Information
@@ -13,9 +19,3 @@
 - Fixed target_nearby_sensor "inside_range"
 - Finished
 - Finished
-- Finished
-- Finished
-- Updated
-- Updated
-- Prepared
-- Finished enchant to gamerule
