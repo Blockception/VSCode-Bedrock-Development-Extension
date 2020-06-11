@@ -1,4 +1,9 @@
 # Changelog 
+- Updated
+- Updated
+- Updated Particles, added color support
+- Updated Particles 1.10.0
+- Updated model 1.12.0 validation
 - Updated Title and descriptions
 - Updated
 - Removed
@@ -14,8 +19,3 @@
 - Updated to 0.2.0
 - Made Changed
 - Added
-- Added webpack for smaller packages
-- Merge pull request #2 from Blockception/Improved-Ts-code
-- Updated
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Fixed target_nearby_sensor "inside_range"
