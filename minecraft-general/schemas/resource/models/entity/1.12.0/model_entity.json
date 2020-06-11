@@ -3,12 +3,9 @@
   "$id": "blockception.minecraft.resource.model.1.12.0",
   "additionalProperties": false,
   "type": "object",
-  "title": "The minecraft resourcepack model schema for 1.12.0",
-  "description": "The root schema comprises the entire JSON document.",
-  "required": [
-    "format_version",
-    "minecraft:geometry"
-  ],
+  "title": "Geometry 1.12.0",
+  "description": "The minecraft resourcepack model schema for 1.12.0",
+  "required": [ "format_version", "minecraft:geometry" ],
   "definitions": {
     "uv": {
       "type": "array",
@@ -38,6 +35,10 @@
     }
   },
   "properties": {
+    "debug": {
+      "type": "boolean",
+      "default": false
+    },
     "format_version": {
       "title": "The 1.12.0 format_version",
       "type": "string",
@@ -46,7 +47,9 @@
     },
     "minecraft:geometry": {
       "type": "array",
+      "title": "Minecraft:geometry",
       "description": "The collection of geometries",
+      "minItems": 1,
       "items": {
         "additionalProperties": false,
         "description": "Model specification",
@@ -72,13 +75,12 @@
               },
               "texture_width": {
                 "type": "number",
-                "description": "The height of the texture in pixels",
-                "pattern": "^geometry\\..+",
+                "description": "Assumed width in texels of the texture that will be bound to this geometry.",
                 "title": "Texture Width"
               },
               "texture_height": {
                 "type": "number",
-                "description": "The height of the texture in pixels",
+                "description": "Assumed height in texels of the texture that will be bound to this geometry.",
                 "title": "Texture Height"
               },
               "visible_bounds_offset": {
@@ -107,17 +109,14 @@
             "type": "array",
             "description": "The bones specification",
             "items": {
+              "additionalProperties": false,
               "type": "object",
               "description": "A bones specification",
-              "required": [
-                "name"
-              ],
+              "required": [ "name" ],
               "properties": {
                 "average_normals": {
                   "type": "object",
-                  "examples": [
-                    null
-                  ]
+                  "examples": [ null ]
                 },
                 "cubes": {
                   "type": "array",
@@ -469,8 +468,7 @@
             "type": "string"
           }
         }
-      },
-      "title": "Minecraft:geometry"
+      }
     }
   }
 }
