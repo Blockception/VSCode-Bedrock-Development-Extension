@@ -9,24 +9,13 @@
       "anyOf": [
         {
           "type": "string",
-          "enum": [
-            "inwards",
-            "outwards"
-          ],
-          "description": "TODO description: anyOf[0]",
-          "title": "Any Of[0]"
+          "enum": [ "inwards", "outwards" ]
         },
         {
           "type": "array",
-          "items": {
-            "minItems": 3,
-            "maxItems": 3,
-            "$ref": "../../../../molang/1.8.0/number.json",
-            "description": "TODO description: anyOf[1]",
-            "title": "Any Of[1]"
-          },
-          "description": "TODO description: anyOf[1]",
-          "title": "Any Of[1]"
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "$ref": "../../../../molang/1.8.0/number.json" }
         }
       ],
       "description": "TODO description: direction",

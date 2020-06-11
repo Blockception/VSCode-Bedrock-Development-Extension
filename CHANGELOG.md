@@ -1,4 +1,6 @@
 # Changelog 
+- Updated Title and descriptions
+- Updated
 - Removed
 - Updated Components
 - Updated Components 1.16.0
@@ -17,5 +19,3 @@
 - Updated
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Fixed target_nearby_sensor "inside_range"
-- Finished
-- Finished

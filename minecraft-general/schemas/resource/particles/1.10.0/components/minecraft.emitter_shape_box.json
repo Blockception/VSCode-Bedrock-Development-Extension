@@ -6,16 +6,21 @@
   "additionalProperties": false,
   "properties": {
     "direction": {
-      "type": "array",
-      "items": {
-        "minItems": 3,
-        "maxItems": 3,
-        "$ref": "../../../../molang/1.8.0/number.json",
-        "description": "TODO description: direction",
-        "title": "Direction"
-      },
       "description": "TODO description: direction",
-      "title": "Direction"
+      "title": "Direction",
+      "default": "outwards",      
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [ "inwards", "outwards" ]
+        },
+        {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "$ref": "../../../../molang/1.8.0/number.json" }
+        }
+      ]
     },
     "radius": {
       "$ref": "../../../../molang/1.8.0/number.json",
