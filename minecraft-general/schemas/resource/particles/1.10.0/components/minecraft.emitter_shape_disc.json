@@ -36,6 +36,25 @@
         "title": "Offset"
       }
     },
+    "plane_normal": {
+      "title": "Plane normal",
+      "description": "specifies the normal of the disc plane, the disc will be perpendicular to this direction",
+      "default": [0, 1, 0],
+      "oneOf": [
+        { 
+          "type": "string",
+          "enum": [ "x", "y", "z" ]
+        },
+        {
+          "type": "array",
+          "items": [
+            { "$ref": "../../../../molang/1.8.0/number.json" },
+            { "$ref": "../../../../molang/1.8.0/number.json" },
+            { "$ref": "../../../../molang/1.8.0/number.json" }
+          ]
+        }
+      ]
+    },
     "surface_only": {
       "type": "boolean",
       "description": "TODO description: surface only",

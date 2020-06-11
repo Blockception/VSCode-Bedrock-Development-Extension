@@ -78,6 +78,7 @@
             "minecraft:particle_expire_if_not_in_blocks": { "$ref": "components/minecraft.particle_expire_if_not_in_blocks.json" },
             "minecraft:particle_initialization": { "$ref": "components/minecraft.particle_initialization.json" },
             "minecraft:particle_initial_speed": { "$ref": "components/minecraft.particle_initial_speed.json" },
+            "minecraft:particle_initial_spin": { "$ref": "components/minecraft.particle_initial_spin.json" },
             "minecraft:particle_lifetime_expression": { "$ref": "components/minecraft.particle_lifetime_expression.json" },
             "minecraft:particle_lifetime_events": { "$ref": "components/minecraft.particle_lifetime_events.json" },
             "minecraft:particle_kill_plane": { "$ref": "components/minecraft.particle_kill_plane.json" },
