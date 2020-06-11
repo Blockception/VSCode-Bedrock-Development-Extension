@@ -27,9 +27,7 @@
         "type": "object",
         "$id": "#/Sound",
         "title": "Sound specification",
-        "required": [
-          "sounds"
-        ],
+        "required": [ "sounds" ],
         "properties": {
           "category": {
             "description": "The category of the sound",
@@ -109,6 +107,12 @@
             },
             "description": "TODO description: sounds",
             "title": "Sounds"
+          },
+          "__use_legacy_max_distance": {
+            "type": "string",
+            "enum": [ "true", "false" ],
+            "description": "TODO description: use legacy max distance",
+            "title": "Use Legacy Max Distance"
           }
         },
         "description": "TODO description: additionalProperties"

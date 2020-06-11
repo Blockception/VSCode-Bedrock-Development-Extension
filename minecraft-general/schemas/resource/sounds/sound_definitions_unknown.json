@@ -61,9 +61,7 @@
                   "additionalItems": false,
                   "$id": "#/Sound/sounds/ObjectItem",
                   "type": "object",
-                  "required": [
-                    "name"
-                  ],
+                  "required": [ "name" ],
                   "properties": {
                     "pitch": {
                       "description": "The pitch of the audio, 1 is nomial",

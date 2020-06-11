@@ -104,6 +104,7 @@
             { "fileMatch": "flipbook_textures.json", "url": "./minecraft-general/schemas/resource/textures/flipbook_textures.json" },
             { "fileMatch": "item_texture.json", "url": "./minecraft-general/schemas/resource/textures/item_texture.json" },
             { "fileMatch": "particles/*.json", "url": "./minecraft-general/schemas/resource/particles/particles.json" },
+            { "fileMatch": "*.particle.json", "url": "./minecraft-general/schemas/resource/particles/particles.json" },
             { "fileMatch": "*.geo.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" },
             { "fileMatch": "*.geometry.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" },
             { "fileMatch": "render_controllers/*.json", "url": "./minecraft-general/schemas/resource/render_controllers/render_controllers.json" },

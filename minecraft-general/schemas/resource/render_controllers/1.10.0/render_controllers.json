@@ -87,14 +87,15 @@
                 "minProperties": 1,
                 "additionalProperties": {
                   "type": "array",
+                  "description": "Textures",
+                  "title": "Texture",
                   "items": {
                     "type": "string",
                     "pattern": "^[Tt]exture\\..+",
-                    "description": "TODO description: additionalProperties",
-                    "title": "Additional Properties"
-                  },
-                  "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                    "default": "texture.",
+                    "description": "An texture item",
+                    "title": "Texture"
+                  }
                 },
                 "description": "TODO description: textures",
                 "title": "Textures"

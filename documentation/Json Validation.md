@@ -38,7 +38,7 @@ If a json validation is missing. Then also post an issue. and one will be made i
 |biomes_client   |biomes_client.json  |
 |entity   |entity/*entity.json  |
 |models   |'*.geo.json' or '*.geometry.json' |
-|particles   |particles/*.json  |
+|particles   |particles/*.json or .particle.json |
 |sound definitions   |sound_definitions.json  |
 
 ## Behaviour packs

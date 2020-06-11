@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.music_definitions.json",
   "type": "object",
   "title": "The minecraft music definition file",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "The definition file of music of the resourcepack",
   "definitions": {
     "music": {
       "type": "object",
