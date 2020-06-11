@@ -17,7 +17,7 @@
         "description": {
           "additionalProperties": false,
           "type": "object",
-          "required": [ "identifier", "basic_render_parameters" ],
+          "required": ["identifier", "basic_render_parameters"],
           "properties": {
             "identifier": {
               "type": "string",
@@ -31,7 +31,7 @@
               "properties": {
                 "material": {
                   "type": "string",
-                  "examples": [ "particles_alpha", "particles_blend" ],
+                  "examples": ["particles_alpha", "particles_blend"],
                   "description": " Minecraft material to use for emitter",
                   "title": "Material"
                 },
@@ -50,7 +50,55 @@
           "title": "Description"
         },
         "curves": {
-
+          "title": "Curves",
+          "description": "Curves are interpolation values, with inputs from 0 to 1, and outputs based on the curve. The result of the curve is a MoLang variable of the same name that can be referenced in MoLang in components. For each rendering frame for each particle, the curves are evaluated and the result is placed in a MoLang variable of the name of the curve.",
+          "type": "object",
+          "propertyNames": { "pattern": "^variable\\.[a-zA-z0-9]+$" },
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "input": {
+                "$ref": "../../../molang/1.8.0/number.json",
+                "title": "Input",
+                "description": "What is the input value to use"
+              },
+              "nodes": {
+                "description": "control nodes for curve.  These are assumed to be equally, used Object for bezier_chain",
+                "title": "Nodes",
+                "oneOf": [ 
+                  { 
+                    "minItems": 1,
+                    "type": "array", 
+                    "items": { "$ref": "../../../molang/1.8.0/number.json" } 
+                  }, 
+                  {
+                    "type": "object",
+                    "propertyNames": {
+                      "pattern": "(^[\\-0-9]+$|^[\\-0-9]+\\.[\\-0-9]+$)"
+                    },
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                      }
+                    }
+                  }
+                ]
+              },
+              "type": {
+                "type": "string",
+                "title": "Type",
+                "description": "The type of curve",
+                "enum": ["linear", "bezier", "bezier_chain", "catmull_rom"]
+              },
+              "horizontal_range": {
+                "type": "string",
+                "title": "Horizontal Range",
+                "description": "What is the range the input is mapped onto",
+                "enum": ["linear", "bezier", "bezier_chain", "catmull_rom"]
+              }
+            }
+          }
         },
         "components": {
           "additionalProperties": false,
