@@ -29,13 +29,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import * as SC from "./SelectorCompletion";
-import * as RC from "./RegionCompletion";
-import * as FCC from "./FunctionCommandCompletion";
+import * as constants from "../../constants";
+import { CompletionItemManager } from './CompletionItemManager';
+import { RegionCompletionProvider } from './RegionCompletion';
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log("activating completion classes");
-    SC.activate(context);
-    RC.activate(context);
-    FCC.activate(context);
+   console.log("activating completion classes");
+   context.subscriptions.push(
+      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new CompletionItemManager(), " ", "[", "]", "@", "{", ","),
+      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), "#", "\n")
+   );
 }

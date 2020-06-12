@@ -29,15 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import * as constants from "../../constants";
 
-export function activate(context: vscode.ExtensionContext) {    
-    context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), "#", "\n")
-    );
-}
-
-class RegionCompletionProvider implements vscode.CompletionItemProvider {
+export class RegionCompletionProvider implements vscode.CompletionItemProvider {
     Default : vscode.CompletionList;
 
     constructor() {

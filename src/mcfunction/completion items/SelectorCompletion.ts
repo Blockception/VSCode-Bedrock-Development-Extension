@@ -29,23 +29,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import * as constants from "../../constants";
 import * as SF from "../selectors/functions"
 import * as Functions from "../../general/include";
 import { mcfunctionDatabase } from "../Database";
 
-export function activate(context: vscode.ExtensionContext) {    
-    context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new SelectorCompletionProvider(), "[", ",", "{", "=")
-    );
-}
+export class SelectorCompletionProvider implements vscode.CompletionItemProvider {
 
-class SelectorCompletionProvider implements vscode.CompletionItemProvider {
-
-    default: vscode.CompletionList;
-    letters: vscode.CompletionList;
-    firstitems: vscode.CompletionList;
-    items: vscode.CompletionList;
+    public default: vscode.CompletionList;
+    public letters: vscode.CompletionList;
+    public firstitems: vscode.CompletionList;
+    public items: vscode.CompletionList;
   
     constructor() {
       this.default = new vscode.CompletionList([
