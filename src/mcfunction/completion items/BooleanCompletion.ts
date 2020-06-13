@@ -28,19 +28,24 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from 'vscode';
-import * as constants from "../../constants";
-import { CompletionItemManager } from './CompletionItemManager';
-import { RegionCompletionProvider } from './RegionCompletion';
-import * as Commands from "./commands/activate";
+import * as vscode from "vscode";
+import { CompletionItemProvider } from "./CompletionItemManager";
+import { SyntaxItem, createCompletionItem } from "../../general/include";
+import { CompletionItemManager } from "./CompletionItemManager";
 
-export function activate(context: vscode.ExtensionContext) {
-   console.log("activating completion classes");
-   var CompletionManager = new CompletionItemManager();
-   Commands.activate(CompletionManager);
+export class BooleanCompletionProvider implements CompletionItemProvider {
 
-   context.subscriptions.push(
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, CompletionManager, " ", "[", "]", "@", "{", ","),
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), "#", "\n")
-   );
+    public default : vscode.CompletionList;
+
+    constructor(){
+        this.default = new vscode.CompletionList();
+        this.default.items.push(
+            createCompletionItem("true", "True", ""),
+            createCompletionItem("false", "False", "")
+        );
+    }
+
+    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+        return this.default;
+    }
 }

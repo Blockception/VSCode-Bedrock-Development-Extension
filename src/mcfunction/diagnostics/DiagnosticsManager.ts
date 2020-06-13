@@ -29,25 +29,31 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import { SyntaxItem } from '../../general/include';
 export * from './DiagnosticsFunctions'
+import { SyntaxItem } from '../../general/include';
+import { SelectorDiagnosticProvider } from './SelectorDiagnostics';
+import { CoordinateDiagnosticProvider } from './CoordinateDiagnostics';
+import { BooleanDiagnosticProvider } from './BooleanDiagnostics';
+import { FloatDiagnosticProvider } from './FloatDiagnostics';
+import { IntegerDiagnosticProvider } from './IntegerDiagnostics';
+import { JsonTextDiagnoserProvider } from './JsonTextDiagnoser';
 
 export class DiagnosticsManager {
     private Items : Map<string, DiagnosticProvider>;
 
-    public BooleanDiagnoser : DiagnosticProvider | undefined;
+    public BooleanDiagnoser : DiagnosticProvider;
     public BlockDiagnoser : DiagnosticProvider | undefined; //TODO
-    public CoordinateDiagnoser : DiagnosticProvider | undefined;
+    public CoordinateDiagnoser : DiagnosticProvider;
     public EffectDiagnoser : DiagnosticProvider | undefined; //TODO
     public EntityDiagnoser : DiagnosticProvider | undefined; //TODO
-    public FloatDiagnoser : DiagnosticProvider | undefined;
-    public IntegerDiagnoser : DiagnosticProvider | undefined;
+    public FloatDiagnoser : DiagnosticProvider;
+    public IntegerDiagnoser : DiagnosticProvider;
     public ItemDiagnoser : DiagnosticProvider | undefined; //TODO
     public JsonItemComponentDiagnoser : DiagnosticProvider | undefined; //TODO
-    public JsonTextDiagnoser : DiagnosticProvider | undefined; //TODO
+    public JsonTextDiagnoser : DiagnosticProvider;
     public TickingAreaDiagnoser : DiagnosticProvider | undefined; //TODO
     public ParticleDiagnoser : DiagnosticProvider | undefined; //TODO
-    public SelectorDiagnoser : DiagnosticProvider | undefined;
+    public SelectorDiagnoser : DiagnosticProvider;
     public ScoreDiagnoser : DiagnosticProvider | undefined; //TODO
     public SoundDiagnoser : DiagnosticProvider | undefined; //TODO
     public StringDiagnoser : DiagnosticProvider | undefined; //TODO
@@ -55,6 +61,13 @@ export class DiagnosticsManager {
 
     constructor(){
         this.Items = new  Map<string, DiagnosticProvider>();
+        //set up base types diagnosers
+        this.SelectorDiagnoser = new SelectorDiagnosticProvider();
+        this.CoordinateDiagnoser = new CoordinateDiagnosticProvider();
+        this.BooleanDiagnoser = new BooleanDiagnosticProvider();
+        this.FloatDiagnoser = new FloatDiagnosticProvider();
+        this.IntegerDiagnoser = new IntegerDiagnosticProvider();
+        this.JsonTextDiagnoser = new JsonTextDiagnoserProvider();
     }
 
     hasDiagnostic(Item : SyntaxItem) {

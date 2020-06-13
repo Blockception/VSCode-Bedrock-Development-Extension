@@ -32,14 +32,32 @@ import * as vscode from 'vscode';
 import * as Functions from '../../general/include';
 import * as SF from "../selectors/functions";
 import { SelectorCompletionProvider } from "./SelectorCompletion";
+import { SyntaxItem, createCompletionItem } from '../../general/include';
+import { runInThisContext } from 'vm';
+
+export interface CompletionItemProvider {
+    //
+    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList>;
+}
 
 export class CompletionItemManager implements vscode.CompletionItemProvider {
 
-    public SelectorCompletion : SelectorCompletionProvider;
+    public Items : Map<string, CompletionItemProvider>;
     public StartItems : vscode.CompletionItem[];
+    public Default : DefaultItems;
+
+    public ItemCompletionProvider : CompletionItemProvider | undefined;
+    public ScoreCompletionProvider : CompletionItemProvider | undefined;
+    public SelectorCompletion : SelectorCompletionProvider;
+    public TagCompletionProvider : CompletionItemProvider | undefined;
 
     constructor(){
+        this.Default = new DefaultItems();
+        this.Items = new  Map<string, CompletionItemProvider>();
+
         this.SelectorCompletion = new SelectorCompletionProvider();
+
+        //Starts items
         this.StartItems = new Array<vscode.CompletionItem> (
             Functions.createCompletionItem("alwaysday", "alwaysday", "Locks and unlocks the day-night cycle."),
             Functions.createCompletionItem("clear", "clear", "Clears items from player inventory."),
@@ -93,6 +111,11 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         );
     }
 
+    set(Cm : CompletionItemProvider, keywords : string[]) : void {
+        keywords.forEach(word => this.Items.set(word, Cm));
+    }
+
+    //
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var Line = document.lineAt(position.line);
         var Text = Line.text;
@@ -103,9 +126,30 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
         //If in selector provide selector
         if (SF.IsInSelector(document, position)) {
-            return this.SelectorCompletion.provideCompletionItems(document, position, token, context);;
+            return this.SelectorCompletion.provideCompletionItems(document, position, token, context);
         }
 
-        var Tree : Functions.SyntaxTree = Functions.SyntaxTree.ParseTree(Line, position);        
+        var Tree = Functions.SyntaxTree.ParseTree(Line, position);
+
+        var Item = Tree.Root;
+        if (Item == undefined)
+            return this.StartItems;
+
+        var Diagnoser = this.Items.get(Item.Text.text);
+
+        if (Diagnoser != undefined) {
+            return Diagnoser.provideCompletionItems(Item, this, document);
+        }
+
+        return this.StartItems;
+    }
+}
+
+
+export class DefaultItems {
+    public ItemData : vscode.CompletionItem[];
+
+    constructor(){
+        this.ItemData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Item Data", "An item data value"));
     }
 }

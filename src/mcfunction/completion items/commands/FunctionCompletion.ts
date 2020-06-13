@@ -30,27 +30,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
 import * as fs from "fs";
-import * as constants from "../../constants";
+import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { SyntaxItem } from "../../../general/include";
 
-export function activate(context: vscode.ExtensionContext) {    
-    context.subscriptions.push(
-        vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new FunctionCommandCompletionProvider(), " ")
-    );
-}
+export class FunctionCommandCompletionProvider implements CompletionItemProvider {
 
-class FunctionCommandCompletionProvider implements vscode.CompletionItemProvider {
-
-    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var receiver = new vscode.CompletionList();
-
-        if (position.character < 9){
-            return receiver;
-        }
-
-        var text = document.lineAt(position.line).text;
-
-        if (text.substring(position.character - 9, position.character).trim() != "function")
-            return;
 
         var filepath = document.uri.fsPath;
         var index = filepath.indexOf("\\functions\\");

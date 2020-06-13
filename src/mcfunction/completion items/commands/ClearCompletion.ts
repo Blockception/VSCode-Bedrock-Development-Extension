@@ -28,19 +28,39 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from 'vscode';
-import * as constants from "../../constants";
-import { CompletionItemManager } from './CompletionItemManager';
-import { RegionCompletionProvider } from './RegionCompletion';
-import * as Commands from "./commands/activate";
+import * as vscode from "vscode";
+import * as fs from "fs";
+import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export function activate(context: vscode.ExtensionContext) {
-   console.log("activating completion classes");
-   var CompletionManager = new CompletionItemManager();
-   Commands.activate(CompletionManager);
+export class ClearCompletionProvider implements CompletionItemProvider {
 
-   context.subscriptions.push(
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, CompletionManager, " ", "[", "]", "@", "{", ","),
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), "#", "\n")
-   );
+    public MaxCount : vscode.CompletionItem[];
+
+    constructor(){
+        this.MaxCount = new Array<vscode.CompletionItem>(createCompletionItem("1", "Max count", "The maximum amount of items"));
+    }
+
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+
+        switch (Item.Count()) {
+            case 1:
+                return Cm.SelectorCompletion.default;
+
+            case 2:
+                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
+
+            case 3: //Data
+                return Cm.Default.ItemData;
+
+            case 4: //MaxCount
+                
+
+            case 5:
+            default:
+                break;
+        }
+
+        return undefined;
+    }
 }

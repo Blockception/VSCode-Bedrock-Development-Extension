@@ -89,6 +89,19 @@ export class SyntaxItem {
         this.Child = Child;
     }
 
+    Count() : number {
+        var Out = 0;
+
+        var Item = this.Child;
+
+        while (Item != undefined){
+            Out++;
+            Item = Item.Child;
+        }
+
+        return Out;
+    }
+
     IsSelector() : boolean {
         if (this.Text?.text.startsWith("@"))
             return true;
