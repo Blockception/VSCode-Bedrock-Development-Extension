@@ -6,14 +6,18 @@
   "title": "Loot Table",
   "properties": {
     "pools": {
+      "title": "Pools",
+      "description": "TODO description",
       "type": "array",
       "items": {
         "additionalProperties": false,
+        "title": "A single pool",
         "type": "object",
         "required": ["rolls"],
         "properties": {
           "conditions": {},
           "rolls": {
+            "title": "Rolls",
             "oneOf": [
               {
                 "type": "integer",
@@ -24,10 +28,12 @@
                 "required": ["min", "max"],
                 "properties": {
                   "min": {
+                    "title": "Min",
                     "type": "integer",
                     "minimum": 1
                   },
                   "max": {
+                    "title": "Min",
                     "type": "integer",
                     "minimum": 1
                   }
@@ -36,6 +42,7 @@
             ]
           },
           "entries": {
+            "title": "Entries",
             "type": "array",
             "items": {
               "additionalProperties": false,
@@ -43,19 +50,23 @@
               "required": [ "type" ],
               "properties": {
                 "type": {
+                  "title": "Type",
                   "type": "string",
                   "enum": ["item", "empty" ]
                 },
                 "name": {
+                  "title": "Name",
                   "type": "string",
                   "description": "An item or loottable",
                   "pattern": "^([\\w]+:|loot_tables/)"
                 },
                 "weight": {
+                  "title": "Weight",
                   "type": "integer",
                   "minimum": 1
                 },
                 "functions": {
+                  "title": "Functions",
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -128,6 +139,7 @@
       }
     },
     "type": {
+      "title": "Type",
       "type": "string"
     }
   }
