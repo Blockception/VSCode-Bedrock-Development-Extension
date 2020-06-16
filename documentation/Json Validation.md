@@ -19,34 +19,36 @@ If a json validation is missing. Then also post an issue. and one will be made i
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|manifest   |manifest.json |
+|Manifest   |manifest.json |
 
 ## World
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|world_behavior_packs   |world_behavior_packs.json |
-|world_resource_packs   |world_resource_packs.json  |
+|World_behavior_packs   |world_behavior_packs.json |
+|World_resource_packs   |world_resource_packs.json  |
 
 ## Resource packs
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|animation_controllers   |animation_controllers/*.json |
-|animations   |animations/*.animation.json  |
-|attachables   |attachables/*.json  |
-|biomes_client   |biomes_client.json  |
-|entity   |entity/*entity.json  |
-|models   |'*.geo.json' or '*.geometry.json' |
-|particles   |particles/*.json or .particle.json |
-|sound definitions   |sound_definitions.json  |
+|Animation_controllers   |animation_controllers/*.json |
+|Animations   |animations/*.animation.json  |
+|Attachables   |attachables/*.json  |
+|Biomes_client   |biomes_client.json  |
+|Entity   |entity/*entity.json  |
+|Models   |'*.geo.json' or '*.geometry.json' |
+|Particles   |particles/*.json or .particle.json |
+|Sound definitions   |sound_definitions.json  |
 
 ## Behaviour packs
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|animation_controllers   |animation_controllers/*.json |
-|entity behaviour |entities/*.json|
+|Animation controllers   |animation_controllers/*.json |
+|Entity behaviours |entities/*.json|
+|Item behaviours |items/*.json|
+|Loot tables |loot_tables/*.json|
 
 # Json Validation
 
@@ -80,21 +82,21 @@ If a json validation is missing. Then also post an issue. and one will be made i
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|animation_controllers   |animation_controllers/*.json |
-|animations   |animations/*.animation.json  |
-|biomes_client   |biomes_client.json  |
-|entity   |entity/*entity.json  |
-|models   |*.geo.json  |
-|particles   |particles/*.json  |
-|render_controllers   |render_controllers/*.json  |
-|sound definitions   |sound_definitions.json  |
-|terrain texture   |terrain_texture.json  |
-|music definitions   |music_definitions.json  |
+|Animation controllers   |animation_controllers/*.json |
+|Animations   |animations/*.animation.json  |
+|Biomes client   |biomes_client.json  |
+|Entity   |entity/*entity.json  |
+|Models   |*.geo.json  |
+|Music definitions   |music_definitions.json  |
+|Particles   |particles/*.json  |
+|Render controllers   |render_controllers/*.json  |
+|Sound definitions   |sound_definitions.json  |
+|Terrain texture   |terrain_texture.json  |
 
 ## Behaviour packs
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|entity behaviour|entities/*.json|
-|animation_controllers   |animation_controllers/*.json |
-|items   |items/*.json |
+|Entity behaviour|entities/*.json|
+|Animation_controllers   |animation_controllers/*.json |
+|Items   |items/*.json |

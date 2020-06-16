@@ -115,6 +115,7 @@
             { "fileMatch": "sound_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/sound_definitions.json" },
             { "fileMatch": "terrain_texture.json", "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json" },
             { "fileMatch": "music_definitions.json","url": "./minecraft-general/schemas/resource/sounds/music_definitions.json" },
+            
             { "fileMatch": "loot_tables/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
             { "fileMatch": "loot_tables/*/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
             { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" },

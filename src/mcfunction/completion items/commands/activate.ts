@@ -31,11 +31,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemManager } from "../CompletionItemManager";
 
 //Import commands
-import { BooleanCompletionProvider } from "../BooleanCompletion";
 import { ClearCompletionProvider } from "./ClearCompletion";
 import { CloneCompletionProvider } from "./CloneCompletion";
-import { ConnectCompletionProvider } from "./ConnectCompletion";
-import { DeopCompletionProvider } from "./DeopCompletion";
 import { DifficultyCompletionProvider } from "./DifficultyCompletion";
 import { EffectCompletionProvider } from "./EffectCompletion";
 import { EnchantCompletionProvider } from "./EnchantCompletion";
@@ -78,20 +75,24 @@ import { TickingAreaCompletionProvider } from "./tickingareaCompletion";
 import { TestforCompletionProvider } from "./testforCompletion";
 import { TestforBlockCompletionProvider } from "./testforblockCompletion";
 import { TestforBlocksCompletionProvider } from "./testforblocksCompletion";
+import { SelectorCompletionProvider } from "../types/SelectorCompletion";
 
 //Add commands to the diagnoser
 export function activate(context: CompletionItemManager) {
-   var BooleanCompleter = new BooleanCompletionProvider();
+   var BooleanCompleter = context.BooleanCompletionProvider;
+   var SelectorCompleter = new SelectorCompletionProvider();
+
 
     console.log('\tThe command diagnosers (karen) want to talk to the manager');
     //Boolean stuff
     context.set(BooleanCompleter, ["alwaysday", "daylock"]);
 
+    //Selector
+    context.set(SelectorCompleter, [ "deop", "op" ]);
+
     context.set(new ClearCompletionProvider(), [ "clear" ]);
     context.set(new CloneCompletionProvider(), ["clone"]);
-    context.set(new ConnectCompletionProvider(), ["connect"]);
-    context.set(new DaylockCompletionProvider(), [ "daylock" ]);
-    context.set(new DeopCompletionProvider(), [ "deop" ]);
+    
     context.set(new DifficultyCompletionProvider(), ["difficulty"]);
     context.set(new EffectCompletionProvider(), ["effect"]);
     context.set(new EnchantCompletionProvider(), ["effect"]);

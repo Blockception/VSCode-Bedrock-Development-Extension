@@ -31,9 +31,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as vscode from 'vscode';
 import * as Functions from '../../general/include';
 import * as SF from "../selectors/functions";
-import { SelectorCompletionProvider } from "./SelectorCompletion";
+import { SelectorCompletionProvider, SelectorVscodeCompletionProvider } from "./types/SelectorCompletion";
 import { SyntaxItem, createCompletionItem } from '../../general/include';
-import { runInThisContext } from 'vm';
+import { CoordinateCompletionItemProvider } from './types/CoordinateCompletionProvider';
+import { BooleanCompletionProvider } from './types/BooleanCompletion';
 
 export interface CompletionItemProvider {
     //
@@ -42,20 +43,27 @@ export interface CompletionItemProvider {
 
 export class CompletionItemManager implements vscode.CompletionItemProvider {
 
-    public Items : Map<string, CompletionItemProvider>;
+    public Completors : Map<string, CompletionItemProvider>;
     public StartItems : vscode.CompletionItem[];
     public Default : DefaultItems;
 
+    public BooleanCompletionProvider : CompletionItemProvider;
+    public BlockCompletionProvider : CompletionItemProvider | undefined;
+    public CoordinateCompletionProvider : CoordinateCompletionItemProvider;
     public ItemCompletionProvider : CompletionItemProvider | undefined;
     public ScoreCompletionProvider : CompletionItemProvider | undefined;
     public SelectorCompletion : SelectorCompletionProvider;
+    public SelectorVscodeCompletion : SelectorVscodeCompletionProvider;
     public TagCompletionProvider : CompletionItemProvider | undefined;
 
     constructor(){
         this.Default = new DefaultItems();
-        this.Items = new  Map<string, CompletionItemProvider>();
+        this.Completors = new  Map<string, CompletionItemProvider>();
 
+        this.BooleanCompletionProvider = new BooleanCompletionProvider();
+        this.CoordinateCompletionProvider = new CoordinateCompletionItemProvider();
         this.SelectorCompletion = new SelectorCompletionProvider();
+        this.SelectorVscodeCompletion = new SelectorVscodeCompletionProvider();
 
         //Starts items
         this.StartItems = new Array<vscode.CompletionItem> (
@@ -112,7 +120,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     }
 
     set(Cm : CompletionItemProvider, keywords : string[]) : void {
-        keywords.forEach(word => this.Items.set(word, Cm));
+        keywords.forEach(word => this.Completors.set(word, Cm));
     }
 
     //
@@ -126,7 +134,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
         //If in selector provide selector
         if (SF.IsInSelector(document, position)) {
-            return this.SelectorCompletion.provideCompletionItems(document, position, token, context);
+            return this.SelectorVscodeCompletion.provideCompletionItems(document, position, token, context);
         }
 
         var Tree = Functions.SyntaxTree.ParseTree(Line, position);
@@ -135,10 +143,16 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         if (Item == undefined)
             return this.StartItems;
 
-        var Diagnoser = this.Items.get(Item.Text.text);
+        var Diagnoser = this.Completors.get(Item.Text.text);
 
         if (Diagnoser != undefined) {
-            return Diagnoser.provideCompletionItems(Item, this, document);
+            var Items = Diagnoser.provideCompletionItems(Item, this, document);
+
+            if (Items == undefined){
+                return this.StartItems;
+            }
+
+            return Items;
         }
 
         return this.StartItems;
@@ -148,8 +162,10 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
 export class DefaultItems {
     public ItemData : vscode.CompletionItem[];
+    public BlockData : vscode.CompletionItem[];
 
     constructor(){
         this.ItemData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Item Data", "An item data value"));
+        this.BlockData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Block Data", "An block data value"));
     }
 }

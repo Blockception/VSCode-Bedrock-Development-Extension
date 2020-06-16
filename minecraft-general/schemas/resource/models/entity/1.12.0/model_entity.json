@@ -55,17 +55,13 @@
         "description": "Model specification",
         "title": "Model",
         "type": "object",
-        "required": [
-          "description"
-        ],
+        "required": [ "description" ],
         "properties": {
           "description": {
             "type": "object",
             "description": "The descriptions of the geometry",
             "title": "Description",
-            "required": [
-              "identifier"
-            ],
+            "required": [ "identifier" ],
             "properties": {
               "identifier": {
                 "type": "string",

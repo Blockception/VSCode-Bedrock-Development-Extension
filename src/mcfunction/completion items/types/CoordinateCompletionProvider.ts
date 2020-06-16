@@ -28,24 +28,26 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from "vscode";
-import { CompletionItemProvider } from "./CompletionItemManager";
-import { SyntaxItem, createCompletionItem } from "../../general/include";
-import { CompletionItemManager } from "./CompletionItemManager";
+import * as vscode from 'vscode';
+import * as Functions from '../../../general/include';
+import * as SF from "../../selectors/functions";
+import { SelectorCompletionProvider } from "./SelectorCompletion";
+import { SyntaxItem, createCompletionItem } from '../../../general/include';
+import { create } from 'domain';
 
-export class BooleanCompletionProvider implements CompletionItemProvider {
+export class CoordinateCompletionItemProvider {
 
-    public default : vscode.CompletionList;
+    public Items : vscode.CompletionList;
 
     constructor(){
-        this.default = new vscode.CompletionList();
-        this.default.items.push(
-            createCompletionItem("true", "True", ""),
-            createCompletionItem("false", "False", "")
+        this.Items = new vscode.CompletionList();
+        this.Items.items.push(
+            createCompletionItem("~", "~", "Relative coordinate"),
+            createCompletionItem("^", "^", "Relative pointing coordinate")
         );
     }
 
-    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        return this.default;
+    public provideDiagnostics() : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+        return this.Items;
     }
 }

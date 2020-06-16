@@ -122,4 +122,23 @@ export class SyntaxItem {
 
         return false;
     }
+
+    GetAt(amountDown : number) : SyntaxItem | undefined {
+        if (amountDown == 0)
+            return this;
+
+        var Out : SyntaxItem | undefined = this;
+
+        while (Out != undefined){
+            if (amountDown > 0){
+                Out = Out.Child;
+                amountDown--;
+            }
+            else {
+                return Out;
+            }
+        }
+
+        return Out;
+    }
 }
