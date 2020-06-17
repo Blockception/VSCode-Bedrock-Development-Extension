@@ -45,31 +45,31 @@ export class GameruleDiagnosticProvider implements DiagnosticProvider {
 		}
 
 		switch (Gamerule.Text.text) {
-			case 'commandBlocksEnabled':
-			case 'commandBlockOutput':
-			case 'doDaylightCycle':
-			case 'doEntityDrops':
-			case 'doFireTick':
-			case 'doInsomnia':
-			case 'immediateRespawn':
-			case 'doMobLoot':
-			case 'doMobSpawning':
-			case 'doTileDrops':
-			case 'doWeatherCycle':
-			case 'drowningDamage':
-			case 'fallDamage':
-			case 'fireDamage':
-			case 'keepInventory':
-			case 'mobGriefing':
-			case 'naturalRegeneration':
+			case 'commandblocksenabled':
+			case 'commandblockoutput':
+			case 'dodaylightcycle':
+			case 'doentitydrops':
+			case 'dofiretick':
+			case 'doinsomnia':
+			case 'immediaterespawn':
+			case 'domobloot':
+			case 'domobspawning':
+			case 'dotiledrops':
+			case 'doweathercycle':
+			case 'drowningdamage':
+			case 'falldamage':
+			case 'firedamage':
+			case 'keepinventory':
+			case 'mobgriefing':
+			case 'naturalregeneration':
 			case 'pvp':
-			case 'randomTickSpeed':
-			case 'sendCommandFeedback':
-			case 'showCoordinates':
-			case 'showDeathMessages':
-			case 'spawnRadius':
-			case 'tntExplodes':
-			case 'showTags':
+			case 'randomtickspeed':
+			case 'sendcommandfeedback':
+			case 'showcoordinates':
+			case 'showdeathmessages':
+			case 'spawnradius':
+			case 'tntexplodes':
+			case 'showtags':
 
 				var Next = Gamerule.Child
 
@@ -79,7 +79,7 @@ export class GameruleDiagnosticProvider implements DiagnosticProvider {
 				dm.BooleanDiagnoser?.provideDiagnostic(Next, lineIndex, collector, dm, document);
 
 				return;
-			case 'maxCommandChainLength':
+			case 'maxcommandchainlength':
 
 				var Next = Gamerule.Child
 

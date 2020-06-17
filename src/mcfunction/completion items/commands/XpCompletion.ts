@@ -29,35 +29,33 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import * as fs from "fs";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class ClearCompletionProvider implements CompletionItemProvider {
+export class XpCompletionProvider implements CompletionItemProvider {
 
-    public MaxCount : vscode.CompletionItem[];
+    public DefaultLevels : vscode.CompletionItem[];
 
-    constructor(){
-        this.MaxCount = new Array<vscode.CompletionItem>(createCompletionItem("1", "Max count", "The maximum amount of items", vscode.CompletionItemKind.Constant));
+    constructor() {
+        this.DefaultLevels = new Array<vscode.CompletionItem>(
+            createCompletionItem("-1", "-1", "substract 1 xp", vscode.CompletionItemKind.Constant),
+            createCompletionItem("1", "1", "add 1 xp", vscode.CompletionItemKind.Constant),
+            createCompletionItem("-1L", "-1L", "substract 1 level", vscode.CompletionItemKind.Constant),
+            createCompletionItem("1L", "1L", "add 1 level", vscode.CompletionItemKind.Constant),
+            createCompletionItem("-1000L", "-1000L", "clear xp", vscode.CompletionItemKind.Constant),
+        );
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //clear [player: target] [itemName: Item] [data: int] [maxCount: int]
+        //xp <amount: int> 
 
         switch (Item.Count()) {
-            case 0: //[player: target]
+            case 0: //<amount: int>
+                return this.DefaultLevels;    
+
+            case 1: //[player: target]
                 return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
 
-            case 1: //Item
-                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
-
-            case 2: //Data
-                return Cm.Default.ItemData;
-
-            case 3: //MaxCount
-                return this.MaxCount;
-
-            case 4:
             default:
                 break;
         }

@@ -39,43 +39,11 @@ import { EnchantCompletionProvider } from "./EnchantCompletion";
 import { ExecuteCompletionProvider } from "./ExecuteCompletion";
 import { FillCompletionProvider } from "./FillCompletion";
 import { FunctionCommandCompletionProvider } from "./FunctionCompletion";
-/*import { GamemodeCompletionProvider } from "./GamemodeCompletion";
-import { GameruleCompletionProvider } from "./GameruleCompletion";
-import { XpCompletionProvider } from "./XpCompletion";
-import { WeatherCompletionProvider } from "./weatherCompletion";
-import { LocateCompletionProvider } from "./locateCompletion";
-import { MeCompletionProvider } from "./meCompletion";
-import { MobeventCompletionProvider } from "./mobeventCompletion";
-import { KillCompletionProvider } from "./KillCompletion";
-import { MsgCompletionProvider } from "./msgCompletion";
-import { GiveCompletionProvider } from "./giveCompletion";
-import { ParticleCompletionProvider } from "./particleCompletion";
-import { ReloadCompletionProvider } from "./reloadCompletion";
-import { PlaysoundCompletionProvider } from "./playsoundCompletion";
-import { SayCompletionProvider } from "./sayCompletion";
-import { ReplaceItemCompletionProvider } from "./replaceitemCompletion";
-import { ScoreboardCompletionProvider } from "./scoreboardCompletion";
-import { SetblockCompletionProvider } from "./setblockCompletion";
-import { SetmaxplayersCompletionProvider } from "./setmaxplayersCompletion";
-import { SetWorldSpawnCompletionProvider } from "./setworldspawnCompletion";
-import { SpawnpointCompletionProvider } from "./spawnpointCompletion";
-import { StopsoundCompletionProvider } from "./stopsoundCompletion";
-import { SpreadPlayersCompletionProvider } from "./spreadplayersCompletion";
-import { TagCompletionProvider } from "./tagCompletion";
-import { SummonCompletionProvider } from "./summonCompletion";
-import { TellCompletionProvider } from "./tellCompletion";
-import { TellrawCompletionProvider } from "./tellrawCompletion";
-import { TeleportCompletionProvider } from "./teleportCompletion";
-import { WCompletionProvider } from "./wCompletion";
-import { ToggledownfallCompletionProvider } from "./toggledownfallCompletion";
-import { TitlerawCompletionProvider } from "./titlerawCompletion";
-import { TitleCompletionProvider } from "./titleCompletion";
-import { TimeCompletionProvider } from "./timeCompletion";
-import { TickingAreaCompletionProvider } from "./tickingareaCompletion";
-import { TestforCompletionProvider } from "./testforCompletion";
-import { TestforBlockCompletionProvider } from "./testforblockCompletion";
-import { TestforBlocksCompletionProvider } from "./testforblocksCompletion";*/
 import { SelectorCompletionProvider } from "../types/SelectorCompletion";
+import { GamemodeCompletionProvider } from "./GamemodeCompletion";
+import { GiveCompletionProvider } from "./GiveCompletion";
+import { XpCompletionProvider } from "./XpCompletion";
+import { TestforBlocksCompletionProvider } from "./TestforblocksCompletion";
 
 //Add commands to the diagnoser
 export function activate(context: CompletionItemManager) {
@@ -88,24 +56,22 @@ export function activate(context: CompletionItemManager) {
    context.set(BooleanCompleter, ["alwaysday", "daylock"]);
 
    //Selector
-   context.set(SelectorCompleter, ["deop", "op"]);
+   context.set(SelectorCompleter, ["deop", "op", "kill", "testfor"]);
 
    context.set(new ClearCompletionProvider(), ["clear"]);
    context.set(new CloneCompletionProvider(), ["clone"]);
-
    context.set(new DifficultyCompletionProvider(), ["difficulty"]);
    context.set(new EffectCompletionProvider(), ["effect"]);
    context.set(new EnchantCompletionProvider(), ["effect"]);
    context.set(new ExecuteCompletionProvider(), ["execute"]);
    context.set(new FillCompletionProvider(), ["fill"]);
    context.set(new FunctionCommandCompletionProvider(), ["function"]);
-   /*context.set(new GamemodeCompletionProvider(), [ "gamemode" ]);
-   context.set(new GameruleCompletionProvider(), [ "gamerule" ]);
+   context.set(new GamemodeCompletionProvider(), [ "gamemode" ]);
+   context.set(new GamemodeCompletionProvider(), [ "gamerule" ]);
    context.set(new GiveCompletionProvider(), [ "give" ]);
-   context.set(new LocateCompletionProvider(), [ "locate" ]);
+   /*context.set(new LocateCompletionProvider(), [ "locate" ]);
    context.set(new MeCompletionProvider(), [ "me" ]);
    context.set(new MobeventCompletionProvider(), [ "mobevent" ]);
-   context.set(new KillCompletionProvider(), [ "kill" ]);
    context.set(new MsgCompletionProvider(), [ "msg" ]);
    context.set(new ParticleCompletionProvider(), [ "particle" ]);
    context.set(new PlaysoundCompletionProvider(), [ "playsound" ]);
@@ -130,9 +96,8 @@ export function activate(context: CompletionItemManager) {
    context.set(new TitlerawCompletionProvider(), [ "titleraw" ]);
    context.set(new TimeCompletionProvider(), [ "time" ]);
    context.set(new TickingAreaCompletionProvider(), [ "tickingarea" ]);
-   context.set(new TestforCompletionProvider(), [ "testfor" ]);
-   context.set(new TestforBlockCompletionProvider(), [ "testforblock" ]);    
-   context.set(new TestforBlocksCompletionProvider(), [ "testforblock" ]);    
-   context.set(new WeatherCompletionProvider(), [ "weather" ]);
-   context.set(new XpCompletionProvider(), [ "xp" ]);*/
+   context.set(new TestforBlockCompletionProvider(), [ "testforblock" ]); */   
+   context.set(new TestforBlocksCompletionProvider(), [ "testforblock" ]);
+   context.set(new ClearCompletionProvider(), [ "weather" ]);
+   context.set(new XpCompletionProvider(), [ "xp" ]);
 }

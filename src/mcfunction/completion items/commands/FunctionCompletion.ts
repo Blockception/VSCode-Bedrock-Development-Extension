@@ -67,7 +67,7 @@ export class FunctionCommandCompletionProvider implements CompletionItemProvider
             else{
                 var newfile = file.replace(baseFolder, "").replace(".mcfunction", "");
                 newfile = newfile.replace(/\\/g, '/');
-                receiver.items.push(new vscode.CompletionItem(newfile, vscode.CompletionItemKind.File));
+                receiver.items.push(new vscode.CompletionItem(newfile, vscode.CompletionItemKind.Reference));
             }
         }
 

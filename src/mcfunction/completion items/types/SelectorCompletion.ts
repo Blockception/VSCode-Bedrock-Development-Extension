@@ -161,7 +161,7 @@ class InternalSelectorCompletionProvider {
         if (context?.triggerCharacter == "{" || context?.triggerCharacter == ",") {
             var Out = new vscode.CompletionList();
 
-            mcfunctionDatabase.Scores.forEach(document => {
+            mcfunctionDatabase.Symbols.Scores.forEach(document => {
                 document.Values.forEach(symbol => {
                     Out.items.push(new vscode.CompletionItem(symbol.name, vscode.CompletionItemKind.Variable));
                 });
@@ -180,14 +180,16 @@ class InternalSelectorCompletionProvider {
 
         switch (parameter) {
             case "tag":
-                Data = mcfunctionDatabase.Tags;
+                Data = mcfunctionDatabase.Symbols.Tags;
                 break;
+
             case "scores":
                 Out.items.push(new vscode.CompletionItem("{", vscode.CompletionItemKind.Snippet))
 
                 return Out;
             case "type":
-                Data = mcfunctionDatabase.Entities;
+                Data = mcfunctionDatabase.Symbols.Entities;
+
                 break;
         }
 

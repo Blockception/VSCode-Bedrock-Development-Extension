@@ -87,19 +87,19 @@ export class EffectCompletionProvider implements CompletionItemProvider {
         }
 
         switch (Item.Count()) {
-            case 1: //<player: target>
+            case 0: //<player: target>
                 return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
 
-            case 2: //<effect: Effect>
+            case 1: //<effect: Effect>
                 return this.Effects;
 
-            case 3: //[seconds: int]
-            case 4: //[amplifier: int]
+            case 2: //[seconds: int]
+            case 3: //[amplifier: int]
                 if (!IsCleared)
                     return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
                 break;
 
-            case 5: //[hideParticles: Boolean]
+            case 4: //[hideParticles: Boolean]
                 if (!IsCleared)
                     return Cm.BooleanCompletionProvider.provideCompletionItems(Item, Cm, document);
                 break;

@@ -74,13 +74,13 @@ export class EnchantCompletionProvider implements CompletionItemProvider {
         //enchant <player: target> <int|Enchant Name> [level: int]        
 
         switch (Item.Count()) {
-            case 1: //<player: target>
+            case 0: //<player: target>
                 return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
 
-            case 2: //<int|Enchant Name>
+            case 1: //<int|Enchant Name>
                 return this.Effects;
 
-            case 3: //[level: int]
+            case 2: //[level: int]
                 return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
 
             default:

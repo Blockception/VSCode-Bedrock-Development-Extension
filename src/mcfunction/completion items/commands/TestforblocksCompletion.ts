@@ -29,35 +29,38 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import * as fs from "fs";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class ClearCompletionProvider implements CompletionItemProvider {
+export class TestforBlocksCompletionProvider implements CompletionItemProvider {
 
-    public MaxCount : vscode.CompletionItem[];
+    public Defaults : vscode.CompletionItem[];
 
-    constructor(){
-        this.MaxCount = new Array<vscode.CompletionItem>(createCompletionItem("1", "Max count", "The maximum amount of items", vscode.CompletionItemKind.Constant));
+    constructor() {
+        this.Defaults = new Array<vscode.CompletionItem>(
+            createCompletionItem("masked", "masked", "", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("all", "all", "", vscode.CompletionItemKind.Keyword)
+        );
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //clear [player: target] [itemName: Item] [data: int] [maxCount: int]
+        //testforblocks <begin: x y z> <end: x y z> <destination: x y z> [masked|all]
 
         switch (Item.Count()) {
-            case 0: //[player: target]
-                return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
+            case 0: //<begin: x>
+            case 1: //<begin: y>
+            case 2: //<begin: z>
+            case 3: //<end: x>
+            case 4: //<end: y>
+            case 5: //<end: z>
+            case 6: //<destination: x>
+            case 7: //<destination: y>
+            case 8: //<destination: z>
+                return Cm.CoordinateCompletionProvider.provideDiagnostics();
 
-            case 1: //Item
-                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
+            case 9: //[masked|all]
+                return this.Defaults;
 
-            case 2: //Data
-                return Cm.Default.ItemData;
-
-            case 3: //MaxCount
-                return this.MaxCount;
-
-            case 4:
             default:
                 break;
         }

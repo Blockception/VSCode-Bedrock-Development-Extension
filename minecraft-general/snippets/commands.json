@@ -100,92 +100,92 @@
     //Gamerule
     "minecraft.commands.gamerule.commandBlocksEnabled": {
       "prefix": [ "minecraft.commands.gamerule.commandBlocksEnabled"],
-      "body": "gamerule commandBlocksEnabled [value]",
+      "body": "gamerule commandblocksenabled [value]",
       "description": "Whether command blocks should be enabled in-game."
     },
     "minecraft.commands.gamerule.commandBlockOutput": {
       "prefix": [ "minecraft.commands.gamerule.commandBlockOutput"],
-      "body": "gamerule commandBlockOutput [value]",
+      "body": "gamerule commandblockoutput [value]",
       "description": "Whether command blocks should notify admins when they perform commands."
     },
     "minecraft.commands.gamerule.doDaylightCycle": {
       "prefix": [ "minecraft.commands.gamerule.doDaylightCycle"],
-      "body": "gamerule doDaylightCycle [value]",
+      "body": "gamerule dodaylightcycle [value]",
       "description": "Whether the day-night cycle and moon phases progress."
     },
     "minecraft.commands.gamerule.doEntityDrops": {
       "prefix": [ "minecraft.commands.gamerule.doEntityDrops"],
-      "body": "gamerule doEntityDrops [value]",
+      "body": "gamerule doentitydrops [value]",
       "description": "Whether entities that are not mobs should have drops."
     },
     "minecraft.commands.gamerule.doFireTick": {
       "prefix": [ "minecraft.commands.gamerule.doFireTick"],
-      "body": "gamerule doFireTick [value]",
+      "body": "gamerule dofiretick [value]",
       "description": "Whether fire should spread and naturally extinguish."
     },
     "minecraft.commands.gamerule.doInsomnia": {
       "prefix": [ "minecraft.commands.gamerule.doInsomnia"],
-      "body": "gamerule doInsomnia [value]",
+      "body": "gamerule doinsomnia [value]",
       "description": "Whether phantoms can spawn in the nighttime."
     },
     "minecraft.commands.gamerule.immediateRespawn": {
       "prefix": [ "minecraft.commands.gamerule.immediateRespawn"],
-      "body": "gamerule immediateRespawn [value]",
+      "body": "gamerule immediaterespawn [value]",
       "description": "Players respawn immediately without showing the death screen."
     },
     "minecraft.commands.gamerule.doMobLoot": {
       "prefix": [ "minecraft.commands.gamerule.doMobLoot"],
-      "body": "gamerule doMobLoot [value]",
+      "body": "gamerule domobloot [value]",
       "description": "Whether mobs should drop items."
     },
     "minecraft.commands.gamerule.doMobSpawning": {
       "prefix": [ "minecraft.commands.gamerule.doMobSpawning"],
-      "body": "gamerule doMobSpawning [value]",
+      "body": "gamerule domobspawning [value]",
       "description": "Whether mobs should naturally spawn. Does not affect monster spawners."
     },
     "minecraft.commands.gamerule.doTileDrops": {
       "prefix": [ "minecraft.commands.gamerule.doTileDrops"],
-      "body": "gamerule doTileDrops [value]",
+      "body": "gamerule dotiledrops [value]",
       "description": "Whether blocks should have drops."
     },
     "minecraft.commands.gamerule.doWeatherCycle": {
       "prefix": [ "minecraft.commands.gamerule.doWeatherCycle"],
-      "body": "gamerule doWeatherCycle [value]",
+      "body": "gamerule doweathercycle [value]",
       "description": "Whether the weather can change naturally. The /weather command can still change weather."
     },
     "minecraft.commands.gamerule.drowningDamage": {
       "prefix": [ "minecraft.commands.gamerule.drowningDamage"],
-      "body": "gamerule drowningDamage [value]",
+      "body": "gamerule drowningdamage [value]",
       "description": "Whether the player should take damage when drowning."
     },
     "minecraft.commands.gamerule.fallDamage": {
       "prefix": [ "minecraft.commands.gamerule.fallDamage"],
-      "body": "gamerule fallDamage [value]",
+      "body": "gamerule falldamage [value]",
       "description": "Whether the player should take fall damage."
     },
     "minecraft.commands.gamerule.fireDamage": {
       "prefix": [ "minecraft.commands.gamerule.fireDamage"],
-      "body": "gamerule fireDamage [value]",
+      "body": "gamerule firedamage [value]",
       "description": "Whether the player should take fire damage."
     },
     "minecraft.commands.gamerule.keepInventory": {
       "prefix": [ "minecraft.commands.gamerule.keepInventory"],
-      "body": "gamerule keepInventory [value]",
+      "body": "gamerule keepinventory [value]",
       "description": "Whether the player should keep items and experience in their inventory after death."
     },
     "minecraft.commands.gamerule.maxCommandChainLength": {
       "prefix": [ "minecraft.commands.gamerule.maxCommandChainLength"],
-      "body": "gamerule maxCommandChainLength [value]",
+      "body": "gamerule maxcommandchainlength [value]",
       "description": "Determines the number at which the chain command block acts as a \"chain\"."
     },
     "minecraft.commands.gamerule.mobGriefing": {
       "prefix": [ "minecraft.commands.gamerule.mobGriefing"],
-      "body": "gamerule mobGriefing [value]",
+      "body": "gamerule mobgriefing [value]",
       "description": "Whether creepers, zombies, endermen, ghasts, withers, ender dragons, rabbits, sheep, villagers, silverfish, and snow golems should be able to change blocks and whether mobs can pick up items. This also affects the capability of zombie-like creatures like zombie pigmen and drowned to pathfind to turtle eggs. This will also prevent villagers from breeding."
     },
     "minecraft.commands.gamerule.naturalRegeneration": {
       "prefix": [ "minecraft.commands.gamerule.naturalRegeneration"],
-      "body": "gamerule naturalRegeneration [value]",
+      "body": "gamerule naturalregeneration [value]",
       "description": "Whether the player can regenerate health naturally if their hunger is full enough (doesn't affect external healing, such as golden apples, the Regeneration effect, etc.)."
     },
     "minecraft.commands.gamerule.pvp": {
@@ -195,37 +195,37 @@
     },
     "minecraft.commands.gamerule.randomTickSpeed": {
       "prefix": [ "minecraft.commands.gamerule.randomTickSpeed"],
-      "body": "gamerule randomTickSpeed [value]",
+      "body": "gamerule randomtickspeed [value]",
       "description": "How often a random block tick occurs (such as plant growth, leaf decay, etc.) per chunk section per game tick. 0 disables random ticks [needs testing], higher numbers increase random ticks. Setting to a high integer results in high speeds of decay and growth."
     },
     "minecraft.commands.gamerule.sendCommandFeedback": {
       "prefix": [ "minecraft.commands.gamerule.sendCommandFeedback"],
-      "body": "gamerule sendCommandFeedback [value]",
+      "body": "gamerule sendcommandfeedback [value]",
       "description": "Whether the feedback from commands executed by a player should show up in chat. Also affects the default behavior of whether command blocks store their output text."
     },
     "minecraft.commands.gamerule.showCoordinates": {
       "prefix": [ "minecraft.commands.gamerule.showCoordinates"],
-      "body": "gamerule showCoordinates [value]",
+      "body": "gamerule showcoordinates [value]",
       "description": "Whether the player's coordinates are displayed."
     },
     "minecraft.commands.gamerule.showDeathMessages": {
       "prefix": [ "minecraft.commands.gamerule.showDeathMessages"],
-      "body": "gamerule showDeathMessages [value]",
+      "body": "gamerule showdeathmessages [value]",
       "description": "Whether death messages are put into chat when a player dies. Also affects whether a message is sent to the pet's owner when the pet dies."
     },
     "minecraft.commands.gamerule.spawnRadius": {
       "prefix": [ "minecraft.commands.gamerule.spawnRadius"],
-      "body": "gamerule spawnRadius [value]",
+      "body": "gamerule spawnradius [value]",
       "description": "The number of blocks outward from the world spawn coordinates that a player spawns in when first joining a server or when dying without a personal spawnpoint/."
     },
     "minecraft.commands.gamerule.tntExplodes": {
       "prefix": [ "minecraft.commands.gamerule.tntExplodes"],
-      "body": "gamerule tntExplodes [value]",
+      "body": "gamerule tntexplodes [value]",
       "description": "Whether TNT explodes after activation."
     },
     "minecraft.commands.gamerule.showTags": {
       "prefix": [ "minecraft.commands.gamerule.showTags"],
-      "body": "gamerule showTags [value]",
+      "body": "gamerule showtags [value]",
       "description": "Hides the \"Can place on\" and \"Can destroy\" block lists from item lore."
     },
     //Give

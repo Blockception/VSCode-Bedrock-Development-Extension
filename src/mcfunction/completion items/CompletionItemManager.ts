@@ -119,7 +119,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
             Functions.createCompletionItem("xp", "xp", "Adds or removes player experience.")
         );
 
-        this.StartItems.forEach(x=>x.kind = vscode.CompletionItemKind.Function);
+        this.StartItems.forEach(x=>x.kind = vscode.CompletionItemKind.Class);
     }
 
     set(Cm : CompletionItemProvider, keywords : string[]) : void {
@@ -162,9 +162,17 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 export class DefaultItems {
     public ItemData : vscode.CompletionItem[];
     public BlockData : vscode.CompletionItem[];
+    public JsonItemComponents : vscode.CompletionItem[];
 
-    constructor(){
-        this.ItemData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Item Data", "An item data value"));
-        this.BlockData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Block Data", "An block data value"));
+    constructor(){        
+        this.BlockData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Block Data", "An block data value", vscode.CompletionItemKind.Constant));
+        this.ItemData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Item Data", "An item data value", vscode.CompletionItemKind.Constant));
+
+        this.JsonItemComponents = new Array<vscode.CompletionItem>(
+            createCompletionItem(
+                "{ \"minecraft:can_destroy\": { \"blocks\": [ \"grass\" ]}, \"minecraft:can_place_on\": { \"blocks\": [ \"grass\" ]}}", 
+                "Json Item Components", 
+                "A snippet of json item components", 
+                vscode.CompletionItemKind.Snippet));
     }
 }

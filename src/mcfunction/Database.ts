@@ -28,23 +28,34 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { SymbolInformation } from "vscode";
 import { DocumentDataCollection } from "../general/include";
+import { SymbolInformation } from "vscode";
 
 
 export class mcfunctionDatabase {
-    //All list of all found tags and their locations
-    static Tags : DocumentDataCollection<SymbolInformation> = new DocumentDataCollection<SymbolInformation>();
+   public static Symbols : DataSet<SymbolInformation>
+}
 
-    //All list of all found selectors and their locations
-    static Selectors : DocumentDataCollection<SymbolInformation> = new DocumentDataCollection<SymbolInformation>();
 
-    //All list of all found scores and their locations
-    static Scores : DocumentDataCollection<SymbolInformation> = new DocumentDataCollection<SymbolInformation>();
+export class DataSet<T> {
+   //All list of all found blocks and their data
+   Blocks: DocumentDataCollection<T> = new DocumentDataCollection<T>();
 
-    //All list of all found entities and their locations
-    static Entities : DocumentDataCollection<SymbolInformation> = new DocumentDataCollection<SymbolInformation>();
+   //All list of all found entities and their data
+   Entities: DocumentDataCollection<T> = new DocumentDataCollection<T>();
 
-    //All list of all found items and their locations
-    static Items : DocumentDataCollection<SymbolInformation> = new DocumentDataCollection<SymbolInformation>();
+   //All list of all found items and their data
+   Items: DocumentDataCollection<T> = new DocumentDataCollection<T>();
+
+   //All list of all found particles and their data
+   Particles: DocumentDataCollection<T> = new DocumentDataCollection<T>();
+
+   //All list of all found selectors and their data
+   Selectors: DocumentDataCollection<T> = new DocumentDataCollection<T>();
+
+   //All list of all found scores and their data
+   Scores: DocumentDataCollection<T> = new DocumentDataCollection<T>();
+
+   //All list of all found tags and their data
+   Tags: DocumentDataCollection<T> = new DocumentDataCollection<T>();
 }

@@ -29,35 +29,31 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import * as fs from "fs";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class ClearCompletionProvider implements CompletionItemProvider {
+export class WeatherCompletionProvider implements CompletionItemProvider {
 
-    public MaxCount : vscode.CompletionItem[];
+    public Defaults : vscode.CompletionItem[];
 
-    constructor(){
-        this.MaxCount = new Array<vscode.CompletionItem>(createCompletionItem("1", "Max count", "The maximum amount of items", vscode.CompletionItemKind.Constant));
+    constructor() {
+        this.Defaults = new Array<vscode.CompletionItem>(
+            createCompletionItem("clear", "clear", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("rain", "rain", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("thunder", "thunder", "Sets the weather to clear", vscode.CompletionItemKind.Keyword)
+        );
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //clear [player: target] [itemName: Item] [data: int] [maxCount: int]
+        //weather <clear|rain|thunder> [duration: int]
 
         switch (Item.Count()) {
-            case 0: //[player: target]
+            case 0: //<amount: int>
+                return this.Defaults;
+
+            case 1: //[player: target]
                 return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
 
-            case 1: //Item
-                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
-
-            case 2: //Data
-                return Cm.Default.ItemData;
-
-            case 3: //MaxCount
-                return this.MaxCount;
-
-            case 4:
             default:
                 break;
         }

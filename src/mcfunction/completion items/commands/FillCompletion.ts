@@ -50,18 +50,18 @@ export class FillCompletionProvider implements CompletionItemProvider {
         }
 
         switch (Count) {
-            case 1: //<from: x>
-            case 2: //<from: y>
-            case 3: //<from: z>
-            case 4: //<to: x>
-            case 5: //<to: y>
-            case 6: //<to: z>
+            case 0: //<from: x>
+            case 1: //<from: y>
+            case 2: //<from: z>
+            case 3: //<to: x>
+            case 4: //<to: y>
+            case 5: //<to: z>
                 return Cm.CoordinateCompletionProvider.provideDiagnostics();
 
-            case 7: //<tileName: Block>
+            case 6: //<tileName: Block>
                 return Cm.BlockCompletionProvider?.provideCompletionItems(Item, Cm, document);
 
-            case 8: //<tileData: int>
+            case 7: //<tileData: int>
                 return Cm.Default.BlockData;
         }
 

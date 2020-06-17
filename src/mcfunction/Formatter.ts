@@ -86,6 +86,7 @@ class McfunctionFormatter implements vscode.DocumentFormattingEditProvider, vsco
                 Functions.TextEdits.ReplaceTextFromLine("~0", "~", Line, collection);
                 Functions.TextEdits.ReplaceTextFromLine("^+", "^", Line, collection);
                 Functions.TextEdits.ReplaceTextFromLine("^0", "^", Line, collection);
+                Functions.TextEdits.ReplaceTextFromLine("~~~", "~ ~ ~", Line, collection);
             }    
         } 
 
@@ -105,6 +106,7 @@ class McfunctionFormatter implements vscode.DocumentFormattingEditProvider, vsco
             Functions.TextEdits.ReplaceTextFromLine("~0", "~", Line, collection);
             Functions.TextEdits.ReplaceTextFromLine("^+", "^", Line, collection);
             Functions.TextEdits.ReplaceTextFromLine("^0", "^", Line, collection);
+            Functions.TextEdits.ReplaceTextFromLine("~~~", "~ ~ ~", Line, collection);
         }
     }
 }

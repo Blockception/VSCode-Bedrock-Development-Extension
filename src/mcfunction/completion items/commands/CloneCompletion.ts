@@ -60,18 +60,18 @@ export class CloneCompletionProvider implements CompletionItemProvider {
         //clone <begin: x y z> <end: x y z> <destination: x y z> filtered <normal|force|move> <tileName: Block> <tileData: int>
 
         switch (Item.Count()) {
-            case 1: //Clone
-            case 2: //Clone <x>
-            case 3: //Clone <x> <y>
-            case 4: //Clone <x> <y> <z>
-            case 5: //Clone <x> <y> <z> <x>
-            case 6: //Clone <x> <y> <z> <x> <y>
+            case 0: //Clone
+            case 1: //Clone <x>
+            case 2: //Clone <x> <y>
+            case 3: //Clone <x> <y> <z>
+            case 4: //Clone <x> <y> <z> <x>
+            case 5: //Clone <x> <y> <z> <x> <y>
                 return Cm.CoordinateCompletionProvider.provideDiagnostics();                
 
-            case 7: //Clone <x> <y> <z> <x> <y> <z>
+            case 6: //Clone <x> <y> <z> <x> <y> <z>
                 return this.Modes;
 
-            case 8: //Clone <x> <y> <z> <x> <y> <z> <Mode>
+            case 7: //Clone <x> <y> <z> <x> <y> <z> <Mode>
                 var Mode = Item.GetAt(8);
 
                 if (Mode == undefined){
@@ -94,10 +94,10 @@ export class CloneCompletionProvider implements CompletionItemProvider {
     provideCompletionFiltered(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         switch(Item.Count()){
             default:
-            case 1:
+            case 0:
                 return Cm.BlockCompletionProvider?.provideCompletionItems(Item, Cm, document);
 
-            case 2:
+            case 1:
                 return Cm.Default.BlockData;
         }
     }

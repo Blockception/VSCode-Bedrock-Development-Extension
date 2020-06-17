@@ -29,35 +29,33 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import * as fs from "fs";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class ClearCompletionProvider implements CompletionItemProvider {
+export class GiveCompletionProvider implements CompletionItemProvider {
 
-    public MaxCount : vscode.CompletionItem[];
-
-    constructor(){
-        this.MaxCount = new Array<vscode.CompletionItem>(createCompletionItem("1", "Max count", "The maximum amount of items", vscode.CompletionItemKind.Constant));
+    constructor() {
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //clear [player: target] [itemName: Item] [data: int] [maxCount: int]
+        //give <player: target> <itemName: Item> [amount: int] [data: int] [components: json]
 
         switch (Item.Count()) {
-            case 0: //[player: target]
+            case 0: //<player: target>
                 return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
 
-            case 1: //Item
+            case 1: //<itemName: Item>
                 return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
 
-            case 2: //Data
+            case 2: //[amount: int]
+                return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+
+            case 3: //[data: int]
                 return Cm.Default.ItemData;
 
-            case 3: //MaxCount
-                return this.MaxCount;
+            case 4: //[components: json]
+                return Cm.Default.JsonItemComponents;
 
-            case 4:
             default:
                 break;
         }
