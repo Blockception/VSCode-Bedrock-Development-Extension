@@ -47,14 +47,15 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     public StartItems : vscode.CompletionItem[];
     public Default : DefaultItems;
 
-    public BooleanCompletionProvider : CompletionItemProvider;
-    public BlockCompletionProvider : CompletionItemProvider | undefined;
+    public BooleanCompletionProvider : BooleanCompletionProvider;
+    public BlockCompletionProvider : CompletionItemProvider | undefined; //TODO
     public CoordinateCompletionProvider : CoordinateCompletionItemProvider;
-    public ItemCompletionProvider : CompletionItemProvider | undefined;
-    public ScoreCompletionProvider : CompletionItemProvider | undefined;
+    public ItemCompletionProvider : CompletionItemProvider | undefined; //TODO
+    public IntegerCompletionProvider : CompletionItemProvider | undefined; //TODO
+    public ScoreCompletionProvider : CompletionItemProvider | undefined; //TODO
     public SelectorCompletion : SelectorCompletionProvider;
     public SelectorVscodeCompletion : SelectorVscodeCompletionProvider;
-    public TagCompletionProvider : CompletionItemProvider | undefined;
+    public TagCompletionProvider : CompletionItemProvider | undefined; //TODO
 
     constructor(){
         this.Default = new DefaultItems();
@@ -117,6 +118,8 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
             Functions.createCompletionItem("w", "w", "Sends a private message to one or more players."),
             Functions.createCompletionItem("xp", "xp", "Adds or removes player experience.")
         );
+
+        this.StartItems.forEach(x=>x.kind = vscode.CompletionItemKind.Function);
     }
 
     set(Cm : CompletionItemProvider, keywords : string[]) : void {
@@ -147,10 +150,6 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
         if (Diagnoser != undefined) {
             var Items = Diagnoser.provideCompletionItems(Item, this, document);
-
-            if (Items == undefined){
-                return this.StartItems;
-            }
 
             return Items;
         }

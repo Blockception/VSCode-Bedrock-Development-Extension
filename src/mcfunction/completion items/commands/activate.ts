@@ -39,7 +39,7 @@ import { EnchantCompletionProvider } from "./EnchantCompletion";
 import { ExecuteCompletionProvider } from "./ExecuteCompletion";
 import { FillCompletionProvider } from "./FillCompletion";
 import { FunctionCommandCompletionProvider } from "./FunctionCompletion";
-import { GamemodeCompletionProvider } from "./GamemodeCompletion";
+/*import { GamemodeCompletionProvider } from "./GamemodeCompletion";
 import { GameruleCompletionProvider } from "./GameruleCompletion";
 import { XpCompletionProvider } from "./XpCompletion";
 import { WeatherCompletionProvider } from "./weatherCompletion";
@@ -74,7 +74,7 @@ import { TimeCompletionProvider } from "./timeCompletion";
 import { TickingAreaCompletionProvider } from "./tickingareaCompletion";
 import { TestforCompletionProvider } from "./testforCompletion";
 import { TestforBlockCompletionProvider } from "./testforblockCompletion";
-import { TestforBlocksCompletionProvider } from "./testforblocksCompletion";
+import { TestforBlocksCompletionProvider } from "./testforblocksCompletion";*/
 import { SelectorCompletionProvider } from "../types/SelectorCompletion";
 
 //Add commands to the diagnoser
@@ -83,56 +83,56 @@ export function activate(context: CompletionItemManager) {
    var SelectorCompleter = new SelectorCompletionProvider();
 
 
-    console.log('\tThe command diagnosers (karen) want to talk to the manager');
-    //Boolean stuff
-    context.set(BooleanCompleter, ["alwaysday", "daylock"]);
+   console.log('\tThe command completors (karen) want to talk to the manager');
+   //Boolean stuff
+   context.set(BooleanCompleter, ["alwaysday", "daylock"]);
 
-    //Selector
-    context.set(SelectorCompleter, [ "deop", "op" ]);
+   //Selector
+   context.set(SelectorCompleter, ["deop", "op"]);
 
-    context.set(new ClearCompletionProvider(), [ "clear" ]);
-    context.set(new CloneCompletionProvider(), ["clone"]);
-    
-    context.set(new DifficultyCompletionProvider(), ["difficulty"]);
-    context.set(new EffectCompletionProvider(), ["effect"]);
-    context.set(new EnchantCompletionProvider(), ["effect"]);
-    context.set(new ExecuteCompletionProvider(), ["execute"]);
-    context.set(new FillCompletionProvider(), ["fill"]);
-    context.set(new FunctionCommandCompletionProvider(), [ "function" ]);
-    context.set(new GamemodeCompletionProvider(), [ "gamemode" ]);
-    context.set(new GameruleCompletionProvider(), [ "gamerule" ]);
-    context.set(new GiveCompletionProvider(), [ "give" ]);
-    context.set(new LocateCompletionProvider(), [ "locate" ]);
-    context.set(new MeCompletionProvider(), [ "me" ]);
-    context.set(new MobeventCompletionProvider(), [ "mobevent" ]);
-    context.set(new KillCompletionProvider(), [ "kill" ]);
-    context.set(new MsgCompletionProvider(), [ "msg" ]);
-    context.set(new ParticleCompletionProvider(), [ "particle" ]);
-    context.set(new PlaysoundCompletionProvider(), [ "playsound" ]);
-    context.set(new ReloadCompletionProvider(), [ "reload" ]);
-    context.set(new ReplaceItemCompletionProvider(), [ "replaceitem" ]);
-    context.set(new SayCompletionProvider(), [ "say" ]);
-    context.set(new ScoreboardCompletionProvider(), [ "scoreboard" ]);
-    context.set(new SetblockCompletionProvider(), [ "setblock" ]);
-    context.set(new SetmaxplayersCompletionProvider(), [ "setmaxplayer" ]);
-    context.set(new SetWorldSpawnCompletionProvider(), [ "setworldspawn" ]);
-    context.set(new SpawnpointCompletionProvider(), [ "spawnpoint" ]);
-    context.set(new StopsoundCompletionProvider(), [ "stopsound" ]);
-    context.set(new SpreadPlayersCompletionProvider(), [ "spreadplayer" ]);
-    context.set(new SummonCompletionProvider(), [ "summon" ]);
-    context.set(new TagCompletionProvider(), [ "tag" ]);
-    context.set(new TellCompletionProvider(), [ "tell" ]);
-    context.set(new TellrawCompletionProvider(), [ "tellraw" ]);
-    context.set(new TeleportCompletionProvider(), [ "teleport", "tp" ]);
-    context.set(new WCompletionProvider(), [ "w" ]);
-    context.set(new ToggledownfallCompletionProvider(), [ "toggledownfall" ]);
-    context.set(new TitleCompletionProvider(), [ "title" ]);
-    context.set(new TitlerawCompletionProvider(), [ "titleraw" ]);
-    context.set(new TimeCompletionProvider(), [ "time" ]);
-    context.set(new TickingAreaCompletionProvider(), [ "tickingarea" ]);
-    context.set(new TestforCompletionProvider(), [ "testfor" ]);
-    context.set(new TestforBlockCompletionProvider(), [ "testforblock" ]);    
-    context.set(new TestforBlocksCompletionProvider(), [ "testforblock" ]);    
-    context.set(new WeatherCompletionProvider(), [ "weather" ]);
-    context.set(new XpCompletionProvider(), [ "xp" ]);
+   context.set(new ClearCompletionProvider(), ["clear"]);
+   context.set(new CloneCompletionProvider(), ["clone"]);
+
+   context.set(new DifficultyCompletionProvider(), ["difficulty"]);
+   context.set(new EffectCompletionProvider(), ["effect"]);
+   context.set(new EnchantCompletionProvider(), ["effect"]);
+   context.set(new ExecuteCompletionProvider(), ["execute"]);
+   context.set(new FillCompletionProvider(), ["fill"]);
+   context.set(new FunctionCommandCompletionProvider(), ["function"]);
+   /*context.set(new GamemodeCompletionProvider(), [ "gamemode" ]);
+   context.set(new GameruleCompletionProvider(), [ "gamerule" ]);
+   context.set(new GiveCompletionProvider(), [ "give" ]);
+   context.set(new LocateCompletionProvider(), [ "locate" ]);
+   context.set(new MeCompletionProvider(), [ "me" ]);
+   context.set(new MobeventCompletionProvider(), [ "mobevent" ]);
+   context.set(new KillCompletionProvider(), [ "kill" ]);
+   context.set(new MsgCompletionProvider(), [ "msg" ]);
+   context.set(new ParticleCompletionProvider(), [ "particle" ]);
+   context.set(new PlaysoundCompletionProvider(), [ "playsound" ]);
+   context.set(new ReloadCompletionProvider(), [ "reload" ]);
+   context.set(new ReplaceItemCompletionProvider(), [ "replaceitem" ]);
+   context.set(new SayCompletionProvider(), [ "say" ]);
+   context.set(new ScoreboardCompletionProvider(), [ "scoreboard" ]);
+   context.set(new SetblockCompletionProvider(), [ "setblock" ]);
+   context.set(new SetmaxplayersCompletionProvider(), [ "setmaxplayer" ]);
+   context.set(new SetWorldSpawnCompletionProvider(), [ "setworldspawn" ]);
+   context.set(new SpawnpointCompletionProvider(), [ "spawnpoint" ]);
+   context.set(new StopsoundCompletionProvider(), [ "stopsound" ]);
+   context.set(new SpreadPlayersCompletionProvider(), [ "spreadplayer" ]);
+   context.set(new SummonCompletionProvider(), [ "summon" ]);
+   context.set(new TagCompletionProvider(), [ "tag" ]);
+   context.set(new TellCompletionProvider(), [ "tell" ]);
+   context.set(new TellrawCompletionProvider(), [ "tellraw" ]);
+   context.set(new TeleportCompletionProvider(), [ "teleport", "tp" ]);
+   context.set(new WCompletionProvider(), [ "w" ]);
+   context.set(new ToggledownfallCompletionProvider(), [ "toggledownfall" ]);
+   context.set(new TitleCompletionProvider(), [ "title" ]);
+   context.set(new TitlerawCompletionProvider(), [ "titleraw" ]);
+   context.set(new TimeCompletionProvider(), [ "time" ]);
+   context.set(new TickingAreaCompletionProvider(), [ "tickingarea" ]);
+   context.set(new TestforCompletionProvider(), [ "testfor" ]);
+   context.set(new TestforBlockCompletionProvider(), [ "testforblock" ]);    
+   context.set(new TestforBlocksCompletionProvider(), [ "testforblock" ]);    
+   context.set(new WeatherCompletionProvider(), [ "weather" ]);
+   context.set(new XpCompletionProvider(), [ "xp" ]);*/
 }

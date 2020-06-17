@@ -44,14 +44,14 @@ export class CloneCompletionProvider implements CompletionItemProvider {
         this.Modes = new vscode.CompletionList();
         this.SecondModes = new vscode.CompletionList();
         this.Modes.items.push(
-            createCompletionItem("filtered", "filtered", "filter blocks"),
-            createCompletionItem("replace", "replace", ""),
-            createCompletionItem("masked", "masked", "")
+            createCompletionItem("filtered", "filtered", "filter blocks", vscode.CompletionItemKind.Function),
+            createCompletionItem("replace", "replace", "", vscode.CompletionItemKind.Function),
+            createCompletionItem("masked", "masked", "", vscode.CompletionItemKind.Function)
         );
         this.SecondModes.items.push(
-            createCompletionItem("filtered", "filtered", "filter blocks"),
-            createCompletionItem("replace", "replace", ""),
-            createCompletionItem("masked", "masked", "")
+            createCompletionItem("filtered", "filtered", "filter blocks", vscode.CompletionItemKind.Function),
+            createCompletionItem("replace", "replace", "", vscode.CompletionItemKind.Function),
+            createCompletionItem("masked", "masked", "", vscode.CompletionItemKind.Function)
         );
     }
 

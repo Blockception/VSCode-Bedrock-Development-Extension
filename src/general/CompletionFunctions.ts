@@ -30,12 +30,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
 
-export function createCompletionItem(code: string, label: string, description: string) : vscode.CompletionItem {
+export function createCompletionItem(code: string, label: string, description: string, Kind : vscode.CompletionItemKind = vscode.CompletionItemKind.Keyword) : vscode.CompletionItem {
     let Item = new vscode.CompletionItem(label);
     Item.insertText = code;
     Item.detail = description;
     Item.documentation = description;
-    Item.kind = vscode.CompletionItemKind.Keyword;
+    Item.kind = Kind;
 
     return Item;
 }

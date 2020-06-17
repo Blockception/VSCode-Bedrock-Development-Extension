@@ -97,7 +97,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             var XCoord = Next.Child;
 
             if (XCoord == undefined) {
-                Errors.Missing('coordinate', 'execute', lineIndex, Selector, collector);
+                Errors.Missing('coordinate', 'execute', lineIndex, Next, collector);
                 return;
             }
 

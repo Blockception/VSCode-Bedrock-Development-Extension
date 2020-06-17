@@ -63,68 +63,68 @@ export class SelectorVscodeCompletionProvider implements vscode.CompletionItemPr
 
 class InternalSelectorCompletionProvider {
     public static default: vscode.CompletionList = new vscode.CompletionList([
-        Functions.createCompletionItem("@a", "All players", "Returns a selector that selects all players"),
-        Functions.createCompletionItem("@e", "All entities", "Returns a selector that selects all entities"),
-        Functions.createCompletionItem("@s", "Executing entity", "Returns a selector that selects the current executing entity"),
-        Functions.createCompletionItem("@r", "Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities"),
-        Functions.createCompletionItem("@p", "Nearest player", "Returns a selector that selects the nearest player from the execution location"),
-        Functions.createCompletionItem("\"<entity name>\"", "all players", "Returns a example for an named entity")
+        Functions.createCompletionItem("@a", "All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@e", "All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@s", "Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@r", "Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@p", "Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("\"<entity name>\"", "dummy player", "Returns a example for an named entity", vscode.CompletionItemKind.User)
     ]);
 
     public static letters: vscode.CompletionList = new vscode.CompletionList([
-        Functions.createCompletionItem("a", "All players", "Returns a selector that selects all players"),
-        Functions.createCompletionItem("e", "All entities", "Returns a selector that selects all entities"),
-        Functions.createCompletionItem("s", "Executing entity", "Returns a selector that selects the current executing entity"),
-        Functions.createCompletionItem("r", "Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities"),
-        Functions.createCompletionItem("p", "Nearest player", "Returns a selector that selects the nearest player from the execution location")
+        Functions.createCompletionItem("a", "All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("e", "All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("s", "Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("r", "Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("p", "Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User)
     ]);
 
     public static firstitems: vscode.CompletionList = new vscode.CompletionList([
-        Functions.createCompletionItem("tag=", "tag", "A tag test"),
-        Functions.createCompletionItem("x=", "x", "An X Coordinate test"),
-        Functions.createCompletionItem("y=", "y", "An Y Coordinate test"),
-        Functions.createCompletionItem("z=", "z", "An Z Coordinate test"),
-        Functions.createCompletionItem("dx=", "dx", "The length over X of the box to test"),
-        Functions.createCompletionItem("dy=", "dy", "The length over Y of the box to test"),
-        Functions.createCompletionItem("dz=", "dz", "The length over Z of the box to test"),
-        Functions.createCompletionItem("scores={<name>=}", "scores", "The scores to test, can only be one"),
-        Functions.createCompletionItem("type=", "type", "The type of entity to find"),
-        Functions.createCompletionItem("c=", "c", "The amount of entities to limit to, negative numbers result in the entites at the end of the list"),
-        Functions.createCompletionItem("m=", "m", "The gamemode test"),
-        Functions.createCompletionItem("r=", "r", "The minimum radius test, number included"),
-        Functions.createCompletionItem("rm=", "rm", "The maximumm radius test, number included"),
-        Functions.createCompletionItem("team=", "team", "The team test"),
-        Functions.createCompletionItem("l=", "l", "The minimum xp level test, number included"),
-        Functions.createCompletionItem("lm=", "lm", "The maximum xp level test, number included"),
-        Functions.createCompletionItem("name=", "name", "The name of the entity, be be specified between quotes"),
-        Functions.createCompletionItem("rx=", "rx", "The minimum rotation of the X axis, or up and down, number included"),
-        Functions.createCompletionItem("rxm=", "rxm", "The maximum rotation of the X axis, or up and down, number included"),
-        Functions.createCompletionItem("ry=", "ry", "The minimum rotation of the Y axis, or left and right, number included"),
-        Functions.createCompletionItem("rym=", "rym", "The maximum rotation of the Y axis, or left and right, number included"),
+        Functions.createCompletionItem("tag=", "tag", "A tag test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("x=", "x", "An X Coordinate test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("y=", "y", "An Y Coordinate test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("z=", "z", "An Z Coordinate test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("dx=", "dx", "The length over X of the box to test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("dy=", "dy", "The length over Y of the box to test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("dz=", "dz", "The length over Z of the box to test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("scores={<name>=}", "scores", "The scores to test, can only be one", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("type=", "type", "The type of entity to find", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("c=", "c", "The amount of entities to limit to, negative numbers result in the entites at the end of the list", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("m=", "m", "The gamemode test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("r=", "r", "The minimum radius test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("rm=", "rm", "The maximumm radius test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("team=", "team", "The team test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("l=", "l", "The minimum xp level test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("lm=", "lm", "The maximum xp level test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("name=", "name", "The name of the entity, be be specified between quotes", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("rx=", "rx", "The minimum rotation of the X axis, or up and down, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("rxm=", "rxm", "The maximum rotation of the X axis, or up and down, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("ry=", "ry", "The minimum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem("rym=", "rym", "The maximum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
     ]);
 
     public static items: vscode.CompletionList = new vscode.CompletionList([
-        Functions.createCompletionItem(",tag=", "tag", "A tag test"),
-        Functions.createCompletionItem(",x=", "x", "An X Coordinate test"),
-        Functions.createCompletionItem(",y=", "y", "An Y Coordinate test"),
-        Functions.createCompletionItem(",z=", "z", "An Z Coordinate test"),
-        Functions.createCompletionItem(",dx=", "dx", "The length over X of the box to test"),
-        Functions.createCompletionItem(",dy=", "dy", "The length over Y of the box to test"),
-        Functions.createCompletionItem(",dz=", "dz", "The length over Z of the box to test"),
-        Functions.createCompletionItem(",scores={<name>=}", "scores", "The scores to test, can only be one"),
-        Functions.createCompletionItem(",type=", "type", "The type of entity to find"),
-        Functions.createCompletionItem(",c=", "c", "The amount of entities to limit to, negative numbers result in the entites at the end of the list"),
-        Functions.createCompletionItem(",m=", "m", "The gamemode test"),
-        Functions.createCompletionItem(",r=", "r", "The minimum radius test, number included"),
-        Functions.createCompletionItem(",rm=", "rm", "The maximumm radius test, number included"),
-        Functions.createCompletionItem(",team=", "team", "The team test"),
-        Functions.createCompletionItem(",l=", "l", "The minimum xp level test, number included"),
-        Functions.createCompletionItem(",lm=", "lm", "The maximum xp level test, number included"),
-        Functions.createCompletionItem(",name=", "name", "The name of the entity, be be specified between quotes"),
-        Functions.createCompletionItem(",rx=", "rx", "The minimum rotation of the X axis, or up and down, number included"),
-        Functions.createCompletionItem(",rxm=", "rxm", "The maximum rotation of the X axis, or up and down, number included"),
-        Functions.createCompletionItem(",ry=", "ry", "The minimum rotation of the Y axis, or left and right, number included"),
-        Functions.createCompletionItem(",rym=", "rym", "The maximum rotation of the Y axis, or left and right, number included"),
+        Functions.createCompletionItem(",tag=", "tag", "A tag test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",x=", "x", "An X Coordinate test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",y=", "y", "An Y Coordinate test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",z=", "z", "An Z Coordinate test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",dx=", "dx", "The length over X of the box to test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",dy=", "dy", "The length over Y of the box to test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",dz=", "dz", "The length over Z of the box to test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",scores={<name>=}", "scores", "The scores to test, can only be one", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",type=", "type", "The type of entity to find", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",c=", "c", "The amount of entities to limit to, negative numbers result in the entites at the end of the list", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",m=", "m", "The gamemode test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",r=", "r", "The minimum radius test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",rm=", "rm", "The maximumm radius test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",team=", "team", "The team test", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",l=", "l", "The minimum xp level test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",lm=", "lm", "The maximum xp level test, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",name=", "name", "The name of the entity, be be specified between quotes", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",rx=", "rx", "The minimum rotation of the X axis, or up and down, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",rxm=", "rxm", "The maximum rotation of the X axis, or up and down, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",ry=", "ry", "The minimum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
+        Functions.createCompletionItem(",rym=", "rym", "The maximum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
     ]);
 
     public static OutofScore(document: vscode.TextDocument, position: vscode.Position): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
@@ -150,7 +150,7 @@ class InternalSelectorCompletionProvider {
 
         if (PreviousChar == "@") {
             var Out = new vscode.CompletionList();
-            Out.items.push(Functions.createCompletionItem("[]", "[", "start the selector"));
+            Out.items.push(Functions.createCompletionItem("[]", "[", "start the selector", vscode.CompletionItemKind.Snippet));
             return Out;
         }
 

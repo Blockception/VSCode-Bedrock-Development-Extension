@@ -40,8 +40,8 @@ export class BooleanCompletionProvider implements CompletionItemProvider {
     constructor(){
         this.default = new vscode.CompletionList();
         this.default.items.push(
-            createCompletionItem("true", "True", ""),
-            createCompletionItem("false", "False", "")
+            createCompletionItem("true", "True", "A boolean value for true", vscode.CompletionItemKind.Constant),
+            createCompletionItem("false", "False", "A boolean value for false", vscode.CompletionItemKind.Constant)
         );
     }
 

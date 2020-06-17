@@ -94,7 +94,8 @@ export function IsInSelector(document: vscode.TextDocument, position: vscode.Pos
 
     switch (c) {
       case "@":
-        return true;
+        return false;
+        
       case "]":
         return false;
 

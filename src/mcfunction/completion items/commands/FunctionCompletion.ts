@@ -36,6 +36,10 @@ import { SyntaxItem } from "../../../general/include";
 export class FunctionCommandCompletionProvider implements CompletionItemProvider {
 
     provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+        //Already has completion text
+        if (Item.Child != undefined)
+            return undefined;
+
         var receiver = new vscode.CompletionList();
 
         var filepath = document.uri.fsPath;
@@ -61,8 +65,9 @@ export class FunctionCommandCompletionProvider implements CompletionItemProvider
                 Directories.push(file + "\\");
             }
             else{
-                file = file;
-                receiver.items.push(new vscode.CompletionItem(file.replace(baseFolder, "").replace(".mcfunction", "").replace("\\", "/")));
+                var newfile = file.replace(baseFolder, "").replace(".mcfunction", "");
+                newfile = newfile.replace(/\\/g, '/');
+                receiver.items.push(new vscode.CompletionItem(newfile, vscode.CompletionItemKind.File));
             }
         }
 

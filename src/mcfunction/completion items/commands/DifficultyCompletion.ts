@@ -29,35 +29,36 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import * as fs from "fs";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class ClearCompletionProvider implements CompletionItemProvider {
+export class DifficultyCompletionProvider implements CompletionItemProvider {
 
-    public MaxCount : vscode.CompletionItem[];
+    public Difficulties : vscode.CompletionItem[];
 
     constructor(){
-        this.MaxCount = new Array<vscode.CompletionItem>(createCompletionItem("1", "Max count", "The maximum amount of items", vscode.CompletionItemKind.Constant));
+        this.Difficulties = new Array<vscode.CompletionItem>(
+            createCompletionItem("peaceful", "peaceful", "Sets the difficulty to peaceful", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("easy", "easy", "Sets the difficulty to easy", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("normal", "normal", "Sets the difficulty to normal", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("hard", "hard", "Sets the difficulty to hard", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("e", "e", "Sets the difficulty to easy", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("h", "h", "Sets the difficulty to hard", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("n", "n", "Sets the difficulty to normal", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("p", "p", "Sets the difficulty to peaceful", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("0", "0", "Sets the difficulty to peaceful", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("1", "1", "Sets the difficulty to easy", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("2", "2", "Sets the difficulty to normal", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("3", "3", "Sets the difficulty to hard", vscode.CompletionItemKind.Keyword)
+        );
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //clear [player: target] [itemName: Item] [data: int] [maxCount: int]
 
         switch (Item.Count()) {
-            case 1: //[player: target]
-                return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
+            case 1:
+                return this.Difficulties;
 
-            case 2: //Item
-                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
-
-            case 3: //Data
-                return Cm.Default.ItemData;
-
-            case 4: //MaxCount
-                
-
-            case 5:
             default:
                 break;
         }

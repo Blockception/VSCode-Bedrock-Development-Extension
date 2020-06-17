@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
    Commands.activate(CompletionManager);
 
    context.subscriptions.push(
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, CompletionManager, " ", "[", "]", "@", "{", ","),
+      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, CompletionManager, " ", "[", "]", "@", "{", ",", "\n"),
       vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), "#", "\n")
    );
 }

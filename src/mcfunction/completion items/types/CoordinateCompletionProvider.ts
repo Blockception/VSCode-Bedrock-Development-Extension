@@ -29,11 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import * as Functions from '../../../general/include';
-import * as SF from "../../selectors/functions";
-import { SelectorCompletionProvider } from "./SelectorCompletion";
-import { SyntaxItem, createCompletionItem } from '../../../general/include';
-import { create } from 'domain';
+import { createCompletionItem } from '../../../general/include';
 
 export class CoordinateCompletionItemProvider {
 
@@ -42,8 +38,8 @@ export class CoordinateCompletionItemProvider {
     constructor(){
         this.Items = new vscode.CompletionList();
         this.Items.items.push(
-            createCompletionItem("~", "~", "Relative coordinate"),
-            createCompletionItem("^", "^", "Relative pointing coordinate")
+            createCompletionItem("^", "^", "Relative pointing coordinate", vscode.CompletionItemKind.Operator),
+            createCompletionItem("~", "~", "Relative coordinate", vscode.CompletionItemKind.Operator)            
         );
     }
 
