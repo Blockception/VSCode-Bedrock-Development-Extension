@@ -29,11 +29,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import * as mcfunction from './mcfunction/activate';
-import * as language from './language/activate';
+import * as Diagnostics from './diagnostic';
+import * as Completion from './completion_Items';
 
-//Called when the extension needs to be activated
+//Activate the mcfunction part of the extension
 export function activate(context: vscode.ExtensionContext) {
-	mcfunction.activate(context);
-	language.activate(context);
+   console.log("activating language extension");
+   Diagnostics.activate(context);
+   Completion.activate(context);
 }
