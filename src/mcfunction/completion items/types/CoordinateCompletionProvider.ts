@@ -37,8 +37,13 @@ export class CoordinateCompletionItemProvider {
 
     constructor(){
         this.Items = new vscode.CompletionList();
+        var Relative = new vscode.CompletionItem('^', vscode.CompletionItemKind.Operator);
+        Relative.documentation = "Relative pointing coordinate";
+        Relative.preselect = true;
+
+
         this.Items.items.push(
-            createCompletionItem("^", "^", "Relative pointing coordinate", vscode.CompletionItemKind.Operator),
+            Relative,
             createCompletionItem("~", "~", "Relative coordinate", vscode.CompletionItemKind.Operator)            
         );
     }
