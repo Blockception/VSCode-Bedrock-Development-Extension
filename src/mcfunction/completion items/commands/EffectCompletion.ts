@@ -88,7 +88,7 @@ export class EffectCompletionProvider implements CompletionItemProvider {
 
         switch (Item.Count()) {
             case 0: //<player: target>
-                return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
+                return Cm.SelectorCompletion.provideCompletionItems();
 
             case 1: //<effect: Effect>
                 return this.Effects;

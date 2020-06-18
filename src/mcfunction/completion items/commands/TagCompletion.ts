@@ -32,32 +32,39 @@ import * as vscode from "vscode";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class WeatherCompletionProvider implements CompletionItemProvider {
+export class TagCompletionProvider implements CompletionItemProvider {
 
-    public Defaults : vscode.CompletionItem[];
+    public Modes : vscode.CompletionItem[];
 
-    constructor() {
-        this.Defaults = new Array<vscode.CompletionItem>(
-            createCompletionItem("clear", "clear", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
-            createCompletionItem("rain", "rain", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
-            createCompletionItem("thunder", "thunder", "Sets the weather to clear", vscode.CompletionItemKind.Keyword)
+    constructor(){
+        this.Modes = new Array<vscode.CompletionItem>(
+            createCompletionItem("remove", "remove", "Display the coordinates for the closest structure of a given type.", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("add", "add", "Display the coordinates for the closest structure of a given type.", vscode.CompletionItemKind.Keyword),
+            createCompletionItem("list", "list", "Display the coordinates for the closest structure of a given type.", vscode.CompletionItemKind.Keyword)
         );
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //weather <clear|rain|thunder> [duration: int]
+        //tag <targets> remove <name>
+        //tag <targets> list
+        //tag <targets> add <name>
 
-        switch (Item.Count()) {
-            case 0: //<amount: int>
-                return this.Defaults;
+        var Target = Item.Child;
 
-            case 1: //[player: target]
-                return Cm.SelectorCompletion.provideCompletionItems();
-
-            default:
-                break;
+        if (Target == undefined){
+            return Cm.SelectorCompletion.provideCompletionItems();
         }
 
-        return undefined;
+        var Mode = Target.Child;
+
+        if (Mode == undefined){
+            return this.Modes;
+        }
+
+        if (Mode.Text.text == 'list')
+            return undefined;
+
+
+        return Cm.TagCompletionProvider?.provideCompletionItems(Item, Cm, document);
     }
 }

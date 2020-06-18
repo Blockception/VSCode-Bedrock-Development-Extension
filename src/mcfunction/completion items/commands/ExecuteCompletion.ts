@@ -49,7 +49,7 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
 
         switch (Count) {
             case 0: //execute
-                return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
+                return Cm.SelectorCompletion.provideCompletionItems();
 
             case 1: //execute <selector> 
             case 2: //execute <selector> <x>

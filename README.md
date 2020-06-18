@@ -5,8 +5,15 @@
 ![logo](./resources/logo.png)
 
 An extension that provides development tools, validations, formatters, diagnostics, and snippets to help develop minecraft bedrock content.
+Recommended you use the Dark+ theme for the best colour highlighting.
 
 ## Features
+
+### Mcfunction and Language files
+  - Syntax highlighting
+  - Code formatting.
+  - Diagnostics.
+  - Code Completion.
 
 ### Json Validation
   - [General.](./documentation/Json%20Validation.md#general)
@@ -21,12 +28,3 @@ An extension that provides development tools, validations, formatters, diagnosti
   - [Enchantments.](./documentation/Snippets.md#enchant-names)
   - [Items.](./documentation/Snippets.md#item-names)
   - [Selector.](./documentation/Snippets.md#selector)
-  
-### Syntax
-
-Added syntax highligthing for mcfunction and language files.
-
-### Diagnostics
-
-Includes validation and code completion for mcfunctions.
-And duplication checks for language files.

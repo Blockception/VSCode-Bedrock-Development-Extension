@@ -50,8 +50,11 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     public BooleanCompletionProvider : BooleanCompletionProvider;
     public BlockCompletionProvider : CompletionItemProvider | undefined; //TODO
     public CoordinateCompletionProvider : CoordinateCompletionItemProvider;
+    public FloatCompletionProvider : CompletionItemProvider | undefined; //TODO
     public ItemCompletionProvider : CompletionItemProvider | undefined; //TODO
     public IntegerCompletionProvider : CompletionItemProvider | undefined; //TODO
+    public ParticleCompletionProvider : CompletionItemProvider | undefined; //TODO
+    public PlaysoundCompletionProvider : CompletionItemProvider | undefined; //TODO
     public ScoreCompletionProvider : CompletionItemProvider | undefined; //TODO
     public SelectorCompletion : SelectorCompletionProvider;
     public SelectorVscodeCompletion : SelectorVscodeCompletionProvider;
@@ -130,7 +133,6 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     //
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var Line = document.lineAt(position.line);
-        var Text = Line.text;
 
         if (position.character < 3){
             return this.StartItems;
@@ -164,16 +166,24 @@ export class DefaultItems {
     public ItemData : vscode.CompletionItem[];
     public BlockData : vscode.CompletionItem[];
     public JsonItemComponents : vscode.CompletionItem[];
+    public JsonTextComponents : vscode.CompletionItem[];
 
     constructor(){        
-        this.BlockData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Block Data", "An block data value", vscode.CompletionItemKind.Constant));
-        this.ItemData = new Array<vscode.CompletionItem>(createCompletionItem("-1", "Item Data", "An item data value", vscode.CompletionItemKind.Constant));
+        this.BlockData = [createCompletionItem("-1", "Block Data", "An block data value", vscode.CompletionItemKind.Constant)];
+        this.ItemData = [createCompletionItem("-1", "Item Data", "An item data value", vscode.CompletionItemKind.Constant)];
 
-        this.JsonItemComponents = new Array<vscode.CompletionItem>(
+        this.JsonItemComponents = [
             createCompletionItem(
                 "{ \"minecraft:can_destroy\": { \"blocks\": [ \"grass\" ]}, \"minecraft:can_place_on\": { \"blocks\": [ \"grass\" ]}}", 
                 "Json Item Components", 
                 "A snippet of json item components", 
-                vscode.CompletionItemKind.Snippet));
+                vscode.CompletionItemKind.Snippet)];
+
+        this.JsonTextComponents = [
+            createCompletionItem(
+                "{ \"rawtext\": [ { \"text\": \"\" }, \"\", { \"translate\": \"\" } ] }", 
+                "Json Text Components",
+                "A snippet of json text components",
+                vscode.CompletionItemKind.Snippet)];
     }
 }

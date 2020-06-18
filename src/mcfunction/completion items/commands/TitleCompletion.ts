@@ -32,27 +32,53 @@ import * as vscode from "vscode";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class WeatherCompletionProvider implements CompletionItemProvider {
+export class TitleCompletionProvider implements CompletionItemProvider {
 
-    public Defaults : vscode.CompletionItem[];
+    public Modes : vscode.CompletionItem[];
 
     constructor() {
-        this.Defaults = new Array<vscode.CompletionItem>(
-            createCompletionItem("clear", "clear", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
-            createCompletionItem("rain", "rain", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
-            createCompletionItem("thunder", "thunder", "Sets the weather to clear", vscode.CompletionItemKind.Keyword)
-        );
+        this.Modes = [
+            createCompletionItem('clear', 'clear', 'Clears the titles of the specified player', vscode.CompletionItemKind.Function),
+            createCompletionItem('reset', 'reset', 'Resets the titles of the specified player', vscode.CompletionItemKind.Function),
+            createCompletionItem('title', 'title', 'Sets the title part of the specified player', vscode.CompletionItemKind.Function),
+            createCompletionItem('subtitle', 'subtitle', 'Sets the subtitle part of the specified player', vscode.CompletionItemKind.Function),
+            createCompletionItem('actionbar', 'actionbar', 'Sets the actionbar part of the specified player', vscode.CompletionItemKind.Function),
+            createCompletionItem('times', 'times', 'Sets the times of the specified player', vscode.CompletionItemKind.Function),
+        ];
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //weather <clear|rain|thunder> [duration: int]
+        //title <player: target> clear
+        //title <player: target> reset
+        //title <player: target> <title|subtitle|actionbar> <Message>
+        //title <player: target> times <fadeIn: int> <stay: int> <fadeOut: int>
+
+        var ModeChild = Item.GetAt(2);
+        var Mode = 'clear';
+
+        if (ModeChild != undefined){
+            Mode = ModeChild.Text.text;
+        }
 
         switch (Item.Count()) {
-            case 0: //<amount: int>
-                return this.Defaults;
-
-            case 1: //[player: target]
+            case 0: //<player: target>
                 return Cm.SelectorCompletion.provideCompletionItems();
+
+            case 1: //<modes>
+                return this.Modes;
+
+            case 2: //<Message> | <fadein: int>
+                if (Mode == 'title' || Mode == 'subtitle' || Mode == 'actionbar')
+                    return undefined;
+
+                if (Mode == 'times')
+                    return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+
+                break;
+            case 3: //<stay: int>
+            case 4: //<fadeOut: int>
+                if (Mode == 'times')
+                    return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
 
             default:
                 break;

@@ -32,13 +32,12 @@ import * as vscode from "vscode";
 import * as SF from "../../selectors/functions"
 import * as Functions from "../../../general/include";
 import { mcfunctionDatabase } from "../../Database";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 
-export class SelectorCompletionProvider implements CompletionItemProvider {
+export class SelectorCompletionProvider {
     constructor() {
     }
 
-    provideCompletionItems(Item : Functions.SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         return InternalSelectorCompletionProvider.default;
     }
 }

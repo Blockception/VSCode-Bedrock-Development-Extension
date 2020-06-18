@@ -19,7 +19,7 @@
     },
     "characters": {
       "patterns": [
-        { "name": "markup.bold", "match": "§l[^§]*"},
+        { "name": "markup.bold", "match": "§l[^§]*" },
         { "name": "markup.deleted", "match": "§k[^§]*"},
         { "name": "keyword.control", "match": "§m[^§]*"},
         { "name": "markup.underline", "match": "§n[^§]*"},

@@ -47,6 +47,18 @@ import { TestforBlocksCompletionProvider } from "./TestforblocksCompletion";
 import { TickingareaCompletionProvider } from "./TickingareaCompletion";
 import { SetBlockCompletionProvider } from "./SetBlockCompletion";
 import { MobEventCompletionProvider } from "./MobEventCompletion";
+import { LocateCompletionProvider } from "./LocateCompletion";
+import { ParticleCompletionProvider } from "./ParticleCompletion";
+import { PlaysoundCompletionProvider } from "./PlaysoundCompletion";
+import { SetmaxplayersCompletionProvider } from "./SetmaxplayersCompletion";
+import { SetWorldSpawnCompletionProvider } from "./SetWorldSpawnCompletion";
+import { SpreadPlayersCompletionProvider } from "./SpreadPlayersCompletion";
+import { TellrawCompletionProvider } from "./TellrawCompletion";
+import { TitlerawCompletionProvider } from "./TitlerawCompletion";
+import { TimeCompletionProvider } from "./TimeCompletion";
+import { TitleCompletionProvider } from "./TitleCompletion";
+import { TeleportCompletionProvider } from "./TeleportCompletion";
+import { TagCompletionProvider } from "./TagCompletion";
 
 //Add commands to the diagnoser
 export function activate(context: CompletionItemManager) {
@@ -72,25 +84,25 @@ export function activate(context: CompletionItemManager) {
    context.set(new GamemodeCompletionProvider(), [ "gamemode" ]);
    context.set(new GamemodeCompletionProvider(), [ "gamerule" ]);
    context.set(new GiveCompletionProvider(), [ "give" ]);
-   /*context.set(new LocateCompletionProvider(), [ "locate" ]);*/
-   context.set(new MobEventCompletionProvider(), [ "mobevent" ]);/*
+   context.set(new LocateCompletionProvider(), [ "locate" ]);
+   context.set(new MobEventCompletionProvider(), [ "mobevent" ]);
    context.set(new ParticleCompletionProvider(), [ "particle" ]);
-   context.set(new PlaysoundCompletionProvider(), [ "playsound" ]);
+   context.set(new PlaysoundCompletionProvider(), [ "playsound" ]);/*
    context.set(new ReplaceItemCompletionProvider(), [ "replaceitem" ]);
    context.set(new ScoreboardCompletionProvider(), [ "scoreboard" ]);*/
-   context.set(new SetBlockCompletionProvider(), [ "setblock" ]);/*
+   context.set(new SetBlockCompletionProvider(), [ "setblock" ]);
    context.set(new SetmaxplayersCompletionProvider(), [ "setmaxplayer" ]);
    context.set(new SetWorldSpawnCompletionProvider(), [ "setworldspawn" ]);
-   context.set(new SpawnpointCompletionProvider(), [ "spawnpoint" ]);
-   context.set(new StopsoundCompletionProvider(), [ "stopsound" ]);
-   context.set(new SpreadPlayersCompletionProvider(), [ "spreadplayer" ]);
-   context.set(new SummonCompletionProvider(), [ "summon" ]);
+   context.set(new PlaysoundCompletionProvider(), [ "spawnpoint" ]);
+   context.set(new PlaysoundCompletionProvider(), [ "stopsound" ]);
+   context.set(new SpreadPlayersCompletionProvider(), [ "spreadplayer" ]);/*
+   context.set(new SummonCompletionProvider(), [ "summon" ]);*/
    context.set(new TagCompletionProvider(), [ "tag" ]);
    context.set(new TellrawCompletionProvider(), [ "tellraw" ]);
    context.set(new TeleportCompletionProvider(), [ "teleport", "tp" ]);
    context.set(new TitleCompletionProvider(), [ "title" ]);
    context.set(new TitlerawCompletionProvider(), [ "titleraw" ]);
-   context.set(new TimeCompletionProvider(), [ "time" ]); */
+   context.set(new TimeCompletionProvider(), [ "time" ]);
    context.set(new TickingareaCompletionProvider(), [ "tickingarea" ]);   
    context.set(new TestforBlocksCompletionProvider(), [ "testforblock" ]);
    context.set(new TestforBlocksCompletionProvider(), [ "testforblock" ]);

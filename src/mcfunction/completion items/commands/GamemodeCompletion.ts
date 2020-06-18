@@ -61,7 +61,7 @@ export class GamemodeCompletionProvider implements CompletionItemProvider {
                 return this.Gamemodes;
 
             case 1: //[player: target]
-                return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
+                return Cm.SelectorCompletion.provideCompletionItems();
 
             default:
                 break;

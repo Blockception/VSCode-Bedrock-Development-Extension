@@ -54,7 +54,7 @@ export class XpCompletionProvider implements CompletionItemProvider {
                 return this.DefaultLevels;    
 
             case 1: //[player: target]
-                return Cm.SelectorCompletion.provideCompletionItems(Item, Cm, document);
+                return Cm.SelectorCompletion.provideCompletionItems();
 
             default:
                 break;

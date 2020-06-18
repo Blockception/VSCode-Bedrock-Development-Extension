@@ -1,4 +1,11 @@
 # Changelog 
+- Updated Code
+- Added Titles to loot tables
+- Updated Language Colours
+- Fixed entity identifier
+- Updated Completion Items
+- Added Completion
+- Added Constributors
 - Updated
 - Updated
 - Updated Particles, added color support
@@ -12,10 +19,3 @@
 - Updated
 - Code cleanup and added the license notice
 - Updated to 0.2.3
-- Reenabled formatter
-- Fixed arrays for render_controllers
-- Updated Information
-- Updated
-- Updated to 0.2.0
-- Made Changed
-- Added

@@ -36,7 +36,7 @@
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.11"
     },
-    "main": "./dist/extension.js",
+    "main": "./out/extension.js",
     "engines": { "vscode": "^1.43.0" },
     "extensionKind": [ "ui" ],
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
@@ -127,18 +127,6 @@
             ]
         },
         "snippets": [
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/blocks-names.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/commands.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/effect-names.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/enchant-names.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/items.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-general/snippets/selector.json" },
-            { "language": "bc-minecraft-mcfunction", "path": "./minecraft-mcfunctions/snippets/mcfunction.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-language-files/snippets/minecraft-language.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/blocks-names.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/commands.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/effect-names.json" },
-            { "language": "bc-minecraft-language", "path": "./minecraft-general/snippets/enchant-names.json" }
         ]
     }
 }

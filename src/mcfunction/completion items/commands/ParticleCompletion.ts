@@ -32,27 +32,22 @@ import * as vscode from "vscode";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
-export class WeatherCompletionProvider implements CompletionItemProvider {
-
-    public Defaults : vscode.CompletionItem[];
+export class ParticleCompletionProvider implements CompletionItemProvider {
 
     constructor() {
-        this.Defaults = new Array<vscode.CompletionItem>(
-            createCompletionItem("clear", "clear", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
-            createCompletionItem("rain", "rain", "Sets the weather to clear", vscode.CompletionItemKind.Keyword),
-            createCompletionItem("thunder", "thunder", "Sets the weather to clear", vscode.CompletionItemKind.Keyword)
-        );
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //weather <clear|rain|thunder> [duration: int]
+        //particle <effect: string> <position: x y z>
 
         switch (Item.Count()) {
-            case 0: //<amount: int>
-                return this.Defaults;
+            case 0: //<effect>
+                return Cm.ParticleCompletionProvider?.provideCompletionItems(Item, Cm, document);
 
-            case 1: //[player: target]
-                return Cm.SelectorCompletion.provideCompletionItems();
+            case 1: //<position: x>
+            case 2: //<position: y>
+            case 3: //<position: z>
+                return Cm.CoordinateCompletionProvider.provideDiagnostics();
 
             default:
                 break;
