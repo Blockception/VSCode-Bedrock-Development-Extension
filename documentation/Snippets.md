@@ -24,23 +24,23 @@ The following snippets have been added and how to access them.
 
 ### Block names
 
-A list of all the block names have been stored as snippets, these can be accessed through typing: 'minecraft.blocks'.
+A list of all the block names have been stored as snippets, these can be accessed through typing: 'snippet.blocks'.
 
 ### Commands
 
-A list of all minecraft commands and their syntax are stored as snippets; these can be accessed through 'minecraft.commands' or just typing the command
+A list of all minecraft commands and their syntax are stored as snippets; these can be accessed through 'snippet.commands' or just typing the command
 
 ### Effect names
 
-A list of all the effect names have been stored as snippets, these can be accessed through typing: 'minecraft.effects'.
+A list of all the effect names have been stored as snippets, these can be accessed through typing: 'snippet.effects'.
 
 ### Enchant names
 
-A list of all the enchantment names have been stored as snippets, these can be accessed through typing: 'minecraft.enchants'.
+A list of all the enchantment names have been stored as snippets, these can be accessed through typing: 'snippet.enchants'.
 
 ### Item names
 
-A list of all item names have been stored as snippets, these can be accessed through typing: 'minecraft.item'
+A list of all item names have been stored as snippets, these can be accessed through typing: 'snippet.item'
 
 ---
 ## Mcfunctions
@@ -58,7 +58,7 @@ The extension recognizes this and allows the code to be folded
 
 ### Selector
 
-A list of helpfull selectors snippets have been stored as snippets, these can be accessed through 'minecraft.selector'.
+A list of helpfull selectors snippets have been stored as snippets, these can be accessed through 'snippet.selector'.
 
 ---
 ## Minecraft Language Files

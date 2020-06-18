@@ -1,4 +1,13 @@
 # Changelog 
+- Updated Completion provider for coordiantes
+- Ordered diagnostics
+- Last of the completion Items
+- Added More Completiong Items
+- Updated
+- Added more completion items for mcfunction
+- Added language file completion items
+- Added Completion Items
+- Adding Completion items
 - Updated Code
 - Added Titles to loot tables
 - Updated Language Colours
@@ -10,12 +19,3 @@
 - Updated
 - Updated Particles, added color support
 - Updated Particles 1.10.0
-- Updated model 1.12.0 validation
-- Updated Title and descriptions
-- Updated
-- Removed
-- Updated Components
-- Updated Components 1.16.0
-- Updated
-- Code cleanup and added the license notice
-- Updated to 0.2.3

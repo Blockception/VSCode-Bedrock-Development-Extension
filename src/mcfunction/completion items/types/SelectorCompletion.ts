@@ -62,20 +62,20 @@ export class SelectorVscodeCompletionProvider implements vscode.CompletionItemPr
 
 class InternalSelectorCompletionProvider {
     public static default: vscode.CompletionList = new vscode.CompletionList([
-        Functions.createCompletionItem("@a", "All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("@e", "All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("@s", "Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("@r", "Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("@p", "Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("\"<entity name>\"", "dummy player", "Returns a example for an named entity", vscode.CompletionItemKind.User)
+        Functions.createCompletionItem("@a", "@a - All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@e", "@e - All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@s", "@s - Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@r", "@r - Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("@p", "@p - Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("\"<entity name>\"", "Dummy player", "Returns a example for an named entity", vscode.CompletionItemKind.User)
     ]);
 
     public static letters: vscode.CompletionList = new vscode.CompletionList([
-        Functions.createCompletionItem("a", "All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("e", "All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("s", "Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("r", "Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
-        Functions.createCompletionItem("p", "Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User)
+        Functions.createCompletionItem("a", "@a - All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("e", "@e - All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("s", "@s - Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("r", "@r - Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
+        Functions.createCompletionItem("p", "@p - Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User)
     ]);
 
     public static firstitems: vscode.CompletionList = new vscode.CompletionList([

@@ -1,2356 +1,2356 @@
 {
   "minecraft.blocks.acacia_button": {
-    "prefix": ["minecraft.blocks.acacia_button", "acacia_button"],
+    "prefix": ["snippet.blocks.acacia_button"],
     "body": "acacia_button",
     "description": "Returns the block name of 'acacia_button'"
   },
   "minecraft.blocks.acacia_door": {
-    "prefix": ["minecraft.blocks.acacia_door", "acacia_door"],
+    "prefix": ["snippet.blocks.acacia_door"],
     "body": "acacia_door",
     "description": "Returns the block name of 'acacia_door'"
   },
   "minecraft.blocks.acacia_fence_gate": {
-    "prefix": ["minecraft.blocks.acacia_fence_gate", "acacia_fence_gate"],
+    "prefix": ["snippet.blocks.acacia_fence_gate"],
     "body": "acacia_fence_gate",
     "description": "Returns the block name of 'acacia_fence_gate'"
   },
   "minecraft.blocks.acacia_pressure_plate": {
-    "prefix": ["minecraft.blocks.acacia_pressure_plate", "acacia_pressure_plate"],
+    "prefix": ["snippet.blocks.acacia_pressure_plate"],
     "body": "acacia_pressure_plate",
     "description": "Returns the block name of 'acacia_pressure_plate'"
   },
   "minecraft.blocks.acacia_stairs": {
-    "prefix": ["minecraft.blocks.acacia_stairs", "acacia_stairs"],
+    "prefix": ["snippet.blocks.acacia_stairs"],
     "body": "acacia_stairs",
     "description": "Returns the block name of 'acacia_stairs'"
   },
   "minecraft.blocks.acacia_standing_sign": {
-    "prefix": ["minecraft.blocks.acacia_standing_sign", "acacia_standing_sign"],
+    "prefix": ["snippet.blocks.acacia_standing_sign"],
     "body": "acacia_standing_sign",
     "description": "Returns the block name of 'acacia_standing_sign'"
   },
   "minecraft.blocks.acacia_trapdoor": {
-    "prefix": ["minecraft.blocks.acacia_trapdoor", "acacia_trapdoor"],
+    "prefix": ["snippet.blocks.acacia_trapdoor"],
     "body": "acacia_trapdoor",
     "description": "Returns the block name of 'acacia_trapdoor'"
   },
   "minecraft.blocks.acacia_wall_sign": {
-    "prefix": ["minecraft.blocks.acacia_wall_sign", "acacia_wall_sign"],
+    "prefix": ["snippet.blocks.acacia_wall_sign"],
     "body": "acacia_wall_sign",
     "description": "Returns the block name of 'acacia_wall_sign'"
   },
   "minecraft.blocks.activator_rail": {
-    "prefix": ["minecraft.blocks.activator_rail", "activator_rail"],
+    "prefix": ["snippet.blocks.activator_rail"],
     "body": "activator_rail",
     "description": "Returns the block name of 'activator_rail'"
   },
   "minecraft.blocks.air": {
-    "prefix": ["minecraft.blocks.air", "air"],
+    "prefix": ["snippet.blocks.air"],
     "body": "air",
     "description": "Returns the block name of 'air'"
   },
   "minecraft.blocks.andesite_stairs": {
-    "prefix": ["minecraft.blocks.andesite_stairs", "andesite_stairs"],
+    "prefix": ["snippet.blocks.andesite_stairs"],
     "body": "andesite_stairs",
     "description": "Returns the block name of 'andesite_stairs'"
   },
   "minecraft.blocks.anvil": {
-    "prefix": ["minecraft.blocks.anvil", "anvil"],
+    "prefix": ["snippet.blocks.anvil"],
     "body": "anvil",
     "description": "Returns the block name of 'anvil'"
   },
   "minecraft.blocks.bamboo": {
-    "prefix": ["minecraft.blocks.bamboo", "bamboo"],
+    "prefix": ["snippet.blocks.bamboo"],
     "body": "bamboo",
     "description": "Returns the block name of 'bamboo'"
   },
   "minecraft.blocks.bamboo_sapling": {
-    "prefix": ["minecraft.blocks.bamboo_sapling", "bamboo_sapling"],
+    "prefix": ["snippet.blocks.bamboo_sapling"],
     "body": "bamboo_sapling",
     "description": "Returns the block name of 'bamboo_sapling'"
   },
   "minecraft.blocks.barrel": {
-    "prefix": ["minecraft.blocks.barrel", "barrel"],
+    "prefix": ["snippet.blocks.barrel"],
     "body": "barrel",
     "description": "Returns the block name of 'barrel'"
   },
   "minecraft.blocks.barrier": {
-    "prefix": ["minecraft.blocks.barrier", "barrier"],
+    "prefix": ["snippet.blocks.barrier"],
     "body": "barrier",
     "description": "Returns the block name of 'barrier'"
   },
   "minecraft.blocks.beacon": {
-    "prefix": ["minecraft.blocks.beacon", "beacon"],
+    "prefix": ["snippet.blocks.beacon"],
     "body": "beacon",
     "description": "Returns the block name of 'beacon'"
   },
   "minecraft.blocks.bed": {
-    "prefix": ["minecraft.blocks.bed", "bed"],
+    "prefix": ["snippet.blocks.bed"],
     "body": "bed",
     "description": "Returns the block name of 'bed'"
   },
   "minecraft.blocks.bedrock": {
-    "prefix": ["minecraft.blocks.bedrock", "bedrock"],
+    "prefix": ["snippet.blocks.bedrock"],
     "body": "bedrock",
     "description": "Returns the block name of 'bedrock'"
   },
   "minecraft.blocks.bee_nest": {
-    "prefix": ["minecraft.blocks.bee_nest", "bee_nest"],
+    "prefix": ["snippet.blocks.bee_nest"],
     "body": "bee_nest",
     "description": "Returns the block name of 'bee_nest'"
   },
   "minecraft.blocks.beehive": {
-    "prefix": ["minecraft.blocks.beehive", "beehive"],
+    "prefix": ["snippet.blocks.beehive"],
     "body": "beehive",
     "description": "Returns the block name of 'beehive'"
   },
   "minecraft.blocks.beetroot": {
-    "prefix": ["minecraft.blocks.beetroot", "beetroot"],
+    "prefix": ["snippet.blocks.beetroot"],
     "body": "beetroot",
     "description": "Returns the block name of 'beetroot'"
   },
   "minecraft.blocks.bell": {
-    "prefix": ["minecraft.blocks.bell", "bell"],
+    "prefix": ["snippet.blocks.bell"],
     "body": "bell",
     "description": "Returns the block name of 'bell'"
   },
   "minecraft.blocks.birch_button": {
-    "prefix": ["minecraft.blocks.birch_button", "birch_button"],
+    "prefix": ["snippet.blocks.birch_button"],
     "body": "birch_button",
     "description": "Returns the block name of 'birch_button'"
   },
   "minecraft.blocks.birch_door": {
-    "prefix": ["minecraft.blocks.birch_door", "birch_door"],
+    "prefix": ["snippet.blocks.birch_door"],
     "body": "birch_door",
     "description": "Returns the block name of 'birch_door'"
   },
   "minecraft.blocks.birch_fence_gate": {
-    "prefix": ["minecraft.blocks.birch_fence_gate", "birch_fence_gate"],
+    "prefix": ["snippet.blocks.birch_fence_gate"],
     "body": "birch_fence_gate",
     "description": "Returns the block name of 'birch_fence_gate'"
   },
   "minecraft.blocks.birch_pressure_plate": {
-    "prefix": ["minecraft.blocks.birch_pressure_plate", "birch_pressure_plate"],
+    "prefix": ["snippet.blocks.birch_pressure_plate"],
     "body": "birch_pressure_plate",
     "description": "Returns the block name of 'birch_pressure_plate'"
   },
   "minecraft.blocks.birch_stairs": {
-    "prefix": ["minecraft.blocks.birch_stairs", "birch_stairs"],
+    "prefix": ["snippet.blocks.birch_stairs"],
     "body": "birch_stairs",
     "description": "Returns the block name of 'birch_stairs'"
   },
   "minecraft.blocks.birch_standing_sign": {
-    "prefix": ["minecraft.blocks.birch_standing_sign", "birch_standing_sign"],
+    "prefix": ["snippet.blocks.birch_standing_sign"],
     "body": "birch_standing_sign",
     "description": "Returns the block name of 'birch_standing_sign'"
   },
   "minecraft.blocks.birch_trapdoor": {
-    "prefix": ["minecraft.blocks.birch_trapdoor", "birch_trapdoor"],
+    "prefix": ["snippet.blocks.birch_trapdoor"],
     "body": "birch_trapdoor",
     "description": "Returns the block name of 'birch_trapdoor'"
   },
   "minecraft.blocks.birch_wall_sign": {
-    "prefix": ["minecraft.blocks.birch_wall_sign", "birch_wall_sign"],
+    "prefix": ["snippet.blocks.birch_wall_sign"],
     "body": "birch_wall_sign",
     "description": "Returns the block name of 'birch_wall_sign'"
   },
   "minecraft.blocks.black_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.black_glazed_terracotta", "black_glazed_terracotta"],
+    "prefix": ["snippet.blocks.black_glazed_terracotta"],
     "body": "black_glazed_terracotta",
     "description": "Returns the block name of 'black_glazed_terracotta'"
   },
   "minecraft.blocks.blast_furnace": {
-    "prefix": ["minecraft.blocks.blast_furnace", "blast_furnace"],
+    "prefix": ["snippet.blocks.blast_furnace"],
     "body": "blast_furnace",
     "description": "Returns the block name of 'blast_furnace'"
   },
   "minecraft.blocks.blue_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.blue_glazed_terracotta", "blue_glazed_terracotta"],
+    "prefix": ["snippet.blocks.blue_glazed_terracotta"],
     "body": "blue_glazed_terracotta",
     "description": "Returns the block name of 'blue_glazed_terracotta'"
   },
   "minecraft.blocks.blue_ice": {
-    "prefix": ["minecraft.blocks.blue_ice", "blue_ice"],
+    "prefix": ["snippet.blocks.blue_ice"],
     "body": "blue_ice",
     "description": "Returns the block name of 'blue_ice'"
   },
   "minecraft.blocks.bone_block": {
-    "prefix": ["minecraft.blocks.bone_block", "bone_block"],
+    "prefix": ["snippet.blocks.bone_block"],
     "body": "bone_block",
     "description": "Returns the block name of 'bone_block'"
   },
   "minecraft.blocks.bookshelf": {
-    "prefix": ["minecraft.blocks.bookshelf", "bookshelf"],
+    "prefix": ["snippet.blocks.bookshelf"],
     "body": "bookshelf",
     "description": "Returns the block name of 'bookshelf'"
   },
   "minecraft.blocks.brewing_stand": {
-    "prefix": ["minecraft.blocks.brewing_stand", "brewing_stand"],
+    "prefix": ["snippet.blocks.brewing_stand"],
     "body": "brewing_stand",
     "description": "Returns the block name of 'brewing_stand'"
   },
   "minecraft.blocks.brick_block": {
-    "prefix": ["minecraft.blocks.brick_block", "brick_block"],
+    "prefix": ["snippet.blocks.brick_block"],
     "body": "brick_block",
     "description": "Returns the block name of 'brick_block'"
   },
   "minecraft.blocks.brick_stairs": {
-    "prefix": ["minecraft.blocks.brick_stairs", "brick_stairs"],
+    "prefix": ["snippet.blocks.brick_stairs"],
     "body": "brick_stairs",
     "description": "Returns the block name of 'brick_stairs'"
   },
   "minecraft.blocks.brown_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.brown_glazed_terracotta", "brown_glazed_terracotta"],
+    "prefix": ["snippet.blocks.brown_glazed_terracotta"],
     "body": "brown_glazed_terracotta",
     "description": "Returns the block name of 'brown_glazed_terracotta'"
   },
   "minecraft.blocks.brown_mushroom": {
-    "prefix": ["minecraft.blocks.brown_mushroom", "brown_mushroom"],
+    "prefix": ["snippet.blocks.brown_mushroom"],
     "body": "brown_mushroom",
     "description": "Returns the block name of 'brown_mushroom'"
   },
   "minecraft.blocks.brown_mushroom_block": {
-    "prefix": ["minecraft.blocks.brown_mushroom_block", "brown_mushroom_block"],
+    "prefix": ["snippet.blocks.brown_mushroom_block"],
     "body": "brown_mushroom_block",
     "description": "Returns the block name of 'brown_mushroom_block'"
   },
   "minecraft.blocks.bubble_column": {
-    "prefix": ["minecraft.blocks.bubble_column", "bubble_column"],
+    "prefix": ["snippet.blocks.bubble_column"],
     "body": "bubble_column",
     "description": "Returns the block name of 'bubble_column'"
   },
   "minecraft.blocks.cactus": {
-    "prefix": ["minecraft.blocks.cactus", "cactus"],
+    "prefix": ["snippet.blocks.cactus"],
     "body": "cactus",
     "description": "Returns the block name of 'cactus'"
   },
   "minecraft.blocks.cake": {
-    "prefix": ["minecraft.blocks.cake", "cake"],
+    "prefix": ["snippet.blocks.cake"],
     "body": "cake",
     "description": "Returns the block name of 'cake'"
   },
   "minecraft.blocks.camera": {
-    "prefix": ["minecraft.blocks.camera", "camera"],
+    "prefix": ["snippet.blocks.camera"],
     "body": "camera",
     "description": "Returns the block name of 'camera'"
   },
   "minecraft.blocks.campfire": {
-    "prefix": ["minecraft.blocks.campfire", "campfire"],
+    "prefix": ["snippet.blocks.campfire"],
     "body": "campfire",
     "description": "Returns the block name of 'campfire'"
   },
   "minecraft.blocks.carpet": {
-    "prefix": ["minecraft.blocks.carpet", "carpet"],
+    "prefix": ["snippet.blocks.carpet"],
     "body": "carpet",
     "description": "Returns the block name of 'carpet'"
   },
   "minecraft.blocks.carrots": {
-    "prefix": ["minecraft.blocks.carrots", "carrots"],
+    "prefix": ["snippet.blocks.carrots"],
     "body": "carrots",
     "description": "Returns the block name of 'carrots'"
   },
   "minecraft.blocks.cartography_table": {
-    "prefix": ["minecraft.blocks.cartography_table", "cartography_table"],
+    "prefix": ["snippet.blocks.cartography_table"],
     "body": "cartography_table",
     "description": "Returns the block name of 'cartography_table'"
   },
   "minecraft.blocks.carved_pumpkin": {
-    "prefix": ["minecraft.blocks.carved_pumpkin", "carved_pumpkin"],
+    "prefix": ["snippet.blocks.carved_pumpkin"],
     "body": "carved_pumpkin",
     "description": "Returns the block name of 'carved_pumpkin'"
   },
   "minecraft.blocks.cauldron": {
-    "prefix": ["minecraft.blocks.cauldron", "cauldron"],
+    "prefix": ["snippet.blocks.cauldron"],
     "body": "cauldron",
     "description": "Returns the block name of 'cauldron'"
   },
   "minecraft.blocks.chain_command_block": {
-    "prefix": ["minecraft.blocks.chain_command_block", "chain_command_block"],
+    "prefix": ["snippet.blocks.chain_command_block"],
     "body": "chain_command_block",
     "description": "Returns the block name of 'chain_command_block'"
   },
   "minecraft.blocks.chemical_heat": {
-    "prefix": ["minecraft.blocks.chemical_heat", "chemical_heat"],
+    "prefix": ["snippet.blocks.chemical_heat"],
     "body": "chemical_heat",
     "description": "Returns the block name of 'chemical_heat'"
   },
   "minecraft.blocks.chemistry_table": {
-    "prefix": ["minecraft.blocks.chemistry_table", "chemistry_table"],
+    "prefix": ["snippet.blocks.chemistry_table"],
     "body": "chemistry_table",
     "description": "Returns the block name of 'chemistry_table'"
   },
   "minecraft.blocks.chest": {
-    "prefix": ["minecraft.blocks.chest", "chest"],
+    "prefix": ["snippet.blocks.chest"],
     "body": "chest",
     "description": "Returns the block name of 'chest'"
   },
   "minecraft.blocks.chorus_flower": {
-    "prefix": ["minecraft.blocks.chorus_flower", "chorus_flower"],
+    "prefix": ["snippet.blocks.chorus_flower"],
     "body": "chorus_flower",
     "description": "Returns the block name of 'chorus_flower'"
   },
   "minecraft.blocks.chorus_plant": {
-    "prefix": ["minecraft.blocks.chorus_plant", "chorus_plant"],
+    "prefix": ["snippet.blocks.chorus_plant"],
     "body": "chorus_plant",
     "description": "Returns the block name of 'chorus_plant'"
   },
   "minecraft.blocks.clay": {
-    "prefix": ["minecraft.blocks.clay", "clay"],
+    "prefix": ["snippet.blocks.clay"],
     "body": "clay",
     "description": "Returns the block name of 'clay'"
   },
   "minecraft.blocks.coal_block": {
-    "prefix": ["minecraft.blocks.coal_block", "coal_block"],
+    "prefix": ["snippet.blocks.coal_block"],
     "body": "coal_block",
     "description": "Returns the block name of 'coal_block'"
   },
   "minecraft.blocks.coal_ore": {
-    "prefix": ["minecraft.blocks.coal_ore", "coal_ore"],
+    "prefix": ["snippet.blocks.coal_ore"],
     "body": "coal_ore",
     "description": "Returns the block name of 'coal_ore'"
   },
   "minecraft.blocks.cobblestone": {
-    "prefix": ["minecraft.blocks.cobblestone", "cobblestone"],
+    "prefix": ["snippet.blocks.cobblestone"],
     "body": "cobblestone",
     "description": "Returns the block name of 'cobblestone'"
   },
   "minecraft.blocks.cobblestone_wall": {
-    "prefix": ["minecraft.blocks.cobblestone_wall", "cobblestone_wall"],
+    "prefix": ["snippet.blocks.cobblestone_wall"],
     "body": "cobblestone_wall",
     "description": "Returns the block name of 'cobblestone_wall'"
   },
   "minecraft.blocks.cocoa": {
-    "prefix": ["minecraft.blocks.cocoa", "cocoa"],
+    "prefix": ["snippet.blocks.cocoa"],
     "body": "cocoa",
     "description": "Returns the block name of 'cocoa'"
   },
   "minecraft.blocks.colored_torch_bp": {
-    "prefix": ["minecraft.blocks.colored_torch_bp", "colored_torch_bp"],
+    "prefix": ["snippet.blocks.colored_torch_bp"],
     "body": "colored_torch_bp",
     "description": "Returns the block name of 'colored_torch_bp'"
   },
   "minecraft.blocks.colored_torch_rg": {
-    "prefix": ["minecraft.blocks.colored_torch_rg", "colored_torch_rg"],
+    "prefix": ["snippet.blocks.colored_torch_rg"],
     "body": "colored_torch_rg",
     "description": "Returns the block name of 'colored_torch_rg'"
   },
   "minecraft.blocks.command_block": {
-    "prefix": ["minecraft.blocks.command_block", "command_block"],
+    "prefix": ["snippet.blocks.command_block"],
     "body": "command_block",
     "description": "Returns the block name of 'command_block'"
   },
   "minecraft.blocks.composter": {
-    "prefix": ["minecraft.blocks.composter", "composter"],
+    "prefix": ["snippet.blocks.composter"],
     "body": "composter",
     "description": "Returns the block name of 'composter'"
   },
   "minecraft.blocks.concrete": {
-    "prefix": ["minecraft.blocks.concrete", "concrete"],
+    "prefix": ["snippet.blocks.concrete"],
     "body": "concrete",
     "description": "Returns the block name of 'concrete'"
   },
   "minecraft.blocks.concrete.red": {
-    "prefix": ["minecraft.blocks.concrete.red", "concrete.red"],
+    "prefix": ["snippet.blocks.concrete.red", "concre],
     "body": "concrete 14",
     "description": "Returns the block name and data of 'red concrete'"
   },
   "minecraft.blocks.concrete.black": {
-    "prefix": ["minecraft.blocks.concrete.black", "concrete.black"],
+    "prefix": ["snippet.blocks.concrete.black", "concre],
     "body": "concrete 15",
     "description": "Returns the block name and data of 'black concrete'"
   },
   "minecraft.blocks.concretePowder": {
-    "prefix": ["minecraft.blocks.concretePowder", "concretePowder"],
+    "prefix": ["snippet.blocks.concretePowder"],
     "body": "concretePowder",
     "description": "Returns the block name of 'concretePowder'"
   },
   "minecraft.blocks.conduit": {
-    "prefix": ["minecraft.blocks.conduit", "conduit"],
+    "prefix": ["snippet.blocks.conduit"],
     "body": "conduit",
     "description": "Returns the block name of 'conduit'"
   },
   "minecraft.blocks.coral": {
-    "prefix": ["minecraft.blocks.coral", "coral"],
+    "prefix": ["snippet.blocks.coral"],
     "body": "coral",
     "description": "Returns the block name of 'coral'"
   },
   "minecraft.blocks.coral_block": {
-    "prefix": ["minecraft.blocks.coral_block", "coral_block"],
+    "prefix": ["snippet.blocks.coral_block"],
     "body": "coral_block",
     "description": "Returns the block name of 'coral_block'"
   },
   "minecraft.blocks.coral_fan": {
-    "prefix": ["minecraft.blocks.coral_fan", "coral_fan"],
+    "prefix": ["snippet.blocks.coral_fan"],
     "body": "coral_fan",
     "description": "Returns the block name of 'coral_fan'"
   },
   "minecraft.blocks.coral_fan_dead": {
-    "prefix": ["minecraft.blocks.coral_fan_dead", "coral_fan_dead"],
+    "prefix": ["snippet.blocks.coral_fan_dead"],
     "body": "coral_fan_dead",
     "description": "Returns the block name of 'coral_fan_dead'"
   },
   "minecraft.blocks.coral_fan_hang": {
-    "prefix": ["minecraft.blocks.coral_fan_hang", "coral_fan_hang"],
+    "prefix": ["snippet.blocks.coral_fan_hang"],
     "body": "coral_fan_hang",
     "description": "Returns the block name of 'coral_fan_hang'"
   },
   "minecraft.blocks.coral_fan_hang2": {
-    "prefix": ["coral_fan_hang2", "minecraft.blocks.coral_fan_hang2", "coral_fan_hang2"],
+    "prefix": ["coral_fan_hang2", "minecraft.blocks.coral_fan_hang2"],
     "body": "coral_fan_hang2",
     "description": "Returns the block name of 'coral_fan_hang2'"
   },
   "minecraft.blocks.coral_fan_hang3": {
-    "prefix": ["coral_fan_hang3", "minecraft.blocks.coral_fan_hang3", "coral_fan_hang3"],
+    "prefix": ["coral_fan_hang3", "minecraft.blocks.coral_fan_hang3"],
     "body": "coral_fan_hang3",
     "description": "Returns the block name of 'coral_fan_hang3'"
   },
   "minecraft.blocks.crafting_table": {
-    "prefix": ["minecraft.blocks.crafting_table", "crafting_table"],
+    "prefix": ["snippet.blocks.crafting_table"],
     "body": "crafting_table",
     "description": "Returns the block name of 'crafting_table'"
   },
   "minecraft.blocks.cyan_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.cyan_glazed_terracotta", "cyan_glazed_terracotta"],
+    "prefix": ["snippet.blocks.cyan_glazed_terracotta"],
     "body": "cyan_glazed_terracotta",
     "description": "Returns the block name of 'cyan_glazed_terracotta'"
   },
   "minecraft.blocks.dark_oak_button": {
-    "prefix": ["minecraft.blocks.dark_oak_button", "dark_oak_button"],
+    "prefix": ["snippet.blocks.dark_oak_button"],
     "body": "dark_oak_button",
     "description": "Returns the block name of 'dark_oak_button'"
   },
   "minecraft.blocks.dark_oak_door": {
-    "prefix": ["minecraft.blocks.dark_oak_door", "dark_oak_door"],
+    "prefix": ["snippet.blocks.dark_oak_door"],
     "body": "dark_oak_door",
     "description": "Returns the block name of 'dark_oak_door'"
   },
   "minecraft.blocks.dark_oak_fence_gate": {
-    "prefix": ["minecraft.blocks.dark_oak_fence_gate", "dark_oak_fence_gate"],
+    "prefix": ["snippet.blocks.dark_oak_fence_gate"],
     "body": "dark_oak_fence_gate",
     "description": "Returns the block name of 'dark_oak_fence_gate'"
   },
   "minecraft.blocks.dark_oak_pressure_plate": {
-    "prefix": ["minecraft.blocks.dark_oak_pressure_plate", "dark_oak_pressure_plate"],
+    "prefix": ["snippet.blocks.dark_oak_pressure_plate"],
     "body": "dark_oak_pressure_plate",
     "description": "Returns the block name of 'dark_oak_pressure_plate'"
   },
   "minecraft.blocks.dark_oak_stairs": {
-    "prefix": ["minecraft.blocks.dark_oak_stairs", "dark_oak_stairs"],
+    "prefix": ["snippet.blocks.dark_oak_stairs"],
     "body": "dark_oak_stairs",
     "description": "Returns the block name of 'dark_oak_stairs'"
   },
   "minecraft.blocks.dark_oak_trapdoor": {
-    "prefix": ["minecraft.blocks.dark_oak_trapdoor", "dark_oak_trapdoor"],
+    "prefix": ["snippet.blocks.dark_oak_trapdoor"],
     "body": "dark_oak_trapdoor",
     "description": "Returns the block name of 'dark_oak_trapdoor'"
   },
   "minecraft.blocks.dark_prismarine_stairs": {
-    "prefix": ["minecraft.blocks.dark_prismarine_stairs", "dark_prismarine_stairs"],
+    "prefix": ["snippet.blocks.dark_prismarine_stairs"],
     "body": "dark_prismarine_stairs",
     "description": "Returns the block name of 'dark_prismarine_stairs'"
   },
   "minecraft.blocks.darkoak_standing_sign": {
-    "prefix": ["minecraft.blocks.darkoak_standing_sign", "darkoak_standing_sign"],
+    "prefix": ["snippet.blocks.darkoak_standing_sign"],
     "body": "darkoak_standing_sign",
     "description": "Returns the block name of 'darkoak_standing_sign'"
   },
   "minecraft.blocks.darkoak_wall_sign": {
-    "prefix": ["minecraft.blocks.darkoak_wall_sign", "darkoak_wall_sign"],
+    "prefix": ["snippet.blocks.darkoak_wall_sign"],
     "body": "darkoak_wall_sign",
     "description": "Returns the block name of 'darkoak_wall_sign'"
   },
   "minecraft.blocks.daylight_detector": {
-    "prefix": ["minecraft.blocks.daylight_detector", "daylight_detector"],
+    "prefix": ["snippet.blocks.daylight_detector"],
     "body": "daylight_detector",
     "description": "Returns the block name of 'daylight_detector'"
   },
   "minecraft.blocks.daylight_detector_inverted": {
-    "prefix": ["minecraft.blocks.daylight_detector_inverted", "daylight_detector_inverted"],
+    "prefix": ["snippet.blocks.daylight_detector_inverted"],
     "body": "daylight_detector_inverted",
     "description": "Returns the block name of 'daylight_detector_inverted'"
   },
   "minecraft.blocks.deadbush": {
-    "prefix": ["minecraft.blocks.deadbush", "deadbush"],
+    "prefix": ["snippet.blocks.deadbush"],
     "body": "deadbush",
     "description": "Returns the block name of 'deadbush'"
   },
   "minecraft.blocks.detector_rail": {
-    "prefix": ["minecraft.blocks.detector_rail", "detector_rail"],
+    "prefix": ["snippet.blocks.detector_rail"],
     "body": "detector_rail",
     "description": "Returns the block name of 'detector_rail'"
   },
   "minecraft.blocks.diamond_block": {
-    "prefix": ["minecraft.blocks.diamond_block", "diamond_block"],
+    "prefix": ["snippet.blocks.diamond_block"],
     "body": "diamond_block",
     "description": "Returns the block name of 'diamond_block'"
   },
   "minecraft.blocks.diamond_ore": {
-    "prefix": ["minecraft.blocks.diamond_ore", "diamond_ore"],
+    "prefix": ["snippet.blocks.diamond_ore"],
     "body": "diamond_ore",
     "description": "Returns the block name of 'diamond_ore'"
   },
   "minecraft.blocks.diorite_stairs": {
-    "prefix": ["minecraft.blocks.diorite_stairs", "diorite_stairs"],
+    "prefix": ["snippet.blocks.diorite_stairs"],
     "body": "diorite_stairs",
     "description": "Returns the block name of 'diorite_stairs'"
   },
   "minecraft.blocks.dirt": {
-    "prefix": ["minecraft.blocks.dirt", "dirt"],
+    "prefix": ["snippet.blocks.dirt"],
     "body": "dirt",
     "description": "Returns the block name of 'dirt'"
   },
   "minecraft.blocks.dispenser": {
-    "prefix": ["minecraft.blocks.dispenser", "dispenser"],
+    "prefix": ["snippet.blocks.dispenser"],
     "body": "dispenser",
     "description": "Returns the block name of 'dispenser'"
   },
   "minecraft.blocks.double_plant": {
-    "prefix": ["minecraft.blocks.double_plant", "double_plant"],
+    "prefix": ["snippet.blocks.double_plant"],
     "body": "double_plant",
     "description": "Returns the block name of 'double_plant'"
   },
   "minecraft.blocks.double_stone_slab": {
-    "prefix": ["minecraft.blocks.double_stone_slab", "double_stone_slab"],
+    "prefix": ["snippet.blocks.double_stone_slab"],
     "body": "double_stone_slab",
     "description": "Returns the block name of 'double_stone_slab'"
   },
   "minecraft.blocks.double_stone_slab2": {
-    "prefix": ["double_stone_slab2", "minecraft.blocks.double_stone_slab2", "double_stone_slab2"],
+    "prefix": ["double_stone_slab2", "minecraft.blocks.double_stone_slab2"],
     "body": "double_stone_slab2",
     "description": "Returns the block name of 'double_stone_slab2'"
   },
   "minecraft.blocks.double_stone_slab3": {
-    "prefix": ["double_stone_slab3", "minecraft.blocks.double_stone_slab3", "double_stone_slab3"],
+    "prefix": ["double_stone_slab3", "minecraft.blocks.double_stone_slab3"],
     "body": "double_stone_slab3",
     "description": "Returns the block name of 'double_stone_slab3'"
   },
   "minecraft.blocks.double_stone_slab4": {
-    "prefix": ["double_stone_slab4", "minecraft.blocks.double_stone_slab4", "double_stone_slab4"],
+    "prefix": ["double_stone_slab4", "minecraft.blocks.double_stone_slab4"],
     "body": "double_stone_slab4",
     "description": "Returns the block name of 'double_stone_slab4'"
   },
   "minecraft.blocks.double_wooden_slab": {
-    "prefix": ["minecraft.blocks.double_wooden_slab", "double_wooden_slab"],
+    "prefix": ["snippet.blocks.double_wooden_slab"],
     "body": "double_wooden_slab",
     "description": "Returns the block name of 'double_wooden_slab'"
   },
   "minecraft.blocks.dragon_egg": {
-    "prefix": ["minecraft.blocks.dragon_egg", "dragon_egg"],
+    "prefix": ["snippet.blocks.dragon_egg"],
     "body": "dragon_egg",
     "description": "Returns the block name of 'dragon_egg'"
   },
   "minecraft.blocks.dried_kelp_block": {
-    "prefix": ["minecraft.blocks.dried_kelp_block", "dried_kelp_block"],
+    "prefix": ["snippet.blocks.dried_kelp_block"],
     "body": "dried_kelp_block",
     "description": "Returns the block name of 'dried_kelp_block'"
   },
   "minecraft.blocks.dropper": {
-    "prefix": ["minecraft.blocks.dropper", "dropper"],
+    "prefix": ["snippet.blocks.dropper"],
     "body": "dropper",
     "description": "Returns the block name of 'dropper'"
   },
   "minecraft.blocks.element_0": {
-    "prefix": ["element_0", "minecraft.blocks.element_0", "element_0"],
+    "prefix": ["element_0", "minecraft.blocks.element_0"],
     "body": "element_0",
     "description": "Returns the block name of 'element_0'"
   },
   "minecraft.blocks.element_1": {
-    "prefix": ["element_1", "minecraft.blocks.element_1", "element_1"],
+    "prefix": ["element_1", "minecraft.blocks.element_1"],
     "body": "element_1",
     "description": "Returns the block name of 'element_1'"
   },
   "minecraft.blocks.element_2": {
-    "prefix": ["element_2", "minecraft.blocks.element_2", "element_2"],
+    "prefix": ["element_2", "minecraft.blocks.element_2"],
     "body": "element_2",
     "description": "Returns the block name of 'element_2'"
   },
   "minecraft.blocks.element_3": {
-    "prefix": ["element_3", "minecraft.blocks.element_3", "element_3"],
+    "prefix": ["element_3", "minecraft.blocks.element_3"],
     "body": "element_3",
     "description": "Returns the block name of 'element_3'"
   },
   "minecraft.blocks.element_4": {
-    "prefix": ["element_4", "minecraft.blocks.element_4", "element_4"],
+    "prefix": ["element_4", "minecraft.blocks.element_4"],
     "body": "element_4",
     "description": "Returns the block name of 'element_4'"
   },
   "minecraft.blocks.element_5": {
-    "prefix": ["element_5", "minecraft.blocks.element_5", "element_5"],
+    "prefix": ["element_5", "minecraft.blocks.element_5"],
     "body": "element_5",
     "description": "Returns the block name of 'element_5'"
   },
   "minecraft.blocks.element_6": {
-    "prefix": ["element_6", "minecraft.blocks.element_6", "element_6"],
+    "prefix": ["element_6", "minecraft.blocks.element_6"],
     "body": "element_6",
     "description": "Returns the block name of 'element_6'"
   },
   "minecraft.blocks.element_7": {
-    "prefix": ["element_7", "minecraft.blocks.element_7", "element_7"],
+    "prefix": ["element_7", "minecraft.blocks.element_7"],
     "body": "element_7",
     "description": "Returns the block name of 'element_7'"
   },
   "minecraft.blocks.element_8": {
-    "prefix": ["element_8", "minecraft.blocks.element_8", "element_8"],
+    "prefix": ["element_8", "minecraft.blocks.element_8"],
     "body": "element_8",
     "description": "Returns the block name of 'element_8'"
   },
   "minecraft.blocks.element_9": {
-    "prefix": ["element_9", "minecraft.blocks.element_9", "element_9"],
+    "prefix": ["element_9", "minecraft.blocks.element_9"],
     "body": "element_9",
     "description": "Returns the block name of 'element_9'"
   },
   "minecraft.blocks.element_10": {
-    "prefix": ["element_10", "minecraft.blocks.element_10", "element_10"],
+    "prefix": ["element_10", "minecraft.blocks.element_10"],
     "body": "element_10",
     "description": "Returns the block name of 'element_10'"
   },
   "minecraft.blocks.element_11": {
-    "prefix": ["element_11", "minecraft.blocks.element_11", "element_11"],
+    "prefix": ["element_11", "minecraft.blocks.element_11"],
     "body": "element_11",
     "description": "Returns the block name of 'element_11'"
   },
   "minecraft.blocks.element_12": {
-    "prefix": ["element_12", "minecraft.blocks.element_12", "element_12"],
+    "prefix": ["element_12", "minecraft.blocks.element_12"],
     "body": "element_12",
     "description": "Returns the block name of 'element_12'"
   },
   "minecraft.blocks.element_13": {
-    "prefix": ["element_13", "minecraft.blocks.element_13", "element_13"],
+    "prefix": ["element_13", "minecraft.blocks.element_13"],
     "body": "element_13",
     "description": "Returns the block name of 'element_13'"
   },
   "minecraft.blocks.element_14": {
-    "prefix": ["element_14", "minecraft.blocks.element_14", "element_14"],
+    "prefix": ["element_14", "minecraft.blocks.element_14"],
     "body": "element_14",
     "description": "Returns the block name of 'element_14'"
   },
   "minecraft.blocks.element_15": {
-    "prefix": ["element_15", "minecraft.blocks.element_15", "element_15"],
+    "prefix": ["element_15", "minecraft.blocks.element_15"],
     "body": "element_15",
     "description": "Returns the block name of 'element_15'"
   },
   "minecraft.blocks.element_16": {
-    "prefix": ["element_16", "minecraft.blocks.element_16", "element_16"],
+    "prefix": ["element_16", "minecraft.blocks.element_16"],
     "body": "element_16",
     "description": "Returns the block name of 'element_16'"
   },
   "minecraft.blocks.element_17": {
-    "prefix": ["element_17", "minecraft.blocks.element_17", "element_17"],
+    "prefix": ["element_17", "minecraft.blocks.element_17"],
     "body": "element_17",
     "description": "Returns the block name of 'element_17'"
   },
   "minecraft.blocks.element_18": {
-    "prefix": ["element_18", "minecraft.blocks.element_18", "element_18"],
+    "prefix": ["element_18", "minecraft.blocks.element_18"],
     "body": "element_18",
     "description": "Returns the block name of 'element_18'"
   },
   "minecraft.blocks.element_19": {
-    "prefix": ["element_19", "minecraft.blocks.element_19", "element_19"],
+    "prefix": ["element_19", "minecraft.blocks.element_19"],
     "body": "element_19",
     "description": "Returns the block name of 'element_19'"
   },
   "minecraft.blocks.element_20": {
-    "prefix": ["element_20", "minecraft.blocks.element_20", "element_20"],
+    "prefix": ["element_20", "minecraft.blocks.element_20"],
     "body": "element_20",
     "description": "Returns the block name of 'element_20'"
   },
   "minecraft.blocks.element_21": {
-    "prefix": ["element_21", "minecraft.blocks.element_21", "element_21"],
+    "prefix": ["element_21", "minecraft.blocks.element_21"],
     "body": "element_21",
     "description": "Returns the block name of 'element_21'"
   },
   "minecraft.blocks.element_22": {
-    "prefix": ["element_22", "minecraft.blocks.element_22", "element_22"],
+    "prefix": ["element_22", "minecraft.blocks.element_22"],
     "body": "element_22",
     "description": "Returns the block name of 'element_22'"
   },
   "minecraft.blocks.element_23": {
-    "prefix": ["element_23", "minecraft.blocks.element_23", "element_23"],
+    "prefix": ["element_23", "minecraft.blocks.element_23"],
     "body": "element_23",
     "description": "Returns the block name of 'element_23'"
   },
   "minecraft.blocks.element_24": {
-    "prefix": ["element_24", "minecraft.blocks.element_24", "element_24"],
+    "prefix": ["element_24", "minecraft.blocks.element_24"],
     "body": "element_24",
     "description": "Returns the block name of 'element_24'"
   },
   "minecraft.blocks.element_25": {
-    "prefix": ["element_25", "minecraft.blocks.element_25", "element_25"],
+    "prefix": ["element_25", "minecraft.blocks.element_25"],
     "body": "element_25",
     "description": "Returns the block name of 'element_25'"
   },
   "minecraft.blocks.element_26": {
-    "prefix": ["element_26", "minecraft.blocks.element_26", "element_26"],
+    "prefix": ["element_26", "minecraft.blocks.element_26"],
     "body": "element_26",
     "description": "Returns the block name of 'element_26'"
   },
   "minecraft.blocks.element_27": {
-    "prefix": ["element_27", "minecraft.blocks.element_27", "element_27"],
+    "prefix": ["element_27", "minecraft.blocks.element_27"],
     "body": "element_27",
     "description": "Returns the block name of 'element_27'"
   },
   "minecraft.blocks.element_28": {
-    "prefix": ["element_28", "minecraft.blocks.element_28", "element_28"],
+    "prefix": ["element_28", "minecraft.blocks.element_28"],
     "body": "element_28",
     "description": "Returns the block name of 'element_28'"
   },
   "minecraft.blocks.element_29": {
-    "prefix": ["element_29", "minecraft.blocks.element_29", "element_29"],
+    "prefix": ["element_29", "minecraft.blocks.element_29"],
     "body": "element_29",
     "description": "Returns the block name of 'element_29'"
   },
   "minecraft.blocks.element_30": {
-    "prefix": ["element_30", "minecraft.blocks.element_30", "element_30"],
+    "prefix": ["element_30", "minecraft.blocks.element_30"],
     "body": "element_30",
     "description": "Returns the block name of 'element_30'"
   },
   "minecraft.blocks.element_31": {
-    "prefix": ["element_31", "minecraft.blocks.element_31", "element_31"],
+    "prefix": ["element_31", "minecraft.blocks.element_31"],
     "body": "element_31",
     "description": "Returns the block name of 'element_31'"
   },
   "minecraft.blocks.element_32": {
-    "prefix": ["element_32", "minecraft.blocks.element_32", "element_32"],
+    "prefix": ["element_32", "minecraft.blocks.element_32"],
     "body": "element_32",
     "description": "Returns the block name of 'element_32'"
   },
   "minecraft.blocks.element_33": {
-    "prefix": ["element_33", "minecraft.blocks.element_33", "element_33"],
+    "prefix": ["element_33", "minecraft.blocks.element_33"],
     "body": "element_33",
     "description": "Returns the block name of 'element_33'"
   },
   "minecraft.blocks.element_34": {
-    "prefix": ["element_34", "minecraft.blocks.element_34", "element_34"],
+    "prefix": ["element_34", "minecraft.blocks.element_34"],
     "body": "element_34",
     "description": "Returns the block name of 'element_34'"
   },
   "minecraft.blocks.element_35": {
-    "prefix": ["element_35", "minecraft.blocks.element_35", "element_35"],
+    "prefix": ["element_35", "minecraft.blocks.element_35"],
     "body": "element_35",
     "description": "Returns the block name of 'element_35'"
   },
   "minecraft.blocks.element_36": {
-    "prefix": ["element_36", "minecraft.blocks.element_36", "element_36"],
+    "prefix": ["element_36", "minecraft.blocks.element_36"],
     "body": "element_36",
     "description": "Returns the block name of 'element_36'"
   },
   "minecraft.blocks.element_37": {
-    "prefix": ["element_37", "minecraft.blocks.element_37", "element_37"],
+    "prefix": ["element_37", "minecraft.blocks.element_37"],
     "body": "element_37",
     "description": "Returns the block name of 'element_37'"
   },
   "minecraft.blocks.element_38": {
-    "prefix": ["element_38", "minecraft.blocks.element_38", "element_38"],
+    "prefix": ["element_38", "minecraft.blocks.element_38"],
     "body": "element_38",
     "description": "Returns the block name of 'element_38'"
   },
   "minecraft.blocks.element_39": {
-    "prefix": ["element_39", "minecraft.blocks.element_39", "element_39"],
+    "prefix": ["element_39", "minecraft.blocks.element_39"],
     "body": "element_39",
     "description": "Returns the block name of 'element_39'"
   },
   "minecraft.blocks.element_40": {
-    "prefix": ["element_40", "minecraft.blocks.element_40", "element_40"],
+    "prefix": ["element_40", "minecraft.blocks.element_40"],
     "body": "element_40",
     "description": "Returns the block name of 'element_40'"
   },
   "minecraft.blocks.element_41": {
-    "prefix": ["element_41", "minecraft.blocks.element_41", "element_41"],
+    "prefix": ["element_41", "minecraft.blocks.element_41"],
     "body": "element_41",
     "description": "Returns the block name of 'element_41'"
   },
   "minecraft.blocks.element_42": {
-    "prefix": ["element_42", "minecraft.blocks.element_42", "element_42"],
+    "prefix": ["element_42", "minecraft.blocks.element_42"],
     "body": "element_42",
     "description": "Returns the block name of 'element_42'"
   },
   "minecraft.blocks.element_43": {
-    "prefix": ["element_43", "minecraft.blocks.element_43", "element_43"],
+    "prefix": ["element_43", "minecraft.blocks.element_43"],
     "body": "element_43",
     "description": "Returns the block name of 'element_43'"
   },
   "minecraft.blocks.element_44": {
-    "prefix": ["element_44", "minecraft.blocks.element_44", "element_44"],
+    "prefix": ["element_44", "minecraft.blocks.element_44"],
     "body": "element_44",
     "description": "Returns the block name of 'element_44'"
   },
   "minecraft.blocks.element_45": {
-    "prefix": ["element_45", "minecraft.blocks.element_45", "element_45"],
+    "prefix": ["element_45", "minecraft.blocks.element_45"],
     "body": "element_45",
     "description": "Returns the block name of 'element_45'"
   },
   "minecraft.blocks.element_46": {
-    "prefix": ["element_46", "minecraft.blocks.element_46", "element_46"],
+    "prefix": ["element_46", "minecraft.blocks.element_46"],
     "body": "element_46",
     "description": "Returns the block name of 'element_46'"
   },
   "minecraft.blocks.element_47": {
-    "prefix": ["element_47", "minecraft.blocks.element_47", "element_47"],
+    "prefix": ["element_47", "minecraft.blocks.element_47"],
     "body": "element_47",
     "description": "Returns the block name of 'element_47'"
   },
   "minecraft.blocks.element_48": {
-    "prefix": ["element_48", "minecraft.blocks.element_48", "element_48"],
+    "prefix": ["element_48", "minecraft.blocks.element_48"],
     "body": "element_48",
     "description": "Returns the block name of 'element_48'"
   },
   "minecraft.blocks.element_49": {
-    "prefix": ["element_49", "minecraft.blocks.element_49", "element_49"],
+    "prefix": ["element_49", "minecraft.blocks.element_49"],
     "body": "element_49",
     "description": "Returns the block name of 'element_49'"
   },
   "minecraft.blocks.element_50": {
-    "prefix": ["element_50", "minecraft.blocks.element_50", "element_50"],
+    "prefix": ["element_50", "minecraft.blocks.element_50"],
     "body": "element_50",
     "description": "Returns the block name of 'element_50'"
   },
   "minecraft.blocks.element_51": {
-    "prefix": ["element_51", "minecraft.blocks.element_51", "element_51"],
+    "prefix": ["element_51", "minecraft.blocks.element_51"],
     "body": "element_51",
     "description": "Returns the block name of 'element_51'"
   },
   "minecraft.blocks.element_52": {
-    "prefix": ["element_52", "minecraft.blocks.element_52", "element_52"],
+    "prefix": ["element_52", "minecraft.blocks.element_52"],
     "body": "element_52",
     "description": "Returns the block name of 'element_52'"
   },
   "minecraft.blocks.element_53": {
-    "prefix": ["element_53", "minecraft.blocks.element_53", "element_53"],
+    "prefix": ["element_53", "minecraft.blocks.element_53"],
     "body": "element_53",
     "description": "Returns the block name of 'element_53'"
   },
   "minecraft.blocks.element_54": {
-    "prefix": ["element_54", "minecraft.blocks.element_54", "element_54"],
+    "prefix": ["element_54", "minecraft.blocks.element_54"],
     "body": "element_54",
     "description": "Returns the block name of 'element_54'"
   },
   "minecraft.blocks.element_55": {
-    "prefix": ["element_55", "minecraft.blocks.element_55", "element_55"],
+    "prefix": ["element_55", "minecraft.blocks.element_55"],
     "body": "element_55",
     "description": "Returns the block name of 'element_55'"
   },
   "minecraft.blocks.element_56": {
-    "prefix": ["element_56", "minecraft.blocks.element_56", "element_56"],
+    "prefix": ["element_56", "minecraft.blocks.element_56"],
     "body": "element_56",
     "description": "Returns the block name of 'element_56'"
   },
   "minecraft.blocks.element_57": {
-    "prefix": ["element_57", "minecraft.blocks.element_57", "element_57"],
+    "prefix": ["element_57", "minecraft.blocks.element_57"],
     "body": "element_57",
     "description": "Returns the block name of 'element_57'"
   },
   "minecraft.blocks.element_58": {
-    "prefix": ["element_58", "minecraft.blocks.element_58", "element_58"],
+    "prefix": ["element_58", "minecraft.blocks.element_58"],
     "body": "element_58",
     "description": "Returns the block name of 'element_58'"
   },
   "minecraft.blocks.element_59": {
-    "prefix": ["element_59", "minecraft.blocks.element_59", "element_59"],
+    "prefix": ["element_59", "minecraft.blocks.element_59"],
     "body": "element_59",
     "description": "Returns the block name of 'element_59'"
   },
   "minecraft.blocks.element_60": {
-    "prefix": ["element_60", "minecraft.blocks.element_60", "element_60"],
+    "prefix": ["element_60", "minecraft.blocks.element_60"],
     "body": "element_60",
     "description": "Returns the block name of 'element_60'"
   },
   "minecraft.blocks.element_61": {
-    "prefix": ["element_61", "minecraft.blocks.element_61", "element_61"],
+    "prefix": ["element_61", "minecraft.blocks.element_61"],
     "body": "element_61",
     "description": "Returns the block name of 'element_61'"
   },
   "minecraft.blocks.element_62": {
-    "prefix": ["element_62", "minecraft.blocks.element_62", "element_62"],
+    "prefix": ["element_62", "minecraft.blocks.element_62"],
     "body": "element_62",
     "description": "Returns the block name of 'element_62'"
   },
   "minecraft.blocks.element_63": {
-    "prefix": ["element_63", "minecraft.blocks.element_63", "element_63"],
+    "prefix": ["element_63", "minecraft.blocks.element_63"],
     "body": "element_63",
     "description": "Returns the block name of 'element_63'"
   },
   "minecraft.blocks.element_64": {
-    "prefix": ["element_64", "minecraft.blocks.element_64", "element_64"],
+    "prefix": ["element_64", "minecraft.blocks.element_64"],
     "body": "element_64",
     "description": "Returns the block name of 'element_64'"
   },
   "minecraft.blocks.element_65": {
-    "prefix": ["element_65", "minecraft.blocks.element_65", "element_65"],
+    "prefix": ["element_65", "minecraft.blocks.element_65"],
     "body": "element_65",
     "description": "Returns the block name of 'element_65'"
   },
   "minecraft.blocks.element_66": {
-    "prefix": ["element_66", "minecraft.blocks.element_66", "element_66"],
+    "prefix": ["element_66", "minecraft.blocks.element_66"],
     "body": "element_66",
     "description": "Returns the block name of 'element_66'"
   },
   "minecraft.blocks.element_67": {
-    "prefix": ["element_67", "minecraft.blocks.element_67", "element_67"],
+    "prefix": ["element_67", "minecraft.blocks.element_67"],
     "body": "element_67",
     "description": "Returns the block name of 'element_67'"
   },
   "minecraft.blocks.element_68": {
-    "prefix": ["element_68", "minecraft.blocks.element_68", "element_68"],
+    "prefix": ["element_68", "minecraft.blocks.element_68"],
     "body": "element_68",
     "description": "Returns the block name of 'element_68'"
   },
   "minecraft.blocks.element_69": {
-    "prefix": ["element_69", "minecraft.blocks.element_69", "element_69"],
+    "prefix": ["element_69", "minecraft.blocks.element_69"],
     "body": "element_69",
     "description": "Returns the block name of 'element_69'"
   },
   "minecraft.blocks.element_70": {
-    "prefix": ["element_70", "minecraft.blocks.element_70", "element_70"],
+    "prefix": ["element_70", "minecraft.blocks.element_70"],
     "body": "element_70",
     "description": "Returns the block name of 'element_70'"
   },
   "minecraft.blocks.element_71": {
-    "prefix": ["element_71", "minecraft.blocks.element_71", "element_71"],
+    "prefix": ["element_71", "minecraft.blocks.element_71"],
     "body": "element_71",
     "description": "Returns the block name of 'element_71'"
   },
   "minecraft.blocks.element_72": {
-    "prefix": ["element_72", "minecraft.blocks.element_72", "element_72"],
+    "prefix": ["element_72", "minecraft.blocks.element_72"],
     "body": "element_72",
     "description": "Returns the block name of 'element_72'"
   },
   "minecraft.blocks.element_73": {
-    "prefix": ["element_73", "minecraft.blocks.element_73", "element_73"],
+    "prefix": ["element_73", "minecraft.blocks.element_73"],
     "body": "element_73",
     "description": "Returns the block name of 'element_73'"
   },
   "minecraft.blocks.element_74": {
-    "prefix": ["element_74", "minecraft.blocks.element_74", "element_74"],
+    "prefix": ["element_74", "minecraft.blocks.element_74"],
     "body": "element_74",
     "description": "Returns the block name of 'element_74'"
   },
   "minecraft.blocks.element_75": {
-    "prefix": ["element_75", "minecraft.blocks.element_75", "element_75"],
+    "prefix": ["element_75", "minecraft.blocks.element_75"],
     "body": "element_75",
     "description": "Returns the block name of 'element_75'"
   },
   "minecraft.blocks.element_76": {
-    "prefix": ["element_76", "minecraft.blocks.element_76", "element_76"],
+    "prefix": ["element_76", "minecraft.blocks.element_76"],
     "body": "element_76",
     "description": "Returns the block name of 'element_76'"
   },
   "minecraft.blocks.element_77": {
-    "prefix": ["element_77", "minecraft.blocks.element_77", "element_77"],
+    "prefix": ["element_77", "minecraft.blocks.element_77"],
     "body": "element_77",
     "description": "Returns the block name of 'element_77'"
   },
   "minecraft.blocks.element_78": {
-    "prefix": ["element_78", "minecraft.blocks.element_78", "element_78"],
+    "prefix": ["element_78", "minecraft.blocks.element_78"],
     "body": "element_78",
     "description": "Returns the block name of 'element_78'"
   },
   "minecraft.blocks.element_79": {
-    "prefix": ["element_79", "minecraft.blocks.element_79", "element_79"],
+    "prefix": ["element_79", "minecraft.blocks.element_79"],
     "body": "element_79",
     "description": "Returns the block name of 'element_79'"
   },
   "minecraft.blocks.element_80": {
-    "prefix": ["element_80", "minecraft.blocks.element_80", "element_80"],
+    "prefix": ["element_80", "minecraft.blocks.element_80"],
     "body": "element_80",
     "description": "Returns the block name of 'element_80'"
   },
   "minecraft.blocks.element_81": {
-    "prefix": ["element_81", "minecraft.blocks.element_81", "element_81"],
+    "prefix": ["element_81", "minecraft.blocks.element_81"],
     "body": "element_81",
     "description": "Returns the block name of 'element_81'"
   },
   "minecraft.blocks.element_82": {
-    "prefix": ["element_82", "minecraft.blocks.element_82", "element_82"],
+    "prefix": ["element_82", "minecraft.blocks.element_82"],
     "body": "element_82",
     "description": "Returns the block name of 'element_82'"
   },
   "minecraft.blocks.element_83": {
-    "prefix": ["element_83", "minecraft.blocks.element_83", "element_83"],
+    "prefix": ["element_83", "minecraft.blocks.element_83"],
     "body": "element_83",
     "description": "Returns the block name of 'element_83'"
   },
   "minecraft.blocks.element_84": {
-    "prefix": ["element_84", "minecraft.blocks.element_84", "element_84"],
+    "prefix": ["element_84", "minecraft.blocks.element_84"],
     "body": "element_84",
     "description": "Returns the block name of 'element_84'"
   },
   "minecraft.blocks.element_85": {
-    "prefix": ["element_85", "minecraft.blocks.element_85", "element_85"],
+    "prefix": ["element_85", "minecraft.blocks.element_85"],
     "body": "element_85",
     "description": "Returns the block name of 'element_85'"
   },
   "minecraft.blocks.element_86": {
-    "prefix": ["element_86", "minecraft.blocks.element_86", "element_86"],
+    "prefix": ["element_86", "minecraft.blocks.element_86"],
     "body": "element_86",
     "description": "Returns the block name of 'element_86'"
   },
   "minecraft.blocks.element_87": {
-    "prefix": ["element_87", "minecraft.blocks.element_87", "element_87"],
+    "prefix": ["element_87", "minecraft.blocks.element_87"],
     "body": "element_87",
     "description": "Returns the block name of 'element_87'"
   },
   "minecraft.blocks.element_88": {
-    "prefix": ["element_88", "minecraft.blocks.element_88", "element_88"],
+    "prefix": ["element_88", "minecraft.blocks.element_88"],
     "body": "element_88",
     "description": "Returns the block name of 'element_88'"
   },
   "minecraft.blocks.element_89": {
-    "prefix": ["element_89", "minecraft.blocks.element_89", "element_89"],
+    "prefix": ["element_89", "minecraft.blocks.element_89"],
     "body": "element_89",
     "description": "Returns the block name of 'element_89'"
   },
   "minecraft.blocks.element_90": {
-    "prefix": ["element_90", "minecraft.blocks.element_90", "element_90"],
+    "prefix": ["element_90", "minecraft.blocks.element_90"],
     "body": "element_90",
     "description": "Returns the block name of 'element_90'"
   },
   "minecraft.blocks.element_91": {
-    "prefix": ["element_91", "minecraft.blocks.element_91", "element_91"],
+    "prefix": ["element_91", "minecraft.blocks.element_91"],
     "body": "element_91",
     "description": "Returns the block name of 'element_91'"
   },
   "minecraft.blocks.element_92": {
-    "prefix": ["element_92", "minecraft.blocks.element_92", "element_92"],
+    "prefix": ["element_92", "minecraft.blocks.element_92"],
     "body": "element_92",
     "description": "Returns the block name of 'element_92'"
   },
   "minecraft.blocks.element_93": {
-    "prefix": ["element_93", "minecraft.blocks.element_93", "element_93"],
+    "prefix": ["element_93", "minecraft.blocks.element_93"],
     "body": "element_93",
     "description": "Returns the block name of 'element_93'"
   },
   "minecraft.blocks.element_94": {
-    "prefix": ["element_94", "minecraft.blocks.element_94", "element_94"],
+    "prefix": ["element_94", "minecraft.blocks.element_94"],
     "body": "element_94",
     "description": "Returns the block name of 'element_94'"
   },
   "minecraft.blocks.element_95": {
-    "prefix": ["element_95", "minecraft.blocks.element_95", "element_95"],
+    "prefix": ["element_95", "minecraft.blocks.element_95"],
     "body": "element_95",
     "description": "Returns the block name of 'element_95'"
   },
   "minecraft.blocks.element_96": {
-    "prefix": ["element_96", "minecraft.blocks.element_96", "element_96"],
+    "prefix": ["element_96", "minecraft.blocks.element_96"],
     "body": "element_96",
     "description": "Returns the block name of 'element_96'"
   },
   "minecraft.blocks.element_97": {
-    "prefix": ["element_97", "minecraft.blocks.element_97", "element_97"],
+    "prefix": ["element_97", "minecraft.blocks.element_97"],
     "body": "element_97",
     "description": "Returns the block name of 'element_97'"
   },
   "minecraft.blocks.element_98": {
-    "prefix": ["element_98", "minecraft.blocks.element_98", "element_98"],
+    "prefix": ["element_98", "minecraft.blocks.element_98"],
     "body": "element_98",
     "description": "Returns the block name of 'element_98'"
   },
   "minecraft.blocks.element_99": {
-    "prefix": ["element_99", "minecraft.blocks.element_99", "element_99"],
+    "prefix": ["element_99", "minecraft.blocks.element_99"],
     "body": "element_99",
     "description": "Returns the block name of 'element_99'"
   },
   "minecraft.blocks.element_100": {
-    "prefix": ["element_100", "minecraft.blocks.element_100", "element_100"],
+    "prefix": ["element_100", "minecraft.blocks.element_100"],
     "body": "element_100",
     "description": "Returns the block name of 'element_100'"
   },
   "minecraft.blocks.element_101": {
-    "prefix": ["element_101", "minecraft.blocks.element_101", "element_101"],
+    "prefix": ["element_101", "minecraft.blocks.element_101"],
     "body": "element_101",
     "description": "Returns the block name of 'element_101'"
   },
   "minecraft.blocks.element_102": {
-    "prefix": ["element_102", "minecraft.blocks.element_102", "element_102"],
+    "prefix": ["element_102", "minecraft.blocks.element_102"],
     "body": "element_102",
     "description": "Returns the block name of 'element_102'"
   },
   "minecraft.blocks.element_103": {
-    "prefix": ["element_103", "minecraft.blocks.element_103", "element_103"],
+    "prefix": ["element_103", "minecraft.blocks.element_103"],
     "body": "element_103",
     "description": "Returns the block name of 'element_103'"
   },
   "minecraft.blocks.element_104": {
-    "prefix": ["element_104", "minecraft.blocks.element_104", "element_104"],
+    "prefix": ["element_104", "minecraft.blocks.element_104"],
     "body": "element_104",
     "description": "Returns the block name of 'element_104'"
   },
   "minecraft.blocks.element_105": {
-    "prefix": ["element_105", "minecraft.blocks.element_105", "element_105"],
+    "prefix": ["element_105", "minecraft.blocks.element_105"],
     "body": "element_105",
     "description": "Returns the block name of 'element_105'"
   },
   "minecraft.blocks.element_106": {
-    "prefix": ["element_106", "minecraft.blocks.element_106", "element_106"],
+    "prefix": ["element_106", "minecraft.blocks.element_106"],
     "body": "element_106",
     "description": "Returns the block name of 'element_106'"
   },
   "minecraft.blocks.element_107": {
-    "prefix": ["element_107", "minecraft.blocks.element_107", "element_107"],
+    "prefix": ["element_107", "minecraft.blocks.element_107"],
     "body": "element_107",
     "description": "Returns the block name of 'element_107'"
   },
   "minecraft.blocks.element_108": {
-    "prefix": ["element_108", "minecraft.blocks.element_108", "element_108"],
+    "prefix": ["element_108", "minecraft.blocks.element_108"],
     "body": "element_108",
     "description": "Returns the block name of 'element_108'"
   },
   "minecraft.blocks.element_109": {
-    "prefix": ["element_109", "minecraft.blocks.element_109", "element_109"],
+    "prefix": ["element_109", "minecraft.blocks.element_109"],
     "body": "element_109",
     "description": "Returns the block name of 'element_109'"
   },
   "minecraft.blocks.element_110": {
-    "prefix": ["element_110", "minecraft.blocks.element_110", "element_110"],
+    "prefix": ["element_110", "minecraft.blocks.element_110"],
     "body": "element_110",
     "description": "Returns the block name of 'element_110'"
   },
   "minecraft.blocks.element_111": {
-    "prefix": ["element_111", "minecraft.blocks.element_111", "element_111"],
+    "prefix": ["element_111", "minecraft.blocks.element_111"],
     "body": "element_111",
     "description": "Returns the block name of 'element_111'"
   },
   "minecraft.blocks.element_112": {
-    "prefix": ["element_112", "minecraft.blocks.element_112", "element_112"],
+    "prefix": ["element_112", "minecraft.blocks.element_112"],
     "body": "element_112",
     "description": "Returns the block name of 'element_112'"
   },
   "minecraft.blocks.element_113": {
-    "prefix": ["element_113", "minecraft.blocks.element_113", "element_113"],
+    "prefix": ["element_113", "minecraft.blocks.element_113"],
     "body": "element_113",
     "description": "Returns the block name of 'element_113'"
   },
   "minecraft.blocks.element_114": {
-    "prefix": ["element_114", "minecraft.blocks.element_114", "element_114"],
+    "prefix": ["element_114", "minecraft.blocks.element_114"],
     "body": "element_114",
     "description": "Returns the block name of 'element_114'"
   },
   "minecraft.blocks.element_115": {
-    "prefix": ["element_115", "minecraft.blocks.element_115", "element_115"],
+    "prefix": ["element_115", "minecraft.blocks.element_115"],
     "body": "element_115",
     "description": "Returns the block name of 'element_115'"
   },
   "minecraft.blocks.element_116": {
-    "prefix": ["element_116", "minecraft.blocks.element_116", "element_116"],
+    "prefix": ["element_116", "minecraft.blocks.element_116"],
     "body": "element_116",
     "description": "Returns the block name of 'element_116'"
   },
   "minecraft.blocks.element_117": {
-    "prefix": ["element_117", "minecraft.blocks.element_117", "element_117"],
+    "prefix": ["element_117", "minecraft.blocks.element_117"],
     "body": "element_117",
     "description": "Returns the block name of 'element_117'"
   },
   "minecraft.blocks.element_118": {
-    "prefix": ["element_118", "minecraft.blocks.element_118", "element_118"],
+    "prefix": ["element_118", "minecraft.blocks.element_118"],
     "body": "element_118",
     "description": "Returns the block name of 'element_118'"
   },
   "minecraft.blocks.emerald_block": {
-    "prefix": ["minecraft.blocks.emerald_block", "emerald_block"],
+    "prefix": ["snippet.blocks.emerald_block"],
     "body": "emerald_block",
     "description": "Returns the block name of 'emerald_block'"
   },
   "minecraft.blocks.emerald_ore": {
-    "prefix": ["minecraft.blocks.emerald_ore", "emerald_ore"],
+    "prefix": ["snippet.blocks.emerald_ore"],
     "body": "emerald_ore",
     "description": "Returns the block name of 'emerald_ore'"
   },
   "minecraft.blocks.enchanting_table": {
-    "prefix": ["minecraft.blocks.enchanting_table", "enchanting_table"],
+    "prefix": ["snippet.blocks.enchanting_table"],
     "body": "enchanting_table",
     "description": "Returns the block name of 'enchanting_table'"
   },
   "minecraft.blocks.end_brick_stairs": {
-    "prefix": ["minecraft.blocks.end_brick_stairs", "end_brick_stairs"],
+    "prefix": ["snippet.blocks.end_brick_stairs"],
     "body": "end_brick_stairs",
     "description": "Returns the block name of 'end_brick_stairs'"
   },
   "minecraft.blocks.end_bricks": {
-    "prefix": ["minecraft.blocks.end_bricks", "end_bricks"],
+    "prefix": ["snippet.blocks.end_bricks"],
     "body": "end_bricks",
     "description": "Returns the block name of 'end_bricks'"
   },
   "minecraft.blocks.end_gateway": {
-    "prefix": ["minecraft.blocks.end_gateway", "end_gateway"],
+    "prefix": ["snippet.blocks.end_gateway"],
     "body": "end_gateway",
     "description": "Returns the block name of 'end_gateway'"
   },
   "minecraft.blocks.end_portal": {
-    "prefix": ["minecraft.blocks.end_portal", "end_portal"],
+    "prefix": ["snippet.blocks.end_portal"],
     "body": "end_portal",
     "description": "Returns the block name of 'end_portal'"
   },
   "minecraft.blocks.end_portal_frame": {
-    "prefix": ["minecraft.blocks.end_portal_frame", "end_portal_frame"],
+    "prefix": ["snippet.blocks.end_portal_frame"],
     "body": "end_portal_frame",
     "description": "Returns the block name of 'end_portal_frame'"
   },
   "minecraft.blocks.end_rod": {
-    "prefix": ["minecraft.blocks.end_rod", "end_rod"],
+    "prefix": ["snippet.blocks.end_rod"],
     "body": "end_rod",
     "description": "Returns the block name of 'end_rod'"
   },
   "minecraft.blocks.end_stone": {
-    "prefix": ["minecraft.blocks.end_stone", "end_stone"],
+    "prefix": ["snippet.blocks.end_stone"],
     "body": "end_stone",
     "description": "Returns the block name of 'end_stone'"
   },
   "minecraft.blocks.ender_chest": {
-    "prefix": ["minecraft.blocks.ender_chest", "ender_chest"],
+    "prefix": ["snippet.blocks.ender_chest"],
     "body": "ender_chest",
     "description": "Returns the block name of 'ender_chest'"
   },
   "minecraft.blocks.farmland": {
-    "prefix": ["minecraft.blocks.farmland", "farmland"],
+    "prefix": ["snippet.blocks.farmland"],
     "body": "farmland",
     "description": "Returns the block name of 'farmland'"
   },
   "minecraft.blocks.fence": {
-    "prefix": ["minecraft.blocks.fence", "fence"],
+    "prefix": ["snippet.blocks.fence"],
     "body": "fence",
     "description": "Returns the block name of 'fence'"
   },
   "minecraft.blocks.fence_gate": {
-    "prefix": ["minecraft.blocks.fence_gate", "fence_gate"],
+    "prefix": ["snippet.blocks.fence_gate"],
     "body": "fence_gate",
     "description": "Returns the block name of 'fence_gate'"
   },
   "minecraft.blocks.fire": {
-    "prefix": ["minecraft.blocks.fire", "fire"],
+    "prefix": ["snippet.blocks.fire"],
     "body": "fire",
     "description": "Returns the block name of 'fire'"
   },
   "minecraft.blocks.fletching_table": {
-    "prefix": ["minecraft.blocks.fletching_table", "fletching_table"],
+    "prefix": ["snippet.blocks.fletching_table"],
     "body": "fletching_table",
     "description": "Returns the block name of 'fletching_table'"
   },
   "minecraft.blocks.flower_pot": {
-    "prefix": ["minecraft.blocks.flower_pot", "flower_pot"],
+    "prefix": ["snippet.blocks.flower_pot"],
     "body": "flower_pot",
     "description": "Returns the block name of 'flower_pot'"
   },
   "minecraft.blocks.flowing_lava": {
-    "prefix": ["minecraft.blocks.flowing_lava", "flowing_lava"],
+    "prefix": ["snippet.blocks.flowing_lava"],
     "body": "flowing_lava",
     "description": "Returns the block name of 'flowing_lava'"
   },
   "minecraft.blocks.flowing_water": {
-    "prefix": ["minecraft.blocks.flowing_water", "flowing_water"],
+    "prefix": ["snippet.blocks.flowing_water"],
     "body": "flowing_water",
     "description": "Returns the block name of 'flowing_water'"
   },
   "minecraft.blocks.frame": {
-    "prefix": ["minecraft.blocks.frame", "frame"],
+    "prefix": ["snippet.blocks.frame"],
     "body": "frame",
     "description": "Returns the block name of 'frame'"
   },
   "minecraft.blocks.frosted_ice": {
-    "prefix": ["minecraft.blocks.frosted_ice", "frosted_ice"],
+    "prefix": ["snippet.blocks.frosted_ice"],
     "body": "frosted_ice",
     "description": "Returns the block name of 'frosted_ice'"
   },
   "minecraft.blocks.furnace": {
-    "prefix": ["minecraft.blocks.furnace", "furnace"],
+    "prefix": ["snippet.blocks.furnace"],
     "body": "furnace",
     "description": "Returns the block name of 'furnace'"
   },
   "minecraft.blocks.glass": {
-    "prefix": ["minecraft.blocks.glass", "glass"],
+    "prefix": ["snippet.blocks.glass"],
     "body": "glass",
     "description": "Returns the block name of 'glass'"
   },
   "minecraft.blocks.glass_pane": {
-    "prefix": ["minecraft.blocks.glass_pane", "glass_pane"],
+    "prefix": ["snippet.blocks.glass_pane"],
     "body": "glass_pane",
     "description": "Returns the block name of 'glass_pane'"
   },
   "minecraft.blocks.glowingobsidian": {
-    "prefix": ["minecraft.blocks.glowingobsidian", "glowingobsidian"],
+    "prefix": ["snippet.blocks.glowingobsidian"],
     "body": "glowingobsidian",
     "description": "Returns the block name of 'glowingobsidian'"
   },
   "minecraft.blocks.glowstone": {
-    "prefix": ["minecraft.blocks.glowstone", "glowstone"],
+    "prefix": ["snippet.blocks.glowstone"],
     "body": "glowstone",
     "description": "Returns the block name of 'glowstone'"
   },
   "minecraft.blocks.gold_block": {
-    "prefix": ["minecraft.blocks.gold_block", "gold_block"],
+    "prefix": ["snippet.blocks.gold_block"],
     "body": "gold_block",
     "description": "Returns the block name of 'gold_block'"
   },
   "minecraft.blocks.gold_ore": {
-    "prefix": ["minecraft.blocks.gold_ore", "gold_ore"],
+    "prefix": ["snippet.blocks.gold_ore"],
     "body": "gold_ore",
     "description": "Returns the block name of 'gold_ore'"
   },
   "minecraft.blocks.golden_rail": {
-    "prefix": ["minecraft.blocks.golden_rail", "golden_rail"],
+    "prefix": ["snippet.blocks.golden_rail"],
     "body": "golden_rail",
     "description": "Returns the block name of 'golden_rail'"
   },
   "minecraft.blocks.granite_stairs": {
-    "prefix": ["minecraft.blocks.granite_stairs", "granite_stairs"],
+    "prefix": ["snippet.blocks.granite_stairs"],
     "body": "granite_stairs",
     "description": "Returns the block name of 'granite_stairs'"
   },
   "minecraft.blocks.grass": {
-    "prefix": ["minecraft.blocks.grass", "grass"],
+    "prefix": ["snippet.blocks.grass"],
     "body": "grass",
     "description": "Returns the block name of 'grass'"
   },
   "minecraft.blocks.grass_path": {
-    "prefix": ["minecraft.blocks.grass_path", "grass_path"],
+    "prefix": ["snippet.blocks.grass_path"],
     "body": "grass_path",
     "description": "Returns the block name of 'grass_path'"
   },
   "minecraft.blocks.gravel": {
-    "prefix": ["minecraft.blocks.gravel", "gravel"],
+    "prefix": ["snippet.blocks.gravel"],
     "body": "gravel",
     "description": "Returns the block name of 'gravel'"
   },
   "minecraft.blocks.gray_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.gray_glazed_terracotta", "gray_glazed_terracotta"],
+    "prefix": ["snippet.blocks.gray_glazed_terracotta"],
     "body": "gray_glazed_terracotta",
     "description": "Returns the block name of 'gray_glazed_terracotta'"
   },
   "minecraft.blocks.green_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.green_glazed_terracotta", "green_glazed_terracotta"],
+    "prefix": ["snippet.blocks.green_glazed_terracotta"],
     "body": "green_glazed_terracotta",
     "description": "Returns the block name of 'green_glazed_terracotta'"
   },
   "minecraft.blocks.grindstone": {
-    "prefix": ["minecraft.blocks.grindstone", "grindstone"],
+    "prefix": ["snippet.blocks.grindstone"],
     "body": "grindstone",
     "description": "Returns the block name of 'grindstone'"
   },
   "minecraft.blocks.hard_glass": {
-    "prefix": ["minecraft.blocks.hard_glass", "hard_glass"],
+    "prefix": ["snippet.blocks.hard_glass"],
     "body": "hard_glass",
     "description": "Returns the block name of 'hard_glass'"
   },
   "minecraft.blocks.hard_glass_pane": {
-    "prefix": ["minecraft.blocks.hard_glass_pane", "hard_glass_pane"],
+    "prefix": ["snippet.blocks.hard_glass_pane"],
     "body": "hard_glass_pane",
     "description": "Returns the block name of 'hard_glass_pane'"
   },
   "minecraft.blocks.hard_stained_glass": {
-    "prefix": ["minecraft.blocks.hard_stained_glass", "hard_stained_glass"],
+    "prefix": ["snippet.blocks.hard_stained_glass"],
     "body": "hard_stained_glass",
     "description": "Returns the block name of 'hard_stained_glass'"
   },
   "minecraft.blocks.hard_stained_glass_pane": {
-    "prefix": ["minecraft.blocks.hard_stained_glass_pane", "hard_stained_glass_pane"],
+    "prefix": ["snippet.blocks.hard_stained_glass_pane"],
     "body": "hard_stained_glass_pane",
     "description": "Returns the block name of 'hard_stained_glass_pane'"
   },
   "minecraft.blocks.hardened_clay": {
-    "prefix": ["minecraft.blocks.hardened_clay", "hardened_clay"],
+    "prefix": ["snippet.blocks.hardened_clay"],
     "body": "hardened_clay",
     "description": "Returns the block name of 'hardened_clay'"
   },
   "minecraft.blocks.hay_block": {
-    "prefix": ["minecraft.blocks.hay_block", "hay_block"],
+    "prefix": ["snippet.blocks.hay_block"],
     "body": "hay_block",
     "description": "Returns the block name of 'hay_block'"
   },
   "minecraft.blocks.heavy_weighted_pressure_plate": {
-    "prefix": ["minecraft.blocks.heavy_weighted_pressure_plate", "heavy_weighted_pressure_plate"],
+    "prefix": ["snippet.blocks.heavy_weighted_pressure_plate"],
     "body": "heavy_weighted_pressure_plate",
     "description": "Returns the block name of 'heavy_weighted_pressure_plate'"
   },
   "minecraft.blocks.honey_block": {
-    "prefix": ["minecraft.blocks.honey_block", "honey_block"],
+    "prefix": ["snippet.blocks.honey_block"],
     "body": "honey_block",
     "description": "Returns the block name of 'honey_block'"
   },
   "minecraft.blocks.honeycomb_block": {
-    "prefix": ["minecraft.blocks.honeycomb_block", "honeycomb_block"],
+    "prefix": ["snippet.blocks.honeycomb_block"],
     "body": "honeycomb_block",
     "description": "Returns the block name of 'honeycomb_block'"
   },
   "minecraft.blocks.hopper": {
-    "prefix": ["minecraft.blocks.hopper", "hopper"],
+    "prefix": ["snippet.blocks.hopper"],
     "body": "hopper",
     "description": "Returns the block name of 'hopper'"
   },
   "minecraft.blocks.ice": {
-    "prefix": ["minecraft.blocks.ice", "ice"],
+    "prefix": ["snippet.blocks.ice"],
     "body": "ice",
     "description": "Returns the block name of 'ice'"
   },
   "minecraft.blocks.info_update": {
-    "prefix": ["minecraft.blocks.info_update", "info_update"],
+    "prefix": ["snippet.blocks.info_update"],
     "body": "info_update",
     "description": "Returns the block name of 'info_update'"
   },
   "minecraft.blocks.info_update2": {
-    "prefix": ["info_update2", "minecraft.blocks.info_update2", "info_update2"],
+    "prefix": ["info_update2", "minecraft.blocks.info_update2"],
     "body": "info_update2",
     "description": "Returns the block name of 'info_update2'"
   },
   "minecraft.blocks.invisibleBedrock": {
-    "prefix": ["minecraft.blocks.invisibleBedrock", "invisibleBedrock"],
+    "prefix": ["snippet.blocks.invisibleBedrock"],
     "body": "invisibleBedrock",
     "description": "Returns the block name of 'invisibleBedrock'"
   },
   "minecraft.blocks.iron_bars": {
-    "prefix": ["minecraft.blocks.iron_bars", "iron_bars"],
+    "prefix": ["snippet.blocks.iron_bars"],
     "body": "iron_bars",
     "description": "Returns the block name of 'iron_bars'"
   },
   "minecraft.blocks.iron_block": {
-    "prefix": ["minecraft.blocks.iron_block", "iron_block"],
+    "prefix": ["snippet.blocks.iron_block"],
     "body": "iron_block",
     "description": "Returns the block name of 'iron_block'"
   },
   "minecraft.blocks.iron_door": {
-    "prefix": ["minecraft.blocks.iron_door", "iron_door"],
+    "prefix": ["snippet.blocks.iron_door"],
     "body": "iron_door",
     "description": "Returns the block name of 'iron_door'"
   },
   "minecraft.blocks.iron_ore": {
-    "prefix": ["minecraft.blocks.iron_ore", "iron_ore"],
+    "prefix": ["snippet.blocks.iron_ore"],
     "body": "iron_ore",
     "description": "Returns the block name of 'iron_ore'"
   },
   "minecraft.blocks.iron_trapdoor": {
-    "prefix": ["minecraft.blocks.iron_trapdoor", "iron_trapdoor"],
+    "prefix": ["snippet.blocks.iron_trapdoor"],
     "body": "iron_trapdoor",
     "description": "Returns the block name of 'iron_trapdoor'"
   },
   "minecraft.blocks.jigsaw": {
-    "prefix": ["minecraft.blocks.jigsaw", "jigsaw"],
+    "prefix": ["snippet.blocks.jigsaw"],
     "body": "jigsaw",
     "description": "Returns the block name of 'jigsaw'"
   },
   "minecraft.blocks.jukebox": {
-    "prefix": ["minecraft.blocks.jukebox", "jukebox"],
+    "prefix": ["snippet.blocks.jukebox"],
     "body": "jukebox",
     "description": "Returns the block name of 'jukebox'"
   },
   "minecraft.blocks.jungle_button": {
-    "prefix": ["minecraft.blocks.jungle_button", "jungle_button"],
+    "prefix": ["snippet.blocks.jungle_button"],
     "body": "jungle_button",
     "description": "Returns the block name of 'jungle_button'"
   },
   "minecraft.blocks.jungle_door": {
-    "prefix": ["minecraft.blocks.jungle_door", "jungle_door"],
+    "prefix": ["snippet.blocks.jungle_door"],
     "body": "jungle_door",
     "description": "Returns the block name of 'jungle_door'"
   },
   "minecraft.blocks.jungle_fence_gate": {
-    "prefix": ["minecraft.blocks.jungle_fence_gate", "jungle_fence_gate"],
+    "prefix": ["snippet.blocks.jungle_fence_gate"],
     "body": "jungle_fence_gate",
     "description": "Returns the block name of 'jungle_fence_gate'"
   },
   "minecraft.blocks.jungle_pressure_plate": {
-    "prefix": ["minecraft.blocks.jungle_pressure_plate", "jungle_pressure_plate"],
+    "prefix": ["snippet.blocks.jungle_pressure_plate"],
     "body": "jungle_pressure_plate",
     "description": "Returns the block name of 'jungle_pressure_plate'"
   },
   "minecraft.blocks.jungle_stairs": {
-    "prefix": ["minecraft.blocks.jungle_stairs", "jungle_stairs"],
+    "prefix": ["snippet.blocks.jungle_stairs"],
     "body": "jungle_stairs",
     "description": "Returns the block name of 'jungle_stairs'"
   },
   "minecraft.blocks.jungle_standing_sign": {
-    "prefix": ["minecraft.blocks.jungle_standing_sign", "jungle_standing_sign"],
+    "prefix": ["snippet.blocks.jungle_standing_sign"],
     "body": "jungle_standing_sign",
     "description": "Returns the block name of 'jungle_standing_sign'"
   },
   "minecraft.blocks.jungle_trapdoor": {
-    "prefix": ["minecraft.blocks.jungle_trapdoor", "jungle_trapdoor"],
+    "prefix": ["snippet.blocks.jungle_trapdoor"],
     "body": "jungle_trapdoor",
     "description": "Returns the block name of 'jungle_trapdoor'"
   },
   "minecraft.blocks.jungle_wall_sign": {
-    "prefix": ["minecraft.blocks.jungle_wall_sign", "jungle_wall_sign"],
+    "prefix": ["snippet.blocks.jungle_wall_sign"],
     "body": "jungle_wall_sign",
     "description": "Returns the block name of 'jungle_wall_sign'"
   },
   "minecraft.blocks.kelp": {
-    "prefix": ["minecraft.blocks.kelp", "kelp"],
+    "prefix": ["snippet.blocks.kelp"],
     "body": "kelp",
     "description": "Returns the block name of 'kelp'"
   },
   "minecraft.blocks.ladder": {
-    "prefix": ["minecraft.blocks.ladder", "ladder"],
+    "prefix": ["snippet.blocks.ladder"],
     "body": "ladder",
     "description": "Returns the block name of 'ladder'"
   },
   "minecraft.blocks.lantern": {
-    "prefix": ["minecraft.blocks.lantern", "lantern"],
+    "prefix": ["snippet.blocks.lantern"],
     "body": "lantern",
     "description": "Returns the block name of 'lantern'"
   },
   "minecraft.blocks.lapis_block": {
-    "prefix": ["minecraft.blocks.lapis_block", "lapis_block"],
+    "prefix": ["snippet.blocks.lapis_block"],
     "body": "lapis_block",
     "description": "Returns the block name of 'lapis_block'"
   },
   "minecraft.blocks.lapis_ore": {
-    "prefix": ["minecraft.blocks.lapis_ore", "lapis_ore"],
+    "prefix": ["snippet.blocks.lapis_ore"],
     "body": "lapis_ore",
     "description": "Returns the block name of 'lapis_ore'"
   },
   "minecraft.blocks.lava": {
-    "prefix": ["minecraft.blocks.lava", "lava"],
+    "prefix": ["snippet.blocks.lava"],
     "body": "lava",
     "description": "Returns the block name of 'lava'"
   },
   "minecraft.blocks.lava_cauldron": {
-    "prefix": ["minecraft.blocks.lava_cauldron", "lava_cauldron"],
+    "prefix": ["snippet.blocks.lava_cauldron"],
     "body": "lava_cauldron",
     "description": "Returns the block name of 'lava_cauldron'"
   },
   "minecraft.blocks.leaves": {
-    "prefix": ["minecraft.blocks.leaves", "leaves"],
+    "prefix": ["snippet.blocks.leaves"],
     "body": "leaves",
     "description": "Returns the block name of 'leaves'"
   },
   "minecraft.blocks.leaves2": {
-    "prefix": ["leaves2", "minecraft.blocks.leaves2", "leaves2"],
+    "prefix": ["leaves2", "minecraft.blocks.leaves2"],
     "body": "leaves2",
     "description": "Returns the block name of 'leaves2'"
   },
   "minecraft.blocks.lectern": {
-    "prefix": ["minecraft.blocks.lectern", "lectern"],
+    "prefix": ["snippet.blocks.lectern"],
     "body": "lectern",
     "description": "Returns the block name of 'lectern'"
   },
   "minecraft.blocks.lever": {
-    "prefix": ["minecraft.blocks.lever", "lever"],
+    "prefix": ["snippet.blocks.lever"],
     "body": "lever",
     "description": "Returns the block name of 'lever'"
   },
   "minecraft.blocks.light_block": {
-    "prefix": ["minecraft.blocks.light_block", "light_block"],
+    "prefix": ["snippet.blocks.light_block"],
     "body": "light_block",
     "description": "Returns the block name of 'light_block'"
   },
   "minecraft.blocks.light_blue_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.light_blue_glazed_terracotta", "light_blue_glazed_terracotta"],
+    "prefix": ["snippet.blocks.light_blue_glazed_terracotta"],
     "body": "light_blue_glazed_terracotta",
     "description": "Returns the block name of 'light_blue_glazed_terracotta'"
   },
   "minecraft.blocks.light_weighted_pressure_plate": {
-    "prefix": ["minecraft.blocks.light_weighted_pressure_plate", "light_weighted_pressure_plate"],
+    "prefix": ["snippet.blocks.light_weighted_pressure_plate"],
     "body": "light_weighted_pressure_plate",
     "description": "Returns the block name of 'light_weighted_pressure_plate'"
   },
   "minecraft.blocks.lime_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.lime_glazed_terracotta", "lime_glazed_terracotta"],
+    "prefix": ["snippet.blocks.lime_glazed_terracotta"],
     "body": "lime_glazed_terracotta",
     "description": "Returns the block name of 'lime_glazed_terracotta'"
   },
   "minecraft.blocks.lit_blast_furnace": {
-    "prefix": ["minecraft.blocks.lit_blast_furnace", "lit_blast_furnace"],
+    "prefix": ["snippet.blocks.lit_blast_furnace"],
     "body": "lit_blast_furnace",
     "description": "Returns the block name of 'lit_blast_furnace'"
   },
   "minecraft.blocks.lit_furnace": {
-    "prefix": ["minecraft.blocks.lit_furnace", "lit_furnace"],
+    "prefix": ["snippet.blocks.lit_furnace"],
     "body": "lit_furnace",
     "description": "Returns the block name of 'lit_furnace'"
   },
   "minecraft.blocks.lit_pumpkin": {
-    "prefix": ["minecraft.blocks.lit_pumpkin", "lit_pumpkin"],
+    "prefix": ["snippet.blocks.lit_pumpkin"],
     "body": "lit_pumpkin",
     "description": "Returns the block name of 'lit_pumpkin'"
   },
   "minecraft.blocks.lit_redstone_lamp": {
-    "prefix": ["minecraft.blocks.lit_redstone_lamp", "lit_redstone_lamp"],
+    "prefix": ["snippet.blocks.lit_redstone_lamp"],
     "body": "lit_redstone_lamp",
     "description": "Returns the block name of 'lit_redstone_lamp'"
   },
   "minecraft.blocks.lit_redstone_ore": {
-    "prefix": ["minecraft.blocks.lit_redstone_ore", "lit_redstone_ore"],
+    "prefix": ["snippet.blocks.lit_redstone_ore"],
     "body": "lit_redstone_ore",
     "description": "Returns the block name of 'lit_redstone_ore'"
   },
   "minecraft.blocks.lit_smoker": {
-    "prefix": ["minecraft.blocks.lit_smoker", "lit_smoker"],
+    "prefix": ["snippet.blocks.lit_smoker"],
     "body": "lit_smoker",
     "description": "Returns the block name of 'lit_smoker'"
   },
   "minecraft.blocks.log": {
-    "prefix": ["minecraft.blocks.log", "log"],
+    "prefix": ["snippet.blocks.log"],
     "body": "log",
     "description": "Returns the block name of 'log'"
   },
   "minecraft.blocks.log2": {
-    "prefix": ["log2", "minecraft.blocks.log2", "log2"],
+    "prefix": ["log2", "minecraft.blocks.log2"],
     "body": "log2",
     "description": "Returns the block name of 'log2'"
   },
   "minecraft.blocks.loom": {
-    "prefix": ["minecraft.blocks.loom", "loom"],
+    "prefix": ["snippet.blocks.loom"],
     "body": "loom",
     "description": "Returns the block name of 'loom'"
   },
   "minecraft.blocks.magenta_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.magenta_glazed_terracotta", "magenta_glazed_terracotta"],
+    "prefix": ["snippet.blocks.magenta_glazed_terracotta"],
     "body": "magenta_glazed_terracotta",
     "description": "Returns the block name of 'magenta_glazed_terracotta'"
   },
   "minecraft.blocks.magma": {
-    "prefix": ["minecraft.blocks.magma", "magma"],
+    "prefix": ["snippet.blocks.magma"],
     "body": "magma",
     "description": "Returns the block name of 'magma'"
   },
   "minecraft.blocks.melon_block": {
-    "prefix": ["minecraft.blocks.melon_block", "melon_block"],
+    "prefix": ["snippet.blocks.melon_block"],
     "body": "melon_block",
     "description": "Returns the block name of 'melon_block'"
   },
   "minecraft.blocks.melon_stem": {
-    "prefix": ["minecraft.blocks.melon_stem", "melon_stem"],
+    "prefix": ["snippet.blocks.melon_stem"],
     "body": "melon_stem",
     "description": "Returns the block name of 'melon_stem'"
   },
   "minecraft.blocks.mob_spawner": {
-    "prefix": ["minecraft.blocks.mob_spawner", "mob_spawner"],
+    "prefix": ["snippet.blocks.mob_spawner"],
     "body": "mob_spawner",
     "description": "Returns the block name of 'mob_spawner'"
   },
   "minecraft.blocks.monster_egg": {
-    "prefix": ["minecraft.blocks.monster_egg", "monster_egg"],
+    "prefix": ["snippet.blocks.monster_egg"],
     "body": "monster_egg",
     "description": "Returns the block name of 'monster_egg'"
   },
   "minecraft.blocks.mossy_cobblestone": {
-    "prefix": ["minecraft.blocks.mossy_cobblestone", "mossy_cobblestone"],
+    "prefix": ["snippet.blocks.mossy_cobblestone"],
     "body": "mossy_cobblestone",
     "description": "Returns the block name of 'mossy_cobblestone'"
   },
   "minecraft.blocks.mossy_cobblestone_stairs": {
-    "prefix": ["minecraft.blocks.mossy_cobblestone_stairs", "mossy_cobblestone_stairs"],
+    "prefix": ["snippet.blocks.mossy_cobblestone_stairs"],
     "body": "mossy_cobblestone_stairs",
     "description": "Returns the block name of 'mossy_cobblestone_stairs'"
   },
   "minecraft.blocks.mossy_stone_brick_stairs": {
-    "prefix": ["minecraft.blocks.mossy_stone_brick_stairs", "mossy_stone_brick_stairs"],
+    "prefix": ["snippet.blocks.mossy_stone_brick_stairs"],
     "body": "mossy_stone_brick_stairs",
     "description": "Returns the block name of 'mossy_stone_brick_stairs'"
   },
   "minecraft.blocks.movingBlock": {
-    "prefix": ["minecraft.blocks.movingBlock", "movingBlock"],
+    "prefix": ["snippet.blocks.movingBlock"],
     "body": "movingBlock",
     "description": "Returns the block name of 'movingBlock'"
   },
   "minecraft.blocks.mycelium": {
-    "prefix": ["minecraft.blocks.mycelium", "mycelium"],
+    "prefix": ["snippet.blocks.mycelium"],
     "body": "mycelium",
     "description": "Returns the block name of 'mycelium'"
   },
   "minecraft.blocks.nether_brick": {
-    "prefix": ["minecraft.blocks.nether_brick", "nether_brick"],
+    "prefix": ["snippet.blocks.nether_brick"],
     "body": "nether_brick",
     "description": "Returns the block name of 'nether_brick'"
   },
   "minecraft.blocks.nether_brick_fence": {
-    "prefix": ["minecraft.blocks.nether_brick_fence", "nether_brick_fence"],
+    "prefix": ["snippet.blocks.nether_brick_fence"],
     "body": "nether_brick_fence",
     "description": "Returns the block name of 'nether_brick_fence'"
   },
   "minecraft.blocks.nether_brick_stairs": {
-    "prefix": ["minecraft.blocks.nether_brick_stairs", "nether_brick_stairs"],
+    "prefix": ["snippet.blocks.nether_brick_stairs"],
     "body": "nether_brick_stairs",
     "description": "Returns the block name of 'nether_brick_stairs'"
   },
   "minecraft.blocks.nether_wart": {
-    "prefix": ["minecraft.blocks.nether_wart", "nether_wart"],
+    "prefix": ["snippet.blocks.nether_wart"],
     "body": "nether_wart",
     "description": "Returns the block name of 'nether_wart'"
   },
   "minecraft.blocks.nether_wart_block": {
-    "prefix": ["minecraft.blocks.nether_wart_block", "nether_wart_block"],
+    "prefix": ["snippet.blocks.nether_wart_block"],
     "body": "nether_wart_block",
     "description": "Returns the block name of 'nether_wart_block'"
   },
   "minecraft.blocks.netherrack": {
-    "prefix": ["minecraft.blocks.netherrack", "netherrack"],
+    "prefix": ["snippet.blocks.netherrack"],
     "body": "netherrack",
     "description": "Returns the block name of 'netherrack'"
   },
   "minecraft.blocks.netherreactor": {
-    "prefix": ["minecraft.blocks.netherreactor", "netherreactor"],
+    "prefix": ["snippet.blocks.netherreactor"],
     "body": "netherreactor",
     "description": "Returns the block name of 'netherreactor'"
   },
   "minecraft.blocks.normal_stone_stairs": {
-    "prefix": ["minecraft.blocks.normal_stone_stairs", "normal_stone_stairs"],
+    "prefix": ["snippet.blocks.normal_stone_stairs"],
     "body": "normal_stone_stairs",
     "description": "Returns the block name of 'normal_stone_stairs'"
   },
   "minecraft.blocks.noteblock": {
-    "prefix": ["minecraft.blocks.noteblock", "noteblock"],
+    "prefix": ["snippet.blocks.noteblock"],
     "body": "noteblock",
     "description": "Returns the block name of 'noteblock'"
   },
   "minecraft.blocks.oak_stairs": {
-    "prefix": ["minecraft.blocks.oak_stairs", "oak_stairs"],
+    "prefix": ["snippet.blocks.oak_stairs"],
     "body": "oak_stairs",
     "description": "Returns the block name of 'oak_stairs'"
   },
   "minecraft.blocks.observer": {
-    "prefix": ["minecraft.blocks.observer", "observer"],
+    "prefix": ["snippet.blocks.observer"],
     "body": "observer",
     "description": "Returns the block name of 'observer'"
   },
   "minecraft.blocks.obsidian": {
-    "prefix": ["minecraft.blocks.obsidian", "obsidian"],
+    "prefix": ["snippet.blocks.obsidian"],
     "body": "obsidian",
     "description": "Returns the block name of 'obsidian'"
   },
   "minecraft.blocks.orange_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.orange_glazed_terracotta", "orange_glazed_terracotta"],
+    "prefix": ["snippet.blocks.orange_glazed_terracotta"],
     "body": "orange_glazed_terracotta",
     "description": "Returns the block name of 'orange_glazed_terracotta'"
   },
   "minecraft.blocks.packed_ice": {
-    "prefix": ["minecraft.blocks.packed_ice", "packed_ice"],
+    "prefix": ["snippet.blocks.packed_ice"],
     "body": "packed_ice",
     "description": "Returns the block name of 'packed_ice'"
   },
   "minecraft.blocks.pink_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.pink_glazed_terracotta", "pink_glazed_terracotta"],
+    "prefix": ["snippet.blocks.pink_glazed_terracotta"],
     "body": "pink_glazed_terracotta",
     "description": "Returns the block name of 'pink_glazed_terracotta'"
   },
   "minecraft.blocks.piston": {
-    "prefix": ["minecraft.blocks.piston", "piston"],
+    "prefix": ["snippet.blocks.piston"],
     "body": "piston",
     "description": "Returns the block name of 'piston'"
   },
   "minecraft.blocks.pistonArmCollision": {
-    "prefix": ["minecraft.blocks.pistonArmCollision", "pistonArmCollision"],
+    "prefix": ["snippet.blocks.pistonArmCollision"],
     "body": "pistonArmCollision",
     "description": "Returns the block name of 'pistonArmCollision'"
   },
   "minecraft.blocks.planks": {
-    "prefix": ["minecraft.blocks.planks", "planks"],
+    "prefix": ["snippet.blocks.planks"],
     "body": "planks",
     "description": "Returns the block name of 'planks'"
   },
   "minecraft.blocks.podzol": {
-    "prefix": ["minecraft.blocks.podzol", "podzol"],
+    "prefix": ["snippet.blocks.podzol"],
     "body": "podzol",
     "description": "Returns the block name of 'podzol'"
   },
   "minecraft.blocks.polished_andesite_stairs": {
-    "prefix": ["minecraft.blocks.polished_andesite_stairs", "polished_andesite_stairs"],
+    "prefix": ["snippet.blocks.polished_andesite_stairs"],
     "body": "polished_andesite_stairs",
     "description": "Returns the block name of 'polished_andesite_stairs'"
   },
   "minecraft.blocks.polished_diorite_stairs": {
-    "prefix": ["minecraft.blocks.polished_diorite_stairs", "polished_diorite_stairs"],
+    "prefix": ["snippet.blocks.polished_diorite_stairs"],
     "body": "polished_diorite_stairs",
     "description": "Returns the block name of 'polished_diorite_stairs'"
   },
   "minecraft.blocks.polished_granite_stairs": {
-    "prefix": ["minecraft.blocks.polished_granite_stairs", "polished_granite_stairs"],
+    "prefix": ["snippet.blocks.polished_granite_stairs"],
     "body": "polished_granite_stairs",
     "description": "Returns the block name of 'polished_granite_stairs'"
   },
   "minecraft.blocks.portal": {
-    "prefix": ["minecraft.blocks.portal", "portal"],
+    "prefix": ["snippet.blocks.portal"],
     "body": "portal",
     "description": "Returns the block name of 'portal'"
   },
   "minecraft.blocks.potatoes": {
-    "prefix": ["minecraft.blocks.potatoes", "potatoes"],
+    "prefix": ["snippet.blocks.potatoes"],
     "body": "potatoes",
     "description": "Returns the block name of 'potatoes'"
   },
   "minecraft.blocks.powered_comparator": {
-    "prefix": ["minecraft.blocks.powered_comparator", "powered_comparator"],
+    "prefix": ["snippet.blocks.powered_comparator"],
     "body": "powered_comparator",
     "description": "Returns the block name of 'powered_comparator'"
   },
   "minecraft.blocks.powered_repeater": {
-    "prefix": ["minecraft.blocks.powered_repeater", "powered_repeater"],
+    "prefix": ["snippet.blocks.powered_repeater"],
     "body": "powered_repeater",
     "description": "Returns the block name of 'powered_repeater'"
   },
   "minecraft.blocks.prismarine": {
-    "prefix": ["minecraft.blocks.prismarine", "prismarine"],
+    "prefix": ["snippet.blocks.prismarine"],
     "body": "prismarine",
     "description": "Returns the block name of 'prismarine'"
   },
   "minecraft.blocks.prismarine_bricks_stairs": {
-    "prefix": ["minecraft.blocks.prismarine_bricks_stairs", "prismarine_bricks_stairs"],
+    "prefix": ["snippet.blocks.prismarine_bricks_stairs"],
     "body": "prismarine_bricks_stairs",
     "description": "Returns the block name of 'prismarine_bricks_stairs'"
   },
   "minecraft.blocks.prismarine_stairs": {
-    "prefix": ["minecraft.blocks.prismarine_stairs", "prismarine_stairs"],
+    "prefix": ["snippet.blocks.prismarine_stairs"],
     "body": "prismarine_stairs",
     "description": "Returns the block name of 'prismarine_stairs'"
   },
   "minecraft.blocks.pumpkin": {
-    "prefix": ["minecraft.blocks.pumpkin", "pumpkin"],
+    "prefix": ["snippet.blocks.pumpkin"],
     "body": "pumpkin",
     "description": "Returns the block name of 'pumpkin'"
   },
   "minecraft.blocks.pumpkin_stem": {
-    "prefix": ["minecraft.blocks.pumpkin_stem", "pumpkin_stem"],
+    "prefix": ["snippet.blocks.pumpkin_stem"],
     "body": "pumpkin_stem",
     "description": "Returns the block name of 'pumpkin_stem'"
   },
   "minecraft.blocks.purple_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.purple_glazed_terracotta", "purple_glazed_terracotta"],
+    "prefix": ["snippet.blocks.purple_glazed_terracotta"],
     "body": "purple_glazed_terracotta",
     "description": "Returns the block name of 'purple_glazed_terracotta'"
   },
   "minecraft.blocks.purpur_block": {
-    "prefix": ["minecraft.blocks.purpur_block", "purpur_block"],
+    "prefix": ["snippet.blocks.purpur_block"],
     "body": "purpur_block",
     "description": "Returns the block name of 'purpur_block'"
   },
   "minecraft.blocks.purpur_stairs": {
-    "prefix": ["minecraft.blocks.purpur_stairs", "purpur_stairs"],
+    "prefix": ["snippet.blocks.purpur_stairs"],
     "body": "purpur_stairs",
     "description": "Returns the block name of 'purpur_stairs'"
   },
   "minecraft.blocks.quartz_block": {
-    "prefix": ["minecraft.blocks.quartz_block", "quartz_block"],
+    "prefix": ["snippet.blocks.quartz_block"],
     "body": "quartz_block",
     "description": "Returns the block name of 'quartz_block'"
   },
   "minecraft.blocks.quartz_ore": {
-    "prefix": ["minecraft.blocks.quartz_ore", "quartz_ore"],
+    "prefix": ["snippet.blocks.quartz_ore"],
     "body": "quartz_ore",
     "description": "Returns the block name of 'quartz_ore'"
   },
   "minecraft.blocks.quartz_stairs": {
-    "prefix": ["minecraft.blocks.quartz_stairs", "quartz_stairs"],
+    "prefix": ["snippet.blocks.quartz_stairs"],
     "body": "quartz_stairs",
     "description": "Returns the block name of 'quartz_stairs'"
   },
   "minecraft.blocks.rail": {
-    "prefix": ["minecraft.blocks.rail", "rail"],
+    "prefix": ["snippet.blocks.rail"],
     "body": "rail",
     "description": "Returns the block name of 'rail'"
   },
   "minecraft.blocks.red_flower": {
-    "prefix": ["minecraft.blocks.red_flower", "red_flower"],
+    "prefix": ["snippet.blocks.red_flower"],
     "body": "red_flower",
     "description": "Returns the block name of 'red_flower'"
   },
   "minecraft.blocks.red_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.red_glazed_terracotta", "red_glazed_terracotta"],
+    "prefix": ["snippet.blocks.red_glazed_terracotta"],
     "body": "red_glazed_terracotta",
     "description": "Returns the block name of 'red_glazed_terracotta'"
   },
   "minecraft.blocks.red_mushroom": {
-    "prefix": ["minecraft.blocks.red_mushroom", "red_mushroom"],
+    "prefix": ["snippet.blocks.red_mushroom"],
     "body": "red_mushroom",
     "description": "Returns the block name of 'red_mushroom'"
   },
   "minecraft.blocks.red_mushroom_block": {
-    "prefix": ["minecraft.blocks.red_mushroom_block", "red_mushroom_block"],
+    "prefix": ["snippet.blocks.red_mushroom_block"],
     "body": "red_mushroom_block",
     "description": "Returns the block name of 'red_mushroom_block'"
   },
   "minecraft.blocks.red_nether_brick": {
-    "prefix": ["minecraft.blocks.red_nether_brick", "red_nether_brick"],
+    "prefix": ["snippet.blocks.red_nether_brick"],
     "body": "red_nether_brick",
     "description": "Returns the block name of 'red_nether_brick'"
   },
   "minecraft.blocks.red_nether_brick_stairs": {
-    "prefix": ["minecraft.blocks.red_nether_brick_stairs", "red_nether_brick_stairs"],
+    "prefix": ["snippet.blocks.red_nether_brick_stairs"],
     "body": "red_nether_brick_stairs",
     "description": "Returns the block name of 'red_nether_brick_stairs'"
   },
   "minecraft.blocks.red_sandstone": {
-    "prefix": ["minecraft.blocks.red_sandstone", "red_sandstone"],
+    "prefix": ["snippet.blocks.red_sandstone"],
     "body": "red_sandstone",
     "description": "Returns the block name of 'red_sandstone'"
   },
   "minecraft.blocks.red_sandstone_stairs": {
-    "prefix": ["minecraft.blocks.red_sandstone_stairs", "red_sandstone_stairs"],
+    "prefix": ["snippet.blocks.red_sandstone_stairs"],
     "body": "red_sandstone_stairs",
     "description": "Returns the block name of 'red_sandstone_stairs'"
   },
   "minecraft.blocks.redstone_block": {
-    "prefix": ["minecraft.blocks.redstone_block", "redstone_block"],
+    "prefix": ["snippet.blocks.redstone_block"],
     "body": "redstone_block",
     "description": "Returns the block name of 'redstone_block'"
   },
   "minecraft.blocks.redstone_lamp": {
-    "prefix": ["minecraft.blocks.redstone_lamp", "redstone_lamp"],
+    "prefix": ["snippet.blocks.redstone_lamp"],
     "body": "redstone_lamp",
     "description": "Returns the block name of 'redstone_lamp'"
   },
   "minecraft.blocks.redstone_ore": {
-    "prefix": ["minecraft.blocks.redstone_ore", "redstone_ore"],
+    "prefix": ["snippet.blocks.redstone_ore"],
     "body": "redstone_ore",
     "description": "Returns the block name of 'redstone_ore'"
   },
   "minecraft.blocks.redstone_torch": {
-    "prefix": ["minecraft.blocks.redstone_torch", "redstone_torch"],
+    "prefix": ["snippet.blocks.redstone_torch"],
     "body": "redstone_torch",
     "description": "Returns the block name of 'redstone_torch'"
   },
   "minecraft.blocks.redstone_wire": {
-    "prefix": ["minecraft.blocks.redstone_wire", "redstone_wire"],
+    "prefix": ["snippet.blocks.redstone_wire"],
     "body": "redstone_wire",
     "description": "Returns the block name of 'redstone_wire'"
   },
   "minecraft.blocks.reeds": {
-    "prefix": ["minecraft.blocks.reeds", "reeds"],
+    "prefix": ["snippet.blocks.reeds"],
     "body": "reeds",
     "description": "Returns the block name of 'reeds'"
   },
   "minecraft.blocks.repeating_command_block": {
-    "prefix": ["minecraft.blocks.repeating_command_block", "repeating_command_block"],
+    "prefix": ["snippet.blocks.repeating_command_block"],
     "body": "repeating_command_block",
     "description": "Returns the block name of 'repeating_command_block'"
   },
   "minecraft.blocks.reserved6": {
-    "prefix": ["reserved6", "minecraft.blocks.reserved6", "reserved6"],
+    "prefix": ["reserved6", "minecraft.blocks.reserved6"],
     "body": "reserved6",
     "description": "Returns the block name of 'reserved6'"
   },
   "minecraft.blocks.sand": {
-    "prefix": ["minecraft.blocks.sand", "sand"],
+    "prefix": ["snippet.blocks.sand"],
     "body": "sand",
     "description": "Returns the block name of 'sand'"
   },
   "minecraft.blocks.sandstone": {
-    "prefix": ["minecraft.blocks.sandstone", "sandstone"],
+    "prefix": ["snippet.blocks.sandstone"],
     "body": "sandstone",
     "description": "Returns the block name of 'sandstone'"
   },
   "minecraft.blocks.sandstone_stairs": {
-    "prefix": ["minecraft.blocks.sandstone_stairs", "sandstone_stairs"],
+    "prefix": ["snippet.blocks.sandstone_stairs"],
     "body": "sandstone_stairs",
     "description": "Returns the block name of 'sandstone_stairs'"
   },
   "minecraft.blocks.sapling": {
-    "prefix": ["minecraft.blocks.sapling", "sapling"],
+    "prefix": ["snippet.blocks.sapling"],
     "body": "sapling",
     "description": "Returns the block name of 'sapling'"
   },
   "minecraft.blocks.scaffolding": {
-    "prefix": ["minecraft.blocks.scaffolding", "scaffolding"],
+    "prefix": ["snippet.blocks.scaffolding"],
     "body": "scaffolding",
     "description": "Returns the block name of 'scaffolding'"
   },
   "minecraft.blocks.seaLantern": {
-    "prefix": ["minecraft.blocks.seaLantern", "seaLantern"],
+    "prefix": ["snippet.blocks.seaLantern"],
     "body": "seaLantern",
     "description": "Returns the block name of 'seaLantern'"
   },
   "minecraft.blocks.sea_pickle": {
-    "prefix": ["minecraft.blocks.sea_pickle", "sea_pickle"],
+    "prefix": ["snippet.blocks.sea_pickle"],
     "body": "sea_pickle",
     "description": "Returns the block name of 'sea_pickle'"
   },
   "minecraft.blocks.seagrass": {
-    "prefix": ["minecraft.blocks.seagrass", "seagrass"],
+    "prefix": ["snippet.blocks.seagrass"],
     "body": "seagrass",
     "description": "Returns the block name of 'seagrass'"
   },
   "minecraft.blocks.shulker_box": {
-    "prefix": ["minecraft.blocks.shulker_box", "shulker_box"],
+    "prefix": ["snippet.blocks.shulker_box"],
     "body": "shulker_box",
     "description": "Returns the block name of 'shulker_box'"
   },
   "minecraft.blocks.silver_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.silver_glazed_terracotta", "silver_glazed_terracotta"],
+    "prefix": ["snippet.blocks.silver_glazed_terracotta"],
     "body": "silver_glazed_terracotta",
     "description": "Returns the block name of 'silver_glazed_terracotta'"
   },
   "minecraft.blocks.skull": {
-    "prefix": ["minecraft.blocks.skull", "skull"],
+    "prefix": ["snippet.blocks.skull"],
     "body": "skull",
     "description": "Returns the block name of 'skull'"
   },
   "minecraft.blocks.slime": {
-    "prefix": ["minecraft.blocks.slime", "slime"],
+    "prefix": ["snippet.blocks.slime"],
     "body": "slime",
     "description": "Returns the block name of 'slime'"
   },
   "minecraft.blocks.smithing_table": {
-    "prefix": ["minecraft.blocks.smithing_table", "smithing_table"],
+    "prefix": ["snippet.blocks.smithing_table"],
     "body": "smithing_table",
     "description": "Returns the block name of 'smithing_table'"
   },
   "minecraft.blocks.smoker": {
-    "prefix": ["minecraft.blocks.smoker", "smoker"],
+    "prefix": ["snippet.blocks.smoker"],
     "body": "smoker",
     "description": "Returns the block name of 'smoker'"
   },
   "minecraft.blocks.smooth_quartz_stairs": {
-    "prefix": ["minecraft.blocks.smooth_quartz_stairs", "smooth_quartz_stairs"],
+    "prefix": ["snippet.blocks.smooth_quartz_stairs"],
     "body": "smooth_quartz_stairs",
     "description": "Returns the block name of 'smooth_quartz_stairs'"
   },
   "minecraft.blocks.smooth_red_sandstone_stairs": {
-    "prefix": ["minecraft.blocks.smooth_red_sandstone_stairs", "smooth_red_sandstone_stairs"],
+    "prefix": ["snippet.blocks.smooth_red_sandstone_stairs"],
     "body": "smooth_red_sandstone_stairs",
     "description": "Returns the block name of 'smooth_red_sandstone_stairs'"
   },
   "minecraft.blocks.smooth_sandstone_stairs": {
-    "prefix": ["minecraft.blocks.smooth_sandstone_stairs", "smooth_sandstone_stairs"],
+    "prefix": ["snippet.blocks.smooth_sandstone_stairs"],
     "body": "smooth_sandstone_stairs",
     "description": "Returns the block name of 'smooth_sandstone_stairs'"
   },
   "minecraft.blocks.smooth_stone": {
-    "prefix": ["minecraft.blocks.smooth_stone", "smooth_stone"],
+    "prefix": ["snippet.blocks.smooth_stone"],
     "body": "smooth_stone",
     "description": "Returns the block name of 'smooth_stone'"
   },
   "minecraft.blocks.snow": {
-    "prefix": ["minecraft.blocks.snow", "snow"],
+    "prefix": ["snippet.blocks.snow"],
     "body": "snow",
     "description": "Returns the block name of 'snow'"
   },
   "minecraft.blocks.snow_layer": {
-    "prefix": ["minecraft.blocks.snow_layer", "snow_layer"],
+    "prefix": ["snippet.blocks.snow_layer"],
     "body": "snow_layer",
     "description": "Returns the block name of 'snow_layer'"
   },
   "minecraft.blocks.soul_sand": {
-    "prefix": ["minecraft.blocks.soul_sand", "soul_sand"],
+    "prefix": ["snippet.blocks.soul_sand"],
     "body": "soul_sand",
     "description": "Returns the block name of 'soul_sand'"
   },
   "minecraft.blocks.sponge": {
-    "prefix": ["minecraft.blocks.sponge", "sponge"],
+    "prefix": ["snippet.blocks.sponge"],
     "body": "sponge",
     "description": "Returns the block name of 'sponge'"
   },
   "minecraft.blocks.spruce_button": {
-    "prefix": ["minecraft.blocks.spruce_button", "spruce_button"],
+    "prefix": ["snippet.blocks.spruce_button"],
     "body": "spruce_button",
     "description": "Returns the block name of 'spruce_button'"
   },
   "minecraft.blocks.spruce_door": {
-    "prefix": ["minecraft.blocks.spruce_door", "spruce_door"],
+    "prefix": ["snippet.blocks.spruce_door"],
     "body": "spruce_door",
     "description": "Returns the block name of 'spruce_door'"
   },
   "minecraft.blocks.spruce_fence_gate": {
-    "prefix": ["minecraft.blocks.spruce_fence_gate", "spruce_fence_gate"],
+    "prefix": ["snippet.blocks.spruce_fence_gate"],
     "body": "spruce_fence_gate",
     "description": "Returns the block name of 'spruce_fence_gate'"
   },
   "minecraft.blocks.spruce_pressure_plate": {
-    "prefix": ["minecraft.blocks.spruce_pressure_plate", "spruce_pressure_plate"],
+    "prefix": ["snippet.blocks.spruce_pressure_plate"],
     "body": "spruce_pressure_plate",
     "description": "Returns the block name of 'spruce_pressure_plate'"
   },
   "minecraft.blocks.spruce_stairs": {
-    "prefix": ["minecraft.blocks.spruce_stairs", "spruce_stairs"],
+    "prefix": ["snippet.blocks.spruce_stairs"],
     "body": "spruce_stairs",
     "description": "Returns the block name of 'spruce_stairs'"
   },
   "minecraft.blocks.spruce_standing_sign": {
-    "prefix": ["minecraft.blocks.spruce_standing_sign", "spruce_standing_sign"],
+    "prefix": ["snippet.blocks.spruce_standing_sign"],
     "body": "spruce_standing_sign",
     "description": "Returns the block name of 'spruce_standing_sign'"
   },
   "minecraft.blocks.spruce_trapdoor": {
-    "prefix": ["minecraft.blocks.spruce_trapdoor", "spruce_trapdoor"],
+    "prefix": ["snippet.blocks.spruce_trapdoor"],
     "body": "spruce_trapdoor",
     "description": "Returns the block name of 'spruce_trapdoor'"
   },
   "minecraft.blocks.spruce_wall_sign": {
-    "prefix": ["minecraft.blocks.spruce_wall_sign", "spruce_wall_sign"],
+    "prefix": ["snippet.blocks.spruce_wall_sign"],
     "body": "spruce_wall_sign",
     "description": "Returns the block name of 'spruce_wall_sign'"
   },
   "minecraft.blocks.stained_glass": {
-    "prefix": ["minecraft.blocks.stained_glass", "stained_glass"],
+    "prefix": ["snippet.blocks.stained_glass"],
     "body": "stained_glass",
     "description": "Returns the block name of 'stained_glass'"
   },
   "minecraft.blocks.stained_glass_pane": {
-    "prefix": ["minecraft.blocks.stained_glass_pane", "stained_glass_pane"],
+    "prefix": ["snippet.blocks.stained_glass_pane"],
     "body": "stained_glass_pane",
     "description": "Returns the block name of 'stained_glass_pane'"
   },
   "minecraft.blocks.stained_hardened_clay": {
-    "prefix": ["minecraft.blocks.stained_hardened_clay", "stained_hardened_clay"],
+    "prefix": ["snippet.blocks.stained_hardened_clay"],
     "body": "stained_hardened_clay",
     "description": "Returns the block name of 'stained_hardened_clay'"
   },
   "minecraft.blocks.standing_banner": {
-    "prefix": ["minecraft.blocks.standing_banner", "standing_banner"],
+    "prefix": ["snippet.blocks.standing_banner"],
     "body": "standing_banner",
     "description": "Returns the block name of 'standing_banner'"
   },
   "minecraft.blocks.standing_sign": {
-    "prefix": ["minecraft.blocks.standing_sign", "standing_sign"],
+    "prefix": ["snippet.blocks.standing_sign"],
     "body": "standing_sign",
     "description": "Returns the block name of 'standing_sign'"
   },
   "minecraft.blocks.stickyPistonArmCollision": {
-    "prefix": ["minecraft.blocks.stickyPistonArmCollision", "stickyPistonArmCollision"],
+    "prefix": ["snippet.blocks.stickyPistonArmCollision"],
     "body": "stickyPistonArmCollision",
     "description": "Returns the block name of 'stickyPistonArmCollision'"
   },
   "minecraft.blocks.sticky_piston": {
-    "prefix": ["minecraft.blocks.sticky_piston", "sticky_piston"],
+    "prefix": ["snippet.blocks.sticky_piston"],
     "body": "sticky_piston",
     "description": "Returns the block name of 'sticky_piston'"
   },
   "minecraft.blocks.stone": {
-    "prefix": ["minecraft.blocks.stone", "stone"],
+    "prefix": ["snippet.blocks.stone"],
     "body": "stone",
     "description": "Returns the block name of 'stone'"
   },
   "minecraft.blocks.stone_brick_stairs": {
-    "prefix": ["minecraft.blocks.stone_brick_stairs", "stone_brick_stairs"],
+    "prefix": ["snippet.blocks.stone_brick_stairs"],
     "body": "stone_brick_stairs",
     "description": "Returns the block name of 'stone_brick_stairs'"
   },
   "minecraft.blocks.stone_button": {
-    "prefix": ["minecraft.blocks.stone_button", "stone_button"],
+    "prefix": ["snippet.blocks.stone_button"],
     "body": "stone_button",
     "description": "Returns the block name of 'stone_button'"
   },
   "minecraft.blocks.stone_pressure_plate": {
-    "prefix": ["minecraft.blocks.stone_pressure_plate", "stone_pressure_plate"],
+    "prefix": ["snippet.blocks.stone_pressure_plate"],
     "body": "stone_pressure_plate",
     "description": "Returns the block name of 'stone_pressure_plate'"
   },
   "minecraft.blocks.stone_slab": {
-    "prefix": ["minecraft.blocks.stone_slab", "stone_slab"],
+    "prefix": ["snippet.blocks.stone_slab"],
     "body": "stone_slab",
     "description": "Returns the block name of 'stone_slab'"
   },
   "minecraft.blocks.stone_slab2": {
-    "prefix": ["stone_slab2", "minecraft.blocks.stone_slab2", "stone_slab2"],
+    "prefix": ["stone_slab2", "minecraft.blocks.stone_slab2"],
     "body": "stone_slab2",
     "description": "Returns the block name of 'stone_slab2'"
   },
   "minecraft.blocks.stone_slab3": {
-    "prefix": ["stone_slab3", "minecraft.blocks.stone_slab3", "stone_slab3"],
+    "prefix": ["stone_slab3", "minecraft.blocks.stone_slab3"],
     "body": "stone_slab3",
     "description": "Returns the block name of 'stone_slab3'"
   },
   "minecraft.blocks.stone_slab4": {
-    "prefix": ["stone_slab4", "minecraft.blocks.stone_slab4", "stone_slab4"],
+    "prefix": ["stone_slab4", "minecraft.blocks.stone_slab4"],
     "body": "stone_slab4",
     "description": "Returns the block name of 'stone_slab4'"
   },
   "minecraft.blocks.stone_stairs": {
-    "prefix": ["minecraft.blocks.stone_stairs", "stone_stairs"],
+    "prefix": ["snippet.blocks.stone_stairs"],
     "body": "stone_stairs",
     "description": "Returns the block name of 'stone_stairs'"
   },
   "minecraft.blocks.stonebrick": {
-    "prefix": ["minecraft.blocks.stonebrick", "stonebrick"],
+    "prefix": ["snippet.blocks.stonebrick"],
     "body": "stonebrick",
     "description": "Returns the block name of 'stonebrick'"
   },
   "minecraft.blocks.stonecutter": {
-    "prefix": ["minecraft.blocks.stonecutter", "stonecutter"],
+    "prefix": ["snippet.blocks.stonecutter"],
     "body": "stonecutter",
     "description": "Returns the block name of 'stonecutter'"
   },
   "minecraft.blocks.stonecutter_block": {
-    "prefix": ["minecraft.blocks.stonecutter_block", "stonecutter_block"],
+    "prefix": ["snippet.blocks.stonecutter_block"],
     "body": "stonecutter_block",
     "description": "Returns the block name of 'stonecutter_block'"
   },
   "minecraft.blocks.stripped_acacia_log": {
-    "prefix": ["minecraft.blocks.stripped_acacia_log", "stripped_acacia_log"],
+    "prefix": ["snippet.blocks.stripped_acacia_log"],
     "body": "stripped_acacia_log",
     "description": "Returns the block name of 'stripped_acacia_log'"
   },
   "minecraft.blocks.stripped_birch_log": {
-    "prefix": ["minecraft.blocks.stripped_birch_log", "stripped_birch_log"],
+    "prefix": ["snippet.blocks.stripped_birch_log"],
     "body": "stripped_birch_log",
     "description": "Returns the block name of 'stripped_birch_log'"
   },
   "minecraft.blocks.stripped_dark_oak_log": {
-    "prefix": ["minecraft.blocks.stripped_dark_oak_log", "stripped_dark_oak_log"],
+    "prefix": ["snippet.blocks.stripped_dark_oak_log"],
     "body": "stripped_dark_oak_log",
     "description": "Returns the block name of 'stripped_dark_oak_log'"
   },
   "minecraft.blocks.stripped_jungle_log": {
-    "prefix": ["minecraft.blocks.stripped_jungle_log", "stripped_jungle_log"],
+    "prefix": ["snippet.blocks.stripped_jungle_log"],
     "body": "stripped_jungle_log",
     "description": "Returns the block name of 'stripped_jungle_log'"
   },
   "minecraft.blocks.stripped_oak_log": {
-    "prefix": ["minecraft.blocks.stripped_oak_log", "stripped_oak_log"],
+    "prefix": ["snippet.blocks.stripped_oak_log"],
     "body": "stripped_oak_log",
     "description": "Returns the block name of 'stripped_oak_log'"
   },
   "minecraft.blocks.stripped_spruce_log": {
-    "prefix": ["minecraft.blocks.stripped_spruce_log", "stripped_spruce_log"],
+    "prefix": ["snippet.blocks.stripped_spruce_log"],
     "body": "stripped_spruce_log",
     "description": "Returns the block name of 'stripped_spruce_log'"
   },
   "minecraft.blocks.structure_block": {
-    "prefix": ["minecraft.blocks.structure_block", "structure_block"],
+    "prefix": ["snippet.blocks.structure_block"],
     "body": "structure_block",
     "description": "Returns the block name of 'structure_block'"
   },
   "minecraft.blocks.structure_void": {
-    "prefix": ["minecraft.blocks.structure_void", "structure_void"],
+    "prefix": ["snippet.blocks.structure_void"],
     "body": "structure_void",
     "description": "Returns the block name of 'structure_void'"
   },
   "minecraft.blocks.sweet_berry_bush": {
-    "prefix": ["minecraft.blocks.sweet_berry_bush", "sweet_berry_bush"],
+    "prefix": ["snippet.blocks.sweet_berry_bush"],
     "body": "sweet_berry_bush",
     "description": "Returns the block name of 'sweet_berry_bush'"
   },
   "minecraft.blocks.tallgrass": {
-    "prefix": ["minecraft.blocks.tallgrass", "tallgrass"],
+    "prefix": ["snippet.blocks.tallgrass"],
     "body": "tallgrass",
     "description": "Returns the block name of 'tallgrass'"
   },
   "minecraft.blocks.tnt": {
-    "prefix": ["minecraft.blocks.tnt", "tnt"],
+    "prefix": ["snippet.blocks.tnt"],
     "body": "tnt",
     "description": "Returns the block name of 'tnt'"
   },
   "minecraft.blocks.torch": {
-    "prefix": ["minecraft.blocks.torch", "torch"],
+    "prefix": ["snippet.blocks.torch"],
     "body": "torch",
     "description": "Returns the block name of 'torch'"
   },
   "minecraft.blocks.trapdoor": {
-    "prefix": ["minecraft.blocks.trapdoor", "trapdoor"],
+    "prefix": ["snippet.blocks.trapdoor"],
     "body": "trapdoor",
     "description": "Returns the block name of 'trapdoor'"
   },
   "minecraft.blocks.trapped_chest": {
-    "prefix": ["minecraft.blocks.trapped_chest", "trapped_chest"],
+    "prefix": ["snippet.blocks.trapped_chest"],
     "body": "trapped_chest",
     "description": "Returns the block name of 'trapped_chest'"
   },
   "minecraft.blocks.tripWire": {
-    "prefix": ["minecraft.blocks.tripWire", "tripWire"],
+    "prefix": ["snippet.blocks.tripWire"],
     "body": "tripWire",
     "description": "Returns the block name of 'tripWire'"
   },
   "minecraft.blocks.tripwire_hook": {
-    "prefix": ["minecraft.blocks.tripwire_hook", "tripwire_hook"],
+    "prefix": ["snippet.blocks.tripwire_hook"],
     "body": "tripwire_hook",
     "description": "Returns the block name of 'tripwire_hook'"
   },
   "minecraft.blocks.turtle_egg": {
-    "prefix": ["minecraft.blocks.turtle_egg", "turtle_egg"],
+    "prefix": ["snippet.blocks.turtle_egg"],
     "body": "turtle_egg",
     "description": "Returns the block name of 'turtle_egg'"
   },
   "minecraft.blocks.underwater_torch": {
-    "prefix": ["minecraft.blocks.underwater_torch", "underwater_torch"],
+    "prefix": ["snippet.blocks.underwater_torch"],
     "body": "underwater_torch",
     "description": "Returns the block name of 'underwater_torch'"
   },
   "minecraft.blocks.undyed_shulker_box": {
-    "prefix": ["minecraft.blocks.undyed_shulker_box", "undyed_shulker_box"],
+    "prefix": ["snippet.blocks.undyed_shulker_box"],
     "body": "undyed_shulker_box",
     "description": "Returns the block name of 'undyed_shulker_box'"
   },
   "minecraft.blocks.unlit_redstone_torch": {
-    "prefix": ["minecraft.blocks.unlit_redstone_torch", "unlit_redstone_torch"],
+    "prefix": ["snippet.blocks.unlit_redstone_torch"],
     "body": "unlit_redstone_torch",
     "description": "Returns the block name of 'unlit_redstone_torch'"
   },
   "minecraft.blocks.unpowered_comparator": {
-    "prefix": ["minecraft.blocks.unpowered_comparator", "unpowered_comparator"],
+    "prefix": ["snippet.blocks.unpowered_comparator"],
     "body": "unpowered_comparator",
     "description": "Returns the block name of 'unpowered_comparator'"
   },
   "minecraft.blocks.unpowered_repeater": {
-    "prefix": ["minecraft.blocks.unpowered_repeater", "unpowered_repeater"],
+    "prefix": ["snippet.blocks.unpowered_repeater"],
     "body": "unpowered_repeater",
     "description": "Returns the block name of 'unpowered_repeater'"
   },
   "minecraft.blocks.vine": {
-    "prefix": ["minecraft.blocks.vine", "vine"],
+    "prefix": ["snippet.blocks.vine"],
     "body": "vine",
     "description": "Returns the block name of 'vine'"
   },
   "minecraft.blocks.wall_banner": {
-    "prefix": ["minecraft.blocks.wall_banner", "wall_banner"],
+    "prefix": ["snippet.blocks.wall_banner"],
     "body": "wall_banner",
     "description": "Returns the block name of 'wall_banner'"
   },
   "minecraft.blocks.wall_sign": {
-    "prefix": ["minecraft.blocks.wall_sign", "wall_sign"],
+    "prefix": ["snippet.blocks.wall_sign"],
     "body": "wall_sign",
     "description": "Returns the block name of 'wall_sign'"
   },
   "minecraft.blocks.water": {
-    "prefix": ["minecraft.blocks.water", "water"],
+    "prefix": ["snippet.blocks.water"],
     "body": "water",
     "description": "Returns the block name of 'water'"
   },
   "minecraft.blocks.waterlily": {
-    "prefix": ["minecraft.blocks.waterlily", "waterlily"],
+    "prefix": ["snippet.blocks.waterlily"],
     "body": "waterlily",
     "description": "Returns the block name of 'waterlily'"
   },
   "minecraft.blocks.web": {
-    "prefix": ["minecraft.blocks.web", "web"],
+    "prefix": ["snippet.blocks.web"],
     "body": "web",
     "description": "Returns the block name of 'web'"
   },
   "minecraft.blocks.wheat": {
-    "prefix": ["minecraft.blocks.wheat", "wheat"],
+    "prefix": ["snippet.blocks.wheat"],
     "body": "wheat",
     "description": "Returns the block name of 'wheat'"
   },
   "minecraft.blocks.white_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.white_glazed_terracotta", "white_glazed_terracotta"],
+    "prefix": ["snippet.blocks.white_glazed_terracotta"],
     "body": "white_glazed_terracotta",
     "description": "Returns the block name of 'white_glazed_terracotta'"
   },
   "minecraft.blocks.wither_rose": {
-    "prefix": ["minecraft.blocks.wither_rose", "wither_rose"],
+    "prefix": ["snippet.blocks.wither_rose"],
     "body": "wither_rose",
     "description": "Returns the block name of 'wither_rose'"
   },
   "minecraft.blocks.wood": {
-    "prefix": ["minecraft.blocks.wood", "wood"],
+    "prefix": ["snippet.blocks.wood"],
     "body": "wood",
     "description": "Returns the block name of 'wood'"
   },
   "minecraft.blocks.wooden_button": {
-    "prefix": ["minecraft.blocks.wooden_button", "wooden_button"],
+    "prefix": ["snippet.blocks.wooden_button"],
     "body": "wooden_button",
     "description": "Returns the block name of 'wooden_button'"
   },
   "minecraft.blocks.wooden_door": {
-    "prefix": ["minecraft.blocks.wooden_door", "wooden_door"],
+    "prefix": ["snippet.blocks.wooden_door"],
     "body": "wooden_door",
     "description": "Returns the block name of 'wooden_door'"
   },
   "minecraft.blocks.wooden_pressure_plate": {
-    "prefix": ["minecraft.blocks.wooden_pressure_plate", "wooden_pressure_plate"],
+    "prefix": ["snippet.blocks.wooden_pressure_plate"],
     "body": "wooden_pressure_plate",
     "description": "Returns the block name of 'wooden_pressure_plate'"
   },
   "minecraft.blocks.wooden_slab": {
-    "prefix": ["minecraft.blocks.wooden_slab", "wooden_slab"],
+    "prefix": ["snippet.blocks.wooden_slab"],
     "body": "wooden_slab",
     "description": "Returns the block name of 'wooden_slab'"
   },
   "minecraft.blocks.wool": {
-    "prefix": ["minecraft.blocks.wool", "wool"],
+    "prefix": ["snippet.blocks.wool"],
     "body": "wool",
     "description": "Returns the block name of 'wool'"
   },
   "minecraft.blocks.yellow_flower": {
-    "prefix": ["minecraft.blocks.yellow_flower", "yellow_flower"],
+    "prefix": ["snippet.blocks.yellow_flower"],
     "body": "yellow_flower",
     "description": "Returns the block name of 'yellow_flower'"
   },
   "minecraft.blocks.yellow_glazed_terracotta": {
-    "prefix": ["minecraft.blocks.yellow_glazed_terracotta", "yellow_glazed_terracotta"],
+    "prefix": ["snippet.blocks.yellow_glazed_terracotta"],
     "body": "yellow_glazed_terracotta",
     "description": "Returns the block name of 'yellow_glazed_terracotta'"
   }

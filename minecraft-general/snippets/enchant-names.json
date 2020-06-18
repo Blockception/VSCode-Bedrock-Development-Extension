@@ -1,161 +1,161 @@
 {
   "minecraft.enchants.aqua_affinity": {
-    "prefix": ["minecraft.enchants.aqua_affinity"],
+    "prefix": [ "snippet.enchants.aqua_affinity"],
     "body": "aqua_affinity",
     "description": "The enchanting name for 'aqua_affinity'"
   },
   "minecraft.enchants.bane_of_arthropods": {
-    "prefix": ["minecraft.enchants.bane_of_arthropods"],
+    "prefix": [ "snippet.enchants.bane_of_arthropods"],
     "body": "bane_of_arthropods",
     "description": "The enchanting name for 'bane_of_arthropods'"
   },
   "minecraft.enchants.blast_protection": {
-    "prefix": ["minecraft.enchants.blast_protection"],
+    "prefix": [ "snippet.enchants.blast_protection"],
     "body": "blast_protection",
     "description": "The enchanting name for 'blast_protection'"
   },
   "minecraft.enchants.channeling": {
-    "prefix": ["minecraft.enchants.channeling"],
+    "prefix": [ "snippet.enchants.channeling"],
     "body": "channeling",
     "description": "The enchanting name for 'channeling'"
   },
   "minecraft.enchants.depth_strider": {
-    "prefix": ["minecraft.enchants.depth_strider"],
+    "prefix": [ "snippet.enchants.depth_strider"],
     "body": "depth_strider",
     "description": "The enchanting name for 'depth_strider'"
   },
   "minecraft.enchants.efficiency": {
-    "prefix": ["minecraft.enchants.efficiency"],
+    "prefix": [ "snippet.enchants.efficiency"],
     "body": "efficiency",
     "description": "The enchanting name for 'efficiency'"
   },
   "minecraft.enchants.feather_falling": {
-    "prefix": ["minecraft.enchants.feather_falling"],
+    "prefix": [ "snippet.enchants.feather_falling"],
     "body": "feather_falling",
     "description": "The enchanting name for 'feather_falling'"
   },
   "minecraft.enchants.fire_aspect": {
-    "prefix": ["minecraft.enchants.fire_aspect"],
+    "prefix": [ "snippet.enchants.fire_aspect"],
     "body": "fire_aspect",
     "description": "The enchanting name for 'fire_aspect'"
   },
   "minecraft.enchants.fire_protection": {
-    "prefix": ["minecraft.enchants.fire_protection"],
+    "prefix": [ "snippet.enchants.fire_protection"],
     "body": "fire_protection",
     "description": "The enchanting name for 'fire_protection'"
   },
   "minecraft.enchants.flame": {
-    "prefix": ["minecraft.enchants.flame"],
+    "prefix": [ "snippet.enchants.flame"],
     "body": "flame",
     "description": "The enchanting name for 'flame'"
   },
   "minecraft.enchants.fortune": {
-    "prefix": ["minecraft.enchants.fortune"],
+    "prefix": [ "snippet.enchants.fortune"],
     "body": "fortune",
     "description": "The enchanting name for 'fortune'"
   },
   "minecraft.enchants.frost_walker": {
-    "prefix": ["minecraft.enchants.frost_walker"],
+    "prefix": [ "snippet.enchants.frost_walker"],
     "body": "frost_walker",
     "description": "The enchanting name for 'frost_walker'"
   },
   "minecraft.enchants.impaling": {
-    "prefix": ["minecraft.enchants.impaling"],
+    "prefix": [ "snippet.enchants.impaling"],
     "body": "impaling",
     "description": "The enchanting name for 'impaling'"
   },
   "minecraft.enchants.infinity": {
-    "prefix": ["minecraft.enchants.infinity"],
+    "prefix": [ "snippet.enchants.infinity"],
     "body": "infinity",
     "description": "The enchanting name for 'infinity'"
   },
   "minecraft.enchants.knockback": {
-    "prefix": ["minecraft.enchants.knockback"],
+    "prefix": [ "snippet.enchants.knockback"],
     "body": "knockback",
     "description": "The enchanting name for 'knockback'"
   },
   "minecraft.enchants.looting": {
-    "prefix": ["minecraft.enchants.looting"],
+    "prefix": [ "snippet.enchants.looting"],
     "body": "looting",
     "description": "The enchanting name for 'looting'"
   },
   "minecraft.enchants.loyalty": {
-    "prefix": ["minecraft.enchants.loyalty"],
+    "prefix": [ "snippet.enchants.loyalty"],
     "body": "loyalty",
     "description": "The enchanting name for 'loyalty'"
   },
   "minecraft.enchants.luck_of_the_sea": {
-    "prefix": ["minecraft.enchants.luck_of_the_sea"],
+    "prefix": [ "snippet.enchants.luck_of_the_sea"],
     "body": "luck_of_the_sea",
     "description": "The enchanting name for 'luck_of_the_sea'"
   },
   "minecraft.enchants.lure": {
-    "prefix": ["minecraft.enchants.lure"],
+    "prefix": [ "snippet.enchants.lure"],
     "body": "lure",
     "description": "The enchanting name for 'lure'"
   },
   "minecraft.enchants.mending": {
-    "prefix": ["minecraft.enchants.mending"],
+    "prefix": [ "snippet.enchants.mending"],
     "body": "mending",
     "description": "The enchanting name for 'mending'"
   },
   "minecraft.enchants.multishot": {
-    "prefix": ["minecraft.enchants.multishot"],
+    "prefix": [ "snippet.enchants.multishot"],
     "body": "multishot",
     "description": "The enchanting name for 'multishot'"
   },
   "minecraft.enchants.piercing": {
-    "prefix": ["minecraft.enchants.piercing"],
+    "prefix": [ "snippet.enchants.piercing"],
     "body": "piercing",
     "description": "The enchanting name for 'piercing'"
   },
   "minecraft.enchants.power": {
-    "prefix": ["minecraft.enchants.power"],
+    "prefix": [ "snippet.enchants.power"],
     "body": "power",
     "description": "The enchanting name for 'power'"
   },
   "minecraft.enchants.projectile_protection": {
-    "prefix": ["minecraft.enchants.projectile_protection"],
+    "prefix": [ "snippet.enchants.projectile_protection"],
     "body": "projectile_protection",
     "description": "The enchanting name for 'projectile_protection'"
   },
   "minecraft.enchants.punch": {
-    "prefix": ["minecraft.enchants.punch"],
+    "prefix": [ "snippet.enchants.punch"],
     "body": "punch",
     "description": "The enchanting name for 'punch'"
   },
   "minecraft.enchants.respiration": {
-    "prefix": ["minecraft.enchants.respiration"],
+    "prefix": [ "snippet.enchants.respiration"],
     "body": "respiration",
     "description": "The enchanting name for 'respiration'"
   },
   "minecraft.enchants.riptide": {
-    "prefix": ["minecraft.enchants.riptide"],
+    "prefix": [ "snippet.enchants.riptide"],
     "body": "riptide",
     "description": "The enchanting name for 'riptide'"
   },
   "minecraft.enchants.sharpness": {
-    "prefix": ["minecraft.enchants.sharpness"],
+    "prefix": [ "snippet.enchants.sharpness"],
     "body": "sharpness",
     "description": "The enchanting name for 'sharpness'"
   },
   "minecraft.enchants.silk_touch": {
-    "prefix": ["minecraft.enchants.silk_touch"],
+    "prefix": [ "snippet.enchants.silk_touch"],
     "body": "silk_touch",
     "description": "The enchanting name for 'silk_touch'"
   },
   "minecraft.enchants.smite": {
-    "prefix": ["minecraft.enchants.smite"],
+    "prefix": [ "snippet.enchants.smite"],
     "body": "smite",
     "description": "The enchanting name for 'smite'"
   },
   "minecraft.enchants.thorns": {
-    "prefix": ["minecraft.enchants.thorns"],
+    "prefix": [ "snippet.enchants.thorns"],
     "body": "thorns",
     "description": "The enchanting name for 'thorns'"
   },
   "minecraft.enchants.unbreaking": {
-    "prefix": ["minecraft.enchants.unbreaking"],
+    "prefix": [ "snippet.enchants.unbreaking"],
     "body": "unbreaking",
     "description": "The enchanting name for 'unbreaking'"
   }
