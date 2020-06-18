@@ -29,18 +29,26 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { DiagnosticsManager, DiagnosticProvider } from "../diagnostics/DiagnosticsManager";
-import { SyntaxItem } from "../../general/include";
+import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
+import { SyntaxItem } from "../../../general/include";
 
-export class BooleanDiagnosticProvider implements DiagnosticProvider {
-    provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void {
-        if (item.Text.text == "true" || item.Text.text == "true")
+export class FloatDiagnosticProvider implements DiagnosticProvider {
+    provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void{
+        if (item == undefined)
             return;
 
-        collector.push(
-            new vscode.Diagnostic(
-                new vscode.Range(lineIndex, item.Text.startindex, lineIndex, item.Text.endindex),
-                "Is not a valid boolean value, must be either 'true' or 'false'",
-                vscode.DiagnosticSeverity.Error));
+        var word = item.Text;
+        var text = word.text;
+
+        if (text == "~" || text == "^")
+            return;
+
+        if (text.match("^[\-+0-9.]+$")?.length == 0){
+            collector.push(new vscode.Diagnostic(
+                new vscode.Range(lineIndex, word.startindex, lineIndex, word.endindex),
+                "Invalid coordinate",
+                vscode.DiagnosticSeverity.Error
+            ));
+        }
     }
 }

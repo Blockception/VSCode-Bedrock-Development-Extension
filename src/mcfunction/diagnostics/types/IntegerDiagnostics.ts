@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { DiagnosticsManager, DiagnosticProvider } from "../diagnostics/DiagnosticsManager";
-import { SyntaxItem } from "../../general/include";
+import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
+import { SyntaxItem, RangedWord } from "../../../general/include";
 
-export class CoordinateDiagnosticProvider implements DiagnosticProvider {
+export class IntegerDiagnosticProvider implements DiagnosticProvider {
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void{
         if (item == undefined)
             return;
@@ -43,7 +43,7 @@ export class CoordinateDiagnosticProvider implements DiagnosticProvider {
         if (text == "~" || text == "^")
             return;
 
-        if (text.match("(^[\-+0-9.]+$|^[\^\~][\-+0-9.]*$)")?.length == 0){
+        if (text.match("^[\-+0-9]+$")?.length == 0){
             collector.push(new vscode.Diagnostic(
                 new vscode.Range(lineIndex, word.startindex, lineIndex, word.endindex),
                 "Invalid coordinate",

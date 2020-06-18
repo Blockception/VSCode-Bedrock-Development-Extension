@@ -29,9 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { Selector, SelectorParameter } from "../selectors/selector";
-import { DiagnosticsManager, DiagnosticProvider } from "../diagnostics/DiagnosticsManager";
-import { SyntaxItem, RangedWord } from "../../general/include";
+import { Selector, SelectorParameter } from "../../selectors/selector";
+import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
+import { SyntaxItem, RangedWord } from "../../../general/include";
 
 export class SelectorDiagnosticProvider implements DiagnosticProvider {
 

@@ -31,12 +31,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as vscode from 'vscode';
 export * from './DiagnosticsFunctions'
 import { SyntaxItem } from '../../general/include';
-import { SelectorDiagnosticProvider } from './SelectorDiagnostics';
-import { CoordinateDiagnosticProvider } from './CoordinateDiagnostics';
-import { BooleanDiagnosticProvider } from './BooleanDiagnostics';
-import { FloatDiagnosticProvider } from './FloatDiagnostics';
-import { IntegerDiagnosticProvider } from './IntegerDiagnostics';
-import { JsonTextDiagnoserProvider } from './JsonTextDiagnoser';
+import { SelectorDiagnosticProvider } from './types/SelectorDiagnostics';
+import { CoordinateDiagnosticProvider } from './types/CoordinateDiagnostics';
+import { BooleanDiagnosticProvider } from './types/BooleanDiagnostics';
+import { FloatDiagnosticProvider } from './types/FloatDiagnostics';
+import { IntegerDiagnosticProvider } from './types/IntegerDiagnostics';
+import { JsonTextDiagnoserProvider } from './types/JsonTextDiagnoser';
 
 export class DiagnosticsManager {
     private Items : Map<string, DiagnosticProvider>;
