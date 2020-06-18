@@ -1,4 +1,5 @@
 # Changelog 
+- Moved Snippets from 'minecraft.' to 'snippet.'
 - Updated Completion provider for coordiantes
 - Ordered diagnostics
 - Last of the completion Items
@@ -18,4 +19,3 @@
 - Updated
 - Updated
 - Updated Particles, added color support
-- Updated Particles 1.10.0
