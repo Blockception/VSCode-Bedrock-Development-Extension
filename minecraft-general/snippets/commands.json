@@ -484,7 +484,7 @@
     },
     "minecraft.commands.scoreboard.players.operation.swap": {
       "prefix": [ "minecraft.commands.scoreboard.players.operation.swap"],
-      "body": "scoreboard players operation <targetName> <targetObjective> swap <selector> <objective>",
+      "body": "scoreboard players operation <targetName> <targetObjective> >< <selector> <objective>",
       "description": "Performs the swap operation, can only be done on 2 carriers"
     },
     "minecraft.commands.scoreboard.players.test": {

@@ -31,8 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as vscode from "vscode";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
-import { Functions } from "../../diagnostics/DiagnosticsManager";
-import { Selector, IsSelector } from "../../selectors/selector";
+import { IsSelector } from "../../selectors/selector";
 
 export class TeleportCompletionProvider implements CompletionItemProvider {
 
@@ -87,7 +86,7 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
         //teleport <target> <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]
         //teleport <target> <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]
         var XOrDestination = Item.Child;
-
+ 
         if (XOrDestination == undefined){
             return this.Items;
         }
@@ -96,7 +95,7 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
             return this.TargetDestinationDone(XOrDestination, Cm, document);
         }
 
-        var Child = Item.GetAt(2);
+        var Child = Item.GetAt(3);
 
         if (Child != undefined){
             return this.TargetDestinationDone(Child, Cm, document);

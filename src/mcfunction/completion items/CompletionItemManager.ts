@@ -50,6 +50,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     public BooleanCompletionProvider : BooleanCompletionProvider;
     public BlockCompletionProvider : CompletionItemProvider | undefined; //TODO
     public CoordinateCompletionProvider : CoordinateCompletionItemProvider;
+    public EntityCompletionProvider : CompletionItemProvider | undefined; //TODO
     public FloatCompletionProvider : CompletionItemProvider | undefined; //TODO
     public ItemCompletionProvider : CompletionItemProvider | undefined; //TODO
     public IntegerCompletionProvider : CompletionItemProvider | undefined; //TODO
@@ -162,11 +163,12 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 }
 
 
-export class DefaultItems {
-    public ItemData : vscode.CompletionItem[];
+export class DefaultItems {    
     public BlockData : vscode.CompletionItem[];
+    public ItemData : vscode.CompletionItem[];
     public JsonItemComponents : vscode.CompletionItem[];
     public JsonTextComponents : vscode.CompletionItem[];
+    public String : vscode.CompletionItem[];
 
     constructor(){        
         this.BlockData = [createCompletionItem("-1", "Block Data", "An block data value", vscode.CompletionItemKind.Constant)];
@@ -185,5 +187,9 @@ export class DefaultItems {
                 "Json Text Components",
                 "A snippet of json text components",
                 vscode.CompletionItemKind.Snippet)];
+
+        this.String = [
+            createCompletionItem('""', '""', 'Add a string', vscode.CompletionItemKind.Snippet)
+        ];
     }
 }

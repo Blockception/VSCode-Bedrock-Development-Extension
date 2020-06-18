@@ -28,19 +28,35 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from 'vscode';
-import * as Completion from "./completion items/activate"
-import * as LanguageDiagnostics from "./diagnostics/activate"
-import * as Formatter from './Formatter'
-import * as Symbols from './symbols/activate'
-//import * as Signatures from './signatures/activate'
+import * as vscode from "vscode";
+import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { SyntaxItem } from "../../../general/include";
 
-//Activate the mcfunction part of the extension
-export function activate(context: vscode.ExtensionContext) {
-	console.log("activating mcfunction extension");
-	Completion.activate(context)
-	LanguageDiagnostics.activate(context);
-   Formatter.activate(context);
-   Symbols.activate(context);
-   //Signatures.activate(context);
+export class SummonCompletionProvider implements CompletionItemProvider {
+
+    constructor() {
+    }
+
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+        //summon <entityType: EntityType> [spawnPos: x y z] [spawnEvent: string] [nameTag: string]
+        //summon <entityType: EntityType> <nameTag: string> [spawnPos: x y z]        
+        var EntityType = Item.Child;
+
+        if (EntityType == undefined){
+            return Cm.EntityCompletionProvider?.provideCompletionItems(Item, Cm, document);
+        }
+
+        var XOrName = EntityType.Child;
+
+        if (XOrName == undefined){
+            return Cm.CoordinateCompletionProvider.provideDiagnostics();
+        }
+
+        switch(XOrName.Count()){
+            case 0:
+            case 1:
+            case 2:
+                return Cm.CoordinateCompletionProvider.provideDiagnostics();
+        }
+    }
 }

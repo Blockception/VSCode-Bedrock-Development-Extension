@@ -78,6 +78,9 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 		}
 
 		//TODO check slot containers
+		if (slot.Text.text != 'slot.container'){
+			collector.push(new vscode.Diagnostic(slot.Text.ToRange(lineIndex), 'slot type must be: slot.container', vscode.DiagnosticSeverity.Error));
+		}
 
 		this.branchMerged(slot, lineIndex, collector, dm, document);
 	}
