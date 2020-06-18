@@ -6,8 +6,10 @@
   "description": "The definition file of music of the resourcepack",
   "definitions": {
     "music": {
+      "additionalProperties": false,
       "type": "object",
       "description": "A music defintion",
+      "required": [ "event_name" ],
       "properties": {
         "event_name": {
           "description": "The name of the minecraft music event",
@@ -38,15 +40,15 @@
     }
   },
   "properties": {
-    "game": {
-      "$ref": "#/definitions/music",
-      "description": "TODO description: game",
-      "title": "Game"
-    },
     "creative": {
       "$ref": "#/definitions/music",
       "description": "TODO description: creative",
       "title": "Creative"
+    },
+    "credits": {
+      "$ref": "#/definitions/music",
+      "description": "TODO description: credits",
+      "title": "Credits"
     },
     "end": {
       "$ref": "#/definitions/music",
@@ -58,20 +60,35 @@
       "description": "TODO description: endboss",
       "title": "Endboss"
     },
-    "nether": {
+    "game": {
       "$ref": "#/definitions/music",
-      "description": "TODO description: nether",
-      "title": "Nether"
+      "description": "TODO description: game",
+      "title": "Game"
     },
-    "credits": {
+    "hell": {
       "$ref": "#/definitions/music",
-      "description": "TODO description: credits",
-      "title": "Credits"
+      "description": "TODO description: hell",
+      "title": "Hell"
     },
     "menu": {
       "$ref": "#/definitions/music",
       "description": "TODO description: menu",
       "title": "Menu"
+    },
+    "nether": {
+      "$ref": "#/definitions/music",
+      "description": "TODO description: nether",
+      "title": "Nether"
+    },
+    "soulsand_valley": {
+      "$ref": "#/definitions/music",
+      "description": "TODO description: soulsand_valley",
+      "title": "Soulsand Valley"
+    },
+    "water": {
+      "$ref": "#/definitions/water",
+      "description": "TODO description: water",
+      "title": "Water"
     }
   }
 }

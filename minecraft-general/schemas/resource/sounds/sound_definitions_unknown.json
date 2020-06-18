@@ -12,7 +12,95 @@
       "description": "The filepath to the sound, starts with 'sounds/'",
       "pattern": "^(sounds/)",
       "additionalItems": true
+    },
+    "SoundSpec": {
+      "additionalItems": false,
+      "type": "object",
+      "$id": "#/Sound",
+      "title": "Sound specification",
+      "required": [ "sounds" ],
+      "properties": {
+        "category": {
+          "type": "string",
+          "$id": "#/Sound/category",
+          "title": "Sound category",
+          "enum": [
+            "block",
+            "music",
+            "weather",
+            "ui",
+            "bucket",
+            "neutral",
+            "player",
+            "hostile",
+            "record"
+          ],
+          "description": "TODO description: category"
+        },
+        "sounds": {
+          "items": {
+            "anyOf": [
+              {
+                "$id": "#/Sound/sounds/stringItem",
+                "type": "string",
+                "$ref": "#/definitions/SoundPath",
+                "description": "TODO description: anyOf[0]",
+                "title": "Any Of[0]"
+              },
+              {
+                "additionalItems": false,
+                "$id": "#/Sound/sounds/ObjectItem",
+                "type": "object",
+                "required": [ "name" ],
+                "properties": {
+                  "pitch": {
+                    "description": "The pitch of the audio, 1 is nomial",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2,
+                    "title": "Pitch"
+                  },
+                  "volume": {
+                    "description": "The volume of the audio, 1 is nomial",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2,
+                    "title": "Volume"
+                  },
+                  "load_on_low_memory": {
+                    "type": "boolean",
+                    "description": "marks if this audio should be loaded or not on low memory",
+                    "title": "Load On Low Memory"
+                  },
+                  "stream": {
+                    "description": "If marked true then minecraft will stream the audio",
+                    "type": "boolean",
+                    "title": "Stream"
+                  },
+                  "name": {
+                    "$id": "#/Sound/sounds/stringItem",
+                    "type": "string",
+                    "$ref": "#/definitions/SoundPath",
+                    "description": "TODO description: name",
+                    "title": "Name"
+                  }
+                },
+                "description": "TODO description: anyOf[1]",
+                "title": "Any Of[1]"
+              }
+            ],
+            "description": "TODO description: sounds",
+            "title": "Sounds"
+          },
+          "description": "TODO description: sounds",
+          "title": "Sounds"
+        }
+      },
+      "description": "TODO description: additionalProperties"
     }
+  },
+  "additionalProperties": {
+    "$ref": "#/definitions/SoundSpec"
   },
   "properties": {
     "format_version": {
@@ -21,92 +109,9 @@
       "title": "Format Version"
     },
     "sound_definitions": {
+      "type": "object",
       "additionalProperties": {
-        "additionalItems": false,
-        "type": "object",
-        "$id": "#/Sound",
-        "title": "Sound specification",
-        "required": [
-          "sounds"
-        ],
-        "properties": {
-          "category": {
-            "type": "string",
-            "$id": "#/Sound/category",
-            "title": "Sound category",
-            "enum": [
-              "block",
-              "music",
-              "weather",
-              "ui",
-              "bucket",
-              "neutral",
-              "player",
-              "hostile",
-              "record"
-            ],
-            "description": "TODO description: category"
-          },
-          "sounds": {
-            "items": {
-              "anyOf": [
-                {
-                  "$id": "#/Sound/sounds/stringItem",
-                  "type": "string",
-                  "$ref": "#/definitions/SoundPath",
-                  "description": "TODO description: anyOf[0]",
-                  "title": "Any Of[0]"
-                },
-                {
-                  "additionalItems": false,
-                  "$id": "#/Sound/sounds/ObjectItem",
-                  "type": "object",
-                  "required": [ "name" ],
-                  "properties": {
-                    "pitch": {
-                      "description": "The pitch of the audio, 1 is nomial",
-                      "type": "number",
-                      "minimum": 0,
-                      "maximum": 2,
-                      "title": "Pitch"
-                    },
-                    "volume": {
-                      "description": "The volume of the audio, 1 is nomial",
-                      "type": "number",
-                      "minimum": 0,
-                      "maximum": 2,
-                      "title": "Volume"
-                    },
-                    "load_on_low_memory": {
-                      "type": "boolean",
-                      "description": "marks if this audio should be loaded or not on low memory",
-                      "title": "Load On Low Memory"
-                    },
-                    "stream": {
-                      "description": "If marked true then minecraft will stream the audio",
-                      "type": "boolean",
-                      "title": "Stream"
-                    },
-                    "name": {
-                      "$id": "#/Sound/sounds/stringItem",
-                      "type": "string",
-                      "$ref": "#/definitions/SoundPath",
-                      "description": "TODO description: name",
-                      "title": "Name"
-                    }
-                  },
-                  "description": "TODO description: anyOf[1]",
-                  "title": "Any Of[1]"
-                }
-              ],
-              "description": "TODO description: sounds",
-              "title": "Sounds"
-            },
-            "description": "TODO description: sounds",
-            "title": "Sounds"
-          }
-        },
-        "description": "TODO description: additionalProperties"
+        "$ref": "#/definitions/SoundSpec"
       },
       "description": "TODO description: sound definitions",
       "title": "Sound Definitions"
