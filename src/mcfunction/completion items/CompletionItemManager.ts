@@ -56,6 +56,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     public SelectorCompletion : SelectorCompletionProvider;
     public SelectorVscodeCompletion : SelectorVscodeCompletionProvider;
     public TagCompletionProvider : CompletionItemProvider | undefined; //TODO
+    public TickingAreaCompletionProvider : CompletionItemProvider | undefined; //TODO
 
     constructor(){
         this.Default = new DefaultItems();
@@ -67,7 +68,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         this.SelectorVscodeCompletion = new SelectorVscodeCompletionProvider();
 
         //Starts items
-        this.StartItems = new Array<vscode.CompletionItem> (
+        this.StartItems = [
             Functions.createCompletionItem("alwaysday", "alwaysday", "Locks and unlocks the day-night cycle."),
             Functions.createCompletionItem("clear", "clear", "Clears items from player inventory."),
             Functions.createCompletionItem("connect", "connect", "Attempts to connect to the websocket server on the provided URL."),
@@ -117,7 +118,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
             Functions.createCompletionItem("weather", "weather", "Sets the weather"),
             Functions.createCompletionItem("w", "w", "Sends a private message to one or more players."),
             Functions.createCompletionItem("xp", "xp", "Adds or removes player experience.")
-        );
+        ];
 
         this.StartItems.forEach(x=>x.kind = vscode.CompletionItemKind.Class);
     }
