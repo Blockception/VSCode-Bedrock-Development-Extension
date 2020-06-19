@@ -28,19 +28,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from 'vscode';
-import * as Completion from "./completion items/activate"
-import * as LanguageDiagnostics from "./diagnostics/activate"
-import * as Formatter from './Formatter'
-import * as Symbols from './symbols/activate'
-import * as Signatures from './signatures/activate'
+import { SignatureInformation, ParameterInformation } from "vscode";
 
-//Activate the mcfunction part of the extension
-export function activate(context: vscode.ExtensionContext) {
-	console.log("activating mcfunction extension");
-	Completion.activate(context)
-	LanguageDiagnostics.activate(context);
-   Formatter.activate(context);
-   Symbols.activate(context);
-   Signatures.activate(context);
+export function newItem(label: string, documentation: string, parameters: ParameterInformation[]): SignatureInformation {
+    var SI = new SignatureInformation(label, documentation);
+    SI.parameters = parameters;
+
+    return SI;
 }

@@ -28,19 +28,32 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from 'vscode';
-import * as Completion from "./completion items/activate"
-import * as LanguageDiagnostics from "./diagnostics/activate"
-import * as Formatter from './Formatter'
-import * as Symbols from './symbols/activate'
-import * as Signatures from './signatures/activate'
+import { SignatureManager } from "../SignatureManager";
+import { GeneralSignatureProvider } from "./GeneralSignatures";
+import { CloneSignatureProvider } from "./CloneSignatures";
+import { EffectSignatureProvider } from "./EffectSignatures";
+import { ExecuteSignatureProvider } from "./ExecuteSignatures";
+import { FillSignatureProvider } from "./FillSignatures";
+import { GameruleSignatureProvider } from "./GameruleSignatures";
 
-//Activate the mcfunction part of the extension
-export function activate(context: vscode.ExtensionContext) {
-	console.log("activating mcfunction extension");
-	Completion.activate(context)
-	LanguageDiagnostics.activate(context);
-   Formatter.activate(context);
-   Symbols.activate(context);
-   Signatures.activate(context);
+//Add commands to the signatures
+export function activate(context: SignatureManager) {
+   console.log('\tThe signature completors (karen) want to talk to the manager');
+
+   //no branching commands
+   context.set(new GeneralSignatureProvider(), [
+      'alwaysday','clear','connect','daylock','deop',
+      'difficulty','enchant','function','gamemode',
+      'give','kill','me','msg','op','particle','playsound',
+      'reload','say','setblock','setmaxplayers','setworldspawn',
+      'spawnpoint','spreadplayers','stopsound','tell',
+      'tellraw','testfor','testforblock','testforblocks',
+      'toggledownfall','weather','w','xp']);
+
+   //Commands with branches
+   context.set(new CloneSignatureProvider(), ['clone']);
+   context.set(new EffectSignatureProvider(), ['effect']);
+   context.set(new ExecuteSignatureProvider(), ['execute']);
+   context.set(new FillSignatureProvider(), ['fill']);
+   context.set(new GameruleSignatureProvider(), ['gamerule']);
 }

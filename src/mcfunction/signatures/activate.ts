@@ -28,21 +28,19 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-/*TODO
 import * as vscode from 'vscode';
 import { McFunctionIdentifier } from '../../constants';
+import { SignatureManager } from './SignatureManager';
+import * as Commands from './types/activate';
 
 //Activate the mcfunction part of the extension
 export function activate(context: vscode.ExtensionContext) {
     console.log("activating mcfunction signatures");
     
+    var Manager = new SignatureManager();
+    Commands.activate(Manager);
+
     context.subscriptions.push(
-        vscode.languages.registerSignatureHelpProvider(McFunctionIdentifier, new McfunctionSignatureProvider() , ' ', '\n')
+        vscode.languages.registerSignatureHelpProvider(McFunctionIdentifier, Manager, ' ', '\n')
     );
 }
-
-export class McfunctionSignatureProvider implements vscode.SignatureHelpProvider {
-    provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.SignatureHelpContext): vscode.ProviderResult<vscode.SignatureHelp> {
-        
-    }
-}*/

@@ -63,7 +63,6 @@ export class GameruleDiagnosticProvider implements DiagnosticProvider {
 			case 'mobgriefing':
 			case 'naturalregeneration':
 			case 'pvp':
-			case 'randomtickspeed':
 			case 'sendcommandfeedback':
 			case 'showcoordinates':
 			case 'showdeathmessages':
@@ -76,17 +75,18 @@ export class GameruleDiagnosticProvider implements DiagnosticProvider {
 				if (Next == undefined)
 					return;
 
-				dm.BooleanDiagnoser?.provideDiagnostic(Next, lineIndex, collector, dm, document);
+				dm.BooleanDiagnoser.provideDiagnostic(Next, lineIndex, collector, dm, document);
 
 				return;
 			case 'maxcommandchainlength':
+			case 'randomtickspeed':
 
 				var Next = Gamerule.Child
 
 				if (Next == undefined)
 					return;
 
-				dm.IntegerDiagnoser?.provideDiagnostic(Next, lineIndex, collector, dm, document);
+				dm.IntegerDiagnoser.provideDiagnostic(Next, lineIndex, collector, dm, document);
 
 				return;
 			default:

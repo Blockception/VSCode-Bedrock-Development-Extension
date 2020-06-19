@@ -29,18 +29,46 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import * as Completion from "./completion items/activate"
-import * as LanguageDiagnostics from "./diagnostics/activate"
-import * as Formatter from './Formatter'
-import * as Symbols from './symbols/activate'
-import * as Signatures from './signatures/activate'
+import { SyntaxItem, SyntaxTree } from '../../general/include';
+import { SignatureHelp } from 'vscode';
 
-//Activate the mcfunction part of the extension
-export function activate(context: vscode.ExtensionContext) {
-	console.log("activating mcfunction extension");
-	Completion.activate(context)
-	LanguageDiagnostics.activate(context);
-   Formatter.activate(context);
-   Symbols.activate(context);
-   Signatures.activate(context);
+export interface SignatureItemProvider {
+    //
+    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp>;
+}
+
+export class SignatureManager implements vscode.SignatureHelpProvider {
+
+    public SignatureProviders: Map<string, SignatureItemProvider>;
+
+    constructor() {
+        this.SignatureProviders = new Map<string, SignatureItemProvider>();
+    }
+
+    set(Cm : SignatureItemProvider, keywords : string[]) : void {
+        keywords.forEach(word => this.SignatureProviders.set(word, Cm));
+    }
+
+    provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.SignatureHelpContext): vscode.ProviderResult<vscode.SignatureHelp> {
+        var Line = document.lineAt(position.line);
+
+        if (position.character < 3) {
+            return undefined;
+        }
+
+        var Tree = SyntaxTree.ParseTree(Line, position);
+
+        var Item = Tree.Root;
+        if (Item == undefined)
+            return undefined;
+
+        var Diagnoser = this.SignatureProviders.get(Item.Text.text);
+
+        if (Diagnoser != undefined) {
+            var Items = Diagnoser.provideSignature(Item, this);
+            return Items;
+        }
+
+        return undefined;
+    }
 }
