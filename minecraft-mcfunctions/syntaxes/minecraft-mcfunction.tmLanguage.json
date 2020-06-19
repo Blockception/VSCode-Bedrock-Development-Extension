@@ -100,6 +100,7 @@
         { "name": "entity.name.function.buriedtreasure", "match": "\\bburiedtreasure\\b" },
         { "name": "entity.name.function.circle", "match": "\\bcircle\\b" },
         { "name": "entity.name.function.class.endcity", "match": "\\bendcity\\b" },
+        { "name": "entity.name.function.detect", "match": "\\bdetect\\b" },
         { "name": "entity.name.function.entity", "match": "\\bentity\\b" },
         { "name": "entity.name.function.fortress", "match": "\\bfortress\\b" },
         { "name": "entity.name.function.force", "match": "\\bforce\\b" },
