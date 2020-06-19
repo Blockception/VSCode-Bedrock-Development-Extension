@@ -64,7 +64,7 @@ export class ExecuteSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var DetectChild = Item.GetAt(4);
+      var DetectChild = Item.GetAt(5);
 
       var Count = Item.Count();
 
@@ -85,14 +85,14 @@ export class ExecuteSignatureProvider implements SignatureItemProvider {
          Child = this.Normal;
 
       //Too many childern
-      if (Count > Child.parameters.length){
+      if (Count >= Child.parameters.length - 1){
          var Command;
 
          if (Detect){
-            Command = Item.GetAt(10);
+            Command = Item.GetAt(11);
          }
          else
-            Command = Item.GetAt(4);
+            Command = Item.GetAt(5);
 
          if (Command == undefined){
             return undefined;
@@ -104,7 +104,7 @@ export class ExecuteSignatureProvider implements SignatureItemProvider {
             return undefined;
          }
 
-         return Next.provideSignature(Item, Sm);
+         return Next.provideSignature(Command, Sm);
       }
 
       Child.activeParameter = Count;

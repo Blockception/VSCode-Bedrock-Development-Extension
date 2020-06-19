@@ -1,4 +1,6 @@
 # Changelog 
+- Updated to 0.2.7
+- Updated
 - Updated
 - Updated
 - Moved Snippets from 'minecraft.' to 'snippet.'
@@ -17,5 +19,3 @@
 - Fixed entity identifier
 - Updated Completion Items
 - Added Completion
-- Added Constributors
-- Updated
