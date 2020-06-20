@@ -28,17 +28,25 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { SignatureManager } from "../SignatureManager";
-import { GeneralSignatureProvider } from "./GeneralSignatures";
 import { CloneSignatureProvider } from "./CloneSignatures";
 import { EffectSignatureProvider } from "./EffectSignatures";
 import { ExecuteSignatureProvider } from "./ExecuteSignatures";
 import { FillSignatureProvider } from "./FillSignatures";
 import { GameruleSignatureProvider } from "./GameruleSignatures";
+import { GeneralSignatureProvider } from "./GeneralSignatures";
 import { LocateSignatureProvider } from "./LocateSignatures";
 import { MobeventSignatureProvider } from "./MobeventSignatures";
 import { ReplaceItemSignatureProvider } from "./ReplaceItemSignatures";
 import { ScoreboardSignatureProvider } from "./ScoreboardSignatures";
+import { SignatureManager } from "../SignatureManager";
+import { SummonSignatureProvider } from "./SummonSignatures";
+import { TagSignatureProvider } from "./TagSignatures";
+import { TeleportSignatureProvider } from "./TeleportSignatures";
+import { TickingareaSignatureProvider } from "./TickingareaSignatures";
+import { TimeSignatureProvider } from "./TimeSignatures";
+import { TitleSignatureProvider } from "./TitleSignatures";
+import { TitlerawSignatureProvider } from "./TitlerawSignatures";
+import { TpSignatureProvider } from "./TpSignatures";
 
 //Add commands to the signatures
 export function activate(context: SignatureManager) {
@@ -65,4 +73,11 @@ export function activate(context: SignatureManager) {
    context.set(new ReplaceItemSignatureProvider(), ['replaceitem']);
    context.set(new ScoreboardSignatureProvider(), ['scoreboard']);
    context.set(new SummonSignatureProvider(), ['summon']);
+   context.set(new TagSignatureProvider(), ['tag']);
+   context.set(new TeleportSignatureProvider(), ['teleport']);
+   context.set(new TickingareaSignatureProvider(), ['tickingarea']);
+   context.set(new TimeSignatureProvider(), ['time']);
+   context.set(new TitleSignatureProvider(), ['title']);
+   context.set(new TitlerawSignatureProvider(), ['titleraw']);
+   context.set(new TpSignatureProvider(), ['tp']);
 }

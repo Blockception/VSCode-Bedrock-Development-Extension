@@ -1,4 +1,7 @@
 {
+    "main": "./dist/extension.js",
+    "version": "0.2.9",
+
     "activationEvents": [ "*" ],
     "author": {
         "name": "Blockception Ltd",
@@ -36,7 +39,6 @@
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.11"
     },
-    "main": "./dist/extension.js",
     "engines": { "vscode": "^1.43.0" },
     "extensionKind": [ "ui" ],
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
@@ -52,7 +54,6 @@
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
     },
-    "version": "0.2.8",
     "contributes": {
         "commands": [
             {

@@ -1,4 +1,9 @@
 # Changelog 
+- Added spawn rules
+- Updated
+- Moved
+- Added Detect to colours
+- Updated to 0.2.8
 - Updated to 0.2.7
 - Updated
 - Updated
@@ -14,8 +19,3 @@
 - Added Completion Items
 - Adding Completion items
 - Updated Code
-- Added Titles to loot tables
-- Updated Language Colours
-- Fixed entity identifier
-- Updated Completion Items
-- Added Completion

@@ -48,12 +48,12 @@
               "minecraft:distance_filter": { "$ref": "./components/minecraft.distance_filter.json" },
               "minecraft:height_filter": { "$ref": "./components/minecraft.height_filter.json" },
               "minecraft:herd": { "$ref": "./components/minecraft.herd.json" },
-              "minecraft:spawns_underground": { "$ref": "./components/minecraft.spawns_underground.json" },
-              "minecraft:spawns_on_surface": { "$ref": "./components/minecraft.spawns_on_surface.json" },
-              "minecraft:spawns_on_block_filter": { "$ref": "./components/minecraft.spawns_on_block_filter.json" },
-              "minecraft:spawns_underwater": { "$ref": "./components/minecraft.spawns_underwater.json" },
-              "minecraft:spawn_event": { "$ref": "./components/minecraft.spawn_event.json" },
               "minecraft:permute_type": { "$ref": "./components/minecraft.permute_type.json" },
+              "minecraft:spawn_event": { "$ref": "./components/minecraft.spawn_event.json" },
+              "minecraft:spawns_on_block_filter": { "$ref": "./components/minecraft.spawns_on_block_filter.json" },
+              "minecraft:spawns_on_surface": { "$ref": "./components/minecraft.spawns_on_surface.json" },
+              "minecraft:spawns_underground": { "$ref": "./components/minecraft.spawns_underground.json" },
+              "minecraft:spawns_underwater": { "$ref": "./components/minecraft.spawns_underwater.json" },
               "minecraft:weight": { "$ref": "./components/minecraft.weight.json" }
             }
           }
