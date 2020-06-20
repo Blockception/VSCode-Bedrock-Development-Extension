@@ -35,6 +35,10 @@ import { EffectSignatureProvider } from "./EffectSignatures";
 import { ExecuteSignatureProvider } from "./ExecuteSignatures";
 import { FillSignatureProvider } from "./FillSignatures";
 import { GameruleSignatureProvider } from "./GameruleSignatures";
+import { LocateSignatureProvider } from "./LocateSignatures";
+import { MobeventSignatureProvider } from "./MobeventSignatures";
+import { ReplaceItemSignatureProvider } from "./ReplaceItemSignatures";
+import { ScoreboardSignatureProvider } from "./ScoreboardSignatures";
 
 //Add commands to the signatures
 export function activate(context: SignatureManager) {
@@ -56,4 +60,9 @@ export function activate(context: SignatureManager) {
    context.set(new ExecuteSignatureProvider(), ['execute']);
    context.set(new FillSignatureProvider(), ['fill']);
    context.set(new GameruleSignatureProvider(), ['gamerule']);
+   context.set(new LocateSignatureProvider(), ['locate']);
+   context.set(new MobeventSignatureProvider(), ['mobevent']);
+   context.set(new ReplaceItemSignatureProvider(), ['replaceitem']);
+   context.set(new ScoreboardSignatureProvider(), ['scoreboard']);
+   context.set(new SummonSignatureProvider(), ['summon']);
 }
