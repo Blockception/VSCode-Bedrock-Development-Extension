@@ -10,7 +10,7 @@ Recommended you use the Dark+ theme for the best colour highlighting.
 ## Features
 
 ### Mcfunction and Language files
-  - Syntax highlighting
+  - Syntax highlighting.
   - Code formatting.
   - Diagnostics.
   - Code Completion.

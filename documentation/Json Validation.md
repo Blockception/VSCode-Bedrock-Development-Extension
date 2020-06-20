@@ -49,6 +49,7 @@ If a json validation is missing. Then also post an issue. and one will be made i
 |Entity behaviours |entities/*.json|
 |Item behaviours |items/*.json|
 |Loot tables |loot_tables/*.json|
+|Spawn rules |spawn_rules/*.json|
 
 # Json Validation
 

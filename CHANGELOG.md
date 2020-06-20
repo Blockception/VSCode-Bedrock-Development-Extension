@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 0.2.9
 - Added spawn rules
 - Updated
 - Moved
@@ -18,4 +19,3 @@
 - Added language file completion items
 - Added Completion Items
 - Adding Completion items
-- Updated Code

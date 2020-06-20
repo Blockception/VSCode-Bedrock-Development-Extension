@@ -6,6 +6,13 @@ const path = require('path');
 
 /**@type {import('webpack').Configuration}*/
 const config = {
+  optimization: {
+    mergeDuplicateChunks: true
+  },
+  performance: {
+    hints: "warning"
+  },
+
   target: 'node', // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
 
   entry: './src/extension.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
