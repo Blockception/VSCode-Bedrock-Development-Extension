@@ -31,7 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as vscode from 'vscode';
 import { McFunctionIdentifier } from '../../constants';
 import { SignatureManager } from './SignatureManager';
-import * as Commands from './types/activate';
+import * as Commands from './Commands/activate';
 
 //Activate the mcfunction part of the extension
 export function activate(context: vscode.ExtensionContext) {
