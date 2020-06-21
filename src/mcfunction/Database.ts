@@ -31,12 +31,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DocumentDataCollection } from "../general/include";
 import { SymbolInformation } from "vscode";
 
-
-export class mcfunctionDatabase {
-   public static Symbols : DataSet<SymbolInformation>
-}
-
-
 export class DataSet<T> {
    //All list of all found blocks and their data
    Blocks: DocumentDataCollection<T> = new DocumentDataCollection<T>();
@@ -50,6 +44,9 @@ export class DataSet<T> {
    //All list of all found particles and their data
    Particles: DocumentDataCollection<T> = new DocumentDataCollection<T>();
 
+   //All list of all region and their data
+   Regions: DocumentDataCollection<T> = new DocumentDataCollection<T>();
+
    //All list of all found selectors and their data
    Selectors: DocumentDataCollection<T> = new DocumentDataCollection<T>();
 
@@ -59,3 +56,10 @@ export class DataSet<T> {
    //All list of all found tags and their data
    Tags: DocumentDataCollection<T> = new DocumentDataCollection<T>();
 }
+
+
+export class mcfunctionDatabase {
+   public static Symbols : DataSet<SymbolInformation> = new DataSet<SymbolInformation>();
+}
+
+

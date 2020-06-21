@@ -38,7 +38,7 @@ export class DocumentDataCollection<T> {
         this.Items = new Map<vscode.Uri, DocumentData<T>>();
     }
 
-    public Get(key: vscode.Uri) : DocumentData<T>{
+    public Get(key: vscode.Uri) : DocumentData<T> {
         var Out = this.Items.get(key);
 
         if (Out == undefined) {
@@ -55,6 +55,11 @@ export class DocumentDataCollection<T> {
 
     public forEach(callbackfn : (value: DocumentData<T>, key: vscode.Uri, map: Map<vscode.Uri, DocumentData<T>>) => void) {
         this.Items.forEach(callbackfn);
+    }
+
+    public First() {
+        var Item = Array.from(this.Items)[0];
+        return Item[1];
     }
 }
 
