@@ -5,8 +5,6 @@
 An extension that provides development tools, validations, formatters, diagnostics, and snippets to help develop minecraft bedrock content.
 Recommended you use the Dark+ theme for the best colour highlighting.
 
-![overview](documentation/resources/overview.gif)
-
 ## Features
 
 ### Mcfunction and Language files
