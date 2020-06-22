@@ -172,7 +172,7 @@ function CheckCoordinate(Parameter: SelectorParameter, range: vscode.Range, coll
     Number = Number.substring(1, Parameter.value.length);
   }
 
-  if (!IsCoordinate(Number)) {
+  if (Number.match("(^[\-+0-9.]+$|^\~[\-+0-9.]*$)")?.length == 0) {
     collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": The number part is not valid", vscode.DiagnosticSeverity.Error));
   }
 }
