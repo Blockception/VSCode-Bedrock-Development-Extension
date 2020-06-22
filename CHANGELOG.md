@@ -1,4 +1,16 @@
 # Changelog 
+- Updated Components
+- Updated Behaviour Components
+- Updated documentation
+- Updated behaviour components
+- Updated
+- Updated
+- Fixed Selector
+- Added the start of symbol searching
+- Added overview
+- Updated
+- Updated
+- Updated
 - Updated to 0.2.9
 - Added spawn rules
 - Updated
@@ -7,15 +19,3 @@
 - Updated to 0.2.8
 - Updated to 0.2.7
 - Updated
-- Updated
-- Updated
-- Moved Snippets from 'minecraft.' to 'snippet.'
-- Updated Completion provider for coordiantes
-- Ordered diagnostics
-- Last of the completion Items
-- Added More Completiong Items
-- Updated
-- Added more completion items for mcfunction
-- Added language file completion items
-- Added Completion Items
-- Adding Completion items
