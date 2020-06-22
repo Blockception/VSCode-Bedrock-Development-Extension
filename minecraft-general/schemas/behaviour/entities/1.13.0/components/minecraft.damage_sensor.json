@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.damage_sensor",
+  "$id": "blockception.minecraft.behaviour.entities.1.13.0.minecraft.damage_sensor",
   "title": "Damage sensor",
   "description": "Defines what events to call when this entity is damaged by specific entities or items.",
   "type": "object",
@@ -78,13 +78,16 @@
             "description": "Defines what sound to play, if any, when the on_damage filters are met.",
             "title": "on_damage_sound_event"
           }
+        },
+        "on_damage_sound_event": {
+          "$ref": "../../1.8.0/types/event.json"
         }
       }
     }
   },
   "properties": {
     "triggers": {
-      "description": "The list of triggers that fire when the environment conditions match the given filter criteria.",
+      "description": "The list of triggers with the events to call when taking specific kinds of damage.",
       "title": "Triggers",
       "oneOf": [
         {
