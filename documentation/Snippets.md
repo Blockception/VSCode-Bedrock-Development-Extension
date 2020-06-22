@@ -5,60 +5,24 @@ The following snippets have been added and how to access them.
 **Contents**
 - [Snippets](#snippets)
   - [General](#general)
-    - [Block names](#block-names)
-    - [Commands](#commands)
-    - [Effect names](#effect-names)
-    - [Enchant names](#enchant-names)
-    - [Item names](#item-names)
-  - [Mcfunctions](#mcfunctions)
-    - [Region snippets](#region-snippets)
-    - [Selector](#selector)
   - [Minecraft Language Files](#minecraft-language-files)
-    - [Region snippets](#region-snippets-1)
+    - [Region snippets](#region-snippets)
 
 
 
 ## General
 
+A list of snippets as been added to mcfunctions and languages files. these can be access through typing 'snippet.<category>'
 ![image](resources/snippets_mcfunctions.png)
 
-### Block names
 
-A list of all the block names have been stored as snippets, these can be accessed through typing: 'snippet.blocks'.
-
-### Commands
-
-A list of all minecraft commands and their syntax are stored as snippets; these can be accessed through 'snippet.commands' or just typing the command
-
-### Effect names
-
-A list of all the effect names have been stored as snippets, these can be accessed through typing: 'snippet.effects'.
-
-### Enchant names
-
-A list of all the enchantment names have been stored as snippets, these can be accessed through typing: 'snippet.enchants'.
-
-### Item names
-
-A list of all item names have been stored as snippets, these can be accessed through typing: 'snippet.item'
-
----
-## Mcfunctions
-
-### Region snippets
-Added region snippets, so you can use comments to region of sections of with code by using the following comments:
-
-```Csharp
-#region
-..Some code
-#endregion
-```
-
-The extension recognizes this and allows the code to be folded
-
-### Selector
-
-A list of helpfull selectors snippets have been stored as snippets, these can be accessed through 'snippet.selector'.
+|Snippet Collection|How to access|
+|------------------|-------------|
+|Block names|A list of all the block names have been stored as snippets, these can be accessed through typing: 'snippet.blocks'.|
+|Commands|A list of all minecraft commands and their syntax are stored as snippets; these can be accessed through 'snippet.commands'.|
+|Effect names|A list of all the effect names have been stored as snippets, these can be accessed through typing: 'snippet.effects'.|
+|Enchantment names|A list of all the enchantment names have been stored as snippets, these can be accessed through typing: 'snippet.enchants'.|
+|Item names|A list of all item names have been stored as snippets, these can be accessed through typing: 'snippet.item'.|
 
 ---
 ## Minecraft Language Files
