@@ -9,16 +9,8 @@
     "drop_items": {
       "description": "List of items that the entity drops when it grows up.",
       "oneOf": [
-        {
-          "type": "array",
-          "items": {
-            "$ref": "../../../../general/items_item.json"
-          }
-        },
-        {
-          "type": "string",
-          "$ref": "../../../../general/items_item.json"
-        }
+        { "type": "array", "items": { "type": "string" } },
+        { "type": "string" }
       ]
     },
     "duration": {
@@ -29,8 +21,8 @@
     "feed_items": {
       "description": "List of items that can be fed to the entity. Includes 'item' for the item name and 'growth' to define how much time it grows up by",
       "oneOf": [
-        { "type": "array", "items": { "$ref": "../../../../general/items_item.json" } },
-        { "type": "string", "$ref": "../../../../general/items_item.json" }
+        { "type": "array", "items": { "type": "string" } },
+        { "type": "string" }
       ]
     },
     "grow_up": {

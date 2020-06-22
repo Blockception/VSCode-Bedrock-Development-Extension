@@ -6,26 +6,25 @@
     "additionalProperties": false,
     "description": "Returns true if the subject entity leashed to the calling entity.",
     "properties": {
-    "test": {
-      "type": "string",
-      "title": "The test",
-      "description": "the test property"
-    },
-    "operator": {
-      "$ref": "types/base_operator.json",
-      "description": "todo description",
-      "title": "Todo title"
-    },
-    "subject": {
-      "$ref": "types/base_subject.json",
-      "description": "todo description",
-      "title": "Todo title"
-    },
-    "value": {
-      "type": "boolean",
-      "default": true,
-      "description": "todo description",
-      "title": "Todo title"
+      "test": {
+        "type": "string",
+        "title": "Test",
+        "description": "the test property"
+      },
+      "operator": {
+        "$ref": "types/base_operator.json"
+      },
+      "subject": {
+        "$ref": "types/base_subject.json"
+      },
+      "value": {
+        "description": "true or false.",
+        "oneOf": [
+          { "type": "boolean", "default": true },
+          { "type": "string", "enum": ["true", "false"] }
+        ],
+        
+        "title": "Value"
+      }
     }
   }
-}

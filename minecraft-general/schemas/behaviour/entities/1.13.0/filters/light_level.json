@@ -1,10 +1,10 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "blockception.minecraft.behaviour.entities.1.13.0.filters.rider_count",
+    "$id": "blockception.minecraft.behaviour.entities.1.13.0.filters.light_level",
     "type": "object",
-    "title": "Filters rider_count 1.13.0",
+    "title": "Filters light_level 1.13.0",
     "additionalProperties": false,
-    "description": "Returns the number of riders on this entity.",
+    "description": "Tests is the mob is outside of the specified light level range (0, 16).",
     "required": [ "value" ],
     "properties": {
       "test": {
@@ -21,7 +21,9 @@
       "value": {
         "description": "An integer value.",
         "type": "integer",
-        "title": "Value"
+        "title": "Value",
+        "minimum": 0,
+        "maximum": 16
       }
     }
   }
