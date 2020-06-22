@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.lookat",
   "description": "Defines the behavior when another entity looks at this entity.",
   "type": "object",
-  "title": "minecraft:lookat 1.8.0",
+  "title": "Minecraft:lookat 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

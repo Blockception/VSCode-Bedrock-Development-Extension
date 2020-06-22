@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.insomnia",
   "description": "Adds a timer since last rested to see if phantoms should spawn.",
   "type": "object",
-  "title": "minecraft:insomnia 1.8.0",
+  "title": "Minecraft:insomnia 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

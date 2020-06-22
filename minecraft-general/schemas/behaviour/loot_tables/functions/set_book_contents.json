@@ -3,7 +3,7 @@
     "$id": "blockception.minecraft.behaviour.loot_tables.set_book_contents",
     "additionalProperties": false,
     "description": "The function set_book_contents",
-    "title": "set_book_contents",
+    "title": "Set_book_contents",
     "required": ["function", "author", "title", "pages"],
     "properties": {
         "function": {

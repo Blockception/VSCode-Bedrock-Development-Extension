@@ -12,7 +12,7 @@
           "type": "string",
           "default": "none",
           "description": "Type of damage that triggers the events.",
-          "title": "cause",
+          "title": "Cause",
           "enum": [
             "anvil",
             "attack",
@@ -44,19 +44,19 @@
           "type": "number",
           "default": 1,
           "description": "A multiplier that modifies the base damage from the damage cause. If deals_damage is true the multiplier can only reduce the damage the entity will take to a minimum of 1.",
-          "title": "damage_multiplier"
+          "title": "Damage_multiplier"
         },
         "deals_damage": {
           "type": "boolean",
           "default": true,
           "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage.",
-          "title": "deals_damage"
+          "title": "Deals_damage"
         },
         "on_damage": {
           "additionalProperties": false,
           "type": "object",
           "description": "Specifies filters for entity definitions and events.",
-          "title": "on_damage",
+          "title": "On_damage",
           "properties": {
             "filters": {
               "$ref": "../filters.json"
@@ -76,7 +76,7 @@
           "on_damage_sound_event": {
             "type": "string",
             "description": "Defines what sound to play, if any, when the on_damage filters are met.",
-            "title": "on_damage_sound_event"
+            "title": "On_damage_sound_event"
           }
         },
         "on_damage_sound_event": {

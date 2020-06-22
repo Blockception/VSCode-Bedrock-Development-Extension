@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.furnace_smelt",
   "additionalProperties": false,
   "description": "The function furnace_smelt",
-  "title": "furnace_smelt",
+  "title": "Furnace_smelt",
   "properties": {
     "function": {
       "type": "string",

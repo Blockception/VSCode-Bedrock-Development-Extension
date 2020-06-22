@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.explode",
   "type": "object",
-  "title": "minecraft:explode 1.8.0",
+  "title": "Minecraft:explode 1.8.0",
   "additionalProperties": false,
   "description": "Defines how the entity explodes.",
   "required": [],

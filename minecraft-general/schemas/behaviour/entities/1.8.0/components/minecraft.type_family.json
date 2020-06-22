@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.type_family",
   "type": "object",
-  "title": "minecraft:type_family 1.8.0",
+  "title": "Minecraft:type_family 1.8.0",
   "additionalProperties": false,
   "description": "Defines the families this entity belongs to.",
   "required": [

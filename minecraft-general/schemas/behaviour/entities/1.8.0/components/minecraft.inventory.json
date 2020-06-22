@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.inventory",
   "description": "Defines this entity's inventory properties.",
   "type": "object",
-  "title": "minecraft:inventory 1.8.0",
+  "title": "Minecraft:inventory 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

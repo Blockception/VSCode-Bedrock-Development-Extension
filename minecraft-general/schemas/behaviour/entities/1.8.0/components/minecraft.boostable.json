@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.boostable",
   "type": "object",
-  "title": "minecraft:boostable 1.8.0",
+  "title": "Minecraft:boostable 1.8.0",
   "additionalProperties": false,
   "description": "Defines the conditions and behavior of a rideable entity's boost",
   "required": [],

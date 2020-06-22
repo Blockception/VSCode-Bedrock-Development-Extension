@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.teleport",
   "description": "Defines an entity's teleporting behavior.",
   "type": "object",
-  "title": "minecraft:teleport 1.8.0",
+  "title": "Minecraft:teleport 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {
@@ -31,9 +31,9 @@
       "type": "array",
       "default": [32.0, 16.0, 32.0],
       "items": [
-        {"type": "number", "title": "a"},
-        {"type": "number", "title": "b"},
-        {"type": "number", "title": "c"}
+        {"type": "number", "title": "A"},
+        {"type": "number", "title": "B"},
+        {"type": "number", "title": "C"}
       ],
       "description": "Entity will teleport to a random position within the area defined by this cube"
     },

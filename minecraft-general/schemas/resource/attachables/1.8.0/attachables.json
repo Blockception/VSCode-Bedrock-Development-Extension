@@ -204,7 +204,7 @@
                 },
                 "animate": {
                   "type": "array",
-                  "title": "animate schema",
+                  "title": "Animate schema",
                   "items": {
                     "oneOf": [
                       {

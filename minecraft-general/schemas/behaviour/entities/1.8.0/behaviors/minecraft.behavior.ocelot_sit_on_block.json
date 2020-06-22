@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "description": "TODO description",
   "type": "object",
-  "title": "minecraft:behavior.ocelot_sit_on_block 1.8.0",
+  "title": "Minecraft:behavior.ocelot_sit_on_block 1.8.0",
   "required": [],
   "properties": { 
     "priority": { "ref": "types/base_priority.json" },

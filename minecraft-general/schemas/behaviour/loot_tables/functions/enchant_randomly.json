@@ -3,7 +3,7 @@
     "$id": "blockception.minecraft.behaviour.loot_tables.enchant_randomly",
     "additionalProperties": false,
     "description": "The function enchant_randomly",
-    "title": "enchant_randomly",
+    "title": "Enchant_randomly",
     "properties": {
         "function": {
             "type": "string",

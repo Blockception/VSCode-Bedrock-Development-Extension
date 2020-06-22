@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.events1.11.0",
   "type": "object",
-  "title": "minecraft:entity 1.11.0",
+  "title": "Minecraft:entity 1.11.0",
   "definitions": {
     "addremove": {
       "title": "The add/remove schema",

@@ -119,7 +119,7 @@
         "properties": {
           "rotation": {
             "description": "A reference to what bone or entity it is bound to for rotation",
-            "title": "rotation bounding",
+            "title": "Rotation bounding",
             "type": "string"
           }
         }

@@ -3,7 +3,7 @@
     "$id": "blockception.minecraft.behaviour.loot_tables.looting_enchant",
     "additionalProperties": false,
     "description": "The function looting_enchant",
-    "title": "looting_enchant",
+    "title": "Looting_enchant",
     "properties": {
         "function": {
             "type": "string",

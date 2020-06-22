@@ -136,7 +136,7 @@
         "description": "The animation specification for 1.8.0",
         "properties": {
           "anim_time_update": {
-            "title": "animation time update",
+            "title": "Animation time update",
             "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
             "$ref": "../../../molang/1.8.0/number.json"
           },
@@ -231,7 +231,7 @@
                   "properties": {
                     "rotation": {
                       "description": "if set, makes the bone rotation relative to the entity instead of the bone's parent",
-                      "title": "rotation bounding",
+                      "title": "Rotation bounding",
                       "type": "string"
                     }
                   }

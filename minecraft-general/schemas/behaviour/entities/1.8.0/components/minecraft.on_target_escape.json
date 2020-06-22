@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.on_target_escape",
   "description": "Adds a trigger to call when this entity loses the target it currently has.",
   "type": "object",
-  "title": "minecraft:on_target_escape 1.8.0",
+  "title": "Minecraft:on_target_escape 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

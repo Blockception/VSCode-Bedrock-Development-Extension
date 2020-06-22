@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.sittable",
   "description": "Defines the entity's 'sit' state.",
   "type": "object",
-  "title": "minecraft:sittable 1.8.0",
+  "title": "Minecraft:sittable 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

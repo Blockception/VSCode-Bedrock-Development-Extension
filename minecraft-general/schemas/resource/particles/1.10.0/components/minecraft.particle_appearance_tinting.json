@@ -33,7 +33,7 @@
                   "items": {
                     "type": "string",
                     "description": "color",
-                    "title": "color",
+                    "title": "Color",
                     "format": "color-hex"
                   }
                 },

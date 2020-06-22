@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.specific_enchants",
   "additionalProperties": false,
   "description": "The function specific_enchants",
-  "title": "specific_enchants",
+  "title": "Specific_enchants",
   "properties": {
     "function": {
       "type": "string",

@@ -3,7 +3,7 @@
     "$id": "blockception.minecraft.behaviour.loot_tables.enchant_random_gear",
     "additionalProperties": false,
     "description": "The function enchant_random_gear",
-    "title": "enchant_random_gear",
+    "title": "Enchant_random_gear",
     "properties": {
         "function": {
             "type": "string",

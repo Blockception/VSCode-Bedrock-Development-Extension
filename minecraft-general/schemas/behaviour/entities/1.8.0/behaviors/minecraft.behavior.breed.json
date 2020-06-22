@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.breed",
   "additionalProperties": false,
   "type": "object",
-  "title": "minecraft:behavior.breed 1.8.0",
+  "title": "Minecraft:behavior.breed 1.8.0",
   "description": "Allows this mob to breed with other mobs.",
   "required": [],
   "properties": { 

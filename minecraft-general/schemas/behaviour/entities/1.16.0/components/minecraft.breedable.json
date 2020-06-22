@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.breedable",
   "type": "object",
-  "title": "minecraft:breedable 1.16.0",
+  "title": "Minecraft:breedable 1.16.0",
   "additionalProperties": false,
   "description": "Specifies the blocks that this entity can break as it moves around.",
   "definitions": {
@@ -196,25 +196,25 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the entity will become pregnant instead of spawning a baby.",
-      "title": "causes_pregnancy"
+      "title": "Causes_pregnancy"
     },
     "inherit_tamed": {
       "type": "boolean",
       "default": true,
       "description": "If true, the babies will be automatically tamed if its parents are",
-      "title": "inherit_tamed"
+      "title": "Inherit_tamed"
     },
     "require_full_health": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity needs to be at full health before it can breed.",
-      "title": "require_full_health"
+      "title": "Require_full_health"
     },
     "require_tame": {
       "type": "boolean",
       "default": true,
       "description": "If true, the entities need to be tamed first before they can breed.",
-      "title": "require_tame"
+      "title": "Require_tame"
     }
   }
 }

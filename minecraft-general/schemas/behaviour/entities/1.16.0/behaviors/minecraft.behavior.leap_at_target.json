@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.behavior.leap_at_target",
   "description": "Allows monsters to jump at and attack their target. Can only be used by hostile mobs.",
   "type": "object",
-  "title": "minecraft:behavior.leap_at_target 1.16.0",
+  "title": "Minecraft:behavior.leap_at_target 1.16.0",
   "additionalProperties": false,  
   "required": [],
   "properties": {
@@ -12,19 +12,19 @@
       "type": "boolean",
       "default": true,
       "description": "If true, the mob will only jump at its target if its on the ground. Setting it to false will allow it to jump even if its already in the air",
-      "title": "must_be_on_ground"
+      "title": "Must_be_on_ground"
     },
     "set_persistent": {
       "type": "boolean",
       "default": false,
       "description": "Allows the actor to be set to persist upon targeting a player",
-      "title": "set_persistent"
+      "title": "Set_persistent"
     },
     "yd": {
       "type": "number",
       "default": 0,
       "description": "The height in blocks the mob jumps when leaping at its target",
-      "title": "yd"
+      "title": "Yd"
     }
   }
 }

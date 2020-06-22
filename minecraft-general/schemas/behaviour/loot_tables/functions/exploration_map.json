@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.exploration_map",
   "additionalProperties": false,
   "description": "The function exploration_map",
-  "title": "exploration_map",
+  "title": "Exploration_map",
   "properties": {
     "function": {
       "type": "string",

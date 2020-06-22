@@ -177,7 +177,7 @@
           "properties": {
             "animate": {
               "type": "array",
-              "title": "animate schema",
+              "title": "Animate schema",
               "minItems": 1,
               "items": {
                 "oneOf": [

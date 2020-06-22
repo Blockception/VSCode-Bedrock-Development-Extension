@@ -4,7 +4,7 @@
   "description": "Allows the mob to target the same entity its owner is targeting.",
   "additionalProperties": false,  
   "type": "object",
-  "title": "minecraft:behavior.vex_random_move 1.8.0",
+  "title": "Minecraft:behavior.vex_random_move 1.8.0",
   "required": [],
   "properties": {
     "priority": { "$ref": "types/base_priority.json" },

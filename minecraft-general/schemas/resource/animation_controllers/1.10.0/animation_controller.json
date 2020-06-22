@@ -93,7 +93,7 @@
             "minProperties": 1,
             "additionalProperties": {
               "additionalProperties": false,
-              "title": "animation state",
+              "title": "Animation state",
               "description": "animation state",
               "type": "object",
               "properties": {

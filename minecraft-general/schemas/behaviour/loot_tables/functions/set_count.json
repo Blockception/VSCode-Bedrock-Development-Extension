@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.set_count",
   "additionalProperties": false,
   "description": "The function set_count",
-  "title": "set_count",
+  "title": "Set_count",
   "properties": {
     "function": {
       "type": "string",

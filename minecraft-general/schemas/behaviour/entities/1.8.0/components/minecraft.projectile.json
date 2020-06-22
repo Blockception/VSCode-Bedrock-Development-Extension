@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.projectile",
   "description": "Allows the entity to be a thrown entity.",
   "type": "object",
-  "title": "minecraft:projectile 1.8.0",
+  "title": "Minecraft:projectile 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

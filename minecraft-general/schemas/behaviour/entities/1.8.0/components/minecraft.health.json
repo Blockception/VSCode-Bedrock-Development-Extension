@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.health",
   "description": "TODO",
   "type": "object",
-  "title": "minecraft:health 1.8.0",
+  "title": "Minecraft:health 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

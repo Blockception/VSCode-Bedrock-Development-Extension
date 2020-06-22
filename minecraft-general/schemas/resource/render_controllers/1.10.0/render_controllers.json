@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.render_controllers.json",
   "additionalProperties": false,
   "type": "object",
-  "title": "render_controllers 1.10.0",
+  "title": "Render_controllers 1.10.0",
   "description": "render_controllers 1.10.0",
   "definitions": {
     "color": {
@@ -13,7 +13,7 @@
           "description": "A color definition as number, between 0 and 1",
           "minimum": 0,
           "maximum": 1,
-          "title": "color number"
+          "title": "Color number"
         },
         {
           "type": "string",
@@ -202,7 +202,7 @@
             "minItems": 1,
             "items": {
               "description": "The object that describe different bone visibility",
-              "title": "part visibility",
+              "title": "Part visibility",
               "type": "object",
               "additionalProperties": {
                 "oneOf": [

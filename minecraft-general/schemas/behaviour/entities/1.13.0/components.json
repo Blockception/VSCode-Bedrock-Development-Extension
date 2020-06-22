@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.components1.13.0",
   "type": "object",
-  "title": "minecraft:entity 1.13.0",
+  "title": "Minecraft:entity 1.13.0",
   "description": "TODO description",
   "properties": {
     //Components
@@ -31,7 +31,7 @@
     "minecraft:default_look_angle": { "$ref": "../1.8.0/components/minecraft.default_look_angle.json" },
     "minecraft:despawn": { "$ref": "../1.8.0/components/minecraft.despawn.json" },
     "minecraft:economy_trade_table": { "$ref": "../1.8.0/components/minecraft.economy_trade_table.json" },
-    "minecraft:environment_sensor": { "$ref": "../1.8.0/components/minecraft.environment_sensor.json" },
+    "minecraft:environment_sensor": { "$ref": "./components/minecraft.environment_sensor.json" },
     "minecraft:equipment": { "$ref": "../1.8.0/components/minecraft.equipment.json" },
     "minecraft:equippable": { "$ref": "../1.8.0/components/minecraft.equippable.json" },
     "minecraft:explode": { "$ref": "../1.8.0/components/minecraft.explode.json" },

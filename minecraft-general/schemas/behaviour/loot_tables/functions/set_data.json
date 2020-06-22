@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.set_data",
   "additionalProperties": false,
   "description": "The function set_data",
-  "title": "set_data",
+  "title": "Set_data",
   "properties": {
     "function": {
       "type": "string",

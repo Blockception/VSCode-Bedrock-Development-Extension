@@ -8,7 +8,7 @@
   "required": ["value"],
   "test": {
     "type": "string",
-    "title": "the test",
+    "title": "The test",
     "description": "the test property"
   },
   "operator": {

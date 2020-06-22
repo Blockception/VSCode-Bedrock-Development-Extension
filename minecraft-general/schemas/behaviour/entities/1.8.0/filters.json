@@ -4,7 +4,7 @@
   "title": "Filters 1.8.0",
   "definitions": {
     "filters_spec":{
-      "title": "filters_spec 1.8.0",
+      "title": "Filters_spec 1.8.0",
       "type": "object",
       "description": "The base filter item",
       "allOf": [
