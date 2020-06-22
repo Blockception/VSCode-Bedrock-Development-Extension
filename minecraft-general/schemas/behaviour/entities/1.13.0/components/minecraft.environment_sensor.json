@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.13.0.minecraft.environment_sensor",
-  "title": "Environment sensor",
+  "title": "Environment sensor 1.13.0",
   "description": "Creates a trigger based on environment conditions.",
   "type": "object",
   "additionalProperties": false,
