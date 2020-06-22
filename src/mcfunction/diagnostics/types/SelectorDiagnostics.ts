@@ -172,7 +172,7 @@ function CheckCoordinate(Parameter: SelectorParameter, range: vscode.Range, coll
     Number = Number.substring(1, Parameter.value.length);
   }
 
-  if (!IsNumber(Number)) {
+  if (!IsCoordinate(Number)) {
     collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": The number part is not valid", vscode.DiagnosticSeverity.Error));
   }
 }
@@ -212,6 +212,33 @@ function IsNumber(value: string): boolean {
       case "9":
       case "+":
       case "-":
+        continue;
+      default:
+        return false;
+    }
+  }
+
+  return true;
+}
+
+function IsCoordinate(value: string): boolean {
+  for (let index = 0; index < value.length; index++) {
+    switch (value.charAt(index)) {
+      case "0":
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+      case "+":
+      case "-":
+      case "^":
+      case "~":
+      case ".":
         continue;
       default:
         return false;
