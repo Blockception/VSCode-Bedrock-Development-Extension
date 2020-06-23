@@ -1,4 +1,6 @@
 # Changelog 
+- Fixed dummy player regoncization
+- Updated to 0.2.10
 - Updated Components
 - Updated Behaviour Components
 - Updated documentation
@@ -17,5 +19,3 @@
 - Moved
 - Added Detect to colours
 - Updated to 0.2.8
-- Updated to 0.2.7
-- Updated
