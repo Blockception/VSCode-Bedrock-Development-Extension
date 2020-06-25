@@ -6,6 +6,7 @@
   "title": "Specific_enchants",
   "properties": {
     "function": {
+      "title": "Function",
       "type": "string",
       "const": "specific_enchants"
     },

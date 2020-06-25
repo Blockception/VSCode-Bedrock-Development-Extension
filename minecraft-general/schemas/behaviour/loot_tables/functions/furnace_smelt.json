@@ -6,6 +6,7 @@
   "title": "Furnace_smelt",
   "properties": {
     "function": {
+      "title": "Function",
       "type": "string",
       "const": "furnace_smelt"
     }

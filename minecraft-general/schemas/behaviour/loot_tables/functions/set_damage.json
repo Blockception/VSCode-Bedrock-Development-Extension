@@ -6,13 +6,14 @@
   "title": "Set_damage",
   "properties": {
     "function": {
+      "title": "Function",
       "type": "string",
       "const": "set_damage"
     },
     "damage": {
       "oneOf": [
         {
-            "type": "integer"
+          "type": "integer"
         },
         {
           "type": "object",

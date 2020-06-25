@@ -6,6 +6,7 @@
   "title": "Set_data_from_color_index",
   "properties": {
     "function": {
+      "title": "Function",
       "type": "string",
       "const": "set_data_from_color_index"
     }

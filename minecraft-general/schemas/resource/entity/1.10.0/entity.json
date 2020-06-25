@@ -143,8 +143,8 @@
                     "oneOf": [
                       {
                         "type": "string",
-                        "description": "TODO description: oneOf[0]",
-                        "title": "One Of[0]"
+                        "description": "TODO description",
+                        "title": "TODO"
                       },
                       {
                         "type": "object",
@@ -154,8 +154,8 @@
                           "description": "TODO description: additionalProperties",
                           "title": "Additional Properties"
                         },
-                        "description": "TODO description: oneOf[1]",
-                        "title": "One Of[1]"
+                        "description": "TODO description",
+                        "title": "TODO"
                       }
                     ],
                     "description": "TODO description: animate",
@@ -174,7 +174,7 @@
                     "title": "Initialize"
                   }
                 },
-                "pre_aninamtion": {
+                "pre_animation": {
                   "type": "array",
                   "description": "TODO description: pre aninamtion",
                   "title": "Pre Aninamtion",

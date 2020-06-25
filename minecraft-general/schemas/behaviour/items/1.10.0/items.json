@@ -8,6 +8,8 @@
     "format_version": { "type": "string" },
     "minecraft:item": {
       "additionalProperties": false,
+      "title": "Minecraft Item",
+      "description": "TODO",
       "required": [ "description" ],
       "type": "object",
       "properties": {

@@ -1,16 +1,35 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "blockception.minecraft.behaviour.loot_tables.fill_container",
-    "additionalProperties": false,
-    "description": "The function fill_container",
-    "title": "Fill_container",
-    "properties": {
-        "function": {
-            "type": "string",
-            "const": "fill_container"
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.loot_tables.enchant_with_levels",
+  "additionalProperties": false,
+  "description": "The function Enchant with levels",
+  "title": "Enchant with levels",
+  "properties": {
+    "function": {
+      "title": "Function",
+      "type": "string",
+      "const": "enchant_with_levels"
+    },
+    "loot_table": {
+      "type": "string",
+      "title": "Loot table"
+    },
+    "treasure": {
+      "type": "boolean",
+      "title": "Treasure"
+    },
+    "levels": {
+      "type": "object",
+      "title": "Levels",
+      "additionalProperties": false,
+      "properties": {
+        "min": {
+          "type": "integer"
         },
-        "loot_table": {
-            "type": "string"
+        "max": {
+          "type": "integer"
         }
+      }
     }
+  }
 }

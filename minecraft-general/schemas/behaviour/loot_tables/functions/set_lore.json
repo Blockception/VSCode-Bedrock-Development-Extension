@@ -6,6 +6,7 @@
   "title": "Set_lore",
   "properties": {
     "function": {
+      "title": "Function",
       "type": "string",
       "const": "set_lore"
     },

@@ -6,6 +6,7 @@
   "title": "Set_data",
   "properties": {
     "function": {
+      "title": "Function",
       "type": "string",
       "const": "set_data"
     },
