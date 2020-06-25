@@ -1,0 +1,411 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.resource.sounds",
+  "type": "object",
+  "title": "Sounds",
+  "description": "TODO",
+  "definitions": {
+    "range": {
+      "description": "TODO",
+      "oneOf": [
+        { "type": "number", "default": 1 },
+        {
+          "type": "array",
+          "items": [
+            { "type": "number", "title": "Lowest value" }, 
+            { "type": "number", "title": "Highest value" }
+          ]
+        }
+      ]
+    },
+    "event": {
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "pitch": {
+              "title": "Pitch",
+              "description": "TODO",
+              "$ref": "#/definitions/range"
+            },
+            "volume": {
+              "title": "Volume",
+              "description": "TODO",
+              "$ref": "#/definitions/range"
+            },
+            "sound": {
+              "title": "Sound",
+              "description": "TODO",
+              "type": "string",
+              "default": "",
+              "pattern": "^[\\w_\\.]*$"
+            }
+          }
+        }
+      ]
+    },
+    "entity_event": {
+      "title": "Entity Event",
+      "description": "TODO",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pitch": {
+          "title": "Pitch",
+          "description": "TODO",
+          "$ref": "#/definitions/range"
+        },
+        "volume": {
+          "title": "Volume",
+          "description": "TODO",
+          "$ref": "#/definitions/range"
+        },
+        "events": {
+          "title": "Events",
+          "description": "TODO",
+
+          "propertyNames": {
+            "enum": [
+              "add.chest",
+              "admire",
+              "ambient",
+              "ambient.aggressive",
+              "ambient.baby",
+              "ambient.in.raid",
+              "ambient.in.water",
+              "ambient.pollinate",
+              "ambient.tame",
+              "ambient.worried",
+              "angry",
+              "armor",
+              "attack",
+              "attack.nodamage",
+              "attack.strong",
+              "boost",
+              "born",
+              "break.block",
+              "breathe",
+              "cant_breed",
+              "cast.spell",
+              "celebrate",
+              "charge",
+              "death",
+              "death.baby",
+              "death.in.water",
+              "death.mid.volume",
+              "death.min.volume",
+              "death.to.zombie",
+              "disappeared",
+              "drink",
+              "drink.honey",
+              "eat",
+              "elderguardian.curse",
+              "explode",
+              "fall.big",
+              "fall.small",
+              "fang",
+              "fizz",
+              "flap",
+              "flop",
+              "fly",
+              "fuse",
+              "growl",
+              "guardian.flop",
+              "haggle",
+              "haggle.no",
+              "haggle.yes",
+              "hurt",
+              "hurt.baby",
+              "hurt.in.water",
+              "imitate.blaze",
+              "imitate.cave_spider",
+              "imitate.creeper",
+              "imitate.drowned",
+              "imitate.elder_guardian",
+              "imitate.ender_dragon",
+              "imitate.enderman",
+              "imitate.endermite",
+              "imitate.evocation_illager",
+              "imitate.ghast",
+              "imitate.husk",
+              "imitate.illusion_illager",
+              "imitate.magma_cube",
+              "imitate.panda",
+              "imitate.polar_bear",
+              "imitate.shulker",
+              "imitate.silverfish",
+              "imitate.skeleton",
+              "imitate.slime",
+              "imitate.spider",
+              "imitate.stray",
+              "imitate.vex",
+              "imitate.vindication_illager",
+              "imitate.witch",
+              "imitate.wither",
+              "imitate.wither_skeleton",
+              "imitate.wolf",
+              "imitate.zombie",
+              "imitate.zombie_pigman",
+              "imitate.zombie_villager",
+              "jealous",
+              "jump",
+              "land",
+              "mad",
+              "mob.warning",
+              "panic",
+              "pant",
+              "plop",
+              "prepare.attack",
+              "prepare.summon",
+              "prepare.wololo",
+              "presneeze",
+              "purr",
+              "purreow",
+              "reappeared",
+              "retreat",
+              "roar",
+              "saddle",
+              "scream",
+              "screech",
+              "shake",
+              "shoot",
+              "shulker.close",
+              "shulker.open",
+              "sleep",
+              "sneeze",
+              "sniff",
+              "spawn",
+              "spit",
+              "splash",
+              "squish.big",
+              "squish.small",
+              "stare",
+              "step",
+              "step.baby",
+              "step_lava",
+              "stun",
+              "swim",
+              "swoop",
+              "takeoff",
+              "tempt",
+              "throw",
+              "thunder",
+              "warn",
+              "whine"
+            ]
+          },
+          "additionalProperties": {
+            "$ref": "#/definitions/event"
+          }
+        }
+      }
+    },
+    "interactive_entity_event": {
+      "title": "Entity Event",
+      "description": "TODO",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pitch": {
+          "title": "Pitch",
+          "description": "TODO",
+          "$ref": "#/definitions/range"
+        },
+        "volume": {
+          "title": "Volume",
+          "description": "TODO",
+          "$ref": "#/definitions/range"
+        },
+        "events": {
+          "title": "Events",
+          "description": "TODO",
+
+          "propertyNames": {
+            "enum": [
+              "gallop",
+              "heavy.step",
+              "step"
+            ]
+          },
+          "additionalProperties": {
+            "title": "Entity event",
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "default",
+                "wood"
+              ]
+            },
+            "additionalProperties": {
+              "title": "Sound event",
+              "type": "string"
+            }            
+          }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false,
+  "properties": {
+    "block_sounds": {
+      "type": "object",
+      "title": "Block sounds",
+      "description": "TODO",
+
+      "propertyNames": { "pattern": "^[\\w_\\.]+$" },
+      "additionalProperties": {
+        "title": "Block sound",
+        "description": "TODO",
+        "additionalProperties": false,
+
+        "properties": {
+          "pitch": {
+            "title": "Pitch",
+            "description": "TODO",
+            "$ref": "#/definitions/range"
+          },
+          "volume": {
+            "title": "Volume",
+            "description": "TODO",
+            "$ref": "#/definitions/range"
+          },
+          "events": {
+            "title": "Events",
+            "type": "object",
+            "description": "TODO",
+            "additionalProperties": false,
+            "properties": {
+              "break": {
+                "title": "Break",
+                "description": "TODO",
+                "$ref": "#/definitions/event"
+              },
+              "default": {
+                "title": "Default",
+                "description": "TODO",
+                "$ref": "#/definitions/event"
+              },
+              "hit": {
+                "title": "Hit",
+                "description": "TODO",
+                "$ref": "#/definitions/event"
+              },
+              "item.use.on": {
+                "title": "Item use on",
+                "description": "TODO",
+                "$ref": "#/definitions/event"
+              },
+              "place": {
+                "title": "Place",
+                "description": "TODO",
+                "$ref": "#/definitions/event"
+              },
+              "power.off": {
+                "title": "Power off",
+                "description": "TODO",
+                "$ref": "#/definitions/event"
+              },
+              "power.on": {
+                "title": "Power on",
+                "description": "TODO",
+                "$ref": "#/definitions/event"
+              }
+            }
+          }
+        }
+      }
+    },
+    "entity_sounds": {
+      "title": "Entity sounds",
+      "description": "TODO",
+      "type": "object",
+      "additionalProperties": false,
+
+      "properties": {
+        "defaults": {
+          "type": "object",
+          "$ref": "#/definitions/entity_event"
+        },
+        "entities": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "$ref": "#/definitions/entity_event"
+          }
+        }
+      }
+    },
+    "individual_event_sounds": {
+      "type": "object",
+      "title": "Indiviual event sounds",
+      "description": "TODO",
+      "additionalProperties": false,
+      "properties": {
+        "events": {
+          "type": "object",
+          "title": "Events",
+          "description": "TODO",
+          "propertyNames": { "pattern": "^[\\w_\\.]+$" },
+          "additionalProperties": {
+            "title": "Event",
+            "description": "TODO",
+            "$ref": "#/definitions/event"
+          }
+        }
+      }
+    },
+    "interactive_sounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "title": "Interactive sounds",
+      "description": "TODO",
+      "properties": {
+        "block_sounds": {
+          "type": "object",
+          "title": "Block sounds",
+          "description": "TODO",
+          "propertyNames": {
+            "pattern": "^[\\w_\\.]*$"
+          },
+          "additionalProperties": {
+            "properties": {
+              "events": {
+                "type": "object",
+                "title": "Events",
+                "description": "TODO",
+                "propertyNames": { "pattern": "^[\\w_\\.]+$" },
+                "additionalProperties": {
+                  "title": "Event",
+                  "description": "TODO",
+                  "$ref": "#/definitions/event"
+                }
+              }
+            }
+          }
+        },
+        "entity_sounds": {
+          "title": "Entity sounds",
+          "description": "TODO",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "defaults": {
+              "type": "object",
+              "$ref": "#/definitions/interactive_entity_event"
+            },
+            "entities": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "$ref": "#/definitions/interactive_entity_event"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

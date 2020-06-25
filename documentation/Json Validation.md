@@ -39,6 +39,7 @@ If a json validation is missing, then also post an issue. And one will be made i
 |Particles   |particles/*.json or .particle.json |
 |Render controllers   |render_controllers/*.json  |
 |Sound definitions   |sound_definitions.json  |
+|Sounds   |sounds.json  |
 |Terrain texture   |terrain_texture.json  |
 
 ## Behaviour packs
