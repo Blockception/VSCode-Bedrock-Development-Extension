@@ -1,4 +1,9 @@
 # Changelog 
+- Updated Looting and trading tables
+- Updated
+- Updated
+- Added sounds.json validation
+- Updated to 0.2.11
 - Fixed dummy player regoncization
 - Updated to 0.2.10
 - Updated Components
@@ -14,8 +19,3 @@
 - Updated
 - Updated
 - Updated to 0.2.9
-- Added spawn rules
-- Updated
-- Moved
-- Added Detect to colours
-- Updated to 0.2.8
