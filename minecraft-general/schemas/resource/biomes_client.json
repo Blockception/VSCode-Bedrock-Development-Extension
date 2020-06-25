@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.sound_definition.json",
+  "$id": "blockception.minecraft.resource.sound_definition.json",
   "type": "object",
   "title": "The minecraft sound definition file",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "definitions": {
     "biomespec": {
       "additionalProperties": false,
@@ -12,24 +12,29 @@
       "type": "object",
       "properties": {
         "fog_color": {
+          "title": "Fog color",
           "$ref": "#/definitions/colorhex"
         },
         "water_fog_color": {
+          "title": "Water fog color",
           "$ref": "#/definitions/colorhex"
         },
         "water_fog_distance": {
+          "title": "Water fog distance",
           "type": "integer"
         },
         "water_surface_color": {
+          "title": "Water surface color",
           "$ref": "#/definitions/colorhex"
         },
         "water_surface_transparency": {
+          "title": "Water surface transparency",
           "type": "number"
         }
       }
     },
     "colorhex": {
-      "description": "TODO description: colorhex",
+      "description": "A hexadecimal representation of a color",
       "title": "Colorhex",
       "format": "color-hex"
     }

@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.resource.model.1.8.0",
   "type": "object",
   "title": "The minecraft resourcepack model schema for 1.8.0",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "required": [
     "format_version"
   ],

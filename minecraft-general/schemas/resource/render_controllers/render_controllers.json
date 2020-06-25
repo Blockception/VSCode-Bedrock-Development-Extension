@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.render_controllers.json",
   "type": "object",
   "title": "Render_Controllers",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "allOf": [
     {
       "if": { "properties": { "format_version": { "type": "string", "const": "1.8.0" } } },

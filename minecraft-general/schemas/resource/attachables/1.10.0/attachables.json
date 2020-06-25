@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.resource.1.10.0.attachables",
   "type": "object",
-  "title": "The minecraft resourcepack actor animation 1.10.0",
-  "description": "The root schema comprises the entire JSON document.",
+  "title": "The minecraft resourcepack attachables animation 1.10.0",
+  "description": "TODO description",
   "required": [
     "format_version",
     "minecraft:attachables"
@@ -12,7 +12,7 @@
     "format_version": {
       "title": "The 1.10.0 format_version",
       "type": "string",
-      "pattern": "^1.10.0$",
+      "pattern": "^(1.10.0|1.10)$",
       "description": "TODO description: format version"
     },
     "minecraft:attachables": {

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.sound_definition.json",
+  "$id": "blockception.minecraft.resource.blocks.json",
   "type": "object",
-  "title": "The minecraft sound definition file",
-  "description": "The root schema comprises the entire JSON document.",
+  "title": "The minecraft blocks definition file",
+  "description": "TODO description",
   "definitions": {
     "texture": {
       "oneOf": [
@@ -12,13 +12,48 @@
           "additionalProperties": false,
           "type": "object",
           "properties": {
-            "down": { "type": "string", "pattern": "^[\\w_\\-]+$" },
-            "up": { "type": "string", "pattern": "^[\\w_\\-]+$" },
-            "side": { "type": "string", "pattern": "^[\\w_\\-]+$" },
-            "south": { "type": "string", "pattern": "^[\\w_\\-]+$" },
-            "north": { "type": "string", "pattern": "^[\\w_\\-]+$" },
-            "west": { "type": "string", "pattern": "^[\\w_\\-]+$" },
-            "east": { "type": "string", "pattern": "^[\\w_\\-]+$" }
+            "down": {
+              "title": "Down",
+              "description": "The texture to be applied to the bottom of the block",
+              "type": "string",
+              "pattern": "^[\\w_\\-]+$"
+            },
+            "up": {
+              "title": "Up",
+              "description": "The texture to be applied to the top of the block",
+              "type": "string",
+              "pattern": "^[\\w_\\-]+$"
+            },
+            "side": {
+              "title": "Side",
+              "description": "The texture to be applied to all sides of the block",
+              "type": "string",
+              "pattern": "^[\\w_\\-]+$"
+            },
+            "south": {
+              "title": "South",
+              "description": "The texture to be applied to the south side of the block",
+              "type": "string",
+              "pattern": "^[\\w_\\-]+$"
+            },
+            "north": {
+              "title": "North",
+              "description": "The texture to be applied to the north side of the block",
+              "type": "string",
+              "pattern": "^[\\w_\\-]+$"
+            },
+            "west": {
+              "title": "West",
+              "description": "The texture to be applied to the west side of the block",
+              "type": "string",
+              "pattern": "^[\\w_\\-]+$"
+            },
+            "east": {
+              "title": "East",
+              "description": "The texture to be applied to the east side of the block",
+              "type": "string",
+              "pattern": "^[\\w_\\-]+$"
+            }
           }
         }
       ]
@@ -40,14 +75,22 @@
   "additionalProperties": {
     "additionalProperties": false,
     "type": "object",
+    "title": "Block definition",
+    "description": "TODO",
     "properties": {
       "brightness_gamma": {
+        "title": "Brightness gamma",
+        "description": "TODO",
         "type": "number"
       },
       "carried_textures": {
+        "title": "Carried textures",
+        "description": "TODO",
         "$ref": "#/definitions/texture"
       },
       "isotropic": {
+        "title": "Isotropic",
+        "description": "TODO",
         "oneOf": [
           { "type": "boolean" },
           {
@@ -56,7 +99,7 @@
             "properties": {
               "down": { "type": "boolean" },
               "up": { "type": "boolean" },
-              "side": { "type": "boolean"},
+              "side": { "type": "boolean" },
               "south": { "type": "boolean" },
               "north": { "type": "boolean" },
               "west": { "type": "boolean" },
@@ -66,9 +109,13 @@
         ]
       },
       "sound": {
+        "title": "Sound",
+        "description": "TODO",
         "type": "string"
       },
       "textures": {
+        "title": "Textures",
+        "description": "TODO",
         "$ref": "#/definitions/texture"
       }
     }

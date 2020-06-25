@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.resource.1.10.0.entity",
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.10.0",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "required": [
     "format_version",
     "minecraft:client_entity"
