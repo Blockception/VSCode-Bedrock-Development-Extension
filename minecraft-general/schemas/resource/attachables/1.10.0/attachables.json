@@ -15,7 +15,7 @@
       "pattern": "^(1.10.0|1.10)$",
       "description": "TODO description: format version"
     },
-    "minecraft:attachables": {
+    "minecraft:attachable": {
       "type": "object",
       "title": "The attachables",
       "description": "The attachables definition",

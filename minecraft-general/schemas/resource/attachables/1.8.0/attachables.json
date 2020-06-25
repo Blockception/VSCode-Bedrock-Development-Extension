@@ -15,7 +15,7 @@
       "pattern": "^1.8.0$",
       "description": "TODO description: format version"
     },
-    "minecraft:attachables": {
+    "minecraft:attachable": {
       "type": "object",
       "title": "The attachables",
       "description": "The attachables definition for 1.8.0",
@@ -184,27 +184,15 @@
               }
             },
             "scripts": {
+              "additionalProperties": false,
               "type": "object",
+              "description": "TODO description: scripts",
+              "title": "Scripts",
               "properties": {
-                "pre_aninamtion": {
-                  "type": "array",
-                  "items": {
-                    "pattern": ";$",
-                    "$ref": "../../../molang/1.8.0/number.json",
-                    "description": "TODO description: pre aninamtion",
-                    "title": "Pre Aninamtion"
-                  },
-                  "description": "TODO description: pre aninamtion",
-                  "title": "Pre Aninamtion"
-                },
-                "scale": {
-                  "type": "string",
-                  "description": "TODO description: scale",
-                  "title": "Scale"
-                },
                 "animate": {
                   "type": "array",
                   "title": "Animate schema",
+                  "minItems": 1,
                   "items": {
                     "oneOf": [
                       {
@@ -229,12 +217,41 @@
                   },
                   "description": "TODO description: animate"
                 },
+                "initialize": {
+                  "type": "array",
+                  "description": "TODO description: initialize",
+                  "title": "Initialize",
+                  "items": {
+                    "pattern": ";$",
+                    "$ref": "../../../molang/1.8.0/number.json",
+                    "description": "TODO description: initialize",
+                    "title": "Initialize"
+                  }
+                },
+                "pre_aninamtion": {
+                  "type": "array",
+                  "description": "TODO description: pre aninamtion",
+                  "title": "Pre Aninamtion",
+                  "items": {
+                    "pattern": ";$",
+                    "$ref": "../../../molang/1.8.0/number.json",
+                    "description": "TODO description: pre aninamtion",
+                    "title": "Pre Aninamtion"
+                  }
+                },
                 "parent_setup": {
+                  "type": "string",
+                  "description": "TODO description: parent setup",
+                  "title": "Parent Setup",
+                  "$ref": "../../../molang/1.8.0/number.json"
+                },
+                "scale": {
+                  "type": "string",
+                  "description": "TODO description: scale",
+                  "title": "Scale",
                   "$ref": "../../../molang/1.8.0/number.json"
                 }
-              },
-              "description": "TODO description: scripts",
-              "title": "Scripts"
+              }
             },
             "textures": {
               "type": "object",
