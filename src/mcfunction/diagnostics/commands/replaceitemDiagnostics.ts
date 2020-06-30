@@ -93,7 +93,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 			Errors.Missing('target/selector', 'replaceitem', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
 		var slot = Target.Child;
 

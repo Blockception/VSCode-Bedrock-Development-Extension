@@ -44,7 +44,7 @@ export class TellDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(target, lineIndex, collector, dm, document);
 
 		var Message = target.Child;
 

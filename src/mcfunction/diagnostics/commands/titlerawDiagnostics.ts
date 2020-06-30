@@ -43,7 +43,7 @@ export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 			Errors.Missing('target/selector', 'titleraw', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
 		var Mode = Target.Child;
 

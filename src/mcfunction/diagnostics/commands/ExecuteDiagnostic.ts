@@ -46,7 +46,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             return;
 
         if (!Selector?.IsString()){
-            dm.SelectorDiagnoser?.provideDiagnostic(Selector, lineIndex, collector, dm, document);
+            dm.SelectorDiagnoser.provideDiagnostic(Selector, lineIndex, collector, dm, document);
         }
 
         //X Coordinate

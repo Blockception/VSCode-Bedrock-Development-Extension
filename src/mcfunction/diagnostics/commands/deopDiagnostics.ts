@@ -44,7 +44,7 @@ export class DeopDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(Child, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Child, lineIndex, collector, dm, document);
 	}
 
 }

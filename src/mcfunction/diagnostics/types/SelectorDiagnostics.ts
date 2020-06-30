@@ -87,7 +87,7 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
 }
 
 //Checks the selector
-function CheckSelector(lineIndex: number, selectorText: RangedWord, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
+function CheckSelector(lineIndex: number, selectorText: RangedWord, dm: DiagnosticsManager, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
   var sObject = Selector.Parse(selectorText.text);
   var Range = new vscode.Range(lineIndex, selectorText.startindex, lineIndex, selectorText.endindex);
   var coordsSpec = false;
@@ -130,6 +130,9 @@ function CheckSelector(lineIndex: number, selectorText: RangedWord, document: vs
   if (coordsSpec && !(SphereSpec || BoxSpec)) {
     collection.push(new vscode.Diagnostic(Range, "Specified coordinates but no box or sphere specification, this is not an error as it can changes minecraft behaviour, but probally an error", vscode.DiagnosticSeverity.Information));
   }
+
+  //Check scores
+  scoreCheck(sObject, Range, collection, dm);
 }
 
 //Check the scores
@@ -210,6 +213,32 @@ function IsNumber(value: string): boolean {
       case "7":
       case "8":
       case "9":
+      case "+":
+      case "-":
+        continue;
+      default:
+        return false;
+    }
+  }
+
+  return true;
+}
+
+//Check if the given value is a Range
+function IsRange(value: string): boolean {
+  for (let index = 0; index < value.length; index++) {
+    switch (value.charAt(index)) {
+      case "0":
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+      case ".":
       case "+":
       case "-":
         continue;
@@ -325,6 +354,22 @@ function typeCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
           PositiveTest = true;
         }
       }
+    }
+  }
+}
+
+function scoreCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[], dm: DiagnosticsManager) : void {
+  var Objectives = sObject.scores.tests;
+
+  for (var I = 0; I < Objectives.length; I++){
+    var O = Objectives[I];
+
+    if (O.name.length > 16){
+      collection.push(new vscode.Diagnostic(range, "Objectives cannot be longer then 16 characters"));
+    }
+
+    if (!IsRange(O.value)){
+      collection.push(new vscode.Diagnostic(range, "Range: '" + O.value + "'"));
     }
   }
 }

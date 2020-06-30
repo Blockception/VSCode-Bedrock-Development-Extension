@@ -28,31 +28,19 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from 'vscode';
-import { DiagnosticsManager,DiagnosticProvider, Errors } from '../DiagnosticsManager';
-import { SyntaxItem } from '../../../general/include';
+import * as vscode from "vscode";
+import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
+import { SyntaxItem } from "../../../general/include";
 
-export class MsgDiagnosticProvider implements DiagnosticProvider {
+export class ScoresDiagnosticProvider implements DiagnosticProvider {
+    provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void {
+        if (item.Text.text.length > 16) {
+            collector.push(new vscode.Diagnostic(
+                item.Text.ToRange(lineIndex),
+                "Objectives cannot be longer then 16 characters"
+            ));
+        }
 
-	//provides diagnostics
-	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var target = item.Child;
-
-		//<player: target>
-		if (target == undefined) {
-			Errors.Missing('target/selector', 'msg', lineIndex, item, collector);
-			return;
-		}
-
-		dm.SelectorDiagnoser.provideDiagnostic(target, lineIndex, collector, dm, document);
-
-		var Message = target.Child;
-
-		//<message: message>
-		if (Message == undefined) {
-			Errors.Missing('string', 'msg', lineIndex, target, collector);
-			return;
-		}
-	}
-
+        //TODO Score check
+    }
 }

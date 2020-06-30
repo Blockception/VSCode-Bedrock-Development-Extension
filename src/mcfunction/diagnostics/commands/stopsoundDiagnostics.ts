@@ -44,7 +44,7 @@ export class StopsoundDiagnosticProvider implements DiagnosticProvider {
 			Errors.Missing('target/selector', 'stopsound', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
 		var Sound = Target.Child;
 

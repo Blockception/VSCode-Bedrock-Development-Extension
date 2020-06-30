@@ -43,7 +43,7 @@ export class KillDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(target, lineIndex, collector, dm, document);
 
 	}
 

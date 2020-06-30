@@ -103,7 +103,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ScoreDiagnoser?.provideDiagnostic(ScoreName, lineIndex, collector, dm, document);
+		dm.ScoreDiagnoser.provideDiagnostic(ScoreName, lineIndex, collector, dm, document);
 
 		var Dummy = ScoreName.Child;
 
@@ -142,7 +142,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ScoreDiagnoser?.provideDiagnostic(ScoreName, lineIndex, collector, dm, document);
+		dm.ScoreDiagnoser.provideDiagnostic(ScoreName, lineIndex, collector, dm, document);
 	}
 
 	branchSetdisplay(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
@@ -177,7 +177,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ScoreDiagnoser?.provideDiagnostic(Objective, lineIndex, collector, dm, document);
+		dm.ScoreDiagnoser.provideDiagnostic(Objective, lineIndex, collector, dm, document);
 
 		if (!Sortable)
 			return;
@@ -256,7 +256,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(Entity, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Entity, lineIndex, collector, dm, document);
 	}
 
 	//scoreboard players set/add/remove
@@ -269,7 +269,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(Entity, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Entity, lineIndex, collector, dm, document);
 
 		var Objective = Entity.Child;
 
@@ -279,7 +279,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ScoreDiagnoser?.provideDiagnostic(Objective, lineIndex, collector, dm, document);
+		dm.ScoreDiagnoser.provideDiagnostic(Objective, lineIndex, collector, dm, document);
 
 		var Score = Objective.Child;
 
@@ -301,7 +301,11 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			Errors.Missing('target/selector', 'scoreboard players reset', lineIndex, item, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(Entity, lineIndex, collector, dm, document);
+
+		if (Entity.Text.text != "*") {
+			dm.SelectorDiagnoser.provideDiagnostic(Entity, lineIndex, collector, dm, document);
+		}
+
 		var Objective = Entity.Child;
 
 		//<objective>
@@ -309,7 +313,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ScoreDiagnoser?.provideDiagnostic(Objective, lineIndex, collector, dm, document);
+		dm.ScoreDiagnoser.provideDiagnostic(Objective, lineIndex, collector, dm, document);
 	}
 
 	//scoreboard players operation
@@ -322,7 +326,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
 		var TargetObjective = Target.Child;
 
@@ -332,7 +336,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ScoreDiagnoser?.provideDiagnostic(TargetObjective, lineIndex, collector, dm, document);
+		dm.ScoreDiagnoser.provideDiagnostic(TargetObjective, lineIndex, collector, dm, document);
 
 		var Operation = TargetObjective.Child;
 
@@ -365,7 +369,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(SourceTarget, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(SourceTarget, lineIndex, collector, dm, document);
 
 		var SourceTargetObjective = SourceTarget.Child;
 
@@ -375,7 +379,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.ScoreDiagnoser?.provideDiagnostic(SourceTargetObjective, lineIndex, collector, dm, document);
+		dm.ScoreDiagnoser.provideDiagnostic(SourceTargetObjective, lineIndex, collector, dm, document);
 	}
 
 	//scoreboard players test

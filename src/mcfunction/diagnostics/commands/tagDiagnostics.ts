@@ -45,7 +45,9 @@ export class TagDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		if (Target.Text.text != "*") {
+			dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		}
 
 		var Mode = Target.Child
 
@@ -62,12 +64,12 @@ export class TagDiagnosticProvider implements DiagnosticProvider {
 			case 'remove':
 				var Tag = Mode.Child;
 
-				if (Tag == undefined){
+				if (Tag == undefined) {
 					Errors.Missing('tag', 'tag', lineIndex, Target, collector);
 					return;
 				}
 
-				dm.TagDiagnoser?.provideDiagnostic(Tag, lineIndex, collector, dm, document);
+				dm.TagDiagnoser.provideDiagnostic(Tag, lineIndex, collector, dm, document);
 
 				return;
 

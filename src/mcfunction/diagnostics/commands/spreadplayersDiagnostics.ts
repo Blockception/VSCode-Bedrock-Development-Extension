@@ -81,7 +81,7 @@ export class SpreadPlayersDiagnosticProvider implements DiagnosticProvider {
 			Errors.Missing('target/selector', 'spreadplayers', lineIndex, MaxRange, collector);
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
 	}
 

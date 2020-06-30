@@ -83,7 +83,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
 		var Destination = Target.Child;
 
@@ -228,7 +228,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			case '"':
 			case '@':
 				
-				dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+				dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 				break;
 		}
 

@@ -42,7 +42,7 @@ export class ClearDiagnosticProvider implements DiagnosticProvider {
 		if (Player == undefined) {
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(Player, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Player, lineIndex, collector, dm, document);
 
 		var Item = item.Child;
 

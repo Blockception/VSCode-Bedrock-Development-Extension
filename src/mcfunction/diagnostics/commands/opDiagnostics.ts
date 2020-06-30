@@ -44,6 +44,6 @@ export class opDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		dm.SelectorDiagnoser?.provideDiagnostic(Child, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Child, lineIndex, collector, dm, document);
 	}
 }

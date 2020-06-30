@@ -42,7 +42,7 @@ export class SpawnpointDiagnosticProvider implements DiagnosticProvider {
 		if (Target == undefined) {
 			return;
 		}
-		dm.SelectorDiagnoser?.provideDiagnostic(Target, lineIndex, collector, dm, document);
+		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
 		var XCoord = Target.Child;
 
