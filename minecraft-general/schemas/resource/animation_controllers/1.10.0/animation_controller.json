@@ -14,13 +14,11 @@
         },
         {
           "type": "object",
+          "title": "Animation Specification",
           "description": "A object specification on how to transition",
           "additionalProperties": {
-            "$ref": "../../../molang/1.8.0/string.json",
-            "description": "TODO description: additionalProperties",
-            "title": "Additional Properties"
-          },
-          "title": "Any Of[1]"
+            "$ref": "../../../molang/1.8.0/string.json"
+          }
         }
       ]
     },

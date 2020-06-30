@@ -41,7 +41,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               }
             },
             "animation_controllers": {
@@ -54,7 +54,7 @@
                 "additionalProperties": {
                   "type": "string",
                   "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                  "title": "TODO"
                 },
                 "description": "TODO description: animation controllers",
                 "title": "Animation Controllers"
@@ -72,7 +72,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: geometry"
             },
@@ -89,7 +89,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               }
             },
             "min_engine_version": {
@@ -104,7 +104,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: particle effects",
               "title": "Particle Effects"
@@ -115,7 +115,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: particle emitters",
               "title": "Particle Emitters"
@@ -218,7 +218,7 @@
                         "additionalProperties": {
                           "type": "string",
                           "description": "TODO description: additionalProperties",
-                          "title": "Additional Properties"
+                          "title": "TODO"
                         },
                         "description": "TODO description: oneOf[1]",
                         "title": "One Of[1]"
@@ -241,7 +241,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: textures",
               "title": "Textures"

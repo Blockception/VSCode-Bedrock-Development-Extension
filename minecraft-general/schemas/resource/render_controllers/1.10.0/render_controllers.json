@@ -57,10 +57,10 @@
                     "type": "string",
                     "pattern": "^[Gg]eometry\\..+",
                     "description": "TODO description: additionalProperties",
-                    "title": "Additional Properties"
+                    "title": "TODO"
                   },
                   "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                  "title": "TODO"
                 },
                 "description": "TODO description: geometries",
                 "title": "Geometries"
@@ -74,10 +74,10 @@
                     "type": "string",
                     "pattern": "^[Mm]aterial\\..+",
                     "description": "TODO description: additionalProperties",
-                    "title": "Additional Properties"
+                    "title": "TODO"
                   },
                   "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                  "title": "TODO"
                 },
                 "description": "TODO description: materials",
                 "title": "Materials"
@@ -150,7 +150,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: materials",
               "title": "Materials"
@@ -227,7 +227,7 @@
             "title": "Rebuild Animation Matrices"
           }
         },
-        "title": "Additional Properties"
+        "title": "TODO"
       },
       "description": "TODO description: render controllers",
       "title": "Render Controllers"

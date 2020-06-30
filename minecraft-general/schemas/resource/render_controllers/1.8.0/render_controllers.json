@@ -42,7 +42,7 @@
       "additionalProperties": {
         "additionalProperties": false,
         "type": "object",
-        "title": "Additional Properties",
+        "title": "TODO",
         "description": "A single render_controller",
         "required": [
           "geometry",
@@ -68,10 +68,10 @@
                     "type": "string",
                     "pattern": "^[Gg]eometry\\..+",
                     "description": "TODO description: additionalProperties",
-                    "title": "Additional Properties"
+                    "title": "TODO"
                   },
                   "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                  "title": "TODO"
                 },
                 "description": "TODO description: geometries",
                 "title": "Geometries"
@@ -88,10 +88,10 @@
                     "type": "string",
                     "pattern": "^[Mm]aterial\\..+",
                     "description": "TODO description: additionalProperties",
-                    "title": "Additional Properties"
+                    "title": "TODO"
                   },
                   "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                  "title": "TODO"
                 },
                 "description": "TODO description: materials",
                 "title": "Materials"
@@ -108,10 +108,10 @@
                     "type": "string",
                     "pattern": "^[Tt]exture\\..+",
                     "description": "TODO description: additionalProperties",
-                    "title": "Additional Properties"
+                    "title": "TODO"
                   },
                   "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                  "title": "TODO"
                 },
                 "description": "TODO description: textures",
                 "title": "Textures"
@@ -186,7 +186,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: materials",
               "title": "Materials"

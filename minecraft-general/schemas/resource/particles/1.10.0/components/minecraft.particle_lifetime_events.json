@@ -12,7 +12,7 @@
       "additionalProperties": {
         "type": "string",
         "description": "TODO description: additionalProperties",
-        "title": "Additional Properties"
+        "title": "TODO"
       },
       "description": "TODO description: timeline",
       "title": "Timeline"

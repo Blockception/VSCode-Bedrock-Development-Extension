@@ -67,9 +67,7 @@
   },
   "propertyNames": {},
   "additionalProperties": {
-    "$ref": "#/definitions/event_base",
-    "description": "TODO description: additionalProperties",
-    "title": "Additional Properties"
+    "$ref": "#/definitions/event_base"
   },
   "description": "TODO description: "
 }

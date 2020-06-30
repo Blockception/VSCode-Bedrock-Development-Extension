@@ -34,10 +34,10 @@
               "type": "object",
               "additionalProperties": {
                 "type": "string",
-                "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "description": "A single animation reference",
+                "title": "Animation"
               },
-              "description": "TODO description: animations",
+              "description": "The collection of animations references",
               "title": "Animations"
             },
             "animation_controllers": {
@@ -46,13 +46,13 @@
                 "type": "object",
                 "additionalProperties": {
                   "type": "string",
-                  "description": "TODO description: additionalProperties",
-                  "title": "Additional Properties"
+                  "description": "A single Animation controller reference",
+                  "title": "Animation controller reference"
                 },
-                "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "description": "A collection of animation controller references",
+                "title": "TODO"
               },
-              "description": "TODO description: animation controllers",
+              "description": "The specification of animation controllers",
               "title": "Animation Controllers"
             },
             "enable_attachables": {
@@ -69,13 +69,13 @@
               "minProperties": 1,
               "additionalProperties": {
                 "type": "string",
-                "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "description": "A single geometry reference",
+                "title": "Geometry"
               },
-              "description": "TODO description: geometry"
+              "description": "The geometry specification"
             },
             "identifier": {
-              "pattern": "^[a-z:]+",
+              "pattern": "^[a-z:_]+",
               "type": "string",
               "description": "TODO description: identifier",
               "title": "Identifier"
@@ -84,16 +84,16 @@
               "type": "object",
               "additionalProperties": {
                 "type": "string",
-                "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "description": "A single material reference",
+                "title": "Material"
               },
-              "description": "TODO description: materials",
+              "description": "A collection of material references",
               "title": "Materials"
             },
             "min_engine_version": {
               "type": "string",
               "pattern": "[0-9]+\\.[0-9]+\\.[0-9]+",
-              "description": "TODO description: min engine version",
+              "description": "The minimum engine needed to use this",
               "title": "Min Engine Version"
             },
             "particle_effects": {
@@ -101,10 +101,10 @@
               "minProperties": 1,
               "additionalProperties": {
                 "type": "string",
-                "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "description": "A single particle effect reference",
+                "title": "Particle effect"
               },
-              "description": "TODO description: particle effects",
+              "description": "A collection of particle effect references",
               "title": "Particle Effects"
             },
             "particle_emitters": {
@@ -113,7 +113,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: particle emitters",
               "title": "Particle Emitters"
@@ -152,7 +152,7 @@
                         "additionalProperties": {
                           "type": "string",
                           "description": "TODO description: additionalProperties",
-                          "title": "Additional Properties"
+                          "title": "TODO"
                         },
                         "description": "TODO description: oneOf[1]",
                         "title": "One Of[1]"
@@ -256,7 +256,7 @@
               "additionalProperties": {
                 "type": "string",
                 "description": "TODO description: additionalProperties",
-                "title": "Additional Properties"
+                "title": "TODO"
               },
               "description": "TODO description: textures",
               "title": "Textures"

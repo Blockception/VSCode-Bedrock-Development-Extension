@@ -43,8 +43,8 @@
       "description": "collection of component groups",
       "additionalProperties": {
         "$ref": "components.json",
-        "description": "TODO description: additionalProperties",
-        "title": "Additional Properties"
+        "description": "A single component group",
+        "title": "Component group"
       }
     },
     "components": {

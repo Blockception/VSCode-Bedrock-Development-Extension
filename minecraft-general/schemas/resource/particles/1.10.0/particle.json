@@ -139,7 +139,7 @@
           "type": "object",
           "additionalProperties": {
             "description": "TODO description: additionalProperties",
-            "title": "Additional Properties",
+            "title": "TODO",
             "type": "object",
             "properties": {
               "effect": {
