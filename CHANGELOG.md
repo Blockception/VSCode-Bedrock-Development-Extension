@@ -1,4 +1,6 @@
 # Changelog 
+- Fixed snippets
+- Updated to 0.2.11
 - Fixed dummy player regoncization
 - Updated to 0.2.10
 - Updated Components
@@ -17,5 +19,3 @@
 - Added spawn rules
 - Updated
 - Moved
-- Added Detect to colours
-- Updated to 0.2.8

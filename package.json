@@ -1,7 +1,9 @@
 {
     "main": "./dist/extension.js",
-    "version": "0.2.11",
-    "activationEvents": [ "*" ],
+    "version": "0.2.13",
+    "activationEvents": [
+        "*"
+    ],
     "author": {
         "name": "Blockception Ltd",
         "url": "https://www.blockception.com/"
@@ -45,16 +47,26 @@
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.11"
     },
-    "engines": { "vscode": "^1.43.0"     },
-    "extensionKind": [ "ui" ],
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "extensionKind": [
+        "ui"
+    ],
     "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "icon": "resources/logo.png",
     "license": "BSD 3-Clause \"New\" or \"Revised\" License",
     "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
     "publisher": "BlockceptionLtd",
     "contributors": [
-        { "name": "DaanV2", "url": "https://github.com/DaanV2" },
-        { "name": "Soniikz", "url": "https://github.com/Soniikz" }
+        {
+            "name": "DaanV2",
+            "url": "https://github.com/DaanV2"
+        },
+        {
+            "name": "Soniikz",
+            "url": "https://github.com/Soniikz"
+        }
     ],
     "repository": {
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
@@ -71,16 +83,26 @@
         "languages": [
             {
                 "id": "bc-minecraft-language",
-                "aliases": [ "Minecraft Language" ],
-                "extensions": [ ".lang" ],
+                "aliases": [
+                    "Minecraft Language"
+                ],
+                "extensions": [
+                    ".lang"
+                ],
                 "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
             },
             {
                 "id": "bc-minecraft-mcfunction",
-                "aliases": [ "Minecraft Mcfunction" ],
-                "extensions": [ ".mcfunction" ],
+                "aliases": [
+                    "Minecraft Mcfunction"
+                ],
+                "extensions": [
+                    ".mcfunction"
+                ],
                 "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
-                "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
+                "filenamePatterns": [
+                    "[a-z0-9_]*\\.mcfunction"
+                ]
             }
         ],
         "grammars": [
@@ -88,7 +110,9 @@
                 "language": "bc-minecraft-mcfunction",
                 "scopeName": "source.bc.minecraft.mcfunction",
                 "path": "./minecraft-mcfunctions/syntaxes/minecraft-mcfunction.tmLanguage.json",
-                "embeddedLanguages": { "meta.embedded.block.json": "json" }
+                "embeddedLanguages": {
+                    "meta.embedded.block.json": "json"
+                }
             },
             {
                 "language": "bc-minecraft-language",
