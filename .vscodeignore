@@ -21,4 +21,3 @@ tools/
 tsconfig.json
 webpack.config.js
 source schemas/
-minecraft-general/schemas/

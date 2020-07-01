@@ -1,4 +1,12 @@
 # Changelog 
+- compressed json files
+- Restored
+- Moving for compresed versions
+- Updated description to todo
+- Fixed description
+- Updated
+- Updated to 0.2.15
+- Readded
 - Code cleanup
 - Updated behaviour components
 - Updated
@@ -11,11 +19,3 @@
 - Fixed dummy player regoncization
 - Updated to 0.2.10
 - Updated Components
-- Updated Behaviour Components
-- Updated documentation
-- Updated behaviour components
-- Updated
-- Updated
-- Fixed Selector
-- Added the start of symbol searching
-- Added overview
