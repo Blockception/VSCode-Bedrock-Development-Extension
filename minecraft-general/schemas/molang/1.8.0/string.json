@@ -1,1 +1,19 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"molang_string1.8.0","title":"Molang / string definition","anyOf":[{"$id":"molang1.8.0","type":"string","title":"The minecraft molang definition","description":"molang definition","minLength":0},{"type":"string","description":"string definition","title":"TODO title"}]}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "molang_string1.8.0",
+  "title": "Molang / string definition",
+  "anyOf": [
+    {
+      "$id": "molang1.8.0",
+      "type": "string",
+      "title": "The minecraft molang definition",
+      "description": "molang definition",
+      "minLength": 0
+    },
+    {
+      "type": "string",
+      "description": "string definition",
+      "title": "TODO title"
+    }
+  ]
+}

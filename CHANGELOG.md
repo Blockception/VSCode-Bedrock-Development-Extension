@@ -1,4 +1,7 @@
 # Changelog 
+- Completed snippet removeall
+- Updated
+- Updated
 - Removed snippets
 - moved snippets to code completion
 - Updated to 0.2.16
@@ -16,6 +19,3 @@
 - Code cleanup
 - Updated behaviour components
 - Updated
-- Updated
-- Updated
-- Updated titles

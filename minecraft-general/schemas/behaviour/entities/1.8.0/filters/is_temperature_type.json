@@ -1,1 +1,35 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.filters.is_target","type":"object","title":"Filters is_target 1.8.0","additionalProperties":false,"description":"Tests whether the current temperature is a given type.","required":["value"],"properties":{"test":{"type":"string","title":"The test property","description":"the test property"},"operator":{"$ref":"types/base_operator.json"},"subject":{"$ref":"types/base_subject.json"},"value":{"description":"The Biome temperature catagory to test","type":"string","enum":["cold","mild","ocean","warm"],"title":"Value"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_target",
+  "type": "object",
+  "title": "Filters is_target 1.8.0",
+  "additionalProperties": false,
+  "description": "Tests whether the current temperature is a given type.",
+  "required": [
+    "value"
+  ],
+  "properties": {
+    "test": {
+      "type": "string",
+      "title": "The test property",
+      "description": "the test property"
+    },
+    "operator": {
+      "$ref": "types/base_operator.json"
+    },
+    "subject": {
+      "$ref": "types/base_subject.json"
+    },
+    "value": {
+      "description": "The Biome temperature catagory to test",
+      "type": "string",
+      "enum": [
+        "cold",
+        "mild",
+        "ocean",
+        "warm"
+      ],
+      "title": "Value"
+    }
+  }
+}

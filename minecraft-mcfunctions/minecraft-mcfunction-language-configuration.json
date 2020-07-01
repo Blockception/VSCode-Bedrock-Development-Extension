@@ -1,1 +1,71 @@
-{"comments":{"lineComment":"#"},"brackets":[["{","}"],["[","]"],["(",")"]],"autoClosingPairs":[["{","}"],["[","]"],["(",")"],["\"","\""],["'","'"]],"autoCloseBefore":";:.,=}])>` \n\t","surroundingPairs":[["{","}"],["[","]"],["(",")"],["\"","\""],["'","'"]],"folding":{"markers":{"start":"^\\#[ \t]*region","end":"^\\#[ \t]*endregion"}},"wordPattern":"\b.+\b"}
+{
+  "comments": {
+    "lineComment": "#"
+  },
+  "brackets": [
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ]
+  ],
+  "autoClosingPairs": [
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ],
+    [
+      "\"",
+      "\""
+    ],
+    [
+      "'",
+      "'"
+    ]
+  ],
+  "autoCloseBefore": ";:.,=}])>` \n\t",
+  "surroundingPairs": [
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ],
+    [
+      "\"",
+      "\""
+    ],
+    [
+      "'",
+      "'"
+    ]
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\#[ \t]*region",
+      "end": "^\\#[ \t]*endregion"
+    }
+  },
+  "wordPattern": "\b.+\b"
+}

@@ -1,1 +1,20 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.resource.particle.1.10.0.emitter_local_space","type":"object","title":"The emitter_local_space component for 1.10.0","additionalProperties":false,"properties":{"position":{"type":"boolean","description":"TODO description: position","title":"Position"},"rotation":{"type":"boolean","description":"TODO description: rotation","title":"Rotation"}},"description":"TODO description: "}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.resource.particle.1.10.0.emitter_local_space",
+  "type": "object",
+  "title": "The emitter_local_space component for 1.10.0",
+  "additionalProperties": false,
+  "properties": {
+    "position": {
+      "type": "boolean",
+      "description": "TODO description: position",
+      "title": "Position"
+    },
+    "rotation": {
+      "type": "boolean",
+      "description": "TODO description: rotation",
+      "title": "Rotation"
+    }
+  },
+  "description": "TODO description: "
+}

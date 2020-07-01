@@ -1,1 +1,38 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.13.0.filters.has_container_open","type":"object","title":"Filters has_container_open 1.13.0","additionalProperties":false,"description":"Returns true when the subject Player entity has opened a container.","properties":{"test":{"type":"string","title":"Test","description":"the test property"},"operator":{"$ref":"types/base_operator.json"},"subject":{"$ref":"types/base_subject.json"},"value":{"description":"true or false.","oneOf":[{"type":"boolean","default":true},{"type":"string","enum":["true","false"]}],"title":"Value"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.13.0.filters.has_container_open",
+  "type": "object",
+  "title": "Filters has_container_open 1.13.0",
+  "additionalProperties": false,
+  "description": "Returns true when the subject Player entity has opened a container.",
+  "properties": {
+    "test": {
+      "type": "string",
+      "title": "Test",
+      "description": "the test property"
+    },
+    "operator": {
+      "$ref": "types/base_operator.json"
+    },
+    "subject": {
+      "$ref": "types/base_subject.json"
+    },
+    "value": {
+      "description": "true or false.",
+      "oneOf": [
+        {
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ]
+        }
+      ],
+      "title": "Value"
+    }
+  }
+}

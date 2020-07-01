@@ -1,1 +1,22 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entity.1.8.0","type":"object","title":"The minecraft behaviour entity 1.8.0","description":"TODO description","required":["format_version","minecraft:entity"],"properties":{"format_version":{"title":"The 1.8.0 format_version","type":"string","const":"1.8.0","description":"The format version"},"minecraft:entity":{"$ref":"minecraft.entity.json"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entity.1.8.0",
+  "type": "object",
+  "title": "The minecraft behaviour entity 1.8.0",
+  "description": "TODO description",
+  "required": [
+    "format_version",
+    "minecraft:entity"
+  ],
+  "properties": {
+    "format_version": {
+      "title": "The 1.8.0 format_version",
+      "type": "string",
+      "const": "1.8.0",
+      "description": "The format version"
+    },
+    "minecraft:entity": {
+      "$ref": "minecraft.entity.json"
+    }
+  }
+}

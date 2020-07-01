@@ -1,1 +1,61 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.minecraft:entity","title":"Minecraft:entity 1.13.0","required":["description"],"properties":{"description":{"required":["identifier"],"title":"The description schema","description":"The description of the this entity","properties":{"identifier":{"$ref":"../../../general/entity/identifier.json","description":"TODO description: identifier","title":"Identifier"},"is_spawnable":{"type":"boolean","title":"The is spawnable property","description":"Marks if true if the entity can be spawned"},"is_summonable":{"type":"boolean","title":"The is summonable property","description":"Marks if true if the entity can be summoned through commands"},"is_experimental":{"type":"boolean","title":"The is experimental property","description":"Marks if true if the entity can is only aviable for experimental"},"runtime_identifier":{"type":"string"}}},"component_groups":{"title":"Component groups","description":"collection of component groups","additionalProperties":{"$ref":"components.json","description":"A single component group","title":"Component group"}},"components":{"$ref":"components.json","description":"TODO description: components","title":"Components"},"events":{"$ref":"events.json","description":"TODO description: events","title":"Events"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.minecraft:entity",
+  "title": "Minecraft:entity 1.13.0",
+  "required": [
+    "description"
+  ],
+  "properties": {
+    "description": {
+      "required": [
+        "identifier"
+      ],
+      "title": "The description schema",
+      "description": "The description of the this entity",
+      "properties": {
+        "identifier": {
+          "$ref": "../../../general/entity/identifier.json",
+          "description": "TODO description: identifier",
+          "title": "Identifier"
+        },
+        "is_spawnable": {
+          "type": "boolean",
+          "title": "The is spawnable property",
+          "description": "Marks if true if the entity can be spawned"
+        },
+        "is_summonable": {
+          "type": "boolean",
+          "title": "The is summonable property",
+          "description": "Marks if true if the entity can be summoned through commands"
+        },
+        "is_experimental": {
+          "type": "boolean",
+          "title": "The is experimental property",
+          "description": "Marks if true if the entity can is only aviable for experimental"
+        },
+        "runtime_identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "component_groups": {
+      "title": "Component groups",
+      "description": "collection of component groups",
+      "additionalProperties": {
+        "$ref": "components.json",
+        "description": "A single component group",
+        "title": "Component group"
+      }
+    },
+    "components": {
+      "$ref": "components.json",
+      "description": "TODO description: components",
+      "title": "Components"
+    },
+    "events": {
+      "$ref": "events.json",
+      "description": "TODO description: events",
+      "title": "Events"
+    }
+  }
+}

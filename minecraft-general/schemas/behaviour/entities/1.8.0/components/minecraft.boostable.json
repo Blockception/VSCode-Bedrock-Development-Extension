@@ -1,1 +1,45 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.minecraft.boostable","type":"object","title":"Minecraft:boostable 1.8.0","additionalProperties":false,"description":"Defines the conditions and behavior of a rideable entity's boost","required":[],"properties":{"duration":{"type":"integer","default":3,"description":"Time in seconds for the boost"},"speed_multiplier":{"type":"number","default":1,"description":"Factor by which the entity's normal speed increases. E.g. 2.0 means go twice as fast"},"boost_items":{"type":"array","items":{"type":"object","description":"List of items that can be used to boost while riding this entity.","properties":{"damage":{"type":"integer","default":1,"description":"This is the damage that the item will take each time it is used"},"item":{"type":"string","$ref":"../../../../general/items_item.json","description":"Name of the item that can be used to boost"},"replaceItem":{"type":"string","$ref":"../../../../general/items_item.json","description":"The item used to boost will become this item once it is used up"}}}}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.boostable",
+  "type": "object",
+  "title": "Minecraft:boostable 1.8.0",
+  "additionalProperties": false,
+  "description": "Defines the conditions and behavior of a rideable entity's boost",
+  "required": [],
+  "properties": {
+    "duration": {
+      "type": "integer",
+      "default": 3,
+      "description": "Time in seconds for the boost"
+    },
+    "speed_multiplier": {
+      "type": "number",
+      "default": 1,
+      "description": "Factor by which the entity's normal speed increases. E.g. 2.0 means go twice as fast"
+    },
+    "boost_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "List of items that can be used to boost while riding this entity.",
+        "properties": {
+          "damage": {
+            "type": "integer",
+            "default": 1,
+            "description": "This is the damage that the item will take each time it is used"
+          },
+          "item": {
+            "type": "string",
+            "$ref": "../../../../general/items_item.json",
+            "description": "Name of the item that can be used to boost"
+          },
+          "replaceItem": {
+            "type": "string",
+            "$ref": "../../../../general/items_item.json",
+            "description": "The item used to boost will become this item once it is used up"
+          }
+        }
+      }
+    }
+  }
+}

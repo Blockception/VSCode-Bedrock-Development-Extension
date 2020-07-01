@@ -1,1 +1,73 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.events1.11.0","type":"object","title":"Minecraft:entity 1.11.0","definitions":{"addremove":{"title":"The add/remove schema","description":"The components groups to add or remove","type":"object","properties":{"component_groups":{"title":"The component_groups schema","description":"The components groups to add or remove","type":"array","items":{"type":"string","description":"TODO description: component groups","title":"Component Groups"}}}},"event_base":{"properties":{"add":{"$ref":"#/definitions/addremove","description":"TODO description: add","title":"Add"},"remove":{"$ref":"#/definitions/addremove","description":"TODO description: remove","title":"Remove"},"randomize":{"type":"array","items":{"required":["weight"],"properties":{"add":{"$ref":"#/definitions/addremove","description":"TODO description: add","title":"Add"},"remove":{"$ref":"#/definitions/addremove","description":"TODO description: remove","title":"Remove"},"weight":{"type":"number","description":"TODO description: weight","title":"Weight"}},"description":"TODO description: randomize","title":"Randomize"},"description":"TODO description: randomize","title":"Randomize"}}}},"propertyNames":{},"additionalProperties":{"$ref":"#/definitions/event_base"},"description":"TODO description: "}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.events1.11.0",
+  "type": "object",
+  "title": "Minecraft:entity 1.11.0",
+  "definitions": {
+    "addremove": {
+      "title": "The add/remove schema",
+      "description": "The components groups to add or remove",
+      "type": "object",
+      "properties": {
+        "component_groups": {
+          "title": "The component_groups schema",
+          "description": "The components groups to add or remove",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "TODO description: component groups",
+            "title": "Component Groups"
+          }
+        }
+      }
+    },
+    "event_base": {
+      "properties": {
+        "add": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description: add",
+          "title": "Add"
+        },
+        "remove": {
+          "$ref": "#/definitions/addremove",
+          "description": "TODO description: remove",
+          "title": "Remove"
+        },
+        "randomize": {
+          "type": "array",
+          "items": {
+            "required": [
+              "weight"
+            ],
+            "properties": {
+              "add": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description: add",
+                "title": "Add"
+              },
+              "remove": {
+                "$ref": "#/definitions/addremove",
+                "description": "TODO description: remove",
+                "title": "Remove"
+              },
+              "weight": {
+                "type": "number",
+                "description": "TODO description: weight",
+                "title": "Weight"
+              }
+            },
+            "description": "TODO description: randomize",
+            "title": "Randomize"
+          },
+          "description": "TODO description: randomize",
+          "title": "Randomize"
+        }
+      }
+    }
+  },
+  "propertyNames": {},
+  "additionalProperties": {
+    "$ref": "#/definitions/event_base"
+  },
+  "description": "TODO description: "
+}

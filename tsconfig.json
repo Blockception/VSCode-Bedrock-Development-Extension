@@ -1,1 +1,23 @@
-{"compilerOptions":{"module":"commonjs","target":"es2019","lib":["ES2019"],"outDir":"out","sourceMap":true,"strict":true,"noImplicitAny":true,"removeComments":true,"preserveConstEnums":true,"resolveJsonModule":true},"exclude":["node_modules",".vscode-test"],"include":["src/**/*"]}
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2019",
+    "lib": [
+      "ES2019"
+    ],
+    "outDir": "out",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    ".vscode-test"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}
