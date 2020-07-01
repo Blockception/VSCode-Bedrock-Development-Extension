@@ -38,33 +38,33 @@ import { BooleanCompletionProvider } from './types/BooleanCompletion';
 
 export interface CompletionItemProvider {
     //
-    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList>;
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList>;
 }
 
 export class CompletionItemManager implements vscode.CompletionItemProvider {
 
-    public Completors : Map<string, CompletionItemProvider>;
-    public StartItems : vscode.CompletionItem[];
-    public Default : DefaultItems;
+    public Completors: Map<string, CompletionItemProvider>;
+    public StartItems: vscode.CompletionItem[];
+    public Default: DefaultItems;
 
-    public BooleanCompletionProvider : BooleanCompletionProvider;
-    public BlockCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public CoordinateCompletionProvider : CoordinateCompletionItemProvider;
-    public EntityCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public FloatCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public ItemCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public IntegerCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public ParticleCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public PlaysoundCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public ScoreCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public SelectorCompletion : SelectorCompletionProvider;
-    public SelectorVscodeCompletion : SelectorVscodeCompletionProvider;
-    public TagCompletionProvider : CompletionItemProvider | undefined; //TODO
-    public TickingAreaCompletionProvider : CompletionItemProvider | undefined; //TODO
+    public BooleanCompletionProvider: BooleanCompletionProvider;
+    public BlockCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public CoordinateCompletionProvider: CoordinateCompletionItemProvider;
+    public EntityCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public FloatCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public ItemCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public IntegerCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public ParticleCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public PlaysoundCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public ScoreCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public SelectorCompletion: SelectorCompletionProvider;
+    public SelectorVscodeCompletion: SelectorVscodeCompletionProvider;
+    public TagCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public TickingAreaCompletionProvider: CompletionItemProvider | undefined; //TODO
 
-    constructor(){
+    constructor() {
         this.Default = new DefaultItems();
-        this.Completors = new  Map<string, CompletionItemProvider>();
+        this.Completors = new Map<string, CompletionItemProvider>();
 
         this.BooleanCompletionProvider = new BooleanCompletionProvider();
         this.CoordinateCompletionProvider = new CoordinateCompletionItemProvider();
@@ -124,10 +124,10 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
             Functions.createCompletionItem("xp", "xp", "Adds or removes player experience.")
         ];
 
-        this.StartItems.forEach(x=>x.kind = vscode.CompletionItemKind.Class);
+        this.StartItems.forEach(x => x.kind = vscode.CompletionItemKind.Class);
     }
 
-    set(Cm : CompletionItemProvider, keywords : string[]) : void {
+    set(Cm: CompletionItemProvider, keywords: string[]): void {
         keywords.forEach(word => this.Completors.set(word, Cm));
     }
 
@@ -135,9 +135,13 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var Line = document.lineAt(position.line);
 
-        if (position.character < 3){
+        if (position.character == 0)
+            return;
+
+        if (position.character < 3) {
             return this.StartItems;
         }
+
 
         //If in selector provide selector
         if (SF.IsInSelector(document, position)) {
@@ -163,27 +167,27 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 }
 
 
-export class DefaultItems {    
-    public BlockData : vscode.CompletionItem[];
-    public ItemData : vscode.CompletionItem[];
-    public JsonItemComponents : vscode.CompletionItem[];
-    public JsonTextComponents : vscode.CompletionItem[];
-    public String : vscode.CompletionItem[];
+export class DefaultItems {
+    public BlockData: vscode.CompletionItem[];
+    public ItemData: vscode.CompletionItem[];
+    public JsonItemComponents: vscode.CompletionItem[];
+    public JsonTextComponents: vscode.CompletionItem[];
+    public String: vscode.CompletionItem[];
 
-    constructor(){        
+    constructor() {
         this.BlockData = [createCompletionItem("-1", "Block Data", "An block data value", vscode.CompletionItemKind.Constant)];
         this.ItemData = [createCompletionItem("-1", "Item Data", "An item data value", vscode.CompletionItemKind.Constant)];
 
         this.JsonItemComponents = [
             createCompletionItem(
-                "{ \"minecraft:can_destroy\": { \"blocks\": [ \"grass\" ]}, \"minecraft:can_place_on\": { \"blocks\": [ \"grass\" ]}}", 
-                "Json Item Components", 
-                "A snippet of json item components", 
+                "{ \"minecraft:can_destroy\": { \"blocks\": [ \"grass\" ]}, \"minecraft:can_place_on\": { \"blocks\": [ \"grass\" ]}}",
+                "Json Item Components",
+                "A snippet of json item components",
                 vscode.CompletionItemKind.Snippet)];
 
         this.JsonTextComponents = [
             createCompletionItem(
-                "{ \"rawtext\": [ { \"text\": \"\" }, \"\", { \"translate\": \"\" } ] }", 
+                "{ \"rawtext\": [ { \"text\": \"\" }, \"\", { \"translate\": \"\" } ] }",
                 "Json Text Components",
                 "A snippet of json text components",
                 vscode.CompletionItemKind.Snippet)];

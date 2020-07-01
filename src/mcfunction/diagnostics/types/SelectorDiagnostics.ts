@@ -39,8 +39,8 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
   provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
     var Selector = item.Text;
 
-    if (Selector.text.startsWith('"')){
-      if (!Selector.text.endsWith('"')){
+    if (Selector.text.startsWith('"')) {
+      if (!Selector.text.endsWith('"')) {
         collector.push(new vscode.Diagnostic(
           new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
           "Target needs to be closed with a \"",
@@ -70,12 +70,12 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
         }
       }
       else {
-        CheckSelector(lineIndex, Selector, document, collector);
+        CheckSelector(lineIndex, Selector, dm, document, collector);
       }
     }
-    else{
+    else {
       var match = Selector.text.match("^[\\w_\\-]+$");
-      if (match == undefined || match.length == 0){
+      if (match == undefined || match.length == 0) {
         collector.push(new vscode.Diagnostic(
           new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
           "invalid target/selector",
@@ -310,8 +310,8 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
     return;
   }
 
-  if (Parameter.value.startsWith('"')){
-    if (!Parameter.value.endsWith('"')){
+  if (Parameter.value.startsWith('"')) {
+    if (!Parameter.value.endsWith('"')) {
       new vscode.Diagnostic(
         range,
         "Started on a quoted name but never finished it",
@@ -358,17 +358,17 @@ function typeCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
   }
 }
 
-function scoreCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[], dm: DiagnosticsManager) : void {
+function scoreCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[], dm: DiagnosticsManager): void {
   var Objectives = sObject.scores.tests;
 
-  for (var I = 0; I < Objectives.length; I++){
+  for (var I = 0; I < Objectives.length; I++) {
     var O = Objectives[I];
 
-    if (O.name.length > 16){
+    if (O.name.length > 16) {
       collection.push(new vscode.Diagnostic(range, "Objectives cannot be longer then 16 characters"));
     }
 
-    if (!IsRange(O.value)){
+    if (!IsRange(O.value)) {
       collection.push(new vscode.Diagnostic(range, "Range: '" + O.value + "'"));
     }
   }

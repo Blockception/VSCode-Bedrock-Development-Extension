@@ -38,7 +38,7 @@ export class RegionCompletionProvider implements vscode.CompletionItemProvider {
         var Item = new vscode.CompletionItem("region", vscode.CompletionItemKind.Snippet);
         Item.label = "region";
         Item.documentation = "creates a new foldable region inside your code";
-        Item.insertText = new vscode.SnippetString("#region\n\n#endregion");
+        Item.insertText = new vscode.SnippetString("#region <region name>\n\n#endregion");
         Item.kind = vscode.CompletionItemKind.Snippet;
 
         this.Default.items.push(Item);
@@ -46,7 +46,7 @@ export class RegionCompletionProvider implements vscode.CompletionItemProvider {
     }
 
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        if (position.character < 2){
+        if (position.character > 1){
             return this.Default;
         }
     }

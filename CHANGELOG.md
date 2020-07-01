@@ -1,4 +1,8 @@
 # Changelog 
+- Updated
+- Updated
+- Updated titles
+- Updated to 0.2.13
 - Fixed snippets
 - Updated to 0.2.11
 - Fixed dummy player regoncization
@@ -15,7 +19,3 @@
 - Updated
 - Updated
 - Updated
-- Updated to 0.2.9
-- Added spawn rules
-- Updated
-- Moved
