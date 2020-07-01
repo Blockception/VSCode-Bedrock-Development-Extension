@@ -4,7 +4,8 @@
   "type": "string",
   "title": "Item identifiers",
   "description": "TODO description",
-  "enum": [
+  "pattern": "^[a-zA-Z_0-9:]+$",
+  "examples": [
     "minecraft:acacia_button",
     "minecraft:acacia_door",
     "minecraft:acacia_fence_gate",

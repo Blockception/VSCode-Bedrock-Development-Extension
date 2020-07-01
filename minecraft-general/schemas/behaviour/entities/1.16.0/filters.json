@@ -276,6 +276,7 @@
       "anyOf": [
         { "$ref": "#/definitions/filters_spec" },
         {
+          "type": "object",
           "properties": {
             "any_of": {
               "type": "array",

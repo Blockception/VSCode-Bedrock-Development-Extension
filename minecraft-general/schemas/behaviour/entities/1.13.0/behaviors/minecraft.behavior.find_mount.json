@@ -12,7 +12,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the mob will not go into water blocks when going towards a mount",
-      "title": "avoid_water"
+      "title": "Avoid_water"
     },
     "mount_distance": {
       "type": "number",
@@ -24,7 +24,7 @@
       "type": "integer",
       "default": 0,
       "description": "Time the mob will wait before starting to move towards the mount",
-      "title": "start_delay"
+      "title": "Start_delay"
     },
     "target_needed": {
       "type": "boolean",

@@ -23,21 +23,26 @@
       "type": "boolean",
       "default": false,
       "description": "If true, whether the explosion breaks blocks is affected by the mob griefing game rule.",
-      "title": "Destroy_affected_by_griefing"
+      "title": "Destroy affected by griefing"
     },
     "fire_affected_by_griefing": {
       "type": "boolean",
       "default": false,
       "description": "If true, whether the explosion causes fire is affected by the mob griefing game rule.",
-      "title": "Fire_affected_by_griefing"
+      "title": "Fire affected by griefing"
     },
     "fuse_length": {
-      "type": "array",
       "default": [0.0, 0.0],
       "description": "The range for the random amount of time the fuse will be lit before exploding, a negative value means the explosion will be immediate.",
       "title": "Fuse_length",
-      "items": [
-        { "type": "number" },
+      "oneOf": [
+        { 
+          "type": "array", 
+          "items": [
+            { "type": "number" }, 
+            { "type": "number" }
+          ] 
+        }, 
         { "type": "number" }
       ]
     },
@@ -45,13 +50,13 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the fuse is already lit when this component is added to the entity.",
-      "title": "Fuse_lit"
+      "title": "Fuse lit"
     },
     "max_resistance": {
       "type": "number",
-      "default": 3.40282e+38,
+      "default": 3.40282e38,
       "description": "A blocks explosion resistance will be capped at this value when an explosion occurs.",
-      "title": "Max_resistance"
+      "title": "Max resistance"
     },
     "power": {
       "type": "number",

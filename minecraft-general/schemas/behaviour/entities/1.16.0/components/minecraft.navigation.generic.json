@@ -12,6 +12,11 @@
       "description": "Tells the pathfinder to avoid portals (like nether portals) when finding a path",
       "title": "Avoid_portals"
     },
+    "avoid_damage_blocks": {
+      "type": "boolean",
+      "title": "Avoid damage blocks",
+      "description": "UNDOCUMENTATED"
+    },
     "avoid_sun": {
       "type": "boolean",
       "default": false,
@@ -29,6 +34,36 @@
       "default": false,
       "description": "Tells the pathfinder that it can path through a closed door and break it",
       "title": "Can_break_doors"
+    },
+    "can_float": {
+      "type": "boolean",
+      "default": false,
+      "description": "UNDOCUMENTATED",
+      "title": "Can float"
+    },
+    "can_swim": {
+      "type": "boolean",
+      "default": false,
+      "description": "UNDOCUMENTATED",
+      "title": "Can swim"
+    },
+    "can_walk": {
+      "type": "boolean",
+      "default": false,
+      "description": "UNDOCUMENTATED",
+      "title": "Can walk"
+    },
+    "can_breach": {
+      "type": "boolean",
+      "default": false,
+      "description": "UNDOCUMENTATED",
+      "title": "Can breach"
+    },
+    "can_jump": {
+      "type": "boolean",
+      "default": false,
+      "description": "UNDOCUMENTATED",
+      "title": "Can breach"
     },
     "can_open_doors": {
       "type": "boolean",
@@ -77,6 +112,12 @@
       "default": false,
       "description": "Tells the pathfinder whether or not it can travel in lava like walking on ground",
       "title": "Can_walk_in_lava"
+    },
+    "is_amphibious": {
+      "type": "boolean",
+      "default": false,
+      "description": "UNDOCUMENTATED",
+      "title": "Is amphibious"
     }
   }
 }

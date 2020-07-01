@@ -144,7 +144,7 @@
                       {
                         "type": "string",
                         "description": "TODO description: oneOf[0]",
-                        "title": "One Of[0]"
+                        "title": "TODO title"
                       },
                       {
                         "type": "object",
@@ -155,7 +155,7 @@
                           "title": "TODO"
                         },
                         "description": "TODO description: oneOf[1]",
-                        "title": "One Of[1]"
+                        "title": "TODO title"
                       }
                     ],
                     "description": "TODO description: animate",

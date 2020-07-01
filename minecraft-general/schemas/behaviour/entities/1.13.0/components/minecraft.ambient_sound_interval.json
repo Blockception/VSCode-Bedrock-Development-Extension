@@ -11,13 +11,13 @@
       "type": "string",
       "default": "ambient",
       "description": "Level sound event to be played as the ambient sound.",
-      "title": "event_name"
+      "title": "Event_name"
     },
     "range": {
       "type": "number",
       "default": 16,
       "description": "Maximum time in seconds to randomly add to the ambient sound delay time.",
-      "title": "range"
+      "title": "Range"
     },
     "value": {
       "type": "number",
