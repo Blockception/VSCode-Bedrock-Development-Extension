@@ -164,6 +164,8 @@ export class RangedWord {
             C = text.charAt(StartIndex);
         }
 
+        StartIndex++;
+
         var EndIndex = text.indexOf(' ', StartIndex);
 
         if (EndIndex < 0){

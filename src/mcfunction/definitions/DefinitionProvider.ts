@@ -45,7 +45,7 @@ export class GoDefinitionProvider implements vscode.DefinitionProvider {
         mcfunctionDatabase.Symbols.Tags.forEach(x => {
             x.Values.forEach(symbol => {
                 var match = symbol.name;
-                if (match != undefined && match.length > 0){
+                if (match == Word.text){
                     Out.push(symbol.location);
                 }
             });
@@ -55,7 +55,7 @@ export class GoDefinitionProvider implements vscode.DefinitionProvider {
         mcfunctionDatabase.Symbols.Scores.forEach(x => {
             x.Values.forEach(symbol => {
                 var match = symbol.name;
-                if (match != undefined && match.length > 0)
+                if (match == Word.text)
                     Out.push(symbol.location);
             });
         });
