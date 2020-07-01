@@ -54,7 +54,7 @@ export class RegionSymbolProvider implements vscode.DocumentSymbolProvider, vsco
                 var Item = new vscode.SymbolInformation(
                     LastRegion, 
                     vscode.SymbolKind.Namespace, 
-                    '', 
+                    'mcfunction', 
                     new vscode.Location(document.uri, 
                         new vscode.Range(StartPosition, new vscode.Position(I, 0))));
 

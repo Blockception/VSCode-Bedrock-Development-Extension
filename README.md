@@ -2,7 +2,7 @@
 
 **WIP**
 
-An extension that provides development tools, validations, formatters, diagnostics, and snippets to help develop minecraft bedrock content.
+An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop minecraft bedrock content.
 Recommended you use the Dark+ theme for the best colour highlighting.
 
 ![overview](documentation/resources/overview.gif)
@@ -20,11 +20,3 @@ Recommended you use the Dark+ theme for the best colour highlighting.
   - [World.](./documentation/Json%20Validation.md#world)
   - [Resource pack.](./documentation/Json%20Validation.md#resource-packs)
   - [Behaviour pack.](./documentation/Json%20Validation.md#behaviour-packs)
-  
-### Snippets
-  - [Blocks.](./documentation/Snippets.md#block-names)
-  - [Commands.](./documentation/Snippets.md#commands)
-  - [Effects.](./documentation/Snippets.md#effect-names)
-  - [Enchantments.](./documentation/Snippets.md#enchant-names)
-  - [Items.](./documentation/Snippets.md#item-names)
-  - [Selector.](./documentation/Snippets.md#selector)

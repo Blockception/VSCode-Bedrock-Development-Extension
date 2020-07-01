@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
 import * as Completion from "./completion items/activate"
+import * as Definitions from "./definitions/activate"
 import * as LanguageDiagnostics from "./diagnostics/activate"
 import * as Formatter from './Formatter'
 import * as Symbols from './symbols/activate'
@@ -38,7 +39,8 @@ import * as Signatures from './signatures/activate'
 //Activate the mcfunction part of the extension
 export function activate(context: vscode.ExtensionContext) {
 	console.log("activating mcfunction extension");
-	Completion.activate(context)
+   Completion.activate(context)
+   Definitions.activate(context);
 	LanguageDiagnostics.activate(context);
    Formatter.activate(context);
    Symbols.activate(context);

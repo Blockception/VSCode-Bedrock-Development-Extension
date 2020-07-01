@@ -1,4 +1,7 @@
 # Changelog 
+- Removed snippets
+- moved snippets to code completion
+- Updated to 0.2.16
 - Fixed up tag diagnosers
 - Removed
 - Updated
@@ -16,6 +19,3 @@
 - Updated
 - Updated
 - Updated titles
-- Updated to 0.2.13
-- Fixed snippets
-- Updated to 0.2.11

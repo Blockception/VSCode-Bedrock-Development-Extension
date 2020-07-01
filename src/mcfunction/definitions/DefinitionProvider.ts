@@ -17,7 +17,7 @@ modification, are permitted provided that the following conditions are met:
    contributors may be used to endorse or promote products derived from
    this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS'
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
@@ -29,27 +29,37 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import * as constants from "../../constants";
-import { RegionSymbolProvider } from './RegionSymbols';
-import { McfunctionSymbolProvider } from './Mcfunction';
-import { TagSymbolProvider } from './TagSymbols';
-import { ObjectiveSymbolProvider } from './ObjectiveSymbols';
+import { RangedWord } from '../../general/Words';
+import { mcfunctionDatabase } from '../Database';
 
-//Activate the mcfunction part of the extension
-export function activate(context: vscode.ExtensionContext) {
-    console.log("activating mcfunction symbols providers");
+export class GoDefinitionProvider implements vscode.DefinitionProvider {
+    provideDefinition(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.ProviderResult<vscode.Definition | vscode.DefinitionLink[]> {
+        var Line = document.lineAt(position.line);
+        var Word = RangedWord.GetWord(Line.text, position.character);
 
-    var TagProvider = new TagSymbolProvider();
-    var RegionProvider = new RegionSymbolProvider();
+        if (Word.text == "")
+            return undefined;
 
-    context.subscriptions.push(
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, new McfunctionSymbolProvider()),
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, new ObjectiveSymbolProvider()),
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, RegionProvider),      
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, TagProvider),        
+        var Out = new Array<vscode.Location>();
 
-        vscode.languages.registerWorkspaceSymbolProvider(RegionProvider),
-        vscode.languages.registerWorkspaceSymbolProvider(TagProvider)        
-    );
+        mcfunctionDatabase.Symbols.Tags.forEach(x => {
+            x.Values.forEach(symbol => {
+                var match = symbol.name;
+                if (match != undefined && match.length > 0){
+                    Out.push(symbol.location);
+                }
+            });
+        });
+
+        
+        mcfunctionDatabase.Symbols.Scores.forEach(x => {
+            x.Values.forEach(symbol => {
+                var match = symbol.name;
+                if (match != undefined && match.length > 0)
+                    Out.push(symbol.location);
+            });
+        });
+
+        return Out;
+    }
 }
-

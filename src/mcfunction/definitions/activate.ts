@@ -17,7 +17,7 @@ modification, are permitted provided that the following conditions are met:
    contributors may be used to endorse or promote products derived from
    this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS'
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
@@ -29,27 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import * as constants from "../../constants";
-import { RegionSymbolProvider } from './RegionSymbols';
-import { McfunctionSymbolProvider } from './Mcfunction';
-import { TagSymbolProvider } from './TagSymbols';
-import { ObjectiveSymbolProvider } from './ObjectiveSymbols';
+import * as constants from '../../constants';
+import { GoDefinitionProvider } from './DefinitionProvider';
 
-//Activate the mcfunction part of the extension
 export function activate(context: vscode.ExtensionContext) {
-    console.log("activating mcfunction symbols providers");
+   console.log('activating go to definition classes');
 
-    var TagProvider = new TagSymbolProvider();
-    var RegionProvider = new RegionSymbolProvider();
-
-    context.subscriptions.push(
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, new McfunctionSymbolProvider()),
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, new ObjectiveSymbolProvider()),
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, RegionProvider),      
-        vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, TagProvider),        
-
-        vscode.languages.registerWorkspaceSymbolProvider(RegionProvider),
-        vscode.languages.registerWorkspaceSymbolProvider(TagProvider)        
-    );
+   context.subscriptions.push(
+      vscode.languages.registerDefinitionProvider(constants.McFunctionIdentifier, new GoDefinitionProvider())
+   );
 }
-

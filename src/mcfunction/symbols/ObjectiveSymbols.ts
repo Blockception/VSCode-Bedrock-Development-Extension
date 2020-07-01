@@ -33,35 +33,36 @@ import { mcfunctionDatabase } from '../Database';
 import { CancellationToken } from 'vscode';
 import { RemoveComment } from '../functions/include';
 
-export class TagSymbolProvider implements vscode.DocumentSymbolProvider, vscode.WorkspaceSymbolProvider {
+export class ObjectiveSymbolProvider implements vscode.DocumentSymbolProvider, vscode.WorkspaceSymbolProvider {
     //Provides document symbols
-    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> { 
+    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> {
         var Out = new Array<vscode.SymbolInformation>();
 
-        for (var I = 0; I < document.lineCount; I++){
+        for (var I = 0; I < document.lineCount; I++) {
             var Line = document.lineAt(I);
             var Text = Line.text;
 
-            var match = Text.match('tag .* add .*');
+            var match = Text.match('scoreboard objectives add .* dummy .*');
 
             if (match == undefined)
                 continue;
 
             match.forEach(m => {
                 var start = m.indexOf(' add');
+                var DummyStart = m.indexOf('dummy')
 
-                if (start > 0){
-                    var Tag = RemoveComment(m.substring(start + 4, m.length)).trim();
+                if (start > 0 && DummyStart > 0) {
+                    var Score = RemoveComment(m.substring(start + 4, DummyStart)).trim();
 
-                    var TagSymbol = new vscode.SymbolInformation(Tag, vscode.SymbolKind.String, 'mcfunction', new vscode.Location(
-                        document.uri, new vscode.Position(I, m.indexOf(Tag))
+                    var ObjectiveSymbol = new vscode.SymbolInformation(Score, vscode.SymbolKind.Variable, 'mcfunction', new vscode.Location(
+                        document.uri, new vscode.Position(I, m.indexOf(Score))
                     ));
-                    Out.push(TagSymbol);
+                    Out.push(ObjectiveSymbol);
                 }
             });
         }
 
-        var Collection = mcfunctionDatabase.Symbols.Tags.Get(document.uri);
+        var Collection = mcfunctionDatabase.Symbols.Scores.Get(document.uri);
         Collection.Values = Out;
 
         return Out;
@@ -69,14 +70,14 @@ export class TagSymbolProvider implements vscode.DocumentSymbolProvider, vscode.
 
     //
     provideWorkspaceSymbols(query: string, token: CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[]> {
-        if (query.trim() == ''){
-            var First = mcfunctionDatabase.Symbols.Tags.First();
+        if (query.trim() == '') {
+            var First = mcfunctionDatabase.Symbols.Scores.First();
             return First.Values;
         }
 
         var Out = new Array<vscode.SymbolInformation>();
 
-        mcfunctionDatabase.Symbols.Tags.forEach(x => {
+        mcfunctionDatabase.Symbols.Scores.forEach(x => {
             x.Values.forEach(symbol => {
                 var match = symbol.name;
                 if (match != undefined && match.length > 0)

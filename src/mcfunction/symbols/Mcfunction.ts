@@ -33,32 +33,32 @@ import * as functions from "../../general/include";
 import { SyntaxTree, SyntaxItem } from '../../general/include';
 
 export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider {
-    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> { 
+    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> {
         var Out = new Array<vscode.SymbolInformation>();
 
-        var container = Function(document, Out);
+        Function(document, Out);
 
-        this.checkLines(document, Out, container);
+        this.checkLines(document, Out);
 
         return Out;
     }
 
-    checkLines(document: vscode.TextDocument, Collector : vscode.SymbolInformation[], container : string) : void {
+    checkLines(document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
         for (var lineIndex = 0; lineIndex < document.lineCount; lineIndex++) {
             var Tree = SyntaxTree.ParseEntireTree(document.lineAt(lineIndex));
             var Root = Tree.Root;
 
             if (Root != undefined) {
-                this.checkTree(Root, lineIndex, document, Collector, container);
+                this.checkTree(Root, lineIndex, document, Collector);
             }
         }
     }
 
-    checkTree(Item : SyntaxItem, lineIndex : number, document: vscode.TextDocument, Collector : vscode.SymbolInformation[], container : string) : void {
+    checkTree(Item: SyntaxItem, lineIndex: number, document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
         Collector.push(new vscode.SymbolInformation(
             Item.Text.text,
             vscode.SymbolKind.Method,
-            container,
+            'mcfunction',
             new vscode.Location(document.uri, new vscode.Range(lineIndex, Item.Text.startindex, lineIndex, Item.Text.endindex))));
 
         var Child = Item.Child;
@@ -66,17 +66,16 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider {
         if (Child == undefined)
             return;
 
-        switch(Item.Text.text){
+        switch (Item.Text.text) {
             case "function":
                 Collector.push(new vscode.SymbolInformation(
                     Child.Text.text,
                     vscode.SymbolKind.Class,
-                    container,
+                    'mcfunction',
                     new vscode.Location(document.uri, new vscode.Range(lineIndex, Child.Text.startindex, lineIndex, Child.Text.endindex))));
 
-
                 return;
-            
+
             case "execute":
 
 
@@ -88,8 +87,7 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider {
     }
 }
 
-
-function Function(document: vscode.TextDocument, Collector : vscode.SymbolInformation[]) : string {
+function Function(document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
     var filepath = document.fileName;
     var name = functions.GetFilename(filepath);
 
@@ -97,10 +95,8 @@ function Function(document: vscode.TextDocument, Collector : vscode.SymbolInform
         new vscode.SymbolInformation(
             name,
             vscode.SymbolKind.Class,
-            "functions",
+            'mcfunction',
             new vscode.Location(
-                document.uri, 
+                document.uri,
                 new vscode.Range(0, 0, document.lineCount, document.lineAt(document.lineCount - 1).text.length))));
-
-    return name;
 }

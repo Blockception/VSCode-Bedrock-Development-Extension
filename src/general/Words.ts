@@ -154,4 +154,22 @@ export class RangedWord {
     
         return out;
     }
+
+    static GetWord(text : string, position : number) : RangedWord {
+        var StartIndex = position;
+        var C = text.charAt(StartIndex);
+
+        while (C != ' ' && StartIndex > 0){
+            StartIndex--;
+            C = text.charAt(StartIndex);
+        }
+
+        var EndIndex = text.indexOf(' ', StartIndex);
+
+        if (EndIndex < 0){
+            EndIndex = text.length;
+        }
+
+        return new RangedWord(text.substring(StartIndex, EndIndex), StartIndex, EndIndex);
+    }
 }
