@@ -1,4 +1,6 @@
 # Changelog 
+- Code cleanup
+- Updated behaviour components
 - Updated
 - Updated
 - Updated
@@ -17,5 +19,3 @@
 - Fixed Selector
 - Added the start of symbol searching
 - Added overview
-- Updated
-- Updated
