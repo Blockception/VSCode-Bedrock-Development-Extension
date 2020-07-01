@@ -13,8 +13,8 @@
             "inwards",
             "outwards"
           ],
-          "description": "TODO description: anyOf[0]",
-          "title": "Any Of[0]"
+          "description": "TODO description: Todo",
+          "title": "Todo"
         },
         {
           "type": "array",
@@ -22,11 +22,11 @@
             "minItems": 3,
             "maxItems": 3,
             "$ref": "../../../../molang/1.8.0/number.json",
-            "description": "TODO description: anyOf[1]",
-            "title": "Any Of[1]"
+            "description": "TODO description: Todo",
+            "title": "Todo"
           },
-          "description": "TODO description: anyOf[1]",
-          "title": "Any Of[1]"
+          "description": "TODO description: Todo",
+          "title": "Todo"
         }
       ],
       "description": "TODO description: direction",

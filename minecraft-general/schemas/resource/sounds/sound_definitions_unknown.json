@@ -44,8 +44,8 @@
                 "$id": "#/Sound/sounds/stringItem",
                 "type": "string",
                 "$ref": "#/definitions/SoundPath",
-                "description": "TODO description: anyOf[0]",
-                "title": "Any Of[0]"
+                "description": "TODO description: Todo",
+                "title": "Todo"
               },
               {
                 "additionalItems": false,
@@ -85,8 +85,8 @@
                     "title": "Name"
                   }
                 },
-                "description": "TODO description: anyOf[1]",
-                "title": "Any Of[1]"
+                "description": "TODO description: Todo",
+                "title": "Todo"
               }
             ],
             "description": "TODO description: sounds",
