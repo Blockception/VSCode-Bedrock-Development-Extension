@@ -3,7 +3,7 @@
   "$id": "1.8.0.bones",
   "type": "object",
   "title": "The bones schema for 1.10.0",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "definitions": {
     "numberSpecifciaton": {
       "$id": "number specification",

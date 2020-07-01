@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.resource.animation_controller1.8.0",
   "type": "object",
   "title": "The minecraft resourcepack animation_controller 1.8.0",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "required": [
     "format_version",
     "animation_controllers"

@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.sound_definition.json",
   "type": "object",
   "title": "The minecraft sound definition file",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "definitions": {
     "biomespec": {
       "additionalProperties": false,

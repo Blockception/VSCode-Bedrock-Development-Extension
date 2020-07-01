@@ -5,10 +5,7 @@
   "type": "object",
   "title": "Render_Controllers 1.8.0",
   "description": "Render_Controllers 1.8.0",
-  "required": [
-    "render_controllers",
-    "format_version"
-  ],
+  "required": [ "render_controllers", "format_version" ],
   "definitions": {
     "color": {
       "anyOf": [

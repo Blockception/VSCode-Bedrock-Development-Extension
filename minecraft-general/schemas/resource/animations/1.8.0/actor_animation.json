@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.8.0",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "definitions": {
     "particle_effect_spec": {
       "additionalProperties": false,
@@ -154,7 +154,7 @@
           "bones": {
             "type": "object",
             "title": "The bones schema for 1.8.0",
-            "description": "The root schema comprises the entire JSON document.",
+            "description": "TODO description",
             "additionalProperties": {
               "$id": "bones_item1.8.0",
               "description": "A single bone definition in the animation for 1.8.0",

@@ -4,7 +4,7 @@
   "type": "object",
   "additionalItems": false,
   "title": "The minecraft sound definition file for 1.14.0",
-  "description": "The root schema comprises the entire JSON document.",
+  "description": "TODO description",
   "definitions": {
     "SoundPath": {
       "$id": "SoundFilepath",
