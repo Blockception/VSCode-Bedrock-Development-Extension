@@ -30,6 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import { DocumentDataCollection } from "../general/include";
 import { SymbolInformation } from "vscode";
+import { MinecraftData } from "./Data/minecraft";
+
 
 export class DataSet<T> {
    //All list of all found blocks and their data
@@ -60,6 +62,8 @@ export class DataSet<T> {
 
 export class mcfunctionDatabase {
    public static Symbols : DataSet<SymbolInformation> = new DataSet<SymbolInformation>();
+
+   public static Minecraft : MinecraftData = new MinecraftData();
 }
 
 

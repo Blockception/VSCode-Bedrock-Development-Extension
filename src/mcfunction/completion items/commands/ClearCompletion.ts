@@ -49,7 +49,7 @@ export class ClearCompletionProvider implements CompletionItemProvider {
                 return Cm.SelectorCompletion.provideCompletionItems();
 
             case 1: //Item
-                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.ItemCompletionProvider.provideCompletionItems();
 
             case 2: //Data
                 return Cm.Default.ItemData;

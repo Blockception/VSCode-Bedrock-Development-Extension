@@ -111,7 +111,7 @@ export class GameruleCompletionProvider implements CompletionItemProvider {
                         return Cm.BooleanCompletionProvider.default;
 
                     case 'maxCommandChainLength':
-                        return Cm.IntegerCompletionProvider?.provideCompletionItems(Rule, Cm, document);
+                        return Cm.IntegerCompletionProvider.provideCompletionItems(0, 10000, 1000);
 
                     default:
                         break;

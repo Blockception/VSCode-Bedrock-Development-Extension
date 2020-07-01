@@ -28,34 +28,20 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
-import { SyntaxItem, createCompletionItem } from "../../../general/include";
+import * as vscode from 'vscode';
+import { CompletionItem } from 'vscode';
 
-export class TestforBlockCompletionProvider implements CompletionItemProvider {
+export class IntegerCompletionItemProvider {
 
-    constructor() {
-    }
+    public provideCompletionItems(start : number = 0, end : number = 10, step : number = 1) : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+        var Collection = new Array<CompletionItem>();
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //testforblock <position: x y z> <tileName: Block> [dataValue: int]
-
-        switch (Item.Count()) {
-            case 0: //<position: x>
-            case 1: //<position: y>
-            case 2: //<position: z>
-                return Cm.CoordinateCompletionProvider.provideDiagnostics();
-
-            case 3: //<tileName: Block>
-                return Cm.BlockCompletionProvider.provideCompletionItems();
-
-            case 4: //[dataValue: int]
-                return Cm.Default.BlockData;
-
-            default:
-                break;
+        for (var I = start; I < end; I += step){
+            var X = new CompletionItem(I.toString(), vscode.CompletionItemKind.Constant);
+            X.documentation = "integer of value: " + X.label;
+            Collection.push(X);
         }
 
-        return undefined;
+        return Collection;
     }
 }

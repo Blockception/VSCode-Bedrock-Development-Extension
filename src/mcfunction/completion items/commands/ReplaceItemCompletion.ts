@@ -89,14 +89,14 @@ export class ReplaceItemCompletionProvider implements CompletionItemProvider {
                 return this.EntitySlots;
 
              case 2: //<slotId: int>
-                return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.IntegerCompletionProvider.provideCompletionItems();
 
              case 3: //<itemName: Item>
-                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.ItemCompletionProvider.provideCompletionItems();
 
              case 4: //[amount: int] 
              case 5: //[data: int] 
-                return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.IntegerCompletionProvider.provideCompletionItems();
 
              case 6: //[components: json]
                 return Cm.Default.JsonItemComponents;
@@ -115,14 +115,14 @@ export class ReplaceItemCompletionProvider implements CompletionItemProvider {
                return Cm.SelectorCompletion.provideCompletionItems();
 
             case 3: //<slotId: int>
-               return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+               return Cm.IntegerCompletionProvider.provideCompletionItems();
 
             case 4: //<itemName: Item>
-               return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
+               return Cm.ItemCompletionProvider.provideCompletionItems();
 
             case 5: //[amount: int] 
             case 6: //[data: int] 
-               return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+               return Cm.IntegerCompletionProvider.provideCompletionItems();
 
             case 7: //[components: json]
                return Cm.Default.JsonItemComponents;

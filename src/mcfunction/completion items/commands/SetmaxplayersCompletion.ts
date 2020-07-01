@@ -41,7 +41,7 @@ export class SetmaxplayersCompletionProvider implements CompletionItemProvider {
 
         switch (Item.Count()) {
             case 0: //<sound: string>
-                return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.IntegerCompletionProvider.provideCompletionItems();
 
             default:
                 break;

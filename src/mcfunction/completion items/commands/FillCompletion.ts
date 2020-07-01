@@ -59,7 +59,7 @@ export class FillCompletionProvider implements CompletionItemProvider {
                 return Cm.CoordinateCompletionProvider.provideDiagnostics();
 
             case 6: //<tileName: Block>
-                return Cm.BlockCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.BlockCompletionProvider.provideCompletionItems();
 
             case 7: //<tileData: int>
                 return Cm.Default.BlockData;

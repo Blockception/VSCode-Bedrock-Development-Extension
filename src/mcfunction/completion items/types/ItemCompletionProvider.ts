@@ -28,34 +28,29 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
-import { SyntaxItem, createCompletionItem } from "../../../general/include";
+import * as vscode from 'vscode';
+import { mcfunctionDatabase } from '../../Database';
+import { CompletionItem } from 'vscode';
 
-export class TestforBlockCompletionProvider implements CompletionItemProvider {
+export class ItemCompletionItemProvider {
 
-    constructor() {
+    public MinecraftItems : vscode.CompletionList;
+    public Items : vscode.CompletionList;
+
+    constructor(){
+        this.MinecraftItems = new vscode.CompletionList();
+        this.Items = this.MinecraftItems;
+        
+        for(var x in mcfunctionDatabase.Minecraft.Items){
+            var Completion = new CompletionItem(x, vscode.CompletionItemKind.Constant);
+            Completion.documentation = "minecraft item: " + x;
+            this.MinecraftItems.items.push(Completion);
+        }
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        //testforblock <position: x y z> <tileName: Block> [dataValue: int]
+    public provideCompletionItems() : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+        return this.Items;
 
-        switch (Item.Count()) {
-            case 0: //<position: x>
-            case 1: //<position: y>
-            case 2: //<position: z>
-                return Cm.CoordinateCompletionProvider.provideDiagnostics();
-
-            case 3: //<tileName: Block>
-                return Cm.BlockCompletionProvider.provideCompletionItems();
-
-            case 4: //[dataValue: int]
-                return Cm.Default.BlockData;
-
-            default:
-                break;
-        }
-
-        return undefined;
+        //TODO add work directory check
     }
 }

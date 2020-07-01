@@ -34,12 +34,6 @@ import { SyntaxItem } from "../../../general/include";
 
 export class TagTypeDiagnosticProvider implements DiagnosticProvider {
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void {
-        if (item.Text.text.length > 16) {
-            collector.push(new vscode.Diagnostic(
-                item.Text.ToRange(lineIndex),
-                "Tags cannot be longer then 16 characters"
-            ));
-        }
 
         //TODO workplace check
     }

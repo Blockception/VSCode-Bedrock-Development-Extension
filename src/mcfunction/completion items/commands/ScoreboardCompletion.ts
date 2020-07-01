@@ -190,7 +190,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
                         return Cm.ScoreCompletionProvider?.provideCompletionItems(Item, Cm, document);
 
                     case 2: //<score>
-                        return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                        return Cm.IntegerCompletionProvider.provideCompletionItems();
                 }
                 break;
 
@@ -251,7 +251,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
 
                     case 2: //<min|*>
                     case 3: //<min|*>
-                        return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                        return Cm.IntegerCompletionProvider.provideCompletionItems();
                 }
                 break;
             default:

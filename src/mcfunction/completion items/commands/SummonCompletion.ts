@@ -43,7 +43,7 @@ export class SummonCompletionProvider implements CompletionItemProvider {
         var EntityType = Item.Child;
 
         if (EntityType == undefined){
-            return Cm.EntityCompletionProvider?.provideCompletionItems(Item, Cm, document);
+            return Cm.EntityCompletionProvider.provideCompletionItems();
         }
 
         var XOrName = EntityType.Child;

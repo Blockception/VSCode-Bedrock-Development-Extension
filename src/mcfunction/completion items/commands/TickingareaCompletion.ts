@@ -131,7 +131,7 @@ export class TickingareaCompletionProvider implements CompletionItemProvider {
                     return Cm.CoordinateCompletionProvider.provideDiagnostics();
 
                 case 4: //<radius>
-                    return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                    return Cm.IntegerCompletionProvider.provideCompletionItems();
 
                 case 5: //[Name]
                     return Cm.TickingAreaCompletionProvider?.provideCompletionItems(Item, Cm, document);

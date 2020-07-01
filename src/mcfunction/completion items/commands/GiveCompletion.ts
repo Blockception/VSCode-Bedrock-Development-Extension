@@ -45,10 +45,10 @@ export class GiveCompletionProvider implements CompletionItemProvider {
                 return Cm.SelectorCompletion.provideCompletionItems();
 
             case 1: //<itemName: Item>
-                return Cm.ItemCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.ItemCompletionProvider.provideCompletionItems();
 
             case 2: //[amount: int]
-                return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.IntegerCompletionProvider.provideCompletionItems();
 
             case 3: //[data: int]
                 return Cm.Default.ItemData;

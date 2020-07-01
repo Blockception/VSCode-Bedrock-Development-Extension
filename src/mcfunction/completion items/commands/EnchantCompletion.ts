@@ -34,10 +34,10 @@ import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class EnchantCompletionProvider implements CompletionItemProvider {
 
-    public Effects: vscode.CompletionItem[];
+    public Enchants: vscode.CompletionItem[];
 
     constructor() {
-        this.Effects = new Array<vscode.CompletionItem>(
+        this.Enchants = new Array<vscode.CompletionItem>(
             createCompletionItem("absorption", "Absorption", "Adds damage absorption, higher levels give more absorption", vscode.CompletionItemKind.Constant),
             createCompletionItem("bad_omen", "Bad Omen", "Causes an illager raid to start upon entering a village (only received from an Illager captain upon its death)", vscode.CompletionItemKind.Constant),
             createCompletionItem("blindness", "Blindness", "Impairs vision and disables the ability to sprint and critical hit", vscode.CompletionItemKind.Constant),
@@ -78,10 +78,10 @@ export class EnchantCompletionProvider implements CompletionItemProvider {
                 return Cm.SelectorCompletion.provideCompletionItems();
 
             case 1: //<int|Enchant Name>
-                return this.Effects;
+                return this.Enchants;
 
             case 2: //[level: int]
-                return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.IntegerCompletionProvider.provideCompletionItems(0, 5, 1);
 
             default:
                 break;

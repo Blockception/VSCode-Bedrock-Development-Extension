@@ -54,7 +54,7 @@ export class SetBlockCompletionProvider implements CompletionItemProvider {
                 return Cm.CoordinateCompletionProvider.provideDiagnostics();
 
             case 3: //<tileName: Block>
-                return Cm.BlockCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.BlockCompletionProvider.provideCompletionItems();
 
             case 4: //[dataValue: int]
                 return Cm.Default.BlockData;

@@ -35,6 +35,10 @@ import { SelectorCompletionProvider, SelectorVscodeCompletionProvider } from "./
 import { SyntaxItem, createCompletionItem } from '../../general/include';
 import { CoordinateCompletionItemProvider } from './types/CoordinateCompletionProvider';
 import { BooleanCompletionProvider } from './types/BooleanCompletion';
+import { ItemCompletionItemProvider } from './types/ItemCompletionProvider';
+import { IntegerCompletionItemProvider } from './types/IntegerCompletionProvider';
+import { BlockCompletionItemProvider } from './types/BlockCompletionProvider';
+import { EntityCompletionItemProvider } from './types/EntityCompletionProvider';
 
 export interface CompletionItemProvider {
     //
@@ -48,12 +52,12 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     public Default: DefaultItems;
 
     public BooleanCompletionProvider: BooleanCompletionProvider;
-    public BlockCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public BlockCompletionProvider: BlockCompletionItemProvider;
     public CoordinateCompletionProvider: CoordinateCompletionItemProvider;
-    public EntityCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public EntityCompletionProvider: EntityCompletionItemProvider;
     public FloatCompletionProvider: CompletionItemProvider | undefined; //TODO
-    public ItemCompletionProvider: CompletionItemProvider | undefined; //TODO
-    public IntegerCompletionProvider: CompletionItemProvider | undefined; //TODO
+    public ItemCompletionProvider: ItemCompletionItemProvider;
+    public IntegerCompletionProvider: IntegerCompletionItemProvider;
     public ParticleCompletionProvider: CompletionItemProvider | undefined; //TODO
     public PlaysoundCompletionProvider: CompletionItemProvider | undefined; //TODO
     public ScoreCompletionProvider: CompletionItemProvider | undefined; //TODO
@@ -67,7 +71,11 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         this.Completors = new Map<string, CompletionItemProvider>();
 
         this.BooleanCompletionProvider = new BooleanCompletionProvider();
+        this.BlockCompletionProvider = new BlockCompletionItemProvider();
         this.CoordinateCompletionProvider = new CoordinateCompletionItemProvider();
+        this.EntityCompletionProvider = new EntityCompletionItemProvider();
+        this.IntegerCompletionProvider = new IntegerCompletionItemProvider();
+        this.ItemCompletionProvider = new ItemCompletionItemProvider();
         this.SelectorCompletion = new SelectorCompletionProvider();
         this.SelectorVscodeCompletion = new SelectorVscodeCompletionProvider();
 

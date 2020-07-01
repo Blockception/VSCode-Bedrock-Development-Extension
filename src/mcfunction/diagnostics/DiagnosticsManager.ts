@@ -50,7 +50,7 @@ export class DiagnosticsManager {
     public EntityDiagnoser : DiagnosticProvider | undefined; //TODO
     public FloatDiagnoser : DiagnosticProvider;
     public IntegerDiagnoser : DiagnosticProvider;
-    public ItemDiagnoser : DiagnosticProvider | undefined; //TODO
+    public ItemDiagnoser :  DiagnosticProvider | undefined; //TODO
     public JsonItemComponentDiagnoser : DiagnosticProvider | undefined; //TODO
     public JsonTextDiagnoser : DiagnosticProvider;
     public TickingAreaDiagnoser : DiagnosticProvider | undefined; //TODO

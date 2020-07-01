@@ -96,7 +96,7 @@ export class EffectCompletionProvider implements CompletionItemProvider {
             case 2: //[seconds: int]
             case 3: //[amplifier: int]
                 if (!IsCleared)
-                    return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                    return Cm.IntegerCompletionProvider.provideCompletionItems();
                 break;
 
             case 4: //[hideParticles: Boolean]

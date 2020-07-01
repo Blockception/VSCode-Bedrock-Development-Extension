@@ -88,7 +88,7 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
                 return Cm.CoordinateCompletionProvider.provideDiagnostics();
 
             case 3: //block
-                return Cm.BlockCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.BlockCompletionProvider.provideCompletionItems();
 
             case 4: //block id
                 return Cm.Default.BlockData;

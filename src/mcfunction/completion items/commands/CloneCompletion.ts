@@ -95,7 +95,7 @@ export class CloneCompletionProvider implements CompletionItemProvider {
         switch(Item.Count()){
             default:
             case 0:
-                return Cm.BlockCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                return Cm.BlockCompletionProvider.provideCompletionItems();
 
             case 1:
                 return Cm.Default.BlockData;

@@ -72,13 +72,13 @@ export class TitleCompletionProvider implements CompletionItemProvider {
                     return undefined;
 
                 if (Mode == 'times')
-                    return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                    return Cm.IntegerCompletionProvider.provideCompletionItems();
 
                 break;
             case 3: //<stay: int>
             case 4: //<fadeOut: int>
                 if (Mode == 'times')
-                    return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document);
+                    return Cm.IntegerCompletionProvider.provideCompletionItems();
 
             default:
                 break;

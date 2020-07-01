@@ -74,7 +74,7 @@ export class TimeCompletionProvider implements CompletionItemProvider {
 
         switch(Child.Text.text){
             case 'add':
-                return Cm.IntegerCompletionProvider?.provideCompletionItems(Item, Cm, document); 
+                return Cm.IntegerCompletionProvider.provideCompletionItems(); 
 
             case 'set':
                 return this.TimeSpec;
