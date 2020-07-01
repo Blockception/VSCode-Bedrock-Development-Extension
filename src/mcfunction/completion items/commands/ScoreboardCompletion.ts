@@ -30,8 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
-import { SyntaxItem, createCompletionItem, DocumentData } from "../../../general/include";
-import { S_IWUSR } from "constants";
+import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class ScoreboardCompletionProvider implements CompletionItemProvider {
 
@@ -45,8 +44,8 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
 
     constructor() {
         this.Modes = [
-            createCompletionItem('objectives', 'Objectives', 'Manipulate the scoreboard objectives', vscode.CompletionItemKind.Function),
-            createCompletionItem('players', 'Players', 'Manipulate the scores of entities', vscode.CompletionItemKind.Function),
+            createCompletionItem('objectives', 'objectives', 'Manipulate the scoreboard objectives', vscode.CompletionItemKind.Function),
+            createCompletionItem('players', 'players', 'Manipulate the scores of entities', vscode.CompletionItemKind.Function),
         ];
         this.ModesObjectives = [
             createCompletionItem('list', 'list', '', vscode.CompletionItemKind.Function),
@@ -68,8 +67,8 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
             createCompletionItem('remove', 'remove', '', vscode.CompletionItemKind.Function),
             createCompletionItem('reset', 'reset', '', vscode.CompletionItemKind.Function),
             createCompletionItem('operation', 'operation', '', vscode.CompletionItemKind.Function),
-            createCompletionItem('test', 'operation', '', vscode.CompletionItemKind.Function),
-            createCompletionItem('random', 'operation', '', vscode.CompletionItemKind.Function)
+            createCompletionItem('test', 'test', '', vscode.CompletionItemKind.Function),
+            createCompletionItem('random', 'random', '', vscode.CompletionItemKind.Function)
         ];
         this.Operations = [
             createCompletionItem('%=', '%= modulus', 'Calculates: target = target % source', vscode.CompletionItemKind.Operator),
@@ -85,7 +84,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
         this.Range = [
             createCompletionItem('0', '0', '', vscode.CompletionItemKind.Constant),
             createCompletionItem('1', '1', '', vscode.CompletionItemKind.Constant),
-            createCompletionItem('*', '*', 'No upper limit', vscode.CompletionItemKind.Constant)
+            createCompletionItem('*', '*', 'No limit', vscode.CompletionItemKind.Constant)
         ];
     }
 

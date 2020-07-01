@@ -17,7 +17,7 @@ modification, are permitted provided that the following conditions are met:
    contributors may be used to endorse or promote products derived from
    this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS'
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
@@ -29,18 +29,18 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
-import * as constants from "../../constants";
+import * as constants from '../../constants';
 import { CompletionItemManager } from './CompletionItemManager';
 import { RegionCompletionProvider } from './types/RegionCompletion';
-import * as Commands from "./commands/activate";
+import * as Commands from './commands/activate';
 
 export function activate(context: vscode.ExtensionContext) {
-   console.log("activating completion classes");
+   console.log('activating completion classes');
    var CompletionManager = new CompletionItemManager();
    Commands.activate(CompletionManager);
 
    context.subscriptions.push(
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, CompletionManager, " ", "[", "]", "@", "{", ",", "\n"),
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), "#", "\n")
+      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, CompletionManager, ' ', '[', ']', '@', '{', ',', '}', '.', 'a', 'c', 'd', 'e', 'f', 'g', 'k', 'l', 'm', 'o', 'p', 'r', 's', 't', 'w', 'x'),
+      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), '#', '\n')
    );
 }

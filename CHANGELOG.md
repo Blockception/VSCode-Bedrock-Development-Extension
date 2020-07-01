@@ -1,6 +1,7 @@
 # Changelog 
 - Updated
 - Updated
+- Updated
 - Updated titles
 - Updated to 0.2.13
 - Fixed snippets
@@ -16,6 +17,5 @@
 - Fixed Selector
 - Added the start of symbol searching
 - Added overview
-- Updated
 - Updated
 - Updated
