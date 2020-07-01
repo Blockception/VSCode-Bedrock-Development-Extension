@@ -1,4 +1,5 @@
 # Changelog 
+- Fixed up tag diagnosers
 - Removed
 - Updated
 - compressed json files
@@ -18,4 +19,3 @@
 - Updated to 0.2.13
 - Fixed snippets
 - Updated to 0.2.11
-- Fixed dummy player regoncization
