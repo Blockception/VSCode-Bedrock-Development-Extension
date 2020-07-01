@@ -1,17 +1,1 @@
-{
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "blockception.minecraft.behaviour.loot_tables.enchant_randomly",
-    "additionalProperties": false,
-    "description": "The function enchant_randomly",
-    "title": "Enchant_randomly",
-    "properties": {
-        "function": {
-            "type": "string",
-            "const": "enchant_randomly"
-        },
-        "treasure": {
-            "type": "boolean",
-            "description": "Supports the optional treasure boolean (true/false) to allow treasure enchantments to be toggled on and off."
-        }
-    }
-}
+{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.loot_tables.enchant_randomly","additionalProperties":false,"description":"The function enchant_randomly","title":"Enchant_randomly","properties":{"function":{"type":"string","const":"enchant_randomly"},"treasure":{"type":"boolean","description":"Supports the optional treasure boolean (true/false) to allow treasure enchantments to be toggled on and off."}}}

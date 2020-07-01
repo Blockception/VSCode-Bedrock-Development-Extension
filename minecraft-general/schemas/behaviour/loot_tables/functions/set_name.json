@@ -1,16 +1,1 @@
-{
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.loot_tables.set_name",
-  "additionalProperties": false,
-  "description": "The function set_name",
-  "title": "Set_name",
-  "properties": {
-    "function": {
-      "type": "string",
-      "const": "set_name"
-    },
-    "name": {
-      "type": "string"
-    }
-  }
-}
+{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.loot_tables.set_name","additionalProperties":false,"description":"The function set_name","title":"Set_name","properties":{"function":{"type":"string","const":"set_name"},"name":{"type":"string"}}}

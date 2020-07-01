@@ -1,32 +1,4 @@
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\general\manifest.json" "%~dp0\minecraft-general\schemas\general\manifest.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\general\world_x_packs.json" "%~dp0\minecraft-general\schemas\general\world_x_packs.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\general\world_x_packs.json" "%~dp0\minecraft-general\schemas\general\world_x_packs.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\animation_controllers\animation_controller.json" "%~dp0\minecraft-general\schemas\resource\animation_controllers\animation_controller.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\language\languages.json" "%~dp0\minecraft-general\schemas\language\languages.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\language\language_names.json" "%~dp0\minecraft-general\schemas\language\language_names.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\animations\actor_animation.json" "%~dp0\minecraft-general\schemas\resource\animations\actor_animation.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\attachables\attachables.json" "%~dp0\minecraft-general\schemas\resource\attachables\attachables.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\biomes_client.json" "%~dp0\minecraft-general\schemas\resource\biomes_client.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\blocks.json" "%~dp0\minecraft-general\schemas\resource\blocks.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\entity\entity.json" "%~dp0\minecraft-general\schemas\resource\entity\entity.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\textures\flipbook_textures.json" "%~dp0\minecraft-general\schemas\resource\textures\flipbook_textures.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\textures\item_texture.json" "%~dp0\minecraft-general\schemas\resource\textures\item_texture.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\particles\particles.json" "%~dp0\minecraft-general\schemas\resource\particles\particles.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\particles\particles.json" "%~dp0\minecraft-general\schemas\resource\particles\particles.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\models\entity\model_entity.json" "%~dp0\minecraft-general\schemas\resource\models\entity\model_entity.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\models\entity\model_entity.json" "%~dp0\minecraft-general\schemas\resource\models\entity\model_entity.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\render_controllers\render_controllers.json" "%~dp0\minecraft-general\schemas\resource\render_controllers\render_controllers.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\sounds\sound_definitions.json" "%~dp0\minecraft-general\schemas\resource\sounds\sound_definitions.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\textures\terrain_texture.json" "%~dp0\minecraft-general\schemas\resource\textures\terrain_texture.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\resource\sounds\music_definitions.json" "%~dp0\minecraft-general\schemas\resource\sounds\music_definitions.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\behaviour\loot_tables\loot_tables.json" "%~dp0\minecraft-general\schemas\behaviour\loot_tables\loot_tables.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\behaviour\loot_tables\loot_tables.json" "%~dp0\minecraft-general\schemas\behaviour\loot_tables\loot_tables.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\behaviour\entities\entities.json" "%~dp0\minecraft-general\schemas\behaviour\entities\entities.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\behaviour\spawn_rules\spawn_rules.json" "%~dp0\minecraft-general\schemas\behaviour\spawn_rules\spawn_rules.json"
-start "compress" /wait "%~dp0\json compressor\JsonSchemaValidationCompressor.Net.exe" "%~dp0\source schemas\minecraft-general\schemas\behaviour\items\items.json" "%~dp0\minecraft-general\schemas\behaviour\items\items.json"
-
-
-rem echo # Changelog > CHANGELOG.md
-rem git log -n 20 --pretty=format:"- %%s" >> CHANGELOG.md
-rem vsce package > log.txt
-rem pause(5)
+echo # Changelog > CHANGELOG.md
+git log -n 20 --pretty=format:"- %%s" >> CHANGELOG.md
+vsce package > log.txt
+pause(5)
