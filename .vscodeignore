@@ -1,0 +1,12 @@
+src/
+out/
+node_modules/
+tools/
+**/tsconfig.json
+**/webpack.config.js
+.vscode
+.github
+build.bat
+*.git*
+Debugging.md
+log.txt
