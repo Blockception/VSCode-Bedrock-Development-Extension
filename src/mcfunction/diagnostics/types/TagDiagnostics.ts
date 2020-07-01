@@ -32,7 +32,7 @@ import * as vscode from "vscode";
 import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
 import { SyntaxItem } from "../../../general/include";
 
-export class TagDiagnosticProvider implements DiagnosticProvider {
+export class TagTypeDiagnosticProvider implements DiagnosticProvider {
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void {
         if (item.Text.text.length > 16) {
             collector.push(new vscode.Diagnostic(

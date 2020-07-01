@@ -38,7 +38,7 @@ import { FloatDiagnosticProvider } from './types/FloatDiagnostics';
 import { IntegerDiagnosticProvider } from './types/IntegerDiagnostics';
 import { JsonTextDiagnoserProvider } from './types/JsonTextDiagnoser';
 import { ScoresDiagnosticProvider } from './types/ScoresDiagnostics';
-import { TagDiagnosticProvider } from './commands/tagDiagnostics';
+import { TagTypeDiagnosticProvider } from './types/TagDiagnostics';
 
 export class DiagnosticsManager {
     private Items : Map<string, DiagnosticProvider>;
@@ -59,7 +59,7 @@ export class DiagnosticsManager {
     public ScoreDiagnoser : ScoresDiagnosticProvider;
     public SoundDiagnoser : DiagnosticProvider | undefined; //TODO
     public StringDiagnoser : DiagnosticProvider | undefined; //TODO
-    public TagDiagnoser : TagDiagnosticProvider;
+    public TagDiagnoser : TagTypeDiagnosticProvider;
 
     constructor(){
         this.Items = new  Map<string, DiagnosticProvider>();
@@ -71,7 +71,7 @@ export class DiagnosticsManager {
         this.IntegerDiagnoser = new IntegerDiagnosticProvider();
         this.JsonTextDiagnoser = new JsonTextDiagnoserProvider();
         this.ScoreDiagnoser = new ScoresDiagnosticProvider();
-        this.TagDiagnoser = new TagDiagnosticProvider();
+        this.TagDiagnoser = new TagTypeDiagnosticProvider();
     }
 
     hasDiagnostic(Item : SyntaxItem) {
