@@ -41,6 +41,6 @@ export function activate(context: vscode.ExtensionContext) {
 
    context.subscriptions.push(
       vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, CompletionManager, ' ', '[', ']', '@', '{', ',', '}', '.', 'a', 'c', 'd', 'e', 'f', 'g', 'k', 'l', 'm', 'o', 'p', 'r', 's', 't', 'w', 'x'),
-      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), '#', '\n')
+      vscode.languages.registerCompletionItemProvider(constants.McFunctionIdentifier, new RegionCompletionProvider(), '#')
    );
 }

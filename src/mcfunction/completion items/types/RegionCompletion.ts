@@ -29,25 +29,21 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
+import { Context } from "mocha";
 
 export class RegionCompletionProvider implements vscode.CompletionItemProvider {
-    Default : vscode.CompletionList;
+    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
 
-    constructor() {
-        this.Default = new vscode.CompletionList();
         var Item = new vscode.CompletionItem("region", vscode.CompletionItemKind.Snippet);
         Item.label = "region";
         Item.documentation = "creates a new foldable region inside your code";
-        Item.insertText = new vscode.SnippetString("#region <region name>\n\n#endregion");
         Item.kind = vscode.CompletionItemKind.Snippet;
 
-        this.Default.items.push(Item);
-        this.Default.isIncomplete = false;
-    }
+        if (context.triggerCharacter == "#")
+            Item.insertText = new vscode.SnippetString("region <region name>\n\n#endregion");
+        else
+            Item.insertText = new vscode.SnippetString("#region <region name>\n\n#endregion");
 
-    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        if (position.character > 1){
-            return this.Default;
-        }
+        return [Item];
     }
 }

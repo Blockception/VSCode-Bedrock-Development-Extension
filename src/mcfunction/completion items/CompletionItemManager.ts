@@ -39,6 +39,7 @@ import { ItemCompletionItemProvider } from './types/ItemCompletionProvider';
 import { IntegerCompletionItemProvider } from './types/IntegerCompletionProvider';
 import { BlockCompletionItemProvider } from './types/BlockCompletionProvider';
 import { EntityCompletionItemProvider } from './types/EntityCompletionProvider';
+import { timeStamp } from 'console';
 
 export interface CompletionItemProvider {
     //
@@ -143,14 +144,30 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var Line = document.lineAt(position.line);
 
-        if (position.character == 0)
-            return;
-
-        if (position.character < 3) {
+        if (Line.isEmptyOrWhitespace)
             return this.StartItems;
+
+        if (Line.text.startsWith("#")) {
+            return;
         }
 
+        var Query = Line.text.substring(0, position.character);
 
+        if (Query.indexOf(' ') < 0) {
+            var Out = new Array<vscode.CompletionItem>();
+
+            this.StartItems.forEach(x => {
+                if (x == undefined)
+                    return;
+
+                if (x.label.startsWith(Query)) {
+                    Out.push(x);
+                }
+            });
+
+            return Out;
+        }
+        
         //If in selector provide selector
         if (SF.IsInSelector(document, position)) {
             return this.SelectorVscodeCompletion.provideCompletionItems(document, position, token, context);
