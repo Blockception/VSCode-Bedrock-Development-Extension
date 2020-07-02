@@ -12,6 +12,7 @@
   },
   "properties": {
     "description": {
+      "additionalProperties": false,
       "required": [
         "identifier"
       ],
@@ -25,21 +26,45 @@
         },
         "is_spawnable": {
           "type": "boolean",
-          "title": "The is spawnable property",
+          "title": "Is spawnable",
           "description": "Marks if true if the entity can be spawned"
         },
         "is_summonable": {
           "type": "boolean",
-          "title": "The is summonable property",
+          "title": "Is summonable",
           "description": "Marks if true if the entity can be summoned through commands"
         },
         "is_experimental": {
           "type": "boolean",
-          "title": "The is experimental property",
+          "title": "Is experimental",
           "description": "Marks if true if the entity can is only aviable for experimental"
         },
         "runtime_identifier": {
-          "type": "string"
+          "type": "string",
+          "title": "Runtime identifier",
+          "description": "TODO"
+        },
+        "animations": {
+          "type": "object",
+          "title": "Animations",
+          "description": "TODO",
+          "additionalProperties": {
+            "type": "string",
+            "title": "Controller"
+          }
+        },
+        "scripts": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "animate": {
+              "type": "array",
+              "title": "Animate",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
         }
       }
     },
