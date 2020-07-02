@@ -1,4 +1,6 @@
 # Changelog 
+- Reformatted
+- Reformatted
 - Completed snippet removeall
 - Updated
 - Updated
@@ -17,5 +19,3 @@
 - Updated to 0.2.15
 - Readded
 - Code cleanup
-- Updated behaviour components
-- Updated

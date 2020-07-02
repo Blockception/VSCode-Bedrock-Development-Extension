@@ -1,6 +1,6 @@
 {
-  "main": "./out/extension.js",
-  "version": "0.2.17",
+  "main": "./dist/extension.js",
+  "version": "0.2.18",
   "activationEvents": [
     "*"
   ],
