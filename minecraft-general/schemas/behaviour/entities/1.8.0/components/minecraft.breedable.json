@@ -59,13 +59,13 @@
           "items": {
             "type": "string",
             "description": "An item that can be used to get the entity into the 'love' state",
-            "$ref": "../../../../general/items_item.json",
+            "$ref": "../../../../general/items_identifier.json",
             "title": "TODO title"
           }
         },
         {
           "type": "string",
-          "$ref": "../../../../general/items_item.json",
+          "$ref": "../../../../general/items_identifier.json",
           "title": "TODO title"
         }
       ]

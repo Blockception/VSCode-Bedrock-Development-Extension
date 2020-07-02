@@ -84,7 +84,7 @@
                 "using_converts_to": {
                   "type": "string",
                   "description": "after using,  item converts it to this item.",
-                  "$ref": "../../../general/items_item.json"
+                  "$ref": "../../../general/items_identifier.json"
                 },
                 "on_use_action": {
                   "type": "string",

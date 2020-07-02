@@ -18,7 +18,7 @@
       "description": "The list of items that can be given to the entity to place in their inventory.",
       "items": {
         "description": "An items that can be given to the entity to place in their inventory.",
-        "$ref": "../../../../general/items_item.json",
+        "$ref": "../../../../general/items_identifier.json",
         "title": "Properties"
       },
       "title": "Properties"

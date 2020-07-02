@@ -20,7 +20,7 @@
       "type": "array",
       "description": "The list of items that can be used to get the entity to trust players",
       "items": {
-        "$ref": "../../../../general/items_item.json"
+        "$ref": "../../../../general/items_identifier.json"
       }
     }
   }
