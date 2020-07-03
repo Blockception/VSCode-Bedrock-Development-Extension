@@ -63,6 +63,7 @@ import { TitleCompletionProvider } from "./TitleCompletion";
 import { TitlerawCompletionProvider } from "./TitlerawCompletion";
 import { WeatherCompletionProvider } from "./WeatherCompletion";
 import { XpCompletionProvider } from "./XpCompletion";
+import { GameruleCompletionProvider } from "./GameruleCompletion";
 
 //Add commands to the diagnoser
 export function activate(context: CompletionItemManager) {
@@ -86,7 +87,7 @@ export function activate(context: CompletionItemManager) {
    context.set(new FillCompletionProvider(), ["fill"]);
    context.set(new FunctionCommandCompletionProvider(), ["function"]);
    context.set(new GamemodeCompletionProvider(), ["gamemode"]);
-   context.set(new GamemodeCompletionProvider(), ["gamerule"]);
+   context.set(new GameruleCompletionProvider(), ["gamerule"]);
    context.set(new GiveCompletionProvider(), ["give"]);
    context.set(new LocateCompletionProvider(), ["locate"]);
    context.set(new MobEventCompletionProvider(), ["mobevent"]);

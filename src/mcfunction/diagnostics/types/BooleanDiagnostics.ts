@@ -34,7 +34,7 @@ import { SyntaxItem } from "../../../general/include";
 
 export class BooleanDiagnosticProvider implements DiagnosticProvider {
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void {
-        if (item.Text.text == "true" || item.Text.text == "true")
+        if (item.Text.text == "true" || item.Text.text == "false")
             return;
 
         collector.push(
