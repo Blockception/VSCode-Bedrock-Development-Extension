@@ -30,12 +30,12 @@
           },
           "item": {
             "type": "string",
-            "$ref": "../../../../general/items_identifier.json",
+            "$ref": "../../../../general/items_identifiers.json",
             "description": "Name of the item that can be used to boost"
           },
           "replaceItem": {
             "type": "string",
-            "$ref": "../../../../general/items_identifier.json",
+            "$ref": "../../../../general/items_identifiers.json",
             "description": "The item used to boost will become this item once it is used up"
           }
         }

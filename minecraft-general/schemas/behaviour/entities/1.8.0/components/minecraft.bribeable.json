@@ -18,7 +18,7 @@
       "description": "The list of items that can be used to bribe the entity",
       "items": {
         "description": "An item that can be used to bribe the entity",
-        "$ref": "../../../../general/items_identifier.json",
+        "$ref": "../../../../general/items_identifiers.json",
         "title": "Bribe Items"
       },
       "title": "Bribe Items"

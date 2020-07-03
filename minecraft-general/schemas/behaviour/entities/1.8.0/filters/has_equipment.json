@@ -29,7 +29,7 @@
     "value": {
       "description": "The item name to look for",
       "type": "string",
-      "$ref": "../../../../general/items_identifier.json"
+      "$ref": "../../../../general/items_identifiers.json"
     }
   }
 }

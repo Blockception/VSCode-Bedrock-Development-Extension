@@ -13,7 +13,7 @@
     "items": {
       "type": "array",
       "description": "Items that we are interested in snacking on",
-      "$ref": "../../../../general/items_identifier.json"
+      "$ref": "../../../../general/items_identifiers.json"
     },
     "snacking_cooldown": {
       "type": "number",

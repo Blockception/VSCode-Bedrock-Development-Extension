@@ -40,7 +40,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
     public Dummy: vscode.CompletionItem[];
     public ModesPlayers: vscode.CompletionItem[];
     public Operations: vscode.CompletionItem[];
-    public Range : vscode.CompletionItem[];
+    public Range: vscode.CompletionItem[];
 
     constructor() {
         this.Modes = [
@@ -103,10 +103,8 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
                 return this.PlayersItems(Mode, Cm, document);
 
             default:
-                break;
+                return this.Modes;
         }
-
-        return undefined;
     }
 
     ObjectivesItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
@@ -156,7 +154,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
                 return Cm.BooleanCompletionProvider.default;
         }
 
-        return undefined;
+        return this.ModesObjectives;
     }
 
     PlayersItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
@@ -257,6 +255,6 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
             default:
         }
 
-        return undefined;
+        return this.ModesPlayers;
     }
 }

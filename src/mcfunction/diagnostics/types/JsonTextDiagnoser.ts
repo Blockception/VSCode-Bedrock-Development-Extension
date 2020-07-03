@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
 import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
-import { SyntaxItem, RangedWord } from "../../../general/include";
+import { SyntaxItem } from "../../../general/include";
 
 export class JsonTextDiagnoserProvider implements DiagnosticProvider {
     provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {

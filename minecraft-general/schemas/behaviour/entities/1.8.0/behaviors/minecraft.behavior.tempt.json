@@ -22,7 +22,7 @@
       "type": "array",
       "description": "List of items this mob is tempted by",
       "items": {
-        "$ref": "../../../../general/items_identifier.json"
+        "$ref": "../../../../general/items_identifiers.json"
       }
     },
     "within_radius": {
