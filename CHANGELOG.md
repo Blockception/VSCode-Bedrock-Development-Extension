@@ -1,4 +1,7 @@
 # Changelog 
+- Removed items
+- Updated
+- Updated to 0.2.18
 - Reformatted
 - Reformatted
 - Completed snippet removeall
@@ -16,6 +19,3 @@
 - Updated description to todo
 - Fixed description
 - Updated
-- Updated to 0.2.15
-- Readded
-- Code cleanup
