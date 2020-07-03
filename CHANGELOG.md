@@ -1,4 +1,8 @@
 # Changelog 
+- fixed Items
+- Fixed fake players regonsization
+- Updated to 0.2.19
+- Fixed
 - Removed items
 - Updated
 - Updated to 0.2.18
@@ -15,7 +19,3 @@
 - Updated
 - compressed json files
 - Restored
-- Moving for compresed versions
-- Updated description to todo
-- Fixed description
-- Updated
