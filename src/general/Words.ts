@@ -32,35 +32,45 @@ import * as vscode from 'vscode';
 
 export class RangedWord {
     text: string;
-    startindex : number;
-    endindex : number;
+    startindex: number;
+    endindex: number;
+    cursorInWord: boolean;
 
-    constructor(text: string, startindex : number, endindex : number){
+    constructor(text: string, startindex: number, endindex: number) {
         this.text = text;
         this.startindex = startindex;
-        this.endindex = endindex; 
+        this.endindex = endindex;
+        this.cursorInWord = false;
     }
 
-    ToRange(lineIndex : number) : vscode.Range {
+    ToRange(lineIndex: number): vscode.Range {
         return new vscode.Range(lineIndex, this.startindex, lineIndex, this.endindex);
     }
 
-    static GetWords(text : string) : RangedWord[] {
+    checkCursor(cursorPos: number) {
+        if (cursorPos >= this.startindex && cursorPos <= this.endindex){
+            this.cursorInWord = true;
+        }
+        else{
+            this.cursorInWord = false;
+        }
+    }
+
+    static GetWords(text: string): RangedWord[] {
         var out = new Array<RangedWord>();
         var level = 0;
         var startindex = 0;
         var Instring = false;
-                
-        for (var index = 0; index < text.length; index++){
+
+        for (var index = 0; index < text.length; index++) {
             var c = text.charAt(index);
 
-            if (Instring){
+            if (Instring) {
                 if (c == '"')
                     Instring = false;
             }
-            else
-            {        
-                switch (c){
+            else {
+                switch (c) {
                     case '"':
                         Instring = true;
                         break;
@@ -70,96 +80,96 @@ export class RangedWord {
                     case "{":
                         level++;
                         break;
-        
+
                     case "]":
                     case ")":
                     case "}":
                         level--;
                         break;
-        
+
                     case " ":
                     case "\t":
-                        if (level == 0){
-                            if (startindex < index){
+                        if (level == 0) {
+                            if (startindex < index) {
                                 var RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
                                 out.push(RW);
                             }
-        
+
                             startindex = index + 1;
                         }
-        
+
                         break;
                     default:
                         break;
                 }
             }
-    
+
             if (level < 0)
                 break;
         }
 
-        if (startindex < text.length){
+        if (startindex < text.length) {
             var RW = new RangedWord(text.substring(startindex, text.length), startindex, text.length);
             out.push(RW);
         }
-    
+
         return out;
     }
 
-    static GetWordsFromRange(text : string, endindex : number) : RangedWord[] {
+    static GetWordsFromRange(text: string, endindex: number): RangedWord[] {
         var out = new Array<RangedWord>();
         var level = 0;
         var startindex = 0;
-        
-        for (var index = 0; index < endindex; index++){
+
+        for (var index = 0; index < endindex; index++) {
             var c = text.charAt(index);
-    
-            switch (c){
+
+            switch (c) {
                 case "[":
                 case "(":
                 case "{":
                     level++;
                     break;
-    
+
                 case "]":
                 case ")":
                 case "}":
                     level--;
                     break;
-    
+
                 case " ":
                 case "\t":
-                    if (level == 0){
-                        if (startindex < index){
+                    if (level == 0) {
+                        if (startindex < index) {
                             var RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
                             out.push(RW);
                         }
-    
+
                         startindex = index + 1;
                     }
-    
+
                     break;
                 default:
                     break;
             }
-    
+
             if (level < 0)
                 break;
         }
 
-        if (startindex < endindex){
+        if (startindex < endindex) {
             var RW = new RangedWord(text.substring(startindex, endindex), startindex, endindex);
             out.push(RW);
         }
-    
+
         return out;
     }
 
-    static GetWord(text : string, position : number) : RangedWord {
+    static GetWord(text: string, position: number): RangedWord {
         var StartIndex = position;
         var C = text.charAt(StartIndex);
 
-        while (C != ' ' && StartIndex > 0){
+        while (C != ' ' && StartIndex > 0) {
             StartIndex--;
             C = text.charAt(StartIndex);
         }
@@ -168,7 +178,7 @@ export class RangedWord {
 
         var EndIndex = text.indexOf(' ', StartIndex);
 
-        if (EndIndex < 0){
+        if (EndIndex < 0) {
             EndIndex = text.length;
         }
 

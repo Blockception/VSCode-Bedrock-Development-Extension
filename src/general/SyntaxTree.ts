@@ -38,9 +38,20 @@ export class SyntaxTree {
         this.Root = undefined;
     }
 
+    setCursor(cursorPos : number) {
+        var Item = this.Root;
+        while (Item != undefined){
+            Item.Text.checkCursor(cursorPos);
+            Item = Item.Child;
+        }
+    }
+
     static ParseTree(line: TextLine, position: Position): SyntaxTree {
         var NewWords = Words.RangedWord.GetWordsFromRange(line.text, position.character);
-        return this.ParseFromWords(NewWords);
+        var Out = this.ParseFromWords(NewWords);
+        Out.setCursor(position.character);
+
+        return Out;
     }
 
     //Parses the entire tree
