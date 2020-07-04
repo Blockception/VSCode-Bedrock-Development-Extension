@@ -37,7 +37,7 @@ export class SummonCompletionProvider implements CompletionItemProvider {
     constructor() {
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //summon <entityType: EntityType> [spawnPos: x y z] [spawnEvent: string] [nameTag: string]
         //summon <entityType: EntityType> <nameTag: string> [spawnPos: x y z]        
         var EntityType = Item.Child;

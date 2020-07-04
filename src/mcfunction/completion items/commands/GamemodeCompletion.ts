@@ -52,7 +52,7 @@ export class GamemodeCompletionProvider implements CompletionItemProvider {
         );
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
 
         //gamemode <0|1|2|s|d|c|a|adventure|creative|default|survival> [player: target]
 

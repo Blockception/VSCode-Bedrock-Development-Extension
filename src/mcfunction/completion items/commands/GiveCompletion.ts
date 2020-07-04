@@ -37,7 +37,7 @@ export class GiveCompletionProvider implements CompletionItemProvider {
     constructor() {
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //give <player: target> <itemName: Item> [amount: int] [data: int] [components: json]
 
         switch (Item.Count()) {

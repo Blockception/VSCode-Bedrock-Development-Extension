@@ -32,35 +32,35 @@ import * as Words from "./Words"
 import { TextLine, Position } from "vscode";
 
 export class SyntaxTree {
-    public Root : SyntaxItem | undefined;
+    public Root: SyntaxItem | undefined;
 
-    constructor(){
+    constructor() {
         this.Root = undefined;
     }
 
-    static ParseTree(line : TextLine, position : Position) : SyntaxTree {
+    static ParseTree(line: TextLine, position: Position): SyntaxTree {
         var NewWords = Words.RangedWord.GetWordsFromRange(line.text, position.character);
         return this.ParseFromWords(NewWords);
     }
 
     //Parses the entire tree
-    static ParseEntireTree(line : TextLine) : SyntaxTree {
+    static ParseEntireTree(line: TextLine): SyntaxTree {
         var index = line.text.indexOf("#");
-        var NewWords : Words.RangedWord[]
+        var NewWords: Words.RangedWord[]
 
-        if (index < 0){
+        if (index < 0) {
             NewWords = Words.RangedWord.GetWords(line.text);
         }
-        else{
+        else {
             NewWords = Words.RangedWord.GetWords(line.text.substring(0, index));
         }
 
-         
+
         return this.ParseFromWords(NewWords);
     }
 
     //Create a syntax tree from the given range words
-    static ParseFromWords(Words : Words.RangedWord[]) : SyntaxTree {
+    static ParseFromWords(Words: Words.RangedWord[]): SyntaxTree {
         var Out = new SyntaxTree();
 
         if (Words.length == 0)
@@ -70,31 +70,45 @@ export class SyntaxTree {
         Out.Root = Parent;
         var Child;
 
-        for (var I = 1; I < Words.length; I++){
+        for (var I = 1; I < Words.length; I++) {
             Child = new SyntaxItem(Words[I], undefined);
             Parent.Child = Child;
-            Parent = Child;            
+            Parent = Child;
         }
 
         return Out;
     }
+
+    //
+    GetLast(): SyntaxItem | undefined {
+        var Item = this.Root;
+
+        if (Item == undefined)
+            return undefined;
+
+        while (Item.Child != undefined){
+            Item = Item.Child;
+        }
+
+        return Item;
+    }
 }
 
 export class SyntaxItem {
-    public Text : Words.RangedWord;
-    public Child : SyntaxItem | undefined;
+    public Text: Words.RangedWord;
+    public Child: SyntaxItem | undefined;
 
-    constructor(Text : Words.RangedWord, Child : SyntaxItem | undefined) {
+    constructor(Text: Words.RangedWord, Child: SyntaxItem | undefined) {
         this.Text = Text;
         this.Child = Child;
     }
 
-    Count() : number {
+    Count(): number {
         var Out = 0;
 
         var Item = this.Child;
 
-        while (Item != undefined){
+        while (Item != undefined) {
             Out++;
             Item = Item.Child;
         }
@@ -102,35 +116,35 @@ export class SyntaxItem {
         return Out;
     }
 
-    IsSelector() : boolean {
+    IsSelector(): boolean {
         if (this.Text?.text.startsWith("@"))
             return true;
 
         return false;
     }
 
-    IsJson() : boolean {
+    IsJson(): boolean {
         if (this.Text?.text.startsWith("[") || this.Text?.text.startsWith("{"))
             return true;
 
         return false;
     }
 
-    IsString() : boolean {
+    IsString(): boolean {
         if (this.Text?.text.startsWith('"'))
             return true;
 
         return false;
     }
 
-    GetAt(amountDown : number) : SyntaxItem | undefined {
+    GetAt(amountDown: number): SyntaxItem | undefined {
         if (amountDown == 0)
             return this;
 
-        var Out : SyntaxItem | undefined = this;
+        var Out: SyntaxItem | undefined = this;
 
-        while (Out != undefined){
-            if (amountDown > 0){
+        while (Out != undefined) {
+            if (amountDown > 0) {
                 Out = Out.Child;
                 amountDown--;
             }

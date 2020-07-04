@@ -53,7 +53,7 @@ export class DifficultyCompletionProvider implements CompletionItemProvider {
         );
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
 
         switch (Item.Count()) {
             case 0:

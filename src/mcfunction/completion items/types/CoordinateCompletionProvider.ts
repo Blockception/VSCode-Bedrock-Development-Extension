@@ -33,22 +33,21 @@ import { createCompletionItem } from '../../../general/include';
 
 export class CoordinateCompletionItemProvider {
 
-    public Items : vscode.CompletionList;
+    public Items : vscode.CompletionItem[];
 
     constructor(){
-        this.Items = new vscode.CompletionList();
+        this.Items = new Array<vscode.CompletionItem>();
         var Relative = new vscode.CompletionItem('^', vscode.CompletionItemKind.Operator);
         Relative.documentation = "Relative pointing coordinate";
         Relative.preselect = true;
 
-
-        this.Items.items.push(
+        this.Items.push(
             Relative,
             createCompletionItem("~", "~", "Relative coordinate", vscode.CompletionItemKind.Operator)            
         );
     }
 
-    public provideDiagnostics() : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    public provideDiagnostics() : vscode.CompletionItem[] {
         return this.Items;
     }
 }

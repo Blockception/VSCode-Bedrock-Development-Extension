@@ -37,7 +37,7 @@ export class SelectorCompletionProvider {
     constructor() {
     }
 
-    provideCompletionItems(): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(): vscode.CompletionItem[] {
         return InternalSelectorCompletionProvider.default;
     }
 }
@@ -61,24 +61,24 @@ export class SelectorVscodeCompletionProvider implements vscode.CompletionItemPr
 }
 
 class InternalSelectorCompletionProvider {
-    public static default: vscode.CompletionList = new vscode.CompletionList([
+    public static default: vscode.CompletionItem[] = [
         Functions.createCompletionItem("@a", "@a - All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("@e", "@e - All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("@s", "@s - Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("@r", "@r - Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("@p", "@p - Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("\"<entity name>\"", "Dummy player", "Returns a example for an named entity", vscode.CompletionItemKind.User)
-    ]);
+    ];
 
-    public static letters: vscode.CompletionList = new vscode.CompletionList([
+    public static letters: vscode.CompletionItem[] = [
         Functions.createCompletionItem("a", "@a - All players", "Returns a selector that selects all players", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("e", "@e - All entities", "Returns a selector that selects all entities", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("s", "@s - Executing entity", "Returns a selector that selects the current executing entity", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("r", "@r - Random player/entity", "Returns a selector that a random player, if type is specified then entities are included, use c to target more entities", vscode.CompletionItemKind.User),
         Functions.createCompletionItem("p", "@p - Nearest player", "Returns a selector that selects the nearest player from the execution location", vscode.CompletionItemKind.User)
-    ]);
+    ];
 
-    public static firstitems: vscode.CompletionList = new vscode.CompletionList([
+    public static firstitems: vscode.CompletionItem[] = [
         Functions.createCompletionItem("tag=", "tag", "A tag test", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem("x=", "x", "An X Coordinate test", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem("y=", "y", "An Y Coordinate test", vscode.CompletionItemKind.Property),
@@ -100,9 +100,9 @@ class InternalSelectorCompletionProvider {
         Functions.createCompletionItem("rxm=", "rxm", "The maximum rotation of the X axis, or up and down, number included", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem("ry=", "ry", "The minimum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem("rym=", "rym", "The maximum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
-    ]);
+    ];
 
-    public static items: vscode.CompletionList = new vscode.CompletionList([
+    public static items: vscode.CompletionItem[] = [
         Functions.createCompletionItem(",tag=", "tag", "A tag test", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem(",x=", "x", "An X Coordinate test", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem(",y=", "y", "An Y Coordinate test", vscode.CompletionItemKind.Property),
@@ -124,7 +124,7 @@ class InternalSelectorCompletionProvider {
         Functions.createCompletionItem(",rxm=", "rxm", "The maximum rotation of the X axis, or up and down, number included", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem(",ry=", "ry", "The minimum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
         Functions.createCompletionItem(",rym=", "rym", "The maximum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
-    ]);
+    ];
 
     public static OutofScore(document: vscode.TextDocument, position: vscode.Position): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var Line = document.lineAt(position.line);

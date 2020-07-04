@@ -31,43 +31,46 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as vscode from "vscode";
 import * as fs from "fs";
 import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
-import { SyntaxItem } from "../../../general/include";
+import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class FunctionCommandCompletionProvider implements CompletionItemProvider {
 
-    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //Already has completion text
         if (Item.Child != undefined)
             return undefined;
 
-        var receiver = new vscode.CompletionList();
+        var receiver = new Array<vscode.CompletionItem>();
 
         var filepath = document.uri.fsPath;
         var index = filepath.indexOf("\\functions\\");
-    
+
         if (index > 0) {
             var folder = filepath.substring(0, index + 11);
-    
+
             this.explore(folder, folder, receiver);
         }
 
         return receiver;
     }
 
-    explore(baseFolder : string, currentFolder : string, receiver : vscode.CompletionList){
+    explore(baseFolder: string, currentFolder: string, receiver: vscode.CompletionItem[]) {
         var files = fs.readdirSync(currentFolder);
         var Directories = new Array<string>();
 
         for (let index = 0; index < files.length; index++) {
             var file = currentFolder + files[index];
-            
-            if (fs.lstatSync(file).isDirectory()){
+
+            if (fs.lstatSync(file).isDirectory()) {
                 Directories.push(file + "\\");
             }
-            else{
+            else {
                 var newfile = file.replace(baseFolder, "").replace(".mcfunction", "");
                 newfile = newfile.replace(/\\/g, '/');
-                receiver.items.push(new vscode.CompletionItem(newfile, vscode.CompletionItemKind.Reference));
+                if (newfile.indexOf(" ") > -1)
+                    newfile = '"' + newfile + '"';
+
+                receiver.push(createCompletionItem(newfile, newfile, "The file path.", vscode.CompletionItemKind.File));
             }
         }
 

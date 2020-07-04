@@ -37,7 +37,7 @@ export class TestforBlockCompletionProvider implements CompletionItemProvider {
     constructor() {
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //testforblock <position: x y z> <tileName: Block> [dataValue: int]
 
         switch (Item.Count()) {

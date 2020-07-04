@@ -41,7 +41,7 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
         this.Detect = createCompletionItem("detect", "detect", "detect a block", vscode.CompletionItemKind.Function);
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
         //execute <selector> <x> <y> <z> <command>
         //execute <selector> <x> <y> <z> detect <x> <y> <z> <block> <block id> <command>
         var Child = Item.GetAt(5);
@@ -77,7 +77,7 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
         return Diagnoser?.provideCompletionItems(Child, Cm, document);
     }
 
-    provideDetect(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideDetect(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
         var Count = Item.Count();        
         //execute <selector> <x> <y> <z> detect <x> <y> <z> <block> <block id> <command>
 

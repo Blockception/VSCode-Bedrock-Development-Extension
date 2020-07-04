@@ -33,7 +33,7 @@ import { CompletionItem } from 'vscode';
 
 export class IntegerCompletionItemProvider {
 
-    public provideCompletionItems(start : number = 0, end : number = 10, step : number = 1) : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    public provideCompletionItems(start : number = 0, end : number = 10, step : number = 1) : vscode.CompletionItem[] {
         var Collection = new Array<CompletionItem>();
 
         for (var I = start; I < end; I += step){

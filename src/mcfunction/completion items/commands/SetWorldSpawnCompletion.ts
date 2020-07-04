@@ -37,7 +37,7 @@ export class SetWorldSpawnCompletionProvider implements CompletionItemProvider {
     constructor() {
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //setworldspawn [spawnPoint: x y z]
 
         switch (Item.Count()) {

@@ -32,7 +32,7 @@ import * as vscode from 'vscode';
 import * as Functions from '../../general/include';
 import * as SF from "../selectors/functions";
 import { SelectorCompletionProvider, SelectorVscodeCompletionProvider } from "./types/SelectorCompletion";
-import { SyntaxItem, createCompletionItem } from '../../general/include';
+import { SyntaxItem, createCompletionItem, copyCompletionItem } from '../../general/include';
 import { CoordinateCompletionItemProvider } from './types/CoordinateCompletionProvider';
 import { BooleanCompletionProvider } from './types/BooleanCompletion';
 import { ItemCompletionItemProvider } from './types/ItemCompletionProvider';
@@ -40,10 +40,12 @@ import { IntegerCompletionItemProvider } from './types/IntegerCompletionProvider
 import { BlockCompletionItemProvider } from './types/BlockCompletionProvider';
 import { EntityCompletionItemProvider } from './types/EntityCompletionProvider';
 import { timeStamp } from 'console';
+import { TagDiagnosticProvider } from '../diagnostics/commands/tagDiagnostics';
+import { TagSignatureProvider } from '../signatures/Commands/TagSignatures';
 
 export interface CompletionItemProvider {
     //
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList>;
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined;
 }
 
 export class CompletionItemManager implements vscode.CompletionItemProvider {
@@ -142,7 +144,8 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
     //
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        var Line = document.lineAt(position.line);
+        var LineIndex = position.line;
+        var Line = document.lineAt(LineIndex);
 
         if (Line.isEmptyOrWhitespace)
             return this.StartItems;
@@ -151,8 +154,8 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
             return;
         }
 
+        //Check if starts items should be filtered
         var Query = Line.text.substring(0, position.character);
-
         if (Query.indexOf(' ') < 0) {
             var Out = new Array<vscode.CompletionItem>();
 
@@ -167,27 +170,46 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
             return Out;
         }
-        
+
         //If in selector provide selector
         if (SF.IsInSelector(document, position)) {
             return this.SelectorVscodeCompletion.provideCompletionItems(document, position, token, context);
         }
 
+        //Explore what is already typed
         var Tree = Functions.SyntaxTree.ParseTree(Line, position);
+        var Items = this.StartItems
 
+        //If no line is typed return all
         var Item = Tree.Root;
         if (Item == undefined)
-            return this.StartItems;
+            return Items;
 
+        //Get the first needed for this line
         var Diagnoser = this.Completors.get(Item.Text.text);
 
+        //If no diagnoser is returned then an unknown command has been used
         if (Diagnoser != undefined) {
-            var Items = Diagnoser.provideCompletionItems(Item, this, document);
+            var Temp = Diagnoser.provideCompletionItems(Item, this, document);
 
-            return Items;
+            if (Temp != undefined)
+                Items = Temp;
         }
 
-        return this.StartItems;
+        //Filter on last item
+        var Last = Tree.GetLast();
+        if (Last == undefined)
+            return Items;
+
+        var Out = new Array<vscode.CompletionItem>();
+
+        for (var I = 0; I < Items.length; I++) {
+            var t = copyCompletionItem(Items[I]);
+            t.range = Last.Text.ToRange(LineIndex);
+            Out.push(t);
+        }
+
+        return Out;
     }
 }
 

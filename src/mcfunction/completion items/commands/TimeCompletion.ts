@@ -60,7 +60,7 @@ export class TimeCompletionProvider implements CompletionItemProvider {
         ]
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
 
         //time add <amount: int>
         //time set <time: TimeSpec|amount: int>

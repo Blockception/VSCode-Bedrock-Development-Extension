@@ -34,21 +34,21 @@ import { CompletionItem } from 'vscode';
 
 export class BlockCompletionItemProvider {
 
-    public MinecraftItems : vscode.CompletionList;
-    public Items : vscode.CompletionList;
+    public MinecraftItems : vscode.CompletionItem[];
+    public Items : vscode.CompletionItem[];
 
     constructor(){
-        this.MinecraftItems = new vscode.CompletionList();
+        this.MinecraftItems = new Array<CompletionItem>();
         this.Items = this.MinecraftItems;
         
         for(var x in mcfunctionDatabase.Minecraft.Blocks){
             var Completion = new CompletionItem(x, vscode.CompletionItemKind.Constant);
             Completion.documentation = "minecraft block: " + x;
-            this.MinecraftItems.items.push(Completion);
+            this.MinecraftItems.push(Completion);
         }
     }
 
-    public provideCompletionItems() : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    public provideCompletionItems() : vscode.CompletionItem[] | undefined {
         return this.Items;
 
         //TODO add work directory check

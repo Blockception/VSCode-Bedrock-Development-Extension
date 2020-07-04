@@ -30,12 +30,33 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
 
-export function createCompletionItem(code: string, label: string, description: string, Kind : vscode.CompletionItemKind = vscode.CompletionItemKind.Keyword) : vscode.CompletionItem {
-    let Item = new vscode.CompletionItem(label);
-    Item.insertText = code;
-    Item.detail = description;
-    Item.documentation = description;
-    Item.kind = Kind;
+export function createCompletionItem(code: string, label: string, description: string, Kind: vscode.CompletionItemKind = vscode.CompletionItemKind.Keyword): vscode.CompletionItem {
+   let Item = new vscode.CompletionItem(label);
+   Item.insertText = code;
+   Item.detail = description;
+   Item.documentation = description;
+   Item.kind = Kind;
 
-    return Item;
+   return Item;
+}
+
+export function copyCompletionItem(item: vscode.CompletionItem): vscode.CompletionItem {
+   var Out = new vscode.CompletionItem(item.label, item.kind);
+
+   Out.additionalTextEdits = item.additionalTextEdits;
+   Out.command = item.command;
+   Out.commitCharacters = item.commitCharacters;
+   Out.detail = item.detail;
+   Out.documentation = item.documentation;
+   Out.filterText = item.filterText;
+   Out.insertText = item.insertText;
+   Out.keepWhitespace = item.keepWhitespace;
+   Out.kind = item.kind;
+   Out.label = item.label;
+   Out.preselect = item.preselect;
+   Out.range = item.range;
+   Out.sortText = item.sortText;
+   Out.tags = item.tags;
+
+   return Out;
 }

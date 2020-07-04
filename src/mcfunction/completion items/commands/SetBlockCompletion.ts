@@ -44,7 +44,7 @@ export class SetBlockCompletionProvider implements CompletionItemProvider {
         ]
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //setblock <position: x y z> <tileName: Block> [tileData: int] [replace|destroy|keep]
 
         switch (Item.Count()) {

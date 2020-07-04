@@ -35,27 +35,23 @@ import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class CloneCompletionProvider implements CompletionItemProvider {
 
-    public Modes : vscode.CompletionList;
-    public SecondModes : vscode.CompletionList;
-
-
+    public Modes : vscode.CompletionItem[];
+    public SecondModes : vscode.CompletionItem[];
 
     constructor(){
-        this.Modes = new vscode.CompletionList();
-        this.SecondModes = new vscode.CompletionList();
-        this.Modes.items.push(
+        this.Modes = [
             createCompletionItem("filtered", "filtered", "filter blocks", vscode.CompletionItemKind.Function),
             createCompletionItem("replace", "replace", "", vscode.CompletionItemKind.Function),
             createCompletionItem("masked", "masked", "", vscode.CompletionItemKind.Function)
-        );
-        this.SecondModes.items.push(
+        ];
+        this.SecondModes = [
             createCompletionItem("filtered", "filtered", "filter blocks", vscode.CompletionItemKind.Function),
             createCompletionItem("replace", "replace", "", vscode.CompletionItemKind.Function),
             createCompletionItem("masked", "masked", "", vscode.CompletionItemKind.Function)
-        );
+        ];
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
         //clone <begin: x y z> <end: x y z> <destination: x y z> [replace|masked] [normal|force|move]
         //clone <begin: x y z> <end: x y z> <destination: x y z> filtered <normal|force|move> <tileName: Block> <tileData: int>
 
@@ -91,7 +87,7 @@ export class CloneCompletionProvider implements CompletionItemProvider {
         return undefined;
     }
 
-    provideCompletionFiltered(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionFiltered(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
         switch(Item.Count()){
             default:
             case 0:
@@ -100,5 +96,7 @@ export class CloneCompletionProvider implements CompletionItemProvider {
             case 1:
                 return Cm.Default.BlockData;
         }
+
+        return undefined;
     }
 }

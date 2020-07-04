@@ -47,7 +47,7 @@ export class TitlerawCompletionProvider implements CompletionItemProvider {
         ];
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //titleraw <player: target> clear
         //titleraw <player: target> reset
         //titleraw <player: target> <title|subtitle|actionbar> <Components>

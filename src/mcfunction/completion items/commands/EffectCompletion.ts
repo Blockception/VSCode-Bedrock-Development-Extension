@@ -71,7 +71,7 @@ export class EffectCompletionProvider implements CompletionItemProvider {
         );
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //effect <player: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean]        
         //effect <player: target> clear
         var IsCleared = false;

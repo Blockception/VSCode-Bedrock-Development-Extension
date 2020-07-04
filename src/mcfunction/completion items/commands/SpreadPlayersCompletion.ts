@@ -36,7 +36,7 @@ export class SpreadPlayersCompletionProvider implements CompletionItemProvider {
 
     constructor() { }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //spreadplayers <x: value> <z: value> <spreadDistance: float> <maxRange: float> <victim: target>
 
         switch (Item.Count()) {

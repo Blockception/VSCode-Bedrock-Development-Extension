@@ -88,7 +88,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
         ];
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         var Mode = Item.Child;
 
         if (Mode == undefined) {
@@ -107,7 +107,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
         }
     }
 
-    ObjectivesItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    ObjectivesItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         var Mode = Item.Child;
 
         if (Mode == undefined)
@@ -157,7 +157,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
         return this.ModesObjectives;
     }
 
-    PlayersItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    PlayersItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
 
 
         var Mode = Item.Child;

@@ -32,7 +32,7 @@ import * as vscode from "vscode";
 import { Context } from "mocha";
 
 export class RegionCompletionProvider implements vscode.CompletionItemProvider {
-    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] {
 
         var Item = new vscode.CompletionItem("region", vscode.CompletionItemKind.Snippet);
         Item.label = "region";

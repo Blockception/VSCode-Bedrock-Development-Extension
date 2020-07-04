@@ -35,17 +35,16 @@ import { CompletionItemManager } from "../CompletionItemManager";
 
 export class BooleanCompletionProvider implements CompletionItemProvider {
 
-    public default : vscode.CompletionList;
+    public default : vscode.CompletionItem[];
 
     constructor(){
-        this.default = new vscode.CompletionList();
-        this.default.items.push(
+        this.default = [
             createCompletionItem("true", "True", "A boolean value for true", vscode.CompletionItemKind.Constant),
             createCompletionItem("false", "False", "A boolean value for false", vscode.CompletionItemKind.Constant)
-        );
+        ];
     }
 
-    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.CompletionItem[] {
         return this.default;
     }
 }

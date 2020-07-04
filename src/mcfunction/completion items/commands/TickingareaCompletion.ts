@@ -55,7 +55,7 @@ export class TickingareaCompletionProvider implements CompletionItemProvider {
         ];
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //tickingarea list [all-dimensions]
         //tickingarea remove_all
         //tickingarea remove <position: x y z|name: string>
@@ -86,12 +86,12 @@ export class TickingareaCompletionProvider implements CompletionItemProvider {
         return undefined;
     }
 
-    provideRemoveItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideRemoveItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //tickingarea remove <position: x y z|name: string>
         switch(Item.Count()){
             case 0: //<x> | <name>
                 var Items = new Array<vscode.CompletionItem>();
-                Items.push(...Cm.CoordinateCompletionProvider.Items.items);
+                Items.push(...Cm.CoordinateCompletionProvider.Items);
                 //TODO
                 //Items.push(...Cm.TickingAreaCompletionProvider?.provideCompletionItems(Item, Cm, document));
 
@@ -105,7 +105,7 @@ export class TickingareaCompletionProvider implements CompletionItemProvider {
         return undefined;
     }
 
-    provideAddItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideAddItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
         //tickingarea add circle <center: x y z> <radius: int> [name: string]
         //tickingarea add <from: x y z> <to: x y z> [name: string]
         var Count = Item.Count();
@@ -113,7 +113,7 @@ export class TickingareaCompletionProvider implements CompletionItemProvider {
 
         if (Count < -1 || CoordOrCircle == undefined){
             var Items = new Array<vscode.CompletionItem>();
-            Items.push(...Cm.CoordinateCompletionProvider.Items.items);
+            Items.push(...Cm.CoordinateCompletionProvider.Items);
             Items.push(...this.Circle);
             
             return Items;
