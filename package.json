@@ -1,6 +1,6 @@
 {
   "main": "./dist/extension.js",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "activationEvents": [ "*" ],
   "author": {
     "name": "Blockception Ltd",
