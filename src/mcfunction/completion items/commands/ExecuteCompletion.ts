@@ -74,6 +74,10 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
 
         var Diagnoser = Cm.Completors.get(Child.Text.text);
 
+        if (Diagnoser == undefined){
+            return [ this.Detect ];
+        }
+
         return Diagnoser?.provideCompletionItems(Child, Cm, document);
     }
 

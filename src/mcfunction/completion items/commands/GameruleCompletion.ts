@@ -34,9 +34,9 @@ import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class GameruleCompletionProvider implements CompletionItemProvider {
 
-    public Gamerules : vscode.CompletionItem[];
+    public Gamerules: vscode.CompletionItem[];
 
-    constructor(){
+    constructor() {
         this.Gamerules = new Array<vscode.CompletionItem>(
             createCompletionItem("commandblocksenabled", "commandblocksenabled", "Whether command blocks should be enabled in-game.", vscode.CompletionItemKind.Function),
             createCompletionItem("commandblockoutput", "commandblockoutput", "Whether command blocks should notify admins when they perform commands.", vscode.CompletionItemKind.Function),
@@ -63,14 +63,13 @@ export class GameruleCompletionProvider implements CompletionItemProvider {
             createCompletionItem("showdeathmessages", "showdeathmessages", "Whether death messages are put into chat when a player dies. Also affects whether a message is sent to the pet's owner when the pet dies.", vscode.CompletionItemKind.Function),
             createCompletionItem("spawnradius", "spawnradius", "The number of blocks outward from the world spawn coordinates that a player spawns in when first joining a server or when dying without a personal spawnpoint/.", vscode.CompletionItemKind.Function),
             createCompletionItem("tntexplodes", "tntexplodes", "Whether TNT explodes after activation.", vscode.CompletionItemKind.Function),
-            createCompletionItem("showtags", "showtags", "Hides the \"Can place on\" and \"Can destroy\" block lists from item lore.", vscode.CompletionItemKind.Function)            
+            createCompletionItem("showtags", "showtags", "Hides the \"Can place on\" and \"Can destroy\" block lists from item lore.", vscode.CompletionItemKind.Function)
         );
     }
 
     provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
 
         //gamerule [rule] [value]
-
         switch (Item.Count()) {
             case 0: //[rule]
                 return this.Gamerules;
@@ -78,43 +77,43 @@ export class GameruleCompletionProvider implements CompletionItemProvider {
             case 1: //[value]
                 var Rule = Item.Child;
 
-                if (Rule == undefined){
+                if (Rule == undefined) {
                     return this.Gamerules
                 }
 
                 switch (Rule.Text.text) {
-                    case 'commandBlocksEnabled':
-                    case 'commandBlockOutput':
-                    case 'doDaylightCycle':
-                    case 'doEntityDrops':
-                    case 'doFireTick':
-                    case 'doInsomnia':
-                    case 'immediateRespawn':
-                    case 'doMobLoot':
-                    case 'doMobSpawning':
-                    case 'doTileDrops':
-                    case 'doWeatherCycle':
-                    case 'drowningDamage':
-                    case 'fallDamage':
-                    case 'fireDamage':
-                    case 'keepInventory':
-                    case 'mobGriefing':
-                    case 'naturalRegeneration':
+                    case 'commandblocksenabled':
+                    case 'commandblockoutput':
+                    case 'dodaylightcycle':
+                    case 'doentitydrops':
+                    case 'dofiretick':
+                    case 'doinsomnia':
+                    case 'immediaterespawn':
+                    case 'domobloot':
+                    case 'domobspawning':
+                    case 'dotiledrops':
+                    case 'doweathercycle':
+                    case 'drowningdamage':
+                    case 'falldamage':
+                    case 'firedamage':
+                    case 'keepinventory':
+                    case 'mobgriefing':
+                    case 'naturalregeneration':
                     case 'pvp':
-                    case 'randomTickSpeed':
-                    case 'sendCommandFeedback':
-                    case 'showCoordinates':
-                    case 'showDeathMessages':
-                    case 'spawnRadius':
-                    case 'tntExplodes':
-                    case 'showTags':
+                    case 'randomtickspeed':
+                    case 'sendcommandfeedback':
+                    case 'showcoordinates':
+                    case 'showdeathmessages':
+                    case 'spawnradius':
+                    case 'tntexplodes':
+                    case 'showtags':
                         return Cm.BooleanCompletionProvider.default;
 
-                    case 'maxCommandChainLength':
+                    case 'maxcommandchainlength':
                         return Cm.IntegerCompletionProvider.provideCompletionItems(0, 10000, 1000);
 
                     default:
-                        break;
+                        return this.Gamerules;
                 }
 
             default:

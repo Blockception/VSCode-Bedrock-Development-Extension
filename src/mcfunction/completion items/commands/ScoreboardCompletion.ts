@@ -120,7 +120,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
 
             case 'add':
                 //scoreboard objectives add <name> dummy [display name: string] 
-                switch (Item.Count()) {
+                switch (Mode.Count()) {
                     case 0: //<Name>
                         return Cm.ScoreCompletionProvider?.provideCompletionItems(Item, Cm, document);
 

@@ -32,7 +32,7 @@ import * as vscode from 'vscode';
 import * as Functions from '../../general/include';
 import * as SF from "../selectors/functions";
 import { SelectorCompletionProvider, SelectorVscodeCompletionProvider } from "./types/SelectorCompletion";
-import { SyntaxItem, createCompletionItem, copyCompletionItem } from '../../general/include';
+import { SyntaxItem, createCompletionItem, copyCompletionItem, SyntaxTree, RangedWord } from '../../general/include';
 import { CoordinateCompletionItemProvider } from './types/CoordinateCompletionProvider';
 import { BooleanCompletionProvider } from './types/BooleanCompletion';
 import { ItemCompletionItemProvider } from './types/ItemCompletionProvider';
@@ -146,27 +146,31 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
         var LineIndex = position.line;
         var Line = document.lineAt(LineIndex);
+        var LineText = Line.text
 
         if (Line.isEmptyOrWhitespace)
             return this.StartItems;
 
-        if (Line.text.startsWith("#")) {
+        if (LineText.startsWith("#")) {
             return;
         }
 
         //Check if starts items should be filtered
-        var Query = Line.text.substring(0, position.character);
-        if (Query.indexOf(' ') < 0) {
+        var Query = LineText.substring(0, position.character);
+        var Index = Query.indexOf(' ');
+        if (Index < 0) {
             var Out = new Array<vscode.CompletionItem>();
 
-            this.StartItems.forEach(x => {
+            for (var I = 0; I < this.StartItems.length; I++) {
+                var x = this.StartItems[I];
                 if (x == undefined)
                     return;
 
                 if (x.label.startsWith(Query)) {
+                    x.range = new vscode.Range(LineIndex, 0, LineIndex, Query.length);
                     Out.push(x);
                 }
-            });
+            }
 
             return Out;
         }
@@ -194,18 +198,20 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
             if (Temp != undefined)
                 Items = Temp;
+            else
+                return;
         }
 
         //Filter on last item
-        var Last = Tree.GetLast();
-        if (Last == undefined)
+        var Word = RangedWord.GetWord(LineText, position.character);
+        if (Word == undefined)
             return Items;
 
         var Out = new Array<vscode.CompletionItem>();
 
         for (var I = 0; I < Items.length; I++) {
             var t = copyCompletionItem(Items[I]);
-            t.range = Last.Text.ToRange(LineIndex);
+            t.range = Word.ToRange(LineIndex);
             Out.push(t);
         }
 

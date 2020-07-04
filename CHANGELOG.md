@@ -1,4 +1,6 @@
 # Changelog 
+- Updated completion items
+- Updated to 0.2.20
 - fixed Items
 - Fixed fake players regonsization
 - Updated to 0.2.19
@@ -17,5 +19,3 @@
 - Fixed up tag diagnosers
 - Removed
 - Updated
-- compressed json files
-- Restored
