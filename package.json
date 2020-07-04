@@ -1,5 +1,5 @@
 {
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "version": "0.2.20",
   "activationEvents": [ "*" ],
   "author": {

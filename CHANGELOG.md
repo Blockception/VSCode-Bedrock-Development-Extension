@@ -1,4 +1,5 @@
 # Changelog 
+- Updated Completion Item
 - Updated completion items
 - Updated to 0.2.20
 - fixed Items
@@ -18,4 +19,3 @@
 - Updated to 0.2.16
 - Fixed up tag diagnosers
 - Removed
-- Updated
