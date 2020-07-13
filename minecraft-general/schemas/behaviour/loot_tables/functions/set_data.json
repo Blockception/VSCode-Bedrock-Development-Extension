@@ -1,16 +1,1 @@
-{
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.loot_tables.set_data",
-  "additionalProperties": false,
-  "description": "The function set_data",
-  "title": "Set_data",
-  "properties": {
-    "function": {
-      "type": "string",
-      "const": "set_data"
-    },
-    "damage": {
-      "type": "integer"
-    }
-  }
-}
+{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.loot_tables.set_data","additionalProperties":false,"description":"The function set_data","title":"Set_data","properties":{"function":{"type":"string","const":"set_data"},"damage":{"type":"integer"}}}
