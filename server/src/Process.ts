@@ -27,15 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { TextDocuments } from "vscode-languageserver";
+import { TextDocument } from 'vscode-languageserver-textdocument';
 
-export class Manager {
-    //The document manager
-    static Documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
+export function Process(document : TextDocument) : void {
 
-    static hasConfigurationCapability: boolean = false;
-    static hasWorkspaceFolderCapability: boolean = false;
-    static hasDiagnosticRelatedInformationCapability: boolean = false;
-    static TraversedWorkspaces : boolean = false;
 }

@@ -6,6 +6,7 @@ import { createConnection, ProposedFeatures, InitializeParams, CompletionItem, T
 import { Manager } from './Manager';
 import { TraveseDirectory } from './traverse';
 import { URI } from 'vscode-uri';
+import { Process } from './Process';
 
 console.log('starting minecraft server');
 
@@ -13,8 +14,8 @@ console.log('starting minecraft server');
 // Also include all preview / proposed LSP features.
 let connection = createConnection(ProposedFeatures.all);
 
-Manager.Documents.onDidOpen(x => Parse(x.document));
-Manager.Documents.onDidSave(x => Parse(x.document));
+Manager.Documents.onDidOpen(x => Process(x.document));
+Manager.Documents.onDidSave(x => Process(x.document));
 
 // This handler provides completion items.
 //connection.onCompletion(OnCompletionRequest);
@@ -54,6 +55,7 @@ connection.onInitialized(() => {
 				return;
 
 			TraveseDirectory(Path);
+			Manager.TraversedWorkspaces = true;
 		});
 	});
 });
