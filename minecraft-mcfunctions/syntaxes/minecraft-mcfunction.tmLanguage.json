@@ -3,36 +3,18 @@
   "name": "Minecraft Function",
   "scopeName": "source.bc.minecraft.mcfunction",
   "patterns": [
-    {
-      "include": "#constants"
-    },
-    {
-      "include": "#strings"
-    },
-    {
-      "include": "#jsonDetect"
-    },
-    {
-      "include": "#selectors"
-    },
-    {
-      "include": "#minecraftcommands"
-    },
-    {
-      "include": "#operators"
-    },
-    {
-      "include": "#characters"
-    },
-    {
-      "include": "#comments"
-    }
+    { "include": "#constants" },
+    { "include": "#strings" },
+    { "include": "#jsonDetect" },
+    { "include": "#selectors" },
+    { "include": "#minecraftcommands" },
+    { "include": "#operators" },
+    { "include": "#characters" },
+    { "include": "#comments" }
   ],
   "foldingStartMarker": "#region",
   "foldingStopMarker": "#endregion",
-  "fileTypes": [
-    "mcfunction"
-  ],
+  "fileTypes": ["mcfunction"],
   "repository": {
     "selectors": {
       "patterns": [
@@ -201,7 +183,7 @@
           "match": "\\b(?<=function )[a-z0-9/_]+\\b"
         },
         {
-          "name": "string.quoted.double.minecraft-program",
+          "name": "string.quoted.double.minecraft",
           "match": "\"[^\"]*\""
         },
         {
@@ -221,12 +203,12 @@
     "strings": {
       "patterns": [
         {
-          "name": "string.quoted.double.minecraft-program",
+          "name": "string.quoted.double.minecraft",
           "begin": "\"",
           "end": "\"",
           "patterns": [
             {
-              "name": "constant.character.escape.minecraft-program",
+              "name": "constant.character.escape.minecraft",
               "match": "\\\\."
             }
           ]

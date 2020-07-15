@@ -1,3 +1,11 @@
+!client/node_modules/semver/**
+!client/node_modules/vscode-jsonrpc/**
+!client/node_modules/vscode-languageclient/**
+!client/node_modules/vscode-languageserver-protocol/**
+!client/node_modules/vscode-languageserver-types/**
+**/*.map
+**/*.ts
+**/tsconfig.base.json
 **/tsconfig.json
 **/webpack.config.js
 *.git*
@@ -6,18 +14,22 @@
 .github
 .github/
 .gitignore
+.travis.yml
 .vscode
+.vscode/**
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 Debugging.md
 build.bat
+client/node_modules/**
+contributing.md
 documentation/
 log.txt
 node_modules
 node_modules/
 out/
+source schemas/
 src/
 tools/
 tsconfig.json
 webpack.config.js
-source schemas/
