@@ -6,7 +6,7 @@ import { createConnection, ProposedFeatures, InitializeParams, CompletionItem, T
 import { Manager } from './Manager';
 import { TraveseDirectory } from './traverse';
 import { URI } from 'vscode-uri';
-import { Process } from './Process';
+import { Process } from './process/Process';
 
 console.log('starting minecraft server');
 
