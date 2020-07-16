@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from 'fs';
 import { Range, TextDocument } from 'vscode-languageserver-textdocument';
+import { URI } from 'vscode-uri';
 
 export class Document {
 	public Lines: string[];
@@ -54,6 +55,9 @@ export class Document {
 }
 
 export function LoadTextDocument(uri: string, languageID: string): TextDocument {
-	var Content = fs.readFileSync(uri, 'utf8');
+	var Content = '';
+
+	Content = fs.readFileSync(uri, 'utf8');
+
 	return TextDocument.create(uri, languageID, 0, Content);
 }

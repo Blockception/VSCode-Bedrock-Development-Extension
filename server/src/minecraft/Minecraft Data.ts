@@ -27,19 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
-import { Tag } from './types/Tag';
-import { Entity } from './types/Entity';
-import { Objective } from './types/Objectives';
+import { Tickingarea, Entity, Objective, Sound, Tag } from './types/include';
 
 export class MinecraftData {
-   public Tag : Tag[];
+   
    public Entities : Entity[];
    public Objectives : Objective[];
+   public Sounds : Sound[];
+   public Tag : Tag[];
+   public TickingAreas : Tickingarea[];   
    
    constructor() {
       this.Entities = [];
       this.Tag = [];
       this.Objectives = [];
+      this.Sounds = [];
+      this.TickingAreas = [];      
    }
 }

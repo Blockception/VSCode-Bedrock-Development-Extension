@@ -31,45 +31,86 @@ import { TextDocument } from 'vscode-languageserver-textdocument';
 import { RangedWord } from '../code/Words';
 import { Database } from '../minecraft/Database';
 import { MinecraftData } from '../minecraft/Minecraft Data';
-import { Location, Range } from 'vscode-languageserver';
 import { Tag } from '../minecraft/types/Tag';
 import { Objective } from '../minecraft/types/Objectives';
+import { GetFilename } from '../code/File';
+import { Tickingarea } from '../minecraft/types/include';
 
-export function Process(document : TextDocument) : MinecraftData {
-   console.log('Processing mcfunction: ' + document.uri);
+export function Process(document: TextDocument): MinecraftData {
+   console.log('Processing mcfunction: ' + GetFilename(document.uri));
    var Lines = document.getText().split('\n');
    var Data = new MinecraftData();
    var uri = document.uri;
 
    for (var Index = 0; Index < Lines.length; Index++) {
       const Line = Lines[Index];
-      
+
       if (Line.startsWith("#"))
          continue;
 
+      //Tags
       if (Line.includes('tag')) {
-         var Match = Line.match(/(tag .* add )(\w*)/);
-
-         if (Match && Match.length >= 3){
-            var TagText = Match[2];
-            var FindAt = Line.indexOf(TagText);
-
-            Data.Tag.push(new Tag(TagText, uri, Index, FindAt));
-         }
+         ProcessTag(Line, Data, uri, Index);
       }
 
+      //Scoreboard
       if (Line.includes('scoreboard objectives add')) {
-         var Match = Line.match(/(scoreboard objectives add )(\w*)( dummy)/);
+         ProcessScoreboard(Line, Data, uri, Index);
+      }
 
-         if (Match && Match.length >= 4){
-            var ObjectiveText = Match[2];
-            var FindAt = Line.indexOf(ObjectiveText);
-
-            Data.Objectives.push(new Objective(ObjectiveText, uri, Index, FindAt));
-         }
+      //Tickingarea
+      if (Line.includes('tickingarea add')) {
+         ProcessTickingarea(Line, Data, uri, Index);
       }
    }
 
    Database.Set(document.uri, Data);
    return Data;
+}
+
+//Process the given tag
+function ProcessTag(Line: string, Data: MinecraftData, uri: string, LineIndex: number): void {
+   var Match = Line.match(/(tag .* add )(\w*)/);
+
+   if (Match && Match.length >= 3) {
+      var TagText = Match[2];
+      var FindAt = Line.indexOf(TagText);
+
+      Data.Tag.push(new Tag(TagText, uri, LineIndex, FindAt));
+   }
+}
+
+//Process the given objective
+function ProcessScoreboard(Line: string, Data: MinecraftData, uri: string, LineIndex: number): void {
+   var Match = Line.match(/(scoreboard objectives add )(\w*)( dummy)/);
+
+   if (Match && Match.length >= 4) {
+      var ObjectiveText = Match[2];
+      var FindAt = Line.indexOf(ObjectiveText);
+
+      Data.Objectives.push(new Objective(ObjectiveText, uri, LineIndex, FindAt));
+   }
+}
+
+//Process the given tickingarea
+function ProcessTickingarea(Line: string, Data: MinecraftData, uri: string, LineIndex: number): void {
+   //no circle tickingarea
+   var Match = Line.match(/(tickingarea add [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d ]*)(\w*)/);
+
+   if (Match && Match.length >= 3) {
+      var TickingareaName = Match[2];
+      var FindAt = Line.indexOf(TickingareaName);
+
+      Data.Objectives.push(new Tickingarea(TickingareaName, uri, LineIndex, FindAt));
+   }
+
+   //no circle tickingarea
+   var Match = Line.match(/(tickingarea add circle [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d ]*)(\w*)/);
+
+   if (Match && Match.length >= 3) {
+      var TickingareaName = Match[2];
+      var FindAt = Line.indexOf(TickingareaName);
+
+      Data.Objectives.push(new Tickingarea(TickingareaName, uri, LineIndex, FindAt));
+   }
 }

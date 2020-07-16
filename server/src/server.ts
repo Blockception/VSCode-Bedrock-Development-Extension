@@ -7,7 +7,7 @@ import { Manager } from './Manager';
 import { TraveseDirectory } from './traverse';
 import { URI } from 'vscode-uri';
 import { Process } from './process/Process';
-import { OnDocumentSymbolRequest } from './Symbols/OnRequest';
+import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from './Symbols/OnRequest';
 
 console.log('starting minecraft server');
 
@@ -25,8 +25,7 @@ Manager.Documents.onDidSave(x => Process(x.document));
 connection.onDocumentSymbol(OnDocumentSymbolRequest);
 
 // This handler provides workspace symbols
-//connection.onWorkspaceSymbol(OnWorkspaceSymbolRequest);
-
+connection.onWorkspaceSymbol(OnWorkspaceSymbolRequest);
 
 connection.onInitialized(() => {
 	console.log('Initialized minecraft server');

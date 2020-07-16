@@ -30,7 +30,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MinecraftData } from '../minecraft/Minecraft Data';
 import { SymbolInformation, SymbolKind } from 'vscode-languageserver';
 
-export function Convert(Data: MinecraftData, receiver: SymbolInformation[]): void {
+export function Convert(Data: MinecraftData, receiver: SymbolInformation[], query: string): void {
+	if (query === '') {
+		ConvertAll(Data, receiver);
+	}
+	else {
+		ConvertQueried(Data, receiver, query);
+	}
+}
+
+
+function ConvertAll(Data: MinecraftData, receiver: SymbolInformation[]) {
 	//Convert entities
 	Data.Entities.forEach(x => {
 		receiver.push(
@@ -51,6 +61,16 @@ export function Convert(Data: MinecraftData, receiver: SymbolInformation[]): voi
 				x.Location.uri));
 	});
 
+	//Convert tickingarea
+	Data.Sounds.forEach(x => {
+		receiver.push(
+			SymbolInformation.create(
+				x.Name,
+				SymbolKind.Package,
+				x.Location.range,
+				x.Location.uri));
+	});
+
 	//Convert Tag
 	Data.Tag.forEach(x => {
 		receiver.push(
@@ -59,5 +79,72 @@ export function Convert(Data: MinecraftData, receiver: SymbolInformation[]): voi
 				SymbolKind.Property,
 				x.Location.range,
 				x.Location.uri));
+	});
+
+	//Convert tickingarea
+	Data.TickingAreas.forEach(x => {
+		receiver.push(
+			SymbolInformation.create(
+				x.Name,
+				SymbolKind.Package,
+				x.Location.range,
+				x.Location.uri));
+	});
+}
+
+function ConvertQueried(Data: MinecraftData, receiver: SymbolInformation[], query: string) {
+	//Convert entities
+	Data.Entities.forEach(x => {
+		if (x.Identifier.indexOf(query) > -1)
+			receiver.push(
+				SymbolInformation.create(
+					x.Identifier,
+					SymbolKind.Object,
+					x.Location.range,
+					x.Location.uri));
+	});
+
+	//Convert Objectives
+	Data.Objectives.forEach(x => {
+		if (x.Name.indexOf(query) > -1)
+			receiver.push(
+				SymbolInformation.create(
+					x.Name,
+					SymbolKind.Variable,
+					x.Location.range,
+					x.Location.uri));
+	});
+
+	//Convert tickingarea
+	Data.Sounds.forEach(x => {
+		if (x.Name.indexOf(query) > -1)
+			receiver.push(
+				SymbolInformation.create(
+					x.Name,
+					SymbolKind.Package,
+					x.Location.range,
+					x.Location.uri));
+	});
+
+	//Convert Tag
+	Data.Tag.forEach(x => {
+		if (x.Name.indexOf(query) > -1)
+			receiver.push(
+				SymbolInformation.create(
+					x.Name,
+					SymbolKind.Property,
+					x.Location.range,
+					x.Location.uri));
+	});
+
+	//Convert tickingarea
+	Data.TickingAreas.forEach(x => {
+		if (x.Name.indexOf(query) > -1)
+			receiver.push(
+				SymbolInformation.create(
+					x.Name,
+					SymbolKind.Package,
+					x.Location.range,
+					x.Location.uri));
 	});
 }

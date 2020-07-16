@@ -27,31 +27,48 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DocumentSymbolParams, SymbolInformation, DocumentSymbol, SymbolKind, Location, Range } from 'vscode-languageserver';
-import { Document, GetFilename, LoadTextDocument } from '../code/include';
+import { DocumentSymbolParams, SymbolInformation, DocumentSymbol, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
+import { GetFilename, LoadTextDocument } from '../code/include';
 import { Process } from '../process/Mcfunction';
-import { URI } from 'vscode-uri';
 import { Convert } from './Convert';
+import url = require('url');
+import { Database } from '../minecraft/Database';
 
-export function OnDocumentSymbolRequest(params : DocumentSymbolParams) : SymbolInformation[] {
-   var uri = params.textDocument.uri.toString();
+export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
+   var uri = params.textDocument.uri;
+   uri = url.fileURLToPath(uri);
 
-   if (uri.startsWith("File")){
-      uri = URI.file(uri).toString();
-   }
-   
-   var Out : SymbolInformation[] = [];
+   var Out: SymbolInformation[] = [];
 
    var Document = LoadTextDocument(uri, 'bc-minecraft-mcfunction');
 
    Out.push({
-      kind:SymbolKind.Class,
-      location:Location.create(uri, Range.create(0, 0, 0, 0)),
-      name:GetFilename(uri)
+      kind: SymbolKind.Class,
+      location: Location.create(uri, Range.create(0, 0, 0, 0)),
+      name: GetFilename(uri)
    });
 
    var Data = Process(Document);
-   Convert(Data, Out);   
+   Convert(Data, Out, '');
+
+   return Out;
+}
+
+export function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
+   var Query = params.query;
+   var Out: SymbolInformation[] = [];
+
+   for (var [FunctionPath, Data] of Database.Data) {
+      if (Query === '' || FunctionPath.indexOf(Query) > -1) {
+         Out.push({
+            kind: SymbolKind.Class,
+            location: Location.create(FunctionPath, Range.create(0, 0, 0, 0)),
+            name: GetFilename(FunctionPath)
+         });
+      }
+
+      Convert(Data, Out, Query);
+   }
 
    return Out;
 }

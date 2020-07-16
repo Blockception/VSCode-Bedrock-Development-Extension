@@ -27,43 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as fs from 'fs';
-import { URI } from 'vscode-uri';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { Process } from './process/Process';
-import { URL } from 'url';
+import { Location, Range } from 'vscode-languageserver';
 
-//Traverse the directory
-export function TraveseDirectory(Dir: string): void {
-	//console.log('exploring: ' + Dir);
-	if (!Dir.endsWith('\\')) {
-		Dir += '\\';
-	}
-
-	fs.readdir(Dir, (err, files) => {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			if (files)
-				files.forEach(file => {
-					var Path = Dir + file;
-
-					if (Path.endsWith(".mcfunction")) {
-						Parse(Path, 'bc-minecraft-mcfunction');
-					}
-					else if (Path.endsWith(".lang")) {
-						Parse(Path, 'bc-minecraft-language');
-					}
-					else if (fs.lstatSync(Path).isDirectory()) {
-						TraveseDirectory(Path);
-					}
-				});
-		}
-	});
-}
-
-function Parse(path: string, languageID: string): void {
-	var Content = fs.readFileSync(path, 'utf8');
-	Process(TextDocument.create(path, languageID, 0, Content));
+export class Sound {
+   public Name : string;
+   public Location : Location;
+   
+   constructor(Name : string, uri : string, LineIndex : number, StartIndex : number) {
+      this.Name = Name;
+      this.Location = Location.create(uri, Range.create(LineIndex, StartIndex, LineIndex, StartIndex + Name.length));
+   }
 }
