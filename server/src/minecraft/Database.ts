@@ -31,5 +31,22 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MinecraftData } from './Minecraft Data';
 
 export class Database {
-	static Data = new Map<string, MinecraftData>();
+   //uri string
+   static Data = new Map<string, MinecraftData>();
+   
+
+   static Get(uri : string) : MinecraftData {
+      var Item = this.Data.get(uri);
+
+      if (Item == undefined){
+         Item = new MinecraftData();
+         this.Data.set(uri, Item);
+      }
+
+      return Item;
+   }
+
+   static Set(uri : string, Data : MinecraftData) : void {
+      this.Data.set(uri, Data);
+   }
 }

@@ -7,6 +7,7 @@ import { Manager } from './Manager';
 import { TraveseDirectory } from './traverse';
 import { URI } from 'vscode-uri';
 import { Process } from './process/Process';
+import { OnDocumentSymbolRequest } from './Symbols/OnRequest';
 
 console.log('starting minecraft server');
 
@@ -21,7 +22,7 @@ Manager.Documents.onDidSave(x => Process(x.document));
 //connection.onCompletion(OnCompletionRequest);
 
 // This handler provides document symbols
-//connection.onDocumentSymbol(OnDocumentSymbolRequest);
+connection.onDocumentSymbol(OnDocumentSymbolRequest);
 
 // This handler provides workspace symbols
 //connection.onWorkspaceSymbol(OnWorkspaceSymbolRequest);
@@ -83,11 +84,11 @@ connection.onInitialize((params: InitializeParams) => {
 		capabilities: {
 			textDocumentSync: TextDocumentSyncKind.Incremental,
 			// Tell the client that this server supports code completion.
-			completionProvider: {
+			/*completionProvider: {
 				resolveProvider: true
-			},
-			documentSymbolProvider: true,
-			workspaceSymbolProvider: true
+			},*/
+			documentSymbolProvider: true
+			//workspaceSymbolProvider: true
 		}
 	};
 	if (Manager.hasWorkspaceFolderCapability) {

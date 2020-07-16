@@ -30,13 +30,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import { Tag } from './types/Tag';
 import { Entity } from './types/Entity';
+import { Objective } from './types/Objectives';
 
 export class MinecraftData {
    public Tag : Tag[];
    public Entities : Entity[];
+   public Objectives : Objective[];
    
    constructor() {
       this.Entities = [];
       this.Tag = [];
+      this.Objectives = [];
    }
 }

@@ -34,8 +34,8 @@ export class Tag {
 
    public Location : Location;
 
-   constructor() {
-      this.Name = '';
-      this.Location = Location.create('', Range.create(0, 0, 0, 0));
+   constructor(Name : string, uri : string, LineIndex : number, StartIndex : number) {
+      this.Name = Name;
+      this.Location = Location.create(uri, Range.create(LineIndex, StartIndex, LineIndex, StartIndex + Name.length));
    }
 }

@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import * as Mcfunction from './Mcfunction';
-import * as Language from './Mcfunction';
+import * as Language from './Language';
 import * as Json from './Json';
 
 //Process the given document

@@ -27,49 +27,33 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { RangedWord } from '../code/Words';
-import { Database } from '../minecraft/Database';
-import { MinecraftData } from '../minecraft/Minecraft Data';
-import { Location, Range } from 'vscode-languageserver';
-import { Tag } from '../minecraft/types/Tag';
-import { Objective } from '../minecraft/types/Objectives';
+import * as fs from 'fs';
+import { Range, TextDocument } from 'vscode-languageserver-textdocument';
 
-export function Process(document : TextDocument) : MinecraftData {
-   console.log('Processing mcfunction: ' + document.uri);
-   var Lines = document.getText().split('\n');
-   var Data = new MinecraftData();
-   var uri = document.uri;
+export class Document {
+	public Lines: string[];
+	public Uri: string;
+	public Range: Range;
 
-   for (var Index = 0; Index < Lines.length; Index++) {
-      const Line = Lines[Index];
-      
-      if (Line.startsWith("#"))
-         continue;
+	constructor(uri: string, Content: string) {
+		this.Uri = uri;
+		this.Lines = Content.split(/(\r\n|\n)/);
 
-      if (Line.includes('tag')) {
-         var Match = Line.match(/(tag .* add )(\w*)/);
+		var LastIndex = this.Lines.length - 1;
+		var Last = this.Lines[LastIndex];
+		this.Range = {
+			start: { character: 0, line: 0 },
+			end: { character: Last.length, line: LastIndex }
+		};
+	}
 
-         if (Match && Match.length >= 3){
-            var TagText = Match[2];
-            var FindAt = Line.indexOf(TagText);
+	static Load(uri: string): Document {
+		var Content = fs.readFileSync(uri, 'utf8');
+		return new Document(uri, Content);
+	}
+}
 
-            Data.Tag.push(new Tag(TagText, uri, Index, FindAt));
-         }
-      }
-
-      if (Line.includes('scoreboard objectives add')) {
-         var Match = Line.match(/(scoreboard objectives add )(\w*)( dummy)/);
-
-         if (Match && Match.length >= 4){
-            var ObjectiveText = Match[2];
-            var FindAt = Line.indexOf(ObjectiveText);
-
-            Data.Objectives.push(new Objective(ObjectiveText, uri, Index, FindAt));
-         }
-      }
-   }
-
-   Database.Set(document.uri, Data);
-   return Data;
+export function LoadTextDocument(uri: string, languageID: string): TextDocument {
+	var Content = fs.readFileSync(uri, 'utf8');
+	return TextDocument.create(uri, languageID, 0, Content);
 }
