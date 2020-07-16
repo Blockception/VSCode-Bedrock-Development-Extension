@@ -28,27 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import * as Mcfunction from './Mcfunction';
-import * as Language from './Mcfunction';
-import * as Json from './Json';
 
-//Process the given document
 export function Process(document : TextDocument) : void {
-   switch(document.languageId){
-      case 'bc-minecraft-mcfunction':
-         if (document.uri.endsWith('.mcfunction')){
-            Mcfunction.Process(document);
-         }
-         
-         if (document.uri.endsWith('.json')){
-            Json.Process(document);
-         }
+   var Lines = document.getText().split('\n');
 
-         break;
-
-      case 'bc-minecraft-language':
-         Language.Process(document);
-         break;
-   }
 }
-
