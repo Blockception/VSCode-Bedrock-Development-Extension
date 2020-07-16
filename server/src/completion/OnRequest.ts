@@ -27,45 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetFilename} from '../code/include';
-import { Convert } from './Convert';
-import url = require('url');
-import { Database } from '../minecraft/Database';
-import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
+import { CompletionParams } from 'vscode-languageserver';
 
-export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
-   var uri = params.textDocument.uri;
-   uri = url.fileURLToPath(uri);
+export function OnCompletionRequest(params : CompletionParams) : void {
 
-   var Out: SymbolInformation[] = [];
-
-   Out.push({
-      kind: SymbolKind.Class,
-      location: Location.create(uri, Range.create(0, 0, 0, 0)),
-      name: GetFilename(uri)
-   });
-
-   var Data = Database.Get(uri);
-   Convert(Data, Out, '');
-
-   return Out;
-}
-
-export function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
-   var Query = params.query;
-   var Out: SymbolInformation[] = [];
-
-   for (var [FunctionPath, Data] of Database.Data) {
-      if (Query === '' || FunctionPath.indexOf(Query) > -1) {
-         Out.push({
-            kind: SymbolKind.Class,
-            location: Location.create(FunctionPath, Range.create(0, 0, 0, 0)),
-            name: GetFilename(FunctionPath)
-         });
-      }
-
-      Convert(Data, Out, Query);
-   }
-
-   return Out;
 }

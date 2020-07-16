@@ -32,6 +32,7 @@ import { URI } from 'vscode-uri';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import { Process } from './process/Process';
 import { URL } from 'url';
+import { Manager } from './Manager';
 
 //Traverse the directory
 export function TraveseDirectory(Dir: string): void {
