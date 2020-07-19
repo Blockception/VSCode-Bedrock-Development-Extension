@@ -1,4 +1,9 @@
 # Changelog 
+- Minified
+- Updated
+- Updated Syntax items
+- Updated to 0.2.21
+- Updated
 - Updated Completion Item
 - Updated completion items
 - Updated to 0.2.20
@@ -14,8 +19,3 @@
 - Completed snippet removeall
 - Updated
 - Updated
-- Removed snippets
-- moved snippets to code completion
-- Updated to 0.2.16
-- Fixed up tag diagnosers
-- Removed
