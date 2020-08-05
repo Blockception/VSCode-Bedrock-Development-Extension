@@ -42,10 +42,12 @@ export enum MCCommandParameterType {
 	float,
 	integer,
 	item,
-	jsonitem,
+	jsonItem,
+	jsonRawText,
 	keyword,
 	objective,
 	selector,
 	sound,
+	tag,
 	xp
 }

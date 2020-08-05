@@ -27,7 +27,63 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './RangedWords';
-export * from './File';
-export * from './Document';
-export * from './TextWords';
+
+export function GetWords(text: string): string[] {
+    var out: string[] = [];
+    var level = 0;
+    var startindex = 0;
+    var Instring = false;
+
+    for (var index = 0; index < text.length; index++) {
+        var c = text.charAt(index);
+
+        if (Instring) {
+            if (c == '"')
+                Instring = false;
+        }
+        else {
+            switch (c) {
+                case '"':
+                    Instring = true;
+                    break;
+
+                case "[":
+                case "(":
+                case "{":
+                    level++;
+                    break;
+
+                case "]":
+                case ")":
+                case "}":
+                    level--;
+                    break;
+
+                case " ":
+                case "\t":
+                    if (level == 0) {
+                        if (startindex < index) {
+                            var RW = text.substring(startindex, index).trim();
+                            out.push(RW);
+                        }
+
+                        startindex = index + 1;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (level < 0)
+            break;
+    }
+
+    if (startindex < text.length) {
+        var RW = text.substring(startindex, text.length);
+        out.push(RW);
+    }
+
+    return out;
+}

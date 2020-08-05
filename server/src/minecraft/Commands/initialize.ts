@@ -27,12 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Manager } from '../../Manager';
-
-export function AddCommand(command : string){
-	Manager.Commands.push();
-	
-}
+import { AddCommand } from './ToCommand';
 
 export function AddCommands() : void {
 
@@ -76,11 +71,11 @@ export function AddCommands() : void {
 	AddCommand("execute <origin:selector> <position x:coordinate> <position y:coordinate> <position z:coordinate> <command:command>");
 	AddCommand("execute <origin:selector> <position x:coordinate> <position y:coordinate> <position z:coordinate> detect <detectPos x:coordinate> <detectPos y:coordinate> <detectPos z:coordinate> <block:block> <data:int> <command:command>");
 	
-	AddCommand("fill <from:x y z> <to:x y z> <tileName:block> <tileData:int> replace [replaceTileName:block] [replaceDataValue:int]");
-	AddCommand("fill <from:x y z> <to:x y z> <tileName:block> [tileData:int] outline");
-	AddCommand("fill <from:x y z> <to:x y z> <tileName:block> [tileData:int] hollow");
-	AddCommand("fill <from:x y z> <to:x y z> <tileName:block> [tileData:int] destroy");
-	AddCommand("fill <from:x y z> <to:x y z> <tileName:block> [tileData:int] keep");
+	AddCommand("fill <from x:coordinate> <from y:coordinate> <from z:coordinate> <to x:coordinate> <to y:coordinate> <to z:coordinate> <tileName:block> <tileData:int> replace [replaceTileName:block] [replaceDataValue:int]");
+	AddCommand("fill <from x:coordinate> <from y:coordinate> <from z:coordinate> <to x:coordinate> <to y:coordinate> <to z:coordinate> <tileName:block> [tileData:int] outline");
+	AddCommand("fill <from x:coordinate> <from y:coordinate> <from z:coordinate> <to x:coordinate> <to y:coordinate> <to z:coordinate> <tileName:block> [tileData:int] hollow");
+	AddCommand("fill <from x:coordinate> <from y:coordinate> <from z:coordinate> <to x:coordinate> <to y:coordinate> <to z:coordinate> <tileName:block> [tileData:int] destroy");
+	AddCommand("fill <from x:coordinate> <from y:coordinate> <from z:coordinate> <to x:coordinate> <to y:coordinate> <to z:coordinate> <tileName:block> [tileData:int] keep");
 
 	AddCommand("function <function:function>");
 
@@ -139,7 +134,7 @@ export function AddCommands() : void {
 
 	AddCommand("particle <effect:string> <position x:coordinate> <position y:coordinate> <position z:coordinate>");
 
-	AddCommand("playsound <sound:string> [player:selector] [position:x y z] [volume:float] [pitch:float] [minimumVolume:float]");
+	AddCommand("playsound <sound:string> [player:selector] [position x:coordinate] [position y:coordinate] [position z:coordinate] [volume:float] [pitch:float] [minimumVolume:float]");
 	
 	AddCommand("replaceitem block <position x:coordinate> <position y:coordinate> <position z:coordinate> slot.container <slotId:int> <itemName:item> [amount:int] [data:int] [components:json]");
 	
@@ -147,12 +142,15 @@ export function AddCommands() : void {
 	
 	AddCommand("say <message:message>");
 	
-	AddCommand("scoreboard objectives add <name> <criteria> [display name:string]");
+	AddCommand("scoreboard objectives add <name:string> dummy [display name:string]");
 	AddCommand("scoreboard objectives list");
-	AddCommand("scoreboard objectives remove <name>");
-	AddCommand("scoreboard objectives setdisplay <slot> [objective]");
+	AddCommand("scoreboard objectives remove <name:objective>");
 
-	AddCommand("scoreboard players add <entity:selector> <objective:objective> <count>");
+	AddCommand("scoreboard objectives setdisplay list [objective:objective]");
+	AddCommand("scoreboard objectives setdisplay sidebar [objective:objective]");
+	AddCommand("scoreboard objectives setdisplay below_name [objective:objective]");
+
+	AddCommand("scoreboard players add <entity:selector> <objective:objective> <count:int>");
 	AddCommand("scoreboard players list [entity:selector]");
 
 	AddCommand("scoreboard players operation <destination:selector> <destination:objective> <operation> <selector> <objective:objective>");
@@ -165,13 +163,17 @@ export function AddCommands() : void {
 
 	AddCommand("setblock <position x:coordinate> <position y:coordinate> <position z:coordinate> <tileName:block> [tileData:int] [replace|destroy|keep]");
 	AddCommand("setworldspawn [spawnPoint:x y z]");
-	AddCommand("spawnpoint [player:selector] [spawnPos:x y z]");
+	AddCommand("spawnpoint [player:selector] [spawnPos x:coordinate] [spawnPos y:coordinate] [spawnPos z:coordinate]");
 	AddCommand("spreadplayers <x:value> <z:value> <spreadDistance:float> <maxRange:float> <victim:selector>");
-	AddCommand("stopsound <player:selector> [sound:string]    ");
-	AddCommand("summon <entityType:EntityType> [spawnPos:x y z]");
-	AddCommand("tag <selectors> add <name>");
-	AddCommand("tag <selectors> list");
-	AddCommand("tag <selectors> remove <name>");
+	AddCommand("stopsound <player:selector> [sound:string]");
+
+	AddCommand("summon <entityType:EntityType> [spawnPos x:coordinate] [spawnPos y:coordinate] [spawnPos z:coordinate] [spawnevent:event] [name:string]");
+	AddCommand("summon <entityType:EntityType> [name:string] [spawnPos x:coordinate] [spawnPos y:coordinate] [spawnPos z:coordinate]");
+	
+	AddCommand("tag <selector:selector> add <name:tag>");
+	AddCommand("tag <selector:selector> list");
+	AddCommand("tag <selector:selector> remove <name:tag>");
+
 	AddCommand("tell <selector:selector> <message:message>");
 	AddCommand("tellraw <player> <json:jsonRawText>");
 	AddCommand("testfor <victim:selector>");
@@ -179,22 +181,47 @@ export function AddCommands() : void {
 	AddCommand("testforblocks <begin x:coordinate> <begin y:coordinate> <begin z:coordinate> <end x:coordinate> <end y:coordinate> <end z:coordinate> <destination x:coordinate> <destination y:coordinate> <destination z:coordinate> ");
 	AddCommand("testforblocks <begin x:coordinate> <begin y:coordinate> <begin z:coordinate> <end x:coordinate> <end y:coordinate> <end z:coordinate> <destination x:coordinate> <destination y:coordinate> <destination z:coordinate> all");
 	AddCommand("testforblocks <begin x:coordinate> <begin y:coordinate> <begin z:coordinate> <end x:coordinate> <end y:coordinate> <end z:coordinate> <destination x:coordinate> <destination y:coordinate> <destination z:coordinate> masked");
-	AddCommand("tickingarea add <from:x y z> <to:x y z> [name:string]");
-	AddCommand("tickingarea add circle <center:x y z> <radius:int> [name:string]");
+	
+	AddCommand("tickingarea add <from x:coordinate> <from y:coordinate> <from z:coordinate> <to x:coordinate> <to y:coordinate> <to z:coordinate> [name:string]");
+	AddCommand("tickingarea add circle <center x:coordinate> <center y:coordinate> <center z:coordinate> <radius:int> [name:string]");
 	AddCommand("tickingarea list [all-dimensions]");
 	AddCommand("tickingarea remove <position:x y z|name:string>");
-	AddCommand("tickingarea.remove_all");
+	AddCommand("tickingarea remove_all");
+
 	AddCommand("time add <amount:int>");
-	AddCommand("time query <daytime|gametime|day>");
-	AddCommand("time set <time:TimeSpec|amount:int>");
-	AddCommand("title <player:selector> <title|subtitle|actionbar> <titleText:message>");
+
+	AddCommand("time query daytime");
+	AddCommand("time query gametime");
+	AddCommand("time query day");
+
+	AddCommand("time set <amount:int>");
+
+	AddCommand("title <player:selector> title <titleText:message>");
+	AddCommand("title <player:selector> subtitle <titleText:message>");
+	AddCommand("title <player:selector> actionbar> <titleText:message>");
+
+
 	AddCommand("title <player:selector> clear");
 	AddCommand("title <player:selector> reset");
 	AddCommand("title <player:selector> times <fadeIn:int> <stay:int> <fadeOut:int>");
-	AddCommand("tp <x y z|selector> [yRot:value] [xRot:value]");
-	AddCommand("tp <x y z|selector> facing <lookAtEntity:selector>");
+
+	AddCommand("tp <destination:selector> [yRot:coordinate] [xRot:coordinate]");
+	AddCommand("tp <destination:selector> facing <lookAtEntity:selector>");
+
+	AddCommand("tp <x:coordinate> <y:coordinate> <z:coordinate> [yRot:coordinate] [xRot:coordinate]");
+	AddCommand("tp <victim:selector> <destination x:coordinate> <destination y:coordinate> <destination z:coordinate> [yRot:coordinate] [xRot:coordinate]");	
+
+	AddCommand("tp <victim:selector> <destination:selector> facing <lookAtEntity:selector>");
+	AddCommand("tp <victim:selector> <x:coordinate> <y:coordinate> <z:coordinate> facing <lookAtEntity:selector>");
+	AddCommand("tp <victim:selector> <destination:selector> facing <lookAt x:coordinate> <lookAt y:coordinate> <lookAt z:coordinate>");
+	AddCommand("tp <victim:selector> <x:coordinate> <y:coordinate> <z:coordinate> facing <lookAt x:coordinate> <lookAt y:coordinate> <lookAt z:coordinate>");
+
 	AddCommand("w <selector:selector> <message:message>");
-	AddCommand("weather <clear|rain|thunder> [duration:int]");
+
+	AddCommand("weather clear [duration:int]");
+	AddCommand("weather rain [duration:int]");
+	AddCommand("weather thunder [duration:int]");
+
 	AddCommand("xp <amount:xp> [player:selector]");
 }
 
