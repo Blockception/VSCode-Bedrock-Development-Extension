@@ -1,7 +1,5 @@
-
-
-export class Command {
-	public parameters : CommandParameter[];
+export class MCCommand {
+	public parameters : MCCommandParameter[];
 	public name : string
 
 	constructor(){
@@ -9,7 +7,7 @@ export class Command {
 		this.name = '';
 	}
 
-	add(item : CommandParameter[]){
+	add(item : MCCommandParameter[]){
 		if (this.parameters.length == 0){
 			this.name = item[0].Text;
 			this.parameters = item;
@@ -20,26 +18,34 @@ export class Command {
 	}
 }
 
-export class CommandParameter {
+export class MCCommandParameter {
 	public Text : string;
-	public Type : CommandParameterType;
+	public Type : MCCommandParameterType;
+	public Required : boolean;
 
 	constructor(){
 		this.Text = '';
-		this.Type = CommandParameterType.keyword;
+		this.Type = MCCommandParameterType.keyword;
+		this.Required = true;
 	}
 }
 
-export enum CommandParameterType {
-	keyword,
-	selector,
-	coordinate,
-	integer,
-	float,
-	objective,
-	entity,
+export enum MCCommandParameterType {
 	block,
+	boolean,
+	command,
+	coordinate,
+	effect,
+	entity,
+	event,
+	function,
+	float,
+	integer,
 	item,
+	jsonitem,
+	keyword,
+	objective,
+	selector,
 	sound,
-	event
+	xp
 }

@@ -9,6 +9,7 @@ import { URI } from 'vscode-uri';
 import { Process } from './process/Process';
 import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from './symbols/OnRequest';
 import { OnCompletionRequest } from './completion/OnRequest';
+import { AddCommands } from './minecraft/Commands/initialize';
 
 console.log('starting minecraft server');
 
@@ -40,6 +41,9 @@ connection.onInitialized(() => {
 			console.log('Workspace folder change event received.');
 		});
 	}
+
+	//setup commands
+	AddCommands();
 
 	console.log('Looping over workspaces folders');
 	connection.workspace.getWorkspaceFolders().then(WorkFolders => {
@@ -98,6 +102,7 @@ connection.onInitialize((params: InitializeParams) => {
 			}
 		};
 	}
+
 	return result;
 });
 
