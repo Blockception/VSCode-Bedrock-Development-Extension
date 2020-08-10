@@ -1,4 +1,12 @@
 # Changelog 
+- Updated the information
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Merge pull request #3 from Blockception/dependabot/npm_and_yarn/elliptic-6.5.3
+- Updated
+- Fixing Particles
+- Bump elliptic from 6.5.2 to 6.5.3
+- Added colours to spawn eggs
+- Updated NPM modules
 - Minified
 - Updated
 - Updated Syntax items
@@ -11,11 +19,3 @@
 - Fixed fake players regonsization
 - Updated to 0.2.19
 - Fixed
-- Removed items
-- Updated
-- Updated to 0.2.18
-- Reformatted
-- Reformatted
-- Completed snippet removeall
-- Updated
-- Updated
