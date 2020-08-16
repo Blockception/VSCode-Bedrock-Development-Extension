@@ -1,6 +1,6 @@
 export class MCCommand {
-	public parameters : MCCommandParameter[];
 	public name : string
+	public parameters : MCCommandParameter[];	
 
 	constructor(){
 		this.parameters = [];

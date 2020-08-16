@@ -50,12 +50,14 @@ export function GetWords(text: string): string[] {
                 case "[":
                 case "(":
                 case "{":
+                case "<":
                     level++;
                     break;
 
                 case "]":
                 case ")":
                 case "}":
+                case ">":
                     level--;
                     break;
 

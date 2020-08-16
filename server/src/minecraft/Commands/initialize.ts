@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { AddCommand } from './ToCommand';
+import { Manager } from '../../Manager';
 
 export function AddCommands() : void {
 	AddCommand("alwaysday [lock:boolean]");
@@ -222,5 +223,7 @@ export function AddCommands() : void {
 	AddCommand("weather thunder [duration:int]");
 
 	AddCommand("xp <amount:xp> [player:selector]");
+
+	console.log(JSON.stringify(Manager.Commands));
 }
 

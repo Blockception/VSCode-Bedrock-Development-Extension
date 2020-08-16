@@ -8,8 +8,8 @@ import { TraveseDirectory } from './traverse';
 import { URI } from 'vscode-uri';
 import { Process } from './process/Process';
 import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from './symbols/OnRequest';
-import { OnCompletionRequest } from './completion/OnRequest';
 import { AddCommands } from './minecraft/Commands/initialize';
+import { OnCompletionRequest } from './completion/OnRequest';
 
 console.log('starting minecraft server');
 
@@ -92,9 +92,13 @@ connection.onInitialize((params: InitializeParams) => {
 				resolveProvider: true
 			},*/
 			documentSymbolProvider: true,
-			workspaceSymbolProvider: true
+			workspaceSymbolProvider: true,
+			completionProvider:{
+				resolveProvider:false
+			}
 		}
 	};
+
 	if (Manager.hasWorkspaceFolderCapability) {
 		result.capabilities.workspace = {
 			workspaceFolders: {

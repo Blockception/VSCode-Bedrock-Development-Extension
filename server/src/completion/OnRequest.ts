@@ -27,8 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionParams } from 'vscode-languageserver';
+import { CompletionParams, CompletionList } from 'vscode-languageserver';
+import { AddCommands } from '../minecraft/Commands/initialize';
 
-export function OnCompletionRequest(params : CompletionParams) : void {
+export function OnCompletionRequest(params : CompletionParams) : CompletionList {
+   var List : CompletionList;
 
+	//setup commands
+	AddCommands();
+
+   List = {
+      isIncomplete:true,
+      items:[]
+   };
+
+   List.isIncomplete = false
+
+   return List;
 }

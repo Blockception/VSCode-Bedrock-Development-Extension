@@ -67,8 +67,8 @@ function ConvertWord(word: string): MCCommandParameter {
 	//has type
 	if (word.includes(':')) {
 		var index = word.indexOf(':');
+		var Type = word.substring(index + 1, word.length).trim();
 		word = word.substring(0, index).trim();
-		var Type = word.substring(index, word.length).trim();
 
 		switch (Type) {
 			case 'block':
