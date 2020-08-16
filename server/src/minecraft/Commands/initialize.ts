@@ -30,7 +30,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { AddCommand } from './ToCommand';
 
 export function AddCommands() : void {
-
 	AddCommand("alwaysday [lock:boolean]");
 
 	AddCommand("clear [player:selector] [itemName:item] [data:int] [maxCount:int]");
