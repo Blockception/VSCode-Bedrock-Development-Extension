@@ -33,6 +33,7 @@ import { TextDocument } from 'vscode-languageserver-textdocument';
 import { Process } from './process/Process';
 import { URL } from 'url';
 import { Manager } from './Manager';
+import { GetDocument2, GetDocument } from './code/include';
 
 //Traverse the directory
 export function TraveseDirectory(Dir: string): void {
@@ -65,6 +66,6 @@ export function TraveseDirectory(Dir: string): void {
 }
 
 function Parse(path: string, languageID: string): void {
-	var Content = fs.readFileSync(path, 'utf8');
-	Process(TextDocument.create(path, languageID, 0, Content));
+	var Doc = GetDocument(path, languageID);
+	Process(Doc);
 }

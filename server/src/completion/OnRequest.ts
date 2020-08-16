@@ -33,9 +33,6 @@ import { AddCommands } from '../minecraft/Commands/initialize';
 export function OnCompletionRequest(params : CompletionParams) : CompletionList {
    var List : CompletionList;
 
-	//setup commands
-	AddCommands();
-
    List = {
       isIncomplete:true,
       items:[]

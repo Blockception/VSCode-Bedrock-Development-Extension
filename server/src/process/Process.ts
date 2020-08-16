@@ -31,24 +31,14 @@ import { TextDocument } from 'vscode-languageserver-textdocument';
 import * as Mcfunction from './Mcfunction';
 import * as Language from './Language';
 import * as Json from './Json';
+import { IDocument } from '../code/include';
 
 //Process the given document
-export function Process(document : TextDocument) : void {
-   switch(document.languageId){
-      case 'bc-minecraft-mcfunction':
-         if (document.uri.endsWith('.mcfunction')){
-            Mcfunction.Process(document);
-         }
-         
-         if (document.uri.endsWith('.json')){
-            Json.Process(document);
-         }
-
-         break;
-
-      case 'bc-minecraft-language':
-         Language.Process(document);
-         break;
+export function Process(document: IDocument): void {
+   if (document.Uri.endsWith('.mcfunction')) {
+      Mcfunction.Process(document);
+   }
+   else if (document.Uri.endsWith('.json')) {
+      Json.Process(document);
    }
 }
-

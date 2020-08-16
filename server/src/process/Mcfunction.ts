@@ -27,23 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { RangedWord } from '../code/RangedWords';
 import { Database } from '../minecraft/Database';
 import { MinecraftData } from '../minecraft/Minecraft Data';
 import { Tag } from '../minecraft/types/Tag';
 import { Objective } from '../minecraft/types/Objectives';
 import { GetFilename } from '../code/File';
 import { Tickingarea } from '../minecraft/types/include';
+import { IDocument } from '../code/include';
 
-export function Process(document: TextDocument): MinecraftData {
-   console.log('Processing mcfunction: ' + GetFilename(document.uri));
-   var Lines = document.getText().split('\n');
-   var Data = new MinecraftData();
-   var uri = document.uri;
+export function Process(document: IDocument): MinecraftData {
+   var uri = document.Uri;
+   console.log('Processing mcfunction: ' + GetFilename(uri));
+   var Data = new MinecraftData();   
 
-   for (var Index = 0; Index < Lines.length; Index++) {
-      const Line = Lines[Index];
+   for (var Index = 0; Index < document.LineCount; Index++) {
+      const Line = document.getLine(Index);
 
       if (Line.startsWith("#"))
          continue;
@@ -64,7 +62,7 @@ export function Process(document: TextDocument): MinecraftData {
       }
    }
 
-   Database.Set(document.uri, Data);
+   Database.Set(uri, Data);
    return Data;
 }
 

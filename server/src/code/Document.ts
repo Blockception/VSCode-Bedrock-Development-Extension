@@ -31,10 +31,18 @@ import * as fs from 'fs';
 import { Range, TextDocument } from 'vscode-languageserver-textdocument';
 import { URI } from 'vscode-uri';
 
-export class Document {
-	public Lines: string[];
-	public Uri: string;
-	public Range: Range;
+export interface IDocument {
+	readonly LineCount : number;
+	readonly Uri : string;
+
+	getLine(index : number) : string;
+}
+
+export class FileDocument implements IDocument {
+	private Lines: string[];
+	readonly Uri: string;
+	readonly Range: Range;
+	readonly LineCount : number;
 
 	constructor(uri: string, Content: string) {
 		this.Uri = uri;
@@ -46,18 +54,46 @@ export class Document {
 			start: { character: 0, line: 0 },
 			end: { character: Last.length, line: LastIndex }
 		};
+
+		this.LineCount = this.Lines.length;
 	}
 
-	static Load(uri: string): Document {
+	public getLine(index : number) : string {
+		return this.Lines[index];
+	}
+
+	static Load(uri: string) : IDocument {
 		var Content = fs.readFileSync(uri, 'utf8');
-		return new Document(uri, Content);
+		return new FileDocument(uri, Content);
 	}
 }
 
-export function LoadTextDocument(uri: string, languageID: string): TextDocument {
+export class DocumentImp implements IDocument {
+	private doc : TextDocument;
+
+	readonly LineCount: number;
+	readonly Uri: string;
+
+	constructor(doc : TextDocument){
+		this.doc = doc;
+		this.LineCount = doc.lineCount;
+		this.Uri = doc.uri;
+	}
+
+	public getLine(index: number) : string {
+		return this.doc.getText({start:{character:0,line:index},end:{character:Number.MAX_SAFE_INTEGER,line:index}})
+	}
+}
+
+export function GetDocument(uri: string, languageID: string) : IDocument {
 	var Content = '';
 
 	Content = fs.readFileSync(uri, 'utf8');
+	var Out = new DocumentImp(TextDocument.create(uri, languageID, 0, Content));
 
-	return TextDocument.create(uri, languageID, 0, Content);
+	return Out;
+}
+
+export function GetDocument2(doc : TextDocument){
+	return new DocumentImp(doc);
 }
