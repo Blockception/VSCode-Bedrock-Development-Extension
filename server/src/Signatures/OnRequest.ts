@@ -34,27 +34,49 @@ import { Manager } from '../Manager';
 import { CommandIntr } from '../minecraft/Commands/Command';
 import { exec } from 'child_process';
 
-export function OnSignatureRequest(params : SignatureHelpParams) : SignatureHelp {
+export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
 	var pos = params.position;
 	var doc = GetDocument(params.textDocument.uri, "bc-minecraft-mcfunction");
 
 	var Line = doc.getLine(pos.line);
-	var Command : CommandIntr = CommandIntr.parse(Line, pos);
+	var Command: CommandIntr = CommandIntr.parse(Line, pos);
 
 	return ProvideSignature(Command);
 }
 
-function ProvideSignature(command : CommandIntr) : SignatureHelp {
+function ProvideSignature(command: CommandIntr, pos : Position): SignatureHelp {
+	var SubCommand = IsInSubCommand(command, pos.character);
 
+	if (SubCommand != undefined){
 
+	}
 }
 
-function IsSubCommand(command : CommandIntr, character : number) : boolean {
+function IsInSubCommand(command: CommandIntr, character: number): CommandIntr | undefined {
+	//execute command hasn't been completed yet
+	if (command.Paramaters.length < 6)
+		return undefined;
+
 	var Keyword = command.GetCommandKeyword();
 
-	if (Keyword == 'execute'){
-		if ()
+	if (Keyword == 'execute') {
+		if (command.Paramaters[6].text === 'detect') {
+			//execute detect command hasn't been completed yet
+			if (command.Paramaters.length < 11)
+				return undefined;
+
+			//if cursor is on the execute command and not the sub command
+			if (character < command.Paramaters[11].startindex){
+				return command.slice(11);
+			}
+		}
+		else{
+			//if cursor is on the execute command and not the sub command
+			if (character < command.Paramaters[6].startindex){
+				return command.slice(6);
+			}
+		}
 	}
 
-	return false;
+	return undefined;
 }

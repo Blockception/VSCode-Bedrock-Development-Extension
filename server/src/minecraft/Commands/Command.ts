@@ -107,7 +107,7 @@ export class CommandIntr {
 		return Out;
 	}
 
-	slice(start : number | undefined, end : number | undefined): CommandIntr {
+	slice(start? : number | undefined, end? : number | undefined): CommandIntr {
 		var Out = new CommandIntr();
 		Out.Line = this.Line;
 		Out.Paramaters = Out.Paramaters.slice(start, end);
