@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from 'fs';
 import { Range, TextDocument } from 'vscode-languageserver-textdocument';
 import { URI } from 'vscode-uri';
+import { Manager } from '../Manager';
 
 export interface IDocument {
 	readonly LineCount : number;
@@ -88,12 +89,18 @@ export class DocumentImp implements IDocument {
 export function GetDocument(uri: string, languageID: string) : IDocument {
 	var Content = '';
 
+	var doc = Manager.Documents.get(uri);
+
+	if (doc != undefined){
+		return new DocumentImp(doc);
+	}
+
 	Content = fs.readFileSync(uri, 'utf8');
 	var Out = new DocumentImp(TextDocument.create(uri, languageID, 0, Content));
 
 	return Out;
 }
 
-export function GetDocument2(doc : TextDocument){
+export function GetDocument2(doc : TextDocument) : IDocument {
 	return new DocumentImp(doc);
 }

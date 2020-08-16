@@ -27,49 +27,34 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetFilename} from '../code/include';
-import { Convert } from './Convert';
-import url = require('url');
-import { Database } from '../minecraft/Database';
-import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
+import { SignatureHelp, SignatureHelpParams, Command } from 'vscode-languageserver';
+import { GetDocument, IDocument } from '../code/include';
+import { Position } from 'vscode-languageserver-textdocument';
+import { Manager } from '../Manager';
+import { CommandIntr } from '../minecraft/Commands/Command';
+import { exec } from 'child_process';
 
-export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
-   var uri = params.textDocument.uri;
-   uri = url.fileURLToPath(uri);
+export function OnSignatureRequest(params : SignatureHelpParams) : SignatureHelp {
+	var pos = params.position;
+	var doc = GetDocument(params.textDocument.uri, "bc-minecraft-mcfunction");
 
-   var Out: SymbolInformation[] = [];
+	var Line = doc.getLine(pos.line);
+	var Command : CommandIntr = CommandIntr.parse(Line, pos);
 
-   Out.push({
-      kind: SymbolKind.Class,
-      location: Location.create(uri, Range.create(0, 0, 0, 0)),
-      name: GetFilename(uri)
-   });
-
-   var Data = Database.Get(uri);
-   Convert(Data, Out, '');
-
-   return Out;
+	return ProvideSignature(Command);
 }
 
-export function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
-   var Query = params.query;
-   var Out: SymbolInformation[] = [];
+function ProvideSignature(command : CommandIntr) : SignatureHelp {
 
-   for (var [FunctionPath, Data] of Database.Data) {
-      if (Out.length > 100) {
-         break;
-      }
 
-      if (Query === '' || FunctionPath.indexOf(Query) > -1) {
-         Out.push({
-            kind: SymbolKind.Class,
-            location: Location.create(FunctionPath, Range.create(0, 0, 0, 0)),
-            name: GetFilename(FunctionPath)
-         });
-      }
+}
 
-      Convert(Data, Out, Query);
-   }
+function IsSubCommand(command : CommandIntr, character : number) : boolean {
+	var Keyword = command.GetCommandKeyword();
 
-   return Out;
+	if (Keyword == 'execute'){
+		if ()
+	}
+
+	return false;
 }

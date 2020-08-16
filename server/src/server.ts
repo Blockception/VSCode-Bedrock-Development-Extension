@@ -10,6 +10,8 @@ import { Process } from './process/Process';
 import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from './symbols/OnRequest';
 import { AddCommands } from './minecraft/Commands/initialize';
 import { OnCompletionRequest } from './completion/OnRequest';
+import { GetDocument2 } from './code/include';
+import { OnSignatureRequest } from './Signatures/OnRequest';
 
 console.log('starting minecraft server');
 
@@ -17,8 +19,8 @@ console.log('starting minecraft server');
 // Also include all preview / proposed LSP features.
 let connection = createConnection(ProposedFeatures.all);
 
-Manager.Documents.onDidOpen(x => Process(x.document));
-Manager.Documents.onDidSave(x => Process(x.document));
+Manager.Documents.onDidOpen(x => Process(GetDocument2(x.document)));
+Manager.Documents.onDidSave(x => Process(GetDocument2(x.document)));
 
 // This handler provides completion items.
 connection.onCompletion(OnCompletionRequest);
@@ -28,6 +30,8 @@ connection.onDocumentSymbol(OnDocumentSymbolRequest);
 
 // This handler provides workspace symbols
 connection.onWorkspaceSymbol(OnWorkspaceSymbolRequest);
+
+connection.onSignatureHelp(OnSignatureRequest);
 
 connection.onInitialized(() => {
 	console.log('Initialized minecraft server');
@@ -95,6 +99,9 @@ connection.onInitialize((params: InitializeParams) => {
 			workspaceSymbolProvider: true,
 			completionProvider:{
 				resolveProvider:false
+			},
+			signatureHelpProvider:{
+				triggerCharacters:[' ']
 			}
 		}
 	};

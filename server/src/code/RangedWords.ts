@@ -120,56 +120,6 @@ export class RangedWord {
         return out;
     }
 
-    //Converts the given text range into words
-    static GetWordsFromRange(text: string, endindex: number): RangedWord[] {
-        var out = new Array<RangedWord>();
-        var level = 0;
-        var startindex = 0;
-
-        for (var index = 0; index < endindex; index++) {
-            var c = text.charAt(index);
-
-            switch (c) {
-                case "[":
-                case "(":
-                case "{":
-                    level++;
-                    break;
-
-                case "]":
-                case ")":
-                case "}":
-                    level--;
-                    break;
-
-                case " ":
-                case "\t":
-                    if (level == 0) {
-                        if (startindex < index) {
-                            var RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
-                            out.push(RW);
-                        }
-
-                        startindex = index + 1;
-                    }
-
-                    break;
-                default:
-                    break;
-            }
-
-            if (level < 0)
-                break;
-        }
-
-        if (startindex < endindex) {
-            var RW = new RangedWord(text.substring(startindex, endindex), startindex, endindex);
-            out.push(RW);
-        }
-
-        return out;
-    }
-
     //Gets the word that surrounds cursor
     static GetWord(text: string, position: number): RangedWord {
         var StartIndex = position;
