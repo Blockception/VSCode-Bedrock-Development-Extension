@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.behaviour.1.12.0.recipe.brewing.container",
+    "description": "Represents a Potion Brewing Container Recipe..",
+    "title": "brewing recipe 1.12.0",
+    "additionalProperties": false,
+    "required": ["description"],
+    "type": "object",
+    "properties": {
+      "description": { "$ref": "./base types/definition.json" },  
+      "tags": { "$ref": "./base types/tags.json" },  
+      "input": {
+        "type": "string",
+        "description": "input potion used on the brewing stand.",
+        "title": "input"
+      },
+      "output": {
+        "type": "string",
+        "description": "output potion from mixing the input potion with the reagent on the brewing stand.",
+        "title": "output"
+      },
+      "reagent": {
+        "type": "string",
+        "description": "item used to mix with the input potion.",
+        "title": "reagent"
+      }
+    }
+  }
+  
