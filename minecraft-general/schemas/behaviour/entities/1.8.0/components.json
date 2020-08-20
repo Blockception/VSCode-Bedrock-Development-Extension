@@ -54,6 +54,7 @@
         "minecraft:healable": { "$ref": "components/minecraft.healable.json" },
         "minecraft:health": { "$ref": "components/minecraft.health.json" },
         "minecraft:hurt_when_wet": { "$ref": "components/minecraft.hurt_when_wet.json" },
+        "minecraft:hurt_on_condition": { "$ref": "components/minecraft.hurt_on_condition.json" },
         "minecraft:input_ground_controlled": { "$ref": "components/minecraft.input_ground_controlled.json" },
         "minecraft:insomnia": { "$ref": "components/minecraft.insomnia.json" },
         "minecraft:interact": { "$ref": "components/minecraft.interact.json" },

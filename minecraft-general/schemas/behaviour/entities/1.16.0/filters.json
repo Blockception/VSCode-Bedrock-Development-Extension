@@ -3,8 +3,8 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.filters",
   "title": "./filters 1.16.0",
   "definitions": {
-    "./filters_spec": {
-      "title": "./filters_spec 1.16.0",
+    "filters_spec": {
+      "title": "filters_spec 1.16.0",
       "type": "object",
       "propertyNames": {
         "enum": ["test", "operator", "value", "domain", "subject"]
