@@ -96,6 +96,7 @@
     "minecraft:on_target_escape": { "$ref": "../1.8.0/components/minecraft.on_target_escape.json" },
     "minecraft:on_wake_with_owner": { "$ref": "../1.8.0/components/minecraft.on_wake_with_owner.json" },
     "minecraft:peek": { "$ref": "../1.8.0/components/minecraft.peek.json" },
+    "minecraft:persistent": { "$ref": "../1.8.0/components/minecraft.persistent.json"},
     "minecraft:physics": { "$ref": "../1.8.0/components/minecraft.physics.json" },
     "minecraft:preferred_path": { "$ref": "../1.8.0/components/minecraft.preferred_path.json" },
     "minecraft:projectile": { "$ref": "./components/minecraft.projectile.json" },
