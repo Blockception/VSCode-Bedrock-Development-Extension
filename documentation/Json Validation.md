@@ -51,3 +51,4 @@ If a json validation is missing, then also post an issue. And one will be made i
 |Loot tables |loot_tables/*.json|
 |Recipes |recipes/*.json|
 |Spawn rules |spawn_rules/*.json|
+|Trading |trading/*.json|

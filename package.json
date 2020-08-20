@@ -148,7 +148,9 @@
       { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" },
       { "fileMatch": "spawn_rules/*.json", "url": "./minecraft-general/schemas/behaviour/spawn_rules/spawn_rules.json" },
       { "fileMatch": "items/*.json", "url": "./minecraft-general/schemas/behaviour/items/items.json" },
-      { "fileMatch": "recipes/*.json", "url": "./minecraft-general/schemas/behaviour/recipes/recipes.json" }
+      { "fileMatch": "recipes/*.json", "url": "./minecraft-general/schemas/behaviour/recipes/recipes.json" },
+      { "fileMatch": "trading/*.json", "url": "./minecraft-general/schemas/behaviour/trading/trading.json" },
+      { "fileMatch": "trading/*/*.json", "url": "./minecraft-general/schemas/behaviour/trading/trading.json" }
     ],
     "menus": {
       "commandPalette": [
