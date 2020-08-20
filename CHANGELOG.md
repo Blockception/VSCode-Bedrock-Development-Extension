@@ -1,4 +1,5 @@
 # Changelog 
+- Updated Changelog
 - Updated the information
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Merge pull request #3 from Blockception/dependabot/npm_and_yarn/elliptic-6.5.3
@@ -18,4 +19,3 @@
 - fixed Items
 - Fixed fake players regonsization
 - Updated to 0.2.19
-- Fixed

@@ -1,1 +1,30 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.explore_outskirts","type":"object","title":"Minecraft:behavior.explore_outskirts 1.8.0","description":"behaviour_base","additionalProperties":false,"required":[],"properties":{"priority":{"$ref":"types/base_priority.json"},"on_eat":{"$ref":"../types/trigger.json","description":"TODO description: on eat","title":"On Eat"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.explore_outskirts",
+  "type": "object",
+  "title": "Minecraft:behavior.explore_outskirts 1.8.0",
+  "description": "behaviour_base",
+  "additionalProperties": false,
+  "required": [],
+  "properties": {
+    "priority": { "ref": "types/base_priority.json" },
+    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "on_eat": {
+      "$ref": "../types/trigger.json",
+      "description": "TODO description: on eat",
+      "title": "On Eat"
+    },
+    "explore_dist": {
+      "type": "number",
+      "default": 5,
+      "description": "The distance in which the mob will proceed past the village bounds",
+      "title": "explore dist"
+    },
+    "wait_time": {
+      "type": "integer",
+      "default": 0,
+      "description": "The time the mob will stand around 'searching' for POIs",
+      "title": "wait time"
+    }
+  }
+}

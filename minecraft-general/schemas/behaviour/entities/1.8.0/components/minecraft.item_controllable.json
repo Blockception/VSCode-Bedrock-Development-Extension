@@ -1,1 +1,27 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.minecraft.item_controllable","description":"efines what items can be used to control this entity while ridden","type":"object","title":"Minecraft:item_controllable 1.8.0","additionalProperties":false,"required":[],"properties":{"control_items":{"type":"array","description":"List of items that can be used to control this entity","items":{"type":"string","description":"an item that can be used to control this entity","$ref":"../../../../general/items_identifiers.json"}}}}
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.item_controllable",
+    "description": "efines what items can be used to control this entity while ridden",
+    "type": "object",
+    "title": "Minecraft:item_controllable 1.8.0",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+        "control_items": {
+            "description": "List of items that can be used to control this entity",
+            "oneOf": [
+                { 
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "an item that can be used to control this entity",
+                        "title": "Item"
+                    }
+                },
+                {
+                    "type": "string"
+                }
+            ] 
+        }
+    }
+}
