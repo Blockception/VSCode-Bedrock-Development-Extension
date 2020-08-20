@@ -19,6 +19,7 @@
         "minecraft:attack": { "$ref": "components/minecraft.attack.json" },
         "minecraft:attack_damage": { "$ref": "components/minecraft.attack_damage.json" },
         "minecraft:balloonable": { "$ref": "components/minecraft.balloonable.json" },
+        "minecraft:boss": { "$ref": "components/minecraft.boss.json" },
         "minecraft:boostable": { "$ref": "components/minecraft.boostable.json" },
         "minecraft:break_blocks": { "$ref": "components/minecraft.break_blocks.json" },
         "minecraft:breathable": { "$ref": "components/minecraft.breathable.json" },

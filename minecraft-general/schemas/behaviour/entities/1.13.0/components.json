@@ -14,6 +14,7 @@
         "minecraft:annotation.break_door": { "$ref": "../1.8.0/components/minecraft.annotation.break_door.json" },
         "minecraft:annotation.open_door": { "$ref": "../1.8.0/components/minecraft.annotation.open_door.json" },
         "minecraft:boostable": { "$ref": "../1.8.0/components/minecraft.boostable.json" },
+        "minecraft:boss": { "$ref": "../1.8.0/components/minecraft.boss.json" },
         "minecraft:break_blocks": { "$ref": "../1.8.0/components/minecraft.break_blocks.json" },
         "minecraft:breathable": { "$ref": "../1.8.0/components/minecraft.breathable.json" },
         "minecraft:breedable": { "$ref": "./components/minecraft.breedable.json" },
