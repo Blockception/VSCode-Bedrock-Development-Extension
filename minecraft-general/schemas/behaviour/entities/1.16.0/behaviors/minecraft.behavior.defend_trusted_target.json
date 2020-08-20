@@ -46,6 +46,11 @@
       "type": "object",
       "description": "List of entity types that this mob considers valid targets",
       "title": "entity types"
+    },
+    "sound_chance": {
+      "title": "Sound chance",
+      "description": "UNDOCUMENTATED",
+      "type": "number"
     }
   }
 }

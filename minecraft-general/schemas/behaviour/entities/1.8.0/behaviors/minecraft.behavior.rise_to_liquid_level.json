@@ -7,6 +7,21 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" }
+    "priority": { "ref": "types/base_priority.json" },
+    "liquid_y_offset": {
+      "type": "number",
+      "title": "Liquid y offset",
+      "description": "UNDOCUMENTATED"
+    },
+    "rise_delta": {
+      "type": "number",
+      "title": "Rise delta",
+      "description": "UNDOCUMENTATED"
+    },
+    "sink_delta": {
+      "type": "number",
+      "title": "Sink delta",
+      "description": "UNDOCUMENTATED"
+    }
   }
 }

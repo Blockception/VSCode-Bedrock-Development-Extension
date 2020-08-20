@@ -28,6 +28,7 @@
                         "fire",
                         "fire_tick",
                         "fly_into_wall",
+                        "lightning",
                         "lava",
                         "magic",
                         "none",

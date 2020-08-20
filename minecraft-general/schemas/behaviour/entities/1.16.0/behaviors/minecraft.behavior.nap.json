@@ -31,6 +31,16 @@
       "default": 6,
       "description": "The block distance in y that will be checked for mobs that this mob detects",
       "title": "mob detect height"
+    },
+    "can_nap_filters": {
+      "$ref": "../filters.json",
+      "description": "UNDOCUMENTATED",
+      "title": "Can nap filters"
+    },
+    "wake_mob_exceptions": {
+      "$ref": "../filters.json",
+      "description": "UNDOCUMENTATED",
+      "title": "Wake mob exceptions"
     }
   }
 }

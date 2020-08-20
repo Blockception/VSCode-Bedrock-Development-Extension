@@ -26,8 +26,7 @@
       "title": "min radius"
     },
     "within_radius_event": {
-      "type": "string",
-      "default": "",
+      "$ref": "../types/event.json",
       "description": "Event to run when target is within the radius. This event is broadcasted if broadcast is true.",
       "title": "within radius event"
     }

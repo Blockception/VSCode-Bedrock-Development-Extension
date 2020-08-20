@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.move_to_block",
+  "type": "object",
+  "title": "Minecraft:behavior.move_to_block 1.8.0",
+  "additionalProperties": false,
+  "description": "UNDOCUMENTATED",
+  "required": [],
+  "properties": {
+    "priority": { "$ref": "types/base_priority.json" },
+
+    "tick_interval": {
+      "type": "number",
+      "title": "tick interval",
+      "description": "UNDOCUMENTATED"
+    },
+    "start_chance": {
+      "type": "number",
+      "title": "start chance",
+      "description": "UNDOCUMENTATED"
+    },
+    "search_range": {
+      "type": "number",
+      "title": "search range",
+      "description": "UNDOCUMENTATED"
+    },
+    "search_height": {
+      "type": "number",
+      "title": "search height",
+      "description": "UNDOCUMENTATED"
+    },
+    "goal_radius": {
+      "type": "number",
+      "title": "goal radius",
+      "description": "UNDOCUMENTATED"
+    },
+    "stay_duration": {
+      "type": "number",
+      "title": "stay duration",
+      "description": "UNDOCUMENTATED"
+    },
+    "target_selection_method": {
+      "type": "string",
+      "title": "target selection method",
+      "description": "UNDOCUMENTATED"
+    },
+    "target_offset":  {
+      "type": "array",
+      "title": "target offset",
+      "description": "UNDOCUMENTATED",
+      "items": [
+        { "type": "number"},
+        { "type": "number"},
+        { "type": "number"}
+      ]
+    },
+    "target_blocks":  {
+      "type": "array",
+      "title": "target blocks",
+      "description": "UNDOCUMENTATED",
+      "items": {
+        "type": "string"
+      }
+    },
+    "on_stay_completed": {
+      "type": "array",
+      "title": "on stay completed",
+      "description": "UNDOCUMENTATED",
+      "items": {
+        "$ref": "../types/event.json"
+      }
+    },
+    "on_reach": {
+      "type": "array",
+      "title": "on reach",
+      "description": "UNDOCUMENTATED",
+      "items": {
+        "$ref": "../types/event.json"
+      }
+    }
+  }
+}

@@ -6,13 +6,53 @@
   "description": "Allows the mob to check for and pursue the nearest valid target.",
   "additionalProperties": false,
   "required": [],
+  "definitions": {
+    "entity_type": {
+      "type": "object",
+      "description": "A entity type",
+      "properties": {
+        "filters": {
+          "$ref": "../filters.json",
+          "description": "Conditions that make this target a valid type.",
+          "title": "filters"
+        },
+        "max_dist": {
+          "type": "number",
+          "default": 16,
+          "description": "To be a valid target choice, the target type cannot be farther away from this entity than \"max_dist\".",
+          "title": "max dist"
+        },
+        "must_see": {
+          "type": "boolean",
+          "default": false,
+          "description": "Determines if target-validity requires this entity to be in range only, or both in range and in sight.",
+          "title": "must see"
+        },
+        "must_see_forget_duration": {
+          "type": "boolean",
+          "default": 3,
+          "description": "Time (in seconds) the target must not be seen by this entity to become invalid. Used only if \"must_see\" is true.",
+          "title": "must see forget duration"
+        }    
+      }
+    }
+  },
   "properties": {
     "priority": {
       "$ref": "types/base_priority.json"
     },
     "entity_types": {
-      "description": "List of entity types that this mob considers valid targets",
-      "$ref": "../types/entity_types.json"
+      "description": "Filters which types of targets are valid for this entity.",
+      "title": "Entity types",
+      "oneOf": [
+        { "$ref": "#/definitions/entity_type" },
+        { 
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/entity_type"
+          }
+        }
+      ]
     },
     "attack_interval": {
       "type": "integer",

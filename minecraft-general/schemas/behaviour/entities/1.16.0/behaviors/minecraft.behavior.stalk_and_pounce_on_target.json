@@ -61,6 +61,16 @@
       "default": 2,
       "description": "The amount of time the mob will be stuck if they fail and land on a block they can be stuck on",
       "title": "stuck time"
+    },
+    "leap_dist": {
+      "type": "number",
+      "description": "UNDOCUMENTATED",
+      "title": "Leap dist"
+    },
+    "stuck_blocks": {
+      "$ref": "../filters.json",
+      "description": "UNDOCUMENTATED",
+      "title": "Stuck block"
     }
   }
 }

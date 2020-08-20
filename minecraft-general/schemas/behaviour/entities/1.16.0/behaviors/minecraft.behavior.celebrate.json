@@ -20,7 +20,6 @@
       "title": "duration"
     },
     "jump_interval": {
-      "type": "array",
       "default": 0,
       "description": "The range of time in seconds to randomly wait before jumping again.",
       "title": "jump interval",
@@ -32,7 +31,15 @@
             { "type": "number", "title": "maximum" }
           ]
         },
-        { "type": "number" }
+        { "type": "number" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "range_min": { "type": "number" },
+            "range_max": { "type": "number" }
+          }
+        }
       ]
     },
     "on_celebration_end_event": {
@@ -41,7 +48,6 @@
       "title": "on celebration end event"
     },
     "sound_interval": {
-      "type": "array",
       "default": 0,
       "description": "The range of time in seconds to randomly wait before playing the sound again.",
       "title": "sound interval",
@@ -53,7 +59,15 @@
             { "type": "number", "title": "maximum" }
           ]
         },
-        { "type": "number" }
+        { "type": "number" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "range_min": { "type": "number" },
+            "range_max": { "type": "number" }
+          }
+        }
       ]
     }
   }

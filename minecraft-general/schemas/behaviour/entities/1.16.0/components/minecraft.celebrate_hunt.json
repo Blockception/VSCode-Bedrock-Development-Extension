@@ -12,7 +12,7 @@
       "description": "If true, celebration will be broadcasted to other entities in the radius.",
       "title": "broadcast"
     },
-    "celeberation_targets": {
+    "celebration_targets": {
       "$ref": "../filters.json",
       "description": "The list of conditions that target of hunt must satisfy to initiate celebration.",
       "title": "celeberation targets"
@@ -47,7 +47,23 @@
             { "type": "number", "title": "maximum" }
           ]
         },
-        { "type": "number" }
+        { "type": "number" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "range_min": {
+              "type": "number",
+              "title": "Update interval variant",
+              "description": "UNDOCUMENTATED"
+            },
+            "range_max": {
+              "type": "number",
+              "title": "Update interval variant",
+              "description": "UNDOCUMENTATED"
+            }
+          }
+        }
       ]
     }
   }

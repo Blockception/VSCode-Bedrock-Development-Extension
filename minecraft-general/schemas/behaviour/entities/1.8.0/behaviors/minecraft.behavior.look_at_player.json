@@ -32,7 +32,6 @@
       "type": "number",
       "default": 0.02,
       "minimum": 0,
-      "maximum": 1,
       "description": "The probability of looking at the target. A value of 1.00 is 100%",
       "title": "Probability"
     },
