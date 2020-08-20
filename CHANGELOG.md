@@ -1,4 +1,14 @@
 # Changelog 
+- Updated to 1.16.20
+- Updated particles to 1.16.20
+- Updated models to 1.16.20
+- Updated Items and Entity to 1.16.20
+- Added Trading json validation
+- Added recipe json validation
+- Added recipe validiation
+- Updated loot tables to 1.16.0
+- Updated items to 1.16.20
+- Updated behaviours to 1.16.20
 - Updated Changelog
 - Updated the information
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
@@ -9,13 +19,3 @@
 - Added colours to spawn eggs
 - Updated NPM modules
 - Minified
-- Updated
-- Updated Syntax items
-- Updated to 0.2.21
-- Updated
-- Updated Completion Item
-- Updated completion items
-- Updated to 0.2.20
-- fixed Items
-- Fixed fake players regonsization
-- Updated to 0.2.19
