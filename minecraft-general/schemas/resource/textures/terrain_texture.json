@@ -33,17 +33,17 @@
     "properties": {
         "num_mip_levels": {
             "type": "integer",
-            "title": "num_mip_levels", 
+            "title": "Num_mip_levels", 
             "description": "TODO: add description"
         },
         "padding": {
             "type": "integer",
-            "title": "padding", 
+            "title": "Padding", 
             "description": "TODO: add description"
         },
         "resource_pack_name": {
             "type": "string",
-            "title": "resource_pack_name", 
+            "title": "Resource_pack_name", 
             "description": "TODO: add description"
         },
         "texture_data": {
@@ -53,7 +53,7 @@
             },
             "additionalProperties": {
                 "type": "object",
-                "title": "texture_data", 
+                "title": "Texture_data", 
                 "description": "TODO: add description",
                 "properties": {
                     "textures": {

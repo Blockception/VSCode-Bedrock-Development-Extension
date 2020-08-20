@@ -31,37 +31,37 @@
 
     "cooldown_time": {
       "type": "number",
-      "title": "cooldown time",
+      "title": "Cooldown time",
       "description": "UNDOCUMENTATED"
     },
     "x_max_rotation": {
       "type": "number",
-      "title": "x max rotation",
+      "title": "X max rotation",
       "description": "UNDOCUMENTATED"
     },
     "y_max_head_rotation": {
       "type": "number",
-      "title": "y max head rotation",
+      "title": "Y max head rotation",
       "description": "UNDOCUMENTATED"
     },
     "max_distance": {
       "type": "number",
-      "title": "max distance",
+      "title": "Max distance",
       "description": "UNDOCUMENTATED"
     },
     "max_sneak_range": {
       "type": "number",
-      "title": "max sneak range",
+      "title": "Max sneak range",
       "description": "UNDOCUMENTATED"
     },
     "max_sprint_range": {
       "type": "number",
-      "title": "max sprint range",
+      "title": "Max sprint range",
       "description": "UNDOCUMENTATED"
     },
     "reach_multiplier": {
       "type": "number",
-      "title": "reach multiplier",
+      "title": "Reach multiplier",
       "description": "UNDOCUMENTATED"
     }
   }

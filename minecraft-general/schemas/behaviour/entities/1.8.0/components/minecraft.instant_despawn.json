@@ -10,7 +10,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, all entities linked to this entity in a child relationship (eg. leashed) will also be despawned.",
-      "title": "remove child entities"
+      "title": "Remove child entities"
     }
   }
 }

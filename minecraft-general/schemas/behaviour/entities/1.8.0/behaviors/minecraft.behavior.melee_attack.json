@@ -15,7 +15,7 @@
     },
     "cooldown_time": {
       "type": "number",
-      "title": "cooldown time",
+      "title": "Cooldown time",
       "description": "UNDOCUMENTATED"
     },
     "melee_fov": {

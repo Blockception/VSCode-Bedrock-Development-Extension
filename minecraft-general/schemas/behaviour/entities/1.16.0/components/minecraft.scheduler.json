@@ -22,7 +22,7 @@
         "scheduled_events": {
             "type": "array",
             "description": "The list of triggers that fire when the conditions match the given filter criteria. If any filter criteria overlap the first defined event will be picked.",
-            "title": "scheduled events",
+            "title": "Scheduled events",
             "items": {
                 "additionalProperties": false,
                 "type": "object",

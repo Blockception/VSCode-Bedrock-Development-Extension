@@ -11,25 +11,25 @@
       "type": "string",
       "default": "",
       "description": "Sound to occasionally play while defending.",
-      "title": "aggro sound"
+      "title": "Aggro sound"
     },
     "attack_interval": {
       "type": "integer",
       "default": 0,
       "description": "Time in seconds between attacks",
-      "title": "attack interval"
+      "title": "Attack interval"
     },
     "must_see": {
       "type": "boolean",
       "default": false,
       "description": "If true, only entities in this mob's viewing range can be selected as targets",
-      "title": "must see"
+      "title": "Must see"
     },
     "must_see_forget_duration": {
       "type": "number",
       "default": 3,
       "description": "Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more",
-      "title": "must see forget duration"
+      "title": "Must see forget duration"
     },
     "on_defend_start": {
       "$ref": "../types/event.json",
@@ -40,12 +40,12 @@
       "type": "number",
       "default": 0,
       "description": "Distance in blocks that the target can be within to launch an attack",
-      "title": "within radius"
+      "title": "Within radius"
     },
     "entity_types": {
       "type": "object",
       "description": "List of entity types that this mob considers valid targets",
-      "title": "entity types"
+      "title": "Entity types"
     },
     "sound_chance": {
       "title": "Sound chance",

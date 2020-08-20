@@ -17,12 +17,12 @@
           "type": "string",
           "default": "",
           "description": "List of special names that will cause the events defined in 'on_named' to fire",
-          "title": "name filter"
+          "title": "Name filter"
         },
         "on_named": {
           "$ref": "../types/event.json",
           "description": "Event to be called when this entity acquires the name specified in 'name_filter'",
-          "title": "on named"
+          "title": "On named"
         }
       }
     }
@@ -32,18 +32,18 @@
       "type": "boolean",
       "default": true,
       "description": "If true, this entity can be renamed with name tags",
-      "title": "allow name tag renaming"
+      "title": "Allow name tag renaming"
     },
     "always_show": {
       "type": "boolean",
       "default": false,
       "description": "If true, the name will always be shown",
-      "title": "always show"
+      "title": "Always show"
     },
     "default_trigger": {
       "$ref": "../types/trigger.json",
       "description": "Trigger to run when the entity gets named",
-      "title": "default trigger"
+      "title": "Default trigger"
     },
     "name_actions": {
       "oneOf": [

@@ -9,12 +9,12 @@
     "sensor_radius": {
       "type": "integer",
       "description": "TODO",
-      "title": "sensor_radius",
+      "title": "Sensor_radius",
       "minimum": 0
     },
     "on_break": {
       "type": "array",
-      "title": "on break",
+      "title": "On break",
       "items": {
         "type": "object",
         "title": "On block broken",

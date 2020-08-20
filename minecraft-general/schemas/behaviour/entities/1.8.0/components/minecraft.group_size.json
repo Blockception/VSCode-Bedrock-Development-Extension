@@ -9,13 +9,13 @@
     "filters": {
       "$ref": "../filters.json",
       "description": "The list of conditions that must be satisfied for other entities to be counted towards group size.",
-      "title": "filters"
+      "title": "Filters"
     },
     "radius": {
       "type": "number",
       "default": 16,
       "description": "Radius from center of entity.",
-      "title": "radius"
+      "title": "Radius"
     }
   }
 }

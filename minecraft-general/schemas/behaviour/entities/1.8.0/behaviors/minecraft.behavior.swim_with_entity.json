@@ -12,42 +12,42 @@
 
     "success_rate": {
       "type": "number",
-      "title": "success rate",
+      "title": "Success rate",
       "description": "UNDOCUMENTATED"
     },
     "chance_to_stop":{
       "type": "number",
-      "title": "chance to stop",
+      "title": "Chance to stop",
       "description": "UNDOCUMENTATED"
     },
     "state_check_interval": {
       "type": "number",
-      "title": "state check interval",
+      "title": "State check interval",
       "description": "UNDOCUMENTATED"
     },
     "catch_up_threshold": {
       "type": "number",
-      "title": "catch up threshold",
+      "title": "Catch up threshold",
       "description": "UNDOCUMENTATED"
     },
     "match_direction_threshold": {
       "type": "number",
-      "title": "match direction threshold",
+      "title": "Match direction threshold",
       "description": "UNDOCUMENTATED"
     },
     "catch_up_multiplier": {
       "type": "number",
-      "title": "catch up multiplier",
+      "title": "Catch up multiplier",
       "description": "UNDOCUMENTATED"
     },
     "search_range": {
       "type": "number",
-      "title": "search range",
+      "title": "Search range",
       "description": "UNDOCUMENTATED"
     },
     "stop_distance": {
       "type": "number",
-      "title": "stop distance",
+      "title": "Stop distance",
       "description": "UNDOCUMENTATED"
     },
     "entity_types": {

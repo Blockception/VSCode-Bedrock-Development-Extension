@@ -11,42 +11,42 @@
 
     "tick_interval": {
       "type": "number",
-      "title": "tick interval",
+      "title": "Tick interval",
       "description": "UNDOCUMENTATED"
     },
     "start_chance": {
       "type": "number",
-      "title": "start chance",
+      "title": "Start chance",
       "description": "UNDOCUMENTATED"
     },
     "search_range": {
       "type": "number",
-      "title": "search range",
+      "title": "Search range",
       "description": "UNDOCUMENTATED"
     },
     "search_height": {
       "type": "number",
-      "title": "search height",
+      "title": "Search height",
       "description": "UNDOCUMENTATED"
     },
     "goal_radius": {
       "type": "number",
-      "title": "goal radius",
+      "title": "Goal radius",
       "description": "UNDOCUMENTATED"
     },
     "stay_duration": {
       "type": "number",
-      "title": "stay duration",
+      "title": "Stay duration",
       "description": "UNDOCUMENTATED"
     },
     "target_selection_method": {
       "type": "string",
-      "title": "target selection method",
+      "title": "Target selection method",
       "description": "UNDOCUMENTATED"
     },
     "target_offset":  {
       "type": "array",
-      "title": "target offset",
+      "title": "Target offset",
       "description": "UNDOCUMENTATED",
       "items": [
         { "type": "number"},
@@ -56,7 +56,7 @@
     },
     "target_blocks":  {
       "type": "array",
-      "title": "target blocks",
+      "title": "Target blocks",
       "description": "UNDOCUMENTATED",
       "items": {
         "type": "string"
@@ -64,7 +64,7 @@
     },
     "on_stay_completed": {
       "type": "array",
-      "title": "on stay completed",
+      "title": "On stay completed",
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
@@ -72,7 +72,7 @@
     },
     "on_reach": {
       "type": "array",
-      "title": "on reach",
+      "title": "On reach",
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"

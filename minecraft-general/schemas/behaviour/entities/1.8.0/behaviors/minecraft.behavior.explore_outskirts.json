@@ -18,13 +18,13 @@
       "type": "number",
       "default": 5,
       "description": "The distance in which the mob will proceed past the village bounds",
-      "title": "explore dist"
+      "title": "Explore dist"
     },
     "wait_time": {
       "type": "integer",
       "default": 0,
       "description": "The time the mob will stand around 'searching' for POIs",
-      "title": "wait time"
+      "title": "Wait time"
     }
   }
 }

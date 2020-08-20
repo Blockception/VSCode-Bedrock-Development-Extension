@@ -10,31 +10,31 @@
       "type": "integer",
       "default": -1,
       "description": "The maximum number of entities that must pass the filter conditions for the event to send.",
-      "title": "maximum count"
+      "title": "Maximum count"
     },
     "minimum_count": {
       "type": "integer",
       "default": 1,
       "description": "The minimum number of entities that must pass the filter conditions for the event to send.",
-      "title": "minimum count"
+      "title": "Minimum count"
     },
     "relative_range": {
       "type": "boolean",
       "default": true,
       "description": "If true the sensor range is additive on top of the entity's size.",
-      "title": "relative range"
+      "title": "Relative range"
     },
     "require_all": {
       "type": "boolean",
       "default": false,
       "description": "If true requires all nearby entities to pass the filter conditions for the event to send.",
-      "title": "require all"
+      "title": "Require all"
     },
     "sensor_range": {
       "type": "number",
       "default": 10,
       "description": "The maximum distance another entity can be from this and have the filters checked against it.",
-      "title": "sensor range"
+      "title": "Sensor range"
     },
     "event_filters": {
       "$ref": "../filters.json"

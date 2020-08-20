@@ -18,7 +18,7 @@
       "description": "Blocks that the mob is looking for to eat",
       "items": {
         "type": "string",
-        "title": "block id",
+        "title": "Block id",
         "description": "A block identifier",
         "pattern": "[0-9:a-z_]+"
       }
@@ -37,7 +37,7 @@
       "type": "integer",
       "default": 0,
       "description": "Time in seconds before starting to eat/raid once it arrives at it",
-      "title": "initial eat delay"
+      "title": "Initial eat delay"
     },
     "goal_radius": {
       "type": "number",

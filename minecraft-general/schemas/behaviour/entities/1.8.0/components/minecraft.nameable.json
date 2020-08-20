@@ -39,13 +39,13 @@
       "type": "boolean",
       "default": true,
       "description": "If true, this entity can be renamed with name tags",
-      "title": "allow name tag renaming"
+      "title": "Allow name tag renaming"
     },
     "always_show": {
       "type": "boolean",
       "default": false,
       "description": "If true, the name will always be shown",
-      "title": "always show"
+      "title": "Always show"
     }
   }
 }

@@ -28,19 +28,19 @@
       "type": "string",
       "default": "",
       "description": "Loot table to select dropped items from.",
-      "title": "loot table"
+      "title": "Loot table"
     },
     "prepare_sound": {
       "type": "string",
       "default": "",
       "description": "Sound to play when the sneeze is about to happen.",
-      "title": "prepare sound"
+      "title": "Prepare sound"
     },
     "prepare_time": {
       "type": "number",
       "default": 1,
       "description": "The time in seconds that the mob takes to prepare to sneeze (while the prepare_sound is playing).",
-      "title": "prepare time"
+      "title": "Prepare time"
     },
     "probability": {
       "type": "number",
@@ -48,19 +48,19 @@
       "minimum": 0,
       "maximum": 1,
       "description": "The probability of sneezing. A value of 1.00 is 100%",
-      "title": "probability"
+      "title": "Probability"
     },
     "sound": {
       "type": "string",
       "default": "",
       "description": "Sound to play when the sneeze occurs.",
-      "title": "sound"
+      "title": "Sound"
     },
     "within_radius": {
       "type": "number",
       "default": 0,
       "description": "Distance in blocks that mobs will be startled.",
-      "title": "within radius"
+      "title": "Within radius"
     }
   }
 }

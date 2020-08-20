@@ -11,13 +11,13 @@
       "type": "integer",
       "default": 5,
       "description": "The maximum strength of this entity",
-      "title": "max"
+      "title": "Max"
     },
     "value": {
       "type": "integer",
       "default": 1,
       "description": "The initial value of the strength",
-      "title": "value"
+      "title": "Value"
     }
   }
 }

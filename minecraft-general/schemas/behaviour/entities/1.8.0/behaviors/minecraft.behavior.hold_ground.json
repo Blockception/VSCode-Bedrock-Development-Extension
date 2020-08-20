@@ -11,24 +11,24 @@
       "type": "boolean",
       "default": false,
       "description": "Whether to broadcast out the mob's target to other mobs of the same type.",
-      "title": "broadcast"
+      "title": "Broadcast"
     },
     "broadcast_range": {
       "type": "number",
       "default": 0.0,
       "description": "Range in blocks for how far to broadcast.",
-      "title": "broadcast range"
+      "title": "Broadcast range"
     },
     "min_radius": {
       "type": "number",
       "default": 10.0,
       "description": "Minimum distance the target must be for the mob to run this goal.",
-      "title": "min radius"
+      "title": "Min radius"
     },
     "within_radius_event": {
       "$ref": "../types/event.json",
       "description": "Event to run when target is within the radius. This event is broadcasted if broadcast is true.",
-      "title": "within radius event"
+      "title": "Within radius event"
     }
   }
 }

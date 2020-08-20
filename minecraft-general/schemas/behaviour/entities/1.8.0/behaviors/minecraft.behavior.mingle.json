@@ -13,24 +13,24 @@
       "type": "number",
       "default": 0,
       "description": "Time in seconds the mob has to wait before using the goal again",
-      "title": "cooldown time"
+      "title": "Cooldown time"
     },
     "duration": {
       "type": "number",
       "default": 1,
       "description": "Amount of time in seconds that the entity will chat with another entity",
-      "title": "duration"
+      "title": "Duration"
     },
     "mingle_distance": {
       "type": "number",
       "default": 2.0,
       "description": "The distance from its partner that this entity will mingle. If the entity type is not the same as the entity, this value needs to be identical on both entities.",
-      "title": "mingle distance"
+      "title": "Mingle distance"
     },
 
     "mingle_partner_type": {
       "description": "The entity type that this entity is allowed to mingle with",
-      "title": "mingle partner type",
+      "title": "Mingle partner type",
       "oneOf": [
         {
           "type": "array",

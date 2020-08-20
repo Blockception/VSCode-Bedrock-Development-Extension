@@ -14,12 +14,12 @@
       "description": "List of entity types this mob considers a threat to the village"
     },
     "must_reach": {
-      "title": "must reach",
+      "title": "Must reach",
       "description": "UNDOCUMENTATED",
       "type": "boolean"
     },
     "attack_chance": {
-      "title": "attack chance",
+      "title": "Attack chance",
       "description": "UNDOCUMENTATED",
       "type": "number"
     }

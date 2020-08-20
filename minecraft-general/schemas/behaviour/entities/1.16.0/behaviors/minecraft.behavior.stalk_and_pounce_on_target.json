@@ -12,55 +12,55 @@
       "type": "number",
       "default": 2,
       "description": "The amount of time the mob will be interested before pouncing. This happens when the mob is within range of pouncing",
-      "title": "interest time"
+      "title": "Interest time"
     },
     "leap_distance": {
       "type": "number",
       "default": 0.8,
       "description": "The distance in blocks the mob jumps in the direction of its target",
-      "title": "leap distance"
+      "title": "Leap distance"
     },
     "leap_height": {
       "type": "number",
       "default": 0.9,
       "description": "The height in blocks the mob jumps when leaping at its target",
-      "title": "leap height"
+      "title": "Leap height"
     },
     "max_stalk_dist": {
       "type": "number",
       "default": 10,
       "description": "The maximum distance away a target can be before the mob gives up on stalking",
-      "title": "max stalk dist"
+      "title": "Max stalk dist"
     },
     "pounce_max_dist": {
       "type": "number",
       "default": 5,
       "description": "The maximum distance away from the target in blocks to begin pouncing at the target",
-      "title": "pounce max dist"
+      "title": "Pounce max dist"
     },
     "set_persistent": {
       "type": "boolean",
       "default": false,
       "description": "Allows the actor to be set to persist upon targeting a player",
-      "title": "set persistent"
+      "title": "Set persistent"
     },
     "stalk_speed": {
       "type": "number",
       "default": 1.2,
       "description": "The movement speed in which you stalk your target",
-      "title": "stalk speed"
+      "title": "Stalk speed"
     },
     "strike_dist": {
       "type": "number",
       "default": 2,
       "description": "The max distance away from the target when landing from the pounce that will still result in damaging the target",
-      "title": "strike dist"
+      "title": "Strike dist"
     },
     "stuck_time": {
       "type": "number",
       "default": 2,
       "description": "The amount of time the mob will be stuck if they fail and land on a block they can be stuck on",
-      "title": "stuck time"
+      "title": "Stuck time"
     },
     "leap_dist": {
       "type": "number",

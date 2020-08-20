@@ -11,7 +11,7 @@
       "type": "string",
       "default": "",
       "description": "The sound event to play when admiring the item",
-      "title": "admire item sound"
+      "title": "Admire item sound"
     },
     "on_admire_item_start": {
       "$ref": "../types/event.json",
@@ -26,13 +26,13 @@
     "sound_interval": {
       "default": 0,
       "description": "The range of time in seconds to randomly wait before playing the sound again.",
-      "title": "sound interval",
+      "title": "Sound interval",
       "oneOf": [
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "maximum" },
-            { "type": "number", "title": "maximum" }
+            { "type": "number", "title": "Maximum" },
+            { "type": "number", "title": "Maximum" }
           ]
         },
         { "type": "number" },

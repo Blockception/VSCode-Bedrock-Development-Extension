@@ -66,7 +66,7 @@
                   "type": "array",
                   "title": "Gives",
                   "items": {
-                    "title": "give",
+                    "title": "Give",
                     "oneOf": [
                       { "type": "string" },
                       {

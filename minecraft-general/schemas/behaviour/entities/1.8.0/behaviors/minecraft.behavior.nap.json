@@ -12,25 +12,25 @@
       "type": "number",
       "default": 0,
       "description": "Maximum time in seconds the mob has to wait before using the goal again",
-      "title": "cooldown max"
+      "title": "Cooldown max"
     },
     "cooldown_min": {
       "type": "number",
       "default": 0,
       "description": "Minimum time in seconds the mob has to wait before using the goal again",
-      "title": "cooldown min"
+      "title": "Cooldown min"
     },
     "mob_detect_dist": {
       "type": "number",
       "default": 6,
       "description": "The block distance in x and z that will be checked for mobs that this mob detects",
-      "title": "mob detect dist"
+      "title": "Mob detect dist"
     },
     "mob_detect_height": {
       "type": "number",
       "default": 6,
       "description": "The block distance in y that will be checked for mobs that this mob detects",
-      "title": "mob detect height"
+      "title": "Mob detect height"
     }
   }
 }

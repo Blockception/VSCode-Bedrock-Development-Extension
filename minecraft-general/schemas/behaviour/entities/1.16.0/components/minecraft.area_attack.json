@@ -10,13 +10,13 @@
       "type": "integer",
       "default": 2,
       "description": "How much damage per tick is applied to entities that enter the damage range.",
-      "title": "damage per tick"
+      "title": "Damage per tick"
     },
     "damage_range": {
       "type": "number",
       "default": 0.2,
       "description": "How close a hostile entity must be to have the damage applied.",
-      "title": "damage range"
+      "title": "Damage range"
     },
     "entity_filter": {
       "$ref": "../filters.json",      

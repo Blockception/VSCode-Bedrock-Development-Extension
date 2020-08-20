@@ -10,41 +10,41 @@
       "type": "boolean",
       "default": true,
       "description": "If true, celebration will be broadcasted to other entities in the radius.",
-      "title": "broadcast"
+      "title": "Broadcast"
     },
     "celebration_targets": {
       "$ref": "../filters.json",
       "description": "The list of conditions that target of hunt must satisfy to initiate celebration.",
-      "title": "celeberation targets"
+      "title": "Celeberation targets"
     },
     "celebrate_sound": {
       "type": "string",
       "default": "",
       "description": "The sound event to play when the mob is celebrating",
-      "title": "celebrate sound"
+      "title": "Celebrate sound"
     },
     "duration": {
       "type": "integer",
       "default": 4,
       "description": "Duration, in seconds, of celebration",
-      "title": "duration"
+      "title": "Duration"
     },
     "radius": {
       "type": "number",
       "default": 16,
       "description": "If broadcast is enabled, specifies the radius in which it will notify other entities for celebration.",
-      "title": "radius"
+      "title": "Radius"
     },
     "sound_interval": {
       "default": 0,
       "description": "The range of time in seconds to randomly wait before playing the sound again",
-      "title": "sound interval",
+      "title": "Sound interval",
       "oneOf": [
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "maximum" },
-            { "type": "number", "title": "maximum" }
+            { "type": "number", "title": "Maximum" },
+            { "type": "number", "title": "Maximum" }
           ]
         },
         { "type": "number" },

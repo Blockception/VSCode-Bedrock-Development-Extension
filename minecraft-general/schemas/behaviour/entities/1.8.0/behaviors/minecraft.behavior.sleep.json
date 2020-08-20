@@ -17,7 +17,7 @@
       "type": "number",
       "default": 0,
       "description": "Time in seconds the mob has to wait before using the goal again",
-      "title": "cooldown time"
+      "title": "Cooldown time"
     },
     "goal_radius": {
         "type": "number",
@@ -29,25 +29,25 @@
       "type": "number",
       "default": 1,
       "description": "The height of the mob's collider while sleeping",
-      "title": "sleep collider height"
+      "title": "Sleep collider height"
     },
     "sleep_collider_width": {
       "type": "number",
       "default": 1,
       "description": "The width of the mob's collider while sleeping",
-      "title": "sleep collider width"
+      "title": "Sleep collider width"
     },
     "sleep_y_offset": {
       "type": "number",
       "default": 1,
       "description": "The y offset of the mob's collider while sleeping",
-      "title": "sleep y offset"
+      "title": "Sleep y offset"
     },
     "timeout_cooldown": {
       "type": "number",
       "default": 8,
       "description": "The cooldown time in seconds before the goal can be reused after a internal failure or timeout condition",
-      "title": "timeout cooldown"
+      "title": "Timeout cooldown"
     }
   }
 }

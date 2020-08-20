@@ -95,7 +95,7 @@
                     "want_amount": {
                         "type": "integer",
                         "description": "Number of this item this entity wants to have.",
-                        "title": "want_amount"
+                        "title": "Want_amount"
                     }
                 }
             }

@@ -10,19 +10,19 @@
       "type": "number",
       "default": 0.2,
       "description": "How close a hostile entity must be to have the mob effect applied.",
-      "title": "effect range"
+      "title": "Effect range"
     },
     "effect_time": {
       "type": "integer",
       "default": 10,
       "description": "How long the applied mob effect lasts in seconds.",
-      "title": "effect time"
+      "title": "Effect time"
     },
     "mob_effect": {
       "type": "string",
       "default": "",
       "description": "The mob effect that is applied to entities that enter this entities effect range.",
-      "title": "mob effect"
+      "title": "Mob effect"
     },
     "entity_filter": {
       "$ref": "../filters.json",

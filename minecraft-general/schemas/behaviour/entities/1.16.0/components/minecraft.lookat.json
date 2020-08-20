@@ -11,7 +11,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, invulnerable entities (e.g. Players in creative mode) are considered valid targets.",
-      "title": "allow invulnerable"
+      "title": "Allow invulnerable"
     },
     "filters": {
       "$ref": "../filters.json",
@@ -45,13 +45,13 @@
       "type": "number",
       "default": 10,
       "description": "Maximum distance this entity will look for another entity looking at it.",
-      "title": "search radius"
+      "title": "Search radius"
     },
     "set_target": {
       "type": "boolean",
       "default": true,
       "description": "If true, this entity will set the attack target as the entity that looked at it.",
-      "title": "set target"
+      "title": "Set target"
     }
   }
 }

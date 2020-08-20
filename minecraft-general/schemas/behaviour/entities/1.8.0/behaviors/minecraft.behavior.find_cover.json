@@ -12,7 +12,7 @@
       "type": "number",
       "default": 0,
       "description": "Time in seconds the mob has to wait before using the goal again",
-      "title": "cooldown time"
+      "title": "Cooldown time"
     }
   }
 }

@@ -11,25 +11,25 @@
       "type": "string",
       "default": "",
       "description": "The sound to occasionally play.",
-      "title": "celebration sound"
+      "title": "Celebration sound"
     },
     "duration": {
       "type": "number",
       "default": 1,
       "description": "The duration of the celebration (in seconds).",
-      "title": "duration"
+      "title": "Duration"
     },
     "jump_interval": {
       "type": "array",
       "default": 0,
       "description": "The range of time in seconds to randomly wait before jumping again.",
-      "title": "jump interval",
+      "title": "Jump interval",
       "oneOf": [
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "maximum" },
-            { "type": "number", "title": "maximum" }
+            { "type": "number", "title": "Maximum" },
+            { "type": "number", "title": "Maximum" }
           ]
         },
         { "type": "number" }
@@ -38,19 +38,19 @@
     "on_celebration_end_event": {
       "$ref": "../types/trigger.json",
       "description": "The event to trigger when the goal's duration expires.",
-      "title": "on celebration end event"
+      "title": "On celebration end event"
     },
     "sound_interval": {
       "type": "array",
       "default": 0,
       "description": "The range of time in seconds to randomly wait before playing the sound again.",
-      "title": "sound interval",
+      "title": "Sound interval",
       "oneOf": [
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "maximum" },
-            { "type": "number", "title": "maximum" }
+            { "type": "number", "title": "Maximum" },
+            { "type": "number", "title": "Maximum" }
           ]
         },
         { "type": "number" }
