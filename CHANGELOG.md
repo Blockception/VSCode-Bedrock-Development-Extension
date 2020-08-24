@@ -1,4 +1,5 @@
 # Changelog 
+- Fxied trading tables
 - Updated
 - Updated to 0.2.26
 - Updated titles
@@ -18,4 +19,3 @@
 - Updated Items and Entity to 1.16.20
 - Added Trading json validation
 - Added recipe json validation
-- Added recipe validiation
