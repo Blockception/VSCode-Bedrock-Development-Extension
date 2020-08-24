@@ -15,11 +15,10 @@
         "type": "object",
         "required": ["rolls"],
         "properties": {
-          "conditions": {},
           "rolls": {
             "title": "Rolls",
             "oneOf": [
-              { "type": "integer", "minimum": 1 },
+              { "type": "integer", "minimum": 0 },
               {
                 "type": "object",
                 "required": ["min", "max"],
@@ -27,7 +26,7 @@
                   "min": {
                     "title": "Minimum",
                     "type": "number",
-                    "minimum": 1
+                    "minimum": 0
                   },
                   "max": {
                     "title": "Minimum",
@@ -41,6 +40,49 @@
           "type": {
             "title": "Type",
             "type": "string"
+          },
+          "conditions": {
+            "title": "Conditions",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "title": "Condition",
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "entity_properties" } } },
+                  "then": { "$ref": "./conditions/entity_properties.json" }
+                },
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "has_mark_variant" } } },
+                  "then": { "$ref": "./conditions/has_mark_variant.json" }
+                },
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "killed_by_player" } } },
+                  "then": { "$ref": "./conditions/killed_by_player.json" }
+                },
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "killed_by_player_or_pets" } } },
+                  "then": { "$ref": "./conditions/killed_by_player_or_pets.json" }
+                },
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "random_chance" } } },
+                  "then": { "$ref": "./conditions/random_chance.json" }
+                },
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "random_chance_with_looting" } } },
+                  "then": { "$ref": "./conditions/random_chance_with_looting.json" }
+                },
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "random_difficulty_chance" } } },
+                  "then": { "$ref": "./conditions/random_difficulty_chance.json" }
+                },
+                {
+                  "if": { "properties": { "condition": { "type": "string", "const": "random_regional_difficulty_chance" } } },
+                  "then": { "$ref": "./conditions/random_regional_difficulty_chance.json" }
+                }
+              ]
+            }
           },
           "entries": {
             "title": "Entries",
@@ -171,6 +213,10 @@
           }
         }
       }
+    },
+    "type": {
+      "title": "Type",
+      "type": "string"
     }
   }
 }

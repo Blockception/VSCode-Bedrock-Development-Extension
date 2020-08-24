@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.condition.killed_by_player_or_pets",
+  "additionalProperties": false,
+  "description": "Returns the condition true if the actor of the loot table is killed by player or entities that has owner.",
+  "title": "killed_by_player_or_pets_or_pets",
+  "properties": {
+  }
+}

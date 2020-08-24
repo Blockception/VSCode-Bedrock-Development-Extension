@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.condition.random_regional_difficulty_chance",
+  "additionalProperties": false,
+  "description": "Sets a max regional difficulty random chance of the specified value.",
+  "title": "random_regional_difficulty_chance",
+  "properties": {
+    "default_chance": {
+      "type": "number",
+      "default": 0,
+      "description": "The default random chance if the level difficulty is not assigned.",
+      "title": "default chance"
+    },
+    "easy": {
+      "type": "number",
+      "default": 0,
+      "description": "The default random chance if the level difficulty is in easy. Omitting this field will set the value to \"default_chance\" field.",
+      "title": "easy"
+    },
+    "hard": {
+      "type": "number",
+      "default": 0,
+      "description": "The default random chance if the level difficulty is in hard. Omitting this field will set the value to \"default_chance\" field.",
+      "title": "hard"
+    },
+    "normal": {
+      "type": "number",
+      "default": 0,
+      "description": "The default random chance if the level difficulty is in normal. Omitting this field will set the value to \"default_chance\" field.",
+      "title": "normal"
+    },
+    "peaceful": {
+      "type": "number",
+      "default": 0,
+      "description": "The default random chance if the level difficulty is in peaceful. Omitting this field will set the value to \"default_chance\" field.",
+      "title": "peaceful"
+    }
+  }
+}
