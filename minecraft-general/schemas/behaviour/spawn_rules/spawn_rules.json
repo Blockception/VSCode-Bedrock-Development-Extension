@@ -13,7 +13,7 @@
         }
       },
       "then": {
-        "$ref": "../1.8.0/spawn_rules.json"
+        "$ref": "./1.8.0/spawn_rules.json"
       }
     }
   ]
