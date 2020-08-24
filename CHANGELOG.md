@@ -1,4 +1,7 @@
 # Changelog 
+- Updated LootTables
+- Updated
+- Updated to 0.2.27
 - Fxied trading tables
 - Updated
 - Updated to 0.2.26
@@ -16,6 +19,3 @@
 - Updated to 1.16.20
 - Updated particles to 1.16.20
 - Updated models to 1.16.20
-- Updated Items and Entity to 1.16.20
-- Added Trading json validation
-- Added recipe json validation
