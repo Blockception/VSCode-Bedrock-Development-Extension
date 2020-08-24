@@ -1,4 +1,7 @@
 # Changelog 
+- Updated
+- Updated to 0.2.26
+- Updated titles
 - Last updated
 - Fixed
 - Added missing
@@ -16,6 +19,3 @@
 - Added Trading json validation
 - Added recipe json validation
 - Added recipe validiation
-- Updated loot tables to 1.16.0
-- Updated items to 1.16.20
-- Updated behaviours to 1.16.20
