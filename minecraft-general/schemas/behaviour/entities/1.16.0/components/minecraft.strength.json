@@ -11,7 +11,7 @@
       "type": "integer",
       "default": 5,
       "description": "The maximum strength of this entity",
-      "title": "Max"
+      "title": "Maximum"
     },
     "value": {
       "type": "integer",

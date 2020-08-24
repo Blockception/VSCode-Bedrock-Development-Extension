@@ -86,80 +86,80 @@
                         "required": ["function"],
                         "allOf": [
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "enchant_random_gear" } } },
-                            "Then": { "$ref": "../loot_tables/functions/enchant_random_gear.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "enchant_random_gear" } } },
+                            "then": { "$ref": "../loot_tables/functions/enchant_random_gear.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "enchant_randomly" } } },
-                            "Then": { "$ref": "../loot_tables/functions/enchant_randomly.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "enchant_randomly" } } },
+                            "then": { "$ref": "../loot_tables/functions/enchant_randomly.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "enchant_with_levels" } } },
-                            "Then": { "$ref": "../loot_tables/functions/enchant_with_levels.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "enchant_with_levels" } } },
+                            "then": { "$ref": "../loot_tables/functions/enchant_with_levels.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "exploration_map" } } },
-                            "Then": { "$ref": "../loot_tables/functions/exploration_map.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "exploration_map" } } },
+                            "then": { "$ref": "../loot_tables/functions/exploration_map.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "fill_container" } } },
-                            "Then": { "$ref": "../loot_tables/functions/fill_container.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "fill_container" } } },
+                            "then": { "$ref": "../loot_tables/functions/fill_container.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "furnace_smelt" } } },
-                            "Then": { "$ref": "../loot_tables/functions/furnace_smelt.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "furnace_smelt" } } },
+                            "then": { "$ref": "../loot_tables/functions/furnace_smelt.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "looting_enchant" } } },
-                            "Then": { "$ref": "../loot_tables/functions/furnace_smeltlooting_enchant.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "looting_enchant" } } },
+                            "then": { "$ref": "../loot_tables/functions/furnace_smeltlooting_enchant.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "random_aux_value" } } },
-                            "Then": { "$ref": "../loot_tables/functions/looting_enchantrandom_aux_value.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "random_aux_value" } } },
+                            "then": { "$ref": "../loot_tables/functions/looting_enchantrandom_aux_value.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "random_block_state" } } },
-                            "Then": { "$ref": "../loot_tables/functions/random_block_state.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "random_block_state" } } },
+                            "then": { "$ref": "../loot_tables/functions/random_block_state.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_actor_id" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_actor_id.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_actor_id" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_actor_id.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_banner_details" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_banner_details.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_banner_details" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_banner_details.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_book_contents" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_book_contents.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_book_contents" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_book_contents.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_count" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_count.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_count" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_count.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_damage" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_damage.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_damage" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_damage.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_data" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_data.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_data" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_data.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_data_from_color_index" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_data_from_color_index.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_data_from_color_index" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_data_from_color_index.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_lore" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_lore.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_lore" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_lore.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "set_name" } } },
-                            "Then": { "$ref": "../loot_tables/functions/set_name.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "set_name" } } },
+                            "then": { "$ref": "../loot_tables/functions/set_name.json" }
                           },
                           {
-                            "If": { "properties": { "function": { "type": "string", "const": "specific_enchants" } } },
-                            "Then": { "$ref": "../loot_tables/functions/specific_enchants.json" }
+                            "if": { "properties": { "function": { "type": "string", "const": "specific_enchants" } } },
+                            "then": { "$ref": "../loot_tables/functions/specific_enchants.json" }
                           }
                         ]
                       }

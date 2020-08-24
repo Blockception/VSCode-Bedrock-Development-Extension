@@ -15,7 +15,7 @@
     "max": {
       "type": "number",
       "description": "UNDOCUMENTATED",
-      "title": "Max"
+      "title": "Maximum"
     }
   }
 }

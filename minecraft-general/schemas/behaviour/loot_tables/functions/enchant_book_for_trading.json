@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.loot_tables.enchant_book_for_trading",
+  "additionalProperties": false,
+  "description": "The function enchant_book_for_trading",
+  "title": "enchant_book_for_trading",
+  "required": [
+    "function",
+    "base_cost",
+    "base_random_cost",
+    "per_level_random_cost",
+    "per_level_cost"
+  ],
+  "properties": {
+    "function": {
+      "type": "string",
+      "const": "enchant_book_for_trading",
+      "title": "Function"
+    },
+    "base_cost": {
+      "type": "integer",
+      "title": "Base cost"
+    },
+    "base_random_cost": {
+      "type": "integer",
+      "title": "Base cost"
+    },
+    "per_level_random_cost":{
+      "type": "integer",
+      "title": "Base cost"
+    },
+    "per_level_cost":{
+      "type": "integer",
+      "title": "Base cost"
+    }
+  }
+}
