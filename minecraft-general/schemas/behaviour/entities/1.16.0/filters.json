@@ -272,23 +272,34 @@
       ]
     },
     "groups_spec": {
+      "type": "object",
       "anyOf": [
-        { "$ref": "#/definitions/filters_spec" },
-        {
-          "type": "object",
+        { "required": ["test"], "$ref": "#/definitions/filters_spec" },
+        {          
+          "required": ["any_of"],
           "properties": {
             "any_of": {
               "type": "array",
               "title": "Any of",
               "description": "One or more tests in an 'any_of' group must pass in order for the group to pass.",
               "items": { "$ref": "#/definitions/filters_spec" }
-            },
+            }
+          }
+        },
+        {      
+          "required": ["all_of"],    
+          "properties": {
             "all_of": {
               "type": "array",
               "title": "All of",
               "description": "All tests in an 'all_of' group must pass in order for the group to pass.",
               "items": { "$ref": "#/definitions/filters_spec" }
-            },
+            }
+          }
+        },
+        {      
+          "required": ["none_of"],     
+          "properties": {
             "none_of": {
               "type": "array",
               "title": "None of",
@@ -300,29 +311,5 @@
       ]
     }
   },
-  "anyOf": [
-    { "$ref": "#/definitions/filters_spec" },
-    {
-      "properties": {
-        "any_of": {
-          "type": "array",
-          "title": "Any of",
-          "description": "One or more tests in an 'any_of' group must pass in order for the group to pass.",
-          "items": { "$ref": "#/definitions/groups_spec" }
-        },
-        "all_of": {
-          "type": "array",
-          "title": "All of",
-          "description": "All tests in an 'all_of' group must pass in order for the group to pass.",
-          "items": { "$ref": "#/definitions/groups_spec" }
-        },
-        "none_of": {
-          "type": "array",
-          "title": "None of",
-          "description": "All tests in a 'none_of' group must fail in order for the group to pass.",
-          "items": { "$ref": "#/definitions/groups_spec" }
-        }
-      }
-    }
-  ]
+  "$ref": "#/definitions/groups_spec"
 }
