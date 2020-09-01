@@ -27,20 +27,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionParams, CompletionList } from 'vscode-languageserver';
-import { GetDocument2, GetDocument } from '../code/include';
 
-export function OnCompletionRequest(params : CompletionParams) : CompletionList {
-   let List : CompletionList;
-
-   List = {
-      isIncomplete:true,
-      items:[]
-   };
-
-   let Doc = GetDocument(params.textDocument.uri);
-
-   List.isIncomplete = false
-
-   return List;
-}
+export const McFunctionIdentifier : string = 'bc-minecraft-mcfunction';
+export const McLanguageIdentifier : string = 'bc-minecraft-language';

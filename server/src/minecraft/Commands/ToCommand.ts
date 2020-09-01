@@ -71,8 +71,8 @@ function ConvertWord(word: string): MCCommandParameter {
 
 	//has type
 	if (word.includes(':')) {
-		let index = word.indexOf(':');
-		let Type = word.substring(index + 1, word.length).trim();
+		const index = word.indexOf(':');
+		const Type = word.substring(index + 1, word.length).trim();
 		word = word.substring(0, index).trim();
 
 		switch (Type) {
