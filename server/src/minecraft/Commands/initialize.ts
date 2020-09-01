@@ -31,6 +31,12 @@ import { AddCommand } from './ToCommand';
 import { Manager } from '../../Manager';
 
 export function AddCommands() : void {
+	AddCommand("ability");
+	AddCommand("ability <Player: selector>");
+	AddCommand("ability <Player: selector> mayfly [value boolean]");
+	AddCommand("ability <Player: selector> mute [value boolean]");
+	AddCommand("ability <Player: selector> worldbuilder [value boolean]");
+
 	AddCommand("alwaysday [lock:boolean]");
 
 	AddCommand("clear [player:selector] [itemName:item] [data:int] [maxCount:int]");
