@@ -29,16 +29,18 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { TextDocuments } from "vscode-languageserver";
-import { MCCommand } from './minecraft/Commands/Command';
+import { MCCommand } from "./minecraft/Commands/Command";
 
 export class Manager {
-   static Commands : MCCommand[] = [];
-   
-    //The document manager
-    static Documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
+  static Commands: MCCommand[] = [];
 
-    static hasConfigurationCapability: boolean = false;
-    static hasWorkspaceFolderCapability: boolean = false;
-    static hasDiagnosticRelatedInformationCapability: boolean = false;
-    static TraversedWorkspaces : boolean = false;
+  //The document manager
+  static Documents: TextDocuments<TextDocument> = new TextDocuments(
+    TextDocument
+  );
+
+  static hasConfigurationCapability: boolean = false;
+  static hasWorkspaceFolderCapability: boolean = false;
+  static hasDiagnosticRelatedInformationCapability: boolean = false;
+  static TraversedWorkspaces: boolean = false;
 }

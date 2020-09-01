@@ -36,6 +36,7 @@ import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 export interface IDocument {
   readonly LineCount: number;
   readonly Uri: string;
+  readonly LanguageID : string;
 
   getLine(index: number): string;
 }
@@ -45,8 +46,9 @@ export class FileDocument implements IDocument {
   readonly Uri: string;
   readonly Range: Range;
   readonly LineCount: number;
+  readonly LanguageID : string;
 
-  constructor(uri: string, Content: string) {
+  constructor(uri: string, Content: string, LanguageID : string) {
     this.Uri = uri;
     this.Lines = Content.split(/(\r\n|\n)/);
 
@@ -58,15 +60,20 @@ export class FileDocument implements IDocument {
     };
 
     this.LineCount = this.Lines.length;
+    this.LanguageID = LanguageID;
   }
 
   public getLine(index: number): string {
     return this.Lines[index];
   }
 
-  static Load(uri: string): IDocument {
+  static Load(uri: string, LanguageID : string = ''): IDocument {
     let Content = fs.readFileSync(uri, "utf8");
-    return new FileDocument(uri, Content);
+    if (LanguageID === '') {
+      LanguageID = IdentifyDoc(uri);
+    }
+
+    return new FileDocument(uri, Content, LanguageID);
   }
 }
 
@@ -75,11 +82,13 @@ export class DocumentImp implements IDocument {
 
   readonly LineCount: number;
   readonly Uri: string;
+  readonly LanguageID : string;
 
   constructor(doc: TextDocument) {
     this.doc = doc;
     this.LineCount = doc.lineCount;
     this.Uri = doc.uri;
+    this.LanguageID = doc.languageId;
   }
 
   public getLine(index: number): string {
@@ -90,17 +99,13 @@ export class DocumentImp implements IDocument {
   }
 }
 
-export function GetDocument(uri: string, languageID: string | undefined = undefined): IDocument {
-  if (languageID == undefined) {
-    if (uri.includes(".mcfunction") || uri.includes("functions"))
-      languageID = McFunctionIdentifier;
-    else if (uri.includes(".lang") || uri.includes("texts"))
-      languageID = McLanguageIdentifier;
-    else languageID == McFunctionIdentifier;
-  }
-
+export function GetDocument(uri: string, languageID: string = ''): IDocument {
   let Content = "";
   let doc = Manager.Documents.get(uri);
+
+  if (languageID === '') {
+    languageID = IdentifyDoc(uri);
+  }
 
   if (doc != undefined) {
     return new DocumentImp(doc);
@@ -114,4 +119,16 @@ export function GetDocument(uri: string, languageID: string | undefined = undefi
 
 export function GetDocument2(doc: TextDocument): IDocument {
   return new DocumentImp(doc);
+}
+
+export function IdentifyDoc(uri : string) : string {
+    if (uri.includes(".mcfunction") || uri.includes("functions"))
+      return McFunctionIdentifier;
+
+    if (uri.includes(".lang") || uri.includes("texts"))
+    return McLanguageIdentifier;
+
+     
+    return McFunctionIdentifier;
+  }
 }
