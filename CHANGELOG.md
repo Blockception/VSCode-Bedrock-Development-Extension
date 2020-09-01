@@ -1,4 +1,5 @@
 # Changelog 
+- Updated Package Info
 - Updating package info
 - Fixing filters for 1.16.0
 - priority cannot be lower then 0
@@ -18,4 +19,3 @@
 - Updated Componets
 - Adding missing behaviours
 - Added missing components 1.16.0
-- Added minecraft:boss behaviour
