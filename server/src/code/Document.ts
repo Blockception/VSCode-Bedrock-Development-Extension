@@ -49,8 +49,8 @@ export class FileDocument implements IDocument {
 		this.Uri = uri;
 		this.Lines = Content.split(/(\r\n|\n)/);
 
-		var LastIndex = this.Lines.length - 1;
-		var Last = this.Lines[LastIndex];
+		let LastIndex = this.Lines.length - 1;
+		let Last = this.Lines[LastIndex];
 		this.Range = {
 			start: { character: 0, line: 0 },
 			end: { character: Last.length, line: LastIndex }
@@ -64,7 +64,7 @@ export class FileDocument implements IDocument {
 	}
 
 	static Load(uri: string) : IDocument {
-		var Content = fs.readFileSync(uri, 'utf8');
+		let Content = fs.readFileSync(uri, 'utf8');
 		return new FileDocument(uri, Content);
 	}
 }
@@ -87,16 +87,16 @@ export class DocumentImp implements IDocument {
 }
 
 export function GetDocument(uri: string, languageID: string) : IDocument {
-	var Content = '';
+	let Content = '';
 
-	var doc = Manager.Documents.get(uri);
+	let doc = Manager.Documents.get(uri);
 
 	if (doc != undefined){
 		return new DocumentImp(doc);
 	}
 
 	Content = fs.readFileSync(uri, 'utf8');
-	var Out = new DocumentImp(TextDocument.create(uri, languageID, 0, Content));
+	let Out = new DocumentImp(TextDocument.create(uri, languageID, 0, Content));
 
 	return Out;
 }

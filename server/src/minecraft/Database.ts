@@ -36,7 +36,7 @@ export class Database {
    
 
    static Get(uri : string) : MinecraftData {
-      var Item = this.Data.get(uri);
+      let Item = this.Data.get(uri);
 
       if (Item == undefined){
          Item = new MinecraftData();

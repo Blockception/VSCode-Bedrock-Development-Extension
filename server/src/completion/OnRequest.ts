@@ -31,7 +31,7 @@ import { CompletionParams, CompletionList } from 'vscode-languageserver';
 import { AddCommands } from '../minecraft/Commands/initialize';
 
 export function OnCompletionRequest(params : CompletionParams) : CompletionList {
-   var List : CompletionList;
+   let List : CompletionList;
 
    List = {
       isIncomplete:true,

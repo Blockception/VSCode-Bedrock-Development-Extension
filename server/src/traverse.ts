@@ -49,7 +49,7 @@ export function TraveseDirectory(Dir: string): void {
 		else {
 			if (files)
 				files.forEach(file => {
-					var Path = Dir + file;
+					let Path = Dir + file;
 
 					if (Path.endsWith(".mcfunction")) {
 						Parse(Path, 'bc-minecraft-mcfunction');
@@ -66,6 +66,6 @@ export function TraveseDirectory(Dir: string): void {
 }
 
 function Parse(path: string, languageID: string): void {
-	var Doc = GetDocument(path, languageID);
+	let Doc = GetDocument(path, languageID);
 	Process(Doc);
 }

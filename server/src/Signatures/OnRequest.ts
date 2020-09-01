@@ -35,17 +35,17 @@ import { CommandIntr } from '../minecraft/Commands/Command';
 import { exec } from 'child_process';
 
 export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
-	var pos = params.position;
-	var doc = GetDocument(params.textDocument.uri, "bc-minecraft-mcfunction");
+	let pos = params.position;
+	let doc = GetDocument(params.textDocument.uri, "bc-minecraft-mcfunction");
 
-	var Line = doc.getLine(pos.line);
-	var Command: CommandIntr = CommandIntr.parse(Line, pos);
+	let Line = doc.getLine(pos.line);
+	let Command: CommandIntr = CommandIntr.parse(Line, pos);
 
-	return ProvideSignature(Command);
+	return ProvideSignature(Command, pos);
 }
 
 function ProvideSignature(command: CommandIntr, pos : Position): SignatureHelp {
-	var SubCommand = IsInSubCommand(command, pos.character);
+	let SubCommand = IsInSubCommand(command, pos.character);
 
 	if (SubCommand != undefined){
 
@@ -57,7 +57,7 @@ function IsInSubCommand(command: CommandIntr, character: number): CommandIntr | 
 	if (command.Paramaters.length < 6)
 		return undefined;
 
-	var Keyword = command.GetCommandKeyword();
+	let Keyword = command.GetCommandKeyword();
 
 	if (Keyword == 'execute') {
 		if (command.Paramaters[6].text === 'detect') {

@@ -34,10 +34,10 @@ import { Database } from '../minecraft/Database';
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
 
 export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
-   var uri = params.textDocument.uri;
+   let uri = params.textDocument.uri;
    uri = url.fileURLToPath(uri);
 
-   var Out: SymbolInformation[] = [];
+   let Out: SymbolInformation[] = [];
 
    Out.push({
       kind: SymbolKind.Class,
@@ -45,17 +45,17 @@ export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInf
       name: GetFilename(uri)
    });
 
-   var Data = Database.Get(uri);
+   let Data = Database.Get(uri);
    Convert(Data, Out, '');
 
    return Out;
 }
 
 export function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
-   var Query = params.query;
-   var Out: SymbolInformation[] = [];
+   let Query = params.query;
+   let Out: SymbolInformation[] = [];
 
-   for (var [FunctionPath, Data] of Database.Data) {
+   for (let [FunctionPath, Data] of Database.Data) {
       if (Out.length > 100) {
          break;
       }

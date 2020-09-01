@@ -36,11 +36,11 @@ import { Tickingarea } from '../minecraft/types/include';
 import { IDocument } from '../code/include';
 
 export function Process(document: IDocument): MinecraftData {
-   var uri = document.Uri;
+   let uri = document.Uri;
    console.log('Processing mcfunction: ' + GetFilename(uri));
-   var Data = new MinecraftData();   
+   let Data = new MinecraftData();   
 
-   for (var Index = 0; Index < document.LineCount; Index++) {
+   for (let Index = 0; Index < document.LineCount; Index++) {
       const Line = document.getLine(Index);
 
       if (Line.startsWith("#"))
@@ -68,11 +68,11 @@ export function Process(document: IDocument): MinecraftData {
 
 //Process the given tag
 function ProcessTag(Line: string, Data: MinecraftData, uri: string, LineIndex: number): void {
-   var Match = Line.match(/(tag .* add )(\w*)/);
+   let Match = Line.match(/(tag .* add )(\w*)/);
 
    if (Match && Match.length >= 3) {
-      var TagText = Match[2];
-      var FindAt = Line.indexOf(TagText);
+      let TagText = Match[2];
+      let FindAt = Line.indexOf(TagText);
 
       Data.Tag.push(new Tag(TagText, uri, LineIndex, FindAt));
    }
@@ -80,11 +80,11 @@ function ProcessTag(Line: string, Data: MinecraftData, uri: string, LineIndex: n
 
 //Process the given objective
 function ProcessScoreboard(Line: string, Data: MinecraftData, uri: string, LineIndex: number): void {
-   var Match = Line.match(/(scoreboard objectives add )(\w*)( dummy)/);
+   let Match = Line.match(/(scoreboard objectives add )(\w*)( dummy)/);
 
    if (Match && Match.length >= 4) {
-      var ObjectiveText = Match[2];
-      var FindAt = Line.indexOf(ObjectiveText);
+      let ObjectiveText = Match[2];
+      let FindAt = Line.indexOf(ObjectiveText);
 
       Data.Objectives.push(new Objective(ObjectiveText, uri, LineIndex, FindAt));
    }
@@ -93,21 +93,21 @@ function ProcessScoreboard(Line: string, Data: MinecraftData, uri: string, LineI
 //Process the given tickingarea
 function ProcessTickingarea(Line: string, Data: MinecraftData, uri: string, LineIndex: number): void {
    //no circle tickingarea
-   var Match = Line.match(/(tickingarea add [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d ]*)(\w*)/);
+   let Match = Line.match(/(tickingarea add [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d ]*)(\w*)/);
 
    if (Match && Match.length >= 3) {
-      var TickingareaName = Match[2];
-      var FindAt = Line.indexOf(TickingareaName);
+      let TickingareaName = Match[2];
+      let FindAt = Line.indexOf(TickingareaName);
 
       Data.Objectives.push(new Tickingarea(TickingareaName, uri, LineIndex, FindAt));
    }
 
    //no circle tickingarea
-   var Match = Line.match(/(tickingarea add circle [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d ]*)(\w*)/);
+   Match = Line.match(/(tickingarea add circle [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d]* [\^\~\+\-\d ]*)(\w*)/);
 
    if (Match && Match.length >= 3) {
-      var TickingareaName = Match[2];
-      var FindAt = Line.indexOf(TickingareaName);
+      let TickingareaName = Match[2];
+      let FindAt = Line.indexOf(TickingareaName);
 
       Data.Objectives.push(new Tickingarea(TickingareaName, uri, LineIndex, FindAt));
    }

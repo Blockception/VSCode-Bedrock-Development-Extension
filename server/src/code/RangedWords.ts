@@ -61,13 +61,13 @@ export class RangedWord {
 
     //Converts the given text into words
     static GetWords(text: string): RangedWord[] {
-        var out = new Array<RangedWord>();
-        var level = 0;
-        var startindex = 0;
-        var Instring = false;
+        let out = new Array<RangedWord>();
+        let level = 0;
+        let startindex = 0;
+        let Instring = false;
 
-        for (var index = 0; index < text.length; index++) {
-            var c = text.charAt(index);
+        for (let index = 0; index < text.length; index++) {
+            let c = text.charAt(index);
 
             if (Instring) {
                 if (c == '"')
@@ -95,7 +95,7 @@ export class RangedWord {
                     case "\t":
                         if (level == 0) {
                             if (startindex < index) {
-                                var RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
+                                let RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
                                 out.push(RW);
                             }
 
@@ -113,7 +113,7 @@ export class RangedWord {
         }
 
         if (startindex < text.length) {
-            var RW = new RangedWord(text.substring(startindex, text.length), startindex, text.length);
+            let RW = new RangedWord(text.substring(startindex, text.length), startindex, text.length);
             out.push(RW);
         }
 
@@ -122,8 +122,8 @@ export class RangedWord {
 
     //Gets the word that surrounds cursor
     static GetWord(text: string, position: number): RangedWord {
-        var StartIndex = position;
-        var C = text.charAt(StartIndex);
+        let StartIndex = position;
+        let C = text.charAt(StartIndex);
 
         while (C != ' ' && StartIndex > 0) {
             StartIndex--;
@@ -132,7 +132,7 @@ export class RangedWord {
 
         StartIndex++;
 
-        var EndIndex = text.indexOf(' ', StartIndex);
+        let EndIndex = text.indexOf(' ', StartIndex);
 
         if (EndIndex < 0) {
             EndIndex = text.length;

@@ -58,7 +58,7 @@ connection.onInitialized(() => {
 		WorkFolders?.forEach(folders => {
 			console.log('Workspace: ' + folders.name);
 
-			var Path = URI.parse(folders.uri).fsPath;
+			let Path = URI.parse(folders.uri).fsPath;
 
 			if (Path == undefined)
 				return;

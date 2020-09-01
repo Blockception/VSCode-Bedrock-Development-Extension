@@ -32,12 +32,14 @@ import { Manager } from '../../Manager';
 import { Position } from 'vscode-languageserver-textdocument';
 
 export class MCCommand {
-	public name : string
-	public parameters : MCCommandParameter[];	
+	public name : string;
+	public parameters : MCCommandParameter[];
+	public description : string;
 
 	constructor(){
 		this.parameters = [];
 		this.name = '';
+		this.description = '';
 	}
 
 	add(item : MCCommandParameter[]){
@@ -96,10 +98,10 @@ export class CommandIntr {
 	}
 
 	static parse(line : string, pos : Position) : CommandIntr {
-		var Out = new CommandIntr();
+		let Out = new CommandIntr();
 
-		var LineIndex = pos.line;
-		var Words = RangedWord.GetWords(line);
+		let LineIndex = pos.line;
+		let Words = RangedWord.GetWords(line);
 		Out.Line = LineIndex;
 		Out.Paramaters = Words;		
 		Out.Paramaters.forEach(x=>x.CheckCursor(pos.character));
@@ -108,7 +110,7 @@ export class CommandIntr {
 	}
 
 	slice(start? : number | undefined, end? : number | undefined): CommandIntr {
-		var Out = new CommandIntr();
+		let Out = new CommandIntr();
 		Out.Line = this.Line;
 		Out.Paramaters = Out.Paramaters.slice(start, end);
 
@@ -120,9 +122,9 @@ export class CommandIntr {
 	}
 
 	GetCommandData() : MCCommand[] {
-		var Out : MCCommand[] = [];
+		let Out : MCCommand[] = [];
 
-		var Keyword = this.GetCommandKeyword();
+		let Keyword = this.GetCommandKeyword();
 
 		Manager.Commands.forEach(x=>{
 			if (x.name === Keyword){
