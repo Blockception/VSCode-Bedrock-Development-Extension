@@ -1,4 +1,5 @@
 # Changelog 
+- Updated information
 - Updated code
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated minecraft.behavior.look_at_player
@@ -18,4 +19,3 @@
 - Last updated
 - Fixed
 - Added missing
-- Updated components
