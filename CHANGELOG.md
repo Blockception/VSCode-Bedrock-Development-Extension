@@ -1,4 +1,9 @@
 # Changelog 
+- Updating package info
+- Fixing filters for 1.16.0
+- priority cannot be lower then 0
+- Updated
+- Updated
 - Updated LootTables
 - Updated
 - Updated to 0.2.27
@@ -14,8 +19,3 @@
 - Adding missing behaviours
 - Added missing components 1.16.0
 - Added minecraft:boss behaviour
-- Added minecraft:persistent
-- Updated to 0.2.25
-- Updated to 1.16.20
-- Updated particles to 1.16.20
-- Updated models to 1.16.20
