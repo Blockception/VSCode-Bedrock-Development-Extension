@@ -1,4 +1,8 @@
 # Changelog 
+- Updated code
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Updated minecraft.behavior.look_at_player
+- Updated Package Info
 - Updating package info
 - Fixing filters for 1.16.0
 - priority cannot be lower then 0
@@ -15,7 +19,3 @@
 - Fixed
 - Added missing
 - Updated components
-- Updated Componets
-- Adding missing behaviours
-- Added missing components 1.16.0
-- Added minecraft:boss behaviour
