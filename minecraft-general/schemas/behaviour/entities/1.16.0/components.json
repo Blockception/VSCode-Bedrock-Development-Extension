@@ -230,7 +230,7 @@
     "minecraft:behavior.lay_egg": { "$ref": "../1.8.0/behaviors/minecraft.behavior.lay_egg.json" },
     "minecraft:behavior.leap_at_target": { "$ref": "./behaviors/minecraft.behavior.leap_at_target.json" },
     "minecraft:behavior.look_at_entity": { "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_entity.json" },
-    "minecraft:behavior.look_at_player": { "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_player.json" },
+    "minecraft:behavior.look_at_player": { "$ref": "./behaviors/minecraft.behavior.look_at_player.json" },
     "minecraft:behavior.look_at_target": { "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_target.json" },
     "minecraft:behavior.look_at_trading_player": { "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_trading_player.json" },
     "minecraft:behavior.make_love": { "$ref": "../1.8.0/behaviors/minecraft.behavior.make_love.json" },
