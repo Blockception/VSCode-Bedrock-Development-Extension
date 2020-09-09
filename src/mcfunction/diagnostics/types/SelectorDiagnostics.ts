@@ -250,7 +250,7 @@ function scoreCheck(sObject: Selector, range: vscode.Range, collection: vscode.D
     if (IsInteger(O.value) || IsRangeInteger(O.value)) {
 
     } else {
-      collection.push(new vscode.Diagnostic(range, "Range: '" + O.value + "'"));
+      collection.push(new vscode.Diagnostic(range, "invalid range/number: '" + O.value + "'"));
     }
   }
 }
