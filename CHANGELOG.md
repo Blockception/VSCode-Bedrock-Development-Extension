@@ -1,4 +1,5 @@
 # Changelog 
+- Updated
 - Updated to 0.2.32
 - Fixed range Regex
 - Updated to 0.2.31
@@ -18,4 +19,3 @@
 - Updated
 - Updated to 0.2.27
 - Fxied trading tables
-- Updated
