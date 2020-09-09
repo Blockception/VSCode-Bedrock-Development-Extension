@@ -1,4 +1,6 @@
 # Changelog 
+- Added .lang empty detection
+- Updated to 0.2.30
 - Updated information
 - Updated code
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
@@ -17,5 +19,3 @@
 - Updated to 0.2.26
 - Updated titles
 - Last updated
-- Fixed
-- Added missing
