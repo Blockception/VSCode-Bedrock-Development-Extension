@@ -67,7 +67,7 @@ function updateDiagnostics(document : vscode.TextDocument, collection : vscode.D
 
     for (var lineIndex = 0; lineIndex < document.lineCount; lineIndex++){
         var line = document.lineAt(lineIndex);
-        var text = line.text.trim();
+        var text = line.text;
 
         if (text === "" || text.startsWith("##"))
             continue;
@@ -89,18 +89,29 @@ function updateDiagnostics(document : vscode.TextDocument, collection : vscode.D
 
                 if (Item != undefined) {
                     docCollection.push(new vscode.Diagnostic(
-                        Item,
-                        "has a duplicate at line: " + (lineIndex + 1),
-                        vscode.DiagnosticSeverity.Error),
+                            Item,
+                            "has a duplicate at line: " + (lineIndex + 1),
+                            vscode.DiagnosticSeverity.Error),
+
                         new vscode.Diagnostic(
-                        new vscode.Range(lineIndex, 0, lineIndex, index),
-                        "has a duplicate at line: " + (Item.start.line + 1),
-                        vscode.DiagnosticSeverity.Error
+                            new vscode.Range(lineIndex, 0, lineIndex, index),
+                            "has a duplicate at line: " + (Item.start.line + 1),
+                            vscode.DiagnosticSeverity.Error
                     ));
                 }
             }
             else{
-                Keys.set(key, new vscode.Range(lineIndex, 0, lineIndex, index));
+                let Range = new vscode.Range(lineIndex, 0, lineIndex, index);
+
+                if (index + 1 >= text.length){
+                    docCollection.push(new vscode.Diagnostic(
+                        Range,
+                        "Value cannot be empty, must contain something",
+                        vscode.DiagnosticSeverity.Error
+                    ));
+                }
+
+                Keys.set(key, Range);
             }
         }
     }
