@@ -1,4 +1,6 @@
 # Changelog 
+- Fixed range Regex
+- Updated to 0.2.31
 - Added .lang empty detection
 - Updated to 0.2.30
 - Updated information
@@ -17,5 +19,3 @@
 - Fxied trading tables
 - Updated
 - Updated to 0.2.26
-- Updated titles
-- Last updated
