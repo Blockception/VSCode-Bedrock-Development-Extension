@@ -5,7 +5,9 @@
 		"lib": ["ES2019"],
 		"outDir": "out",
 		"rootDir": "src",
-		"sourceMap": true
+		"sourceMap": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true
 	},
 	"include": [
 		"src"

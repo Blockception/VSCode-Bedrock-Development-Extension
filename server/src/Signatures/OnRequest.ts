@@ -31,7 +31,6 @@ import { SignatureHelp, SignatureHelpParams, SignatureInformation } from 'vscode
 import { GetDocument } from '../code/include';
 import { Position } from 'vscode-languageserver-textdocument';
 import { CommandIntr, IsInSubCommand, MCCommand } from '../minecraft/commands/include';
-import { Manager } from '../Manager';
 import { CommandInfo } from '../minecraft/Commands/CommandInfo';
 
 export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
@@ -91,10 +90,18 @@ function ConverToSignature(Command : MCCommand) : SignatureInformation {
 	for (let I = 0; I < parameters.length; I++) {
 		let parameter = parameters[I];
 
-		Sign.parameters?.push({
-			label:parameter.Text,
-			documentation:"Type: " + parameter.Type
-		});
+		if (parameter.Required){
+			Sign.parameters?.push({
+				label:"<" + parameter.Text + ">",
+				documentation:"Type: " + parameter.Type
+			});
+		}
+		else{
+			Sign.parameters?.push({
+				label:"[" + parameter.Text + "]",
+				documentation:"Type: " + parameter.Type
+			});
+		}
 	}
 
 	return Sign;
