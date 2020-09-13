@@ -27,9 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { RangedWord } from '../../code/include';
-import { Manager } from '../../Manager';
-import { Position } from 'vscode-languageserver-textdocument';
+import { MCCommandParameter } from './MCCommandParameter';
 
 export class MCCommand {
 	public name : string
@@ -48,88 +46,5 @@ export class MCCommand {
 		else{
 			this.parameters.push(...item);
 		}
-	}
-}
-
-export class MCCommandParameter {
-	public Text : string;
-	public Type : MCCommandParameterType;
-	public Required : boolean;
-
-	constructor(){
-		this.Text = '';
-		this.Type = MCCommandParameterType.keyword;
-		this.Required = true;
-	}
-}
-
-export enum MCCommandParameterType {
-	block,
-	boolean,
-	command,
-	coordinate,
-	effect,
-	entity,
-	event,
-	function,
-	float,
-	integer,
-	item,
-	jsonItem,
-	jsonRawText,
-	keyword,
-	objective,
-	selector,
-	sound,
-	tag,
-	xp
-}
-
-//A class that helps interpeting written commands
-export class CommandIntr {
-	public Paramaters : RangedWord[];
-	public Line : number;
-
-	constructor(){
-		this.Line = 0;
-		this.Paramaters=[];
-	}
-
-	static parse(line : string, pos : Position) : CommandIntr {
-		var Out = new CommandIntr();
-
-		var LineIndex = pos.line;
-		var Words = RangedWord.GetWords(line);
-		Out.Line = LineIndex;
-		Out.Paramaters = Words;		
-		Out.Paramaters.forEach(x=>x.CheckCursor(pos.character));
-
-		return Out;
-	}
-
-	slice(start? : number | undefined, end? : number | undefined): CommandIntr {
-		var Out = new CommandIntr();
-		Out.Line = this.Line;
-		Out.Paramaters = Out.Paramaters.slice(start, end);
-
-		return Out;
-	}
-
-	GetCommandKeyword() : string {
-		return this.Paramaters[0].text;
-	}
-
-	GetCommandData() : MCCommand[] {
-		var Out : MCCommand[] = [];
-
-		var Keyword = this.GetCommandKeyword();
-
-		Manager.Commands.forEach(x=>{
-			if (x.name === Keyword){
-				Out.push(x);
-			}
-		});
-
-		return Out;
 	}
 }

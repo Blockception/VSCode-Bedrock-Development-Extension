@@ -27,28 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureHelp, SignatureHelpParams, Command } from 'vscode-languageserver';
-import { GetDocument, IDocument } from '../code/include';
-import { Position } from 'vscode-languageserver-textdocument';
-import { Manager } from '../Manager';
-import { CommandIntr } from '../minecraft/Commands/Command';
-import { exec } from 'child_process';
-
-export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
-	var pos = params.position;
-	var doc = GetDocument(params.textDocument.uri, "bc-minecraft-mcfunction");
-
-	var Line = doc.getLine(pos.line);
-	var Command: CommandIntr = CommandIntr.parse(Line, pos);
-
-	return ProvideSignature(Command);
-}
-
-function ProvideSignature(command: CommandIntr, pos : Position): SignatureHelp {
-	var SubCommand = IsInSubCommand(command, pos.character);
-
-	if (SubCommand != undefined){
-
-	}
-}
-
+export * from './Command'
+export * from './CommandIntr'
+export * from './ToCommand'
+export * from './initialize'
