@@ -51,8 +51,8 @@ export class RangedWord {
     }
 
     //returns true or false is the cursor is inside this word
-    CheckCursor(cursorPos: number) : boolean {
-        if (cursorPos >= this.startindex && cursorPos <= this.endindex){
+    CheckCursor(cursorPos: number): boolean {
+        if (cursorPos >= this.startindex && cursorPos <= this.endindex) {
             return true;
         }
 

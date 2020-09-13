@@ -30,5 +30,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { IDocument } from '../code/include';
 
 export function Process(document : IDocument) : void {
-
+   //TODO process json file
 }

@@ -30,5 +30,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from 'vscode-languageserver-textdocument';
 
 export function Process(document : TextDocument) : void {
-
+   //Process language file
 }

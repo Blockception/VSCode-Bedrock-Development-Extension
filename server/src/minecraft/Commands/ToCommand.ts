@@ -27,7 +27,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
 import { GetWords } from '../../code/include';
 import { MCCommandParameter, MCCommand, MCCommandParameterType } from './include';
 import { Manager } from '../../Manager';
@@ -51,7 +50,7 @@ export function AddCommand(command: string, description : string | undefined = u
 		Command.description = description;
 	}
 
-	Manager.Commands.push(Command);
+	Manager.Commands.add(Command);
 }
 
 function ConvertWord(word: string): MCCommandParameter {
@@ -74,7 +73,7 @@ function ConvertWord(word: string): MCCommandParameter {
 		const index = word.indexOf(':');
 		const Type = word.substring(index + 1, word.length).trim();
 		word = word.substring(0, index).trim();
-
+		
 		switch (Type) {
 			case 'block':
 				Out.Type = MCCommandParameterType.block;

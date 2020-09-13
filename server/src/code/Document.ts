@@ -29,14 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
 import { Range, TextDocument } from "vscode-languageserver-textdocument";
-import { URI } from "vscode-uri";
 import { Manager } from "../Manager";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 
 export interface IDocument {
   readonly LineCount: number;
   readonly Uri: string;
-  readonly LanguageID : string;
+  readonly LanguageID: string;
 
   getLine(index: number): string;
 }
@@ -46,9 +45,9 @@ export class FileDocument implements IDocument {
   readonly Uri: string;
   readonly Range: Range;
   readonly LineCount: number;
-  readonly LanguageID : string;
+  readonly LanguageID: string;
 
-  constructor(uri: string, Content: string, LanguageID : string) {
+  constructor(uri: string, Content: string, LanguageID: string) {
     this.Uri = uri;
     this.Lines = Content.split(/(\r\n|\n)/);
 
@@ -67,7 +66,7 @@ export class FileDocument implements IDocument {
     return this.Lines[index];
   }
 
-  static Load(uri: string, LanguageID : string = ''): IDocument {
+  static Load(uri: string, LanguageID: string = ''): IDocument {
     let Content = fs.readFileSync(uri, "utf8");
     if (LanguageID === '') {
       LanguageID = IdentifyDoc(uri);
@@ -82,7 +81,7 @@ export class DocumentImp implements IDocument {
 
   readonly LineCount: number;
   readonly Uri: string;
-  readonly LanguageID : string;
+  readonly LanguageID: string;
 
   constructor(doc: TextDocument) {
     this.doc = doc;
@@ -121,14 +120,13 @@ export function GetDocument2(doc: TextDocument): IDocument {
   return new DocumentImp(doc);
 }
 
-export function IdentifyDoc(uri : string) : string {
-    if (uri.includes(".mcfunction") || uri.includes("functions"))
-      return McFunctionIdentifier;
+export function IdentifyDoc(uri: string): string {
+  if (uri.includes(".mcfunction") || uri.includes("functions"))
+    return McFunctionIdentifier;
 
-    if (uri.includes(".lang") || uri.includes("texts"))
+  if (uri.includes(".lang") || uri.includes("texts"))
     return McLanguageIdentifier;
 
-     
-    return McFunctionIdentifier;
-  }
+
+  return McFunctionIdentifier;
 }

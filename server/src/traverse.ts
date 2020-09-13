@@ -28,12 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from 'fs';
-import { URI } from 'vscode-uri';
-import { TextDocument } from 'vscode-languageserver-textdocument';
 import { Process } from './process/Process';
-import { URL } from 'url';
-import { Manager } from './Manager';
-import { GetDocument2, GetDocument } from './code/include';
+import { GetDocument } from './code/include';
 
 //Traverse the directory
 export function TraveseDirectory(Dir: string): void {

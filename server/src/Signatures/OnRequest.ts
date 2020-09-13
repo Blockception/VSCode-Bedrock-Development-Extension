@@ -27,10 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureHelp, SignatureHelpParams } from 'vscode-languageserver';
+import { SignatureHelp, SignatureHelpParams, SignatureInformation } from 'vscode-languageserver';
 import { GetDocument } from '../code/include';
 import { Position } from 'vscode-languageserver-textdocument';
-import { CommandIntr, IsInSubCommand } from '../minecraft/commands/include';
+import { CommandIntr, IsInSubCommand, MCCommand } from '../minecraft/commands/include';
+import { Manager } from '../Manager';
+import { CommandInfo } from '../minecraft/Commands/CommandInfo';
 
 export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
 	let pos = params.position;
@@ -49,7 +51,52 @@ function ProvideSignature(command: CommandIntr, pos : Position): SignatureHelp {
 		command = SubCommand;
 	}
 
-	
+	let Matches = command.GetCommandData();
+	let Out : SignatureHelp = {
+		signatures: ConverToSignatures(Matches),
+		activeParameter:command.CursorParamater,
+		activeSignature:0
+	};
+
+	return Out;
 }
 
+function ConverToSignatures(Commands : CommandInfo[]) : SignatureInformation[] {
+	let Out : SignatureInformation[] = [];
+
+	for (let I = 0; I < Commands.length; I++){
+		let Current = Commands[I];
+		let Signature = Current.Signature;
+
+		if (Signature == undefined){
+			Signature = ConverToSignature(Current.Command);
+			Current.Signature = Signature;
+		}
+
+		Out.push(Signature);
+	}
+
+	return Out;
+}
+
+//Converts the given MCCommand into a signature
+function ConverToSignature(Command : MCCommand) : SignatureInformation {
+	var Sign : SignatureInformation = {
+		label: Command.name,
+		documentation: Command.description,
+		parameters:[]
+	};
+
+	let parameters = Command.parameters;
+	for (let I = 0; I < parameters.length; I++) {
+		let parameter = parameters[I];
+
+		Sign.parameters?.push({
+			label:parameter.Text,
+			documentation:"Type: " + parameter.Type
+		});
+	}
+
+	return Sign;
+}
 
