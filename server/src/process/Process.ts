@@ -29,14 +29,24 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as Mcfunction from './Mcfunction';
 import * as Json from './Json';
+import * as Language from './Language';
 import { IDocument } from '../code/include';
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
+
 
 //Process the given document
 export function Process(document: IDocument): void {
-   if (document.Uri.endsWith('.mcfunction')) {
-      Mcfunction.Process(document);
-   }
-   else if (document.Uri.endsWith('.json')) {
-      Json.Process(document);
+   switch (document.LanguageID) {
+      case McFunctionIdentifier:
+         Mcfunction.Process(document);
+         break;
+
+      case McLanguageIdentifier:
+         Language.Process(document);
+         break;
+
+      case McOtherIdentifier:
+         Json.Process(document);
+         break;
    }
 }

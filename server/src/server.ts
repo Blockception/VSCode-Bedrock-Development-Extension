@@ -19,6 +19,7 @@ console.log('starting minecraft server');
 // Also include all preview / proposed LSP features.
 let connection = createConnection(ProposedFeatures.all);
 
+//Provides diagnostics and such
 Manager.Documents.onDidOpen(x => Process(GetDocument2(x.document)));
 Manager.Documents.onDidSave(x => Process(GetDocument2(x.document)));
 
@@ -31,8 +32,10 @@ connection.onDocumentSymbol(OnDocumentSymbolRequest);
 // This handler provides workspace symbols
 connection.onWorkspaceSymbol(OnWorkspaceSymbolRequest);
 
+// This handler provides signatures
 connection.onSignatureHelp(OnSignatureRequest);
 
+// This handler provides diagnostics
 connection.onInitialized(() => {
 	console.log('Initialized minecraft server');
 

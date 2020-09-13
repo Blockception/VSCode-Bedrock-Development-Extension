@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+	 list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+	 this list of conditions and the following disclaimer in the documentation
+	 and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+	 contributors may be used to endorse or promote products derived from
+	 this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,96 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ParameterInformation, SignatureHelp, SignatureHelpParams, SignatureInformation } from 'vscode-languageserver';
+import { SignatureHelp, SignatureHelpParams } from 'vscode-languageserver';
 import { GetDocument } from '../code/include';
-import { Position } from 'vscode-languageserver-textdocument';
-import { CommandIntr, IsInSubCommand, MCCommand, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
-import { CommandInfo } from '../minecraft/Commands/CommandInfo';
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
+import * as Mcfunction from './Mcfunction';
+import * as Language from './Language';
+import * as Other from './Other';
 
-export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
+export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
 	let pos = params.position;
-	let doc = GetDocument(params.textDocument.uri, "bc-minecraft-mcfunction");
+	let doc = GetDocument(params.textDocument.uri);
 
-	let Line = doc.getLine(pos.line);
-	let Command: CommandIntr = CommandIntr.parse(Line, pos);
+	switch (doc.LanguageID) {
+		case McFunctionIdentifier:
+			return Mcfunction.ProvideSignature(doc, pos);
 
-	return ProvideSignature(Command, pos);
-}
+		case McLanguageIdentifier:
+			return Language.ProvideSignature(doc, pos);
 
-function ProvideSignature(command: CommandIntr, pos : Position): SignatureHelp {
-	let SubCommand = IsInSubCommand(command, pos.character);
-
-	if (SubCommand != undefined){
-		command = SubCommand;
+		case McOtherIdentifier:
+			return undefined;	
+			//return Other.ProvideSignature(doc, pos);
 	}
 
-	let Matches = command.GetCommandData();
-	let Out : SignatureHelp = {
-		signatures: ConverToSignatures(Matches),
-		activeParameter:command.CursorParamater,
-		activeSignature:0
-	};
-
-	return Out;
+	return undefined;
 }
-
-function ConverToSignatures(Commands : CommandInfo[]) : SignatureInformation[] {
-	let Out : SignatureInformation[] = [];
-
-	for (let I = 0; I < Commands.length; I++){
-		let Current = Commands[I];
-		let Signature = Current.Signature;
-
-		if (Signature == undefined){
-			Signature = ConverToSignature(Current.Command);
-			Current.Signature = Signature;
-		}
-
-		Out.push(Signature);
-	}
-
-	return Out;
-}
-
-//Converts the given MCCommand into a signature
-function ConverToSignature(Command : MCCommand) : SignatureInformation {
-	var Sign : SignatureInformation = {
-		label: '',
-		documentation: Command.description,
-		parameters:[]
-	};
-
-	let parameters = Command.parameters;
-	for (let I = 0; I < parameters.length; I++) {
-		let parameter = parameters[I];
-		let p : ParameterInformation;
-
-		if (parameter.Required) {
-			if (parameter.Type === MCCommandParameterType.keyword){
-				p = {
-					label:parameter.Text,
-					documentation:"Type: " + MCCommandParameterType[parameter.Type]
-				};
-			}
-			else{
-				p = {
-					label:"<" + parameter.Text + ">",
-					documentation:"Type: " + MCCommandParameterType[parameter.Type]
-				};
-			}			
-		}
-		else{
-			p = {
-				label:"[" + parameter.Text + "]",
-				documentation:"Type: " + MCCommandParameterType[parameter.Type]
-			};
-		}
-
-		Sign.label += p.label + ' ';
-
-		Sign.parameters?.push(p);
-	}
-
-	return Sign;
-}
-

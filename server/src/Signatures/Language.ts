@@ -1,3 +1,4 @@
+import { Position, SignatureHelp } from 'vscode-languageserver';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -27,27 +28,29 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export function GetFilename(filepath: string): string {
-    let index = filepath.lastIndexOf('\\');
+import { IDocument } from '../code/include';
 
-    if (index > -1) {
-        filepath = filepath.substring(index + 1, filepath.length);
-    }
+export function ProvideSignature(doc: IDocument, pos : Position): SignatureHelp {
+   const Line = doc.getLine(pos.line);
 
-    index = filepath.lastIndexOf('.');
+   let index = Line.indexOf('=');
+   let parameter = index > pos.character ? 0 : 1;
 
-    if (index > -1) {
-        filepath = filepath.substring(0, index);
-    }
 
-    return filepath.trim();
-}
+   let Out : SignatureHelp = {
+      activeParameter:parameter,
+      activeSignature:0,
+      signatures:[
+         {
+            label:"[translation key]=[text]",
+            documentation:"The key/value pair that is used by minecraft to determine what text to display",
+            parameters:[
+               { label:"[translation key]",documentation:"The key to this translation text"},
+               { label:"[text]",documentation:"The translation text, some pretty stuff can be done with the following: \n§ = ALT + 0167 on the numpad\nOther need functions: %%s, %%#, see the wiki"}
+            ]
+         }
+      ]
+   }
 
-export function getExtension(filepath : string) : string {
-    let index = filepath.lastIndexOf('.');
-
-    if (index < 0)
-        return '';
-
-    return filepath.substring(index, filepath.length).trim();
+   return Out;
 }

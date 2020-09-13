@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
 import { Range, TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../Manager";
-import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 
 export interface IDocument {
   readonly LineCount: number;
@@ -121,12 +121,11 @@ export function GetDocument2(doc: TextDocument): IDocument {
 }
 
 export function IdentifyDoc(uri: string): string {
-  if (uri.includes(".mcfunction") || uri.includes("functions"))
+  if (uri.endsWith(".mcfunction"))
     return McFunctionIdentifier;
 
-  if (uri.includes(".lang") || uri.includes("texts"))
+  if (uri.endsWith(".lang"))
     return McLanguageIdentifier;
 
-
-  return McFunctionIdentifier;
+  return McOtherIdentifier;
 }

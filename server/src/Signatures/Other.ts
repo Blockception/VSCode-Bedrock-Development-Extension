@@ -27,27 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export function GetFilename(filepath: string): string {
-    let index = filepath.lastIndexOf('\\');
+import { SignatureHelp } from 'vscode-languageserver';
+import { Position } from 'vscode-languageserver-textdocument';
+import { IDocument } from '../code/include';
 
-    if (index > -1) {
-        filepath = filepath.substring(index + 1, filepath.length);
-    }
-
-    index = filepath.lastIndexOf('.');
-
-    if (index > -1) {
-        filepath = filepath.substring(0, index);
-    }
-
-    return filepath.trim();
-}
-
-export function getExtension(filepath : string) : string {
-    let index = filepath.lastIndexOf('.');
-
-    if (index < 0)
-        return '';
-
-    return filepath.substring(index, filepath.length).trim();
+export function ProvideSignature(doc: IDocument, pos : Position): SignatureHelp | undefined {
+	return undefined;
 }
