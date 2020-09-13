@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import { GetWords } from '../../code/include';
-import { MCCommandParameter, MCCommand, MCCommandParameterType } from './Command';
+import { MCCommandParameter, MCCommand, MCCommandParameterType } from './include';
 import { Manager } from '../../Manager';
 
 export function AddCommand(command: string, description : string | undefined = undefined) {

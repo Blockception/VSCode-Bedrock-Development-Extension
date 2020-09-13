@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp, SignatureHelpParams } from 'vscode-languageserver';
 import { GetDocument } from '../code/include';
 import { Position } from 'vscode-languageserver-textdocument';
-import { CommandIntr, IsInSubCommand } from '../minecraft/Commands/include';
+import { CommandIntr, IsInSubCommand } from '../minecraft/commands/include';
 
 export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
 	let pos = params.position;

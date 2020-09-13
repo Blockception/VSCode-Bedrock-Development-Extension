@@ -29,10 +29,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { TextDocuments } from "vscode-languageserver";
-import { MCCommand } from "./minecraft/Commands/Command";
+import { MCCommand } from "./minecraft/commands/include";
+import { CommandManager } from './minecraft/commands/CommandManager';
 
 export class Manager {
-  static Commands: MCCommand[] = [];
+  static Commands: CommandManager = new CommandManager();
 
   //The document manager
   static Documents: TextDocuments<TextDocument> = new TextDocuments(

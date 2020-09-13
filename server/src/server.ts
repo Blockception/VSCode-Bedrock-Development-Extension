@@ -8,7 +8,7 @@ import { TraveseDirectory } from './traverse';
 import { URI } from 'vscode-uri';
 import { Process } from './process/Process';
 import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from './symbols/OnRequest';
-import { AddCommands } from './minecraft/Commands/initialize';
+import { AddCommands } from './minecraft/commands/initialize';
 import { OnCompletionRequest } from './completion/OnRequest';
 import { GetDocument2 } from './code/include';
 import { OnSignatureRequest } from './Signatures/OnRequest';

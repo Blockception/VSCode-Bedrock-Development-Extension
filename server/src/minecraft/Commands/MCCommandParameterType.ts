@@ -66,6 +66,8 @@ export enum MCCommandParameterType {
 	sound,
 	//Marks that the parameter is a tag
 	tag,
+	//Marks that the parameter is of an unknown type
+	unknown,
 	//Marks that the parameter is an xp value
 	xp
 }

@@ -27,11 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './Block';
-export * from './Boolean';
-export * from './Entity';
-export * from './Objectives';
-export * from './Sound';
-export * from './Tag';
-export * from './Tickingarea';
+export function isSelector(value : string) : boolean {
+	if (value.startsWith("@"))
+		return true;
 
+	return false;
+}
