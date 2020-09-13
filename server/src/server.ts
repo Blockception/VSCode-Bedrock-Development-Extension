@@ -11,7 +11,7 @@ import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from './symbols/OnR
 import { AddCommands } from './minecraft/commands/initialize';
 import { OnCompletionRequest } from './completion/OnRequest';
 import { GetDocument2 } from './code/include';
-import { OnSignatureRequest } from './Signatures/OnRequest';
+import { OnSignatureRequest } from './signatures/OnRequest';
 
 console.log('starting minecraft server');
 

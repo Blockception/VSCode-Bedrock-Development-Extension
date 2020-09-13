@@ -44,16 +44,16 @@ function add(parameters: MCCommandParameter[], name: string, description: string
 
 export function AddCommands(): void {
 	//ability
-	add([new MCCommandParameter("ability", MCCommandParameterType.keyword, true)], "ability", "Grants or revokes a player ability."),
+	add([new MCCommandParameter("ability", MCCommandParameterType.keyword, true)], "ability", "Grants or revokes a player ability.");
 
-		//ability <Player: selector>
-		add([
-			new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-			new MCCommandParameter("Player", MCCommandParameterType.selector, true)
-		],
-			"ability",
-			"Grants or revokes a player ability."
-		);
+	//ability <Player: selector>
+	add([
+		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selector, true)
+	],
+		"ability",
+		"Grants or revokes a player ability."
+	);
 	//ability <Player: selector> mayfly [value: boolean]
 	add([
 		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
@@ -322,7 +322,7 @@ export function AddCommands(): void {
 	],
 		"difficulty",
 		"	Sets the difficulty level."
-	);	
+	);
 	add([
 		new MCCommandParameter("difficulty", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("easy", MCCommandParameterType.keyword, true)
@@ -760,7 +760,7 @@ export function AddCommands(): void {
 		"gamerule",
 		"Sets or queries a game rule value."
 	);
-	
+
 	add([
 		new MCCommandParameter("give", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("player", MCCommandParameterType.selector, true),
