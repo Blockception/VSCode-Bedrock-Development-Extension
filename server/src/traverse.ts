@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+	 list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+	 this list of conditions and the following disclaimer in the documentation
+	 and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+	 contributors may be used to endorse or promote products derived from
+	 this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -48,17 +48,45 @@ export function TraveseDirectory(Dir: string): void {
 					let Path = Dir + file;
 
 					if (Path.endsWith(".mcfunction")) {
-						Parse(Path, 'bc-minecraft-mcfunction');
+						PromiseParse(Path, 'bc-minecraft-mcfunction');
 					}
 					else if (Path.endsWith(".lang")) {
-						Parse(Path, 'bc-minecraft-language');
+						PromiseParse(Path, 'bc-minecraft-language');
 					}
 					else if (fs.lstatSync(Path).isDirectory()) {
-						TraveseDirectory(Path);
+						PromiseTraveseDirectory(Path);
 					}
 				});
 		}
 	});
+}
+
+export function PromiseTraveseDirectory(path: string): void {
+	new Promise((resolve, reject) => {
+		try {
+			TraveseDirectory(path);
+		}
+		catch (error) {
+			console.log(error);
+			reject(error);
+		}
+
+		resolve();
+	})
+}
+
+function PromiseParse(path: string, languageID: string): void {
+	new Promise((resolve, reject) => {
+		try {
+			Parse(path, languageID);
+		}
+		catch (error) {
+			console.log(error);
+			reject(error);
+		}
+
+		resolve();
+	})
 }
 
 function Parse(path: string, languageID: string): void {

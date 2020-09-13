@@ -63,8 +63,10 @@ connection.onInitialized(() => {
 			if (Path == undefined)
 				return;
 
-			TraveseDirectory(Path);
-			Manager.TraversedWorkspaces = true;
+			new Promise((resolve, reject)=>{
+				TraveseDirectory(Path);
+				Manager.TraversedWorkspaces = true;
+			})
 		});
 	});
 });

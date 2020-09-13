@@ -1103,7 +1103,31 @@ export function AddCommands(): void {
 		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
 		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
-		new MCCommandParameter("replace|destroy|keep", MCCommandParameterType.keyword, false)
+		new MCCommandParameter("replace", MCCommandParameterType.keyword, false)
+	],
+		"setblock",
+		"TODO description"
+	);
+	add([
+		new MCCommandParameter("setblock", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("position x", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("position y", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
+		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("destroy", MCCommandParameterType.keyword, false)
+	],
+		"setblock",
+		"TODO description"
+	);
+	add([
+		new MCCommandParameter("setblock", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("position x", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("position y", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
+		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("|keep", MCCommandParameterType.keyword, false)
 	],
 		"setblock",
 		"TODO description"
