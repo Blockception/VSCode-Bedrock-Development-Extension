@@ -32,4 +32,3 @@ export * from './MCCommand';
 export * from './MCCommandParameter';
 export * from './MCCommandParameterType';
 export * from './initialize';
-export * from './ToCommand';

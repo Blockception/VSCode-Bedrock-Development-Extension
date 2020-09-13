@@ -27,11 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureHelp, SignatureHelpParams, SignatureInformation } from 'vscode-languageserver';
+import { ParameterInformation, SignatureHelp, SignatureHelpParams, SignatureInformation } from 'vscode-languageserver';
 import { GetDocument } from '../code/include';
 import { Position } from 'vscode-languageserver-textdocument';
-import { CommandIntr, IsInSubCommand, MCCommand } from '../minecraft/commands/include';
+import { CommandIntr, IsInSubCommand, MCCommand, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { CommandInfo } from '../minecraft/Commands/CommandInfo';
+import { OutgoingMessage } from 'http';
 
 export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
 	let pos = params.position;
@@ -57,6 +58,10 @@ function ProvideSignature(command: CommandIntr, pos : Position): SignatureHelp {
 		activeSignature:0
 	};
 
+	if (pos.character > 0 && command.CursorParamater === 0){
+		Out.activeParameter = command.Paramaters.length;
+	}
+
 	return Out;
 }
 
@@ -81,7 +86,7 @@ function ConverToSignatures(Commands : CommandInfo[]) : SignatureInformation[] {
 //Converts the given MCCommand into a signature
 function ConverToSignature(Command : MCCommand) : SignatureInformation {
 	var Sign : SignatureInformation = {
-		label: Command.name,
+		label: '',
 		documentation: Command.description,
 		parameters:[]
 	};
@@ -89,19 +94,32 @@ function ConverToSignature(Command : MCCommand) : SignatureInformation {
 	let parameters = Command.parameters;
 	for (let I = 0; I < parameters.length; I++) {
 		let parameter = parameters[I];
+		let p : ParameterInformation;
 
 		if (parameter.Required){
-			Sign.parameters?.push({
-				label:"<" + parameter.Text + ">",
-				documentation:"Type: " + parameter.Type
-			});
+			if (parameter.Type === MCCommandParameterType.keyword){
+				p = {
+					label:parameter.Text,
+					documentation:"Type: " + MCCommandParameterType[parameter.Type]
+				};
+			}
+			else{
+				p = {
+					label:"<" + parameter.Text + ">",
+					documentation:"Type: " + MCCommandParameterType[parameter.Type]
+				};
+			}			
 		}
 		else{
-			Sign.parameters?.push({
+			p = {
 				label:"[" + parameter.Text + "]",
-				documentation:"Type: " + parameter.Type
-			});
+				documentation:"Type: " + MCCommandParameterType[parameter.Type]
+			};
 		}
+
+		Sign.label += p.label + ' ';
+
+		Sign.parameters?.push(p);
 	}
 
 	return Sign;

@@ -900,7 +900,7 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("playsound", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("sound", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("sound", MCCommandParameterType.sound, true),
 		new MCCommandParameter("player", MCCommandParameterType.selector, false),
 		new MCCommandParameter("position x", MCCommandParameterType.coordinate, false),
 		new MCCommandParameter("position y", MCCommandParameterType.coordinate, false),
@@ -1139,7 +1139,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("stopsound", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("player", MCCommandParameterType.selector, true),
-		new MCCommandParameter("sound", MCCommandParameterType.keyword, false)
+		new MCCommandParameter("sound", MCCommandParameterType.sound, false)
 	],
 		"stopsound",
 		"TODO description"
