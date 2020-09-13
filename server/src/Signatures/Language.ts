@@ -34,8 +34,11 @@ export function ProvideSignature(doc: IDocument, pos : Position): SignatureHelp 
    const Line = doc.getLine(pos.line);
 
    let index = Line.indexOf('=');
-   let parameter = index > pos.character ? 0 : 1;
+   let parameter = 0
 
+   if (index > 0 && index > pos.character){
+      parameter = 1;
+   }
 
    let Out : SignatureHelp = {
       activeParameter:parameter,

@@ -12,12 +12,14 @@ import { AddCommands } from './minecraft/commands/initialize';
 import { OnCompletionRequest } from './completion/OnRequest';
 import { GetDocument2 } from './code/include';
 import { OnSignatureRequest } from './signatures/OnRequest';
+import { CallHierarchy } from 'vscode-languageserver/lib/callHierarchy.proposed';
 
 console.log('starting minecraft server');
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
 let connection = createConnection(ProposedFeatures.all);
+Manager.Connection = connection;
 
 //Provides diagnostics and such
 Manager.Documents.onDidOpen(x => Process(GetDocument2(x.document)));

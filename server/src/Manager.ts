@@ -28,8 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { TextDocuments } from "vscode-languageserver";
+import { Connection, TextDocuments, _ } from "vscode-languageserver";
 import { CommandManager } from './minecraft/commands/CommandManager';
+import { CallHierarchy } from 'vscode-languageserver/lib/callHierarchy.proposed';
+import { SemanticTokens } from 'vscode-languageserver/lib/sematicTokens.proposed';
 
 export class Manager {
   static Commands: CommandManager = new CommandManager();
@@ -43,4 +45,6 @@ export class Manager {
   static hasWorkspaceFolderCapability: boolean = false;
   static hasDiagnosticRelatedInformationCapability: boolean = false;
   static TraversedWorkspaces: boolean = false;
+
+  static Connection : Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
 }
