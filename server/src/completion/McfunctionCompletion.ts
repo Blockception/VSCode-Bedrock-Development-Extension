@@ -28,9 +28,12 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { IDocument, RangedWord } from '../code/include';
+import { IDocument } from '../code/include';
 import { Position } from 'vscode-languageserver-textdocument';
-import { CompletionList } from 'vscode-languageserver';
+import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { CommandIntr, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
+import { Manager } from '../Manager';
+import { provideBooleanCompletion } from '../minecraft/types/Boolean';
 
 export function OnCompletionMcFunction(doc : IDocument, pos : Position, receiver : CompletionList) {
 	const LineIndex = pos.line;
@@ -39,6 +42,64 @@ export function OnCompletionMcFunction(doc : IDocument, pos : Position, receiver
 	if (Line.length === 0)
 		return;
 
-	let Words = RangedWord.GetWords(Line);
+	let Command: CommandIntr = CommandIntr.parse(Line, pos);
+
+	return ProvideCompletionMcFunction(Command, pos, receiver);
+}
+
+export function ProvideCompletionMcFunction(Command : CommandIntr, pos : Position, receiver : CompletionList) {
+	if (pos.character < 3){
+		provideCommandCompletion(receiver);
+		return;
+	}
+
+	let Matches = Command.GetCommandData();
+	let ParameterIndex = Command.CursorParamater;
+
+	if (Matches.length === 0){
+		provideCommandCompletion(receiver);
+		return;
+	}
+		
+	for (let I = 0; I < Matches.length; I++){
+		let Match = Matches[I];
+
+		if (Match.Command.parameters.length > ParameterIndex) {
+			var Parameter = Match.Command.parameters[ParameterIndex];
+
+			switch (Parameter.Type){
+				case MCCommandParameterType.boolean:
+					provideBooleanCompletion(receiver);
+					break;
+
+				case MCCommandParameterType.command:
+					provideCommandCompletion(receiver);
+					break;
+
+				case MCCommandParameterType.keyword:
+					receiver.items.push(toCompletion(Parameter));
+					break;
+			}
+		}
+	}
+}
+
+function toCompletion(parameter : MCCommandParameter) : CompletionItem {
+	let Out : CompletionItem = {
+		label: parameter.Text,
+		documentation: "keyword",
+		kind:CompletionItemKind.Keyword
+	};
 	
+	return Out;
+}
+
+function provideCommandCompletion(receiver : CompletionList) : void {
+	for (let [key, value] of Manager.Commands.Subset){
+		receiver.items.push({
+			label:key,
+			documentation:"The command: " + key,
+			kind:CompletionItemKind.Class
+		});
+	}
 }

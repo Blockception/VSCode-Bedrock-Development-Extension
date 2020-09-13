@@ -31,8 +31,6 @@ import { Position } from 'vscode-languageserver-textdocument';
 import { RangedWord } from '../../code/include';
 import { Manager } from '../../Manager';
 import { CommandInfo } from './CommandInfo';
-import { MCCommand } from './MCCommand';
-
 
 //A class that helps interpeting written commands
 export class CommandIntr {
@@ -53,14 +51,20 @@ export class CommandIntr {
 		let Words = RangedWord.GetWords(line);
 		let char = pos.character;
 		Out.Line = LineIndex;
-		Out.Paramaters = Words;		
+		Out.Paramaters = Words;
 		
-		for (let I = 0; I < Out.Paramaters.length; I++){
-			let x = Out.Paramaters[I];
+		if (Out.Paramaters[Out.Paramaters.length - 1].startindex < pos.character) {
+			Out.CursorParamater = Out.Paramaters.length - 1;
+		} 
+		else 
+		{
+			for (let I = 0; I < Out.Paramaters.length; I++) {
+				let x = Out.Paramaters[I];
 
-			if (x.CheckCursor(char)){
-				Out.CursorParamater = I;
-				break;
+				if (x.CheckCursor(char)){
+					Out.CursorParamater = I;
+					break;
+				}
 			}
 		}
 

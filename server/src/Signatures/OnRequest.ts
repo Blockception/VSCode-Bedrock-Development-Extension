@@ -32,7 +32,6 @@ import { GetDocument } from '../code/include';
 import { Position } from 'vscode-languageserver-textdocument';
 import { CommandIntr, IsInSubCommand, MCCommand, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { CommandInfo } from '../minecraft/Commands/CommandInfo';
-import { OutgoingMessage } from 'http';
 
 export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp {
 	let pos = params.position;
@@ -57,10 +56,6 @@ function ProvideSignature(command: CommandIntr, pos : Position): SignatureHelp {
 		activeParameter:command.CursorParamater,
 		activeSignature:0
 	};
-
-	if (pos.character > 0 && command.CursorParamater === 0){
-		Out.activeParameter = command.Paramaters.length;
-	}
 
 	return Out;
 }
@@ -96,7 +91,7 @@ function ConverToSignature(Command : MCCommand) : SignatureInformation {
 		let parameter = parameters[I];
 		let p : ParameterInformation;
 
-		if (parameter.Required){
+		if (parameter.Required) {
 			if (parameter.Type === MCCommandParameterType.keyword){
 				p = {
 					label:parameter.Text,

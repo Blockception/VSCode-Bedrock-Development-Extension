@@ -1,3 +1,5 @@
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -38,4 +40,20 @@ export function isBoolean(value : string) : boolean {
 		default:
 			return false;
 	}
+}
+
+export function provideBooleanCompletion(receiver : CompletionList) {
+	//False
+	receiver.items.push({
+		label:"false",
+		documentation:"The boolean value for false",
+		kind:CompletionItemKind.Value
+	});
+
+	//true
+	receiver.items.push({
+		label:"true",
+		documentation:"The boolean value for true",
+		kind:CompletionItemKind.Value
+	})
 }
