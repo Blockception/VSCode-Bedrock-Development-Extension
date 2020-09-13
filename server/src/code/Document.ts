@@ -27,80 +27,108 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as fs from 'fs';
-import { Range, TextDocument } from 'vscode-languageserver-textdocument';
-import { URI } from 'vscode-uri';
-import { Manager } from '../Manager';
+import * as fs from "fs";
+import { Range, TextDocument } from "vscode-languageserver-textdocument";
+import { URI } from "vscode-uri";
+import { Manager } from "../Manager";
+import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 
 export interface IDocument {
-	readonly LineCount : number;
-	readonly Uri : string;
+  readonly LineCount: number;
+  readonly Uri: string;
+  readonly LanguageID : string;
 
-	getLine(index : number) : string;
+  getLine(index: number): string;
 }
 
 export class FileDocument implements IDocument {
-	private Lines: string[];
-	readonly Uri: string;
-	readonly Range: Range;
-	readonly LineCount : number;
+  private Lines: string[];
+  readonly Uri: string;
+  readonly Range: Range;
+  readonly LineCount: number;
+  readonly LanguageID : string;
 
-	constructor(uri: string, Content: string) {
-		this.Uri = uri;
-		this.Lines = Content.split(/(\r\n|\n)/);
+  constructor(uri: string, Content: string, LanguageID : string) {
+    this.Uri = uri;
+    this.Lines = Content.split(/(\r\n|\n)/);
 
-		var LastIndex = this.Lines.length - 1;
-		var Last = this.Lines[LastIndex];
-		this.Range = {
-			start: { character: 0, line: 0 },
-			end: { character: Last.length, line: LastIndex }
-		};
+    let LastIndex = this.Lines.length - 1;
+    let Last = this.Lines[LastIndex];
+    this.Range = {
+      start: { character: 0, line: 0 },
+      end: { character: Last.length, line: LastIndex },
+    };
 
-		this.LineCount = this.Lines.length;
-	}
+    this.LineCount = this.Lines.length;
+    this.LanguageID = LanguageID;
+  }
 
-	public getLine(index : number) : string {
-		return this.Lines[index];
-	}
+  public getLine(index: number): string {
+    return this.Lines[index];
+  }
 
-	static Load(uri: string) : IDocument {
-		var Content = fs.readFileSync(uri, 'utf8');
-		return new FileDocument(uri, Content);
-	}
+  static Load(uri: string, LanguageID : string = ''): IDocument {
+    let Content = fs.readFileSync(uri, "utf8");
+    if (LanguageID === '') {
+      LanguageID = IdentifyDoc(uri);
+    }
+
+    return new FileDocument(uri, Content, LanguageID);
+  }
 }
 
 export class DocumentImp implements IDocument {
-	private doc : TextDocument;
+  private doc: TextDocument;
 
-	readonly LineCount: number;
-	readonly Uri: string;
+  readonly LineCount: number;
+  readonly Uri: string;
+  readonly LanguageID : string;
 
-	constructor(doc : TextDocument){
-		this.doc = doc;
-		this.LineCount = doc.lineCount;
-		this.Uri = doc.uri;
-	}
+  constructor(doc: TextDocument) {
+    this.doc = doc;
+    this.LineCount = doc.lineCount;
+    this.Uri = doc.uri;
+    this.LanguageID = doc.languageId;
+  }
 
-	public getLine(index: number) : string {
-		return this.doc.getText({start:{character:0,line:index},end:{character:Number.MAX_SAFE_INTEGER,line:index}})
-	}
+  public getLine(index: number): string {
+    return this.doc.getText({
+      start: { character: 0, line: index },
+      end: { character: Number.MAX_SAFE_INTEGER, line: index },
+    });
+  }
 }
 
-export function GetDocument(uri: string, languageID: string) : IDocument {
-	var Content = '';
+export function GetDocument(uri: string, languageID: string = ''): IDocument {
+  let Content = "";
+  let doc = Manager.Documents.get(uri);
 
-	var doc = Manager.Documents.get(uri);
+  if (languageID === '') {
+    languageID = IdentifyDoc(uri);
+  }
 
-	if (doc != undefined){
-		return new DocumentImp(doc);
-	}
+  if (doc != undefined) {
+    return new DocumentImp(doc);
+  }
 
-	Content = fs.readFileSync(uri, 'utf8');
-	var Out = new DocumentImp(TextDocument.create(uri, languageID, 0, Content));
+  Content = fs.readFileSync(uri, "utf8");
+  let Out = new DocumentImp(TextDocument.create(uri, languageID, 0, Content));
 
-	return Out;
+  return Out;
 }
 
-export function GetDocument2(doc : TextDocument) : IDocument {
-	return new DocumentImp(doc);
+export function GetDocument2(doc: TextDocument): IDocument {
+  return new DocumentImp(doc);
+}
+
+export function IdentifyDoc(uri : string) : string {
+    if (uri.includes(".mcfunction") || uri.includes("functions"))
+      return McFunctionIdentifier;
+
+    if (uri.includes(".lang") || uri.includes("texts"))
+    return McLanguageIdentifier;
+
+     
+    return McFunctionIdentifier;
+  }
 }

@@ -29,13 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export function GetWords(text: string): string[] {
-    var out: string[] = [];
-    var level = 0;
-    var startindex = 0;
-    var Instring = false;
+    let out: string[] = [];
+    let level = 0;
+    let startindex = 0;
+    let Instring = false;
 
-    for (var index = 0; index < text.length; index++) {
-        var c = text.charAt(index);
+    for (let index = 0; index < text.length; index++) {
+        let c = text.charAt(index);
 
         if (Instring) {
             if (c == '"')
@@ -65,7 +65,7 @@ export function GetWords(text: string): string[] {
                 case "\t":
                     if (level == 0) {
                         if (startindex < index) {
-                            var RW = text.substring(startindex, index).trim();
+                            let RW = text.substring(startindex, index).trim();
                             out.push(RW);
                         }
 
@@ -83,7 +83,7 @@ export function GetWords(text: string): string[] {
     }
 
     if (startindex < text.length) {
-        var RW = text.substring(startindex, text.length);
+        let RW = text.substring(startindex, text.length);
         out.push(RW);
     }
 

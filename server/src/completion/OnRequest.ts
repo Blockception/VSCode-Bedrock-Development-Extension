@@ -27,18 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionParams, CompletionList } from 'vscode-languageserver';
-import { AddCommands } from '../minecraft/Commands/initialize';
+import { CompletionParams, CompletionList } from "vscode-languageserver";
+import { GetDocument2, GetDocument } from "../code/include";
+import { McFunctionIdentifier } from "../Constants";
+import { OnCompletionMcFunction } from "./McfunctionCompletion";
 
-export function OnCompletionRequest(params : CompletionParams) : CompletionList {
-   var List : CompletionList;
+export function OnCompletionRequest(params: CompletionParams): CompletionList {
+  let List: CompletionList;
 
-   List = {
-      isIncomplete:true,
-      items:[]
-   };
+  List = {
+    isIncomplete: true,
+    items: [],
+  };
 
-   List.isIncomplete = false
+  let Doc = GetDocument(params.textDocument.uri);
+  let Pos = params.position;
 
-   return List;
+  if (Doc.LanguageID == McFunctionIdentifier)
+    OnCompletionMcFunction(Doc, Pos, List);
+
+  List.isIncomplete = false;
+
+  return List;
 }

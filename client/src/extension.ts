@@ -7,6 +7,7 @@ import * as path from 'path';
 import { workspace, ExtensionContext, window } from 'vscode';
 
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, TextDocument, WorkspaceChange } from 'vscode-languageclient';
+import { McFunctionIdentifier, McLanguageIdentifier } from './Constants';
 
 //The client to the server
 let client: LanguageClient;
@@ -35,7 +36,10 @@ export function activate(context: ExtensionContext) {
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
-		documentSelector: [ { scheme: 'file', language: 'bc-minecraft-language' }, { scheme: 'file', language: 'bc-minecraft-mcfunction' } ],
+		documentSelector: [ 
+			{ scheme: 'file', language: McFunctionIdentifier }, 
+			{ scheme: 'file', language: McLanguageIdentifier } 
+		],
 		synchronize: {
 			// Notify the server about file changes to '.clientrc files contained in the workspace
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')

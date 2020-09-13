@@ -31,7 +31,15 @@ import { AddCommand } from './ToCommand';
 import { Manager } from '../../Manager';
 
 export function AddCommands() : void {
+	AddCommand("ability");
+	AddCommand("ability <Player: selector>");
+	AddCommand("ability <Player: selector> mayfly [value boolean]");
+	AddCommand("ability <Player: selector> mute [value boolean]");
+	AddCommand("ability <Player: selector> worldbuilder [value boolean]");
+
 	AddCommand("alwaysday [lock:boolean]");
+
+	AddCommand("classroommode");
 
 	AddCommand("clear [player:selector] [itemName:item] [data:int] [maxCount:int]");
 		
@@ -51,6 +59,8 @@ export function AddCommands() : void {
 	AddCommand("clone <begin x:coordinate> <begin y:coordinate> <begin z:coordinate> <end x:coordinate> <end y:coordinate> <end z:coordinate> <destination x:coordinate> <destination y:coordinate> <destination z:coordinate> filtered force <tileName:block> [tileData:int]");
 	AddCommand("clone <begin x:coordinate> <begin y:coordinate> <begin z:coordinate> <end x:coordinate> <end y:coordinate> <end z:coordinate> <destination x:coordinate> <destination y:coordinate> <destination z:coordinate> filtered move <tileName:block> [tileData:int]");
 	
+	AddCommand("code");
+
 	AddCommand("deop <player:selector>");
 
 	AddCommand("difficulty peaceful");

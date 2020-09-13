@@ -30,12 +30,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MCCommandParameter } from './MCCommandParameter';
 
 export class MCCommand {
-	public name : string
-	public parameters : MCCommandParameter[];	
+	public name : string;
+	public parameters : MCCommandParameter[];
+	public description : string;
 
 	constructor(){
 		this.parameters = [];
 		this.name = '';
+		this.description = '';
 	}
 
 	add(item : MCCommandParameter[]){

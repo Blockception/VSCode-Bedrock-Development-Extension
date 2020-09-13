@@ -32,25 +32,30 @@ import { GetWords } from '../../code/include';
 import { MCCommandParameter, MCCommand, MCCommandParameterType } from './Command';
 import { Manager } from '../../Manager';
 
-export function AddCommand(command: string) {
-	var Words = GetWords(command);
+export function AddCommand(command: string, description : string | undefined = undefined) {
+	let Words = GetWords(command);
 
 	if (Words.length == 0)
 		return;
 
-	var Parameters: MCCommandParameter[] = [];
+	let Parameters: MCCommandParameter[] = [];
 
-	for (var I = 0; I < Words.length; I++) {
+	for (let I = 0; I < Words.length; I++) {
 		Parameters.push(ConvertWord(Words[I]));
 	}
 
-	var Command: MCCommand = new MCCommand();
+	let Command: MCCommand = new MCCommand();
 	Command.add(Parameters);
+
+	if (description != undefined){
+		Command.description = description;
+	}
+
 	Manager.Commands.push(Command);
 }
 
 function ConvertWord(word: string): MCCommandParameter {
-	var Out = new MCCommandParameter();
+	let Out = new MCCommandParameter();
 
 	//is required
 	if (word.startsWith('<') && word.endsWith('>')) {
@@ -66,8 +71,8 @@ function ConvertWord(word: string): MCCommandParameter {
 
 	//has type
 	if (word.includes(':')) {
-		var index = word.indexOf(':');
-		var Type = word.substring(index + 1, word.length).trim();
+		const index = word.indexOf(':');
+		const Type = word.substring(index + 1, word.length).trim();
 		word = word.substring(0, index).trim();
 
 		switch (Type) {

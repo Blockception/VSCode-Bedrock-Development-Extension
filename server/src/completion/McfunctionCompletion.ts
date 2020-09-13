@@ -27,49 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetFilename} from '../code/include';
-import { Convert } from './Convert';
-import url = require('url');
-import { Database } from '../minecraft/Database';
-import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
 
-export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
-   let uri = params.textDocument.uri;
-   uri = url.fileURLToPath(uri);
+import { IDocument, RangedWord } from '../code/include';
+import { Position } from 'vscode-languageserver-textdocument';
+import { CompletionList } from 'vscode-languageserver';
 
-   let Out: SymbolInformation[] = [];
+export function OnCompletionMcFunction(doc : IDocument, pos : Position, receiver : CompletionList) {
+	const LineIndex = pos.line;
+	const Line = doc.getLine(LineIndex);
 
-   Out.push({
-      kind: SymbolKind.Class,
-      location: Location.create(uri, Range.create(0, 0, 0, 0)),
-      name: GetFilename(uri)
-   });
+	if (Line.length === 0)
+		return;
 
-   let Data = Database.Get(uri);
-   Convert(Data, Out, '');
-
-   return Out;
-}
-
-export function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
-   let Query = params.query;
-   let Out: SymbolInformation[] = [];
-
-   for (let [FunctionPath, Data] of Database.Data) {
-      if (Out.length > 100) {
-         break;
-      }
-
-      if (Query === '' || FunctionPath.indexOf(Query) > -1) {
-         Out.push({
-            kind: SymbolKind.Class,
-            location: Location.create(FunctionPath, Range.create(0, 0, 0, 0)),
-            name: GetFilename(FunctionPath)
-         });
-      }
-
-      Convert(Data, Out, Query);
-   }
-
-   return Out;
+	let Words = RangedWord.GetWords(Line);
+	
 }
