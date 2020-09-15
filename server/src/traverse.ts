@@ -61,31 +61,33 @@ export function TraveseDirectory(Dir: string): void {
 	});
 }
 
-export function PromiseTraveseDirectory(path: string): void {
-	new Promise((resolve, reject) => {
-		try {
-			TraveseDirectory(path);
-		}
-		catch (error) {
-			console.log(error);
-			reject(error);
-		}
-
-		resolve();
-	})
+export function PromiseTraveseDirectory(path: string): Promise<boolean> {
+	return new Promise<boolean>((resolve, reject) => {
+		setTimeout(() => {
+			try {
+				TraveseDirectory(path);
+				resolve(true);
+			}
+			catch (error) {
+				console.log(error);
+				reject(false);
+			}
+		}, 0);
+	});
 }
 
-function PromiseParse(path: string, languageID: string): void {
-	new Promise((resolve, reject) => {
-		try {
-			Parse(path, languageID);
-		}
-		catch (error) {
-			console.log(error);
-			reject(error);
-		}
-
-		resolve();
+function PromiseParse(path: string, languageID: string): Promise<boolean> {
+	return new Promise<boolean>((resolve, reject) => {
+		setTimeout(() => {
+			try {
+				Parse(path, languageID);
+				resolve(true);
+			}
+			catch (error) {
+				console.log(error);
+				reject(false);
+			}
+		}, 0);
 	})
 }
 
