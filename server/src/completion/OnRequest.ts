@@ -43,8 +43,11 @@ export function OnCompletionRequest(params: CompletionParams): CompletionList {
   let Doc = GetDocument(params.textDocument.uri);
   let Pos = params.position;
 
-  if (Doc.LanguageID == McFunctionIdentifier)
-    OnCompletionMcFunction(Doc, Pos, List);
+  switch(Doc.LanguageID){
+    case McFunctionIdentifier:
+      OnCompletionMcFunction(Doc, Pos, List);
+      break;
+  }
 
   List.isIncomplete = false;
 

@@ -65,7 +65,11 @@ export class CommandIntr {
 					Out.CursorParamater = I;
 					break;
 				}
+				else if (char > x.endindex) {
+					Out.CursorParamater = I + 1;
+				}
 			}
+			
 		}
 
 		return Out;

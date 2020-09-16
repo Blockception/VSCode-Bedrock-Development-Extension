@@ -32,7 +32,6 @@ import { GetDocument } from '../code/include';
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
 import * as Mcfunction from './Mcfunction';
 import * as Language from './Language';
-import * as Other from './Other';
 
 export function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
 	let pos = params.position;
