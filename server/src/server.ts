@@ -12,7 +12,6 @@ import { AddCommands } from './minecraft/commands/initialize';
 import { OnCompletionRequest } from './completion/OnRequest';
 import { GetDocument2 } from './code/include';
 import { OnSignatureRequest } from './signatures/OnRequest';
-import { CallHierarchy } from 'vscode-languageserver/lib/callHierarchy.proposed';
 
 console.log('starting minecraft server');
 

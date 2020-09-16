@@ -31,6 +31,7 @@ import * as fs from "fs";
 import { Range, TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../Manager";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
+import { URI } from 'vscode-uri';
 
 export interface IDocument {
   readonly LineCount: number;
@@ -48,7 +49,7 @@ export class FileDocument implements IDocument {
   readonly LanguageID: string;
 
   constructor(uri: string, Content: string, LanguageID: string) {
-    this.Uri = uri;
+    this.Uri = URI.file(uri).fsPath;
     this.Lines = Content.split(/(\r\n|\n)/);
 
     let LastIndex = this.Lines.length - 1;
@@ -86,7 +87,7 @@ export class DocumentImp implements IDocument {
   constructor(doc: TextDocument) {
     this.doc = doc;
     this.LineCount = doc.lineCount;
-    this.Uri = doc.uri;
+    this.Uri = URI.file(doc.uri).fsPath;
     this.LanguageID = doc.languageId;
   }
 
