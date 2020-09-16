@@ -31,6 +31,8 @@ export * from './Block';
 export * from './Boolean';
 export * from './Entity';
 export * from './Objectives';
+export * from './Selector/Selector';
+export * from './Selector/Completion';
 export * from './Sound';
 export * from './Tag';
 export * from './Tickingarea';

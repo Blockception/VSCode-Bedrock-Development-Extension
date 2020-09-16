@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+	 list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+	 this list of conditions and the following disclaimer in the documentation
+	 and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+	 contributors may be used to endorse or promote products derived from
+	 this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -34,40 +34,40 @@ import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-langu
 import { CommandIntr, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { Manager } from '../Manager';
 import { provideBooleanCompletion } from '../minecraft/types/Boolean';
+import { provideSelectorCompletion } from '../minecraft/types/include';
 
-export function OnCompletionMcFunction(doc : IDocument, pos : Position, receiver : CompletionList) {
+export function OnCompletionMcFunction(doc: IDocument, pos: Position, receiver: CompletionList) {
 	const LineIndex = pos.line;
 	const Line = doc.getLine(LineIndex);
-
-	if (Line.length === 0)
-		return;
 
 	let Command: CommandIntr = CommandIntr.parse(Line, pos);
 
 	return ProvideCompletionMcFunction(Command, pos, receiver);
 }
 
-export function ProvideCompletionMcFunction(Command : CommandIntr, pos : Position, receiver : CompletionList) {
-	if (pos.character < 3){
+export function ProvideCompletionMcFunction(Command: CommandIntr, pos: Position, receiver: CompletionList) {
+	if (Command == undefined || pos.character < 3) {
 		provideCommandCompletion(receiver);
 		return;
 	}
 
 	let Matches = Command.GetCommandData();
-	let ParameterIndex = Command.CursorParamater;
 
-	if (Matches.length === 0){
+	if (Matches.length === 0) {
 		provideCommandCompletion(receiver);
 		return;
 	}
-		
-	for (let I = 0; I < Matches.length; I++){
+
+	let ParameterIndex = Command.CursorParamater;
+	let Current = Command.GetCurrent();
+
+	for (let I = 0; I < Matches.length; I++) {
 		let Match = Matches[I];
 
 		if (Match.Command.parameters.length > ParameterIndex) {
 			var Parameter = Match.Command.parameters[ParameterIndex];
 
-			switch (Parameter.Type){
+			switch (Parameter.Type) {
 				case MCCommandParameterType.boolean:
 					provideBooleanCompletion(receiver);
 					break;
@@ -79,27 +79,31 @@ export function ProvideCompletionMcFunction(Command : CommandIntr, pos : Positio
 				case MCCommandParameterType.keyword:
 					receiver.items.push(toCompletion(Parameter));
 					break;
+
+				case MCCommandParameterType.selector:
+					provideSelectorCompletion(receiver, Current);
+					break;
 			}
 		}
 	}
 }
 
-function toCompletion(parameter : MCCommandParameter) : CompletionItem {
-	let Out : CompletionItem = {
+function toCompletion(parameter: MCCommandParameter): CompletionItem {
+	let Out: CompletionItem = {
 		label: parameter.Text,
 		documentation: "keyword",
-		kind:CompletionItemKind.Keyword
+		kind: CompletionItemKind.Keyword
 	};
-	
+
 	return Out;
 }
 
-function provideCommandCompletion(receiver : CompletionList) : void {
-	for (let [key, value] of Manager.Commands.Subset){
+function provideCommandCompletion(receiver: CompletionList): void {
+	for (let [key, value] of Manager.Commands.Subset) {
 		receiver.items.push({
-			label:key,
-			documentation:"The command: " + key,
-			kind:CompletionItemKind.Class
+			label: key,
+			documentation: "The command: " + key,
+			kind: CompletionItemKind.Class
 		});
 	}
 }

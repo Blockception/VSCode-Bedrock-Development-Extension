@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+	 list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+	 this list of conditions and the following disclaimer in the documentation
+	 and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+	 contributors may be used to endorse or promote products derived from
+	 this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -34,17 +34,17 @@ import { CommandInfo } from './CommandInfo';
 
 //A class that helps interpeting written commands
 export class CommandIntr {
-	public Paramaters : RangedWord[];
-	public Line : number;
-	public CursorParamater : number;
+	public Paramaters: RangedWord[];
+	public Line: number;
+	public CursorParamater: number;
 
-	constructor(){
+	constructor() {
 		this.Line = 0;
 		this.CursorParamater = 0;
-		this.Paramaters=[];
+		this.Paramaters = [];
 	}
 
-	static parse(line : string, pos : Position) : CommandIntr {
+	static parse(line: string, pos: Position): CommandIntr {
 		let Out = new CommandIntr();
 
 		let LineIndex = pos.line;
@@ -52,30 +52,30 @@ export class CommandIntr {
 		let char = pos.character;
 		Out.Line = LineIndex;
 		Out.Paramaters = Words;
-		
-		if (Out.Paramaters[Out.Paramaters.length - 1].startindex < pos.character) {
-			Out.CursorParamater = Out.Paramaters.length - 1;
-		} 
-		else 
-		{
-			for (let I = 0; I < Out.Paramaters.length; I++) {
-				let x = Out.Paramaters[I];
 
-				if (x.CheckCursor(char)){
-					Out.CursorParamater = I;
-					break;
-				}
-				else if (char > x.endindex) {
-					Out.CursorParamater = I + 1;
+		if (Out.Paramaters.length > 0) {
+			if (Out.Paramaters[Out.Paramaters.length - 1].startindex > pos.character) {
+				Out.CursorParamater = Out.Paramaters.length - 1;
+			}
+			else {
+				for (let I = 0; I < Out.Paramaters.length; I++) {
+					let x = Out.Paramaters[I];
+
+					if (x.CheckCursor(char)) {
+						Out.CursorParamater = I;
+						break;
+					}
+					else if (char > x.endindex) {
+						Out.CursorParamater = I + 1;
+					}
 				}
 			}
-			
 		}
 
 		return Out;
 	}
 
-	slice(start? : number | undefined, end? : number | undefined): CommandIntr {
+	slice(start?: number | undefined, end?: number | undefined): CommandIntr {
 		let Out = new CommandIntr();
 		Out.Line = this.Line;
 		Out.Paramaters = Out.Paramaters.slice(start, end);
@@ -83,12 +83,19 @@ export class CommandIntr {
 		return Out;
 	}
 
-	GetCommandKeyword() : string {
+	GetCommandKeyword(): string {
 		return this.Paramaters[0].text;
 	}
 
-	GetCommandData() : CommandInfo[] {
+	GetCommandData(): CommandInfo[] {
 		return Manager.Commands.getBestMatches(this);
+	}
+
+	GetCurrent() : RangedWord | undefined{
+		if (this.CursorParamater >= 0 && this.CursorParamater < this.Paramaters.length)
+			return this.Paramaters[this.CursorParamater];
+
+		return undefined;
 	}
 }
 
@@ -106,13 +113,13 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
 				return undefined;
 
 			//if cursor is on the execute command and not the sub command
-			if (character < command.Paramaters[11].startindex){
+			if (character < command.Paramaters[11].startindex) {
 				return command.slice(11);
 			}
 		}
-		else{
+		else {
 			//if cursor is on the execute command and not the sub command
-			if (character < command.Paramaters[6].startindex){
+			if (character < command.Paramaters[6].startindex) {
 				return command.slice(6);
 			}
 		}

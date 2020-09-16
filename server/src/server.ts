@@ -101,7 +101,8 @@ connection.onInitialize((params: InitializeParams) => {
 			documentSymbolProvider: true,
 			workspaceSymbolProvider: true,
 			completionProvider:{
-				resolveProvider:false
+				resolveProvider:false,
+				triggerCharacters:[' ']
 			},
 			signatureHelpProvider:{
 				triggerCharacters:[' ']

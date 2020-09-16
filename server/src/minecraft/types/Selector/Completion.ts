@@ -1,6 +1,6 @@
 /*BSD 3-Clause License
 
-Copyright (c) 2020, blockception Ltd
+Copyright (c) 2020, Blockception Ltd
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -11,7 +11,7 @@ modification, are permitted provided that the following conditions are met:
 
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
-	   and/or other materials provided with the distribution.
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
    contributors may be used to endorse or promote products derived from
@@ -27,51 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { RangedWord } from '../../../code/include';
 
-//The type of command parameter
-export enum MCCommandParameterType {
-	//Marks that the parameter is a block
-	block,
-	//Marks that the parameter is a boolean value
-	boolean,
-	//Marks that the parameter is the start of a command
-	command,
-	//Marks that the parameter is a coordinate
-	coordinate,
-	//Marks that the parameter is an effect
-	effect,
-	//Marks that the parameter is an entity
-	entity,
-	//Marks that the parameter is an event
-	event,
-	//Marks that the parameter is a function
-	function,
-	//Marks that the parameter is a float
-	float,
-	//Marks that the parameter is an integer
-	integer,
-	//Marks that the parameter is an item
-	item,
-	//Marks that the parameter is an json structure for items
-	jsonItem,
-	//Marks that the parameter is an json structure for text
-	jsonRawText,
-	//Marks that the parameter is a specified word
-	keyword,
-	//Marks that the parameter is a scoreboard objective
-	objective,
-	//Marks that the parameter is a selector
-	selector,
-	//Marks that the parameter is a selector
-	selectorTarget,
-	//Marks that the parameter is a sound
-	sound,
-	//Marks that the parameter is a target
-	target,
-	//Marks that the parameter is a tag
-	tag,
-	//Marks that the parameter is of an unknown type
-	unknown,
-	//Marks that the parameter is an xp value
-	xp
+export function provideSelectorCompletion(receiver : CompletionList, Text : RangedWord | undefined) {
+	if (Text === undefined || Text.text === ''){
+		 //Defaults
+		 receiver.items.push(
+				{ label:'@a', kind:CompletionItemKind.Reference, documentation:'Targets all players' },
+				{ label:'@e', kind:CompletionItemKind.Reference, documentation:'Targets all entities' },
+				{ label:'@s', kind:CompletionItemKind.Reference, documentation:'Targets the executing entity' },
+				{ label:'@r', kind:CompletionItemKind.Reference, documentation:'Targets random players, or if specified, random types' },
+				{ label:'@p', kind:CompletionItemKind.Reference, documentation:'Targets the nearest player' }
+		 );
+	}
 }
