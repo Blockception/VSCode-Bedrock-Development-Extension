@@ -1,4 +1,10 @@
 # Changelog 
+- Fixed transitions
+- Updated
+- Fixed sound definitions pattern
+- Updated
+- Updated Script sections
+- Updated
 - Updated
 - Updated to 0.2.32
 - Fixed range Regex
@@ -13,9 +19,3 @@
 - Updating package info
 - Fixing filters for 1.16.0
 - priority cannot be lower then 0
-- Updated
-- Updated
-- Updated LootTables
-- Updated
-- Updated to 0.2.27
-- Fxied trading tables
