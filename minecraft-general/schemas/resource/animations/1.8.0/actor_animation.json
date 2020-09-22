@@ -1,1 +1,303 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.resource.1.8.0.actor_animation","additionalProperties":false,"type":"object","title":"The minecraft resourcepack actor animation 1.8.0","description":"TODO description","definitions":{"particle_effect_spec":{"additionalProperties":false,"type":"object","required":["effect"],"properties":{"bind_to_actor":{"type":"boolean","description":"Set to false to have the effect spawned in the world without being bound to an actor (by default an effect is bound to the actor)."},"effect":{"type":"string","description":"The name of a particle effect that should be played"},"locator":{"type":"string","description":"The name of a locator on the actor where the effect should be located"},"pre_effect_script":{"type":"string","description":"A molang script that will be run when the particle emitter is initialized"}}},"numberSpecifciaton":{"$id":"number specification","title":"The number schema","description":"The 3 array number specification","type":"array","items":[{"$ref":"../../../molang/1.8.0/number.json","description":"x","title":"X"},{"$ref":"../../../molang/1.8.0/number.json","description":"y","title":"Y"},{"$ref":"../../../molang/1.8.0/number.json","description":"z","title":"Z"}]},"timeline":{"$id":"timeline specification","anyOf":[{"title":"The timeline array schema","description":"The timeline array specification","$ref":"#/definitions/numberSpecifciaton"},{"type":"object","title":"The timeline object schema","description":"The timeline object specification","properties":{"lerp_mode":{"type":"string","enum":["linear","catmullrom"]},"pre":{"$ref":"#/definitions/numberSpecifciaton","description":"TODO description: pre","title":"Pre"},"post":{"$ref":"#/definitions/numberSpecifciaton","description":"TODO description: post","title":"Post"}}},{"type":"array","title":"The timeline array schema","description":"The timeline array specification","items":{"$ref":"../../../molang/1.8.0/string.json"}}]},"sound_effect_spec":{"additionalProperties":false,"description":"Valid sound effect names should be listed in the entity's resource_definition json file.","type":"object","required":["effect"],"properties":{"effect":{"type":"string","description":"Valid sound effect names should be listed in the entity's resource_definition json file."}}}},"required":["format_version","animations"],"properties":{"format_version":{"title":"The 1.8.0 format_version","type":"string","const":"1.8.0","description":"TODO description: format version"},"animations":{"title":"Animations schema","description":"The animation 1.8.0 specification","propertyNames":{"pattern":"^animation\\.[a-z\\.]+"},"type":"object","additionalProperties":{"additionalProperties":false,"type":"object","title":"Animation 1.8.0","description":"The animation specification for 1.8.0","properties":{"anim_time_update":{"title":"Animation time update","description":"how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.","$ref":"../../../molang/1.8.0/number.json"},"animation_length":{"title":"Animation Length","description":"Override calculated value (set as the last keyframe time) and set animation length in seconds.","minimum":0,"type":"number"},"blend_weight":{"title":"","description":"how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.","$ref":"../../../molang/1.8.0/number.json"},"bones":{"type":"object","title":"The bones schema for 1.8.0","description":"TODO description","additionalProperties":{"$id":"bones_item1.8.0","description":"A single bone definition in the animation for 1.8.0","title":"Bone definition","type":"object","properties":{"position":{"$id":"position","title":"The position definition","description":"The position definition","anyOf":[{"type":"array","$ref":"#/definitions/numberSpecifciaton"},{"propertyNames":{"pattern":"(^[0-9]+|^[0-9]+\\.[0-9]+)"},"additionalProperties":{"$ref":"#/definitions/timeline"}}]},"rotation":{"$id":"rotation","title":"The rotation definition","description":"The rotation definition","anyOf":[{"type":"array","$ref":"#/definitions/numberSpecifciaton"},{"propertyNames":{"pattern":"(^[0-9]+|^[0-9]+\\.[0-9]+)"},"additionalProperties":{"$ref":"#/definitions/timeline"}}]},"scale":{"$id":"scale","title":"The scale definition","description":"The scale definition","anyOf":[{"type":"array","$ref":"#/definitions/numberSpecifciaton"},{"propertyNames":{"pattern":"(^[0-9]+|^[0-9]+\\.[0-9]+)"},"additionalProperties":{"$ref":"#/definitions/timeline"}}]},"relative_to":{"description":"A reference to what bone or entity it is bound to","title":"Relative to bone definition","type":"object","properties":{"rotation":{"description":"if set, makes the bone rotation relative to the entity instead of the bone's parent","title":"Rotation bounding","type":"string"}}}}}},"loop":{"description":"Should this animation loop or stop playing when finished.","title":"Loop","type":"boolean"},"override_previous_animation":{"title":"TODO","type":"boolean","description":"reset bones in this animation to the default pose before applying this animation"},"particle_effects":{"oneOf":[{"type":"object","$ref":"#/definitions/particle_effect_spec"},{"type":"array","items":{"$ref":"#/definitions/particle_effect_spec"}}]},"sound_effects":{"oneOf":[{"type":"object","$ref":"#/definitions/sound_effect_spec"},{"type":"array","items":{"$ref":"#/definitions/sound_effect_spec"}}]},"timeline":{"oneOf":[{"type":"string","description":"TODO"},{"type":"array","description":"TODO","items":{"type":"string","description":"TODO"}}]}}}}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.resource.1.8.0.actor_animation",
+  "additionalProperties": false,
+  "type": "object",
+  "title": "The minecraft resourcepack actor animation 1.8.0",
+  "description": "TODO description",
+  "definitions": {
+    "particle_effect_spec": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [ "effect" ],
+      "properties": {
+        "bind_to_actor": {
+          "type": "boolean",
+          "description": "Set to false to have the effect spawned in the world without being bound to an actor (by default an effect is bound to the actor)."
+        },
+        "effect": {
+          "type": "string",
+          "description": "The name of a particle effect that should be played"
+        },
+        "locator": {
+          "type": "string",
+          "description": "The name of a locator on the actor where the effect should be located"
+        },
+        "pre_effect_script": {
+          "type": "string",
+          "description": "A molang script that will be run when the particle emitter is initialized"
+        }
+      }
+    },
+    "numberSpecifciaton": {
+      "$id": "number specification",
+      "title": "The number schema",
+      "description": "The 3 array number specification",
+      "type": "array",
+      "items": [
+        {
+          "$ref": "../../../molang/1.8.0/number.json",
+          "description": "x",
+          "title": "X"
+        },
+        {
+          "$ref": "../../../molang/1.8.0/number.json",
+          "description": "y",
+          "title": "Y"
+        },
+        {
+          "$ref": "../../../molang/1.8.0/number.json",
+          "description": "z",
+          "title": "Z"
+        }
+      ]
+    },
+    "timeline": {
+      "$id": "timeline specification",
+      "anyOf": [
+        {
+          "title": "The timeline array schema",
+          "description": "The timeline array specification",
+          "$ref": "#/definitions/numberSpecifciaton"
+        },
+        {
+          "type": "object",
+          "title": "The timeline object schema",
+          "description": "The timeline object specification",
+          "properties": {
+            "lerp_mode": {
+              "type": "string",
+              "enum": [
+                "linear",
+                "catmullrom"
+              ]
+            },
+            "pre": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description: pre",
+              "title": "Pre"
+            },
+            "post": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description: post",
+              "title": "Post"
+            }
+          }
+        },
+        {
+          "type": "array",
+          "title": "The timeline array schema",
+          "description": "The timeline array specification",
+          "items": {
+            "$ref": "../../../molang/1.8.0/string.json"
+          }
+        }
+      ]
+    },
+    "sound_effect_spec": {
+      "additionalProperties": false,
+      "description": "Valid sound effect names should be listed in the entity's resource_definition json file.",
+      "type": "object",
+      "required": [
+        "effect"
+      ],
+      "properties": {
+        "effect": {
+          "type": "string",
+          "description": "Valid sound effect names should be listed in the entity's resource_definition json file."
+        }
+      }
+    }
+  },
+  "required": [
+    "format_version",
+    "animations"
+  ],
+  "properties": {
+    "format_version": {
+      "title": "The 1.8.0 format_version",
+      "type": "string",
+      "const": "1.8.0",
+      "description": "TODO description: format version"
+    },
+    "animations": {
+      "title": "Animations schema",
+      "description": "The animation 1.8.0 specification",
+      "propertyNames": {
+        "pattern": "^animation\\.[a-z\\.]+"
+      },
+      "type": "object",
+      "additionalProperties": {
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Animation 1.8.0",
+        "description": "The animation specification for 1.8.0",
+        "properties": {
+          "anim_time_update": {
+            "title": "Animation time update",
+            "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
+            "$ref": "../../../molang/1.8.0/number.json"
+          },
+          "animation_length": {
+            "title": "Animation Length",
+            "description": "Override calculated value (set as the last keyframe time) and set animation length in seconds.",
+            "minimum": 0,
+            "type": "number"
+          },
+          "blend_weight": {
+            "title": "",
+            "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
+            "$ref": "../../../molang/1.8.0/number.json"
+          },
+          "bones": {
+            "type": "object",
+            "title": "The bones schema for 1.8.0",
+            "description": "TODO description",
+            "additionalProperties": {
+              "$id": "bones_item1.8.0",
+              "description": "A single bone definition in the animation for 1.8.0",
+              "title": "Bone definition",
+              "type": "object",
+              "properties": {
+                "position": {
+                  "$id": "position",
+                  "title": "The position definition",
+                  "description": "The position definition",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "$ref": "#/definitions/numberSpecifciaton"
+                    },
+                    {
+                      "propertyNames": {
+                        "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/timeline"
+                      }
+                    }
+                  ]
+                },
+                "rotation": {
+                  "$id": "rotation",
+                  "title": "The rotation definition",
+                  "description": "The rotation definition",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "$ref": "#/definitions/numberSpecifciaton"
+                    },
+                    {
+                      "propertyNames": {
+                        "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/timeline"
+                      }
+                    }
+                  ]
+                },
+                "scale": {
+                  "$id": "scale",
+                  "title": "The scale definition",
+                  "description": "The scale definition",
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "$ref": "#/definitions/numberSpecifciaton"
+                    },
+                    {
+                      "propertyNames": {
+                        "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/definitions/timeline"
+                      }
+                    }
+                  ]
+                },
+                "relative_to": {
+                  "description": "A reference to what bone or entity it is bound to",
+                  "title": "Relative to bone definition",
+                  "type": "object",
+                  "properties": {
+                    "rotation": {
+                      "description": "if set, makes the bone rotation relative to the entity instead of the bone's parent",
+                      "title": "Rotation bounding",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "loop": {
+            "description": "Should this animation loop or stop playing when finished.",
+            "title": "Loop",
+            "type": "boolean"
+          },
+          "override_previous_animation": {
+            "title": "TODO",
+            "type": "boolean",
+            "description": "reset bones in this animation to the default pose before applying this animation"
+          },
+          "particle_effects": {
+            "oneOf": [
+              {
+                "type": "object",
+                "$ref": "#/definitions/particle_effect_spec"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/particle_effect_spec"
+                }
+              },
+              {
+                "type": "object",
+                "minProperties": 1,
+                "uniqueItems": true,
+                "propertyNames": {
+                  "pattern": "/^[0-9]+(\\.[0-9]+)?$"
+                },
+                "additionalProperties": {
+                  "$ref": "#/definitions/particle_effect_spec"
+                }
+              }
+            ]
+          },
+          "sound_effects": {
+            "oneOf": [
+              {
+                "type": "object",
+                "$ref": "#/definitions/sound_effect_spec"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/sound_effect_spec"
+                }
+              }
+            ]
+          },
+          "timeline": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "TODO"
+              },
+              {
+                "type": "array",
+                "description": "TODO",
+                "items": {
+                  "type": "string",
+                  "description": "TODO"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
