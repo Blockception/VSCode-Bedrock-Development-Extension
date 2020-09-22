@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.resource.model.1.12.0",
+  "$id": "blockception.minecraft.resource.model.1.14.0",
   "additionalProperties": false,
   "type": "object",
-  "title": "Geometry 1.12.0",
-  "description": "The minecraft resourcepack model schema for 1.12.0",
+  "title": "Geometry 1.14.0",
+  "description": "The minecraft resourcepack model schema for 1.14.0",
   "required": ["format_version", "minecraft:geometry"],
   "definitions": {
     "uv": {
@@ -40,9 +40,9 @@
       "default": false
     },
     "format_version": {
-      "title": "The 1.12.0 format_version",
+      "title": "The 1.14.0 format_version",
       "type": "string",
-      "pattern": "^1.12.0$",
+      "pattern": "^1.14.0$",
       "description": "TODO description: format version"
     },
     "minecraft:geometry": {
@@ -104,7 +104,7 @@
           },
           "bones": {
             "type": "array",
-            "description": "The bones specification",
+            "description": "Bones define the 'skeleton' of the mob: the parts that can be animated, and to which geometry and other bones are attached.",
             "items": {
               "additionalProperties": false,
               "type": "object",
@@ -144,6 +144,8 @@
                         "type": "array",
                         "minItems": 3,
                         "maxItems": 3,
+                        "description": "If this field is specified, rotation of this cube occurs around this point, otherwise its rotation is around the center of the box. Note that in 1.12 this is flipped upside-down, but is fixed in 1.14.",
+                        "title": "Pivot",
                         "items": {
                           "type": "number",
                           "description": "If this field is specified, rotation of this cube occurs around this point, otherwise its rotation is around the center of the box. Note that in 1.12 this is flipped upside-down, but is fixed in 1.14."
@@ -270,14 +272,17 @@
                 },
                 "mirror": {
                   "type": "boolean",
+                  "title": "Mirror",
                   "description": "Mirrors the UV's of the unrotated cubes along the x axis, also causes the east/west faces to get flipped."
                 },
                 "name": {
                   "type": "string",
+                  "title": "Name",
                   "description": "Animation files refer to this bone via this identifier."
                 },
                 "parent": {
                   "type": "string",
+                  "title": "Parent",
                   "description": "Bone that this bone is relative to. If the parent bone moves, this bone will move along with it."
                 },
                 "pivot": {
