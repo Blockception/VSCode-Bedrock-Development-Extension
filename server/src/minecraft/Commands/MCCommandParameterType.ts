@@ -48,6 +48,8 @@ export enum MCCommandParameterType {
 	function,
 	//Marks that the parameter is a float
 	float,
+	//Marks that the parameter is a gamemode
+	gamemode,
 	//Marks that the parameter is an integer
 	integer,
 	//Marks that the parameter is an item
@@ -60,10 +62,16 @@ export enum MCCommandParameterType {
 	keyword,
 	//Marks that the parameter is a scoreboard objective
 	objective,
+	//Marks that the parameter is a replace mode
+	replaceMode,
 	//Marks that the parameter is a selector
 	selector,
-	//Marks that the parameter is a selector
+	//Marks that the parameter is a selector and target
 	selectorTarget,
+	//Marks that the parameter is a slot type
+	slotType,
+	//Marks that the parameter is a slot ID
+	slotID,
 	//Marks that the parameter is a sound
 	sound,
 	//Marks that the parameter is a target

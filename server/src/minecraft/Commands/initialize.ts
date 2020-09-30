@@ -527,49 +527,10 @@ export function AddCommands(): void {
 		"Runs a function."
 	);
 
+	//gamemode <gamemode> [target]
 	add([
 		new MCCommandParameter("gamemode", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("0", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false)
-	],
-		"gamemode",
-		"Sets a player's game mode."
-	);
-	add([
-		new MCCommandParameter("gamemode", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("1", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false)
-	],
-		"gamemode",
-		"Sets a player's game mode."
-	);
-	add([
-		new MCCommandParameter("gamemode", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("2", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false)
-	],
-		"gamemode",
-		"Sets a player's game mode."
-	);
-	add([
-		new MCCommandParameter("gamemode", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("s", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false)
-	],
-		"gamemode",
-		"Sets a player's game mode."
-	);
-	add([
-		new MCCommandParameter("gamemode", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("c", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false)
-	],
-		"gamemode",
-		"Sets a player's game mode."
-	);
-	add([
-		new MCCommandParameter("gamemode", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("a", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("gamemode", MCCommandParameterType.gamemode, true),
 		new MCCommandParameter("player", MCCommandParameterType.selector, false)
 	],
 		"gamemode",
@@ -912,6 +873,8 @@ export function AddCommands(): void {
 		"playsound",
 		"TODO description"
 	);
+
+	//replaceitem block <position> slot.container <slotId> <itemName> [amount] [data] [components]
 	add([
 		new MCCommandParameter("replaceitem", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("block", MCCommandParameterType.keyword, true),
@@ -919,7 +882,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("position y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("slot.container", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("slotId", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("slotId", MCCommandParameterType.slotID, true),
 		new MCCommandParameter("itemName", MCCommandParameterType.item, true),
 		new MCCommandParameter("amount", MCCommandParameterType.keyword, false),
 		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
@@ -928,12 +891,31 @@ export function AddCommands(): void {
 		"replaceitem",
 		"TODO description"
 	);
+	//replaceitem block <position> slot.container <slotId> <replacemode> <itemName> [amount] [data] [components]
+	add([
+		new MCCommandParameter("replaceitem", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("block", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("position x", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("position y", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
+		new MCCommandParameter("slot.container", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("slotId", MCCommandParameterType.slotID, true),
+		new MCCommandParameter("replacemode", MCCommandParameterType.replaceMode, true),
+		new MCCommandParameter("itemName", MCCommandParameterType.item, true),
+		new MCCommandParameter("amount", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("components", MCCommandParameterType.keyword, false)
+	],
+		"replaceitem",
+		"TODO description"
+	);
+	//replaceitem entity <target> <slotType> <slotId> <itemName> [amount] [data] [components]
 	add([
 		new MCCommandParameter("replaceitem", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("entity", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("selector", MCCommandParameterType.selector, true),
-		new MCCommandParameter("slotType", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("slotId", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("slotType", MCCommandParameterType.slotType, true),
+		new MCCommandParameter("slotId", MCCommandParameterType.slotID, true),
 		new MCCommandParameter("itemName", MCCommandParameterType.item, true),
 		new MCCommandParameter("amount", MCCommandParameterType.keyword, false),
 		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
@@ -942,6 +924,23 @@ export function AddCommands(): void {
 		"replaceitem",
 		"TODO description"
 	);
+	//replaceitem entity <target> <slotType> <slotId> <replacemode> <itemName> [amount] [data] [components]
+	add([
+		new MCCommandParameter("replaceitem", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("entity", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("selector", MCCommandParameterType.selector, true),
+		new MCCommandParameter("slotType", MCCommandParameterType.slotType, true),
+		new MCCommandParameter("slotId", MCCommandParameterType.slotID, true),
+		new MCCommandParameter("replacemode", MCCommandParameterType.replaceMode, true),
+		new MCCommandParameter("itemName", MCCommandParameterType.item, true),
+		new MCCommandParameter("amount", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("components", MCCommandParameterType.keyword, false)
+	],
+		"replaceitem",
+		"TODO description"
+	);
+
 	add([
 		new MCCommandParameter("say", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("message", MCCommandParameterType.keyword, true)

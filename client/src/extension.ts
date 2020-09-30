@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------------------------ */
 
 import * as path from 'path';
-import { workspace, ExtensionContext, window } from 'vscode';
+import * as vscode from 'vscode';
 
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, TextDocument, WorkspaceChange } from 'vscode-languageclient';
 import { McFunctionIdentifier, McLanguageIdentifier } from './Constants';
@@ -12,7 +12,7 @@ import { McFunctionIdentifier, McLanguageIdentifier } from './Constants';
 //The client to the server
 let client: LanguageClient;
 
-export function activate(context: ExtensionContext) {
+export function activate(context: vscode.ExtensionContext) {
 	console.log('starting minecraft language client');
 
 	// The server is implemented in node
@@ -42,7 +42,7 @@ export function activate(context: ExtensionContext) {
 		],
 		synchronize: {
 			// Notify the server about file changes to '.clientrc files contained in the workspace
-			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+			fileEvents: vscode.workspace.createFileSystemWatcher('**/.clientrc')
 		}
 	};
 
