@@ -20,3 +20,6 @@ Recommended you use the Dark+ theme for the best colour highlighting.
   - [World.](./documentation/Json%20Validation.md#world)
   - [Resource pack.](./documentation/Json%20Validation.md#resource-packs)
   - [Behaviour pack.](./documentation/Json%20Validation.md#behaviour-packs)
+
+### Molang
+  - Syntax highlighting in json files
