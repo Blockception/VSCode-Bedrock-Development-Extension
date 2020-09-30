@@ -1,4 +1,9 @@
 # Changelog 
+- Added Molang syntax support to json files and .molang files
+- Applied formatted
+- Fixing animations - particle timelines
+- Added 1.14.0 model schema
+- Updated to 0.2.34
 - Fixed transitions
 - Updated
 - Fixed sound definitions pattern
@@ -14,8 +19,3 @@
 - Updated information
 - Updated code
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated minecraft.behavior.look_at_player
-- Updated Package Info
-- Updating package info
-- Fixing filters for 1.16.0
-- priority cannot be lower then 0
