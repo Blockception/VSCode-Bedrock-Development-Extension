@@ -65,7 +65,7 @@
         { "name": "constant.character", "match": "\\b[Tt]rue\\b" },
         { "name": "constant.character", "match": "\\b[Ff]alse\\b" },
         { "name": "string.jade", "match": "\\b(?<=function )[a-z0-9/_]+\\b" },
-        { "name": "string.quoted.double.minecraft-program", "match": "\"[^\"]*\"" },
+        { "name": "string.quoted.double.minecraft", "match": "\"[^\"]*\"" },
         { "name": "entity.name.function.identifier", "match": "[a-z0-9_]+\\:[a-z0-9_]+" }
       ]
     },

@@ -78,20 +78,28 @@
       {
         "command": "blockception.mcfunction.formatter",
         "category": "mcfunction",
-        "title": "Format document" }
+        "title": "Format document" 
+      }
     ],
     "languages": [
       {
         "id": "bc-minecraft-language",
         "aliases": [ "Minecraft Language" ],
         "extensions": [ ".lang" ],
-        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json" },
+        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
+      },
       {
         "id": "bc-minecraft-mcfunction",
         "aliases": [ "Minecraft Mcfunction" ],
         "extensions": [ ".mcfunction" ],
         "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
         "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
+      },
+      {
+        "id": "bc-minecraft-molang",
+        "aliases": [ "Minecraft molang" ],
+        "extensions": [ ".molang" ],
+        "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
       }
     ],
     "grammars": [
@@ -106,7 +114,22 @@
       {
         "language": "bc-minecraft-language",
         "scopeName": "source.bc.minecraft.language",
-        "path": "./minecraft-language-files/syntaxes/minecraft-language-files.tmLanguage.json" }
+        "path": "./minecraft-language-files/syntaxes/minecraft-language-files.tmLanguage.json" 
+      },
+      {
+        "language": "bc-minecraft-molang",
+        "path": "./minecraft-molang/syntaxes/minecraft-molang.tmLanguage.json",
+        "scopeName": "source.bc.minecraft.molang"
+      },
+      {
+        "path": "./minecraft-molang/syntaxes/minecraft-molang-inject.tmLanguage.json",
+        "scopeName": "source.bc.minecraft.molang.inject",    
+        "embeddedLanguages": {
+          "meta.embedded.block.molang": "source.bc.minecraft.molang",
+          "molang": "source.bc.minecraft.molang"
+        },
+        "injectTo": [ "source.json", "source.jsonc" ]
+      }
     ],
     "jsonValidation": [
       { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" },
