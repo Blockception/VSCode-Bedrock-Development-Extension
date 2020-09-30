@@ -35,5 +35,5 @@ import * as language from './language/activate';
 //Called when the extension needs to be activated
 export function activate(context: vscode.ExtensionContext) {
 	mcfunction.activate(context);
-	language.activate(context);
-}
+   language.activate(context);
+};
