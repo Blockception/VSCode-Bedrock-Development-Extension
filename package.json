@@ -159,7 +159,8 @@
       { "fileMatch": "recipes/*.json", "url": "./minecraft-general/schemas/behaviour/recipes/recipes.json" },
       { "fileMatch": "spawn_rules/*.json", "url": "./minecraft-general/schemas/behaviour/spawn_rules/spawn_rules.json" },
       { "fileMatch": "trading/*.json", "url": "./minecraft-general/schemas/behaviour/trading/trading.json" },
-      { "fileMatch": "trading/*/*.json", "url": "./minecraft-general/schemas/behaviour/trading/trading.json" }
+      { "fileMatch": "trading/*/*.json", "url": "./minecraft-general/schemas/behaviour/trading/trading.json" },
+      { "fileMatch": "*.trade.json", "url": "./minecraft-general/schemas/behaviour/trading/trading.json" }
     ],
     "menus": {
       "commandPalette": [
