@@ -1,6 +1,6 @@
 {
   "main": "./dist/extension.js",
-  "version": "0.2.35",
+  "version": "0.2.36",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-minecraft-mcfunction"
@@ -60,14 +60,8 @@
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
   "contributors": [
-    {
-      "name": "DaanV2",
-      "url": "https://github.com/DaanV2"
-    },
-    {
-      "name": "Soniikz",
-      "url": "https://github.com/Soniikz"
-    }
+    { "name": "DaanV2", "url": "https://github.com/DaanV2" },
+    { "name": "Soniikz", "url": "https://github.com/Soniikz" }
   ],
   "repository": {
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",

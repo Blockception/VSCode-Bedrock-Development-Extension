@@ -1,4 +1,9 @@
 # Changelog 
+- Updated blocks json schema
+- Updated block json validation schema
+- Added blocks json schema
+- Updated
+- Updated to 0.2.36
 - Added Molang syntax support to json files and .molang files
 - Applied formatted
 - Fixing animations - particle timelines
@@ -14,8 +19,3 @@
 - Updated to 0.2.32
 - Fixed range Regex
 - Updated to 0.2.31
-- Added .lang empty detection
-- Updated to 0.2.30
-- Updated information
-- Updated code
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
