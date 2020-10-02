@@ -18,12 +18,6 @@
       "default": 0,
       "description": "How likely the block will catch flame when next to a fire.",
       "title": "flame odds"
-    },
-    "register_to_creative_menu": {
-      "type": "boolean",
-      "default": false,
-      "description": "Whether or not to register this block to the creative inventory menu.",
-      "title": "register to creative menu"
     }
   }
 }
