@@ -1,4 +1,11 @@
 # Changelog 
+- var to let
+- Added selectors to molang injection
+- Added async handling of signatures
+- Added async handling of document symbols
+- Updated commands completion to be async
+- Updated json validation documentation
+- Updated to 0.2.36
 - Updated blocks json schema
 - Updated block json validation schema
 - Added blocks json schema
@@ -12,10 +19,3 @@
 - Fixed transitions
 - Updated
 - Fixed sound definitions pattern
-- Updated
-- Updated Script sections
-- Updated
-- Updated
-- Updated to 0.2.32
-- Fixed range Regex
-- Updated to 0.2.31

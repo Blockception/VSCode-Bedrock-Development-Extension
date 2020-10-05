@@ -3,7 +3,9 @@
   "version": "0.2.36",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
-    "onLanguage:bc-minecraft-mcfunction"
+    "onLanguage:bc-minecraft-mcfunction",
+    "onLanguage:json",
+    "onLanguage:jsonc"
   ],
   "author": { "name": "Blockception Ltd", "url": "https://www.blockception.com/" },
   "displayName": "Blockception's Minecraft Bedrock Development",
@@ -120,6 +122,7 @@
         "scopeName": "source.bc.minecraft.molang.inject",    
         "embeddedLanguages": {
           "meta.embedded.block.molang": "source.bc.minecraft.molang",
+          "meta.embedded.block.mcfunction": "source.bc.minecraft.mcfunction",
           "molang": "source.bc.minecraft.molang"
         },
         "injectTo": [ "source.json", "source.jsonc" ]
