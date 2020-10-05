@@ -1,4 +1,6 @@
 # Changelog 
+- letiable to variable
+- Added activation on json
 - var to let
 - Added selectors to molang injection
 - Added async handling of signatures
@@ -17,5 +19,3 @@
 - Added 1.14.0 model schema
 - Updated to 0.2.34
 - Fixed transitions
-- Updated
-- Fixed sound definitions pattern
