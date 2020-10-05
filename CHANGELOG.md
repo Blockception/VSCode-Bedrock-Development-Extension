@@ -1,21 +1,21 @@
 # Changelog 
-- Updated Completion Item
-- Updated completion items
-- Updated to 0.2.20
-- fixed Items
-- Fixed fake players regonsization
-- Updated to 0.2.19
-- Fixed
-- Removed items
-- Updated
-- Updated to 0.2.18
-- Reformatted
-- Reformatted
-- Completed snippet removeall
+- Duplicate check for completion items
+- Added the removal of signatures that are too small
+- Refactoring
+- Refactoring
+- Added
+- Added code
 - Updated
 - Updated
-- Removed snippets
-- moved snippets to code completion
-- Updated to 0.2.16
-- Fixed up tag diagnosers
-- Removed
+- Proper event loop usages
+- Added
+- Updated
+- Updated
+- Updated
+- Updated
+- Formatted
+- Signatures are now working
+- Updated
+- Updated Code
+- Updated
+- Updated

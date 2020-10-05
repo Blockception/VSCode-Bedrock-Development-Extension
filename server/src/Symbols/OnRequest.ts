@@ -39,8 +39,6 @@ export async function OnDocumentSymbolRequest(params: DocumentSymbolParams): Pro
    });
 }
 
-
-
 export async function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
    return new Promise<SymbolInformation[]>((resolve, reject) => {
       resolve(InternalOnWorkspaceSymbolRequest(params));

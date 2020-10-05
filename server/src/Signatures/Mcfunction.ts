@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureHelp, SignatureInformation, ParameterInformation } from 'vscode-languageserver';
+import { SignatureHelp, SignatureInformation, ParameterInformation, MarkupContent } from 'vscode-languageserver';
 import { Position } from 'vscode-languageserver-textdocument';
 import { IDocument } from '../code/include';
 import { CommandInfo } from '../minecraft/commands/CommandInfo';
@@ -79,7 +79,7 @@ function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
 function ConverToSignature(Command: MCCommand): SignatureInformation {
 	var Sign: SignatureInformation = {
 		label: '',
-		documentation: Command.description,
+		documentation: { "kind": "markdown", "value": Command.description },
 		parameters: []
 	};
 
