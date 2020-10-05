@@ -37,7 +37,7 @@ import * as Commands from './Commands/activate';
 export function activate(context: vscode.ExtensionContext) {
     console.log("activating mcfunction signatures");
     
-    var Manager = new SignatureManager();
+    let Manager = new SignatureManager();
     Commands.activate(Manager);
 
     context.subscriptions.push(

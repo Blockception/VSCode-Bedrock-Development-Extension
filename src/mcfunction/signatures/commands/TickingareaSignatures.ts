@@ -92,23 +92,23 @@ export class TickingareaSignatureProvider implements SignatureItemProvider {
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
 
-      var Mode = Item.Child;
+      let Mode = Item.Child;
 
       if (Mode == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = 0;
          return Out;
       }
 
-      var Child = undefined;
+      let Child = undefined;
 
       switch (Mode.Text.text) {
          case 'add':
-            var Circle = Mode.Child;
+            let Circle = Mode.Child;
 
             if (Circle == undefined) {
-               var Out = new SignatureHelp();
+               let Out = new SignatureHelp();
                Out.signatures = [this.Add, this.Add_Circle];
                Out.activeParameter = 1;
                return Out;
@@ -135,10 +135,10 @@ export class TickingareaSignatureProvider implements SignatureItemProvider {
             break;
       }
 
-      var Count = Item.Count();
+      let Count = Item.Count();
 
       if (Child == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
@@ -149,7 +149,7 @@ export class TickingareaSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

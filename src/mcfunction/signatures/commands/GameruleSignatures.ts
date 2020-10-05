@@ -227,18 +227,18 @@ export class GameruleSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var RuleChild = Item.GetAt(1);
+      let RuleChild = Item.GetAt(1);
 
-      var Count = Item.Count();
+      let Count = Item.Count();
 
       if (RuleChild == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
       }
 
-      var Child = undefined;
+      let Child = undefined;
 
       switch (RuleChild.Text.text) {
          case 'commandblocksenabled':
@@ -347,7 +347,7 @@ export class GameruleSignatureProvider implements SignatureItemProvider {
       }
 
       if (Child == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
@@ -358,7 +358,7 @@ export class GameruleSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

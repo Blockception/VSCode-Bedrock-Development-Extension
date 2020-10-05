@@ -50,22 +50,22 @@ export class SignatureManager implements vscode.SignatureHelpProvider {
     }
 
     provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.SignatureHelpContext): vscode.ProviderResult<vscode.SignatureHelp> {
-        var Line = document.lineAt(position.line);
+        let Line = document.lineAt(position.line);
 
         if (position.character < 3) {
             return undefined;
         }
 
-        var Tree = SyntaxTree.ParseTree(Line, position);
+        let Tree = SyntaxTree.ParseTree(Line, position);
 
-        var Item = Tree.Root;
+        let Item = Tree.Root;
         if (Item == undefined)
             return undefined;
 
-        var Diagnoser = this.SignatureProviders.get(Item.Text.text);
+        let Diagnoser = this.SignatureProviders.get(Item.Text.text);
 
         if (Diagnoser != undefined) {
-            var Items = Diagnoser.provideSignature(Item, this);
+            let Items = Diagnoser.provideSignature(Item, this);
             return Items;
         }
 

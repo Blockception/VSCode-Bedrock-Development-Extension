@@ -148,7 +148,7 @@ export class TpSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = this.All;
       Out.activeParameter = Item.Count();
       return Out;

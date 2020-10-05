@@ -55,18 +55,18 @@ export class EffectSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var ClearChild = Item.GetAt(2);
+      let ClearChild = Item.GetAt(2);
 
-      var Count = Item.Count();
+      let Count = Item.Count();
 
       if (ClearChild == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = [this.Give, this.Clear];
          Out.activeParameter = Count;
          return Out;
       }
 
-      var Child;
+      let Child;
 
       if (ClearChild.Text.text == 'clear'){
          Child = this.Clear; 
@@ -79,7 +79,7 @@ export class EffectSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

@@ -69,25 +69,25 @@ export class TagSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var TargetChild = Item.Child;
+      let TargetChild = Item.Child;
 
       if (TargetChild == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = 0;
          return Out;
       }
 
-      var Mode = TargetChild.Child;
+      let Mode = TargetChild.Child;
 
       if (Mode == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = 0;
          return Out;
       }
 
-      var Child = undefined;
+      let Child = undefined;
 
       switch(Mode.Text.text){
          case 'add':
@@ -104,10 +104,10 @@ export class TagSignatureProvider implements SignatureItemProvider {
       }
 
       
-      var Count = Item.Count();
+      let Count = Item.Count();
 
       if (Child == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
@@ -118,7 +118,7 @@ export class TagSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

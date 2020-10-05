@@ -61,9 +61,9 @@ export class SummonSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Count = Item.Count();
+      let Count = Item.Count();
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = this.All;
       Out.activeParameter = Count;
       return Out;

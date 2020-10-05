@@ -73,18 +73,18 @@ export class CloneSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var FilteredChild = Item.GetAt(10);
+      let FilteredChild = Item.GetAt(10);
 
-      var Count = Item.Count();
+      let Count = Item.Count();
 
       if (FilteredChild == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = [this.Other, this.Filtered];
          Out.activeParameter = Count;
          return Out;
       }
 
-      var Child;
+      let Child;
 
       if (FilteredChild.Text.text == 'filtered'){
          Child = this.Filtered; 
@@ -97,7 +97,7 @@ export class CloneSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

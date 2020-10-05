@@ -62,12 +62,12 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
    constructor() {
 
       //Objectives
-      this.Objective_List = newItem('scoreboard objectives list', 'Lists all created variables in the scoreboard', [
+      this.Objective_List = newItem('scoreboard objectives list', 'Lists all created letiables in the scoreboard', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('list', '')
       ]);
 
-      this.Objective_Add = newItem('scoreboard objectives add <name> dummy [display name: string]', 'Adds a new variable to the scoreboard', [
+      this.Objective_Add = newItem('scoreboard objectives add <name> dummy [display name: string]', 'Adds a new letiable to the scoreboard', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('add', ''),
          new ParameterInformation('<name>', ''),
@@ -75,13 +75,13 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
          new ParameterInformation('[display name: string]', '')
       ]);
 
-      this.Objective_Remove = newItem('scoreboard objectives remove <name>', 'Removes a variable from the scoreboard', [
+      this.Objective_Remove = newItem('scoreboard objectives remove <name>', 'Removes a letiable from the scoreboard', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('remove', ''),
          new ParameterInformation('<name>', '')
       ]);
 
-      this.Objective_Setdisplay = newItem('scoreboard objectives setdisplay <slot> [objective] [ascending|descending]', 'Displays the given variable onto the given slot', [
+      this.Objective_Setdisplay = newItem('scoreboard objectives setdisplay <slot> [objective] [ascending|descending]', 'Displays the given letiable onto the given slot', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('<slot>', ''),
@@ -89,14 +89,14 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
          new ParameterInformation('[ascending|descending]', '')
       ]);
 
-      this.Objective_Setdisplay_Belowname = newItem('scoreboard objectives setdisplay belowname [objective]', 'Displays the given variable under the name', [
+      this.Objective_Setdisplay_Belowname = newItem('scoreboard objectives setdisplay belowname [objective]', 'Displays the given letiable under the name', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('belowname', ''),
          new ParameterInformation('[objective]', '')
       ]);
 
-      this.Objective_Setdisplay_List = newItem('scoreboard objectives setdisplay list [objective] [ascending|descending]', 'Displays the given variable in the players list', [
+      this.Objective_Setdisplay_List = newItem('scoreboard objectives setdisplay list [objective] [ascending|descending]', 'Displays the given letiable in the players list', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('list', ''),
@@ -104,7 +104,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
          new ParameterInformation('[ascending|descending]', '')
       ]);
 
-      this.Objective_Setdisplay_Sidebar = newItem('scoreboard objectives setdisplay sidebar [objective] [ascending|descending]', 'Displays the given variable on the right side of the screen', [
+      this.Objective_Setdisplay_Sidebar = newItem('scoreboard objectives setdisplay sidebar [objective] [ascending|descending]', 'Displays the given letiable on the right side of the screen', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('sidebar', ''),
@@ -214,10 +214,10 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
    }
 
    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Mode = Item.Child;
+      let Mode = Item.Child;
 
       if (Mode == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = 0;
          return Out;
@@ -233,17 +233,17 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
    }
 
    provideObjectives(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Mode = Item.Child;
-      var Count = Item.Count();
+      let Mode = Item.Child;
+      let Count = Item.Count();
 
       if (Mode == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.Objectives;
          Out.activeParameter = 0;
          return Out;
       }
 
-      var Child = undefined;
+      let Child = undefined;
 
       switch (Mode.Text.text) {
          case 'list':
@@ -263,7 +263,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
       }
 
       if (Child == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
@@ -274,7 +274,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 
@@ -282,17 +282,17 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
    }
 
    provideObjectivesSetDisplay(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Mode = Item.Child;
-      var Count = Item.Count();
+      let Mode = Item.Child;
+      let Count = Item.Count();
 
       if (Mode == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.Objectives_Setdisplay_All;
          Out.activeParameter = 0;
          return Out;
       }
 
-      var Child = undefined;
+      let Child = undefined;
 
       switch (Mode.Text.text) {
          case 'belowname':
@@ -309,7 +309,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
       }
       
       if (Child == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
@@ -320,7 +320,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 
@@ -328,17 +328,17 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
    }
 
    providePlayers(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Mode = Item.Child;
-      var Count = Item.Count();
+      let Mode = Item.Child;
+      let Count = Item.Count();
 
       if (Mode == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.Players;
          Out.activeParameter = 0;
          return Out;
       }
 
-      var Child = undefined;
+      let Child = undefined;
 
       switch (Mode.Text.text) {
          case 'list':
@@ -375,7 +375,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
       }
 
       if (Child == undefined) {
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
@@ -386,7 +386,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

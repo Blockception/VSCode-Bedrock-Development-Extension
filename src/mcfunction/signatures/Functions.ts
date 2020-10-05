@@ -31,7 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureInformation, ParameterInformation } from "vscode";
 
 export function newItem(label: string, documentation: string, parameters: ParameterInformation[]): SignatureInformation {
-    var SI = new SignatureInformation(label, documentation);
+    let SI = new SignatureInformation(label, documentation);
     SI.parameters = parameters;
 
     return SI;
