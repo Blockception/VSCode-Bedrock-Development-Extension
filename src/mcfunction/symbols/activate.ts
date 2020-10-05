@@ -39,8 +39,8 @@ import { ObjectiveSymbolProvider } from './ObjectiveSymbols';
 export function activate(context: vscode.ExtensionContext) {
     console.log("activating mcfunction symbols providers");
 
-    var TagProvider = new TagSymbolProvider();
-    var RegionProvider = new RegionSymbolProvider();
+    let TagProvider = new TagSymbolProvider();
+    let RegionProvider = new RegionSymbolProvider();
 
     context.subscriptions.push(
         vscode.languages.registerDocumentSymbolProvider(constants.McFunctionIdentifier, new McfunctionSymbolProvider()),

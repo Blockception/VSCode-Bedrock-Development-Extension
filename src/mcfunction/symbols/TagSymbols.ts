@@ -34,26 +34,40 @@ import { CancellationToken } from 'vscode';
 import { RemoveComment } from '../functions/include';
 
 export class TagSymbolProvider implements vscode.DocumentSymbolProvider, vscode.WorkspaceSymbolProvider {
+    //Handle document symbols request
+    async provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): Promise<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> {
+        return new Promise<vscode.SymbolInformation[] | vscode.DocumentSymbol[]>((resolve, reject) => {
+            resolve(this.internalProvideDocumentSymbols(document));
+        })
+    }
+
+    //Handle workspace symbols request
+    async provideWorkspaceSymbols(query: string, token: CancellationToken): Promise<vscode.SymbolInformation[]> {
+        return new Promise<vscode.SymbolInformation[]>((resolve, reject) => {
+            resolve(this.internalProvideWorkspaceSymbols(query));
+        })
+    }
+
     //Provides document symbols
-    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> { 
-        var Out = new Array<vscode.SymbolInformation>();
+    private internalProvideDocumentSymbols(document: vscode.TextDocument): vscode.SymbolInformation[] | vscode.DocumentSymbol[] { 
+        let Out = new Array<vscode.SymbolInformation>();
 
-        for (var I = 0; I < document.lineCount; I++){
-            var Line = document.lineAt(I);
-            var Text = Line.text;
+        for (let I = 0; I < document.lineCount; I++){
+            let Line = document.lineAt(I);
+            let Text = Line.text;
 
-            var match = Text.match('tag .* add .*');
+            let match = Text.match('tag .* add .*');
 
             if (match == undefined)
                 continue;
 
             match.forEach(m => {
-                var start = m.indexOf(' add');
+                let start = m.indexOf(' add');
 
                 if (start > 0){
-                    var Tag = RemoveComment(m.substring(start + 4, m.length)).trim();
+                    let Tag = RemoveComment(m.substring(start + 4, m.length)).trim();
 
-                    var TagSymbol = new vscode.SymbolInformation(Tag, vscode.SymbolKind.String, 'mcfunction', new vscode.Location(
+                    let TagSymbol = new vscode.SymbolInformation(Tag, vscode.SymbolKind.String, 'mcfunction', new vscode.Location(
                         document.uri, new vscode.Position(I, m.indexOf(Tag))
                     ));
                     Out.push(TagSymbol);
@@ -61,24 +75,24 @@ export class TagSymbolProvider implements vscode.DocumentSymbolProvider, vscode.
             });
         }
 
-        var Collection = mcfunctionDatabase.Symbols.Tags.Get(document.uri);
+        let Collection = mcfunctionDatabase.Symbols.Tags.Get(document.uri);
         Collection.Values = Out;
 
         return Out;
     }
 
     //
-    provideWorkspaceSymbols(query: string, token: CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[]> {
+    private internalProvideWorkspaceSymbols(query: string): vscode.SymbolInformation[] {
         if (query.trim() == ''){
-            var First = mcfunctionDatabase.Symbols.Tags.First();
+            let First = mcfunctionDatabase.Symbols.Tags.First();
             return First.Values;
         }
 
-        var Out = new Array<vscode.SymbolInformation>();
+        let Out = new Array<vscode.SymbolInformation>();
 
         mcfunctionDatabase.Symbols.Tags.forEach(x => {
             x.Values.forEach(symbol => {
-                var match = symbol.name;
+                let match = symbol.name;
                 if (match != undefined && match.length > 0)
                     Out.push(symbol);
             });
