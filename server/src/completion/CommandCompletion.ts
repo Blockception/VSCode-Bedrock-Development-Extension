@@ -27,11 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { CompletionItemKind, CompletionList, MarkupContent } from 'vscode-languageserver';
 import { Manager } from '../Manager';
 
 export function provideCommandCompletion(receiver: CompletionList): void {
 	for (let [key, value] of Manager.Commands.Subset) {
+
+		let documentation : MarkupContent = {
+			"kind": "markdown",
+			"value": "The command: " + key
+		};
+
+		let Limit = value.length;
+
+		if (Limit > 7) {
+			documentation.value += "\n- " + value[0].Command.description;
+		}
+		else{
+			for (let I = 0; I < Limit; I++){
+				documentation.value += "\n- " + value[I].Command.description;
+			}
+		}
+
 		receiver.items.push({
 			label: key,
 			documentation: "The command: " + key,
