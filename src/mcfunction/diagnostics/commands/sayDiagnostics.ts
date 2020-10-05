@@ -37,7 +37,7 @@ export class SayDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		var words = item.Child;
+		let words = item.Child;
 
 		//<message: message>
 		if (words == undefined) {

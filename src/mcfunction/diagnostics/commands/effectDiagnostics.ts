@@ -37,7 +37,7 @@ export class EffectDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<player: target>
 		if (Target == undefined) {
@@ -47,7 +47,7 @@ export class EffectDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var Next = Target.Child;
+		let Next = Target.Child;
 
 		if (Next == undefined) {
 			Errors.Missing('effect | clear', 'effect', lineIndex, Target, collector);
@@ -67,7 +67,7 @@ export class EffectDiagnosticProvider implements DiagnosticProvider {
 
 		dm.EffectDiagnoser?.provideDiagnostic(item, lineIndex, collector, dm, document);
 
-		var Seconds = item.Child;
+		let Seconds = item.Child;
 
 		//[seconds: int]
 		if (Seconds == undefined) {
@@ -75,7 +75,7 @@ export class EffectDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(Seconds, lineIndex, collector, dm, document);
 
-		var amplifier = Seconds.Child;
+		let amplifier = Seconds.Child;
 
 		//[amplifier: int]
 		if (amplifier == undefined) {
@@ -83,7 +83,7 @@ export class EffectDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(amplifier, lineIndex, collector, dm, document);
 
-		var HideParticles = amplifier.Child;
+		let HideParticles = amplifier.Child;
 
 		//[hideParticles: Boolean]
 		if (HideParticles == undefined) {

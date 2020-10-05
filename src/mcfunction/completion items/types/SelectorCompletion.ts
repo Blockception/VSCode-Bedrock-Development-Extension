@@ -149,21 +149,21 @@ class InternalSelectorCompletionProvider {
         PreviousChar = Line.text.charAt(position.character - 2);
 
         if (PreviousChar == "@") {
-            let Out = new vscode.CompletionList();
-            Out.items.push(Functions.createCompletionItem("[]", "[", "start the selector", vscode.CompletionItemKind.Snippet));
+            let Out : vscode.CompletionItem[] = [];
+            Out.push(Functions.createCompletionItem("[]", "[", "start the selector", vscode.CompletionItemKind.Snippet));
             return Out;
         }
 
         return;
     }
 
-    public static InofScore(document: vscode.TextDocument, position: vscode.Position, context: vscode.CompletionContext | undefined): CompletionData {
+    public static InofScore(document: vscode.TextDocument, position: vscode.Position, context: vscode.CompletionContext | undefined) : CompletionData {
         if (context?.triggerCharacter == "{" || context?.triggerCharacter == ",") {
-            let Out = new vscode.CompletionList();
+            let Out : vscode.CompletionItem[] = [];
 
             mcfunctionDatabase.Symbols.Scores.forEach(document => {
                 document.Values.forEach(symbol => {
-                    Out.items.push(new vscode.CompletionItem(symbol.name, vscode.CompletionItemKind.Variable));
+                    Out.push(new vscode.CompletionItem(symbol.name, vscode.CompletionItemKind.Variable));
                 });
             });
 
@@ -174,7 +174,7 @@ class InternalSelectorCompletionProvider {
     }
 
     public static SolveParameter(document: vscode.TextDocument, position: vscode.Position, parameter: string): CompletionData {
-        let Out = new vscode.CompletionList();
+        let Out : vscode.CompletionItem[] = [];
         let Data: Functions.DocumentDataCollection<vscode.SymbolInformation> | undefined;
         let Kind = vscode.CompletionItemKind.Variable;
 
@@ -184,7 +184,7 @@ class InternalSelectorCompletionProvider {
                 break;
 
             case "scores":
-                Out.items.push(new vscode.CompletionItem("{", vscode.CompletionItemKind.Snippet))
+                Out.push(new vscode.CompletionItem("{", vscode.CompletionItemKind.Snippet))
 
                 return Out;
             case "type":
@@ -196,7 +196,7 @@ class InternalSelectorCompletionProvider {
         if (Data != undefined) {
             Data.forEach(document => {
                 document.Values.forEach(symbol => {
-                    Out.items.push(new vscode.CompletionItem(symbol.name, Kind));
+                    Out.push(new vscode.CompletionItem(symbol.name, Kind));
                 });
             });
         }

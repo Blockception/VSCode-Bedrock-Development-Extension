@@ -36,7 +36,7 @@ export class AlwaysDayDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Child = item.Child;
+		let Child = item.Child;
 
 		//[lock: Boolean]
 		if (Child == undefined) {

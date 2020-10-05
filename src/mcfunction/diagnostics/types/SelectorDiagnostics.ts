@@ -41,7 +41,7 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
 
   //provides diagnostics
   provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-    var Selector = item.Text;
+    let Selector = item.Text;
 
     //If the target is a dummy player
     if (Selector.text.startsWith('"')) {
@@ -79,7 +79,7 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
       }
     }
     else {
-      var match = Selector.text.match("^[\\w_\\-.]+$");
+      let match = Selector.text.match("^[\\w_\\-.]+$");
       if (match == undefined || match.length == 0) {
         collector.push(new vscode.Diagnostic(
           new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
@@ -93,14 +93,14 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
 
 //Checks the selector
 function CheckSelector(lineIndex: number, selectorText: RangedWord, dm: DiagnosticsManager, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
-  var sObject = Selector.Parse(selectorText.text);
-  var Range = new vscode.Range(lineIndex, selectorText.startindex, lineIndex, selectorText.endindex);
-  var coordsSpec = false;
-  var BoxSpec = false;
-  var SphereSpec = false;
+  let sObject = Selector.Parse(selectorText.text);
+  let Range = new vscode.Range(lineIndex, selectorText.startindex, lineIndex, selectorText.endindex);
+  let coordsSpec = false;
+  let BoxSpec = false;
+  let SphereSpec = false;
 
   if (MultipleScores(selectorText.text)) {
-    var item = new vscode.Diagnostic(Range, "Cannot have multiple scores inside a selector", vscode.DiagnosticSeverity.Error);
+    let item = new vscode.Diagnostic(Range, "Cannot have multiple scores inside a selector", vscode.DiagnosticSeverity.Error);
     collection.push(item);
   }
 
@@ -143,7 +143,7 @@ function CheckSelector(lineIndex: number, selectorText: RangedWord, dm: Diagnost
 
 //Check the scores
 function MultipleScores(selectorText: string): boolean {
-  var index = selectorText.indexOf("scores={");
+  let index = selectorText.indexOf("scores={");
 
   if (index < 0) return false;
 
@@ -158,9 +158,9 @@ function MultipleScores(selectorText: string): boolean {
 
 //Checks for duplicates
 function DuplicateCheck(selector: Selector, names: string[], range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  for (var i = 0; i < names.length; i++) {
-    var name = names[i];
-    var Count = selector.countParameter(name);
+  for (let i = 0; i < names.length; i++) {
+    let name = names[i];
+    let Count = selector.countParameter(name);
 
     if (Count > 1) {
       collection.push(new vscode.Diagnostic(range, "parameter: " + name + ": parameter cannot be specified multiple times", vscode.DiagnosticSeverity.Error));
@@ -174,7 +174,7 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
   if (!sObject.hasParameter("name"))
     return;
 
-  var Parameter = sObject.getParameter("name");
+  let Parameter = sObject.getParameter("name");
 
   if (Parameter.name.startsWith("\"")) {
     if (Parameter.name.endsWith("\"")) {
@@ -200,8 +200,8 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
     return;
   }
 
-  for (var index = 0; index < Parameter.value.length; index++) {
-    var C = Parameter.value.charAt(index);
+  for (let index = 0; index < Parameter.value.length; index++) {
+    let C = Parameter.value.charAt(index);
     if (C == " " || C == "\t") {
       collection.push(
         new vscode.Diagnostic(
@@ -214,11 +214,11 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
 
 //Checks the type
 function typeCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  var Parameters = sObject.parameters;
-  var PositiveTest = false;
+  let Parameters = sObject.parameters;
+  let PositiveTest = false;
 
-  for (var index = 0; index < Parameters.length; index++) {
-    var P = Parameters[index];
+  for (let index = 0; index < Parameters.length; index++) {
+    let P = Parameters[index];
 
     if (P.name == "type") {
       if (!P.value.startsWith("!")) {
@@ -238,10 +238,10 @@ function typeCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
 }
 
 function scoreCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[], dm: DiagnosticsManager): void {
-  var Objectives = sObject.scores.tests;
+  let Objectives = sObject.scores.tests;
 
-  for (var I = 0; I < Objectives.length; I++) {
-    var O = Objectives[I];
+  for (let I = 0; I < Objectives.length; I++) {
+    let O = Objectives[I];
 
     if (O.name.length > 16) {
       collection.push(new vscode.Diagnostic(range, "Objectives cannot be longer then 16 characters"));

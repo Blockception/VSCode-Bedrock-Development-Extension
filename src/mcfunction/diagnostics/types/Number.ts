@@ -42,7 +42,7 @@ export function CheckNumberIf(sObject: Selector, name: string, range: vscode.Ran
 
 //Checks the number
 export function CheckNumber(Parameter: SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  var Number = Parameter.value;
+  let Number = Parameter.value;
 
   if (!IsNumber(Number)) {
     collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": The number is not valid", vscode.DiagnosticSeverity.Error));

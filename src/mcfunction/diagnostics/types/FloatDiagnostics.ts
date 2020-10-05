@@ -37,8 +37,8 @@ export class FloatDiagnosticProvider implements DiagnosticProvider {
         if (item == undefined)
             return;
 
-        var word = item.Text;
-        var text = word.text;
+        let word = item.Text;
+        let text = word.text;
 
         if (text == "~" || text == "^")
             return;

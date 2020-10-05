@@ -36,7 +36,7 @@ export class KillDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var target = item.Child;
+		let target = item.Child;
 
 		//<player: target>
 		if (target == undefined) {

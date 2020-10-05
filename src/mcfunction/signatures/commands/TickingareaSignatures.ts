@@ -90,7 +90,7 @@ export class TickingareaSignatureProvider implements SignatureItemProvider {
       ]
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
 
       let Mode = Item.Child;
 

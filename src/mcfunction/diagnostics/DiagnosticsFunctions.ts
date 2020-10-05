@@ -55,7 +55,7 @@ export module Errors {
 export module Functions {
 
     export function provideDiagnosticsXYZ(command : string, item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : [SyntaxItem, boolean] {
-        var item_x = item.Child;
+        let item_x = item.Child;
 
         //x
 		if (item_x == undefined) {
@@ -69,7 +69,7 @@ export module Functions {
 
         dm.CoordinateDiagnoser?.provideDiagnostic(item_x, lineIndex, collector, dm, document);
 
-		var item_y = item_x.Child;
+		let item_y = item_x.Child;
 
 		//y
 		if (item_y == undefined) {
@@ -78,7 +78,7 @@ export module Functions {
         }
         dm.CoordinateDiagnoser?.provideDiagnostic(item_x, lineIndex, collector, dm, document);
 
-		var item_z = item_y.Child;
+		let item_z = item_y.Child;
 
 		//z
 		if (item_z == undefined) {

@@ -37,7 +37,7 @@ export class TimeDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Mode = item.Child;
+		let Mode = item.Child;
 
 		if (Mode == undefined) {
 			Errors.Missing('mode', 'time', lineIndex, item, collector);
@@ -65,7 +65,7 @@ export class TimeDiagnosticProvider implements DiagnosticProvider {
 	}
 
 	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Amount = item.Child;
+		let Amount = item.Child;
 
 		//<amount: int>
 		if (Amount == undefined) {
@@ -76,7 +76,7 @@ export class TimeDiagnosticProvider implements DiagnosticProvider {
 	}
 
 	branchset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Amount = item.Child;
+		let Amount = item.Child;
 
 		//<amount: int>
 		if (Amount == undefined) {
@@ -117,7 +117,7 @@ export class TimeDiagnosticProvider implements DiagnosticProvider {
 
 	branchquery(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var mode = item.Child;
+		let mode = item.Child;
 
 		//<daytime|gametime|day>
 		if (mode == undefined) {

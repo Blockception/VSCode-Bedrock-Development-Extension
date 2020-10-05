@@ -36,7 +36,7 @@ export class ClearDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Player = item.Child;
+		let Player = item.Child;
 
 		//[player: target]
 		if (Player == undefined) {
@@ -44,7 +44,7 @@ export class ClearDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser.provideDiagnostic(Player, lineIndex, collector, dm, document);
 
-		var Item = item.Child;
+		let Item = item.Child;
 
 		//[itemName: Item]
 		if (Item == undefined) {
@@ -52,7 +52,7 @@ export class ClearDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.ItemDiagnoser?.provideDiagnostic(Item, lineIndex, collector, dm, document);
 
-		var ItemData = Item.Child;
+		let ItemData = Item.Child;
 
 		//[data: int]
 		if (ItemData == undefined) {
@@ -60,7 +60,7 @@ export class ClearDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(ItemData, lineIndex, collector, dm, document);
 
-		var MaxCount = Item.Child;
+		let MaxCount = Item.Child;
 
 		//[maxCount: int]
 		if (MaxCount == undefined) {

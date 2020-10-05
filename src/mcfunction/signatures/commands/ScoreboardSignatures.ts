@@ -213,7 +213,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
       ]
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let Mode = Item.Child;
 
       if (Mode == undefined) {
@@ -232,7 +232,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
       return undefined;
    }
 
-   provideObjectives(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideObjectives(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let Mode = Item.Child;
       let Count = Item.Count();
 
@@ -281,7 +281,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
       return Out;
    }
 
-   provideObjectivesSetDisplay(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideObjectivesSetDisplay(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let Mode = Item.Child;
       let Count = Item.Count();
 
@@ -327,7 +327,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
       return Out;
    }
 
-   providePlayers(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   providePlayers(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let Mode = Item.Child;
       let Count = Item.Count();
 

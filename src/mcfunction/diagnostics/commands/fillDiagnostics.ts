@@ -39,7 +39,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
 		//from x y z
-		var Out = Functions.provideDiagnosticsXYZ('fill', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('fill', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
@@ -50,7 +50,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 		if (Out[1] == false)
 			return;
 		
-		var Block = Out[0].Child;
+		let Block = Out[0].Child;
 
 		//<tileName: Block>
 		if (Block == undefined) {
@@ -60,7 +60,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 
 		dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
 
-		var Data = Block.Child;
+		let Data = Block.Child;
 
 		//optional
 		if (Data == undefined)
@@ -68,7 +68,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 
 		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 
-		var Mode = Data.Child;
+		let Mode = Data.Child;
 
 		//optional
 		if (Mode == undefined)
@@ -92,7 +92,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 	}
 
 	branchReplace(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Block = item.Child;
+		let Block = item.Child;
 
 		//<tileName: Block>
 		if (Block == undefined) {
@@ -101,7 +101,7 @@ export class FillDiagnosticProvider implements DiagnosticProvider {
 
 		dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
 
-		var Data = Block.Child;
+		let Data = Block.Child;
 
 		//optional
 		if (Data == undefined)

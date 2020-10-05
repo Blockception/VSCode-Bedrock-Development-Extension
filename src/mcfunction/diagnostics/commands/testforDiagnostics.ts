@@ -37,7 +37,7 @@ export class TestforDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<victim: target>
 		if (Target == undefined) {

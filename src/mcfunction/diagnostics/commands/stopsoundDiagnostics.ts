@@ -37,7 +37,7 @@ export class StopsoundDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<player: target>
 		if (Target == undefined) {
@@ -46,7 +46,7 @@ export class StopsoundDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var Sound = Target.Child;
+		let Sound = Target.Child;
 
 		//[sound: string]
 		if (Sound == undefined) {

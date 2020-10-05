@@ -65,7 +65,7 @@ export class ReplaceItemSignatureProvider implements SignatureItemProvider {
          ]);
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let TargetType = Item.Child;
 
       let Count = Item.Count();

@@ -42,7 +42,7 @@ export function CheckIntegerIf(sObject: Selector, name: string, range: vscode.Ra
 
 //Checks the number
 export function CheckInteger(Parameter: SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  var Number = Parameter.value;
+  let Number = Parameter.value;
 
   if (!IsInteger(Number)) {
     collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": The integer is not valid", vscode.DiagnosticSeverity.Error));

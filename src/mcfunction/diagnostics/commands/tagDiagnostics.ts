@@ -37,7 +37,7 @@ export class TagDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<targets>
 		if (Target == undefined) {
@@ -49,7 +49,7 @@ export class TagDiagnosticProvider implements DiagnosticProvider {
 			dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 		}
 
-		var Mode = Target.Child
+		let Mode = Target.Child
 
 		if (Mode == undefined) {
 			Errors.Missing('add | remove | list', 'Tag', lineIndex, Target, collector);
@@ -62,7 +62,7 @@ export class TagDiagnosticProvider implements DiagnosticProvider {
 
 			case 'add':
 			case 'remove':
-				var Tag = Mode.Child;
+				let Tag = Mode.Child;
 
 				if (Tag == undefined) {
 					Errors.Missing('tag', 'tag', lineIndex, Target, collector);

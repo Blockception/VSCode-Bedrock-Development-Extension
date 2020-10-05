@@ -36,7 +36,7 @@ export class SpawnpointDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//[player: target]
 		if (Target == undefined) {
@@ -44,7 +44,7 @@ export class SpawnpointDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var XCoord = Target.Child;
+		let XCoord = Target.Child;
 
 		//[position: x y z]
 		if (XCoord == undefined) {
@@ -54,7 +54,7 @@ export class SpawnpointDiagnosticProvider implements DiagnosticProvider {
 		if (XCoord.Text.text != "~~~") {
 			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
 
-			var YCoord = XCoord.Child;
+			let YCoord = XCoord.Child;
 
 			//[position: x y z]
 			if (YCoord == undefined) {
@@ -62,7 +62,7 @@ export class SpawnpointDiagnosticProvider implements DiagnosticProvider {
 			}
 			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
 
-			var ZCoord = YCoord.Child;
+			let ZCoord = YCoord.Child;
 
 			//[position: x y z]
 			if (ZCoord == undefined) {

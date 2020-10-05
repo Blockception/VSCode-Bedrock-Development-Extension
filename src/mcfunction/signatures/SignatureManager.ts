@@ -34,7 +34,7 @@ import { SignatureHelp } from 'vscode';
 
 export interface SignatureItemProvider {
     //
-    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp>;
+    provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined;
 }
 
 export class SignatureManager implements vscode.SignatureHelpProvider {
@@ -49,7 +49,15 @@ export class SignatureManager implements vscode.SignatureHelpProvider {
         keywords.forEach(word => this.SignatureProviders.set(word, Cm));
     }
 
-    provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.SignatureHelpContext): vscode.ProviderResult<vscode.SignatureHelp> {
+    async provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.SignatureHelpContext)
+        : Promise<vscode.SignatureHelp> {
+
+        return new Promise<vscode.SignatureHelp>((resolve, reject)=>{
+            resolve(this.interalProvideSignatureHelp(document, position));
+        });
+    }
+
+    private interalProvideSignatureHelp(document: vscode.TextDocument, position: vscode.Position): vscode.SignatureHelp | undefined {
         let Line = document.lineAt(position.line);
 
         if (position.character < 3) {

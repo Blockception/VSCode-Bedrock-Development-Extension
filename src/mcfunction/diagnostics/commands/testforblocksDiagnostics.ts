@@ -38,27 +38,27 @@ export class TestforBlocksDiagnosticProvider implements DiagnosticProvider {
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
 		//<begin: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('testforblock', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('testforblock', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false) {
 			return;
 		}
 
 		//<end: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('testforblock', Out[0], lineIndex, collector, dm, document);
+		Out = Functions.provideDiagnosticsXYZ('testforblock', Out[0], lineIndex, collector, dm, document);
 
 		if (Out[1] == false) {
 			return;
 		}
 
 		//<destination: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('testforblock', Out[0], lineIndex, collector, dm, document);
+		Out = Functions.provideDiagnosticsXYZ('testforblock', Out[0], lineIndex, collector, dm, document);
 
 		if (Out[1] == false) {
 			return;
 		}
 
-		var Mode = Out[0].Child;
+		let Mode = Out[0].Child;
 
 		//[masked|all]
 		if (Mode == undefined) {

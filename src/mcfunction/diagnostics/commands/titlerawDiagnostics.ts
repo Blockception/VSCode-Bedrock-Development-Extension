@@ -36,7 +36,7 @@ export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<player: target>
 		if (Target == undefined) {
@@ -45,7 +45,7 @@ export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var Mode = Target.Child;
+		let Mode = Target.Child;
 
 		if (Mode == undefined){
 			Errors.Missing('mode', 'title', lineIndex, item, collector);
@@ -75,7 +75,7 @@ export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 
 	branchTitle_Subtitle_Actionbar(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Message = item.Child;
+		let Message = item.Child;
 
 		//<titleText: message>
 		if (Message == undefined) {
@@ -87,7 +87,7 @@ export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 	}
 
 	branchtimes(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var FadeIn = item.Child;
+		let FadeIn = item.Child;
 
 		//<fadeIn: int>
 		if (FadeIn == undefined) {
@@ -96,7 +96,7 @@ export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(FadeIn, lineIndex, collector, dm, document);
 
-		var stay = FadeIn.Child;
+		let stay = FadeIn.Child;
 
 		//<stay: int>
 		if (stay == undefined) {
@@ -105,7 +105,7 @@ export class TitlerawDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(stay, lineIndex, collector, dm, document);
 
-		var fadeOut = FadeIn.Child;
+		let fadeOut = FadeIn.Child;
 
 		//<fadeOut: int>
 		if (fadeOut == undefined) {

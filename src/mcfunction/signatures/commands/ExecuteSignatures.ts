@@ -63,7 +63,7 @@ export class ExecuteSignatureProvider implements SignatureItemProvider {
       ]);
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let DetectChild = Item.GetAt(5);
 
       let Count = Item.Count();

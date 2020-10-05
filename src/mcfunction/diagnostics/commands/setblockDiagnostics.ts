@@ -39,12 +39,12 @@ export class SetblockDiagnosticProvider implements DiagnosticProvider {
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
 		//<position: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('setblock', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('setblock', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
 
-		var Block = Out[0].Child;
+		let Block = Out[0].Child;
 
 		//<tileName: Block>
 		if (Block == undefined) {
@@ -53,7 +53,7 @@ export class SetblockDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
 
-		var Data = Block.Child;
+		let Data = Block.Child;
 
 		//[tileData: int]
 		if (Data == undefined) {
@@ -62,7 +62,7 @@ export class SetblockDiagnosticProvider implements DiagnosticProvider {
 
 		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 
-		var Mode = Data.Child;
+		let Mode = Data.Child;
 
 		//[replace|destroy|keep]
 		if (Mode == undefined) {

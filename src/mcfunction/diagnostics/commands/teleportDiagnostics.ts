@@ -38,14 +38,14 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var First = item.Child;
+		let First = item.Child;
 
 		if (First == undefined) {
 			Errors.Missing('x y z | target/selector', 'teleport', lineIndex, item, collector);
 			return;
 		}
 
-		var firstChar = First.Text.text.charAt(0);
+		let firstChar = First.Text.text.charAt(0);
 
 		switch (firstChar) {
 			case '-':
@@ -75,7 +75,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 	}
 
 	branchTarget(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Target = item;
+		let Target = item;
 
 		//<target>
 		if (Target == undefined) {
@@ -85,13 +85,13 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var Destination = Target.Child;
+		let Destination = Target.Child;
 
 		//in case that the target was the destination
 		if (Destination == undefined)
 			return;
 
-		var destText = Destination.Text.text;
+		let destText = Destination.Text.text;
 
 		switch (destText.charAt(0)) {
 			case '-':
@@ -127,12 +127,12 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 
 	branchDestination(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Out = Functions.provideDiagnosticsXYZ('teleport', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('teleport', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
 
-		var Next = Out[0].Child;
+		let Next = Out[0].Child;
 
 		if (Next == undefined)
 			return;
@@ -163,7 +163,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 				
 				dm.CoordinateDiagnoser?.provideDiagnostic(Next, lineIndex, collector, dm, document);
 
-				var XRot = Next.Child;
+				let XRot = Next.Child;
 
 				//[xRot: value]
 				if (XRot == undefined) {
@@ -178,7 +178,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 				break;
 		}
 
-		var checkForBlocks = Next.Child;
+		let checkForBlocks = Next.Child;
 
 		//[checkForBlocks: Boolean]
 		if (checkForBlocks == undefined) {
@@ -189,7 +189,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 
 	branchFacing(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<target>
 		if (Target == undefined) {
@@ -197,7 +197,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Tartext = Target.Text.text;
+		let Tartext = Target.Text.text;
 
 		switch (Tartext.charAt(0)) {
 			case '-':
@@ -215,7 +215,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 			case '9':
 			case '~':
 			case '^':
-				var Out = Functions.provideDiagnosticsXYZ('teleport facing', item, lineIndex, collector, dm, document);
+				let Out = Functions.provideDiagnosticsXYZ('teleport facing', item, lineIndex, collector, dm, document);
 
 				if (Out[1] == false)
 					return;
@@ -232,7 +232,7 @@ export class TeleportDiagnosticProvider implements DiagnosticProvider {
 				break;
 		}
 
-		var checkForBlocks = Target.Child;
+		let checkForBlocks = Target.Child;
 
 		//[checkForBlocks: Boolean]
 		if (checkForBlocks == undefined) {

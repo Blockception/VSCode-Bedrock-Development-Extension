@@ -64,7 +64,7 @@ export class MobeventSignatureProvider implements SignatureItemProvider {
       ];
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let Count = Item.Count();
 
       if (Count > 2) {

@@ -39,7 +39,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 		
 		//begin x y z
-		var out = Functions.provideDiagnosticsXYZ('clone', item, lineIndex, collector, dm, document);
+		let out = Functions.provideDiagnosticsXYZ('clone', item, lineIndex, collector, dm, document);
 
 		if (out[1] == false){
 			return;
@@ -59,7 +59,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 		
-		var mode = out[0].Child;
+		let mode = out[0].Child;
 
 		if (mode == undefined){
 			return;
@@ -83,7 +83,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 
 	//Diagnostics when the branch Replace|Masked is taken
 	branchreplace_masked(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var mode = item.Child;
+		let mode = item.Child;
 		if (mode == undefined){
 			return;
 		}
@@ -101,7 +101,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 
 	//Diagnostics when the branch Filtered is taken
 	branchfiltered(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var mode = item.Child;
+		let mode = item.Child;
 		if (mode == undefined){
 			Errors.Missing('clone mode', 'clone', lineIndex, item, collector);
 			return;
@@ -117,7 +117,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var block = mode.Child;
+		let block = mode.Child;
 
 		//<tileName: Block>
 		if (block == undefined) {
@@ -126,7 +126,7 @@ export class CloneDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.BlockDiagnoser?.provideDiagnostic(block, lineIndex, collector, dm, document);
 
-		var blockData = block.Child;
+		let blockData = block.Child;
 
 		//<tileData: int>
 		if (blockData == undefined) {

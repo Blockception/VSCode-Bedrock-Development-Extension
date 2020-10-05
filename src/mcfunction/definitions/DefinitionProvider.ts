@@ -33,18 +33,24 @@ import { RangedWord } from '../../general/Words';
 import { mcfunctionDatabase } from '../Database';
 
 export class GoDefinitionProvider implements vscode.DefinitionProvider {
-    provideDefinition(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.ProviderResult<vscode.Definition | vscode.DefinitionLink[]> {
-        var Line = document.lineAt(position.line);
-        var Word = RangedWord.GetWord(Line.text, position.character);
+    async provideDefinition(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Promise<vscode.Definition | vscode.DefinitionLink[]> {
+        return new Promise<vscode.Definition | vscode.DefinitionLink[]>((resolve, reject) => {
+            resolve(this.internalProvideDefinition(document, position));
+        });
+    }
+
+    private internalProvideDefinition(document: vscode.TextDocument, position: vscode.Position): vscode.Definition | vscode.DefinitionLink[] | undefined {
+        let Line = document.lineAt(position.line);
+        let Word = RangedWord.GetWord(Line.text, position.character);
 
         if (Word.text == "")
             return undefined;
 
-        var Out = new Array<vscode.Location>();
+        let Out = new Array<vscode.Location>();
 
         mcfunctionDatabase.Symbols.Tags.forEach(x => {
             x.Values.forEach(symbol => {
-                var match = symbol.name;
+                let match = symbol.name;
                 if (match == Word.text){
                     Out.push(symbol.location);
                 }
@@ -54,7 +60,7 @@ export class GoDefinitionProvider implements vscode.DefinitionProvider {
         
         mcfunctionDatabase.Symbols.Scores.forEach(x => {
             x.Values.forEach(symbol => {
-                var match = symbol.name;
+                let match = symbol.name;
                 if (match == Word.text)
                     Out.push(symbol.location);
             });

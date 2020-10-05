@@ -35,7 +35,7 @@ import * as Diagnostics from "./Diagnostics";
 import * as Commands from "./commands/activate";
 
 export function activate(context: vscode.ExtensionContext) {
-    var Manager = Diagnostics.Manager;
+    let Manager = Diagnostics.Manager;
     console.log("activating mcfunction diagnostics");
     
     //activate commands
@@ -66,17 +66,17 @@ function updateDiagnostics(document : vscode.TextDocument, collection : vscode.D
 
     console.log("running diagnostics start:\t" + document.fileName);
 
-    var docCollection = new Array<vscode.Diagnostic>();
-    var Diagnoser : DiagnosticProvider | undefined;
+    let docCollection = new Array<vscode.Diagnostic>();
+    let Diagnoser : DiagnosticProvider | undefined;
      
-    for (var index = 0; index < document.lineCount; index++){
-        var Line = document.lineAt(index);
+    for (let index = 0; index < document.lineCount; index++){
+        let Line = document.lineAt(index);
 
         if (Line.text == "" || Line.text.startsWith("#"))
             continue;
         
-        var Tree : SyntaxTree = SyntaxTree.ParseEntireTree(Line);
-        var Item = Tree.Root;
+        let Tree : SyntaxTree = SyntaxTree.ParseEntireTree(Line);
+        let Item = Tree.Root;
         
         if (Item != undefined){
             Diagnoser = Diagnostics.Manager.get(Item);

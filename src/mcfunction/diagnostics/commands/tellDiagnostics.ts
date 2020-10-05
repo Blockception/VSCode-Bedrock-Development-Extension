@@ -36,7 +36,7 @@ export class TellDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var target = item.Child;
+		let target = item.Child;
 
 		//<player: target>
 		if (target == undefined) {
@@ -46,7 +46,7 @@ export class TellDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(target, lineIndex, collector, dm, document);
 
-		var Message = target.Child;
+		let Message = target.Child;
 
 		//<message: message>
 		if (Message == undefined) {

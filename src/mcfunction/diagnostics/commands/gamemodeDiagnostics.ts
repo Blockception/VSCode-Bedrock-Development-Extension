@@ -37,7 +37,7 @@ export class GamemodeDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Gamemode = item.Child;
+		let Gamemode = item.Child;
 
 		//<0|1|2|s|d|c|a|adventure|creative|default|survival>
 		if (Gamemode == undefined) {
@@ -64,7 +64,7 @@ export class GamemodeDiagnosticProvider implements DiagnosticProvider {
 				return;
 		}
 
-		var Target = Gamemode.Child;
+		let Target = Gamemode.Child;
 
 		//[player: target]
 		if (Target == undefined) {

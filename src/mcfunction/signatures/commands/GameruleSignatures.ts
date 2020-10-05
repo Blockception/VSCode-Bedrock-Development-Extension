@@ -226,7 +226,7 @@ export class GameruleSignatureProvider implements SignatureItemProvider {
       ];
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
       let RuleChild = Item.GetAt(1);
 
       let Count = Item.Count();

@@ -72,7 +72,7 @@ export class ObjectiveSymbolProvider implements vscode.DocumentSymbolProvider, v
                 if (start > 0 && DummyStart > 0) {
                     let Score = RemoveComment(m.substring(start + 4, DummyStart)).trim();
 
-                    let ObjectiveSymbol = new vscode.SymbolInformation(Score, vscode.SymbolKind.letiable, 'mcfunction', new vscode.Location(
+                    let ObjectiveSymbol = new vscode.SymbolInformation(Score, vscode.SymbolKind.Variable, 'mcfunction', new vscode.Location(
                         document.uri, new vscode.Position(I, m.indexOf(Score))
                     ));
                     Out.push(ObjectiveSymbol);

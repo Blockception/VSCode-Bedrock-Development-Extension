@@ -51,7 +51,7 @@ export function CheckCoordinate(Parameter: SelectorParameter, range: vscode.Rang
     return;
   }
 
-  var Number = Parameter.value;
+  let Number = Parameter.value;
 
   if (!IsCoordinate(Number)) {
     collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": The coordinate is not valid", vscode.DiagnosticSeverity.Error));

@@ -37,7 +37,7 @@ export class GameruleDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Gamerule = item.Child;
+		let Gamerule = item.Child;
 
 		if (Gamerule == undefined) {
 			Errors.Missing('gamerule', 'gamerule', lineIndex, item, collector);

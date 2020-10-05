@@ -37,7 +37,7 @@ export class LocateDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var structure = item.Child;
+		let structure = item.Child;
 
 		if (structure == undefined) {
 			Errors.Missing('structure', 'locate', lineIndex, item, collector);

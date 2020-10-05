@@ -38,7 +38,7 @@ export class GeneralSignatureProvider implements SignatureItemProvider {
 
     public SignatureProviders: Map<string, vscode.SignatureInformation>;
 
-    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+    provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
         let Child = this.SignatureProviders.get(Item.Text.text);
 
         if (Child == undefined)

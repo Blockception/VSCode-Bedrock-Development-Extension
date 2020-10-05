@@ -37,7 +37,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Sub = item.Child;
+		let Sub = item.Child;
 
 		if (Sub == undefined) {
 			Errors.Missing('mode', 'scoreboard', lineIndex, item, collector);
@@ -62,7 +62,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//All the objectives
 	branchObjectives(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Mode = item.Child;
+		let Mode = item.Child;
 
 		//objectives
 		if (Mode == undefined) {
@@ -95,7 +95,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 	//scoreboard objectives add
 	branchAdd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var ScoreName = item.Child;
+		let ScoreName = item.Child;
 
 		//<name>
 		if (ScoreName == undefined) {
@@ -105,7 +105,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		dm.ScoreDiagnoser.provideDiagnostic(ScoreName, lineIndex, collector, dm, document);
 
-		var Dummy = ScoreName.Child;
+		let Dummy = ScoreName.Child;
 
 		//dummy
 		if (Dummy == undefined) {
@@ -121,7 +121,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			));
 		}
 
-		var Display = Dummy.Child;
+		let Display = Dummy.Child;
 
 		//[display name: string]
 		if (Display == undefined) {
@@ -134,7 +134,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 	//scoreboard objectives remove
 	branchRemove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var ScoreName = item.Child;
+		let ScoreName = item.Child;
 
 		//<name>
 		if (ScoreName == undefined) {
@@ -147,7 +147,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	branchSetdisplay(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var DisplayType = item.Child;
+		let DisplayType = item.Child;
 
 		//setdisplay
 		if (DisplayType == undefined) {
@@ -155,7 +155,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Sortable = false;
+		let Sortable = false;
 
 		switch (DisplayType.Text.text) {
 			case 'belowname':
@@ -171,7 +171,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 				return;
 		}
 
-		var Objective = DisplayType.Child;
+		let Objective = DisplayType.Child;
 
 		if (Objective == undefined) {
 			return;
@@ -182,7 +182,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 		if (!Sortable)
 			return;
 
-		var Sort = Objective.Child;
+		let Sort = Objective.Child;
 
 		if (Sort == undefined) {
 			return;
@@ -201,7 +201,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	branchPlayers(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Mode = item.Child;
+		let Mode = item.Child;
 
 		if (Mode == undefined) {
 			Errors.Missing('mode', 'scoreboard players', lineIndex, item, collector);
@@ -249,7 +249,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//scoreboard players list
 	branchList(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Entity = item.Child;
+		let Entity = item.Child;
 
 		//[entity]
 		if (Entity == undefined) {
@@ -261,7 +261,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//scoreboard players set/add/remove
 	branchSetAddRemove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument, Mode: string): void {
-		var Entity = item.Child;
+		let Entity = item.Child;
 
 		//<entity: string>
 		if (Entity == undefined) {
@@ -271,7 +271,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(Entity, lineIndex, collector, dm, document);
 
-		var Objective = Entity.Child;
+		let Objective = Entity.Child;
 
 		//<objective>
 		if (Objective == undefined) {
@@ -281,7 +281,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		dm.ScoreDiagnoser.provideDiagnostic(Objective, lineIndex, collector, dm, document);
 
-		var Score = Objective.Child;
+		let Score = Objective.Child;
 
 		//<score>
 		if (Score == undefined) {
@@ -294,7 +294,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//scoreboard players reset
 	branchReset(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Entity = item.Child;
+		let Entity = item.Child;
 
 		//<entity: string>
 		if (Entity == undefined) {
@@ -306,7 +306,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			dm.SelectorDiagnoser.provideDiagnostic(Entity, lineIndex, collector, dm, document);
 		}
 
-		var Objective = Entity.Child;
+		let Objective = Entity.Child;
 
 		//<objective>
 		if (Objective == undefined) {
@@ -318,7 +318,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//scoreboard players operation
 	branchOperation(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<targetName>
 		if (Target == undefined) {
@@ -328,7 +328,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var TargetObjective = Target.Child;
+		let TargetObjective = Target.Child;
 
 		//<targetObjective>
 		if (TargetObjective == undefined) {
@@ -338,7 +338,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		dm.ScoreDiagnoser.provideDiagnostic(TargetObjective, lineIndex, collector, dm, document);
 
-		var Operation = TargetObjective.Child;
+		let Operation = TargetObjective.Child;
 
 		if (Operation == undefined) {
 			Errors.Missing('operation', 'scoreboard players operation', lineIndex, TargetObjective, collector);
@@ -361,7 +361,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 				return;
 		}
 
-		var SourceTarget = Operation.Child;
+		let SourceTarget = Operation.Child;
 
 		//<targetName>
 		if (SourceTarget == undefined) {
@@ -371,7 +371,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(SourceTarget, lineIndex, collector, dm, document);
 
-		var SourceTargetObjective = SourceTarget.Child;
+		let SourceTargetObjective = SourceTarget.Child;
 
 		//<targetObjective>
 		if (SourceTargetObjective == undefined) {
@@ -384,7 +384,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//scoreboard players test
 	branchTest(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<entity>
 		if (Target == undefined) {
@@ -392,7 +392,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Objective = Target.Child;
+		let Objective = Target.Child;
 
 		//<objective>
 		if (Objective == undefined) {
@@ -400,7 +400,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Min = Objective.Child;
+		let Min = Objective.Child;
 
 		//<min|*>
 		if (Min == undefined) {
@@ -408,7 +408,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Max = Min.Child;
+		let Max = Min.Child;
 
 		//<max|*>
 		if (Max == undefined) {
@@ -419,7 +419,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 
 	//scoreboard players random
 	branchRandom(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<entity>
 		if (Target == undefined) {
@@ -427,7 +427,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Objective = Target.Child;
+		let Objective = Target.Child;
 
 		//<objective>
 		if (Objective == undefined) {
@@ -435,7 +435,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Min = Objective.Child;
+		let Min = Objective.Child;
 
 		//<min|*>
 		if (Min == undefined) {
@@ -443,7 +443,7 @@ export class ScoreboardDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Max = Min.Child;
+		let Max = Min.Child;
 
 		//<max|*>
 		if (Max == undefined) {

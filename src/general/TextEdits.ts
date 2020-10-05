@@ -35,10 +35,10 @@ export module TextEdits {
 
     //Loops through the text line looking for text to remove
     export function RemoveTextFromLine(TextToRemove : string, line : vscode.TextLine, Collector: vscode.TextEdit[]) : void {
-        var Text = line.text;
-        var LineIndex = line.lineNumber;
+        let Text = line.text;
+        let LineIndex = line.lineNumber;
 
-        var Index = Text.indexOf(TextToRemove, 0);
+        let Index = Text.indexOf(TextToRemove, 0);
 
         while (Index > -1) {
             Collector.push(new vscode.TextEdit(new vscode.Range(LineIndex, Index, LineIndex, Index + TextToRemove.length), ""));
@@ -50,10 +50,10 @@ export module TextEdits {
     //Loops through the text line looking for text to remove
     export function RemoveTextFromDocument(TextToRemove : string, document : vscode.TextDocument, Collector: vscode.TextEdit[]) {
         for (let LineIndex = 0; LineIndex < document.lineCount; LineIndex++) {
-            var line = document.lineAt(LineIndex);
-            var Text = line.text;
+            let line = document.lineAt(LineIndex);
+            let Text = line.text;
     
-            var Index = Text.indexOf(TextToRemove, 0);
+            let Index = Text.indexOf(TextToRemove, 0);
     
             while (Index > -1) {
                 Collector.push(new vscode.TextEdit(new vscode.Range(LineIndex, Index, LineIndex, Index + TextToRemove.length), ""));
@@ -65,10 +65,10 @@ export module TextEdits {
 
     //Loops through the text line looking for text to replace
     export function ReplaceTextFromLine(OldText : string, NewText: string, line : vscode.TextLine, Collector: vscode.TextEdit[]) : void {
-        var Text = line.text;
-        var LineIndex = line.lineNumber;
+        let Text = line.text;
+        let LineIndex = line.lineNumber;
 
-        var Index = Text.indexOf(OldText, 0);
+        let Index = Text.indexOf(OldText, 0);
 
         while (Index > -1) {
             Collector.push(new vscode.TextEdit(new vscode.Range(LineIndex, Index, LineIndex, Index + OldText.length), NewText));
@@ -80,10 +80,10 @@ export module TextEdits {
     //Loops through the text line looking for text to remove
     export function ReplaceTextFromDocument(OldText : string, NewText: string, document : vscode.TextDocument, Collector: vscode.TextEdit[]) {
         for (let LineIndex = 0; LineIndex < document.lineCount; LineIndex++) {
-            var line = document.lineAt(LineIndex);
-            var Text = line.text;
+            let line = document.lineAt(LineIndex);
+            let Text = line.text;
     
-            var Index = Text.indexOf(OldText, 0);
+            let Index = Text.indexOf(OldText, 0);
     
             while (Index > -1) {
                 Collector.push(new vscode.TextEdit(new vscode.Range(LineIndex, Index, LineIndex, Index + OldText.length), NewText));
@@ -95,10 +95,10 @@ export module TextEdits {
 
     //Loop through starting character to filters out empty characters and slashes
     export function TrimStartFromLine(line : vscode.TextLine, Collector: vscode.TextEdit[], ToRemove: string[]){
-        var Text = line.text;
-        var LineIndex = line.lineNumber;
-        var startindex = 0;
-        var Loop = true;
+        let Text = line.text;
+        let LineIndex = line.lineNumber;
+        let startindex = 0;
+        let Loop = true;
 
         while (Loop) {
             Loop = false;
@@ -118,12 +118,12 @@ export module TextEdits {
     }
 
     export function TrimEndFromLine(line : vscode.TextLine, Collector: vscode.TextEdit[], ToRemove: string[]) : void {
-        var Text = line.text;
-        var LineIndex = line.lineNumber;
-        var startindex = Text.length - 1;
-        var endindex = Text.length;
+        let Text = line.text;
+        let LineIndex = line.lineNumber;
+        let startindex = Text.length - 1;
+        let endindex = Text.length;
         startindex = endindex;
-        var Loop = true;
+        let Loop = true;
 
         while (Loop) {
             Loop = false;

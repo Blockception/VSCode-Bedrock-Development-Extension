@@ -39,7 +39,7 @@ export class DocumentDataCollection<T> {
     }
 
     public Get(key: vscode.Uri) : DocumentData<T> {
-        var Out = this.Items.get(key);
+        let Out = this.Items.get(key);
 
         if (Out == undefined) {
             Out = new DocumentData<T>();
@@ -58,7 +58,7 @@ export class DocumentDataCollection<T> {
     }
 
     public First() {
-        var Item = Array.from(this.Items)[0];
+        let Item = Array.from(this.Items)[0];
         return Item[1];
     }
 }

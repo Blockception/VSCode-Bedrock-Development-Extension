@@ -36,7 +36,7 @@ export class EnchantDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<player: target>
 		if (Target == undefined) {
@@ -46,7 +46,7 @@ export class EnchantDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var Enchant = Target.Child;
+		let Enchant = Target.Child;
 
 		//<int|Enchant Name>
 		if (Enchant == undefined) {
@@ -54,7 +54,7 @@ export class EnchantDiagnosticProvider implements DiagnosticProvider {
 			return;
 		}
 
-		var Level = Enchant.Child;
+		let Level = Enchant.Child;
 
 		//[level: int]
 		if (Level == undefined) {

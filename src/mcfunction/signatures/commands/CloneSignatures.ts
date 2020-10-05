@@ -72,7 +72,7 @@ export class CloneSignatureProvider implements SignatureItemProvider {
       ]);
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager) : SignatureHelp | undefined {
       let FilteredChild = Item.GetAt(10);
 
       let Count = Item.Count();

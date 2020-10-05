@@ -37,7 +37,7 @@ export class PlaysoundDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Sound = item.Child;
+		let Sound = item.Child;
 
 		//<sound: string>
 		if (Sound == undefined) {
@@ -46,7 +46,7 @@ export class PlaysoundDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SoundDiagnoser?.provideDiagnostic(Sound, lineIndex, collector, dm, document);
 
-		var Target = Sound.Child;
+		let Target = Sound.Child;
 
 		//[player: target]
 		if (Target == undefined) {
@@ -54,18 +54,18 @@ export class PlaysoundDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var XCoord = Target.Child;
+		let XCoord = Target.Child;
 
 		//[position: x y z]
 		if (XCoord == undefined) {
 			return;
 		}
 
-		var volume: SyntaxItem | undefined;
+		let volume: SyntaxItem | undefined;
 		if (XCoord.Text.text != "~~~") {
 			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
 
-			var YCoord = XCoord.Child;
+			let YCoord = XCoord.Child;
 
 			//[position: x y z]
 			if (YCoord == undefined) {
@@ -73,7 +73,7 @@ export class PlaysoundDiagnosticProvider implements DiagnosticProvider {
 			}
 			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
 
-			var ZCoord = YCoord.Child;
+			let ZCoord = YCoord.Child;
 
 			//[position: x y z]
 			if (ZCoord == undefined) {
@@ -93,7 +93,7 @@ export class PlaysoundDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.FloatDiagnoser?.provideDiagnostic(volume, lineIndex, collector, dm, document);
 
-		var pitch = volume.Child;
+		let pitch = volume.Child;
 
 		//[pitch: float]
 		if (pitch == undefined) {
@@ -101,7 +101,7 @@ export class PlaysoundDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.FloatDiagnoser?.provideDiagnostic(pitch, lineIndex, collector, dm, document);
 
-		var minVolume = pitch.Child;
+		let minVolume = pitch.Child;
 
 		//[minimumVolume: float]
 		if (minVolume == undefined) {

@@ -37,7 +37,7 @@ export class WeatherDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var WeatherType = item.Child;
+		let WeatherType = item.Child;
 
 		//<clear|rain|thunder>
 		if (WeatherType == undefined) {
@@ -54,7 +54,7 @@ export class WeatherDiagnosticProvider implements DiagnosticProvider {
 				Errors.UnknownWords('clear, rain, thunder', lineIndex, WeatherType, collector);
 		}
 
-		var Duration = WeatherType.Child;
+		let Duration = WeatherType.Child;
 
 		//[duration: int]
 		if (Duration == undefined) {
