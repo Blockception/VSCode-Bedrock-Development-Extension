@@ -27,8 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionParams, CompletionList } from "vscode-languageserver";
-import { GetDocument, removeDuplicate } from "../code/include";
+import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
+import { GetDocument } from "../code/include";
 import { McFunctionIdentifier } from "../Constants";
 import { OnCompletionMcFunction } from "./McfunctionCompletion";
 
@@ -61,4 +61,19 @@ function InternalOnCompletionRequest(params: CompletionParams) : CompletionList 
   List.isIncomplete = false;
 
   return List;
+}
+
+function removeDuplicate(items : CompletionItem[]) : CompletionItem[] {
+	let Length = items.length;
+	let Out: CompletionItem[] = [];
+
+	for (let I = 0; I < Length; I++) {
+		let Current = items[I];
+
+		if (!Out.includes(Current)) {
+			Out.push(Current);
+		}
+	}
+
+	return Out;
 }
