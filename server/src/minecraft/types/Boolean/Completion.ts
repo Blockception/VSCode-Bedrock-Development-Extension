@@ -27,8 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './Array';
-export * from './Document';
-export * from './File';
-export * from './RangedWords';
-export * from './TextWords';
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+
+
+export function provideBooleanCompletion(receiver : CompletionList) {
+	//False
+	receiver.items.push({
+		label:"false",
+		documentation:"The boolean value for false",
+		kind:CompletionItemKind.Value
+	});
+
+	//true
+	receiver.items.push({
+		label:"true",
+		documentation:"The boolean value for true",
+		kind:CompletionItemKind.Value
+	})
+}

@@ -28,11 +28,19 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionParams, CompletionList } from "vscode-languageserver";
-import { GetDocument } from "../code/include";
+import { GetDocument, removeDuplicate } from "../code/include";
 import { McFunctionIdentifier } from "../Constants";
 import { OnCompletionMcFunction } from "./McfunctionCompletion";
 
-export function OnCompletionRequest(params: CompletionParams): CompletionList {
+//Handle request
+export async function OnCompletionRequest(params: CompletionParams) : Promise<CompletionList> {
+  return new Promise((resolve, reject)=>{
+    resolve(InternalOnCompletionRequest(params));
+  });
+}
+
+//Processes request
+function InternalOnCompletionRequest(params: CompletionParams) : CompletionList {
   let List: CompletionList;
 
   List = {
@@ -49,6 +57,7 @@ export function OnCompletionRequest(params: CompletionParams): CompletionList {
       break;
   }
 
+  List.items = removeDuplicate(List.items);
   List.isIncomplete = false;
 
   return List;

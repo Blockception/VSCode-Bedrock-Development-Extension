@@ -29,16 +29,62 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
 import { RangedWord } from '../../../code/include';
+import { Database } from '../../Database';
 
-export function provideSelectorCompletion(receiver : CompletionList, Text : RangedWord | undefined) {
-	if (Text === undefined || Text.text === ''){
-		 //Defaults
-		 receiver.items.push(
-				{ label:'@a', kind:CompletionItemKind.Reference, documentation:'Targets all players' },
-				{ label:'@e', kind:CompletionItemKind.Reference, documentation:'Targets all entities' },
-				{ label:'@s', kind:CompletionItemKind.Reference, documentation:'Targets the executing entity' },
-				{ label:'@r', kind:CompletionItemKind.Reference, documentation:'Targets random players, or if specified, random types' },
-				{ label:'@p', kind:CompletionItemKind.Reference, documentation:'Targets the nearest player' }
-		 );
+export function provideSelectorCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
+	if (Text === undefined || Text.text === '') {
+		//Defaults
+		receiver.items.push(
+			{ label: '@a', kind: CompletionItemKind.Reference, documentation: 'Targets all players' },
+			{ label: '@e', kind: CompletionItemKind.Reference, documentation: 'Targets all entities' },
+			{ label: '@s', kind: CompletionItemKind.Reference, documentation: 'Targets the executing entity' },
+			{ label: '@r', kind: CompletionItemKind.Reference, documentation: 'Targets random players, or if specified, random types' },
+			{ label: '@p', kind: CompletionItemKind.Reference, documentation: 'Targets the nearest player' }
+		);
+
+		AddFakePlayers(receiver);
+	}	
+}
+
+export function provideSelectorPlayerCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
+	if (Text === undefined || Text.text === '') {
+		//Defaults
+		receiver.items.push(
+			{ label: '@a', kind: CompletionItemKind.Reference, documentation: 'Targets all players' },
+			{ label: '@s', kind: CompletionItemKind.Reference, documentation: 'Targets the executing entity' },
+			{ label: '@r', kind: CompletionItemKind.Reference, documentation: 'Targets random players, or if specified, random types' },
+			{ label: '@p', kind: CompletionItemKind.Reference, documentation: 'Targets the nearest player' }
+		);
 	}
+}
+
+export function provideSelectorTargetCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
+	if (Text === undefined || Text.text === '') {
+		//Defaults
+		receiver.items.push(
+			{ label: '@a', kind: CompletionItemKind.Reference, documentation: 'Targets all players' },
+			{ label: '@e', kind: CompletionItemKind.Reference, documentation: 'Targets all entities' },
+			{ label: '@s', kind: CompletionItemKind.Reference, documentation: 'Targets the executing entity' },
+			{ label: '@r', kind: CompletionItemKind.Reference, documentation: 'Targets random players, or if specified, random types' },
+			{ label: '@p', kind: CompletionItemKind.Reference, documentation: 'Targets the nearest player' }
+		);
+
+		AddFakePlayers(receiver);
+	}
+}
+
+function AddFakePlayers(receiver: CompletionList){
+	Database.Data.forEach(x=>{
+		x.FakeEntities.forEach(y=>{
+			let name = y.text;
+			receiver.items.push(
+				{ 
+					label:y.text,
+					documentation:"The fake player: '" + name + "'",
+					insertText:'"' + name + '"',
+					kind:CompletionItemKind.EnumMember
+				}
+			);
+		});
+	})
 }

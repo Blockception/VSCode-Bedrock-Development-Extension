@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Manager } from '../../Manager';
-import { isBoolean } from '../types/Boolean';
+import { IsBoolean } from '../types/Boolean/Boolean';
 import { CommandInfo } from './CommandInfo';
 import { CommandIntr } from './CommandIntr';
 import { MCCommand } from './MCCommand';
@@ -117,7 +117,7 @@ export function isMatch(com : CommandIntr, pattern : MCCommand) : boolean {
 				continue;
 
 			case MCCommandParameterType.boolean:
-				if (!isBoolean(comPar.text))
+				if (!IsBoolean(comPar.text))
 					return false;
 
 			case MCCommandParameterType.command:

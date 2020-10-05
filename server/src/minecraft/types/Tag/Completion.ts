@@ -27,8 +27,17 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './Array';
-export * from './Document';
-export * from './File';
-export * from './RangedWords';
-export * from './TextWords';
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { Database } from '../../Database';
+
+export function provideTagCompletion(receiver : CompletionList) : void {
+	Database.Data.forEach(dataSet=>{
+		dataSet.Tag.forEach(tag => {
+			receiver.items.push({
+				label:tag.Name,
+				kind:CompletionItemKind.Reference,
+				documentation: "The tag: '" + tag.Name + "'"
+			});
+		});
+	});
+}

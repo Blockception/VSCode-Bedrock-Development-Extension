@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Database } from '../minecraft/Database';
 import { MinecraftData } from '../minecraft/Minecraft Data';
-import { Tag } from '../minecraft/types/Tag';
-import { Objective } from '../minecraft/types/Objectives';
+import { Tag } from '../minecraft/types/Tag/Tag';
+import { Objective } from '../minecraft/types/Objectives/Objectives';
 import { GetFilename } from '../code/File';
 import { Tickingarea } from '../minecraft/types/include';
 import { IDocument } from '../code/include';

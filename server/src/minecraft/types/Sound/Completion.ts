@@ -1,5 +1,3 @@
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
-
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -29,31 +27,19 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export function isBoolean(value : string) : boolean {
-	switch(value){
-		case "True":
-		case "true":
-		case "False":
-		case "false":
-			return true;
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { Database } from '../../Database';
 
-		default:
-			return false;
-	}
-}
+export function provideSoundCompletion(receiver : CompletionList) : void {
+	Database.Data.forEach(dataSet=>{
+		dataSet.Sounds.forEach(sound => {
+			let Name = sound.Name;
 
-export function provideBooleanCompletion(receiver : CompletionList) {
-	//False
-	receiver.items.push({
-		label:"false",
-		documentation:"The boolean value for false",
-		kind:CompletionItemKind.Value
+			receiver.items.push({
+				label:Name,
+				kind:CompletionItemKind.Reference,
+				documentation:"The sound: '" + Name + "'"
+			});
+		});
 	});
-
-	//true
-	receiver.items.push({
-		label:"true",
-		documentation:"The boolean value for true",
-		kind:CompletionItemKind.Value
-	})
 }

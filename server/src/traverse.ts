@@ -61,7 +61,7 @@ export function TraveseDirectory(Dir: string): void {
 	});
 }
 
-export function PromiseTraveseDirectory(path: string): Promise<boolean> {
+export async function PromiseTraveseDirectory(path: string): Promise<boolean> {
 	return new Promise<boolean>((resolve, reject) => {
 		setTimeout(() => {
 			try {
@@ -76,7 +76,7 @@ export function PromiseTraveseDirectory(path: string): Promise<boolean> {
 	});
 }
 
-function PromiseParse(path: string, languageID: string): Promise<boolean> {
+async function PromiseParse(path: string, languageID: string): Promise<boolean> {
 	return new Promise<boolean>((resolve, reject) => {
 		setTimeout(() => {
 			try {

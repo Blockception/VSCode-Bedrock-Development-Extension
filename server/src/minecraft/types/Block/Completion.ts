@@ -27,8 +27,19 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './Array';
-export * from './Document';
-export * from './File';
-export * from './RangedWords';
-export * from './TextWords';
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { Database } from '../../Database';
+
+export function provideBlockCompletion(receiver : CompletionList) : void {
+	Database.Data.forEach(dataSet=>{
+		dataSet.Blocks.forEach(Block => {
+			let Name = Block.Name;
+
+			receiver.items.push({
+				label:Name,
+				kind:CompletionItemKind.Reference,
+				documentation:"The block: '" + Name + "'"
+			});
+		});
+	});
+}

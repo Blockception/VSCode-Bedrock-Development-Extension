@@ -33,33 +33,38 @@ import { IDocument } from '../code/include';
 import { CommandInfo } from '../minecraft/commands/CommandInfo';
 import { CommandIntr, IsInSubCommand, MCCommand, MCCommandParameterType } from '../minecraft/commands/include';
 
-export function ProvideSignature(doc: IDocument, pos : Position): SignatureHelp {
+export function ProvideSignature(doc: IDocument, pos: Position): SignatureHelp | undefined {
 	let Line = doc.getLine(pos.line);
 	let command: CommandIntr = CommandIntr.parse(Line, pos);
+
+	if (command.IsEmpty())
+		return undefined;
+
 	let SubCommand = IsInSubCommand(command, pos.character);
 
-	if (SubCommand != undefined){
+	if (SubCommand != undefined) {
 		command = SubCommand;
 	}
 
 	let Matches = command.GetCommandData();
-	let Out : SignatureHelp = {
+
+	let Out: SignatureHelp = {
 		signatures: ConverToSignatures(Matches),
-		activeParameter:command.CursorParamater,
-		activeSignature:0
+		activeParameter: command.CursorParamater,
+		activeSignature: 0
 	};
 
 	return Out;
 }
 
-function ConverToSignatures(Commands : CommandInfo[]) : SignatureInformation[] {
-	let Out : SignatureInformation[] = [];
+function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
+	let Out: SignatureInformation[] = [];
 
-	for (let I = 0; I < Commands.length; I++){
+	for (let I = 0; I < Commands.length; I++) {
 		let Current = Commands[I];
 		let Signature = Current.Signature;
 
-		if (Signature == undefined){
+		if (Signature == undefined) {
 			Signature = ConverToSignature(Current.Command);
 			Current.Signature = Signature;
 		}
@@ -71,36 +76,36 @@ function ConverToSignatures(Commands : CommandInfo[]) : SignatureInformation[] {
 }
 
 //Converts the given MCCommand into a signature
-function ConverToSignature(Command : MCCommand) : SignatureInformation {
-	var Sign : SignatureInformation = {
+function ConverToSignature(Command: MCCommand): SignatureInformation {
+	var Sign: SignatureInformation = {
 		label: '',
 		documentation: Command.description,
-		parameters:[]
+		parameters: []
 	};
 
 	let parameters = Command.parameters;
 	for (let I = 0; I < parameters.length; I++) {
 		let parameter = parameters[I];
-		let p : ParameterInformation;
+		let p: ParameterInformation;
 
 		if (parameter.Required) {
-			if (parameter.Type === MCCommandParameterType.keyword){
+			if (parameter.Type === MCCommandParameterType.keyword) {
 				p = {
-					label:parameter.Text,
-					documentation:"Type: " + MCCommandParameterType[parameter.Type]
+					label: parameter.Text,
+					documentation: "Type: " + MCCommandParameterType[parameter.Type]
 				};
 			}
-			else{
+			else {
 				p = {
-					label:"<" + parameter.Text + ">",
-					documentation:"Type: " + MCCommandParameterType[parameter.Type]
+					label: "<" + parameter.Text + ">",
+					documentation: "Type: " + MCCommandParameterType[parameter.Type]
 				};
-			}			
+			}
 		}
-		else{
+		else {
 			p = {
-				label:"[" + parameter.Text + "]",
-				documentation:"Type: " + MCCommandParameterType[parameter.Type]
+				label: "[" + parameter.Text + "]",
+				documentation: "Type: " + MCCommandParameterType[parameter.Type]
 			};
 		}
 

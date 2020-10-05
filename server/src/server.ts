@@ -6,11 +6,10 @@ import { createConnection, ProposedFeatures, InitializeParams, CompletionItem, T
 import { Manager } from './Manager';
 import { TraveseDirectory } from './traverse';
 import { URI } from 'vscode-uri';
-import { Process } from './process/Process';
+import { OndDocumentChanged, Process } from './process/Process';
 import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from './symbols/OnRequest';
 import { AddCommands } from './minecraft/commands/initialize';
 import { OnCompletionRequest } from './completion/OnRequest';
-import { GetDocument2 } from './code/include';
 import { OnSignatureRequest } from './signatures/OnRequest';
 
 console.log('starting minecraft server');
@@ -21,8 +20,8 @@ let connection = createConnection(ProposedFeatures.all);
 Manager.Connection = connection;
 
 //Provides diagnostics and such
-Manager.Documents.onDidOpen(x => Process(GetDocument2(x.document)));
-Manager.Documents.onDidSave(x => Process(GetDocument2(x.document)));
+Manager.Documents.onDidOpen(OndDocumentChanged);
+Manager.Documents.onDidSave(OndDocumentChanged);
 
 // This handler provides completion items.
 connection.onCompletion(OnCompletionRequest);

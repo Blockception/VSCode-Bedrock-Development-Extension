@@ -84,18 +84,30 @@ export class CommandIntr {
 	}
 
 	GetCommandKeyword(): string {
+		if (this.Paramaters.length <= 0)
+			return '';
+
 		return this.Paramaters[0].text;
 	}
 
+	//Gets all the command data that is the possible best match data
 	GetCommandData(): CommandInfo[] {
 		return Manager.Commands.getBestMatches(this);
 	}
 
-	GetCurrent() : RangedWord | undefined{
+	//Gets the current word
+	GetCurrent(): RangedWord | undefined {
 		if (this.CursorParamater >= 0 && this.CursorParamater < this.Paramaters.length)
 			return this.Paramaters[this.CursorParamater];
 
 		return undefined;
+	}
+
+	IsEmpty(): Boolean {
+		if (this.Paramaters.length <= 0)
+			return true;
+
+		return false;
 	}
 }
 

@@ -27,13 +27,27 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetDocument, GetFilename} from '../code/include';
+import { GetFilename } from '../code/include';
 import { Convert } from './Conversion';
 import url = require('url');
 import { Database } from '../minecraft/Database';
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
 
-export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
+export async function OnDocumentSymbolRequest(params: DocumentSymbolParams): Promise<SymbolInformation[]> {
+   return new Promise<SymbolInformation[]>((resolve, reject) => {
+      resolve(InternalOnDocumentSymbolRequest(params));
+   });
+}
+
+
+
+export async function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
+   return new Promise<SymbolInformation[]>((resolve, reject) => {
+      resolve(InternalOnWorkspaceSymbolRequest(params));
+   });
+}
+
+function InternalOnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
    //TODO language and other files included
    let uri = params.textDocument.uri;
    uri = url.fileURLToPath(uri);
@@ -52,7 +66,7 @@ export function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInf
    return Out;
 }
 
-export function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
+function InternalOnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
    let Query = params.query;
    let Out: SymbolInformation[] = [];
 

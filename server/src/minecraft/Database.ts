@@ -31,8 +31,7 @@ import { MinecraftData } from './Minecraft Data';
 
 export class Database {
    //uri string
-   static Data = new Map<string, MinecraftData>();
-   
+   static Data = new Map<string, MinecraftData>();   
 
    static Get(uri : string) : MinecraftData {
       let Item = this.Data.get(uri);

@@ -49,15 +49,15 @@ export function AddCommands(): void {
 	//ability <Player: selector>
 	add([
 		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selector, true)
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true)
 	],
 		"ability",
-		"Grants or revokes a player ability."
+		"Returns a list of abillities assigned to the specified player"
 	);
 	//ability <Player: selector> mayfly [value: boolean]
 	add([
 		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("mayfly", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
 	],
@@ -67,7 +67,7 @@ export function AddCommands(): void {
 	//ability <Player: selector> mute [value boolean]
 	add([
 		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("mute", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
 	],
@@ -77,7 +77,7 @@ export function AddCommands(): void {
 	//ability <Player: selector> worldbuilder [value: boolean]
 	add([
 		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("worldbuilder", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
 	],
@@ -98,7 +98,7 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("clear", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, false),
 		new MCCommandParameter("itemName", MCCommandParameterType.item, false),
 		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
 		new MCCommandParameter("maxCount", MCCommandParameterType.keyword, false)
@@ -375,7 +375,7 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("effect", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("effect", MCCommandParameterType.effect, true),
 		new MCCommandParameter("seconds", MCCommandParameterType.keyword, false),
 		new MCCommandParameter("amplifier", MCCommandParameterType.keyword, false),
@@ -386,7 +386,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("effect", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("clear", MCCommandParameterType.keyword, true)
 	],
 		"effect",
@@ -395,7 +395,7 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("enchant", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("id", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("level", MCCommandParameterType.keyword, false)
 	],
@@ -404,7 +404,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("enchant", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("id", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("level", MCCommandParameterType.keyword, false)
 	],
@@ -531,7 +531,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamemode", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("gamemode", MCCommandParameterType.gamemode, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false)
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, false)
 	],
 		"gamemode",
 		"Sets a player's game mode."
@@ -724,7 +724,7 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("give", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("itemName", MCCommandParameterType.item, true),
 		new MCCommandParameter("amount", MCCommandParameterType.keyword, false),
 		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
@@ -843,7 +843,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("op", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true)
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true)
 	],
 		"op",
 		"TODO description"
@@ -862,7 +862,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("playsound", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("sound", MCCommandParameterType.sound, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, false),
 		new MCCommandParameter("position x", MCCommandParameterType.coordinate, false),
 		new MCCommandParameter("position y", MCCommandParameterType.coordinate, false),
 		new MCCommandParameter("position z", MCCommandParameterType.coordinate, false),
@@ -1140,7 +1140,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("spawnpoint", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, false),
 		new MCCommandParameter("spawnPos x", MCCommandParameterType.coordinate, false),
 		new MCCommandParameter("spawnPos y", MCCommandParameterType.coordinate, false),
 		new MCCommandParameter("spawnPos z", MCCommandParameterType.coordinate, false)
@@ -1161,7 +1161,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("stopsound", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("sound", MCCommandParameterType.sound, false)
 	],
 		"stopsound",
@@ -1227,9 +1227,10 @@ export function AddCommands(): void {
 		"TODO description"
 	);
 
+	//tellraw <player> <json components>
 	add([
 		new MCCommandParameter("tellraw", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("json", MCCommandParameterType.jsonRawText, true)
 	],
 		"tellraw",
@@ -1392,7 +1393,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("titleText", MCCommandParameterType.keyword, true)
 	],
@@ -1401,7 +1402,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("subtitle", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("titleText", MCCommandParameterType.keyword, true)
 	],
@@ -1410,7 +1411,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("actionbar> <titleText", MCCommandParameterType.keyword, true)
 	],
 		"title",
@@ -1418,7 +1419,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("clear", MCCommandParameterType.keyword, true)
 	],
 		"title",
@@ -1426,7 +1427,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("reset", MCCommandParameterType.keyword, true)
 	],
 		"title",
@@ -1434,7 +1435,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
 		new MCCommandParameter("times", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("fadeIn", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("stay", MCCommandParameterType.keyword, true),
@@ -1568,7 +1569,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("xp", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("amount", MCCommandParameterType.xp, true),
-		new MCCommandParameter("player", MCCommandParameterType.selector, false)
+		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, false)
 	],
 		"xp",
 		"TODO description"
