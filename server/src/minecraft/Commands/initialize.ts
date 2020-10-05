@@ -40,52 +40,62 @@ function add(parameters: MCCommandParameter[], name: string, description: string
 	com.parameters = parameters;
 
 	Manager.Commands.add(com);
-}
+} 
 
 export function AddCommands(): void {
+	const booleanOptional = new MCCommandParameter("value", MCCommandParameterType.boolean, false);
+	const selectorPlayerRequired = new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true);
+
+	const beginXR = new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true);
+	const beginYR = new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true);
+	const beginZR = new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true);
+	const endXR = new MCCommandParameter("end x", MCCommandParameterType.coordinate, true);
+	const endYR = new MCCommandParameter("end y", MCCommandParameterType.coordinate, true);
+	const endZR = new MCCommandParameter("end z", MCCommandParameterType.coordinate, true);
+	const destinationXR = new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true);
+	const destinationYR = new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true);
+	const destinationZR = new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true);
+
+
+	const abilityCommand = new MCCommandParameter("ability", MCCommandParameterType.keyword, true);
+	//[EDU] 
 	//ability
-	add([new MCCommandParameter("ability", MCCommandParameterType.keyword, true)], "ability", "Grants or revokes a player ability.");
+	add([abilityCommand], "ability", "**[EDU]** Grants or revokes a player ability.");
 
 	//ability <Player: selector>
-	add([
-		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true)
-	],
-		"ability",
-		"Returns a list of abillities assigned to the specified player"
-	);
+	add([abilityCommand, selectorPlayerRequired], "ability", "**[EDU]** Returns a list of abillities assigned to the specified player");
 	//ability <Player: selector> mayfly [value: boolean]
 	add([
-		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		abilityCommand,
+		selectorPlayerRequired,
 		new MCCommandParameter("mayfly", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"ability",
-		"Grants or revokes a player ability to fly"
+		"**[EDU]** Grants or revokes a player ability to fly"
 	);
 	//ability <Player: selector> mute [value boolean]
 	add([
-		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		abilityCommand,
+		selectorPlayerRequired,
 		new MCCommandParameter("mute", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"ability",
-		"Grants or revokes a player ability to speak"
+		"**[EDU]** Grants or revokes a player ability to speak"
 	);
 	//ability <Player: selector> worldbuilder [value: boolean]
 	add([
-		new MCCommandParameter("ability", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		abilityCommand,
+		selectorPlayerRequired,
 		new MCCommandParameter("worldbuilder", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"ability",
-		"Grants or revokes a player ability to build"
+		"**[EDU]** Grants or revokes a player ability to build"
 	);
 
-
+	//alwaysday [lock: boolean]
 	add([
 		new MCCommandParameter("alwaysday", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("lock", MCCommandParameterType.boolean, false)
@@ -94,234 +104,160 @@ export function AddCommands(): void {
 		"Locks and unlocks the day-night cycle."
 	);
 
-	add([new MCCommandParameter("classroommode", MCCommandParameterType.keyword, true)], "classroommode", "Ability to edit restricted blocks.");
-
+	//Clear [player : selector] [item : Item] [data : Integer] [maxCount : Integer]
 	add([
 		new MCCommandParameter("clear", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, false),
 		new MCCommandParameter("itemName", MCCommandParameterType.item, false),
-		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
-		new MCCommandParameter("maxCount", MCCommandParameterType.keyword, false)
+		new MCCommandParameter("data", MCCommandParameterType.integer, false),
+		new MCCommandParameter("maxCount", MCCommandParameterType.integer, false)
 	],
 		"clear",
 		"Clears items from player inventory."
 	);
 
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate>
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true)
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> replace
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("replace", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> replace normal
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("replace", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("normal", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> replace force
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("replace", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("force", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> replace move
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("replace", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("move", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> masked
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("masked", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> masked normal
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("masked", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("normal", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> masked force
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("masked", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("force", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> masked move
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("masked", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("move", MCCommandParameterType.keyword, true)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> filtered normal <tileName : block> [tileData : integer]
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("filtered", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("normal", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false)
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> filtered force <tileName : block> [tileData : integer]
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("filtered", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("force", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false)
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
+	//clone <begin x y z : coordinate> <end x y z : coordinate> <destination x y z : coordinate> filtered move <tileName : block> [tileData : integer]
 	add([
 		new MCCommandParameter("clone", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("filtered", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("move", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false)
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false)
 	],
 		"clone",
 		"Copies blocks from one place to another."
 	);
 
-	add([new MCCommandParameter("code", MCCommandParameterType.keyword, true)], "code", "	Used to access code connection.");
-
+	//difficulty <mode>
 	add([
 		new MCCommandParameter("difficulty", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("peaceful", MCCommandParameterType.keyword, true)
 	],
 		"difficulty",
-		"	Sets the difficulty level."
+		"Sets the difficulty level."
 	);
 	add([
 		new MCCommandParameter("difficulty", MCCommandParameterType.keyword, true),
@@ -373,12 +309,13 @@ export function AddCommands(): void {
 		"Sets the difficulty level."
 	);
 
+	//effect
 	add([
 		new MCCommandParameter("effect", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selector, true),
 		new MCCommandParameter("effect", MCCommandParameterType.effect, true),
-		new MCCommandParameter("seconds", MCCommandParameterType.keyword, false),
-		new MCCommandParameter("amplifier", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("seconds", MCCommandParameterType.integer, false),
+		new MCCommandParameter("amplifier", MCCommandParameterType.integer, false),
 		new MCCommandParameter("hide particles", MCCommandParameterType.boolean, false)
 	],
 		"effect",
@@ -386,7 +323,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("effect", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		new MCCommandParameter("Player", MCCommandParameterType.selector, true),
 		new MCCommandParameter("clear", MCCommandParameterType.keyword, true)
 	],
 		"effect",
@@ -395,16 +332,16 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("enchant", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
-		new MCCommandParameter("id", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("level", MCCommandParameterType.keyword, false)
+		selectorPlayerRequired,
+		new MCCommandParameter("id", MCCommandParameterType.integer, true),
+		new MCCommandParameter("level", MCCommandParameterType.integer, false)
 	],
 		"enchant",
 		"Enchants a player item."
 	);
 	add([
 		new MCCommandParameter("enchant", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("id", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("level", MCCommandParameterType.keyword, false)
 	],
@@ -434,12 +371,13 @@ export function AddCommands(): void {
 		new MCCommandParameter("detectPos y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("detectPos z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("block", MCCommandParameterType.block, true),
-		new MCCommandParameter("data", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("data", MCCommandParameterType.integer, true),
 		new MCCommandParameter("command", MCCommandParameterType.command, true)
 	],
 		"execute",
 		"Executes another command."
 	);
+
 
 	add([
 		new MCCommandParameter("fill", MCCommandParameterType.keyword, true),
@@ -450,10 +388,10 @@ export function AddCommands(): void {
 		new MCCommandParameter("to y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("to z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, true),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, true),
 		new MCCommandParameter("replace", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("replaceTileName", MCCommandParameterType.block, false),
-		new MCCommandParameter("replaceDataValue", MCCommandParameterType.keyword, false)
+		new MCCommandParameter("replaceDataValue", MCCommandParameterType.integer, false)
 	],
 		"fill",
 		"Fills a region with a specific block."
@@ -467,7 +405,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("to y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("to z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 		new MCCommandParameter("outline", MCCommandParameterType.keyword, true)
 	],
 		"fill",
@@ -482,7 +420,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("to y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("to z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 		new MCCommandParameter("hollow", MCCommandParameterType.keyword, true)
 	],
 		"fill",
@@ -497,7 +435,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("to y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("to z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 		new MCCommandParameter("destroy", MCCommandParameterType.keyword, true)
 	],
 		"fill",
@@ -512,7 +450,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("to y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("to z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 		new MCCommandParameter("keep", MCCommandParameterType.keyword, true)
 	],
 		"fill",
@@ -521,7 +459,7 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("function", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("function", MCCommandParameterType.function, true)
+		new MCCommandParameter("function path", MCCommandParameterType.function, true)
 	],
 		"function",
 		"Runs a function."
@@ -537,10 +475,11 @@ export function AddCommands(): void {
 		"Sets a player's game mode."
 	);
 
+	//gamerule
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("commandblockOutput", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -548,7 +487,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("commandblocksEnabled", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -556,7 +495,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doDaylightCycle", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -564,7 +503,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doEntityDrops", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -572,7 +511,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doFireTick", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -580,7 +519,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doInsomnia", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -588,7 +527,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doMobLoot", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -596,7 +535,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doMobSpawning", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -604,7 +543,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doTileDrops", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -612,7 +551,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("doWeatherCycle", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -620,7 +559,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("drowningdamage", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -628,7 +567,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("falldamage", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -636,7 +575,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("firedamage", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -644,7 +583,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("keepInventory", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -660,7 +599,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("mobGriefing", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -668,7 +607,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("naturalRegeneration", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -676,7 +615,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("pvp", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -684,7 +623,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("randomTickSpeed", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -692,7 +631,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("sendCommandFeedback", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -700,7 +639,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("showDeathMessages", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -708,7 +647,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("showcoordinates", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -716,7 +655,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("gamerule", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("tntexplodes", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("value", MCCommandParameterType.boolean, false)
+		booleanOptional
 	],
 		"gamerule",
 		"Sets or queries a game rule value."
@@ -724,7 +663,7 @@ export function AddCommands(): void {
 
 	add([
 		new MCCommandParameter("give", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("itemName", MCCommandParameterType.item, true),
 		new MCCommandParameter("amount", MCCommandParameterType.keyword, false),
 		new MCCommandParameter("data", MCCommandParameterType.keyword, false),
@@ -843,7 +782,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("op", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true)
+		selectorPlayerRequired
 	],
 		"op",
 		"TODO description"
@@ -1101,7 +1040,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("position y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 		new MCCommandParameter("replace", MCCommandParameterType.keyword, false)
 	],
 		"setblock",
@@ -1113,7 +1052,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("position y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 		new MCCommandParameter("destroy", MCCommandParameterType.keyword, false)
 	],
 		"setblock",
@@ -1125,7 +1064,7 @@ export function AddCommands(): void {
 		new MCCommandParameter("position y", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("position z", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("tileName", MCCommandParameterType.block, true),
-		new MCCommandParameter("tileData", MCCommandParameterType.keyword, false),
+		new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 		new MCCommandParameter("|keep", MCCommandParameterType.keyword, false)
 	],
 		"setblock",
@@ -1161,7 +1100,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("stopsound", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("sound", MCCommandParameterType.sound, false)
 	],
 		"stopsound",
@@ -1230,7 +1169,7 @@ export function AddCommands(): void {
 	//tellraw <player> <json components>
 	add([
 		new MCCommandParameter("tellraw", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("json", MCCommandParameterType.jsonRawText, true)
 	],
 		"tellraw",
@@ -1256,30 +1195,30 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("testforblocks", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true)
+		beginXR,
+		beginYR,
+		beginZR,
+		endx", MCCommandParameterType.coordinate, true),
+		endy", MCCommandParameterType.coordinate, true),
+		endz", MCCommandParameterType.coordinate, true),
+		destinationx", MCCommandParameterType.coordinate, true),
+		destinationy", MCCommandParameterType.coordinate, true),
+		destinationz", MCCommandParameterType.coordinate, true)
 	],
 		"testforblocks",
 		"TODO description"
 	);
 	add([
 		new MCCommandParameter("testforblocks", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR,
+		beginYR,
+		beginZR,
+		endx", MCCommandParameterType.coordinate, true),
+		endy", MCCommandParameterType.coordinate, true),
+		endz", MCCommandParameterType.coordinate, true),
+		destinationx", MCCommandParameterType.coordinate, true),
+		destinationy", MCCommandParameterType.coordinate, true),
+		destinationz", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("all", MCCommandParameterType.keyword, true)
 	],
 		"testforblocks",
@@ -1287,15 +1226,15 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("testforblocks", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("begin x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("begin z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("end z", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		beginXR,
+		beginYR,
+		beginZR,
+		endx", MCCommandParameterType.coordinate, true),
+		endy", MCCommandParameterType.coordinate, true),
+		endz", MCCommandParameterType.coordinate, true),
+		destinationx", MCCommandParameterType.coordinate, true),
+		destinationy", MCCommandParameterType.coordinate, true),
+		destinationz", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("masked", MCCommandParameterType.keyword, true)
 	],
 		"testforblocks",
@@ -1393,7 +1332,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("titleText", MCCommandParameterType.keyword, true)
 	],
@@ -1402,7 +1341,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("subtitle", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("titleText", MCCommandParameterType.keyword, true)
 	],
@@ -1411,7 +1350,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("actionbar> <titleText", MCCommandParameterType.keyword, true)
 	],
 		"title",
@@ -1419,7 +1358,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("clear", MCCommandParameterType.keyword, true)
 	],
 		"title",
@@ -1427,7 +1366,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("reset", MCCommandParameterType.keyword, true)
 	],
 		"title",
@@ -1435,7 +1374,7 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("title", MCCommandParameterType.keyword, true),
-		new MCCommandParameter("Player", MCCommandParameterType.selectorPlayer, true),
+		selectorPlayerRequired,
 		new MCCommandParameter("times", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("fadeIn", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("stay", MCCommandParameterType.keyword, true),
@@ -1476,9 +1415,9 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("tp", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("victim", MCCommandParameterType.selector, true),
-		new MCCommandParameter("destination x", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination y", MCCommandParameterType.coordinate, true),
-		new MCCommandParameter("destination z", MCCommandParameterType.coordinate, true),
+		destinationx", MCCommandParameterType.coordinate, true),
+		destinationy", MCCommandParameterType.coordinate, true),
+		destinationz", MCCommandParameterType.coordinate, true),
 		new MCCommandParameter("yRot", MCCommandParameterType.coordinate, false),
 		new MCCommandParameter("xRot", MCCommandParameterType.coordinate, false)
 	],
