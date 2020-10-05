@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider } from "../CompletionItemManager";
+import { CompletionData, CompletionItemProvider } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 import { CompletionItemManager } from "../CompletionItemManager";
 
@@ -44,7 +44,7 @@ export class BooleanCompletionProvider implements CompletionItemProvider {
         ];
     }
 
-    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): vscode.CompletionItem[] {
+    provideCompletionItems(Item : SyntaxItem, Cm : CompletionItemManager, document : vscode.TextDocument): CompletionData {
         return this.default;
     }
 }

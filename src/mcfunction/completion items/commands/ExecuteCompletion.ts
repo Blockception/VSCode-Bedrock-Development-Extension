@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem, DocumentData } from "../../../general/include";
 import { count } from "console";
 
@@ -41,11 +41,11 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
         this.Detect = createCompletionItem("detect", "detect", "detect a block", vscode.CompletionItemKind.Function);
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : CompletionData {
         //execute <selector> <x> <y> <z> <command>
         //execute <selector> <x> <y> <z> detect <x> <y> <z> <block> <block id> <command>
-        var Child = Item.GetAt(5);
-        var Count = Item.Count();
+        let Child = Item.GetAt(5);
+        let Count = Item.Count();
 
         switch (Count) {
             case 0: //execute
@@ -58,7 +58,7 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
 
             case 4: //execute <selector> <x> <y> <z>
                 //Either a new command or detect
-                var Items = new Array<vscode.CompletionItem>();
+                let Items = new Array<vscode.CompletionItem>();
                 Items.push(this.Detect);
                 Items.push(...Cm.StartItems);
 
@@ -72,7 +72,7 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
         if (Child.Text.text == "detect")        
             return this.provideDetect(Child, Cm, document);
 
-        var Diagnoser = Cm.Completors.get(Child.Text.text);
+        let Diagnoser = Cm.Completors.get(Child.Text.text);
 
         if (Diagnoser == undefined){
             return [ this.Detect ];
@@ -81,8 +81,8 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
         return Diagnoser?.provideCompletionItems(Child, Cm, document);
     }
 
-    provideDetect(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
-        var Count = Item.Count();        
+    provideDetect(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : CompletionData {
+        let Count = Item.Count();        
         //execute <selector> <x> <y> <z> detect <x> <y> <z> <block> <block id> <command>
 
         switch(Count) {
@@ -98,12 +98,12 @@ export class ExecuteCompletionProvider implements CompletionItemProvider {
                 return Cm.Default.BlockData;
 
             default:
-                var Child = Item.GetAt(6);
+                let Child = Item.GetAt(6);
                 
                 if (Child == undefined)
                     return Cm.StartItems;
             
-                var Diagnoser = Cm.Completors.get(Child.Text.text);
+                let Diagnoser = Cm.Completors.get(Child.Text.text);
                 return Diagnoser?.provideCompletionItems(Child, Cm, document);
         }
     }

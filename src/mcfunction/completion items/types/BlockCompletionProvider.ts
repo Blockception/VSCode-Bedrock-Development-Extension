@@ -41,10 +41,10 @@ export class BlockCompletionItemProvider {
         this.MinecraftItems = new Array<CompletionItem>();
         this.Items = this.MinecraftItems;
         
-        var Blocks = mcfunctionDatabase.Minecraft.Blocks;
-        for(var I = 0; I < Blocks.length; I++){
-            var x = Blocks[I];
-            var Completion = new CompletionItem(x, vscode.CompletionItemKind.Constant);
+        let Blocks = mcfunctionDatabase.Minecraft.Blocks;
+        for(let I = 0; I < Blocks.length; I++){
+            let x = Blocks[I];
+            let Completion = new CompletionItem(x, vscode.CompletionItemKind.Constant);
             Completion.documentation = "minecraft block: " + x;
             this.MinecraftItems.push(Completion);
         }

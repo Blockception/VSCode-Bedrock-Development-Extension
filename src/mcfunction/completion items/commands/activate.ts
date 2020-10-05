@@ -67,8 +67,8 @@ import { GameruleCompletionProvider } from "./GameruleCompletion";
 
 //Add commands to the diagnoser
 export function activate(context: CompletionItemManager) {
-   var BooleanCompleter = context.BooleanCompletionProvider;
-   var SelectorCompleter = new SelectorCompletionProvider();
+   let BooleanCompleter = context.BooleanCompletionProvider;
+   let SelectorCompleter = new SelectorCompletionProvider();
 
 
    console.log('\tThe command completors (karen) want to talk to the manager');

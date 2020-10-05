@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class ScoreboardCompletionProvider implements CompletionItemProvider {
@@ -88,8 +88,8 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
         ];
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
-        var Mode = Item.Child;
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
+        let Mode = Item.Child;
 
         if (Mode == undefined) {
             return this.Modes;
@@ -107,8 +107,8 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
         }
     }
 
-    ObjectivesItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
-        var Mode = Item.Child;
+    ObjectivesItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
+        let Mode = Item.Child;
 
         if (Mode == undefined)
             return this.ModesObjectives;
@@ -141,7 +141,7 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
                 //scoreboard objectives setdisplay list [objective]
                 //scoreboard objectives setdisplay sidebar [objective]
 
-                var SubMode = Mode.Child;
+                let SubMode = Mode.Child;
 
                 if (SubMode == undefined) {
                     return this.SetDisplaySlots;
@@ -157,10 +157,10 @@ export class ScoreboardCompletionProvider implements CompletionItemProvider {
         return this.ModesObjectives;
     }
 
-    PlayersItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    PlayersItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
 
 
-        var Mode = Item.Child;
+        let Mode = Item.Child;
 
         if (Mode == undefined) {
             return this.ModesPlayers;

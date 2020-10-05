@@ -36,7 +36,7 @@ import * as Commands from './commands/activate';
 
 export function activate(context: vscode.ExtensionContext) {
    console.log('activating completion classes');
-   var CompletionManager = new CompletionItemManager();
+   let CompletionManager = new CompletionItemManager();
    Commands.activate(CompletionManager);
 
    context.subscriptions.push(

@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
 import * as fs from "fs";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class CloneCompletionProvider implements CompletionItemProvider {
@@ -51,7 +51,7 @@ export class CloneCompletionProvider implements CompletionItemProvider {
         ];
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : CompletionData {
         //clone <begin: x y z> <end: x y z> <destination: x y z> [replace|masked] [normal|force|move]
         //clone <begin: x y z> <end: x y z> <destination: x y z> filtered <normal|force|move> <tileName: Block> <tileData: int>
 
@@ -68,7 +68,7 @@ export class CloneCompletionProvider implements CompletionItemProvider {
                 return this.Modes;
 
             case 7: //Clone <x> <y> <z> <x> <y> <z> <Mode>
-                var Mode = Item.GetAt(8);
+                let Mode = Item.GetAt(8);
 
                 if (Mode == undefined){
                     return this.Modes;
@@ -87,7 +87,7 @@ export class CloneCompletionProvider implements CompletionItemProvider {
         return undefined;
     }
 
-    provideCompletionFiltered(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : vscode.CompletionItem[] | undefined {
+    provideCompletionFiltered(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument) : CompletionData {
         switch(Item.Count()){
             default:
             case 0:

@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class GameruleCompletionProvider implements CompletionItemProvider {
@@ -67,7 +67,7 @@ export class GameruleCompletionProvider implements CompletionItemProvider {
         );
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
 
         //gamerule [rule] [value]
         switch (Item.Count()) {
@@ -75,7 +75,7 @@ export class GameruleCompletionProvider implements CompletionItemProvider {
                 return this.Gamerules;
 
             case 1: //[value]
-                var Rule = Item.Child;
+                let Rule = Item.Child;
 
                 if (Rule == undefined) {
                     return this.Gamerules

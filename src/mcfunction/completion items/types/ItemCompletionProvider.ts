@@ -31,6 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as vscode from 'vscode';
 import { mcfunctionDatabase } from '../../Database';
 import { CompletionItem } from 'vscode';
+import { CompletionData } from '../CompletionItemManager';
 
 export class ItemCompletionItemProvider {
 
@@ -41,14 +42,14 @@ export class ItemCompletionItemProvider {
         this.MinecraftItems = new Array<vscode.CompletionItem>();
         this.Items = this.MinecraftItems;
         
-        for(var x in mcfunctionDatabase.Minecraft.Items){
-            var Completion = new CompletionItem(x, vscode.CompletionItemKind.Constant);
+        for(let x in mcfunctionDatabase.Minecraft.Items){
+            let Completion = new CompletionItem(x, vscode.CompletionItemKind.Constant);
             Completion.documentation = "minecraft item: " + x;
             this.MinecraftItems.push(Completion);
         }
     }
 
-    public provideCompletionItems() : vscode.CompletionItem[] {
+    public provideCompletionItems() : CompletionData {
         return this.Items;
 
         //TODO add work directory check

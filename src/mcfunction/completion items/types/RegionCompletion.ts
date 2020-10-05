@@ -30,11 +30,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
 import { Context } from "mocha";
+import { CompletionData } from "../CompletionItemManager";
 
 export class RegionCompletionProvider implements vscode.CompletionItemProvider {
-    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] {
 
-        var Item = new vscode.CompletionItem("region", vscode.CompletionItemKind.Snippet);
+    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): CompletionData {
+
+        let Item = new vscode.CompletionItem("region", vscode.CompletionItemKind.Snippet);
         Item.label = "region";
         Item.documentation = "creates a new foldable region inside your code";
         Item.kind = vscode.CompletionItemKind.Snippet;

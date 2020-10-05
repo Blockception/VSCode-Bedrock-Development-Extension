@@ -30,23 +30,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
 import * as fs from "fs";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class FunctionCommandCompletionProvider implements CompletionItemProvider {
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //Already has completion text
         if (Item.Child != undefined)
             return undefined;
 
-        var receiver = new Array<vscode.CompletionItem>();
+        let receiver = new Array<vscode.CompletionItem>();
 
-        var filepath = document.uri.fsPath;
-        var index = filepath.indexOf("\\functions\\");
+        let filepath = document.uri.fsPath;
+        let index = filepath.indexOf("\\functions\\");
 
         if (index > 0) {
-            var folder = filepath.substring(0, index + 11);
+            let folder = filepath.substring(0, index + 11);
 
             this.explore(folder, folder, receiver);
         }
@@ -55,17 +55,17 @@ export class FunctionCommandCompletionProvider implements CompletionItemProvider
     }
 
     explore(baseFolder: string, currentFolder: string, receiver: vscode.CompletionItem[]) {
-        var files = fs.readdirSync(currentFolder);
-        var Directories = new Array<string>();
+        let files = fs.readdirSync(currentFolder);
+        let Directories = new Array<string>();
 
         for (let index = 0; index < files.length; index++) {
-            var file = currentFolder + files[index];
+            let file = currentFolder + files[index];
 
             if (fs.lstatSync(file).isDirectory()) {
                 Directories.push(file + "\\");
             }
             else {
-                var newfile = file.replace(baseFolder, "").replace(".mcfunction", "");
+                let newfile = file.replace(baseFolder, "").replace(".mcfunction", "");
                 newfile = newfile.replace(/\\/g, '/');
                 if (newfile.indexOf(" ") > -1)
                     newfile = '"' + newfile + '"';
