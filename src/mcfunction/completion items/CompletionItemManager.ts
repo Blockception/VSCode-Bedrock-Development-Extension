@@ -109,7 +109,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
             Functions.createCompletionItem("replaceitem", "replaceitem", "Replaces items in inventories"),
             Functions.createCompletionItem("reload", "reload", "Reloads all function files from all behaviour packs."),
             Functions.createCompletionItem("say", "say", "Sends a message in the chat to other players."),
-            Functions.createCompletionItem("scoreboard", "scoreboard", "Lists all created letiables in the scoreboard"),
+            Functions.createCompletionItem("scoreboard", "scoreboard", "Lists all created variables in the scoreboard"),
             Functions.createCompletionItem("setblock", "setblock", "Changes a block to another block."),
             Functions.createCompletionItem("setmaxplayers", "setmaxplayers", "Sets the maximum number of players for this game session."),
             Functions.createCompletionItem("setworldspawn", "setworldspawn", "Sets the world spawn."),

@@ -62,12 +62,12 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
    constructor() {
 
       //Objectives
-      this.Objective_List = newItem('scoreboard objectives list', 'Lists all created letiables in the scoreboard', [
+      this.Objective_List = newItem('scoreboard objectives list', 'Lists all created variables in the scoreboard', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('list', '')
       ]);
 
-      this.Objective_Add = newItem('scoreboard objectives add <name> dummy [display name: string]', 'Adds a new letiable to the scoreboard', [
+      this.Objective_Add = newItem('scoreboard objectives add <name> dummy [display name: string]', 'Adds a new variable to the scoreboard', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('add', ''),
          new ParameterInformation('<name>', ''),
@@ -75,13 +75,13 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
          new ParameterInformation('[display name: string]', '')
       ]);
 
-      this.Objective_Remove = newItem('scoreboard objectives remove <name>', 'Removes a letiable from the scoreboard', [
+      this.Objective_Remove = newItem('scoreboard objectives remove <name>', 'Removes a variable from the scoreboard', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('remove', ''),
          new ParameterInformation('<name>', '')
       ]);
 
-      this.Objective_Setdisplay = newItem('scoreboard objectives setdisplay <slot> [objective] [ascending|descending]', 'Displays the given letiable onto the given slot', [
+      this.Objective_Setdisplay = newItem('scoreboard objectives setdisplay <slot> [objective] [ascending|descending]', 'Displays the given variable onto the given slot', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('<slot>', ''),
@@ -89,14 +89,14 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
          new ParameterInformation('[ascending|descending]', '')
       ]);
 
-      this.Objective_Setdisplay_Belowname = newItem('scoreboard objectives setdisplay belowname [objective]', 'Displays the given letiable under the name', [
+      this.Objective_Setdisplay_Belowname = newItem('scoreboard objectives setdisplay belowname [objective]', 'Displays the given variable under the name', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('belowname', ''),
          new ParameterInformation('[objective]', '')
       ]);
 
-      this.Objective_Setdisplay_List = newItem('scoreboard objectives setdisplay list [objective] [ascending|descending]', 'Displays the given letiable in the players list', [
+      this.Objective_Setdisplay_List = newItem('scoreboard objectives setdisplay list [objective] [ascending|descending]', 'Displays the given variable in the players list', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('list', ''),
@@ -104,7 +104,7 @@ export class ScoreboardSignatureProvider implements SignatureItemProvider {
          new ParameterInformation('[ascending|descending]', '')
       ]);
 
-      this.Objective_Setdisplay_Sidebar = newItem('scoreboard objectives setdisplay sidebar [objective] [ascending|descending]', 'Displays the given letiable on the right side of the screen', [
+      this.Objective_Setdisplay_Sidebar = newItem('scoreboard objectives setdisplay sidebar [objective] [ascending|descending]', 'Displays the given variable on the right side of the screen', [
          new ParameterInformation('objectives', ''),
          new ParameterInformation('setdisplay', ''),
          new ParameterInformation('sidebar', ''),
