@@ -75,6 +75,7 @@ function privateonInitialized(params: InitializedParams) : void {
 			new Promise((resolve, reject)=>{
 				TraveseDirectory(Path);
 				Manager.TraversedWorkspaces = true;
+				resolve();
 			})
 		});
 	});

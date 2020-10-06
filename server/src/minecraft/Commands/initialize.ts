@@ -1,9 +1,3 @@
-import { combineClientFeatures, Command } from 'vscode-languageserver';
-import { Manager } from '../../Manager';
-import { MCCommand } from './MCCommand';
-import { MCCommandParameter } from './MCCommandParameter';
-import { MCCommandParameterType } from './MCCommandParameterType';
-
 /*BSD 3-Clause License
 
 Copyright (c) 2020, blockception Ltd
@@ -33,6 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { Manager } from '../../Manager';
+import { MCCommand } from './MCCommand';
+import { MCCommandParameter } from './MCCommandParameter';
+import { MCCommandParameterType } from './MCCommandParameterType';
+
 function add(parameters: MCCommandParameter[], name: string, description: string) {
 	let com = new MCCommand();
 	com.description = description;
@@ -40,7 +39,7 @@ function add(parameters: MCCommandParameter[], name: string, description: string
 	com.parameters = parameters;
 
 	Manager.Commands.add(com);
-} 
+}
 
 export function AddCommands(): void {
 	const booleanOptional = new MCCommandParameter("value", MCCommandParameterType.boolean, false);
@@ -1195,30 +1194,16 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("testforblocks", MCCommandParameterType.keyword, true),
-		beginXR,
-		beginYR,
-		beginZR,
-		endx", MCCommandParameterType.coordinate, true),
-		endy", MCCommandParameterType.coordinate, true),
-		endz", MCCommandParameterType.coordinate, true),
-		destinationx", MCCommandParameterType.coordinate, true),
-		destinationy", MCCommandParameterType.coordinate, true),
-		destinationz", MCCommandParameterType.coordinate, true)
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR
 	],
 		"testforblocks",
 		"TODO description"
 	);
 	add([
 		new MCCommandParameter("testforblocks", MCCommandParameterType.keyword, true),
-		beginXR,
-		beginYR,
-		beginZR,
-		endx", MCCommandParameterType.coordinate, true),
-		endy", MCCommandParameterType.coordinate, true),
-		endz", MCCommandParameterType.coordinate, true),
-		destinationx", MCCommandParameterType.coordinate, true),
-		destinationy", MCCommandParameterType.coordinate, true),
-		destinationz", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("all", MCCommandParameterType.keyword, true)
 	],
 		"testforblocks",
@@ -1226,15 +1211,8 @@ export function AddCommands(): void {
 	);
 	add([
 		new MCCommandParameter("testforblocks", MCCommandParameterType.keyword, true),
-		beginXR,
-		beginYR,
-		beginZR,
-		endx", MCCommandParameterType.coordinate, true),
-		endy", MCCommandParameterType.coordinate, true),
-		endz", MCCommandParameterType.coordinate, true),
-		destinationx", MCCommandParameterType.coordinate, true),
-		destinationy", MCCommandParameterType.coordinate, true),
-		destinationz", MCCommandParameterType.coordinate, true),
+		beginXR, beginYR, beginZR, endXR, endYR, endZR,
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("masked", MCCommandParameterType.keyword, true)
 	],
 		"testforblocks",
@@ -1415,9 +1393,7 @@ export function AddCommands(): void {
 	add([
 		new MCCommandParameter("tp", MCCommandParameterType.keyword, true),
 		new MCCommandParameter("victim", MCCommandParameterType.selector, true),
-		destinationx", MCCommandParameterType.coordinate, true),
-		destinationy", MCCommandParameterType.coordinate, true),
-		destinationz", MCCommandParameterType.coordinate, true),
+		destinationXR, destinationYR, destinationZR,
 		new MCCommandParameter("yRot", MCCommandParameterType.coordinate, false),
 		new MCCommandParameter("xRot", MCCommandParameterType.coordinate, false)
 	],
