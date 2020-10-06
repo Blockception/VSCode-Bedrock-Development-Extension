@@ -141,18 +141,20 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         keywords.forEach(word => this.Completors.set(word, Cm));
     }
 
-    
-    async provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): Promise<vscode.CompletionItem[] | vscode.CompletionList> {
-        return new Promise<vscode.CompletionItem[] | vscode.CompletionList>((resolve, reject)=>{
+
+    async provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext)
+        : Promise<vscode.CompletionItem[] | vscode.CompletionList> {
+
+        return new Promise<vscode.CompletionItem[] | vscode.CompletionList>((resolve, reject) => {
             resolve(this.internalProvideCompletionItems(document, position, token, context));
         });
     }
 
     //
     private internalProvideCompletionItems(
-        document: vscode.TextDocument, 
-        position: vscode.Position, 
-        token: vscode.CancellationToken, 
+        document: vscode.TextDocument,
+        position: vscode.Position,
+        token: vscode.CancellationToken,
         context: vscode.CompletionContext): CompletionData {
 
         let LineIndex = position.line;
@@ -193,7 +195,7 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
 
         //Explore what is already typed
         let Tree = Functions.SyntaxTree.ParseTree(Line, position);
-        let Items : CompletionData = this.StartItems
+        let Items: CompletionData = this.StartItems
 
         //If no line is typed return all
         let Item = Tree.Root;

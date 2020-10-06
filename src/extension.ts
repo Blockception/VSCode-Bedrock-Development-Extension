@@ -33,7 +33,7 @@ import * as mcfunction from './mcfunction/activate';
 import * as language from './language/activate';
 
 //Called when the extension needs to be activated
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: vscode.ExtensionContext) : void {
 	mcfunction.activate(context);
    language.activate(context);
 };
