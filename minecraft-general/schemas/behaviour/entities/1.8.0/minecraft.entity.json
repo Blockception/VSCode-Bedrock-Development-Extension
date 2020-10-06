@@ -1,85 +1,85 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.behaviour.entities.minecraft:entity.1.8.0",
-  "title": "Minecraft:entity 1.8.0",
-  "required": ["description"],
-  "dependencies": {
-    "component_groups": ["events"]
-  },
-  "properties": {
-    "description": {
-      "additionalProperties": false,
-      "required": ["identifier"],
-      "title": "The description schema",
-      "description": "The description of the this entity",
-      "properties": {
-        "identifier": {
-          "$ref": "../../../general/entity/identifier.json",
-          "description": "TODO description: identifier",
-          "title": "Identifier"
-        },
-        "is_spawnable": {
-          "type": "boolean",
-          "title": "Is spawnable",
-          "description": "Marks if true if the entity can be spawned"
-        },
-        "is_summonable": {
-          "type": "boolean",
-          "title": "Is summonable",
-          "description": "Marks if true if the entity can be summoned through commands"
-        },
-        "is_experimental": {
-          "type": "boolean",
-          "title": "Is experimental",
-          "description": "Marks if true if the entity can is only aviable for experimental"
-        },
-        "runtime_identifier": {
-          "type": "string",
-          "title": "Runtime identifier",
-          "description": "TODO"
-        },
-        "animations": {
-          "type": "object",
-          "title": "Animations",
-          "description": "TODO",
-          "additionalProperties": {
-            "type": "string",
-            "title": "Controller"
-          }
-        },
-        "scripts": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "animate": {
-              "type": "array",
-              "title": "Animate",
-              "items": {
-                "type": "string"
-              }
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "blockception.minecraft.behaviour.entities.minecraft:entity.1.8.0",
+    "title": "Minecraft:entity 1.8.0",
+    "required": ["description"],
+    "dependencies": {
+        "component_groups": ["events"]
+    },
+    "properties": {
+        "description": {
+            "additionalProperties": false,
+            "required": ["identifier"],
+            "title": "The description schema",
+            "description": "The description of the this entity",
+            "properties": {
+                "identifier": {
+                    "$ref": "../../../general/entity/identifier.json",
+                    "description": "TODO description: identifier",
+                    "title": "Identifier"
+                },
+                "is_spawnable": {
+                    "type": "boolean",
+                    "title": "Is spawnable",
+                    "description": "Marks if true if the entity can be spawned"
+                },
+                "is_summonable": {
+                    "type": "boolean",
+                    "title": "Is summonable",
+                    "description": "Marks if true if the entity can be summoned through commands"
+                },
+                "is_experimental": {
+                    "type": "boolean",
+                    "title": "Is experimental",
+                    "description": "Marks if true if the entity can is only aviable for experimental"
+                },
+                "runtime_identifier": {
+                    "type": "string",
+                    "title": "Runtime identifier",
+                    "description": "TODO"
+                },
+                "animations": {
+                    "type": "object",
+                    "title": "Animations",
+                    "description": "TODO",
+                    "additionalProperties": {
+                        "type": "string",
+                        "title": "Controller"
+                    }
+                },
+                "scripts": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "animate": {
+                            "type": "array",
+                            "title": "Animate",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
             }
-          }
+        },
+        "component_groups": {
+            "title": "Component groups",
+            "description": "Each group when add / remove override the default components group",
+            "additionalProperties": {
+                "$ref": "components.json",
+                "description": "Each group when add / remove override the default components group",
+                "title": "The component groups schema"
+            }
+        },
+        "components": {
+            "$ref": "components.json",
+            "description": "The components that are added as the foundation of the entity",
+            "title": "The component schema"
+        },
+        "events": {
+            "$ref": "events.json",
+            "description": "The events that the entity can run, these add or remove components_groups",
+            "title": "The events schema"
         }
-      }
-    },
-    "component_groups": {
-      "title": "Component groups",
-      "description": "Each group when add / remove override the default components group",
-      "additionalProperties": {
-        "$ref": "components.json",
-        "description": "Each group when add / remove override the default components group",
-        "title": "The component groups schema"
-      }
-    },
-    "components": {
-      "$ref": "components.json",
-      "description": "The components that are added as the foundation of the entity",
-      "title": "The component schema"
-    },
-    "events": {
-      "$ref": "events.json",
-      "description": "The events that the entity can run, these add or remove components_groups",
-      "title": "The events schema"
     }
-  }
 }
