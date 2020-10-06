@@ -51,6 +51,7 @@ export class GameruleDiagnosticProvider implements DiagnosticProvider {
 			case 'doentitydrops':
 			case 'dofiretick':
 			case 'doinsomnia':
+			case 'doimmediaterespawn':
 			case 'immediaterespawn':
 			case 'domobloot':
 			case 'domobspawning':
