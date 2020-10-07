@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export function GetFilename(filepath: string): string {
-    let index = filepath.lastIndexOf('\\');
+    let index = filepath.lastIndexOf('/');
 
     if (index > -1) {
         filepath = filepath.substring(index + 1, filepath.length);

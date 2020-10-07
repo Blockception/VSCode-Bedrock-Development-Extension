@@ -33,15 +33,16 @@ import { Tag } from '../minecraft/types/Tag/Tag';
 import { Objective } from '../minecraft/types/Objectives/Objectives';
 import { GetFilename } from '../code/File';
 import { Tickingarea } from '../minecraft/types/include';
-import { IDocument } from '../code/include';
+import { TextDocument } from 'vscode-languageserver-textdocument';
+import { getLine } from '../code/include';
 
-export function Process(document: IDocument): MinecraftData {
-   let uri = document.Uri;
+export function Process(document: TextDocument): MinecraftData {
+   let uri = document.uri;
    console.log('Processing mcfunction: ' + GetFilename(uri));
    let Data = new MinecraftData();   
 
-   for (let Index = 0; Index < document.LineCount; Index++) {
-      const Line = document.getLine(Index);
+   for (let Index = 0; Index < document.lineCount; Index++) {
+      const Line = getLine(document, Index);
 
       if (Line.startsWith("#"))
          continue;

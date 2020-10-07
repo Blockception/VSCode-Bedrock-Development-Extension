@@ -1,4 +1,6 @@
-import { TextDocument } from 'vscode-languageserver-textdocument';
+import { fstat } from 'fs';
+import { encode } from 'punycode';
+import { pathToFileURL } from 'url';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -28,14 +30,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+export function UniformUrl(Uri : string) : string {
+   let Out : string;
 
-import { McLanguageIdentifier } from '../Constants';
-import { provideLanguageDiagnostics } from './Language';
-
-export function provideDiagnostics(doc : TextDocument) {
-   switch (doc.languageId){
-      case McLanguageIdentifier:
-         provideLanguageDiagnostics(doc);
-         break;
+   if (Uri.startsWith('file://')) {
+      Out = Uri;
+      Out = Out.replace('%3A', ':');
    }
+   else{
+      Out = Uri.replace(/\\/g, '/');
+      Out = encodeURI(Out);
+      Out = 'file://' + Out;
+   }
+
+   return Out;
 }

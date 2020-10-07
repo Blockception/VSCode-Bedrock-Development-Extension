@@ -28,27 +28,29 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { OnCompletionRequest } from '../completion/OnRequest';
+import { OnCompletionRequestAsync } from '../completion/OnRequest';
 import { Manager } from '../Manager';
-import { OndDocumentChanged } from '../process/Process';
-import { OnSignatureRequest } from '../signatures/OnRequest';
-import { OnDocumentSymbolRequest, OnWorkspaceSymbolRequest } from '../symbols/OnRequest';
+import { OndDocumentChangedAsync } from '../process/Process';
+import { OnSignatureRequestAsync } from '../signatures/OnRequest';
+import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from '../symbols/OnRequest';
 
-//setup the server events
+/**
+ * Setup the server events
+ */
 export function setEvents() {
 	//Provides diagnostics and such
-	Manager.Documents.onDidOpen(OndDocumentChanged);
-	Manager.Documents.onDidSave(OndDocumentChanged);
+	Manager.Documents.onDidOpen(OndDocumentChangedAsync);
+	Manager.Documents.onDidSave(OndDocumentChangedAsync);
 
 	// This handler provides completion items.
-	Manager.Connection.onCompletion(OnCompletionRequest);
+	Manager.Connection.onCompletion(OnCompletionRequestAsync);
 
 	// This handler provides document symbols
-	Manager.Connection.onDocumentSymbol(OnDocumentSymbolRequest);
+	Manager.Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
 
 	// This handler provides workspace symbols
-	Manager.Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequest);
+	Manager.Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
 
 	// This handler provides signatures
-	Manager.Connection.onSignatureHelp(OnSignatureRequest);
+	Manager.Connection.onSignatureHelp(OnSignatureRequestAsync);
 }

@@ -33,18 +33,18 @@ import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '.
 import * as Mcfunction from './Mcfunction';
 import * as Language from './Language';
 
-export async function OnSignatureRequest(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
+export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
 	return new Promise<SignatureHelp>((resolve, reject)=>{
-		resolve(InternalOnSignatureRequest(params));
+		resolve(OnSignatureRequest(params));
 	})
 }
 
-function InternalOnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
+function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
 	let pos = params.position;
 	let doc = GetDocument(params.textDocument.uri);
 
 	//Switch per language type
-	switch (doc.LanguageID) {
+	switch (doc.languageId) {
 		case McFunctionIdentifier:
 			return Mcfunction.ProvideSignature(doc, pos);
 

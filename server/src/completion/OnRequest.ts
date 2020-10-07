@@ -33,25 +33,19 @@ import { McFunctionIdentifier } from "../Constants";
 import { OnCompletionMcFunction } from "./McfunctionCompletion";
 
 //Handle request
-export async function OnCompletionRequest(params: CompletionParams) : Promise<CompletionList> {
+export async function OnCompletionRequestAsync(params: CompletionParams) : Promise<CompletionList> {
   return new Promise((resolve, reject)=>{
-    resolve(InternalOnCompletionRequest(params));
+    resolve(OnCompletionRequest(params));
   });
 }
 
 //Processes request
-function InternalOnCompletionRequest(params: CompletionParams) : CompletionList {
-  let List: CompletionList;
-
-  List = {
-    isIncomplete: true,
-    items: [],
-  };
-
+function OnCompletionRequest(params: CompletionParams) : CompletionList {
+  let List: CompletionList = { isIncomplete: true, items: [], };
   let Doc = GetDocument(params.textDocument.uri);
   let Pos = params.position;
 
-  switch(Doc.LanguageID){
+  switch(Doc.languageId){
     case McFunctionIdentifier:
       OnCompletionMcFunction(Doc, Pos, List);
       break;

@@ -28,12 +28,18 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-export async function onShutdown(): Promise<void> {
+/**
+ * The code to run when the server is shutting down
+ */
+export async function onShutdownAsync(): Promise<void> {
 	return new Promise<void>((resolve, reject) => {
-		resolve(privateononShutdown());
+		resolve(onShutdown());
 	});
 }
 
-function privateononShutdown(): void {
-	console.log('shutting down minecraft program server');
+/**
+ * The code to run when the server is shutting down
+ */
+function onShutdown(): void {
+	console.log('shutting down minecraft server');
 }

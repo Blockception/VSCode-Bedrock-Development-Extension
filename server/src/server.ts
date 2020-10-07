@@ -5,8 +5,9 @@
 import { createConnection, ProposedFeatures } from 'vscode-languageserver';
 import { Manager } from './Manager';
 import { setEvents } from './server/Events';
-import { onInitialize } from './server/onInitialize';
-import { onInitialized } from './server/onInitialized';
+import { onInitializeAsync } from './server/onInitialize';
+import { onInitializedAsync } from './server/onInitialized';
+import { onShutdownAsync } from './server/onShutdown';
 
 console.log('starting minecraft server');
 
@@ -18,10 +19,13 @@ Manager.Connection = connection;
 setEvents();
 
 // This handler provides diagnostics
-connection.onInitialized(onInitialized);
+connection.onInitialized(onInitializedAsync);
 
 //Initialize
-connection.onInitialize(onInitialize);
+connection.onInitialize(onInitializeAsync);
+
+//On shutdown
+connection.onShutdown(onShutdownAsync);
 
 //Initialize server
 Manager.Documents.listen(connection);

@@ -34,14 +34,14 @@ import { Manager } from '../Manager';
 import { AddCommands } from '../minecraft/commands/include';
 import { TraveseDirectory } from '../process/traverse';
 
-export async function onInitialized(params: InitializedParams) : Promise<void> {
+export async function onInitializedAsync(params: InitializedParams) : Promise<void> {
 	return new Promise<void>((resolve, reject)=>{
-		privateonInitialized(params);
+		onInitialized(params);
 		resolve();
 	});
 }
 
-function privateonInitialized(params: InitializedParams) : void {
+function onInitialized(params: InitializedParams) : void {
 	console.log('Initialized minecraft server');
 
 	if (Manager.hasConfigurationCapability) {

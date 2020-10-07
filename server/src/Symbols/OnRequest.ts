@@ -33,19 +33,19 @@ import url = require('url');
 import { Database } from '../minecraft/Database';
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
 
-export async function OnDocumentSymbolRequest(params: DocumentSymbolParams): Promise<SymbolInformation[]> {
+export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[]> {
    return new Promise<SymbolInformation[]>((resolve, reject) => {
-      resolve(InternalOnDocumentSymbolRequest(params));
+      resolve(OnDocumentSymbolRequest(params));
    });
 }
 
-export async function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
+export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
    return new Promise<SymbolInformation[]>((resolve, reject) => {
-      resolve(InternalOnWorkspaceSymbolRequest(params));
+      resolve(OnWorkspaceSymbolRequest(params));
    });
 }
 
-function InternalOnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
+function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
    //TODO language and other files included
    let uri = params.textDocument.uri;
    uri = url.fileURLToPath(uri);
@@ -64,7 +64,7 @@ function InternalOnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolIn
    return Out;
 }
 
-function InternalOnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
+function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
    let Query = params.query;
    let Out: SymbolInformation[] = [];
 

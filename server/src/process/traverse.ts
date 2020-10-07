@@ -94,6 +94,6 @@ async function PromiseParse(path: string, languageID: string): Promise<boolean> 
 }
 
 function Parse(path: string, languageID: string): void {
-	let Doc = GetDocument(path, languageID);
+	let Doc = GetDocument(path, undefined, languageID);
 	Process(Doc);
 }

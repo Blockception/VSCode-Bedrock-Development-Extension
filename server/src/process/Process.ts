@@ -30,23 +30,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as Mcfunction from './Mcfunction';
 import * as Json from './Json';
 import * as Language from './Language';
-import { GetDocument2, IDocument } from '../code/include';
+import { GetDocument } from '../code/include';
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
 import { TextDocumentChangeEvent } from 'vscode-languageserver';
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 
-export async function OndDocumentChanged(e: TextDocumentChangeEvent<TextDocument>) : Promise<void> {
+export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>) : Promise<void> {
    return new Promise((resolve, reject)=>{
-      let doc = GetDocument2(e.document);
+      let doc = GetDocument(e.document.uri, e.document, e.document.languageId);
       Process(doc);
       resolve();
    });
 }
 
 //Process the given document
-export function Process(document: IDocument): void {
-   switch (document.LanguageID) {
+export function Process(document: TextDocument): void {
+   switch (document.languageId) {
       case McFunctionIdentifier:
          Mcfunction.Process(document);
          break;
