@@ -30,6 +30,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MinecraftData } from '../minecraft/Minecraft Data';
 import { SymbolInformation, SymbolKind } from 'vscode-languageserver';
 
+/**
+ * Converts the given minecraft data into symbols, along with a given query, 
+ * 
+ * if the query is '' then no searching is done
+ * 
+ * @param Data The minecraft data to convert
+ * @param receiver The array that receives the symbols
+ * @param query The possible query to execute on the query
+ */
 export function Convert(Data: MinecraftData, receiver: SymbolInformation[], query: string): void {
 	if (query === '') {
 		ConvertAll(Data, receiver);
@@ -39,7 +48,12 @@ export function Convert(Data: MinecraftData, receiver: SymbolInformation[], quer
 	}
 }
 
-
+/**
+ * Converts the given minecraft data
+ * 
+ * @param Data The minecraft data to convert
+ * @param receiver The array that receives the symbols
+ */
 function ConvertAll(Data: MinecraftData, receiver: SymbolInformation[]) {
 	//Convert entities
 	Data.Entities.forEach(x => {

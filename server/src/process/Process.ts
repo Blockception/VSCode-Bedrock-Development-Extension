@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as Mcfunction from './Mcfunction';
 import * as Json from './Json';
 import * as Language from './Language';
-import { GetDocument } from '../code/include';
+import { GetDocument, GetFilename } from '../code/include';
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
 import { TextDocumentChangeEvent } from 'vscode-languageserver';
 import { TextDocument } from "vscode-languageserver-textdocument";
@@ -46,6 +46,8 @@ export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDoc
 
 //Process the given document
 export function Process(document: TextDocument): void {
+   console.log('Processing: ' + GetFilename(document.uri) + ' | ' + document.languageId);
+   
    switch (document.languageId) {
       case McFunctionIdentifier:
          Mcfunction.Process(document);

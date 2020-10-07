@@ -65,7 +65,8 @@ function onInitialize(params: InitializeParams) : InitializeResult {
 				triggerCharacters:[' ']
 			},
 			signatureHelpProvider:{
-				triggerCharacters:[' ']
+				triggerCharacters:[' '],
+				retriggerCharacters:[' ']
 			}
 		}
 	};

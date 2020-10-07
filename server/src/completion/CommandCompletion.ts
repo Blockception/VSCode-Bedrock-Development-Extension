@@ -50,8 +50,8 @@ export function provideCommandCompletion(receiver: CompletionList): void {
 		}
 
 		receiver.items.push({
-			label: key,
-			documentation: "The command: " + key,
+			label:key,
+			documentation:documentation,
 			kind: CompletionItemKind.Class
 		});
 	}

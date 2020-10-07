@@ -31,14 +31,12 @@ import { Database } from '../minecraft/Database';
 import { MinecraftData } from '../minecraft/Minecraft Data';
 import { Tag } from '../minecraft/types/Tag/Tag';
 import { Objective } from '../minecraft/types/Objectives/Objectives';
-import { GetFilename } from '../code/File';
 import { Tickingarea } from '../minecraft/types/include';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import { getLine } from '../code/include';
 
 export function Process(document: TextDocument): MinecraftData {
    let uri = document.uri;
-   console.log('Processing mcfunction: ' + GetFilename(uri));
    let Data = new MinecraftData();   
 
    for (let Index = 0; Index < document.lineCount; Index++) {

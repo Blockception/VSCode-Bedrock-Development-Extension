@@ -32,23 +32,40 @@ import { Convert } from './Conversion';
 import url = require('url');
 import { Database } from '../minecraft/Database';
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
+import { UniformUrl } from '../code/Url';
 
+/**
+ * The request to provide document symbols, asynchorious
+ * 
+ * @param params The parameter that specify which symbols to provide
+ */
 export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[]> {
    return new Promise<SymbolInformation[]>((resolve, reject) => {
       resolve(OnDocumentSymbolRequest(params));
    });
 }
 
+
+/**
+ * The request to provide workspace symbols, asynchorious
+ * 
+ * @param params The parameter that specify which symbols to provide
+ */
 export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
    return new Promise<SymbolInformation[]>((resolve, reject) => {
       resolve(OnWorkspaceSymbolRequest(params));
    });
 }
 
+/**
+ * The request to provide document symbols
+ * 
+ * @param params The parameter that specify which symbols to provide
+ */
 function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
    //TODO language and other files included
    let uri = params.textDocument.uri;
-   uri = url.fileURLToPath(uri);
+   uri = UniformUrl(uri);
 
    let Out: SymbolInformation[] = [];
 
@@ -64,6 +81,11 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
    return Out;
 }
 
+/**
+ * The request to provide workspace symbols
+ * 
+ * @param params The parameter that specify which symbols to provide
+ */
 function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
    let Query = params.query;
    let Out: SymbolInformation[] = [];

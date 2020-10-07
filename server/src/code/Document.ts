@@ -52,25 +52,22 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
     let doc = Manager.Documents.get(uri);
 
     if (doc) {
-      console.log('cached document: ' + uri);
+      //Cached document
       return doc;
     }
 
-    console.log('reading file: ' + uri);
-
-    //Read content
+    //Reading file
     let path = fileURLToPath(uri);
     Content = fs.readFileSync(path, "utf8");
     return TextDocument.create(uri, languageID, 1, Content);
   }
   //Content is provided
   else if (typeof Content === 'string') {
-    console.log('string provided: ' + uri);
+    //string provided
     return TextDocument.create(uri, languageID, 1, Content);
   }
   //The interface is provided
   else {
-    console.log('content provided: ' + uri);
     return TextDocument.create(uri, languageID, Content.version, Content.getText());
   }
 }
