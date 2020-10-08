@@ -36,6 +36,7 @@ import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
 import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSelectorPlayerCompletion, provideSelectorTargetCompletion, provideSoundCompletion, provideTagCompletion } from '../minecraft/types/include';
 import { provideIntegerCompletion } from '../minecraft/types/Integer/Completion';
 import { provideItemCompletion } from '../minecraft/types/Item/Completion';
+import { provideXPCompletion } from '../minecraft/types/Xp/Completion';
 import { provideCommandCompletion } from './CommandCompletion';
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
@@ -152,7 +153,7 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			break;
 
 		case MCCommandParameterType.xp:
-			//TODO
+			provideXPCompletion(receiver);
 			break;
 	}
 }

@@ -60,6 +60,8 @@ export enum MCCommandParameterType {
 	jsonRawText,
 	//Marks that the parameter is a specified word
 	keyword,
+	//Marks that the parameter is a locate feature
+	locateFeature,
 	//Marks that the parameter is a scoreboard objective
 	objective,
 	//Marks that the parameter is a replace mode
@@ -76,6 +78,8 @@ export enum MCCommandParameterType {
 	slotID,
 	//Marks that the parameter is a sound
 	sound,
+	//Marks that the parameter is a string
+	string,
 	//Marks that the parameter is a target
 	target,
 	//Marks that the parameter is a tag

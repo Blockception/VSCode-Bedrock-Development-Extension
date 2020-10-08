@@ -35,7 +35,7 @@ export class Effect {
 	public Documentation : MarkupContent;
 
 	constructor(){
-		this.Name = ''
+		this.Name = '';
 		this.Documentation = { value: '', kind: 'markdown'};
 	}
 }
