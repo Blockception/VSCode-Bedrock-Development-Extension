@@ -1,4 +1,4 @@
-import { RangedWord } from '../code/include';
+
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -28,13 +28,17 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Tickingarea, Entity, Objective, Sound, Tag, Block } from './types/include';
+import { RangedWord } from '../code/include';
+import { Block, Effect, Entity, Objective, Sound, Tag, Tickingarea } from './types/include';
+import { Item } from './types/Item/Item';
 
 export class MinecraftData {
    
    public Blocks : Block[];
    public Entities : Entity[];
-   public FakeEntities : RangedWord[]
+   public Effects : Effect[];
+   public FakeEntities : RangedWord[];
+   public Items : Item[];
    public Objectives : Objective[];
    public Sounds : Sound[];
    public Tag : Tag[];
@@ -43,10 +47,12 @@ export class MinecraftData {
    constructor() {
       this.Blocks = [];
       this.Entities = [];
+      this.Effects = [];
       this.FakeEntities = [];
-      this.Tag = [];
+      this.Items = [];
       this.Objectives = [];
       this.Sounds = [];
+      this.Tag = [];
       this.TickingAreas = [];      
    }
 }

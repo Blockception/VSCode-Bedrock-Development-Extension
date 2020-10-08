@@ -38,7 +38,7 @@ export function provideEntityCompletion(receiver : CompletionList) : void {
 			receiver.items.push({
 				label:Name,
 				kind:CompletionItemKind.Struct,
-				documentation:"The entity: '" + Name + "'"
+				documentation:entity.Documentation
 			});
 		});
 	});

@@ -1,3 +1,4 @@
+import { MarkupContent } from 'vscode-languageserver';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, blockception Ltd
@@ -31,13 +32,13 @@ import { MCCommandParameter } from './MCCommandParameter';
 
 export class MCCommand {
 	public name : string;
-	public parameters : MCCommandParameter[];
-	public description : string;
+	public parameters : MCCommandParameter[];	
+	public documentation : MarkupContent;
 
 	constructor(){
 		this.parameters = [];
 		this.name = '';
-		this.description = '';
+		this.documentation = {kind:"markdown",value:''};
 	}
 
 	add(item : MCCommandParameter[]){

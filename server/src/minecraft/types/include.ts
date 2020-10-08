@@ -33,6 +33,8 @@ export * from './Boolean/Boolean';
 export * from './Boolean/Completion';
 export * from './Entity/Entity';
 export * from './Entity/Completion';
+export * from './Effect/Effect';
+export * from './Effect/Completion';
 export * from './Objectives/Objectives';
 export * from './Objectives/Completion';
 export * from './Selector/Selector';

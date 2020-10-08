@@ -31,7 +31,11 @@ import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-langu
 import { RangedWord } from '../code/include';
 import { MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { provideBooleanCompletion } from '../minecraft/types/Boolean/Completion';
-import { provideBlockCompletion, provideEntityCompletion, provideSelectorCompletion, provideSelectorPlayerCompletion, provideSelectorTargetCompletion, provideTagCompletion } from '../minecraft/types/include';
+import { provideCoordinateCompletion } from '../minecraft/types/Coordinate/Completion';
+import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
+import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSelectorPlayerCompletion, provideSelectorTargetCompletion, provideSoundCompletion, provideTagCompletion } from '../minecraft/types/include';
+import { provideIntegerCompletion } from '../minecraft/types/Integer/Completion';
+import { provideItemCompletion } from '../minecraft/types/Item/Completion';
 import { provideCommandCompletion } from './CommandCompletion';
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
@@ -59,11 +63,11 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			break;
 
 		case MCCommandParameterType.coordinate:
-			//TODO
+			provideCoordinateCompletion(receiver);
 			break;
 
 		case MCCommandParameterType.effect:
-			//TODO
+			provideEffectCompletion(receiver);
 			break;
 
 		case MCCommandParameterType.entity:
@@ -75,7 +79,7 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			break;
 
 		case MCCommandParameterType.float:
-			//TODO
+			provideFloatCompletion(receiver, 0.0, 10.0);
 			break;
 
 		case MCCommandParameterType.function:
@@ -87,11 +91,12 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			break;
 
 		case MCCommandParameterType.integer:
+			provideIntegerCompletion(receiver, 0, 10);
 			//TODO
 			break;
 
 		case MCCommandParameterType.item:
-			//TODO
+			provideItemCompletion(receiver);
 			break;
 
 		case MCCommandParameterType.jsonItem:
@@ -107,6 +112,10 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			break;
 
 		case MCCommandParameterType.objective:
+			provideObjectiveCompletion(receiver);
+			break;
+
+		case MCCommandParameterType.replaceMode:
 			//TODO
 			break;
 
@@ -122,8 +131,28 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			provideSelectorTargetCompletion(receiver, Current);
 			break;
 
+		case MCCommandParameterType.slotID:
+			//TODO
+			break;
+
+		case MCCommandParameterType.slotType:
+			//TODO
+			break;
+
+		case MCCommandParameterType.sound:
+			provideSoundCompletion(receiver);
+			break;
+
 		case MCCommandParameterType.tag:
 			provideTagCompletion(receiver);
+			break;
+
+		case MCCommandParameterType.unknown:
+			//TODO
+			break;
+
+		case MCCommandParameterType.xp:
+			//TODO
 			break;
 	}
 }

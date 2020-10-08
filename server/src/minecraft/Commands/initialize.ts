@@ -34,7 +34,7 @@ import { MCCommandParameterType } from './MCCommandParameterType';
 
 function add(parameters: MCCommandParameter[], name: string, description: string) {
 	let com = new MCCommand();
-	com.description = description;
+	com.documentation = {value:description,kind:'markdown'};
 	com.name = name;
 	com.parameters = parameters;
 

@@ -28,16 +28,18 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { Location, Range } from 'vscode-languageserver';
+import { Location, MarkupContent, Range } from 'vscode-languageserver';
 
 export class Entity {
    public Identifier : string;
    public Events : string[];
    public Location : Location;
+	public Documentation : MarkupContent;
    
-   constructor(Identifier : string, uri : string, LineIndex : number, StartIndex : number) {
+   constructor() {
       this.Events = [];
-      this.Identifier = Identifier;
-      this.Location = Location.create(uri, Range.create(LineIndex, StartIndex, LineIndex, StartIndex + Identifier.length));
+		this.Documentation = { value: '', kind: 'markdown'};
+      this.Identifier = '';
+      this.Location = Location.create('', Range.create(0, 0, 0, 0));
    }
 }

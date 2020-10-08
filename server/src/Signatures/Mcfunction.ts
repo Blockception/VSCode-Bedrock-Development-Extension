@@ -79,7 +79,7 @@ function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
 function ConverToSignature(Command: MCCommand): SignatureInformation {
 	var Sign: SignatureInformation = {
 		label: '',
-		documentation: { "kind": "markdown", "value": Command.description },
+		documentation: Command.documentation,
 		parameters: []
 	};
 

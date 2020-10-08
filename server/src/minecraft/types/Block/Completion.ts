@@ -38,7 +38,7 @@ export function provideBlockCompletion(receiver : CompletionList) : void {
 			receiver.items.push({
 				label:Name,
 				kind:CompletionItemKind.Reference,
-				documentation:"The block: '" + Name + "'"
+				documentation:Block.Documentation
 			});
 		});
 	});
