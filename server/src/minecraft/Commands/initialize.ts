@@ -233,17 +233,17 @@ export function AddCommands(): void {
 
 	add([new MCCommandParameter("execute"),
 	new MCCommandParameter("origin", MCCommandParameterType.selector),
-	positionXR,
-	positionYR,
-	positionZR,
+		positionXR,
+		positionYR,
+		positionZR,
 	new MCCommandParameter("command", MCCommandParameterType.command)
 	], "execute", "Executes another command.");
 
 	add([new MCCommandParameter("execute"),
 	new MCCommandParameter("origin", MCCommandParameterType.selector),
-	positionXR,
-	positionYR,
-	positionZR,
+		positionXR,
+		positionYR,
+		positionZR,
 	new MCCommandParameter("detect"),
 	new MCCommandParameter("detectPos x", MCCommandParameterType.coordinate),
 	new MCCommandParameter("detectPos y", MCCommandParameterType.coordinate),
@@ -391,9 +391,9 @@ export function AddCommands(): void {
 
 	add([new MCCommandParameter("particle"),
 	new MCCommandParameter("effect"),
-	positionXR,
-	positionYR,
-	positionZR
+		positionXR,
+		positionYR,
+		positionZR
 	], "particle", "TODO description");
 
 
@@ -412,9 +412,9 @@ export function AddCommands(): void {
 	//replaceitem block <position> slot.container <slotId> <itemName> [amount] [data] [components]
 	add([new MCCommandParameter("replaceitem"),
 	new MCCommandParameter("block"),
-	positionXR,
-	positionYR,
-	positionZR,
+		positionXR,
+		positionYR,
+		positionZR,
 	new MCCommandParameter("slot.container", MCCommandParameterType.slotType),
 	new MCCommandParameter("slotId", MCCommandParameterType.slotID),
 	new MCCommandParameter("itemName", MCCommandParameterType.item),
@@ -426,9 +426,9 @@ export function AddCommands(): void {
 	//replaceitem block <position> slot.container <slotId> <replacemode> <itemName> [amount] [data] [components]
 	add([new MCCommandParameter("replaceitem"),
 	new MCCommandParameter("block"),
-	positionXR,
-	positionYR,
-	positionZR,
+		positionXR,
+		positionYR,
+		positionZR,
 	new MCCommandParameter("slot.container", MCCommandParameterType.slotType),
 	new MCCommandParameter("slotId", MCCommandParameterType.slotID),
 	new MCCommandParameter("replacemode", MCCommandParameterType.replaceMode),
@@ -513,7 +513,7 @@ export function AddCommands(): void {
 	new MCCommandParameter("add"),
 	new MCCommandParameter("entity", MCCommandParameterType.selector),
 	new MCCommandParameter("objective", MCCommandParameterType.objective),
-	new MCCommandParameter("count")
+	new MCCommandParameter("count", MCCommandParameterType.integer)
 	], "scoreboard", "TODO description");
 
 	add([new MCCommandParameter("scoreboard"),
@@ -527,7 +527,7 @@ export function AddCommands(): void {
 	new MCCommandParameter("operation"),
 	new MCCommandParameter("destination", MCCommandParameterType.selector),
 	new MCCommandParameter("destination", MCCommandParameterType.objective),
-	new MCCommandParameter("operation"),
+	new MCCommandParameter("operation", MCCommandParameterType.operation),
 	new MCCommandParameter("selector"),
 	new MCCommandParameter("objective", MCCommandParameterType.objective)
 	], "scoreboard", "TODO description");
@@ -537,8 +537,8 @@ export function AddCommands(): void {
 	new MCCommandParameter("random"),
 	new MCCommandParameter("entity", MCCommandParameterType.selector),
 	new MCCommandParameter("objective", MCCommandParameterType.objective),
-	new MCCommandParameter("min"),
-	new MCCommandParameter("max")
+	new MCCommandParameter("min", MCCommandParameterType.integer),
+	new MCCommandParameter("max", MCCommandParameterType.integer)
 	], "scoreboard", "TODO description");
 
 	add([new MCCommandParameter("scoreboard"),
@@ -546,7 +546,7 @@ export function AddCommands(): void {
 	new MCCommandParameter("remove"),
 	new MCCommandParameter("entity", MCCommandParameterType.selector),
 	new MCCommandParameter("objective", MCCommandParameterType.objective),
-	new MCCommandParameter("count")
+	new MCCommandParameter("count", MCCommandParameterType.integer)
 	], "scoreboard", "TODO description");
 
 	add([new MCCommandParameter("scoreboard"),
@@ -561,7 +561,7 @@ export function AddCommands(): void {
 	new MCCommandParameter("set"),
 	new MCCommandParameter("entity", MCCommandParameterType.selector),
 	new MCCommandParameter("objective", MCCommandParameterType.objective),
-	new MCCommandParameter("score")
+	new MCCommandParameter("score", MCCommandParameterType.integer)
 	], "scoreboard", "TODO description");
 
 	add([new MCCommandParameter("scoreboard"),
@@ -569,35 +569,35 @@ export function AddCommands(): void {
 	new MCCommandParameter("test"),
 	new MCCommandParameter("entity", MCCommandParameterType.selector),
 	new MCCommandParameter("objective", MCCommandParameterType.objective),
-	new MCCommandParameter("min"),
-	new MCCommandParameter("max")
+	new MCCommandParameter("min", MCCommandParameterType.integerTest),
+	new MCCommandParameter("max", MCCommandParameterType.integerTest)
 	], "scoreboard", "TODO description");
 
 	add([new MCCommandParameter("setblock"),
-	positionXR,
-	positionYR,
-	positionZR,
+		positionXR,
+		positionYR,
+		positionZR,
 	new MCCommandParameter("tileName", MCCommandParameterType.block),
 	new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
 	new MCCommandParameter("replace", MCCommandParameterType.keyword, false)
 	], "setblock", "TODO description");
 
 	add([new MCCommandParameter("setblock"),
-	positionXR,
-	positionYR,
-	positionZR,
-	new MCCommandParameter("tileName", MCCommandParameterType.block),
-	new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
+		positionXR,
+		positionYR,
+		positionZR,
+	new MCCommandParameter("tile Name", MCCommandParameterType.block),
+	new MCCommandParameter("til eData", MCCommandParameterType.integer, false),
 	new MCCommandParameter("destroy", MCCommandParameterType.keyword, false)
 	], "setblock", "TODO description");
 
 	add([new MCCommandParameter("setblock"),
-	positionXR,
-	positionYR,
-	positionZR,
-	new MCCommandParameter("tileName", MCCommandParameterType.block),
-	new MCCommandParameter("tileData", MCCommandParameterType.integer, false),
-	new MCCommandParameter("|keep", MCCommandParameterType.keyword, false)
+		positionXR,
+		positionYR,
+		positionZR,
+	new MCCommandParameter("tile Name", MCCommandParameterType.block),
+	new MCCommandParameter("tile Data", MCCommandParameterType.integer, false),
+	new MCCommandParameter("keep", MCCommandParameterType.keyword, false)
 	], "setblock", "TODO description");
 
 	add([new MCCommandParameter("setworldspawn"),
@@ -606,16 +606,16 @@ export function AddCommands(): void {
 
 	add([new MCCommandParameter("spawnpoint"),
 		selectorPlayerOptional,
-	new MCCommandParameter("spawnPos x", MCCommandParameterType.coordinate, false),
-	new MCCommandParameter("spawnPos y", MCCommandParameterType.coordinate, false),
-	new MCCommandParameter("spawnPos z", MCCommandParameterType.coordinate, false)
+	new MCCommandParameter("spawn position x", MCCommandParameterType.coordinate, false),
+	new MCCommandParameter("spawn position y", MCCommandParameterType.coordinate, false),
+	new MCCommandParameter("spawn position z", MCCommandParameterType.coordinate, false)
 	], "spawnpoint", "TODO description");
 
 	add([new MCCommandParameter("spreadplayers"),
-	new MCCommandParameter("x"),
-	new MCCommandParameter("z"),
-	new MCCommandParameter("spreadDistance", MCCommandParameterType.float),
-	new MCCommandParameter("maxRange", MCCommandParameterType.float),
+	new MCCommandParameter("x", MCCommandParameterType.coordinate),
+	new MCCommandParameter("z", MCCommandParameterType.coordinate),
+	new MCCommandParameter("spread Distance", MCCommandParameterType.float),
+	new MCCommandParameter("max Range", MCCommandParameterType.float),
 	new MCCommandParameter("victim", MCCommandParameterType.selector)
 	], "spreadplayers", "TODO description");
 
@@ -668,9 +668,9 @@ export function AddCommands(): void {
 
 	//testforblock
 	add([new MCCommandParameter("testforblock"),
-	positionXR,
-	positionYR,
-	positionZR,
+		positionXR,
+		positionYR,
+		positionZR,
 	new MCCommandParameter("tile name", MCCommandParameterType.block),
 	new MCCommandParameter("data value", MCCommandParameterType.integer, false)
 	], "testforblock", "tests whether a certain block is a specific location");

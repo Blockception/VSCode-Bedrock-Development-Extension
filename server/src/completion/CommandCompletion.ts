@@ -41,11 +41,11 @@ export function provideCommandCompletion(receiver: CompletionList): void {
 		let Limit = value.length;
 
 		if (Limit > 7) {
-			documentation.value += "\n- " + value[0].Command.documentation;
+			documentation.value += "\n- " + value[0].Command.documentation.value;
 		}
 		else {
 			for (let I = 0; I < Limit; I++) {
-				let Line = "\n- " + value[I].Command.documentation;
+				let Line = "\n- " + value[I].Command.documentation.value;
 
 				if (!documentation.value.includes(Line))
 					documentation.value += Line;

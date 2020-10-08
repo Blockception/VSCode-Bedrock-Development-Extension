@@ -71,7 +71,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
 
    Out.push({
       kind: SymbolKind.Class,
-      location: Location.create(uri, Range.create(0, 0, 0, 0)),
+      location: Location.create(uri, Range.create(0, 0, Number.MAX_VALUE, 0)),
       name: GetFilename(uri)
    });
 

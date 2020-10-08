@@ -1,4 +1,3 @@
-import { deepStrictEqual } from 'assert';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -28,57 +27,22 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
-import { IsEqual } from '../code/Equal';
-import { GetDocument } from "../code/include";
-import { McFunctionIdentifier } from "../Constants";
-import { OnCompletionMcFunction } from "./McfunctionCompletion";
 
-//Handle request
-export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionList> {
-  return new Promise((resolve, reject) => {
-    resolve(OnCompletionRequest(params));
-  });
-}
+export function IsEqual(A: any, B: any): boolean {
+	let aProperties = Object.getOwnPropertyNames(A);
+	let bProperties = Object.getOwnPropertyNames(B);
+	let Length = aProperties.length;
 
-//Processes request
-function OnCompletionRequest(params: CompletionParams): CompletionList {
-  let List: CompletionList = { isIncomplete: true, items: [], };
-  let Doc = GetDocument(params.textDocument.uri);
-  let Pos = params.position;
+	if (aProperties.length != bProperties.length) {
+		return false;
+	}
 
-  switch (Doc.languageId) {
-    case McFunctionIdentifier:
-      OnCompletionMcFunction(Doc, Pos, List);
-      break;
-  }
+	for (let I = 0; I < Length; I++) {
+		let name = aProperties[I];
 
-  List.items = removeDuplicate(List.items);
-  List.isIncomplete = false;
-
-  return List;
-}
-
-function removeDuplicate(items: CompletionItem[]): CompletionItem[] {
-  let Length = items.length;
-  let Out: CompletionItem[] = [];
-
-  for (let I = 0; I < Length; I++) {
-    let Current = items[I];
-
-    if (!hasItem(Out, Current)) {
-      Out.push(Current);
-    }
-  }
-
-  return Out;
-}
-
-function hasItem(items: CompletionItem[], item: CompletionItem): boolean {
-  for (let I = 0; I < items.length; I++) {
-    if (IsEqual(items[I], item))
-        return true;
-  }
-
-  return false;
+		if (A[name] !== B[name]) {
+			return false;
+		}
+	}
+	return true;
 }

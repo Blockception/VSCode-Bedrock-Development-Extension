@@ -131,6 +131,7 @@
         { "name": "entity.name.function.worldbuilder", "match": "\\bworldbuilder\\b" },
 
         { "name": "entity.name.variable.slot", "match": "\\bslot\\.[a-z\\.]+\\b" },
+        { "name": "entity.name.variable.facing", "match": "\\bfacing\\b" },
         { "name": "entity.name.variable.dummy", "match": "\\bdummy\\b" },
         { "name": "entity.name.variable.commandBlockOutput", "match": "\\bcommandBlockOutput\\b" },
         { "name": "entity.name.variable.commandBlocksEnabled", "match": "\\bcommandBlocksEnabled\\b" },

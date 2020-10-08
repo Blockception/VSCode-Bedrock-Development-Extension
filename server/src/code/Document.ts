@@ -42,6 +42,7 @@ import { fileURLToPath } from 'url';
  * @param languageID The Language ID associated to the documentated.
  */
 export function GetDocument(uri: string, Content: string | TextDocument | undefined = undefined, languageID: string = ''): TextDocument {
+  let Old = uri;
   uri = UniformUrl(uri);
 
   if (languageID === '') {
@@ -49,7 +50,11 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
   }
 
   if (Content == undefined) {
-    let doc = Manager.Documents.get(uri);
+    let doc = Manager.Documents.get(Old);
+
+    /*if (doc == undefined){
+      doc = Manager.Documents.get(uri);
+    }*/
 
     if (doc) {
       //Cached document

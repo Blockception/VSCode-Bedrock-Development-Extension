@@ -52,6 +52,8 @@ export enum MCCommandParameterType {
 	gamemode,
 	//Marks that the parameter is an integer
 	integer,
+	//Marks that the parameter is an integer
+	integerTest,
 	//Marks that the parameter is an item
 	item,
 	//Marks that the parameter is an json structure for items
@@ -64,6 +66,8 @@ export enum MCCommandParameterType {
 	locateFeature,
 	//Marks that the parameter is a scoreboard objective
 	objective,
+	//Marks that the parameter is a scoreboard operation
+	operation,
 	//Marks that the parameter is a replace mode
 	replaceMode,
 	//Marks that the parameter is a selector
