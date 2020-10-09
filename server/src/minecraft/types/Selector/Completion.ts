@@ -31,11 +31,11 @@ import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-langu
 import { RangedWord } from '../../../code/include';
 import { Database } from '../../Database';
 
-const AllPlayer : CompletionItem = { label: '@a', kind: CompletionItemKind.Reference, documentation: 'Targets all players' };
-const AllEntities : CompletionItem = { label: '@e', kind: CompletionItemKind.Reference, documentation: 'Targets all entities' };
-const Executing : CompletionItem = { label: '@s', kind: CompletionItemKind.Reference, documentation: 'Targets the executing entity' };
-const Random : CompletionItem = { label: '@r', kind: CompletionItemKind.Reference, documentation: 'Targets random players, or if specified, random types' };
-const NearestPlayer : CompletionItem = { label: '@p', kind: CompletionItemKind.Reference, documentation: 'Targets the nearest player' };
+const AllPlayer: CompletionItem = { label: '@a', kind: CompletionItemKind.Reference, documentation: 'Targets all players' };
+const AllEntities: CompletionItem = { label: '@e', kind: CompletionItemKind.Reference, documentation: 'Targets all entities' };
+const Executing: CompletionItem = { label: '@s', kind: CompletionItemKind.Reference, documentation: 'Targets the executing entity' };
+const Random: CompletionItem = { label: '@r', kind: CompletionItemKind.Reference, documentation: 'Targets random players, or if specified, random types' };
+const NearestPlayer: CompletionItem = { label: '@p', kind: CompletionItemKind.Reference, documentation: 'Targets the nearest player' };
 
 export function provideSelectorCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
 	if (Text === undefined || Text.text === '') {
@@ -43,7 +43,7 @@ export function provideSelectorCompletion(receiver: CompletionList, Text: Ranged
 		receiver.items.push(AllPlayer, AllEntities, Executing, Random, NearestPlayer);
 
 		AddFakePlayers(receiver);
-	}	
+	}
 }
 
 export function provideSelectorPlayerCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
@@ -62,16 +62,42 @@ export function provideSelectorTargetCompletion(receiver: CompletionList, Text: 
 	}
 }
 
-function AddFakePlayers(receiver: CompletionList){
-	Database.Data.forEach(x=>{
-		x.FakeEntities.forEach(y=>{
+function provideSelectorCompletion(receiver: CompletionList, Text: RangedWord | undefined, forEntities : boolean, forPlayers : boolean) {
+	if (Text === undefined || Text.text === '') {
+		//Defaults
+		receiver.items.push(Executing);
+		if (forPlayers){
+			receiver.items.push(AllPlayer);
+		}
+
+		AddFakePlayers(receiver);
+	}
+
+
+	AddFakePlayers(receiver);
+}
+
+
+function InSelector(selector: RangedWord, pos: number) : boolean{
+	if (selector.startindex + 2 <= pos && pos < selector.endindex)
+		return true;
+
+	return false;
+}
+
+
+
+
+function AddFakePlayers(receiver: CompletionList) {
+	Database.Data.forEach(x => {
+		x.FakeEntities.forEach(y => {
 			let name = y.text;
 			receiver.items.push(
-				{ 
-					label:y.text,
-					documentation:"The fake player: '" + name + "'",
-					insertText:'"' + name + '"',
-					kind:CompletionItemKind.EnumMember
+				{
+					label: y.text,
+					documentation: "The fake player: '" + name + "'",
+					insertText: '"' + name + '"',
+					kind: CompletionItemKind.EnumMember
 				}
 			);
 		});
