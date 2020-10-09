@@ -1,1 +1,123 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"1.8.0.bones","type":"object","title":"The bones schema for 1.10.0","description":"TODO description","definitions":{"numberSpecifciaton":{"$id":"number specification","title":"The number schema","description":"The 3 array number specification","type":"array","minItems":3,"maxItems":3,"items":{"$ref":"../../../../molang/1.8.0/number.json","description":"TODO description: numberSpecifciaton","title":"Number Specifciaton"}},"timeline":{"$id":"timeline specification","anyOf":[{"title":"The timeline array schema","description":"The timeline array specification","$ref":"#/definitions/numberSpecifciaton"},{"type":"object","title":"The timeline object schema","description":"The timeline object specification","properties":{"pre":{"$ref":"#/definitions/numberSpecifciaton","description":"TODO description: pre","title":"Pre"},"post":{"$ref":"#/definitions/numberSpecifciaton","description":"TODO description: post","title":"Post"}}}]}},"additionalProperties":{"$id":"1.8.0.bones_item","description":"A single bone definition in the animation for 1.8.0","title":"Bone definition","type":"object","properties":{"position":{"$id":"position","title":"The position definition","description":"The position definition","anyOf":[{"$ref":"#/definitions/numberSpecifciaton"},{"propertyNames":{"pattern":"(^[0-9]+|^[0-9]+\\.[0-9]+)"},"additionalProperties":{"$ref":"#/definitions/timeline"}}]},"rotation":{"$id":"rotation","title":"The rotation definition","description":"The rotation definition","anyOf":[{"$ref":"#/definitions/numberSpecifciaton"},{"propertyNames":{"pattern":"(^[0-9]+|^[0-9]+\\.[0-9]+)"},"additionalProperties":{"$ref":"#/definitions/timeline"}}]},"scale":{"$id":"scale","title":"The scale definition","description":"The scale definition","anyOf":[{"$ref":"#/definitions/numberSpecifciaton"},{"propertyNames":{"pattern":"(^[0-9]+|^[0-9]+\\.[0-9]+)"},"additionalProperties":{"$ref":"#/definitions/timeline"}}]},"relative_to":{"description":"A reference to what bone or entity it is bound to","title":"Relative to bone definition","type":"object","properties":{"rotation":{"description":"A reference to what bone or entity it is bound to for rotation","title":"Rotation bounding","type":"string"}}}}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "1.8.0.bones",
+  "type": "object",
+  "title": "The bones schema for 1.10.0",
+  "description": "TODO description",
+  "definitions": {
+    "numberSpecifciaton": {
+      "$id": "number specification",
+      "title": "The number schema",
+      "description": "The 3 array number specification",
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "../../../../molang/1.8.0/number.json",
+        "description": "TODO description: numberSpecifciaton",
+        "title": "Number Specifciaton"
+      }
+    },
+    "timeline": {
+      "$id": "timeline specification",
+      "anyOf": [
+        {
+          "title": "The timeline array schema",
+          "description": "The timeline array specification",
+          "$ref": "#/definitions/numberSpecifciaton"
+        },
+        {
+          "type": "object",
+          "title": "The timeline object schema",
+          "description": "The timeline object specification",
+          "properties": {
+            "pre": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description: pre",
+              "title": "Pre"
+            },
+            "post": {
+              "$ref": "#/definitions/numberSpecifciaton",
+              "description": "TODO description: post",
+              "title": "Post"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": {
+    "$id": "1.8.0.bones_item",
+    "description": "A single bone definition in the animation for 1.8.0",
+    "title": "Bone definition",
+    "type": "object",
+    "properties": {
+      "position": {
+        "$id": "position",
+        "title": "The position definition",
+        "description": "The position definition",
+        "anyOf": [
+          {
+            "$ref": "#/definitions/numberSpecifciaton"
+          },
+          {
+            "propertyNames": {
+              "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/timeline"
+            }
+          }
+        ]
+      },
+      "rotation": {
+        "$id": "rotation",
+        "title": "The rotation definition",
+        "description": "The rotation definition",
+        "anyOf": [
+          {
+            "$ref": "#/definitions/numberSpecifciaton"
+          },
+          {
+            "propertyNames": {
+              "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/timeline"
+            }
+          }
+        ]
+      },
+      "scale": {
+        "$id": "scale",
+        "title": "The scale definition",
+        "description": "The scale definition",
+        "anyOf": [
+          {
+            "$ref": "#/definitions/numberSpecifciaton"
+          },
+          {
+            "propertyNames": {
+              "pattern": "(^[0-9]+|^[0-9]+\\.[0-9]+)"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/timeline"
+            }
+          }
+        ]
+      },
+      "relative_to": {
+        "description": "A reference to what bone or entity it is bound to",
+        "title": "Relative to bone definition",
+        "type": "object",
+        "properties": {
+          "rotation": {
+            "description": "A reference to what bone or entity it is bound to for rotation",
+            "title": "Rotation bounding",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

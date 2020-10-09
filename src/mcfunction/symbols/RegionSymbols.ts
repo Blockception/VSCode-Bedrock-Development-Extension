@@ -33,57 +33,71 @@ import { mcfunctionDatabase } from '../Database';
 import { CancellationToken } from 'vscode';
 
 export class RegionSymbolProvider implements vscode.DocumentSymbolProvider, vscode.WorkspaceSymbolProvider {
-    //Provides document symbols
-    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> { 
-        var Out = new Array<vscode.SymbolInformation>();
-        var LastRegion = '';
-        var StartPosition = new vscode.Position(0, 0);
+    //Handle document symbols request
+    async provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): Promise<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> {
+        return new Promise<vscode.SymbolInformation[] | vscode.DocumentSymbol[]>((resolve, reject) => {
+            resolve(this.internalProvideDocumentSymbols(document));
+        })
+    }
 
-        for (var I = 0; I < document.lineCount; I++){
-            var Line = document.lineAt(I);
-            var Text = Line.text;
+    //Handle workspace symbols request
+    async provideWorkspaceSymbols(query: string, token: CancellationToken): Promise<vscode.SymbolInformation[]> {
+        return new Promise<vscode.SymbolInformation[]>((resolve, reject) => {
+            resolve(this.interalProvideWorkspaceSymbols(query));
+        })
+    }
 
-            if (Text.startsWith('# region') || Text.startsWith('#region')){
-                var Index = Text.indexOf('region');
+    //Provide workspace symbols
+    private interalProvideWorkspaceSymbols(query: string): vscode.SymbolInformation[] | undefined {
+        if (query.trim() == '') {
+            let First = mcfunctionDatabase.Symbols.Regions.First();
+            return First.Values;
+        }
+
+        let Out = new Array<vscode.SymbolInformation>();
+
+        mcfunctionDatabase.Symbols.Regions.forEach(x => {
+            x.Values.forEach(symbol => {
+                let match = symbol.name;
+                if (match != undefined && match.length > 0)
+                    Out.push(symbol);
+            });
+        });
+
+        return Out;
+    }
+
+    //Provide document symbols request
+    private internalProvideDocumentSymbols(document: vscode.TextDocument): vscode.SymbolInformation[] | vscode.DocumentSymbol[] {
+        let Out = new Array<vscode.SymbolInformation>();
+        let LastRegion = '';
+        let StartPosition = new vscode.Position(0, 0);
+
+        for (let I = 0; I < document.lineCount; I++) {
+            let Line = document.lineAt(I);
+            let Text = Line.text;
+
+            if (Text.startsWith('# region') || Text.startsWith('#region')) {
+                let Index = Text.indexOf('region');
 
                 LastRegion = Text.substring(Index + 6, Text.length).trim();
                 StartPosition = new vscode.Position(I, 0);
             }
 
-            if (Text.startsWith('# endregion') || Text.startsWith('#endregion')){
-                var Item = new vscode.SymbolInformation(
-                    LastRegion, 
-                    vscode.SymbolKind.Namespace, 
-                    'mcfunction', 
-                    new vscode.Location(document.uri, 
+            if (Text.startsWith('# endregion') || Text.startsWith('#endregion')) {
+                let Item = new vscode.SymbolInformation(
+                    LastRegion,
+                    vscode.SymbolKind.Namespace,
+                    'mcfunction',
+                    new vscode.Location(document.uri,
                         new vscode.Range(StartPosition, new vscode.Position(I, 0))));
 
                 Out.push(Item);
             }
         }
 
-        var Collection = mcfunctionDatabase.Symbols.Regions.Get(document.uri);
+        let Collection = mcfunctionDatabase.Symbols.Regions.Get(document.uri);
         Collection.Values = Out;
-
-        return Out;
-    }
-
-    //
-    provideWorkspaceSymbols(query: string, token: CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[]> {
-        if (query.trim() == ''){
-            var First = mcfunctionDatabase.Symbols.Regions.First();
-            return First.Values;
-        }
-
-        var Out = new Array<vscode.SymbolInformation>();
-
-        mcfunctionDatabase.Symbols.Regions.forEach(x => {
-            x.Values.forEach(symbol => {
-                var match = symbol.name;
-                if (match != undefined && match.length > 0)
-                    Out.push(symbol);
-            });
-        });
 
         return Out;
     }

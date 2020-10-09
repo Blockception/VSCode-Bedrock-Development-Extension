@@ -37,7 +37,7 @@ export class JsonTextDiagnoserProvider implements DiagnosticProvider {
         if (item == undefined)
             return;
 
-        var text = item.Text.text;
+        let text = item.Text.text;
 
         if (!text.startsWith("{") || !text.endsWith("}")) {
             collector.push(new vscode.Diagnostic(
@@ -49,12 +49,12 @@ export class JsonTextDiagnoserProvider implements DiagnosticProvider {
         }
 
         try {
-            var Object = JSON.parse(item.Text.text);
+            let Object = JSON.parse(item.Text.text);
 
-            for (var property in Object) {
+            for (let property in Object) {
                 switch (property) {
                     case 'rawtext':
-                        var rawTextProperty = Object[property];
+                        let rawTextProperty = Object[property];
                         this.exploreRawText(rawTextProperty, item, lineIndex, collector, dm, document);
 
                         break;
@@ -77,15 +77,15 @@ export class JsonTextDiagnoserProvider implements DiagnosticProvider {
     }
 
     exploreRawText(rawTextProperty: any, json: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) {
-        for (var item in rawTextProperty) {
-            var itemObject = rawTextProperty[item];
-            var pstring = itemObject instanceof String;
+        for (let item in rawTextProperty) {
+            let itemObject = rawTextProperty[item];
+            let pstring = itemObject instanceof String;
 
             if (pstring) {
-
+                //
             }
             else {
-                for (var property in itemObject) {
+                for (let property in itemObject) {
                     switch (property) {
                         case 'text':
                             var p = itemObject[property];

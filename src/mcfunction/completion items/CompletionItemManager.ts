@@ -39,13 +39,12 @@ import { ItemCompletionItemProvider } from './types/ItemCompletionProvider';
 import { IntegerCompletionItemProvider } from './types/IntegerCompletionProvider';
 import { BlockCompletionItemProvider } from './types/BlockCompletionProvider';
 import { EntityCompletionItemProvider } from './types/EntityCompletionProvider';
-import { timeStamp } from 'console';
-import { TagDiagnosticProvider } from '../diagnostics/commands/tagDiagnostics';
-import { TagSignatureProvider } from '../signatures/Commands/TagSignatures';
+
+export type CompletionData = vscode.CompletionItem[] | undefined;
 
 export interface CompletionItemProvider {
     //
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined;
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData;
 }
 
 export class CompletionItemManager implements vscode.CompletionItemProvider {
@@ -142,27 +141,41 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         keywords.forEach(word => this.Completors.set(word, Cm));
     }
 
+
+    async provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext)
+        : Promise<vscode.CompletionItem[] | vscode.CompletionList> {
+
+        return new Promise<vscode.CompletionItem[] | vscode.CompletionList>((resolve, reject) => {
+            resolve(this.internalProvideCompletionItems(document, position, token, context));
+        });
+    }
+
     //
-    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        var LineIndex = position.line;
-        var Line = document.lineAt(LineIndex);
-        var LineText = Line.text
+    private internalProvideCompletionItems(
+        document: vscode.TextDocument,
+        position: vscode.Position,
+        token: vscode.CancellationToken,
+        context: vscode.CompletionContext): CompletionData {
+
+        let LineIndex = position.line;
+        let Line = document.lineAt(LineIndex);
+        let LineText = Line.text
 
         if (Line.isEmptyOrWhitespace)
             return this.StartItems;
 
         if (LineText.startsWith("#")) {
-            return;
+            return undefined;
         }
 
         //Check if starts items should be filtered
-        var Query = LineText.substring(0, position.character);
-        var Index = Query.indexOf(' ');
+        let Query = LineText.substring(0, position.character);
+        let Index = Query.indexOf(' ');
         if (Index < 0) {
-            var Out = new Array<vscode.CompletionItem>();
+            let Out = new Array<vscode.CompletionItem>();
 
-            for (var I = 0; I < this.StartItems.length; I++) {
-                var x = this.StartItems[I];
+            for (let I = 0; I < this.StartItems.length; I++) {
+                let x = this.StartItems[I];
                 if (x == undefined)
                     return;
 
@@ -181,20 +194,20 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         }
 
         //Explore what is already typed
-        var Tree = Functions.SyntaxTree.ParseTree(Line, position);
-        var Items = this.StartItems
+        let Tree = Functions.SyntaxTree.ParseTree(Line, position);
+        let Items: CompletionData = this.StartItems
 
         //If no line is typed return all
-        var Item = Tree.Root;
+        let Item = Tree.Root;
         if (Item == undefined)
             return Items;
 
         //Get the first needed for this line
-        var Diagnoser = this.Completors.get(Item.Text.text);
+        let Diagnoser = this.Completors.get(Item.Text.text);
 
         //If no diagnoser is returned then an unknown command has been used
         if (Diagnoser != undefined) {
-            var Temp = Diagnoser.provideCompletionItems(Item, this, document);
+            let Temp = Diagnoser.provideCompletionItems(Item, this, document);
 
             if (Temp != undefined)
                 Items = Temp;
@@ -203,14 +216,16 @@ export class CompletionItemManager implements vscode.CompletionItemProvider {
         }
 
         //Filter on last item
-        var Word = RangedWord.GetWord(LineText, position.character);
-        if (Word == undefined)
+        let Word = RangedWord.GetWord(LineText, position.character);
+
+        if (Word == undefined || Items == undefined)
             return Items;
 
-        var Out = new Array<vscode.CompletionItem>();
+        let Out = new Array<vscode.CompletionItem>();
 
-        for (var I = 0; I < Items.length; I++) {
-            var t = copyCompletionItem(Items[I]);
+
+        for (let I = 0; I < Items.length; I++) {
+            let t = copyCompletionItem(Items[I]);
             t.range = Word.ToRange(LineIndex);
             Out.push(t);
         }

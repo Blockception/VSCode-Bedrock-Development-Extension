@@ -39,7 +39,7 @@ export class SyntaxTree {
     }
 
     setCursor(cursorPos : number) {
-        var Item = this.Root;
+        let Item = this.Root;
         while (Item != undefined){
             Item.Text.checkCursor(cursorPos);
             Item = Item.Child;
@@ -47,8 +47,8 @@ export class SyntaxTree {
     }
 
     static ParseTree(line: TextLine, position: Position): SyntaxTree {
-        var NewWords = Words.RangedWord.GetWordsFromRange(line.text, position.character);
-        var Out = this.ParseFromWords(NewWords);
+        let NewWords = Words.RangedWord.GetWordsFromRange(line.text, position.character);
+        let Out = this.ParseFromWords(NewWords);
         Out.setCursor(position.character);
 
         return Out;
@@ -56,8 +56,8 @@ export class SyntaxTree {
 
     //Parses the entire tree
     static ParseEntireTree(line: TextLine): SyntaxTree {
-        var index = line.text.indexOf("#");
-        var NewWords: Words.RangedWord[]
+        let index = line.text.indexOf("#");
+        let NewWords: Words.RangedWord[]
 
         if (index < 0) {
             NewWords = Words.RangedWord.GetWords(line.text);
@@ -72,16 +72,16 @@ export class SyntaxTree {
 
     //Create a syntax tree from the given range words
     static ParseFromWords(Words: Words.RangedWord[]): SyntaxTree {
-        var Out = new SyntaxTree();
+        let Out = new SyntaxTree();
 
         if (Words.length == 0)
             return Out;
 
-        var Parent = new SyntaxItem(Words[0], undefined);
+        let Parent = new SyntaxItem(Words[0], undefined);
         Out.Root = Parent;
-        var Child;
+        let Child;
 
-        for (var I = 1; I < Words.length; I++) {
+        for (let I = 1; I < Words.length; I++) {
             Child = new SyntaxItem(Words[I], undefined);
             Parent.Child = Child;
             Parent = Child;
@@ -92,7 +92,7 @@ export class SyntaxTree {
 
     //
     GetLast(): SyntaxItem | undefined {
-        var Item = this.Root;
+        let Item = this.Root;
 
         if (Item == undefined)
             return undefined;
@@ -115,9 +115,9 @@ export class SyntaxItem {
     }
 
     Count(): number {
-        var Out = 0;
+        let Out = 0;
 
-        var Item = this.Child;
+        let Item = this.Child;
 
         while (Item != undefined) {
             Out++;
@@ -152,7 +152,7 @@ export class SyntaxItem {
         if (amountDown == 0)
             return this;
 
-        var Out: SyntaxItem | undefined = this;
+        let Out: SyntaxItem | undefined = this;
 
         while (Out != undefined) {
             if (amountDown > 0) {

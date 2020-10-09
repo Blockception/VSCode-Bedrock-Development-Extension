@@ -3,7 +3,7 @@
     "$id": "blockception.minecraft.behaviour.entities.components1.14.0",
     "additionalProperties": false,
     "type": "object",
-    "title": "Minecraft:entity 1.14.0",
+    "title": "entity 1.14.0",
     "$ref": "../1.13.0/components.json",    
     "description": "TODO description"
 }

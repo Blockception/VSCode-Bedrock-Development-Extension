@@ -36,7 +36,7 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var EntityType = item.Child;
+		let EntityType = item.Child;
 
 		//<entityType: EntityType>
 		if (EntityType == undefined) {
@@ -46,13 +46,13 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 
 		dm.EntityDiagnoser?.provideDiagnostic(EntityType, lineIndex, collector, dm, document);
 
-		var Next = EntityType.Child;
+		let Next = EntityType.Child;
 
 		if (Next == undefined)
 			return;
 
-		var NextText = Next.Text.text;
-		var FirstChar = NextText.charAt(0);
+		let NextText = Next.Text.text;
+		let FirstChar = NextText.charAt(0);
 
 		switch (FirstChar) {
 			case '-':
@@ -82,18 +82,18 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 
 	branchspawnPos(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var XCoord = item;
+		let XCoord = item;
 
 		//[position: x y z]
 		if (XCoord == undefined) {
 			return;
 		}
 
-		var SpawnEvent: SyntaxItem | undefined;
+		let SpawnEvent: SyntaxItem | undefined;
 		if (XCoord.Text.text != "~~~") {
 			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
 
-			var YCoord = XCoord.Child;
+			let YCoord = XCoord.Child;
 
 			//[position: x y z]
 			if (YCoord == undefined) {
@@ -101,7 +101,7 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 			}
 			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
 
-			var ZCoord = YCoord.Child;
+			let ZCoord = YCoord.Child;
 
 			//[position: x y z]
 			if (ZCoord == undefined) {
@@ -121,7 +121,7 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 		}
 		//TODO Event trigger?
 
-		var Name = SpawnEvent.Child;
+		let Name = SpawnEvent.Child;
 
 		//[nameTag: string]
 		if (Name == undefined) {
@@ -133,7 +133,7 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 
 
 	branchnameTag(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var XCoord = item.Child;
+		let XCoord = item.Child;
 
 		//[position: x y z]
 		if (XCoord == undefined) {
@@ -143,7 +143,7 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 		if (XCoord.Text.text != "~~~") {
 			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
 
-			var YCoord = XCoord.Child;
+			let YCoord = XCoord.Child;
 
 			//[position: x y z]
 			if (YCoord == undefined) {
@@ -151,7 +151,7 @@ export class SummonDiagnosticProvider implements DiagnosticProvider {
 			}
 			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
 
-			var ZCoord = YCoord.Child;
+			let ZCoord = YCoord.Child;
 
 			//[position: x y z]
 			if (ZCoord == undefined) {

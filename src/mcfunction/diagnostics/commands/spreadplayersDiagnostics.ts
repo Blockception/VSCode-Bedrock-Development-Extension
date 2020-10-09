@@ -37,7 +37,7 @@ export class SpreadPlayersDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		var XCoord = item.Child;
+		let XCoord = item.Child;
 
 		//<x: value>
 		if (XCoord == undefined) {
@@ -46,7 +46,7 @@ export class SpreadPlayersDiagnosticProvider implements DiagnosticProvider {
 		}
 
 		dm?.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
-		var ZCoord = XCoord.Child;
+		let ZCoord = XCoord.Child;
 
 		//<z: value>
 		if (ZCoord == undefined) {
@@ -56,7 +56,7 @@ export class SpreadPlayersDiagnosticProvider implements DiagnosticProvider {
 
 		dm?.CoordinateDiagnoser?.provideDiagnostic(ZCoord, lineIndex, collector, dm, document);
 
-		var SpreadDis = ZCoord.Child;
+		let SpreadDis = ZCoord.Child;
 
 		//<spreadDistance: float>
 		if (SpreadDis == undefined) {
@@ -65,7 +65,7 @@ export class SpreadPlayersDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.FloatDiagnoser?.provideDiagnostic(SpreadDis, lineIndex, collector, dm, document);
 
-		var MaxRange = SpreadDis.Child;
+		let MaxRange = SpreadDis.Child;
 
 		//<maxRange: float>
 		if (MaxRange == undefined) {
@@ -74,7 +74,7 @@ export class SpreadPlayersDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.FloatDiagnoser?.provideDiagnostic(MaxRange, lineIndex, collector, dm, document);
 
-		var Target = MaxRange.Child;
+		let Target = MaxRange.Child;
 
 		//<victim: target>
 		if (Target == undefined) {

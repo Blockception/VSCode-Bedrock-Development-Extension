@@ -37,7 +37,7 @@ export class SetWorldSpawnDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		var XCoord = item.Child;
+		let XCoord = item.Child;
 
 		//[position: x y z]
 		if (XCoord == undefined) {
@@ -47,7 +47,7 @@ export class SetWorldSpawnDiagnosticProvider implements DiagnosticProvider {
 		if (XCoord.Text.text != "~~~") {
 			dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
 
-			var YCoord = XCoord.Child;
+			let YCoord = XCoord.Child;
 
 			//[position: x y z]
 			if (YCoord == undefined) {
@@ -55,7 +55,7 @@ export class SetWorldSpawnDiagnosticProvider implements DiagnosticProvider {
 			}
 			dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
 
-			var ZCoord = YCoord.Child;
+			let ZCoord = YCoord.Child;
 
 			//[position: x y z]
 			if (ZCoord == undefined) {

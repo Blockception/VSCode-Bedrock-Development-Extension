@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem } from "../../../general/include";
 
 export class SummonCompletionProvider implements CompletionItemProvider {
@@ -37,16 +37,16 @@ export class SummonCompletionProvider implements CompletionItemProvider {
     constructor() {
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //summon <entityType: EntityType> [spawnPos: x y z] [spawnEvent: string] [nameTag: string]
         //summon <entityType: EntityType> <nameTag: string> [spawnPos: x y z]        
-        var EntityType = Item.Child;
+        let EntityType = Item.Child;
 
         if (EntityType == undefined){
             return Cm.EntityCompletionProvider.provideCompletionItems();
         }
 
-        var XOrName = EntityType.Child;
+        let XOrName = EntityType.Child;
 
         if (XOrName == undefined){
             return Cm.CoordinateCompletionProvider.provideDiagnostics();

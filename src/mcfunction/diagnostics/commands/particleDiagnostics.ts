@@ -38,7 +38,7 @@ export class ParticleDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		var Particle = item.Child;
+		let Particle = item.Child;
 
 		//<effect: string>
 		if (Particle == undefined) {

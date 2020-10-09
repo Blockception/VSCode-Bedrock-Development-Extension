@@ -32,29 +32,47 @@ import * as vscode from 'vscode';
 import { mcfunctionDatabase } from '../Database';
 import { CancellationToken } from 'vscode';
 import { RemoveComment } from '../functions/include';
+import { rejects } from 'assert';
 
 export class ObjectiveSymbolProvider implements vscode.DocumentSymbolProvider, vscode.WorkspaceSymbolProvider {
+    //Handle document symbols request
+    async provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): Promise<vscode.SymbolInformation[]> {
+        //Handle request
+        return new Promise<vscode.SymbolInformation[]>((resolve, reject) => {
+            resolve(this.interalProvideDocumentSymbols(document));
+        });
+    }
+
+
+    //Handle workspace symbols request
+    async provideWorkspaceSymbols(query: string, token: CancellationToken): Promise<vscode.SymbolInformation[]> {
+        //Handle request
+        return new Promise<vscode.SymbolInformation[]>((resolve, reject) => {
+            resolve(this.interalProvideWorkspaceSymbols(query));
+        });
+    }
+
     //Provides document symbols
-    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> {
-        var Out = new Array<vscode.SymbolInformation>();
+    private interalProvideDocumentSymbols(document: vscode.TextDocument): vscode.SymbolInformation[] {
+        let Out: vscode.SymbolInformation[] = [];
 
-        for (var I = 0; I < document.lineCount; I++) {
-            var Line = document.lineAt(I);
-            var Text = Line.text;
+        for (let I = 0; I < document.lineCount; I++) {
+            let Line = document.lineAt(I);
+            let Text = Line.text;
 
-            var match = Text.match('scoreboard objectives add .* dummy .*');
+            let match = Text.match('scoreboard objectives add .* dummy .*');
 
             if (match == undefined)
                 continue;
 
             match.forEach(m => {
-                var start = m.indexOf(' add');
-                var DummyStart = m.indexOf('dummy')
+                let start = m.indexOf(' add');
+                let DummyStart = m.indexOf('dummy')
 
                 if (start > 0 && DummyStart > 0) {
-                    var Score = RemoveComment(m.substring(start + 4, DummyStart)).trim();
+                    let Score = RemoveComment(m.substring(start + 4, DummyStart)).trim();
 
-                    var ObjectiveSymbol = new vscode.SymbolInformation(Score, vscode.SymbolKind.Variable, 'mcfunction', new vscode.Location(
+                    let ObjectiveSymbol = new vscode.SymbolInformation(Score, vscode.SymbolKind.Variable, 'mcfunction', new vscode.Location(
                         document.uri, new vscode.Position(I, m.indexOf(Score))
                     ));
                     Out.push(ObjectiveSymbol);
@@ -62,24 +80,24 @@ export class ObjectiveSymbolProvider implements vscode.DocumentSymbolProvider, v
             });
         }
 
-        var Collection = mcfunctionDatabase.Symbols.Scores.Get(document.uri);
+        let Collection = mcfunctionDatabase.Symbols.Scores.Get(document.uri);
         Collection.Values = Out;
 
         return Out;
     }
 
-    //
-    provideWorkspaceSymbols(query: string, token: CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[]> {
+    //Provides workspace symbols
+    private interalProvideWorkspaceSymbols(query: string): vscode.SymbolInformation[] {
         if (query.trim() == '') {
-            var First = mcfunctionDatabase.Symbols.Scores.First();
+            let First = mcfunctionDatabase.Symbols.Scores.First();
             return First.Values;
         }
 
-        var Out = new Array<vscode.SymbolInformation>();
+        let Out = new Array<vscode.SymbolInformation>();
 
         mcfunctionDatabase.Symbols.Scores.forEach(x => {
             x.Values.forEach(symbol => {
-                var match = symbol.name;
+                let match = symbol.name;
                 if (match != undefined && match.length > 0)
                     Out.push(symbol);
             });

@@ -40,7 +40,7 @@ export function activate(context: DiagnosticsManager) {
 
 export class ExecuteDiagnosticProvider implements DiagnosticProvider {
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void{
-        var Selector = item.Child;
+        let Selector = item.Child;
 
         if (Selector == undefined)
             return;
@@ -50,8 +50,8 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
         }
 
         //X Coordinate
-        var XCoord = Selector.Child;
-        var Parent : SyntaxItem;
+        let XCoord = Selector.Child;
+        let Parent : SyntaxItem;
         if (XCoord == undefined) {
             Errors.Missing('coordinate', 'execute', lineIndex, Selector, collector);
             return;
@@ -62,7 +62,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
             
             //Y Coordinate
-            var YCoord = XCoord.Child;
+            let YCoord = XCoord.Child;
             if (YCoord == undefined) {
                 Errors.Missing('coordinate', 'execute', lineIndex, XCoord, collector);
                 return;
@@ -71,7 +71,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
 
             //Z Coordinate
-            var ZCoord = YCoord.Child;
+            let ZCoord = YCoord.Child;
             if (ZCoord == undefined) {
                 Errors.Missing('coordinate', 'execute', lineIndex, YCoord, collector);
                 return;
@@ -85,7 +85,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
         }
 
         //detect or a command
-        var Next = Parent.Child;
+        let Next = Parent.Child;
 
         if (Next == undefined){
             Errors.Missing('command | detect', 'execute', lineIndex, Parent, collector);
@@ -94,7 +94,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
 
         //if next is detect
         if (Next.Text.text == "detect"){
-            var XCoord = Next.Child;
+            let XCoord = Next.Child;
 
             if (XCoord == undefined) {
                 Errors.Missing('coordinate', 'execute', lineIndex, Next, collector);
@@ -106,7 +106,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
                 dm.CoordinateDiagnoser?.provideDiagnostic(XCoord, lineIndex, collector, dm, document);
                 
                 //Y Coordinate
-                var YCoord = XCoord.Child;
+                let YCoord = XCoord.Child;
                 if (YCoord == undefined) {
                     Errors.Missing('coordinate', 'execute', lineIndex, XCoord, collector);
                     return;
@@ -115,7 +115,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
                 dm.CoordinateDiagnoser?.provideDiagnostic(YCoord, lineIndex, collector, dm, document);
     
                 //Z Coordinate
-                var ZCoord = YCoord.Child;
+                let ZCoord = YCoord.Child;
                 if (ZCoord == undefined) {
                     Errors.Missing('coordinate', 'execute', lineIndex, YCoord, collector);
                     return;
@@ -129,7 +129,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             }
 
             //block
-            var Block = Parent.Child;
+            let Block = Parent.Child;
 
             if (Block == undefined){
                 Errors.Missing('block', 'execute', lineIndex, Parent, collector);
@@ -139,7 +139,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
             dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
 
             //Data
-            var Data = Block.Child;
+            let Data = Block.Child;
 
             if (Data == undefined){
                 Errors.Missing('block', 'execute', lineIndex, Block, collector);
@@ -153,7 +153,7 @@ export class ExecuteDiagnosticProvider implements DiagnosticProvider {
 
         //Command
         if (Next != undefined){
-            var Diagnoser = dm.get(Next);
+            let Diagnoser = dm.get(Next);
 
             if (Diagnoser != undefined) {
                 Diagnoser.provideDiagnostic(Next, lineIndex, collector, dm, document);

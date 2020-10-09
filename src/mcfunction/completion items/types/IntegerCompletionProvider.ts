@@ -30,14 +30,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
 import { CompletionItem } from 'vscode';
+import { CompletionData } from '../CompletionItemManager';
 
 export class IntegerCompletionItemProvider {
 
-    public provideCompletionItems(start : number = 0, end : number = 10, step : number = 1) : vscode.CompletionItem[] {
-        var Collection = new Array<CompletionItem>();
+    public provideCompletionItems(start : number = 0, end : number = 10, step : number = 1) : CompletionData {
+        let Collection = new Array<CompletionItem>();
 
-        for (var I = start; I < end; I += step){
-            var X = new CompletionItem(I.toString(), vscode.CompletionItemKind.Constant);
+        for (let I = start; I < end; I += step){
+            let X = new CompletionItem(I.toString(), vscode.CompletionItemKind.Constant);
             X.documentation = "integer of value: " + X.label;
             Collection.push(X);
         }

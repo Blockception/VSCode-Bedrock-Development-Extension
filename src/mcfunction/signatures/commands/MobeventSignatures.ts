@@ -64,23 +64,23 @@ export class MobeventSignatureProvider implements SignatureItemProvider {
       ];
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Count = Item.Count();
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
+      let Count = Item.Count();
 
       if (Count > 2) {
          return undefined;
       }
 
-      var Event = Item.Child;
+      let Event = Item.Child;
 
       if (Event == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
       }
 
-      var Child = undefined;
+      let Child = undefined;
 
       switch(Event.Text.text){
          case 'minecraft:pillager_patrols_event':
@@ -98,7 +98,7 @@ export class MobeventSignatureProvider implements SignatureItemProvider {
 
       
       if (Child == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = this.All;
          Out.activeParameter = Count;
          return Out;
@@ -109,7 +109,7 @@ export class MobeventSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

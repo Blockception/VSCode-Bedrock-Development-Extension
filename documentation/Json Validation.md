@@ -17,14 +17,18 @@ If a json validation is missing, then also post an issue. And one will be made i
 |Manifest   |manifest.json |
 |Languages   |languages.json |
 |Language_names   |language_names.json |
-
+  
+---
+  
 ## World
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
 |World_behavior_packs   |world_behavior_packs.json |
 |World_resource_packs   |world_resource_packs.json  |
-
+  
+---
+  
 ## Resource packs
 
 |Component  |Json file pattern  |
@@ -33,22 +37,32 @@ If a json validation is missing, then also post an issue. And one will be made i
 |Animations   |animations/*.animation.json  |
 |Attachables   |attachables/*.json  |
 |Biomes client   |biomes_client.json  |
+|Blocks |blocks.json  |
 |Entity   |entity/*entity.json  |
-|Models   |'*.geo.json' or '*.geometry.json' |
+|Entity models   |Can be one of the following:<br/> - *.geo.json<br/> - *.geometry.json |
+|Flipbook textures  |flipbook_textures.json |
+|Item texture |item_texture.json |
 |Music definitions   |music_definitions.json  |
-|Particles   |particles/*.json or .particle.json |
+|Particles   |Can be one of the following:<br/> - particles/*.json<br/> - .particle.json |
 |Render controllers   |render_controllers/*.json  |
 |Sound definitions   |sound_definitions.json  |
+|Sounds   |sounds.json  |
 |Terrain texture   |terrain_texture.json  |
-
+  
+---
+  
 ## Behaviour packs
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
 |Animation controllers   |animation_controllers/*.json |
-|Entity behaviours |entities/*.json|
-|Item behaviours |items/*.json|
-|Loot tables |loot_tables/*.json|
-|Recipes |recipes/*.json|
-|Spawn rules |spawn_rules/*.json|
-|Trading |trading/*.json|
+|Blocks |blocks/*.json  |
+|Entity behaviours |entities/*.json |
+|Item behaviours |items/*.json  |
+|Loot tables |Can be one of the following:<br/> - loot_tables/*.json<br/> - loot_tables/*/*.json<br/> - *.loot.json |
+|Recipes |recipes/*.json  |
+|Spawn rules |spawn_rules/*.json  |
+|Trading |Can be one of the following:<br/> - trading/*.json<br/> - trading/*/*.json<br/> - *.trade.json  |
+  
+---
+  

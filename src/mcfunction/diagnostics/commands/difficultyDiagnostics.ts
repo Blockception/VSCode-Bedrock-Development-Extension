@@ -36,7 +36,7 @@ export class DifficultyDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Difficulty = item.Child;
+		let Difficulty = item.Child;
 
 		//<peaceful|easy|normal|hard|e|h|n|p|0|1|2|3>
 		if (Difficulty == undefined) {

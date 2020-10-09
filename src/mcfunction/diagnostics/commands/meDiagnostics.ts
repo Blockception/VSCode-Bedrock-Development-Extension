@@ -36,7 +36,7 @@ export class MeDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Message = item.Child;
+		let Message = item.Child;
 
 		//<message: message>
 		if (Message == undefined) {

@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 import { IsSelector } from "../../selectors/selector";
 
@@ -62,13 +62,13 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
         ];
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //teleport <target> <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]
         //teleport <target> <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]
         //teleport <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]
         //teleport <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]
         
-        var XorTarget = Item.Child;
+        let XorTarget = Item.Child;
 
         if (XorTarget == undefined){
             return Cm.SelectorCompletion.provideCompletionItems();
@@ -82,10 +82,10 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
         }
     }
 
-    TargetBranch(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    TargetBranch(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //teleport <target> <x y z|destination> [yRot: value] [xRot: value] [checkForBlocks: Boolean]
         //teleport <target> <x y z|target> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]
-        var XOrDestination = Item.Child;
+        let XOrDestination = Item.Child;
  
         if (XOrDestination == undefined){
             return this.Items;
@@ -95,7 +95,7 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
             return this.TargetDestinationDone(XOrDestination, Cm, document);
         }
 
-        var Child = Item.GetAt(3);
+        let Child = Item.GetAt(3);
 
         if (Child != undefined){
             return this.TargetDestinationDone(Child, Cm, document);
@@ -105,11 +105,11 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
     }
 
 
-    TargetLocation(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    TargetLocation(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //teleport <x y z> [yRot: value] [xRot: value] [checkForBlocks: Boolean]
         //teleport <x y z> facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]
 
-        var Child = Item.GetAt(2);
+        let Child = Item.GetAt(2);
 
         if (Child != undefined){
             return this.TargetDestinationDone(Child, Cm, document);
@@ -118,11 +118,11 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
         return Cm.CoordinateCompletionProvider.provideDiagnostics();
     }
 
-    TargetDestinationDone(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    TargetDestinationDone(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //[yRot: value] [xRot: value] [checkForBlocks: Boolean]
         //facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]
 
-        var YRotOrFacing = Item.Child;
+        let YRotOrFacing = Item.Child;
 
         if (YRotOrFacing == undefined){
             return this.SecondsItems;
@@ -144,9 +144,9 @@ export class TeleportCompletionProvider implements CompletionItemProvider {
         return undefined;
     }
 
-    Facing(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    Facing(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //facing <lookAtEntity: target|x y z> [checkForBlocks: Boolean]
-        var XOrDestination = Item.Child;
+        let XOrDestination = Item.Child;
 
         if (XOrDestination == undefined){
             return this.Items;

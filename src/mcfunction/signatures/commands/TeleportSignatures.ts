@@ -147,8 +147,8 @@ export class TeleportSignatureProvider implements SignatureItemProvider {
       ]
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var Out = new SignatureHelp();
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
+      let Out = new SignatureHelp();
       Out.signatures = this.All;
       Out.activeParameter = Item.Count();
       return Out;

@@ -1,4 +1,5 @@
 # Changelog 
+<<<<<<< HEAD
 - Updated Package Info
 - Updating package info
 - Fixing filters for 1.16.0
@@ -19,3 +20,25 @@
 - Updated Componets
 - Adding missing behaviours
 - Added missing components 1.16.0
+=======
+- letiable to variable
+- Added activation on json
+- var to let
+- Added selectors to molang injection
+- Added async handling of signatures
+- Added async handling of document symbols
+- Updated commands completion to be async
+- Updated json validation documentation
+- Updated to 0.2.36
+- Updated blocks json schema
+- Updated block json validation schema
+- Added blocks json schema
+- Updated
+- Updated to 0.2.36
+- Added Molang syntax support to json files and .molang files
+- Applied formatted
+- Fixing animations - particle timelines
+- Added 1.14.0 model schema
+- Updated to 0.2.34
+- Fixed transitions
+>>>>>>> 53e3375368080aa1f9dc6d4e0fa8e81c12311b43

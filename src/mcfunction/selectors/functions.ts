@@ -31,9 +31,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as vscode from "vscode";
 
 export function GetParameters(text: string): string[] {
-  var Out = new Array();
-  var startindex = 0;
-  var level = 0;
+  let Out = new Array();
+  let startindex = 0;
+  let level = 0;
 
   text = text.trim();
 
@@ -41,8 +41,8 @@ export function GetParameters(text: string): string[] {
   if (text.endsWith("]")) { text = text.substring(0, text.length - 1); }
   if (text.startsWith("[")) { text = text.substring(1, text.length); }
 
-  for (var index = 0; index < text.length; index++) {
-    var C = text.charAt(index);
+  for (let index = 0; index < text.length; index++) {
+    let C = text.charAt(index);
 
     switch (C) {
       case "{":
@@ -57,7 +57,7 @@ export function GetParameters(text: string): string[] {
         if (level > 0) break;
 
         if (index > startindex) {
-          var parameter = text.substring(startindex, index);
+          let parameter = text.substring(startindex, index);
 
           if (parameter.startsWith(",")){
             parameter = parameter.substring(1, parameter.length);
@@ -73,7 +73,7 @@ export function GetParameters(text: string): string[] {
   }
 
   if (startindex < text.length){
-    var parameter = text.substring(startindex, text.length);
+    let parameter = text.substring(startindex, text.length);
 
     if (parameter.startsWith(",")){
       parameter = parameter.substring(1, parameter.length);
@@ -86,11 +86,11 @@ export function GetParameters(text: string): string[] {
 }
 
 export function IsInSelector(document: vscode.TextDocument, position: vscode.Position): boolean {
-  var Line = document.lineAt(position.line);
-  var Text = Line.text;
+  let Line = document.lineAt(position.line);
+  let Text = Line.text;
 
   for (let index = position.character - 1; index > 0; index--) {
-    var c = Text.charAt(index);
+    let c = Text.charAt(index);
 
     switch (c) {
       case "@":
@@ -101,7 +101,7 @@ export function IsInSelector(document: vscode.TextDocument, position: vscode.Pos
 
       case "[":
         if (Text.charAt(index - 2) == "@") {
-          var C = Text.charAt(index - 1);
+          let C = Text.charAt(index - 1);
 
           switch (C) {
             case "a":
@@ -121,7 +121,7 @@ export function IsInSelector(document: vscode.TextDocument, position: vscode.Pos
 }
 
 export function IsSelector(text : string): boolean {
-    var Prefix = text.substring(0, 2);
+    let Prefix = text.substring(0, 2);
 
     switch(Prefix){
         case "@a":
@@ -139,11 +139,11 @@ export function IsSelector(text : string): boolean {
 }
 
 export function InScoreSection(document: vscode.TextDocument, position: vscode.Position) {
-  var Line = document.lineAt(position.line);
-  var Text = Line.text;
+  let Line = document.lineAt(position.line);
+  let Text = Line.text;
 
   for (let index = position.character - 1; index > 0; index--) {
-    var c = Text.charAt(index);
+    let c = Text.charAt(index);
 
     switch (c) {
       case "@a":
@@ -159,12 +159,12 @@ export function InScoreSection(document: vscode.TextDocument, position: vscode.P
 
 //Returns the parameter name
 export function GetParameterName(document: vscode.TextDocument, position: vscode.Position) : string {
-  var text = document.lineAt(position.line).text;
-  var endindex = position.character
-  var startindex = endindex - 1;
+  let text = document.lineAt(position.line).text;
+  let endindex = position.character
+  let startindex = endindex - 1;
 
-  var char = text.charAt(startindex);
-  var loop = true;
+  let char = text.charAt(startindex);
+  let loop = true;
 
   while (loop){
     switch(char){

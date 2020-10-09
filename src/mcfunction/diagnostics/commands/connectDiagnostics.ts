@@ -37,7 +37,7 @@ export class ConnectDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
-		var Uri = item.Child;
+		let Uri = item.Child;
 
 		//<serverUri: text>
 		if (Uri == undefined) {

@@ -43,7 +43,6 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 
-
 class LanguageCompletionItemProvider implements vscode.CompletionItemProvider {
 
     public StartItems : vscode.CompletionItem[];
@@ -51,7 +50,7 @@ class LanguageCompletionItemProvider implements vscode.CompletionItemProvider {
     public WhenValue : vscode.CompletionItem[];
 
     constructor(){
-        var Comment = createCompletionItem('##', 'Comment', 'Adds a Comment to the language file', vscode.CompletionItemKind.Snippet);
+        let Comment = createCompletionItem('##', 'Comment', 'Adds a Comment to the language file', vscode.CompletionItemKind.Snippet);
         this.WhenKey = [ createCompletionItem('=', '=', '', vscode.CompletionItemKind.Operator) ]
 
         this.StartItems = [
@@ -88,20 +87,26 @@ class LanguageCompletionItemProvider implements vscode.CompletionItemProvider {
         ]
     }
 
-    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    async provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): Promise<vscode.CompletionItem[] | vscode.CompletionList> {
+        return new Promise<vscode.CompletionItem[] | vscode.CompletionList>((resolve, reject)=>{
+            resolve(this.internalProvideCompletionitems(document, position));
+        });
+    }
+
+    private internalProvideCompletionitems(document: vscode.TextDocument, position: vscode.Position) : vscode.CompletionItem[] | vscode.CompletionList | undefined {
         if (position.character == 0){
             //Comments
             return this.StartItems;
         }
 
-        var Line = document.lineAt(position.line);
-        var Text = Line.text;
+        let Line = document.lineAt(position.line);
+        let Text = Line.text;
 
         if (Text.startsWith('#')){
-            return;
+            return undefined;
         }
 
-        var Index = Text.indexOf('=');
+        let Index = Text.indexOf('=');
 
         //if no = is found
         if (Index < 0 || position.character < Index){

@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.player.saturation",
   "additionalProperties": false,
   "type": "object",
-  "title": "Minecraft:player.saturation 1.8.0",
+  "title": "player.saturation 1.8.0",
   "description": "UNDOCUMENTATED",
   "required": [],
   "properties": {

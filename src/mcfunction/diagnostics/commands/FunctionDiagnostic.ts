@@ -37,7 +37,7 @@ import { Errors } from '../DiagnosticsFunctions';
 export class FunctionCommandDiagnosticProvider implements DiagnosticProvider {
     //provides diagnostics
     provideDiagnostic(item: SyntaxItem, lineIndex : number, collector : vscode.Diagnostic[], dm : DiagnosticsManager, document: vscode.TextDocument) : void{
-        var Word = item.Child?.Text;
+        let Word = item.Child?.Text;
 
         if (Word == undefined){
             Errors.Missing('path', 'function', lineIndex, item, collector);
@@ -45,9 +45,9 @@ export class FunctionCommandDiagnosticProvider implements DiagnosticProvider {
         }
         
         //check for collection functions
-        var filepath = document.uri.fsPath;       
-        var index = filepath.indexOf("\\functions\\");
-        var folder
+        let filepath = document.uri.fsPath;       
+        let index = filepath.indexOf("\\functions\\");
+        let folder
     
         if (index > 0) {
             folder = filepath.substring(0, index + 11);
@@ -55,7 +55,7 @@ export class FunctionCommandDiagnosticProvider implements DiagnosticProvider {
             return; 
         }
     
-        var pathSpec = Word.text;
+        let pathSpec = Word.text;
 
         if (pathSpec == "")
             return;

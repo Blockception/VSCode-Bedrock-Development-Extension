@@ -39,13 +39,13 @@ export class TestforBlockDiagnosticProvider implements DiagnosticProvider {
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
 
 		//<position: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('testforblock', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('testforblock', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false) {
 			return;
 		}
 
-		var Block = item.Child;
+		let Block = item.Child;
 
 		//<tileName: Block>
 		if (Block == undefined) {
@@ -54,7 +54,7 @@ export class TestforBlockDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.BlockDiagnoser?.provideDiagnostic(Block, lineIndex, collector, dm, document);
 
-		var Data = Block.Child;
+		let Data = Block.Child;
 
 		//[dataValue: int]
 		if (Data == undefined) {

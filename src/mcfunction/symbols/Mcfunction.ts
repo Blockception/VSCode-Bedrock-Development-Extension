@@ -33,8 +33,16 @@ import * as functions from "../../general/include";
 import { SyntaxTree, SyntaxItem } from '../../general/include';
 
 export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider {
-    provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> {
-        var Out = new Array<vscode.SymbolInformation>();
+    //Handle request
+    async provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): Promise<vscode.SymbolInformation[] | vscode.DocumentSymbol[]> {
+        return new Promise<vscode.SymbolInformation[] | vscode.DocumentSymbol[]>((resolve, reject) => {
+            resolve(this.internalProvideDocumentSymbols(document));
+        });
+    }
+
+    //Provide symbols
+    private internalProvideDocumentSymbols(document: vscode.TextDocument) : vscode.SymbolInformation[] {
+        let Out : vscode.SymbolInformation[] = [];
 
         Function(document, Out);
 
@@ -43,10 +51,10 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider {
         return Out;
     }
 
-    checkLines(document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
-        for (var lineIndex = 0; lineIndex < document.lineCount; lineIndex++) {
-            var Tree = SyntaxTree.ParseEntireTree(document.lineAt(lineIndex));
-            var Root = Tree.Root;
+    private checkLines(document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
+        for (let lineIndex = 0; lineIndex < document.lineCount; lineIndex++) {
+            let Tree = SyntaxTree.ParseEntireTree(document.lineAt(lineIndex));
+            let Root = Tree.Root;
 
             if (Root != undefined) {
                 this.checkTree(Root, lineIndex, document, Collector);
@@ -54,14 +62,14 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider {
         }
     }
 
-    checkTree(Item: SyntaxItem, lineIndex: number, document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
+    private checkTree(Item: SyntaxItem, lineIndex: number, document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
         Collector.push(new vscode.SymbolInformation(
             Item.Text.text,
             vscode.SymbolKind.Method,
             'mcfunction',
             new vscode.Location(document.uri, new vscode.Range(lineIndex, Item.Text.startindex, lineIndex, Item.Text.endindex))));
 
-        var Child = Item.Child;
+        let Child = Item.Child;
 
         if (Child == undefined)
             return;
@@ -88,8 +96,8 @@ export class McfunctionSymbolProvider implements vscode.DocumentSymbolProvider {
 }
 
 function Function(document: vscode.TextDocument, Collector: vscode.SymbolInformation[]): void {
-    var filepath = document.fileName;
-    var name = functions.GetFilename(filepath);
+    let filepath = document.fileName;
+    let name = functions.GetFilename(filepath);
 
     Collector.push(
         new vscode.SymbolInformation(

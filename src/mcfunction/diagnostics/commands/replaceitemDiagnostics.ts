@@ -38,7 +38,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Mode = item.Child;
+		let Mode = item.Child;
 
 		if (Mode == undefined) {
 			Errors.Missing('block | entity', 'replaceitem', lineIndex, item, collector);
@@ -64,12 +64,12 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 	branchblock(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
 		//<position: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('replaceitem', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('replaceitem', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
 
-		var slot = Out[0].Child;
+		let slot = Out[0].Child;
 
 		//slot.container
 		if (slot == undefined) {
@@ -86,7 +86,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 	}
 
 	branchentity(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Target = item.Child;
+		let Target = item.Child;
 
 		//<target: target>
 		if (Target == undefined) {
@@ -95,7 +95,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.SelectorDiagnoser.provideDiagnostic(Target, lineIndex, collector, dm, document);
 
-		var slot = Target.Child;
+		let slot = Target.Child;
 
 		//<slotType: EntityEquipmentSlot>
 		if (slot == undefined) {
@@ -110,7 +110,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 
 	branchMerged(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var SlotID = item.Child;
+		let SlotID = item.Child;
 
 		//<slotId: int>
 		if (SlotID == undefined) {
@@ -119,7 +119,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(SlotID, lineIndex, collector, dm, document);
 
-		var Item = SlotID.Child;
+		let Item = SlotID.Child;
 
 		//<itemName: Item>
 		if (Item == undefined) {
@@ -128,7 +128,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.ItemDiagnoser?.provideDiagnostic(Item, lineIndex, collector, dm, document);
 
-		var Amount = Item.Child;
+		let Amount = Item.Child;
 
 		//[amount: int]
 		if (Amount == undefined) {
@@ -136,7 +136,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(Amount, lineIndex, collector, dm, document);
 
-		var Data = Amount.Child;
+		let Data = Amount.Child;
 
 		//[data: int]
 		if (Data == undefined) {
@@ -144,7 +144,7 @@ export class ReplaceItemDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 
-		var components = Data.Child;
+		let components = Data.Child;
 
 		//[components: json]
 		if (components == undefined) {

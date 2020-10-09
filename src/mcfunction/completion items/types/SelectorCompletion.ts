@@ -32,6 +32,7 @@ import * as vscode from "vscode";
 import * as SF from "../../selectors/functions"
 import * as Functions from "../../../general/include";
 import { mcfunctionDatabase } from "../../Database";
+import { CompletionData } from "../CompletionItemManager";
 
 export class SelectorCompletionProvider {
     constructor() {
@@ -46,11 +47,11 @@ export class SelectorVscodeCompletionProvider implements vscode.CompletionItemPr
     constructor() {
     }
 
-    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) : CompletionData {
         if (!SF.IsInSelector(document, position))
             return InternalSelectorCompletionProvider.default;
 
-        var InScore = SF.InScoreSection(document, position);
+        let InScore = SF.InScoreSection(document, position);
 
         if (InScore) {
             return InternalSelectorCompletionProvider.InofScore(document, position, context);
@@ -126,9 +127,9 @@ class InternalSelectorCompletionProvider {
         Functions.createCompletionItem(",rym=", "rym", "The maximum rotation of the Y axis, or left and right, number included", vscode.CompletionItemKind.Property),
     ];
 
-    public static OutofScore(document: vscode.TextDocument, position: vscode.Position): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        var Line = document.lineAt(position.line);
-        var PreviousChar = Line.text.charAt(position.character - 1);
+    public static OutofScore(document: vscode.TextDocument, position: vscode.Position): CompletionData {
+        let Line = document.lineAt(position.line);
+        let PreviousChar = Line.text.charAt(position.character - 1);
 
         switch (PreviousChar) {
             case "{":
@@ -141,28 +142,28 @@ class InternalSelectorCompletionProvider {
                 return this.letters;
 
             case "=":
-                var P = SF.GetParameterName(document, position);
+                let P = SF.GetParameterName(document, position);
                 return this.SolveParameter(document, position, P);
         }
 
         PreviousChar = Line.text.charAt(position.character - 2);
 
         if (PreviousChar == "@") {
-            var Out = new vscode.CompletionList();
-            Out.items.push(Functions.createCompletionItem("[]", "[", "start the selector", vscode.CompletionItemKind.Snippet));
+            let Out : vscode.CompletionItem[] = [];
+            Out.push(Functions.createCompletionItem("[]", "[", "start the selector", vscode.CompletionItemKind.Snippet));
             return Out;
         }
 
         return;
     }
 
-    public static InofScore(document: vscode.TextDocument, position: vscode.Position, context: vscode.CompletionContext | undefined): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
+    public static InofScore(document: vscode.TextDocument, position: vscode.Position, context: vscode.CompletionContext | undefined) : CompletionData {
         if (context?.triggerCharacter == "{" || context?.triggerCharacter == ",") {
-            var Out = new vscode.CompletionList();
+            let Out : vscode.CompletionItem[] = [];
 
             mcfunctionDatabase.Symbols.Scores.forEach(document => {
                 document.Values.forEach(symbol => {
-                    Out.items.push(new vscode.CompletionItem(symbol.name, vscode.CompletionItemKind.Variable));
+                    Out.push(new vscode.CompletionItem(symbol.name, vscode.CompletionItemKind.Variable));
                 });
             });
 
@@ -172,10 +173,10 @@ class InternalSelectorCompletionProvider {
         return;
     }
 
-    public static SolveParameter(document: vscode.TextDocument, position: vscode.Position, parameter: string): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-        var Out = new vscode.CompletionList();
-        var Data: Functions.DocumentDataCollection<vscode.SymbolInformation> | undefined;
-        var Kind = vscode.CompletionItemKind.Variable;
+    public static SolveParameter(document: vscode.TextDocument, position: vscode.Position, parameter: string): CompletionData {
+        let Out : vscode.CompletionItem[] = [];
+        let Data: Functions.DocumentDataCollection<vscode.SymbolInformation> | undefined;
+        let Kind = vscode.CompletionItemKind.Variable;
 
         switch (parameter) {
             case "tag":
@@ -183,7 +184,7 @@ class InternalSelectorCompletionProvider {
                 break;
 
             case "scores":
-                Out.items.push(new vscode.CompletionItem("{", vscode.CompletionItemKind.Snippet))
+                Out.push(new vscode.CompletionItem("{", vscode.CompletionItemKind.Snippet))
 
                 return Out;
             case "type":
@@ -195,7 +196,7 @@ class InternalSelectorCompletionProvider {
         if (Data != undefined) {
             Data.forEach(document => {
                 document.Values.forEach(symbol => {
-                    Out.items.push(new vscode.CompletionItem(symbol.name, Kind));
+                    Out.push(new vscode.CompletionItem(symbol.name, Kind));
                 });
             });
         }

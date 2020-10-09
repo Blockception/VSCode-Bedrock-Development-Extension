@@ -37,7 +37,7 @@ export class MobeventDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var event = item.Child;
+		let event = item.Child;
 
 		if (event == undefined) {
 			Errors.Missing('event', 'mobevent', lineIndex, item, collector);
@@ -48,7 +48,7 @@ export class MobeventDiagnosticProvider implements DiagnosticProvider {
 			case 'minecraft:pillager_patrols_event':
 			case 'wandering_trader_event':
 			case 'events_enabled':
-				var Value = event.Child;
+				let Value = event.Child;
 
 				if (Value == undefined) {
 					return;

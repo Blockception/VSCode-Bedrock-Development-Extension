@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.trade_resupply",
   "description": "UNDOCUMENTATED",
   "type": "object",
-  "title": "Minecraft:trade_resupply 1.16.0",
+  "title": "trade_resupply 1.16.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

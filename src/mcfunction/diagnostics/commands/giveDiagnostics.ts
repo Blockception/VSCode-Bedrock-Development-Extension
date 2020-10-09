@@ -36,7 +36,7 @@ export class GiveDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var target = item.Child;
+		let target = item.Child;
 
 		//<player: target>
 		if (target == undefined) {
@@ -46,7 +46,7 @@ export class GiveDiagnosticProvider implements DiagnosticProvider {
 
 		dm.SelectorDiagnoser.provideDiagnostic(target, lineIndex, collector, dm, document);
 
-		var Item = target.Child;
+		let Item = target.Child;
 
 		//<itemName: Item>
 		if (Item == undefined) {
@@ -55,7 +55,7 @@ export class GiveDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.ItemDiagnoser?.provideDiagnostic(Item, lineIndex, collector, dm, document);
 
-		var Amount = Item.Child;
+		let Amount = Item.Child;
 
 		//[amount: int]
 		if (Amount == undefined) {
@@ -64,7 +64,7 @@ export class GiveDiagnosticProvider implements DiagnosticProvider {
 		
 		dm.IntegerDiagnoser?.provideDiagnostic(Amount, lineIndex, collector, dm, document);
 
-		var Data = Amount.Child;
+		let Data = Amount.Child;
 
 		//[data: int]
 		if (Data == undefined) {
@@ -73,7 +73,7 @@ export class GiveDiagnosticProvider implements DiagnosticProvider {
 
 		dm.IntegerDiagnoser?.provideDiagnostic(Data, lineIndex, collector, dm, document);
 
-		var Components = item.Child;
+		let Components = item.Child;
 
 		//[components: json]
 		if (Components == undefined){

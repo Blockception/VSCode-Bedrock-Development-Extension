@@ -38,20 +38,20 @@ export class GeneralSignatureProvider implements SignatureItemProvider {
 
     public SignatureProviders: Map<string, vscode.SignatureInformation>;
 
-    provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-        var Child = this.SignatureProviders.get(Item.Text.text);
+    provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
+        let Child = this.SignatureProviders.get(Item.Text.text);
 
         if (Child == undefined)
             return undefined;
 
-        var Count = Item.Count();
+        let Count = Item.Count();
 
         if (Count > Child.parameters.length)
             return undefined;
 
         Child.activeParameter = Count;
 
-        var Out = new SignatureHelp();
+        let Out = new SignatureHelp();
         Out.signatures = [Child];
         Out.activeParameter = Count;
 
@@ -59,7 +59,7 @@ export class GeneralSignatureProvider implements SignatureItemProvider {
     }
 
     private newItem(key: string, label: string, documentation: string, parameters: vscode.ParameterInformation[]): void {
-        var SI = new vscode.SignatureInformation(label, documentation);
+        let SI = new vscode.SignatureInformation(label, documentation);
         SI.parameters = parameters;
 
         this.SignatureProviders.set(key, SI);

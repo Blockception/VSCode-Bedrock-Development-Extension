@@ -36,7 +36,7 @@ export class SetmaxplayersDiagnosticProvider implements DiagnosticProvider {
 
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument) : void {
-		var Count = item.Child;
+		let Count = item.Child;
 
 		//<maxPlayers: int>
 		if (Count == undefined) {

@@ -67,19 +67,19 @@ export class FillSignatureProvider implements SignatureItemProvider {
       ]);
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var ReplaceChild = Item.GetAt(8);
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
+      let ReplaceChild = Item.GetAt(8);
 
-      var Count = Item.Count();
+      let Count = Item.Count();
 
       if (ReplaceChild == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = [this.Normal, this.Replace];
          Out.activeParameter = Count;
          return Out;
       }
 
-      var Child;
+      let Child;
 
       if (ReplaceChild.Text.text == 'replace'){
          Child = this.Replace; 
@@ -92,7 +92,7 @@ export class FillSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

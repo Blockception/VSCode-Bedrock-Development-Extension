@@ -41,7 +41,7 @@ export function createCompletionItem(code: string, label: string, description: s
 }
 
 export function copyCompletionItem(item: vscode.CompletionItem): vscode.CompletionItem {
-   var Out = new vscode.CompletionItem(item.label, item.kind);
+   let Out = new vscode.CompletionItem(item.label, item.kind);
 
    Out.additionalTextEdits = item.additionalTextEdits;
    Out.command = item.command;

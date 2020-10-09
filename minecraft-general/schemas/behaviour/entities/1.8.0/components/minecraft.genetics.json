@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.genetics",
   "type": "object",
-  "title": "Minecraft:genetics 1.8.0",
+  "title": "genetics 1.8.0",
   "additionalProperties": false,
   "description": "Defines the way a mob's genes and alleles are passed on to it's offspring, and how those traits manifest in the child. Compatible parent genes are crossed together, the alleles are handed down from the parents to the child, and any matching genetic variants fire off JSON events to modify the child and express the traits.",
   "required": [],

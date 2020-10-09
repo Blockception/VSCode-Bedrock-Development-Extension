@@ -50,10 +50,10 @@ export class SelectorParameter {
     }
 
     static Parse(text : string) : SelectorParameter {
-        var index = text.indexOf("=");
+        let index = text.indexOf("=");
 
-        var name = text.substring(0, index).trim();
-        var value = text.substring(index + 1, text.length).trim();
+        let name = text.substring(0, index).trim();
+        let value = text.substring(index + 1, text.length).trim();
 
         return new SelectorParameter(name, value);
     }
@@ -78,10 +78,10 @@ export class SelectorScores {
         if (text.startsWith("scores={")){ text = text.substring(8, text.length); }
         if (text.endsWith("}")) { text = text.substring(0, text.length - 1); }
 
-        var Parameters = GetParameters(text);
+        let Parameters = GetParameters(text);
 
-        for (var i = 0; i < Parameters.length; i++){
-            var P = Parameters[i];
+        for (let i = 0; i < Parameters.length; i++){
+            let P = Parameters[i];
             this.tests.push(SelectorParameter.Parse(P));
         }
     }
@@ -155,7 +155,7 @@ export class Selector {
                 return 1;
         }
 
-        var Out = 0;
+        let Out = 0;
 
         for (let index = 0; index < this.parameters.length; index++) {
             const element = this.parameters[index];
@@ -167,10 +167,10 @@ export class Selector {
     }
     
     static Parse(text : string) : Selector {
-        var Out = new Selector();
+        let Out = new Selector();
 
         text = text.trim();
-        var Prefix = text.substring(0, 2);
+        let Prefix = text.substring(0, 2);
 
         switch(Prefix){
             case "@a":
@@ -193,10 +193,10 @@ export class Selector {
         if (text.length < 3)
             return Out;
 
-        var Parameters = GetParameters(text);
+        let Parameters = GetParameters(text);
 
-        for (var i = 0; i < Parameters.length; i++){
-            var P = Parameters[i];
+        for (let i = 0; i < Parameters.length; i++){
+            let P = Parameters[i];
 
             if (P.startsWith("scores")){
                 Out.scores.Add(P);

@@ -38,7 +38,7 @@ export class TickingAreaDiagnosticProvider implements DiagnosticProvider {
 	//provides diagnostics
 	provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Mode = item.Child;
+		let Mode = item.Child;
 
 		if (Mode == undefined) {
 			Errors.Missing('mode', 'tickingarea', lineIndex, item, collector);
@@ -70,7 +70,7 @@ export class TickingAreaDiagnosticProvider implements DiagnosticProvider {
 
 	//tickingarea list
 	branchlist(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-		var Boolean = item.Child;
+		let Boolean = item.Child;
 
 		//[all-dimensions]
 		if (Boolean == undefined) {
@@ -89,7 +89,7 @@ export class TickingAreaDiagnosticProvider implements DiagnosticProvider {
 	//tickingarea remove
 	branchremove(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Reference = item.Child;
+		let Reference = item.Child;
 
 		if (Reference == undefined) {
 			Errors.Missing('position | name', 'tickingarea', lineIndex, item, collector);
@@ -120,7 +120,7 @@ export class TickingAreaDiagnosticProvider implements DiagnosticProvider {
 	//tickingarea add
 	branchadd(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
-		var Next = item.Child;
+		let Next = item.Child;
 
 		if (Next == undefined) {
 			Errors.Missing('position | circle', 'tickingarea', lineIndex, item, collector);
@@ -139,12 +139,12 @@ export class TickingAreaDiagnosticProvider implements DiagnosticProvider {
 	branchcircle(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
 		//<center: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('tickingarea', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('tickingarea', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
 
-		var Radius = Out[0].Child;
+		let Radius = Out[0].Child;
 
 		//<radius: int>
 		if (Radius == undefined) {
@@ -153,7 +153,7 @@ export class TickingAreaDiagnosticProvider implements DiagnosticProvider {
 		}
 		dm.IntegerDiagnoser?.provideDiagnostic(Radius, lineIndex, collector, dm, document);
 
-		var Name = Radius.Child;
+		let Name = Radius.Child;
 
 		//[name: string]
 		if (Name == undefined) {
@@ -166,18 +166,18 @@ export class TickingAreaDiagnosticProvider implements DiagnosticProvider {
 	branchfrom(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
 
 		//<from: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('tickingarea', item, lineIndex, collector, dm, document);
+		let Out = Functions.provideDiagnosticsXYZ('tickingarea', item, lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
 
 		//<to: x y z>
-		var Out = Functions.provideDiagnosticsXYZ('tickingarea', Out[0], lineIndex, collector, dm, document);
+		Out = Functions.provideDiagnosticsXYZ('tickingarea', Out[0], lineIndex, collector, dm, document);
 
 		if (Out[1] == false)
 			return;
 
-		var Name = Out[0].Child;
+		let Name = Out[0].Child;
 
 		//[name: string]
 		if (Name == undefined) {

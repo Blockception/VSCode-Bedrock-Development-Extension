@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class LocateCompletionProvider implements CompletionItemProvider {
@@ -53,7 +53,7 @@ export class LocateCompletionProvider implements CompletionItemProvider {
         );
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
 
         //gamerule [rule] [value]
 

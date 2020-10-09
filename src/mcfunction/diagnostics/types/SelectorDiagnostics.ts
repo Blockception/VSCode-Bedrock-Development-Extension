@@ -32,13 +32,18 @@ import * as vscode from "vscode";
 import { Selector, SelectorParameter } from "../../selectors/selector";
 import { DiagnosticsManager, DiagnosticProvider } from "../DiagnosticsManager";
 import { SyntaxItem, RangedWord } from "../../../general/include";
+import { CheckNumberIf } from "./Number";
+import { IsRangeInteger } from "./Range";
+import { CheckCoordinateIf } from "./Coordinate";
+import { CheckIntegerIf, IsInteger } from "./Integer";
 
 export class SelectorDiagnosticProvider implements DiagnosticProvider {
 
   //provides diagnostics
   provideDiagnostic(item: SyntaxItem, lineIndex: number, collector: vscode.Diagnostic[], dm: DiagnosticsManager, document: vscode.TextDocument): void {
-    var Selector = item.Text;
+    let Selector = item.Text;
 
+    //If the target is a dummy player
     if (Selector.text.startsWith('"')) {
       if (!Selector.text.endsWith('"')) {
         collector.push(new vscode.Diagnostic(
@@ -74,7 +79,7 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
       }
     }
     else {
-      var match = Selector.text.match("^[\\w_\\-.]+$");
+      let match = Selector.text.match("^[\\w_\\-.]+$");
       if (match == undefined || match.length == 0) {
         collector.push(new vscode.Diagnostic(
           new vscode.Range(lineIndex, Selector.startindex, lineIndex, Selector.endindex),
@@ -88,14 +93,14 @@ export class SelectorDiagnosticProvider implements DiagnosticProvider {
 
 //Checks the selector
 function CheckSelector(lineIndex: number, selectorText: RangedWord, dm: DiagnosticsManager, document: vscode.TextDocument, collection: vscode.Diagnostic[]): void {
-  var sObject = Selector.Parse(selectorText.text);
-  var Range = new vscode.Range(lineIndex, selectorText.startindex, lineIndex, selectorText.endindex);
-  var coordsSpec = false;
-  var BoxSpec = false;
-  var SphereSpec = false;
+  let sObject = Selector.Parse(selectorText.text);
+  let Range = new vscode.Range(lineIndex, selectorText.startindex, lineIndex, selectorText.endindex);
+  let coordsSpec = false;
+  let BoxSpec = false;
+  let SphereSpec = false;
 
   if (MultipleScores(selectorText.text)) {
-    var item = new vscode.Diagnostic(Range, "Cannot have multiple scores inside a selector", vscode.DiagnosticSeverity.Error);
+    let item = new vscode.Diagnostic(Range, "Cannot have multiple scores inside a selector", vscode.DiagnosticSeverity.Error);
     collection.push(item);
   }
 
@@ -112,8 +117,9 @@ function CheckSelector(lineIndex: number, selectorText: RangedWord, dm: Diagnost
   SphereSpec = SphereSpec || CheckNumberIf(sObject, "rm", Range, collection);
   SphereSpec = SphereSpec || CheckNumberIf(sObject, "r", Range, collection);
 
-  CheckNumberIf(sObject, "lm", Range, collection);
-  CheckNumberIf(sObject, "l", Range, collection);
+  CheckIntegerIf(sObject, "c", Range, collection);
+  CheckIntegerIf(sObject, "lm", Range, collection);
+  CheckIntegerIf(sObject, "l", Range, collection);
   CheckNumberIf(sObject, "rx", Range, collection);
   CheckNumberIf(sObject, "rxm", Range, collection);
   CheckNumberIf(sObject, "ry", Range, collection);
@@ -137,7 +143,7 @@ function CheckSelector(lineIndex: number, selectorText: RangedWord, dm: Diagnost
 
 //Check the scores
 function MultipleScores(selectorText: string): boolean {
-  var index = selectorText.indexOf("scores={");
+  let index = selectorText.indexOf("scores={");
 
   if (index < 0) return false;
 
@@ -150,138 +156,11 @@ function MultipleScores(selectorText: string): boolean {
   return false;
 }
 
-//Checks the coordinate if it is there
-function CheckCoordinateIf(sObject: Selector, name: string, range: vscode.Range, collection: vscode.Diagnostic[]): boolean {
-  if (sObject.hasParameter(name)) {
-    CheckCoordinate(sObject.getParameter(name), range, collection);
-    return true;
-  }
-
-  return false;
-}
-
-//Checks the coordinate
-function CheckCoordinate(Parameter: SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  if (Parameter.value.indexOf("^") > -1) {
-    collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": ^ coordinate references are not allowed in selectors", vscode.DiagnosticSeverity.Error));
-    return;
-  } else if (Parameter.value === "") {
-    collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": empty coordinate", vscode.DiagnosticSeverity.Error));
-    return;
-  }
-
-  var Number = Parameter.value;
-  if (Number.startsWith("~")) {
-    Number = Number.substring(1, Parameter.value.length);
-  }
-
-  if (Number.match("(^[\-+0-9.]+$|^\~[\-+0-9.]*$)")?.length == 0) {
-    collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": The number part is not valid", vscode.DiagnosticSeverity.Error));
-  }
-}
-
-//Checks the number if it is there
-function CheckNumberIf(sObject: Selector, name: string, range: vscode.Range, collection: vscode.Diagnostic[]): boolean {
-  if (sObject.hasParameter(name)) {
-    CheckNumber(sObject.getParameter(name), range, collection);
-    return true;
-  }
-
-  return false;
-}
-
-//Checks the number
-function CheckNumber(Parameter: SelectorParameter, range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  var Number = Parameter.value;
-
-  if (!IsNumber(Number)) {
-    collection.push(new vscode.Diagnostic(range, "parameter: " + Parameter.name + ": The number is not valid", vscode.DiagnosticSeverity.Error));
-  }
-}
-
-//Check if the given value is a number
-function IsNumber(value: string): boolean {
-  for (let index = 0; index < value.length; index++) {
-    switch (value.charAt(index)) {
-      case "0":
-      case "1":
-      case "2":
-      case "3":
-      case "4":
-      case "5":
-      case "6":
-      case "7":
-      case "8":
-      case "9":
-      case "+":
-      case "-":
-        continue;
-      default:
-        return false;
-    }
-  }
-
-  return true;
-}
-
-//Check if the given value is a Range
-function IsRange(value: string): boolean {
-  for (let index = 0; index < value.length; index++) {
-    switch (value.charAt(index)) {
-      case "0":
-      case "1":
-      case "2":
-      case "3":
-      case "4":
-      case "5":
-      case "6":
-      case "7":
-      case "8":
-      case "9":
-      case ".":
-      case "+":
-      case "-":
-        continue;
-      default:
-        return false;
-    }
-  }
-
-  return true;
-}
-
-function IsCoordinate(value: string): boolean {
-  for (let index = 0; index < value.length; index++) {
-    switch (value.charAt(index)) {
-      case "0":
-      case "1":
-      case "2":
-      case "3":
-      case "4":
-      case "5":
-      case "6":
-      case "7":
-      case "8":
-      case "9":
-      case "+":
-      case "-":
-      case "^":
-      case "~":
-      case ".":
-        continue;
-      default:
-        return false;
-    }
-  }
-
-  return true;
-}
-
 //Checks for duplicates
 function DuplicateCheck(selector: Selector, names: string[], range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  for (var i = 0; i < names.length; i++) {
-    var name = names[i];
-    var Count = selector.countParameter(name);
+  for (let i = 0; i < names.length; i++) {
+    let name = names[i];
+    let Count = selector.countParameter(name);
 
     if (Count > 1) {
       collection.push(new vscode.Diagnostic(range, "parameter: " + name + ": parameter cannot be specified multiple times", vscode.DiagnosticSeverity.Error));
@@ -295,7 +174,7 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
   if (!sObject.hasParameter("name"))
     return;
 
-  var Parameter = sObject.getParameter("name");
+  let Parameter = sObject.getParameter("name");
 
   if (Parameter.name.startsWith("\"")) {
     if (Parameter.name.endsWith("\"")) {
@@ -321,8 +200,8 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
     return;
   }
 
-  for (var index = 0; index < Parameter.value.length; index++) {
-    var C = Parameter.value.charAt(index);
+  for (let index = 0; index < Parameter.value.length; index++) {
+    let C = Parameter.value.charAt(index);
     if (C == " " || C == "\t") {
       collection.push(
         new vscode.Diagnostic(
@@ -335,11 +214,11 @@ function nameCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
 
 //Checks the type
 function typeCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[]): void {
-  var Parameters = sObject.parameters;
-  var PositiveTest = false;
+  let Parameters = sObject.parameters;
+  let PositiveTest = false;
 
-  for (var index = 0; index < Parameters.length; index++) {
-    var P = Parameters[index];
+  for (let index = 0; index < Parameters.length; index++) {
+    let P = Parameters[index];
 
     if (P.name == "type") {
       if (!P.value.startsWith("!")) {
@@ -359,17 +238,19 @@ function typeCheck(sObject: Selector, range: vscode.Range, collection: vscode.Di
 }
 
 function scoreCheck(sObject: Selector, range: vscode.Range, collection: vscode.Diagnostic[], dm: DiagnosticsManager): void {
-  var Objectives = sObject.scores.tests;
+  let Objectives = sObject.scores.tests;
 
-  for (var I = 0; I < Objectives.length; I++) {
-    var O = Objectives[I];
+  for (let I = 0; I < Objectives.length; I++) {
+    let O = Objectives[I];
 
     if (O.name.length > 16) {
       collection.push(new vscode.Diagnostic(range, "Objectives cannot be longer then 16 characters"));
     }
 
-    if (!IsRange(O.value)) {
-      collection.push(new vscode.Diagnostic(range, "Range: '" + O.value + "'"));
+    if (IsInteger(O.value) || IsRangeInteger(O.value)) {
+
+    } else {
+      collection.push(new vscode.Diagnostic(range, "invalid range/number: '" + O.value + "'"));
     }
   }
 }

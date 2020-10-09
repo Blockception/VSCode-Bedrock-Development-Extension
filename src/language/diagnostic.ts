@@ -44,8 +44,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
         //update
         vscode.workspace.onDidChangeTextDocument(e =>{
-            updateDiagnostics(e.document, collection)
+            updateDiagnostics(e.document, collection);
         }),
+
         //when window is changed
         vscode.window.onDidChangeActiveTextEditor(editor => {
             if (editor) {
@@ -62,17 +63,17 @@ function updateDiagnostics(document : vscode.TextDocument, collection : vscode.D
 
     console.log("running diagnostics start:\t" + document.fileName);
 
-    var docCollection = new Array<vscode.Diagnostic>();
-    var Keys = new Map<string, vscode.Range>();
+    let docCollection = new Array<vscode.Diagnostic>();
+    let Keys = new Map<string, vscode.Range>();
 
-    for (var lineIndex = 0; lineIndex < document.lineCount; lineIndex++){
-        var line = document.lineAt(lineIndex);
-        var text = line.text.trim();
+    for (let lineIndex = 0; lineIndex < document.lineCount; lineIndex++){
+        let line = document.lineAt(lineIndex);
+        let text = line.text;
 
         if (text === "" || text.startsWith("##"))
             continue;
 
-        var index = text.indexOf("=");
+        let index = text.indexOf("=");
 
         if (index < 0){
             docCollection.push(new vscode.Diagnostic(
@@ -82,25 +83,36 @@ function updateDiagnostics(document : vscode.TextDocument, collection : vscode.D
             ));
         }
         else {
-            var key = text.substring(0, index);
+            let key = text.substring(0, index);
 
             if (Keys.has(key)){
-                var Item = Keys.get(key);
+                let Item = Keys.get(key);
 
                 if (Item != undefined) {
                     docCollection.push(new vscode.Diagnostic(
-                        Item,
-                        "has a duplicate at line: " + (lineIndex + 1),
-                        vscode.DiagnosticSeverity.Error),
+                            Item,
+                            "has a duplicate at line: " + (lineIndex + 1),
+                            vscode.DiagnosticSeverity.Error),
+
                         new vscode.Diagnostic(
-                        new vscode.Range(lineIndex, 0, lineIndex, index),
-                        "has a duplicate at line: " + (Item.start.line + 1),
-                        vscode.DiagnosticSeverity.Error
+                            new vscode.Range(lineIndex, 0, lineIndex, index),
+                            "has a duplicate at line: " + (Item.start.line + 1),
+                            vscode.DiagnosticSeverity.Error
                     ));
                 }
             }
             else{
-                Keys.set(key, new vscode.Range(lineIndex, 0, lineIndex, index));
+                let Range = new vscode.Range(lineIndex, 0, lineIndex, index);
+
+                if (index + 1 >= text.length){
+                    docCollection.push(new vscode.Diagnostic(
+                        Range,
+                        "Value cannot be empty, must contain something",
+                        vscode.DiagnosticSeverity.Error
+                    ));
+                }
+
+                Keys.set(key, Range);
             }
         }
     }

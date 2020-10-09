@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from 'vscode';
 import { createCompletionItem } from '../../../general/include';
+import { CompletionData } from '../CompletionItemManager';
 
 export class CoordinateCompletionItemProvider {
 
@@ -37,7 +38,7 @@ export class CoordinateCompletionItemProvider {
 
     constructor(){
         this.Items = new Array<vscode.CompletionItem>();
-        var Relative = new vscode.CompletionItem('^', vscode.CompletionItemKind.Operator);
+        let Relative = new vscode.CompletionItem('^', vscode.CompletionItemKind.Operator);
         Relative.documentation = "Relative pointing coordinate";
         Relative.preselect = true;
 
@@ -47,7 +48,7 @@ export class CoordinateCompletionItemProvider {
         );
     }
 
-    public provideDiagnostics() : vscode.CompletionItem[] {
+    public provideDiagnostics() : CompletionData {
         return this.Items;
     }
 }

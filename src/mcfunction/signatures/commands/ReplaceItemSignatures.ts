@@ -65,19 +65,19 @@ export class ReplaceItemSignatureProvider implements SignatureItemProvider {
          ]);
    }
 
-   provideSignature(Item: SyntaxItem, Sm: SignatureManager): vscode.ProviderResult<SignatureHelp> {
-      var TargetType = Item.Child;
+   provideSignature(Item: SyntaxItem, Sm: SignatureManager): SignatureHelp | undefined {
+      let TargetType = Item.Child;
 
-      var Count = Item.Count();
+      let Count = Item.Count();
 
       if (TargetType == undefined){
-         var Out = new SignatureHelp();
+         let Out = new SignatureHelp();
          Out.signatures = [this.Entity, this.Block];
          Out.activeParameter = Count;
          return Out;
       }
 
-      var Child;
+      let Child;
 
       if (TargetType.Text.text == 'entity'){
          Child = this.Entity; 
@@ -90,7 +90,7 @@ export class ReplaceItemSignatureProvider implements SignatureItemProvider {
 
       Child.activeParameter = Count;
 
-      var Out = new SignatureHelp();
+      let Out = new SignatureHelp();
       Out.signatures = [Child];
       Out.activeParameter = Count;
 

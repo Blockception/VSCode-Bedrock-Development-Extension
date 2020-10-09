@@ -1,6 +1,6 @@
 
 export function GetFilename(filepath : string) : string{
-    var index = filepath.lastIndexOf('\\');
+    let index = filepath.lastIndexOf('\\');
 
     if (index > -1){
         filepath = filepath.substring(index + 1, filepath.length);

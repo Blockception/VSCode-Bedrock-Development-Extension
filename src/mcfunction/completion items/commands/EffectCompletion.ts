@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import * as vscode from "vscode";
-import { CompletionItemProvider, CompletionItemManager } from "../CompletionItemManager";
+import { CompletionItemProvider, CompletionItemManager, CompletionData } from "../CompletionItemManager";
 import { SyntaxItem, createCompletionItem } from "../../../general/include";
 
 export class EffectCompletionProvider implements CompletionItemProvider {
@@ -71,15 +71,15 @@ export class EffectCompletionProvider implements CompletionItemProvider {
         );
     }
 
-    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): vscode.CompletionItem[] | undefined {
+    provideCompletionItems(Item: SyntaxItem, Cm: CompletionItemManager, document: vscode.TextDocument): CompletionData {
         //effect <player: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean]        
         //effect <player: target> clear
-        var IsCleared = false;
+        let IsCleared = false;
 
-        var Count = Item.Count();
+        let Count = Item.Count();
 
         if (Count < 2) {
-            var ClearItem = Item.GetAt(3);
+            let ClearItem = Item.GetAt(3);
 
             if (ClearItem != undefined) {
                 IsCleared = ClearItem.Text.text == "clear";
