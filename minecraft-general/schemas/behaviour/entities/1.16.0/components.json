@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.components1.16.0",
   "type": "object",
-  "title": "Minecraft:entity",
+  "title": "entity",
   "description": "minecraft:entity for 1.16.0",
   "additionalProperties": false,
   "properties": {

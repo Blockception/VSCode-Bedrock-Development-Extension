@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.underwater_movement",
   "description": "UNDOCUMENTATED",
   "type": "object",
-  "title": "Minecraft:underwater_movement 1.16.0",
+  "title": "underwater_movement 1.16.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

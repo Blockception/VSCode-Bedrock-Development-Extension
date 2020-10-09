@@ -47,7 +47,7 @@
     },
     "minecraft:geometry": {
       "type": "array",
-      "title": "Minecraft:geometry",
+      "title": "geometry",
       "description": "The collection of geometries",
       "minItems": 1,
       "items": {

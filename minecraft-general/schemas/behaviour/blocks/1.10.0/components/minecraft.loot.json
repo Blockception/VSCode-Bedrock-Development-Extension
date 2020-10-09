@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.blocks.1.10.0.minecraft.loot",
   "additionalProperties": false,
   "type": "string",
-  "title": "Minecraft:loot 1.10.0",
+  "title": "loot 1.10.0",
   "description": "The path of the loot table that this component will use when the block is destroyed.",
   "pattern": "loot_tables/.*\\.json$"
 }

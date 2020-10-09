@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "description": "Allows mobs that own a bed to in a village to move to and sleep in it.",
   "type": "object",
-  "title": "Minecraft:behavior.sleep 1.8.0",
+  "title": "behavior.sleep 1.8.0",
   "required": [],
   "properties": {
     "priority": {

@@ -4,7 +4,7 @@
   "description": "Allows the mob to pick up items on the ground.",
   "additionalProperties": false,
   "type": "object",
-  "title": "Minecraft:behavior.pickup_items 1.16.0",
+  "title": "behavior.pickup_items 1.16.0",
   "properties": {
     "priority": {
       "ref": "types/base_priority.json"

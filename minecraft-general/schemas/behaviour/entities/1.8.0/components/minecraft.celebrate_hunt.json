@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.celebrate_hunt",
   "type": "object",
-  "title": "Minecraft:celebrate_hunt 1.8.0",
+  "title": "celebrate_hunt 1.8.0",
   "description": "Specifies hunt celebration behaviour.",
   "additionalProperties": false,
   "properties": {

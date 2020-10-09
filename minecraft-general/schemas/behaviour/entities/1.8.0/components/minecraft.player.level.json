@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.player.level",
   "additionalProperties": false,
   "type": "object",
-  "title": "Minecraft:player.level 1.8.0",
+  "title": "player.level 1.8.0",
   "description": "UNDOCUMENTATED",
   "required": [],
   "properties": {
