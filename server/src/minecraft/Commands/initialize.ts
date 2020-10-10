@@ -230,27 +230,29 @@ export function AddCommands(): void {
 	new MCCommandParameter("level", MCCommandParameterType.keyword, false)
 	], "enchant", "Enchants a player item.");
 
+	//execute
+	const ExecuteCommand = new MCCommandParameter("execute");
 
-	add([new MCCommandParameter("execute"),
-	new MCCommandParameter("origin", MCCommandParameterType.selector),
+	add([ExecuteCommand,
+		new MCCommandParameter("origin", MCCommandParameterType.selector),
 		positionXR,
 		positionYR,
 		positionZR,
-	new MCCommandParameter("command", MCCommandParameterType.command)
+		new MCCommandParameter("command", MCCommandParameterType.command)
 	], "execute", "Executes another command.");
 
-	add([new MCCommandParameter("execute"),
-	new MCCommandParameter("origin", MCCommandParameterType.selector),
+	add([ExecuteCommand,
+		new MCCommandParameter("origin", MCCommandParameterType.selector),
 		positionXR,
 		positionYR,
 		positionZR,
-	new MCCommandParameter("detect"),
-	new MCCommandParameter("detectPos x", MCCommandParameterType.coordinate),
-	new MCCommandParameter("detectPos y", MCCommandParameterType.coordinate),
-	new MCCommandParameter("detectPos z", MCCommandParameterType.coordinate),
-	new MCCommandParameter("block", MCCommandParameterType.block),
-	new MCCommandParameter("data", MCCommandParameterType.integer),
-	new MCCommandParameter("command", MCCommandParameterType.command)
+		new MCCommandParameter("detect"),
+		new MCCommandParameter("detectPos x", MCCommandParameterType.coordinate),
+		new MCCommandParameter("detectPos y", MCCommandParameterType.coordinate),
+		new MCCommandParameter("detectPos z", MCCommandParameterType.coordinate),
+		new MCCommandParameter("block", MCCommandParameterType.block),
+		new MCCommandParameter("data", MCCommandParameterType.integer),
+		new MCCommandParameter("command", MCCommandParameterType.command)
 	], "execute", "Executes another command.");
 
 

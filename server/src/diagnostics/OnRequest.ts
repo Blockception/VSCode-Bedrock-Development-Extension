@@ -1,4 +1,3 @@
-import { TextDocument } from 'vscode-languageserver-textdocument';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -28,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
+import { TextDocument } from 'vscode-languageserver-textdocument';
 import { McLanguageIdentifier } from '../Constants';
 import { provideLanguageDiagnostics } from './Language';
 

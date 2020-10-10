@@ -32,10 +32,21 @@ import { RangedWord } from '../../code/include';
 import { Manager } from '../../Manager';
 import { CommandInfo } from './CommandInfo';
 
-//A class that helps interpeting written commands
+/**
+ *A class that helps interpeting written commands 
+ */
 export class CommandIntr {
+	/**
+	 * The parameters of the command
+	 */
 	public Paramaters: RangedWord[];
+	/**
+	 * The line the command is comming from
+	 */
 	public Line: number;
+	/**
+	 * The index of parameter, that the cursor is in.
+	 */
 	public CursorParamater: number;
 
 	constructor() {
@@ -54,8 +65,8 @@ export class CommandIntr {
 		Out.Paramaters = Words;
 
 		if (Out.Paramaters.length > 0) {
-			if (Out.Paramaters[Out.Paramaters.length - 1].startindex > pos.character) {
-				Out.CursorParamater = Out.Paramaters.length - 1;
+			if (Out.Paramaters[Out.Paramaters.length - 1].endindex < pos.character) {
+				Out.CursorParamater = Out.Paramaters.length;
 			}
 			else {
 				for (let I = 0; I < Out.Paramaters.length; I++) {
@@ -90,12 +101,16 @@ export class CommandIntr {
 		return this.Paramaters[0].text;
 	}
 
-	//Gets all the command data that is the possible best match data
+	/**
+	 *Gets all the command data that is the possible best match data 
+	 */
 	GetCommandData(): CommandInfo[] {
 		return Manager.Commands.getBestMatches(this);
 	}
 
-	//Gets the current word
+	/**
+	 *Gets the current word
+	 */
 	GetCurrent(): RangedWord | undefined {
 		if (this.CursorParamater >= 0 && this.CursorParamater < this.Paramaters.length)
 			return this.Paramaters[this.CursorParamater];

@@ -60,6 +60,7 @@ function onInitialize(params: InitializeParams) : InitializeResult {
 			// Tell the client that this server supports code completion.
 			documentSymbolProvider: true,
 			workspaceSymbolProvider: true,
+			hoverProvider:true,			
 			completionProvider:{
 				resolveProvider:false,
 				triggerCharacters:[' ', '\t', '[', '=', ',']

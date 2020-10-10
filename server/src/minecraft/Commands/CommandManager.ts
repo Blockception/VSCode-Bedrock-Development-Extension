@@ -35,47 +35,47 @@ import { MCCommand } from './MCCommand';
 import { MCCommandParameterType } from './MCCommandParameterType';
 
 export class CommandManager {
-	Subset : Map<string, CommandInfo[]>;
+	Subset: Map<string, CommandInfo[]>;
 
 	constructor() {
 		this.Subset = new Map<string, CommandInfo[]>();
 	}
 
-	add(com : MCCommand) : void {
+	add(com: MCCommand): void {
 		let Info = new CommandInfo(com);
 		var Storage = this.Subset.get(com.name);
 
-		if (Storage == undefined){
+		if (Storage == undefined) {
 			this.Subset.set(com.name, [Info]);
 		}
-		else{
+		else {
 			Storage.push(Info);
 		}
 	}
 
-	get(com : string) : CommandInfo[] {
+	get(com: string): CommandInfo[] {
 		var Storage = this.Subset.get(com);
 
-		if (Storage == undefined){
+		if (Storage == undefined) {
 			return [];
 		}
 
 		return Storage;
 	}
 
-	has(com : string) : boolean {
+	has(com: string): boolean {
 		return this.Subset.has(com);
 	}
 
-	getBestMatches(com : CommandIntr) : CommandInfo[] {
+	getBestMatches(com: CommandIntr): CommandInfo[] {
 		var Storage = this.Subset.get(com.GetCommandKeyword());
-		var Out : CommandInfo[]  = [];
+		var Out: CommandInfo[] = [];
 
-		if (Storage == undefined){
+		if (Storage == undefined) {
 			return Out;
 		}
 
-		for (var I = 0; I < Storage.length; I++){
+		for (var I = 0; I < Storage.length; I++) {
 			if (isMatch(com, Storage[I].Command))
 				Out.push(Storage[I])
 		}
@@ -84,22 +84,25 @@ export class CommandManager {
 	}
 }
 
-export function isMatch(com : CommandIntr, pattern : MCCommand) : boolean {
+export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 	var Limit = pattern.parameters.length;
 
-	if (Limit < com.Paramaters.length)
+	//has sub commands
+	let HasSubCommand = pattern.includes(MCCommandParameterType.command);
+
+	if ((!HasSubCommand) && Limit < com.Paramaters.length)
 		return false;
 
-	if (Limit > com.Paramaters.length){
+	if (Limit > com.Paramaters.length) {
 		Limit = com.Paramaters.length;
-	}	
+	}
 
 	for (var I = 0; I < Limit; I++) {
 		var comPar = com.Paramaters[I];
 		var comText = comPar.text;
 		var patPar = pattern.parameters[I];
 
-		switch(patPar.Type){
+		switch (patPar.Type) {
 			case MCCommandParameterType.block:
 			case MCCommandParameterType.coordinate:
 			case MCCommandParameterType.effect:
@@ -120,16 +123,22 @@ export function isMatch(com : CommandIntr, pattern : MCCommand) : boolean {
 				continue;
 
 			case MCCommandParameterType.boolean:
-				if (!IsBoolean(comPar.text))
+				if (!IsBoolean(comPar.text)) {
 					return false;
+				}
+				break;
 
 			case MCCommandParameterType.command:
-				if (!Manager.Commands.has(comText))
+				if (!Manager.Commands.has(comText)) {
 					return false;
+				}
+				break;
 
 			case MCCommandParameterType.keyword:
-				if (comText != patPar.Text)
+				if (comText != patPar.Text) {
 					return false;
+				}
+				break;
 		}
 	}
 
