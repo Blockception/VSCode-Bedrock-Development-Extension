@@ -1,4 +1,6 @@
 # Changelog 
+- Updated
+- Updated to 1.0.0
 - Fixing
 - Merge remote-tracking branch 'origin/language-server'
 - Updated packages
@@ -17,5 +19,3 @@
 - Updated json validation
 - Reformatted titles
 - Updated
-- Refactoring
-- Updated Types
