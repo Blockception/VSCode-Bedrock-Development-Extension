@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from 'vscode-languageserver';
+import { Database } from '../Database';
 import { MinecraftData } from '../Minecraft Data';
 import { Block, Entity, Sound } from '../types/include';
 import { Item } from '../types/Item/Item';
@@ -45,6 +46,8 @@ export function AddMinecraftData() {
 	data.edu.entities.forEach(entity => Data.Entities.push(AddEduEntity(entity)));
 	data.edu.items.forEach(item => Data.Items.push(AddEduItem(item)));
 	data.edu.sounds.forEach(sound => Data.Sounds.push(AddEduSound(sound)));
+
+	Database.Data.set('minecraft', Data);
 }
 
 function AddBlock(data :string) : Block {

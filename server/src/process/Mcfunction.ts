@@ -34,10 +34,11 @@ import { Objective } from '../minecraft/types/Objectives/Objectives';
 import { Tickingarea } from '../minecraft/types/include';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import { getLine } from '../code/include';
+import { Location, Range } from 'vscode-languageserver';
 
 export function Process(document: TextDocument): MinecraftData {
    let uri = document.uri;
-   let Data = new MinecraftData();   
+   let Data = new MinecraftData();
 
    for (let Index = 0; Index < document.lineCount; Index++) {
       const Line = getLine(document, Index);
@@ -73,7 +74,11 @@ function ProcessTag(Line: string, Data: MinecraftData, uri: string, LineIndex: n
       let TagText = Match[2];
       let FindAt = Line.indexOf(TagText);
 
-      Data.Tag.push(new Tag(TagText, uri, LineIndex, FindAt));
+      let T = new Tag();
+      T.Name = TagText;
+      T.Location = Location.create(uri, Range.create(LineIndex, FindAt, LineIndex, FindAt + TagText.length));
+
+      Data.Tag.push(T);
    }
 }
 
@@ -85,7 +90,11 @@ function ProcessScoreboard(Line: string, Data: MinecraftData, uri: string, LineI
       let ObjectiveText = Match[2];
       let FindAt = Line.indexOf(ObjectiveText);
 
-      Data.Objectives.push(new Objective(ObjectiveText, uri, LineIndex, FindAt));
+      let O = new Objective();
+      O.Name = ObjectiveText;
+      O.Location = Location.create(uri, Range.create(LineIndex, FindAt, LineIndex, FindAt + ObjectiveText.length));
+
+      Data.Objectives.push(O);
    }
 }
 

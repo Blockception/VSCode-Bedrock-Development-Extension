@@ -1,0 +1,1809 @@
+{
+    "$schema": "./commands schema.json",
+    "commands": [
+        {
+            "parameters": [{ "Text": "ability", "Type": "keyword", "Required": true }],
+            "name": "ability",
+            "documentation": { "value": "**[EDU]** Grants or revokes a player ability.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "ability", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true }
+            ],
+            "name": "ability",
+            "documentation": { "value": "**[EDU]** Returns a list of abillities assigned to the specified player", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "ability", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "mayfly", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "ability",
+            "documentation": { "value": "**[EDU]** Grants or revokes a player ability to fly", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "ability", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "mute", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "ability",
+            "documentation": { "value": "**[EDU]** Grants or revokes a player ability to speak", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "ability", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "worldbuilder", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "ability",
+            "documentation": { "value": "**[EDU]** Grants or revokes a player ability to build", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "alwaysday", "Type": "keyword", "Required": true },
+                { "Text": "lock", "Type": "boolean", "Required": false }
+            ],
+            "name": "alwaysday",
+            "documentation": { "value": "Locks and unlocks the day-night cycle.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clear", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": false },
+                { "Text": "itemName", "Type": "item", "Required": false },
+                { "Text": "data", "Type": "integer", "Required": false },
+                { "Text": "maxCount", "Type": "integer", "Required": false }
+            ],
+            "name": "clear",
+            "documentation": { "value": "Clears items from player inventory.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "replace", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "replace", "Type": "keyword", "Required": true },
+                { "Text": "normal", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "replace", "Type": "keyword", "Required": true },
+                { "Text": "force", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "replace", "Type": "keyword", "Required": true },
+                { "Text": "move", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "masked", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "masked", "Type": "keyword", "Required": true },
+                { "Text": "normal", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "masked", "Type": "keyword", "Required": true },
+                { "Text": "force", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "masked", "Type": "keyword", "Required": true },
+                { "Text": "move", "Type": "keyword", "Required": true }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "filtered", "Type": "keyword", "Required": true },
+                { "Text": "normal", "Type": "keyword", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "filtered", "Type": "keyword", "Required": true },
+                { "Text": "force", "Type": "keyword", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "clone", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "filtered", "Type": "keyword", "Required": true },
+                { "Text": "move", "Type": "keyword", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false }
+            ],
+            "name": "clone",
+            "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "peaceful", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "easy", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "normal", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "hard", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "p", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "e", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "n", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "h", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "0", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "1", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "2", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "difficulty", "Type": "keyword", "Required": true },
+                { "Text": "3", "Type": "keyword", "Required": true }
+            ],
+            "name": "difficulty",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "effect", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "effect", "Type": "effect", "Required": true },
+                { "Text": "seconds", "Type": "integer", "Required": false },
+                { "Text": "amplifier", "Type": "integer", "Required": false },
+                { "Text": "hide particles", "Type": "boolean", "Required": false }
+            ],
+            "name": "effect",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "effect", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "clear", "Type": "keyword", "Required": true }
+            ],
+            "name": "effect",
+            "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "enchant", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "id", "Type": "integer", "Required": true },
+                { "Text": "level", "Type": "integer", "Required": false }
+            ],
+            "name": "enchant",
+            "documentation": { "value": "Enchants a player item.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "enchant", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "id", "Type": "keyword", "Required": true },
+                { "Text": "level", "Type": "keyword", "Required": false }
+            ],
+            "name": "enchant",
+            "documentation": { "value": "Enchants a player item.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "execute", "Type": "keyword", "Required": true },
+                { "Text": "origin", "Type": "selector", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "command", "Type": "command", "Required": true }
+            ],
+            "name": "execute",
+            "documentation": { "value": "Executes another command.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "execute", "Type": "keyword", "Required": true },
+                { "Text": "origin", "Type": "selector", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "detect", "Type": "keyword", "Required": true },
+                { "Text": "detectPos x", "Type": "coordinate", "Required": true },
+                { "Text": "detectPos y", "Type": "coordinate", "Required": true },
+                { "Text": "detectPos z", "Type": "coordinate", "Required": true },
+                { "Text": "block", "Type": "block", "Required": true },
+                { "Text": "data", "Type": "integer", "Required": true },
+                { "Text": "command", "Type": "command", "Required": true }
+            ],
+            "name": "execute",
+            "documentation": { "value": "Executes another command.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "fill", "Type": "keyword", "Required": true },
+                { "Text": "from x", "Type": "coordinate", "Required": true },
+                { "Text": "from y", "Type": "coordinate", "Required": true },
+                { "Text": "from z", "Type": "coordinate", "Required": true },
+                { "Text": "to x", "Type": "coordinate", "Required": true },
+                { "Text": "to y", "Type": "coordinate", "Required": true },
+                { "Text": "to z", "Type": "coordinate", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": true },
+                { "Text": "replace", "Type": "keyword", "Required": true },
+                { "Text": "replaceTileName", "Type": "block", "Required": false },
+                { "Text": "replaceDataValue", "Type": "integer", "Required": false }
+            ],
+            "name": "fill",
+            "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "fill", "Type": "keyword", "Required": true },
+                { "Text": "from x", "Type": "coordinate", "Required": true },
+                { "Text": "from y", "Type": "coordinate", "Required": true },
+                { "Text": "from z", "Type": "coordinate", "Required": true },
+                { "Text": "to x", "Type": "coordinate", "Required": true },
+                { "Text": "to y", "Type": "coordinate", "Required": true },
+                { "Text": "to z", "Type": "coordinate", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false },
+                { "Text": "outline", "Type": "keyword", "Required": true }
+            ],
+            "name": "fill",
+            "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "fill", "Type": "keyword", "Required": true },
+                { "Text": "from x", "Type": "coordinate", "Required": true },
+                { "Text": "from y", "Type": "coordinate", "Required": true },
+                { "Text": "from z", "Type": "coordinate", "Required": true },
+                { "Text": "to x", "Type": "coordinate", "Required": true },
+                { "Text": "to y", "Type": "coordinate", "Required": true },
+                { "Text": "to z", "Type": "coordinate", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false },
+                { "Text": "hollow", "Type": "keyword", "Required": true }
+            ],
+            "name": "fill",
+            "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "fill", "Type": "keyword", "Required": true },
+                { "Text": "from x", "Type": "coordinate", "Required": true },
+                { "Text": "from y", "Type": "coordinate", "Required": true },
+                { "Text": "from z", "Type": "coordinate", "Required": true },
+                { "Text": "to x", "Type": "coordinate", "Required": true },
+                { "Text": "to y", "Type": "coordinate", "Required": true },
+                { "Text": "to z", "Type": "coordinate", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false },
+                { "Text": "destroy", "Type": "keyword", "Required": true }
+            ],
+            "name": "fill",
+            "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "fill", "Type": "keyword", "Required": true },
+                { "Text": "from x", "Type": "coordinate", "Required": true },
+                { "Text": "from y", "Type": "coordinate", "Required": true },
+                { "Text": "from z", "Type": "coordinate", "Required": true },
+                { "Text": "to x", "Type": "coordinate", "Required": true },
+                { "Text": "to y", "Type": "coordinate", "Required": true },
+                { "Text": "to z", "Type": "coordinate", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false },
+                { "Text": "keep", "Type": "keyword", "Required": true }
+            ],
+            "name": "fill",
+            "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "function", "Type": "keyword", "Required": true },
+                { "Text": "function path", "Type": "function", "Required": true }
+            ],
+            "name": "function",
+            "documentation": { "value": "Runs a function.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamemode", "Type": "keyword", "Required": true },
+                { "Text": "gamemode", "Type": "gamemode", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": false }
+            ],
+            "name": "gamemode",
+            "documentation": { "value": "Sets a player's game mode.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "commandblockoutput", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "commandblocksenabled", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "dodaylightcycle", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "doentitydrops", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "dofiretick", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "doimmediaterespawn", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "doinsomnia", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "domobloot", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "domobspawning", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "dotiledrops", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "doweathercycle", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "drowningdamage", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "falldamage", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "firedamage", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "functioncommandlimit", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "keepinventory", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "maxcommandchainlength", "Type": "keyword", "Required": true },
+                { "Text": "int", "Type": "integer", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "mobgriefing", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "naturalregeneration", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "pvp", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "randomtickspeed", "Type": "keyword", "Required": true },
+                { "Text": "int", "Type": "integer", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "sendcommandfeedback", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "showcoordinates", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "showdeathmessages", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "showtags", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "spawnradius", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "gamerule", "Type": "keyword", "Required": true },
+                { "Text": "tntexplodes", "Type": "keyword", "Required": true },
+                { "Text": "value", "Type": "boolean", "Required": false }
+            ],
+            "name": "gamerule",
+            "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "give", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "itemName", "Type": "item", "Required": true },
+                { "Text": "amount", "Type": "keyword", "Required": false },
+                { "Text": "data", "Type": "keyword", "Required": false },
+                { "Text": "components", "Type": "keyword", "Required": false }
+            ],
+            "name": "give",
+            "documentation": { "value": "Gives an item to a player.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "kill", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": false }
+            ],
+            "name": "kill",
+            "documentation": { "value": "Kills entities (players, mobs, items, etc.).", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "locate", "Type": "keyword", "Required": true },
+                { "Text": "feature", "Type": "locateFeature", "Required": true }
+            ],
+            "name": "locate",
+            "documentation": { "value": "Displays the coordiantes for the closest structure of a given type.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "me", "Type": "keyword", "Required": true },
+                { "Text": "message", "Type": "keyword", "Required": true }
+            ],
+            "name": "me",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "msg", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": true },
+                { "Text": "message", "Type": "keyword", "Required": true }
+            ],
+            "name": "msg",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "op", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true }
+            ],
+            "name": "op",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "particle", "Type": "keyword", "Required": true },
+                { "Text": "effect", "Type": "keyword", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true }
+            ],
+            "name": "particle",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "playsound", "Type": "keyword", "Required": true },
+                { "Text": "sound", "Type": "sound", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": false },
+                { "Text": "position x", "Type": "coordinate", "Required": false },
+                { "Text": "position y", "Type": "coordinate", "Required": false },
+                { "Text": "position z", "Type": "coordinate", "Required": false },
+                { "Text": "volume", "Type": "float", "Required": false },
+                { "Text": "pitch", "Type": "float", "Required": false },
+                { "Text": "minimumVolume", "Type": "float", "Required": false }
+            ],
+            "name": "playsound",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "replaceitem", "Type": "keyword", "Required": true },
+                { "Text": "block", "Type": "keyword", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "slot.container", "Type": "slotType", "Required": true },
+                { "Text": "slotId", "Type": "slotType", "Required": true },
+                { "Text": "itemName", "Type": "item", "Required": true },
+                { "Text": "amount", "Type": "keyword", "Required": false },
+                { "Text": "data", "Type": "keyword", "Required": false },
+                { "Text": "components", "Type": "keyword", "Required": false }
+            ],
+            "name": "replaceitem",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "replaceitem", "Type": "keyword", "Required": true },
+                { "Text": "block", "Type": "keyword", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "slot.container", "Type": "slotType", "Required": true },
+                { "Text": "slotId", "Type": "slotType", "Required": true },
+                { "Text": "replacemode", "Type": "replaceMode", "Required": true },
+                { "Text": "itemName", "Type": "item", "Required": true },
+                { "Text": "amount", "Type": "keyword", "Required": false },
+                { "Text": "data", "Type": "keyword", "Required": false },
+                { "Text": "components", "Type": "keyword", "Required": false }
+            ],
+            "name": "replaceitem",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "replaceitem", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": true },
+				{ "Text": "slot.container", "Type": "slotType", "Required": true },
+                { "Text": "slotId", "Type": "slotType", "Required": true },
+                { "Text": "itemName", "Type": "item", "Required": true },
+                { "Text": "amount", "Type": "integer", "Required": false },
+                { "Text": "data", "Type": "integer", "Required": false },
+                { "Text": "components", "Type": "jsonItem", "Required": false }
+            ],
+            "name": "replaceitem",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "replaceitem", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": true },
+                { "Text": "slot type", "Type": "slotType", "Required": true },
+                { "Text": "slot id", "Type": "slotID", "Required": true },
+                { "Text": "replace mode", "Type": "replaceMode", "Required": true },
+                { "Text": "item name", "Type": "item", "Required": true },
+                { "Text": "amount", "Type": "integer", "Required": false },
+                { "Text": "data", "Type": "integer", "Required": false },
+                { "Text": "components", "Type": "jsonItem", "Required": false }
+            ],
+            "name": "replaceitem",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "say", "Type": "keyword", "Required": true },
+                { "Text": "message", "Type": "unknown", "Required": true }
+            ],
+            "name": "say",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "objectives", "Type": "keyword", "Required": true },
+                { "Text": "add", "Type": "keyword", "Required": true },
+                { "Text": "name", "Type": "objective", "Required": true },
+                { "Text": "dummy", "Type": "keyword", "Required": true },
+                { "Text": "display name", "Type": "string", "Required": false }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "objectives", "Type": "keyword", "Required": true },
+                { "Text": "list", "Type": "keyword", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "objectives", "Type": "keyword", "Required": true },
+                { "Text": "remove", "Type": "keyword", "Required": true },
+                { "Text": "name", "Type": "objective", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "objectives", "Type": "keyword", "Required": true },
+                { "Text": "setdisplay", "Type": "keyword", "Required": true },
+                { "Text": "list", "Type": "keyword", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": false }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "objectives", "Type": "keyword", "Required": true },
+                { "Text": "setdisplay", "Type": "keyword", "Required": true },
+                { "Text": "sidebar", "Type": "keyword", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": false }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "objectives", "Type": "keyword", "Required": true },
+                { "Text": "setdisplay", "Type": "keyword", "Required": true },
+                { "Text": "below_name", "Type": "keyword", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": false }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "add", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "selector", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": true },
+                { "Text": "count", "Type": "integer", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "list", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "selector", "Required": false }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "operation", "Type": "keyword", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": true },
+                { "Text": "operation", "Type": "operation", "Required": true },
+                { "Text": "selector", "Type": "keyword", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "random", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "selector", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": true },
+                { "Text": "min", "Type": "integer", "Required": true },
+                { "Text": "max", "Type": "integer", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "remove", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "selector", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": true },
+                { "Text": "count", "Type": "integer", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "reset", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "selector", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": false }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "set", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "selector", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": true },
+                { "Text": "score", "Type": "integer", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "scoreboard", "Type": "keyword", "Required": true },
+                { "Text": "players", "Type": "keyword", "Required": true },
+                { "Text": "test", "Type": "keyword", "Required": true },
+                { "Text": "entity", "Type": "selector", "Required": true },
+                { "Text": "objective", "Type": "objective", "Required": true },
+                { "Text": "min", "Type": "integerTest", "Required": true },
+                { "Text": "max", "Type": "integerTest", "Required": true }
+            ],
+            "name": "scoreboard",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "setblock", "Type": "keyword", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "tileName", "Type": "block", "Required": true },
+                { "Text": "tileData", "Type": "integer", "Required": false },
+                { "Text": "replace", "Type": "keyword", "Required": false }
+            ],
+            "name": "setblock",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "setblock", "Type": "keyword", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "tile Name", "Type": "block", "Required": true },
+                { "Text": "til eData", "Type": "integer", "Required": false },
+                { "Text": "destroy", "Type": "keyword", "Required": false }
+            ],
+            "name": "setblock",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "setblock", "Type": "keyword", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "tile Name", "Type": "block", "Required": true },
+                { "Text": "tile Data", "Type": "integer", "Required": false },
+                { "Text": "keep", "Type": "keyword", "Required": false }
+            ],
+            "name": "setblock",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "setworldspawn", "Type": "keyword", "Required": true },
+                { "Text": "spawnPoint", "Type": "keyword", "Required": false }
+            ],
+            "name": "setworldspawn",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "spawnpoint", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": false },
+                { "Text": "spawn position x", "Type": "coordinate", "Required": false },
+                { "Text": "spawn position y", "Type": "coordinate", "Required": false },
+                { "Text": "spawn position z", "Type": "coordinate", "Required": false }
+            ],
+            "name": "spawnpoint",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "spreadplayers", "Type": "keyword", "Required": true },
+                { "Text": "x", "Type": "coordinate", "Required": true },
+                { "Text": "z", "Type": "coordinate", "Required": true },
+                { "Text": "spread Distance", "Type": "float", "Required": true },
+                { "Text": "max Range", "Type": "float", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true }
+            ],
+            "name": "spreadplayers",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "stopsound", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "sound", "Type": "sound", "Required": false }
+            ],
+            "name": "stopsound",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "summon", "Type": "keyword", "Required": true },
+                { "Text": "entityType", "Type": "keyword", "Required": true },
+                { "Text": "spawnPos x", "Type": "coordinate", "Required": false },
+                { "Text": "spawnPos y", "Type": "coordinate", "Required": false },
+                { "Text": "spawnPos z", "Type": "coordinate", "Required": false },
+                { "Text": "spawnevent", "Type": "event", "Required": false },
+                { "Text": "name", "Type": "string", "Required": false }
+            ],
+            "name": "summon",
+            "documentation": { "value": "Summons an entity", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "summon", "Type": "keyword", "Required": true },
+                { "Text": "entityType", "Type": "keyword", "Required": true },
+                { "Text": "name", "Type": "string", "Required": false },
+                { "Text": "spawnPos x", "Type": "coordinate", "Required": false },
+                { "Text": "spawnPos y", "Type": "coordinate", "Required": false },
+                { "Text": "spawnPos z", "Type": "coordinate", "Required": false }
+            ],
+            "name": "summon",
+            "documentation": { "value": "Summons an entity", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tag", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": true },
+                { "Text": "add", "Type": "keyword", "Required": true },
+                { "Text": "name", "Type": "tag", "Required": true }
+            ],
+            "name": "tag",
+            "documentation": { "value": "Manages tags stored in entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tag", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": true },
+                { "Text": "list", "Type": "keyword", "Required": true }
+            ],
+            "name": "tag",
+            "documentation": { "value": "Manages tags stored in entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tag", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": true },
+                { "Text": "remove", "Type": "keyword", "Required": true },
+                { "Text": "name", "Type": "tag", "Required": true }
+            ],
+            "name": "tag",
+            "documentation": { "value": "Manages tags stored in entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tell", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "message", "Type": "keyword", "Required": true }
+            ],
+            "name": "tell",
+            "documentation": { "value": "Sends a private message to one or more players", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tellraw", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
+            ],
+            "name": "tellraw",
+            "documentation": { "value": "Sends a json messsage to players.", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "testfor", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true }
+            ],
+            "name": "testfor",
+            "documentation": { "value": "Counts entities (players, mobs, items, etc.) matching specified conditions", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "testforblock", "Type": "keyword", "Required": true },
+                { "Text": "position x", "Type": "coordinate", "Required": true },
+                { "Text": "position y", "Type": "coordinate", "Required": true },
+                { "Text": "position z", "Type": "coordinate", "Required": true },
+                { "Text": "tile name", "Type": "block", "Required": true },
+                { "Text": "data value", "Type": "integer", "Required": false }
+            ],
+            "name": "testforblock",
+            "documentation": { "value": "tests whether a certain block is a specific location", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "testforblocks", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true }
+            ],
+            "name": "testforblocks",
+            "documentation": { "value": "Tests whether the blocks in two regions match", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "testforblocks", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "all", "Type": "keyword", "Required": true }
+            ],
+            "name": "testforblocks",
+            "documentation": { "value": "Tests whether the blocks in two regions match", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "testforblocks", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "masked", "Type": "keyword", "Required": true }
+            ],
+            "name": "testforblocks",
+            "documentation": { "value": "Tests whether the blocks in two regions match", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tickingarea", "Type": "keyword", "Required": true },
+                { "Text": "add", "Type": "keyword", "Required": true },
+                { "Text": "begin x", "Type": "coordinate", "Required": true },
+                { "Text": "begin y", "Type": "coordinate", "Required": true },
+                { "Text": "begin z", "Type": "coordinate", "Required": true },
+                { "Text": "end x", "Type": "coordinate", "Required": true },
+                { "Text": "end y", "Type": "coordinate", "Required": true },
+                { "Text": "end z", "Type": "coordinate", "Required": true },
+                { "Text": "name", "Type": "string", "Required": false }
+            ],
+            "name": "tickingarea",
+            "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tickingarea", "Type": "keyword", "Required": true },
+                { "Text": "add", "Type": "keyword", "Required": true },
+                { "Text": "circle", "Type": "keyword", "Required": true },
+                { "Text": "center x", "Type": "coordinate", "Required": true },
+                { "Text": "center y", "Type": "coordinate", "Required": true },
+                { "Text": "center z", "Type": "coordinate", "Required": true },
+                { "Text": "radius", "Type": "keyword", "Required": true },
+                { "Text": "name", "Type": "string", "Required": false }
+            ],
+            "name": "tickingarea",
+            "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tickingarea", "Type": "keyword", "Required": true },
+                { "Text": "list", "Type": "keyword", "Required": true },
+                { "Text": "all-dimensions", "Type": "keyword", "Required": false }
+            ],
+            "name": "tickingarea",
+            "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tickingarea", "Type": "keyword", "Required": true },
+                { "Text": "remove", "Type": "keyword", "Required": true },
+                { "Text": "position", "Type": "keyword", "Required": true }
+            ],
+            "name": "tickingarea",
+            "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tickingarea", "Type": "keyword", "Required": true },
+                { "Text": "remove_all", "Type": "keyword", "Required": true }
+            ],
+            "name": "tickingarea",
+            "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "time", "Type": "keyword", "Required": true },
+                { "Text": "add", "Type": "keyword", "Required": true },
+                { "Text": "amount", "Type": "integer", "Required": true }
+            ],
+            "name": "time",
+            "documentation": { "value": "Add to the world's game time", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "time", "Type": "keyword", "Required": true },
+                { "Text": "query", "Type": "keyword", "Required": true },
+                { "Text": "daytime", "Type": "keyword", "Required": true }
+            ],
+            "name": "time",
+            "documentation": { "value": "Changes or queries the world's game time", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "time", "Type": "keyword", "Required": true },
+                { "Text": "query", "Type": "keyword", "Required": true },
+                { "Text": "gametime", "Type": "integer", "Required": true }
+            ],
+            "name": "time",
+            "documentation": { "value": "Queries the world's game time", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "time", "Type": "keyword", "Required": true },
+                { "Text": "query", "Type": "keyword", "Required": true },
+                { "Text": "day", "Type": "keyword", "Required": true }
+            ],
+            "name": "time",
+            "documentation": { "value": "Changes or queries the world's game time", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "time", "Type": "keyword", "Required": true },
+                { "Text": "set", "Type": "keyword", "Required": true },
+                { "Text": "amount", "Type": "integer", "Required": true }
+            ],
+            "name": "time",
+            "documentation": { "value": "Sets the world's game time", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "titleText", "Type": "string", "Required": true }
+            ],
+            "name": "title",
+            "documentation": { "value": "Sets the title", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "subtitle", "Type": "keyword", "Required": true },
+                { "Text": "titleText", "Type": "string", "Required": true }
+            ],
+            "name": "title",
+            "documentation": { "value": "Sets the sub titles", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "actionbar", "Type": "keyword", "Required": true },
+                { "Text": "titleText", "Type": "string", "Required": true }
+            ],
+            "name": "title",
+            "documentation": { "value": "Sets the action bar", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "clear", "Type": "keyword", "Required": true }
+            ],
+            "name": "title",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "reset", "Type": "keyword", "Required": true }
+            ],
+            "name": "title",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "times", "Type": "keyword", "Required": true },
+                { "Text": "fade in", "Type": "integer", "Required": true },
+                { "Text": "stay", "Type": "integer", "Required": true },
+                { "Text": "fade out", "Type": "integer", "Required": true }
+            ],
+            "name": "title",
+            "documentation": { "value": "Set the timings", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "titleraw", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "title", "Type": "keyword", "Required": true },
+                { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
+            ],
+            "name": "titleraw",
+            "documentation": { "value": "Sets the title", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "titleraw", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "subtitle", "Type": "keyword", "Required": true },
+                { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
+            ],
+            "name": "titleraw",
+            "documentation": { "value": "Sets the sub titles", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "titleraw", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "actionbar", "Type": "keyword", "Required": true },
+                { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
+            ],
+            "name": "titleraw",
+            "documentation": { "value": "Sets the action bar", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "titleraw", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "clear", "Type": "keyword", "Required": true }
+            ],
+            "name": "titleraw",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "titleraw", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "reset", "Type": "keyword", "Required": true }
+            ],
+            "name": "titleraw",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "titleraw", "Type": "keyword", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": true },
+                { "Text": "times", "Type": "keyword", "Required": true },
+                { "Text": "fade in", "Type": "integer", "Required": true },
+                { "Text": "stay", "Type": "integer", "Required": true },
+                { "Text": "fade out", "Type": "integer", "Required": true }
+            ],
+            "name": "titleraw",
+            "documentation": { "value": "Set the timings", "kind": "markdown" }
+        },
+        {
+            "parameters": [{ "Text": "toggledownfall", "Type": "keyword", "Required": true }],
+            "name": "toggledownfall",
+            "documentation": { "value": "Toggles the weather", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "yRot", "Type": "coordinate", "Required": false },
+                { "Text": "xRot", "Type": "coordinate", "Required": false },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "yRot", "Type": "coordinate", "Required": false },
+                { "Text": "xRot", "Type": "coordinate", "Required": false },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "yRot", "Type": "coordinate", "Required": false },
+                { "Text": "xRot", "Type": "coordinate", "Required": false },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "yRot", "Type": "coordinate", "Required": false },
+                { "Text": "xRot", "Type": "coordinate", "Required": false },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at", "Type": "selector", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at x", "Type": "coordinate", "Required": true },
+                { "Text": "look at y", "Type": "coordinate", "Required": true },
+                { "Text": "look at z", "Type": "coordinate", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at", "Type": "selector", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination", "Type": "selector", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at x", "Type": "coordinate", "Required": true },
+                { "Text": "look at y", "Type": "coordinate", "Required": true },
+                { "Text": "look at z", "Type": "coordinate", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at", "Type": "selector", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at x", "Type": "coordinate", "Required": true },
+                { "Text": "look at y", "Type": "coordinate", "Required": true },
+                { "Text": "look at z", "Type": "coordinate", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at", "Type": "selector", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "tp", "Type": "keyword", "Required": true },
+                { "Text": "victim", "Type": "selector", "Required": true },
+                { "Text": "destination x", "Type": "coordinate", "Required": true },
+                { "Text": "destination y", "Type": "coordinate", "Required": true },
+                { "Text": "destination z", "Type": "coordinate", "Required": true },
+                { "Text": "facing", "Type": "keyword", "Required": true },
+                { "Text": "look at x", "Type": "coordinate", "Required": true },
+                { "Text": "look at y", "Type": "coordinate", "Required": true },
+                { "Text": "look at z", "Type": "coordinate", "Required": true },
+                { "Text": "check for blocks", "Type": "boolean", "Required": false }
+            ],
+            "name": "tp",
+            "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "w", "Type": "keyword", "Required": true },
+                { "Text": "selector", "Type": "selector", "Required": true },
+                { "Text": "message", "Type": "keyword", "Required": true }
+            ],
+            "name": "w",
+            "documentation": { "value": "TODO description", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "weather", "Type": "keyword", "Required": true },
+                { "Text": "clear", "Type": "keyword", "Required": true },
+                { "Text": "duration", "Type": "keyword", "Required": false }
+            ],
+            "name": "weather",
+            "documentation": { "value": "Sets the weather", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "weather", "Type": "keyword", "Required": true },
+                { "Text": "rain", "Type": "keyword", "Required": true },
+                { "Text": "duration", "Type": "keyword", "Required": false }
+            ],
+            "name": "weather",
+            "documentation": { "value": "Sets the weather", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "weather", "Type": "keyword", "Required": true },
+                { "Text": "thunder", "Type": "keyword", "Required": true },
+                { "Text": "duration", "Type": "keyword", "Required": false }
+            ],
+            "name": "weather",
+            "documentation": { "value": "Sets the weather", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "xp", "Type": "keyword", "Required": true },
+                { "Text": "amount", "Type": "xp", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": false }
+            ],
+            "name": "xp",
+            "documentation": { "value": "Adds or removes player experience", "kind": "markdown" }
+        },
+        {
+            "parameters": [
+                { "Text": "xp", "Type": "keyword", "Required": true },
+                { "Text": "amount", "Type": "integer", "Required": true },
+                { "Text": "Player", "Type": "selectorPlayer", "Required": false }
+            ],
+            "name": "xp",
+            "documentation": { "value": "Adds or removes player experience", "kind": "markdown" }
+        }
+    ]
+}

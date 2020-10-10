@@ -29,6 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Manager } from '../../Manager';
 import { IsBoolean } from '../types/Boolean/Boolean';
+import { IsSelector } from '../types/include';
+import { IsJson } from '../types/Json/Json';
 import { CommandInfo } from './CommandInfo';
 import { CommandIntr } from './CommandIntr';
 import { MCCommand } from './MCCommand';
@@ -112,10 +114,7 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 			case MCCommandParameterType.function:
 			case MCCommandParameterType.integer:
 			case MCCommandParameterType.item:
-			case MCCommandParameterType.jsonItem:
-			case MCCommandParameterType.jsonRawText:
 			case MCCommandParameterType.objective:
-			case MCCommandParameterType.selector:
 			case MCCommandParameterType.sound:
 			case MCCommandParameterType.tag:
 			case MCCommandParameterType.xp:
@@ -123,7 +122,7 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 				continue;
 
 			case MCCommandParameterType.boolean:
-				if (!IsBoolean(comPar.text)) {
+				if (!IsBoolean(comText)) {
 					return false;
 				}
 				break;
@@ -134,8 +133,22 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 				}
 				break;
 
+			case MCCommandParameterType.jsonRawText:
+				if (!IsJson(comText)) {
+					return false;
+				}
+				break;
+
+			case MCCommandParameterType.jsonItem:
 			case MCCommandParameterType.keyword:
 				if (comText != patPar.Text) {
+					return false;
+				}
+				break;
+
+			case MCCommandParameterType.selector:
+			case MCCommandParameterType.selectorPlayer:
+				if (!IsSelector(comText)) {
 					return false;
 				}
 				break;

@@ -31,6 +31,7 @@ import { InitializedParams, DidChangeConfigurationNotification } from 'vscode-la
 import { URI } from 'vscode-uri';
 import { Manager } from '../Manager';
 import { AddCommands } from '../minecraft/commands/include';
+import { AddMinecraftData } from '../minecraft/data/Initialize';
 import { TraveseDirectory } from '../process/traverse';
 
 export async function onInitializedAsync(params: InitializedParams) : Promise<void> {
