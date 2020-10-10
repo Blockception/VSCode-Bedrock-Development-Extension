@@ -2,16 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Minecraft Function",
   "scopeName": "source.bc.minecraft.mcfunction",
-  "patterns": [
-    { "include": "#constants" },
-    { "include": "#strings" },
-    { "include": "#jsonDetect" },
-    { "include": "#selectors" },
-    { "include": "#minecraftcommands" },
-    { "include": "#operators" },
-    { "include": "#characters" },
-    { "include": "#comments" }
-  ],
+  "patterns": [{ "include": "#constants" }, { "include": "#strings" }, { "include": "#jsonDetect" }, { "include": "#selectors" }, { "include": "#minecraftcommands" }, { "include": "#operators" }, { "include": "#characters" }, { "include": "#comments" }],
   "foldingStartMarker": "#region",
   "foldingStopMarker": "#endregion",
   "fileTypes": ["mcfunction"],
@@ -76,11 +67,14 @@
     },
     "strings": {
       "patterns": [
-        { "name": "string.quoted.double.minecraft-program",
+        { "name": "string.quoted.double.minecraft",
           "begin": "\"",
           "end": "\"",
           "patterns": [
-            { "name": "constant.character.escape.minecraft-program", "match": "\\\\." }
+            {
+              "name": "constant.character.escape.minecraft",
+              "match": "\\\\."
+            }
           ]
         }
       ]
@@ -90,7 +84,8 @@
       "begin": "(?<=[^=])(?=\\{)",
       "end": "(?<=\\})",
       "patterns": [
-        { "include": "source.json" }
+        {
+          "include": "source.json" }
       ]
     },
     "minecraftcommands": {
@@ -104,7 +99,6 @@
         { "name": "entity.name.function.class.endcity", "match": "\\bendcity\\b" },
         { "name": "entity.name.function.detect", "match": "\\bdetect\\b" },
         { "name": "entity.name.function.entity", "match": "\\bentity\\b" },
-        { "name": "entity.name.function.facing", "match": "\\bfacing\\b" },
         { "name": "entity.name.function.fortress", "match": "\\bfortress\\b" },
         { "name": "entity.name.function.force", "match": "\\bforce\\b" },
         { "name": "entity.name.function.filtered", "match": "\\bfiltered\\b" },
@@ -113,9 +107,11 @@
         { "name": "entity.name.function.mansion", "match": "\\bmansion\\b" },
         { "name": "entity.name.function.me", "match": "\\bme\\b" },
         { "name": "entity.name.function.masked", "match": "\\bmasked\\b" },
+        { "name": "entity.name.function.mayfly", "match": "\\bmayfly\\b" },
         { "name": "entity.name.function.minecraft.pillager_patrols_event", "match": "\\bminecraft:pillager_patrols_event\\b" },
         { "name": "entity.name.function.mineshaft", "match": "\\bmineshaft\\b" },
         { "name": "entity.name.function.move", "match": "\\bmove\\b" },
+        { "name": "entity.name.function.mute", "match": "\\bmute\\b" },
         { "name": "entity.name.function.normal", "match": "\\bnormal\\b" },
         { "name": "entity.name.function.objectives", "match": "\\bobjectives\\b" },
         { "name": "entity.name.function.operation", "match": "\\boperation\\b" },
@@ -132,11 +128,36 @@
         { "name": "entity.name.function.subtitle", "match": "\\bsubtitle\\b" },
         { "name": "entity.name.function.village", "match": "\\bvillage\\b" },
         { "name": "entity.name.function.wandering_trader_event", "match": "\\bwandering_trader_event\\b" },
+        { "name": "entity.name.function.worldbuilder", "match": "\\bworldbuilder\\b" },
 
         { "name": "entity.name.variable.slot", "match": "\\bslot\\.[a-z\\.]+\\b" },
+        { "name": "entity.name.variable.facing", "match": "\\bfacing\\b" },
         { "name": "entity.name.variable.dummy", "match": "\\bdummy\\b" },
-        { "name": "entity.name.variable.gamerule", "match": "(?<=gamerule )[a-z]+\\b" },
-        
+        { "name": "entity.name.variable.commandBlockOutput", "match": "\\bcommandBlockOutput\\b" },
+        { "name": "entity.name.variable.commandBlocksEnabled", "match": "\\bcommandBlocksEnabled\\b" },
+        { "name": "entity.name.variable.doDaylightCycle", "match": "\\bdoDaylightCycle\\b" },
+        { "name": "entity.name.variable.doEntityDrops", "match": "\\bdoEntityDrops\\b" },
+        { "name": "entity.name.variable.doFireTick", "match": "\\bdoFireTick\\b" },
+        { "name": "entity.name.variable.doInsomnia", "match": "\\bdoInsomnia\\b" },
+        { "name": "entity.name.variable.doMobLoot", "match": "\\bdoMobLoot\\b" },
+        { "name": "entity.name.variable.doMobSpawning", "match": "\\bdoMobSpawning\\b" },
+        { "name": "entity.name.variable.doTileDrops", "match": "\\bdoTileDrops\\b" },
+        { "name": "entity.name.variable.doWeatherCycle", "match": "\\bdoWeatherCycle\\b" },
+        { "name": "entity.name.variable.drowningDamage", "match": "\\bdrowningDamage\\b" },
+        { "name": "entity.name.variable.fallDamage", "match": "\\bfallDamage\\b" },
+        { "name": "entity.name.variable.fireDamage", "match": "\\bfireDamage\\b" },
+        { "name": "entity.name.variable.maxCommandChainLength", "match": "\\bmaxCommandChainLength\\b" },
+        { "name": "entity.name.variable.mobGriefing", "match": "\\bmobGriefing\\b" },
+        { "name": "entity.name.variable.naturalRegeneration", "match": "\\bnaturalRegeneration\\b" },
+        { "name": "entity.name.variable.sendCommandFeedback", "match": "\\bsendCommandFeedback\\b" },
+        { "name": "entity.name.variable.showCoordinates", "match": "\\bshowCoordinates\\b" },
+        { "name": "entity.name.variable.showDeathMessages", "match": "\\bshowDeathMessages\\b" },
+        { "name": "entity.name.variable.showTags", "match": "\\bshowTags\\b" },
+        { "name": "entity.name.variable.spawnRadius", "match": "\\bspawnRadius\\b" },
+        { "name": "entity.name.variable.stronghold", "match": "\\bstronghold\\b" },
+        { "name": "entity.name.variable.tntExplodes", "match": "\\btntExplodes\\b" },
+
+        { "name": "entity.name.type.class.ability", "match": "\\bability\\b" },
         { "name": "entity.name.type.class.alwaysday", "match": "\\balwaysday\\b" },
         { "name": "entity.name.type.class.clear", "match": "\\bclear\\b" },
         { "name": "entity.name.type.class.clone", "match": "\\bclone\\b" },
@@ -200,9 +221,7 @@
     },
     "comments": {
       "patterns": [
-        { "name": "comment",
-          "begin": "#",
-          "end": "$" }
+        { "name": "comment", "begin": "#", "end": "$" }
       ]
     }
   }

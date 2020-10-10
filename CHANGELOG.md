@@ -1,21 +1,21 @@
 # Changelog 
-- letiable to variable
-- Added activation on json
-- var to let
-- Added selectors to molang injection
-- Added async handling of signatures
-- Added async handling of document symbols
-- Updated commands completion to be async
-- Updated json validation documentation
-- Updated to 0.2.36
-- Updated blocks json schema
-- Updated block json validation schema
-- Added blocks json schema
+- Duplicate check for completion items
+- Added the removal of signatures that are too small
+- Refactoring
+- Refactoring
+- Added
+- Added code
 - Updated
-- Updated to 0.2.36
-- Added Molang syntax support to json files and .molang files
-- Applied formatted
-- Fixing animations - particle timelines
-- Added 1.14.0 model schema
-- Updated to 0.2.34
-- Fixed transitions
+- Updated
+- Proper event loop usages
+- Added
+- Updated
+- Updated
+- Updated
+- Updated
+- Formatted
+- Signatures are now working
+- Updated
+- Updated Code
+- Updated
+- Updated

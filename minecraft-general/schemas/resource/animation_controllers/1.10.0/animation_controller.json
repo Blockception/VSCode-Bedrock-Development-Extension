@@ -15,9 +15,9 @@
         {
           "type": "object",
           "title": "Animation Specification",
-          "description": "A object specification on how to transition",
-          "maxProperties": 1,
-          "minProperties": 1,
+					"description": "A object specification on how to transition",
+					"maxProperties": 1,
+					"minProperties": 1,
           "additionalProperties": {
             "$ref": "../../../molang/1.8.0/string.json"
           }
@@ -27,9 +27,7 @@
     "particle_effect_spec": {
       "additionalProperties": false,
       "type": "object",
-      "required": [
-        "effect"
-      ],
+      "required": ["effect"],
       "properties": {
         "bind_to_actor": {
           "type": "boolean",
@@ -55,10 +53,7 @@
       "pattern": "^(@s .+|/.+)$"
     }
   },
-  "required": [
-    "format_version",
-    "animation_controllers"
-  ],
+  "required": ["format_version", "animation_controllers"],
   "additionalProperties": false,
   "properties": {
     "format_version": {
@@ -79,9 +74,7 @@
         "type": "object",
         "title": "A animation controller",
         "description": "A single animation controller 1.10.0",
-        "required": [
-          "states"
-        ],
+        "required": ["states"],
         "minProperties": 1,
         "properties": {
           "states": {
@@ -159,9 +152,7 @@
                   "items": {
                     "type": "object",
                     "additionalProperties": false,
-                    "required": [
-                      "effect"
-                    ],
+                    "required": ["effect"],
                     "properties": {
                       "effect": {
                         "description": "Valid sound effect names should be listed in the entity's resource_definition json file.",
@@ -186,9 +177,7 @@
                   "additionalProperties": {
                     "additionalProperties": false,
                     "type": "object",
-                    "required": [
-                      "input"
-                    ],
+                    "required": ["input"],
                     "properties": {
                       "input": {
                         "$ref": "../../../molang/1.8.0/number.json"

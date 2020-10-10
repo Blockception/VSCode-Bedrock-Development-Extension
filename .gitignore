@@ -4,3 +4,7 @@ node_modules/
 out/
 dist/
 log.txt
+out
+node_modules
+client/server
+.vscode-test

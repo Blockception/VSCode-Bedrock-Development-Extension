@@ -4,10 +4,7 @@
   "type": "object",
   "title": "The minecraft resourcepack actor animation 1.10.0",
   "description": "TODO description",
-  "required": [
-    "format_version",
-    "animations"
-  ],
+  "required": ["format_version", "animations"],
   "properties": {
     "format_version": {
       "title": "The 1.10.0 format_version",
