@@ -1,9 +1,11 @@
 {
     "main": "./client/out/extension.js",
-    "version": "0.2.22",
+    "version": "1.0.0",
     "activationEvents": [
         "onLanguage:bc-minecraft-language",
-        "onLanguage:bc-minecraft-mcfunction"
+        "onLanguage:bc-minecraft-mcfunction",
+        "onLanguage:json",
+        "onLanguage:jsonc"
     ],
     "author": {
         "name": "Blockception Ltd",
