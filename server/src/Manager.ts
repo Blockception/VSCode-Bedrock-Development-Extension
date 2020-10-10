@@ -46,5 +46,5 @@ export class Manager {
   static hasDiagnosticRelatedInformationCapability: boolean = false;
   static TraversedWorkspaces: boolean = false;
 
-  static Connection : Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
+  static Connection: Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
 }

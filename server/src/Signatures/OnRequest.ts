@@ -34,7 +34,7 @@ import * as Mcfunction from './Mcfunction';
 import * as Language from './Language';
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
-	return new Promise<SignatureHelp>((resolve, reject)=>{
+	return new Promise<SignatureHelp>((resolve, reject) => {
 		resolve(OnSignatureRequest(params));
 	})
 }
@@ -52,8 +52,8 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
 			return Language.ProvideSignature(doc, pos);
 
 		case McOtherIdentifier:
-			return undefined;	
-			//return Other.ProvideSignature(doc, pos);
+			return undefined;
+		//return Other.ProvideSignature(doc, pos);
 	}
 
 	return undefined;

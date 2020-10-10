@@ -1,6 +1,3 @@
-import { fstat } from 'fs';
-import { encode } from 'punycode';
-import { pathToFileURL } from 'url';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd

@@ -39,8 +39,8 @@ export function OnHoverRequestAsync(params: HoverParams): Promise<Hover> {
 
 export function OnHoverRequest(params: HoverParams): Hover | undefined {
 	let doc = GetDocument(params.textDocument.uri);
-	
-	switch(doc.languageId){
+
+	switch (doc.languageId) {
 		case McFunctionIdentifier:
 			return provideHoverMcFunction(params, doc);
 	}

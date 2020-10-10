@@ -48,7 +48,7 @@ export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattin
 function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] | undefined {
 	let doc = GetDocument(params.textDocument.uri);
 
-	switch(doc.languageId){
+	switch (doc.languageId) {
 		case McLanguageIdentifier:
 			return formatMcfunction(doc, params);
 	}
@@ -59,7 +59,7 @@ function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] |
 function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] | undefined {
 	let doc = GetDocument(params.textDocument.uri);
 
-	switch(doc.languageId){
+	switch (doc.languageId) {
 		case McLanguageIdentifier:
 			return formatMcfunctionRange(doc, params);
 	}

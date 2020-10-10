@@ -909,7 +909,7 @@
                 { "Text": "replaceitem", "Type": "keyword", "Required": true },
                 { "Text": "entity", "Type": "keyword", "Required": true },
                 { "Text": "selector", "Type": "selector", "Required": true },
-				{ "Text": "slot.container", "Type": "slotType", "Required": true },
+                { "Text": "slot.container", "Type": "slotType", "Required": true },
                 { "Text": "slotId", "Type": "slotType", "Required": true },
                 { "Text": "itemName", "Type": "item", "Required": true },
                 { "Text": "amount", "Type": "integer", "Required": false },

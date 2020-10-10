@@ -34,14 +34,14 @@ import { AddCommands } from '../minecraft/commands/include';
 import { AddMinecraftData } from '../minecraft/data/Initialize';
 import { TraveseDirectory } from '../process/traverse';
 
-export async function onInitializedAsync(params: InitializedParams) : Promise<void> {
-	return new Promise<void>((resolve, reject)=>{
+export async function onInitializedAsync(params: InitializedParams): Promise<void> {
+	return new Promise<void>((resolve, reject) => {
 		onInitialized(params);
 		resolve();
 	});
 }
 
-function onInitialized(params: InitializedParams) : void {
+function onInitialized(params: InitializedParams): void {
 	console.log('Initialized minecraft server');
 
 	if (Manager.hasConfigurationCapability) {
@@ -73,7 +73,7 @@ function onInitialized(params: InitializedParams) : void {
 			if (Path == undefined)
 				return;
 
-			new Promise((resolve, reject)=>{
+			new Promise((resolve, reject) => {
 				TraveseDirectory(Path);
 				Manager.TraversedWorkspaces = true;
 				resolve();

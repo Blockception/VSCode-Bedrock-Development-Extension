@@ -31,8 +31,8 @@ import { TextDocument } from 'vscode-languageserver-textdocument';
 import { McLanguageIdentifier } from '../Constants';
 import { provideLanguageDiagnostics } from './Language';
 
-export function provideDiagnostics(doc : TextDocument) {
-   switch (doc.languageId){
+export function provideDiagnostics(doc: TextDocument) {
+   switch (doc.languageId) {
       case McLanguageIdentifier:
          provideLanguageDiagnostics(doc);
          break;

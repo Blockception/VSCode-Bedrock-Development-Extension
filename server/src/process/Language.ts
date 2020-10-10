@@ -30,10 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { provideLanguageDiagnostics } from '../diagnostics/Language';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 
-export function Process(document : TextDocument) : void {
+export function Process(document: TextDocument): void {
    //Process language file
    //TODO process language files
 
    //provide diagnostics on the language document
-   provideLanguageDiagnostics(document);   
+   provideLanguageDiagnostics(document);
 }

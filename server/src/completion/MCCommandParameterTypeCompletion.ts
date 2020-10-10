@@ -28,9 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
 import { RangedWord } from '../code/include';
-import { CommandIntr, MCCommand, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
+import { CommandIntr, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { provideBooleanCompletion } from '../minecraft/types/Boolean/Completion';
 import { provideCoordinateCompletion } from '../minecraft/types/Coordinate/Completion';
 import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
@@ -51,7 +50,7 @@ function toCompletion(parameter: MCCommandParameter): CompletionItem {
 	return Out;
 }
 
-export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParameter, Command : CommandIntr, pos : number, receiver: CompletionList, Current: RangedWord | undefined): void {
+export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParameter, Command: CommandIntr, pos: number, receiver: CompletionList, Current: RangedWord | undefined): void {
 	switch (Parameter.Type) {
 		case MCCommandParameterType.block:
 			provideBlockCompletion(receiver);

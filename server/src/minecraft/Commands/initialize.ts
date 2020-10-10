@@ -35,18 +35,18 @@ import { MCCommandParameter } from './MCCommandParameter';
 import { MCCommandParameterType } from './MCCommandParameterType';
 
 export function AddCommands(): void {
-	data.commands.forEach(com=>{
+	data.commands.forEach(com => {
 		let Command = new MCCommand();
 
-		let kind : MarkupKind = MarkupKind.Markdown;
+		let kind: MarkupKind = MarkupKind.Markdown;
 
 		if (com.documentation.kind === MarkupKind.PlainText)
 			kind = MarkupKind.PlainText;
 
-		Command.documentation = {value:com.documentation.value,kind:kind};
+		Command.documentation = { value: com.documentation.value, kind: kind };
 		Command.name = com.name;
-		
-		com.parameters.forEach(par=>{
+
+		com.parameters.forEach(par => {
 			let type = par.Type as keyof typeof MCCommandParameterType;
 			let Par = new MCCommandParameter(par.Text, MCCommandParameterType[type], par.Required);
 			Command.parameters.push(Par);

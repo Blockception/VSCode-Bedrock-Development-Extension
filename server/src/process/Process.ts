@@ -36,8 +36,8 @@ import { TextDocumentChangeEvent } from 'vscode-languageserver';
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 
-export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>) : Promise<void> {
-   return new Promise((resolve, reject)=>{
+export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
+   return new Promise((resolve, reject) => {
       let doc = GetDocument(e.document.uri, e.document, e.document.languageId);
       Process(doc);
       resolve();
@@ -47,7 +47,7 @@ export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDoc
 //Process the given document
 export function Process(document: TextDocument): void {
    console.log('Processing: ' + GetFilename(document.uri) + ' | ' + document.languageId);
-   
+
    switch (document.languageId) {
       case McFunctionIdentifier:
          Mcfunction.Process(document);

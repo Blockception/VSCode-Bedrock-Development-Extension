@@ -1,4 +1,3 @@
-import { deepStrictEqual } from 'assert';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd

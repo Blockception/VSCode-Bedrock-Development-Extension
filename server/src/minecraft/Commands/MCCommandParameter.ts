@@ -31,11 +31,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MCCommandParameterType } from './MCCommandParameterType';
 
 export class MCCommandParameter {
-	public Text : string;
-	public Type : MCCommandParameterType;
-	public Required : boolean;
+	public Text: string;
+	public Type: MCCommandParameterType;
+	public Required: boolean;
 
-	constructor(Text : string = '', Type = MCCommandParameterType.keyword, Required = true){
+	constructor(Text: string = '', Type = MCCommandParameterType.keyword, Required = true) {
 		this.Text = Text;
 		this.Type = Type;
 		this.Required = Required;

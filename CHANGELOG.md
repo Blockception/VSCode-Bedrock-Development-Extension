@@ -1,4 +1,5 @@
 # Changelog 
+- Updated information
 - Updated
 - Updated to 1.0.0
 - Fixing
@@ -18,4 +19,3 @@
 - Updated
 - Updated json validation
 - Reformatted titles
-- Updated

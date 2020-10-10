@@ -31,10 +31,10 @@ import { SignatureInformation } from 'vscode-languageserver';
 import { MCCommand } from './MCCommand';
 
 export class CommandInfo {
-	public Command : MCCommand;
-	public Signature : SignatureInformation | undefined;
+	public Command: MCCommand;
+	public Signature: SignatureInformation | undefined;
 
-	constructor(Command : MCCommand){
+	constructor(Command: MCCommand) {
 		this.Command = Command;
 	}
 }
