@@ -1,24 +1,24 @@
 {
-  "name": "blockception-minecraft-server",
-  "description": "The language server for minecraft",
-  "version": "1.0.0",
-  "author": {
-    "name": "Blockception Ltd",
-    "url": "https://www.blockception.com/"
-  },
-  "publisher": "BlockceptionLtd",
-  "engines": {
-    "node": "*"
-  },
-  "repository": {
-    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-    "type": "git"
-  },
-  "license": "BSD 3-Clause \"New\" or \"Revised\" License",
-  "dependencies": {
-    "vscode-languageserver": "^6.1.1",
-    "vscode-languageserver-textdocument": "^1.0.1",
-    "vscode-uri": "^2.1.2"
-  },
-  "scripts": {}
+    "name": "blockception-minecraft-server",
+    "description": "The language server for minecraft",
+    "version": "1.0.0",
+    "author": {
+        "name": "Blockception Ltd",
+        "url": "https://www.blockception.com/"
+    },
+    "publisher": "BlockceptionLtd",
+    "engines": {
+        "node": "*"
+    },
+    "repository": {
+        "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+        "type": "git"
+    },
+    "license": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "dependencies": {
+        "vscode-languageserver": "^6.1.1",
+        "vscode-languageserver-textdocument": "^1.0.1",
+        "vscode-uri": "^2.1.2"
+    },
+    "scripts": {}
 }

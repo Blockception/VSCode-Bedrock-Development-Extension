@@ -1,4 +1,5 @@
 # Changelog 
+- Fixing
 - Merge remote-tracking branch 'origin/language-server'
 - Updated packages
 - Added the mcfunction formatter
@@ -18,4 +19,3 @@
 - Updated
 - Refactoring
 - Updated Types
-- Updated Code
