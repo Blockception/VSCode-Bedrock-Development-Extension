@@ -28,11 +28,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { TextDocument } from 'vscode-languageserver-textdocument';
 import { RangedWord } from '../code/include';
 import { CommandIntr, MCCommand, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { provideBooleanCompletion } from '../minecraft/types/Boolean/Completion';
 import { provideCoordinateCompletion } from '../minecraft/types/Coordinate/Completion';
 import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
+import { provideFunctionCompletion } from '../minecraft/types/Functions/Completion';
 import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSoundCompletion, provideTagCompletion } from '../minecraft/types/include';
 import { provideIntegerCompletion } from '../minecraft/types/Integer/Completion';
 import { provideItemCompletion } from '../minecraft/types/Item/Completion';
@@ -84,7 +86,7 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			break;
 
 		case MCCommandParameterType.function:
-			//TODO
+			provideFunctionCompletion(receiver);
 			break;
 
 		case MCCommandParameterType.gamemode:

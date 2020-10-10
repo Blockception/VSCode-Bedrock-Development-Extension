@@ -40,10 +40,10 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
 
 	let Command: CommandIntr = CommandIntr.parse(Line, pos);
 
-	ProvideCompletionMcFunction(Command, pos, receiver);
+	ProvideCompletionMcFunction(doc, pos, receiver, Command);
 }
 
-export function ProvideCompletionMcFunction(Command: CommandIntr, pos: Position, receiver: CompletionList): void {
+export function ProvideCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList, Command: CommandIntr, ): void {
 	if (Command == undefined || pos.character < 3) {
 		provideCommandCompletion(receiver);
 		return;

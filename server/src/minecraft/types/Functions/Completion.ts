@@ -1,4 +1,3 @@
-import { deepStrictEqual } from 'assert';
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -28,57 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
-import { IsEqual } from '../code/Equal';
-import { GetDocument } from "../code/include";
-import { McFunctionIdentifier } from "../Constants";
-import { OnCompletionMcFunction } from "./McfunctionCompletion";
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { Database } from '../../Database';
+import { MinecraftData } from '../../Minecraft Data';
 
-//Handle request
-export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionList> {
-  return new Promise((resolve, reject) => {
-    resolve(OnCompletionRequest(params));
-  });
-}
+export function provideFunctionCompletion(receiver: CompletionList): void {
 
-//Processes request
-function OnCompletionRequest(params: CompletionParams): CompletionList {
-  let List: CompletionList = { isIncomplete: true, items: [], };
-  let Doc = GetDocument(params.textDocument.uri);
-  let Pos = params.position;
+	Database.Data.forEach((value: MinecraftData, key: string) => {
+		let filepath = decodeURI(key);
+		let index = filepath.indexOf('/functions/');
 
-  switch (Doc.languageId) {
-    case McFunctionIdentifier:
-      OnCompletionMcFunction(Doc, Pos, List);
-      break;
-  }
+		if (index >= 0 && filepath.includes('.mcfunction')) {
+			let functionPath = filepath.slice(index + 11, filepath.length - 11);
 
-  List.items = removeDuplicate(List.items);
-  List.isIncomplete = false;
+			if (functionPath.includes(' ')) {
+				functionPath = '"' + functionPath + '"';
+			}
 
-  return List;
-}
-
-function removeDuplicate(items: CompletionItem[]): CompletionItem[] {
-  let Length = items.length;
-  let Out: CompletionItem[] = [];
-
-  for (let I = 0; I < Length; I++) {
-    let Current = items[I];
-
-    if (!hasItem(Out, Current)) {
-      Out.push(Current);
-    }
-  }
-
-  return Out;
-}
-
-function hasItem(items: CompletionItem[], item: CompletionItem): boolean {
-  for (let I = 0; I < items.length; I++) {
-    if (IsEqual(items[I], item))
-      return true;
-  }
-
-  return false;
+			receiver.items.push(
+				{ label: functionPath, kind: CompletionItemKind.File, documentation: 'The function path to: ' + functionPath }
+			);
+		}
+	});
 }
