@@ -44,7 +44,7 @@ export function GetFilename(filepath: string): string {
     return filepath.trim();
 }
 
-export function getExtension(filepath : string) : string {
+export function getExtension(filepath: string): string {
     let index = filepath.lastIndexOf('.');
 
     if (index < 0)

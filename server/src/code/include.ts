@@ -29,6 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export * from './Array';
 export * from './Document';
+export * from './Equal';
 export * from './File';
 export * from './RangedWords';
 export * from './TextWords';
+export * from './TextEdit';
+export * from './TextWords';
+export * from './Url';

@@ -77,8 +77,8 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
   }
 }
 
-export function getLine(doc : TextDocument, lineIndex : number) : string {
-  return doc.getText({start:{line:lineIndex,character:0},end:{line:lineIndex,character:Number.MAX_VALUE}});
+export function getLine(doc: TextDocument, lineIndex: number): string {
+  return doc.getText({ start: { line: lineIndex, character: 0 }, end: { line: lineIndex, character: Number.MAX_VALUE } });
 }
 
 /**
