@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import { OnCompletionRequestAsync } from '../completion/OnRequest';
+import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from '../format/OnRequest';
 import { OnHoverRequestAsync } from '../hover/OnRequest';
 import { Manager } from '../Manager';
 import { OndDocumentChangedAsync } from '../process/Process';
@@ -54,6 +55,10 @@ export function setEvents() {
 
 	// This handler provides hover support
 	Manager.Connection.onHover(OnHoverRequestAsync);
+
+	// This handler provides formatting
+	Manager.Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
+	Manager.Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync)
 
 	// This handler provides signatures
 	Manager.Connection.onSignatureHelp(OnSignatureRequestAsync);

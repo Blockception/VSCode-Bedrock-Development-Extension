@@ -57,10 +57,15 @@ function onInitialize(params: InitializeParams) : InitializeResult {
 	const result: InitializeResult = {
 		capabilities: {
 			textDocumentSync: TextDocumentSyncKind.Incremental,
-			// Tell the client that this server supports code completion.
+			// Tell the clien that this server formatting
+			documentFormattingProvider:{},
+			documentRangeFormattingProvider:{},
+			// Tell the client that this server supports symbol provider
 			documentSymbolProvider: true,
 			workspaceSymbolProvider: true,
+			// Tell the client that this server supports hover support 
 			hoverProvider:true,			
+			// Tell the client that this server supports code completion.
 			completionProvider:{
 				resolveProvider:false,
 				triggerCharacters:[' ', '\t', '[', '=', ',']
