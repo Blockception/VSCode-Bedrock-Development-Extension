@@ -59,6 +59,8 @@ export function setEvents() {
 	Manager.Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
 	Manager.Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync)
 
+	Manager.Connection.onDocumentColor
+
 	// This handler provides signatures
 	Manager.Connection.onSignatureHelp(OnSignatureRequestAsync);
 }

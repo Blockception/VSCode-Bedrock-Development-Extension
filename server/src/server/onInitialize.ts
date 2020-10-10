@@ -70,6 +70,9 @@ function onInitialize(params: InitializeParams): InitializeResult {
 				resolveProvider: false,
 				triggerCharacters: [' ', '\t', '[', '=', ',']
 			},
+			// Tell the client that this server supports semantics
+			
+			// Tell the client that this server supports signatures
 			signatureHelpProvider: {
 				triggerCharacters: [' '],
 				retriggerCharacters: [' ', '\t']

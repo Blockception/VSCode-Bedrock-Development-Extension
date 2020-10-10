@@ -46,9 +46,8 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
 
 		let CommentIndex = Line.indexOf('#');
 		if (CommentIndex >= 0) {
-			Line = Line.substring(0, CommentIndex);
+			Line = Line.substring(0, CommentIndex).trim();
 		}
-
 
 		if (Line === '')
 			continue;

@@ -1,4 +1,5 @@
 # Changelog 
+- Formatted code
 - Updated information
 - Updated
 - Updated to 1.0.0
@@ -18,4 +19,3 @@
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension into master
 - Updated
 - Updated json validation
-- Reformatted titles
