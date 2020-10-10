@@ -30,15 +30,30 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
 import { Database } from '../../Database';
 
-export function provideObjectiveCompletion(receiver : CompletionList) : void {
-	Database.Data.forEach(dataSet=>{
+export function provideObjectiveCompletion(receiver: CompletionList, additionalText: string | undefined = undefined): void {
+	Database.Data.forEach(dataSet => {
 		dataSet.Objectives.forEach(objective => {
 			let Name = objective.Name;
 
 			receiver.items.push({
-				label:Name,
-				kind:CompletionItemKind.Variable,
-				documentation:"The objective: '" + Name + "'"
+				label: Name,
+				kind: CompletionItemKind.Variable,
+				documentation: "The objective: '" + Name + "'"
+			});
+		});
+	});
+}
+
+export function provideObjectivePostCompletion(receiver: CompletionList, additionalText: TemplateStringsArray): void {
+	Database.Data.forEach(dataSet => {
+		dataSet.Objectives.forEach(objective => {
+			let Name = objective.Name;
+
+			receiver.items.push({
+				label: Name,
+				kind: CompletionItemKind.Variable,
+				insertText: Name + additionalText,
+				documentation: "The objective: '" + Name + "'"
 			});
 		});
 	});

@@ -30,16 +30,29 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
 import { Database } from '../../Database';
 
-export function provideEntityCompletion(receiver : CompletionList) : void {
-	Database.Data.forEach(dataSet=>{
+export function provideEntityCompletion(receiver: CompletionList): void {
+	Database.Data.forEach(dataSet => {
 		dataSet.Entities.forEach(entity => {
 			let Name = entity.Identifier
 
 			receiver.items.push({
-				label:Name,
-				kind:CompletionItemKind.Struct,
-				documentation:entity.Documentation
+				label: Name,
+				kind: CompletionItemKind.Struct,
+				documentation: entity.Documentation
 			});
+		});
+	});
+}
+
+export function provideEntityTestCompletion(receiver: CompletionList): void {
+	Database.Data.forEach(dataSet => {
+		dataSet.Entities.forEach(entity => {
+			let Name = entity.Identifier
+
+			receiver.items.push(
+				{ label: Name, kind: CompletionItemKind.Struct, documentation: 'test for the entity: ' + Name },
+				{ label: '!' + Name, kind: CompletionItemKind.Struct, documentation: 'test not for the entity: ' + Name }
+			);
 		});
 	});
 }

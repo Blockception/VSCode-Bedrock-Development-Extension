@@ -74,8 +74,6 @@ export enum MCCommandParameterType {
 	selector,
 	//Marks that the parameter is a player selector
 	selectorPlayer,
-	//Marks that the parameter is a selector and target
-	selectorTarget,
 	//Marks that the parameter is a slot type
 	slotType,
 	//Marks that the parameter is a slot ID

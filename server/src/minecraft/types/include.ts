@@ -38,7 +38,7 @@ export * from './Effect/Completion';
 export * from './Objectives/Objectives';
 export * from './Objectives/Completion';
 export * from './Selector/Selector';
-export * from './Selector/Completion';
+export * from './Selector/Completion/Completion';
 export * from './Sound/Sound';
 export * from './Sound/Completion';
 export * from './Tag/Tag';

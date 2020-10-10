@@ -29,11 +29,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-languageserver';
 import { RangedWord } from '../code/include';
-import { MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
+import { CommandIntr, MCCommand, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { provideBooleanCompletion } from '../minecraft/types/Boolean/Completion';
 import { provideCoordinateCompletion } from '../minecraft/types/Coordinate/Completion';
 import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
-import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSelectorPlayerCompletion, provideSelectorTargetCompletion, provideSoundCompletion, provideTagCompletion } from '../minecraft/types/include';
+import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSoundCompletion, provideTagCompletion } from '../minecraft/types/include';
 import { provideIntegerCompletion } from '../minecraft/types/Integer/Completion';
 import { provideItemCompletion } from '../minecraft/types/Item/Completion';
 import { provideXPCompletion } from '../minecraft/types/Xp/Completion';
@@ -49,7 +49,7 @@ function toCompletion(parameter: MCCommandParameter): CompletionItem {
 	return Out;
 }
 
-export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParameter, receiver: CompletionList, Current: RangedWord | undefined): void {
+export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParameter, Command : CommandIntr, pos : number, receiver: CompletionList, Current: RangedWord | undefined): void {
 	switch (Parameter.Type) {
 		case MCCommandParameterType.block:
 			provideBlockCompletion(receiver);
@@ -121,15 +121,11 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			break;
 
 		case MCCommandParameterType.selector:
-			provideSelectorCompletion(receiver, Current);
+			provideSelectorCompletion(receiver, Current, pos, true, true, true);
 			break;
 
 		case MCCommandParameterType.selectorPlayer:
-			provideSelectorPlayerCompletion(receiver, Current);
-			break;
-
-		case MCCommandParameterType.selectorTarget:
-			provideSelectorTargetCompletion(receiver, Current);
+			provideSelectorCompletion(receiver, Current, pos, false, true, true);
 			break;
 
 		case MCCommandParameterType.slotID:

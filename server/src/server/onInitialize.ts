@@ -62,7 +62,7 @@ function onInitialize(params: InitializeParams) : InitializeResult {
 			workspaceSymbolProvider: true,
 			completionProvider:{
 				resolveProvider:false,
-				triggerCharacters:[' ', '\t']
+				triggerCharacters:[' ', '\t', '[', '=', ',']
 			},
 			signatureHelpProvider:{
 				triggerCharacters:[' '],

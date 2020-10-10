@@ -27,9 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { RangedWord } from '../../../code/include';
-import { Database } from '../../Database';
+import { CompletionItem, CompletionItemKind, CompletionList, MarkupContent } from 'vscode-languageserver';
+import { RangedWord } from '../../../../code/include';
+import { Database } from '../../../Database';
+import { InSelector } from '../../include';
+import { GetCurrentAttribute, InScore, IsEditingValue } from '../Selector';
+import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from './Attributes';
+import { provideSelectorScoreCompletion } from './Scores';
 
 const AllPlayer: CompletionItem = { label: '@a', kind: CompletionItemKind.Reference, documentation: 'Targets all players' };
 const AllEntities: CompletionItem = { label: '@e', kind: CompletionItemKind.Reference, documentation: 'Targets all entities' };
@@ -37,55 +41,40 @@ const Executing: CompletionItem = { label: '@s', kind: CompletionItemKind.Refere
 const Random: CompletionItem = { label: '@r', kind: CompletionItemKind.Reference, documentation: 'Targets random players, or if specified, random types' };
 const NearestPlayer: CompletionItem = { label: '@p', kind: CompletionItemKind.Reference, documentation: 'Targets the nearest player' };
 
-export function provideSelectorCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
-	if (Text === undefined || Text.text === '') {
-		//Defaults
-		receiver.items.push(AllPlayer, AllEntities, Executing, Random, NearestPlayer);
 
-		AddFakePlayers(receiver);
-	}
-}
+export function provideSelectorCompletion(receiver: CompletionList, selector: RangedWord | undefined, pos: number, forEntities: boolean, forPlayers: boolean, forFakePlayer: boolean) {
+	if (selector === undefined || selector.text === '' || !InSelector(selector, pos)) {
+		if (selector !== undefined) {
+			let diff = pos - selector.startindex;
 
-export function provideSelectorPlayerCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
-	if (Text === undefined || Text.text === '') {
-		//Defaults
-		receiver.items.push(AllPlayer, Executing, Random, NearestPlayer);
-	}
-}
-
-export function provideSelectorTargetCompletion(receiver: CompletionList, Text: RangedWord | undefined) {
-	if (Text === undefined || Text.text === '') {
-		//Defaults
-		receiver.items.push(AllPlayer, AllEntities, Executing, Random, NearestPlayer);
-
-		AddFakePlayers(receiver);
-	}
-}
-
-function provideSelectorCompletion(receiver: CompletionList, Text: RangedWord | undefined, forEntities : boolean, forPlayers : boolean) {
-	if (Text === undefined || Text.text === '') {
-		//Defaults
-		receiver.items.push(Executing);
-		if (forPlayers){
-			receiver.items.push(AllPlayer);
+			if (diff < 3) {
+				receiver.items.push({ label: '[', kind: CompletionItemKind.Snippet });
+				return;
+			}
 		}
 
-		AddFakePlayers(receiver);
+		//Defaults
+		receiver.items.push(AllPlayer, Executing, Executing, Random, NearestPlayer);
+
+		if (forEntities) { receiver.items.push(AllEntities); }
+		if (forFakePlayer) { AddFakePlayers(receiver); }
+
+		return;
 	}
 
+	if (InScore(selector, pos)) {
+		provideSelectorScoreCompletion(receiver, selector, pos);
+		return;
+	}
 
-	AddFakePlayers(receiver);
+	if (IsEditingValue(selector, pos)) {
+		let Attribute = GetCurrentAttribute(selector, pos);
+		provideSelectorAttributeValueCompletion(receiver, Attribute, forEntities);
+	}
+	else {
+		provideSelectorAttributeCompletion(receiver, forEntities);
+	}
 }
-
-
-function InSelector(selector: RangedWord, pos: number) : boolean{
-	if (selector.startindex + 2 <= pos && pos < selector.endindex)
-		return true;
-
-	return false;
-}
-
-
 
 
 function AddFakePlayers(receiver: CompletionList) {
