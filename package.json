@@ -1,237 +1,164 @@
 {
-  "main": "./client/out/extension.js",
-  "version": "0.2.22",
-  "activationEvents": [
-    "onLanguage:bc-minecraft-language",
-    "onLanguage:bc-minecraft-mcfunction"
-  ],
-  "author": {
-    "name": "Blockception Ltd",
-    "url": "https://www.blockception.com/"
-  },
-  "displayName": "Blockception's Minecraft Bedrock Development",
-  "description": "An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop minecraft bedrock content.",
-  "categories": [
-    "Language Packs",
-    "Programming Languages",
-    "Snippets",
-    "Other",
-    "Formatters",
-    "Debuggers"
-  ],
-  "compile": "tsc -watch -p ./ --traceResolution",
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -b",
-    "watch": "tsc -b -w",
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-    "test": "sh ./scripts/e2e.sh"
-  },
-  "devDependencies": {
-    "@types/mocha": "^7.0.2",
-    "@types/node": "^12.12.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "eslint": "^6.4.0",
-    "mocha": "^8.1.1",
-    "typescript": "^3.9.4"
-  },
-  "engines": {
-    "vscode": "^1.43.0"
-  },
-  "extensionKind": [ "ui" ],
-  "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-  "icon": "resources/logo.png",
-  "license": "BSD 3-Clause \"New\" or \"Revised\" License",
-  "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
-  "publisher": "BlockceptionLtd",
-  "contributors": [
-    { "name": "DaanV2", "url": "https://github.com/DaanV2" },
-    { "name": "Soniikz", "url": "https://github.com/Soniikz" }
-  ],
-  "repository": {
-    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-    "type": "git"
-  },
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Language Server configuration",
-      "properties": {
-        "languageServerExample.maxNumberOfProblems": {
-          "scope": "resource",
-          "type": "number",
-          "default": 100,
-          "description": "Controls the maximum number of problems produced by the server."
-        },
-        "languageServerExample.trace.server": {
-          "scope": "window",
-          "type": "string",
-          "enum": [
-            "off",
-            "messages",
-            "verbose"
-          ],
-          "default": "verbose",
-          "description": "Traces the communication between VS Code and the language server."
-        }
-      }
+    "main": "./client/out/extension.js",
+    "version": "0.2.22",
+    "activationEvents": [
+        "onLanguage:bc-minecraft-language",
+        "onLanguage:bc-minecraft-mcfunction"
+    ],
+    "author": {
+        "name": "Blockception Ltd",
+        "url": "https://www.blockception.com/"
     },
-    "commands": [
-      {
-        "command": "blockception.mcfunction.formatter",
-        "category": "mcfunction",
-        "title": "Format document"
-      }
+    "displayName": "Blockception's Minecraft Bedrock Development",
+    "description": "An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop minecraft bedrock content.",
+    "categories": [
+        "Language Packs",
+        "Programming Languages",
+        "Snippets",
+        "Other",
+        "Formatters",
+        "Debuggers"
     ],
-
-    "languages": [
-      {
-        "id": "bc-minecraft-language",
-        "aliases": [ "Minecraft Language" ],
-        "extensions": [ ".lang" ],
-        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
-      },
-      {
-        "id": "bc-minecraft-mcfunction",
-        "aliases": [ "Minecraft Mcfunction" ],
-        "extensions": [ ".mcfunction" ],
-        "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
-        "filenamePatterns": [
-          "[a-z0-9_]*\\.mcfunction"
-        ]
-      }
+    "compile": "tsc -watch -p ./ --traceResolution",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -b",
+        "watch": "tsc -b -w",
+        "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+        "test": "sh ./scripts/e2e.sh"
+    },
+    "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^12.12.0",
+        "@typescript-eslint/parser": "^2.3.0",
+        "eslint": "^6.4.0",
+        "mocha": "^8.1.1",
+        "typescript": "^3.9.4"
+    },
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "extensionKind": [ "workspace", "ui" ],
+    "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+    "icon": "resources/logo.png",
+    "license": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
+    "publisher": "BlockceptionLtd",
+    "contributors": [
+        { "name": "DaanV2", "url": "https://github.com/DaanV2" },
+        { "name": "Soniikz", "url": "https://github.com/Soniikz" }
     ],
-    "grammars": [
-      {
-        "language": "bc-minecraft-mcfunction",
-        "scopeName": "source.bc.minecraft.mcfunction",
-        "path": "./minecraft-mcfunctions/syntaxes/minecraft-mcfunction.tmLanguage.json",
-        "embeddedLanguages": {
-          "meta.embedded.block.json": "json"
+    "repository": {
+        "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+        "type": "git"
+    },
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Language Server configuration",
+            "properties": {
+                "languageServerExample.maxNumberOfProblems": {
+                    "scope": "resource",
+                    "type": "number",
+                    "default": 100,
+                    "description": "Controls the maximum number of problems produced by the server."
+                },
+                "languageServerExample.trace.server": {
+                    "scope": "window",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "default": "verbose",
+                    "description": "Traces the communication between VS Code and the language server."
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "blockception.mcfunction.formatter",
+                "category": "mcfunction",
+                "title": "Format document"
+            }
+        ],
+        "languages": [
+            {
+                "id": "bc-minecraft-language",
+                "aliases": [
+                    "Minecraft Language"
+                ],
+                "extensions": [
+                    ".lang"
+                ],
+                "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json" },
+            {
+                "id": "bc-minecraft-mcfunction",
+                "aliases": [
+                    "Minecraft Mcfunction"
+                ],
+                "extensions": [
+                    ".mcfunction"
+                ],
+                "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
+                "filenamePatterns": [
+                    "[a-z0-9_]*\\.mcfunction"
+                ]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "bc-minecraft-mcfunction",
+                "scopeName": "source.bc.minecraft.mcfunction",
+                "path": "./minecraft-mcfunctions/syntaxes/minecraft-mcfunction.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.json": "json"
+                }
+            },
+            {
+                "language": "bc-minecraft-language",
+                "scopeName": "source.bc.minecraft.language",
+                "path": "./minecraft-language-files/syntaxes/minecraft-language-files.tmLanguage.json" }
+        ],
+        "jsonValidation": [
+            { "fileMatch": "manifest.json", "url": "./minecraft-general/schemas/general/manifest.json" },
+            { "fileMatch": "world_behavior_packs.json", "url": "./minecraft-general/schemas/general/world_x_packs.json" },
+            { "fileMatch": "world_resource_packs.json", "url": "./minecraft-general/schemas/general/world_x_packs.json" },
+            { "fileMatch": "animation_controllers/*.json", "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json" },
+            { "fileMatch": "languages.json", "url": "./minecraft-general/schemas/language/languages.json" },
+            { "fileMatch": "language_names.json", "url": "./minecraft-general/schemas/language/language_names.json" },
+            { "fileMatch": "animations/*.animation.json", "url": "./minecraft-general/schemas/resource/animations/actor_animation.json" },
+            { "fileMatch": "attachables/*.json", "url": "./minecraft-general/schemas/resource/attachables/attachables.json" },
+            { "fileMatch": "biomes_client.json", "url": "./minecraft-general/schemas/resource/biomes_client.json" },
+            { "fileMatch": "blocks.json", "url": "./minecraft-general/schemas/resource/blocks.json" },
+            { "fileMatch": "entity/*entity.json", "url": "./minecraft-general/schemas/resource/entity/entity.json" },
+            { "fileMatch": "flipbook_textures.json", "url": "./minecraft-general/schemas/resource/textures/flipbook_textures.json" },
+            { "fileMatch": "item_texture.json", "url": "./minecraft-general/schemas/resource/textures/item_texture.json" },
+            { "fileMatch": "particles/*.json", "url": "./minecraft-general/schemas/resource/particles/particles.json" },
+            { "fileMatch": "*.particle.json", "url": "./minecraft-general/schemas/resource/particles/particles.json" },
+            { "fileMatch": "*.geo.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" },
+            { "fileMatch": "*.geometry.json", "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json" },
+            { "fileMatch": "render_controllers/*.json", "url": "./minecraft-general/schemas/resource/render_controllers/render_controllers.json" },
+            { "fileMatch": "sound_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/sound_definitions.json" },
+            { "fileMatch": "terrain_texture.json", "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json" },
+            { "fileMatch": "music_definitions.json", "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json" },
+            { "fileMatch": "loot_tables/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
+            { "fileMatch": "loot_tables/*/*.json", "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json" },
+            { "fileMatch": "entities/*.json", "url": "./minecraft-general/schemas/behaviour/entities/entities.json" },
+            { "fileMatch": "spawn_rules/*.json", "url": "./minecraft-general/schemas/behaviour/spawn_rules/spawn_rules.json" },
+            { "fileMatch": "items/*.json", "url": "./minecraft-general/schemas/behaviour/items/items.json" }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "blockception.mcfunction.formatter",
+                    "when": "editorLangId == bc-minecraft-mcfunction"
+                }
+            ]
         }
-      },
-      {
-        "language": "bc-minecraft-language",
-        "scopeName": "source.bc.minecraft.language",
-        "path": "./minecraft-language-files/syntaxes/minecraft-language-files.tmLanguage.json"
-      }
-    ],
-    "jsonValidation": [
-      {
-        "fileMatch": "manifest.json",
-        "url": "./minecraft-general/schemas/general/manifest.json"
-      },
-      {
-        "fileMatch": "world_behavior_packs.json",
-        "url": "./minecraft-general/schemas/general/world_x_packs.json"
-      },
-      {
-        "fileMatch": "world_resource_packs.json",
-        "url": "./minecraft-general/schemas/general/world_x_packs.json"
-      },
-      {
-        "fileMatch": "animation_controllers/*.json",
-        "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json"
-      },
-      {
-        "fileMatch": "languages.json",
-        "url": "./minecraft-general/schemas/language/languages.json"
-      },
-      {
-        "fileMatch": "language_names.json",
-        "url": "./minecraft-general/schemas/language/language_names.json"
-      },
-      {
-        "fileMatch": "animations/*.animation.json",
-        "url": "./minecraft-general/schemas/resource/animations/actor_animation.json"
-      },
-      {
-        "fileMatch": "attachables/*.json",
-        "url": "./minecraft-general/schemas/resource/attachables/attachables.json"
-      },
-      {
-        "fileMatch": "biomes_client.json",
-        "url": "./minecraft-general/schemas/resource/biomes_client.json"
-      },
-      {
-        "fileMatch": "blocks.json",
-        "url": "./minecraft-general/schemas/resource/blocks.json"
-      },
-      {
-        "fileMatch": "entity/*entity.json",
-        "url": "./minecraft-general/schemas/resource/entity/entity.json"
-      },
-      {
-        "fileMatch": "flipbook_textures.json",
-        "url": "./minecraft-general/schemas/resource/textures/flipbook_textures.json"
-      },
-      {
-        "fileMatch": "item_texture.json",
-        "url": "./minecraft-general/schemas/resource/textures/item_texture.json"
-      },
-      {
-        "fileMatch": "particles/*.json",
-        "url": "./minecraft-general/schemas/resource/particles/particles.json"
-      },
-      {
-        "fileMatch": "*.particle.json",
-        "url": "./minecraft-general/schemas/resource/particles/particles.json"
-      },
-      {
-        "fileMatch": "*.geo.json",
-        "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json"
-      },
-      {
-        "fileMatch": "*.geometry.json",
-        "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json"
-      },
-      {
-        "fileMatch": "render_controllers/*.json",
-        "url": "./minecraft-general/schemas/resource/render_controllers/render_controllers.json"
-      },
-      {
-        "fileMatch": "sound_definitions.json",
-        "url": "./minecraft-general/schemas/resource/sounds/sound_definitions.json"
-      },
-      {
-        "fileMatch": "terrain_texture.json",
-        "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json"
-      },
-      {
-        "fileMatch": "music_definitions.json",
-        "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json"
-      },
-      {
-        "fileMatch": "loot_tables/*.json",
-        "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json"
-      },
-      {
-        "fileMatch": "loot_tables/*/*.json",
-        "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json"
-      },
-      {
-        "fileMatch": "entities/*.json",
-        "url": "./minecraft-general/schemas/behaviour/entities/entities.json"
-      },
-      {
-        "fileMatch": "spawn_rules/*.json",
-        "url": "./minecraft-general/schemas/behaviour/spawn_rules/spawn_rules.json"
-      },
-      {
-        "fileMatch": "items/*.json",
-        "url": "./minecraft-general/schemas/behaviour/items/items.json"
-      }
-    ],
-    "menus": {
-      "commandPalette": [
-        {
-          "command": "blockception.mcfunction.formatter",
-          "when": "editorLangId == bc-minecraft-mcfunction"
-        }
-      ]
+    },
+    "dependencies": {
+        "vsce": "^1.77.0"
     }
-  },
-  "dependencies": {
-    "vsce": "^1.77.0"
-  }
 }
