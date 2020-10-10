@@ -27,7 +27,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
 import { InitializedParams, DidChangeConfigurationNotification } from 'vscode-languageserver';
 import { URI } from 'vscode-uri';
 import { Manager } from '../Manager';
@@ -56,6 +55,7 @@ function onInitialized(params: InitializedParams) : void {
 
 	//setup commands
 	AddCommands();
+	AddMinecraftData();
 
 	//TODO use work thread
 	console.log('Looping over workspaces folders');
