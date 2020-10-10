@@ -1,9 +1,7 @@
 # VSCode-Bedrock-Development-Extension
 
-**WIP**
-
 An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop minecraft bedrock content.
-Recommended you use the Dark+ theme for the best colour highlighting.
+Recommended you use the Dark+ theme for the best colour highlighting. This package also supports Minecraft education.
 
 ![overview](documentation/resources/overview.gif)
 

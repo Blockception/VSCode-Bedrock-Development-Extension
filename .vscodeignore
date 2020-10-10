@@ -9,6 +9,7 @@ client/src/*
 
 **/*.map
 **/*.ts
+
 **/tsconfig.base.json
 **/tsconfig.json
 **/webpack.config.js
