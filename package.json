@@ -313,10 +313,6 @@
                 "url": "./minecraft-general/schemas/resource/materials/materials.json"
             },
             {
-                "fileMatch": "*.particle.json",
-                "url": "./minecraft-general/schemas/resource/particles/particles.json"
-            },
-            {
                 "fileMatch": [
                     "resource_packs/*/animation_controllers/*.json",
                     "*RP*/animation_controllers/*.json",
@@ -325,7 +321,11 @@
                 "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json"
             },
             {
-                "fileMatch": "animations/*.animation.json",
+                "fileMatch": [
+                    "resource_packs/*/animations/*.json",
+                    "*RP*/animations/*.json",
+                    "*rp*/animations/*.json"
+                ],
                 "url": "./minecraft-general/schemas/resource/animations/actor_animation.json"
             },
             {
@@ -357,7 +357,10 @@
                 "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json"
             },
             {
-                "fileMatch": "particles/*.json",
+                "fileMatch": [
+                    "particles/*.json",
+                    "*.particle.json"
+                ],
                 "url": "./minecraft-general/schemas/resource/particles/particles.json"
             },
             {
@@ -376,7 +379,6 @@
                 "fileMatch": "terrain_texture.json",
                 "url": "./minecraft-general/schemas/resource/textures/terrain_texture.json"
             },
-            
             {
                 "fileMatch": [
                     "resource_packs/*/animation_controllers/*.json",
@@ -384,6 +386,22 @@
                     "*rp*/animation_controllers/*.json"
                 ],
                 "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json"
+            },
+            {
+                "fileMatch": [
+                    "behavior_packs/*/animation_controllers/*.json",
+                    "*BP*/animation_controllers/*.json",
+                    "*bp*/animation_controllers/*.json"
+                ],
+                "url": "./minecraft-general/schemas/behaviour/animation_controllers/animation_controller.json"
+            },
+            {
+                "fileMatch": [
+                    "behavior_packs/*/animations/*.json",
+                    "*BP*/animations/*.json",
+                    "*bp*/animations/*.json"
+                ],
+                "url": "./minecraft-general/schemas/behaviour/animations/animations.json"
             },
             {
                 "fileMatch": [
@@ -420,7 +438,11 @@
                 "url": "./minecraft-general/schemas/behaviour/entities/entities.json"
             },
             {
-                "fileMatch": "items/*.json",
+                "fileMatch": [
+                    "behavior_packs/*/items/*.json",
+                    "*BP*/items/*.json",
+                    "*bp*/items/*.json"
+                ],
                 "url": "./minecraft-general/schemas/behaviour/items/items.json"
             },
             {

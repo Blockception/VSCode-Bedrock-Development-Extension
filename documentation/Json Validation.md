@@ -33,7 +33,7 @@ If a json validation is missing, then also post an issue. And one will be made i
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|Animation controllers   |animation_controllers/*.json |
+|Animation controllers   |Can be one of the following:<br/> - `resource_packs/*/animation_controllers/*.json`<br/> - `*RP*/animation_controllers/*.json`<br/> - `*rp*/animation_controllers/*.json`|
 |Animations   |animations/*.animation.json  |
 |Attachables   |attachables/*.json  |
 |Biomes client   |biomes_client.json  |
@@ -52,14 +52,15 @@ If a json validation is missing, then also post an issue. And one will be made i
 ---
   
 ## Behaviour packs
-For best results, name your folder with the Letters BP/bn in them.
+For best results, name your folder with the Letters BP/bp in them.
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|Animation controllers   |`animation_controllers/*.json`|
+|Animation controllers   |Can be one of the following:<br/> - `behavior_packs/*/animation_controllers/*.json`<br/> - `*BP*/animation_controllers/*.json`<br/> - `*bp*/animation_controllers/*.json`|
+|Animations   |Can be one of the following:<br/> - `behavior_packs/*/animations/*.json`<br/> - `*BP*/animations/*.json`<br/> - `*bp*/animations/*.json`|
 |Blocks |Can be one of the following:<br/> - `behavior_packs/*/blocks/*.json`<br/> - `*BP*/blocks/*.json`<br/> - `*bp*/blocks/*.json`|
 |Entity behaviours |Can be one of the following:<br/> - `behavior_packs/*/entities/*.json`<br/> - `*BP*/entities/*.json`<br/> - `*bp*/entities/*.json`|
-|Item behaviours |`items/*.json`|
+|Item behaviours |Can be one of the following:<br/> - `behavior_packs/*/items/*.json`<br/> - `*BP*/items/*.json`<br/> - `*bp*/items/*.json`|
 |Loot tables |Can be one of the following:<br/> - `behavior_packs/*/loot_tables/*.json`<br/> - `*BP*/loot_tables/*.json`<br/> - `*bp*/loot_tables/*.json`<br/> - `*.loot.json`|
 |Recipes |`recipes/*.json`|
 |Spawn rules |`spawn_rules/*.json`|
