@@ -33,6 +33,6 @@ import { Diagnostic } from 'vscode-languageserver';
 export function NewError(receiver: Diagnostic[], Line: number, start: number, end: number, message: string) {
 	receiver.push({
 		message: message,
-		range: { start: { character: 0, line: start }, end: { character: end, line: Line } },
+		range: { start: { character: start, line: Line }, end: { character: end, line: Line } },
 	});
 }
