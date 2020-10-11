@@ -43,7 +43,7 @@ If a json validation is missing, then also post an issue. And one will be made i
 |Flipbook textures  |flipbook_textures.json |
 |Item texture |item_texture.json |
 |Music definitions   |music_definitions.json  |
-|Particles   |Can be one of the following:<br/> - particles/*.json<br/> - .particle.json |
+|Particles   |Can be one of the following:<br/> - `particles/*.json`<br/> - `.particle.json` |
 |Render controllers   |render_controllers/*.json  |
 |Sound definitions   |sound_definitions.json  |
 |Sounds   |sounds.json  |
