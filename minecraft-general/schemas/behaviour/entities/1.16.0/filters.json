@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.filters",
-  "title": "./filters 1.16.0",
+  "title": "Filters 1.16.0",
   "definitions": {
     "filters_spec": {
       "title": "Filters_spec 1.16.0",
@@ -10,8 +10,7 @@
         "enum": ["test", "operator", "value", "domain", "subject"]
       },
       "allOf": [
-        {
-          "if": { "properties": { "test": { "const": "clock_time" } } },
+        { "if": { "properties": { "test": { "const": "clock_time" } } },
           "then": { "$ref": "../1.8.0/filters/clock_time.json" }
         },
         {
@@ -273,38 +272,28 @@
     },
     "groups_spec": {
       "type": "object",
-      "anyOf": [
+      "oneOf": [
         { "required": ["test"], "$ref": "#/definitions/filters_spec" },
-        {          
-          "required": ["any_of"],
-          "properties": {
-            "any_of": {
-              "type": "array",
-              "title": "Any of",
-              "description": "One or more tests in an 'any_of' group must pass in order for the group to pass.",
-              "items": { "$ref": "#/definitions/filters_spec" }
-            }
-          }
-        },
-        {      
-          "required": ["all_of"],    
+        { 
+          "additionalProperties": false,       
           "properties": {
             "all_of": {
               "type": "array",
               "title": "All of",
               "description": "All tests in an 'all_of' group must pass in order for the group to pass.",
-              "items": { "$ref": "#/definitions/filters_spec" }
-            }
-          }
-        },
-        {      
-          "required": ["none_of"],     
-          "properties": {
+              "items": { "$ref": "#/definitions/groups_spec" }
+            },
+            "any_of": {
+              "type": "array",
+              "title": "Any of",
+              "description": "One or more tests in an 'any_of' group must pass in order for the group to pass.",
+              "items": { "$ref": "#/definitions/groups_spec" }
+            },
             "none_of": {
               "type": "array",
               "title": "None of",
               "description": "All tests in a 'none_of' group must fail in order for the group to pass.",
-              "items": { "$ref": "#/definitions/filters_spec" }
+              "items": { "$ref": "#/definitions/groups_spec" }
             }
           }
         }
