@@ -52,17 +52,18 @@ If a json validation is missing, then also post an issue. And one will be made i
 ---
   
 ## Behaviour packs
+For best results, name your folder with the Letters BP/bn in them.
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|Animation controllers   |animation_controllers/*.json |
-|Blocks |blocks/*.json  |
-|Entity behaviours |entities/*.json |
-|Item behaviours |items/*.json  |
-|Loot tables |Can be one of the following:<br/> - loot_tables/*.json<br/> - loot_tables/*/*.json<br/> - *.loot.json |
-|Recipes |recipes/*.json  |
-|Spawn rules |spawn_rules/*.json  |
-|Trading |Can be one of the following:<br/> - trading/*.json<br/> - trading/*/*.json<br/> - *.trade.json  |
+|Animation controllers   |`animation_controllers/*.json`|
+|Blocks |Can be one of the following:<br/> - `behavior_packs/*/blocks/*.json`<br/> - `*BP*/blocks/*.json`<br/> - `*bp*/blocks/*.json`|
+|Entity behaviours |Can be one of the following:<br/> - `behavior_packs/*/entities/*.json`<br/> - `*BP*/entities/*.json`<br/> - `*bp*/entities/*.json`|
+|Item behaviours |`items/*.json`|
+|Loot tables |Can be one of the following:<br/> - `behavior_packs/*/loot_tables/*.json`<br/> - `*BP*/loot_tables/*.json`<br/> - `*bp*/loot_tables/*.json`<br/> - `*.loot.json`|
+|Recipes |`recipes/*.json`|
+|Spawn rules |`spawn_rules/*.json`|
+|Trading |Can be one of the following:<br/> - `behavior_packs/*/trading/*.json`<br/> - `*BP*/trading/*.json`<br/> - `*bp*/trading/*.json`<br/> - `*.trade.json`|
   
 ---
   

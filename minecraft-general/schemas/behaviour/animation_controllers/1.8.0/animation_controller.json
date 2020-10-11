@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "blockception.minecraft.behaviour.animation_controller.1.8.0",
+	"type": "object",
+	"title": "The minecraft behaviourpack animation_controller 1.8.0",
+	"description": "TODO description",
+	"required": [
+		"format_version",
+		"animation_controllers"
+	],
+	"properties": {
+		"format_version": {
+			"title": "The 1.8.0 format_version",
+			"type": "string",
+			"pattern": "^1.8.0$",
+			"description": "TODO description: format version"
+		}
+	}
+}
