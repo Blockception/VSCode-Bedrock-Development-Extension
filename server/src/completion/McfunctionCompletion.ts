@@ -65,7 +65,7 @@ export function ProvideCompletionMcFunction(doc: TextDocument, pos: Position, re
 		let Match = Matches[I];
 
 		if (Match.Command.parameters.length > ParameterIndex) {
-			var Parameter = Match.Command.parameters[ParameterIndex];
+			let Parameter = Match.Command.parameters[ParameterIndex];
 			ProvideCompletionMCCommandParameter(Parameter, Command, pos.character, receiver, Current);
 		}
 	}

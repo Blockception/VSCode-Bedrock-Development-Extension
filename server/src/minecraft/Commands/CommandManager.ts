@@ -45,7 +45,7 @@ export class CommandManager {
 
 	add(com: MCCommand): void {
 		let Info = new CommandInfo(com);
-		var Storage = this.Subset.get(com.name);
+		let Storage = this.Subset.get(com.name);
 
 		if (Storage == undefined) {
 			this.Subset.set(com.name, [Info]);
@@ -56,7 +56,7 @@ export class CommandManager {
 	}
 
 	get(com: string): CommandInfo[] {
-		var Storage = this.Subset.get(com);
+		let Storage = this.Subset.get(com);
 
 		if (Storage == undefined) {
 			return [];
@@ -70,14 +70,14 @@ export class CommandManager {
 	}
 
 	getBestMatches(com: CommandIntr): CommandInfo[] {
-		var Storage = this.Subset.get(com.GetCommandKeyword());
-		var Out: CommandInfo[] = [];
+		let Storage = this.Subset.get(com.GetCommandKeyword());
+		let Out: CommandInfo[] = [];
 
 		if (Storage == undefined) {
 			return Out;
 		}
 
-		for (var I = 0; I < Storage.length; I++) {
+		for (let I = 0; I < Storage.length; I++) {
 			if (isMatch(com, Storage[I].Command))
 				Out.push(Storage[I])
 		}
@@ -87,7 +87,7 @@ export class CommandManager {
 }
 
 export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
-	var Limit = pattern.parameters.length;
+	let Limit = pattern.parameters.length;
 
 	//has sub commands
 	let HasSubCommand = pattern.includes(MCCommandParameterType.command);
@@ -99,10 +99,10 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 		Limit = com.Paramaters.length;
 	}
 
-	for (var I = 0; I < Limit; I++) {
-		var comPar = com.Paramaters[I];
-		var comText = comPar.text;
-		var patPar = pattern.parameters[I];
+	for (let I = 0; I < Limit; I++) {
+		let comPar = com.Paramaters[I];
+		let comText = comPar.text;
+		let patPar = pattern.parameters[I];
 
 		switch (patPar.Type) {
 			case MCCommandParameterType.block:

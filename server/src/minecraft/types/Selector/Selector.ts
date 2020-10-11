@@ -72,7 +72,7 @@ export function GetCurrentAttribute(selector : RangedWord, pos : number) : strin
 	let StartIndex = pos - selector.startindex;
 	
 	while (StartIndex > 2){
-		var C = selector.text.charAt(StartIndex);
+		let C = selector.text.charAt(StartIndex);
 
 		if (C === ','){
 			break;

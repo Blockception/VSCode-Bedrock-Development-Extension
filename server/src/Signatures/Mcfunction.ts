@@ -77,7 +77,7 @@ function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
 
 //Converts the given MCCommand into a signature
 function ConverToSignature(Command: MCCommand): SignatureInformation {
-	var Sign: SignatureInformation = {
+	let Sign: SignatureInformation = {
 		label: '',
 		documentation: Command.documentation,
 		parameters: []
