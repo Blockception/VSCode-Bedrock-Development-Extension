@@ -23,16 +23,8 @@
                 "type": "object",
                 "required": ["min", "max"],
                 "properties": {
-                  "min": {
-                    "title": "Minimum",
-                    "type": "number",
-                    "minimum": 0
-                  },
-                  "max": {
-                    "title": "Minimum",
-                    "type": "number",
-                    "minimum": 1
-                  }
+                  "min": { "title": "Minimum", "type": "number", "minimum": 0 },
+                  "max": { "title": "Minimum", "type": "number", "minimum": 1 }
                 }
               }
             ]
@@ -214,9 +206,6 @@
         }
       }
     },
-    "type": {
-      "title": "Type",
-      "type": "string"
-    }
+    "type": { "title": "Type", "type": "string" }
   }
 }
