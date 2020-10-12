@@ -31,6 +31,7 @@ import { TextDocument } from 'vscode-languageserver-textdocument';
 import { DataType } from '../minecraft/format/Data Type';
 import { DetectDataType } from '../minecraft/format/detection';
 import * as BPEntity from '../minecraft/behaviour/entities/Process';
+import * as RPSound from '../minecraft/resource/sounds definitions/Process';
 
 export function Process(doc : TextDocument): void {
    let Type = DetectDataType(doc.uri);
@@ -41,5 +42,8 @@ export function Process(doc : TextDocument): void {
 
       case DataType.behaviour_entity:
          return BPEntity.Process(doc);
+
+      case DataType.resource_sounds_definitions:
+         return RPSound.Process(doc);
    }
 }

@@ -29,25 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from 'vscode-languageserver';
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import { JsonDocument } from '../../../json/Json Document';
-import { Database } from '../../../Database';
-import { Entity } from '../../types/include';
 import { GetFilepath } from '../../../code/Url';
-
-interface EntityDetect {
-	format_version: string;
-	'minecraft:entity': {
-		description: {
-			identifier: string;
-			is_spawnable: boolean;
-			is_summonable: boolean;
-			is_experimental: boolean;
-		};
-		component_groups: any;
-		components: any;
-		events: any;
-	}
-}
+import { Database } from '../../../Database';
+import { JsonDocument } from '../../../json/Json Document';
+import { Sound } from '../../types/include';
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -55,28 +40,48 @@ interface EntityDetect {
  */
 export function Process(doc: TextDocument): void {
 	let JDoc = new JsonDocument(doc);
-	let Format = JDoc.CastTo<EntityDetect>();
+	let Format = JDoc.GetObject();
 
-	if (Format == undefined || Format == null) { return; }
-	let mce = Format['minecraft:entity'];
+	if (Format == undefined)
+		return;
 
-	if (mce == undefined || mce == null) { return; }
-
-	let entity = new Entity();
-
-	if (!mce.description) { return;}
-
-	let ID = mce.description.identifier;
-
-	entity.Identifier = ID;
-	entity.Documentation = { kind: 'markdown', value: 'The custom entity definition of: ' + ID };
-	entity.Location = Location.create(GetFilepath(doc.uri), Range.create(0, 0, 0, 0));
-
-	if (mce.events) {
-		let EventsNames = Object.getOwnPropertyNames(mce.events);
-		entity.Events = EventsNames;
-	}
-
+	let sound_def = Format['sound_definitions'];
 	let Data = Database.Get(doc.uri);
-	Data.Entities = [entity];
+	let uri = GetFilepath(doc.uri);
+	Data.Sounds = [];
+
+	if (sound_def) {
+		let names = Object.getOwnPropertyNames(sound_def);
+
+		names.forEach(name => {
+			let position = JDoc.GetRangeOfObject(name);
+
+			if (position == undefined) {
+				position = { start: { character: 0, line: 0 }, end: { character: 1, line: 0 } };
+			}
+
+			let s = new Sound();
+			s.Name = name;
+			s.Location = Location.create(uri, position);
+			Data.Sounds.push(s);
+		});
+	}
+	else {
+		let names = Object.getOwnPropertyNames(Format);
+
+		names.forEach(name => {
+			if (name !== 'format_version' && name !== 'sound_definitions') {
+				let position = JDoc.GetRangeOfObject(name);
+
+				if (position == undefined) {
+					position = { start: { character: 0, line: 0 }, end: { character: 1, line: 0 } };
+				}
+
+				let s = new Sound();
+				s.Name = name;
+				s.Location = Location.create(uri, position);
+				Data.Sounds.push(s);
+			}
+		});
+	}
 }

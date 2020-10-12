@@ -150,10 +150,10 @@ function DetectResourceType(uri: string): DataType {
 			return DataType.resource_manifest;
 
 		case 'music_definitions':
-			return DataType.resource_music;
+			return DataType.resource_music_definitions;
 
 		case 'sound_definitions':
-			return DataType.resource_sounds;
+			return DataType.resource_sounds_definitions;
 
 		case 'sounds':
 			return DataType.resource_sounds;
