@@ -3604,8 +3604,8 @@
                     "Required": true
                 },
                 {
-                    "Text": "entityType",
-                    "Type": "keyword",
+                    "Text": "entity Type",
+                    "Type": "entity",
                     "Required": true
                 },
                 {
@@ -3648,8 +3648,8 @@
                     "Required": true
                 },
                 {
-                    "Text": "entityType",
-                    "Type": "keyword",
+                    "Text": "entity Type",
+                    "Type": "entity",
                     "Required": true
                 },
                 {
