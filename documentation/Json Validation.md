@@ -30,6 +30,7 @@ If a json validation is missing, then also post an issue. And one will be made i
 ---
   
 ## Resource packs
+For best results, name your folder with the letters RP/rp in them.  
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
@@ -39,7 +40,7 @@ If a json validation is missing, then also post an issue. And one will be made i
 |Biomes client   |biomes_client.json  |
 |Blocks |blocks.json  |
 |Entity   |entity/*entity.json  |
-|Entity models   |Can be one of the following:<br/> - *.geo.json<br/> - *.geometry.json |
+|Entity models   |Can be one of the following:<br/> - `*.geo.json`<br/> - `*.geometry.json` |
 |Flipbook textures  |flipbook_textures.json |
 |Item texture |item_texture.json |
 |Music definitions   |music_definitions.json  |
@@ -52,7 +53,7 @@ If a json validation is missing, then also post an issue. And one will be made i
 ---
   
 ## Behaviour packs
-For best results, name your folder with the Letters BP/bp in them.
+For best results, name your folder with the letters BP/bp in them.  
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
