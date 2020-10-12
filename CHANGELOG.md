@@ -1,4 +1,14 @@
 # Changelog 
+- Updated
+- Updated json patterns
+- Refactoring
+- Fixed diagnostics
+- Updated json validation patterns
+- Fixed behaviour json validation animation controllers and animations
+- Updated
+- Removed Item identifiers from as custom items are now a thing
+- formatted
+- Updated
 - Formatted code
 - Updated information
 - Updated
@@ -9,13 +19,3 @@
 - Added the mcfunction formatter
 - Updated information
 - Merge branch 'master' into language-server
-- Refactored
-- Updated
-- Updated language server
-- Added Hover
-- Added function completion
-- Added selector completion
-- Fixed merge
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension into master
-- Updated
-- Updated json validation

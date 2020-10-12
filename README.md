@@ -14,6 +14,7 @@ Recommended you use the Dark+ theme for the best colour highlighting. This packa
   - Code Completion.
 
 ### Json Validation
+Automatic json validation is applied if the files follow a given pattern for naming, or proper file structure.
   - [General.](./documentation/Json%20Validation.md#general)
   - [World.](./documentation/Json%20Validation.md#world)
   - [Resource pack.](./documentation/Json%20Validation.md#resource-packs)
