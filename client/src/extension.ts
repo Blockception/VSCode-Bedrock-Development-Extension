@@ -38,7 +38,9 @@ export function activate(context: vscode.ExtensionContext) {
 		// Register the server for plain text documents
 		documentSelector: [ 
 			{ scheme: 'file', language: McFunctionIdentifier }, 
-			{ scheme: 'file', language: McLanguageIdentifier } 
+			{ scheme: 'file', language: McLanguageIdentifier },
+			{ scheme: 'file', language: 'json'},
+			{ scheme: 'file', language: 'jsonc'}
 		],
 		synchronize: {
 			// Notify the server about file changes to '.clientrc files contained in the workspace

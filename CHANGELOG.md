@@ -1,4 +1,8 @@
 # Changelog 
+- Moved and formatted, using settings for edu content
+- Moved and formatted
+- Added server settings
+- Updated
 - Updated
 - Updated json patterns
 - Refactoring
@@ -15,7 +19,3 @@
 - Updated to 1.0.0
 - Fixing
 - Merge remote-tracking branch 'origin/language-server'
-- Updated packages
-- Added the mcfunction formatter
-- Updated information
-- Merge branch 'master' into language-server
