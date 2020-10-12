@@ -14,7 +14,7 @@
     "engines": {
         "vscode": "^1.43.0"
     },
-    "license": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "license": "BSD-3-Clause",
     "dependencies": {
         "vscode-languageclient": "^6.1.3"
     },
