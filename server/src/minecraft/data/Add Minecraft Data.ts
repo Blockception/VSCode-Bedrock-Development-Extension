@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from 'vscode-languageserver';
+import { Manager } from '../../Manager';
 import { Database } from '../Database';
 import { MinecraftData } from '../Minecraft Data';
 import { Block, Entity, Sound } from '../types/include';
@@ -35,41 +36,43 @@ import { Item } from '../types/Item/Item';
 import * as data from "./minecraft data.json";
 
 export function AddMinecraftData() {
-	let Data : MinecraftData = new MinecraftData();
+	let Data: MinecraftData = new MinecraftData();
 
 	data.vanilla.blocks.forEach(block => Data.Blocks.push(AddBlock(block)));
 	data.vanilla.entities.forEach(entity => Data.Entities.push(AddEntity(entity)));
 	data.vanilla.items.forEach(item => Data.Items.push(AddItem(item)));
 	data.vanilla.sounds.forEach(sound => Data.Sounds.push(AddSound(sound)));
 
-	data.edu.blocks.forEach(block => Data.Blocks.push(AddEduBlock(block)));
-	data.edu.entities.forEach(entity => Data.Entities.push(AddEduEntity(entity)));
-	data.edu.items.forEach(item => Data.Items.push(AddEduItem(item)));
-	data.edu.sounds.forEach(sound => Data.Sounds.push(AddEduSound(sound)));
+	if (Manager.Settings.useEducationContent) {
+		data.edu.blocks.forEach(block => Data.Blocks.push(AddEduBlock(block)));
+		data.edu.entities.forEach(entity => Data.Entities.push(AddEduEntity(entity)));
+		data.edu.items.forEach(item => Data.Items.push(AddEduItem(item)));
+		data.edu.sounds.forEach(sound => Data.Sounds.push(AddEduSound(sound)));
+	}
 
 	Database.Data.set('minecraft', Data);
 }
 
-function AddBlock(data :string) : Block {
+function AddBlock(data: string): Block {
 	let B = new Block();
 	B.Name = data;
 	B.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
-	B.Documentation = {kind:'markdown', value:'minecraft vanilla block: ' + data};
+	B.Documentation = { kind: 'markdown', value: 'minecraft vanilla block: ' + data };
 
 	return B;
 }
 
-function AddEntity(data :string) : Entity {
+function AddEntity(data: string): Entity {
 	let B = new Entity();
 	B.Identifier = data;
 	B.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
-	B.Documentation = {kind:'markdown', value:'minecraft vanilla entity: ' + data};
+	B.Documentation = { kind: 'markdown', value: 'minecraft vanilla entity: ' + data };
 	B.Events = [
 		"minecraft:entity_spawned"
 	]
@@ -77,50 +80,50 @@ function AddEntity(data :string) : Entity {
 	return B;
 }
 
-function AddItem(data :string) : Item {
+function AddItem(data: string): Item {
 	let B = new Item();
 	B.Identifier = data;
 	B.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
-	B.Documentation = {kind:'markdown', value:'minecraft vanilla entity: ' + data};
+	B.Documentation = { kind: 'markdown', value: 'minecraft vanilla entity: ' + data };
 	B.Events = [];
 
 	return B;
 }
 
-function AddSound(data :string) : Sound {
+function AddSound(data: string): Sound {
 	let S = new Sound();
 	S.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
 	S.Name = data;
 
 	return S;
 }
 
-function AddEduBlock(data :string) : Block {
+function AddEduBlock(data: string): Block {
 	let B = new Block();
 	B.Name = data;
 	B.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
-	B.Documentation = {kind:'markdown', value:'**[EDU]** minecraft eduaction block: ' + data};
+	B.Documentation = { kind: 'markdown', value: '**[EDU]** minecraft eduaction block: ' + data };
 
 	return B;
 }
 
-function AddEduEntity(data :string) : Entity {
+function AddEduEntity(data: string): Entity {
 	let B = new Entity();
 	B.Identifier = data;
 	B.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
-	B.Documentation = {kind:'markdown', value:'**[EDU]** minecraft eduaction entity: ' + data};
+	B.Documentation = { kind: 'markdown', value: '**[EDU]** minecraft eduaction entity: ' + data };
 	B.Events = [
 		"minecraft:entity_spawned"
 	]
@@ -128,24 +131,24 @@ function AddEduEntity(data :string) : Entity {
 	return B;
 }
 
-function AddEduItem(data :string) : Item {
+function AddEduItem(data: string): Item {
 	let B = new Item();
 	B.Identifier = data;
 	B.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
-	B.Documentation = {kind:'markdown', value:'**[EDU]** minecraft education entity: ' + data};
+	B.Documentation = { kind: 'markdown', value: '**[EDU]** minecraft education entity: ' + data };
 	B.Events = [];
 
 	return B;
 }
 
-function AddEduSound(data :string) : Sound {
+function AddEduSound(data: string): Sound {
 	let S = new Sound();
 	S.Location = {
-		range:Range.create(0, 0, 0, 0),
-		uri:'https://minecraft.gamepedia.com/Add-on'
+		range: Range.create(0, 0, 0, 0),
+		uri: 'https://minecraft.gamepedia.com/Add-on'
 	};
 	S.Name = data;
 

@@ -30,28 +30,52 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MarkupKind } from 'vscode-languageserver';
 import { Manager } from '../../Manager';
 import * as data from "./commands.json";
-import { MCCommand } from './MCCommand';
-import { MCCommandParameter } from './MCCommandParameter';
-import { MCCommandParameterType } from './MCCommandParameterType';
+import { MCCommand } from '../Commands/MCCommand';
+import { MCCommandParameter } from '../Commands/MCCommandParameter';
+import { MCCommandParameterType } from '../Commands/MCCommandParameterType';
+
+interface Command {
+	parameters: {
+		Text: string,
+		Type: string,
+		Required: boolean
+	}[]
+	name: string;
+	documentation: {
+		value: string,
+		kind: string
+	}
+}
 
 export function AddCommands(): void {
-	data.commands.forEach(com => {
-		let Command = new MCCommand();
-
-		let kind: MarkupKind = MarkupKind.Markdown;
-
-		if (com.documentation.kind === MarkupKind.PlainText)
-			kind = MarkupKind.PlainText;
-
-		Command.documentation = { value: com.documentation.value, kind: kind };
-		Command.name = com.name;
-
-		com.parameters.forEach(par => {
-			let type = par.Type as keyof typeof MCCommandParameterType;
-			let Par = new MCCommandParameter(par.Text, MCCommandParameterType[type], par.Required);
-			Command.parameters.push(Par);
-		});
-
+	data.vanilla.forEach(com => {
+		let Command = Convert(com);
 		Manager.Commands.add(Command);
 	});
+
+	if (Manager.Settings.useEducationContent)
+		data.edu.forEach(com => {
+			let Command = Convert(com);
+			Command.documentation.value = "**[EDU]** " + Command.documentation.value;
+			Manager.Commands.add(Command);
+		});
+}
+
+function Convert(com: Command): MCCommand {
+	let Command = new MCCommand();
+	let kind: MarkupKind = MarkupKind.Markdown;
+
+	if (com.documentation.kind === MarkupKind.PlainText)
+		kind = MarkupKind.PlainText;
+
+	Command.documentation = { value: com.documentation.value, kind: kind };
+	Command.name = com.name;
+
+	com.parameters.forEach(par => {
+		let type = par.Type as keyof typeof MCCommandParameterType;
+		let Par = new MCCommandParameter(par.Text, MCCommandParameterType[type], par.Required);
+		Command.parameters.push(Par);
+	});
+
+	return Command;
 }
