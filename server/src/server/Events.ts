@@ -34,6 +34,7 @@ import { Manager } from '../Manager';
 import { OndDocumentChangedAsync } from '../process/Process';
 import { OnSignatureRequestAsync } from '../signatures/OnRequest';
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from '../symbols/OnRequest';
+import { onDidChangeConfigurationAsync } from './OnConfiguration';
 
 /**
  * Setup the server events
@@ -46,11 +47,12 @@ export function setEvents() {
 	// This handler provides completion items.
 	Manager.Connection.onCompletion(OnCompletionRequestAsync);
 
-	// This handler provides document symbols
+	// This handler provides document/workspace symbols
 	Manager.Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
-
-	// This handler provides workspace symbols
 	Manager.Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
+
+	// This handler provides support for when a configuration changes
+	Manager.Connection.onDidChangeConfiguration(onDidChangeConfigurationAsync);
 
 	// This handler provides hover support
 	Manager.Connection.onHover(OnHoverRequestAsync);

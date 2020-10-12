@@ -1,6 +1,6 @@
 {
     "main": "./client/out/extension.js",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "activationEvents": [
         "onLanguage:bc-minecraft-language",
         "onLanguage:bc-minecraft-mcfunction",
@@ -53,14 +53,33 @@
     "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
     "publisher": "BlockceptionLtd",
     "contributors": [
-        { "name": "DaanV2", "url": "https://github.com/DaanV2" },
-        { "name": "Soniikz", "url": "https://github.com/Soniikz" }
+        {
+            "name": "DaanV2",
+            "url": "https://github.com/DaanV2"
+        },
+        {
+            "name": "Soniikz",
+            "url": "https://github.com/Soniikz"
+        }
     ],
     "repository": {
         "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
         "type": "git"
     },
     "contributes": {
+        "configuration": [
+            {
+                "title": "Minecraft bedrock language configuration",
+                "properties": {
+                    "BC-MC-LanguageServer.useEducationContent": {
+                        "scope": "machine",
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Requires restart: Adds education contents such as items, blocks, entities and commands into the suggestion and/or debugging"
+                    }
+                }
+            }
+        ],
         "colors": [
             {
                 "defaults": {

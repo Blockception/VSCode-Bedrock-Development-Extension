@@ -30,3 +30,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export const McFunctionIdentifier: string = 'bc-minecraft-mcfunction';
 export const McOtherIdentifier: string = 'bc-minecraft-Other';
 export const McLanguageIdentifier: string = 'bc-minecraft-language';
+
+export const SettingsConfigurationIdentifier : string = 'BC-MC-LanguageServer';

@@ -27,27 +27,42 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Connection, TextDocuments, _ } from "vscode-languageserver";
-import { CommandManager } from './minecraft/commands/CommandManager';
-import { CallHierarchy } from 'vscode-languageserver/lib/callHierarchy.proposed';
-import { SemanticTokens } from 'vscode-languageserver/lib/sematicTokens.proposed';
-import { ServerSettings } from './server/Settings';
 
-export class Manager {
-  static Commands: CommandManager = new CommandManager();
+import { SettingsConfigurationIdentifier } from '../Constants';
+import { Manager } from '../Manager'
 
-  //The document manager
-  static Documents: TextDocuments<TextDocument> = new TextDocuments(
-    TextDocument
-  );
+export interface ServerSettings {
+	useEducationContent: boolean
+}
 
-  static hasConfigurationCapability: boolean = false;
-  static hasWorkspaceFolderCapability: boolean = false;
-  static hasDiagnosticRelatedInformationCapability: boolean = false;
-  static TraversedWorkspaces: boolean = false;
 
-  //Server stuff
-  static Connection: Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
-  static Settings : ServerSettings = ServerSettings.createDefaulSettings();
+export namespace ServerSettings {
+	export function createDefaulSettings(): ServerSettings {
+		return {
+			useEducationContent: true
+		}
+	}
+}
+
+export function UpdateSettings(): void {
+	let Settings = Manager.Connection.workspace.getConfiguration(SettingsConfigurationIdentifier);
+
+	//If settings is nothing then skip it.
+	if (Settings === undefined || Settings === null)
+		return;
+
+	Settings.then(UpdateSettingsThen);
+}
+
+function UpdateSettingsThen(data: any): void {
+	//If settings is nothing then skip it.
+	if (data === undefined || data === null)
+		return;
+
+	let Casted = <ServerSettings>(data);
+
+	if (Casted === undefined || Casted === null)
+		return;
+
+	Manager.Settings = Casted;
 }
