@@ -3,7 +3,7 @@
     "$id": "Version",
     "type": "object",
     "title": "Command Schema",
-    "properties": {
+    "definitions": {
         "commands": {
             "type": "array",
             "title": "Commands",
@@ -21,7 +21,10 @@
                         "properties": {
                             "kind": {
                                 "type": "string",
-                                "enum": ["plaintext", "markdown"]
+                                "enum": [
+                                    "plaintext",
+                                    "markdown"
+                                ]
                             },
                             "value": {
                                 "type": "string"
@@ -79,6 +82,14 @@
                     }
                 }
             }
+        }
+    },
+    "properties": {
+        "vanilla": {
+            "$ref": "#/definitions/commands"
+        },
+        "edu": {
+            "$ref": "#/definitions/commands"
         }
     }
 }

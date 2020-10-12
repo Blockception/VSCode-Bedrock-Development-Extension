@@ -1116,7 +1116,7 @@
 			"writable_book",
 			"written_book",
 			"yellow_flower",
-			"yellow_glazed_terracotta"			
+			"yellow_glazed_terracotta"
 		],
 		"entities": [
 			"minecraft:area_effect_cloud",
@@ -1230,9 +1230,9 @@
 			"minecraft:zombie_horse",
 			"minecraft:zombie_pigman",
 			"minecraft:zombie_villager",
-			"minecraft:zombie_villager_v2"			
+			"minecraft:zombie_villager_v2"
 		],
-		"sounds":[
+		"sounds": [
 			"ambient.basalt_deltas.mood",
 			"ambient.cave",
 			"ambient.crimson_forest.mood",
@@ -2014,7 +2014,7 @@
 		]
 	},
 	"edu": {
-		"blocks": [		
+		"blocks": [
 			"camera",
 			"chemistry_table",
 			"chemical_heat",
@@ -2270,15 +2270,13 @@
 			"sparkler",
 			"underwater_torch"
 		],
-		"entities": [			
+		"entities": [
 			"minecraft:agent",
 			"minecraft:chalkboard",
 			"minecraft:balloon",
 			"minecraft:npc",
 			"minecraft:tripod_camera"
 		],
-		"sounds":[
-			
-		]
+		"sounds": []
 	}
 }
