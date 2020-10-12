@@ -1,4 +1,15 @@
 # Changelog 
+- Updated code to support go to definitions
+- Updated command syntax
+- Added processing of json file for entities and sounds_definitions
+- Moved database
+- Added custom entities and entity events to completion text
+- Fixed the summon command syntax
+- Added json to the parsing
+- Added json file processing
+- Removed defaults values as custom items are now a thing
+- Added data type detection based upon filepaths
+- Updated license ID to SPDX format
 - Moved and formatted, using settings for edu content
 - Moved and formatted
 - Added server settings
@@ -8,14 +19,3 @@
 - Refactoring
 - Fixed diagnostics
 - Updated json validation patterns
-- Fixed behaviour json validation animation controllers and animations
-- Updated
-- Removed Item identifiers from as custom items are now a thing
-- formatted
-- Updated
-- Formatted code
-- Updated information
-- Updated
-- Updated to 1.0.0
-- Fixing
-- Merge remote-tracking branch 'origin/language-server'
