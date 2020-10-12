@@ -31,6 +31,7 @@ export * from './Array';
 export * from './Document';
 export * from './Equal';
 export * from './File';
+export * from './LocationWord';
 export * from './RangedWords';
 export * from './TextWords';
 export * from './TextEdit';

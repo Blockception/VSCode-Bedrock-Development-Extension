@@ -27,13 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Database } from '../minecraft/Database';
+import { Database } from '../Database';
 import { MinecraftData } from '../minecraft/Minecraft Data';
 import { Tag } from '../minecraft/types/Tag/Tag';
 import { Objective } from '../minecraft/types/Objectives/Objectives';
 import { Tickingarea } from '../minecraft/types/include';
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import { getLine } from '../code/include';
+import { GetFilepath, getLine } from '../code/include';
 import { Location, Range } from 'vscode-languageserver';
 
 export function Process(document: TextDocument): MinecraftData {
@@ -76,7 +76,7 @@ function ProcessTag(Line: string, Data: MinecraftData, uri: string, LineIndex: n
 
       let T = new Tag();
       T.Name = TagText;
-      T.Location = Location.create(uri, Range.create(LineIndex, FindAt, LineIndex, FindAt + TagText.length));
+      T.Location = Location.create(GetFilepath(uri), Range.create(LineIndex, FindAt, LineIndex, FindAt + TagText.length));
 
       Data.Tag.push(T);
    }
@@ -92,7 +92,7 @@ function ProcessScoreboard(Line: string, Data: MinecraftData, uri: string, LineI
 
       let O = new Objective();
       O.Name = ObjectiveText;
-      O.Location = Location.create(uri, Range.create(LineIndex, FindAt, LineIndex, FindAt + ObjectiveText.length));
+      O.Location = Location.create(GetFilepath(uri), Range.create(LineIndex, FindAt, LineIndex, FindAt + ObjectiveText.length));
 
       Data.Objectives.push(O);
    }

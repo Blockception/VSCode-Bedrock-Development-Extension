@@ -1,4 +1,3 @@
-
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -28,31 +27,23 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { LocationWord } from '../code/include';
-import { Block, Effect, Entity, Objective, Sound, Tag, Tickingarea } from './types/include';
-import { Item } from './types/Item/Item';
+import { Location } from 'vscode-languageserver';
+import { Range } from 'vscode-languageserver-textdocument';
+import { GetFilepath } from './include';
+import { RangedWord } from './RangedWords';
 
-export class MinecraftData {
-   
-   public Blocks : Block[];
-   public Entities : Entity[];
-   public Effects : Effect[];
-   public FakeEntities : LocationWord[];
-   public Items : Item[];
-   public Objectives : Objective[];
-   public Sounds : Sound[];
-   public Tag : Tag[];
-   public TickingAreas : Tickingarea[];
-   
-   constructor() {
-      this.Blocks = [];
-      this.Entities = [];
-      this.Effects = [];
-      this.FakeEntities = [];
-      this.Items = [];
-      this.Objectives = [];
-      this.Sounds = [];
-      this.Tag = [];
-      this.TickingAreas = [];      
-   }
+export class LocationWord {
+	public text : string;
+	public range : Range;
+	public uri : string;
+
+	constructor(word : RangedWord, lineIndex : number, uri : string) {
+		this.text = word.text
+		this.range = word.ToRange(lineIndex);
+		this.uri = uri;
+	}
+
+	CreateLocation() : Location {
+		return Location.create(GetFilepath(this.uri), this.range);
+	}
 }

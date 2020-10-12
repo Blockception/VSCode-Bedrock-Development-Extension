@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { OnCompletionRequestAsync } from '../completion/OnRequest';
+import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from '../definition/OnRequest';
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from '../format/OnRequest';
 import { OnHoverRequestAsync } from '../hover/OnRequest';
 import { Manager } from '../Manager';
@@ -47,6 +48,10 @@ export function setEvents() {
 	// This handler provides completion items.
 	Manager.Connection.onCompletion(OnCompletionRequestAsync);
 
+	// This handler provvides go to definitions
+	Manager.Connection.onDefinition(onDefinitionRequestAsync);
+	Manager.Connection.onTypeDefinition(onTypeDefinitionRequestAsync)
+
 	// This handler provides document/workspace symbols
 	Manager.Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
 	Manager.Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
@@ -60,6 +65,7 @@ export function setEvents() {
 	// This handler provides formatting
 	Manager.Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
 	Manager.Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync)
+
 
 	Manager.Connection.onDocumentColor
 

@@ -33,6 +33,7 @@ export function UniformUrl(Uri : string) : string {
    let Out : string;
 
    if (Uri.startsWith('file://')) {
+      Uri = Uri.replace('file:///', 'file://');
       Out = Uri;
       Out = Out.replace('%3A', ':');
    }

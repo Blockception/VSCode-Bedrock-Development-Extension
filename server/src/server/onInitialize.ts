@@ -57,9 +57,12 @@ function onInitialize(params: InitializeParams): InitializeResult {
 	const result: InitializeResult = {
 		capabilities: {
 			textDocumentSync: TextDocumentSyncKind.Incremental,
-			// Tell the clien that this server formatting
+			// Tell the client that this server code formatting.
 			documentFormattingProvider: {},
 			documentRangeFormattingProvider: {},
+			// Tell the client that this server supports go to defintitions
+			definitionProvider:true,
+			typeDefinitionProvider:true,
 			// Tell the client that this server supports symbol provider
 			documentSymbolProvider: true,
 			workspaceSymbolProvider: true,

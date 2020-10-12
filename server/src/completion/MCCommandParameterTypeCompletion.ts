@@ -35,7 +35,7 @@ import { provideCoordinateCompletion } from '../minecraft/types/Coordinate/Compl
 import { provideEventCompletion } from '../minecraft/types/Event/Completion';
 import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
 import { provideFunctionCompletion } from '../minecraft/types/Functions/Completion';
-import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSoundCompletion, provideTagCompletion } from '../minecraft/types/include';
+import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSoundCompletion, provideTagCompletion, provideTickingareaCompletion } from '../minecraft/types/include';
 import { provideIntegerCompletion } from '../minecraft/types/Integer/Completion';
 import { provideItemCompletion } from '../minecraft/types/Item/Completion';
 import { provideXPCompletion } from '../minecraft/types/Xp/Completion';
@@ -144,6 +144,10 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 
 		case MCCommandParameterType.tag:
 			provideTagCompletion(receiver);
+			break;
+
+		case MCCommandParameterType.tickingarea:
+			provideTickingareaCompletion(receiver);
 			break;
 
 		case MCCommandParameterType.unknown:

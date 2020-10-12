@@ -68,6 +68,8 @@ export enum MCCommandParameterType {
 	objective,
 	//Marks that the parameter is a scoreboard operation
 	operation,
+	//Marks that the parameter is a particle
+	particle,
 	//Marks that the parameter is a replace mode
 	replaceMode,
 	//Marks that the parameter is a selector
@@ -86,6 +88,8 @@ export enum MCCommandParameterType {
 	target,
 	//Marks that the parameter is a tag
 	tag,
+	//Marks that the parameter is a ticking area
+	tickingarea,
 	//Marks that the parameter is of an unknown type
 	unknown,
 	//Marks that the parameter is an xp value

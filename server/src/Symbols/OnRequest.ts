@@ -30,9 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetFilename } from '../code/include';
 import { Convert } from './Conversion';
 import url = require('url');
-import { Database } from '../minecraft/Database';
+import { Database } from '../Database';
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
-import { UniformUrl } from '../code/Url';
+import { GetFilepath, UniformUrl } from '../code/Url';
 
 /**
  * The request to provide document symbols, asynchorious
@@ -71,7 +71,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
 
    Out.push({
       kind: SymbolKind.Class,
-      location: Location.create(uri, Range.create(0, 0, Number.MAX_VALUE, 0)),
+      location: Location.create(GetFilepath(uri), Range.create(0, 0, Number.MAX_VALUE, 0)),
       name: GetFilename(uri)
    });
 
@@ -98,7 +98,7 @@ function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformat
       if (Query === '' || FunctionPath.indexOf(Query) > -1) {
          Out.push({
             kind: SymbolKind.Class,
-            location: Location.create(FunctionPath, Range.create(0, 0, 0, 0)),
+            location: Location.create(GetFilepath(FunctionPath), Range.create(0, 0, 0, 0)),
             name: GetFilename(FunctionPath)
          });
       }
