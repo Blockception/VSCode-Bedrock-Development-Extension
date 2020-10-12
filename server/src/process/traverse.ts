@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from 'fs';
 import { Process } from './Process';
 import { GetDocument } from '../code/include';
-import { McFunctionIdentifier, McLanguageIdentifier } from '../Constants';
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
 
 //Traverse the directory
 export function TraveseDirectory(Dir: string): void {
@@ -54,6 +54,9 @@ export function TraveseDirectory(Dir: string): void {
 					}
 					else if (Path.endsWith(".lang")) {
 						PromiseParse(Path, McLanguageIdentifier);
+					}
+					else if (Path.endsWith(".json")) {
+						PromiseParse(Path, McOtherIdentifier);
 					}
 					else if (fs.lstatSync(Path).isDirectory()) {
 						PromiseTraveseDirectory(Path);
