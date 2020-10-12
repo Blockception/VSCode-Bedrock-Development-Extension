@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList, MarkupContent } from 'vscode-languageserver';
 import { RangedWord } from '../../../../code/include';
-import { Database } from '../../../Database';
+import { Database } from '../../../../Database';
 import { InSelector } from '../../include';
 import { GetCurrentAttribute, InScore, IsEditingValue } from '../Selector';
 import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from './Attributes';
