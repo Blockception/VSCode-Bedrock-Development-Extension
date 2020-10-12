@@ -4098,7 +4098,7 @@
                 },
                 {
                     "Text": "name",
-                    "Type": "string",
+                    "Type": "tickingarea",
                     "Required": false
                 }
             ],
@@ -4147,7 +4147,7 @@
                 },
                 {
                     "Text": "name",
-                    "Type": "string",
+                    "Type": "tickingarea",
                     "Required": false
                 }
             ],
