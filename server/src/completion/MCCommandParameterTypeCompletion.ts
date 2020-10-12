@@ -32,6 +32,7 @@ import { RangedWord } from '../code/include';
 import { CommandIntr, MCCommandParameter, MCCommandParameterType } from '../minecraft/commands/include';
 import { provideBooleanCompletion } from '../minecraft/types/Boolean/Completion';
 import { provideCoordinateCompletion } from '../minecraft/types/Coordinate/Completion';
+import { provideEventCompletion } from '../minecraft/types/Event/Completion';
 import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
 import { provideFunctionCompletion } from '../minecraft/types/Functions/Completion';
 import { provideBlockCompletion, provideEffectCompletion, provideEntityCompletion, provideObjectiveCompletion, provideSelectorCompletion, provideSoundCompletion, provideTagCompletion } from '../minecraft/types/include';
@@ -76,9 +77,9 @@ export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParamete
 			provideEntityCompletion(receiver);
 			break;
 
+		//Entity events
 		case MCCommandParameterType.event:
-			//TODO
-			break;
+			return provideEventCompletion(receiver, Command);
 
 		case MCCommandParameterType.float:
 			provideFloatCompletion(receiver, 0.0, 10.0);
