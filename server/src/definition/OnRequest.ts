@@ -59,13 +59,13 @@ function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location
 	if (Data.length == 0)
 		return undefined;
 
-	let PIndex = Command.CursorParamater;	
+	let PIndex = Command.CursorParamater;
 	let Types: MCCommandParameterType[] = [];
 	let Current = Command.GetCurrent();
 
 	if (Current == undefined)
 		return;
-	
+
 	let Text = Current.text.trim();
 
 	for (let index = 0; index < Data.length; index++) {
@@ -75,9 +75,9 @@ function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location
 		if (parameters.length > PIndex) {
 			let par = pattern.Command.parameters[PIndex];
 
-			if (!Types.includes(par.Type)){
+			if (!Types.includes(par.Type)) {
 				Types.push(par.Type);
-			}			
+			}
 		}
 	}
 

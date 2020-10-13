@@ -30,7 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DocumentFormattingParams, DocumentRangeFormattingParams } from 'vscode-languageserver';
 import { TextEdit } from 'vscode-languageserver-textdocument';
 import { GetDocument } from '../code/include';
-import { McLanguageIdentifier } from '../Constants';
+import { McFunctionIdentifier, McLanguageIdentifier } from '../Constants';
+import { formatLangauge, formatLangaugeRange } from './Language';
 import { formatMcfunction, formatMcfunctionRange } from './Mcfunction';
 
 export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): Promise<TextEdit[]> {
@@ -45,25 +46,31 @@ export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattin
 	});
 }
 
-function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] | undefined {
+function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] {
 	let doc = GetDocument(params.textDocument.uri);
 
 	switch (doc.languageId) {
-		case McLanguageIdentifier:
+		case McFunctionIdentifier:
 			return formatMcfunction(doc, params);
+		
+		case McLanguageIdentifier:
+			return formatLangauge(doc, params);
 	}
 
-	return undefined;
+	return [];
 }
 
-function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] | undefined {
+function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] {
 	let doc = GetDocument(params.textDocument.uri);
 
 	switch (doc.languageId) {
-		case McLanguageIdentifier:
+		case McFunctionIdentifier:
 			return formatMcfunctionRange(doc, params);
+
+		case McLanguageIdentifier:
+			return formatLangaugeRange(doc, params);
 	}
 
-	return undefined;
+	return [];
 }
 

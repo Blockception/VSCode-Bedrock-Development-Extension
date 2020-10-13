@@ -30,7 +30,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Hover, HoverParams } from 'vscode-languageserver';
 import { GetDocument, getLine } from '../code/include';
 import { McFunctionIdentifier } from '../Constants';
-import { CommandIntr } from '../minecraft/commands/include';
 import { provideHoverMcFunction } from './Mcfunction';
 
 export function OnHoverRequestAsync(params: HoverParams): Promise<Hover> {
