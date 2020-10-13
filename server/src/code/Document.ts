@@ -30,22 +30,30 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../Manager";
-import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
-import { UniformUrl } from './Url';
-import { fileURLToPath } from 'url';
+import {
+  McFunctionIdentifier,
+  McLanguageIdentifier,
+  McOtherIdentifier,
+} from "../Constants";
+import { UniformUrl } from "./Url";
+import { fileURLToPath } from "url";
 
 /**
  * Returns an usable document interaction from the given data.
- * 
+ *
  * @param uri The url to the document to retrieve.
  * @param Content The possible content of the document or interface to use
  * @param languageID The Language ID associated to the documentated.
  */
-export function GetDocument(uri: string, Content: string | TextDocument | undefined = undefined, languageID: string = ''): TextDocument {
+export function GetDocument(
+  uri: string,
+  Content: string | TextDocument | undefined = undefined,
+  languageID: string = ""
+): TextDocument {
   let Old = uri;
   uri = UniformUrl(uri);
 
-  if (languageID === '') {
+  if (languageID === "") {
     languageID = IdentifyDoc(uri);
   }
 
@@ -67,31 +75,37 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
     return TextDocument.create(uri, languageID, 1, Content);
   }
   //Content is provided
-  else if (typeof Content === 'string') {
+  else if (typeof Content === "string") {
     //string provided
     return TextDocument.create(uri, languageID, 1, Content);
   }
   //The interface is provided
   else {
-    return TextDocument.create(uri, languageID, Content.version, Content.getText());
+    return TextDocument.create(
+      uri,
+      languageID,
+      Content.version,
+      Content.getText()
+    );
   }
 }
 
 export function getLine(doc: TextDocument, lineIndex: number): string {
-  return doc.getText({ start: { line: lineIndex, character: 0 }, end: { line: lineIndex, character: Number.MAX_VALUE } });
+  return doc.getText({
+    start: { line: lineIndex, character: 0 },
+    end: { line: lineIndex, character: Number.MAX_VALUE },
+  });
 }
 
 /**
  * Returns the language ID based upon the uri
- * 
+ *
  * @param uri The documents uri
  */
 export function IdentifyDoc(uri: string): string {
-  if (uri.endsWith(".mcfunction"))
-    return McFunctionIdentifier;
+  if (uri.endsWith(".mcfunction")) return McFunctionIdentifier;
 
-  if (uri.endsWith(".lang"))
-    return McLanguageIdentifier;
+  if (uri.endsWith(".lang")) return McLanguageIdentifier;
 
   return McOtherIdentifier;
 }

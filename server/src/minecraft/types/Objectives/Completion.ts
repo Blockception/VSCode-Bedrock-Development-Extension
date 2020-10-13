@@ -27,34 +27,40 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { Database } from '../../../Database';
+import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { Database } from "../../../Database";
 
-export function provideObjectiveCompletion(receiver: CompletionList, additionalText: string | undefined = undefined): void {
-	Database.Data.forEach(dataSet => {
-		dataSet.Objectives.forEach(objective => {
-			let Name = objective.Name;
+export function provideObjectiveCompletion(
+  receiver: CompletionList,
+  additionalText: string | undefined = undefined
+): void {
+  Database.Data.forEach((dataSet) => {
+    dataSet.Objectives.forEach((objective) => {
+      let Name = objective.Name;
 
-			receiver.items.push({
-				label: Name,
-				kind: CompletionItemKind.Variable,
-				documentation: "The objective: '" + Name + "'"
-			});
-		});
-	});
+      receiver.items.push({
+        label: Name,
+        kind: CompletionItemKind.Variable,
+        documentation: "The objective: '" + Name + "'",
+      });
+    });
+  });
 }
 
-export function provideObjectivePostCompletion(receiver: CompletionList, additionalText: TemplateStringsArray): void {
-	Database.Data.forEach(dataSet => {
-		dataSet.Objectives.forEach(objective => {
-			let Name = objective.Name;
+export function provideObjectivePostCompletion(
+  receiver: CompletionList,
+  additionalText: TemplateStringsArray
+): void {
+  Database.Data.forEach((dataSet) => {
+    dataSet.Objectives.forEach((objective) => {
+      let Name = objective.Name;
 
-			receiver.items.push({
-				label: Name,
-				kind: CompletionItemKind.Variable,
-				insertText: Name + additionalText,
-				documentation: "The objective: '" + Name + "'"
-			});
-		});
-	});
+      receiver.items.push({
+        label: Name,
+        kind: CompletionItemKind.Variable,
+        insertText: Name + additionalText,
+        documentation: "The objective: '" + Name + "'",
+      });
+    });
+  });
 }

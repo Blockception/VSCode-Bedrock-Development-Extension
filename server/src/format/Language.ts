@@ -27,37 +27,45 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DocumentFormattingParams, DocumentRangeFormattingParams } from 'vscode-languageserver';
-import { TextDocument, TextEdit } from 'vscode-languageserver-textdocument';
-import { getLine, TrimStartFromLine, TrimEndFromLine } from '../code/include';
+import {
+  DocumentFormattingParams,
+  DocumentRangeFormattingParams,
+} from "vscode-languageserver";
+import { TextDocument, TextEdit } from "vscode-languageserver-textdocument";
+import { getLine, TrimStartFromLine, TrimEndFromLine } from "../code/include";
 
-export function formatLangauge(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
-	let Out: TextEdit[] = [];
+export function formatLangauge(
+  doc: TextDocument,
+  params: DocumentFormattingParams
+): TextEdit[] {
+  let Out: TextEdit[] = [];
 
-	for (let index = 0; index < doc.lineCount; index++) {
-		formatline(index, doc, Out);
-	}
+  for (let index = 0; index < doc.lineCount; index++) {
+    formatline(index, doc, Out);
+  }
 
-	return Out;
+  return Out;
 }
 
-export function formatLangaugeRange(doc: TextDocument, params: DocumentRangeFormattingParams): TextEdit[] {
-	let Out: TextEdit[] = [];
-	let StartIndex = params.range.start.line;
-	let EndIndex = params.range.end.line;
+export function formatLangaugeRange(
+  doc: TextDocument,
+  params: DocumentRangeFormattingParams
+): TextEdit[] {
+  let Out: TextEdit[] = [];
+  let StartIndex = params.range.start.line;
+  let EndIndex = params.range.end.line;
 
-	for (let index = StartIndex; index < EndIndex; index++) {
-		formatline(index, doc, Out);
-	}
+  for (let index = StartIndex; index < EndIndex; index++) {
+    formatline(index, doc, Out);
+  }
 
-	return Out;
+  return Out;
 }
-
 
 //formatts the specified line
 function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
-	let Line = getLine(document, index);
+  let Line = getLine(document, index);
 
-	TrimStartFromLine(Line, index, Out, [" ", "\t"]);
-	TrimEndFromLine(Line, index, Out, ["#"]);
+  TrimStartFromLine(Line, index, Out, [" ", "\t"]);
+  TrimEndFromLine(Line, index, Out, ["#"]);
 }

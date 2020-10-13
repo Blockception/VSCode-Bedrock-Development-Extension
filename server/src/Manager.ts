@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Connection, TextDocuments, _ } from "vscode-languageserver";
-import { CommandManager } from './minecraft/commands/CommandManager';
-import { CallHierarchy } from 'vscode-languageserver/lib/callHierarchy.proposed';
-import { SemanticTokens } from 'vscode-languageserver/lib/sematicTokens.proposed';
-import { ServerSettings } from './server/Settings';
+import { CommandManager } from "./minecraft/commands/CommandManager";
+import { CallHierarchy } from "vscode-languageserver/lib/callHierarchy.proposed";
+import { SemanticTokens } from "vscode-languageserver/lib/sematicTokens.proposed";
+import { ServerSettings } from "./server/Settings";
 
 export class Manager {
   static Commands: CommandManager = new CommandManager();
@@ -48,6 +48,14 @@ export class Manager {
   static TraversedWorkspaces: boolean = false;
 
   //Server stuff
-  static Connection: Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
-  static Settings : ServerSettings = ServerSettings.createDefaulSettings();
+  static Connection: Connection<
+    _,
+    _,
+    _,
+    _,
+    _,
+    _,
+    CallHierarchy & SemanticTokens
+  >;
+  static Settings: ServerSettings = ServerSettings.createDefaulSettings();
 }

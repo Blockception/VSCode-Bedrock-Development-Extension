@@ -27,54 +27,53 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, Range } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import * as Code from '../code/include';
-import { InvalidJson } from '../diagnostics/Json';
+import { Diagnostic, Range } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import * as Code from "../code/include";
+import { InvalidJson } from "../diagnostics/Json";
 
 export class JsonDocument {
-	private doc: TextDocument;
-	private object: any | undefined;
+  private doc: TextDocument;
+  private object: any | undefined;
 
-	constructor(doc: TextDocument) {
-		this.object = undefined;
-		this.doc = doc;
-	}
+  constructor(doc: TextDocument) {
+    this.object = undefined;
+    this.doc = doc;
+  }
 
-	CastTo<T>(): T | undefined | null {
-		let object = this.GetObject();
+  CastTo<T>(): T | undefined | null {
+    let object = this.GetObject();
 
-		return <T>(object);
-	}
+    return <T>object;
+  }
 
-	GetObject(): any | undefined | null {
-		if (this.object === undefined) {
-			try {
-				let Text = this.doc.getText();
-				Text = stripJSONComments(Text);
-				let object = JSON.parse(Text);
+  GetObject(): any | undefined | null {
+    if (this.object === undefined) {
+      try {
+        let Text = this.doc.getText();
+        Text = stripJSONComments(Text);
+        let object = JSON.parse(Text);
 
-				this.object = object;
-			}
-			catch (error) {
-				InvalidJson(this.doc, error);
-			}
-		}
+        this.object = object;
+      } catch (error) {
+        InvalidJson(this.doc, error);
+      }
+    }
 
-		return this.object;
-	}
+    return this.object;
+  }
 
-	GetRange(Name: string, Value: string): Range | undefined {
-		let RegX = new RegExp('"' + Name + '"\s*:\s*"' + Value + '"', 'm');
+  GetRange(Name: string, Value: string): Range | undefined {
+    let RegX = new RegExp('"' + Name + '"s*:s*"' + Value + '"', "m");
 
-		return FindReg(this.doc, RegX);
-	}
+    return FindReg(this.doc, RegX);
+  }
 
-	GetRangeOfObject(Name: string): Range | undefined {
-		let RegX = new RegExp('"' + Name + '"\s*:', 'm');
+  GetRangeOfObject(Name: string): Range | undefined {
+    let RegX = new RegExp('"' + Name + '"s*:', "m");
 
-		return FindReg(this.doc, RegX);
-	}
+    return FindReg(this.doc, RegX);
+  }
 }
 
 /**
@@ -82,34 +81,32 @@ export class JsonDocument {
  * @param data json in text form
  */
 function stripJSONComments(data: string): string {
-	var re = new RegExp("\/\/(.*)", "g");
-	return data.replace(re, '');
+  var re = new RegExp("//(.*)", "g");
+  return data.replace(re, "");
 }
 
 function FindReg(doc: TextDocument, search: RegExp): Range | undefined {
-	let Text = doc.getText();
-	let Matches = Text.match(search);
+  let Text = doc.getText();
+  let Matches = Text.match(search);
 
-	if (Matches) {
-		let index = 0;
+  if (Matches) {
+    let index = 0;
 
-		if (Matches.index)
-			index = Matches.index;
+    if (Matches.index) index = Matches.index;
 
-		let startP = doc.positionAt(index);
-		let endP = doc.positionAt(index + Matches.length);
+    let startP = doc.positionAt(index);
+    let endP = doc.positionAt(index + Matches.length);
 
-		return Range.create(startP, endP);
-	}
+    return Range.create(startP, endP);
+  }
 
-	return undefined;
+  return undefined;
 }
 
 export namespace JsonDocument {
-	export function GetDocument(uri: string): JsonDocument {
-		let temp = Code.GetDocument(uri);
+  export function GetDocument(uri: string): JsonDocument {
+    let temp = Code.GetDocument(uri);
 
-		return new JsonDocument(temp);
-	}
+    return new JsonDocument(temp);
+  }
 }
-

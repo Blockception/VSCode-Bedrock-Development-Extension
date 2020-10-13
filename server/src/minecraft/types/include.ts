@@ -27,22 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './Block/Block';
-export * from './Block/Completion';
-export * from './Boolean/Boolean';
-export * from './Boolean/Completion';
-export * from './Entity/Entity';
-export * from './Entity/Completion';
-export * from './Effect/Effect';
-export * from './Effect/Completion';
-export * from './Objectives/Objectives';
-export * from './Objectives/Completion';
-export * from './Selector/Selector';
-export * from './Selector/Completion/Completion';
-export * from './Sound/Sound';
-export * from './Sound/Completion';
-export * from './Tag/Tag';
-export * from './Tag/Completion';
-export * from './Tickingarea/Tickingarea';
-export * from './Tickingarea/Completion';
-
+export * from "./Block/Block";
+export * from "./Block/Completion";
+export * from "./Boolean/Boolean";
+export * from "./Boolean/Completion";
+export * from "./Entity/Entity";
+export * from "./Entity/Completion";
+export * from "./Effect/Effect";
+export * from "./Effect/Completion";
+export * from "./Objectives/Objectives";
+export * from "./Objectives/Completion";
+export * from "./Selector/Selector";
+export * from "./Selector/Completion/Completion";
+export * from "./Sound/Sound";
+export * from "./Sound/Completion";
+export * from "./Tag/Tag";
+export * from "./Tag/Completion";
+export * from "./Tickingarea/Tickingarea";
+export * from "./Tickingarea/Completion";

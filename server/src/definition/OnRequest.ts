@@ -27,62 +27,70 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DefinitionParams, Location, TypeDefinitionParams } from 'vscode-languageserver';
-import { GetDocument, getLine } from '../code/include';
-import { CommandIntr, MCCommandParameterType } from '../minecraft/commands/include';
-import { SearchDefinition } from './Search';
+import {
+  DefinitionParams,
+  Location,
+  TypeDefinitionParams,
+} from "vscode-languageserver";
+import { GetDocument, getLine } from "../code/include";
+import {
+  CommandIntr,
+  MCCommandParameterType,
+} from "../minecraft/commands/include";
+import { SearchDefinition } from "./Search";
 
-
-export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[]> {
-	return new Promise<Location[]>((resolve, reject) => {
-		resolve(onDefinition(params));
-	});
+export function onDefinitionRequestAsync(
+  params: DefinitionParams
+): Promise<Location[]> {
+  return new Promise<Location[]>((resolve, reject) => {
+    resolve(onDefinition(params));
+  });
 }
 
-export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[]> {
-	return new Promise<Location[]>((resolve, reject) => {
-		resolve(onDefinition(params));
-	});
+export function onTypeDefinitionRequestAsync(
+  params: TypeDefinitionParams
+): Promise<Location[]> {
+  return new Promise<Location[]>((resolve, reject) => {
+    resolve(onDefinition(params));
+  });
 }
 
-function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
-	let doc = GetDocument(params.textDocument.uri);
-	let pos = params.position;
-	let Line = getLine(doc, pos.line);
+function onDefinition(
+  params: TypeDefinitionParams | DefinitionParams
+): Location[] | undefined {
+  let doc = GetDocument(params.textDocument.uri);
+  let pos = params.position;
+  let Line = getLine(doc, pos.line);
 
-	if (Line === '')
-		return undefined;
+  if (Line === "") return undefined;
 
-	let Command: CommandIntr = CommandIntr.parse(Line, pos);
-	let Data = Command.GetCommandData();
+  let Command: CommandIntr = CommandIntr.parse(Line, pos);
+  let Data = Command.GetCommandData();
 
-	if (Data.length == 0)
-		return undefined;
+  if (Data.length == 0) return undefined;
 
-	let PIndex = Command.CursorParamater;
-	let Types: MCCommandParameterType[] = [];
-	let Current = Command.GetCurrent();
+  let PIndex = Command.CursorParamater;
+  let Types: MCCommandParameterType[] = [];
+  let Current = Command.GetCurrent();
 
-	if (Current == undefined)
-		return;
+  if (Current == undefined) return;
 
-	let Text = Current.text.trim();
+  let Text = Current.text.trim();
 
-	for (let index = 0; index < Data.length; index++) {
-		const pattern = Data[index];
-		const parameters = pattern.Command.parameters;
+  for (let index = 0; index < Data.length; index++) {
+    const pattern = Data[index];
+    const parameters = pattern.Command.parameters;
 
-		if (parameters.length > PIndex) {
-			let par = pattern.Command.parameters[PIndex];
+    if (parameters.length > PIndex) {
+      let par = pattern.Command.parameters[PIndex];
 
-			if (!Types.includes(par.Type)) {
-				Types.push(par.Type);
-			}
-		}
-	}
+      if (!Types.includes(par.Type)) {
+        Types.push(par.Type);
+      }
+    }
+  }
 
-	if (Types.length == 0)
-		return undefined;
+  if (Types.length == 0) return undefined;
 
-	return SearchDefinition(Text, Types);
+  return SearchDefinition(Text, Types);
 }

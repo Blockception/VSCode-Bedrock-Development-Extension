@@ -27,65 +27,85 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Range, TextEdit } from 'vscode-languageserver';
+import { Range, TextEdit } from "vscode-languageserver";
 
-export function Replace(line: string, oldText: string, newText: string, lineIndex: number, receiver: TextEdit[]) {
-	let Index = line.indexOf(oldText);
+export function Replace(
+  line: string,
+  oldText: string,
+  newText: string,
+  lineIndex: number,
+  receiver: TextEdit[]
+) {
+  let Index = line.indexOf(oldText);
 
-	while (Index > -1) {
-		let R = Range.create(lineIndex, Index, lineIndex, Index + oldText.length);
-		receiver.push(TextEdit.replace(R, newText));
+  while (Index > -1) {
+    let R = Range.create(lineIndex, Index, lineIndex, Index + oldText.length);
+    receiver.push(TextEdit.replace(R, newText));
 
-		Index = line.indexOf(oldText, Index);
-	}
+    Index = line.indexOf(oldText, Index);
+  }
 }
 
 //Loop through starting character to filters out empty characters and slashes
-export function TrimStartFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]) {
-	let Text = line;
-	let LineIndex = index;
-	let startindex = 0;
-	let Loop = true;
+export function TrimStartFromLine(
+  line: string,
+  index: number,
+  Collector: TextEdit[],
+  ToRemove: string[]
+) {
+  let Text = line;
+  let LineIndex = index;
+  let startindex = 0;
+  let Loop = true;
 
-	while (Loop) {
-		Loop = false;
+  while (Loop) {
+    Loop = false;
 
-		ToRemove.forEach(x => {
-			if (x == Text.substring(startindex, startindex + x.length)) {
-				Loop = true;
-				startindex += x.length;
-			}
-		});
-	}
+    ToRemove.forEach((x) => {
+      if (x == Text.substring(startindex, startindex + x.length)) {
+        Loop = true;
+        startindex += x.length;
+      }
+    });
+  }
 
-	//If any unwanted character are found, remove them
-	if (startindex > 0) {
-		Collector.push(TextEdit.del(Range.create(LineIndex, 0, LineIndex, startindex)));
-	}
+  //If any unwanted character are found, remove them
+  if (startindex > 0) {
+    Collector.push(
+      TextEdit.del(Range.create(LineIndex, 0, LineIndex, startindex))
+    );
+  }
 }
 
-export function TrimEndFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]): void {
-	let Text = line;
-	let LineIndex = index;
-	let startindex = Text.length - 1;
-	let endindex = Text.length;
-	startindex = endindex;
-	let Loop = true;
+export function TrimEndFromLine(
+  line: string,
+  index: number,
+  Collector: TextEdit[],
+  ToRemove: string[]
+): void {
+  let Text = line;
+  let LineIndex = index;
+  let startindex = Text.length - 1;
+  let endindex = Text.length;
+  startindex = endindex;
+  let Loop = true;
 
-	while (Loop) {
-		Loop = false;
+  while (Loop) {
+    Loop = false;
 
-		ToRemove.forEach(x => {
-			if (x == Text.substring(startindex, startindex + x.length)) {
-				Loop = true;
-				startindex -= x.length;
-			}
-		});
-	}
+    ToRemove.forEach((x) => {
+      if (x == Text.substring(startindex, startindex + x.length)) {
+        Loop = true;
+        startindex -= x.length;
+      }
+    });
+  }
 
-	startindex++;
+  startindex++;
 
-	if (startindex < endindex) {
-		Collector.push(TextEdit.del(Range.create(LineIndex, startindex, LineIndex, endindex)));
-	}
+  if (startindex < endindex) {
+    Collector.push(
+      TextEdit.del(Range.create(LineIndex, startindex, LineIndex, endindex))
+    );
+  }
 }

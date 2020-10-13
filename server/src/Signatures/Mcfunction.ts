@@ -27,92 +27,101 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureHelp, SignatureInformation, ParameterInformation } from 'vscode-languageserver';
-import { Position, TextDocument } from 'vscode-languageserver-textdocument';
-import { getLine } from '../code/include';
-import { CommandInfo } from '../minecraft/commands/CommandInfo';
-import { CommandIntr, IsInSubCommand, MCCommand, MCCommandParameterType } from '../minecraft/commands/include';
+import {
+  SignatureHelp,
+  SignatureInformation,
+  ParameterInformation,
+} from "vscode-languageserver";
+import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { getLine } from "../code/include";
+import { CommandInfo } from "../minecraft/commands/CommandInfo";
+import {
+  CommandIntr,
+  IsInSubCommand,
+  MCCommand,
+  MCCommandParameterType,
+} from "../minecraft/commands/include";
 
-export function ProvideSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
-	let Line = getLine(doc, pos.line);
-	let command: CommandIntr = CommandIntr.parse(Line, pos);
+export function ProvideSignature(
+  doc: TextDocument,
+  pos: Position
+): SignatureHelp | undefined {
+  let Line = getLine(doc, pos.line);
+  let command: CommandIntr = CommandIntr.parse(Line, pos);
 
-	if (command.IsEmpty())
-		return undefined;
+  if (command.IsEmpty()) return undefined;
 
-	let SubCommand = IsInSubCommand(command, pos.character);
+  let SubCommand = IsInSubCommand(command, pos.character);
 
-	if (SubCommand != undefined) {
-		command = SubCommand;
-	}
+  if (SubCommand != undefined) {
+    command = SubCommand;
+  }
 
-	let Matches = command.GetCommandData();
+  let Matches = command.GetCommandData();
 
-	let Out: SignatureHelp = {
-		signatures: ConverToSignatures(Matches),
-		activeParameter: command.CursorParamater,
-		activeSignature: 0
-	};
+  let Out: SignatureHelp = {
+    signatures: ConverToSignatures(Matches),
+    activeParameter: command.CursorParamater,
+    activeSignature: 0,
+  };
 
-	return Out;
+  return Out;
 }
 
 function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
-	let Out: SignatureInformation[] = [];
+  let Out: SignatureInformation[] = [];
 
-	for (let I = 0; I < Commands.length; I++) {
-		let Current = Commands[I];
-		let Signature = Current.Signature;
+  for (let I = 0; I < Commands.length; I++) {
+    let Current = Commands[I];
+    let Signature = Current.Signature;
 
-		if (Signature == undefined) {
-			Signature = ConverToSignature(Current.Command);
-			Current.Signature = Signature;
-		}
+    if (Signature == undefined) {
+      Signature = ConverToSignature(Current.Command);
+      Current.Signature = Signature;
+    }
 
-		Out.push(Signature);
-	}
+    Out.push(Signature);
+  }
 
-	return Out;
+  return Out;
 }
 
 //Converts the given MCCommand into a signature
 function ConverToSignature(Command: MCCommand): SignatureInformation {
-	let Sign: SignatureInformation = {
-		label: '',
-		documentation: Command.documentation,
-		parameters: []
-	};
+  let Sign: SignatureInformation = {
+    label: "",
+    documentation: Command.documentation,
+    parameters: [],
+  };
 
-	let parameters = Command.parameters;
-	for (let I = 0; I < parameters.length; I++) {
-		let parameter = parameters[I];
-		let p: ParameterInformation;
+  let parameters = Command.parameters;
+  for (let I = 0; I < parameters.length; I++) {
+    let parameter = parameters[I];
+    let p: ParameterInformation;
 
-		if (parameter.Required) {
-			if (parameter.Type === MCCommandParameterType.keyword) {
-				p = {
-					label: parameter.Text,
-					documentation: "Type: " + MCCommandParameterType[parameter.Type]
-				};
-			}
-			else {
-				p = {
-					label: "<" + parameter.Text + ">",
-					documentation: "Type: " + MCCommandParameterType[parameter.Type]
-				};
-			}
-		}
-		else {
-			p = {
-				label: "[" + parameter.Text + "]",
-				documentation: "Type: " + MCCommandParameterType[parameter.Type]
-			};
-		}
+    if (parameter.Required) {
+      if (parameter.Type === MCCommandParameterType.keyword) {
+        p = {
+          label: parameter.Text,
+          documentation: "Type: " + MCCommandParameterType[parameter.Type],
+        };
+      } else {
+        p = {
+          label: "<" + parameter.Text + ">",
+          documentation: "Type: " + MCCommandParameterType[parameter.Type],
+        };
+      }
+    } else {
+      p = {
+        label: "[" + parameter.Text + "]",
+        documentation: "Type: " + MCCommandParameterType[parameter.Type],
+      };
+    }
 
-		Sign.label += p.label + ' ';
+    Sign.label += p.label + " ";
 
-		Sign.parameters?.push(p);
-	}
+    Sign.parameters?.push(p);
+  }
 
-	return Sign;
+  return Sign;
 }

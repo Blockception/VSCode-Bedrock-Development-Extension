@@ -27,34 +27,42 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureHelp, SignatureHelpParams } from 'vscode-languageserver';
-import { GetDocument } from '../code/include';
-import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
-import * as Mcfunction from './Mcfunction';
-import * as Language from './Language';
+import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
+import { GetDocument } from "../code/include";
+import {
+  McFunctionIdentifier,
+  McLanguageIdentifier,
+  McOtherIdentifier,
+} from "../Constants";
+import * as Mcfunction from "./Mcfunction";
+import * as Language from "./Language";
 
-export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
-	return new Promise<SignatureHelp>((resolve, reject) => {
-		resolve(OnSignatureRequest(params));
-	})
+export async function OnSignatureRequestAsync(
+  params: SignatureHelpParams
+): Promise<SignatureHelp | undefined> {
+  return new Promise<SignatureHelp>((resolve, reject) => {
+    resolve(OnSignatureRequest(params));
+  });
 }
 
-function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
-	let pos = params.position;
-	let doc = GetDocument(params.textDocument.uri);
+function OnSignatureRequest(
+  params: SignatureHelpParams
+): SignatureHelp | undefined {
+  let pos = params.position;
+  let doc = GetDocument(params.textDocument.uri);
 
-	//Switch per language type
-	switch (doc.languageId) {
-		case McFunctionIdentifier:
-			return Mcfunction.ProvideSignature(doc, pos);
+  //Switch per language type
+  switch (doc.languageId) {
+    case McFunctionIdentifier:
+      return Mcfunction.ProvideSignature(doc, pos);
 
-		case McLanguageIdentifier:
-			return Language.ProvideSignature(doc, pos);
+    case McLanguageIdentifier:
+      return Language.ProvideSignature(doc, pos);
 
-		case McOtherIdentifier:
-			return undefined;
-		//return Other.ProvideSignature(doc, pos);
-	}
+    case McOtherIdentifier:
+      return undefined;
+    //return Other.ProvideSignature(doc, pos);
+  }
 
-	return undefined;
+  return undefined;
 }

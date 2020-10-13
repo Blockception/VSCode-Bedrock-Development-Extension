@@ -27,34 +27,45 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Position, SignatureHelp } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { getLine } from '../code/include';
+import { Position, SignatureHelp } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { getLine } from "../code/include";
 
-export function ProvideSignature(doc: TextDocument, pos: Position): SignatureHelp {
-   const Line = getLine(doc, pos.line);
+export function ProvideSignature(
+  doc: TextDocument,
+  pos: Position
+): SignatureHelp {
+  const Line = getLine(doc, pos.line);
 
-   let index = Line.indexOf('=');
-   let parameter = 0
+  let index = Line.indexOf("=");
+  let parameter = 0;
 
-   if (index > 0 && index > pos.character) {
-      parameter = 1;
-   }
+  if (index > 0 && index > pos.character) {
+    parameter = 1;
+  }
 
-   let Out: SignatureHelp = {
-      activeParameter: parameter,
-      activeSignature: 0,
-      signatures: [
-         {
-            label: "[translation key]=[text]",
-            documentation: "The key/value pair that is used by minecraft to determine what text to display",
-            parameters: [
-               { label: "[translation key]", documentation: "The key to this translation text" },
-               { label: "[text]", documentation: "The translation text, some pretty stuff can be done with the following: \n§ = ALT + 0167 on the numpad\nOther need functions: %%s, %%#, see the wiki" }
-            ]
-         }
-      ]
-   }
+  let Out: SignatureHelp = {
+    activeParameter: parameter,
+    activeSignature: 0,
+    signatures: [
+      {
+        label: "[translation key]=[text]",
+        documentation:
+          "The key/value pair that is used by minecraft to determine what text to display",
+        parameters: [
+          {
+            label: "[translation key]",
+            documentation: "The key to this translation text",
+          },
+          {
+            label: "[text]",
+            documentation:
+              "The translation text, some pretty stuff can be done with the following: \n§ = ALT + 0167 on the numpad\nOther need functions: %%s, %%#, see the wiki",
+          },
+        ],
+      },
+    ],
+  };
 
-   return Out;
+  return Out;
 }

@@ -27,48 +27,58 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { OnCompletionRequestAsync } from '../completion/OnRequest';
-import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from '../definition/OnRequest';
-import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from '../format/OnRequest';
-import { OnHoverRequestAsync } from '../hover/OnRequest';
-import { Manager } from '../Manager';
-import { OndDocumentChangedAsync } from '../process/Process';
-import { OnSignatureRequestAsync } from '../signatures/OnRequest';
-import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from '../symbols/OnRequest';
-import { onDidChangeConfigurationAsync } from './OnConfiguration';
+import { OnCompletionRequestAsync } from "../completion/OnRequest";
+import {
+  onDefinitionRequestAsync,
+  onTypeDefinitionRequestAsync,
+} from "../definition/OnRequest";
+import {
+  OnDocumentFormatRequestAsync,
+  OnDocumentRangeFormatRequestAsync,
+} from "../format/OnRequest";
+import { OnHoverRequestAsync } from "../hover/OnRequest";
+import { Manager } from "../Manager";
+import { OndDocumentChangedAsync } from "../process/Process";
+import { OnSignatureRequestAsync } from "../signatures/OnRequest";
+import {
+  OnDocumentSymbolRequestAsync,
+  OnWorkspaceSymbolRequestAsync,
+} from "../symbols/OnRequest";
+import { onDidChangeConfigurationAsync } from "./OnConfiguration";
 
 /**
  * Setup the server events
  */
 export function setEvents() {
-	//Provides diagnostics and such
-	Manager.Documents.onDidOpen(OndDocumentChangedAsync);
-	Manager.Documents.onDidSave(OndDocumentChangedAsync);
+  //Provides diagnostics and such
+  Manager.Documents.onDidOpen(OndDocumentChangedAsync);
+  Manager.Documents.onDidSave(OndDocumentChangedAsync);
 
-	// This handler provides completion items.
-	Manager.Connection.onCompletion(OnCompletionRequestAsync);
+  // This handler provides completion items.
+  Manager.Connection.onCompletion(OnCompletionRequestAsync);
 
-	// This handler provvides go to definitions
-	Manager.Connection.onDefinition(onDefinitionRequestAsync);
-	Manager.Connection.onTypeDefinition(onTypeDefinitionRequestAsync)
+  // This handler provvides go to definitions
+  Manager.Connection.onDefinition(onDefinitionRequestAsync);
+  Manager.Connection.onTypeDefinition(onTypeDefinitionRequestAsync);
 
-	// This handler provides document/workspace symbols
-	Manager.Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
-	Manager.Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
+  // This handler provides document/workspace symbols
+  Manager.Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
+  Manager.Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
 
-	// This handler provides support for when a configuration changes
-	Manager.Connection.onDidChangeConfiguration(onDidChangeConfigurationAsync);
+  // This handler provides support for when a configuration changes
+  Manager.Connection.onDidChangeConfiguration(onDidChangeConfigurationAsync);
 
-	// This handler provides hover support
-	Manager.Connection.onHover(OnHoverRequestAsync);
+  // This handler provides hover support
+  Manager.Connection.onHover(OnHoverRequestAsync);
 
-	// This handler provides formatting
-	Manager.Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
-	Manager.Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync)
+  // This handler provides formatting
+  Manager.Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
+  Manager.Connection.onDocumentRangeFormatting(
+    OnDocumentRangeFormatRequestAsync
+  );
 
+  Manager.Connection.onDocumentColor;
 
-	Manager.Connection.onDocumentColor
-
-	// This handler provides signatures
-	Manager.Connection.onSignatureHelp(OnSignatureRequestAsync);
+  // This handler provides signatures
+  Manager.Connection.onSignatureHelp(OnSignatureRequestAsync);
 }

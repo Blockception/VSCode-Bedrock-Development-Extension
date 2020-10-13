@@ -28,11 +28,20 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { Diagnostic } from 'vscode-languageserver';
+import { Diagnostic } from "vscode-languageserver";
 
-export function NewError(receiver: Diagnostic[], Line: number, start: number, end: number, message: string) {
-	receiver.push({
-		message: message,
-		range: { start: { character: start, line: Line }, end: { character: end, line: Line } },
-	});
+export function NewError(
+  receiver: Diagnostic[],
+  Line: number,
+  start: number,
+  end: number,
+  message: string
+) {
+  receiver.push({
+    message: message,
+    range: {
+      start: { character: start, line: Line },
+      end: { character: end, line: Line },
+    },
+  });
 }

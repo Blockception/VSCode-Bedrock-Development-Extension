@@ -27,76 +27,77 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as fs from 'fs';
-import { Process } from './Process';
-import { GetDocument } from '../code/include';
-import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
+import * as fs from "fs";
+import { Process } from "./Process";
+import { GetDocument } from "../code/include";
+import {
+  McFunctionIdentifier,
+  McLanguageIdentifier,
+  McOtherIdentifier,
+} from "../Constants";
 
 //Traverse the directory
 export function TraveseDirectory(Dir: string): void {
-	//console.log('exploring: ' + Dir);
-	if (!Dir.endsWith('\\')) {
-		Dir += '\\';
-	}
+  //console.log('exploring: ' + Dir);
+  if (!Dir.endsWith("\\")) {
+    Dir += "\\";
+  }
 
-	fs.readdir(Dir, (err, files) => {
-		if (err) {
-			console.log(Dir);
-			console.log(err);
-		}
-		else {
-			if (files)
-				files.forEach(file => {
-					let Path = Dir + file;
+  fs.readdir(Dir, (err, files) => {
+    if (err) {
+      console.log(Dir);
+      console.log(err);
+    } else {
+      if (files)
+        files.forEach((file) => {
+          let Path = Dir + file;
 
-					if (Path.endsWith(".mcfunction")) {
-						PromiseParse(Path, McFunctionIdentifier);
-					}
-					else if (Path.endsWith(".lang")) {
-						PromiseParse(Path, McLanguageIdentifier);
-					}
-					else if (Path.endsWith(".json")) {
-						PromiseParse(Path, McOtherIdentifier);
-					}
-					else if (fs.lstatSync(Path).isDirectory()) {
-						PromiseTraveseDirectory(Path);
-					}
-				});
-		}
-	});
+          if (Path.endsWith(".mcfunction")) {
+            PromiseParse(Path, McFunctionIdentifier);
+          } else if (Path.endsWith(".lang")) {
+            PromiseParse(Path, McLanguageIdentifier);
+          } else if (Path.endsWith(".json")) {
+            PromiseParse(Path, McOtherIdentifier);
+          } else if (fs.lstatSync(Path).isDirectory()) {
+            PromiseTraveseDirectory(Path);
+          }
+        });
+    }
+  });
 }
 
 export async function PromiseTraveseDirectory(path: string): Promise<boolean> {
-	return new Promise<boolean>((resolve, reject) => {
-		setTimeout(() => {
-			try {
-				TraveseDirectory(path);
-				resolve(true);
-			}
-			catch (error) {
-				console.log(error);
-				reject(false);
-			}
-		}, 0);
-	});
+  return new Promise<boolean>((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        TraveseDirectory(path);
+        resolve(true);
+      } catch (error) {
+        console.log(error);
+        reject(false);
+      }
+    }, 0);
+  });
 }
 
-async function PromiseParse(path: string, languageID: string): Promise<boolean> {
-	return new Promise<boolean>((resolve, reject) => {
-		setTimeout(() => {
-			try {
-				Parse(path, languageID);
-				resolve(true);
-			}
-			catch (error) {
-				console.log(error);
-				reject(false);
-			}
-		}, 0);
-	})
+async function PromiseParse(
+  path: string,
+  languageID: string
+): Promise<boolean> {
+  return new Promise<boolean>((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        Parse(path, languageID);
+        resolve(true);
+      } catch (error) {
+        console.log(error);
+        reject(false);
+      }
+    }, 0);
+  });
 }
 
 function Parse(path: string, languageID: string): void {
-	let Doc = GetDocument(path, undefined, languageID);
-	Process(Doc);
+  let Doc = GetDocument(path, undefined, languageID);
+  Process(Doc);
 }

@@ -27,30 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { URI } from 'vscode-uri';
+import { URI } from "vscode-uri";
 
-export function UniformUrl(Uri : string) : string {
-   let Out : string;
+export function UniformUrl(Uri: string): string {
+  let Out: string;
 
-   if (Uri.startsWith('file://')) {
-      Uri = Uri.replace('file:///', 'file://');
-      Out = Uri;
-      Out = Out.replace('%3A', ':');
-   }
-   else{
-      Out = Uri.replace(/\\/g, '/');
-      Out = encodeURI(Out);
-      Out = 'file://' + Out;
-   }
+  if (Uri.startsWith("file://")) {
+    Uri = Uri.replace("file:///", "file://");
+    Out = Uri;
+    Out = Out.replace("%3A", ":");
+  } else {
+    Out = Uri.replace(/\\/g, "/");
+    Out = encodeURI(Out);
+    Out = "file://" + Out;
+  }
 
-   return Out;
+  return Out;
 }
 
-export function GetFilepath(Uri : string) : string {
-   let uri = URI.file(decodeURI(Uri)).fsPath;
+export function GetFilepath(Uri: string): string {
+  let uri = URI.file(decodeURI(Uri)).fsPath;
 
-   if (uri.startsWith('\\'))
-      uri = uri.slice(1, uri.length);
+  if (uri.startsWith("\\")) uri = uri.slice(1, uri.length);
 
-   return uri;
+  return uri;
 }

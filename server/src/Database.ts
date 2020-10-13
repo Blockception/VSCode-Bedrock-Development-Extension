@@ -27,28 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { MinecraftData } from './minecraft/Minecraft Data';
+import { MinecraftData } from "./minecraft/Minecraft Data";
 
 export class Database {
-   //uri string
-   static Data = new Map<string, MinecraftData>();
+  //uri string
+  static Data = new Map<string, MinecraftData>();
 
-   /**
-    * 
-    * @param uri 
-    */
-   static Get(uri : string) : MinecraftData {
-      let Item = this.Data.get(uri);
+  /**
+   *
+   * @param uri
+   */
+  static Get(uri: string): MinecraftData {
+    let Item = this.Data.get(uri);
 
-      if (Item == undefined){
-         Item = new MinecraftData();
-         this.Data.set(uri, Item);
-      }
+    if (Item == undefined) {
+      Item = new MinecraftData();
+      this.Data.set(uri, Item);
+    }
 
-      return Item;
-   }
+    return Item;
+  }
 
-   static Set(uri : string, Data : MinecraftData) : void {
-      this.Data.set(uri, Data);
-   }
+  static Set(uri: string, Data: MinecraftData): void {
+    this.Data.set(uri, Data);
+  }
 }

@@ -27,84 +27,104 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetFilename } from '../code/include';
-import { Convert } from './Conversion';
-import url = require('url');
-import { Database } from '../Database';
-import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from 'vscode-languageserver';
-import { GetFilepath, UniformUrl } from '../code/Url';
+import { GetFilename } from "../code/include";
+import { Convert } from "./Conversion";
+import url = require("url");
+import { Database } from "../Database";
+import {
+  DocumentSymbolParams,
+  SymbolInformation,
+  SymbolKind,
+  Location,
+  Range,
+  WorkspaceSymbolParams,
+} from "vscode-languageserver";
+import { GetFilepath, UniformUrl } from "../code/Url";
 
 /**
  * The request to provide document symbols, asynchorious
- * 
+ *
  * @param params The parameter that specify which symbols to provide
  */
-export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[]> {
-   return new Promise<SymbolInformation[]>((resolve, reject) => {
-      resolve(OnDocumentSymbolRequest(params));
-   });
+export async function OnDocumentSymbolRequestAsync(
+  params: DocumentSymbolParams
+): Promise<SymbolInformation[]> {
+  return new Promise<SymbolInformation[]>((resolve, reject) => {
+    resolve(OnDocumentSymbolRequest(params));
+  });
 }
-
 
 /**
  * The request to provide workspace symbols, asynchorious
- * 
+ *
  * @param params The parameter that specify which symbols to provide
  */
-export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
-   return new Promise<SymbolInformation[]>((resolve, reject) => {
-      resolve(OnWorkspaceSymbolRequest(params));
-   });
+export async function OnWorkspaceSymbolRequestAsync(
+  params: WorkspaceSymbolParams
+): Promise<SymbolInformation[]> {
+  return new Promise<SymbolInformation[]>((resolve, reject) => {
+    resolve(OnWorkspaceSymbolRequest(params));
+  });
 }
 
 /**
  * The request to provide document symbols
- * 
+ *
  * @param params The parameter that specify which symbols to provide
  */
-function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] {
-   //TODO language and other files included
-   let uri = params.textDocument.uri;
-   uri = UniformUrl(uri);
+function OnDocumentSymbolRequest(
+  params: DocumentSymbolParams
+): SymbolInformation[] {
+  //TODO language and other files included
+  let uri = params.textDocument.uri;
+  uri = UniformUrl(uri);
 
-   let Out: SymbolInformation[] = [];
+  let Out: SymbolInformation[] = [];
 
-   Out.push({
-      kind: SymbolKind.Class,
-      location: Location.create(GetFilepath(uri), Range.create(0, 0, Number.MAX_VALUE, 0)),
-      name: GetFilename(uri)
-   });
+  Out.push({
+    kind: SymbolKind.Class,
+    location: Location.create(
+      GetFilepath(uri),
+      Range.create(0, 0, Number.MAX_VALUE, 0)
+    ),
+    name: GetFilename(uri),
+  });
 
-   let Data = Database.Get(uri);
-   Convert(Data, Out, '');
+  let Data = Database.Get(uri);
+  Convert(Data, Out, "");
 
-   return Out;
+  return Out;
 }
 
 /**
  * The request to provide workspace symbols
- * 
+ *
  * @param params The parameter that specify which symbols to provide
  */
-function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
-   let Query = params.query;
-   let Out: SymbolInformation[] = [];
+function OnWorkspaceSymbolRequest(
+  params: WorkspaceSymbolParams
+): SymbolInformation[] {
+  let Query = params.query;
+  let Out: SymbolInformation[] = [];
 
-   for (let [FunctionPath, Data] of Database.Data) {
-      if (Out.length > 100) {
-         break;
-      }
+  for (let [FunctionPath, Data] of Database.Data) {
+    if (Out.length > 100) {
+      break;
+    }
 
-      if (Query === '' || FunctionPath.indexOf(Query) > -1) {
-         Out.push({
-            kind: SymbolKind.Class,
-            location: Location.create(GetFilepath(FunctionPath), Range.create(0, 0, 0, 0)),
-            name: GetFilename(FunctionPath)
-         });
-      }
+    if (Query === "" || FunctionPath.indexOf(Query) > -1) {
+      Out.push({
+        kind: SymbolKind.Class,
+        location: Location.create(
+          GetFilepath(FunctionPath),
+          Range.create(0, 0, 0, 0)
+        ),
+        name: GetFilename(FunctionPath),
+      });
+    }
 
-      Convert(Data, Out, Query);
-   }
+    Convert(Data, Out, Query);
+  }
 
-   return Out;
+  return Out;
 }

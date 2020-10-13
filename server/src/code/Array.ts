@@ -28,16 +28,16 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export function removeDuplicate<T>(items: T[]): T[] {
-	let Length = items.length;
-	let Out: T[] = [];
+  let Length = items.length;
+  let Out: T[] = [];
 
-	for (let I = 0; I < Length; I++) {
-		let Current = items[I];
+  for (let I = 0; I < Length; I++) {
+    let Current = items[I];
 
-		if (!Out.includes(Current)) {
-			Out.push(Current);
-		}
-	}
+    if (!Out.includes(Current)) {
+      Out.push(Current);
+    }
+  }
 
-	return Out;
+  return Out;
 }

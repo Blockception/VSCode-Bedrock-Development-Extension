@@ -29,63 +29,60 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export function GetWords(text: string): string[] {
-    let out: string[] = [];
-    let level = 0;
-    let startindex = 0;
-    let Instring = false;
+  let out: string[] = [];
+  let level = 0;
+  let startindex = 0;
+  let Instring = false;
 
-    for (let index = 0; index < text.length; index++) {
-        let c = text.charAt(index);
+  for (let index = 0; index < text.length; index++) {
+    let c = text.charAt(index);
 
-        if (Instring) {
-            if (c == '"')
-                Instring = false;
-        }
-        else {
-            switch (c) {
-                case '"':
-                    Instring = true;
-                    break;
+    if (Instring) {
+      if (c == '"') Instring = false;
+    } else {
+      switch (c) {
+        case '"':
+          Instring = true;
+          break;
 
-                case "[":
-                case "(":
-                case "{":
-                case "<":
-                    level++;
-                    break;
+        case "[":
+        case "(":
+        case "{":
+        case "<":
+          level++;
+          break;
 
-                case "]":
-                case ")":
-                case "}":
-                case ">":
-                    level--;
-                    break;
+        case "]":
+        case ")":
+        case "}":
+        case ">":
+          level--;
+          break;
 
-                case " ":
-                case "\t":
-                    if (level == 0) {
-                        if (startindex < index) {
-                            let RW = text.substring(startindex, index).trim();
-                            out.push(RW);
-                        }
-
-                        startindex = index + 1;
-                    }
-
-                    break;
-                default:
-                    break;
+        case " ":
+        case "\t":
+          if (level == 0) {
+            if (startindex < index) {
+              let RW = text.substring(startindex, index).trim();
+              out.push(RW);
             }
-        }
 
-        if (level < 0)
-            break;
+            startindex = index + 1;
+          }
+
+          break;
+        default:
+          break;
+      }
     }
 
-    if (startindex < text.length) {
-        let RW = text.substring(startindex, text.length);
-        out.push(RW);
-    }
+    if (level < 0) break;
+  }
 
-    return out;
+  if (startindex < text.length) {
+    let RW = text.substring(startindex, text.length);
+    out.push(RW);
+  }
+
+  return out;
 }

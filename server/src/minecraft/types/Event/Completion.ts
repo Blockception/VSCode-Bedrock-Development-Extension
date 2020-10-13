@@ -27,36 +27,40 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { CommandIntr } from '../../commands/include';
-import { Database } from '../../../Database';
+import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CommandIntr } from "../../commands/include";
+import { Database } from "../../../Database";
 
-export function provideEventCompletion(receiver: CompletionList, command : CommandIntr): void {
-	let Keyword = command.GetCommandKeyword();
+export function provideEventCompletion(
+  receiver: CompletionList,
+  command: CommandIntr
+): void {
+  let Keyword = command.GetCommandKeyword();
 
-	if (Keyword == 'summon'){
-		if (command.Paramaters.length < 2) return;
+  if (Keyword == "summon") {
+    if (command.Paramaters.length < 2) return;
 
-		let Entity = command.Paramaters[1].text;
+    let Entity = command.Paramaters[1].text;
 
-		//For each data set
-		Database.Data.forEach(data=>{
-			//for each entity data in the set
-			data.Entities.forEach(entity => {
-				//If the identifier is the same
-				if(entity.Identifier === Entity) {
-					//convert all events
-					entity.Events.forEach(event => {
-						receiver.items.push({
-							label:event,
-							documentation:'The entity "' + Entity + '" event: "' + event + '"',
-							kind:CompletionItemKind.Event
-						});
-					});				
+    //For each data set
+    Database.Data.forEach((data) => {
+      //for each entity data in the set
+      data.Entities.forEach((entity) => {
+        //If the identifier is the same
+        if (entity.Identifier === Entity) {
+          //convert all events
+          entity.Events.forEach((event) => {
+            receiver.items.push({
+              label: event,
+              documentation:
+                'The entity "' + Entity + '" event: "' + event + '"',
+              kind: CompletionItemKind.Event,
+            });
+          });
 
-					return;
-				}
-			});
-		});
-	}
+          return;
+        }
+      });
+    });
+  }
 }

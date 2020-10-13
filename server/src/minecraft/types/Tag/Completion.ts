@@ -27,28 +27,36 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { Database } from '../../../Database';
+import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { Database } from "../../../Database";
 
 export function provideTagCompletion(receiver: CompletionList): void {
-	Database.Data.forEach(dataSet => {
-		dataSet.Tag.forEach(tag => {
-			receiver.items.push({
-				label: tag.Name,
-				kind: CompletionItemKind.Reference,
-				documentation: "The tag: '" + tag.Name + "'"
-			});
-		});
-	});
+  Database.Data.forEach((dataSet) => {
+    dataSet.Tag.forEach((tag) => {
+      receiver.items.push({
+        label: tag.Name,
+        kind: CompletionItemKind.Reference,
+        documentation: "The tag: '" + tag.Name + "'",
+      });
+    });
+  });
 }
 
 export function provideTagTestCompletion(receiver: CompletionList): void {
-	Database.Data.forEach(dataSet => {
-		dataSet.Tag.forEach(tag => {
-			receiver.items.push(
-				{ label: tag.Name, kind: CompletionItemKind.Reference, documentation: "Tests for the tag: '" + tag.Name + "'" },
-				{ label: '!' + tag.Name, kind: CompletionItemKind.Reference, documentation: "Tests not for the tag: '" + tag.Name + "'" }
-			);
-		});
-	});
+  Database.Data.forEach((dataSet) => {
+    dataSet.Tag.forEach((tag) => {
+      receiver.items.push(
+        {
+          label: tag.Name,
+          kind: CompletionItemKind.Reference,
+          documentation: "Tests for the tag: '" + tag.Name + "'",
+        },
+        {
+          label: "!" + tag.Name,
+          kind: CompletionItemKind.Reference,
+          documentation: "Tests not for the tag: '" + tag.Name + "'",
+        }
+      );
+    });
+  });
 }

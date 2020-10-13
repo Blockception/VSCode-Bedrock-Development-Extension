@@ -27,59 +27,86 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { PublishDiagnosticsParams } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { GetFilepath, getLine } from '../code/include';
-import { Manager } from '../Manager';
-import { NewError } from './Functions';
+import { PublishDiagnosticsParams } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { GetFilepath, getLine } from "../code/include";
+import { Manager } from "../Manager";
+import { NewError } from "./Functions";
 
 export function provideLanguageDiagnostics(doc: TextDocument) {
-	let Out: PublishDiagnosticsParams = {
-		uri: GetFilepath(doc.uri),
-		diagnostics: []
-	};
+  let Out: PublishDiagnosticsParams = {
+    uri: GetFilepath(doc.uri),
+    diagnostics: [],
+  };
 
-	let Keys = new Array<string>(doc.lineCount);
+  let Keys = new Array<string>(doc.lineCount);
 
-	for (let I = 0; I < doc.lineCount; I++) {
-		let Line = getLine(doc, I);
+  for (let I = 0; I < doc.lineCount; I++) {
+    let Line = getLine(doc, I);
 
-		let CommentIndex = Line.indexOf('#');
-		if (CommentIndex >= 0) {
-			Line = Line.substring(0, CommentIndex).trim();
-		}
+    let CommentIndex = Line.indexOf("#");
+    if (CommentIndex >= 0) {
+      Line = Line.substring(0, CommentIndex).trim();
+    }
 
-		if (Line === '' || Line === '\r' || Line === '\r\n'){
-			if(CommentIndex > 0){
-				NewError(Out.diagnostics, I, 0, CommentIndex, "A line cannot be with an identented comment");
-			}
+    if (Line === "" || Line === "\r" || Line === "\r\n") {
+      if (CommentIndex > 0) {
+        NewError(
+          Out.diagnostics,
+          I,
+          0,
+          CommentIndex,
+          "A line cannot be with an identented comment"
+        );
+      }
 
-			continue;
-		}
-			
+      continue;
+    }
 
-		let Index = Line.indexOf('=');
+    let Index = Line.indexOf("=");
 
-		if (Index < 0) {
-			NewError(Out.diagnostics, I, 0, Line.length, "A translation item needs a '=' to seperate key and value");
-		}
-		else {
-			const Key = Line.substring(0, Index);
-			const KeyIndex = Keys.indexOf(Key);
+    if (Index < 0) {
+      NewError(
+        Out.diagnostics,
+        I,
+        0,
+        Line.length,
+        "A translation item needs a '=' to seperate key and value"
+      );
+    } else {
+      const Key = Line.substring(0, Index);
+      const KeyIndex = Keys.indexOf(Key);
 
-			if (KeyIndex >= 0 && KeyIndex != I) {
-				NewError(Out.diagnostics, I, 0, Key.length, "Duplicate key found at: " + KeyIndex);
-				NewError(Out.diagnostics, KeyIndex, 0, Key.length, "Duplicate key found at: " + I);
-			}
+      if (KeyIndex >= 0 && KeyIndex != I) {
+        NewError(
+          Out.diagnostics,
+          I,
+          0,
+          Key.length,
+          "Duplicate key found at: " + KeyIndex
+        );
+        NewError(
+          Out.diagnostics,
+          KeyIndex,
+          0,
+          Key.length,
+          "Duplicate key found at: " + I
+        );
+      }
 
-			Keys[I] = Key;
-		}
+      Keys[I] = Key;
+    }
 
-		if (Index >= Line.length) {
-			NewError(Out.diagnostics, I, 0, Line.length, "A value must be atleast lenght of 1 or more");
-		}
-	}
+    if (Index >= Line.length) {
+      NewError(
+        Out.diagnostics,
+        I,
+        0,
+        Line.length,
+        "A value must be atleast lenght of 1 or more"
+      );
+    }
+  }
 
-	Manager.Connection.sendDiagnostics(Out);
+  Manager.Connection.sendDiagnostics(Out);
 }
-

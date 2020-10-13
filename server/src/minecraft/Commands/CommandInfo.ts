@@ -27,14 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureInformation } from 'vscode-languageserver';
-import { MCCommand } from './MCCommand';
+import { SignatureInformation } from "vscode-languageserver";
+import { MCCommand } from "./MCCommand";
 
 export class CommandInfo {
-	public Command: MCCommand;
-	public Signature: SignatureInformation | undefined;
+  public Command: MCCommand;
+  public Signature: SignatureInformation | undefined;
 
-	constructor(Command: MCCommand) {
-		this.Command = Command;
-	}
+  constructor(Command: MCCommand) {
+    this.Command = Command;
+  }
 }

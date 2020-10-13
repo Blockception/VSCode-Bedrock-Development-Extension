@@ -27,117 +27,126 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Range } from 'vscode-languageserver';
+import { Range } from "vscode-languageserver";
 
 export class RangedWord {
-    //The text of the word
-    text: string;
+  //The text of the word
+  text: string;
 
-    //The start index of the word in the string
-    startindex: number;
+  //The start index of the word in the string
+  startindex: number;
 
-    //The end index of the word in the string
-    endindex: number;
+  //The end index of the word in the string
+  endindex: number;
 
-    constructor(text: string, startindex: number, endindex: number) {
-        this.text = text;
-        this.startindex = startindex;
-        this.endindex = endindex;
+  constructor(text: string, startindex: number, endindex: number) {
+    this.text = text;
+    this.startindex = startindex;
+    this.endindex = endindex;
+  }
+
+  //Creates a range of the given word
+  ToRange(lineIndex: number): Range {
+    return Range.create(lineIndex, this.startindex, lineIndex, this.endindex);
+  }
+
+  //returns true or false is the cursor is inside this word
+  CheckCursor(cursorPos: number): boolean {
+    if (cursorPos >= this.startindex && cursorPos <= this.endindex) {
+      return true;
     }
 
-    //Creates a range of the given word
-    ToRange(lineIndex: number): Range {
-        return Range.create(lineIndex, this.startindex, lineIndex, this.endindex);
-    }
+    return false;
+  }
 
-    //returns true or false is the cursor is inside this word
-    CheckCursor(cursorPos: number): boolean {
-        if (cursorPos >= this.startindex && cursorPos <= this.endindex) {
-            return true;
-        }
+  //Converts the given text into words
+  static GetWords(text: string): RangedWord[] {
+    let out = new Array<RangedWord>();
+    let level = 0;
+    let startindex = 0;
+    let Instring = false;
 
-        return false;
-    }
+    for (let index = 0; index < text.length; index++) {
+      let c = text.charAt(index);
 
-    //Converts the given text into words
-    static GetWords(text: string): RangedWord[] {
-        let out = new Array<RangedWord>();
-        let level = 0;
-        let startindex = 0;
-        let Instring = false;
+      if (Instring) {
+        if (c == '"') Instring = false;
+      } else {
+        switch (c) {
+          case '"':
+            Instring = true;
+            break;
 
-        for (let index = 0; index < text.length; index++) {
-            let c = text.charAt(index);
+          case "[":
+          case "(":
+          case "{":
+            level++;
+            break;
 
-            if (Instring) {
-                if (c == '"')
-                    Instring = false;
-            }
-            else {
-                switch (c) {
-                    case '"':
-                        Instring = true;
-                        break;
+          case "]":
+          case ")":
+          case "}":
+            level--;
+            break;
 
-                    case "[":
-                    case "(":
-                    case "{":
-                        level++;
-                        break;
+          case " ":
+          case "\t":
+            if (level == 0) {
+              if (startindex < index) {
+                let RW = new RangedWord(
+                  text.substring(startindex, index).trim(),
+                  startindex,
+                  index
+                );
+                out.push(RW);
+              }
 
-                    case "]":
-                    case ")":
-                    case "}":
-                        level--;
-                        break;
-
-                    case " ":
-                    case "\t":
-                        if (level == 0) {
-                            if (startindex < index) {
-                                let RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
-                                out.push(RW);
-                            }
-
-                            startindex = index + 1;
-                        }
-
-                        break;
-                    default:
-                        break;
-                }
+              startindex = index + 1;
             }
 
-            if (level < 0)
-                break;
+            break;
+          default:
+            break;
         }
+      }
 
-        if (startindex < text.length) {
-            let RW = new RangedWord(text.substring(startindex, text.length), startindex, text.length);
-            out.push(RW);
-        }
-
-        return out;
+      if (level < 0) break;
     }
 
-    //Gets the word that surrounds cursor
-    static GetWord(text: string, position: number): RangedWord {
-        let StartIndex = position;
-        let C = text.charAt(StartIndex);
-
-        while (C != ' ' && StartIndex > 0) {
-            StartIndex--;
-            C = text.charAt(StartIndex);
-        }
-
-        StartIndex++;
-
-        let EndIndex = text.indexOf(' ', StartIndex);
-
-        if (EndIndex < 0) {
-            EndIndex = text.length;
-        }
-
-        return new RangedWord(text.substring(StartIndex, EndIndex), StartIndex, EndIndex);
+    if (startindex < text.length) {
+      let RW = new RangedWord(
+        text.substring(startindex, text.length),
+        startindex,
+        text.length
+      );
+      out.push(RW);
     }
+
+    return out;
+  }
+
+  //Gets the word that surrounds cursor
+  static GetWord(text: string, position: number): RangedWord {
+    let StartIndex = position;
+    let C = text.charAt(StartIndex);
+
+    while (C != " " && StartIndex > 0) {
+      StartIndex--;
+      C = text.charAt(StartIndex);
+    }
+
+    StartIndex++;
+
+    let EndIndex = text.indexOf(" ", StartIndex);
+
+    if (EndIndex < 0) {
+      EndIndex = text.length;
+    }
+
+    return new RangedWord(
+      text.substring(StartIndex, EndIndex),
+      StartIndex,
+      EndIndex
+    );
+  }
 }

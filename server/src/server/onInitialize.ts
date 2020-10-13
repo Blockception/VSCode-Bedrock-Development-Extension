@@ -27,69 +27,75 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { InitializeParams, InitializeResult, TextDocumentSyncKind } from 'vscode-languageserver';
-import { Manager } from '../Manager';
+import {
+  InitializeParams,
+  InitializeResult,
+  TextDocumentSyncKind,
+} from "vscode-languageserver";
+import { Manager } from "../Manager";
 
-export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
-	return new Promise<InitializeResult>((resolve, reject) => {
-		resolve(onInitialize(params));
-	});
+export async function onInitializeAsync(
+  params: InitializeParams
+): Promise<InitializeResult> {
+  return new Promise<InitializeResult>((resolve, reject) => {
+    resolve(onInitialize(params));
+  });
 }
 
 function onInitialize(params: InitializeParams): InitializeResult {
-	console.log('Initializing minecraft server');
-	let capabilities = params.capabilities;
+  console.log("Initializing minecraft server");
+  let capabilities = params.capabilities;
 
-	// Does the client support the `workspace/configuration` request?
-	// If not, we fall back using global settings.
-	Manager.hasConfigurationCapability = !!(
-		capabilities.workspace && !!capabilities.workspace.configuration
-	);
-	Manager.hasWorkspaceFolderCapability = !!(
-		capabilities.workspace && !!capabilities.workspace.workspaceFolders
-	);
-	Manager.hasDiagnosticRelatedInformationCapability = !!(
-		capabilities.textDocument &&
-		capabilities.textDocument.publishDiagnostics &&
-		capabilities.textDocument.publishDiagnostics.relatedInformation
-	);
+  // Does the client support the `workspace/configuration` request?
+  // If not, we fall back using global settings.
+  Manager.hasConfigurationCapability = !!(
+    capabilities.workspace && !!capabilities.workspace.configuration
+  );
+  Manager.hasWorkspaceFolderCapability = !!(
+    capabilities.workspace && !!capabilities.workspace.workspaceFolders
+  );
+  Manager.hasDiagnosticRelatedInformationCapability = !!(
+    capabilities.textDocument &&
+    capabilities.textDocument.publishDiagnostics &&
+    capabilities.textDocument.publishDiagnostics.relatedInformation
+  );
 
-	const result: InitializeResult = {
-		capabilities: {
-			textDocumentSync: TextDocumentSyncKind.Incremental,
-			// Tell the client that this server code formatting.
-			documentFormattingProvider: {},
-			documentRangeFormattingProvider: {},
-			// Tell the client that this server supports go to defintitions
-			definitionProvider:true,
-			typeDefinitionProvider:true,
-			// Tell the client that this server supports symbol provider
-			documentSymbolProvider: true,
-			workspaceSymbolProvider: true,
-			// Tell the client that this server supports hover support 
-			hoverProvider: true,
-			// Tell the client that this server supports code completion.
-			completionProvider: {
-				resolveProvider: false,
-				triggerCharacters: [' ', '\t', '[', '=', ',']
-			},
-			// Tell the client that this server supports semantics
-			
-			// Tell the client that this server supports signatures
-			signatureHelpProvider: {
-				triggerCharacters: [' '],
-				retriggerCharacters: [' ', '\t']
-			}
-		}
-	};
+  const result: InitializeResult = {
+    capabilities: {
+      textDocumentSync: TextDocumentSyncKind.Incremental,
+      // Tell the client that this server code formatting.
+      documentFormattingProvider: {},
+      documentRangeFormattingProvider: {},
+      // Tell the client that this server supports go to defintitions
+      definitionProvider: true,
+      typeDefinitionProvider: true,
+      // Tell the client that this server supports symbol provider
+      documentSymbolProvider: true,
+      workspaceSymbolProvider: true,
+      // Tell the client that this server supports hover support
+      hoverProvider: true,
+      // Tell the client that this server supports code completion.
+      completionProvider: {
+        resolveProvider: false,
+        triggerCharacters: [" ", "\t", "[", "=", ","],
+      },
+      // Tell the client that this server supports semantics
 
-	if (Manager.hasWorkspaceFolderCapability) {
-		result.capabilities.workspace = {
-			workspaceFolders: {
-				supported: true
-			}
-		};
-	}
+      // Tell the client that this server supports signatures
+      signatureHelpProvider: {
+        triggerCharacters: [" "],
+        retriggerCharacters: [" ", "\t"],
+      },
+    },
+  };
 
-	return result;
+  if (Manager.hasWorkspaceFolderCapability) {
+    result.capabilities.workspace = {
+      workspaceFolders: {
+        supported: true,
+      },
+    };
+  }
+
+  return result;
 }

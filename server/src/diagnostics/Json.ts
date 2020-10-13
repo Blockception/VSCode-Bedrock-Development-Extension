@@ -27,32 +27,36 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, PublishDiagnosticsParams, Range } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { GetFilepath } from '../code/include';
-import { Manager } from '../Manager';
+import {
+  Diagnostic,
+  PublishDiagnosticsParams,
+  Range,
+} from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { GetFilepath } from "../code/include";
+import { Manager } from "../Manager";
 
 export function InvalidJson(doc: TextDocument, error: any): void {
-	let Out: PublishDiagnosticsParams = {
-		uri: GetFilepath(doc.uri),
-		diagnostics: []
-	};
+  let Out: PublishDiagnosticsParams = {
+    uri: GetFilepath(doc.uri),
+    diagnostics: [],
+  };
 
-	let Message = "Invalid json";
-	let R = Range.create(0, 0, 0, 0);
+  let Message = "Invalid json";
+  let R = Range.create(0, 0, 0, 0);
 
-	if (error.message) {
-		Message = error.message;
+  if (error.message) {
+    Message = error.message;
 
-		if (Message.startsWith('Unexpected token')) {
-			let Index = Message.indexOf('position ');
-			let Number = Message.slice(Index + 8, Message.length);
-			let position = doc.positionAt(parseInt(Number));
-			R = Range.create(position, position);
-		}
-	}
+    if (Message.startsWith("Unexpected token")) {
+      let Index = Message.indexOf("position ");
+      let Number = Message.slice(Index + 8, Message.length);
+      let position = doc.positionAt(parseInt(Number));
+      R = Range.create(position, position);
+    }
+  }
 
-	Out.diagnostics.push(Diagnostic.create(R, Message));
+  Out.diagnostics.push(Diagnostic.create(R, Message));
 
-	Manager.Connection.sendDiagnostics(Out);
+  Manager.Connection.sendDiagnostics(Out);
 }

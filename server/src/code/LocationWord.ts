@@ -27,23 +27,23 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from 'vscode-languageserver';
-import { Range } from 'vscode-languageserver-textdocument';
-import { GetFilepath } from './include';
-import { RangedWord } from './RangedWords';
+import { Location } from "vscode-languageserver";
+import { Range } from "vscode-languageserver-textdocument";
+import { GetFilepath } from "./include";
+import { RangedWord } from "./RangedWords";
 
 export class LocationWord {
-	public text : string;
-	public range : Range;
-	public uri : string;
+  public text: string;
+  public range: Range;
+  public uri: string;
 
-	constructor(word : RangedWord, lineIndex : number, uri : string) {
-		this.text = word.text
-		this.range = word.ToRange(lineIndex);
-		this.uri = uri;
-	}
+  constructor(word: RangedWord, lineIndex: number, uri: string) {
+    this.text = word.text;
+    this.range = word.ToRange(lineIndex);
+    this.uri = uri;
+  }
 
-	CreateLocation() : Location {
-		return Location.create(GetFilepath(this.uri), this.range);
-	}
+  CreateLocation(): Location {
+    return Location.create(GetFilepath(this.uri), this.range);
+  }
 }

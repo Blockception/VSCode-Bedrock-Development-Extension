@@ -27,40 +27,47 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as Mcfunction from './Mcfunction';
-import * as Json from './Json';
-import * as Language from './Language';
-import { GetDocument, GetFilename } from '../code/include';
-import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from '../Constants';
-import { TextDocumentChangeEvent } from 'vscode-languageserver';
+import * as Mcfunction from "./Mcfunction";
+import * as Json from "./Json";
+import * as Language from "./Language";
+import { GetDocument, GetFilename } from "../code/include";
+import {
+  McFunctionIdentifier,
+  McLanguageIdentifier,
+  McOtherIdentifier,
+} from "../Constants";
+import { TextDocumentChangeEvent } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 
-
-export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
-   return new Promise((resolve, reject) => {
-      let doc = GetDocument(e.document.uri, e.document, e.document.languageId);
-      Process(doc);
-      resolve();
-   });
+export async function OndDocumentChangedAsync(
+  e: TextDocumentChangeEvent<TextDocument>
+): Promise<void> {
+  return new Promise((resolve, reject) => {
+    let doc = GetDocument(e.document.uri, e.document, e.document.languageId);
+    Process(doc);
+    resolve();
+  });
 }
 
 //Process the given document
 export function Process(document: TextDocument): void {
-   console.log('Processing: ' + GetFilename(document.uri) + ' | ' + document.languageId);
+  console.log(
+    "Processing: " + GetFilename(document.uri) + " | " + document.languageId
+  );
 
-   switch (document.languageId) {
-      case McFunctionIdentifier:
-         Mcfunction.Process(document);
-         break;
+  switch (document.languageId) {
+    case McFunctionIdentifier:
+      Mcfunction.Process(document);
+      break;
 
-      case McLanguageIdentifier:
-         Language.Process(document);
-         break;
+    case McLanguageIdentifier:
+      Language.Process(document);
+      break;
 
-      case McOtherIdentifier:
-      case 'jsonc':
-      case 'json':
-         Json.Process(document);
-         break;
-   }
+    case McOtherIdentifier:
+    case "jsonc":
+    case "json":
+      Json.Process(document);
+      break;
+  }
 }

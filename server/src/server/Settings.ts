@@ -28,41 +28,39 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { SettingsConfigurationIdentifier } from '../Constants';
-import { Manager } from '../Manager'
+import { SettingsConfigurationIdentifier } from "../Constants";
+import { Manager } from "../Manager";
 
 export interface ServerSettings {
-	useEducationContent: boolean
+  useEducationContent: boolean;
 }
 
-
 export namespace ServerSettings {
-	export function createDefaulSettings(): ServerSettings {
-		return {
-			useEducationContent: true
-		}
-	}
+  export function createDefaulSettings(): ServerSettings {
+    return {
+      useEducationContent: true,
+    };
+  }
 }
 
 export function UpdateSettings(): void {
-	let Settings = Manager.Connection.workspace.getConfiguration(SettingsConfigurationIdentifier);
+  let Settings = Manager.Connection.workspace.getConfiguration(
+    SettingsConfigurationIdentifier
+  );
 
-	//If settings is nothing then skip it.
-	if (Settings === undefined || Settings === null)
-		return;
+  //If settings is nothing then skip it.
+  if (Settings === undefined || Settings === null) return;
 
-	Settings.then(UpdateSettingsThen);
+  Settings.then(UpdateSettingsThen);
 }
 
 function UpdateSettingsThen(data: any): void {
-	//If settings is nothing then skip it.
-	if (data === undefined || data === null)
-		return;
+  //If settings is nothing then skip it.
+  if (data === undefined || data === null) return;
 
-	let Casted = <ServerSettings>(data);
+  let Casted = <ServerSettings>data;
 
-	if (Casted === undefined || Casted === null)
-		return;
+  if (Casted === undefined || Casted === null) return;
 
-	Manager.Settings = Casted;
+  Manager.Settings = Casted;
 }

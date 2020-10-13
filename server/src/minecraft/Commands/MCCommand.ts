@@ -27,45 +27,41 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { MCCommandParameter } from './MCCommandParameter';
-import { MCCommandParameterType } from './MCCommandParameterType';
-import { MarkupContent } from 'vscode-languageserver';
+import { MCCommandParameter } from "./MCCommandParameter";
+import { MCCommandParameterType } from "./MCCommandParameterType";
+import { MarkupContent } from "vscode-languageserver";
 
 export class MCCommand {
-	public name: string;
-	public parameters: MCCommandParameter[];
-	public documentation: MarkupContent;
+  public name: string;
+  public parameters: MCCommandParameter[];
+  public documentation: MarkupContent;
 
-	constructor() {
-		this.parameters = [];
-		this.name = '';
-		this.documentation = { kind: "markdown", value: '' };
-	}
+  constructor() {
+    this.parameters = [];
+    this.name = "";
+    this.documentation = { kind: "markdown", value: "" };
+  }
 
-	add(item: MCCommandParameter[]) {
-		if (this.parameters.length == 0) {
-			this.name = item[0].Text;
-			this.parameters = item;
-		}
-		else {
-			this.parameters.push(...item);
-		}
-	}
+  add(item: MCCommandParameter[]) {
+    if (this.parameters.length == 0) {
+      this.name = item[0].Text;
+      this.parameters = item;
+    } else {
+      this.parameters.push(...item);
+    }
+  }
 
-	includes(value: string | MCCommandParameterType): boolean {
-		if (typeof value === 'string') {
-			for (let I = 0; I < this.parameters.length; I++) {
-				if (this.parameters[I].Text === value)
-					return true;
-			}
-		}
-		else {
-			for (let I = 0; I < this.parameters.length; I++) {
-				if (this.parameters[I].Type === value)
-					return true;
-			}
-		}
+  includes(value: string | MCCommandParameterType): boolean {
+    if (typeof value === "string") {
+      for (let I = 0; I < this.parameters.length; I++) {
+        if (this.parameters[I].Text === value) return true;
+      }
+    } else {
+      for (let I = 0; I < this.parameters.length; I++) {
+        if (this.parameters[I].Type === value) return true;
+      }
+    }
 
-		return false;
-	}
+    return false;
+  }
 }

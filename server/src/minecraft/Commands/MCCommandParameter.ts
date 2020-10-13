@@ -28,16 +28,20 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { MCCommandParameterType } from './MCCommandParameterType';
+import { MCCommandParameterType } from "./MCCommandParameterType";
 
 export class MCCommandParameter {
-	public Text: string;
-	public Type: MCCommandParameterType;
-	public Required: boolean;
+  public Text: string;
+  public Type: MCCommandParameterType;
+  public Required: boolean;
 
-	constructor(Text: string = '', Type = MCCommandParameterType.keyword, Required = true) {
-		this.Text = Text;
-		this.Type = Type;
-		this.Required = Required;
-	}
+  constructor(
+    Text: string = "",
+    Type = MCCommandParameterType.keyword,
+    Required = true
+  ) {
+    this.Text = Text;
+    this.Type = Type;
+    this.Required = Required;
+  }
 }

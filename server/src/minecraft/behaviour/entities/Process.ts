@@ -27,26 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, Range } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { JsonDocument } from '../../../json/Json Document';
-import { Database } from '../../../Database';
-import { Entity } from '../../types/include';
-import { GetFilepath } from '../../../code/Url';
+import { Location, Range } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { JsonDocument } from "../../../json/Json Document";
+import { Database } from "../../../Database";
+import { Entity } from "../../types/include";
+import { GetFilepath } from "../../../code/Url";
 
 interface EntityDetect {
-	format_version: string;
-	'minecraft:entity': {
-		description: {
-			identifier: string;
-			is_spawnable: boolean;
-			is_summonable: boolean;
-			is_experimental: boolean;
-		};
-		component_groups: any;
-		components: any;
-		events: any;
-	}
+  format_version: string;
+  "minecraft:entity": {
+    description: {
+      identifier: string;
+      is_spawnable: boolean;
+      is_summonable: boolean;
+      is_experimental: boolean;
+    };
+    component_groups: any;
+    components: any;
+    events: any;
+  };
 }
 
 /**
@@ -54,29 +54,41 @@ interface EntityDetect {
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {
-	let JDoc = new JsonDocument(doc);
-	let Format = JDoc.CastTo<EntityDetect>();
+  let JDoc = new JsonDocument(doc);
+  let Format = JDoc.CastTo<EntityDetect>();
 
-	if (Format == undefined || Format == null) { return; }
-	let mce = Format['minecraft:entity'];
+  if (Format == undefined || Format == null) {
+    return;
+  }
+  let mce = Format["minecraft:entity"];
 
-	if (mce == undefined || mce == null) { return; }
+  if (mce == undefined || mce == null) {
+    return;
+  }
 
-	let entity = new Entity();
+  let entity = new Entity();
 
-	if (!mce.description) { return;}
+  if (!mce.description) {
+    return;
+  }
 
-	let ID = mce.description.identifier;
+  let ID = mce.description.identifier;
 
-	entity.Identifier = ID;
-	entity.Documentation = { kind: 'markdown', value: 'The custom entity definition of: ' + ID };
-	entity.Location = Location.create(GetFilepath(doc.uri), Range.create(0, 0, 0, 0));
+  entity.Identifier = ID;
+  entity.Documentation = {
+    kind: "markdown",
+    value: "The custom entity definition of: " + ID,
+  };
+  entity.Location = Location.create(
+    GetFilepath(doc.uri),
+    Range.create(0, 0, 0, 0)
+  );
 
-	if (mce.events) {
-		let EventsNames = Object.getOwnPropertyNames(mce.events);
-		entity.Events = EventsNames;
-	}
+  if (mce.events) {
+    let EventsNames = Object.getOwnPropertyNames(mce.events);
+    entity.Events = EventsNames;
+  }
 
-	let Data = Database.Get(doc.uri);
-	Data.Entities = [entity];
+  let Data = Database.Get(doc.uri);
+  Data.Entities = [entity];
 }

@@ -32,8 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export function IsRangeInteger(value: string): boolean {
   let match = value.match(/^([\d]+\.\.[\d]+|[\d]+\.\.|\.\.[\d]+)$/g);
 
-  if (match == undefined)
-    return false;
+  if (match == undefined) return false;
 
   return match.length > 0;
 }
@@ -42,8 +41,7 @@ export function IsRangeInteger(value: string): boolean {
 export function IsRangeNumber(value: string): boolean {
   let match = value.match(/([\d\.]+\.\.[\d\.]+|[\d\.]+\.\.|\.\.[\d\.]+)$/g);
 
-  if (match == undefined)
-    return false;
+  if (match == undefined) return false;
 
   return match.length > 0;
 }

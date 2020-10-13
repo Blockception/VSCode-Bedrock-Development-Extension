@@ -27,23 +27,23 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { DataType } from '../minecraft/format/Data Type';
-import { DetectDataType } from '../minecraft/format/detection';
-import * as BPEntity from '../minecraft/behaviour/entities/Process';
-import * as RPSound from '../minecraft/resource/sounds definitions/Process';
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { DataType } from "../minecraft/format/Data Type";
+import { DetectDataType } from "../minecraft/format/detection";
+import * as BPEntity from "../minecraft/behaviour/entities/Process";
+import * as RPSound from "../minecraft/resource/sounds definitions/Process";
 
-export function Process(doc : TextDocument): void {
-   let Type = DetectDataType(doc.uri);
+export function Process(doc: TextDocument): void {
+  let Type = DetectDataType(doc.uri);
 
-   switch(Type){
-      case DataType.unknown:
-         return;
+  switch (Type) {
+    case DataType.unknown:
+      return;
 
-      case DataType.behaviour_entity:
-         return BPEntity.Process(doc);
+    case DataType.behaviour_entity:
+      return BPEntity.Process(doc);
 
-      case DataType.resource_sounds_definitions:
-         return RPSound.Process(doc);
-   }
+    case DataType.resource_sounds_definitions:
+      return RPSound.Process(doc);
+  }
 }
