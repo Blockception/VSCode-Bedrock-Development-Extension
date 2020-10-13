@@ -1,4 +1,9 @@
 # Changelog 
+- formatted documents
+- Formatted
+- Added Language formatter
+- Added languages diagnostics for detecting idention on commented lines
+- Updated to 1.0.6
 - Updated format for resource animations
 - Updated identifier pattern for models to error when ':' are present
 - Formatted json
@@ -14,8 +19,3 @@
 - Added json to the parsing
 - Added json file processing
 - Removed defaults values as custom items are now a thing
-- Added data type detection based upon filepaths
-- Updated license ID to SPDX format
-- Moved and formatted, using settings for edu content
-- Moved and formatted
-- Added server settings
