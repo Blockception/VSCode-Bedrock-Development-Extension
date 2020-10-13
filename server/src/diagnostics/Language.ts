@@ -42,15 +42,21 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
 	let Keys = new Array<string>(doc.lineCount);
 
 	for (let I = 0; I < doc.lineCount; I++) {
-		let Line = getLine(doc, I).trim();
+		let Line = getLine(doc, I);
 
 		let CommentIndex = Line.indexOf('#');
 		if (CommentIndex >= 0) {
 			Line = Line.substring(0, CommentIndex).trim();
 		}
 
-		if (Line === '' || Line === '\r' || Line === '\r\n')
+		if (Line === '' || Line === '\r' || Line === '\r\n'){
+			if(CommentIndex > 0){
+				NewError(Out.diagnostics, I, 0, CommentIndex, "A line cannot be with an identented comment");
+			}
+
 			continue;
+		}
+			
 
 		let Index = Line.indexOf('=');
 
