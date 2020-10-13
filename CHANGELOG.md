@@ -1,4 +1,10 @@
 # Changelog 
+- Updated format for resource animations
+- Updated identifier pattern for models to error when ':' are present
+- Formatted json
+- removed animation controllers from entity resource definitionformat, version 1.10.0.
+- Fixed formatting
+- Updated to 1.0.5
 - Updated code to support go to definitions
 - Updated command syntax
 - Added processing of json file for entities and sounds_definitions
@@ -13,9 +19,3 @@
 - Moved and formatted, using settings for edu content
 - Moved and formatted
 - Added server settings
-- Updated
-- Updated
-- Updated json patterns
-- Refactoring
-- Fixed diagnostics
-- Updated json validation patterns
