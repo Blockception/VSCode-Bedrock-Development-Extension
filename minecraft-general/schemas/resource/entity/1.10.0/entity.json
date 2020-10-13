@@ -22,6 +22,7 @@
           "title": "Description definition",
           "type": "object",
           "required": ["identifier"],
+          "additionalProperties": false,
           "properties": {
             "animations": {
               "description": "TODO description: animations",
@@ -32,21 +33,6 @@
                 "description": "TODO description: additionalProperties",
                 "title": "TODO"
               }
-            },
-            "animation_controllers": {
-              "type": "array",
-              "additionalProperties": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "string",
-                  "description": "TODO description: additionalProperties",
-                  "title": "TODO"
-                },
-                "description": "TODO description: additionalProperties",
-                "title": "TODO"
-              },
-              "description": "TODO description: animation controllers",
-              "title": "Animation Controllers"
             },
             "enable_attachables": {
               "type": "boolean",
