@@ -1,4 +1,14 @@
 # Changelog 
+- Merge pull request #11 from Blockception/fixing_object_strictness
+- Added damager to filters of 1.8.0
+- fixing is_weather
+- Fixing events
+- Fixed sequence and filter attribute for events
+- removed additionalProperties if a $ref is specified
+- Formatted
+- Updated json validation with stricter settings, added missing description / titles
+- Added default settings
+- Added debugging, formatting and installation scripts
 - formatted json files
 - Updated
 - Added unique item check for behaviours
@@ -9,13 +19,3 @@
 - Added Language formatter
 - Added languages diagnostics for detecting idention on commented lines
 - Updated to 1.0.6
-- Updated format for resource animations
-- Updated identifier pattern for models to error when ':' are present
-- Formatted json
-- removed animation controllers from entity resource definitionformat, version 1.10.0.
-- Fixed formatting
-- Updated to 1.0.5
-- Updated code to support go to definitions
-- Updated command syntax
-- Added processing of json file for entities and sounds_definitions
-- Moved database
