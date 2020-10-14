@@ -15,8 +15,7 @@
                     "then": { "$ref": "../1.8.0/filters/clock_time.json" }
                 },
                 {
-                    "if": {
-                        "properties": { "test": { "const": "distance_to_nearest_player" } }
+                    "if": { "properties": { "test": { "const": "distance_to_nearest_player" } }
                     },
                     "then": { "$ref": "../1.8.0/filters/distance_to_nearest_player.json" }
                 },

@@ -219,8 +219,10 @@
                     "then": { "$ref": "../1.13.0/filters/is_sleeping.json" }
                 },
                 {
-                    "if": { "properties": { "test": { "const": "is_weather" } } },
-                    "then": { "$ref": "../1.13.0/filters/is_weather.json" }
+                    "not": {
+                        "properties": { "test": { "const": "is_weather" } },
+                        "$comment": "DEPRECATED"
+                    }
                 },
                 {
                     "if": { "properties": { "test": { "const": "rider_count" } } },
