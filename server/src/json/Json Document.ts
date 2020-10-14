@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import * as Code from "../code/include";
-import { InvalidJson } from "../diagnostics/Json";
+import { InvalidJson, ValidJson } from "../diagnostics/Json";
 
 export class JsonDocument {
   private doc: TextDocument;
@@ -56,8 +56,11 @@ export class JsonDocument {
 
         this.object = object;
       } catch (error) {
-        InvalidJson(this.doc, error);
+        console.log(error);
+        //InvalidJson(this.doc, error);
       }
+
+      //ValidJson(this.doc);
     }
 
     return this.object;
