@@ -7,7 +7,10 @@
   "properties": {
     "function": {
       "type": "string",
-      "const": "random_dye"
+      "const": "random_dye",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

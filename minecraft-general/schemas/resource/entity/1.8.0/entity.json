@@ -11,7 +11,8 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "minecraft:client_entity": {
       "type": "object",
@@ -234,9 +235,18 @@
                   "description": "TODO description: scale",
                   "title": "Scale"
                 },
-                "scalex": { "$ref": "../../../molang/1.8.0/number.json", "title": "Scale X" },
-                "scaley": { "$ref": "../../../molang/1.8.0/number.json", "title": "Scale Y" },
-                "scalez": { "$ref": "../../../molang/1.8.0/number.json", "title": "Scale Z" }
+                "scalex": {
+                  "$ref": "../../../molang/1.8.0/number.json",
+                  "title": "Scale X"
+                },
+                "scaley": {
+                  "$ref": "../../../molang/1.8.0/number.json",
+                  "title": "Scale Y"
+                },
+                "scalez": {
+                  "$ref": "../../../molang/1.8.0/number.json",
+                  "title": "Scale Z"
+                }
               }
             },
             "textures": {

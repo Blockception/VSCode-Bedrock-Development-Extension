@@ -15,9 +15,9 @@
         {
           "type": "object",
           "title": "Animation Specification",
-					"description": "A object specification on how to transition",
-					"maxProperties": 1,
-					"minProperties": 1,
+          "description": "A object specification on how to transition",
+          "maxProperties": 1,
+          "minProperties": 1,
           "additionalProperties": {
             "$ref": "../../../molang/1.8.0/string.json"
           }
@@ -60,7 +60,8 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "pattern": "^1.10.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "animation_controllers": {
       "type": "object",

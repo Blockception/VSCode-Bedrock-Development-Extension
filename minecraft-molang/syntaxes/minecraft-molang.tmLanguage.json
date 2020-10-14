@@ -14,15 +14,15 @@
         { "name": "entity.name.type", "match": "query" },
         { "name": "entity.name.type", "match": "variable" },
         { "name": "entity.name.type", "match": "[Mm]ath" },
-        { "name": "entity.name.function", "match": "(?<=query\\.)\\w*"},
-        { "name": "entity.name.function", "match": "(?<=variable\\.)\\w*"},
-        { "name": "entity.name.function", "match": "(?<=[Mm]ath\\.)\\w*"}
+        { "name": "entity.name.function", "match": "(?<=query\\.)\\w*" },
+        { "name": "entity.name.function", "match": "(?<=variable\\.)\\w*" },
+        { "name": "entity.name.function", "match": "(?<=[Mm]ath\\.)\\w*" }
       ]
     },
     "operators": {
       "patterns": [
         { "name": "constant.character", "match": "[|!<>=?*;\\/\\-+:&]" },
-        { "name": "keyword.operator", "match": "[.,(){}\\[\\]]"}
+        { "name": "keyword.operator", "match": "[.,(){}\\[\\]]" }
       ]
     },
     "constants": {
@@ -35,7 +35,10 @@
         { "name": "constant.character", "match": "\\b[Ff]alse\\b" },
         { "name": "string.jade", "match": "\\b(?<=function )[a-z0-9/_]+\\b" },
         { "name": "string.quoted.double.minecraft", "match": "'[^']*'" },
-        { "name": "entity.name.function.identifier", "match": "[a-z0-9_]+\\:[a-z0-9_]+" }
+        {
+          "name": "entity.name.function.identifier",
+          "match": "[a-z0-9_]+\\:[a-z0-9_]+"
+        }
       ]
     }
   }

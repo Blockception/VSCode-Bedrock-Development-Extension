@@ -7,20 +7,29 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
-    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "damage_reach": {
       "type": "number",
       "title": "Damage reach",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "delay_range": {
       "$ref": "../types/range_number_type.json",
-      "default": [
-        10.0,
-        20.0
-      ],
-      "description": "Range of time in seconds between uses of this goal."
+      "default": [10.0, 20.0],
+      "description": "Range of time in seconds between uses of this goal.",
+      "title": "TODO title"
     }
   }
 }

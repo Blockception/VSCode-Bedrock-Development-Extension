@@ -9,42 +9,50 @@
     "dwelling_type": {
       "type": "string",
       "title": "Dwelling type",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "dweller_role": {
       "type": "string",
       "title": "Dwelling role",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "update_interval_base": {
       "type": "integer",
       "title": "Update interval base",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "update_interval_variant": {
       "type": "integer",
       "title": "Update interval variant",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "preferred_profession": {
       "type": "string",
       "title": "Preferred profession",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "can_find_poi": {
       "type": "boolean",
       "title": "Can find poi",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "can_migrate": {
       "type": "boolean",
       "title": "Can migrate",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "first_founding_reward": {
       "type": "integer",
       "title": "First founding reward",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

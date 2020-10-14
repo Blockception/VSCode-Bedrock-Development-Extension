@@ -7,21 +7,26 @@
   "description": "Allows the mob to stay in the village and fight mobs hostile to the villagers.",
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",
-      "description": "List of entity types this mob considers a threat to the village"
+      "description": "List of entity types this mob considers a threat to the village",
+      "title": "TODO title"
     },
     "must_reach": {
       "title": "Must reach",
       "description": "UNDOCUMENTATED",
-      "type": "boolean"
+      "type": "boolean",
+      "additionalProperties": false
     },
     "attack_chance": {
       "title": "Attack chance",
       "description": "UNDOCUMENTATED",
-      "type": "number"
+      "type": "number",
+      "additionalProperties": false
     }
   }
 }

@@ -5,7 +5,7 @@
   "title": "hurt_on_condition 1.8.0",
   "description": "Defines a set of conditions under which an entity should take damage.",
   "additionalProperties": false,
-  "properties": { 
+  "properties": {
     "damage_conditions": {
       "type": "array",
       "title": "Damage conditions",
@@ -16,7 +16,9 @@
         "description": "TODO",
         "additionalProperties": false,
         "properties": {
-          "filters": { "$ref": "../filters.json" },
+          "filters": {
+            "$ref": "../filters.json"
+          },
           "cause": {
             "type": "string",
             "title": "Cause",
@@ -54,8 +56,8 @@
             "description": "TODO"
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
-
   }
 }

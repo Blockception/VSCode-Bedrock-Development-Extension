@@ -4,13 +4,37 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "format_version": { "type": "string", "const": "1.8.0", "description": "TODO description: format version", "title": "Format Version" },
+    "format_version": {
+      "type": "string",
+      "const": "1.8.0",
+      "description": "TODO description: format version",
+      "title": "Format Version",
+      "additionalProperties": false
+    },
     "particle_effect": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "description": { "additionalProperties": false, "type": "object", "properties": { "identifier": { "type": "string", "pattern": "^.+$", "description": "TODO description: identifier", "title": "Identifier" } }, "description": "TODO description: description", "title": "Description" },
-        "components": { "additionalProperties": false, "type": "object", "description": "TODO description: components", "title": "Components" }
+        "description": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "identifier": {
+              "type": "string",
+              "pattern": "^.+$",
+              "description": "TODO description: identifier",
+              "title": "Identifier"
+            }
+          },
+          "description": "TODO description: description",
+          "title": "Description"
+        },
+        "components": {
+          "additionalProperties": false,
+          "type": "object",
+          "description": "TODO description: components",
+          "title": "Components"
+        }
       },
       "description": "TODO description: particle effect",
       "title": "Particle Effect"

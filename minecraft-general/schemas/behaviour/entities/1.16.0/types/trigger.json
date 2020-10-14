@@ -1,1 +1,27 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.type.trigger.1.16.0","title":"Trigger","type":"object","description":"Trigger to fire for 1.16.0","required":["event"],"properties":{"event":{"type":"string","description":"Event","title":"The event to fire"},"filters":{"$ref":"../filters.json","description":"The filters to check to determine if the event should be fired"},"target":{"$ref":"../filters/types/base_subject.json","description":"The entity to target","title":"Target"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.type.trigger.1.16.0",
+  "title": "Trigger",
+  "type": "object",
+  "description": "Trigger to fire for 1.16.0",
+  "required": ["event"],
+  "properties": {
+    "event": {
+      "type": "string",
+      "description": "Event",
+      "title": "The event to fire",
+      "additionalProperties": false
+    },
+    "filters": {
+      "$ref": "../filters.json",
+      "description": "The filters to check to determine if the event should be fired",
+      "title": "TODO title"
+    },
+    "target": {
+      "$ref": "../filters/types/base_subject.json",
+      "description": "The entity to target",
+      "title": "Target"
+    }
+  },
+  "additionalProperties": false
+}

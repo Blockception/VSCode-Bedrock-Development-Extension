@@ -7,7 +7,9 @@
   "definitions": {
     "texture": {
       "oneOf": [
-        { "type": "string" },
+        {
+          "type": "string"
+        },
         {
           "additionalProperties": false,
           "type": "object",
@@ -51,7 +53,20 @@
   "properties": {
     "format_version": {
       "type": "array",
-      "items": [{ "type": "integer" }, { "type": "integer" }, { "type": "integer" }]
+      "items": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   },
   "additionalProperties": {
@@ -81,13 +96,27 @@
             "additionalProperties": false,
             "type": "object",
             "properties": {
-              "down": { "type": "boolean" },
-              "up": { "type": "boolean" },
-              "side": { "type": "boolean" },
-              "south": { "type": "boolean" },
-              "north": { "type": "boolean" },
-              "west": { "type": "boolean" },
-              "east": { "type": "boolean" }
+              "down": {
+                "type": "boolean"
+              },
+              "up": {
+                "type": "boolean"
+              },
+              "side": {
+                "type": "boolean"
+              },
+              "south": {
+                "type": "boolean"
+              },
+              "north": {
+                "type": "boolean"
+              },
+              "west": {
+                "type": "boolean"
+              },
+              "east": {
+                "type": "boolean"
+              }
             }
           }
         ]

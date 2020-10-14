@@ -1,1 +1,33 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.filters.is_game_rule","type":"object","title":"Filters is_game_rule 1.8.0","additionalProperties":false,"required":["domain"],"properties":{"domain":{"description":"The Game Rule to test.","title":"Domain"},"operator":{"$ref":"types/base_operator.json"},"subject":{"$ref":"types/base_subject.json"},"value":{"description":"Tests whether a named game rule is active.","default":true,"type":"boolean","title":"Value"}},"description":"TODO description: "}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_game_rule",
+  "type": "object",
+  "title": "Filters is_game_rule 1.8.0",
+  "additionalProperties": false,
+  "required": ["domain"],
+  "properties": {
+    "domain": {
+      "description": "The Game Rule to test.",
+      "title": "Domain",
+      "additionalProperties": false
+    },
+    "operator": {
+      "$ref": "types/base_operator.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    },
+    "subject": {
+      "$ref": "types/base_subject.json",
+      "description": "TODO description",
+      "title": "TODO title"
+    },
+    "value": {
+      "description": "Tests whether a named game rule is active.",
+      "default": true,
+      "type": "boolean",
+      "title": "Value",
+      "additionalProperties": false
+    }
+  },
+  "description": "TODO description: "
+}

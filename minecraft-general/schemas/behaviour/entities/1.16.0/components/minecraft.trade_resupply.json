@@ -6,6 +6,5 @@
   "title": "trade_resupply 1.16.0",
   "additionalProperties": false,
   "required": [],
-  "properties": {
-  }
+  "properties": {}
 }

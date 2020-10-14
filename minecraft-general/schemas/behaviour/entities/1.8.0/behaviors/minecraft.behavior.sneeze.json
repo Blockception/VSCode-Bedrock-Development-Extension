@@ -8,39 +8,49 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "cooldown_time": {
       "type": "number",
       "default": 0,
-      "description": "Time in seconds the mob has to wait before using the goal again"
+      "description": "Time in seconds the mob has to wait before using the goal again",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "drop_item_chance": {
       "type": "number",
       "default": 1,
-      "description": "The probability that the mob will drop an item when it sneezes."
+      "description": "The probability that the mob will drop an item when it sneezes.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",
-      "description": "List of entity types this mob will startle (cause to jump) when it sneezes."
+      "description": "List of entity types this mob will startle (cause to jump) when it sneezes.",
+      "title": "TODO title"
     },
     "loot_table": {
       "type": "string",
       "default": "",
       "description": "Loot table to select dropped items from.",
-      "title": "Loot table"
+      "title": "Loot table",
+      "additionalProperties": false
     },
     "prepare_sound": {
       "type": "string",
       "default": "",
       "description": "Sound to play when the sneeze is about to happen.",
-      "title": "Prepare sound"
+      "title": "Prepare sound",
+      "additionalProperties": false
     },
     "prepare_time": {
       "type": "number",
       "default": 1,
       "description": "The time in seconds that the mob takes to prepare to sneeze (while the prepare_sound is playing).",
-      "title": "Prepare time"
+      "title": "Prepare time",
+      "additionalProperties": false
     },
     "probability": {
       "type": "number",
@@ -48,19 +58,22 @@
       "minimum": 0,
       "maximum": 1,
       "description": "The probability of sneezing. A value of 1.00 is 100%",
-      "title": "Probability"
+      "title": "Probability",
+      "additionalProperties": false
     },
     "sound": {
       "type": "string",
       "default": "",
       "description": "Sound to play when the sneeze occurs.",
-      "title": "Sound"
+      "title": "Sound",
+      "additionalProperties": false
     },
     "within_radius": {
       "type": "number",
       "default": 0,
       "description": "Distance in blocks that mobs will be startled.",
-      "title": "Within radius"
+      "title": "Within radius",
+      "additionalProperties": false
     }
   }
 }

@@ -11,47 +11,60 @@
       "type": "boolean",
       "default": false,
       "description": "If true, invulnerable entities (e.g. Players in creative mode) are considered valid targets.",
-      "title": "Allow invulnerable"
+      "title": "Allow invulnerable",
+      "additionalProperties": false
     },
     "filters": {
       "$ref": "../filters.json",
-      "description": "Defines the entities that can trigger this component"
+      "description": "Defines the entities that can trigger this component",
+      "title": "TODO title"
     },
     "look_cooldown": {
       "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
-      "description": "The range for the random amount of time during which the entity is 'cooling down' and won't get angered or look for a target"
+      "description": "The range for the random amount of time during which the entity is 'cooling down' and won't get angered or look for a target",
+      "title": "TODO title"
     },
     "look_event": {
       "type": "string",
-      "description": "The event identifier to run when the entities specified in filters look at this entity"
+      "description": "The event identifier to run when the entities specified in filters look at this entity",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "mAllowInvulnerable": {
       "type": "boolean",
       "default": false,
-      "description": "If true, invulnerable entities (e.g. Players in creative mode) are considered valid targets"
+      "description": "If true, invulnerable entities (e.g. Players in creative mode) are considered valid targets",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "searchRadius": {
       "type": "number",
       "default": 10,
-      "description": "Maximum distance this entity will look for another entity looking at it"
+      "description": "Maximum distance this entity will look for another entity looking at it",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "setTarget": {
       "type": "boolean",
       "default": true,
-      "description": "If true, this entity will set the attack target as the entity that looked at it"
+      "description": "If true, this entity will set the attack target as the entity that looked at it",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "search_radius": {
       "type": "number",
       "default": 10,
       "description": "Maximum distance this entity will look for another entity looking at it.",
-      "title": "Search radius"
+      "title": "Search radius",
+      "additionalProperties": false
     },
     "set_target": {
       "type": "boolean",
       "default": true,
       "description": "If true, this entity will set the attack target as the entity that looked at it.",
-      "title": "Set target"
+      "title": "Set target",
+      "additionalProperties": false
     }
   }
 }

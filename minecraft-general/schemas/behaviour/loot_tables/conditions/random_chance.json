@@ -9,7 +9,8 @@
       "type": "number",
       "default": 0,
       "description": "The maximum random chance value allowed.",
-      "title": "max chance"
+      "title": "max chance",
+      "additionalProperties": false
     }
   }
 }

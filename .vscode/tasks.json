@@ -1,29 +1,53 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "type": "npm",
-            "script": "compile",
-            "group": "build",
-            "presentation": {
-                "panel": "dedicated",
-                "reveal": "never"
-            },
-            "problemMatcher": ["$tsc"]
-        },
-        {
-            "type": "npm",
-            "script": "watch",
-            "isBackground": true,
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "presentation": {
-                "panel": "dedicated",
-                "reveal": "never"
-            },
-            "problemMatcher": ["$tsc-watch"]
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "compile",
+      "group": "build",
+      "presentation": {
+        "panel": "dedicated",
+        "reveal": "never"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "type": "npm",
+      "script": "watch",
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "panel": "dedicated",
+        "reveal": "never"
+      },
+      "problemMatcher": ["$tsc-watch"]
+    },
+    {
+      "type": "shell",
+      "label": "Format workspace",
+      "command": "Powershell.exe -executionpolicy remotesigned -File ./scripts/format_documents.ps1",
+      "problemMatcher": "$tsc"
+    },
+    {
+      "type": "shell",
+      "label": "build extension",
+      "command": "./scripts/build.bat",
+      "problemMatcher": "$tsc"
+    },
+    {
+      "type": "shell",
+      "label": "install project extension",
+      "command": "Powershell.exe -executionpolicy remotesigned -File ./scripts/install.ps1",
+      "problemMatcher": "$tsc"
+    },
+    {
+      "type": "shell",
+      "label": "update project extension",
+      "command": "Powershell.exe -executionpolicy remotesigned -File ./scripts/update.ps1",
+      "problemMatcher": "$tsc"
+    }
+  ]
 }

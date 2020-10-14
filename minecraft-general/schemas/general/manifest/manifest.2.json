@@ -58,7 +58,8 @@
         "description": "TODO description: dependencies",
         "title": "Dependencies"
       },
-      "title": "Dependencies"
+      "title": "Dependencies",
+      "additionalProperties": false
     },
     "header": {
       "additionalProperties": false,
@@ -116,7 +117,13 @@
           },
           "type": {
             "type": "string",
-            "enum": ["resources", "data", "client_data", "interface", "world_template"],
+            "enum": [
+              "resources",
+              "data",
+              "client_data",
+              "interface",
+              "world_template"
+            ],
             "description": "This is the type of the module. Can be any of the following: resources, data, client_data, interface, world_template",
             "title": "Type"
           },
@@ -161,5 +168,6 @@
         }
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

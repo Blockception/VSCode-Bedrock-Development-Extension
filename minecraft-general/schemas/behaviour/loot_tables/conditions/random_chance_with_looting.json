@@ -9,13 +9,15 @@
       "type": "number",
       "default": 0,
       "description": "The random chance of the value.",
-      "title": "chance"
+      "title": "chance",
+      "additionalProperties": false
     },
     "looting_multiplier": {
       "type": "number",
       "default": 0,
       "description": "The multiplier for the chance if the target entity has the looting enchant that affects the actor.",
-      "title": "looting multiplier"
+      "title": "looting multiplier",
+      "additionalProperties": false
     }
   }
 }

@@ -11,7 +11,7 @@
       "type": "string",
       "title": "The sound filepath schema",
       "description": "The filepath to the sound, starts with 'sounds/'",
-      "pattern": "(^sounds\/.*$|^$)",
+      "pattern": "(^sounds/.*$|^$)",
       "additionalItems": true
     }
   },
@@ -19,7 +19,8 @@
     "format_version": {
       "type": "string",
       "description": "TODO description: format version",
-      "title": "Format Version"
+      "title": "Format Version",
+      "additionalProperties": false
     },
     "sound_definitions": {
       "additionalProperties": {
@@ -34,7 +35,19 @@
             "type": "string",
             "$id": "#/Sound/category",
             "title": "Sound category",
-            "enum": ["block", "music", "weather", "ui", "bucket", "neutral", "player", "hostile", "record", "bottle", "ambient"]
+            "enum": [
+              "block",
+              "music",
+              "weather",
+              "ui",
+              "bucket",
+              "neutral",
+              "player",
+              "hostile",
+              "record",
+              "bottle",
+              "ambient"
+            ]
           },
           "sounds": {
             "items": {
@@ -110,7 +123,9 @@
       "description": "TODO description: use legacy max distance",
       "title": "Use Legacy Max Distance",
       "type": "string",
-      "enum": ["true", "false"]
+      "enum": ["true", "false"],
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

@@ -4,5 +4,5 @@
   "additionalProperties": false,
   "type": "number",
   "title": "friction 1.10.0",
-  "description": "Property describing the friction for this block. Friction effects an entities movements when it walks on the block."  
+  "description": "Property describing the friction for this block. Friction effects an entities movements when it walks on the block."
 }

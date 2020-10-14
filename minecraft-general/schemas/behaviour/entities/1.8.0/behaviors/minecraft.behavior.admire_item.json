@@ -10,7 +10,8 @@
       "type": "string",
       "default": "",
       "description": "The sound event to play when admiring the item",
-      "title": "Admire item sound"
+      "title": "Admire item sound",
+      "additionalProperties": false
     },
     "sound_interval": {
       "type": "array",
@@ -18,9 +19,16 @@
       "description": "The range of time in seconds to randomly wait before playing the sound again.",
       "title": "Sound interval",
       "items": [
-        { "type": "number", "title": "Minimum" },
-        { "type": "number", "title": "Maximum" }
-      ]
+        {
+          "type": "number",
+          "title": "Minimum"
+        },
+        {
+          "type": "number",
+          "title": "Maximum"
+        }
+      ],
+      "additionalProperties": false
     }
   }
 }

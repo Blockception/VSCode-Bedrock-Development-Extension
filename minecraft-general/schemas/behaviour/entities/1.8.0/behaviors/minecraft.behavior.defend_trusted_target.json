@@ -6,30 +6,39 @@
   "description": "Allows the mob to target another mob that hurts an entity it trusts.",
   "additionalProperties": false,
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "aggro_sound": {
       "type": "string",
       "default": "",
       "description": "Sound to occasionally play while defending.",
-      "title": "Aggro sound"
+      "title": "Aggro sound",
+      "additionalProperties": false
     },
     "attack_interval": {
       "type": "integer",
       "default": 0,
       "description": "Time in seconds between attacks",
-      "title": "Attack interval"
+      "title": "Attack interval",
+      "additionalProperties": false
     },
     "must_see": {
       "type": "boolean",
       "default": false,
       "description": "If true, only entities in this mob's viewing range can be selected as targets",
-      "title": "Must see"
+      "title": "Must see",
+      "additionalProperties": false
     },
     "must_see_forget_duration": {
       "type": "number",
       "default": 3,
       "description": "Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more",
-      "title": "Must see forget duration"
+      "title": "Must see forget duration",
+      "additionalProperties": false
     },
     "on_defend_start": {
       "$ref": "../types/event.json",
@@ -40,12 +49,14 @@
       "type": "number",
       "default": 0,
       "description": "Distance in blocks that the target can be within to launch an attack",
-      "title": "Within radius"
+      "title": "Within radius",
+      "additionalProperties": false
     },
     "entity_types": {
       "type": "object",
       "description": "List of entity types that this mob considers valid targets",
-      "title": "Entity types"
+      "title": "Entity types",
+      "additionalProperties": false
     }
   }
 }

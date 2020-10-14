@@ -5,7 +5,5 @@
   "title": "hide 1.16.0",
   "description": "UNDOCUMENTATED",
   "additionalProperties": false,
-  "properties": {
-
-  }
+  "properties": {}
 }

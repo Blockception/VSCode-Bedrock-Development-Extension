@@ -15,13 +15,23 @@
         "title": "Size"
       },
       "description": "TODO description: size",
-      "title": "Size"
+      "title": "Size",
+      "additionalProperties": false
     },
     "facing_camera_mode": {
       "description": "used to orient the billboard.",
       "type": "string",
-      "enum": ["lookat_xyz", "lookat_y", "rotate_xyz", "rotate_y", "direction_x", "direction_y", "direction_z"],
-      "title": "Facing Camera Mode"
+      "enum": [
+        "lookat_xyz",
+        "lookat_y",
+        "rotate_xyz",
+        "rotate_y",
+        "direction_x",
+        "direction_y",
+        "direction_z"
+      ],
+      "title": "Facing Camera Mode",
+      "additionalProperties": false
     },
     "uv": {
       "additionalProperties": false,
@@ -40,7 +50,7 @@
         "flipbook": {
           "additionalProperties": false,
           "type": "object",
-          "required": [ "max_frame" ],
+          "required": ["max_frame"],
           "properties": {
             "base_UV": {
               "type": "array",

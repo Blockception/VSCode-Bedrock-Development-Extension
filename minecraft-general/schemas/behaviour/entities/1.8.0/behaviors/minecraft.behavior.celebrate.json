@@ -6,18 +6,25 @@
   "description": "This allows the mob celebrate by jumping up and playing a sound periodically.",
   "additionalProperties": false,
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "celebration_sound": {
       "type": "string",
       "default": "",
       "description": "The sound to occasionally play.",
-      "title": "Celebration sound"
+      "title": "Celebration sound",
+      "additionalProperties": false
     },
     "duration": {
       "type": "number",
       "default": 1,
       "description": "The duration of the celebration (in seconds).",
-      "title": "Duration"
+      "title": "Duration",
+      "additionalProperties": false
     },
     "jump_interval": {
       "type": "array",
@@ -28,12 +35,21 @@
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "Maximum" },
-            { "type": "number", "title": "Maximum" }
+            {
+              "type": "number",
+              "title": "Maximum"
+            },
+            {
+              "type": "number",
+              "title": "Maximum"
+            }
           ]
         },
-        { "type": "number" }
-      ]
+        {
+          "type": "number"
+        }
+      ],
+      "additionalProperties": false
     },
     "on_celebration_end_event": {
       "$ref": "../types/trigger.json",
@@ -49,12 +65,21 @@
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "Maximum" },
-            { "type": "number", "title": "Maximum" }
+            {
+              "type": "number",
+              "title": "Maximum"
+            },
+            {
+              "type": "number",
+              "title": "Maximum"
+            }
           ]
         },
-        { "type": "number" }
-      ]
+        {
+          "type": "number"
+        }
+      ],
+      "additionalProperties": false
     }
   }
 }

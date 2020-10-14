@@ -8,25 +8,34 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json"
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "speed_multiplier": {
-      "ref": "types/base_speed_multiplier.json"
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "interval": {
       "type": "number",
       "title": "Interval",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "look_ahead": {
       "type": "number",
       "title": "Look ahead",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "wander_time": {
       "type": "number",
       "title": "Wander time",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

@@ -4,10 +4,7 @@
   "type": "object",
   "title": "The minecraft behaviourpack animation 1.8.0",
   "description": "TODO description",
-  "required": [
-    "format_version",
-    "animations"
-  ],
+  "required": ["format_version", "animations"],
   "definitions": {
     "animationspec": {
       "anyOf": [
@@ -31,9 +28,7 @@
     "particle_effect_spec": {
       "additionalProperties": false,
       "type": "object",
-      "required": [
-        "effect"
-      ],
+      "required": ["effect"],
       "properties": {
         "bind_to_actor": {
           "type": "boolean",
@@ -64,7 +59,8 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "animations": {
       "title": "Animations schema",
@@ -114,5 +110,6 @@
         }
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

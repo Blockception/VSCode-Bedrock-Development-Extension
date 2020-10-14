@@ -83,7 +83,9 @@
             }
           }
         }
-      ]
+      ],
+      "description": "TODO description",
+      "additionalProperties": false
     }
   }
 }

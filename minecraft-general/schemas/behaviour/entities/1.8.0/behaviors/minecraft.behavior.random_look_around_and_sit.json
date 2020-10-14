@@ -7,36 +7,46 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "max_look_count": {
       "type": "integer",
       "default": 2,
       "description": "The max amount of unique looks a mob will have while looking around.",
-      "title": "Max look count"
+      "title": "Max look count",
+      "additionalProperties": false
     },
     "max_look_time": {
       "type": "integer",
       "default": 40,
       "description": "The max amount of time (in ticks) a mob will stay looking at a direction while looking around.",
-      "title": "Max look time"
+      "title": "Max look time",
+      "additionalProperties": false
     },
     "min_look_count": {
       "type": "integer",
       "default": 1,
       "description": "The min amount of unique looks a mob will have while looking around.",
-      "title": "Min look count"
+      "title": "Min look count",
+      "additionalProperties": false
     },
     "min_look_time": {
       "type": "integer",
       "default": 20,
       "description": "The min amount of time (in ticks) a mob will stay looking at a direction while looking around.",
-      "title": "Min look time"
+      "title": "Min look time",
+      "additionalProperties": false
     },
     "probability": {
       "type": "integer",
       "default": 0.02,
       "description": "The probability of randomly looking around/sitting.",
-      "title": "Probability"
+      "title": "Probability",
+      "additionalProperties": false
     }
   }
 }

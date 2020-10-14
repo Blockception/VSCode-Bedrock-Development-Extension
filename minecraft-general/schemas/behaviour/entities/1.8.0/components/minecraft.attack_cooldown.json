@@ -19,12 +19,21 @@
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "Maximum" },
-            { "type": "number", "title": "Maximum" }
+            {
+              "type": "number",
+              "title": "Maximum"
+            },
+            {
+              "type": "number",
+              "title": "Maximum"
+            }
           ]
         },
-        { "type": "number" }
-      ]
+        {
+          "type": "number"
+        }
+      ],
+      "additionalProperties": false
     }
   }
 }

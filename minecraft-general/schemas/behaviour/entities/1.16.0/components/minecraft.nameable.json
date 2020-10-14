@@ -32,13 +32,15 @@
       "type": "boolean",
       "default": true,
       "description": "If true, this entity can be renamed with name tags",
-      "title": "Allow name tag renaming"
+      "title": "Allow name tag renaming",
+      "additionalProperties": false
     },
     "always_show": {
       "type": "boolean",
       "default": false,
       "description": "If true, the name will always be shown",
-      "title": "Always show"
+      "title": "Always show",
+      "additionalProperties": false
     },
     "default_trigger": {
       "$ref": "../types/trigger.json",
@@ -47,9 +49,20 @@
     },
     "name_actions": {
       "oneOf": [
-        { "type": "array", "items": {"$ref": "#/definitions/name_action"} },
-        { "type": "object", "$ref": "#/definitions/name_action" }
-      ]
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/name_action"
+          }
+        },
+        {
+          "type": "object",
+          "$ref": "#/definitions/name_action"
+        }
+      ],
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

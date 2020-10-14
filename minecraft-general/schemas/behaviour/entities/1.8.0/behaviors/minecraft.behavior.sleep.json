@@ -8,46 +8,58 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json"
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "speed_multiplier": {
-      "ref": "types/base_speed_multiplier.json"
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "cooldown_time": {
       "type": "number",
       "default": 0,
       "description": "Time in seconds the mob has to wait before using the goal again",
-      "title": "Cooldown time"
+      "title": "Cooldown time",
+      "additionalProperties": false
     },
     "goal_radius": {
-        "type": "number",
-        "default": 0,
-        "description": "UNDOCUMANTED",
-        "title": "UNDOCUMANTED"
+      "type": "number",
+      "default": 0,
+      "description": "UNDOCUMANTED",
+      "title": "UNDOCUMANTED",
+      "additionalProperties": false
     },
     "sleep_collider_height": {
       "type": "number",
       "default": 1,
       "description": "The height of the mob's collider while sleeping",
-      "title": "Sleep collider height"
+      "title": "Sleep collider height",
+      "additionalProperties": false
     },
     "sleep_collider_width": {
       "type": "number",
       "default": 1,
       "description": "The width of the mob's collider while sleeping",
-      "title": "Sleep collider width"
+      "title": "Sleep collider width",
+      "additionalProperties": false
     },
     "sleep_y_offset": {
       "type": "number",
       "default": 1,
       "description": "The y offset of the mob's collider while sleeping",
-      "title": "Sleep y offset"
+      "title": "Sleep y offset",
+      "additionalProperties": false
     },
     "timeout_cooldown": {
       "type": "number",
       "default": 8,
       "description": "The cooldown time in seconds before the goal can be reused after a internal failure or timeout condition",
-      "title": "Timeout cooldown"
+      "title": "Timeout cooldown",
+      "additionalProperties": false
     }
   }
 }

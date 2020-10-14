@@ -15,12 +15,19 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "range_min": { "type": "number" },
-            "range_max": { "type": "number" }
+            "range_min": {
+              "type": "number"
+            },
+            "range_max": {
+              "type": "number"
+            }
           }
         },
-        { "type": "number" }
-      ]
+        {
+          "type": "number"
+        }
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -15,6 +15,7 @@
         },
         {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "overlay_color": {
               "description": "The color to apply to the texture",
@@ -34,7 +35,8 @@
     "resource_pack_name": {
       "type": "string",
       "title": "Resource pack name",
-      "description": "TODO: add description"
+      "description": "TODO: add description",
+      "additionalProperties": false
     },
     "texture_data": {
       "title": "Texture data",
@@ -44,13 +46,16 @@
         "pattern": "^[\\w_\\-]+$"
       },
       "additionalProperties": {
-        "title": "Texture data", 
+        "title": "Texture data",
         "description": "TODO: add description",
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "textures": {
             "oneOf": [
-              { "$ref": "#/definitions/texture" },
+              {
+                "$ref": "#/definitions/texture"
+              },
               {
                 "description": "A collection of textures",
                 "type": "array",
@@ -66,7 +71,8 @@
     "texture_name": {
       "title": "Texture name",
       "description": "TODO: add description",
-      "type": "string"
+      "type": "string",
+      "additionalProperties": false
     }
   }
 }

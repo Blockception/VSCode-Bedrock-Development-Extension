@@ -6,31 +6,45 @@
   "description": "Allows the mob to move back into lava when on land.",
   "additionalProperties": false,
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
-    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "cooldown_max": {
       "type": "number",
       "default": 0,
       "description": "Maximum time in seconds the mob has to wait before using the goal again",
-      "title": "Cooldown max"
+      "title": "Cooldown max",
+      "additionalProperties": false
     },
     "cooldown_min": {
       "type": "number",
       "default": 0,
       "description": "Minimum time in seconds the mob has to wait before using the goal again",
-      "title": "Cooldown min"
+      "title": "Cooldown min",
+      "additionalProperties": false
     },
     "mob_detect_dist": {
       "type": "number",
       "default": 6,
       "description": "The block distance in x and z that will be checked for mobs that this mob detects",
-      "title": "Mob detect dist"
+      "title": "Mob detect dist",
+      "additionalProperties": false
     },
     "mob_detect_height": {
       "type": "number",
       "default": 6,
       "description": "The block distance in y that will be checked for mobs that this mob detects",
-      "title": "Mob detect height"
+      "title": "Mob detect height",
+      "additionalProperties": false
     },
     "can_nap_filters": {
       "$ref": "../filters.json",

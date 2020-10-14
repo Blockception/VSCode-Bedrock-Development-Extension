@@ -8,10 +8,16 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json"
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "speed_multiplier": {
-      "ref": "types/base_speed_multiplier.json"
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "blocks": {
       "type": "array",
@@ -21,43 +27,58 @@
         "title": "Block id",
         "description": "A block identifier",
         "pattern": "[0-9:a-z_]+"
-      }
+      },
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "eat_delay": {
       "type": "integer",
       "default": 2,
-      "description": "Time in seconds between each time it eats"
+      "description": "Time in seconds between each time it eats",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "full_delay": {
       "type": "integer",
       "default": 100,
-      "description": "Amount of time in seconds before this mob wants to eat again"
+      "description": "Amount of time in seconds before this mob wants to eat again",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "initial_eat_delay": {
       "type": "integer",
       "default": 0,
       "description": "Time in seconds before starting to eat/raid once it arrives at it",
-      "title": "Initial eat delay"
+      "title": "Initial eat delay",
+      "additionalProperties": false
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
-      "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot"
+      "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "max_to_eat": {
       "type": "integer",
       "default": 6,
-      "description": "Maximum number of things this entity wants to eat"
+      "description": "Maximum number of things this entity wants to eat",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "search_range": {
       "type": "integer",
       "default": 0,
-      "description": "Distance in blocks the mob will look for crops to eat"
+      "description": "Distance in blocks the mob will look for crops to eat",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "search_height": {
       "type": "integer",
       "default": 0,
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

@@ -9,7 +9,8 @@
       "type": "integer",
       "default": "0",
       "description": "Tests for the actor's mark variant (if it has one)",
-      "title": "Value"
+      "title": "Value",
+      "additionalProperties": false
     }
   }
 }

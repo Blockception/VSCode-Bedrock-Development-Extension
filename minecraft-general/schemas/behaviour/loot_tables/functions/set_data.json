@@ -7,12 +7,17 @@
   "properties": {
     "function": {
       "type": "string",
-      "const": "set_data"
+      "const": "set_data",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "data": {
       "title": "Data",
       "oneOf": [
-        { "type": "integer" },
+        {
+          "type": "integer"
+        },
         {
           "type": "object",
           "properties": {
@@ -26,7 +31,9 @@
             }
           }
         }
-      ]
+      ],
+      "description": "TODO description",
+      "additionalProperties": false
     }
   }
 }

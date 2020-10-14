@@ -1,1 +1,22 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.minecraft.type_family","type":"object","title":"type_family 1.8.0","additionalProperties":false,"description":"Defines the families this entity belongs to.","required":["family"],"properties":{"family":{"type":"array","items":{"type":"string","description":"family name","title":"Family"},"description":"List of family names","title":"Family"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.type_family",
+  "type": "object",
+  "title": "type_family 1.8.0",
+  "additionalProperties": false,
+  "description": "Defines the families this entity belongs to.",
+  "required": ["family"],
+  "properties": {
+    "family": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "family name",
+        "title": "Family"
+      },
+      "description": "List of family names",
+      "title": "Family",
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,72 +1,88 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "blockception.minecraft.resource.texture.terrain_texture",
-    "additionalProperties": false,
-    "type": "object",
-    "title": "The minecraft terrain texture file",
-    "description": "",
-    "definitions": {
-        "texture": {
-            "oneOf": [
-                {
-                    "description": "A texture file",
-                    "type": "string",
-                    "pattern": "^textures/.+$"
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "overlay_color": {
-                            "description": "The color to apply to the texture",
-                            "format": "color-hex"
-                        },
-                        "path": {
-                            "description": "A texture file",
-                            "type": "string",
-                            "pattern": "^textures/.+$"
-                        }
-                    }
-                }
-            ]
-        }
-    },
-    "properties": {
-        "num_mip_levels": {
-            "type": "integer",
-            "title": "Num_mip_levels", 
-            "description": "TODO: add description"
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.resource.texture.terrain_texture",
+  "additionalProperties": false,
+  "type": "object",
+  "title": "The minecraft terrain texture file",
+  "description": "",
+  "definitions": {
+    "texture": {
+      "oneOf": [
+        {
+          "description": "A texture file",
+          "type": "string",
+          "pattern": "^textures/.+$"
         },
-        "padding": {
-            "type": "integer",
-            "title": "Padding", 
-            "description": "TODO: add description"
-        },
-        "resource_pack_name": {
-            "type": "string",
-            "title": "Resource_pack_name", 
-            "description": "TODO: add description"
-        },
-        "texture_data": {
-            "type": "object",
-            "propertyNames": {
-                "pattern": "^[\\w_\\-]+$"
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "overlay_color": {
+              "description": "The color to apply to the texture",
+              "format": "color-hex"
             },
-            "additionalProperties": {
-                "type": "object",
-                "title": "Texture_data", 
-                "description": "TODO: add description",
-                "properties": {
-                    "textures": {
-                        "oneOf": [
-                            { "$ref": "#/definitions/texture" },
-                            { "type": "array", "items": { "$ref": "#/definitions/texture" } }
-                        ]
-                    }
-                }
+            "path": {
+              "description": "A texture file",
+              "type": "string",
+              "pattern": "^textures/.+$"
             }
-        },
-        "texture_name": {
-            "type": "string"
+          }
         }
+      ]
     }
+  },
+  "properties": {
+    "num_mip_levels": {
+      "type": "integer",
+      "title": "Num_mip_levels",
+      "description": "TODO: add description",
+      "additionalProperties": false
+    },
+    "padding": {
+      "type": "integer",
+      "title": "Padding",
+      "description": "TODO: add description",
+      "additionalProperties": false
+    },
+    "resource_pack_name": {
+      "type": "string",
+      "title": "Resource_pack_name",
+      "description": "TODO: add description",
+      "additionalProperties": false
+    },
+    "texture_data": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[\\w_\\-]+$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "title": "Texture_data",
+        "description": "TODO: add description",
+        "properties": {
+          "textures": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/texture"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/texture"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "description": "TODO description",
+      "title": "TODO title"
+    },
+    "texture_name": {
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
+  }
 }

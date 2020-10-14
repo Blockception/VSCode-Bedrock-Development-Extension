@@ -7,13 +7,16 @@
   "description": "Allows the mob to be controlled by the player.",
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "mount_speed_multiplier": {
       "type": "number",
       "default": 1,
       "description": "Speed multiplier of mount when controlled by player, defaults to 1.0f",
-      "title": "Mount speed multiplier"
+      "title": "Mount speed multiplier",
+      "additionalProperties": false
     }
   }
 }

@@ -10,7 +10,9 @@
     "mutation_rate": {
       "type": "number",
       "default": 0.03125,
-      "description": "Chance that an allele will be replaced with a random one instead of the parent's allele during birth."
+      "description": "Chance that an allele will be replaced with a random one instead of the parent's allele during birth.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "genes": {
       "type": "array",
@@ -52,15 +54,25 @@
                 "both_allele": {
                   "description": "If this value is non-negative, compare both the mob's main and hidden alleles with this value for a match with both. Can also be a range of integers.",
                   "oneOf": [
-                    { "type": "integer" },
+                    {
+                      "type": "integer"
+                    },
                     {
                       "type": "object",
                       "description": "UNDOCUMENTATED",
                       "title": "UNDOCUMENTATED",
                       "additionalProperties": false,
                       "properties": {
-                        "range_min": { "type": "integer", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" },
-                        "range_max": { "type": "integer", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" }
+                        "range_min": {
+                          "type": "integer",
+                          "description": "UNDOCUMENTATED",
+                          "title": "UNDOCUMENTATED"
+                        },
+                        "range_max": {
+                          "type": "integer",
+                          "description": "UNDOCUMENTATED",
+                          "title": "UNDOCUMENTATED"
+                        }
                       }
                     }
                   ]
@@ -84,7 +96,10 @@
             }
           }
         }
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

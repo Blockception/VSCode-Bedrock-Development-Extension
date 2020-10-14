@@ -11,7 +11,8 @@
       "type": "number",
       "default": true,
       "title": "Value",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

@@ -1,60 +1,103 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "blockception.minecraft.behaviour.entities.minecraft:entity",
-    "title": "entity 1.11.0",
-    "required": ["description"],
-    "properties": {
-        "description": {
-            "required": ["identifier"],
-            "additionalProperties": false,
-            "title": "Description",
-            "description": "The description of the this entity",
-            "properties": {
-                "animations": {
-                    "title": "Animations",
-                    "description": "Sets the mapping of internal animation references to actual animations. This is a JSON Object of name/animation pairs",
-                    "type": "object",
-                    "additionalProperties": { "type": "string" }
-                },
-                "identifier": {
-                    "$ref": "../../../general/entity/identifier.json",
-                    "description": "Sets the name for this entity's description.",
-                    "title": "Identifier"
-                },
-                "is_spawnable": {
-                    "type": "boolean",
-                    "title": "Is spawnable",
-                    "description": "Sets whether or not this entity has a spawn egg in the creative ui."
-                },
-                "is_summonable": {
-                    "type": "boolean",
-                    "title": "The is summonable property",
-                    "description": "Sets whether or not we can summon this entity using commands such as /summon."
-                },
-                "is_experimental": {
-                    "type": "boolean",
-                    "title": "Is experimental",
-                    "description": "Sets whether or not this entity is experimental. Experimental entities are only enabled when the experimental toggle is enabled."
-                },
-                "runtime_identifier": {
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.minecraft:entity",
+  "title": "entity 1.11.0",
+  "required": ["description"],
+  "properties": {
+    "description": {
+      "required": ["identifier"],
+      "additionalProperties": false,
+      "title": "Description",
+      "description": "The description of the this entity",
+      "properties": {
+        "animations": {
+          "title": "Animations",
+          "description": "Sets the mapping of internal animation references to actual animations. This is a JSON Object of name/animation pairs",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "title": "Animation"
+          }
+        },
+        "identifier": {
+          "$ref": "../../../general/entity/identifier.json",
+          "description": "Sets the name for this entity's description.",
+          "title": "Identifier"
+        },
+        "is_spawnable": {
+          "type": "boolean",
+          "title": "Is spawnable",
+          "description": "Sets whether or not this entity has a spawn egg in the creative ui."
+        },
+        "is_summonable": {
+          "type": "boolean",
+          "title": "The is summonable property",
+          "description": "Sets whether or not we can summon this entity using commands such as /summon."
+        },
+        "is_experimental": {
+          "type": "boolean",
+          "title": "Is experimental",
+          "description": "Sets whether or not this entity is experimental. Experimental entities are only enabled when the experimental toggle is enabled."
+        },
+        "runtime_identifier": {
+          "type": "string",
+          "title": "Runtime identifier",
+          "description": "Sets the name for the Vanilla Minecraft identifier this entity will use to build itself from."
+        },
+        "scripts": {
+          "type": "object",
+          "additionalProperties": false,
+          "title": "Scripts",
+          "description": "Sets the mapping of internal animation controller references to actual animation controller. This is a JSON Array of name/animation-controller pairs",
+          "properties": {
+            "animate": {
+              "type": "array",
+              "title": "Animate",
+              "description": "Tells minecraft to run which animation controllers and under what conditions",
+              "items": {
+                "oneOf": [
+                  {
                     "type": "string",
-                    "title": "Runtime identifier",
-                    "description": "Sets the name for the Vanilla Minecraft identifier this entity will use to build itself from."
-                },
-                "scripts": {
+                    "title": "Animation",
+                    "description": "The name of an animation controller referenced in animations"
+                  },
+                  {
                     "type": "object",
-                    "title": "Scripts",
-                    "description": "Sets the mapping of internal animation controller references to actual animation controller. This is a JSON Array of name/animation-controller pairs"
-                }
+                    "title": "Conditional Animation",
+                    "description": "TODO",
+                    "additionalProperties": {
+                      "type": "string",
+                      "title": "Animation"
+                    }
+                  }
+                ]
+              }
             }
-        },
-        "component_groups": {
-            "title": "Component groups",
-			"description": "collection of component groups",
-			"uniqueItems": true,
-            "additionalProperties": { "$ref": "components.json", "description": "A single component group", "title": "Component group" }
-        },
-        "components": { "uniqueItems": true,"$ref": "components.json", "description": "TODO description: components", "title": "Components" },
-        "events": { "uniqueItems": true,"$ref": "events.json", "description": "TODO description: events", "title": "Events" }
+          }
+        }
+      }
+    },
+    "component_groups": {
+      "title": "Component groups",
+      "description": "collection of component groups",
+      "uniqueItems": true,
+      "additionalProperties": {
+        "$ref": "components.json",
+        "description": "A single component group",
+        "title": "Component group"
+      }
+    },
+    "components": {
+      "uniqueItems": true,
+      "$ref": "components.json",
+      "description": "TODO description: components",
+      "title": "Components"
+    },
+    "events": {
+      "uniqueItems": true,
+      "$ref": "events.json",
+      "description": "TODO description: events",
+      "title": "Events"
     }
+  }
 }

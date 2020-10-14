@@ -5,6 +5,5 @@
   "title": "equip_item 1.8.0",
   "description": "The entity puts on the desired equipment.",
   "additionalProperties": false,
-  "properties": {
-  }
+  "properties": {}
 }

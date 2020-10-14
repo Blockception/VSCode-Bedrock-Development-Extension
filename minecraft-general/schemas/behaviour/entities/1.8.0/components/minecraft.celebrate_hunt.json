@@ -10,7 +10,8 @@
       "type": "boolean",
       "default": true,
       "description": "If true, celebration will be broadcasted to other entities in the radius.",
-      "title": "Broadcast"
+      "title": "Broadcast",
+      "additionalProperties": false
     },
     "celeberation_targets": {
       "$ref": "../filters.json",
@@ -21,19 +22,22 @@
       "type": "string",
       "default": "",
       "description": "The sound event to play when the mob is celebrating",
-      "title": "Celebrate sound"
+      "title": "Celebrate sound",
+      "additionalProperties": false
     },
     "duration": {
       "type": "integer",
       "default": 4,
       "description": "Duration, in seconds, of celebration",
-      "title": "Duration"
+      "title": "Duration",
+      "additionalProperties": false
     },
     "radius": {
       "type": "number",
       "default": 16,
       "description": "If broadcast is enabled, specifies the radius in which it will notify other entities for celebration.",
-      "title": "Radius"
+      "title": "Radius",
+      "additionalProperties": false
     },
     "sound_interval": {
       "default": 0,
@@ -43,12 +47,21 @@
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "Maximum" },
-            { "type": "number", "title": "Maximum" }
+            {
+              "type": "number",
+              "title": "Maximum"
+            },
+            {
+              "type": "number",
+              "title": "Maximum"
+            }
           ]
         },
-        { "type": "number" }
-      ]
+        {
+          "type": "number"
+        }
+      ],
+      "additionalProperties": false
     }
   }
 }

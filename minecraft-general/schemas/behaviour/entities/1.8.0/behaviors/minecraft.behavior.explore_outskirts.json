@@ -7,8 +7,18 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
-    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "on_eat": {
       "$ref": "../types/trigger.json",
       "description": "TODO description: on eat",
@@ -18,13 +28,15 @@
       "type": "number",
       "default": 5,
       "description": "The distance in which the mob will proceed past the village bounds",
-      "title": "Explore dist"
+      "title": "Explore dist",
+      "additionalProperties": false
     },
     "wait_time": {
       "type": "integer",
       "default": 0,
       "description": "The time the mob will stand around 'searching' for POIs",
-      "title": "Wait time"
+      "title": "Wait time",
+      "additionalProperties": false
     }
   }
 }

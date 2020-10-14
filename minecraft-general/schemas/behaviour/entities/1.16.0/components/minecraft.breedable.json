@@ -47,10 +47,10 @@
               }
             },
             {
-                "description": "a block type required nearby for the entity to breed.",
-                "type": "string",
-                "$ref": "../../../../general/blocks_item.json",
-                "title": "Blocks"
+              "description": "a block type required nearby for the entity to breed.",
+              "type": "string",
+              "$ref": "../../../../general/blocks_item.json",
+              "title": "Blocks"
             }
           ]
         },
@@ -75,19 +75,22 @@
       "description": "If true, entities can breed while sitting.",
       "type": "boolean",
       "default": false,
-      "title": "Allow Sitting"
+      "title": "Allow Sitting",
+      "additionalProperties": false
     },
     "blend_attributes": {
       "description": "If true, the entities will blend their attributes in the offspring after they breed. For example, horses blend their health, movement, and jump_strength in their offspring.",
       "type": "boolean",
       "default": true,
-      "title": "Blend Attributes"
+      "title": "Blend Attributes",
+      "additionalProperties": false
     },
     "breed_cooldown": {
       "description": "Time in seconds before the Entity can breed again.",
       "type": "number",
       "default": 60.0,
-      "title": "Breed Cooldown"
+      "title": "Breed Cooldown",
+      "additionalProperties": false
     },
     "breed_items": {
       "description": "The list of items that can be used to get the entity into the 'love' state",
@@ -107,7 +110,8 @@
           "$ref": "../../../../general/items_identifiers.json",
           "title": "TODO title"
         }
-      ]
+      ],
+      "additionalProperties": false
     },
     "breeds_with": {
       "description": "The list of entity definitions that this entity can breed with.",
@@ -124,7 +128,9 @@
             "$ref": "#/definitions/breeds_with_spec"
           }
         }
-      ]
+      ],
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "deny_parents_variant": {
       "type": "object",
@@ -155,11 +161,19 @@
     "environment_requirements": {
       "description": "The list of nearby block requirements to get the entity into the 'love' state.",
       "oneOf": [
-        { "type": "object", "$ref": "#/definitions/enviroment_requirements" },
-        { "type": "array", "items": { "$ref": "#/definitions/enviroment_requirements" } }
+        {
+          "type": "object",
+          "$ref": "#/definitions/enviroment_requirements"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/enviroment_requirements"
+          }
+        }
       ],
-
-      "title": "Environment Requirements"
+      "title": "Environment Requirements",
+      "additionalProperties": false
     },
     "extra_baby_chance": {
       "type": "number",
@@ -167,7 +181,8 @@
       "description": "Chance that up to 16 babies will spawn between 0.0 and 1.0, where 1.0 is 100%.",
       "minimum": 0.0,
       "maximum": 1.0,
-      "title": "Extra Baby Chance"
+      "title": "Extra Baby Chance",
+      "additionalProperties": false
     },
     "love_filters": {
       "$ref": "../filters.json",
@@ -210,25 +225,29 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the entity will become pregnant instead of spawning a baby.",
-      "title": "Causes_pregnancy"
+      "title": "Causes_pregnancy",
+      "additionalProperties": false
     },
     "inherit_tamed": {
       "type": "boolean",
       "default": true,
       "description": "If true, the babies will be automatically tamed if its parents are",
-      "title": "Inherit_tamed"
+      "title": "Inherit_tamed",
+      "additionalProperties": false
     },
     "require_full_health": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity needs to be at full health before it can breed.",
-      "title": "Require_full_health"
+      "title": "Require_full_health",
+      "additionalProperties": false
     },
     "require_tame": {
       "type": "boolean",
       "default": true,
       "description": "If true, the entities need to be tamed first before they can breed.",
-      "title": "Require_tame"
+      "title": "Require_tame",
+      "additionalProperties": false
     }
   }
 }
