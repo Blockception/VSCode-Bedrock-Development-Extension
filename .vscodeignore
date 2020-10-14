@@ -6,6 +6,7 @@
 
 server/src/*
 client/src/*
+scripts/*
 
 **/*.map
 **/*.ts
