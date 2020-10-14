@@ -155,6 +155,7 @@
         },
         "douse_fire": {
           "type": "object",
+          "additionalProperties": false,
           "description": "UNDOCUMENTATED",
           "title": "UNDOCUMENTATED"
         },

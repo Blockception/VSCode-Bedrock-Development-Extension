@@ -14,7 +14,7 @@
                     "title": "Animations",
                     "description": "Sets the mapping of internal animation references to actual animations. This is a JSON Object of name/animation pairs",
                     "type": "object",
-                    "additionalProperties": { "type": "string" }
+                    "additionalProperties": { "type": "string", "title": "Animation", "description": "TODO" }
                 },
                 "identifier": {
                     "$ref": "../../../general/entity/identifier.json",
@@ -43,8 +43,34 @@
                 },
                 "scripts": {
                     "type": "object",
+                    "additionalProperties": false,
                     "title": "Scripts",
-                    "description": "Sets the mapping of internal animation controller references to actual animation controller. This is a JSON Array of name/animation-controller pairs"
+                    "description": "Sets the mapping of internal animation controller references to actual animation controller. This is a JSON Array of name/animation-controller pairs",
+                    "properties": {
+                        "animate": {
+                            "type": "array",
+                            "title": "Animate",
+                            "description": "Tells minecraft to run which animation controllers and under what conditions",
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "title": "Animation",
+                                        "description": "The name of an animation controller referenced in animations"
+                                    },
+                                    {
+                                        "type": "object",
+                                        "title": "Conditional Animation",
+                                        "description": "TODO",
+                                        "additionalProperties": {
+                                            "type": "string",
+                                            "title": "Animation"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
                 }
             }
         },

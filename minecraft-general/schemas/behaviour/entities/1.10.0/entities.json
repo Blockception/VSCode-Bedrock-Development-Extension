@@ -4,6 +4,7 @@
     "type": "object",
     "title": "The minecraft behaviour entity 1.10.0",
     "description": "TODO description",
+    "additionalProperties": false,
     "required": [
         "format_version",
         "minecraft:entity"

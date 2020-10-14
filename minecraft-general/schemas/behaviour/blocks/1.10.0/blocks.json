@@ -5,6 +5,7 @@
   "required": ["format_version", "minecraft:block"],
   "title": "block",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "format_version": {
       "title": "The 1.10.0 format_version",

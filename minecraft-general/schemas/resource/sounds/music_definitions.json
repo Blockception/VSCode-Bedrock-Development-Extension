@@ -3,7 +3,8 @@
     "$id": "blockception.minecraft.music_definitions.json",
     "type": "object",
     "title": "The minecraft music definition file",
-    "description": "The definition file of music of the resourcepack",
+    "description": "The definition file of music of the resourcepack",    
+    "additionalProperties": false,
     "definitions": {
         "music": {
             "additionalProperties": false,

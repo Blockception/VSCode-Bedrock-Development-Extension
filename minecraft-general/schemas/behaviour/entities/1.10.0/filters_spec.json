@@ -4,6 +4,7 @@
   "title": "Filters_spec 1.10.0",
   "type": "object",
   "description": "The base filter item",
+  "additionalProperties": false,
   "allOf": [
     {
       "if": {

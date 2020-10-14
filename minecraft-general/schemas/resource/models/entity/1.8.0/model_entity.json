@@ -4,9 +4,7 @@
     "type": "object",
     "title": "The minecraft resourcepack model schema for 1.8.0",
     "description": "TODO description",
-    "required": [
-        "format_version"
-    ],
+    "required": ["format_version"],
     "properties": {
         "debug": {
             "type": "boolean"
@@ -36,22 +34,14 @@
                     "type": "object",
                     "description": "The bone definition",
                     "title": "Bone",
-                    "required": [
-                        "name"
-                    ],
+                    "required": ["name"],
                     "properties": {
                         "bind_pose_rotation": {
                             "type": "array",
                             "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
+                                { "type": "number" },
+                                { "type": "number" },
+                                { "type": "number" }
                             ]
                         },
                         "cubes": {
@@ -69,40 +59,24 @@
                                     "origin": {
                                         "type": "array",
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     },
                                     "size": {
                                         "type": "array",
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     },
                                     "uv": {
                                         "type": "array",
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     }
                                 }
@@ -118,9 +92,7 @@
                             "type": "object",
                             "additionalProperties": {
                                 "type": "array",
-                                "items": {
-                                    "type": "number"
-                                }
+                                "items": { "type": "number" }
                             }
                         },
                         "mirror": {
@@ -138,100 +110,88 @@
                         "pivot": {
                             "type": "array",
                             "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
+                                { "type": "number" },
+                                { "type": "number" },
+                                { "type": "number" }
                             ]
                         },
                         "poly_mesh": {
                             "type": "object",
-                            "required": [
-                                "polys"
-                            ],
+                            "required": ["polys"],
+                            "title": "Poly mesh",
+                            "description": "TODO",
+                            "additionalProperties": false,
                             "properties": {
                                 "normalized_uvs": {
+                                    "title": "Normalized uvs",
+                                    "description": "TODO",
                                     "type": "boolean"
                                 },
                                 "positions": {
+                                    "title": "Positions",
+                                    "description": "TODO",
                                     "type": "array",
                                     "items": [
-                                        {
-                                            "type": "number"
-                                        },
-                                        {
-                                            "type": "number"
-                                        },
-                                        {
-                                            "type": "number"
-                                        }
+                                        { "type": "number" },
+                                        { "type": "number" },
+                                        { "type": "number" }
                                     ]
                                 },
                                 "normals": {
+                                    "title": "Normals",
+                                    "description": "TODO",
                                     "type": "array",
                                     "items": [
-                                        {
-                                            "type": "number"
-                                        },
-                                        {
-                                            "type": "number"
-                                        },
-                                        {
-                                            "type": "number"
-                                        }
+                                        { "type": "number" },
+                                        { "type": "number" },
+                                        { "type": "number" }
                                     ]
                                 },
                                 "polys": {
+                                    "title": "Polys",
+                                    "description": "TODO",
                                     "type": "array",
                                     "items": {
                                         "type": "array",
                                         "minItems": 3,
                                         "maxItems": 4,
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     }
                                 }
                             }
                         },
                         "render_group_id": {
+                            "title": "Render group id",
+                            "description": "TODO",
                             "type": "integer",
                             "minimum": 0
                         },
                         "reset": {
+                            "title": "Reset",
+                            "description": "TODO",
                             "type": "boolean"
                         },
                         "rotation": {
+                            "title": "Rotation",
+                            "description": "TODO",
                             "type": "array",
                             "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
+                                { "type": "number" },
+                                { "type": "number" },
+                                { "type": "number" }
                             ]
                         },
                         "texture_meshes": {
                             "type": "array",
+                            "title": "Texture meshes",
+                            "description": "TODO",
                             "items": {
                                 "type": "object",
+                                "additionalProperties": false,
                                 "properties": {
                                     "texture": {
                                         "type": "string"
@@ -239,57 +199,33 @@
                                     "local_pivot": {
                                         "type": "array",
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     },
                                     "position": {
                                         "type": "array",
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     },
                                     "rotation": {
                                         "type": "array",
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     },
                                     "scale": {
                                         "type": "array",
                                         "items": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
+                                            { "type": "number" },
+                                            { "type": "number" },
+                                            { "type": "number" }
                                         ]
                                     }
                                 }
@@ -299,9 +235,13 @@
                 }
             },
             "cape": {
+                "title": "Cape",
+                "description": "TODO",
                 "type": "string"
             },
             "debug": {
+                "title": "Debug",
+                "description": "TODO",
                 "type": "boolean"
             },
             "texturewidth": {
@@ -329,15 +269,9 @@
                 "description": "TODO description: visible bounds offset",
                 "title": "Visible Bounds Offset",
                 "items": [
-                    {
-                        "type": "number"
-                    },
-                    {
-                        "type": "number"
-                    },
-                    {
-                        "type": "number"
-                    }
+                    { "type": "number" },
+                    { "type": "number" },
+                    { "type": "number" }
                 ]
             }
         }

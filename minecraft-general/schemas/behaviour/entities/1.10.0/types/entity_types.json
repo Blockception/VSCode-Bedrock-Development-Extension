@@ -8,6 +8,7 @@
             "description": "The entity type",
             "title": "The entity type",
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "filters": {
                     "type": "object",
