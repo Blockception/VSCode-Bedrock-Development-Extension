@@ -57,6 +57,4 @@ export function InvalidJson(doc: TextDocument, error: any): void {
   Manager.Connection.sendDiagnostics(Out);
 }
 
-export function ValidJson(doc: TextDocument): void {
-
-}
+export function ValidJson(doc: TextDocument): void {}
