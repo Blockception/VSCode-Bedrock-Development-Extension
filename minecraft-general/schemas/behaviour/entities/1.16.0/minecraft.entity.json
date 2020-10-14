@@ -76,14 +76,17 @@
     "component_groups": {
       "title": "Component groups",
       "description": "Collection of component groups",
+      "uniqueItems": true,
       "additionalProperties": {
         "$ref": "components.json"
       }
     },
     "components": {
+      "uniqueItems": true,
       "$ref": "components.json"
     },
     "events": {
+      "uniqueItems": true,
       "$ref": "events.json"
     }
   }

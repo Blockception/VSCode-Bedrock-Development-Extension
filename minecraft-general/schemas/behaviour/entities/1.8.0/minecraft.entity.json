@@ -65,6 +65,7 @@
         "component_groups": {
             "title": "Component groups",
             "description": "Each group when add / remove override the default components group",
+            "uniqueItems": true,
             "additionalProperties": {
                 "$ref": "components.json",
                 "description": "Each group when add / remove override the default components group",
@@ -73,11 +74,13 @@
         },
         "components": {
             "$ref": "components.json",
+            "uniqueItems": true,
             "description": "The components that are added as the foundation of the entity",
             "title": "The component schema"
         },
         "events": {
             "$ref": "events.json",
+            "uniqueItems": true,
             "description": "The events that the entity can run, these add or remove components_groups",
             "title": "The events schema"
         }
