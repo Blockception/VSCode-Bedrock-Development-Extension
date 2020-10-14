@@ -4,6 +4,5 @@
   "additionalProperties": false,
   "description": "Returns the condition true if the actor of the loot table is killed by player or entities that has owner.",
   "title": "killed_by_player",
-  "properties": {
-  }
+  "properties": {}
 }

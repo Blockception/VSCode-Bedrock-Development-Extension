@@ -1,1 +1,24 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.filters.has_tag","type":"object","title":"Filters has_tag 1.8.0","additionalProperties":false,"description":"Returns true if the subject entity has the tag provided.","required":["value"],"properties":{"test":{"type":"string","title":"The test property","description":"the test property"},"operator":{"$ref":"types/base_operator.json"},"subject":{"$ref":"types/base_subject.json"},"value":{"type":"string","description":"The tag as a string","pattern":"[a-zA-Z0-9_]+","title":"Value"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.has_tag",
+  "type": "object",
+  "title": "Filters has_tag 1.8.0",
+  "additionalProperties": false,
+  "description": "Returns true if the subject entity has the tag provided.",
+  "required": ["value"],
+  "properties": {
+    "test": {
+      "type": "string",
+      "title": "The test property",
+      "description": "the test property"
+    },
+    "operator": { "$ref": "types/base_operator.json" },
+    "subject": { "$ref": "types/base_subject.json" },
+    "value": {
+      "type": "string",
+      "description": "The tag as a string",
+      "pattern": "[a-zA-Z0-9_]+",
+      "title": "Value"
+    }
+  }
+}

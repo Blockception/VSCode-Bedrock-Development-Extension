@@ -1,1 +1,23 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.filters.has_biome_tag","type":"object","title":"Filters has_biome_tag 1.8.0","additionalProperties":false,"description":"Tests whether the biome the subject is in has the specified tag.","required":["value"],"properties":{"test":{"type":"string","title":"The test property","description":"the test property"},"operator":{"$ref":"types/base_operator.json"},"subject":{"$ref":"types/base_subject.json"},"value":{"description":"(Required) The tag to look for","type":"string","title":"Value"}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.has_biome_tag",
+  "type": "object",
+  "title": "Filters has_biome_tag 1.8.0",
+  "additionalProperties": false,
+  "description": "Tests whether the biome the subject is in has the specified tag.",
+  "required": ["value"],
+  "properties": {
+    "test": {
+      "type": "string",
+      "title": "The test property",
+      "description": "the test property"
+    },
+    "operator": { "$ref": "types/base_operator.json" },
+    "subject": { "$ref": "types/base_subject.json" },
+    "value": {
+      "description": "(Required) The tag to look for",
+      "type": "string",
+      "title": "Value"
+    }
+  }
+}

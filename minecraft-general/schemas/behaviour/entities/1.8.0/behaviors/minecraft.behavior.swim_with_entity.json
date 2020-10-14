@@ -15,7 +15,7 @@
       "title": "Success rate",
       "description": "UNDOCUMENTATED"
     },
-    "chance_to_stop":{
+    "chance_to_stop": {
       "type": "number",
       "title": "Chance to stop",
       "description": "UNDOCUMENTATED"

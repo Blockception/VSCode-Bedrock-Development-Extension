@@ -19,7 +19,7 @@
       "title": "Damage range"
     },
     "entity_filter": {
-      "$ref": "../filters.json",      
+      "$ref": "../filters.json",
       "description": "entity_filter",
       "title": "Minecraft Filter"
     },

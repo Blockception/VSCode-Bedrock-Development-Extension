@@ -16,7 +16,7 @@
       "title": "Key",
       "minProperties": 1,
       "additionalProperties": {
-        "$ref": "./base types/item.json" 
+        "$ref": "./base types/item.json"
       }
     },
     "group": {

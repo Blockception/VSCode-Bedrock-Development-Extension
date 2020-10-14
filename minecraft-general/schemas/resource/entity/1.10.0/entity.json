@@ -104,16 +104,20 @@
               "minItems": 1,
               "items": {
                 "oneOf": [
-                    { "type": "string", "description": "TODO description: render controllers", "title": "Render Controllers" },
-                    { 
-                        "additionalProperties": {
-                            "type": "string",
-                            "description": "A render controller"
-                        },
-                        "type": "object",
-                        "description": "TODO description: render controllers", 
-                        "title": "Render Controllers"
-                    }
+                  {
+                    "type": "string",
+                    "description": "TODO description: render controllers",
+                    "title": "Render Controllers"
+                  },
+                  {
+                    "additionalProperties": {
+                      "type": "string",
+                      "description": "A render controller"
+                    },
+                    "type": "object",
+                    "description": "TODO description: render controllers",
+                    "title": "Render Controllers"
+                  }
                 ]
               }
             },
@@ -185,9 +189,18 @@
                   "title": "Scale",
                   "$ref": "../../../molang/1.8.0/number.json"
                 },
-                "scalex": { "$ref": "../../../molang/1.8.0/number.json", "title": "Scale X" },
-                "scaley": { "$ref": "../../../molang/1.8.0/number.json", "title": "Scale Y" },
-                "scalez": { "$ref": "../../../molang/1.8.0/number.json", "title": "Scale Z" }
+                "scalex": {
+                  "$ref": "../../../molang/1.8.0/number.json",
+                  "title": "Scale X"
+                },
+                "scaley": {
+                  "$ref": "../../../molang/1.8.0/number.json",
+                  "title": "Scale Y"
+                },
+                "scalez": {
+                  "$ref": "../../../molang/1.8.0/number.json",
+                  "title": "Scale Z"
+                }
               }
             },
             "sound_effects": {

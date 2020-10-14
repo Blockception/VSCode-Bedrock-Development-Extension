@@ -47,10 +47,10 @@
               }
             },
             {
-                "description": "a block type required nearby for the entity to breed.",
-                "type": "string",
-                "$ref": "../../../../general/blocks_item.json",
-                "title": "Blocks"
+              "description": "a block type required nearby for the entity to breed.",
+              "type": "string",
+              "$ref": "../../../../general/blocks_item.json",
+              "title": "Blocks"
             }
           ]
         },
@@ -156,7 +156,10 @@
       "description": "The list of nearby block requirements to get the entity into the 'love' state.",
       "oneOf": [
         { "type": "object", "$ref": "#/definitions/enviroment_requirements" },
-        { "type": "array", "items": { "$ref": "#/definitions/enviroment_requirements" } }
+        {
+          "type": "array",
+          "items": { "$ref": "#/definitions/enviroment_requirements" }
+        }
       ],
 
       "title": "Environment Requirements"

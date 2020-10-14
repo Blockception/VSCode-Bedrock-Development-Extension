@@ -17,21 +17,24 @@
         { "name": "entity.name.type", "match": "variable" },
         { "name": "entity.name.type", "match": "[Mm]ath" },
         { "name": "entity.name.type", "match": "/[a-z]+" },
-        { "name": "entity.name.function", "match": "(?<=query\\.)\\w*"},
-        { "name": "entity.name.function", "match": "(?<=variable\\.)\\w*"},
-        { "name": "entity.name.function", "match": "(?<=[Mm]ath\\.)\\w*"}
+        { "name": "entity.name.function", "match": "(?<=query\\.)\\w*" },
+        { "name": "entity.name.function", "match": "(?<=variable\\.)\\w*" },
+        { "name": "entity.name.function", "match": "(?<=[Mm]ath\\.)\\w*" }
       ]
     },
     "operators": {
       "patterns": [
         { "name": "constant.character", "match": "[|!<>=?*;\\/\\-+:&]" },
-        { "name": "keyword.operator", "match": "[.,(){}\\[\\]]"}
+        { "name": "keyword.operator", "match": "[.,(){}\\[\\]]" }
       ]
     },
     "selectors": {
       "patterns": [
         { "name": "markup.bold", "match": "(@[cvasrep]\\b)" },
-        { "name": "entity.name.variable", "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
+        {
+          "name": "entity.name.variable",
+          "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)"
+        },
         { "name": "entity.name.variable", "match": "\\b[a-z0-9]+(?=\\=)" },
         { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+" },
         { "name": "string.regexp", "match": "\\b(?<=tag=!)[a-zA-Z_\\-0-9]+" },

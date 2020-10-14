@@ -4,10 +4,7 @@
   "type": "object",
   "title": "The minecraft behaviour entity 1.8.0",
   "description": "TODO description",
-  "required": [
-    "format_version",
-    "minecraft:entity"
-  ],
+  "required": ["format_version", "minecraft:entity"],
   "properties": {
     "format_version": {
       "title": "The 1.8.0 format_version",

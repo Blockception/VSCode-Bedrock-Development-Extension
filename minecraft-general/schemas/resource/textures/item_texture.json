@@ -15,7 +15,7 @@
         },
         {
           "type": "object",
-          
+
           "additionalProperties": false,
           "properties": {
             "overlay_color": {
@@ -46,10 +46,10 @@
         "pattern": "^[\\w_\\-]+$"
       },
       "additionalProperties": {
-        "title": "Texture data", 
+        "title": "Texture data",
         "description": "TODO: add description",
         "type": "object",
-        
+
         "additionalProperties": false,
         "properties": {
           "textures": {

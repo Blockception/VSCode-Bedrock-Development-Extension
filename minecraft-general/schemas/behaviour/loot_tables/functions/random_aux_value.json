@@ -1,1 +1,17 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.loot_tables.random_aux_value","additionalProperties":false,"description":"The function random_aux_value","title":"Random_aux_value","properties":{"function":{"type":"string","const":"random_aux_value"},"values":{"type":"object","properties":{"min":{"type":"integer"},"max":{"type":"integer"}}}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.loot_tables.random_aux_value",
+  "additionalProperties": false,
+  "description": "The function random_aux_value",
+  "title": "Random_aux_value",
+  "properties": {
+    "function": { "type": "string", "const": "random_aux_value" },
+    "values": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "integer" },
+        "max": { "type": "integer" }
+      }
+    }
+  }
+}

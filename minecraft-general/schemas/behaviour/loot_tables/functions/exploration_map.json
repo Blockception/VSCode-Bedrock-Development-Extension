@@ -1,1 +1,28 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.loot_tables.exploration_map","additionalProperties":false,"description":"The function exploration_map","title":"Exploration_map","properties":{"function":{"type":"string","const":"exploration_map"},"destination":{"type":"string","description":"The destination value defines what type of treasure map they receive.","enum":["endcity","fortress","mineshaft","monument","ruins","stronghold","temple","village","mansion","shipwreck","buriedtreasure","pillageroutpost"]}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.loot_tables.exploration_map",
+  "additionalProperties": false,
+  "description": "The function exploration_map",
+  "title": "Exploration_map",
+  "properties": {
+    "function": { "type": "string", "const": "exploration_map" },
+    "destination": {
+      "type": "string",
+      "description": "The destination value defines what type of treasure map they receive.",
+      "enum": [
+        "endcity",
+        "fortress",
+        "mineshaft",
+        "monument",
+        "ruins",
+        "stronghold",
+        "temple",
+        "village",
+        "mansion",
+        "shipwreck",
+        "buriedtreasure",
+        "pillageroutpost"
+      ]
+    }
+  }
+}

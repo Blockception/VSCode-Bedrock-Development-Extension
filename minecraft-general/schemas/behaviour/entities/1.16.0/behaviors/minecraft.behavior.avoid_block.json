@@ -33,7 +33,7 @@
       "title": "Target selection method",
       "description": "UNDOCUMENTATED"
     },
-    "target_blocks":{
+    "target_blocks": {
       "type": "array",
       "title": "Target blocks",
       "description": "UNDOCUMENTATED",
@@ -59,7 +59,7 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
-      }      
+      }
     },
 
     "sound_interval": {

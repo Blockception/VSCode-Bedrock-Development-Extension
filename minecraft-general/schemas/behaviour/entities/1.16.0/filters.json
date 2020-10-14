@@ -10,11 +10,14 @@
         "enum": ["test", "operator", "value", "domain", "subject"]
       },
       "allOf": [
-        { "if": { "properties": { "test": { "const": "clock_time" } } },
+        {
+          "if": { "properties": { "test": { "const": "clock_time" } } },
           "then": { "$ref": "../1.8.0/filters/clock_time.json" }
         },
         {
-          "if": { "properties": { "test": { "const": "distance_to_nearest_player" } } },
+          "if": {
+            "properties": { "test": { "const": "distance_to_nearest_player" } }
+          },
           "then": { "$ref": "../1.8.0/filters/distance_to_nearest_player.json" }
         },
         {
@@ -198,11 +201,15 @@
           "then": { "$ref": "../1.8.0/filters/is_target.json" }
         },
         {
-          "if": { "properties": { "test": { "const": "is_temperature_type" } } },
+          "if": {
+            "properties": { "test": { "const": "is_temperature_type" } }
+          },
           "then": { "$ref": "../1.8.0/filters/is_temperature_type.json" }
         },
         {
-          "if": { "properties": { "test": { "const": "is_temperature_value" } } },
+          "if": {
+            "properties": { "test": { "const": "is_temperature_value" } }
+          },
           "then": { "$ref": "../1.8.0/filters/is_temperature_value.json" }
         },
         {
@@ -222,7 +229,10 @@
           "then": { "$ref": "../1.8.0/filters/is_visible.json" }
         },
         {
-          "not": { "properties": { "test": { "const": "is_weather" } }, "$comment": "DEPRECATED" }
+          "not": {
+            "properties": { "test": { "const": "is_weather" } },
+            "$comment": "DEPRECATED"
+          }
         },
         {
           "if": { "properties": { "test": { "const": "light_level" } } },
@@ -265,7 +275,9 @@
           "then": { "$ref": "./filters/weather.json" }
         },
         {
-          "if": { "properties": { "test": { "const": "weather_at_position" } } },
+          "if": {
+            "properties": { "test": { "const": "weather_at_position" } }
+          },
           "then": { "$ref": "./filters/weather_at_position.json" }
         }
       ]
@@ -274,8 +286,8 @@
       "type": "object",
       "oneOf": [
         { "required": ["test"], "$ref": "#/definitions/filters_spec" },
-        { 
-          "additionalProperties": false,       
+        {
+          "additionalProperties": false,
           "properties": {
             "all_of": {
               "type": "array",

@@ -4,10 +4,7 @@
   "type": "object",
   "title": "The minecraft behaviourpack animation 1.10.0",
   "description": "TODO description",
-  "required": [
-    "format_version",
-    "animations"
-  ],
+  "required": ["format_version", "animations"],
   "definitions": {
     "animationspec": {
       "anyOf": [
@@ -31,9 +28,7 @@
     "particle_effect_spec": {
       "additionalProperties": false,
       "type": "object",
-      "required": [
-        "effect"
-      ],
+      "required": ["effect"],
       "properties": {
         "bind_to_actor": {
           "type": "boolean",
@@ -112,7 +107,6 @@
             }
           }
         }
-
       }
     }
   }

@@ -6,7 +6,5 @@
   "description": "UNDOCUMENTATED",
   "required": [],
   "additionalProperties": false,
-  "properties": {
-
-  }
+  "properties": {}
 }

@@ -1,1 +1,15 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.resource.particle.1.10.0.particle_lifetime_expression","type":"object","title":"The particle_lifetime_expression component for 1.10.0","additionalProperties":false,"properties":{"max_lifetime":{"$ref":"../../../../molang/1.8.0/number.json","description":"TODO description: max lifetime","title":"Max Lifetime"}},"description":"TODO description: "}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.resource.particle.1.10.0.particle_lifetime_expression",
+  "type": "object",
+  "title": "The particle_lifetime_expression component for 1.10.0",
+  "additionalProperties": false,
+  "properties": {
+    "max_lifetime": {
+      "$ref": "../../../../molang/1.8.0/number.json",
+      "description": "TODO description: max lifetime",
+      "title": "Max Lifetime"
+    }
+  },
+  "description": "TODO description: "
+}

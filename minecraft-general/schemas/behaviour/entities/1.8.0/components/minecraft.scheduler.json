@@ -1,1 +1,16 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.entities.1.8.0.minecraft.scheduler","description":"fires off scheduled mob events at time of day events.","type":"object","title":"scheduler 1.8.0","additionalProperties":false,"required":[],"properties":{"scheduled_event":{"type":"array","description":"The list of triggers that fire when the conditions match the given filter criteria. If any filter criteria overlap the first defined event will be picked","items":{"type":"object","description":"UNKNOWN STRUCTURE"}}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.scheduler",
+  "description": "fires off scheduled mob events at time of day events.",
+  "type": "object",
+  "title": "scheduler 1.8.0",
+  "additionalProperties": false,
+  "required": [],
+  "properties": {
+    "scheduled_event": {
+      "type": "array",
+      "description": "The list of triggers that fire when the conditions match the given filter criteria. If any filter criteria overlap the first defined event will be picked",
+      "items": { "type": "object", "description": "UNKNOWN STRUCTURE" }
+    }
+  }
+}

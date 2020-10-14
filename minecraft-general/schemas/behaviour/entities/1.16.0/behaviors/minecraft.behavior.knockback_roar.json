@@ -44,8 +44,20 @@
       "$ref": "../types/trigger.json",
       "description": "on_roar_end"
     },
-    "knockback_filters": { "$ref": "../filters.json", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" },
-    "damage_filters": { "$ref": "../filters.json", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" },
-    "on_roar_end": { "$ref": "../types/event.json", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" }
+    "knockback_filters": {
+      "$ref": "../filters.json",
+      "description": "UNDOCUMENTATED",
+      "title": "UNDOCUMENTATED"
+    },
+    "damage_filters": {
+      "$ref": "../filters.json",
+      "description": "UNDOCUMENTATED",
+      "title": "UNDOCUMENTATED"
+    },
+    "on_roar_end": {
+      "$ref": "../types/event.json",
+      "description": "UNDOCUMENTATED",
+      "title": "UNDOCUMENTATED"
+    }
   }
 }

@@ -5,5 +5,5 @@
   "title": "home 1.16.0",
   "description": "Saves a home pos for when the the entity is spawned.",
   "additionalProperties": false,
-  "properties": { }
+  "properties": {}
 }

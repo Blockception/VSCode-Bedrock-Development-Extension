@@ -47,7 +47,7 @@
     },
     "name_actions": {
       "oneOf": [
-        { "type": "array", "items": {"$ref": "#/definitions/name_action"} },
+        { "type": "array", "items": { "$ref": "#/definitions/name_action" } },
         { "type": "object", "$ref": "#/definitions/name_action" }
       ]
     }

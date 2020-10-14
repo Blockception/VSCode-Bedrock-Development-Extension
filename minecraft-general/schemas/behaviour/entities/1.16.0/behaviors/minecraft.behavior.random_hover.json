@@ -13,10 +13,7 @@
       "type": "array",
       "description": "UNDOCUMENTATED",
       "title": "Hover height",
-      "items": [
-        { "type": "number" },
-        { "type": "number" }
-      ]
+      "items": [{ "type": "number" }, { "type": "number" }]
     },
     "interval": {
       "type": "integer",

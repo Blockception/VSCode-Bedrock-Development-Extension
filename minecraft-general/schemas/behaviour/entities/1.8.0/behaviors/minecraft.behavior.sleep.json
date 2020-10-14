@@ -20,10 +20,10 @@
       "title": "Cooldown time"
     },
     "goal_radius": {
-        "type": "number",
-        "default": 0,
-        "description": "UNDOCUMANTED",
-        "title": "UNDOCUMANTED"
+      "type": "number",
+      "default": 0,
+      "description": "UNDOCUMANTED",
+      "title": "UNDOCUMANTED"
     },
     "sleep_collider_height": {
       "type": "number",

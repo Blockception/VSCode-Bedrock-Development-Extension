@@ -29,7 +29,14 @@
               "type": "string",
               "title": "Population control",
               "description": "TODO",
-              "enum": ["ambient", "animal", "water_animal", "monster", "cat", "pillager"]
+              "enum": [
+                "ambient",
+                "animal",
+                "water_animal",
+                "monster",
+                "cat",
+                "pillager"
+              ]
             }
           }
         },
@@ -43,21 +50,49 @@
             "title": "Condition",
             "description": "TODO",
             "properties": {
-              "minecraft:biome_filter": { "$ref": "./components/minecraft.biome_filter.json" },
-              "minecraft:brightness_filter": { "$ref": "./components/minecraft.brightness_filter.json" },
-              "minecraft:density_limit": { "$ref": "./components/minecraft.density_limit.json" },
-              "minecraft:difficulty_filter": { "$ref": "./components/minecraft.difficulty_filter.json" },
-              "minecraft:distance_filter": { "$ref": "./components/minecraft.distance_filter.json" },
-              "minecraft:height_filter": { "$ref": "./components/minecraft.height_filter.json" },
+              "minecraft:biome_filter": {
+                "$ref": "./components/minecraft.biome_filter.json"
+              },
+              "minecraft:brightness_filter": {
+                "$ref": "./components/minecraft.brightness_filter.json"
+              },
+              "minecraft:density_limit": {
+                "$ref": "./components/minecraft.density_limit.json"
+              },
+              "minecraft:difficulty_filter": {
+                "$ref": "./components/minecraft.difficulty_filter.json"
+              },
+              "minecraft:distance_filter": {
+                "$ref": "./components/minecraft.distance_filter.json"
+              },
+              "minecraft:height_filter": {
+                "$ref": "./components/minecraft.height_filter.json"
+              },
               "minecraft:herd": { "$ref": "./components/minecraft.herd.json" },
-              "minecraft:permute_type": { "$ref": "./components/minecraft.permute_type.json" },
-              "minecraft:spawn_event": { "$ref": "./components/minecraft.spawn_event.json" },
-              "minecraft:spawns_on_block_filter": { "$ref": "./components/minecraft.spawns_on_block_filter.json" },
-              "minecraft:spawns_on_block_prevented_filter": { "$ref": "./components/minecraft.spawns_on_block_prevented_filter.json" },
-              "minecraft:spawns_on_surface": { "$ref": "./components/minecraft.spawns_on_surface.json" },
-              "minecraft:spawns_underground": { "$ref": "./components/minecraft.spawns_underground.json" },
-              "minecraft:spawns_underwater": { "$ref": "./components/minecraft.spawns_underwater.json" },
-              "minecraft:weight": { "$ref": "./components/minecraft.weight.json" }
+              "minecraft:permute_type": {
+                "$ref": "./components/minecraft.permute_type.json"
+              },
+              "minecraft:spawn_event": {
+                "$ref": "./components/minecraft.spawn_event.json"
+              },
+              "minecraft:spawns_on_block_filter": {
+                "$ref": "./components/minecraft.spawns_on_block_filter.json"
+              },
+              "minecraft:spawns_on_block_prevented_filter": {
+                "$ref": "./components/minecraft.spawns_on_block_prevented_filter.json"
+              },
+              "minecraft:spawns_on_surface": {
+                "$ref": "./components/minecraft.spawns_on_surface.json"
+              },
+              "minecraft:spawns_underground": {
+                "$ref": "./components/minecraft.spawns_underground.json"
+              },
+              "minecraft:spawns_underwater": {
+                "$ref": "./components/minecraft.spawns_underwater.json"
+              },
+              "minecraft:weight": {
+                "$ref": "./components/minecraft.weight.json"
+              }
             }
           }
         }

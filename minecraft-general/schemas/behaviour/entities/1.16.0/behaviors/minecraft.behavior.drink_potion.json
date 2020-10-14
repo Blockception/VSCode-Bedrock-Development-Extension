@@ -22,11 +22,7 @@
       "type": "array",
       "description": "A list of potions that this entity can drink.",
       "items": {
-        "required": [
-          "id",
-          "chance",
-          "filters"
-        ],
+        "required": ["id", "chance", "filters"],
         "additionalProperties": false,
         "properties": {
           "id": {

@@ -56,7 +56,11 @@
               "description": "Tells minecraft to run which animation controllers and under what conditions",
               "items": {
                 "oneOf": [
-                  { "type": "string", "title": "Animation", "description": "The name of an animation controller referenced in animations" },
+                  {
+                    "type": "string",
+                    "title": "Animation",
+                    "description": "The name of an animation controller referenced in animations"
+                  },
                   {
                     "type": "object",
                     "title": "Conditional Animation",

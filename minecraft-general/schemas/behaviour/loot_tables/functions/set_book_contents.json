@@ -1,1 +1,23 @@
-{"$schema":"http://json-schema.org/draft-07/schema","$id":"blockception.minecraft.behaviour.loot_tables.set_book_contents","additionalProperties":false,"description":"The function set_book_contents","title":"Set_book_contents","required":["function","author","title","pages"],"properties":{"function":{"type":"string","const":"set_book_contents"},"author":{"type":"string"},"title":{"type":"string"},"pages":{"type":"array","items":{"type":"string","examples":["Some text","{\"rawtext\":[ {\"translate\":\"some.text\"}]}"]}}}}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.behaviour.loot_tables.set_book_contents",
+  "additionalProperties": false,
+  "description": "The function set_book_contents",
+  "title": "Set_book_contents",
+  "required": ["function", "author", "title", "pages"],
+  "properties": {
+    "function": { "type": "string", "const": "set_book_contents" },
+    "author": { "type": "string" },
+    "title": { "type": "string" },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "examples": [
+          "Some text",
+          "{\"rawtext\":[ {\"translate\":\"some.text\"}]}"
+        ]
+      }
+    }
+  }
+}

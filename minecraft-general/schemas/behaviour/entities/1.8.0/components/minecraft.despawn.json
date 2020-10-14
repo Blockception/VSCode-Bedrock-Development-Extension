@@ -25,9 +25,9 @@
       "title": "Despawn from inactivity"
     },
     "despawn_from_distance": {
-        "type": "object",
-        "description": "UNDOCUMENTATED",
-        "title": "UNDOCUMENTATED"
+      "type": "object",
+      "description": "UNDOCUMENTATED",
+      "title": "UNDOCUMENTATED"
     },
     "despawn_from_simulation_edge": {
       "type": "boolean",

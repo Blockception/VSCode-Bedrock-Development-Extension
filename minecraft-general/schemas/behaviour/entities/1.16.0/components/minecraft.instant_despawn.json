@@ -5,7 +5,7 @@
   "title": "instant_despawn 1.16.0",
   "description": "Despawns the Actor immediately.",
   "additionalProperties": false,
-  "properties": { 
+  "properties": {
     "remove_child_entities": {
       "type": "boolean",
       "default": false,

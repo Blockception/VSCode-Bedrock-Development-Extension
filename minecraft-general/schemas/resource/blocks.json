@@ -51,7 +51,11 @@
   "properties": {
     "format_version": {
       "type": "array",
-      "items": [{ "type": "integer" }, { "type": "integer" }, { "type": "integer" }]
+      "items": [
+        { "type": "integer" },
+        { "type": "integer" },
+        { "type": "integer" }
+      ]
     }
   },
   "additionalProperties": {

@@ -1,19 +1,16 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema",
-	"$id": "blockception.minecraft.resource.animation_controller1.8.0",
-	"type": "object",
-	"title": "The minecraft resourcepack animation_controller 1.8.0",
-	"description": "TODO description",
-	"required": [
-		"format_version",
-		"animation_controllers"
-	],
-	"properties": {
-		"format_version": {
-			"title": "The 1.8.0 format_version",
-			"type": "string",
-			"pattern": "^1.8.0$",
-			"description": "TODO description: format version"
-		}
-	}
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "blockception.minecraft.resource.animation_controller1.8.0",
+  "type": "object",
+  "title": "The minecraft resourcepack animation_controller 1.8.0",
+  "description": "TODO description",
+  "required": ["format_version", "animation_controllers"],
+  "properties": {
+    "format_version": {
+      "title": "The 1.8.0 format_version",
+      "type": "string",
+      "pattern": "^1.8.0$",
+      "description": "TODO description: format version"
+    }
+  }
 }

@@ -25,10 +25,10 @@
       "title": "Can pickup to hand or equipment"
     },
     "cooldown_after_being_attacked": {
-        "type": "number",
-        "default": true,
-        "description": "UNDOCUMENTATED",
-        "title": "UNDOCUMENTATED"
+      "type": "number",
+      "default": true,
+      "description": "UNDOCUMENTATED",
+      "title": "UNDOCUMENTATED"
     },
     "goal_radius": {
       "type": "number",

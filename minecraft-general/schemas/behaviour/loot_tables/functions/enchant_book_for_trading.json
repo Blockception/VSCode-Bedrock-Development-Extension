@@ -25,11 +25,11 @@
       "type": "integer",
       "title": "Base cost"
     },
-    "per_level_random_cost":{
+    "per_level_random_cost": {
       "type": "integer",
       "title": "Base cost"
     },
-    "per_level_cost":{
+    "per_level_cost": {
       "type": "integer",
       "title": "Base cost"
     }

@@ -7,7 +7,11 @@
       "else": { "$ref": "sound_definitions_unknown.json" }
     },
     {
-      "if": { "properties": { "format_version": { "type": "string", "const": "1.14.0" } } },
+      "if": {
+        "properties": {
+          "format_version": { "type": "string", "const": "1.14.0" }
+        }
+      },
       "then": { "$ref": "1.14.0/sound_definitions.json" }
     }
   ]

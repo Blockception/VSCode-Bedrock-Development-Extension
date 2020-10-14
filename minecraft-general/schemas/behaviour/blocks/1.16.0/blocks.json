@@ -43,7 +43,7 @@
               "default": false,
               "description": "Whether or not to register this block to the creative inventory menu.",
               "title": "register to creative menu"
-            }        
+            }
           }
         },
         "components": {

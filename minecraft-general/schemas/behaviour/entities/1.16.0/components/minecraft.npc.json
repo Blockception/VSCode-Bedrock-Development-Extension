@@ -9,9 +9,9 @@
     "rangeXYZ": {
       "type": "array",
       "items": [
-        {"type": "number", "title": "X"},
-        {"type": "number", "title": "Y"},
-        {"type": "number", "title": "Z"}
+        { "type": "number", "title": "X" },
+        { "type": "number", "title": "Y" },
+        { "type": "number", "title": "Z" }
       ]
     }
   },

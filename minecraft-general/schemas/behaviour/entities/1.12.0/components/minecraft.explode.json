@@ -54,8 +54,16 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "range_min": { "type": "number", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" },
-            "range_max": { "type": "number", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" }
+            "range_min": {
+              "type": "number",
+              "description": "UNDOCUMENTATED",
+              "title": "UNDOCUMENTATED"
+            },
+            "range_max": {
+              "type": "number",
+              "description": "UNDOCUMENTATED",
+              "title": "UNDOCUMENTATED"
+            }
           }
         }
       ]

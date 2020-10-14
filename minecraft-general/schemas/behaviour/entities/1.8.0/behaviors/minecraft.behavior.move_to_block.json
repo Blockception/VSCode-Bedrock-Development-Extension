@@ -44,17 +44,17 @@
       "title": "Target selection method",
       "description": "UNDOCUMENTATED"
     },
-    "target_offset":  {
+    "target_offset": {
       "type": "array",
       "title": "Target offset",
       "description": "UNDOCUMENTATED",
       "items": [
-        { "type": "number"},
-        { "type": "number"},
-        { "type": "number"}
+        { "type": "number" },
+        { "type": "number" },
+        { "type": "number" }
       ]
     },
-    "target_blocks":  {
+    "target_blocks": {
       "type": "array",
       "title": "Target blocks",
       "description": "UNDOCUMENTATED",

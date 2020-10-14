@@ -34,8 +34,16 @@
         "title": "UNDOCUMENTATED",
         "description": "UNDOCUMENTATED",
         "properties": {
-          "eat_block": { "type": "string", "title": "UNDOCUMENTATED", "description": "UNDOCUMENTATED" },
-          "replace_block": { "type": "string", "title": "UNDOCUMENTATED", "description": "UNDOCUMENTATED" }
+          "eat_block": {
+            "type": "string",
+            "title": "UNDOCUMENTATED",
+            "description": "UNDOCUMENTATED"
+          },
+          "replace_block": {
+            "type": "string",
+            "title": "UNDOCUMENTATED",
+            "description": "UNDOCUMENTATED"
+          }
         }
       }
     }
