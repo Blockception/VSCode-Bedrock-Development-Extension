@@ -5,5 +5,5 @@
   "type": "string",
   "description": "The subject of this filter test.",
   "default": "self",
-  "enum": ["block", "other", "parent", "player", "self", "target"]
+  "enum": ["block", "other", "parent", "player", "self", "target", "damager"]
 }
