@@ -90,8 +90,7 @@
     "on_failed": {
       "$ref": "../types/event.json",
       "title": "On failed",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   }
 }

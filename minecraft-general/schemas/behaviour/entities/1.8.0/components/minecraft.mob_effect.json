@@ -30,8 +30,7 @@
     "entity_filter": {
       "$ref": "../filters.json",
       "title": "Entity filter",
-      "description": "TODO",
-      "additionalProperties": false
+      "description": "TODO"
     }
   }
 }

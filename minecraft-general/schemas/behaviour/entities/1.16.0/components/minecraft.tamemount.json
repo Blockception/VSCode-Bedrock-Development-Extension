@@ -106,8 +106,7 @@
     "tame_event": {
       "$ref": "../types/event.json",
       "description": "Event that triggers when the entity becomes tamed",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

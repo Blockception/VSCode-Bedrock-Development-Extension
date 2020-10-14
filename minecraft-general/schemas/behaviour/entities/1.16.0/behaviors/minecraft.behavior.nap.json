@@ -49,14 +49,12 @@
     "can_nap_filters": {
       "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
-      "title": "Can nap filters",
-      "additionalProperties": false
+      "title": "Can nap filters"
     },
     "wake_mob_exceptions": {
       "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
-      "title": "Wake mob exceptions",
-      "additionalProperties": false
+      "title": "Wake mob exceptions"
     }
   }
 }

@@ -31,14 +31,12 @@
     "on_activate": {
       "$ref": "../types/event.json",
       "description": "Event to call when the rail is activated",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "on_deactivate": {
       "$ref": "../types/event.json",
       "description": "Event to call when the rail is deactivated",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "tick_command_block_on_activate": {
       "type": "boolean",

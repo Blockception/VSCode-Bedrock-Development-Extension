@@ -87,14 +87,12 @@
     "vanilla": {
       "$ref": "#/definitions/commands",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "edu": {
       "$ref": "#/definitions/commands",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   },
   "description": "TODO description"

@@ -10,14 +10,12 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "$ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "cooldown_time": {
       "type": "number",
@@ -76,8 +74,7 @@
     "on_attack": {
       "$ref": "../types/event.json",
       "title": "On attack",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   }
 }

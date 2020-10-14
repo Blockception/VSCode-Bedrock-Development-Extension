@@ -30,14 +30,12 @@
     "on_leash": {
       "$ref": "../types/event.json",
       "description": "Event to call when this entity is leashed.",
-      "title": "On_leash",
-      "additionalProperties": false
+      "title": "On_leash"
     },
     "on_unleash": {
       "$ref": "../types/event.json",
       "description": "Event to call when this entity is unleashed.",
-      "title": "On_unleash",
-      "additionalProperties": false
+      "title": "On_unleash"
     },
     "soft_distance": {
       "type": "number",

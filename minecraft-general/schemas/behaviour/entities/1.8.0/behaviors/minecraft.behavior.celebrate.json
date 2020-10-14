@@ -54,8 +54,7 @@
     "on_celebration_end_event": {
       "$ref": "../types/trigger.json",
       "description": "The event to trigger when the goal's duration expires.",
-      "title": "On celebration end event",
-      "additionalProperties": false
+      "title": "On celebration end event"
     },
     "sound_interval": {
       "type": "array",

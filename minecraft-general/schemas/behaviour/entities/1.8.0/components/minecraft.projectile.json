@@ -38,8 +38,7 @@
     "filter": {
       "$ref": "../filters.json",
       "description": "Entity Definitions defined here can't be hurt by the projectile",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "fireAffectedByGriefing": {
       "type": "boolean",
@@ -115,8 +114,7 @@
       "$ref": "../../../../general/array_3_number.json",
       "default": [0.0, 0.5, 0.0],
       "description": "The offset from the entity's anchor where the projectile will spawn",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "onFireTime": {
       "type": "number",

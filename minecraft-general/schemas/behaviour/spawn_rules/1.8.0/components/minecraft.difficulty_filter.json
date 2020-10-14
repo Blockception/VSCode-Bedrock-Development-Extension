@@ -15,14 +15,12 @@
     "min": {
       "$ref": "#/definitions/difficulty",
       "description": "TODO",
-      "title": "Min",
-      "additionalProperties": false
+      "title": "Min"
     },
     "max": {
       "$ref": "#/definitions/difficulty",
       "description": "TODO",
-      "title": "Max",
-      "additionalProperties": false
+      "title": "Max"
     }
   }
 }

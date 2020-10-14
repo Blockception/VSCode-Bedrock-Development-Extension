@@ -10,8 +10,7 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "max_dist": {
       "type": "number",
@@ -58,8 +57,7 @@
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "description": "TODO description: entity types",
-      "title": "Entity Types",
-      "additionalProperties": false
+      "title": "Entity Types"
     },
     "avoid_mob_sound": {
       "title": "Avoid mob sound",
@@ -76,8 +74,7 @@
     "on_escape_event": {
       "$ref": "../types/event.json",
       "title": "On escape event",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "sound_interval": {
       "default": 0,

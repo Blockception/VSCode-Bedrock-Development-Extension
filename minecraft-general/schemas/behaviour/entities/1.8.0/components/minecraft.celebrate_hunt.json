@@ -16,8 +16,7 @@
     "celeberation_targets": {
       "$ref": "../filters.json",
       "description": "The list of conditions that target of hunt must satisfy to initiate celebration.",
-      "title": "Celeberation targets",
-      "additionalProperties": false
+      "title": "Celeberation targets"
     },
     "celebrate_sound": {
       "type": "string",

@@ -10,8 +10,7 @@
     "damage": {
       "description": "Range of the random amount of damage the melee attack deals. A negative value can heal the entity instead of hurting it",
       "$ref": "../types/range_number_type.json",
-      "title": "Damage",
-      "additionalProperties": false
+      "title": "Damage"
     },
     "effect_name": {
       "type": "string",

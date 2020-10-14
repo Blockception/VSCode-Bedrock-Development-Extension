@@ -29,8 +29,7 @@
       "$ref": "../types/range_number_type.json",
       "default": [10.0, 20.0],
       "description": "Range of time in seconds between uses of this goal.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

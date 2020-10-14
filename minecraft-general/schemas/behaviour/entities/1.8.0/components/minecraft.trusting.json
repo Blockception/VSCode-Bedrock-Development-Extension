@@ -17,8 +17,7 @@
     "trust_event": {
       "$ref": "../types/event.json",
       "description": "Event to run when this entity becomes trusting",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "trust_items": {
       "type": "array",

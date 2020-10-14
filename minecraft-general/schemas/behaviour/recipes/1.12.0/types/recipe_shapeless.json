@@ -10,14 +10,12 @@
     "description": {
       "$ref": "./base types/definition.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "tags": {
       "$ref": "./base types/tags.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "ingredients": {
       "description": "items used as input (without a shape) for the recipe.",

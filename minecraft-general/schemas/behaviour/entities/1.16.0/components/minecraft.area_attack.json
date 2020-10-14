@@ -23,8 +23,7 @@
     "entity_filter": {
       "$ref": "../filters.json",
       "description": "entity_filter",
-      "title": "Minecraft Filter",
-      "additionalProperties": false
+      "title": "Minecraft Filter"
     },
     "cause": {
       "type": "string",

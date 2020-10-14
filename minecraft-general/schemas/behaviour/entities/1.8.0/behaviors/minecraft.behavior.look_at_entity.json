@@ -10,8 +10,7 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "look_distance": {
       "type": "number",
@@ -31,8 +30,7 @@
       "$ref": "../types/range_number_type.json",
       "default": [2, 4],
       "description": "Time range to look at the entity",
-      "title": "Look Time",
-      "additionalProperties": false
+      "title": "Look Time"
     },
     "angle_of_view_vertical": {
       "type": "integer",
@@ -51,8 +49,7 @@
     "filters": {
       "description": "Filter to determine the conditions for this mob to look at the entity",
       "$ref": "../filters.json",
-      "title": "Filters",
-      "additionalProperties": false
+      "title": "Filters"
     }
   }
 }

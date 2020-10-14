@@ -10,14 +10,12 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "description": "TODO description: entity types",
-      "title": "Entity Types",
-      "additionalProperties": false
+      "title": "Entity Types"
     },
     "alert_same_type": {
       "type": "boolean",

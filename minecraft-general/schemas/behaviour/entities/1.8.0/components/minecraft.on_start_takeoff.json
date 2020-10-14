@@ -16,16 +16,14 @@
     "filters": {
       "$ref": "../filters.json",
       "description": "The list of conditions for this trigger",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "target": {
       "type": "string",
       "$ref": "../filters/types/base_subject.json",
       "default": "self",
       "description": "The target of the event",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

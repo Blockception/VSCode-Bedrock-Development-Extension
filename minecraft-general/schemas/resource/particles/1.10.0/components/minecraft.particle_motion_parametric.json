@@ -21,8 +21,7 @@
     "rotation": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: rotation",
-      "title": "Rotation",
-      "additionalProperties": false
+      "title": "Rotation"
     }
   },
   "description": "TODO description: "

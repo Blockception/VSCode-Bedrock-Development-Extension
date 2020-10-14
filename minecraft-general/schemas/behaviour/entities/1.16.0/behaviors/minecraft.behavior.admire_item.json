@@ -22,14 +22,12 @@
     "on_admire_item_start": {
       "$ref": "../types/event.json",
       "title": "On admire item start",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "on_admire_item_stop": {
       "$ref": "../types/event.json",
       "title": "On admire item stop",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "sound_interval": {
       "default": 0,

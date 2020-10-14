@@ -10,20 +10,17 @@
     "on_close": {
       "$ref": "../types/event.json",
       "description": "Event to call when the entity is done peeking",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "on_open": {
       "$ref": "../types/event.json",
       "description": "Event to call when the entity starts peeking",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "on_target_open": {
       "$ref": "../types/event.json",
       "description": "Event to call when the entity's target entity starts peeking",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

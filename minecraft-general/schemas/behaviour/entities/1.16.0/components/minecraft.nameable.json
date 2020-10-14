@@ -45,8 +45,7 @@
     "default_trigger": {
       "$ref": "../types/trigger.json",
       "description": "Trigger to run when the entity gets named",
-      "title": "Default trigger",
-      "additionalProperties": false
+      "title": "Default trigger"
     },
     "name_actions": {
       "oneOf": [

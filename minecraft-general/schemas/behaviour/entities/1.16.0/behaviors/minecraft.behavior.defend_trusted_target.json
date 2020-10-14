@@ -43,8 +43,7 @@
     "on_defend_start": {
       "$ref": "../types/event.json",
       "title": "On defend start",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "within_radius": {
       "type": "number",

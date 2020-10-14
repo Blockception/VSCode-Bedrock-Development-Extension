@@ -8,8 +8,7 @@
     "num_particles": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: num particles",
-      "title": "Num Particles",
-      "additionalProperties": false
+      "title": "Num Particles"
     }
   },
   "description": "TODO description: "

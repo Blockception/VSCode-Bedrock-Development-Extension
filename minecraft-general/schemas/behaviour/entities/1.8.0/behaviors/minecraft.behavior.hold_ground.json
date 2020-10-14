@@ -36,8 +36,7 @@
     "within_radius_event": {
       "$ref": "../types/event.json",
       "description": "Event to run when target is within the radius. This event is broadcasted if broadcast is true.",
-      "title": "Within radius event",
-      "additionalProperties": false
+      "title": "Within radius event"
     }
   }
 }

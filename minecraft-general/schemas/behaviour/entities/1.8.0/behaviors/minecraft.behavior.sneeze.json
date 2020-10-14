@@ -10,8 +10,7 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "cooldown_time": {
       "type": "number",
@@ -30,8 +29,7 @@
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "description": "List of entity types this mob will startle (cause to jump) when it sneezes.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "loot_table": {
       "type": "string",

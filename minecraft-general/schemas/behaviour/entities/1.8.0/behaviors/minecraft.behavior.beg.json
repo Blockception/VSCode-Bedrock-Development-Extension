@@ -10,8 +10,7 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "items": {
       "type": "array",
@@ -35,8 +34,7 @@
       "description": "The range of time in seconds this mob will stare at the player holding a food they like, begging for it",
       "$ref": "../types/range_number_type.json",
       "default": [2, 4],
-      "title": "Look Time",
-      "additionalProperties": false
+      "title": "Look Time"
     }
   }
 }

@@ -19,8 +19,7 @@
     "tame_event": {
       "title": "Tame Event",
       "$ref": "../types/event.json",
-      "description": "Event to run when this entity becomes tamed",
-      "additionalProperties": false
+      "description": "Event to run when this entity becomes tamed"
     },
     "tame_items": {
       "title": "Tame Items",

@@ -15,14 +15,12 @@
     "operator": {
       "$ref": "types/base_operator.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "subject": {
       "$ref": "types/base_subject.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "value": {
       "title": "Value",

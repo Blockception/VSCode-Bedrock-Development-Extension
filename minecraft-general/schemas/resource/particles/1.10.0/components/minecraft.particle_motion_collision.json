@@ -26,8 +26,7 @@
     "enabled": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: enabled",
-      "title": "Enabled",
-      "additionalProperties": false
+      "title": "Enabled"
     },
     "expire_on_contact": {
       "type": "boolean",

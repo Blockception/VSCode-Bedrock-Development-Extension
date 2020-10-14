@@ -45,62 +45,52 @@
     "creative": {
       "$ref": "#/definitions/music",
       "description": "TODO description: creative",
-      "title": "Creative",
-      "additionalProperties": false
+      "title": "Creative"
     },
     "credits": {
       "$ref": "#/definitions/music",
       "description": "TODO description: credits",
-      "title": "Credits",
-      "additionalProperties": false
+      "title": "Credits"
     },
     "end": {
       "$ref": "#/definitions/music",
       "description": "TODO description: end",
-      "title": "End",
-      "additionalProperties": false
+      "title": "End"
     },
     "endboss": {
       "$ref": "#/definitions/music",
       "description": "TODO description: endboss",
-      "title": "Endboss",
-      "additionalProperties": false
+      "title": "Endboss"
     },
     "game": {
       "$ref": "#/definitions/music",
       "description": "TODO description: game",
-      "title": "Game",
-      "additionalProperties": false
+      "title": "Game"
     },
     "hell": {
       "$ref": "#/definitions/music",
       "description": "TODO description: hell",
-      "title": "Hell",
-      "additionalProperties": false
+      "title": "Hell"
     },
     "menu": {
       "$ref": "#/definitions/music",
       "description": "TODO description: menu",
-      "title": "Menu",
-      "additionalProperties": false
+      "title": "Menu"
     },
     "nether": {
       "$ref": "#/definitions/music",
       "description": "TODO description: nether",
-      "title": "Nether",
-      "additionalProperties": false
+      "title": "Nether"
     },
     "soulsand_valley": {
       "$ref": "#/definitions/music",
       "description": "TODO description: soulsand_valley",
-      "title": "Soulsand Valley",
-      "additionalProperties": false
+      "title": "Soulsand Valley"
     },
     "water": {
       "$ref": "#/definitions/music",
       "description": "TODO description: water",
-      "title": "Water",
-      "additionalProperties": false
+      "title": "Water"
     }
   }
 }

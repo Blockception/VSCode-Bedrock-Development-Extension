@@ -9,14 +9,12 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "$ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "active_time": {
       "type": "integer",
@@ -42,8 +40,7 @@
     "on_arrival": {
       "$ref": "../types/event.json",
       "description": "Event to run when the mob reaches their jobsite and finishes working.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "sound_delay_max": {
       "type": "integer",

@@ -8,14 +8,12 @@
     "max_particles": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: max particles",
-      "title": "Max Particles",
-      "additionalProperties": false
+      "title": "Max Particles"
     },
     "spawn_rate": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: spawn rate",
-      "title": "Spawn Rate",
-      "additionalProperties": false
+      "title": "Spawn Rate"
     }
   },
   "description": "TODO description: "

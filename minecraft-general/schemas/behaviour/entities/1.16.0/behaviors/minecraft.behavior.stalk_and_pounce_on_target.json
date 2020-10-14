@@ -85,8 +85,7 @@
     "stuck_blocks": {
       "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
-      "title": "Stuck block",
-      "additionalProperties": false
+      "title": "Stuck block"
     }
   }
 }

@@ -9,20 +9,17 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "$ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "drop_item_chance": {
       "type": "number",
@@ -60,8 +57,7 @@
     "on_drop_attempt": {
       "$ref": "../types/event.json",
       "description": "Event to run when this mob attempts to drop an item.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "search_height": {
       "type": "integer",
@@ -81,8 +77,7 @@
       "$ref": "../types/range_number_type.json",
       "default": [0.0, 1.0],
       "description": "The valid times of day that this goal can be used. For reference: noon is 0.0, sunset is 0.25, midnight is 0.5, and sunrise is 0.75, and back to noon for 1.0.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

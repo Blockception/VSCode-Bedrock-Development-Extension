@@ -10,14 +10,12 @@
     "sit_event": {
       "$ref": "../types/event.json",
       "description": "Event to run when the entity enters the 'sit' state",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "stand_event": {
       "$ref": "../types/event.json",
       "description": "Event to run when the entity exits the 'sit' state",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -22,8 +22,7 @@
     "on_eat": {
       "$ref": "../types/trigger.json",
       "description": "TODO description: on eat",
-      "title": "On Eat",
-      "additionalProperties": false
+      "title": "On Eat"
     },
     "explore_dist": {
       "type": "number",

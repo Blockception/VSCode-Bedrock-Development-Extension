@@ -70,8 +70,7 @@
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "title": "Entity types",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   }
 }

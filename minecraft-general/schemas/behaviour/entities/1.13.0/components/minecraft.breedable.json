@@ -161,8 +161,7 @@
     "love_filters": {
       "$ref": "../filters.json",
       "description": "The filters to run when attempting to fall in love.",
-      "title": "Love Filters",
-      "additionalProperties": false
+      "title": "Love Filters"
     },
     "mutation_factor": {
       "type": "object",

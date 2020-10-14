@@ -10,8 +10,7 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "attack_time": {
       "type": "number",
@@ -58,26 +57,22 @@
     "Trigger": {
       "$ref": "../types/trigger.json",
       "description": "on_roar_end",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "knockback_filters": {
       "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "title": "UNDOCUMENTATED"
     },
     "damage_filters": {
       "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "title": "UNDOCUMENTATED"
     },
     "on_roar_end": {
       "$ref": "../types/event.json",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "title": "UNDOCUMENTATED"
     }
   }
 }

@@ -10,8 +10,7 @@
     "value": {
       "$ref": "../types/range_number_type.json",
       "description": "TODO",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "max": {
       "type": "integer",

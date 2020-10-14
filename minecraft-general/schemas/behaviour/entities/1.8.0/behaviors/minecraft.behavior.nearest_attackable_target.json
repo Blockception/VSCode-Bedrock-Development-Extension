@@ -10,14 +10,12 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "entity_types": {
       "description": "List of entity types that this mob considers valid targets",
       "$ref": "../types/entity_types.json",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "attack_interval": {
       "type": "integer",

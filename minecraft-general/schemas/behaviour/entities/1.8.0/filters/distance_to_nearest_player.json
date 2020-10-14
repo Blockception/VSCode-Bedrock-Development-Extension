@@ -16,14 +16,12 @@
     "operator": {
       "$ref": "types/base_operator.json",
       "description": "(Optional) The comparison to apply with 'value'.",
-      "title": "Operator",
-      "additionalProperties": false
+      "title": "Operator"
     },
     "subject": {
       "$ref": "types/base_subject.json",
       "description": "(Optional) The subject of this filter test.",
-      "title": "Subject",
-      "additionalProperties": false
+      "title": "Subject"
     },
     "value": {
       "type": "number",

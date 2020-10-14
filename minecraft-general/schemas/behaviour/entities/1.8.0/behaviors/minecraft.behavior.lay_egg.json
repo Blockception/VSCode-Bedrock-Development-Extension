@@ -29,8 +29,7 @@
     "on_lay": {
       "$ref": "../types/event.json",
       "description": "Event to run when this mob lays the egg.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "search_height": {
       "type": "integer",

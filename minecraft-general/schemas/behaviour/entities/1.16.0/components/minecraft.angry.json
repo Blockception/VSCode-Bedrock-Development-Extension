@@ -17,14 +17,12 @@
     "broadcast_filters": {
       "$ref": "../filters.json",
       "description": "Conditions that make this entry in the list valid",
-      "title": "Broadcast Filters",
-      "additionalProperties": false
+      "title": "Broadcast Filters"
     },
     "filters": {
       "$ref": "../filters.json",
       "description": "Filter out mob types that it should not attack while angry (other Piglins)",
-      "title": "Filters",
-      "additionalProperties": false
+      "title": "Filters"
     },
     "broadcast_range": {
       "type": "integer",
@@ -48,8 +46,7 @@
     "calm_event": {
       "$ref": "../types/event.json",
       "description": "Event to run after the number of seconds specified in duration expires (when the entity stops being 'angry')",
-      "title": "Calm event",
-      "additionalProperties": false
+      "title": "Calm event"
     },
     "angry_sound": {
       "type": "string",

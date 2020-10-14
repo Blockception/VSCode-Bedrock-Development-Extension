@@ -37,8 +37,7 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "cast_duration": {
       "type": "number",
@@ -105,8 +104,7 @@
     "sequence": {
       "$ref": "#/definitions/sequence",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

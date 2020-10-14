@@ -10,8 +10,7 @@
     "priority": {
       "$ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "type": "number",
@@ -24,8 +23,7 @@
       "$ref": "../types/range_number_type.json",
       "default": [5.0, 15.0],
       "description": "Range of radius in blocks of the circle to move around.",
-      "title": "Radius Range",
-      "additionalProperties": false
+      "title": "Radius Range"
     },
     "radius_change_chance": {
       "type": "integer",
@@ -38,15 +36,13 @@
       "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "When the mob finds a target, the range of height in blocks above the target to start the anchor point.",
-      "title": "Height Above Target Range",
-      "additionalProperties": false
+      "title": "Height Above Target Range"
     },
     "height_offset_range": {
       "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "The range of height in blocks offset the mob can have from it's anchor point.",
-      "title": "Height Offset Range",
-      "additionalProperties": false
+      "title": "Height Offset Range"
     },
     "height_change_chance": {
       "type": "integer",

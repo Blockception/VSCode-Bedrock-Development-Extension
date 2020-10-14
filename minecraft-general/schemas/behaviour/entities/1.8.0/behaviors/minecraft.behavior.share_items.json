@@ -22,8 +22,7 @@
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "description": "List of entities this mob will share items with",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "goal_radius": {
       "type": "number",

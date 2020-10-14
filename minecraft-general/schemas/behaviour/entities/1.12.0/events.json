@@ -63,24 +63,30 @@
       }
     }
   },
-  "propertyNames": {
-    "minecraft:entity_born": {
+  "properties": {
+    "minecraft:entity_transformed": {
+      "description": "Event called on an entity that transforms into another entity.",
       "$ref": "#/definitions/event_base",
-      "description": "Event called on an entity that is spawned through two entities breeding."
+      "title": "entity Transformed"
+    },
+    "minecraft:minecraft:entity_born": {
+      "description": "Event called on an entity that is spawned through two entities breeding.",
+      "$ref": "#/definitions/event_base",
+      "title": "minecraft:entity Born"
     },
     "minecraft:entity_spawned": {
+      "description": "Event called on an entity that is placed in the level.",
       "$ref": "#/definitions/event_base",
-      "description": "Event called on an entity that is placed in the level."
-    },
-    "minecraft:entity_transformed": {
-      "$ref": "#/definitions/event_base",
-      "description": "Event called on an entity that transforms into another entity."
+      "title": "entity Spawned"
     },
     "minecraft:on_prime": {
+      "description": "Event called on an entity whose fuse is lit and is ready to explode.",
       "$ref": "#/definitions/event_base",
-      "description": "Event called on an entity whose fuse is lit and is ready to explode."
+      "title": "on Prime"
     }
   },
-  "additionalProperties": { "$ref": "#/definitions/event_base" },
+  "additionalProperties": {
+    "$ref": "#/definitions/event_base"
+  },
   "description": "TODO description: "
 }

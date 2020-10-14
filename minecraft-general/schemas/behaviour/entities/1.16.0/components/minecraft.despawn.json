@@ -50,8 +50,7 @@
     "filters": {
       "$ref": "../filters.json",
       "description": "The list of conditions that must be satisfied before the Actor is despawned. If a filter is defined then standard despawn rules are ignored.",
-      "title": "Filters",
-      "additionalProperties": false
+      "title": "Filters"
     },
     "min_range_inactivity_timer": {
       "type": "integer",
