@@ -6,6 +6,11 @@
   "title": "weight 1.8.0",
   "description": "TODO",
   "properties": {
-    "default": { "type": "integer", "description": "TODO", "title": "Default" }
+    "default": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "Default",
+      "additionalProperties": false
+    }
   }
 }

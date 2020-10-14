@@ -5,7 +5,21 @@
   "description": "The function set_lore",
   "title": "Set_lore",
   "properties": {
-    "function": { "type": "string", "const": "set_lore" },
-    "lore": { "type": "array", "items": { "type": "string" } }
+    "function": {
+      "type": "string",
+      "const": "set_lore",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "lore": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
   }
 }

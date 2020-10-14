@@ -5,7 +5,18 @@
   "description": "The function set_name",
   "title": "Set_name",
   "properties": {
-    "function": { "type": "string", "const": "set_name" },
-    "name": { "type": "string" }
+    "function": {
+      "type": "string",
+      "const": "set_name",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "name": {
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
   }
 }

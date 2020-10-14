@@ -9,9 +9,18 @@
   "properties": {
     "value": {
       "$ref": "../types/range_number_type.json",
-      "description": "TODO"
+      "description": "TODO",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "max": { "type": "integer", "description": "TODO" }
+    "max": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
   },
-  "dependencies": { "max": ["value"] }
+  "dependencies": {
+    "max": ["value"]
+  }
 }

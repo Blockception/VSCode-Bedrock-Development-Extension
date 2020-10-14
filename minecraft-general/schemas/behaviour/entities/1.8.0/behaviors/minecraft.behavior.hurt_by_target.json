@@ -8,24 +8,30 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "description": "TODO description: entity types",
-      "title": "Entity Types"
+      "title": "Entity Types",
+      "additionalProperties": false
     },
     "alert_same_type": {
       "type": "boolean",
       "default": false,
       "description": "If true, nearby mobs of the same type will be alerted about the damage",
-      "title": "Alert Same Type"
+      "title": "Alert Same Type",
+      "additionalProperties": false
     },
     "hurt_owner": {
       "type": "boolean",
       "default": false,
       "description": "If true, the mob will hurt its owner and other mobs with the same owner as itself",
-      "title": "Hurt Owner"
+      "title": "Hurt Owner",
+      "additionalProperties": false
     }
   }
 }

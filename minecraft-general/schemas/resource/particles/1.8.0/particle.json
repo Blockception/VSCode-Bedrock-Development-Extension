@@ -8,7 +8,8 @@
       "type": "string",
       "const": "1.8.0",
       "description": "TODO description: format version",
-      "title": "Format Version"
+      "title": "Format Version",
+      "additionalProperties": false
     },
     "particle_effect": {
       "type": "object",

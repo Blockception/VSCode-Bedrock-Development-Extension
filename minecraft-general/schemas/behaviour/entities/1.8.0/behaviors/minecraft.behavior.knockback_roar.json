@@ -7,37 +7,59 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "attack_time": {
       "type": "number",
       "default": 0.5,
-      "description": "The delay after which the knockback occurs (in seconds)."
+      "description": "The delay after which the knockback occurs (in seconds).",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "cooldown_time": {
       "type": "number",
       "default": 0,
-      "description": "Time in seconds the mob has to wait before using the goal again"
+      "description": "Time in seconds the mob has to wait before using the goal again",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "duration": {
       "type": "number",
       "default": 1,
-      "description": "The duration of the roar (in seconds)."
+      "description": "The duration of the roar (in seconds).",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "knockback_damage": {
       "type": "integer",
       "default": 6,
-      "description": "The damage dealt by the knockback roar."
+      "description": "The damage dealt by the knockback roar.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "knockback_range": {
       "type": "integer",
       "default": 4,
-      "description": "The radius (in blocks) of the knockback effect."
+      "description": "The radius (in blocks) of the knockback effect.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "knockback_strength": {
       "type": "integer",
       "default": 4,
-      "description": "The strength of the knockback."
+      "description": "The strength of the knockback.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "Trigger": { "$ref": "../types/trigger.json", "description": "on_roar_end" }
+    "Trigger": {
+      "$ref": "../types/trigger.json",
+      "description": "on_roar_end",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
   }
 }

@@ -9,7 +9,8 @@
     "value": {
       "type": "number",
       "description": "TODO description: value",
-      "title": "Value"
+      "title": "Value",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

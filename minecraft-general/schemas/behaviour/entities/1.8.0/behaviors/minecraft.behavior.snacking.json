@@ -7,26 +7,39 @@
   "title": "behavior.snacking 1.8.0",
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "items": {
       "type": "array",
       "description": "Items that we are interested in snacking on",
-      "$ref": "../../../../general/items_identifiers.json"
+      "$ref": "../../../../general/items_identifiers.json",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "snacking_cooldown": {
       "type": "number",
       "default": 7.5,
-      "description": "The cooldown time in seconds before the mob is able to snack again"
+      "description": "The cooldown time in seconds before the mob is able to snack again",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "snacking_cooldown_min": {
       "type": "number",
       "default": 0.5,
-      "description": "The minimum time in seconds before the mob is able to snack again"
+      "description": "The minimum time in seconds before the mob is able to snack again",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "snacking_stop_chance": {
       "type": "number",
       "default": 0.0017,
-      "description": "This is the chance that the mob will stop snacking, from 0 to 1"
+      "description": "This is the chance that the mob will stop snacking, from 0 to 1",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

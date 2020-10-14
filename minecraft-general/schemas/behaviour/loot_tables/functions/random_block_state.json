@@ -5,14 +5,32 @@
   "description": "The function random_block_state",
   "title": "Random_block_state",
   "properties": {
-    "function": { "type": "string", "const": "random_block_state" },
-    "block_state": { "type": "string" },
+    "function": {
+      "type": "string",
+      "const": "random_block_state",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "block_state": {
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "values": {
       "type": "object",
       "properties": {
-        "min": { "type": "integer" },
-        "max": { "type": "integer" }
-      }
+        "min": {
+          "type": "integer"
+        },
+        "max": {
+          "type": "integer"
+        }
+      },
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

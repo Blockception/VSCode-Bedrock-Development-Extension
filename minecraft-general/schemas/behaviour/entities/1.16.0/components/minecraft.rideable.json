@@ -42,44 +42,70 @@
     "controlling_seat": {
       "type": "integer",
       "default": 0,
-      "description": "The seat that designates the driver of the entity"
+      "description": "The seat that designates the driver of the entity",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "crouching_skip_interact": {
       "type": "boolean",
       "default": true,
-      "description": "If true, this entity can't be interacted with if the entity interacting with it is crouching"
+      "description": "If true, this entity can't be interacted with if the entity interacting with it is crouching",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "family_types": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "List of entities that can ride this entity"
+      "items": {
+        "type": "string"
+      },
+      "description": "List of entities that can ride this entity",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "interact_text": {
       "type": "string",
       "default": "",
-      "description": "The text to display when the player can interact with the entity when playing with Touch-screen controls"
+      "description": "The text to display when the player can interact with the entity when playing with Touch-screen controls",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "pull_in_entities": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this entity will pull in entities that are in the correct family_types into any available seats"
+      "description": "If true, this entity will pull in entities that are in the correct family_types into any available seats",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "rider_can_interact": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this entity will be picked when looked at by the rider"
+      "description": "If true, this entity will be picked when looked at by the rider",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "seat_count": {
       "type": "integer",
       "default": 1,
-      "description": "The number of entities that can ride this entity at the same time"
+      "description": "The number of entities that can ride this entity at the same time",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "seats": {
       "description": "The list of positions and number of riders for each position for entities riding this entity",
       "oneOf": [
-        { "type": "object", "$ref": "#/definitions/seats_spec" },
-        { "type": "array", "items": { "$ref": "#/definitions/seats_spec" } }
-      ]
+        {
+          "type": "object",
+          "$ref": "#/definitions/seats_spec"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/seats_spec"
+          }
+        }
+      ],
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

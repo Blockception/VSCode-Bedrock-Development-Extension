@@ -8,26 +8,42 @@
     {
       "if": {
         "properties": {
-          "format_version": { "type": "string", "const": "1.8.0" }
+          "format_version": {
+            "type": "string",
+            "const": "1.8.0"
+          }
         }
       },
-      "then": { "$ref": "1.8.0/render_controllers.json" }
+      "then": {
+        "$ref": "1.8.0/render_controllers.json"
+      }
     },
     {
       "if": {
         "properties": {
-          "format_version": { "type": "string", "const": "1.10" }
+          "format_version": {
+            "type": "string",
+            "const": "1.10"
+          }
         }
       },
-      "then": { "$ref": "1.10.0/render_controllers.json" }
+      "then": {
+        "$ref": "1.10.0/render_controllers.json"
+      }
     },
     {
       "if": {
         "properties": {
-          "format_version": { "type": "string", "const": "1.10.0" }
+          "format_version": {
+            "type": "string",
+            "const": "1.10.0"
+          }
         }
       },
-      "then": { "$ref": "1.10.0/render_controllers.json" }
+      "then": {
+        "$ref": "1.10.0/render_controllers.json"
+      }
     }
-  ]
+  ],
+  "additionalProperties": false
 }

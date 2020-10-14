@@ -11,33 +11,45 @@
       "oneOf": [
         {
           "type": "array",
-          "items": { "$ref": "../../../../general/items_identifiers.json" }
+          "items": {
+            "$ref": "../../../../general/items_identifiers.json"
+          }
         },
         {
           "type": "string",
           "$ref": "../../../../general/items_identifiers.json"
         }
-      ]
+      ],
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "duration": {
       "type": "number",
       "default": 1200,
-      "description": "Amount of time before the entity grows up, -1 for always a baby."
+      "description": "Amount of time before the entity grows up, -1 for always a baby.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "feed_items": {
       "description": "List of items that can be fed to the entity. Includes 'item' for the item name and 'growth' to define how much time it grows up by",
       "oneOf": [
         {
           "type": "array",
-          "items": { "$ref": "../../../../general/items_identifiers.json" }
+          "items": {
+            "$ref": "../../../../general/items_identifiers.json"
+          }
         },
         {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "growth": { "type": "number" },
-              "item": { "$ref": "../../../../general/items_identifiers.json" }
+              "growth": {
+                "type": "number"
+              },
+              "item": {
+                "$ref": "../../../../general/items_identifiers.json"
+              }
             }
           }
         },
@@ -45,11 +57,15 @@
           "type": "string",
           "$ref": "../../../../general/items_identifiers.json"
         }
-      ]
+      ],
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "grow_up": {
       "$ref": "../types/event.json",
-      "description": "Event to run when this entity grows up."
+      "description": "Event to run when this entity grows up.",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

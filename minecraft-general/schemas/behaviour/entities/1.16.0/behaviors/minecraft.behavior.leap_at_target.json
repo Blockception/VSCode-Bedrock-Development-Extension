@@ -8,31 +8,38 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "must_be_on_ground": {
       "type": "boolean",
       "default": true,
       "description": "If true, the mob will only jump at its target if its on the ground. Setting it to false will allow it to jump even if its already in the air",
-      "title": "Must_be_on_ground"
+      "title": "Must_be_on_ground",
+      "additionalProperties": false
     },
     "set_persistent": {
       "type": "boolean",
       "default": false,
       "description": "Allows the actor to be set to persist upon targeting a player",
-      "title": "Set_persistent"
+      "title": "Set_persistent",
+      "additionalProperties": false
     },
     "yd": {
       "type": "number",
       "default": 0,
       "description": "The height in blocks the mob jumps when leaping at its target",
-      "title": "Yd"
+      "title": "Yd",
+      "additionalProperties": false
     },
     "target_dist": {
       "type": "number",
       "default": 0,
       "description": "UNDOCUMENTATED",
-      "title": "Target dist"
+      "title": "Target dist",
+      "additionalProperties": false
     }
   }
 }

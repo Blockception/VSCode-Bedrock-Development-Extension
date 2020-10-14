@@ -5,7 +5,18 @@
   "description": "The function set_banner_details",
   "title": "Set_banner_details",
   "properties": {
-    "function": { "type": "string", "const": "set_banner_details" },
-    "type": { "type": "integer" }
+    "function": {
+      "type": "string",
+      "const": "set_banner_details",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "type": {
+      "type": "integer",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
   }
 }

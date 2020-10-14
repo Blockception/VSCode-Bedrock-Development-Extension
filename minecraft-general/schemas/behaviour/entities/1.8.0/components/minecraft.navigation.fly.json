@@ -10,47 +10,65 @@
     "avoid_damage_blocks": {
       "type": "boolean",
       "default": false,
-      "description": "Tells the pathfinder to avoid damaging blocks when finding a path"
+      "description": "Tells the pathfinder to avoid damaging blocks when finding a path",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "avoid_water": {
       "type": "boolean",
       "default": false,
-      "description": "Tells the pathfinder to avoid water when creating a path"
+      "description": "Tells the pathfinder to avoid water when creating a path",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "avoid_portals": {
       "type": "boolean",
       "default": false,
-      "description": "Tells the pathfinder to avoid portals (like nether portals) when finding a path"
+      "description": "Tells the pathfinder to avoid portals (like nether portals) when finding a path",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "avoid_sun": {
       "type": "boolean",
       "default": false,
-      "description": "Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths"
+      "description": "Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "can_break_doors": {
       "type": "boolean",
       "default": false,
-      "description": "Tells the pathfinder that it can path through a closed door and break it"
+      "description": "Tells the pathfinder that it can path through a closed door and break it",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "can_open_doors": {
       "type": "boolean",
       "default": false,
-      "description": "Tells the pathfinder that it can path through a closed door assuming the AI will open the door"
+      "description": "Tells the pathfinder that it can path through a closed door assuming the AI will open the door",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "can_pass_doors": {
       "type": "boolean",
       "default": true,
-      "description": "Whether a path can be created through a door"
+      "description": "Whether a path can be created through a door",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "can_path_over_water": {
       "type": "boolean",
       "default": false,
-      "description": "Tells the pathfinder whether or not it can travel on the surface of the water"
+      "description": "Tells the pathfinder whether or not it can travel on the surface of the water",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "can_sink": {
       "type": "boolean",
       "default": true,
-      "description": "Tells the pathfinder whether or not it will be pulled down by gravity while in water"
+      "description": "Tells the pathfinder whether or not it will be pulled down by gravity while in water",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

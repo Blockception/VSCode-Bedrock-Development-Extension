@@ -9,7 +9,8 @@
     "mass": {
       "type": "number",
       "description": "TODO description: mass",
-      "title": "Mass"
+      "title": "Mass",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

@@ -7,15 +7,41 @@
   "minProperties": 2,
   "title": "Recipe",
   "properties": {
-    "format_version": { "type": "string" },
-    "minecraft:recipe_furnace": { "$ref": "./types/furnace.json" },
+    "format_version": {
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:recipe_furnace": {
+      "$ref": "./types/furnace.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:recipe_brewing_container": {
-      "$ref": "./types/recipe_brewing_container.json"
+      "$ref": "./types/recipe_brewing_container.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:recipe_brewing_mix": {
-      "$ref": "./types/recipe_brewing_mix.json"
+      "$ref": "./types/recipe_brewing_mix.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:recipe_shaped": { "$ref": "./types/recipe_shaped.json" },
-    "minecraft:recipe_shapeless": { "$ref": "./types/recipe_shapeless.json" }
+    "minecraft:recipe_shaped": {
+      "$ref": "./types/recipe_shaped.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:recipe_shapeless": {
+      "$ref": "./types/recipe_shapeless.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
   }
 }

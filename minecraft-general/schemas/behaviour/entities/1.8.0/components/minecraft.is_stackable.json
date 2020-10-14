@@ -6,5 +6,12 @@
   "title": "is_stackable 1.8.0",
   "additionalProperties": false,
   "required": [],
-  "properties": { "value": { "type": "boolean" } }
+  "properties": {
+    "value": {
+      "type": "boolean",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
+  }
 }

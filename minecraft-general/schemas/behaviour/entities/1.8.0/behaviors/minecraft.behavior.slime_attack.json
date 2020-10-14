@@ -7,11 +7,18 @@
   "title": "behavior.slime_attack 1.8.0",
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "set_persistent": {
       "type": "boolean",
       "default": false,
-      "description": "Allows the actor to be set to persist upon targeting a player"
+      "description": "Allows the actor to be set to persist upon targeting a player",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

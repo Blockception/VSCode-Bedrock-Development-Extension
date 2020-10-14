@@ -10,12 +10,14 @@
     "start_speed": {
       "type": "number",
       "title": "Start speed",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "speed_when_turning": {
       "type": "number",
       "title": "Speed when turning",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

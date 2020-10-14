@@ -7,70 +7,86 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "interest_time": {
       "type": "number",
       "default": 2,
       "description": "The amount of time the mob will be interested before pouncing. This happens when the mob is within range of pouncing",
-      "title": "Interest time"
+      "title": "Interest time",
+      "additionalProperties": false
     },
     "leap_distance": {
       "type": "number",
       "default": 0.8,
       "description": "The distance in blocks the mob jumps in the direction of its target",
-      "title": "Leap distance"
+      "title": "Leap distance",
+      "additionalProperties": false
     },
     "leap_height": {
       "type": "number",
       "default": 0.9,
       "description": "The height in blocks the mob jumps when leaping at its target",
-      "title": "Leap height"
+      "title": "Leap height",
+      "additionalProperties": false
     },
     "max_stalk_dist": {
       "type": "number",
       "default": 10,
       "description": "The maximum distance away a target can be before the mob gives up on stalking",
-      "title": "Max stalk dist"
+      "title": "Max stalk dist",
+      "additionalProperties": false
     },
     "pounce_max_dist": {
       "type": "number",
       "default": 5,
       "description": "The maximum distance away from the target in blocks to begin pouncing at the target",
-      "title": "Pounce max dist"
+      "title": "Pounce max dist",
+      "additionalProperties": false
     },
     "set_persistent": {
       "type": "boolean",
       "default": false,
       "description": "Allows the actor to be set to persist upon targeting a player",
-      "title": "Set persistent"
+      "title": "Set persistent",
+      "additionalProperties": false
     },
     "stalk_speed": {
       "type": "number",
       "default": 1.2,
       "description": "The movement speed in which you stalk your target",
-      "title": "Stalk speed"
+      "title": "Stalk speed",
+      "additionalProperties": false
     },
     "strike_dist": {
       "type": "number",
       "default": 2,
       "description": "The max distance away from the target when landing from the pounce that will still result in damaging the target",
-      "title": "Strike dist"
+      "title": "Strike dist",
+      "additionalProperties": false
     },
     "stuck_time": {
       "type": "number",
       "default": 2,
       "description": "The amount of time the mob will be stuck if they fail and land on a block they can be stuck on",
-      "title": "Stuck time"
+      "title": "Stuck time",
+      "additionalProperties": false
     },
     "leap_dist": {
       "type": "number",
       "description": "UNDOCUMENTATED",
-      "title": "Leap dist"
+      "title": "Leap dist",
+      "additionalProperties": false
     },
     "stuck_blocks": {
       "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
-      "title": "Stuck block"
+      "title": "Stuck block",
+      "additionalProperties": false
     }
   }
 }

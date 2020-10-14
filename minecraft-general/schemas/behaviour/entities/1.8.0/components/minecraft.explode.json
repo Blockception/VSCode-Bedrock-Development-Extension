@@ -11,48 +11,56 @@
       "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "The range for the random amount of time the fuse will be lit before exploding, a negative value means the explosion will be immediate",
-      "title": "Fuse Length"
+      "title": "Fuse Length",
+      "additionalProperties": false
     },
     "power": {
       "type": "number",
       "default": 3,
       "description": "The radius of the explosion in blocks and the amount of damage the explosion deals",
-      "title": "Power"
+      "title": "Power",
+      "additionalProperties": false
     },
     "maxResistance": {
       "type": "number",
       "description": "A blocks explosion resistance will be capped at this value when an explosion occurs",
-      "title": "Max Resistance"
+      "title": "Max Resistance",
+      "additionalProperties": false
     },
     "fuseLit": {
       "type": "boolean",
       "default": false,
       "description": "If true, the fuse is already lit when this component is added to the entity",
-      "title": "Fuse Lit"
+      "title": "Fuse Lit",
+      "additionalProperties": false
     },
     "causesFire": {
       "type": "boolean",
       "default": false,
       "description": "If true, blocks in the explosion radius will be set on fire",
-      "title": "Causes Fire"
+      "title": "Causes Fire",
+      "additionalProperties": false
     },
     "breaks_blocks": {
       "type": "boolean",
       "default": true,
       "description": "If true, the explosion will destroy blocks in the explosion radius",
-      "title": "Breaks Blocks"
+      "title": "Breaks Blocks",
+      "additionalProperties": false
     },
     "fireAffectedByGriefing": {
       "type": "boolean",
       "default": false,
       "description": "If true, whether the explosion causes fire is affected by the mob griefing game rule",
-      "title": "Fire Affected By Griefing"
+      "title": "Fire Affected By Griefing",
+      "additionalProperties": false
     },
     "destroyAffectedByGriefing": {
       "type": "boolean",
       "default": false,
       "description": "If true, whether the explosion breaks blocks is affected by the mob griefing game rule",
-      "title": "Destroy Affected By Griefing"
+      "title": "Destroy Affected By Griefing",
+      "additionalProperties": false
     }
   }
 }

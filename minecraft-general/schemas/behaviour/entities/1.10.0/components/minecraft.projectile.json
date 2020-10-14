@@ -10,103 +10,120 @@
     "anchor": {
       "type": "integer",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
+      "title": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "angle_offset": {
       "type": "number",
       "default": 0,
       "description": "Determines the angle at which the projectile is thrown",
-      "title": "Angle offset"
+      "title": "Angle offset",
+      "additionalProperties": false
     },
     "catch_fire": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity hit will be set on fire",
-      "title": "Catch fire"
+      "title": "Catch fire",
+      "additionalProperties": false
     },
     "crit_particle_on_hurt": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will produce additional particles when a critical hit happens",
-      "title": "Crit particle on hurt"
+      "title": "Crit particle on hurt",
+      "additionalProperties": false
     },
     "destroy_on_hurt": {
       "type": "boolean",
       "default": false,
       "description": "If true, this entity will be destroyed when hit",
-      "title": "Destroy on hurt"
+      "title": "Destroy on hurt",
+      "additionalProperties": false
     },
     "destroyOnHurt": {
       "type": "boolean",
       "default": false,
       "description": "If true, this entity will be destroyed when hit",
-      "title": "Destroy on hurt"
+      "title": "Destroy on hurt",
+      "additionalProperties": false
     },
     "filter": {
       "type": "string",
       "default": "",
       "description": "Entity Definitions defined here can't be hurt by the projectile",
-      "title": "Filter"
+      "title": "Filter",
+      "additionalProperties": false
     },
     "fire_affected_by_griefing": {
       "type": "boolean",
       "default": false,
       "description": "If true, whether the projectile causes fire is affected by the mob griefing game rule",
-      "title": "Fire affected by griefing"
+      "title": "Fire affected by griefing",
+      "additionalProperties": false
     },
     "gravity": {
       "type": "number",
       "default": 0.05,
       "description": "The gravity applied to this entity when thrown. The higher the value, the faster the entity falls",
-      "title": "Gravity"
+      "title": "Gravity",
+      "additionalProperties": false
     },
     "hit_sound": {
       "type": "string",
       "default": "",
       "description": "The sound that plays when the projectile hits something",
-      "title": "Hit sound"
+      "title": "Hit sound",
+      "additionalProperties": false
     },
     "homing": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile homes in to the nearest entity",
-      "title": "Homing"
+      "title": "Homing",
+      "additionalProperties": false
     },
     "inertia": {
       "type": "number",
       "default": 0.99,
       "description": "The fraction of the projectile's speed maintained every frame while traveling in air",
-      "title": "Inertia"
+      "title": "Inertia",
+      "additionalProperties": false
     },
     "is_dangerous": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will be treated as dangerous to the players",
-      "title": "Is dangerous"
+      "title": "Is dangerous",
+      "additionalProperties": false
     },
     "knockback": {
       "type": "boolean",
       "default": true,
       "description": "If true, the projectile will knock back the entity it hits",
-      "title": "Knockback"
+      "title": "Knockback",
+      "additionalProperties": false
     },
     "lightning": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity hit will be struck by lightning",
-      "title": "Lightning"
+      "title": "Lightning",
+      "additionalProperties": false
     },
     "liquid_inertia": {
       "type": "number",
       "default": 0.6,
       "description": "The fraction of the projectile's speed maintained every frame while traveling in water",
-      "title": "Liquid inertia"
+      "title": "Liquid inertia",
+      "additionalProperties": false
     },
     "multiple_targets": {
       "type": "boolean",
       "default": true,
       "description": "If true, the projectile can hit multiple entities per flight",
-      "title": "Multiple targets"
+      "title": "Multiple targets",
+      "additionalProperties": false
     },
     "offset": {
       "type": "array",
@@ -129,13 +146,15 @@
           "description": "z",
           "title": "Z"
         }
-      ]
+      ],
+      "additionalProperties": false
     },
     "on_fire_time": {
       "type": "number",
       "default": 5,
       "description": "Time in seconds that the entity hit will be on fire for",
-      "title": "On fire time"
+      "title": "On fire time",
+      "additionalProperties": false
     },
     "on_hit": {
       "additionalProperties": false,
@@ -154,7 +173,9 @@
               "description": "UNDOCUMENTATED",
               "title": "UNDOCUMENTATED"
             },
-            "event_trigger": { "$ref": "../types/event.json" }
+            "event_trigger": {
+              "$ref": "../types/event.json"
+            }
           }
         },
         "douse_fire": {
@@ -390,73 +411,85 @@
       "type": "string",
       "default": "iconcrack",
       "description": "Particle to use upon collision",
-      "title": "Particle"
+      "title": "Particle",
+      "additionalProperties": false
     },
     "potion_effect": {
       "type": "integer",
       "default": -1,
       "description": "Defines the effect the arrow will apply to the entity it hits",
-      "title": "Potion effect"
+      "title": "Potion effect",
+      "additionalProperties": false
     },
     "power": {
       "type": "number",
       "default": 1.3,
       "description": "Determines the velocity of the projectile",
-      "title": "Power"
+      "title": "Power",
+      "additionalProperties": false
     },
     "reflect_on_hurt": {
       "type": "boolean",
       "default": false,
       "description": "If true, this entity will be reflected back when hit",
-      "title": "Reflect on hurt"
+      "title": "Reflect on hurt",
+      "additionalProperties": false
     },
     "semi_random_diff_damage": {
       "type": "boolean",
       "default": false,
       "description": "If true, damage will be randomized based on damage and speed",
-      "title": "Semi random diff damage"
+      "title": "Semi random diff damage",
+      "additionalProperties": false
     },
     "shoot_sound": {
       "type": "string",
       "default": "",
       "description": "The sound that plays when the projectile is shot",
-      "title": "Shoot sound"
+      "title": "Shoot sound",
+      "additionalProperties": false
     },
     "shoot_target": {
       "type": "boolean",
       "default": true,
       "description": "If true, the projectile will be shot towards the target of the entity firing it",
-      "title": "Shoot target"
+      "title": "Shoot target",
+      "additionalProperties": false
     },
     "should_bounce": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will bounce upon hit",
-      "title": "Should bounce"
+      "title": "Should bounce",
+      "additionalProperties": false
     },
     "splash_potion": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will be treated like a splash potion",
-      "title": "Splash potion"
+      "title": "Splash potion",
+      "additionalProperties": false
     },
     "splash_range": {
       "type": "number",
       "default": 4,
       "description": "Radius in blocks of the 'splash' effect",
-      "title": "Splash range"
+      "title": "Splash range",
+      "additionalProperties": false
     },
     "uncertainty_base": {
       "type": "number",
       "default": 0,
       "description": "The base accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier",
-      "title": "Uncertainty base"
+      "title": "Uncertainty base",
+      "additionalProperties": false
     },
     "uncertainty_multiplier": {
       "type": "number",
       "default": 0,
       "description": "Determines how much difficulty affects accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier",
-      "title": "Uncertainty multiplier"
+      "title": "Uncertainty multiplier",
+      "additionalProperties": false
     }
   }
 }

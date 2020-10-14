@@ -15,7 +15,8 @@
         "title": "Size"
       },
       "description": "TODO description: size",
-      "title": "Size"
+      "title": "Size",
+      "additionalProperties": false
     },
     "facing_camera_mode": {
       "description": "used to orient the billboard.",
@@ -29,7 +30,8 @@
         "direction_y",
         "direction_z"
       ],
-      "title": "Facing Camera Mode"
+      "title": "Facing Camera Mode",
+      "additionalProperties": false
     },
     "uv": {
       "additionalProperties": false,

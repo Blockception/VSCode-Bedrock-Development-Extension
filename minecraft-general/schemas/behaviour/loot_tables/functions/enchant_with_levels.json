@@ -7,12 +7,17 @@
   "properties": {
     "function": {
       "type": "string",
-      "const": "enchant_with_levels"
+      "const": "enchant_with_levels",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "levels": {
       "title": "Levels",
       "oneOf": [
-        { "type": "integer" },
+        {
+          "type": "integer"
+        },
         {
           "type": "object",
           "additionalProperties": false,
@@ -28,11 +33,15 @@
             }
           }
         }
-      ]
+      ],
+      "description": "TODO description",
+      "additionalProperties": false
     },
     "treasure": {
       "type": "boolean",
-      "title": "Treasure"
+      "title": "Treasure",
+      "description": "TODO description",
+      "additionalProperties": false
     }
   }
 }

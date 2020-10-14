@@ -8,7 +8,10 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "summon_choices": {
       "type": "array",
@@ -48,8 +51,14 @@
             "description": "The color of the particles for this spell",
             "title": "Particle color",
             "oneOf": [
-              { "type": "integer", "default": 0 },
-              { "type": "string", "format": "color-hex" }
+              {
+                "type": "integer",
+                "default": 0
+              },
+              {
+                "type": "string",
+                "format": "color-hex"
+              }
             ]
           },
           "sequence": {
@@ -125,7 +134,9 @@
             "description": "The weight of this spell. Controls how likely the mob is to choose this spell when casting one"
           }
         }
-      }
+      },
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

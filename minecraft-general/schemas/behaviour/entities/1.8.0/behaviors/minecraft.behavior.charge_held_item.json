@@ -8,7 +8,10 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "items": {
       "type": "array",
@@ -18,7 +21,8 @@
         "type": "string",
         "description": "Items names to be used.",
         "title": "Item ID"
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

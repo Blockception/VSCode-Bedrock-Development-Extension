@@ -11,13 +11,15 @@
       "type": "number",
       "default": 1,
       "description": "Height of the collision box in blocks. A negative value will be assumed to be 0",
-      "title": "Height"
+      "title": "Height",
+      "additionalProperties": false
     },
     "width": {
       "type": "number",
       "default": 1,
       "description": "Width and Depth of the collision box in blocks. A negative value will be assumed to be 0",
-      "title": "Width"
+      "title": "Width",
+      "additionalProperties": false
     }
   }
 }

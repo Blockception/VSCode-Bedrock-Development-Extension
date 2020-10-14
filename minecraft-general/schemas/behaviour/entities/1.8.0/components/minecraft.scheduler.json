@@ -10,7 +10,12 @@
     "scheduled_event": {
       "type": "array",
       "description": "The list of triggers that fire when the conditions match the given filter criteria. If any filter criteria overlap the first defined event will be picked",
-      "items": { "type": "object", "description": "UNKNOWN STRUCTURE" }
+      "items": {
+        "type": "object",
+        "description": "UNKNOWN STRUCTURE"
+      },
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

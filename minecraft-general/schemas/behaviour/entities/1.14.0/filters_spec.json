@@ -665,5 +665,6 @@
         "$ref": "../1.13.0/filters/trusts.json"
       }
     }
-  ]
+  ],
+  "additionalProperties": false
 }

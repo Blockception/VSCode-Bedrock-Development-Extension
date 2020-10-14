@@ -11,7 +11,8 @@
       "type": "number",
       "default": 2,
       "description": "Time in seconds before the Entity can be bribed again",
-      "title": "Bribe Cooldown"
+      "title": "Bribe Cooldown",
+      "additionalProperties": false
     },
     "bribe_items": {
       "type": "array",
@@ -21,7 +22,8 @@
         "$ref": "../../../../general/items_identifiers.json",
         "title": "Bribe Items"
       },
-      "title": "Bribe Items"
+      "title": "Bribe Items",
+      "additionalProperties": false
     }
   }
 }

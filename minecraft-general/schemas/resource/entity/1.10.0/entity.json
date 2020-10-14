@@ -10,7 +10,8 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "pattern": "^1.10.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "minecraft:client_entity": {
       "type": "object",
@@ -262,7 +263,9 @@
           },
           "description": "TODO description: description"
         }
-      }
+      },
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

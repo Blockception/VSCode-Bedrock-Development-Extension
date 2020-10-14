@@ -18,13 +18,24 @@
           "rolls": {
             "title": "Rolls",
             "oneOf": [
-              { "type": "integer", "minimum": 0 },
+              {
+                "type": "integer",
+                "minimum": 0
+              },
               {
                 "type": "object",
                 "required": ["min", "max"],
                 "properties": {
-                  "min": { "title": "Minimum", "type": "number", "minimum": 0 },
-                  "max": { "title": "Minimum", "type": "number", "minimum": 1 }
+                  "min": {
+                    "title": "Minimum",
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "max": {
+                    "title": "Minimum",
+                    "type": "number",
+                    "minimum": 1
+                  }
                 }
               }
             ]
@@ -50,7 +61,9 @@
                       }
                     }
                   },
-                  "then": { "$ref": "./conditions/entity_properties.json" }
+                  "then": {
+                    "$ref": "./conditions/entity_properties.json"
+                  }
                 },
                 {
                   "if": {
@@ -61,7 +74,9 @@
                       }
                     }
                   },
-                  "then": { "$ref": "./conditions/has_mark_variant.json" }
+                  "then": {
+                    "$ref": "./conditions/has_mark_variant.json"
+                  }
                 },
                 {
                   "if": {
@@ -72,7 +87,9 @@
                       }
                     }
                   },
-                  "then": { "$ref": "./conditions/killed_by_player.json" }
+                  "then": {
+                    "$ref": "./conditions/killed_by_player.json"
+                  }
                 },
                 {
                   "if": {
@@ -96,7 +113,9 @@
                       }
                     }
                   },
-                  "then": { "$ref": "./conditions/random_chance.json" }
+                  "then": {
+                    "$ref": "./conditions/random_chance.json"
+                  }
                 },
                 {
                   "if": {
@@ -208,7 +227,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/enchant_randomly.json" }
+                        "then": {
+                          "$ref": "./functions/enchant_randomly.json"
+                        }
                       },
                       {
                         "if": {
@@ -232,7 +253,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/exploration_map.json" }
+                        "then": {
+                          "$ref": "./functions/exploration_map.json"
+                        }
                       },
                       {
                         "if": {
@@ -243,7 +266,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/fill_container.json" }
+                        "then": {
+                          "$ref": "./functions/fill_container.json"
+                        }
                       },
                       {
                         "if": {
@@ -254,7 +279,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/furnace_smelt.json" }
+                        "then": {
+                          "$ref": "./functions/furnace_smelt.json"
+                        }
                       },
                       {
                         "if": {
@@ -265,7 +292,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/looting_enchant.json" }
+                        "then": {
+                          "$ref": "./functions/looting_enchant.json"
+                        }
                       },
                       {
                         "if": {
@@ -276,7 +305,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/random_aux_value.json" }
+                        "then": {
+                          "$ref": "./functions/random_aux_value.json"
+                        }
                       },
                       {
                         "if": {
@@ -300,7 +331,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/set_actor_id.json" }
+                        "then": {
+                          "$ref": "./functions/set_actor_id.json"
+                        }
                       },
                       {
                         "if": {
@@ -324,7 +357,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/set_book_contents.json" }
+                        "then": {
+                          "$ref": "./functions/set_book_contents.json"
+                        }
                       },
                       {
                         "if": {
@@ -335,7 +370,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/set_count.json" }
+                        "then": {
+                          "$ref": "./functions/set_count.json"
+                        }
                       },
                       {
                         "if": {
@@ -346,7 +383,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/set_damage.json" }
+                        "then": {
+                          "$ref": "./functions/set_damage.json"
+                        }
                       },
                       {
                         "if": {
@@ -357,7 +396,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/set_data.json" }
+                        "then": {
+                          "$ref": "./functions/set_data.json"
+                        }
                       },
                       {
                         "if": {
@@ -394,7 +435,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/random_dye.json" }
+                        "then": {
+                          "$ref": "./functions/random_dye.json"
+                        }
                       },
                       {
                         "if": {
@@ -405,7 +448,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/set_lore.json" }
+                        "then": {
+                          "$ref": "./functions/set_lore.json"
+                        }
                       },
                       {
                         "if": {
@@ -416,7 +461,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/set_name.json" }
+                        "then": {
+                          "$ref": "./functions/set_name.json"
+                        }
                       },
                       {
                         "if": {
@@ -427,7 +474,9 @@
                             }
                           }
                         },
-                        "then": { "$ref": "./functions/specific_enchants.json" }
+                        "then": {
+                          "$ref": "./functions/specific_enchants.json"
+                        }
                       }
                     ]
                   }
@@ -436,8 +485,14 @@
             }
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
-    "type": { "title": "Type", "type": "string" }
+    "type": {
+      "title": "Type",
+      "type": "string",
+      "description": "TODO description",
+      "additionalProperties": false
+    }
   }
 }

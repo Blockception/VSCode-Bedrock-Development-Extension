@@ -10,145 +10,203 @@
     "angleoffset": {
       "type": "number",
       "default": 0,
-      "description": "Determines the angle at which the projectile is thrown"
+      "description": "Determines the angle at which the projectile is thrown",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "catchFire": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the entity hit will be set on fire"
+      "description": "If true, the entity hit will be set on fire",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "critParticleOnHurt": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the projectile will produce additional particles when a critical hit happens"
+      "description": "If true, the projectile will produce additional particles when a critical hit happens",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "destroyOnHurt": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this entity will be destroyed when hit"
+      "description": "If true, this entity will be destroyed when hit",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "filter": {
       "$ref": "../filters.json",
-      "description": "Entity Definitions defined here can't be hurt by the projectile"
+      "description": "Entity Definitions defined here can't be hurt by the projectile",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "fireAffectedByGriefing": {
       "type": "boolean",
       "default": false,
-      "description": "If true, whether the projectile causes fire is affected by the mob griefing game rule"
+      "description": "If true, whether the projectile causes fire is affected by the mob griefing game rule",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "gravity": {
       "type": "number",
       "default": 0.05,
-      "description": "The gravity applied to this entity when thrown. The higher the value, the faster the entity falls"
+      "description": "The gravity applied to this entity when thrown. The higher the value, the faster the entity falls",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "hitSound": {
       "type": "string",
       "default": "",
-      "description": "The sound that plays when the projectile hits something"
+      "description": "The sound that plays when the projectile hits something",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "homing": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the projectile homes in to the nearest entity"
+      "description": "If true, the projectile homes in to the nearest entity",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "inertia": {
       "type": "number",
       "default": 0.99,
-      "description": "The fraction of the projectile's speed maintained every frame while traveling in air"
+      "description": "The fraction of the projectile's speed maintained every frame while traveling in air",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "isdangerous": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the projectile will be treated as dangerous to the players"
+      "description": "If true, the projectile will be treated as dangerous to the players",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "knockback": {
       "type": "boolean",
       "default": true,
-      "description": "If true, the projectile will knock back the entity it hits"
+      "description": "If true, the projectile will knock back the entity it hits",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "lightning": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the entity hit will be struck by lightning"
+      "description": "If true, the entity hit will be struck by lightning",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "liquid_inertia": {
       "type": "number",
       "default": 0.6,
-      "description": "The fraction of the projectile's speed maintained every frame while traveling in water"
+      "description": "The fraction of the projectile's speed maintained every frame while traveling in water",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "multipletargets": {
       "type": "boolean",
       "default": true,
-      "description": "If true, the projectile can hit multiple entities per flight"
+      "description": "If true, the projectile can hit multiple entities per flight",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "offset": {
       "$ref": "../../../../general/array_3_number.json",
       "default": [0.0, 0.5, 0.0],
-      "description": "The offset from the entity's anchor where the projectile will spawn"
+      "description": "The offset from the entity's anchor where the projectile will spawn",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "onFireTime": {
       "type": "number",
       "default": 5,
-      "description": "Time in seconds that the entity hit will be on fire for"
+      "description": "Time in seconds that the entity hit will be on fire for",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "particle": {
       "type": "string",
       "default": "iconcrack",
-      "description": "Particle to use upon collision"
+      "description": "Particle to use upon collision",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "potionEffect": {
       "type": "integer",
       "default": -1,
-      "description": "Defines the effect the arrow will apply to the entity it hits"
+      "description": "Defines the effect the arrow will apply to the entity it hits",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "power": {
       "type": "number",
       "default": 1.3,
-      "description": "Determines the velocity of the projectile"
+      "description": "Determines the velocity of the projectile",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "reflectOnHurt": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this entity will be reflected back when hit"
+      "description": "If true, this entity will be reflected back when hit",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "semirandomdiffdamage": {
       "type": "boolean",
       "default": false,
-      "description": "If true, damage will be randomized based on damage and speed"
+      "description": "If true, damage will be randomized based on damage and speed",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "shootSound": {
       "type": "string",
-      "description": "The sound that plays when the projectile is shot"
+      "description": "The sound that plays when the projectile is shot",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "shoottarget": {
       "type": "boolean",
       "default": true,
-      "description": "If true, the projectile will be shot towards the target of the entity firing it"
+      "description": "If true, the projectile will be shot towards the target of the entity firing it",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "shouldbounce": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the projectile will bounce upon hit"
+      "description": "If true, the projectile will bounce upon hit",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "splashPotion": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the projectile will be treated like a splash potion"
+      "description": "If true, the projectile will be treated like a splash potion",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "splashRange": {
       "type": "number",
       "default": 4,
-      "description": "Radius in blocks of the 'splash' effect"
+      "description": "Radius in blocks of the 'splash' effect",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "uncertaintyBase": {
       "type": "number",
       "default": 0,
-      "description": "The base accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier"
+      "description": "The base accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "uncertaintyMultiplier": {
       "type": "number",
       "default": 0,
-      "description": "Determines how much difficulty affects accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier"
+      "description": "Determines how much difficulty affects accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

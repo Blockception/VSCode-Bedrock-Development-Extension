@@ -12,21 +12,33 @@
       "description": "List of effects to add to this entity after adding this component",
       "items": {
         "oneOf": [
-          { "type": "string" },
+          {
+            "type": "string"
+          },
           {
             "type": "object",
             "properties": {
-              "effect": { "type": "string" },
-              "duration": { "type": "integer" },
-              "display_on_screen_animation": { "type": "boolean" }
+              "effect": {
+                "type": "string"
+              },
+              "duration": {
+                "type": "integer"
+              },
+              "display_on_screen_animation": {
+                "type": "boolean"
+              }
             }
           }
         ]
-      }
+      },
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "remove_effects": {
       "type": "string",
-      "description": "List of identifiers of effects to be removed from this entity after adding this component"
+      "description": "List of identifiers of effects to be removed from this entity after adding this component",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

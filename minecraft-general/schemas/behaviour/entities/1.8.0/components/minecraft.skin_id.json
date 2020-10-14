@@ -10,7 +10,9 @@
     "value": {
       "type": "integer",
       "default": 0,
-      "description": "The ID of the skin. By convention, 0 is the ID of the base skin"
+      "description": "The ID of the skin. By convention, 0 is the ID of the base skin",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

@@ -7,868 +7,1870 @@
   "additionalProperties": false,
   "properties": {
     "minecraft:addrider": {
-      "$ref": "../1.8.0/components/minecraft.addrider.json"
+      "$ref": "../1.8.0/components/minecraft.addrider.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:admire_item": {
-      "$ref": "./components/minecraft.admire_item.json"
+      "$ref": "./components/minecraft.admire_item.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:ageable": { "$ref": "./components/minecraft.ageable.json" },
+    "minecraft:ageable": {
+      "$ref": "./components/minecraft.ageable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:ambient_sound_interval": {
-      "$ref": "./components/minecraft.ambient_sound_interval.json"
+      "$ref": "./components/minecraft.ambient_sound_interval.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:angry": { "$ref": "./components/minecraft.angry.json" },
+    "minecraft:angry": {
+      "$ref": "./components/minecraft.angry.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:annotation.break_door": {
-      "$ref": "../1.8.0/components/minecraft.annotation.break_door.json"
+      "$ref": "../1.8.0/components/minecraft.annotation.break_door.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:annotation.open_door": {
-      "$ref": "../1.8.0/components/minecraft.annotation.open_door.json"
+      "$ref": "../1.8.0/components/minecraft.annotation.open_door.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:area_attack": {
-      "$ref": "./components/minecraft.area_attack.json"
+      "$ref": "./components/minecraft.area_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:attack": { "$ref": "../1.8.0/components/minecraft.attack.json" },
+    "minecraft:attack": {
+      "$ref": "../1.8.0/components/minecraft.attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:attack_cooldown": {
-      "$ref": "./components/minecraft.attack_cooldown.json"
+      "$ref": "./components/minecraft.attack_cooldown.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:attack_damage": {
-      "$ref": "../1.8.0/components/minecraft.attack_damage.json"
+      "$ref": "../1.8.0/components/minecraft.attack_damage.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:balloonable": {
-      "$ref": "../1.8.0/components/minecraft.balloonable.json"
+      "$ref": "../1.8.0/components/minecraft.balloonable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:barter": { "$ref": "./components/minecraft.barter.json" },
+    "minecraft:barter": {
+      "$ref": "./components/minecraft.barter.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:block_sensor": {
-      "$ref": "./components/minecraft.block_sensor.json"
+      "$ref": "./components/minecraft.block_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:boostable": { "$ref": "./components/minecraft.boostable.json" },
-    "minecraft:boss": { "$ref": "../1.8.0/components/minecraft.boss.json" },
+    "minecraft:boostable": {
+      "$ref": "./components/minecraft.boostable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:boss": {
+      "$ref": "../1.8.0/components/minecraft.boss.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:break_blocks": {
-      "$ref": "../1.8.0/components/minecraft.break_blocks.json"
+      "$ref": "../1.8.0/components/minecraft.break_blocks.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:breathable": {
-      "$ref": "../1.8.0/components/minecraft.breathable.json"
+      "$ref": "../1.8.0/components/minecraft.breathable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:breedable": { "$ref": "./components/minecraft.breedable.json" },
+    "minecraft:breedable": {
+      "$ref": "./components/minecraft.breedable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:bribeable": {
-      "$ref": "../1.8.0/components/minecraft.bribeable.json"
+      "$ref": "../1.8.0/components/minecraft.bribeable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:buoyant": { "$ref": "./components/minecraft.buoyant.json" },
+    "minecraft:buoyant": {
+      "$ref": "./components/minecraft.buoyant.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:burns_in_daylight": {
-      "$ref": "../1.8.0/components/minecraft.burns_in_daylight.json"
+      "$ref": "../1.8.0/components/minecraft.burns_in_daylight.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:can_climb": {
-      "$ref": "../1.8.0/components/minecraft.can_climb.json"
+      "$ref": "../1.8.0/components/minecraft.can_climb.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:can_fly": {
-      "$ref": "../1.8.0/components/minecraft.can_fly.json"
+      "$ref": "../1.8.0/components/minecraft.can_fly.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:can_power_jump": {
-      "$ref": "../1.8.0/components/minecraft.can_power_jump.json"
+      "$ref": "../1.8.0/components/minecraft.can_power_jump.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:celebrate_hunt": {
-      "$ref": "./components/minecraft.celebrate_hunt.json"
+      "$ref": "./components/minecraft.celebrate_hunt.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:collision_box": {
-      "$ref": "../1.8.0/components/minecraft.collision_box.json"
+      "$ref": "../1.8.0/components/minecraft.collision_box.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:color": { "$ref": "../1.8.0/components/minecraft.color.json" },
-    "minecraft:color2": { "$ref": "../1.8.0/components/minecraft.color2.json" },
+    "minecraft:color": {
+      "$ref": "../1.8.0/components/minecraft.color.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:color2": {
+      "$ref": "../1.8.0/components/minecraft.color2.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:custom_hit_test": {
-      "$ref": "./components/minecraft.custom_hit_test.json"
+      "$ref": "./components/minecraft.custom_hit_test.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:damage_over_time": {
-      "$ref": "../1.8.0/components/minecraft.damage_over_time.json"
+      "$ref": "../1.8.0/components/minecraft.damage_over_time.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:damage_sensor": {
-      "$ref": "./components/minecraft.damage_sensor.json"
+      "$ref": "./components/minecraft.damage_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:default_look_angle": {
-      "$ref": "../1.8.0/components/minecraft.default_look_angle.json"
+      "$ref": "../1.8.0/components/minecraft.default_look_angle.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:despawn": { "$ref": "./components/minecraft.despawn.json" },
+    "minecraft:despawn": {
+      "$ref": "./components/minecraft.despawn.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:dweller": {
-      "$ref": "../1.8.0/components/minecraft.dweller.json"
+      "$ref": "../1.8.0/components/minecraft.dweller.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:economy_trade_table": {
-      "$ref": "../1.8.0/components/minecraft.economy_trade_table.json"
+      "$ref": "../1.8.0/components/minecraft.economy_trade_table.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:entity_sensor": {
-      "$ref": "./components/minecraft.entity_sensor.json"
+      "$ref": "./components/minecraft.entity_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:environment_sensor": {
-      "$ref": "./components/minecraft.environment_sensor.json"
+      "$ref": "./components/minecraft.environment_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:equip_item": {
-      "$ref": "./components/minecraft.equip_item.json"
+      "$ref": "./components/minecraft.equip_item.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:equipment": { "$ref": "./components/minecraft.equipment.json" },
+    "minecraft:equipment": {
+      "$ref": "./components/minecraft.equipment.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:equippable": {
-      "$ref": "./components/minecraft.equippable.json"
+      "$ref": "./components/minecraft.equippable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:experience_reward": {
-      "$ref": "./components/minecraft.experience_reward.json"
+      "$ref": "./components/minecraft.experience_reward.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:explode": { "$ref": "./components/minecraft.explode.json" },
+    "minecraft:explode": {
+      "$ref": "./components/minecraft.explode.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:fall_damage": {
-      "$ref": "../1.8.0/components/minecraft.fall_damage.json"
+      "$ref": "../1.8.0/components/minecraft.fall_damage.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:fire_immune": {
-      "$ref": "../1.8.0/components/minecraft.fire_immune.json"
+      "$ref": "../1.8.0/components/minecraft.fire_immune.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:floats_in_liquid": {
-      "$ref": "../1.8.0/components/minecraft.floats_in_liquid.json"
+      "$ref": "../1.8.0/components/minecraft.floats_in_liquid.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:flocking": { "$ref": "./components/minecraft.flocking.json" },
+    "minecraft:flocking": {
+      "$ref": "./components/minecraft.flocking.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:flying_speed": {
-      "$ref": "../1.8.0/components/minecraft.flying_speed.json"
+      "$ref": "../1.8.0/components/minecraft.flying_speed.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:follow_range": {
-      "$ref": "../1.8.0/components/minecraft.follow_range.json"
+      "$ref": "../1.8.0/components/minecraft.follow_range.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:foot_size": {
-      "$ref": "../1.8.0/components/minecraft.foot_size.json"
+      "$ref": "../1.8.0/components/minecraft.foot_size.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:friction_modifier": {
-      "$ref": "../1.8.0/components/minecraft.friction_modifier.json"
+      "$ref": "../1.8.0/components/minecraft.friction_modifier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:genetics": {
-      "$ref": "../1.8.0/components/minecraft.genetics.json"
+      "$ref": "../1.8.0/components/minecraft.genetics.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:giveable": { "$ref": "./components/minecraft.giveable.json" },
+    "minecraft:giveable": {
+      "$ref": "./components/minecraft.giveable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:ground_offset": {
-      "$ref": "../1.8.0/components/minecraft.ground_offset.json"
+      "$ref": "../1.8.0/components/minecraft.ground_offset.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:group_size": {
-      "$ref": "./components/minecraft.group_size.json"
+      "$ref": "./components/minecraft.group_size.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:grows_crop": {
-      "$ref": "./components/minecraft.grows_crop.json"
+      "$ref": "./components/minecraft.grows_crop.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:healable": {
-      "$ref": "../1.8.0/components/minecraft.healable.json"
+      "$ref": "../1.8.0/components/minecraft.healable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:health": { "$ref": "../1.8.0/components/minecraft.health.json" },
-    "minecraft:hide": { "$ref": "./components/minecraft.hide.json" },
-    "minecraft:home": { "$ref": "./components/minecraft.home.json" },
+    "minecraft:health": {
+      "$ref": "../1.8.0/components/minecraft.health.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:hide": {
+      "$ref": "./components/minecraft.hide.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:home": {
+      "$ref": "./components/minecraft.home.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:horse.jump_strength": {
-      "$ref": "./components/minecraft.horse.jump_strength.json"
+      "$ref": "./components/minecraft.horse.jump_strength.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:hurt_on_condition": {
-      "$ref": "./components/minecraft.hurt_on_condition.json"
+      "$ref": "./components/minecraft.hurt_on_condition.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:hurt_when_wet": {
-      "$ref": "../1.8.0/components/minecraft.hurt_when_wet.json"
+      "$ref": "../1.8.0/components/minecraft.hurt_when_wet.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:input_ground_controlled": {
-      "$ref": "../1.8.0/components/minecraft.input_ground_controlled.json"
+      "$ref": "../1.8.0/components/minecraft.input_ground_controlled.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:insomnia": {
-      "$ref": "../1.8.0/components/minecraft.insomnia.json"
+      "$ref": "../1.8.0/components/minecraft.insomnia.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:instant_despawn": {
-      "$ref": "./components/minecraft.instant_despawn.json"
+      "$ref": "./components/minecraft.instant_despawn.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:interact": { "$ref": "./components/minecraft.interact.json" },
-    "minecraft:inventory": { "$ref": "./components/minecraft.inventory.json" },
+    "minecraft:interact": {
+      "$ref": "./components/minecraft.interact.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:inventory": {
+      "$ref": "./components/minecraft.inventory.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:is_baby": {
-      "$ref": "../1.8.0/components/minecraft.is_baby.json"
+      "$ref": "../1.8.0/components/minecraft.is_baby.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_charged": {
-      "$ref": "../1.8.0/components/minecraft.is_charged.json"
+      "$ref": "../1.8.0/components/minecraft.is_charged.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_chested": {
-      "$ref": "../1.8.0/components/minecraft.is_chested.json"
+      "$ref": "../1.8.0/components/minecraft.is_chested.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_dyeable": {
-      "$ref": "../1.8.0/components/minecraft.is_dyeable.json"
+      "$ref": "../1.8.0/components/minecraft.is_dyeable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_hidden_when_invisible": {
-      "$ref": "../1.8.0/components/minecraft.is_hidden_when_invisible.json"
+      "$ref": "../1.8.0/components/minecraft.is_hidden_when_invisible.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_ignited": {
-      "$ref": "../1.8.0/components/minecraft.is_ignited.json"
+      "$ref": "../1.8.0/components/minecraft.is_ignited.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_illager_captain": {
-      "$ref": "../1.8.0/components/minecraft.is_illager_captain.json"
+      "$ref": "../1.8.0/components/minecraft.is_illager_captain.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_saddled": {
-      "$ref": "../1.8.0/components/minecraft.is_saddled.json"
+      "$ref": "../1.8.0/components/minecraft.is_saddled.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_shaking": {
-      "$ref": "../1.8.0/components/minecraft.is_shaking.json"
+      "$ref": "../1.8.0/components/minecraft.is_shaking.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_sheared": {
-      "$ref": "../1.8.0/components/minecraft.is_sheared.json"
+      "$ref": "../1.8.0/components/minecraft.is_sheared.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_stackable": {
-      "$ref": "../1.8.0/components/minecraft.is_stackable.json"
+      "$ref": "../1.8.0/components/minecraft.is_stackable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_stunned": {
-      "$ref": "../1.8.0/components/minecraft.is_stunned.json"
+      "$ref": "../1.8.0/components/minecraft.is_stunned.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:is_tamed": {
-      "$ref": "../1.8.0/components/minecraft.is_tamed.json"
+      "$ref": "../1.8.0/components/minecraft.is_tamed.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:item_controllable": {
-      "$ref": "../1.8.0/components/minecraft.item_controllable.json"
+      "$ref": "../1.8.0/components/minecraft.item_controllable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:item_hopper": {
-      "$ref": "../1.8.0/components/minecraft.item_hopper.json"
+      "$ref": "../1.8.0/components/minecraft.item_hopper.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:jump.dynamic": {
-      "$ref": "../1.8.0/components/minecraft.jump.dynamic.json"
+      "$ref": "../1.8.0/components/minecraft.jump.dynamic.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:jump.static": {
-      "$ref": "../1.8.0/components/minecraft.jump.static.json"
+      "$ref": "../1.8.0/components/minecraft.jump.static.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:knockback_resistance": {
-      "$ref": "../1.8.0/components/minecraft.knockback_resistance.json"
+      "$ref": "../1.8.0/components/minecraft.knockback_resistance.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:lava_movement": {
-      "$ref": "../1.8.0/components/minecraft.lava_movement.json"
+      "$ref": "../1.8.0/components/minecraft.lava_movement.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:leashable": { "$ref": "./components/minecraft.leashable.json" },
-    "minecraft:lookat": { "$ref": "./components/minecraft.lookat.json" },
-    "minecraft:loot": { "$ref": "../1.8.0/components/minecraft.loot.json" },
+    "minecraft:leashable": {
+      "$ref": "./components/minecraft.leashable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:lookat": {
+      "$ref": "./components/minecraft.lookat.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "minecraft:loot": {
+      "$ref": "../1.8.0/components/minecraft.loot.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:managed_wandering_trader": {
-      "$ref": "../1.8.0/components/minecraft.managed_wandering_trader.json"
+      "$ref": "../1.8.0/components/minecraft.managed_wandering_trader.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:mark_variant": {
-      "$ref": "../1.8.0/components/minecraft.mark_variant.json"
+      "$ref": "../1.8.0/components/minecraft.mark_variant.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:mob_effect": {
-      "$ref": "./components/minecraft.mob_effect.json"
+      "$ref": "./components/minecraft.mob_effect.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement": {
-      "$ref": "../1.8.0/components/minecraft.movement.json"
+      "$ref": "../1.8.0/components/minecraft.movement.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.amphibious": {
-      "$ref": "../1.8.0/components/minecraft.movement.amphibious.json"
+      "$ref": "../1.8.0/components/minecraft.movement.amphibious.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.basic": {
-      "$ref": "../1.8.0/components/minecraft.movement.basic.json"
+      "$ref": "../1.8.0/components/minecraft.movement.basic.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.fly": {
-      "$ref": "../1.8.0/components/minecraft.movement.fly.json"
+      "$ref": "../1.8.0/components/minecraft.movement.fly.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.generic": {
-      "$ref": "../1.8.0/components/minecraft.movement.generic.json"
+      "$ref": "../1.8.0/components/minecraft.movement.generic.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.glide": {
-      "$ref": "../1.8.0/components/minecraft.movement.glide.json"
+      "$ref": "../1.8.0/components/minecraft.movement.glide.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.hover": {
-      "$ref": "./components/minecraft.movement.hover.json"
+      "$ref": "./components/minecraft.movement.hover.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.jump": {
-      "$ref": "./components/minecraft.movement.jump.json"
+      "$ref": "./components/minecraft.movement.jump.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.skip": {
-      "$ref": "../1.8.0/components/minecraft.movement.skip.json"
+      "$ref": "../1.8.0/components/minecraft.movement.skip.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:movement.sway": {
-      "$ref": "./components/minecraft.movement.sway.json"
+      "$ref": "./components/minecraft.movement.sway.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:nameable": { "$ref": "./components/minecraft.nameable.json" },
+    "minecraft:nameable": {
+      "$ref": "./components/minecraft.nameable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:navigation.climb": {
-      "$ref": "./components/minecraft.navigation.climb.json"
+      "$ref": "./components/minecraft.navigation.climb.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:navigation.float": {
-      "$ref": "./components/minecraft.navigation.float.json"
+      "$ref": "./components/minecraft.navigation.float.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:navigation.fly": {
-      "$ref": "./components/minecraft.navigation.fly.json"
+      "$ref": "./components/minecraft.navigation.fly.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:navigation.generic": {
-      "$ref": "./components/minecraft.navigation.generic.json"
+      "$ref": "./components/minecraft.navigation.generic.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:navigation.hover": {
-      "$ref": "./components/minecraft.navigation.hover.json"
+      "$ref": "./components/minecraft.navigation.hover.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:navigation.swim": {
-      "$ref": "./components/minecraft.navigation.swim.json"
+      "$ref": "./components/minecraft.navigation.swim.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:navigation.walk": {
-      "$ref": "./components/minecraft.navigation.walk.json"
+      "$ref": "./components/minecraft.navigation.walk.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:npc": { "$ref": "./components/minecraft.npc.json" },
+    "minecraft:npc": {
+      "$ref": "./components/minecraft.npc.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:on_death": {
-      "$ref": "../1.8.0/components/minecraft.on_death.json"
+      "$ref": "../1.8.0/components/minecraft.on_death.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_friendly_anger": {
-      "$ref": "../1.8.0/components/minecraft.on_friendly_anger.json"
+      "$ref": "../1.8.0/components/minecraft.on_friendly_anger.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_hurt": {
-      "$ref": "../1.8.0/components/minecraft.on_hurt.json"
+      "$ref": "../1.8.0/components/minecraft.on_hurt.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_hurt_by_player": {
-      "$ref": "../1.8.0/components/minecraft.on_hurt_by_player.json"
+      "$ref": "../1.8.0/components/minecraft.on_hurt_by_player.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_ignite": {
-      "$ref": "../1.8.0/components/minecraft.on_ignite.json"
+      "$ref": "../1.8.0/components/minecraft.on_ignite.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_start_landing": {
-      "$ref": "../1.8.0/components/minecraft.on_start_landing.json"
+      "$ref": "../1.8.0/components/minecraft.on_start_landing.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_start_takeoff": {
-      "$ref": "../1.8.0/components/minecraft.on_start_takeoff.json"
+      "$ref": "../1.8.0/components/minecraft.on_start_takeoff.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_target_acquired": {
-      "$ref": "../1.8.0/components/minecraft.on_target_acquired.json"
+      "$ref": "../1.8.0/components/minecraft.on_target_acquired.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_target_escape": {
-      "$ref": "../1.8.0/components/minecraft.on_target_escape.json"
+      "$ref": "../1.8.0/components/minecraft.on_target_escape.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:on_wake_with_owner": {
-      "$ref": "../1.8.0/components/minecraft.on_wake_with_owner.json"
+      "$ref": "../1.8.0/components/minecraft.on_wake_with_owner.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:player.saturation": {
-      "$ref": "../1.8.0/components/minecraft.player.saturation.json"
+      "$ref": "../1.8.0/components/minecraft.player.saturation.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:player.exhaustion": {
-      "$ref": "../1.8.0/components/minecraft.player.exhaustion.json"
+      "$ref": "../1.8.0/components/minecraft.player.exhaustion.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:player.level": {
-      "$ref": "../1.8.0/components/minecraft.player.level.json"
+      "$ref": "../1.8.0/components/minecraft.player.level.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:player.experience": {
-      "$ref": "../1.8.0/components/minecraft.player.experience.json"
+      "$ref": "../1.8.0/components/minecraft.player.experience.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:peek": { "$ref": "../1.8.0/components/minecraft.peek.json" },
+    "minecraft:peek": {
+      "$ref": "../1.8.0/components/minecraft.peek.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:persistent": {
-      "$ref": "../1.8.0/components/minecraft.persistent.json"
+      "$ref": "../1.8.0/components/minecraft.persistent.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:physics": {
-      "$ref": "../1.8.0/components/minecraft.physics.json"
+      "$ref": "../1.8.0/components/minecraft.physics.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:preferred_path": {
-      "$ref": "../1.8.0/components/minecraft.preferred_path.json"
+      "$ref": "../1.8.0/components/minecraft.preferred_path.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:projectile": {
-      "$ref": "./components/minecraft.projectile.json"
+      "$ref": "./components/minecraft.projectile.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:push_through": {
-      "$ref": "../1.8.0/components/minecraft.push_through.json"
+      "$ref": "../1.8.0/components/minecraft.push_through.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:pushable": {
-      "$ref": "../1.8.0/components/minecraft.pushable.json"
+      "$ref": "../1.8.0/components/minecraft.pushable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:raid_trigger": {
-      "$ref": "../1.8.0/components/minecraft.raid_trigger.json"
+      "$ref": "../1.8.0/components/minecraft.raid_trigger.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:rail_movement": {
-      "$ref": "../1.8.0/components/minecraft.rail_movement.json"
+      "$ref": "../1.8.0/components/minecraft.rail_movement.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:rail_sensor": {
-      "$ref": "../1.8.0/components/minecraft.rail_sensor.json"
+      "$ref": "../1.8.0/components/minecraft.rail_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:ravager_blocked": {
-      "$ref": "../1.8.0/components/minecraft.ravager_blocked.json"
+      "$ref": "../1.8.0/components/minecraft.ravager_blocked.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:rideable": { "$ref": "./components/minecraft.rideable.json" },
+    "minecraft:rideable": {
+      "$ref": "./components/minecraft.rideable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:scaffolding_climber": {
-      "$ref": "../1.8.0/components/minecraft.scaffolding_climber.json"
+      "$ref": "../1.8.0/components/minecraft.scaffolding_climber.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:scale": { "$ref": "../1.8.0/components/minecraft.scale.json" },
+    "minecraft:scale": {
+      "$ref": "../1.8.0/components/minecraft.scale.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:scale_by_age": {
-      "$ref": "../1.8.0/components/minecraft.scale_by_age.json"
+      "$ref": "../1.8.0/components/minecraft.scale_by_age.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:scheduler": { "$ref": "./components/minecraft.scheduler.json" },
+    "minecraft:scheduler": {
+      "$ref": "./components/minecraft.scheduler.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:shareables": {
-      "$ref": "./components/minecraft.shareables.json"
+      "$ref": "./components/minecraft.shareables.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:shooter": { "$ref": "./components/minecraft.shooter.json" },
+    "minecraft:shooter": {
+      "$ref": "./components/minecraft.shooter.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:sittable": {
-      "$ref": "../1.8.0/components/minecraft.sittable.json"
+      "$ref": "../1.8.0/components/minecraft.sittable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:skin_id": {
-      "$ref": "../1.8.0/components/minecraft.skin_id.json"
+      "$ref": "../1.8.0/components/minecraft.skin_id.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:sound_volume": {
-      "$ref": "../1.8.0/components/minecraft.sound_volume.json"
+      "$ref": "../1.8.0/components/minecraft.sound_volume.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:spawn_entity": {
-      "$ref": "./components/minecraft.spawn_entity.json"
+      "$ref": "./components/minecraft.spawn_entity.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:spell_effects": {
-      "$ref": "../1.8.0/components/minecraft.spell_effects.json"
+      "$ref": "../1.8.0/components/minecraft.spell_effects.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:strength": { "$ref": "./components/minecraft.strength.json" },
+    "minecraft:strength": {
+      "$ref": "./components/minecraft.strength.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:tameable": {
-      "$ref": "../1.8.0/components/minecraft.tameable.json"
+      "$ref": "../1.8.0/components/minecraft.tameable.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:tamemount": { "$ref": "./components/minecraft.tamemount.json" },
+    "minecraft:tamemount": {
+      "$ref": "./components/minecraft.tamemount.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:target_nearby_sensor": {
-      "$ref": "../1.8.0/components/minecraft.target_nearby_sensor.json"
+      "$ref": "../1.8.0/components/minecraft.target_nearby_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:teleport": {
-      "$ref": "../1.8.0/components/minecraft.teleport.json"
+      "$ref": "../1.8.0/components/minecraft.teleport.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:tick_world": {
-      "$ref": "../1.8.0/components/minecraft.tick_world.json"
+      "$ref": "../1.8.0/components/minecraft.tick_world.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:timer": { "$ref": "../1.8.0/components/minecraft.timer.json" },
+    "minecraft:timer": {
+      "$ref": "../1.8.0/components/minecraft.timer.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:trade_resupply": {
-      "$ref": "./components/minecraft.trade_resupply.json"
+      "$ref": "./components/minecraft.trade_resupply.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:trade_table": {
-      "$ref": "../1.8.0/components/minecraft.trade_table.json"
+      "$ref": "../1.8.0/components/minecraft.trade_table.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:trail": { "$ref": "./components/minecraft.trail.json" },
+    "minecraft:trail": {
+      "$ref": "./components/minecraft.trail.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:transformation": {
-      "$ref": "./components/minecraft.transformation.json"
+      "$ref": "./components/minecraft.transformation.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-    "minecraft:trust": { "$ref": "../1.8.0/components/minecraft.trust.json" },
+    "minecraft:trust": {
+      "$ref": "../1.8.0/components/minecraft.trust.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "minecraft:trusting": {
-      "$ref": "../1.8.0/components/minecraft.trusting.json"
+      "$ref": "../1.8.0/components/minecraft.trusting.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:type_family": {
-      "$ref": "../1.8.0/components/minecraft.type_family.json"
+      "$ref": "../1.8.0/components/minecraft.type_family.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:variant": {
-      "$ref": "../1.8.0/components/minecraft.variant.json"
+      "$ref": "../1.8.0/components/minecraft.variant.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:underwater_movement": {
-      "$ref": "./components/minecraft.underwater_movement.json"
+      "$ref": "./components/minecraft.underwater_movement.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:walk_animation_speed": {
-      "$ref": "../1.8.0/components/minecraft.walk_animation_speed.json"
+      "$ref": "../1.8.0/components/minecraft.walk_animation_speed.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:wants_jockey": {
-      "$ref": "./components/minecraft.wants_jockey.json"
+      "$ref": "./components/minecraft.wants_jockey.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:water_movement": {
-      "$ref": "../1.8.0/components/minecraft.water_movement.json"
+      "$ref": "../1.8.0/components/minecraft.water_movement.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
-
     "minecraft:behavior.admire_item": {
-      "$ref": "./behaviors/minecraft.behavior.admire_item.json"
+      "$ref": "./behaviors/minecraft.behavior.admire_item.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.avoid_block": {
-      "$ref": "./behaviors/minecraft.behavior.avoid_block.json"
+      "$ref": "./behaviors/minecraft.behavior.avoid_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.avoid_mob_type": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.avoid_mob_type.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.avoid_mob_type.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.barter": {
-      "$ref": "./behaviors/minecraft.behavior.barter.json"
+      "$ref": "./behaviors/minecraft.behavior.barter.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.beg": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.beg.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.beg.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.break_door": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.break_door.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.break_door.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.breed": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.breed.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.breed.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.celebrate": {
-      "$ref": "./behaviors/minecraft.behavior.celebrate.json"
+      "$ref": "./behaviors/minecraft.behavior.celebrate.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.charge_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.charge_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.charge_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.charge_held_item": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.charge_held_item.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.charge_held_item.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.circle_around_anchor": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.circle_around_anchor.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.circle_around_anchor.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.controlled_by_player": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.controlled_by_player.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.controlled_by_player.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.defend_trusted_target": {
-      "$ref": "./behaviors/minecraft.behavior.defend_trusted_target.json"
+      "$ref": "./behaviors/minecraft.behavior.defend_trusted_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.defend_village_target": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.defend_village_target.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.defend_village_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.delayed_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.delayed_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.delayed_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.door_interact": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.door_interact.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.door_interact.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragonchargeplayer": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonchargeplayer.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonchargeplayer.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragondeath": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragondeath.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragondeath.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragonflaming": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonflaming.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonflaming.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragonholdingpattern": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonholdingpattern.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonholdingpattern.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragonlanding": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonlanding.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonlanding.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragonscanning": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonscanning.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonscanning.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragonstrafeplayer": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonstrafeplayer.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragonstrafeplayer.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.dragontakeoff": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragontakeoff.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.dragontakeoff.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.drink_potion": {
-      "$ref": "./behaviors/minecraft.behavior.drink_potion.json"
+      "$ref": "./behaviors/minecraft.behavior.drink_potion.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.drop_item_for": {
-      "$ref": "./behaviors/minecraft.behavior.drop_item_for.json"
+      "$ref": "./behaviors/minecraft.behavior.drop_item_for.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.eat_block": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.eat_block.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.eat_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.eat_carried_item": {
-      "$ref": "./behaviors/minecraft.behavior.eat_carried_item.json"
+      "$ref": "./behaviors/minecraft.behavior.eat_carried_item.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.enderman_leave_block": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.enderman_leave_block.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.enderman_leave_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.enderman_take_block": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.enderman_take_block.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.enderman_take_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.equip_item": {
-      "$ref": "./behaviors/minecraft.behavior.equip_item.json"
+      "$ref": "./behaviors/minecraft.behavior.equip_item.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.explore_outskirts": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.explore_outskirts.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.explore_outskirts.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.find_cover": {
-      "$ref": "./behaviors/minecraft.behavior.find_cover.json"
+      "$ref": "./behaviors/minecraft.behavior.find_cover.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.find_mount": {
-      "$ref": "./behaviors/minecraft.behavior.find_mount.json"
+      "$ref": "./behaviors/minecraft.behavior.find_mount.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.find_underwater_treasure": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.find_underwater_treasure.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.find_underwater_treasure.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.flee_sun": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.flee_sun.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.flee_sun.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.float": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.float.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.float.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.float_wander": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.float_wander.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.float_wander.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.follow_caravan": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_caravan.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_caravan.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.follow_mob": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_mob.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_mob.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.follow_owner": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_owner.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_owner.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.follow_parent": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_parent.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_parent.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.follow_target_captain": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_target_captain.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.follow_target_captain.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.go_home": {
-      "$ref": "./behaviors/minecraft.behavior.go_home.json"
+      "$ref": "./behaviors/minecraft.behavior.go_home.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.guardian_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.guardian_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.guardian_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.harvest_farm_block": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.harvest_farm_block.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.harvest_farm_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.hide": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.hide.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.hide.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.hold_ground": {
-      "$ref": "./behaviors/minecraft.behavior.hold_ground.json"
+      "$ref": "./behaviors/minecraft.behavior.hold_ground.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.hurt_by_target": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.hurt_by_target.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.hurt_by_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.inspect_bookshelf": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.inspect_bookshelf.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.inspect_bookshelf.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.knockback_roar": {
-      "$ref": "./behaviors/minecraft.behavior.knockback_roar.json"
+      "$ref": "./behaviors/minecraft.behavior.knockback_roar.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.lay_down": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.lay_down.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.lay_down.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.lay_egg": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.lay_egg.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.lay_egg.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.leap_at_target": {
-      "$ref": "./behaviors/minecraft.behavior.leap_at_target.json"
+      "$ref": "./behaviors/minecraft.behavior.leap_at_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.look_at_entity": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_entity.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_entity.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.look_at_player": {
-      "$ref": "./behaviors/minecraft.behavior.look_at_player.json"
+      "$ref": "./behaviors/minecraft.behavior.look_at_player.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.look_at_target": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_target.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.look_at_trading_player": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_trading_player.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.look_at_trading_player.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.make_love": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.make_love.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.make_love.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.melee_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.melee_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.melee_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.mingle": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.mingle.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.mingle.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.mount_pathing": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.mount_pathing.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.mount_pathing.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_indoors": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_indoors.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_indoors.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_through_village": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_through_village.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_through_village.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_to_block": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_block.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_to_land": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_land.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_land.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_to_lava": {
-      "$ref": "./behaviors/minecraft.behavior.move_to_lava.json"
+      "$ref": "./behaviors/minecraft.behavior.move_to_lava.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_to_poi": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_poi.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_poi.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_to_random_block": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_random_block.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_random_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_to_village": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_village.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_village.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_to_water": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_water.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_water.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_towards_restriction": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_restriction.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_restriction.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.move_towards_target": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_target.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.nap": {
-      "$ref": "./behaviors/minecraft.behavior.nap.json"
+      "$ref": "./behaviors/minecraft.behavior.nap.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.nearest_attackable_target": {
-      "$ref": "./behaviors/minecraft.behavior.nearest_attackable_target.json"
+      "$ref": "./behaviors/minecraft.behavior.nearest_attackable_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.nearest_prioritized_attackable_target": {
-      "$ref": "./behaviors/minecraft.behavior.nearest_prioritized_attackable_target.json"
+      "$ref": "./behaviors/minecraft.behavior.nearest_prioritized_attackable_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.ocelot_sit_on_block": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.ocelot_sit_on_block.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.ocelot_sit_on_block.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.ocelotattack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.ocelotattack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.ocelotattack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.offer_flower": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.offer_flower.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.offer_flower.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.open_door": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.open_door.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.open_door.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.owner_hurt_by_target": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.owner_hurt_by_target.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.owner_hurt_by_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.owner_hurt_target": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.owner_hurt_target.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.owner_hurt_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.panic": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.panic.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.panic.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.peek": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.peek.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.peek.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.pet_sleep_with_owner": {
-      "$ref": "./behaviors/minecraft.behavior.pet_sleep_with_owner.json"
+      "$ref": "./behaviors/minecraft.behavior.pet_sleep_with_owner.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.pickup_items": {
-      "$ref": "./behaviors/minecraft.behavior.pickup_items.json"
+      "$ref": "./behaviors/minecraft.behavior.pickup_items.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.play": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.play.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.play.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.player_ride_tamed": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.player_ride_tamed.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.player_ride_tamed.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.raid_garden": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.raid_garden.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.raid_garden.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_breach": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_breach.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_breach.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_fly": {
-      "$ref": "./behaviors/minecraft.behavior.random_fly.json"
+      "$ref": "./behaviors/minecraft.behavior.random_fly.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_hover": {
-      "$ref": "./behaviors/minecraft.behavior.random_hover.json"
+      "$ref": "./behaviors/minecraft.behavior.random_hover.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_look_around": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_look_around.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_look_around.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_look_around_and_sit": {
-      "$ref": "./behaviors/minecraft.behavior.random_look_around_and_sit.json"
+      "$ref": "./behaviors/minecraft.behavior.random_look_around_and_sit.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_sitting": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_sitting.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_sitting.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_stroll": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_stroll.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_stroll.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.random_swim": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_swim.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.random_swim.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.ranged_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.ranged_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.ranged_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.receive_love": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.receive_love.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.receive_love.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.restrict_open_door": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.restrict_open_door.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.restrict_open_door.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.restrict_sun": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.restrict_sun.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.restrict_sun.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.rise_to_liquid_level": {
-      "$ref": "./behaviors/minecraft.behavior.rise_to_liquid_level.json"
+      "$ref": "./behaviors/minecraft.behavior.rise_to_liquid_level.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.roll": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.roll.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.roll.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.run_around_like_crazy": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.run_around_like_crazy.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.run_around_like_crazy.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.scared": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.scared.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.scared.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.send_event": {
-      "$ref": "./behaviors/minecraft.behavior.send_event.json"
+      "$ref": "./behaviors/minecraft.behavior.send_event.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.share_items": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.share_items.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.share_items.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.silverfish_merge_with_stone": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.silverfish_merge_with_stone.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.silverfish_merge_with_stone.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.silverfish_wake_up_friends": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.silverfish_wake_up_friends.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.silverfish_wake_up_friends.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.skeleton_horse_trap": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.skeleton_horse_trap.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.skeleton_horse_trap.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.sleep": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.sleep.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.sleep.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.slime_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.slime_float": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_float.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_float.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.slime_keep_on_jumping": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_keep_on_jumping.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_keep_on_jumping.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.slime_random_direction": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_random_direction.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.slime_random_direction.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.snacking": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.snacking.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.snacking.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.sneeze": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.sneeze.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.sneeze.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.squid_dive": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_dive.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_dive.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.squid_flee": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_flee.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_flee.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.squid_idle": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_idle.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_idle.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.squid_move_away_from_ground": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_move_away_from_ground.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_move_away_from_ground.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.squid_out_of_water": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_out_of_water.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.squid_out_of_water.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.stalk_and_pounce_on_target": {
-      "$ref": "./behaviors/minecraft.behavior.stalk_and_pounce_on_target.json"
+      "$ref": "./behaviors/minecraft.behavior.stalk_and_pounce_on_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.stay_while_sitting": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.stay_while_sitting.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.stay_while_sitting.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.stomp_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.stomp_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.stomp_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.stomp_turtle_egg": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.stomp_turtle_egg.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.stomp_turtle_egg.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.stroll_towards_village": {
-      "$ref": "./behaviors/minecraft.behavior.stroll_towards_village.json"
+      "$ref": "./behaviors/minecraft.behavior.stroll_towards_village.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.summon_entity": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.summon_entity.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.summon_entity.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.swell": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.swell.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.swell.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.swim_wander": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.swim_wander.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.swim_wander.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.swim_with_entity": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.swim_with_entity.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.swim_with_entity.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.swoop_attack": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.swoop_attack.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.swoop_attack.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.take_flower": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.take_flower.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.take_flower.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.target_when_pushed": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.target_when_pushed.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.target_when_pushed.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.tempt": {
-      "$ref": "./behaviors/minecraft.behavior.tempt.json"
+      "$ref": "./behaviors/minecraft.behavior.tempt.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.trade_interest": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.trade_interest.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.trade_interest.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.trade_with_player": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.trade_with_player.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.trade_with_player.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.vex_copy_owner_target": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.vex_copy_owner_target.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.vex_copy_owner_target.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.vex_random_move": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.vex_random_move.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.vex_random_move.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.wither_random_attack_pos_goal": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.wither_random_attack_pos_goal.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.wither_random_attack_pos_goal.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.wither_target_highest_damage": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.wither_target_highest_damage.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.wither_target_highest_damage.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.swim_idle": {
-      "$ref": "./behaviors/minecraft.behavior.swim_idle.json"
+      "$ref": "./behaviors/minecraft.behavior.swim_idle.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:behavior.work": {
-      "$ref": "../1.8.0/behaviors/minecraft.behavior.work.json"
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.work.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

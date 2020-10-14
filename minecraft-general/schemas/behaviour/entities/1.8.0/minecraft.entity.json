@@ -76,13 +76,15 @@
       "$ref": "components.json",
       "uniqueItems": true,
       "description": "The components that are added as the foundation of the entity",
-      "title": "The component schema"
+      "title": "The component schema",
+      "additionalProperties": false
     },
     "events": {
       "$ref": "events.json",
       "uniqueItems": true,
       "description": "The events that the entity can run, these add or remove components_groups",
-      "title": "The events schema"
+      "title": "The events schema",
+      "additionalProperties": false
     }
   }
 }

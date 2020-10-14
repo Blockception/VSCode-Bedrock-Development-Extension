@@ -32,7 +32,8 @@
           "description": "Event to fire when the correct item is given.",
           "title": "On Give"
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

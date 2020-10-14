@@ -85,10 +85,17 @@
   },
   "properties": {
     "vanilla": {
-      "$ref": "#/definitions/commands"
+      "$ref": "#/definitions/commands",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "edu": {
-      "$ref": "#/definitions/commands"
+      "$ref": "#/definitions/commands",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
-  }
+  },
+  "description": "TODO description"
 }

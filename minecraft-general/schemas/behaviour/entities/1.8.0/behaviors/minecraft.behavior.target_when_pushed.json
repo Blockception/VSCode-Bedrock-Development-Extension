@@ -7,16 +7,23 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "entity_types": {
       "$ref": "../types/entity_types.json",
       "title": "Entity types",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "percent_chance": {
       "type": "number",
       "title": "Percent chance",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

@@ -9,12 +9,14 @@
     "rotation": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "specifies the initial rotation in degrees",
-      "title": "Rotation"
+      "title": "Rotation",
+      "additionalProperties": false
     },
     "rotation_rate": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "specifies the spin rate in degrees/second",
-      "title": "Rotation Rate"
+      "title": "Rotation Rate",
+      "additionalProperties": false
     }
   }
 }

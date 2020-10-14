@@ -11,13 +11,15 @@
       "type": "integer",
       "default": 0,
       "description": "Number of slots that this entity can gain per extra strength",
-      "title": "additional slots per strength"
+      "title": "additional slots per strength",
+      "additionalProperties": false
     },
     "can_be_siphoned_from": {
       "type": "boolean",
       "default": false,
       "description": "If true, the contents of this inventory can be removed by a hopper",
-      "title": "can be siphoned from"
+      "title": "can be siphoned from",
+      "additionalProperties": false
     },
     "container_type": {
       "type": "string",
@@ -31,25 +33,29 @@
         "inventory",
         "container",
         "hopper"
-      ]
+      ],
+      "additionalProperties": false
     },
     "inventory_size": {
       "type": "integer",
       "default": 5,
       "description": "Number of slots the container has",
-      "title": "inventory size"
+      "title": "inventory size",
+      "additionalProperties": false
     },
     "private": {
       "type": "boolean",
       "default": false,
       "description": "If true, only the entity can access the inventory",
-      "title": "private"
+      "title": "private",
+      "additionalProperties": false
     },
     "restrict_to_owner": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity's inventory can only be accessed by its owner or itself",
-      "title": "restrict to owner"
+      "title": "restrict to owner",
+      "additionalProperties": false
     }
   }
 }

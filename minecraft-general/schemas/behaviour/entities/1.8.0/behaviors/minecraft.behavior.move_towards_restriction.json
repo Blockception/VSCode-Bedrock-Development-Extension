@@ -7,8 +7,18 @@
   "description": "Allows Guardians, Iron Golems and Villagers to move within their pre-defined area that the mob should be restricted to. Other mobs don't have a restriction defined.",
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
-    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "$ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "control_flags": {
       "type": "array",
       "items": {
@@ -18,7 +28,8 @@
         "title": "Control Flags"
       },
       "description": "TODO description: control flags",
-      "title": "Control Flags"
+      "title": "Control Flags",
+      "additionalProperties": false
     }
   }
 }

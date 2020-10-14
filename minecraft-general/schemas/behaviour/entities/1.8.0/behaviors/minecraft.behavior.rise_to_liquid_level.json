@@ -7,21 +7,29 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "liquid_y_offset": {
       "type": "number",
       "title": "Liquid y offset",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "rise_delta": {
       "type": "number",
       "title": "Rise delta",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "sink_delta": {
       "type": "number",
       "title": "Sink delta",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

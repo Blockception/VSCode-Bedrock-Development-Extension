@@ -99,16 +99,21 @@
       "description": "TODO description: additionalProperties"
     }
   },
-  "additionalProperties": { "$ref": "#/definitions/SoundSpec" },
+  "additionalProperties": {
+    "$ref": "#/definitions/SoundSpec"
+  },
   "properties": {
     "format_version": {
       "type": "string",
       "description": "TODO description: format version",
-      "title": "Format Version"
+      "title": "Format Version",
+      "additionalProperties": false
     },
     "sound_definitions": {
       "type": "object",
-      "additionalProperties": { "$ref": "#/definitions/SoundSpec" },
+      "additionalProperties": {
+        "$ref": "#/definitions/SoundSpec"
+      },
       "description": "TODO description: sound definitions",
       "title": "Sound Definitions"
     }

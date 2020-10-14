@@ -11,19 +11,22 @@
       "type": "string",
       "default": "ambient",
       "description": "Level sound event to be played as the ambient sound.",
-      "title": "Event_name"
+      "title": "Event_name",
+      "additionalProperties": false
     },
     "range": {
       "type": "number",
       "default": 16,
       "description": "Maximum time in seconds to randomly add to the ambient sound delay time.",
-      "title": "Range"
+      "title": "Range",
+      "additionalProperties": false
     },
     "value": {
       "type": "number",
       "default": 8,
       "description": "Minimum time in seconds before the entity plays its ambient sound again",
-      "title": "value"
+      "title": "value",
+      "additionalProperties": false
     }
   }
 }

@@ -7,16 +7,25 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "interval": {
       "type": "integer",
       "default": 120,
-      "description": "A random value to determine at what intervals something can occur. This has a 1/interval chance to choose this goal"
+      "description": "A random value to determine at what intervals something can occur. This has a 1/interval chance to choose this goal",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "random_stop_interval": {
       "type": "integer",
       "default": 120,
-      "description": "a random value in which the goal can use to pull out of the behavior. This is a 1/interval chance to play the sound"
+      "description": "a random value in which the goal can use to pull out of the behavior. This is a 1/interval chance to play the sound",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

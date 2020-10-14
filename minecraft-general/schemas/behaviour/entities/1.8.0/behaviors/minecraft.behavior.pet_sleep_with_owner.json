@@ -7,22 +7,38 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
-    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
-      "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot"
+      "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "search_height": {
       "type": "integer",
       "default": 1,
-      "description": "Height in blocks from the owner the pet can be to sleep with owner."
+      "description": "Height in blocks from the owner the pet can be to sleep with owner.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "search_range": {
       "type": "integer",
       "default": 0,
-      "description": "The distance in blocks from the owner the pet can be to sleep with owner."
+      "description": "The distance in blocks from the owner the pet can be to sleep with owner.",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

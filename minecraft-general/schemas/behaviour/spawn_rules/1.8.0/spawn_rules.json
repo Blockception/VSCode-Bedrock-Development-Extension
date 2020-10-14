@@ -8,7 +8,10 @@
   "required": ["format_version", "minecraft:spawn_rules"],
   "properties": {
     "format_version": {
-      "const": "1.8.0"
+      "const": "1.8.0",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:spawn_rules": {
       "type": "object",
@@ -68,7 +71,9 @@
               "minecraft:height_filter": {
                 "$ref": "./components/minecraft.height_filter.json"
               },
-              "minecraft:herd": { "$ref": "./components/minecraft.herd.json" },
+              "minecraft:herd": {
+                "$ref": "./components/minecraft.herd.json"
+              },
               "minecraft:permute_type": {
                 "$ref": "./components/minecraft.permute_type.json"
               },

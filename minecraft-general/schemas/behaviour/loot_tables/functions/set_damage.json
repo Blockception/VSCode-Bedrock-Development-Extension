@@ -5,18 +5,33 @@
   "description": "The function set_damage",
   "title": "Set_damage",
   "properties": {
-    "function": { "type": "string", "const": "set_damage" },
+    "function": {
+      "type": "string",
+      "const": "set_damage",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "damage": {
       "oneOf": [
-        { "type": "integer" },
+        {
+          "type": "integer"
+        },
         {
           "type": "object",
           "properties": {
-            "min": { "type": "integer" },
-            "max": { "type": "integer" }
+            "min": {
+              "type": "integer"
+            },
+            "max": {
+              "type": "integer"
+            }
           }
         }
-      ]
+      ],
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

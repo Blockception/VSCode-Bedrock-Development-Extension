@@ -7,10 +7,17 @@
   "title": "behavior.wither_target_highest_damage 1.8.0",
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "entity_types": {
       "$ref": "../types/entity_types.json",
-      "description": "List of entity types the wither takes into account to find who dealt the most damage to it"
+      "description": "List of entity types the wither takes into account to find who dealt the most damage to it",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

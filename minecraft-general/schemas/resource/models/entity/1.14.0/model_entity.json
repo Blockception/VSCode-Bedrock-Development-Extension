@@ -37,13 +37,17 @@
   "properties": {
     "debug": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "format_version": {
       "title": "The 1.14.0 format_version",
       "type": "string",
       "pattern": "^1.14.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "minecraft:geometry": {
       "type": "array",
@@ -461,7 +465,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

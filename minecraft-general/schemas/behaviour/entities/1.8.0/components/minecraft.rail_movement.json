@@ -11,7 +11,8 @@
       "type": "number",
       "default": 0.4,
       "description": "Maximum speed that this entity will move at when on the rail",
-      "title": "Max Speed"
+      "title": "Max Speed",
+      "additionalProperties": false
     }
   }
 }

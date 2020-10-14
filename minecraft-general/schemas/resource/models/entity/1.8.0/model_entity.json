@@ -7,13 +7,17 @@
   "required": ["format_version"],
   "properties": {
     "debug": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "format_version": {
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     }
   },
   "propertyNames": {
@@ -39,9 +43,15 @@
             "bind_pose_rotation": {
               "type": "array",
               "items": [
-                { "type": "number" },
-                { "type": "number" },
-                { "type": "number" }
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
               ]
             },
             "cubes": {
@@ -59,22 +69,41 @@
                   "origin": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "size": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "uv": {
                     "type": "array",
-                    "items": [{ "type": "number" }, { "type": "number" }]
+                    "items": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
                   }
                 }
               }
@@ -89,7 +118,9 @@
               "type": "object",
               "additionalProperties": {
                 "type": "array",
-                "items": { "type": "number" }
+                "items": {
+                  "type": "number"
+                }
               }
             },
             "mirror": {
@@ -107,9 +138,15 @@
             "pivot": {
               "type": "array",
               "items": [
-                { "type": "number" },
-                { "type": "number" },
-                { "type": "number" }
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
               ]
             },
             "poly_mesh": {
@@ -129,9 +166,15 @@
                   "description": "TODO",
                   "type": "array",
                   "items": [
-                    { "type": "number" },
-                    { "type": "number" },
-                    { "type": "number" }
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
                   ]
                 },
                 "normals": {
@@ -139,9 +182,15 @@
                   "description": "TODO",
                   "type": "array",
                   "items": [
-                    { "type": "number" },
-                    { "type": "number" },
-                    { "type": "number" }
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
                   ]
                 },
                 "polys": {
@@ -153,9 +202,15 @@
                     "minItems": 3,
                     "maxItems": 4,
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   }
                 }
@@ -177,9 +232,15 @@
               "description": "TODO",
               "type": "array",
               "items": [
-                { "type": "number" },
-                { "type": "number" },
-                { "type": "number" }
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
               ]
             },
             "texture_meshes": {
@@ -196,33 +257,57 @@
                   "local_pivot": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "position": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "rotation": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   },
                   "scale": {
                     "type": "array",
                     "items": [
-                      { "type": "number" },
-                      { "type": "number" },
-                      { "type": "number" }
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
                     ]
                   }
                 }
@@ -266,9 +351,15 @@
         "description": "TODO description: visible bounds offset",
         "title": "Visible Bounds Offset",
         "items": [
-          { "type": "number" },
-          { "type": "number" },
-          { "type": "number" }
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "number"
+          }
         ]
       }
     }

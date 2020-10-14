@@ -58,7 +58,8 @@
         },
         "title": "Slots"
       },
-      "title": "Slots"
+      "title": "Slots",
+      "additionalProperties": false
     }
   }
 }

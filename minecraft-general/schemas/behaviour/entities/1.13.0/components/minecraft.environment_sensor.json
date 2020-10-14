@@ -10,9 +10,18 @@
       "description": "The list of triggers that fire when the environment conditions match the given filter criteria.",
       "title": "Triggers",
       "anyOf": [
-        { "type": "array", "items": { "$ref": "../types/trigger.json" } },
-        { "type": "object", "$ref": "../types/trigger.json" }
-      ]
+        {
+          "type": "array",
+          "items": {
+            "$ref": "../types/trigger.json"
+          }
+        },
+        {
+          "type": "object",
+          "$ref": "../types/trigger.json"
+        }
+      ],
+      "additionalProperties": false
     }
   }
 }

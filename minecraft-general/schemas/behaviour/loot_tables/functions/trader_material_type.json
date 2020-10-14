@@ -7,7 +7,10 @@
   "properties": {
     "function": {
       "type": "string",
-      "const": "trader_material_type"
+      "const": "trader_material_type",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

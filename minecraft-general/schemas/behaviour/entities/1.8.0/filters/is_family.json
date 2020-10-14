@@ -10,14 +10,26 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the is_family test property"
+      "description": "the is_family test property",
+      "additionalProperties": false
     },
-    "operator": { "$ref": "types/base_operator.json" },
-    "subject": { "$ref": "types/base_subject.json" },
+    "operator": {
+      "$ref": "types/base_operator.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "subject": {
+      "$ref": "types/base_subject.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "value": {
       "description": "The Family name to look for",
       "type": "string",
-      "title": "Value"
+      "title": "Value",
+      "additionalProperties": false
     }
   }
 }

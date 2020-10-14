@@ -31,7 +31,9 @@
             "description": "Defines the item this entity wants to craft with the item defined above. Should be an item name"
           }
         }
-      }
+      },
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

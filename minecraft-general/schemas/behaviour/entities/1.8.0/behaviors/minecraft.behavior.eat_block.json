@@ -8,22 +8,36 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "on_eat": {
       "$ref": "../types/trigger.json",
       "description": "UNDOCUMENTATED",
-      "title": "On Eat"
+      "title": "On Eat",
+      "additionalProperties": false
     },
     "success_chance": {
       "title": "Succes chance",
       "description": "UNDOCUMENTATED",
-      "oneOf": [{ "type": "number" }, { "type": "string", "title": "Molang" }]
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string",
+          "title": "Molang"
+        }
+      ],
+      "additionalProperties": false
     },
     "time_until_eat": {
       "title": "Time until eat",
       "description": "UNDOCUMENTATED",
-      "type": "number"
+      "type": "number",
+      "additionalProperties": false
     },
     "eat_and_replace_block_pairs": {
       "type": "array",
@@ -45,7 +59,8 @@
             "description": "UNDOCUMENTATED"
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

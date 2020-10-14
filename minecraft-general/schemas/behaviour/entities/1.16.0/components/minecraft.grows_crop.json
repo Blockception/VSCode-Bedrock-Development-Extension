@@ -12,13 +12,15 @@
       "description": "Value between 0-1. Chance of success per tick.",
       "minimum": 0,
       "maximum": 1,
-      "title": "Chance"
+      "title": "Chance",
+      "additionalProperties": false
     },
     "charges": {
       "type": "integer",
       "default": 10,
       "description": "Number of charges",
-      "title": "Charges"
+      "title": "Charges",
+      "additionalProperties": false
     }
   }
 }

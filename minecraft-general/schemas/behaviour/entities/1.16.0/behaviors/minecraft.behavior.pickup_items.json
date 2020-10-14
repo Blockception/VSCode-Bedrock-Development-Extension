@@ -7,52 +7,65 @@
   "title": "behavior.pickup_items 1.16.0",
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json"
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "speed_multiplier": {
-      "ref": "types/base_speed_multiplier.json"
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "can_pickup_any_item": {
       "type": "boolean",
       "default": false,
       "description": "If true, the mob can pickup any item",
-      "title": "Can pickup any item"
+      "title": "Can pickup any item",
+      "additionalProperties": false
     },
     "can_pickup_to_hand_or_equipment": {
       "type": "boolean",
       "default": true,
       "description": "If true, the mob can pickup items to its hand or armor slots",
-      "title": "Can pickup to hand or equipment"
+      "title": "Can pickup to hand or equipment",
+      "additionalProperties": false
     },
     "cooldown_after_being_attacked": {
       "type": "number",
       "default": true,
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
+      "title": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "Goal radius"
+      "title": "Goal radius",
+      "additionalProperties": false
     },
     "max_dist": {
       "type": "number",
       "default": 0,
       "description": "Maximum distance this mob will look for items to pick up",
-      "title": "Max dist"
+      "title": "Max dist",
+      "additionalProperties": false
     },
     "pickup_based_on_chance": {
       "type": "boolean",
       "default": false,
       "description": "If true, depending on the difficulty, there is a random chance that the mob may not be able to pickup items",
-      "title": "Pickup based on chance"
+      "title": "Pickup based on chance",
+      "additionalProperties": false
     },
     "track_target": {
       "type": "boolean",
       "default": false,
       "description": "If true, this mob will chase after the target as long as it's a valid target",
-      "title": "Track target"
+      "title": "Track target",
+      "additionalProperties": false
     }
   }
 }

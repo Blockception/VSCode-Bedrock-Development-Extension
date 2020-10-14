@@ -6,11 +6,17 @@
   "title": "density_limit 1.8.0",
   "description": "TODO",
   "properties": {
-    "surface": { "type": "integer", "description": "TODO", "title": "Surface" },
+    "surface": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "Surface",
+      "additionalProperties": false
+    },
     "underground": {
       "type": "integer",
       "description": "TODO",
-      "title": "Underground"
+      "title": "Underground",
+      "additionalProperties": false
     }
   }
 }

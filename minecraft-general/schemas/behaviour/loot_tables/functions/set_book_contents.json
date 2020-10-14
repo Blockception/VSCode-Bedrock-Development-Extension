@@ -6,9 +6,25 @@
   "title": "Set_book_contents",
   "required": ["function", "author", "title", "pages"],
   "properties": {
-    "function": { "type": "string", "const": "set_book_contents" },
-    "author": { "type": "string" },
-    "title": { "type": "string" },
+    "function": {
+      "type": "string",
+      "const": "set_book_contents",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "author": {
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "title": {
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "pages": {
       "type": "array",
       "items": {
@@ -17,7 +33,10 @@
           "Some text",
           "{\"rawtext\":[ {\"translate\":\"some.text\"}]}"
         ]
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

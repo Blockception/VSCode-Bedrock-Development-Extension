@@ -10,26 +10,30 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "The test property"
+      "description": "The test property",
+      "additionalProperties": false
     },
     "operator": {
       "$ref": "types/base_operator.json",
       "description": "(Optional) The comparison to apply with 'value'.",
       "default": "equals",
-      "title": "Operator"
+      "title": "Operator",
+      "additionalProperties": false
     },
     "subject": {
       "$ref": "types/base_subject.json",
       "description": "(Optional) The subject of this filter test.",
       "default": "self",
-      "title": "Subject"
+      "title": "Subject",
+      "additionalProperties": false
     },
     "value": {
       "type": "number",
       "minimum": 0,
       "maximum": 240000,
       "description": "(Required) An integer value.",
-      "title": "Value"
+      "title": "Value",
+      "additionalProperties": false
     }
   }
 }

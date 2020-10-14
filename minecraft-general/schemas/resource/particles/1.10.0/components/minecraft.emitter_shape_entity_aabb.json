@@ -27,7 +27,8 @@
         }
       ],
       "description": "TODO description: direction",
-      "title": "Direction"
+      "title": "Direction",
+      "additionalProperties": false
     },
     "offset": {
       "type": "array",
@@ -37,7 +38,10 @@
         "$ref": "../../../../molang/1.8.0/number.json",
         "description": "TODO description: offset",
         "title": "Offset"
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

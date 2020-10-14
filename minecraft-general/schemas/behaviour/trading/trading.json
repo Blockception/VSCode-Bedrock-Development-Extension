@@ -7,12 +7,17 @@
     "Item": {
       "title": "Item",
       "oneOf": [
-        { "type": "string" },
+        {
+          "type": "string"
+        },
         {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "item": { "type": "string", "title": "Item identifier" },
+            "item": {
+              "type": "string",
+              "title": "Item identifier"
+            },
             "price_multiplier": {
               "type": "number",
               "title": "Price multiplier"
@@ -20,7 +25,11 @@
             "quantity": {
               "title": "Quantity",
               "oneOf": [
-                { "type": "integer", "minimum": 1, "title": "Amount" },
+                {
+                  "type": "integer",
+                  "minimum": 1,
+                  "title": "Amount"
+                },
                 {
                   "type": "object",
                   "additionalProperties": false,
@@ -59,7 +68,9 @@
             "items": {
               "title": "Give",
               "oneOf": [
-                { "type": "string" },
+                {
+                  "type": "string"
+                },
                 {
                   "type": "object",
                   "additionalProperties": false,
@@ -71,7 +82,11 @@
                     "quantity": {
                       "title": "Quantity",
                       "oneOf": [
-                        { "type": "integer", "minimum": 1, "title": "Amount" },
+                        {
+                          "type": "integer",
+                          "minimum": 1,
+                          "title": "Amount"
+                        },
                         {
                           "type": "object",
                           "additionalProperties": false,
@@ -414,7 +429,10 @@
             }
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
-  }
+  },
+  "description": "TODO description",
+  "title": "TODO title"
 }

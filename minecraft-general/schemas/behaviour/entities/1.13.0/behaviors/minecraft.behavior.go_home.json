@@ -7,34 +7,71 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
-    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
-      "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot"
+      "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "interval": {
       "type": "integer",
       "default": 120,
-      "description": "A random value to determine when to randomly move somewhere. This has a 1/interval chance to choose this goal"
+      "description": "A random value to determine when to randomly move somewhere. This has a 1/interval chance to choose this goal",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "on_home": {
       "title": "On home",
       "description": "Event to run when this mob gets home.",
       "oneOf": [
-        { "type": "string" },
-        { "type": "object", "$ref": "../types/trigger.json" },
-        { "type": "array", "items": { "$ref": "../types/trigger.json" } }
-      ]
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "$ref": "../types/trigger.json"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "../types/trigger.json"
+          }
+        }
+      ],
+      "additionalProperties": false
     },
     "on_failed": {
       "description": "Event to run when this mob gets home.",
       "oneOf": [
-        { "type": "string" },
-        { "type": "object", "$ref": "../types/trigger.json" },
-        { "type": "array", "items": { "$ref": "../types/trigger.json" } }
-      ]
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "$ref": "../types/trigger.json"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "../types/trigger.json"
+          }
+        }
+      ],
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

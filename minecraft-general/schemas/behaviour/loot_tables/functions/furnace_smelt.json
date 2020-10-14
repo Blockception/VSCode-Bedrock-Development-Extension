@@ -4,5 +4,13 @@
   "additionalProperties": false,
   "description": "The function furnace_smelt",
   "title": "Furnace_smelt",
-  "properties": { "function": { "type": "string", "const": "furnace_smelt" } }
+  "properties": {
+    "function": {
+      "type": "string",
+      "const": "furnace_smelt",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
+  }
 }

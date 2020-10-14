@@ -19,7 +19,8 @@
     "format_version": {
       "type": "string",
       "description": "TODO description: format version",
-      "title": "Format Version"
+      "title": "Format Version",
+      "additionalProperties": false
     },
     "sound_definitions": {
       "additionalProperties": {
@@ -122,7 +123,9 @@
       "description": "TODO description: use legacy max distance",
       "title": "Use Legacy Max Distance",
       "type": "string",
-      "enum": ["true", "false"]
+      "enum": ["true", "false"],
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

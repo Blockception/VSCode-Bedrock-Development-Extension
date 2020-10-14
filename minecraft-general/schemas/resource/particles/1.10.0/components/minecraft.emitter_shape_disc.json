@@ -7,21 +7,28 @@
   "properties": {
     "direction": {
       "anyOf": [
-        { "type": "string", "enum": ["inwards", "outwards"] },
+        {
+          "type": "string",
+          "enum": ["inwards", "outwards"]
+        },
         {
           "type": "array",
           "minItems": 3,
           "maxItems": 3,
-          "items": { "$ref": "../../../../molang/1.8.0/number.json" }
+          "items": {
+            "$ref": "../../../../molang/1.8.0/number.json"
+          }
         }
       ],
       "description": "TODO description: direction",
-      "title": "Direction"
+      "title": "Direction",
+      "additionalProperties": false
     },
     "radius": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: radius",
-      "title": "Radius"
+      "title": "Radius",
+      "additionalProperties": false
     },
     "offset": {
       "type": "array",
@@ -31,28 +38,42 @@
         "$ref": "../../../../molang/1.8.0/number.json",
         "description": "TODO description: offset",
         "title": "Offset"
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "plane_normal": {
       "title": "Plane normal",
       "description": "specifies the normal of the disc plane, the disc will be perpendicular to this direction",
       "default": [0, 1, 0],
       "oneOf": [
-        { "type": "string", "enum": ["x", "y", "z"] },
+        {
+          "type": "string",
+          "enum": ["x", "y", "z"]
+        },
         {
           "type": "array",
           "items": [
-            { "$ref": "../../../../molang/1.8.0/number.json" },
-            { "$ref": "../../../../molang/1.8.0/number.json" },
-            { "$ref": "../../../../molang/1.8.0/number.json" }
+            {
+              "$ref": "../../../../molang/1.8.0/number.json"
+            },
+            {
+              "$ref": "../../../../molang/1.8.0/number.json"
+            },
+            {
+              "$ref": "../../../../molang/1.8.0/number.json"
+            }
           ]
         }
-      ]
+      ],
+      "additionalProperties": false
     },
     "surface_only": {
       "type": "boolean",
       "description": "TODO description: surface only",
-      "title": "Surface Only"
+      "title": "Surface Only",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

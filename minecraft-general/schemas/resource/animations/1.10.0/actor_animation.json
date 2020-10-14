@@ -119,7 +119,8 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "const": "1.10.0",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "animations": {
       "title": "Animations schema",
@@ -163,8 +164,12 @@
                   "title": "Position",
                   "description": "The Position transformation during this animation",
                   "oneOf": [
-                    { "$ref": "#/definitions/PositionV3" },
-                    { "$ref": "../../../molang/1.8.0/arraynumber3.json" },
+                    {
+                      "$ref": "#/definitions/PositionV3"
+                    },
+                    {
+                      "$ref": "../../../molang/1.8.0/arraynumber3.json"
+                    },
                     {
                       "type": "object",
                       "propertyNames": {
@@ -200,8 +205,12 @@
                   "title": "Rotation",
                   "description": "The rotation transformation during this animation",
                   "oneOf": [
-                    { "$ref": "#/definitions/RotationV3" },
-                    { "$ref": "../../../molang/1.8.0/arraynumber3.json" },
+                    {
+                      "$ref": "#/definitions/RotationV3"
+                    },
+                    {
+                      "$ref": "../../../molang/1.8.0/arraynumber3.json"
+                    },
                     {
                       "type": "object",
                       "propertyNames": {
@@ -248,8 +257,12 @@
                   "title": "Scale",
                   "description": "TODO",
                   "oneOf": [
-                    { "$ref": "../../../molang/1.8.0/number.json" },
-                    { "$ref": "#/definitions/ScaleV3" },
+                    {
+                      "$ref": "../../../molang/1.8.0/number.json"
+                    },
+                    {
+                      "$ref": "#/definitions/ScaleV3"
+                    },
                     {
                       "type": "object",
                       "propertyNames": {
@@ -288,8 +301,13 @@
             "title": "Loop",
             "description": "should this animation stop, loop, or stay on the last frame when finished (true, false, hold_on_last_frame)",
             "oneOf": [
-              { "type": "boolean" },
-              { "type": "string", "enum": ["hold_on_last_frame"] }
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": ["hold_on_last_frame"]
+              }
             ]
           },
           "override_previous_animation": {
@@ -301,7 +319,9 @@
             "title": "Position",
             "description": "The Position transformation during this animation",
             "oneOf": [
-              { "$ref": "#/definitions/ParticleEffect" },
+              {
+                "$ref": "#/definitions/ParticleEffect"
+              },
               {
                 "type": "object",
                 "propertyNames": {
@@ -324,9 +344,13 @@
             "oneOf": [
               {
                 "type": "array",
-                "items": { "$ref": "#/definitions/SoundEffect" }
+                "items": {
+                  "$ref": "#/definitions/SoundEffect"
+                }
               },
-              { "$ref": "#/definitions/SoundEffect" },
+              {
+                "$ref": "#/definitions/SoundEffect"
+              },
               {
                 "type": "object",
                 "propertyNames": {
@@ -342,8 +366,15 @@
             "title": "Timeline",
             "description": "TODO",
             "oneOf": [
-              { "type": "string" },
-              { "type": "array", "items": { "type": "string" } }
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
             ]
           }
         }

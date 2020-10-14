@@ -9,16 +9,21 @@
     "event": {
       "type": "string",
       "description": "Event",
-      "title": "The event to fire"
+      "title": "The event to fire",
+      "additionalProperties": false
     },
     "filters": {
       "$ref": "../filters.json",
-      "description": "The filters to check to determine if the event should be fired"
+      "description": "The filters to check to determine if the event should be fired",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "target": {
       "$ref": "../filters/types/base_subject.json",
       "description": "The entity to target",
-      "title": "Target"
+      "title": "Target",
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

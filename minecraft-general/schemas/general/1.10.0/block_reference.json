@@ -6,17 +6,32 @@
   "title": "TODO",
   "description": "TODO",
   "properties": {
-    "name": { "type": "string" },
+    "name": {
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "states": {
       "type": "object",
-      "propertyNames": { "pattern": "\\w*:?\\w+" },
+      "propertyNames": {
+        "pattern": "\\w*:?\\w+"
+      },
       "additionalProperties": {
         "oneOf": [
-          { "type": "boolean" },
-          { "type": "integer" },
-          { "type": "string" }
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          }
         ]
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

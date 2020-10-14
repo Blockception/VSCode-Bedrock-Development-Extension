@@ -10,7 +10,8 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "pattern": "^(1.10.0|1.10)$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "minecraft:attachable": {
       "type": "object",
@@ -249,7 +250,9 @@
           },
           "description": "TODO description: description"
         }
-      }
+      },
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

@@ -7,12 +7,24 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
-    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "$ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "timeout_cooldown": {
       "type": "number",
       "default": 8,
-      "description": "The cooldown time in seconds before the goal can be reused after a internal failure or timeout condition"
+      "description": "The cooldown time in seconds before the goal can be reused after a internal failure or timeout condition",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

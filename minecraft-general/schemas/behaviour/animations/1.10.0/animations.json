@@ -59,7 +59,8 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "pattern": "^1.10.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "animations": {
       "title": "Animations schema",
@@ -109,5 +110,6 @@
         }
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

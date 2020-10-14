@@ -35,17 +35,20 @@
     "num_mip_levels": {
       "type": "integer",
       "title": "Num_mip_levels",
-      "description": "TODO: add description"
+      "description": "TODO: add description",
+      "additionalProperties": false
     },
     "padding": {
       "type": "integer",
       "title": "Padding",
-      "description": "TODO: add description"
+      "description": "TODO: add description",
+      "additionalProperties": false
     },
     "resource_pack_name": {
       "type": "string",
       "title": "Resource_pack_name",
-      "description": "TODO: add description"
+      "description": "TODO: add description",
+      "additionalProperties": false
     },
     "texture_data": {
       "type": "object",
@@ -59,15 +62,27 @@
         "properties": {
           "textures": {
             "oneOf": [
-              { "$ref": "#/definitions/texture" },
-              { "type": "array", "items": { "$ref": "#/definitions/texture" } }
+              {
+                "$ref": "#/definitions/texture"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/texture"
+                }
+              }
             ]
           }
         }
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "texture_name": {
-      "type": "string"
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

@@ -15,12 +15,14 @@
         "title": "Relative Position"
       },
       "description": "TODO description: relative position",
-      "title": "Relative Position"
+      "title": "Relative Position",
+      "additionalProperties": false
     },
     "rotation": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: rotation",
-      "title": "Rotation"
+      "title": "Rotation",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

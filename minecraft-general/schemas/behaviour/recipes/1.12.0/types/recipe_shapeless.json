@@ -7,41 +7,61 @@
   "required": ["description"],
   "type": "object",
   "properties": {
-    "description": { "$ref": "./base types/definition.json" },
-    "tags": { "$ref": "./base types/tags.json" },
-
+    "description": {
+      "$ref": "./base types/definition.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "tags": {
+      "$ref": "./base types/tags.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "ingredients": {
       "description": "items used as input (without a shape) for the recipe.",
       "title": "Ingredients",
       "oneOf": [
-        { "$ref": "./base types/item.json" },
+        {
+          "$ref": "./base types/item.json"
+        },
         {
           "type": "array",
-          "items": { "$ref": "./base types/item.json" }
+          "items": {
+            "$ref": "./base types/item.json"
+          }
         }
-      ]
+      ],
+      "additionalProperties": false
     },
     "group": {
       "type": "string",
       "title": "UNDOCUMENTATED",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
-
     "priority": {
       "type": "integer",
       "description": "Item used as output for the furnace recipe.",
-      "title": "Priority"
+      "title": "Priority",
+      "additionalProperties": false
     },
     "result": {
       "description": "when input items match the pattern then these items are the result.",
       "title": "Result",
       "oneOf": [
-        { "$ref": "./base types/item.json" },
+        {
+          "$ref": "./base types/item.json"
+        },
         {
           "type": "array",
-          "items": { "$ref": "./base types/item.json" }
+          "items": {
+            "$ref": "./base types/item.json"
+          }
         }
-      ]
+      ],
+      "additionalProperties": false
     }
   }
 }

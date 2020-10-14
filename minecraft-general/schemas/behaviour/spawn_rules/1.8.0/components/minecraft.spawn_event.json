@@ -6,6 +6,11 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "event": { "type": "string", "title": "Event", "description": "TODO" }
+    "event": {
+      "type": "string",
+      "title": "Event",
+      "description": "TODO",
+      "additionalProperties": false
+    }
   }
 }

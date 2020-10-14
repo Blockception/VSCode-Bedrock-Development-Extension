@@ -8,7 +8,8 @@
     "max_particles": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: max particles",
-      "title": "Max Particles"
+      "title": "Max Particles",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

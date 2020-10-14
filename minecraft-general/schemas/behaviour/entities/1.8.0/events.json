@@ -68,23 +68,29 @@
     "minecraft:entity_transformed": {
       "description": "Event called on an entity that transforms into another entity.",
       "$ref": "#/definitions/event_base",
-      "title": "entity Transformed"
+      "title": "entity Transformed",
+      "additionalProperties": false
     },
     "minecraft:minecraft:entity_born": {
       "description": "Event called on an entity that is spawned through two entities breeding.",
       "$ref": "#/definitions/event_base",
-      "title": "minecraft:entity Born"
+      "title": "minecraft:entity Born",
+      "additionalProperties": false
     },
     "minecraft:entity_spawned": {
       "description": "Event called on an entity that is placed in the level.",
       "$ref": "#/definitions/event_base",
-      "title": "entity Spawned"
+      "title": "entity Spawned",
+      "additionalProperties": false
     },
     "minecraft:on_prime": {
       "description": "Event called on an entity whose fuse is lit and is ready to explode.",
       "$ref": "#/definitions/event_base",
-      "title": "on Prime"
+      "title": "on Prime",
+      "additionalProperties": false
     }
   },
-  "additionalProperties": { "$ref": "#/definitions/event_base" }
+  "additionalProperties": {
+    "$ref": "#/definitions/event_base"
+  }
 }

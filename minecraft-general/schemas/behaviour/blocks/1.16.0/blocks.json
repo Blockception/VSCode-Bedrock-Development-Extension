@@ -11,7 +11,8 @@
       "title": "The 1.16.0 format_version",
       "type": "string",
       "const": "1.16.0",
-      "description": "The format version"
+      "description": "The format version",
+      "additionalProperties": false
     },
     "minecraft:block": {
       "title": "Minecraft block definitions",

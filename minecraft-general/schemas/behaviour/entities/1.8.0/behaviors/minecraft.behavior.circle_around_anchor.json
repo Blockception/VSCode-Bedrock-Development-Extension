@@ -8,70 +8,83 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "speed_multiplier": {
       "type": "number",
       "default": 1.0,
       "description": "Movement speed multiplier of the mob when using this AI Goal",
-      "title": "Speed Multiplier"
+      "title": "Speed Multiplier",
+      "additionalProperties": false
     },
     "radius_range": {
       "$ref": "../types/range_number_type.json",
       "default": [5.0, 15.0],
       "description": "Range of radius in blocks of the circle to move around.",
-      "title": "Radius Range"
+      "title": "Radius Range",
+      "additionalProperties": false
     },
     "radius_change_chance": {
       "type": "integer",
       "default": 250,
       "description": "A random value to determine when to increase the size of the radius up to the maximum. This has a 1/value chance every tick to do so.",
-      "title": "Radius Change Chance"
+      "title": "Radius Change Chance",
+      "additionalProperties": false
     },
     "height_above_target_range": {
       "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "When the mob finds a target, the range of height in blocks above the target to start the anchor point.",
-      "title": "Height Above Target Range"
+      "title": "Height Above Target Range",
+      "additionalProperties": false
     },
     "height_offset_range": {
       "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "The range of height in blocks offset the mob can have from it's anchor point.",
-      "title": "Height Offset Range"
+      "title": "Height Offset Range",
+      "additionalProperties": false
     },
     "height_change_chance": {
       "type": "integer",
       "default": 350,
       "description": "A random value to determine when to change the height of the mob from the anchor point. This has a 1/value chance every tick to do so.",
-      "title": "Height Change Chance"
+      "title": "Height Change Chance",
+      "additionalProperties": false
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "Goal Radius"
+      "title": "Goal Radius",
+      "additionalProperties": false
     },
-
     "radius_change": {
       "type": "number",
       "title": "Radius change",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "radius_adjustment_chance": {
       "type": "number",
       "title": "Radius adjustment chance",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "height_adjustment_chance": {
       "type": "number",
       "title": "Height adjustment chance",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "angle_change": {
       "type": "number",
       "title": "Angle change",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

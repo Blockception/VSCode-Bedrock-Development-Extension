@@ -6,29 +6,38 @@
   "description": "The mob freezes and looks at the mob they are targeting.",
   "additionalProperties": false,
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "broadcast": {
       "type": "boolean",
       "default": false,
       "description": "Whether to broadcast out the mob's target to other mobs of the same type.",
-      "title": "Broadcast"
+      "title": "Broadcast",
+      "additionalProperties": false
     },
     "broadcast_range": {
       "type": "number",
       "default": 0.0,
       "description": "Range in blocks for how far to broadcast.",
-      "title": "Broadcast range"
+      "title": "Broadcast range",
+      "additionalProperties": false
     },
     "min_radius": {
       "type": "number",
       "default": 10.0,
       "description": "Minimum distance the target must be for the mob to run this goal.",
-      "title": "Min radius"
+      "title": "Min radius",
+      "additionalProperties": false
     },
     "within_radius_event": {
       "$ref": "../types/event.json",
       "description": "Event to run when target is within the radius. This event is broadcasted if broadcast is true.",
-      "title": "Within radius event"
+      "title": "Within radius event",
+      "additionalProperties": false
     }
   }
 }

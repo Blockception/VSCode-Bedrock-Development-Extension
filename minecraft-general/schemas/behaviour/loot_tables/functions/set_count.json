@@ -8,12 +8,16 @@
     "function": {
       "type": "string",
       "const": "set_count",
-      "title": "Function"
+      "title": "Function",
+      "description": "TODO description",
+      "additionalProperties": false
     },
     "count": {
       "title": "Count",
       "oneOf": [
-        { "type": "integer" },
+        {
+          "type": "integer"
+        },
         {
           "type": "object",
           "properties": {
@@ -27,7 +31,9 @@
             }
           }
         }
-      ]
+      ],
+      "description": "TODO description",
+      "additionalProperties": false
     }
   }
 }

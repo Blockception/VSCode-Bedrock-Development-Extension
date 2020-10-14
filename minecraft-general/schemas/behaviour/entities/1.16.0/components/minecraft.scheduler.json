@@ -11,13 +11,15 @@
       "type": "integer",
       "description": "UNDOCUMENTATED",
       "title": "UNDOCUMENTATED",
-      "minimum": 0
+      "minimum": 0,
+      "additionalProperties": false
     },
     "max_delay_secs": {
       "type": "integer",
       "description": "UNDOCUMENTATED",
       "title": "UNDOCUMENTATED",
-      "minimum": 0
+      "minimum": 0,
+      "additionalProperties": false
     },
     "scheduled_events": {
       "type": "array",
@@ -29,10 +31,15 @@
         "description": "UNDOCUMENTATED",
         "title": "UNDOCUMENTATED",
         "properties": {
-          "filters": { "$ref": "../filters.json" },
-          "event": { "$ref": "../types/event.json" }
+          "filters": {
+            "$ref": "../filters.json"
+          },
+          "event": {
+            "$ref": "../types/event.json"
+          }
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

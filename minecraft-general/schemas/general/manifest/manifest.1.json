@@ -7,14 +7,19 @@
   "additionalProperties": false,
   "required": ["format_version", "header"],
   "definitions": {
-    "uuidv4": { "$ref": "../../../../json-schemas/general/UUIDV4.json" },
-    "version": { "$ref": "../../../../json-schemas/general/Version.json" }
+    "uuidv4": {
+      "$ref": "../../../../json-schemas/general/UUIDV4.json"
+    },
+    "version": {
+      "$ref": "../../../../json-schemas/general/Version.json"
+    }
   },
   "properties": {
     "format_version": {
       "type": "number",
       "description": "This defines the current version of the manifest. Don't change this unless you have a good reason to",
-      "title": "Format Version"
+      "title": "Format Version",
+      "additionalProperties": false
     },
     "header": {
       "additionalProperties": false,
@@ -102,7 +107,8 @@
         "description": "TODO description: modules",
         "title": "Modules"
       },
-      "description": "TODO description: modules"
+      "description": "TODO description: modules",
+      "additionalProperties": false
     },
     "dependencies": {
       "type": "array",
@@ -126,7 +132,8 @@
         "description": "TODO description: dependencies",
         "title": "Dependencies"
       },
-      "title": "Dependencies"
+      "title": "Dependencies",
+      "additionalProperties": false
     },
     "capabilities": {
       "additionalProperties": false,
@@ -163,7 +170,8 @@
         "title": "Url"
       },
       "description": "TODO description: metadata",
-      "title": "Metadata"
+      "title": "Metadata",
+      "additionalProperties": false
     }
   }
 }

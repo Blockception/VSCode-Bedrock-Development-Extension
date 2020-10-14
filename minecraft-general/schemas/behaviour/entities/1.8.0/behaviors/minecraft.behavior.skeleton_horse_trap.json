@@ -7,16 +7,25 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "duration": {
       "type": "number",
       "default": 1,
-      "description": "Amount of time in seconds the trap exists. After this amount of time is elapsed, the trap is removed from the world if it hasn't been activated"
+      "description": "Amount of time in seconds the trap exists. After this amount of time is elapsed, the trap is removed from the world if it hasn't been activated",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "within_radius": {
       "type": "number",
       "default": 0,
-      "description": "Distance in blocks that the player has to be within to trigger the horse trap"
+      "description": "Distance in blocks that the player has to be within to trigger the horse trap",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

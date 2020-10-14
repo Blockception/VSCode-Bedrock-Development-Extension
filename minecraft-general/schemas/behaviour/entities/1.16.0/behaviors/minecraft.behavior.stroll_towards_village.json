@@ -7,36 +7,46 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "cooldown_time": {
       "type": "number",
       "default": 0,
       "description": "Time in seconds the mob has to wait before using the goal again",
-      "title": "Cooldown time"
+      "title": "Cooldown time",
+      "additionalProperties": false
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "Goal radius"
+      "title": "Goal radius",
+      "additionalProperties": false
     },
     "search_range": {
       "type": "integer",
       "default": 0,
       "description": "The distance in blocks to search for points inside villages. If <= 0, find the closest village regardless of distance.",
-      "title": "Search range"
+      "title": "Search range",
+      "additionalProperties": false
     },
     "speed_multiplier": {
       "type": "number",
       "default": 1,
       "description": "Movement speed multiplier of the mob when using this AI Goal",
-      "title": "Speed multiplier"
+      "title": "Speed multiplier",
+      "additionalProperties": false
     },
     "start_chance": {
       "type": "number",
       "default": 0.1,
       "description": "This is the chance that the mob will start this goal, from 0 to 1",
-      "title": "Start chance"
+      "title": "Start chance",
+      "additionalProperties": false
     }
   }
 }

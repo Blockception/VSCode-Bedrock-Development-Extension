@@ -6,11 +6,17 @@
   "description": "If the mob is carrying a food item, the mob will eat it and the effects will be applied to the mob.",
   "additionalProperties": false,
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "delay_before_eating": {
       "type": "number",
       "description": "Time in seconds the mob should wait before eating the item.",
-      "title": "Delay before eating"
+      "title": "Delay before eating",
+      "additionalProperties": false
     }
   }
 }

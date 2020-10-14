@@ -11,7 +11,8 @@
       "type": "number",
       "default": 0,
       "description": "An optional cool down in seconds to prevent spamming interactions.",
-      "title": "Cooldown"
+      "title": "Cooldown",
+      "additionalProperties": false
     },
     "items": {
       "type": "array",
@@ -21,13 +22,15 @@
         "$ref": "../../../../general/items_identifiers.json",
         "title": "Properties"
       },
-      "title": "Properties"
+      "title": "Properties",
+      "additionalProperties": false
     },
     "on_give": {
       "type": "string",
       "default": 0,
       "description": "Event to fire when the correct item is given.",
-      "title": "On Give"
+      "title": "On Give",
+      "additionalProperties": false
     }
   }
 }

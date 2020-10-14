@@ -10,19 +10,26 @@
       "title": "Direction",
       "default": "outwards",
       "anyOf": [
-        { "type": "string", "enum": ["inwards", "outwards"] },
+        {
+          "type": "string",
+          "enum": ["inwards", "outwards"]
+        },
         {
           "type": "array",
           "minItems": 3,
           "maxItems": 3,
-          "items": { "$ref": "../../../../molang/1.8.0/number.json" }
+          "items": {
+            "$ref": "../../../../molang/1.8.0/number.json"
+          }
         }
-      ]
+      ],
+      "additionalProperties": false
     },
     "radius": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: radius",
-      "title": "Radius"
+      "title": "Radius",
+      "additionalProperties": false
     },
     "offset": {
       "type": "array",
@@ -32,7 +39,10 @@
         "$ref": "../../../../molang/1.8.0/number.json",
         "description": "TODO description: offset",
         "title": "Offset"
-      }
+      },
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "half_dimensions": {
       "type": "array",
@@ -44,12 +54,14 @@
         "title": "Half Dimensions"
       },
       "description": "TODO description: half dimensions",
-      "title": "Half Dimensions"
+      "title": "Half Dimensions",
+      "additionalProperties": false
     },
     "surface_only": {
       "type": "boolean",
       "description": "TODO description: surface only",
-      "title": "Surface Only"
+      "title": "Surface Only",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

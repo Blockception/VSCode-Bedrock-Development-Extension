@@ -92,13 +92,15 @@
       "uniqueItems": true,
       "$ref": "components.json",
       "description": "TODO description: components",
-      "title": "Components"
+      "title": "Components",
+      "additionalProperties": false
     },
     "events": {
       "uniqueItems": true,
       "$ref": "events.json",
       "description": "TODO description: events",
-      "title": "Events"
+      "title": "Events",
+      "additionalProperties": false
     }
   }
 }

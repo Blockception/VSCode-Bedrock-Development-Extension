@@ -11,13 +11,15 @@
       "type": "number",
       "default": true,
       "title": "Value",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "max": {
       "type": "number",
       "default": true,
       "title": "Maximum",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

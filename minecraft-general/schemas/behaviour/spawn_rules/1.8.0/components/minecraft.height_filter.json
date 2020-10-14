@@ -6,7 +6,17 @@
   "title": "height_filter 1.8.0",
   "description": "TODO",
   "properties": {
-    "min": { "type": "integer", "description": "TODO", "title": "Min" },
-    "max": { "type": "integer", "description": "TODO", "title": "Max" }
+    "min": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "Min",
+      "additionalProperties": false
+    },
+    "max": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "Max",
+      "additionalProperties": false
+    }
   }
 }

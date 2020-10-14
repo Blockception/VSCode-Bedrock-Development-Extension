@@ -11,25 +11,29 @@
       "type": "boolean",
       "default": false,
       "description": "A bucket for all other items in the game. Note this category is always least priority items.",
-      "title": "All_items"
+      "title": "All_items",
+      "additionalProperties": false
     },
     "all_items_max_amount": {
       "type": "integer",
       "default": -1,
       "description": "Maximum number of this item the mob will hold.",
-      "title": "All_items_max_amount"
+      "title": "All_items_max_amount",
+      "additionalProperties": false
     },
     "all_items_surplus_amount": {
       "type": "integer",
       "default": -1,
       "description": "Number of this item considered extra that the entity wants to share.",
-      "title": "All_items_surplus_amount"
+      "title": "All_items_surplus_amount",
+      "additionalProperties": false
     },
     "all_items_want_amount": {
       "type": "integer",
       "default": -1,
       "description": "Number of this item this entity wants to share.",
-      "title": "All_items_want_amount"
+      "title": "All_items_want_amount",
+      "additionalProperties": false
     },
     "items": {
       "type": "array",
@@ -98,7 +102,9 @@
             "title": "Want_amount"
           }
         }
-      }
+      },
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

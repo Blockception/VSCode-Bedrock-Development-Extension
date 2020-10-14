@@ -6,7 +6,10 @@
   "title": "Item",
   "properties": {
     "format_version": {
-      "type": "string"
+      "type": "string",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "minecraft:item": {
       "additionalProperties": false,
@@ -185,7 +188,8 @@
             }
           }
         }
-      }
+      },
+      "title": "TODO title"
     }
   }
 }

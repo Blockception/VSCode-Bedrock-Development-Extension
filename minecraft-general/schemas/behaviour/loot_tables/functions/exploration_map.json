@@ -5,7 +5,13 @@
   "description": "The function exploration_map",
   "title": "Exploration_map",
   "properties": {
-    "function": { "type": "string", "const": "exploration_map" },
+    "function": {
+      "type": "string",
+      "const": "exploration_map",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "destination": {
       "type": "string",
       "description": "The destination value defines what type of treasure map they receive.",
@@ -22,7 +28,9 @@
         "shipwreck",
         "buriedtreasure",
         "pillageroutpost"
-      ]
+      ],
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

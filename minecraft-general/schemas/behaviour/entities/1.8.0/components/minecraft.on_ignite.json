@@ -9,17 +9,23 @@
   "properties": {
     "event": {
       "type": "string",
-      "description": "The event to run when the conditions for this trigger are met"
+      "description": "The event to run when the conditions for this trigger are met",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "filters": {
       "$ref": "../filters.json",
-      "description": "The list of conditions for this trigger"
+      "description": "The list of conditions for this trigger",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "target": {
       "type": "string",
       "$ref": "../filters/types/base_subject.json",
       "default": "self",
-      "description": "The target of the event"
+      "description": "The target of the event",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

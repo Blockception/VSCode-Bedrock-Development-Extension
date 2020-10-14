@@ -8,12 +8,16 @@
     "function": {
       "type": "string",
       "const": "fill_container",
-      "title": "Function"
+      "title": "Function",
+      "description": "TODO description",
+      "additionalProperties": false
     },
     "loot_table": {
       "type": "string",
       "title": "Loot table",
-      "pattern": "^loot_tables/.*\\.json$"
+      "pattern": "^loot_tables/.*\\.json$",
+      "description": "TODO description",
+      "additionalProperties": false
     }
   }
 }

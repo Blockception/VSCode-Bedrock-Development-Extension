@@ -29,11 +29,14 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "The version of the document"
+      "description": "The version of the document",
+      "additionalProperties": false
     },
     "render_controllers": {
       "type": "object",
-      "propertyNames": { "pattern": "^controller\\.render\\.[a-z\\.]+" },
+      "propertyNames": {
+        "pattern": "^controller\\.render\\.[a-z\\.]+"
+      },
       "additionalProperties": {
         "additionalProperties": false,
         "type": "object",
@@ -50,7 +53,9 @@
               "geometries": {
                 "type": "object",
                 "minProperties": 1,
-                "propertyNames": { "pattern": "^[Aa]rray\\..+" },
+                "propertyNames": {
+                  "pattern": "^[Aa]rray\\..+"
+                },
                 "additionalProperties": {
                   "type": "array",
                   "items": {
@@ -68,7 +73,9 @@
               "materials": {
                 "type": "object",
                 "minProperties": 1,
-                "propertyNames": { "pattern": "^[Aa]rray\\..+" },
+                "propertyNames": {
+                  "pattern": "^[Aa]rray\\..+"
+                },
                 "additionalProperties": {
                   "type": "array",
                   "items": {
@@ -86,7 +93,9 @@
               "textures": {
                 "type": "object",
                 "minProperties": 1,
-                "propertyNames": { "pattern": "^[Aa]rray\\..+" },
+                "propertyNames": {
+                  "pattern": "^[Aa]rray\\..+"
+                },
                 "additionalProperties": {
                   "type": "array",
                   "items": {
@@ -107,10 +116,18 @@
             "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": { "$ref": "#/definitions/color" },
-              "g": { "$ref": "#/definitions/color" },
-              "b": { "$ref": "#/definitions/color" },
-              "a": { "$ref": "#/definitions/color" }
+              "r": {
+                "$ref": "#/definitions/color"
+              },
+              "g": {
+                "$ref": "#/definitions/color"
+              },
+              "b": {
+                "$ref": "#/definitions/color"
+              },
+              "a": {
+                "$ref": "#/definitions/color"
+              }
             },
             "description": "TODO description: color",
             "title": "Color"
@@ -134,10 +151,18 @@
             "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": { "$ref": "#/definitions/color" },
-              "g": { "$ref": "#/definitions/color" },
-              "b": { "$ref": "#/definitions/color" },
-              "a": { "$ref": "#/definitions/color" }
+              "r": {
+                "$ref": "#/definitions/color"
+              },
+              "g": {
+                "$ref": "#/definitions/color"
+              },
+              "b": {
+                "$ref": "#/definitions/color"
+              },
+              "a": {
+                "$ref": "#/definitions/color"
+              }
             },
             "description": "TODO description: is hurt color",
             "title": "Is Hurt Color"
@@ -167,10 +192,18 @@
             "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": { "$ref": "#/definitions/color" },
-              "g": { "$ref": "#/definitions/color" },
-              "b": { "$ref": "#/definitions/color" },
-              "a": { "$ref": "#/definitions/color" }
+              "r": {
+                "$ref": "#/definitions/color"
+              },
+              "g": {
+                "$ref": "#/definitions/color"
+              },
+              "b": {
+                "$ref": "#/definitions/color"
+              },
+              "a": {
+                "$ref": "#/definitions/color"
+              }
             },
             "description": "TODO description: on fire color",
             "title": "On Fire Color"
@@ -179,10 +212,18 @@
             "additionalProperties": false,
             "type": "object",
             "properties": {
-              "r": { "$ref": "#/definitions/color" },
-              "g": { "$ref": "#/definitions/color" },
-              "b": { "$ref": "#/definitions/color" },
-              "a": { "$ref": "#/definitions/color" }
+              "r": {
+                "$ref": "#/definitions/color"
+              },
+              "g": {
+                "$ref": "#/definitions/color"
+              },
+              "b": {
+                "$ref": "#/definitions/color"
+              },
+              "a": {
+                "$ref": "#/definitions/color"
+              }
             },
             "description": "TODO description: overlay color",
             "title": "Overlay Color"
@@ -197,9 +238,15 @@
               "minProperties": 1,
               "additionalProperties": {
                 "oneOf": [
-                  { "type": "string" },
-                  { "type": "boolean" },
-                  { "type": "number" }
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "number"
+                  }
                 ],
                 "description": "Describes which bones are visible or not, can be a string, boolean or number",
                 "title": "Part visibilty"

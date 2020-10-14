@@ -8,12 +8,14 @@
     "position": {
       "type": "boolean",
       "description": "TODO description: position",
-      "title": "Position"
+      "title": "Position",
+      "additionalProperties": false
     },
     "rotation": {
       "type": "boolean",
       "description": "TODO description: rotation",
-      "title": "Rotation"
+      "title": "Rotation",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

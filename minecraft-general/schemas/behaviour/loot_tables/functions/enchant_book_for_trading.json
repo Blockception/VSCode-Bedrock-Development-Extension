@@ -15,23 +15,33 @@
     "function": {
       "type": "string",
       "const": "enchant_book_for_trading",
-      "title": "Function"
+      "title": "Function",
+      "description": "TODO description",
+      "additionalProperties": false
     },
     "base_cost": {
       "type": "integer",
-      "title": "Base cost"
+      "title": "Base cost",
+      "description": "TODO description",
+      "additionalProperties": false
     },
     "base_random_cost": {
       "type": "integer",
-      "title": "Base cost"
+      "title": "Base cost",
+      "description": "TODO description",
+      "additionalProperties": false
     },
     "per_level_random_cost": {
       "type": "integer",
-      "title": "Base cost"
+      "title": "Base cost",
+      "description": "TODO description",
+      "additionalProperties": false
     },
     "per_level_cost": {
       "type": "integer",
-      "title": "Base cost"
+      "title": "Base cost",
+      "description": "TODO description",
+      "additionalProperties": false
     }
   }
 }

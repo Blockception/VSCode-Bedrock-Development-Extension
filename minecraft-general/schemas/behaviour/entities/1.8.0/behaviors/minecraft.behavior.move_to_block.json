@@ -7,52 +7,70 @@
   "description": "UNDOCUMENTATED",
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
-
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "tick_interval": {
       "type": "number",
       "title": "Tick interval",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "start_chance": {
       "type": "number",
       "title": "Start chance",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "search_range": {
       "type": "number",
       "title": "Search range",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "search_height": {
       "type": "number",
       "title": "Search height",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "goal_radius": {
       "type": "number",
       "title": "Goal radius",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "stay_duration": {
       "type": "number",
       "title": "Stay duration",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "target_selection_method": {
       "type": "string",
       "title": "Target selection method",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "target_offset": {
       "type": "array",
       "title": "Target offset",
       "description": "UNDOCUMENTATED",
       "items": [
-        { "type": "number" },
-        { "type": "number" },
-        { "type": "number" }
-      ]
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "additionalProperties": false
     },
     "target_blocks": {
       "type": "array",
@@ -60,7 +78,8 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "type": "string"
-      }
+      },
+      "additionalProperties": false
     },
     "on_stay_completed": {
       "type": "array",
@@ -68,7 +87,8 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
-      }
+      },
+      "additionalProperties": false
     },
     "on_reach": {
       "type": "array",
@@ -76,7 +96,8 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

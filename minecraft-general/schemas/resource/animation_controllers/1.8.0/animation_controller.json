@@ -10,7 +10,9 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

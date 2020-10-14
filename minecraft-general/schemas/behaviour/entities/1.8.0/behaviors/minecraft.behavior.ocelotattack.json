@@ -8,61 +8,73 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "walk_speed_multiplier": {
       "type": "number",
       "default": 1.0,
       "description": "Multiplier for the walking speed while using this attack",
-      "title": "Walk Speed Multiplier"
+      "title": "Walk Speed Multiplier",
+      "additionalProperties": false
     },
     "sprint_speed_multiplier": {
       "type": "number",
       "default": 1.0,
       "description": "Multiplier for the running speed of this mob while using this attack",
-      "title": "Sprint Speed Multiplier"
+      "title": "Sprint Speed Multiplier",
+      "additionalProperties": false
     },
     "sneak_speed_multiplier": {
       "type": "number",
       "default": 1.0,
       "description": "Multiplier for the sneaking speed. 1.0 means the ocelot will move at the speed it normally sneaks",
-      "title": "Sneak Speed Multiplier"
+      "title": "Sneak Speed Multiplier",
+      "additionalProperties": false
     },
-
     "cooldown_time": {
       "type": "number",
       "title": "Cooldown time",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "x_max_rotation": {
       "type": "number",
       "title": "X max rotation",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "y_max_head_rotation": {
       "type": "number",
       "title": "Y max head rotation",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "max_distance": {
       "type": "number",
       "title": "Max distance",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "max_sneak_range": {
       "type": "number",
       "title": "Max sneak range",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "max_sprint_range": {
       "type": "number",
       "title": "Max sprint range",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "reach_multiplier": {
       "type": "number",
       "title": "Reach multiplier",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

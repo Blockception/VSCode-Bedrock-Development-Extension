@@ -31,13 +31,20 @@
             "title": "Pivot",
             "description": "TODO",
             "items": [
-              { "type": "number" },
-              { "type": "number" },
-              { "type": "number" }
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
             ]
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

@@ -6,32 +6,41 @@
   "description": "UNDOCUMENTATED",
   "additionalProperties": false,
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
-
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "tick_interval": {
       "type": "integer",
       "title": "Tick interval",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "search_range": {
       "type": "integer",
       "title": "Search range",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "search_height": {
       "type": "integer",
       "title": "Search height",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "sprint_speed_modifier": {
       "type": "number",
       "title": "Sprint speed modifier",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "target_selection_method": {
       "type": "string",
       "title": "Target selection method",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "target_blocks": {
       "type": "array",
@@ -41,17 +50,20 @@
         "type": "string",
         "title": "Block ID",
         "description": "UNDOCUMENTATED"
-      }
+      },
+      "additionalProperties": false
     },
     "avoid_block_sound": {
       "type": "string",
       "title": "Avoid block sound",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "walk_speed_modifier": {
       "type": "number",
       "title": "Walk speed modifier",
-      "description": "UNDOCUMENTATED"
+      "description": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "on_escape": {
       "type": "array",
@@ -59,9 +71,9 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
-      }
+      },
+      "additionalProperties": false
     },
-
     "sound_interval": {
       "default": 0,
       "description": "The range of time in seconds to randomly wait before playing the sound again.",
@@ -70,20 +82,33 @@
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "Maximum" },
-            { "type": "number", "title": "Maximum" }
+            {
+              "type": "number",
+              "title": "Maximum"
+            },
+            {
+              "type": "number",
+              "title": "Maximum"
+            }
           ]
         },
-        { "type": "number" },
+        {
+          "type": "number"
+        },
         {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "range_min": { "type": "number" },
-            "range_max": { "type": "number" }
+            "range_min": {
+              "type": "number"
+            },
+            "range_max": {
+              "type": "number"
+            }
           }
         }
-      ]
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -10,17 +10,23 @@
     "default_block_cost": {
       "type": "number",
       "default": 0,
-      "description": "Cost for non-preferred blocks"
+      "description": "Cost for non-preferred blocks",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "jump_cost": {
       "type": "integer",
       "default": 0,
-      "description": "Added cost for jumping up a node"
+      "description": "Added cost for jumping up a node",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "max_fall_blocks": {
       "type": "integer",
       "default": 3,
-      "description": "Distance mob can fall without taking damage"
+      "description": "Distance mob can fall without taking damage",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "preferred_path_blocks": {
       "type": "array",
@@ -30,13 +36,19 @@
         "type": "object",
         "description": "blocks cost",
         "properties": {
-          "cost": { "type": "number" },
+          "cost": {
+            "type": "number"
+          },
           "blocks": {
             "type": "array",
-            "items": { "$ref": "../../../../general/blocks_item.json" }
+            "items": {
+              "$ref": "../../../../general/blocks_item.json"
+            }
           }
         }
-      }
+      },
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

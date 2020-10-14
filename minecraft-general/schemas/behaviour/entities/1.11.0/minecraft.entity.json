@@ -14,7 +14,10 @@
           "title": "Animations",
           "description": "Sets the mapping of internal animation references to actual animations. This is a JSON Object of name/animation pairs",
           "type": "object",
-          "additionalProperties": { "type": "string", "title": "Animation" }
+          "additionalProperties": {
+            "type": "string",
+            "title": "Animation"
+          }
         },
         "identifier": {
           "$ref": "../../../general/entity/identifier.json",
@@ -88,13 +91,15 @@
       "uniqueItems": true,
       "$ref": "components.json",
       "description": "TODO description: components",
-      "title": "Components"
+      "title": "Components",
+      "additionalProperties": false
     },
     "events": {
       "uniqueItems": true,
       "$ref": "events.json",
       "description": "TODO description: events",
-      "title": "Events"
+      "title": "Events",
+      "additionalProperties": false
     }
   }
 }

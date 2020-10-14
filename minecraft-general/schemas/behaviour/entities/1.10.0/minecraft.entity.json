@@ -88,7 +88,19 @@
         "title": "Component group"
       }
     },
-    "components": { "uniqueItems": true, "$ref": "components.json" },
-    "events": { "uniqueItems": true, "$ref": "events.json" }
+    "components": {
+      "uniqueItems": true,
+      "$ref": "components.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "events": {
+      "uniqueItems": true,
+      "$ref": "events.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    }
   }
 }

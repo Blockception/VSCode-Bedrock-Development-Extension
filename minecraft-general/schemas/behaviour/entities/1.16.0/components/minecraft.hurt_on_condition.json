@@ -16,7 +16,9 @@
         "description": "TODO",
         "additionalProperties": false,
         "properties": {
-          "filters": { "$ref": "../filters.json" },
+          "filters": {
+            "$ref": "../filters.json"
+          },
           "cause": {
             "type": "string",
             "title": "Cause",
@@ -55,7 +57,8 @@
             "description": "TODO"
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

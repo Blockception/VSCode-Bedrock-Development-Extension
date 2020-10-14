@@ -8,37 +8,52 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "speed_multiplier": {
-      "$ref": "types/base_speed_multiplier.json"
+      "$ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "damage_sources": {
       "type": "array",
       "items": {
         "$ref": "../../../../general/entity_damage.json"
       },
-      "description": "The list of Entity Damage Sources that will cause this mob to panic"
+      "description": "The list of Entity Damage Sources that will cause this mob to panic",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "force": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this mob will not stop panicking until it can't move anymore or the goal is removed from it"
+      "description": "If true, this mob will not stop panicking until it can't move anymore or the goal is removed from it",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "ignore_mob_damage": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the mob will not panic in response to damage from other mobs. This overrides the damage types in \"damage_sources\""
+      "description": "If true, the mob will not panic in response to damage from other mobs. This overrides the damage types in \"damage_sources\"",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "prefer_water": {
       "type": "boolean",
       "default": false,
-      "description": "If true, the mob will prefer water over land"
+      "description": "If true, the mob will prefer water over land",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "panic_sound": {
       "type": "string",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
+      "title": "UNDOCUMENTATED",
+      "additionalProperties": false
     },
     "sound_interval": {
       "type": "object",
@@ -55,7 +70,8 @@
           "description": "UNDOCUMENTATED",
           "title": "UNDOCUMENTATED"
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

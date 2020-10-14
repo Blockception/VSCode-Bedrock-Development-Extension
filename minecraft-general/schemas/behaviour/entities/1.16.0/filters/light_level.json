@@ -10,16 +10,28 @@
     "test": {
       "type": "string",
       "title": "Test",
-      "description": "the test property"
+      "description": "the test property",
+      "additionalProperties": false
     },
-    "operator": { "$ref": "types/base_operator.json" },
-    "subject": { "$ref": "types/base_subject.json" },
+    "operator": {
+      "$ref": "types/base_operator.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "subject": {
+      "$ref": "types/base_subject.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "value": {
       "description": "An integer value.",
       "type": "integer",
       "title": "Value",
       "minimum": 0,
-      "maximum": 16
+      "maximum": 16,
+      "additionalProperties": false
     }
   }
 }

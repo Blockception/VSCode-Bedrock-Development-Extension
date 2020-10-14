@@ -10,22 +10,26 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property"
+      "description": "the test property",
+      "additionalProperties": false
     },
     "operator": {
       "$ref": "types/base_operator.json",
       "description": "(Optional) The comparison to apply with 'value'.",
-      "title": "Operator"
+      "title": "Operator",
+      "additionalProperties": false
     },
     "subject": {
       "$ref": "types/base_subject.json",
       "description": "(Optional) The subject of this filter test.",
-      "title": "Subject"
+      "title": "Subject",
+      "additionalProperties": false
     },
     "value": {
       "type": "number",
       "description": "(Required) A floating point value.",
-      "title": "Value"
+      "title": "Value",
+      "additionalProperties": false
     }
   }
 }

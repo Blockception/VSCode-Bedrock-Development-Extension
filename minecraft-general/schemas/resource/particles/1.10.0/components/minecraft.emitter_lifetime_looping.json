@@ -8,12 +8,14 @@
     "active_time": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: active time",
-      "title": "Active Time"
+      "title": "Active Time",
+      "additionalProperties": false
     },
     "sleep_time": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: sleep time",
-      "title": "Sleep Time"
+      "title": "Sleep Time",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

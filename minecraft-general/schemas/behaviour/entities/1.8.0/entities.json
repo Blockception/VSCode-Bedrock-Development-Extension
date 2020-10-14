@@ -10,10 +10,15 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "const": "1.8.0",
-      "description": "The format version"
+      "description": "The format version",
+      "additionalProperties": false
     },
     "minecraft:entity": {
-      "$ref": "./minecraft.entity.json"
+      "$ref": "./minecraft.entity.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     }
-  }
+  },
+  "additionalProperties": false
 }

@@ -6,65 +6,85 @@
   "title": "Behavior.drop_item_for 1.16.0",
   "type": "object",
   "properties": {
-    "priority": { "ref": "types/base_priority.json" },
-    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "priority": {
+      "ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
+    "speed_multiplier": {
+      "ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "drop_item_chance": {
       "type": "number",
       "default": [1.0],
       "description": "The probability that the mob will drop an item.",
-      "title": "drop item chance"
+      "title": "drop item chance",
+      "additionalProperties": false
     },
     "entity_types": {
       "description": "List of entity types this mob will drop items for.",
       "title": "entity types",
-      "$ref": "../types/entity_types.json"
+      "$ref": "../types/entity_types.json",
+      "additionalProperties": false
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "goal radius"
+      "title": "goal radius",
+      "additionalProperties": false
     },
     "loot_table": {
       "type": "string",
       "pattern": "^loot_tables.*\\.json$",
       "description": "Loot table to select items from.",
-      "title": "loot table"
+      "title": "loot table",
+      "additionalProperties": false
     },
     "max_dist": {
       "type": "number",
       "default": 0,
       "description": "Maximum distance in blocks this mob will look for entities to drop an item for.",
-      "title": "max dist"
+      "title": "max dist",
+      "additionalProperties": false
     },
     "offering_distance": {
       "type": "number",
       "default": [1.0],
       "description": "The distance in blocks the mob will try to be away from the entity when it drops the item.",
-      "title": "offering distance"
+      "title": "offering distance",
+      "additionalProperties": false
     },
     "on_drop_attempt": {
       "$ref": "../types/event.json",
       "description": "Event to run when this mob attempts to drop an item.",
-      "title": "on drop attempt"
+      "title": "on drop attempt",
+      "additionalProperties": false
     },
     "search_count": {
       "type": "integer",
       "default": 1,
       "description": "UNDOCUMENTATED",
-      "title": "Search height"
+      "title": "Search height",
+      "additionalProperties": false
     },
     "search_height": {
       "type": "integer",
       "default": 1,
       "description": "Height in blocks from the target the mob can be.",
-      "title": "search height"
+      "title": "search height",
+      "additionalProperties": false
     },
     "search_range": {
       "type": "integer",
       "default": 0,
       "description": "The distance in blocks from the target the mob can be.",
-      "title": "search range"
+      "title": "search range",
+      "additionalProperties": false
     },
     "time_of_day_range": {
       "default": [0.0, 1.0],
@@ -72,9 +92,18 @@
       "title": "time of day range",
       "type": "array",
       "items": [
-        { "type": "number", "minimum": 0, "maximum": 1 },
-        { "type": "number", "minimum": 0, "maximum": 1 }
-      ]
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      ],
+      "additionalProperties": false
     }
   }
 }

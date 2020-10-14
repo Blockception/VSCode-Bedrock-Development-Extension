@@ -11,12 +11,14 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "const": "1.10.0",
-      "description": "TODO description: format version"
+      "description": "TODO description: format version",
+      "additionalProperties": false
     },
     "minecraft:entity": {
       "$ref": "minecraft.entity.json",
       "description": "TODO description: minecraft:entity",
-      "title": "entity"
+      "title": "entity",
+      "additionalProperties": false
     }
   }
 }

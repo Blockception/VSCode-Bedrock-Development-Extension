@@ -11,23 +11,27 @@
       "type": "boolean",
       "default": false,
       "description": "If true, other entities of the same entity definition within the broadcastRange will also become angry",
-      "title": "Broadcast anger"
+      "title": "Broadcast anger",
+      "additionalProperties": false
     },
     "broadcast_filters": {
       "$ref": "../filters.json",
       "description": "Conditions that make this entry in the list valid",
-      "title": "Broadcast Filters"
+      "title": "Broadcast Filters",
+      "additionalProperties": false
     },
     "filters": {
       "$ref": "../filters.json",
       "description": "Filter out mob types that it should not attack while angry (other Piglins)",
-      "title": "Filters"
+      "title": "Filters",
+      "additionalProperties": false
     },
     "broadcast_range": {
       "type": "integer",
       "default": 20,
       "description": "Distance in blocks within which other entities of the same entity definition will become angry",
-      "title": "Broadcast range"
+      "title": "Broadcast range",
+      "additionalProperties": false
     },
     "broadcast_targets": {
       "type": "array",
@@ -38,42 +42,49 @@
         "pattern": "^.+$",
         "title": "Broadcast Targets"
       },
-      "title": "Broadcast Targets"
+      "title": "Broadcast Targets",
+      "additionalProperties": false
     },
     "calm_event": {
       "$ref": "../types/event.json",
       "description": "Event to run after the number of seconds specified in duration expires (when the entity stops being 'angry')",
-      "title": "Calm event"
+      "title": "Calm event",
+      "additionalProperties": false
     },
     "angry_sound": {
       "type": "string",
       "default": "",
       "description": "The sound event to play when the mob is angry",
-      "title": "Angry sound"
+      "title": "Angry sound",
+      "additionalProperties": false
     },
     "broadcast_anger_on_attack": {
       "type": "boolean",
       "default": false,
       "description": "If true, other entities of the same entity definition within the broadcastRange will also become angry whenever this mob attacks",
-      "title": "Broadcast anger on attack"
+      "title": "Broadcast anger on attack",
+      "additionalProperties": false
     },
     "broadcast_anger_on_being_attacked": {
       "type": "boolean",
       "default": false,
       "description": "If true, other entities of the same entity definition within the broadcastRange will also become angry whenever this mob is attacked",
-      "title": "Broadcast anger on being attacked"
+      "title": "Broadcast anger on being attacked",
+      "additionalProperties": false
     },
     "duration": {
       "type": "integer",
       "default": 25,
       "description": "The amount of time in seconds that the entity will be angry",
-      "title": "Duration"
+      "title": "Duration",
+      "additionalProperties": false
     },
     "duration_delta": {
       "type": "integer",
       "default": 0,
       "description": "Variance in seconds added to the duration [-delta, delta]",
-      "title": "Duration delta"
+      "title": "Duration delta",
+      "additionalProperties": false
     },
     "sound_interval": {
       "description": "The range of time in seconds to randomly wait before playing the sound again",
@@ -83,8 +94,14 @@
           "type": "array",
           "default": [0, 0],
           "items": [
-            { "type": "integer", "minimum": 0 },
-            { "type": "integer", "minimum": 0 }
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "integer",
+              "minimum": 0
+            }
           ]
         },
         {
@@ -103,7 +120,8 @@
             }
           }
         }
-      ]
+      ],
+      "additionalProperties": false
     }
   }
 }

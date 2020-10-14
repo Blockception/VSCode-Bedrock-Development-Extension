@@ -8,17 +8,23 @@
   "required": [],
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "look_time": {
       "$ref": "../types/range_number_type.json",
       "default": [2, 4],
-      "description": "The range of time in seconds the mob will stay looking in a random direction before looking elsewhere"
+      "description": "The range of time in seconds the mob will stay looking in a random direction before looking elsewhere",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "look_distance": {
       "type": "number",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
+      "title": "UNDOCUMENTATED",
+      "additionalProperties": false
     }
   }
 }

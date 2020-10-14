@@ -15,7 +15,8 @@
         "title": "Direction"
       },
       "description": "TODO description: direction",
-      "title": "Direction"
+      "title": "Direction",
+      "additionalProperties": false
     },
     "offset": {
       "type": "array",
@@ -27,7 +28,8 @@
         "title": "Offset"
       },
       "description": "TODO description: offset",
-      "title": "Offset"
+      "title": "Offset",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

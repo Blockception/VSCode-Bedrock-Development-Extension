@@ -58,7 +58,8 @@
         "description": "TODO description: dependencies",
         "title": "Dependencies"
       },
-      "title": "Dependencies"
+      "title": "Dependencies",
+      "additionalProperties": false
     },
     "header": {
       "additionalProperties": false,
@@ -167,5 +168,6 @@
         }
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

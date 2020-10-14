@@ -11,7 +11,8 @@
       "type": "integer",
       "default": 0,
       "description": "The second Palette Color value of the entity",
-      "title": "Value"
+      "title": "Value",
+      "additionalProperties": false
     }
   }
 }

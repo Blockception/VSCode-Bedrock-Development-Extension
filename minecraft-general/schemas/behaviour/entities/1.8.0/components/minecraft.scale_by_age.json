@@ -10,12 +10,16 @@
     "end_scale": {
       "type": "number",
       "default": 1,
-      "description": "Ending scale of the entity when it's fully grown"
+      "description": "Ending scale of the entity when it's fully grown",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "start_scale": {
       "type": "number",
       "default": 1,
-      "description": "Initial scale of the newborn entity"
+      "description": "Initial scale of the newborn entity",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

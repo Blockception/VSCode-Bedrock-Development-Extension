@@ -8,12 +8,14 @@
     "activation_expression": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: activation expression",
-      "title": "Activation Expression"
+      "title": "Activation Expression",
+      "additionalProperties": false
     },
     "expiration_expression": {
       "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: expiration expression",
-      "title": "Expiration Expression"
+      "title": "Expiration Expression",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

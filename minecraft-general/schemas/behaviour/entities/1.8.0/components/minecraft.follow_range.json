@@ -6,8 +6,18 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "value": { "type": "integer", "description": "TODO", "title": "Value" },
-    "max": { "type": "integer", "description": "TODO", "title": "Max" }
+    "value": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "Value",
+      "additionalProperties": false
+    },
+    "max": {
+      "type": "integer",
+      "description": "TODO",
+      "title": "Max",
+      "additionalProperties": false
+    }
   },
   "description": "TODO description: "
 }

@@ -9,7 +9,9 @@
   "properties": {
     "interact_text": {
       "type": "string",
-      "description": "The text that will display when interacting with this entity with a dye when playing with Touch-screen controls"
+      "description": "The text that will display when interacting with this entity with a dye when playing with Touch-screen controls",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

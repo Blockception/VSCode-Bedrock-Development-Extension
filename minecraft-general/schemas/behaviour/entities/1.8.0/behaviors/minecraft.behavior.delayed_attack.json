@@ -7,54 +7,77 @@
   "description": "Allows the mob to drink potions based on specified environment conditions.",
   "properties": {
     "priority": {
-      "$ref": "types/base_priority.json"
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "speed_multiplier": {
-      "$ref": "types/base_speed_multiplier.json"
+      "$ref": "types/base_speed_multiplier.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "attack_duration": {
       "type": "number",
       "default": 1,
-      "description": "The duration of the attack animation in seconds"
+      "description": "The duration of the attack animation in seconds",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "attack_once": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this mob will attack only one time."
+      "description": "If true, this mob will attack only one time.",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "attack_types": {
       "type": "string",
       "default": "",
-      "description": "Defines the entity types this mob will attack"
+      "description": "Defines the entity types this mob will attack",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "hit_delay_pct": {
       "type": "number",
       "default": 1,
-      "description": "The percentage of the attack_duration that must pass before the hit is made"
+      "description": "The percentage of the attack_duration that must pass before the hit is made",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "random_stop_interval": {
       "type": "integer",
       "default": 0,
-      "description": "Defines the probability the mob will stop fighting. A value of 0 disables randomly stopping, while a value of 1 defines a 50% chance"
+      "description": "Defines the probability the mob will stop fighting. A value of 0 disables randomly stopping, while a value of 1 defines a 50% chance",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "reach_multiplier": {
       "type": "number",
       "default": 2,
-      "description": "Multiplier for how far outside its box the mob can reach its target (this can be used to simulate a mob with longer arms by making this bigger)"
+      "description": "Multiplier for how far outside its box the mob can reach its target (this can be used to simulate a mob with longer arms by making this bigger)",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "require_complete_path": {
       "type": "boolean",
       "title": "Require complet path",
-      "description": "UNDOCUMENATED"
+      "description": "UNDOCUMENATED",
+      "additionalProperties": false
     },
     "sound_event": {
       "type": "string",
-      "description": "The sound event to play when the attack starts"
+      "description": "The sound event to play when the attack starts",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "track_target": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this mob will chase after the target as long as it's a valid target"
+      "description": "If true, this mob will chase after the target as long as it's a valid target",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

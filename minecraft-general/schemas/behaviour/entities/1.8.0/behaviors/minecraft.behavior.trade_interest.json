@@ -7,31 +7,46 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": { "$ref": "types/base_priority.json" },
+    "priority": {
+      "$ref": "types/base_priority.json",
+      "description": "TODO description",
+      "title": "TODO title",
+      "additionalProperties": false
+    },
     "carried_item_switch_time": {
       "type": "number",
       "default": 2,
-      "description": "The max time in seconds that the trader will hold an item before attempting to switch for a different item that takes the same trade"
+      "description": "The max time in seconds that the trader will hold an item before attempting to switch for a different item that takes the same trade",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "cooldown": {
       "type": "number",
       "default": 2,
-      "description": "The time in seconds before the trader can use this goal again"
+      "description": "The time in seconds before the trader can use this goal again",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "interest_time": {
       "type": "number",
       "default": 45,
-      "description": "The max time in seconds that the trader will be interested with showing it's trade items"
+      "description": "The max time in seconds that the trader will be interested with showing it's trade items",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "remove_item_time": {
       "type": "number",
       "default": 1,
-      "description": "The max time in seconds that the trader will wait when you no longer have items to trade"
+      "description": "The max time in seconds that the trader will wait when you no longer have items to trade",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "within_radius": {
       "type": "number",
       "default": 0,
-      "description": "Distance in blocks this mob can be interested by a player holding an item they like"
+      "description": "Distance in blocks this mob can be interested by a player holding an item they like",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }

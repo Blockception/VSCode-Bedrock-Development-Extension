@@ -27,13 +27,15 @@
             "description": "UNDOCUMENTATED"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "table": {
       "type": "string",
       "pattern": ".*\\.json$",
       "description": "TODO description: table",
-      "title": "Table"
+      "title": "Table",
+      "additionalProperties": false
     }
   },
   "description": "TODO description: "

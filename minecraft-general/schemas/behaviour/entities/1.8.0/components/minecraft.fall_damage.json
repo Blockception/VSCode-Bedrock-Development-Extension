@@ -11,7 +11,8 @@
       "type": "number",
       "default": 1,
       "description": "TODO description: value",
-      "title": "Value"
+      "title": "Value",
+      "additionalProperties": false
     }
   }
 }

@@ -10,35 +10,49 @@
     "check_block_types": {
       "type": "boolean",
       "default": false,
-      "description": "If true, on tick this entity will trigger its on_deactivate behavior"
+      "description": "If true, on tick this entity will trigger its on_deactivate behavior",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "eject_on_activate": {
       "type": "boolean",
       "default": true,
-      "description": "If true, this entity will eject all of its riders when it passes over an activated rail"
+      "description": "If true, this entity will eject all of its riders when it passes over an activated rail",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "eject_on_deactivate": {
       "type": "boolean",
       "default": false,
-      "description": "If true, this entity will eject all of its riders when it passes over a deactivated rail"
+      "description": "If true, this entity will eject all of its riders when it passes over a deactivated rail",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "on_activate": {
       "$ref": "../types/event.json",
-      "description": "Event to call when the rail is activated"
+      "description": "Event to call when the rail is activated",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "on_deactivate": {
       "$ref": "../types/event.json",
-      "description": "Event to call when the rail is deactivated"
+      "description": "Event to call when the rail is deactivated",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "tick_command_block_on_activate": {
       "type": "boolean",
       "default": true,
-      "description": "If true, command blocks will start ticking when passing over an activated rail"
+      "description": "If true, command blocks will start ticking when passing over an activated rail",
+      "title": "TODO title",
+      "additionalProperties": false
     },
     "tick_command_block_on_deactivate": {
       "type": "boolean",
       "default": false,
-      "description": "If false, command blocks will stop ticking when passing over a deactivated rail"
+      "description": "If false, command blocks will stop ticking when passing over a deactivated rail",
+      "title": "TODO title",
+      "additionalProperties": false
     }
   }
 }
