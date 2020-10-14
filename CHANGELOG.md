@@ -1,4 +1,6 @@
 # Changelog 
+- formatted json files
+- Updated
 - Added unique item check for behaviours
 - Updated
 - Updated to 1.0.7
@@ -17,5 +19,3 @@
 - Updated command syntax
 - Added processing of json file for entities and sounds_definitions
 - Moved database
-- Added custom entities and entity events to completion text
-- Fixed the summon command syntax
