@@ -86,7 +86,7 @@
                 "title": "Remove"
               },
               "filters": {
-                "$ref": "filters.json"
+                "$ref": "./filters.json"
               }
             }
           },
