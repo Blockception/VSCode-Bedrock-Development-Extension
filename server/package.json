@@ -1,7 +1,7 @@
 {
   "name": "blockception-minecraft-server",
   "description": "The language server for minecraft",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "author": {
     "name": "Blockception Ltd",
     "url": "https://www.blockception.com/"

@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 1.0.9
 - formatted
 - Updated information
 - removing behaviour animation controller from the resource animation controller
@@ -18,4 +19,3 @@
 - Added debugging, formatting and installation scripts
 - formatted json files
 - Updated
-- Added unique item check for behaviours
