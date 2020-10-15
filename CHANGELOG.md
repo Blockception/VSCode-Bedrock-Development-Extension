@@ -1,4 +1,11 @@
 # Changelog 
+- formatted
+- Updated information
+- removing behaviour animation controller from the resource animation controller
+- Updated comments
+- Updated descriptions for filters
+- Fixing component descriptions
+- Updated to 1.0.8
 - Merge pull request #11 from Blockception/fixing_object_strictness
 - Added damager to filters of 1.8.0
 - fixing is_weather
@@ -12,10 +19,3 @@
 - formatted json files
 - Updated
 - Added unique item check for behaviours
-- Updated
-- Updated to 1.0.7
-- formatted documents
-- Formatted
-- Added Language formatter
-- Added languages diagnostics for detecting idention on commented lines
-- Updated to 1.0.6
