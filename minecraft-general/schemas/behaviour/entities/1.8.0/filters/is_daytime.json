@@ -9,7 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Returns true during the daylight hours.",
       "additionalProperties": false
     },
     "operator": {

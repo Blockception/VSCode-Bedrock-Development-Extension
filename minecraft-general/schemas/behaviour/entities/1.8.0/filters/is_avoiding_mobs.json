@@ -9,7 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Returns true if the subject entity is fleeing from other mobs.",
       "additionalProperties": false
     },
     "operator": {

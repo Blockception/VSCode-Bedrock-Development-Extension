@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Tests whether the biome the subject is in has the specified tag.",
       "additionalProperties": false
     },
     "operator": {

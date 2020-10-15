@@ -9,7 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Tests whether the target has any trade supply left. Will return false if the target cannot be traded with.",
       "additionalProperties": false
     },
     "operator": {

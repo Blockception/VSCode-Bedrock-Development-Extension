@@ -3,6 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_game_rule",
   "type": "object",
   "title": "Filters is_game_rule 1.8.0",
+  "description": "TODO description: ",
   "additionalProperties": false,
   "required": ["domain"],
   "properties": {
@@ -28,6 +29,5 @@
       "title": "Value",
       "additionalProperties": false
     }
-  },
-  "description": "TODO description: "
+  }
 }

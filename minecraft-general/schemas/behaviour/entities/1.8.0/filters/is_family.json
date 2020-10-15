@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the is_family test property",
+      "description": "Returns true when the subject entity is a member of the named family.",
       "additionalProperties": false
     },
     "operator": {

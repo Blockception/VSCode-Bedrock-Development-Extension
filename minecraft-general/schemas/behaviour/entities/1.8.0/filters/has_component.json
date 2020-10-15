@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Returns true when the subject entity contains the named component.",
       "additionalProperties": false
     },
     "operator": {

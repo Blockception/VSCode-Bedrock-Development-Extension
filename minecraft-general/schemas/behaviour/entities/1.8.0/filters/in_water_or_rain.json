@@ -9,7 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Returns true when the subject entity is in water or rain.",
       "additionalProperties": false
     },
     "operator": {

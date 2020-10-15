@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "The test property",
+      "description": "Compares the current 24 hour time with an int value in the range[0, 24000]",
       "const": "hourly_clock_time",
       "additionalProperties": false
     },

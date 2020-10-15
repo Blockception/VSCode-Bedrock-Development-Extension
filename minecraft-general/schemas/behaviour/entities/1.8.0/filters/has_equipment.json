@@ -10,8 +10,8 @@
     "test": {
       "type": "string",
       "const": "has_equipment",
-      "description": "TODO description",
-      "title": "TODO title",
+      "description": "Tests for the presence of a named item in the designated slot of the subject entity.",
+      "title": "Test",
       "additionalProperties": false
     },
     "domain": {

@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Tests the current brightness against a provided value in the range (0.0f, 1.0f).",
       "additionalProperties": false
     },
     "operator": {

@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "Tests whether the Subject has the specified mob effect.",
       "additionalProperties": false
     },
     "operator": {
