@@ -1,11 +1,11 @@
 {
   "name": "blockception-minecraft-client",
   "description": "The client side of a language server for minecraft",
+  "version": "1.0.8",
   "author": {
     "name": "Blockception Ltd",
     "url": "https://www.blockception.com/"
   },
-  "version": "1.0.0",
   "publisher": "BlockceptionLtd",
   "repository": {
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
