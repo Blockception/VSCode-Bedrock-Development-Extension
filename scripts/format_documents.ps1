@@ -1,2 +1,2 @@
-npx prettier --write "**/*.json"
-npx prettier --write "**/*.ts"
+npx prettier --check "**/*.json"
+npx prettier --check "**/*.ts"
