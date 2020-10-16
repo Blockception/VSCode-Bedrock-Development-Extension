@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { CommandIntr } from "../../commands/include";
-import { Database } from "../../../Database";
+import { Database } from "../../../database/Database";
 
 export function provideEventCompletion(
   receiver: CompletionList,

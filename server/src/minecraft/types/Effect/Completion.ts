@@ -32,7 +32,7 @@ import {
   CompletionItemKind,
   CompletionList,
 } from "vscode-languageserver";
-import { Database } from "../../../Database";
+import { Database } from "../../../database/Database";
 
 export function provideEffectCompletion(receiver: CompletionList): void {
   Database.Data.forEach((dataSet) => {

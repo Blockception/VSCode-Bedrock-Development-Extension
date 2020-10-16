@@ -34,7 +34,7 @@ import {
   MarkupContent,
 } from "vscode-languageserver";
 import { RangedWord } from "../../../../code/include";
-import { Database } from "../../../../Database";
+import { Database } from "../../../../database/Database";
 import { InSelector } from "../../include";
 import { GetCurrentAttribute, InScore, IsEditingValue } from "../Selector";
 import {

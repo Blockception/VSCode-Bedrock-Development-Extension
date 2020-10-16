@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetFilename } from "../code/include";
 import { Convert } from "./Conversion";
 import url = require("url");
-import { Database } from "../Database";
+import { Database } from "../database/Database";
 import {
   DocumentSymbolParams,
   SymbolInformation,

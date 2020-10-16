@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../json/Json Document";
-import { Database } from "../../../Database";
+import { Database } from "../../../database/Database";
 import { Entity } from "../../types/include";
 import { GetFilepath } from "../../../code/Url";
 
