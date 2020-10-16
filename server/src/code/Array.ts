@@ -41,3 +41,8 @@ export function removeDuplicate<T>(items: T[]): T[] {
 
   return Out;
 }
+
+export function DupeCheckAdd<T>(items: T[], item: T): void {
+  if (!items.includes(item))
+    items.push(item);
+}

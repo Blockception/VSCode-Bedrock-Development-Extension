@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 1.0.10
 - Updated to 1.0.9
 - formatted
 - Updated information
@@ -18,4 +19,3 @@
 - Added default settings
 - Added debugging, formatting and installation scripts
 - formatted json files
-- Updated

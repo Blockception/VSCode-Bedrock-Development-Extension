@@ -30,11 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../Manager";
-import {
-  McFunctionIdentifier,
-  McLanguageIdentifier,
-  McOtherIdentifier,
-} from "../Constants";
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
 
@@ -45,11 +41,7 @@ import { fileURLToPath } from "url";
  * @param Content The possible content of the document or interface to use
  * @param languageID The Language ID associated to the documentated.
  */
-export function GetDocument(
-  uri: string,
-  Content: string | TextDocument | undefined = undefined,
-  languageID: string = ""
-): TextDocument {
+export function GetDocument(uri: string, Content: string | TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
   let Old = uri;
   uri = UniformUrl(uri);
 

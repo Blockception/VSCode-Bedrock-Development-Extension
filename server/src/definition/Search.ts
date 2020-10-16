@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from "vscode-languageserver";
 import { MCCommandParameterType } from "../minecraft/commands/include";
-import { Database } from "../Database";
+import { Database } from "../database/Database";
 import { MinecraftData } from "../minecraft/Minecraft Data";
 import { GetFilepath } from "../code/Url";
 

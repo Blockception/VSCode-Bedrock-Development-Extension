@@ -27,11 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
-export const McOtherIdentifier: string = "bc-minecraft-Other";
-export const McLanguageIdentifier: string = "bc-minecraft-language";
-
-export const SettingsConfigurationIdentifier: string = "BC-MC-LanguageServer";
-
-//Commands
-export const McImportErrorsCommandID : string = "bc.minecraft.errors.import";
+export enum GeneralDataType {
+  behaviour_pack,
+  resource_pack,
+  world,
+  unknown,
+}

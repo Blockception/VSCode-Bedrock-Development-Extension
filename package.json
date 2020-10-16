@@ -30,6 +30,7 @@
     "test": "sh ./scripts/e2e.sh"
   },
   "dependencies": {
+    "fast-glob": "^3.2.4",
     "vsce": "^1.81.1"
   },
   "devDependencies": {
@@ -446,7 +447,8 @@
         "fileMatch": [
           "behavior_packs/*/entities/*.json",
           "*BP*/entities/*.json",
-          "*bp*/entities/*.json"
+          "*bp*/entities/*.json",
+          "!*loot_tables*"
         ],
         "url": "./minecraft-general/schemas/behaviour/entities/entities.json"
       },

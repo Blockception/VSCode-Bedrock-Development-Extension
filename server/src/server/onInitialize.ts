@@ -63,6 +63,12 @@ function onInitialize(params: InitializeParams): InitializeResult {
   const result: InitializeResult = {
     capabilities: {
       textDocumentSync: TextDocumentSyncKind.Incremental,
+
+      // Tell the client that this server supports a couple commands
+      executeCommandProvider:{
+        commands:[ "bc.minecraft.errors.import"]
+      },
+
       // Tell the client that this server code formatting.
       documentFormattingProvider: {},
       documentRangeFormattingProvider: {},
@@ -87,13 +93,16 @@ function onInitialize(params: InitializeParams): InitializeResult {
         retriggerCharacters: [" ", "\t"],
       },
     },
+    serverInfo: {
+      name: "BC-minecraft-language-server"
+    }
   };
 
   if (Manager.hasWorkspaceFolderCapability) {
     result.capabilities.workspace = {
       workspaceFolders: {
-        supported: true,
-      },
+        supported: true
+      }
     };
   }
 

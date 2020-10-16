@@ -27,42 +27,65 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DocumentFormattingParams, DocumentRangeFormattingParams, } from "vscode-languageserver";
-import { TextDocument, TextEdit } from "vscode-languageserver-textdocument";
-import { getLine, TrimStartFromLine, TrimEndFromLine } from "../code/include";
+import { Diagnostic, DiagnosticSeverity, Range } from 'vscode-languageserver';
 
-export function formatLangauge(
-  doc: TextDocument,
-  params: DocumentFormattingParams
-): TextEdit[] {
-  let Out: TextEdit[] = [];
-
-  for (let index = 0; index < doc.lineCount; index++) {
-    formatline(index, doc, Out);
-  }
-
-  return Out;
+export interface ContentLogHeader {
+	Time: string;
+	Category: string;
+	Severity: string;
+	Message: string;
 }
 
-export function formatLangaugeRange(
-  doc: TextDocument,
-  params: DocumentRangeFormattingParams
-): TextEdit[] {
-  let Out: TextEdit[] = [];
-  let StartIndex = params.range.start.line;
-  let EndIndex = params.range.end.line;
+export function GetHeader(line: string): ContentLogHeader | undefined {
+	let Match = line.match(/(\d{2}:\d{2}:\d{2})\[(\w+)\]\[(\w+)\]/);
 
-  for (let index = StartIndex; index < EndIndex; index++) {
-    formatline(index, doc, Out);
-  }
+	if (Match)
+		if (Match.length >= 4) {
+			let Out: ContentLogHeader = {
+				Time: Match[1],
+				Category: Match[2],
+				Message: '',
+				Severity: Match[3]
+			};
 
-  return Out;
+			let Index = (Match.index ?? 0) + Match[0].length;
+			Out.Message = line.slice(Index, line.length);
+
+			return Out;
+		}
+
+	return undefined;
 }
 
-//formatts the specified line
-function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
-  let Line = getLine(document, index);
+export function GetSeverity(header : ContentLogHeader) : DiagnosticSeverity {
+	switch(header.Severity.toLowerCase()) {
+		case 'warning':
+			return DiagnosticSeverity.Warning;
 
-  TrimStartFromLine(Line, index, Out, [" ", "\t"]);
-  TrimEndFromLine(Line, index, Out, ["#"]);
+		case 'error':
+			return DiagnosticSeverity.Error;		
+	}
+
+	return DiagnosticSeverity.Error;
+}
+
+export function GetRange(Header : ContentLogHeader) : Range {
+	let Out = Range.create(0, 0, 0, 1);
+	let LineSpec = Header.Message.match(/line (\d+)/);
+
+	if (LineSpec && LineSpec.length >= 2){
+		let Index = Number.parseInt(LineSpec[1]);
+		Out.start.line = Index;
+		Out.end.line = Index;
+	}
+	
+	return Out;
+}
+
+export function CreateDiagnostics(Header : ContentLogHeader) : Diagnostic {
+	return {
+		message: Header.Message,
+		range: GetRange(Header),
+		severity:GetSeverity(Header),
+	}
 }

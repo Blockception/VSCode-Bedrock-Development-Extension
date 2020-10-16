@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DataType } from "./Data Type";
 import { GetFilename } from "../../code/File";
+import { GeneralDataType } from './General Data Type';
 
 /**
  * Detects the type of data from the given uri
@@ -56,6 +57,26 @@ export function DetectDataType(uri: string): DataType {
   if (uri.includes("manifest.json")) return DataType.world_manifest;
 
   return DataType.unknown;
+}
+
+export function DetectGeneralDataType(uri: string): GeneralDataType {
+  uri = decodeURI(uri);
+
+  if (uri.includes("behavior_packs")) { return GeneralDataType.behaviour_pack; }
+  if (uri.includes("Behavior_Pack")) { return GeneralDataType.behaviour_pack; }
+  if (uri.includes("resource_packs")) { return GeneralDataType.resource_pack; }
+  if (uri.includes("Resource_Pack")) { return GeneralDataType.resource_pack; }
+
+  let Match = uri.match(/\/.*(BP|bp).*\//);
+  if (Match) return GeneralDataType.behaviour_pack;
+
+  Match = uri.match(/\/.*(RP|rp).*\//);
+  if (Match) return GeneralDataType.resource_pack;
+
+  Match = uri.match(/\/.*(WP|wp).*\//);
+  if (Match) return GeneralDataType.world;
+
+  return GeneralDataType.unknown;
 }
 
 /**

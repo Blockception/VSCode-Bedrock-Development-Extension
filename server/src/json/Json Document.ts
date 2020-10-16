@@ -41,13 +41,13 @@ export class JsonDocument {
     this.doc = doc;
   }
 
-  CastTo<T>(): T | undefined | null {
+  public CastTo<T>(): T | undefined | null {
     let object = this.GetObject();
 
     return <T>object;
   }
 
-  GetObject(): any | undefined | null {
+  public GetObject(): any | undefined | null {
     if (this.object === undefined) {
       try {
         let Text = this.doc.getText();
@@ -66,13 +66,13 @@ export class JsonDocument {
     return this.object;
   }
 
-  GetRange(Name: string, Value: string): Range | undefined {
+  public GetRange(Name: string, Value: string): Range | undefined {
     let RegX = new RegExp('"' + Name + '"s*:s*"' + Value + '"', "m");
 
     return FindReg(this.doc, RegX);
   }
 
-  GetRangeOfObject(Name: string): Range | undefined {
+  public GetRangeOfObject(Name: string): Range | undefined {
     let RegX = new RegExp('"' + Name + '"s*:', "m");
 
     return FindReg(this.doc, RegX);

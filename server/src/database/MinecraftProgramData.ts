@@ -1,3 +1,5 @@
+import { FindBedrockInstallationFolder } from '../format/Install Location';
+
 /*BSD 3-Clause License
 
 Copyright (c) 2020, Blockception Ltd
@@ -27,11 +29,19 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
-export const McOtherIdentifier: string = "bc-minecraft-Other";
-export const McLanguageIdentifier: string = "bc-minecraft-language";
+export class MinecraftProgramData {
+	private BedrockInstallLocation : string | undefined;
 
-export const SettingsConfigurationIdentifier: string = "BC-MC-LanguageServer";
 
-//Commands
-export const McImportErrorsCommandID : string = "bc.minecraft.errors.import";
+	constructor() {}
+
+	/**
+	 * Retrieves the bedrock installation folder
+	 */
+	public GetBedrockInstallLocation() : string {
+		if (!this.BedrockInstallLocation)
+			this.BedrockInstallLocation = FindBedrockInstallationFolder();
+
+		return this.BedrockInstallLocation;
+	}
+}

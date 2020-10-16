@@ -48,14 +48,6 @@ export class Manager {
   static TraversedWorkspaces: boolean = false;
 
   //Server stuff
-  static Connection: Connection<
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    CallHierarchy & SemanticTokens
-  >;
+  static Connection: Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
   static Settings: ServerSettings = ServerSettings.createDefaulSettings();
 }
