@@ -95,6 +95,16 @@
               "description": "animation state",
               "type": "object",
               "properties": {
+                "animations": {
+                  "title": "Animations definition",
+                  "description": "The animations definition for 1.10.0",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/animationspec",
+                    "description": "TODO description: animations",
+                    "title": "Animations"
+                  }
+                },
                 "blend_transition": {
                   "title": "Blend Transition",
                   "oneOf": [
