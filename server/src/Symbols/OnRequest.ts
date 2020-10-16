@@ -29,7 +29,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetFilename } from "../code/include";
 import { Convert } from "./Conversion";
-import url = require("url");
 import { Database } from "../database/Database";
 import {
   DocumentSymbolParams,
@@ -46,9 +45,7 @@ import { GetFilepath, UniformUrl } from "../code/Url";
  *
  * @param params The parameter that specify which symbols to provide
  */
-export async function OnDocumentSymbolRequestAsync(
-  params: DocumentSymbolParams
-): Promise<SymbolInformation[]> {
+export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[]> {
   return new Promise<SymbolInformation[]>((resolve, reject) => {
     resolve(OnDocumentSymbolRequest(params));
   });
@@ -59,9 +56,7 @@ export async function OnDocumentSymbolRequestAsync(
  *
  * @param params The parameter that specify which symbols to provide
  */
-export async function OnWorkspaceSymbolRequestAsync(
-  params: WorkspaceSymbolParams
-): Promise<SymbolInformation[]> {
+export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
   return new Promise<SymbolInformation[]>((resolve, reject) => {
     resolve(OnWorkspaceSymbolRequest(params));
   });
@@ -72,12 +67,13 @@ export async function OnWorkspaceSymbolRequestAsync(
  *
  * @param params The parameter that specify which symbols to provide
  */
-function OnDocumentSymbolRequest(
-  params: DocumentSymbolParams
-): SymbolInformation[] {
+function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] | undefined {
   //TODO language and other files included
   let uri = params.textDocument.uri;
   uri = UniformUrl(uri);
+
+  if (uri.endsWith('.json'))
+    return undefined;
 
   let Out: SymbolInformation[] = [];
 
@@ -101,9 +97,7 @@ function OnDocumentSymbolRequest(
  *
  * @param params The parameter that specify which symbols to provide
  */
-function OnWorkspaceSymbolRequest(
-  params: WorkspaceSymbolParams
-): SymbolInformation[] {
+function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformation[] {
   let Query = params.query;
   let Out: SymbolInformation[] = [];
 
