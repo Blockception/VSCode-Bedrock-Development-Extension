@@ -36,6 +36,5 @@
         "$ref": "manifest/manifest.2.json"
       }
     }
-  ],
-  "additionalProperties": false
+  ]
 }

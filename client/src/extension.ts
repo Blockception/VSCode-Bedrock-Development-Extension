@@ -54,7 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace
       fileEvents: vscode.workspace.createFileSystemWatcher("**/.clientrc"),
-    },
+    }
   };
 
   // Create the language client and start the client.

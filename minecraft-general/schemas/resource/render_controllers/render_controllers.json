@@ -44,6 +44,5 @@
         "$ref": "1.10.0/render_controllers.json"
       }
     }
-  ],
-  "additionalProperties": false
+  ]
 }
