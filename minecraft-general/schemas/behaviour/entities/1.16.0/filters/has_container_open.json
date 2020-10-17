@@ -9,7 +9,7 @@
     "test": {
       "type": "string",
       "title": "Test",
-      "description": "the test property",
+      "description": "The test property",
       "additionalProperties": false
     },
     "operator": {
@@ -23,7 +23,7 @@
       "title": "TODO title"
     },
     "value": {
-      "description": "true or false.",
+      "description": "True or false.",
       "oneOf": [
         {
           "type": "boolean",

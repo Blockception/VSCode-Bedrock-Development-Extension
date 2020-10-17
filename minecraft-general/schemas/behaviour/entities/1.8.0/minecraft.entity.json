@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.minecraft:entity.1.8.0",
-  "title": "entity 1.8.0",
+  "title": "Entity 1.8.0",
   "required": ["description"],
   "dependencies": {
     "component_groups": ["events"]

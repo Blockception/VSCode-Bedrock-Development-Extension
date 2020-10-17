@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "description": "Defines sets of items that can be used to trigger events when used on this entity. The item will also be taken and placed in the entity's inventory.",
   "type": "object",
-  "title": "giveable 1.8.0",
+  "title": "Giveable 1.8.0",
   "required": [],
   "properties": {
     "cooldown": {

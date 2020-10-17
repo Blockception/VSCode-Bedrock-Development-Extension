@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.random_stroll",
   "description": "Allows a mob to randomly stroll around.",
   "type": "object",
-  "title": "behavior.random_stroll 1.8.0",
+  "title": "Behavior.random_stroll 1.8.0",
   "required": [],
   "properties": {
     "priority": {

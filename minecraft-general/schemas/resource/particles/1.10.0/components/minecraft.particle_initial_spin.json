@@ -8,12 +8,12 @@
   "properties": {
     "rotation": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "specifies the initial rotation in degrees",
+      "description": "Specifies the initial rotation in degrees",
       "title": "Rotation"
     },
     "rotation_rate": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "specifies the spin rate in degrees/second",
+      "description": "Specifies the spin rate in degrees/second",
       "title": "Rotation Rate"
     }
   }

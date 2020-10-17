@@ -12,7 +12,7 @@
     },
     "sleep_time": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "emitter will pause emitting particles for this time per loop evaluated once per particle emitter loop",
+      "description": "Emitter will pause emitting particles for this time per loop evaluated once per particle emitter loop",
       "title": "Sleep Time"
     }
   },

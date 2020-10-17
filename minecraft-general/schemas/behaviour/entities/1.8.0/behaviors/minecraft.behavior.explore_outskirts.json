@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.explore_outskirts",
   "type": "object",
-  "title": "behavior.explore_outskirts 1.8.0",
-  "description": "behaviour_base",
+  "title": "Behavior.explore_outskirts 1.8.0",
+  "description": "Behaviour explore outskirts",
   "additionalProperties": false,
   "required": [],
   "properties": {
@@ -18,11 +18,6 @@
       "description": "TODO description",
       "title": "TODO title",
       "additionalProperties": false
-    },
-    "on_eat": {
-      "$ref": "../types/trigger.json",
-      "description": "TODO description: on eat",
-      "title": "On Eat"
     },
     "explore_dist": {
       "type": "number",

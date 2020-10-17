@@ -40,17 +40,17 @@
       "type": "array",
       "items": [
         {
-          "title": "position X",
+          "title": "Position X",
           "description": "The position over the X-axis or forwards/backwards.\nCan be molang or a float",
           "$ref": "../../../molang/1.8.0/number.json"
         },
         {
-          "title": "position Y",
+          "title": "Position Y",
           "description": "The position over the Y-axis, or up/down.\nCan be molang or a float",
           "$ref": "../../../molang/1.8.0/number.json"
         },
         {
-          "title": "position Z",
+          "title": "Position Z",
           "description": "The position over the Z-axis, or left/right.\nCan be molang or a float",
           "$ref": "../../../molang/1.8.0/number.json"
         }
@@ -84,17 +84,17 @@
       "type": "array",
       "items": [
         {
-          "title": "position X",
+          "title": "Position X",
           "description": "The position over the X-axis or forwards/backwards.\nCan be molang or a float",
           "$ref": "../../../molang/1.8.0/number.json"
         },
         {
-          "title": "position Y",
+          "title": "Position Y",
           "description": "The position over the Y-axis, or up/down.\nCan be molang or a float",
           "$ref": "../../../molang/1.8.0/number.json"
         },
         {
-          "title": "position Z",
+          "title": "Position Z",
           "description": "The position over the Z-axis, or left/right.\nCan be molang or a float",
           "$ref": "../../../molang/1.8.0/number.json"
         }
@@ -137,12 +137,12 @@
         "properties": {
           "anim_time_update": {
             "title": "Start delay",
-            "description": "how does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
+            "description": "How does time pass when playing the animation. Defaults to \"query.anim_time + query.delta_time\" which means advance in seconds.",
             "$ref": "../../../molang/1.8.0/number.json"
           },
           "animation_length": {
             "title": "Animation length",
-            "description": "override calculated value (set as the last keyframe time) and set animation length in seconds.",
+            "description": "Override calculated value (set as the last keyframe time) and set animation length in seconds.",
             "type": "number"
           },
           "blend_weight": {
@@ -244,11 +244,11 @@
                 },
                 "relative_to": {
                   "title": "Relative to",
-                  "description": "if set, makes the bone rotation relative to the entity instead of the bone's parent",
+                  "description": "If set, makes the bone rotation relative to the entity instead of the bone's parent",
                   "properties": {
                     "rotation": {
                       "title": "Rotation",
-                      "description": "if set, makes the bone rotation relative to the entity instead of the bone's parent",
+                      "description": "If set, makes the bone rotation relative to the entity instead of the bone's parent",
                       "type": "string"
                     }
                   }
@@ -299,7 +299,7 @@
           },
           "loop": {
             "title": "Loop",
-            "description": "should this animation stop, loop, or stay on the last frame when finished (true, false, hold_on_last_frame)",
+            "description": "Should this animation stop, loop, or stay on the last frame when finished (true, false, hold_on_last_frame)",
             "oneOf": [
               {
                 "type": "boolean"

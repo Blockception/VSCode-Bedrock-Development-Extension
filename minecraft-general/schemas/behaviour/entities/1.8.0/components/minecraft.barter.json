@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.barter",
   "type": "object",
-  "title": "barter 1.8.0",
+  "title": "Barter 1.8.0",
   "description": "Enables the component to drop an item as a barter exchange.",
   "additionalProperties": false,
   "properties": {

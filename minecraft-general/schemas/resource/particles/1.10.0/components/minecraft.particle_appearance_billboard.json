@@ -19,7 +19,7 @@
       "additionalProperties": false
     },
     "facing_camera_mode": {
-      "description": "used to orient the billboard.",
+      "description": "Used to orient the billboard.",
       "type": "string",
       "enum": [
         "lookat_xyz",

@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.components1.13.0",
   "additionalProperties": false,
   "type": "object",
-  "title": "entity 1.13.0",
+  "title": "Entity 1.13.0",
   "description": "TODO description",
   "properties": {
     "minecraft:addrider": {

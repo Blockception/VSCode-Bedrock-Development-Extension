@@ -11,7 +11,7 @@
       "anyOf": [
         {
           "type": "array",
-          "description": "direct color field",
+          "description": "Direct color field",
           "items": {
             "$ref": "../../../../molang/1.8.0/number.json"
           }
@@ -19,7 +19,7 @@
         {
           "type": "string",
           "format": "color-hex",
-          "description": "direct color field"
+          "description": "Direct color field"
         },
         {
           "description": "Interpolation based color",
@@ -30,29 +30,29 @@
               "title": "Gradient",
               "oneOf": [
                 {
-                  "description": "an array of colors",
+                  "description": "An array of colors",
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "description": "color",
+                    "description": "Color",
                     "title": "Color",
                     "format": "color-hex"
                   }
                 },
                 {
-                  "description": "an object of colors",
+                  "description": "An object of colors",
                   "type": "object",
                   "propertyNames": {
                     "pattern": "(^[\\-0-9]+$|^[\\-0-9]+\\.[\\-0-9]+$)"
                   },
                   "additionalProperties": {
                     "type": "string",
-                    "description": "color",
+                    "description": "Color",
                     "format": "color-hex"
                   }
                 },
                 {
-                  "description": "an array of colors",
+                  "description": "An array of colors",
                   "type": "array",
                   "items": {
                     "type": "array",
@@ -61,7 +61,7 @@
                       "oneOf": [
                         {
                           "type": "number",
-                          "description": "color",
+                          "description": "Color",
                           "title": "Color",
                           "minimum": 0,
                           "maximum": 1

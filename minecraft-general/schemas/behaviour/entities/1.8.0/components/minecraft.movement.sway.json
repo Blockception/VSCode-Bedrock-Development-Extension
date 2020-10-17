@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.movement.sway",
   "description": "This move control causes the mob to sway side to side giving the impression it is swimming.",
   "type": "object",
-  "title": "movement.sway 1.8.0",
+  "title": "Movement.sway 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

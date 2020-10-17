@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.tick_world",
   "description": "Defines if the entity ticks the world and the radius around it to tick.",
   "type": "object",
-  "title": "tick_world 1.8.0",
+  "title": "Tick_world 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

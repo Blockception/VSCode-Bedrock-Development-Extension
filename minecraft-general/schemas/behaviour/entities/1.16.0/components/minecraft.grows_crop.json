@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.grows_crop",
   "type": "object",
-  "title": "grows_crop 1.16.0",
+  "title": "Grows_crop 1.16.0",
   "description": "Could increase crop growth when entity walks over crop.",
   "additionalProperties": false,
   "properties": {

@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.13.0.minecraft.projectile",
   "description": "Allows the entity to be a thrown entity.",
   "type": "object",
-  "title": "projectile 1.13.0",
+  "title": "Projectile 1.13.0",
   "additionalProperties": false,
   "required": [],
   "properties": {
@@ -66,75 +66,75 @@
       "type": "string",
       "default": "",
       "description": "The sound that plays when the projectile hits something",
-      "title": "hit_sound",
+      "title": "Hit_sound",
       "additionalProperties": false
     },
     "homing": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile homes in to the nearest entity",
-      "title": "homing",
+      "title": "Homing",
       "additionalProperties": false
     },
     "inertia": {
       "type": "number",
       "default": 0.99,
       "description": "The fraction of the projectile's speed maintained every frame while traveling in air",
-      "title": "inertia",
+      "title": "Inertia",
       "additionalProperties": false
     },
     "is_dangerous": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will be treated as dangerous to the players",
-      "title": "is_dangerous",
+      "title": "Is_dangerous",
       "additionalProperties": false
     },
     "knockback": {
       "type": "boolean",
       "default": true,
       "description": "If true, the projectile will knock back the entity it hits",
-      "title": "knockback",
+      "title": "Knockback",
       "additionalProperties": false
     },
     "lightning": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity hit will be struck by lightning",
-      "title": "lightning",
+      "title": "Lightning",
       "additionalProperties": false
     },
     "liquid_inertia": {
       "type": "number",
       "default": 0.6,
       "description": "The fraction of the projectile's speed maintained every frame while traveling in water",
-      "title": "liquid_inertia",
+      "title": "Liquid_inertia",
       "additionalProperties": false
     },
     "multiple_targets": {
       "type": "boolean",
       "default": true,
       "description": "If true, the projectile can hit multiple entities per flight",
-      "title": "multiple_targets",
+      "title": "Multiple_targets",
       "additionalProperties": false
     },
     "offset": {
       "type": "array",
       "default": [0.0, 0.5, 0.0],
       "description": "The offset from the entity's anchor where the projectile will spawn",
-      "title": "offset",
+      "title": "Offset",
       "items": [
         {
           "type": "number",
-          "title": "x"
+          "title": "X"
         },
         {
           "type": "number",
-          "title": "y"
+          "title": "Y"
         },
         {
           "type": "number",
-          "title": "z"
+          "title": "Z"
         }
       ],
       "additionalProperties": false
@@ -143,7 +143,7 @@
       "type": "number",
       "default": 5,
       "description": "Time in seconds that the entity hit will be on fire for",
-      "title": "on_fire_time",
+      "title": "On_fire_time",
       "additionalProperties": false
     },
     "on_hit": {

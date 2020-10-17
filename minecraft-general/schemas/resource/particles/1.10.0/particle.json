@@ -66,7 +66,7 @@
                 "description": "What is the input value to use"
               },
               "nodes": {
-                "description": "control nodes for curve.  These are assumed to be equally, used Object for bezier_chain",
+                "description": "Control nodes for curve.  These are assumed to be equally, used Object for bezier_chain",
                 "title": "Nodes",
                 "oneOf": [
                   {
@@ -141,7 +141,7 @@
         "events": {
           "type": "object",
           "additionalProperties": {
-            "description": "event",
+            "description": "Event",
             "title": "TODO",
             "type": "object",
             "additionalProperties": false,

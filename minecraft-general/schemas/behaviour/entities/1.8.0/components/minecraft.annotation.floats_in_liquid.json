@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "description": "Sets that this entity can float in liquid blocks.",
   "type": "object",
-  "title": "annotation.floats_in_liquid 1.8.0",
+  "title": "Annotation.floats_in_liquid 1.8.0",
   "required": [],
   "properties": {}
 }

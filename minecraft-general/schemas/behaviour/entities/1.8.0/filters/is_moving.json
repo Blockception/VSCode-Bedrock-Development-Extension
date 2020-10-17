@@ -9,7 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "The test property",
       "additionalProperties": false
     },
     "operator": {
@@ -24,7 +24,7 @@
     },
     "value": {
       "title": "Value",
-      "description": "true or false.",
+      "description": "True or false.",
       "oneOf": [
         {
           "type": "boolean",

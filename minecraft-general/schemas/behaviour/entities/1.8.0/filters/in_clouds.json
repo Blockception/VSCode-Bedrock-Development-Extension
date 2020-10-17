@@ -24,7 +24,7 @@
     },
     "value": {
       "title": "Value",
-      "description": "true or false.",
+      "description": "True or false.",
       "oneOf": [
         {
           "type": "boolean",

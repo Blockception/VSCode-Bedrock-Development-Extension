@@ -3,20 +3,20 @@
   "$id": "blockception.minecraft.behaviour.condition.entity_properties",
   "additionalProperties": false,
   "description": "Returns true if the actor properties defined were executed.",
-  "title": "entity_properties",
+  "title": "Entity_properties",
   "properties": {
     "entity": {
       "type": "string",
       "default": "this",
       "description": "The entity to test. The value must be only \"this\".",
-      "title": "entity",
+      "title": "Entity",
       "additionalProperties": false
     },
     "properties": {
       "type": "object",
       "default": {},
       "description": "The entity's properties. \"on_fire\", \"on_ground\" is used for now.",
-      "title": "properties",
+      "title": "Properties",
       "additionalProperties": false
     }
   }

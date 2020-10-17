@@ -8,17 +8,17 @@
   "properties": {
     "creation_event": {
       "title": "Creation event",
-      "description": "fires when the emitter is created",
+      "description": "Fires when the emitter is created",
       "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
     },
     "expiration_event": {
       "title": "Expiration event",
-      "description": "fires when the emitter expires (does not wait for particles to expire too)",
+      "description": "Fires when the emitter expires (does not wait for particles to expire too)",
       "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
     },
     "timeline": {
       "type": "object",
-      "description": "a series of times, e.g. 0.0 or 1.0, that trigger the event, these get fired on every loop the emitter goes through, \"time\" is the time, e.g. one line might be: \"0.4\": \"event\"",
+      "description": "A series of times, e.g. 0.0 or 1.0, that trigger the event, these get fired on every loop the emitter goes through, \"time\" is the time, e.g. one line might be: \"0.4\": \"event\"",
       "propertyNames": {
         "pattern": "^[\\d\\.]+$"
       },
@@ -30,7 +30,7 @@
     },
     "travel_distance_events": {
       "title": "Travel distance events",
-      "description": "a series of distances, e.g. 0.0 or 1.0, that trigger the event these get fired when the emitter has moved by the specified input distance, e.g. one line might be: \"0.4\": \"event\"",
+      "description": "A series of distances, e.g. 0.0 or 1.0, that trigger the event these get fired when the emitter has moved by the specified input distance, e.g. one line might be: \"0.4\": \"event\"",
       "propertyNames": {
         "pattern": "^[\\d\\.]+$"
       },
@@ -42,7 +42,7 @@
     },
     "looping_travel_distance_events": {
       "title": "Looping travel distance events",
-      "description": "a series of events that occur at set intervals these get fired every time the emitter has moved the specified input distance from the last time it was fired.",
+      "description": "A series of events that occur at set intervals these get fired every time the emitter has moved the specified input distance from the last time it was fired.",
       "type": "array",
       "items": {
         "type": "object",

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.breedable",
   "type": "object",
-  "title": "breedable 1.16.0",
+  "title": "Breedable 1.16.0",
   "additionalProperties": false,
   "description": "Specifies the blocks that this entity can break as it moves around.",
   "definitions": {
@@ -31,7 +31,7 @@
     },
     "enviroment_requirements": {
       "type": "object",
-      "description": "a nearby block requirements to get the entity into the 'love' state.",
+      "description": "A nearby block requirements to get the entity into the 'love' state.",
       "properties": {
         "blocks": {
           "description": "The block types required nearby for the entity to breed.",
@@ -40,14 +40,14 @@
             {
               "type": "array",
               "items": {
-                "description": "a block type required nearby for the entity to breed.",
+                "description": "A block type required nearby for the entity to breed.",
                 "type": "string",
                 "$ref": "../../../../general/blocks_item.json",
                 "title": "Blocks"
               }
             },
             {
-              "description": "a block type required nearby for the entity to breed.",
+              "description": "A block type required nearby for the entity to breed.",
               "type": "string",
               "$ref": "../../../../general/blocks_item.json",
               "title": "Blocks"

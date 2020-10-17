@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.area_attack",
   "type": "object",
-  "title": "area_attack 1.16.0",
+  "title": "Area_attack 1.16.0",
   "description": "A component that does damage to entities that get within range.",
   "additionalProperties": false,
   "properties": {
@@ -22,13 +22,13 @@
     },
     "entity_filter": {
       "$ref": "../filters.json",
-      "description": "entity_filter",
+      "description": "Entity_filter",
       "title": "Minecraft Filter"
     },
     "cause": {
       "type": "string",
-      "description": "cause",
-      "title": "String",
+      "description": "TODO",
+      "title": "Cause",
       "enum": [
         "anvil",
         "attack",

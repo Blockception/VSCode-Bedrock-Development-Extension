@@ -19,7 +19,7 @@
     },
     "key": {
       "type": "object",
-      "description": "patten key character mapped to item names.",
+      "description": "Patten key character mapped to item names.",
       "title": "Key",
       "minProperties": 1,
       "additionalProperties": {
@@ -34,7 +34,7 @@
     },
     "pattern": {
       "type": "array",
-      "description": "characters that represent a pattern to be defined by keys.",
+      "description": "Characters that represent a pattern to be defined by keys.",
       "title": "Pattern",
       "maxItems": 3,
       "minItems": 1,
@@ -51,7 +51,7 @@
       "additionalProperties": false
     },
     "result": {
-      "description": "when input items match the pattern then these items are the result.",
+      "description": "When input items match the pattern then these items are the result.",
       "title": "Result",
       "oneOf": [
         {

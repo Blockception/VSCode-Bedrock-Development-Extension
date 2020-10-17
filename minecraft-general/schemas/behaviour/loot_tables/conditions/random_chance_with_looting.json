@@ -3,20 +3,20 @@
   "$id": "blockception.minecraft.behaviour.condition.random_chance_with_looting",
   "additionalProperties": false,
   "description": "Sets a random chance of the specified value. Looting enchantment increase the random chance multiplier.",
-  "title": "random_chance_with_looting",
+  "title": "Random_chance_with_looting",
   "properties": {
     "chance": {
       "type": "number",
       "default": 0,
       "description": "The random chance of the value.",
-      "title": "chance",
+      "title": "Chance",
       "additionalProperties": false
     },
     "looting_multiplier": {
       "type": "number",
       "default": 0,
       "description": "The multiplier for the chance if the target entity has the looting enchant that affects the actor.",
-      "title": "looting multiplier",
+      "title": "Looting multiplier",
       "additionalProperties": false
     }
   }

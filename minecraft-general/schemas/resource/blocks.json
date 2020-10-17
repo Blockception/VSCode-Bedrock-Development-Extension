@@ -129,7 +129,7 @@
       "textures": {
         "$ref": "#/definitions/texture",
         "title": "Sound",
-        "description": "textures"
+        "description": "Textures"
       }
     }
   }

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.entity_sensor",
   "type": "object",
-  "title": "entity_sensor 1.16.0",
+  "title": "Entity_sensor 1.16.0",
   "description": "A component that fires an event when a set of conditions are met by other entities within the defined range.",
   "additionalProperties": false,
   "properties": {

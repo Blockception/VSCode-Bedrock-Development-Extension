@@ -69,7 +69,7 @@
                   },
                   "load_on_low_memory": {
                     "type": "boolean",
-                    "description": "marks if this audio should be loaded or not on low memory",
+                    "description": "Marks if this audio should be loaded or not on low memory",
                     "title": "Load On Low Memory"
                   },
                   "stream": {

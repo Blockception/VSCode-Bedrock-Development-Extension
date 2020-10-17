@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.variant",
   "additionalProperties": false,
   "type": "object",
-  "title": "variant 1.8.0",
+  "title": "Variant 1.8.0",
   "description": "Used to differentiate the component group of a variant of an entity from others (e.g. ocelot, villager) Parameters",
   "required": [],
   "properties": {

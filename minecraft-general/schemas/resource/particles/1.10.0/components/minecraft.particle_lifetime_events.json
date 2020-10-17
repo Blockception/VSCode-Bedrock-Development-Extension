@@ -7,7 +7,7 @@
   "properties": {
     "creation_event": {
       "title": "Creation event",
-      "description": "fires when the particle is created",
+      "description": "Fires when the particle is created",
       "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
     },
     "custom_events": {
@@ -16,7 +16,7 @@
     },
     "expiration_event": {
       "title": "Expiration event",
-      "description": "fires when the particle expires (does not wait for particles to expire too)",
+      "description": "Fires when the particle expires (does not wait for particles to expire too)",
       "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
     },
     "timeline": {

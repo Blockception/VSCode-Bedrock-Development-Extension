@@ -44,7 +44,7 @@
     },
     "plane_normal": {
       "title": "Plane normal",
-      "description": "specifies the normal of the disc plane, the disc will be perpendicular to this direction",
+      "description": "Specifies the normal of the disc plane, the disc will be perpendicular to this direction",
       "default": [0, 1, 0],
       "oneOf": [
         {

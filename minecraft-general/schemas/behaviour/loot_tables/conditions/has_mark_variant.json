@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.condition.has_mark_variant",
   "additionalProperties": false,
   "description": "Returns the condition true if the actor's mark variant is matched to the value.",
-  "title": "has_mark_variant",
+  "title": "Has_mark_variant",
   "properties": {
     "value": {
       "type": "integer",

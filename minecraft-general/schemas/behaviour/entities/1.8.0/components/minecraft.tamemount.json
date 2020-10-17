@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.tamemount",
   "description": "Allows the Entity to be tamed by mounting it.",
   "type": "object",
-  "title": "tamemount 1.8.0",
+  "title": "Tamemount 1.8.0",
   "additionalProperties": false,
   "definitions": {
     "feed_items": {

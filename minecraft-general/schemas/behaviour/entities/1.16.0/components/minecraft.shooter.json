@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.shooter",
   "description": "Defines the entity's ranged attack behavior.",
   "type": "object",
-  "title": "shooter 1.16.0",
+  "title": "Shooter 1.16.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

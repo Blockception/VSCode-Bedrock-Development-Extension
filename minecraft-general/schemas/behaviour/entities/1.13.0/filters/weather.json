@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "Test",
-      "description": "the test property",
+      "description": "The test property",
       "additionalProperties": false
     },
     "operator": {
@@ -24,7 +24,7 @@
       "title": "TODO title"
     },
     "value": {
-      "description": "the Family name to look for",
+      "description": "The Family name to look for",
       "type": "string",
       "title": "Value",
       "additionalProperties": false

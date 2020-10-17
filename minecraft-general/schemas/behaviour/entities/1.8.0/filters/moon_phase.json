@@ -10,7 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "the test property",
+      "description": "The test property",
       "additionalProperties": false
     },
     "operator": {

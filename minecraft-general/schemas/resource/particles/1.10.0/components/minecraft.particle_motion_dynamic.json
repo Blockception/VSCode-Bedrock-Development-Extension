@@ -14,19 +14,19 @@
       "items": {
         "$ref": "../../../../molang/1.8.0/number.json"
       },
-      "description": "the linear acceleration applied to the particle. Units are blocks/sec/sec",
+      "description": "The linear acceleration applied to the particle. Units are blocks/sec/sec",
       "title": "Linear Acceleration",
       "additionalProperties": false
     },
     "linear_drag_coefficient": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "using the equation: 'acceleration = -linear_drag_coefficient*velocity' where velocity is the current direction times speed. Think of this as air-drag. The higher the value, the more drag evaluated every frame",
+      "description": "Using the equation: 'acceleration = -linear_drag_coefficient*velocity' where velocity is the current direction times speed. Think of this as air-drag. The higher the value, the more drag evaluated every frame",
       "default": 0,
       "title": "Linear Drag Coefficient"
     },
     "rotation_acceleration": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "acceleration applies to the rotation speed of the particle",
+      "description": "Acceleration applies to the rotation speed of the particle",
       "title": "Rotation Acceleration",
       "default": 0
     },

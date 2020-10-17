@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "description": "Allows this entity to avoid certain mob types.",
   "type": "object",
-  "title": "behavior.avoid_mob_type 1.8.0",
+  "title": "Behavior.avoid_mob_type 1.8.0",
   "required": [],
   "properties": {
     "priority": {

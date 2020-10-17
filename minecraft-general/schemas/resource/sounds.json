@@ -130,7 +130,7 @@
     "individual_event_sounds": {
       "type": "object",
       "title": "Individual event sounds",
-      "description": "individual event sounds definitions",
+      "description": "Individual event sounds definitions",
       "additionalProperties": false,
       "properties": {
         "events": {

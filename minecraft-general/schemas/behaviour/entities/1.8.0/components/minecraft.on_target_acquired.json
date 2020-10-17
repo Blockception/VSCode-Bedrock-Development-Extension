@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.on_target_acquired",
   "description": "Adds a trigger to call when this entity finds a target.",
   "type": "object",
-  "title": "on_target_acquired 1.8.0",
+  "title": "On_target_acquired 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

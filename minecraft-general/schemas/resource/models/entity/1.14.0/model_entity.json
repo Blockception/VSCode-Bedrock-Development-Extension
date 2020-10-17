@@ -51,7 +51,7 @@
     },
     "minecraft:geometry": {
       "type": "array",
-      "title": "geometry",
+      "title": "Geometry",
       "description": "The collection of geometries",
       "minItems": 1,
       "items": {
@@ -345,15 +345,15 @@
                               "items": [
                                 {
                                   "type": "number",
-                                  "description": "the index of the position"
+                                  "description": "The index of the position"
                                 },
                                 {
                                   "type": "number",
-                                  "description": "the index of the normal vertex"
+                                  "description": "The index of the normal vertex"
                                 },
                                 {
                                   "type": "number",
-                                  "description": "the index of the uv vertex"
+                                  "description": "The index of the uv vertex"
                                 }
                               ]
                             }

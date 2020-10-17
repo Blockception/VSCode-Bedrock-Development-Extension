@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.entities.1.10.0.event",
   "title": "Event",
-  "description": "minecraft behaviour event 1.10.0",
+  "description": "Minecraft behaviour event 1.10.0",
   "oneOf": [
     {
       "type": "string",

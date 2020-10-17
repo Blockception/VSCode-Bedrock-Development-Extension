@@ -15,7 +15,7 @@
       "additionalProperties": false,
       "required": ["description"],
       "type": "object",
-      "description": "Minecraft:item definitions",
+      "description": "TODO",
       "properties": {
         "description": {
           "additionalProperties": false,
@@ -65,32 +65,33 @@
             },
             "minecraft:max_damage": {
               "type": "integer",
-              "description": "max damage item has, this is used like item max health."
+              "description": "Max damage item has, this is used like item max health."
             },
             "minecraft:hand_equipped": {
               "type": "boolean",
-              "description": "is this a hand equipped item."
+              "title": "Hand equipped",
+              "description": "Is this a hand equipped item."
             },
             "minecraft:stacked_by_data": {
               "type": "boolean",
-              "description": "stacked by data aux value or not?"
+              "description": "Stacked by data aux value or not?"
             },
             "minecraft:foil": {
               "type": "boolean",
-              "description": "foil or glint."
+              "description": "Foil or glint."
             },
             "minecraft:block": {
               "type": "string",
-              "description": "block name, leave blank for no block."
+              "description": "Block name, leave blank for no block."
             },
             "minecraft:max_stack_size": {
               "type": "integer",
-              "description": "max stack size.",
+              "description": "Max stack size.",
               "minimum": 0
             },
             "minecraft:use_duration": {
               "type": "integer",
-              "description": "how long to use before item is done being used."
+              "description": "How long to use before item is done being used."
             },
             "minecraft:food": {
               "type": "object",
@@ -98,11 +99,11 @@
               "properties": {
                 "nutrition": {
                   "type": "integer",
-                  "description": "nutrition amount."
+                  "description": "Nutrition amount."
                 },
                 "saturation_modifier": {
                   "type": "string",
-                  "description": "choose: poor, low, normal, good, max, supernatural.",
+                  "description": "Choose: poor, low, normal, good, max, supernatural.",
                   "enum": [
                     "poor",
                     "low",
@@ -114,7 +115,7 @@
                 },
                 "using_converts_to": {
                   "type": "string",
-                  "description": "after using,  item converts it to this item.",
+                  "description": "After using,  item converts it to this item.",
                   "$ref": "../../../general/items_identifiers.json"
                 },
                 "on_use_action": {
@@ -132,11 +133,11 @@
                 },
                 "cooldown_time": {
                   "type": "integer",
-                  "description": "cooldown time in ticks."
+                  "description": "Cooldown time in ticks."
                 },
                 "can_always_eat": {
                   "type": "boolean",
-                  "description": "can always eat this item? true or false."
+                  "description": "Can always eat this item? true or false."
                 },
                 "effects": {
                   "type": "array",
@@ -169,7 +170,7 @@
                   "type": "string"
                 },
                 "plant_at": {
-                  "description": "valid blocks you can plant this item at.",
+                  "description": "Valid blocks you can plant this item at.",
                   "oneOf": [
                     {
                       "type": "string",

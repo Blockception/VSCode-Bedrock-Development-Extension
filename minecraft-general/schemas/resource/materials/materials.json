@@ -145,7 +145,7 @@
       "description": "TODO",
       "items": {
         "type": "string",
-        "title": "state",
+        "title": "State",
         "description": "TODO",
         "enum": [
           "Blending",
@@ -163,7 +163,7 @@
     },
     "SamplerStatesSpecification": {
       "type": "array",
-      "title": "sampler States",
+      "title": "Sampler States",
       "description": "TODO",
       "items": {
         "type": "object",
@@ -385,12 +385,12 @@
             "enum": ["Line"]
           },
           "samplerStates": {
-            "title": "sampler States",
+            "title": "Sampler States",
             "description": "TODO, set or start samplerStates???",
             "$ref": "#/definitions/SamplerStatesSpecification"
           },
           "+samplerStates": {
-            "title": "sampler States",
+            "title": "Sampler States",
             "description": "TODO, Add samplerStates???",
             "$ref": "#/definitions/SamplerStatesSpecification"
           },

@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.player.experience",
   "additionalProperties": false,
   "type": "object",
-  "title": "player.experience 1.8.0",
+  "title": "Player.experience 1.8.0",
   "description": "UNDOCUMENTATED",
   "required": [],
   "properties": {

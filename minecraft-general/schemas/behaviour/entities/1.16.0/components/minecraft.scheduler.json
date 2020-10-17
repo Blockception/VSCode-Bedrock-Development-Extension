@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.scheduler",
   "description": "Defines a list of items the mob wants to share or pick up. Each item must have the following parameters:",
   "type": "object",
-  "title": "scheduler 1.16.0",
+  "title": "Scheduler 1.16.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

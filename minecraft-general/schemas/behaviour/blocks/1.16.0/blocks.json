@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.1.16.0.blocks",
   "description": "Minecraft blocks 1.16.0",
   "required": ["format_version", "minecraft:block"],
-  "title": "block",
+  "title": "Block",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -31,19 +31,19 @@
             "identifier": {
               "type": "string",
               "description": "The identifier for this block. The name must include a namespace and must not use the Minecraft namespace unless overriding a Vanilla block.",
-              "title": "identifier"
+              "title": "Identifier"
             },
             "is_experimental": {
               "type": "boolean",
               "default": false,
               "description": "If this block is experimental, it will only be registered if the world is marked as experimantal.",
-              "title": "is experimental"
+              "title": "Is experimental"
             },
             "register_to_creative_menu": {
               "type": "boolean",
               "default": false,
               "description": "Whether or not to register this block to the creative inventory menu.",
-              "title": "register to creative menu"
+              "title": "Register to creative menu"
             }
           }
         },

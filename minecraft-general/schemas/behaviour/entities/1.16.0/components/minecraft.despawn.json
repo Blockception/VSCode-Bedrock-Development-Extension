@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.despawn",
   "type": "object",
-  "title": "despawn 1.16.0",
+  "title": "Despawn 1.16.0",
   "description": "Despawns the Actor when the despawn rules or optional filters evaluate to true.",
   "additionalProperties": false,
   "properties": {
@@ -20,13 +20,13 @@
         "max_distance": {
           "type": "integer",
           "default": 128,
-          "description": "maximum distance for standard despawn rules to instantly despawn the mob.",
+          "description": "Maximum distance for standard despawn rules to instantly despawn the mob.",
           "title": "Max_distance"
         },
         "min_distance": {
           "type": "integer",
           "default": 32,
-          "description": "minimum distance for standard despawn rules to try to despawn the mob.",
+          "description": "Minimum distance for standard despawn rules to try to despawn the mob.",
           "title": "Min_distance"
         }
       },

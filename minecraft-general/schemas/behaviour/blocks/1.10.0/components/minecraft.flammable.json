@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.blocks.1.10.0.minecraft.flammable",
   "additionalProperties": false,
   "type": "object",
-  "title": "flammable 1.10.0",
+  "title": "Flammable 1.10.0",
   "description": "Describes the flammable properties for this block.",
   "additionalItems": false,
   "properties": {
@@ -11,14 +11,14 @@
       "type": "integer",
       "default": 0,
       "description": "How likely the block will be destroyed by flames when on fire.",
-      "title": "burn odds",
+      "title": "Burn odds",
       "additionalProperties": false
     },
     "flame_odds": {
       "type": "integer",
       "default": 0,
       "description": "How likely the block will catch flame when next to a fire.",
-      "title": "flame odds",
+      "title": "Flame odds",
       "additionalProperties": false
     }
   }

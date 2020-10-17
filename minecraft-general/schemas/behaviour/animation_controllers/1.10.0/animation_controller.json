@@ -88,7 +88,7 @@
             "additionalProperties": {
               "additionalProperties": false,
               "title": "Animation state",
-              "description": "animation state",
+              "description": "Animation state",
               "type": "object",
               "properties": {
                 "animations": {
@@ -103,14 +103,14 @@
                 },
                 "on_entry": {
                   "type": "array",
-                  "description": "events, commands or transitions to preform on entry of this state",
+                  "description": "Events, commands or transitions to preform on entry of this state",
                   "items": {
                     "$ref": "#/definitions/commands"
                   }
                 },
                 "on_exit": {
                   "type": "array",
-                  "description": "events, commands or transitions to preform on exit of this state",
+                  "description": "Events, commands or transitions to preform on exit of this state",
                   "items": {
                     "$ref": "#/definitions/commands"
                   }

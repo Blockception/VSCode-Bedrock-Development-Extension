@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.is_dyeable",
   "description": "Allows dyes to be used on this entity to change its color.",
   "type": "object",
-  "title": "is_dyeable 1.8.0",
+  "title": "Is_dyeable 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

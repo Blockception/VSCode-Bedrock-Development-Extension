@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.physics",
   "additionalProperties": false,
   "type": "object",
-  "title": "physics 1.8.0",
+  "title": "Physics 1.8.0",
   "description": "Defines a dynamic type jump control that will change jump properties based on the speed modifier of the mob.",
   "required": [],
   "properties": {

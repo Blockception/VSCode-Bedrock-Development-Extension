@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.inventory",
   "description": "Defines this entity's inventory properties.",
   "type": "object",
-  "title": "inventory 1.16.0",
+  "title": "Inventory 1.16.0",
   "additionalProperties": false,
   "required": [],
   "properties": {
@@ -11,21 +11,21 @@
       "type": "integer",
       "default": 0,
       "description": "Number of slots that this entity can gain per extra strength",
-      "title": "additional slots per strength",
+      "title": "Additional slots per strength",
       "additionalProperties": false
     },
     "can_be_siphoned_from": {
       "type": "boolean",
       "default": false,
       "description": "If true, the contents of this inventory can be removed by a hopper",
-      "title": "can be siphoned from",
+      "title": "Can be siphoned from",
       "additionalProperties": false
     },
     "container_type": {
       "type": "string",
       "default": "none",
       "description": "Type of container this entity has. Can be horse, minecart_chest, minecart_hopper, inventory, container or hopper",
-      "title": "container type",
+      "title": "Container type",
       "enum": [
         "horse",
         "minecart_chest",
@@ -40,21 +40,21 @@
       "type": "integer",
       "default": 5,
       "description": "Number of slots the container has",
-      "title": "inventory size",
+      "title": "Inventory size",
       "additionalProperties": false
     },
     "private": {
       "type": "boolean",
       "default": false,
       "description": "If true, only the entity can access the inventory",
-      "title": "private",
+      "title": "Private",
       "additionalProperties": false
     },
     "restrict_to_owner": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity's inventory can only be accessed by its owner or itself",
-      "title": "restrict to owner",
+      "title": "Restrict to owner",
       "additionalProperties": false
     }
   }

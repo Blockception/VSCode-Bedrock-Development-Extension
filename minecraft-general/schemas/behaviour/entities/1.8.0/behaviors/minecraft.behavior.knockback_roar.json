@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.knockback_roar",
   "description": "Allows the mob to perform a damaging knockback that affects all nearby entities.",
   "type": "object",
-  "title": "behavior.knockback_roar 1.8.0",
+  "title": "Behavior.knockback_roar 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {
@@ -54,10 +54,10 @@
       "title": "TODO title",
       "additionalProperties": false
     },
-    "Trigger": {
+    "trigger": {
       "$ref": "../types/trigger.json",
-      "description": "on_roar_end",
-      "title": "TODO title"
+      "description": "TODO",
+      "title": "Trigger"
     }
   }
 }

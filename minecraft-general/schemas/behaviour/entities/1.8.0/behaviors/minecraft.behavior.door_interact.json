@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.behavior.door_interact",
   "additionalProperties": false,
   "type": "object",
-  "title": "behavior.door_interact 1.8.0",
+  "title": "Behavior.door_interact 1.8.0",
   "description": "Allows the mob to drink potions based on specified environment conditions.",
   "properties": {
     "priority": {
