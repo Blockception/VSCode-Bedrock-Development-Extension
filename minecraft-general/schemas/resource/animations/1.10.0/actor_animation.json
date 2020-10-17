@@ -316,12 +316,10 @@
             "type": "boolean"
           },
           "particle_effects": {
-            "title": "Position",
-            "description": "The Position transformation during this animation",
+            "title": "Particle effects",
+            "description": "TODO",
             "oneOf": [
-              {
-                "$ref": "#/definitions/ParticleEffect"
-              },
+              { "$ref": "#/definitions/ParticleEffect" },
               {
                 "type": "object",
                 "propertyNames": {
@@ -330,7 +328,10 @@
                 "additionalProperties": {
                   "title": "Timeline object",
                   "description": "A single point in time",
-                  "$ref": "#/definitions/ParticleEffect"
+                  "oneOf": [
+                    { "type": "object", "$ref": "#/definitions/ParticleEffect" },
+                    { "type": "array", "items": { "$ref": "#/definitions/ParticleEffect" } }
+                  ]
                 }
               }
             ]
