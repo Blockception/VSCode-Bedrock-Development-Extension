@@ -7,12 +7,12 @@
   "properties": {
     "max_particles": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description: max particles",
+      "description": "Maximum number of particles that can be active at once for this emitter, evaluated once per particle emitter loop",
       "title": "Max Particles"
     },
     "spawn_rate": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description: spawn rate",
+      "description": "How often a particle is emitted, in particles/sec evaluated once per particle emitted",
       "title": "Spawn Rate"
     }
   },

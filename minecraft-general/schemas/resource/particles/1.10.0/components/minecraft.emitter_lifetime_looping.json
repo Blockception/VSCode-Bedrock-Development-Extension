@@ -7,12 +7,12 @@
   "properties": {
     "active_time": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description: active time",
+      "description": "Emitter will emit particles for this time per loop evaluated once per particle emitter loop",
       "title": "Active Time"
     },
     "sleep_time": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description: sleep time",
+      "description": "emitter will pause emitting particles for this time per loop evaluated once per particle emitter loop",
       "title": "Sleep Time"
     }
   },

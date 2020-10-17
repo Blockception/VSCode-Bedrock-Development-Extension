@@ -3,20 +3,23 @@
   "$id": "blockception.minecraft.resource.particle.1.10.0.emitter_local_space",
   "type": "object",
   "title": "The emitter_local_space component for 1.10.0",
+  "description": "TODO description: ",
   "additionalProperties": false,
   "properties": {
     "position": {
       "type": "boolean",
       "description": "TODO description: position",
-      "title": "Position",
-      "additionalProperties": false
+      "title": "Position"
     },
     "rotation": {
       "type": "boolean",
       "description": "TODO description: rotation",
-      "title": "Rotation",
-      "additionalProperties": false
+      "title": "Rotation"
+    },
+    "velocity": {
+      "type": "boolean",
+      "description": "TODO description: rotation",
+      "title": "Rotation"
     }
-  },
-  "description": "TODO description: "
+  }
 }

@@ -8,12 +8,12 @@
   "properties": {
     "creation_expression": {
       "$ref": "../../../../molang/1.8.0/string.json",
-      "description": "this is run once at emitter startup",
+      "description": "This is run once at emitter startup.",
       "title": "Creation Expression"
     },
     "per_update_expression": {
       "$ref": "../../../../molang/1.8.0/string.json",
-      "description": "this is run once per emitter update",
+      "description": "This is run once per emitter update.",
       "title": "Per Update Expression"
     }
   }

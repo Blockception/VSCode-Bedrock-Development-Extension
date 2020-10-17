@@ -1,4 +1,10 @@
 # Changelog 
+- Fixing Language diagnostics
+- Ignore json for symbols
+- Adding minecraft import command
+- Moved database
+- Fixing json validation stuff
+- Fixed animations controllers
 - Updated to 1.0.10
 - Updated to 1.0.9
 - formatted
@@ -13,9 +19,3 @@
 - fixing is_weather
 - Fixing events
 - Fixed sequence and filter attribute for events
-- removed additionalProperties if a $ref is specified
-- Formatted
-- Updated json validation with stricter settings, added missing description / titles
-- Added default settings
-- Added debugging, formatting and installation scripts
-- formatted json files

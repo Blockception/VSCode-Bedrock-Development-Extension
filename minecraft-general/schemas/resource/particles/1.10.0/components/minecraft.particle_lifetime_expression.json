@@ -2,14 +2,19 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.resource.particle.1.10.0.particle_lifetime_expression",
   "type": "object",
+  "description": "TODO description: ",
   "title": "The particle_lifetime_expression component for 1.10.0",
   "additionalProperties": false,
   "properties": {
+    "expiration_expression": {
+      "title": "Expiration expression",
+      "description": "this expression makes the particle expire when true (non-zero), The float/expr is evaluated once per particle, evaluated every frame",
+      "$ref": "../../../../molang/1.8.0/number.json"
+    },
     "max_lifetime": {
       "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description: max lifetime",
+      "description": "alternate way to express lifetime, particle will expire after this much time, evaluated once",
       "title": "Max Lifetime"
     }
-  },
-  "description": "TODO description: "
+  }
 }
