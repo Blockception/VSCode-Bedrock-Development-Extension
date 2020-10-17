@@ -63,8 +63,7 @@
             "$ref": "./base types/item.json"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

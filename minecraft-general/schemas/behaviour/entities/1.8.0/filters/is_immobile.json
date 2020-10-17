@@ -35,8 +35,7 @@
           "default": "true",
           "enum": ["true", "false"]
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

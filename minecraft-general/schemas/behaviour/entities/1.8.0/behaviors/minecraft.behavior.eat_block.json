@@ -28,8 +28,7 @@
           "type": "string",
           "title": "Molang"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "time_until_eat": {
       "title": "Time until eat",

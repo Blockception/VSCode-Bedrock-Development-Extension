@@ -34,8 +34,7 @@
         {
           "$ref": "../../../../general/items_identifiers.json"
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

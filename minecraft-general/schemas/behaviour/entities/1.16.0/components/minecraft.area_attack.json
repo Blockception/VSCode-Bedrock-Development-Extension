@@ -54,8 +54,7 @@
         "thorns",
         "void",
         "wither"
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

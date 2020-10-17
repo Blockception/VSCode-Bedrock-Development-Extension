@@ -84,8 +84,7 @@
             "$ref": "#/definitions/on_home_spec"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "on_failed": {
       "$ref": "../types/event.json",

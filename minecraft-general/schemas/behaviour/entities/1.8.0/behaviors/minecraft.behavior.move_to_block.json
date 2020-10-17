@@ -68,8 +68,7 @@
         {
           "type": "number"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "target_blocks": {
       "type": "array",

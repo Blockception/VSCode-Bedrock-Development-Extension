@@ -65,8 +65,7 @@
             }
           ]
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "surface_only": {
       "type": "boolean",

@@ -22,8 +22,7 @@
             "$ref": "../../../../molang/1.8.0/number.json"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "radius": {
       "$ref": "../../../../molang/1.8.0/number.json",

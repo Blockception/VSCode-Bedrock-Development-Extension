@@ -42,18 +42,9 @@
       "oneOf": [
         {
           "type": "array",
-          "items": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "number"
-            }
-          ]
+          "items": [{ "type": "number" }, { "type": "number" }]
         },
-        {
-          "type": "number"
-        },
+        { "type": "number" },
         {
           "type": "object",
           "additionalProperties": false,
@@ -70,8 +61,7 @@
             }
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "fuse_lit": {
       "type": "boolean",

@@ -33,8 +33,7 @@
         "inventory",
         "container",
         "hopper"
-      ],
-      "additionalProperties": false
+      ]
     },
     "inventory_size": {
       "type": "integer",

@@ -108,20 +108,11 @@
   "properties": {
     "interactions": {
       "oneOf": [
-        {
-          "type": "object",
-          "$ref": "#/definitions/interaction_spec"
-        },
-        {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/interaction_spec"
-          }
-        }
+        { "type": "object", "$ref": "#/definitions/interaction_spec" },
+        { "type": "array", "items": { "$ref": "#/definitions/interaction_spec" } }
       ],
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

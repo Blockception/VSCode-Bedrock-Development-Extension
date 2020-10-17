@@ -30,8 +30,7 @@
             "$ref": "./base types/item.json"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "group": {
       "type": "string",
@@ -58,8 +57,7 @@
             "$ref": "./base types/item.json"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

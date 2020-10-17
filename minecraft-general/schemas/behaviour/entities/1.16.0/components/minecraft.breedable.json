@@ -110,8 +110,7 @@
           "$ref": "../../../../general/items_identifiers.json",
           "title": "TODO title"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "breeds_with": {
       "description": "The list of entity definitions that this entity can breed with.",

@@ -146,8 +146,7 @@
           "description": "Z",
           "title": "Z"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "on_fire_time": {
       "type": "number",

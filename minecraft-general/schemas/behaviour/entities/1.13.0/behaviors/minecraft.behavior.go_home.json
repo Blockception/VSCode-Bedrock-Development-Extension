@@ -37,21 +37,10 @@
       "title": "On home",
       "description": "Event to run when this mob gets home.",
       "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "object",
-          "$ref": "../types/trigger.json"
-        },
-        {
-          "type": "array",
-          "items": {
-            "$ref": "../types/trigger.json"
-          }
-        }
-      ],
-      "additionalProperties": false
+        { "type": "string" },
+        { "type": "object", "$ref": "../types/trigger.json" },
+        { "type": "array", "items": { "$ref": "../types/trigger.json" } }
+      ]
     },
     "on_failed": {
       "description": "Event to run when this mob gets home.",

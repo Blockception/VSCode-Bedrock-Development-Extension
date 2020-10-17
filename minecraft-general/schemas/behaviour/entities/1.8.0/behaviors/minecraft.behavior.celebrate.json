@@ -48,8 +48,7 @@
         {
           "type": "number"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "on_celebration_end_event": {
       "$ref": "../types/trigger.json",
@@ -78,8 +77,7 @@
         {
           "type": "number"
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

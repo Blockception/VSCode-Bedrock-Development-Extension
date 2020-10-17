@@ -80,8 +80,7 @@
             "$ref": "#/definitions/feed_items"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "max_temper": {
       "type": "integer",

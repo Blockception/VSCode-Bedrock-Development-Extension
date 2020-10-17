@@ -19,8 +19,7 @@
         {
           "type": "number"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "max_turn": {
       "type": "number",

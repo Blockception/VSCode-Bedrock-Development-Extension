@@ -56,18 +56,7 @@
     "breed_items": {
       "description": "The list of items that can be used to get the entity into the 'love' state",
       "title": "Breed Items",
-      "oneOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "string"
-        }
-      ],
-      "additionalProperties": false
+      "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
     },
     "breeds_with": {
       "description": "The list of entity definitions that this entity can breed with.",
@@ -85,8 +74,7 @@
           }
         }
       ],
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "deny_parents_variant": {
       "type": "object",

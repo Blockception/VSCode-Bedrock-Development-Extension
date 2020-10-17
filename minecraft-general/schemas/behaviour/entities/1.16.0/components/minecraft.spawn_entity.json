@@ -94,8 +94,7 @@
             "$ref": "#/definitions/entity_spawn"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

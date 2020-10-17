@@ -44,8 +44,7 @@
           "type": "number",
           "default": 0
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "time_down_event": {
       "description": "Event to fire when the time on the timer runs out",

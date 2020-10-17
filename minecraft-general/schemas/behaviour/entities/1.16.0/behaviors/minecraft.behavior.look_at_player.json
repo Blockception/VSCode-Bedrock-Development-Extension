@@ -53,8 +53,7 @@
         {
           "type": "number"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "target_distance": {
       "type": "number",

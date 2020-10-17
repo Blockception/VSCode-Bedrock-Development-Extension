@@ -59,8 +59,7 @@
             }
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "on_celebration_end_event": {
       "$ref": "../types/trigger.json",
@@ -100,8 +99,7 @@
             }
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

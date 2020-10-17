@@ -54,8 +54,7 @@
         {
           "type": "number"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "fuse_lit": {
       "type": "boolean",

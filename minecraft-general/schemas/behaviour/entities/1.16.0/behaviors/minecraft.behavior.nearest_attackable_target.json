@@ -56,8 +56,7 @@
             "$ref": "#/definitions/entity_type"
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "attack_interval": {
       "type": "integer",

@@ -37,8 +37,7 @@
           "type": "number",
           "title": "Z"
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

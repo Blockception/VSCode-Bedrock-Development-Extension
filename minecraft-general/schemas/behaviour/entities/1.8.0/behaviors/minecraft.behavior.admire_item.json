@@ -27,8 +27,7 @@
           "type": "number",
           "title": "Maximum"
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

@@ -100,8 +100,7 @@
           "type": "object",
           "$ref": "#/definitions/trigger"
         }
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

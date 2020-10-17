@@ -94,15 +94,10 @@
             },
             "additionalProperties": {
               "oneOf": [
-                {
-                  "$ref": "#/definitions/commands"
-                },
-                {
-                  "type": "array",
+                { "$ref": "#/definitions/commands" },
+                { "type": "array",
                   "title": "Collection timelime items",
-                  "items": {
-                    "$ref": "#/definitions/commands"
-                  }
+                  "items": { "$ref": "#/definitions/commands" }
                 }
               ]
             }

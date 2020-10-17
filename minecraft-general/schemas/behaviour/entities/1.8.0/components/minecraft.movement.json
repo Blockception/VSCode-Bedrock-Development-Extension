@@ -38,8 +38,7 @@
             }
           }
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "max": {
       "type": "number",
