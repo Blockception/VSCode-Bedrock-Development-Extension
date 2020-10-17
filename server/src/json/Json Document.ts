@@ -50,7 +50,11 @@ export class JsonDocument {
   public CastToError<T>(): { value: T | undefined | null, error: any } {
     let object = this.CastToError();
 
-    return {value:<T>object.value,error:object.error};
+    if (object.error) { return { value: undefined, error: object.error }; }
+
+    let value = object.value;
+
+    return { value: <T>value, error: undefined };
   }
 
   public GetObject(): any | undefined | null {
