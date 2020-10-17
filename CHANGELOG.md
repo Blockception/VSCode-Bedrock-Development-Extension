@@ -1,21 +1,21 @@
 # Changelog 
-- Fixing Language diagnostics
-- Ignore json for symbols
-- Adding minecraft import command
-- Moved database
-- Fixing json validation stuff
-- Fixed animations controllers
-- Updated to 1.0.10
-- Updated to 1.0.9
+- Updated
+- Updated
+- Refactoring
+- Redoing the processing of workspaces
+- Fixing json schema
+- Fixing
+- Renamed ObjectBase -> Object base
+- Updated symbol handling
+- Fixing database refactoring
+- Updated database data structure
+- Redoing database data structure
+- Added fakeEntity object
 - formatted
-- Updated information
-- removing behaviour animation controller from the resource animation controller
-- Updated comments
-- Updated descriptions for filters
-- Fixing component descriptions
-- Updated to 1.0.8
-- Merge pull request #11 from Blockception/fixing_object_strictness
-- Added damager to filters of 1.8.0
-- fixing is_weather
-- Fixing events
-- Fixed sequence and filter attribute for events
+- Updated formatting scripts
+- Formatted document
+- Moved server setup
+- Moved capabilties parsing
+- Refactored the manager
+- Fixed capatislation for titles and description
+- Updated particle components for 1.10.0
