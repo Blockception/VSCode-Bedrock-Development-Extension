@@ -28,95 +28,89 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { GeneralDataType } from '../format/General Data Type';
+import { GeneralDataType } from "../format/General Data Type";
 
 export interface Manifest {
-	format_verison: string;
-	header: ManifestHeader;
-	modules: ManifestModule[];
-	metadata: ManifestMetadata;
+  format_verison: string;
+  header: ManifestHeader;
+  modules: ManifestModule[];
+  metadata: ManifestMetadata;
 }
 
 export interface ManifestHeader {
-	name: string;
-	description: string;
-	uuid: string;
-	version: number[];
-	lock_template_options: boolean;
-	base_game_version: number[];
+  name: string;
+  description: string;
+  uuid: string;
+  version: number[];
+  lock_template_options: boolean;
+  base_game_version: number[];
 }
 
 export interface ManifestModule {
-	type: string;
-	uuid: string;
-	version: number[];
+  type: string;
+  uuid: string;
+  version: number[];
 }
 
 export namespace ManifestModule {
-	export const TypeResource = 'resources';
-	export const TypeData = 'data';
-	export const TypeWorld = 'world_template';
-	export const TypeSkinPack = 'skin_pack';
+  export const TypeResource = "resources";
+  export const TypeData = "data";
+  export const TypeWorld = "world_template";
+  export const TypeSkinPack = "skin_pack";
 }
 
 export interface ManifestMetadata {
-	authors: string[]
+  authors: string[];
 }
 
-
 export namespace Manifest {
-	export function IsWorldManifest(m: Manifest): boolean {
-		m.modules.forEach(mod => {
-			if (mod.type === ManifestModule.TypeWorld)
-				return true;
-		})
-		return false;
-	}
+  export function IsWorldManifest(m: Manifest): boolean {
+    m.modules.forEach((mod) => {
+      if (mod.type === ManifestModule.TypeWorld) return true;
+    });
+    return false;
+  }
 
-	export function IsResourceManifest(m: Manifest): boolean {
-		m.modules.forEach(mod => {
-			if (mod.type === ManifestModule.TypeResource)
-				return true;
-		})
-		return false;
-	}
+  export function IsResourceManifest(m: Manifest): boolean {
+    m.modules.forEach((mod) => {
+      if (mod.type === ManifestModule.TypeResource) return true;
+    });
+    return false;
+  }
 
-	export function IsBehaviourManifest(m: Manifest): boolean {
-		m.modules.forEach(mod => {
-			if (mod.type === ManifestModule.TypeData)
-				return true;
-		})
-		return false;
-	}
+  export function IsBehaviourManifest(m: Manifest): boolean {
+    m.modules.forEach((mod) => {
+      if (mod.type === ManifestModule.TypeData) return true;
+    });
+    return false;
+  }
 
-	export function IsSkinpackManifest(m: Manifest): boolean {
-		m.modules.forEach(mod => {
-			if (mod.type === ManifestModule.TypeData)
-				return true;
-		})
-		return false;
-	}
+  export function IsSkinpackManifest(m: Manifest): boolean {
+    m.modules.forEach((mod) => {
+      if (mod.type === ManifestModule.TypeData) return true;
+    });
+    return false;
+  }
 
-	export function DetectType(m: Manifest): GeneralDataType {
-		for (let I = 0; I < m.modules.length; I++) {
-			let mod = m.modules[I];
+  export function DetectType(m: Manifest): GeneralDataType {
+    for (let I = 0; I < m.modules.length; I++) {
+      let mod = m.modules[I];
 
-			switch (mod.type) {
-				case ManifestModule.TypeData:
-					return GeneralDataType.behaviour_pack;
+      switch (mod.type) {
+        case ManifestModule.TypeData:
+          return GeneralDataType.behaviour_pack;
 
-				case ManifestModule.TypeResource:
-					return GeneralDataType.resource_pack;
+        case ManifestModule.TypeResource:
+          return GeneralDataType.resource_pack;
 
-				case ManifestModule.TypeWorld:
-					return GeneralDataType.world;
+        case ManifestModule.TypeWorld:
+          return GeneralDataType.world;
 
-					case ManifestModule.TypeSkinPack:
-						return GeneralDataType.skin_pack;
-			}
-		}
+        case ManifestModule.TypeSkinPack:
+          return GeneralDataType.skin_pack;
+      }
+    }
 
-
-		return GeneralDataType.unknown;
-	}
+    return GeneralDataType.unknown;
+  }
 }

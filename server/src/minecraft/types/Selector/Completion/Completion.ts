@@ -29,26 +29,33 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { LocationWord, RangedWord } from "../../../../code/include";
-import { Completion } from '../../../../completion/Functions';
+import { Completion } from "../../../../completion/Functions";
 import { Database } from "../../../../database/Database";
-import { provideFakePlayersCompletion } from '../../FakeEntity/Completion';
+import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
 import { InSelector } from "../../include";
-import { Kinds } from '../../Kinds';
+import { Kinds } from "../../Kinds";
 import { GetCurrentAttribute, InScore, IsEditingValue } from "../Selector";
 import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 
-const AllPlayer: CompletionItem = { label: "@a", kind: Kinds.Completion.Selector, documentation: "Targets all players", };
-const AllEntities: CompletionItem = { label: "@e", kind: Kinds.Completion.Selector, documentation: "Targets all entities", };
-const Executing: CompletionItem = { label: "@s", kind: Kinds.Completion.Selector, documentation: "Targets the executing entity", };
-const Random: CompletionItem = { label: "@r", kind: Kinds.Completion.Selector, documentation: "Targets random players, or if specified, random types", };
-const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player", };
+const AllPlayer: CompletionItem = { label: "@a", kind: Kinds.Completion.Selector, documentation: "Targets all players" };
+const AllEntities: CompletionItem = { label: "@e", kind: Kinds.Completion.Selector, documentation: "Targets all entities" };
+const Executing: CompletionItem = { label: "@s", kind: Kinds.Completion.Selector, documentation: "Targets the executing entity" };
+const Random: CompletionItem = {
+  label: "@r",
+  kind: Kinds.Completion.Selector,
+  documentation: "Targets random players, or if specified, random types",
+};
+const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
 
 export function provideSelectorCompletion(
-  receiver: CompletionList, selector: LocationWord | undefined, pos: number,
-  forEntities: boolean, forPlayers: boolean, forFakePlayer: boolean) {
-
-
+  receiver: CompletionList,
+  selector: LocationWord | undefined,
+  pos: number,
+  forEntities: boolean,
+  forPlayers: boolean,
+  forFakePlayer: boolean
+) {
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     if (selector !== undefined) {
       let diff = pos - selector.range.start.character;
@@ -62,8 +69,12 @@ export function provideSelectorCompletion(
     //Defaults
     receiver.items.push(AllPlayer, Executing, Executing, Random, NearestPlayer);
 
-    if (forEntities) { receiver.items.push(AllEntities); }
-    if (forFakePlayer) { provideFakePlayersCompletion(receiver); }
+    if (forEntities) {
+      receiver.items.push(AllEntities);
+    }
+    if (forFakePlayer) {
+      provideFakePlayersCompletion(receiver);
+    }
 
     return;
   }
@@ -80,4 +91,3 @@ export function provideSelectorCompletion(
     provideSelectorAttributeCompletion(receiver, forEntities);
   }
 }
-

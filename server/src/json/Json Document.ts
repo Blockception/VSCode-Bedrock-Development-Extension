@@ -47,10 +47,12 @@ export class JsonDocument {
     return <T>object;
   }
 
-  public CastToError<T>(): { value: T | undefined | null, error: any } {
+  public CastToError<T>(): { value: T | undefined | null; error: any } {
     let object = this.CastToError();
 
-    if (object.error) { return { value: undefined, error: object.error }; }
+    if (object.error) {
+      return { value: undefined, error: object.error };
+    }
 
     let value = object.value;
 
@@ -76,7 +78,7 @@ export class JsonDocument {
     return this.object;
   }
 
-  public GetObjectError(): { value: any | undefined | null, error: any } {
+  public GetObjectError(): { value: any | undefined | null; error: any } {
     let err: any = null;
 
     if (this.object === undefined) {

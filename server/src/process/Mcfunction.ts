@@ -28,10 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from '../code/include';
-import { Database } from '../database/Database';
-import { ProcessScoreboardCommand } from './Commands/Scoreboard';
-import { ProcessTagCommand } from './Commands/Tag';
+import { getLine } from "../code/include";
+import { Database } from "../database/Database";
+import { ProcessScoreboardCommand } from "./Commands/Scoreboard";
+import { ProcessTagCommand } from "./Commands/Tag";
 
 export function Process(document: TextDocument): void {
   Database.Data.DeleteFile(document.uri);
@@ -41,23 +41,22 @@ export function Process(document: TextDocument): void {
 
     if (Line.startsWith("#")) continue;
 
-    let SpaceIndex = Line.indexOf(' ');
+    let SpaceIndex = Line.indexOf(" ");
 
-    if (SpaceIndex < 0)
-      return;
+    if (SpaceIndex < 0) return;
 
     let Command = Line.slice(0, SpaceIndex);
 
     switch (Command) {
-      case 'tag':
+      case "tag":
         ProcessTagCommand(Line, Index, document);
         break;
 
-      case 'scoreboard':
+      case "scoreboard":
         ProcessScoreboardCommand(Line, Index, document);
         break;
 
-      case 'tickingarea':
+      case "tickingarea":
     }
   }
 }

@@ -27,24 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind } from 'vscode-languageserver';
-import { DataCollector } from '../database/DataCollector';
-import { Documentable } from '../minecraft/Interfaces/Documentable';
-import { Identifiable, Locatable } from '../minecraft/Interfaces/include';
+import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
+import { DataCollector } from "../database/DataCollector";
+import { Documentable } from "../minecraft/Interfaces/Documentable";
+import { Identifiable, Locatable } from "../minecraft/Interfaces/include";
 
 export namespace Completion {
-	export function CreateCompletion(value: Identifiable & Documentable, valuekind: CompletionItemKind): CompletionItem {
-		return {
-			label: value.Identifier,
-			documentation: value.Documentation,
-			kind: valuekind
-		};
-	}
+  export function CreateCompletion(value: Identifiable & Documentable, valuekind: CompletionItemKind): CompletionItem {
+    return {
+      label: value.Identifier,
+      documentation: value.Documentation,
+      kind: valuekind,
+    };
+  }
 
-	export function Convert<T extends Identifiable & Locatable & Documentable>(value: DataCollector<T>, valuekind: CompletionItemKind, receiver: CompletionItem[]): void {
-		value.ForEach((data) => {
-			let Item = CreateCompletion(data, valuekind);
-			receiver.push(Item);
-		})
-	}
+  export function Convert<T extends Identifiable & Locatable & Documentable>(
+    value: DataCollector<T>,
+    valuekind: CompletionItemKind,
+    receiver: CompletionItem[]
+  ): void {
+    value.ForEach((data) => {
+      let Item = CreateCompletion(data, valuekind);
+      receiver.push(Item);
+    });
+  }
 }

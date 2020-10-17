@@ -28,23 +28,23 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { Location, MarkupContent } from 'vscode-languageserver';
-import { Position, Range } from 'vscode-languageserver-textdocument';
+import { Location, MarkupContent } from "vscode-languageserver";
+import { Position, Range } from "vscode-languageserver-textdocument";
 
 export namespace EmptyTypes {
-	export function EmptyDocumentation(): MarkupContent {
-		return { kind: 'markdown', value: '' };
-	}
+  export function EmptyDocumentation(): MarkupContent {
+    return { kind: "markdown", value: "" };
+  }
 
-	export function EmptyPosition(): Position {
-		return { character: 0, line: 0 };
-	}
+  export function EmptyPosition(): Position {
+    return { character: 0, line: 0 };
+  }
 
-	export function EmptyRange(): Range {
-		return { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } };
-	}
+  export function EmptyRange(): Range {
+    return { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } };
+  }
 
-	export function EmptyLocation(): Location {
-		return { uri: '', range: { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } } }
-	}
+  export function EmptyLocation(): Location {
+    return { uri: "", range: { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } } };
+  }
 }

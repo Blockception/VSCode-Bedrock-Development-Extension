@@ -44,9 +44,7 @@ export namespace ServerSettings {
 }
 
 export function UpdateSettings(): void {
-  let Settings = Manager.Connection.workspace.getConfiguration(
-    SettingsConfigurationIdentifier
-  );
+  let Settings = Manager.Connection.workspace.getConfiguration(SettingsConfigurationIdentifier);
 
   //If settings is nothing then skip it.
   if (Settings === undefined || Settings === null) return;

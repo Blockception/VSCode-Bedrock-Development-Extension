@@ -2270,13 +2270,7 @@
       "sparkler",
       "underwater_torch"
     ],
-    "entities": [
-      "minecraft:agent",
-      "minecraft:chalkboard",
-      "minecraft:balloon",
-      "minecraft:npc",
-      "minecraft:tripod_camera"
-    ],
+    "entities": ["minecraft:agent", "minecraft:chalkboard", "minecraft:balloon", "minecraft:npc", "minecraft:tripod_camera"],
     "sounds": []
   }
 }

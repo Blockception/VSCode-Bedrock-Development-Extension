@@ -65,19 +65,14 @@ function Convert(com: Command): MCCommand {
   let Command = new MCCommand();
   let kind: MarkupKind = MarkupKind.Markdown;
 
-  if (com.documentation.kind === MarkupKind.PlainText)
-    kind = MarkupKind.PlainText;
+  if (com.documentation.kind === MarkupKind.PlainText) kind = MarkupKind.PlainText;
 
   Command.documentation = { value: com.documentation.value, kind: kind };
   Command.name = com.name;
 
   com.parameters.forEach((par) => {
     let type = par.Type as keyof typeof MCCommandParameterType;
-    let Par = new MCCommandParameter(
-      par.Text,
-      MCCommandParameterType[type],
-      par.Required
-    );
+    let Par = new MCCommandParameter(par.Text, MCCommandParameterType[type], par.Required);
     Command.parameters.push(Par);
   });
 

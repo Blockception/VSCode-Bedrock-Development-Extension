@@ -35,11 +35,7 @@ export class MCCommandParameter {
   public Type: MCCommandParameterType;
   public Required: boolean;
 
-  constructor(
-    Text: string = "",
-    Type = MCCommandParameterType.keyword,
-    Required = true
-  ) {
+  constructor(Text: string = "", Type = MCCommandParameterType.keyword, Required = true) {
     this.Text = Text;
     this.Type = Type;
     this.Required = Required;

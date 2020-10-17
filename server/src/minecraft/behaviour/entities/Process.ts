@@ -33,9 +33,8 @@ import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
 import { Entity } from "../../types/include";
 import { GetFilepath } from "../../../code/Url";
-import { EntityImport, IsPropertyDefined } from './EntityImport';
-import { EmptyTypes } from '../../types/Empty';
-
+import { EntityImport, IsPropertyDefined } from "./EntityImport";
+import { EmptyTypes } from "../../types/Empty";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -68,6 +67,3 @@ export function Process(doc: TextDocument): void {
     Database.Data.Entities.Set(entity);
   }
 }
-
-
-

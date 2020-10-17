@@ -34,4 +34,4 @@ export const McLanguageIdentifier: string = "bc-minecraft-language";
 export const SettingsConfigurationIdentifier: string = "BC-MC-LanguageServer";
 
 //Commands
-export const McImportErrorsCommandID : string = "bc.minecraft.errors.import";
+export const McImportErrorsCommandID: string = "bc.minecraft.errors.import";

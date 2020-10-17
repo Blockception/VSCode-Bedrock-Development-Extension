@@ -29,25 +29,17 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
-import {
-  McFunctionIdentifier,
-  McLanguageIdentifier,
-  McOtherIdentifier,
-} from "../Constants";
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import * as Mcfunction from "./Mcfunction";
 import * as Language from "./Language";
 
-export async function OnSignatureRequestAsync(
-  params: SignatureHelpParams
-): Promise<SignatureHelp | undefined> {
+export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
   return new Promise<SignatureHelp>((resolve, reject) => {
     resolve(OnSignatureRequest(params));
   });
 }
 
-function OnSignatureRequest(
-  params: SignatureHelpParams
-): SignatureHelp | undefined {
+function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
   let pos = params.position;
   let doc = GetDocument(params.textDocument.uri);
 

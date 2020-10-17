@@ -28,17 +28,22 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { LocationWord} from "../code/include";
+import { LocationWord } from "../code/include";
 import { CommandIntr, MCCommandParameter, MCCommandParameterType } from "../minecraft/commands/include";
 import { provideBooleanCompletion } from "../minecraft/types/Boolean/Completion";
 import { provideCoordinateCompletion } from "../minecraft/types/Coordinate/Completion";
 import { provideEventCompletion } from "../minecraft/types/Event/Completion";
-import { provideFloatCompletion } from '../minecraft/types/Float/Completion';
+import { provideFloatCompletion } from "../minecraft/types/Float/Completion";
 import { provideFunctionCompletion } from "../minecraft/types/Functions/Completion";
 import {
-  provideBlockCompletion, provideEffectCompletion, provideEntityCompletion,
-  provideObjectiveCompletion, provideSelectorCompletion, provideSoundCompletion,
-  provideTagCompletion, provideTickingareaCompletion,
+  provideBlockCompletion,
+  provideEffectCompletion,
+  provideEntityCompletion,
+  provideObjectiveCompletion,
+  provideSelectorCompletion,
+  provideSoundCompletion,
+  provideTagCompletion,
+  provideTickingareaCompletion,
 } from "../minecraft/types/include";
 import { provideIntegerCompletion } from "../minecraft/types/Integer/Completion";
 import { provideItemCompletion } from "../minecraft/types/Item/Completion";
@@ -56,9 +61,12 @@ function toCompletion(parameter: MCCommandParameter): CompletionItem {
 }
 
 export function ProvideCompletionMCCommandParameter(
-  Parameter: MCCommandParameter, Command: CommandIntr,
-  pos: number, receiver: CompletionList, Current: LocationWord | undefined): void {
-    
+  Parameter: MCCommandParameter,
+  Command: CommandIntr,
+  pos: number,
+  receiver: CompletionList,
+  Current: LocationWord | undefined
+): void {
   switch (Parameter.Type) {
     case MCCommandParameterType.block:
       provideBlockCompletion(receiver);

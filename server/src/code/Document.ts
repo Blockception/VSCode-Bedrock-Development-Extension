@@ -73,12 +73,7 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
   }
   //The interface is provided
   else {
-    return TextDocument.create(
-      uri,
-      languageID,
-      Content.version,
-      Content.getText()
-    );
+    return TextDocument.create(uri, languageID, Content.version, Content.getText());
   }
 }
 

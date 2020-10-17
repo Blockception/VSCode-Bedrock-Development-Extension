@@ -27,10 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { readdirSync, statSync } from 'fs';
-import { WorkspaceFolder } from 'vscode-languageserver';
-import { URI } from 'vscode-uri';
-import { Manager } from '../manager/Manager';
+import { readdirSync, statSync } from "fs";
+import { WorkspaceFolder } from "vscode-languageserver";
+import { URI } from "vscode-uri";
+import { Manager } from "../manager/Manager";
 
 export function GetFilename(filepath: string): string {
   filepath = filepath.replace(/\\/, "//");
@@ -60,19 +60,21 @@ export function getExtension(filepath: string): string {
 export function GetProjectFiles(): Promise<string[]> {
   let workspaces = Manager.Connection.workspace.getWorkspaceFolders();
 
-  return workspaces.then((x) => new Promise<string[]>((resolve, reject) => resolve(CollectFiles(x))));
+  return workspaces.then(
+    (x) => new Promise<string[]>((resolve, reject) => resolve(CollectFiles(x)))
+  );
 }
 
-export function GetParent(uri : string) : string {
-  let Index = uri.lastIndexOf('\\');
+export function GetParent(uri: string): string {
+  let Index = uri.lastIndexOf("\\");
 
-  if (Index > -1){
+  if (Index > -1) {
     return uri.slice(0, Index + 1);
   }
 
-  Index = uri.lastIndexOf('/');
-  
-  if (Index > -1){
+  Index = uri.lastIndexOf("/");
+
+  if (Index > -1) {
     return uri.slice(0, Index + 1);
   }
 
@@ -83,8 +85,7 @@ function CollectFiles(folders: WorkspaceFolder[] | null): string[] {
   let files: string[] = [];
   let dirs: string[] = [];
 
-  if (folders == null)
-    return files;
+  if (folders == null) return files;
 
   for (let I = 0; I < folders.length; I++) {
     let Path = URI.parse(folders[I].uri).fsPath;
@@ -94,8 +95,7 @@ function CollectFiles(folders: WorkspaceFolder[] | null): string[] {
   for (let I = 0; I < dirs.length; I++) {
     let dir = dirs[I];
 
-    if (!dir.endsWith('\\'))
-      dir += '\\';
+    if (!dir.endsWith("\\")) dir += "\\";
 
     let Out = readdirSync(dir);
 
@@ -103,11 +103,10 @@ function CollectFiles(folders: WorkspaceFolder[] | null): string[] {
       let Item = dir + Out[J];
 
       if (statSync(Item).isDirectory()) {
-        if (!Item.includes('.git')) {
+        if (!Item.includes(".git")) {
           dirs.push(Item);
         }
-      }
-      else {
+      } else {
         files.push(Item);
       }
     }

@@ -27,14 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DocumentFormattingParams, DocumentRangeFormattingParams, } from "vscode-languageserver";
+import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
 import { TextDocument, TextEdit } from "vscode-languageserver-textdocument";
 import { getLine, TrimStartFromLine, TrimEndFromLine } from "../code/include";
 
-export function formatLangauge(
-  doc: TextDocument,
-  params: DocumentFormattingParams
-): TextEdit[] {
+export function formatLangauge(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
 
   for (let index = 0; index < doc.lineCount; index++) {
@@ -44,10 +41,7 @@ export function formatLangauge(
   return Out;
 }
 
-export function formatLangaugeRange(
-  doc: TextDocument,
-  params: DocumentRangeFormattingParams
-): TextEdit[] {
+export function formatLangaugeRange(doc: TextDocument, params: DocumentRangeFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
   let StartIndex = params.range.start.line;
   let EndIndex = params.range.end.line;

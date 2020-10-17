@@ -32,7 +32,7 @@ import { Database } from "../../database/Database";
 import { Block, Entity, Sound } from "../types/include";
 import { Item } from "../types/Item/Item";
 import * as data from "./minecraft data.json";
-import { EmptyTypes } from '../types/Empty';
+import { EmptyTypes } from "../types/Empty";
 
 export function AddMinecraftData() {
   let Data = Database.Data;

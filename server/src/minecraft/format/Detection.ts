@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DataType } from "./Data Type";
 import { GetFilename } from "../../code/File";
-import { GeneralDataType } from './General Data Type';
+import { GeneralDataType } from "./General Data Type";
 
 /**
  * Detects the type of data from the given uri
@@ -62,10 +62,18 @@ export function DetectDataType(uri: string): DataType {
 export function DetectGeneralDataType(uri: string): GeneralDataType {
   uri = decodeURI(uri);
 
-  if (uri.includes("behavior_packs")) { return GeneralDataType.behaviour_pack; }
-  if (uri.includes("Behavior_Pack")) { return GeneralDataType.behaviour_pack; }
-  if (uri.includes("resource_packs")) { return GeneralDataType.resource_pack; }
-  if (uri.includes("Resource_Pack")) { return GeneralDataType.resource_pack; }
+  if (uri.includes("behavior_packs")) {
+    return GeneralDataType.behaviour_pack;
+  }
+  if (uri.includes("Behavior_Pack")) {
+    return GeneralDataType.behaviour_pack;
+  }
+  if (uri.includes("resource_packs")) {
+    return GeneralDataType.resource_pack;
+  }
+  if (uri.includes("Resource_Pack")) {
+    return GeneralDataType.resource_pack;
+  }
 
   let Match = uri.match(/\/.*(BP|bp).*\//);
   if (Match) return GeneralDataType.behaviour_pack;
@@ -85,8 +93,7 @@ export function DetectGeneralDataType(uri: string): GeneralDataType {
  */
 function DetectBehaviorType(uri: string): DataType {
   //Folders
-  if (uri.includes("/animation_controllers/"))
-    return DataType.behaviour_animation_controller;
+  if (uri.includes("/animation_controllers/")) return DataType.behaviour_animation_controller;
 
   if (uri.includes("/animations/")) return DataType.behaviour_animation;
 
@@ -118,8 +125,7 @@ function DetectBehaviorType(uri: string): DataType {
  */
 function DetectResourceType(uri: string): DataType {
   //Folders
-  if (uri.includes("/animation_controllers/"))
-    return DataType.resource_animation_controller;
+  if (uri.includes("/animation_controllers/")) return DataType.resource_animation_controller;
 
   if (uri.includes("/animations/")) return DataType.resource_animation;
 
@@ -131,8 +137,7 @@ function DetectResourceType(uri: string): DataType {
 
   if (uri.includes("/particles/")) return DataType.resource_particle;
 
-  if (uri.includes("/render_controllers/"))
-    return DataType.resource_render_controller;
+  if (uri.includes("/render_controllers/")) return DataType.resource_render_controller;
 
   let filename = GetFilename(uri);
 

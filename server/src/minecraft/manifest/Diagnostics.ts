@@ -27,30 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { JsonDocument } from '../../json/Json Document';
-import { Manager } from '../../manager/Manager';
-import { CreateDiagnostics } from '../logs/Content Logs/Header';
-import { Manifest } from './Manifest';
+import { Diagnostic } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { JsonDocument } from "../../json/Json Document";
+import { Manager } from "../../manager/Manager";
+import { CreateDiagnostics } from "../logs/Content Logs/Header";
+import { Manifest } from "./Manifest";
 
 export function ProvideManifestDiagnostics(doc: TextDocument): void {
-	let JDOC = new JsonDocument(doc);
-	let Result = JDOC.CastToError();
-	let Diags: Diagnostic[] = [];
+  let JDOC = new JsonDocument(doc);
+  let Result = JDOC.CastToError();
+  let Diags: Diagnostic[] = [];
 
-	let Manifest = Result.value;
+  let Manifest = Result.value;
 
-	if (Manifest) {
+  if (Manifest) {
+  } else {
+    Diags.push({ message: JSON.stringify(Result.error), range: { start: { character: 0, line: 0 }, end: { character: 10, line: 0 } } });
+  }
 
-	}
-	else {
-		Diags.push({ message: JSON.stringify(Result.error), range: { start: { character: 0, line: 0 }, end: { character: 10, line: 0 } } });
-	}
-
-	Manager.Diagnostic.SendDiagnostics(doc, Diags);
+  Manager.Diagnostic.SendDiagnostics(doc, Diags);
 }
 
-function ExploreManifest(Manifest : Manifest, results : Diagnostic[], JDOC : JsonDocument) : void {
-	
-}
+function ExploreManifest(Manifest: Manifest, results: Diagnostic[], JDOC: JsonDocument): void {}

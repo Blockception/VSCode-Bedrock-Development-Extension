@@ -27,15 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocuments } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { CommandManager } from '../minecraft/commands/CommandManager';
+import { TextDocuments } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { CommandManager } from "../minecraft/commands/CommandManager";
 
 export class ExtensionData {
-	/**
-	* The command manager that stores all the minecraft commands
-	*/
-	public Commands: CommandManager = new CommandManager();
+  /**
+   * The command manager that stores all the minecraft commands
+   */
+  public Commands: CommandManager = new CommandManager();
 
   /**
    * The document manager that has possible cached documents, use GetDocument!

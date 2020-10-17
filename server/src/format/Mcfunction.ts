@@ -27,19 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import {
-  DocumentFormattingParams,
-  DocumentRangeFormattingParams,
-  TextEdit,
-} from "vscode-languageserver";
+import { DocumentFormattingParams, DocumentRangeFormattingParams, TextEdit } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { Replace, TrimEndFromLine, TrimStartFromLine } from "../code/TextEdit";
 
-export function formatMcfunction(
-  doc: TextDocument,
-  params: DocumentFormattingParams
-): TextEdit[] {
+export function formatMcfunction(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
 
   for (let index = 0; index < doc.lineCount; index++) {
@@ -49,10 +42,7 @@ export function formatMcfunction(
   return Out;
 }
 
-export function formatMcfunctionRange(
-  doc: TextDocument,
-  params: DocumentRangeFormattingParams
-): TextEdit[] {
+export function formatMcfunctionRange(doc: TextDocument, params: DocumentRangeFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
   let StartIndex = params.range.start.line;
   let EndIndex = params.range.end.line;

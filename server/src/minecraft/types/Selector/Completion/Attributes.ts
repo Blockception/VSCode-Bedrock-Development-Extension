@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MarkupContent, CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { provideEntityTestCompletion } from "../../Entity/Completion";
-import { provideFloatCompletion } from '../../Float/Completion';
+import { provideFloatCompletion } from "../../Float/Completion";
 import { provideGamemodeTestCompletion } from "../../Gamemode/Completion";
 import { provideTagTestCompletion } from "../../include";
 import { provideIntegerCompletion } from "../../Integer/Completion";

@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetFilename } from "../code/include";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from "vscode-languageserver";
 import { GetFilepath, UniformUrl } from "../code/Url";
-import { Convert, ConvertAllFile, ConvertQueried } from './Conversion';
+import { Convert, ConvertAllFile, ConvertQueried } from "./Conversion";
 
 /**
  * The request to provide document symbols, asynchorious
@@ -64,8 +64,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
   let uri = params.textDocument.uri;
   uri = UniformUrl(uri);
 
-  if (uri.endsWith('.json'))
-    return undefined;
+  if (uri.endsWith(".json")) return undefined;
 
   let Out: SymbolInformation[] = [];
 
@@ -89,7 +88,7 @@ function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformat
   let Query = params.query;
   let Out: SymbolInformation[] = [];
 
-  ConvertQueried('', Out, Query);
+  ConvertQueried("", Out, Query);
 
   return Out;
 }

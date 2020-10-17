@@ -29,28 +29,28 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export interface EntityImport {
-	format_version: string;
-	"minecraft:entity": {
-		description: {
-			identifier: string;
-			is_spawnable: boolean;
-			is_summonable: boolean;
-			is_experimental: boolean;
-		};
-		component_groups: any;
-		components: any;
-		events: any;
-	};
+  format_version: string;
+  "minecraft:entity": {
+    description: {
+      identifier: string;
+      is_spawnable: boolean;
+      is_summonable: boolean;
+      is_experimental: boolean;
+    };
+    component_groups: any;
+    components: any;
+    events: any;
+  };
 }
 
 export function IsPropertyDefined(data: EntityImport | undefined | null): data is EntityImport {
-	if (data) {
-		let mce = data["minecraft:entity"];
+  if (data) {
+    let mce = data["minecraft:entity"];
 
-		if (mce && mce.description) {
-			return true;
-		}
-	}
+    if (mce && mce.description) {
+      return true;
+    }
+  }
 
-	return false;
+  return false;
 }

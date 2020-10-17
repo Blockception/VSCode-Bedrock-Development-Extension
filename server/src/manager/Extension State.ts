@@ -28,16 +28,16 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { CommandManager } from '../minecraft/commands/CommandManager';
+import { CommandManager } from "../minecraft/commands/CommandManager";
 
 export class ExtensionState {
-	/**
-	 * True if a thread is currently gathering data
-	 */
-	public TraversingProject : boolean = false;
-	
-	/**
-	 * True if data has been collected on the project
-	 */
-	public DataGathered : boolean = false;
+  /**
+   * True if a thread is currently gathering data
+   */
+  public TraversingProject: boolean = false;
+
+  /**
+   * True if data has been collected on the project
+   */
+  public DataGathered: boolean = false;
 }

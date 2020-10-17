@@ -28,33 +28,32 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { fstat, readdirSync } from 'fs';
+import { fstat, readdirSync } from "fs";
 
-export function FindBedrockInstallationFolder() : string {
+export function FindBedrockInstallationFolder(): string {
+  switch (process.platform) {
+    case "win32":
+      return FindBedrockWinsInstallationFolder();
+  }
 
-	switch(process.platform){
-		case 'win32':
-			return FindBedrockWinsInstallationFolder();
-	}
-
-	return '';
+  return "";
 }
 
-function FindBedrockWinsInstallationFolder() : string {
-	let AppDataLocal = process.env.LOCALAPPDATA;
+function FindBedrockWinsInstallationFolder(): string {
+  let AppDataLocal = process.env.LOCALAPPDATA;
 
-	if (AppDataLocal){
-		let PackageFolder = AppDataLocal + '\\Packages\\';
+  if (AppDataLocal) {
+    let PackageFolder = AppDataLocal + "\\Packages\\";
 
-		var Files = readdirSync(PackageFolder);
+    var Files = readdirSync(PackageFolder);
 
-		for (let I = 0; I < Files.length; I++){
-			if (Files[I].includes('Microsoft.MinecraftUWP')){
-				let Folder = PackageFolder + Files[I] + '\\';
-				return Folder;
-			}
-		}
-	}
+    for (let I = 0; I < Files.length; I++) {
+      if (Files[I].includes("Microsoft.MinecraftUWP")) {
+        let Folder = PackageFolder + Files[I] + "\\";
+        return Folder;
+      }
+    }
+  }
 
-	return '';
+  return "";
 }

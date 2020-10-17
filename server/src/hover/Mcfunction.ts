@@ -175,7 +175,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range): Hover | u
     case MCCommandParameterType.unknown:
       doc = "no idea, I quit";
       break;
-      
+
     case MCCommandParameterType.xp:
       doc = "A xp number";
       break;

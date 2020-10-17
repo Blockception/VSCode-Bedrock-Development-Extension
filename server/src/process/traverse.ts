@@ -28,12 +28,12 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fg from "fast-glob";
-import { WorkspaceFolder } from 'vscode-languageserver';
-import { URI } from 'vscode-uri';
+import { WorkspaceFolder } from "vscode-languageserver";
+import { URI } from "vscode-uri";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
-import { Manager } from '../manager/Manager';
-import { GetDocument } from '../code/include';
-import { Process } from './Process';
+import { Manager } from "../manager/Manager";
+import { GetDocument } from "../code/include";
+import { Process } from "./Process";
 
 export function TraverseWorkspaces(): void {
   Manager.Connection.workspace.getWorkspaceFolders().then((WorkFolders) => {
@@ -42,7 +42,6 @@ export function TraverseWorkspaces(): void {
     WorkFolders.forEach((wf) => TraverseWorkspace(wf));
   });
 }
-
 
 export function TraverseWorkspace(workspace: WorkspaceFolder): void {
   const uri = workspace.uri;
@@ -53,33 +52,30 @@ export function TraverseWorkspace(workspace: WorkspaceFolder): void {
 //Traverse the directory
 export function TraveseDirectory(Dir: string): void {
   //console.log('exploring: ' + Dir);
-  if (!Dir.endsWith('\\')) {
-    Dir += '\\';
+  if (!Dir.endsWith("\\")) {
+    Dir += "\\";
   }
 
-  Dir = Dir.replace(/\\/g, '/');
+  Dir = Dir.replace(/\\/g, "/");
 
   const mcfunctions = fg.sync(Dir + "**/*.mcfunction", { absolute: true, onlyFiles: true });
   const jsons = fg.sync(Dir + "**/*.json", { absolute: true, onlyFiles: true });
   const languagfile = fg.sync(Dir + "**/*.lang", { absolute: true, onlyFiles: true });
 
-  if (mcfunctions.length > 0)
-    Parsefiles(mcfunctions, McFunctionIdentifier);
+  if (mcfunctions.length > 0) Parsefiles(mcfunctions, McFunctionIdentifier);
 
-  if (jsons.length > 0)
-    Parsefiles(jsons, McOtherIdentifier);
+  if (jsons.length > 0) Parsefiles(jsons, McOtherIdentifier);
 
-  if (languagfile.length > 0)
-    Parsefiles(languagfile, McLanguageIdentifier);
+  if (languagfile.length > 0) Parsefiles(languagfile, McLanguageIdentifier);
 }
 
 function Parsefiles(files: string[], languageID: string) {
   for (let index = 0; index < files.length; index++) {
     Parse(files[index], languageID);
   }
-};
+}
 
 function Parse(path: string, languageID: string) {
   let Doc = GetDocument(path, undefined, languageID);
   Process(Doc);
-};
+}

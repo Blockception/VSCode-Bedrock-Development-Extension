@@ -27,27 +27,25 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ExecuteCommandParams } from 'vscode-languageserver';
-import { McImportErrorsCommandID } from '../Constants';
-import { McImportErrorsCommand } from './import errors';
+import { ExecuteCommandParams } from "vscode-languageserver";
+import { McImportErrorsCommandID } from "../Constants";
+import { McImportErrorsCommand } from "./import errors";
 
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
-	return new Promise<any>((resolve, reject) => {
-		resolve(OnCommandRequest(params));
-	});
+  return new Promise<any>((resolve, reject) => {
+    resolve(OnCommandRequest(params));
+  });
 }
 
 function OnCommandRequest(params: ExecuteCommandParams): any {
-	try {
-		switch (params.command) {
-			case McImportErrorsCommandID:
-				return McImportErrorsCommand(params);
-		}
-	}
-	catch(error){
-		console.log(error);
-	}
+  try {
+    switch (params.command) {
+      case McImportErrorsCommandID:
+        return McImportErrorsCommand(params);
+    }
+  } catch (error) {
+    console.log(error);
+  }
 
-	return undefined;
+  return undefined;
 }
-

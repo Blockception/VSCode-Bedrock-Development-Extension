@@ -1,6 +1,6 @@
 import { CompletionList, CompletionItemKind } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
-import { provideObjectivePostCompletion } from '../../Objectives/Completion';
+import { provideObjectivePostCompletion } from "../../Objectives/Completion";
 import { IsEditingValue } from "../Selector";
 
 export function provideSelectorScoreCompletion(receiver: CompletionList, selector: LocationWord, pos: number): void {
@@ -29,8 +29,7 @@ export function provideSelectorScoreCompletion(receiver: CompletionList, selecto
       {
         label: "0..10",
         kind: CompletionItemKind.Value,
-        documentation:
-          "test for the everything equal to 0 or 10 and everything in between",
+        documentation: "test for the everything equal to 0 or 10 and everything in between",
       }
     );
   } else {

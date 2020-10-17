@@ -46,7 +46,7 @@ export function Process(doc: TextDocument): void {
 
   let sound_def = Format["sound_definitions"];
   const uri = GetFilepath(doc.uri);
-  let names: string[]
+  let names: string[];
 
   if (sound_def) {
     names = Object.getOwnPropertyNames(sound_def);

@@ -28,10 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, MarkupContent, Range } from "vscode-languageserver";
-import { Documentable } from '../../Interfaces/Documentable';
-import { Identifiable } from '../../Interfaces/Identifiable';
-import { Locatable } from '../../Interfaces/include';
-import { EmptyTypes } from '../Empty';
+import { Documentable } from "../../Interfaces/Documentable";
+import { Identifiable } from "../../Interfaces/Identifiable";
+import { Locatable } from "../../Interfaces/include";
+import { EmptyTypes } from "../Empty";
 
 export class Effect implements Identifiable, Locatable, Documentable {
   public Identifier: string;

@@ -27,104 +27,103 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as fg from 'fast-glob';
-import { WorkspaceFolder } from 'vscode-languageserver';
-import { URI } from 'vscode-uri';
-import { JsonDocument } from '../json/Json Document';
-import { Manager } from '../manager/Manager';
-import { DetectGeneralDataType } from '../minecraft/format/detection';
-import { GeneralDataType } from '../minecraft/format/General Data Type';
-import { Manifest } from '../minecraft/manifest/Manifest';
-import { DupeCheckAdd } from './Array';
-import { GetParent } from './File';
+import * as fg from "fast-glob";
+import { WorkspaceFolder } from "vscode-languageserver";
+import { URI } from "vscode-uri";
+import { JsonDocument } from "../json/Json Document";
+import { Manager } from "../manager/Manager";
+import { DetectGeneralDataType } from "../minecraft/format/detection";
+import { GeneralDataType } from "../minecraft/format/General Data Type";
+import { Manifest } from "../minecraft/manifest/Manifest";
+import { DupeCheckAdd } from "./Array";
+import { GetParent } from "./File";
 
 export interface ProjectData {
-	WorldFolders: string[];
-	ResourcePackFolders: string[]
-	BehaviourPackFolders: string[]
-	Workspaces: string[];
+  WorldFolders: string[];
+  ResourcePackFolders: string[];
+  BehaviourPackFolders: string[];
+  Workspaces: string[];
 }
 
 export function GetProjectData(): Promise<ProjectData> {
-	let WS = Manager.Connection.workspace.getWorkspaceFolders();
+  let WS = Manager.Connection.workspace.getWorkspaceFolders();
 
-	return WS.then((x) => new Promise<ProjectData>((resolve, reject) => resolve(CheckStructure(x))));
+  return WS.then(
+    (x) => new Promise<ProjectData>((resolve, reject) => resolve(CheckStructure(x)))
+  );
 }
 
 function CheckStructure(folders: WorkspaceFolder[] | null): ProjectData | undefined {
-	console.log('discovering workspace layout')
-	let dirs: string[] = [];
+  console.log("discovering workspace layout");
+  let dirs: string[] = [];
 
-	if (folders == null)
-		return undefined;
+  if (folders == null) return undefined;
 
-	let PD: ProjectData = {
-		BehaviourPackFolders: [],
-		ResourcePackFolders: [],
-		WorldFolders: [],
-		Workspaces:[]
-	}
+  let PD: ProjectData = {
+    BehaviourPackFolders: [],
+    ResourcePackFolders: [],
+    WorldFolders: [],
+    Workspaces: [],
+  };
 
-	for (let I = 0; I < folders.length; I++) {
-		const uri = folders[I].uri;
-		let Path = URI.parse(uri).fsPath;
-		PD.Workspaces.push(uri)
-		dirs.push(Path);
-	}
+  for (let I = 0; I < folders.length; I++) {
+    const uri = folders[I].uri;
+    let Path = URI.parse(uri).fsPath;
+    PD.Workspaces.push(uri);
+    dirs.push(Path);
+  }
 
-	for (let I = 0; I < dirs.length; I++) {
-		let dir = dirs[I];
+  for (let I = 0; I < dirs.length; I++) {
+    let dir = dirs[I];
 
-		if (!dir.endsWith('\\'))
-			dir += '\\';
+    if (!dir.endsWith("\\")) dir += "\\";
 
-		dir = dir.replace(/\\/g, '/');
+    dir = dir.replace(/\\/g, "/");
 
-		const entries = fg.sync(dir + '**/manifest.json', { absolute: true, onlyFiles: true });
+    const entries = fg.sync(dir + "**/manifest.json", { absolute: true, onlyFiles: true });
 
-		for (let J = 0; J < entries.length; J++) {
-			let item = entries[J];
-			let parent = GetParent(item);
-			let Type = DetectGeneralDataType(dir);
+    for (let J = 0; J < entries.length; J++) {
+      let item = entries[J];
+      let parent = GetParent(item);
+      let Type = DetectGeneralDataType(dir);
 
-			switch (Type) {
-				case GeneralDataType.behaviour_pack:
-					DupeCheckAdd(PD.BehaviourPackFolders, parent);
-					continue;
+      switch (Type) {
+        case GeneralDataType.behaviour_pack:
+          DupeCheckAdd(PD.BehaviourPackFolders, parent);
+          continue;
 
-				case GeneralDataType.resource_pack:
-					DupeCheckAdd(PD.ResourcePackFolders, parent);
-					continue;
+        case GeneralDataType.resource_pack:
+          DupeCheckAdd(PD.ResourcePackFolders, parent);
+          continue;
 
-				case GeneralDataType.world:
-					DupeCheckAdd(PD.WorldFolders, parent);
-					break;
+        case GeneralDataType.world:
+          DupeCheckAdd(PD.WorldFolders, parent);
+          break;
 
-				default:
-					let JDoc = JsonDocument.GetDocument(item);
-					let manifest = JDoc.CastTo<Manifest>();
+        default:
+          let JDoc = JsonDocument.GetDocument(item);
+          let manifest = JDoc.CastTo<Manifest>();
 
-					if (!manifest)
-						break;
+          if (!manifest) break;
 
-					Type = Manifest.DetectType(manifest);
+          Type = Manifest.DetectType(manifest);
 
-					switch (Type) {
-						case GeneralDataType.behaviour_pack:
-							DupeCheckAdd(PD.BehaviourPackFolders, parent);
-							continue;
+          switch (Type) {
+            case GeneralDataType.behaviour_pack:
+              DupeCheckAdd(PD.BehaviourPackFolders, parent);
+              continue;
 
-						case GeneralDataType.resource_pack:
-							DupeCheckAdd(PD.ResourcePackFolders, parent);
-							continue;
+            case GeneralDataType.resource_pack:
+              DupeCheckAdd(PD.ResourcePackFolders, parent);
+              continue;
 
-						case GeneralDataType.world:
-							DupeCheckAdd(PD.WorldFolders, parent);
-							break;
-					}
-			}
-		}
-	}
+            case GeneralDataType.world:
+              DupeCheckAdd(PD.WorldFolders, parent);
+              break;
+          }
+      }
+    }
+  }
 
-	return PD;
+  return PD;
 }

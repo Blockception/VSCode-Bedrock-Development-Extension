@@ -32,7 +32,7 @@ import { DataType } from "../minecraft/format/Data Type";
 import { DetectDataType } from "../minecraft/format/detection";
 import * as BPEntity from "../minecraft/behaviour/entities/Process";
 import * as RPSound from "../minecraft/resource/sounds definitions/Process";
-import { Database } from '../database/Database';
+import { Database } from "../database/Database";
 
 export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
@@ -42,7 +42,7 @@ export function Process(doc: TextDocument): void {
     case DataType.unknown:
       return;
 
-    case DataType.behaviour_entity:      
+    case DataType.behaviour_entity:
       return BPEntity.Process(doc);
 
     case DataType.resource_sounds_definitions:

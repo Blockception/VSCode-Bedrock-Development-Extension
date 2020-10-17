@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { CommandIntr } from "../../commands/include";
 import { Database } from "../../../database/Database";
-import { Kinds } from '../Kinds';
+import { Kinds } from "../Kinds";
 
 export function provideEventCompletion(receiver: CompletionList, command: CommandIntr): void {
   let Keyword = command.GetCommandKeyword();
@@ -43,8 +43,7 @@ export function provideEventCompletion(receiver: CompletionList, command: Comman
     //For each data set
     let Entity = Database.Data.Entities.GetFromID(EntityID);
 
-    if (Entity === undefined)
-      return;
+    if (Entity === undefined) return;
 
     Entity.Events.forEach((event) => {
       receiver.items.push({

@@ -32,9 +32,9 @@ import { Connection, Diagnostic, TextDocuments, _ } from "vscode-languageserver"
 import { CallHierarchy } from "vscode-languageserver/lib/callHierarchy.proposed";
 import { SemanticTokens } from "vscode-languageserver/lib/sematicTokens.proposed";
 import { ServerSettings } from "../server/Settings";
-import { ExtensionState } from './Extension State';
-import { ExtensionData } from './Extension Data';
-import { ExtensionCapabiltities } from './Extension Capabilties';
+import { ExtensionState } from "./Extension State";
+import { ExtensionData } from "./Extension Data";
+import { ExtensionCapabiltities } from "./Extension Capabilties";
 
 export class Manager {
   /**
@@ -52,12 +52,10 @@ export class Manager {
    */
   static Capabiltities = new ExtensionCapabiltities();
 
-
   //Server stuff
   static Connection: Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
   static Settings: ServerSettings = ServerSettings.createDefaulSettings();
 }
-
 
 export namespace Manager {
   export namespace Diagnostic {
@@ -67,7 +65,7 @@ export namespace Manager {
     export function SendDiagnostics(doc: TextDocument, Diagnostics: Diagnostic[]): void {
       Manager.Connection.sendDiagnostics({
         diagnostics: Diagnostics,
-        uri: doc.uri
+        uri: doc.uri,
       });
     }
   }

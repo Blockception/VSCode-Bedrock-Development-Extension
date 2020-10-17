@@ -28,11 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from "vscode-languageserver";
-import { Identifiable } from '../../Interfaces/Identifiable';
-import { ObjectBase } from '../Object Base/ObjectBase';
+import { Identifiable } from "../../Interfaces/Identifiable";
+import { ObjectBase } from "../Object Base/ObjectBase";
 
 export class Sound extends ObjectBase {
-  
   constructor() {
     super();
   }

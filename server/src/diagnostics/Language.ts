@@ -49,7 +49,7 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
       Line = Line.substring(0, CommentIndex).trim();
     }
 
-    if (Line === "" || Line === "\r" || Line === "\r\n" || Line == '') {
+    if (Line === "" || Line === "\r" || Line === "\r\n" || Line == "") {
       if (CommentIndex > 0) {
         NewError(Out.diagnostics, I, 0, CommentIndex, "A line cannot be with an identented comment");
       }
@@ -74,13 +74,7 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
     }
 
     if (Index >= Line.length) {
-      NewError(
-        Out.diagnostics,
-        I,
-        0,
-        Line.length,
-        "A value must be atleast lenght of 1 or more"
-      );
+      NewError(Out.diagnostics, I, 0, Line.length, "A value must be atleast lenght of 1 or more");
     }
   }
 

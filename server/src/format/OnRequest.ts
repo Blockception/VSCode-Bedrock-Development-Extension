@@ -27,27 +27,20 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import {
-  DocumentFormattingParams,
-  DocumentRangeFormattingParams,
-} from "vscode-languageserver";
+import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
 import { TextEdit } from "vscode-languageserver-textdocument";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 import { formatLangauge, formatLangaugeRange } from "./Language";
 import { formatMcfunction, formatMcfunctionRange } from "./Mcfunction";
 
-export function OnDocumentFormatRequestAsync(
-  params: DocumentFormattingParams
-): Promise<TextEdit[]> {
+export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): Promise<TextEdit[]> {
   return new Promise<TextEdit[]>((resolve, reject) => {
     resolve(OnDocumentFormatRequest(params));
   });
 }
 
-export function OnDocumentRangeFormatRequestAsync(
-  params: DocumentRangeFormattingParams
-): Promise<TextEdit[]> {
+export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattingParams): Promise<TextEdit[]> {
   return new Promise<TextEdit[]>((resolve, reject) => {
     resolve(OnDocumentRangeFormatRequest(params));
   });
@@ -67,9 +60,7 @@ function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] {
   return [];
 }
 
-function OnDocumentRangeFormatRequest(
-  params: DocumentRangeFormattingParams
-): TextEdit[] {
+function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] {
   let doc = GetDocument(params.textDocument.uri);
 
   switch (doc.languageId) {

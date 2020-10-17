@@ -1,5 +1,5 @@
-import { GetProjectData, ProjectData } from '../code/ProjectData';
-import { FindBedrockInstallationFolder } from '../format/Install Location';
+import { GetProjectData, ProjectData } from "../code/ProjectData";
+import { FindBedrockInstallationFolder } from "../format/Install Location";
 
 /*BSD 3-Clause License
 
@@ -31,26 +31,25 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export class MinecraftProgramData {
-	private BedrockInstallLocation: string | undefined;
-	private ProjectData: ProjectData | undefined;
+  private BedrockInstallLocation: string | undefined;
+  private ProjectData: ProjectData | undefined;
 
-	constructor() { }
+  constructor() {}
 
-	/**
-	 * Retrieves the bedrock installation folder
-	 */
-	public GetBedrockInstallLocation(): string {
-		if (!this.BedrockInstallLocation)
-			this.BedrockInstallLocation = FindBedrockInstallationFolder();
+  /**
+   * Retrieves the bedrock installation folder
+   */
+  public GetBedrockInstallLocation(): string {
+    if (!this.BedrockInstallLocation) this.BedrockInstallLocation = FindBedrockInstallationFolder();
 
-		return this.BedrockInstallLocation;
-	}
+    return this.BedrockInstallLocation;
+  }
 
-	public GetProjecData(): ProjectData | undefined {
-		if (!this.ProjectData) {
-			GetProjectData().then(x => this.ProjectData = x);
-		}
+  public GetProjecData(): ProjectData | undefined {
+    if (!this.ProjectData) {
+      GetProjectData().then((x) => (this.ProjectData = x));
+    }
 
-		return this.ProjectData;
-	}
+    return this.ProjectData;
+  }
 }

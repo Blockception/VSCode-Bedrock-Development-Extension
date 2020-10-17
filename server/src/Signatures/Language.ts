@@ -31,10 +31,7 @@ import { Position, SignatureHelp } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 
-export function ProvideSignature(
-  doc: TextDocument,
-  pos: Position
-): SignatureHelp {
+export function ProvideSignature(doc: TextDocument, pos: Position): SignatureHelp {
   const Line = getLine(doc, pos.line);
 
   let index = Line.indexOf("=");
@@ -50,8 +47,7 @@ export function ProvideSignature(
     signatures: [
       {
         label: "[translation key]=[text]",
-        documentation:
-          "The key/value pair that is used by minecraft to determine what text to display",
+        documentation: "The key/value pair that is used by minecraft to determine what text to display",
         parameters: [
           {
             label: "[translation key]",

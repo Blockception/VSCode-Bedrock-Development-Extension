@@ -27,36 +27,36 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { getLine } from './Document';
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { getLine } from "./Document";
 
 export class DocumentReader {
-	public doc : TextDocument;
-	public index : number;
+  public doc: TextDocument;
+  public index: number;
 
-	constructor(doc : TextDocument){
-		this.doc = doc;
-		this.index = 0;
-	}
+  constructor(doc: TextDocument) {
+    this.doc = doc;
+    this.index = 0;
+  }
 
-	ReadLine() : string {
-		let Line = getLine(this.doc, this.index);
-		this.index++;
+  ReadLine(): string {
+    let Line = getLine(this.doc, this.index);
+    this.index++;
 
-		return Line;
-	}
+    return Line;
+  }
 
-	/**
-	 *  returns true or false if the reader is at the end
-	 */
-	IsDone() : boolean {
-		return this.index >= this.doc.lineCount;
-	}
+  /**
+   *  returns true or false if the reader is at the end
+   */
+  IsDone(): boolean {
+    return this.index >= this.doc.lineCount;
+  }
 
-	/**
-	 * returns true or false if the reader is not yet at the end
-	 */
-	IsReading() : boolean {
-		return this.index < this.doc.lineCount;
-	}
+  /**
+   * returns true or false if the reader is not yet at the end
+   */
+  IsReading(): boolean {
+    return this.index < this.doc.lineCount;
+  }
 }

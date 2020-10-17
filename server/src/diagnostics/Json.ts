@@ -31,7 +31,7 @@ import { Diagnostic, PublishDiagnosticsParams, Range } from "vscode-languageserv
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilepath } from "../code/include";
 import { Manager } from "../manager/Manager";
-import { EmptyTypes } from '../minecraft/types/Empty';
+import { EmptyTypes } from "../minecraft/types/Empty";
 
 export function InvalidJson(doc: TextDocument, error: any): void {
   let Out: PublishDiagnosticsParams = {
@@ -58,4 +58,4 @@ export function InvalidJson(doc: TextDocument, error: any): void {
   Manager.Connection.sendDiagnostics(Out);
 }
 
-export function ValidJson(doc: TextDocument): void { }
+export function ValidJson(doc: TextDocument): void {}

@@ -29,13 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, TextEdit } from "vscode-languageserver";
 
-export function Replace(
-  line: string,
-  oldText: string,
-  newText: string,
-  lineIndex: number,
-  receiver: TextEdit[]
-) {
+export function Replace(line: string, oldText: string, newText: string, lineIndex: number, receiver: TextEdit[]) {
   let Index = line.indexOf(oldText);
 
   while (Index > -1) {
@@ -47,12 +41,7 @@ export function Replace(
 }
 
 //Loop through starting character to filters out empty characters and slashes
-export function TrimStartFromLine(
-  line: string,
-  index: number,
-  Collector: TextEdit[],
-  ToRemove: string[]
-) {
+export function TrimStartFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]) {
   let Text = line;
   let LineIndex = index;
   let startindex = 0;
@@ -71,18 +60,11 @@ export function TrimStartFromLine(
 
   //If any unwanted character are found, remove them
   if (startindex > 0) {
-    Collector.push(
-      TextEdit.del(Range.create(LineIndex, 0, LineIndex, startindex))
-    );
+    Collector.push(TextEdit.del(Range.create(LineIndex, 0, LineIndex, startindex)));
   }
 }
 
-export function TrimEndFromLine(
-  line: string,
-  index: number,
-  Collector: TextEdit[],
-  ToRemove: string[]
-): void {
+export function TrimEndFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]): void {
   let Text = line;
   let LineIndex = index;
   let startindex = Text.length - 1;
@@ -104,8 +86,6 @@ export function TrimEndFromLine(
   startindex++;
 
   if (startindex < endindex) {
-    Collector.push(
-      TextEdit.del(Range.create(LineIndex, startindex, LineIndex, endindex))
-    );
+    Collector.push(TextEdit.del(Range.create(LineIndex, startindex, LineIndex, endindex)));
   }
 }

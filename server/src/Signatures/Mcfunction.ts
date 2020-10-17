@@ -109,7 +109,7 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
 
 function CreateParameter(label: string, kind: MCCommandParameterType): ParameterInformation {
   let documentation = label;
-  let Temp: ParameterInformation = { label: label, documentation: { kind: 'markdown', value: documentation } };
+  let Temp: ParameterInformation = { label: label, documentation: { kind: "markdown", value: documentation } };
 
   return Temp;
 }

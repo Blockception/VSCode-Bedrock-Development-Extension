@@ -93,11 +93,7 @@ export class RangedWord {
           case "\t":
             if (level == 0) {
               if (startindex < index) {
-                let RW = new RangedWord(
-                  text.substring(startindex, index).trim(),
-                  startindex,
-                  index
-                );
+                let RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
                 out.push(RW);
               }
 
@@ -114,11 +110,7 @@ export class RangedWord {
     }
 
     if (startindex < text.length) {
-      let RW = new RangedWord(
-        text.substring(startindex, text.length),
-        startindex,
-        text.length
-      );
+      let RW = new RangedWord(text.substring(startindex, text.length), startindex, text.length);
       out.push(RW);
     }
 
@@ -143,10 +135,6 @@ export class RangedWord {
       EndIndex = text.length;
     }
 
-    return new RangedWord(
-      text.substring(StartIndex, EndIndex),
-      StartIndex,
-      EndIndex
-    );
+    return new RangedWord(text.substring(StartIndex, EndIndex), StartIndex, EndIndex);
   }
 }

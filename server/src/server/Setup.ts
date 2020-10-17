@@ -35,27 +35,27 @@ import { onInitializedAsync } from "./onInitialized";
 import { onShutdownAsync } from "./onShutdown";
 
 export function Setup() {
-	console.log("starting minecraft server");
+  console.log("starting minecraft server");
 
-	// Create a connection for the server, using Node's IPC as a transport.
-	// Also include all preview / proposed LSP features.
-	let connection = createConnection(ProposedFeatures.all);
-	Manager.Connection = connection;
+  // Create a connection for the server, using Node's IPC as a transport.
+  // Also include all preview / proposed LSP features.
+  let connection = createConnection(ProposedFeatures.all);
+  Manager.Connection = connection;
 
-	setEvents();
+  setEvents();
 
-	// This handler provides diagnostics
-	connection.onInitialized(onInitializedAsync);
+  // This handler provides diagnostics
+  connection.onInitialized(onInitializedAsync);
 
-	//Initialize
-	connection.onInitialize(onInitializeAsync);
+  //Initialize
+  connection.onInitialize(onInitializeAsync);
 
-	//On shutdown
-	connection.onShutdown(onShutdownAsync);
+  //On shutdown
+  connection.onShutdown(onShutdownAsync);
 
-	//Initialize server
-	Manager.Data.Documents.listen(connection);
+  //Initialize server
+  Manager.Data.Documents.listen(connection);
 
-	// Listen on the connection
-	connection.listen();
+  // Listen on the connection
+  connection.listen();
 }

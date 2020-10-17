@@ -32,25 +32,19 @@ import { GetDocument, getLine } from "../code/include";
 import { CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
 import { SearchDefinition } from "./Search";
 
-export function onDefinitionRequestAsync(
-  params: DefinitionParams
-): Promise<Location[]> {
+export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[]> {
   return new Promise<Location[]>((resolve, reject) => {
     resolve(onDefinition(params));
   });
 }
 
-export function onTypeDefinitionRequestAsync(
-  params: TypeDefinitionParams
-): Promise<Location[]> {
+export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[]> {
   return new Promise<Location[]>((resolve, reject) => {
     resolve(onDefinition(params));
   });
 }
 
-function onDefinition(
-  params: TypeDefinitionParams | DefinitionParams
-): Location[] | undefined {
+function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
   let doc = GetDocument(params.textDocument.uri);
   let pos = params.position;
   let Line = getLine(doc, pos.line);

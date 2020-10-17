@@ -27,24 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { Database } from '../../database/Database';
-import { CommandIntr } from '../../minecraft/commands/include';
-import { Tag } from '../../minecraft/types/Tag/Tag';
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { Database } from "../../database/Database";
+import { CommandIntr } from "../../minecraft/commands/include";
+import { Tag } from "../../minecraft/types/Tag/Tag";
 
 export function ProcessTagCommand(line: string, lineIndex: number, doc: TextDocument): void {
-	if (!line.includes(' add ')) { return; }
+  if (!line.includes(" add ")) {
+    return;
+  }
 
-	let Com: CommandIntr = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
+  let Com: CommandIntr = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
 
-	//tag <selector> add <tag>
+  //tag <selector> add <tag>
 
-	let tag = Com.Paramaters[3];
+  let tag = Com.Paramaters[3];
 
-	let Data = new Tag();
-	Data.Identifier = tag.text;
-	Data.Location = tag.CreateLocation();
-	Data.Documentation.value = 'The tag: ' + tag.text;
+  let Data = new Tag();
+  Data.Identifier = tag.text;
+  Data.Location = tag.CreateLocation();
+  Data.Documentation.value = "The tag: " + tag.text;
 
-	Database.Data.Tag.Set(Data);
+  Database.Data.Tag.Set(Data);
 }

@@ -30,13 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import { Diagnostic } from "vscode-languageserver";
 
-export function NewError(
-  receiver: Diagnostic[],
-  Line: number,
-  start: number,
-  end: number,
-  message: string
-) {
+export function NewError(receiver: Diagnostic[], Line: number, start: number, end: number, message: string) {
   receiver.push({
     message: message,
     range: {

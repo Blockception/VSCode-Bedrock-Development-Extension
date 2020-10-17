@@ -28,28 +28,26 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SymbolInformation, SymbolKind } from "vscode-languageserver";
-import { Identifiable, Locatable } from '../minecraft/Interfaces/include';
-import { DataCollector } from '../database/DataCollector';
-import { Database } from '../database/Database';
-import { Kinds } from '../minecraft/types/Kinds';
-import { Queryable } from '../minecraft/Interfaces/Queryable';
+import { Identifiable, Locatable } from "../minecraft/Interfaces/include";
+import { DataCollector } from "../database/DataCollector";
+import { Database } from "../database/Database";
+import { Kinds } from "../minecraft/types/Kinds";
+import { Queryable } from "../minecraft/Interfaces/Queryable";
 
 export function Convert(uri: string, receiver: SymbolInformation[], query: string): void {
-  if (query === '') {
-    if (uri === '') {
+  if (query === "") {
+    if (uri === "") {
       ConvertAll(receiver);
-    }
-    else {
+    } else {
       ConvertAllFile(uri, receiver);
     }
-  }
-  else {
+  } else {
     ConvertQueried(uri, receiver, query);
   }
 }
 
 export function ConvertAll(receiver: SymbolInformation[]): void {
-  const uri = '';
+  const uri = "";
   ConvertStorage(Database.Data.Blocks, uri, Kinds.Symbol.Block, receiver);
   ConvertStorage(Database.Data.Effects, uri, Kinds.Symbol.Effect, receiver);
   ConvertStorage(Database.Data.Entities, uri, Kinds.Symbol.Entity, receiver);
@@ -77,48 +75,48 @@ export function ConvertAllFile(uri: string, receiver: SymbolInformation[]): void
 
 export function ConvertQueried(uri: string, receiver: SymbolInformation[], query: string) {
   switch (query) {
-    case 'block':
-    case 'blocks':
+    case "block":
+    case "blocks":
       return ConvertStorage(Database.Data.Blocks, uri, Kinds.Symbol.Block, receiver);
 
-    case 'effect':
-    case 'effects':
+    case "effect":
+    case "effects":
       return ConvertStorage(Database.Data.Effects, uri, Kinds.Symbol.Effect, receiver);
 
-    case 'entity':
-    case 'entities':
+    case "entity":
+    case "entities":
       return ConvertStorage(Database.Data.Entities, uri, Kinds.Symbol.Entity, receiver);
 
-    case 'fake':
-    case 'fake entity':
-    case 'fake entities':
+    case "fake":
+    case "fake entity":
+    case "fake entities":
       return ConvertStorage(Database.Data.FakeEntities, uri, Kinds.Symbol.Selector, receiver);
 
-    case 'function':
-    case 'functions':
+    case "function":
+    case "functions":
       return ConvertStorage(Database.Data.Functions, uri, Kinds.Symbol.Functions, receiver);
 
-    case 'item':
-    case 'items':
+    case "item":
+    case "items":
       return ConvertStorage(Database.Data.Items, uri, Kinds.Symbol.Item, receiver);
 
-    case 'objective':
-    case 'objectives':
-    case 'score':
-    case 'scores':
+    case "objective":
+    case "objectives":
+    case "score":
+    case "scores":
       return ConvertStorage(Database.Data.Objectives, uri, Kinds.Symbol.Objectives, receiver);
 
-    case 'sound':
-    case 'sounds':
+    case "sound":
+    case "sounds":
       return ConvertStorage(Database.Data.Sounds, uri, Kinds.Symbol.Sound, receiver);
 
-    case 'tag':
-    case 'tags':
+    case "tag":
+    case "tags":
       return ConvertStorage(Database.Data.Tag, uri, Kinds.Symbol.Tag, receiver);
 
-    case 'ticking':
-    case 'tickingarea':
-    case 'tickingareas':
+    case "ticking":
+    case "tickingarea":
+    case "tickingareas":
       return ConvertStorage(Database.Data.TickingAreas, uri, Kinds.Symbol.Tickingarea, receiver);
   }
 
@@ -134,11 +132,16 @@ export function ConvertQueried(uri: string, receiver: SymbolInformation[], query
   ConvertStorageQuery(Database.Data.TickingAreas, uri, query, Kinds.Symbol.Tickingarea, receiver);
 }
 
-export function ConvertStorageQuery<T extends Identifiable & Locatable>(Data: DataCollector<T>, uri: string, query: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
-  if (uri === '') {
+export function ConvertStorageQuery<T extends Identifiable & Locatable>(
+  Data: DataCollector<T>,
+  uri: string,
+  query: string,
+  valuekind: SymbolKind,
+  receiver: SymbolInformation[]
+): void {
+  if (uri === "") {
     Data.ForEach((element) => CheckOrAdd(element, query, valuekind, receiver));
-  }
-  else {
+  } else {
     let Items = Data.GetFromFile(uri);
 
     if (Items) {
@@ -149,21 +152,23 @@ export function ConvertStorageQuery<T extends Identifiable & Locatable>(Data: Da
 
 function CheckOrAdd(value: Identifiable & Locatable, query: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
   if (Queryable.is(value)) {
-    if (value.MatchQuery(query))
-      ConvertItem(value, valuekind, receiver);
-  }
-  else {
+    if (value.MatchQuery(query)) ConvertItem(value, valuekind, receiver);
+  } else {
     if (value.Identifier.includes(query)) {
       ConvertItem(value, valuekind, receiver);
     }
   }
 }
 
-export function ConvertStorage<T extends Identifiable & Locatable>(Data: DataCollector<T>, uri: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
-  if (uri === '') {
+export function ConvertStorage<T extends Identifiable & Locatable>(
+  Data: DataCollector<T>,
+  uri: string,
+  valuekind: SymbolKind,
+  receiver: SymbolInformation[]
+): void {
+  if (uri === "") {
     Data.ForEach((value) => ConvertItem(value, valuekind, receiver));
-  }
-  else {
+  } else {
     let Items = Data.GetFromFile(uri);
 
     if (Items) {

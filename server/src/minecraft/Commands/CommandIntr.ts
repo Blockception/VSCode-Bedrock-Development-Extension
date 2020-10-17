@@ -110,11 +110,7 @@ export class CommandIntr {
    *Gets the current word
    */
   GetCurrent(): LocationWord | undefined {
-    if (
-      this.CursorParamater >= 0 &&
-      this.CursorParamater < this.Paramaters.length
-    )
-      return this.Paramaters[this.CursorParamater];
+    if (this.CursorParamater >= 0 && this.CursorParamater < this.Paramaters.length) return this.Paramaters[this.CursorParamater];
 
     return undefined;
   }
