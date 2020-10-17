@@ -27,16 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { ObjectBase } from '../ObjectBase/ObjectBase';
 
-import { Location, Range } from "vscode-languageserver";
-import { Identifiable } from '../../Interfaces/Identifiable';
-
-export class Objective implements Identifiable {
-  public Identifier: string;
-  public Location: Location;
+export class Objective extends ObjectBase {
+  public Type : string;
 
   constructor() {
-    this.Identifier = "";
-    this.Location = Location.create("", Range.create(0, 0, 0, 0));
+    super();
+    this.Type = 'dummy';
   }
 }

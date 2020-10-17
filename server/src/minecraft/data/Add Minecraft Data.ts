@@ -27,41 +27,35 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Range } from "vscode-languageserver";
 import { Manager } from "../../manager/Manager";
 import { Database } from "../../database/Database";
-import { MinecraftData } from "../Minecraft Data";
 import { Block, Entity, Sound } from "../types/include";
 import { Item } from "../types/Item/Item";
 import * as data from "./minecraft data.json";
+import { EmptyTypes } from '../types/Empty';
 
 export function AddMinecraftData() {
-  let Data: MinecraftData = new MinecraftData();
+  let Data = Database.Data;
 
-  data.vanilla.blocks.forEach((block) => Data.Blocks.push(AddBlock(block)));
-  data.vanilla.entities.forEach((entity) =>
-    Data.Entities.push(AddEntity(entity))
-  );
-  data.vanilla.items.forEach((item) => Data.Items.push(AddItem(item)));
-  data.vanilla.sounds.forEach((sound) => Data.Sounds.push(AddSound(sound)));
+  //Import data from the json file
+  data.vanilla.blocks.forEach((block) => Data.Blocks.Update(AddBlock(block)));
+  data.vanilla.entities.forEach((entity) => Data.Entities.Update(AddEntity(entity)));
+  data.vanilla.items.forEach((item) => Data.Items.Update(AddItem(item)));
+  data.vanilla.sounds.forEach((sound) => Data.Sounds.Update(AddSound(sound)));
 
   if (Manager.Settings.useEducationContent) {
-    data.edu.blocks.forEach((block) => Data.Blocks.push(AddEduBlock(block)));
-    data.edu.entities.forEach((entity) =>
-      Data.Entities.push(AddEduEntity(entity))
-    );
-    data.edu.items.forEach((item) => Data.Items.push(AddEduItem(item)));
-    data.edu.sounds.forEach((sound) => Data.Sounds.push(AddEduSound(sound)));
+    data.edu.blocks.forEach((block) => Data.Blocks.Update(AddEduBlock(block)));
+    data.edu.entities.forEach((entity) => Data.Entities.Update(AddEduEntity(entity)));
+    data.edu.items.forEach((item) => Data.Items.Update(AddEduItem(item)));
+    data.edu.sounds.forEach((sound) => Data.Sounds.Update(AddEduSound(sound)));
   }
-
-  Database.Data.set("minecraft", Data);
 }
 
 function AddBlock(data: string): Block {
   let B = new Block();
-  B.Name = data;
+  B.Identifier = data;
   B.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -76,7 +70,7 @@ function AddEntity(data: string): Entity {
   let B = new Entity();
   B.Identifier = data;
   B.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -92,7 +86,7 @@ function AddItem(data: string): Item {
   let B = new Item();
   B.Identifier = data;
   B.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -107,19 +101,19 @@ function AddItem(data: string): Item {
 function AddSound(data: string): Sound {
   let S = new Sound();
   S.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
-  S.Name = data;
+  S.Identifier = data;
 
   return S;
 }
 
 function AddEduBlock(data: string): Block {
   let B = new Block();
-  B.Name = data;
+  B.Identifier = data;
   B.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -134,7 +128,7 @@ function AddEduEntity(data: string): Entity {
   let B = new Entity();
   B.Identifier = data;
   B.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -150,7 +144,7 @@ function AddEduItem(data: string): Item {
   let B = new Item();
   B.Identifier = data;
   B.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -165,10 +159,10 @@ function AddEduItem(data: string): Item {
 function AddEduSound(data: string): Sound {
   let S = new Sound();
   S.Location = {
-    range: Range.create(0, 0, 0, 0),
+    range: EmptyTypes.EmptyRange,
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
-  S.Name = data;
+  S.Identifier = data;
 
   return S;
 }

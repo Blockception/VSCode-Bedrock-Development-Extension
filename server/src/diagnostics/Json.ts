@@ -43,7 +43,7 @@ export function InvalidJson(doc: TextDocument, error: any): void {
   };
 
   let Message = "Invalid json";
-  let R = Range.create(0, 0, 0, 0);
+  let R = EmptyRange;
 
   if (error.message) {
     Message = error.message;

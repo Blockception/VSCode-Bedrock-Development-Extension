@@ -31,35 +31,26 @@ import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { CommandIntr } from "../../commands/include";
 import { Database } from "../../../database/Database";
 
-export function provideEventCompletion(
-  receiver: CompletionList,
-  command: CommandIntr
-): void {
+export function provideEventCompletion(receiver: CompletionList, command: CommandIntr): void {
   let Keyword = command.GetCommandKeyword();
 
   if (Keyword == "summon") {
     if (command.Paramaters.length < 2) return;
 
-    let Entity = command.Paramaters[1].text;
+    let EntityID = command.Paramaters[1].text;
 
     //For each data set
-    Database.Data.forEach((data) => {
-      //for each entity data in the set
-      data.Entities.forEach((entity) => {
-        //If the identifier is the same
-        if (entity.Identifier === Entity) {
-          //convert all events
-          entity.Events.forEach((event) => {
-            receiver.items.push({
-              label: event,
-              documentation:
-                'The entity "' + Entity + '" event: "' + event + '"',
-              kind: CompletionItemKind.Event,
-            });
-          });
+    let Entity = Database.Data.Entities.GetFromID(EntityID);
 
-          return;
-        }
+    if (Entity === undefined)
+      return;
+
+    Entity.Events.forEach((event) => {
+      receiver.items.push({
+        label: event,
+        documentation:
+          'The entity "' + Entity + '" event: "' + event + '"',
+        kind: CompletionItemKind.Event,
       });
     });
   }

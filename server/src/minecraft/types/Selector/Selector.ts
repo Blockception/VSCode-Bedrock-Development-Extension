@@ -85,6 +85,10 @@ export function GetCurrentAttribute(selector: RangedWord, pos: number): string {
   return selector.text.slice(StartIndex, EndIndex);
 }
 
+export function IsFakePlayer(text: string): boolean {
+  return !text.startsWith('@');
+}
+
 export function IsEditingValue(selector: RangedWord, pos: number): boolean {
   let diff = pos - selector.startindex;
 

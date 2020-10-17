@@ -32,56 +32,56 @@ import { McFunction } from '../minecraft/types/Functions/Function';
 import { Block, Entity, Effect, Objective, Sound, Tickingarea } from '../minecraft/types/include';
 import { Item } from '../minecraft/types/Item/Item';
 import { Tag } from '../minecraft/types/Tag/Tag';
-import { IdentifiableDataCollection } from './DataCollector';
+import { DataCollector } from './DataCollector';
 
 export class CollectedData {
    /**
     * A storage of all collected blocks
     */
-   public Blocks: IdentifiableDataCollection<Block> = new IdentifiableDataCollection<Block>();
+   public Blocks: DataCollector<Block> = new DataCollector<Block>();
 
    /**
     * A storage of all collected entities
     */
-   public Entities: IdentifiableDataCollection<Entity> = new IdentifiableDataCollection<Entity>();
+   public Entities: DataCollector<Entity> = new DataCollector<Entity>();
 
    /**
     * A storage of all collected entities
     */
-   public Functions: IdentifiableDataCollection<McFunction> = new IdentifiableDataCollection<McFunction>();
+   public Functions: DataCollector<McFunction> = new DataCollector<McFunction>();
 
    /**
     * A storage of all collected entities
     */
-   public Effects: IdentifiableDataCollection<Effect> = new IdentifiableDataCollection<Effect>();
+   public Effects: DataCollector<Effect> = new DataCollector<Effect>();
 
    /**
     * A storage of all collected entities
     */
-   public FakeEntities: IdentifiableDataCollection<FakeEntity> = new IdentifiableDataCollection<FakeEntity>();
+   public FakeEntities: DataCollector<FakeEntity> = new DataCollector<FakeEntity>();
 
    /**
     * A storage of all collected entities
     */
-   public Items: IdentifiableDataCollection<Item> = new IdentifiableDataCollection<Item>();
+   public Items: DataCollector<Item> = new DataCollector<Item>();
 
    /**
     * A storage of all collected entities
     */
-   public Objectives: IdentifiableDataCollection<Objective> = new IdentifiableDataCollection<Objective>();
+   public Objectives: DataCollector<Objective> = new DataCollector<Objective>();
 
    /**
     * A storage of all collected entities
     */
-   public Sounds: IdentifiableDataCollection<Sound> = new IdentifiableDataCollection<Sound>();
+   public Sounds: DataCollector<Sound> = new DataCollector<Sound>();
 
    /**
     * A storage of all collected entities
     */
-   public Tag: IdentifiableDataCollection<Tag> = new IdentifiableDataCollection<Tag>();
+   public Tag: DataCollector<Tag> = new DataCollector<Tag>();
 
    /**
     * A storage of all collected entities
     */
-   public TickingAreas: IdentifiableDataCollection<Tickingarea> = new IdentifiableDataCollection<Tickingarea>();
+   public TickingAreas: DataCollector<Tickingarea> = new DataCollector<Tickingarea>();
 }

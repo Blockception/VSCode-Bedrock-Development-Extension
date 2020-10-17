@@ -27,16 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, Range } from "vscode-languageserver";
+import { Location } from "vscode-languageserver";
 import { MCCommandParameterType } from "../minecraft/commands/include";
-import { Database } from "../database/Database";
-import { MinecraftData } from "../minecraft/Minecraft Data";
-import { GetFilepath } from "../code/Url";
+import { Database } from '../database/Database';
+import { IdentifiableDataCollection } from '../database/DataCollector';
+import { Identifiable, Locatable } from '../minecraft/Interfaces/include';
 
-export function SearchDefinition(
-  text: string,
-  type: MCCommandParameterType[]
-): Location[] {
+export function SearchDefinition(text: string, type: MCCommandParameterType[]): Location[] {
   let Out: Location[] = [];
 
   //prune types
@@ -64,78 +61,55 @@ export function SearchDefinition(
   }
 
   //foreach dataset
-  Database.Data.forEach((data, key) => {
-    SearchDefinitionIn(text, type, data, key, Out);
-  });
+  SearchDefinitionIn(text, type, Out);
 
   return Out;
 }
 
-export function SearchDefinitionIn(
-  text: string,
-  type: MCCommandParameterType[],
-  data: MinecraftData,
-  uri: string,
-  receiver: Location[]
-) {
+export function SearchDefinitionIn(text: string, type: MCCommandParameterType[], receiver: Location[]) {
+  let Data = Database.Data;
   for (let I = 0; I < type.length; I++) {
     switch (type[I]) {
       case MCCommandParameterType.block:
-        data.Blocks.forEach((block) => {
-          if (block.Name == text) receiver.push(block.Location);
-        });
+        SearchInCollection(text, Data.Blocks, receiver);
         break;
 
       case MCCommandParameterType.entity:
-        data.Entities.forEach((entity) => {
-          if (entity.Identifier == text) receiver.push(entity.Location);
-        });
+        SearchInCollection(text, Data.Entities, receiver);
         break;
 
       case MCCommandParameterType.function:
-        if (uri.includes(text)) {
-          receiver.push(
-            Location.create(GetFilepath(uri), Range.create(0, 0, 0, 1))
-          );
-        }
+        SearchInCollection(text, Data.Functions, receiver);
         break;
 
       case MCCommandParameterType.item:
-        data.Items.forEach((item) => {
-          if (item.Identifier == text) receiver.push(item.Location);
-        });
+        SearchInCollection(text, Data.Items, receiver);
         break;
 
       case MCCommandParameterType.objective:
-        data.Objectives.forEach((objective) => {
-          if (objective.Name == text) receiver.push(objective.Location);
-        });
+        SearchInCollection(text, Data.Objectives, receiver);
         break;
 
       case MCCommandParameterType.selector:
       case MCCommandParameterType.selectorPlayer:
-        data.FakeEntities.forEach((fp) => {
-          if (fp.text == text) receiver.push(fp.CreateLocation());
-        });
+        SearchInCollection(text, Data.FakeEntities, receiver);
         break;
 
       case MCCommandParameterType.sound:
-        data.Sounds.forEach((sound) => {
-          if (sound.Name == text) receiver.push(sound.Location);
-        });
+        SearchInCollection(text, Data.Sounds, receiver);
         break;
 
       case MCCommandParameterType.tag:
-        data.Tag.forEach((Tag) => {
-          if (Tag.Name == text) receiver.push(Tag.Location);
-        });
+        SearchInCollection(text, Data.Tag, receiver);
         break;
 
       case MCCommandParameterType.tickingarea:
-        data.TickingAreas.forEach((ta) => {
-          if (ta.Name == text) receiver.push(ta.Location);
-        });
+        SearchInCollection(text, Data.TickingAreas, receiver);
         break;
     }
   }
+}
+
+function SearchInCollection<T extends Identifiable & Locatable>(text: string, collection: IdentifiableDataCollection<T>, receiver: Location[]): void {
+  collection.ForEachID(text, (f) => receiver.push(f.Location));
 }

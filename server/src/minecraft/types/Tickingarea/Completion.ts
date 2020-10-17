@@ -27,19 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { Completion } from '../../../completion/Functions';
 import { Database } from "../../../database/Database";
 
 export function provideTickingareaCompletion(receiver: CompletionList): void {
-  Database.Data.forEach((dataSet) => {
-    dataSet.TickingAreas.forEach((area) => {
-      let Name = area.Name;
-
-      receiver.items.push({
-        label: Name,
-        kind: CompletionItemKind.Reference,
-        documentation: "The tickingarea: '" + Name + "'",
-      });
-    });
-  });
+  Completion.Convert(Database.Data.TickingAreas, CompletionItemKind.Reference, receiver.items);
 }

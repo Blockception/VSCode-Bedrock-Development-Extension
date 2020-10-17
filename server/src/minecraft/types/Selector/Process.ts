@@ -27,26 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from '../code/include';
 
-export function Process(document: TextDocument): void {
-  for (let Index = 0; Index < document.lineCount; Index++) {
-    const Line = getLine(document, Index);
+import { CommandIntr } from '../../commands/include';
 
-    if (Line.startsWith("#")) continue;
 
-    let SpaceIndex = Line.indexOf(' ');
-
-    if (SpaceIndex < 0)
-      return;
-
-    let Command = Line.slice(0, SpaceIndex);
-
-    switch (Command) {
-      case 'tag':
-      case 'scoreboard':
-      case 'tickingarea':
-    }
-  }
+export function ProcessSelector() : void {
+	
 }

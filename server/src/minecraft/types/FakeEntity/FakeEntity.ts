@@ -27,15 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, Range } from 'vscode-languageserver';
-import { Identifiable, Locatable } from '../../Interfaces/include';
+import { ObjectBase } from '../ObjectBase/ObjectBase';
 
-export class FakeEntity implements Identifiable, Locatable {
-	public Identifier : string;
-	public Location : Location;
-
+export class FakeEntity extends ObjectBase {
+	
 	constructor() {
-		this.Identifier = '';
-		this.Location = Location.create('', Range.create(0, 0, 0, 0));
+		super();
 	}
 }

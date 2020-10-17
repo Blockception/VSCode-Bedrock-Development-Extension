@@ -31,11 +31,7 @@ import * as Mcfunction from "./Mcfunction";
 import * as Json from "./Json";
 import * as Language from "./Language";
 import { GetDocument, GetFilename } from "../code/include";
-import {
-  McFunctionIdentifier,
-  McLanguageIdentifier,
-  McOtherIdentifier,
-} from "../Constants";
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { TextDocumentChangeEvent } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 

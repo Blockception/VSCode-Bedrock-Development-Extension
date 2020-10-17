@@ -40,6 +40,6 @@ export class Item implements Identifiable {
     this.Events = [];
     this.Documentation = { value: "", kind: "markdown" };
     this.Identifier = "";
-    this.Location = Location.create("", Range.create(0, 0, 0, 0));
+    this.Location = EmptyLocation;
   }
 }

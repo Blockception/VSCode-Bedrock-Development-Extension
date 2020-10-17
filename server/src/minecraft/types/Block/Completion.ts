@@ -28,18 +28,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { Completion } from '../../../completion/Functions';
 import { Database } from "../../../database/Database";
 
 export function provideBlockCompletion(receiver: CompletionList): void {
-  Database.Data.forEach((dataSet) => {
-    dataSet.Blocks.forEach((Block) => {
-      let Name = Block.Name;
-
-      receiver.items.push({
-        label: Name,
-        kind: CompletionItemKind.Reference,
-        documentation: Block.Documentation,
-      });
-    });
-  });
+  Completion.Convert(Database.Data.Blocks, CompletionItemKind.Reference, receiver.items);
 }

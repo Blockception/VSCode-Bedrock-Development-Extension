@@ -111,7 +111,7 @@ function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformat
         kind: SymbolKind.Class,
         location: Location.create(
           GetFilepath(FunctionPath),
-          Range.create(0, 0, 0, 0)
+          EmptyRange
         ),
         name: GetFilename(FunctionPath),
       });

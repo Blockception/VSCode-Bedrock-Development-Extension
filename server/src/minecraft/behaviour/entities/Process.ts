@@ -33,21 +33,8 @@ import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
 import { Entity } from "../../types/include";
 import { GetFilepath } from "../../../code/Url";
+import { EntityImport, IsPropertyDefined } from './EntityImport';
 
-interface EntityDetect {
-  format_version: string;
-  "minecraft:entity": {
-    description: {
-      identifier: string;
-      is_spawnable: boolean;
-      is_summonable: boolean;
-      is_experimental: boolean;
-    };
-    component_groups: any;
-    components: any;
-    events: any;
-  };
-}
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -55,40 +42,32 @@ interface EntityDetect {
  */
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<EntityDetect>();
+  let Format = JDoc.CastTo<EntityImport>();
 
-  if (Format == undefined || Format == null) {
-    return;
-  }
-  let mce = Format["minecraft:entity"];
+  let entity: Entity | undefined;
 
-  if (mce == undefined || mce == null) {
-    return;
-  }
+  if (IsPropertyDefined(Format)) {
+    let mce = Format["minecraft:entity"];
+    entity = new Entity();
 
-  let entity = new Entity();
+    const ID = mce.description.identifier;
 
-  if (!mce.description) {
-    return;
-  }
+    entity.Identifier = ID;
+    entity.Documentation = {
+      kind: "markdown",
+      value: "The custom entity definition of: " + ID,
+    };
+    entity.Location = Location.create(
+      GetFilepath(doc.uri),
+      EmptyRange
+    );
 
-  let ID = mce.description.identifier;
-
-  entity.Identifier = ID;
-  entity.Documentation = {
-    kind: "markdown",
-    value: "The custom entity definition of: " + ID,
-  };
-  entity.Location = Location.create(
-    GetFilepath(doc.uri),
-    Range.create(0, 0, 0, 0)
-  );
-
-  if (mce.events) {
-    let EventsNames = Object.getOwnPropertyNames(mce.events);
-    entity.Events = EventsNames;
+    if (mce.events) {
+      let EventsNames = Object.getOwnPropertyNames(mce.events);
+      entity.Events = EventsNames;
+    }
   }
 
-  let Data = Database.Get(doc.uri);
-  Data.Entities = [entity];
+  Database.Data.Entities.Update(doc.uri, entity);
 }
+

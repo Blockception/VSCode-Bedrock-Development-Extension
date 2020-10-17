@@ -29,13 +29,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from "vscode-languageserver";
 import { Identifiable } from '../../Interfaces/Identifiable';
+import { ObjectBase } from '../ObjectBase/ObjectBase';
 
-export class Sound implements Identifiable {
-  public Identifier: string;
-  public Location: Location;
-
+export class Sound extends ObjectBase {
+  
   constructor() {
-    this.Identifier = "";
-    this.Location = Location.create("", Range.create(0, 0, 0, 0));
+    super();
   }
 }

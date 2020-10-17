@@ -70,7 +70,7 @@ export function GetSeverity(header : ContentLogHeader) : DiagnosticSeverity {
 }
 
 export function GetRange(Header : ContentLogHeader) : Range {
-	let Out = Range.create(0, 0, 0, 1);
+	let Out = EmptyRange;
 	let LineSpec = Header.Message.match(/line (\d+)/);
 
 	if (LineSpec && LineSpec.length >= 2){

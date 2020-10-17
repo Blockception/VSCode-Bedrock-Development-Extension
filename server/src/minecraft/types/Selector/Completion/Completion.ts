@@ -27,61 +27,25 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import {
-  CompletionItem,
-  CompletionItemKind,
-  CompletionList,
-  MarkupContent,
-} from "vscode-languageserver";
+import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { RangedWord } from "../../../../code/include";
+import { Completion } from '../../../../completion/Functions';
 import { Database } from "../../../../database/Database";
 import { InSelector } from "../../include";
 import { GetCurrentAttribute, InScore, IsEditingValue } from "../Selector";
-import {
-  provideSelectorAttributeCompletion,
-  provideSelectorAttributeValueCompletion,
-} from "./Attributes";
+import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 
-const AllPlayer: CompletionItem = {
-  label: "@a",
-  kind: CompletionItemKind.Reference,
-  documentation: "Targets all players",
-};
-const AllEntities: CompletionItem = {
-  label: "@e",
-  kind: CompletionItemKind.Reference,
-  documentation: "Targets all entities",
-};
-const Executing: CompletionItem = {
-  label: "@s",
-  kind: CompletionItemKind.Reference,
-  documentation: "Targets the executing entity",
-};
-const Random: CompletionItem = {
-  label: "@r",
-  kind: CompletionItemKind.Reference,
-  documentation: "Targets random players, or if specified, random types",
-};
-const NearestPlayer: CompletionItem = {
-  label: "@p",
-  kind: CompletionItemKind.Reference,
-  documentation: "Targets the nearest player",
-};
+const AllPlayer: CompletionItem = { label: "@a", kind: CompletionItemKind.Reference, documentation: "Targets all players", };
+const AllEntities: CompletionItem = { label: "@e", kind: CompletionItemKind.Reference, documentation: "Targets all entities", };
+const Executing: CompletionItem = { label: "@s", kind: CompletionItemKind.Reference, documentation: "Targets the executing entity", };
+const Random: CompletionItem = { label: "@r", kind: CompletionItemKind.Reference, documentation: "Targets random players, or if specified, random types", };
+const NearestPlayer: CompletionItem = { label: "@p", kind: CompletionItemKind.Reference, documentation: "Targets the nearest player", };
 
 export function provideSelectorCompletion(
-  receiver: CompletionList,
-  selector: RangedWord | undefined,
-  pos: number,
-  forEntities: boolean,
-  forPlayers: boolean,
-  forFakePlayer: boolean
-) {
-  if (
-    selector === undefined ||
-    selector.text === "" ||
-    !InSelector(selector, pos)
-  ) {
+  receiver: CompletionList, selector: RangedWord | undefined, pos: number,
+  forEntities: boolean, forPlayers: boolean, forFakePlayer: boolean) {
+  if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     if (selector !== undefined) {
       let diff = pos - selector.startindex;
 
@@ -117,16 +81,10 @@ export function provideSelectorCompletion(
   }
 }
 
+/**
+ * 
+ * @param receiver 
+ */
 function AddFakePlayers(receiver: CompletionList) {
-  Database.Data.forEach((x) => {
-    x.FakeEntities.forEach((y) => {
-      let name = y.text;
-      receiver.items.push({
-        label: y.text,
-        documentation: "The fake player: '" + name + "'",
-        insertText: '"' + name + '"',
-        kind: CompletionItemKind.EnumMember,
-      });
-    });
-  });
+  Completion.Convert(Database.Data.FakeEntities, CompletionItemKind.EnumMember, receiver.items);
 }

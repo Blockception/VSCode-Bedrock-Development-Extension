@@ -28,39 +28,28 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { Completion } from '../../../completion/Functions';
 import { Database } from "../../../database/Database";
 
 export function provideEntityCompletion(receiver: CompletionList): void {
-  Database.Data.forEach((dataSet) => {
-    dataSet.Entities.forEach((entity) => {
-      let Name = entity.Identifier;
-
-      receiver.items.push({
-        label: Name,
-        kind: CompletionItemKind.Struct,
-        documentation: entity.Documentation,
-      });
-    });
-  });
+  Completion.Convert(Database.Data.Entities, CompletionItemKind.Struct, receiver.items);
 }
 
 export function provideEntityTestCompletion(receiver: CompletionList): void {
-  Database.Data.forEach((dataSet) => {
-    dataSet.Entities.forEach((entity) => {
-      let Name = entity.Identifier;
+  Database.Data.Entities.ForEach((entity) => {
+    let Name = entity.Identifier;
 
-      receiver.items.push(
-        {
-          label: Name,
-          kind: CompletionItemKind.Struct,
-          documentation: "test for the entity: " + Name,
-        },
-        {
-          label: "!" + Name,
-          kind: CompletionItemKind.Struct,
-          documentation: "test not for the entity: " + Name,
-        }
-      );
-    });
+    receiver.items.push(
+      {
+        label: Name,
+        kind: CompletionItemKind.Struct,
+        documentation: "test for the entity: " + Name,
+      },
+      {
+        label: "!" + Name,
+        kind: CompletionItemKind.Struct,
+        documentation: "test not for the entity: " + Name,
+      }
+    );
   });
 }

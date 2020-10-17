@@ -37,7 +37,7 @@ export class Block implements Identifiable, Locatable {
 
   constructor() {
     this.Identifier = "";
-    this.Location = Location.create("", Range.create(0, 0, 0, 0));
+    this.Location = EmptyLocation;
     this.Documentation = { value: "", kind: "markdown" };
   }
 }

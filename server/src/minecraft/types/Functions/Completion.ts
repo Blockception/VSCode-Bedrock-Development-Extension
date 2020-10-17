@@ -28,26 +28,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { Completion } from '../../../completion/Functions';
 import { Database } from "../../../database/Database";
-import { MinecraftData } from "../../Minecraft Data";
 
 export function provideFunctionCompletion(receiver: CompletionList): void {
-  Database.Data.forEach((value: MinecraftData, key: string) => {
-    let filepath = decodeURI(key);
-    let index = filepath.indexOf("/functions/");
-
-    if (index >= 0 && filepath.includes(".mcfunction")) {
-      let functionPath = filepath.slice(index + 11, filepath.length - 11);
-
-      if (functionPath.includes(" ")) {
-        functionPath = '"' + functionPath + '"';
-      }
-
-      receiver.items.push({
-        label: functionPath,
-        kind: CompletionItemKind.File,
-        documentation: "The function path to: " + functionPath,
-      });
-    }
-  });
+  Completion.Convert(Database.Data.Functions, CompletionItemKind.File, receiver.items);
 }

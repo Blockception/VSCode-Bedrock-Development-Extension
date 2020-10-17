@@ -31,20 +31,8 @@ import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 
 export function provideXPCompletion(receiver: CompletionList): void {
   receiver.items.push(
-    {
-      label: "1L",
-      documentation: "Add 1 level of xp",
-      kind: CompletionItemKind.Constant,
-    },
-    {
-      label: "-1L",
-      documentation: "Remove 1 level of xp",
-      kind: CompletionItemKind.Constant,
-    },
-    {
-      label: "-1000L",
-      documentation: "Removes 1000 xp levels",
-      kind: CompletionItemKind.Constant,
-    }
+    { label: "1L", documentation: "Add 1 level of xp", kind: CompletionItemKind.Constant },
+    { label: "-1L", documentation: "Remove 1 level of xp", kind: CompletionItemKind.Constant },
+    { label: "-1000L", documentation: "Removes 1000 xp levels", kind: CompletionItemKind.Constant }
   );
 }
