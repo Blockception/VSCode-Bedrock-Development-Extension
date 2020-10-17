@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { RangedWord } from "../../../../code/include";
+import { LocationWord, RangedWord } from "../../../../code/include";
 import { Completion } from '../../../../completion/Functions';
 import { Database } from "../../../../database/Database";
 import { InSelector } from "../../include";
@@ -43,11 +43,13 @@ const Random: CompletionItem = { label: "@r", kind: CompletionItemKind.Reference
 const NearestPlayer: CompletionItem = { label: "@p", kind: CompletionItemKind.Reference, documentation: "Targets the nearest player", };
 
 export function provideSelectorCompletion(
-  receiver: CompletionList, selector: RangedWord | undefined, pos: number,
+  receiver: CompletionList, selector: LocationWord | undefined, pos: number,
   forEntities: boolean, forPlayers: boolean, forFakePlayer: boolean) {
+
+
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     if (selector !== undefined) {
-      let diff = pos - selector.startindex;
+      let diff = pos - selector.range.start.character;
 
       if (diff < 3) {
         receiver.items.push({ label: "[", kind: CompletionItemKind.Snippet });

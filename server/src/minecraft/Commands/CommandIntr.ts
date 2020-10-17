@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position } from "vscode-languageserver-textdocument";
-import { RangedWord } from "../../code/include";
+import { LocationWord, RangedWord } from "../../code/include";
 import { Manager } from "../../manager/Manager";
 import { CommandInfo } from "./CommandInfo";
 
@@ -39,7 +39,7 @@ export class CommandIntr {
   /**
    * The parameters of the command
    */
-  public Paramaters: RangedWord[];
+  public Paramaters: LocationWord[];
   /**
    * The line the command is comming from
    */
@@ -55,17 +55,17 @@ export class CommandIntr {
     this.Paramaters = [];
   }
 
-  static parse(line: string, pos: Position): CommandIntr {
+  static parse(line: string, pos: Position, uri: string): CommandIntr {
     let Out = new CommandIntr();
 
     let LineIndex = pos.line;
     let Words = RangedWord.GetWords(line);
     let char = pos.character;
     Out.Line = LineIndex;
-    Out.Paramaters = Words;
+    Out.Paramaters = LocationWord.ConvertAll(Words, pos.line, uri);
 
     if (Out.Paramaters.length > 0) {
-      if (Out.Paramaters[Out.Paramaters.length - 1].endindex < pos.character) {
+      if (Out.Paramaters[Out.Paramaters.length - 1].range.end.character < pos.character) {
         Out.CursorParamater = Out.Paramaters.length;
       } else {
         for (let I = 0; I < Out.Paramaters.length; I++) {
@@ -74,7 +74,7 @@ export class CommandIntr {
           if (x.CheckCursor(char)) {
             Out.CursorParamater = I;
             break;
-          } else if (char > x.endindex) {
+          } else if (char > x.range.end.character) {
             Out.CursorParamater = I + 1;
           }
         }
@@ -108,7 +108,7 @@ export class CommandIntr {
   /**
    *Gets the current word
    */
-  GetCurrent(): RangedWord | undefined {
+  GetCurrent(): LocationWord | undefined {
     if (
       this.CursorParamater >= 0 &&
       this.CursorParamater < this.Paramaters.length
@@ -125,10 +125,7 @@ export class CommandIntr {
   }
 }
 
-export function IsInSubCommand(
-  command: CommandIntr,
-  character: number
-): CommandIntr | undefined {
+export function IsInSubCommand(command: CommandIntr, character: number): CommandIntr | undefined {
   //execute command hasn't been completed yet
   if (command.Paramaters.length < 6) return undefined;
 
@@ -140,12 +137,12 @@ export function IsInSubCommand(
       if (command.Paramaters.length < 11) return undefined;
 
       //if cursor is on the execute command and not the sub command
-      if (character < command.Paramaters[11].startindex) {
+      if (character < command.Paramaters[11].range.start.character) {
         return command.slice(11);
       }
     } else {
       //if cursor is on the execute command and not the sub command
-      if (character < command.Paramaters[6].startindex) {
+      if (character < command.Paramaters[6].range.start.character) {
         return command.slice(6);
       }
     }

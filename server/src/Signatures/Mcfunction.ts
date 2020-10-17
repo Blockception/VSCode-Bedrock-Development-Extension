@@ -27,27 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import {
-  SignatureHelp,
-  SignatureInformation,
-  ParameterInformation,
-} from "vscode-languageserver";
+import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { CommandInfo } from "../minecraft/commands/CommandInfo";
-import {
-  CommandIntr,
-  IsInSubCommand,
-  MCCommand,
-  MCCommandParameterType,
-} from "../minecraft/commands/include";
+import { CommandIntr, IsInSubCommand, MCCommand, MCCommandParameterType } from "../minecraft/commands/include";
 
-export function ProvideSignature(
-  doc: TextDocument,
-  pos: Position
-): SignatureHelp | undefined {
+export function ProvideSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
   let Line = getLine(doc, pos.line);
-  let command: CommandIntr = CommandIntr.parse(Line, pos);
+  let command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
 
   if (command.IsEmpty()) return undefined;
 

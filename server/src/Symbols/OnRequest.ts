@@ -28,9 +28,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetFilename } from "../code/include";
-import { Database } from "../database/Database";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from "vscode-languageserver";
 import { GetFilepath, UniformUrl } from "../code/Url";
+import { Convert, ConvertAllFile, ConvertQueried } from './Conversion';
 
 /**
  * The request to provide document symbols, asynchorious
@@ -71,12 +71,11 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
 
   Out.push({
     kind: SymbolKind.Class,
-    location: Location.create(
-      GetFilepath(uri),
-      Range.create(0, 0, Number.MAX_VALUE, 0)
-    ),
+    location: Location.create(GetFilepath(uri), Range.create(0, 0, Number.MAX_VALUE, 0)),
     name: GetFilename(uri),
   });
+
+  ConvertAllFile(uri, Out);
 
   return Out;
 }
@@ -90,24 +89,7 @@ function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformat
   let Query = params.query;
   let Out: SymbolInformation[] = [];
 
-  for (let [FunctionPath, Data] of Database.Data) {
-    if (Out.length > 100) {
-      break;
-    }
-
-    if (Query === "" || FunctionPath.indexOf(Query) > -1) {
-      Out.push({
-        kind: SymbolKind.Class,
-        location: Location.create(
-          GetFilepath(FunctionPath),
-          EmptyRange
-        ),
-        name: GetFilename(FunctionPath),
-      });
-    }
-
-    Convert(Data, Out, Query);
-  }
+  ConvertQueried('', Out, Query);
 
   return Out;
 }

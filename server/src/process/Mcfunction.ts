@@ -29,8 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from '../code/include';
+import { Database } from '../database/Database';
+import { ProcessScoreboardCommand } from './Commands/Scoreboard';
+import { ProcessTagCommand } from './Commands/Tag';
 
 export function Process(document: TextDocument): void {
+  Database.Data.DeleteFile(document.uri);
+
   for (let Index = 0; Index < document.lineCount; Index++) {
     const Line = getLine(document, Index);
 
@@ -45,7 +50,13 @@ export function Process(document: TextDocument): void {
 
     switch (Command) {
       case 'tag':
+        ProcessTagCommand(Line, Index, document);
+        break;
+
       case 'scoreboard':
+        ProcessScoreboardCommand(Line, Index, document);
+        break;
+
       case 'tickingarea':
     }
   }

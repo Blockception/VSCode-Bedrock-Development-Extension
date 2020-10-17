@@ -27,14 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import {
-  Diagnostic,
-  PublishDiagnosticsParams,
-  Range,
-} from "vscode-languageserver";
+import { Diagnostic, PublishDiagnosticsParams, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilepath } from "../code/include";
 import { Manager } from "../manager/Manager";
+import { EmptyTypes } from '../minecraft/types/Empty';
 
 export function InvalidJson(doc: TextDocument, error: any): void {
   let Out: PublishDiagnosticsParams = {
@@ -43,7 +40,7 @@ export function InvalidJson(doc: TextDocument, error: any): void {
   };
 
   let Message = "Invalid json";
-  let R = EmptyRange;
+  let R = EmptyTypes.EmptyRange();
 
   if (error.message) {
     Message = error.message;
@@ -61,4 +58,4 @@ export function InvalidJson(doc: TextDocument, error: any): void {
   Manager.Connection.sendDiagnostics(Out);
 }
 
-export function ValidJson(doc: TextDocument): void {}
+export function ValidJson(doc: TextDocument): void { }

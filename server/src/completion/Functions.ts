@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind } from 'vscode-languageserver';
 import { DataCollector } from '../database/DataCollector';
 import { Documentable } from '../minecraft/Interfaces/Documentable';
-import { Identifiable } from '../minecraft/Interfaces/include';
+import { Identifiable, Locatable } from '../minecraft/Interfaces/include';
 
 export namespace Completion {
 	export function CreateCompletion(value: Identifiable & Documentable, valuekind: CompletionItemKind): CompletionItem {
@@ -41,7 +41,7 @@ export namespace Completion {
 		};
 	}
 
-	export function Convert<T extends Identifiable & Documentable>(value: DataCollector<T>, valuekind: CompletionItemKind, receiver: CompletionItem[]): void {
+	export function Convert<T extends Identifiable & Locatable & Documentable>(value: DataCollector<T>, valuekind: CompletionItemKind, receiver: CompletionItem[]): void {
 		value.ForEach((data) => {
 			let Item = CreateCompletion(data, valuekind);
 			receiver.push(Item);

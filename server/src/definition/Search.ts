@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { MCCommandParameterType } from "../minecraft/commands/include";
 import { Database } from '../database/Database';
-import { IdentifiableDataCollection } from '../database/DataCollector';
+import { DataCollector } from '../database/DataCollector';
 import { Identifiable, Locatable } from '../minecraft/Interfaces/include';
 
 export function SearchDefinition(text: string, type: MCCommandParameterType[]): Location[] {
@@ -110,6 +110,6 @@ export function SearchDefinitionIn(text: string, type: MCCommandParameterType[],
   }
 }
 
-function SearchInCollection<T extends Identifiable & Locatable>(text: string, collection: IdentifiableDataCollection<T>, receiver: Location[]): void {
+function SearchInCollection<T extends Identifiable & Locatable>(text: string, collection: DataCollector<T>, receiver: Location[]): void {
   collection.ForEachID(text, (f) => receiver.push(f.Location));
 }

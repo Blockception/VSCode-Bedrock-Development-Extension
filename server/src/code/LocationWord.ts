@@ -46,4 +46,26 @@ export class LocationWord {
   CreateLocation(): Location {
     return Location.create(GetFilepath(this.uri), this.range);
   }
+
+  //returns true or false is the cursor is inside this word
+  CheckCursor(cursorPos: number): boolean {
+    if (cursorPos >= this.range.start.character && cursorPos <= this.range.end.character) {
+      return true;
+    }
+
+    return false;
+  }
+}
+
+export namespace LocationWord {
+  export function ConvertAll(Words: RangedWord[], lineIndex: number, uri: string): LocationWord[] {
+    let Out: LocationWord[] = [];
+
+    for (let index = 0; index < Words.length; index++) {
+      const element = Words[index];
+      Out.push(new LocationWord(Words[index], lineIndex, uri));
+    }
+
+    return Out;
+  }
 }

@@ -1,13 +1,9 @@
 import { CompletionList, CompletionItemKind } from "vscode-languageserver";
-import { RangedWord } from "../../../../code/include";
-import { provideObjectiveCompletion } from "../../include";
+import { LocationWord } from "../../../../code/include";
+import { provideObjectivePostCompletion } from '../../Objectives/Completion';
 import { IsEditingValue } from "../Selector";
 
-export function provideSelectorScoreCompletion(
-  receiver: CompletionList,
-  selector: RangedWord,
-  pos: number
-): void {
+export function provideSelectorScoreCompletion(receiver: CompletionList, selector: LocationWord, pos: number): void {
   if (IsEditingValue(selector, pos)) {
     receiver.items.push(
       {
@@ -38,6 +34,6 @@ export function provideSelectorScoreCompletion(
       }
     );
   } else {
-    provideObjectiveCompletion(receiver, "=");
+    provideObjectivePostCompletion(receiver, "=");
   }
 }

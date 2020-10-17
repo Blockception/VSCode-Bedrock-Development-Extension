@@ -55,7 +55,7 @@ function AddBlock(data: string): Block {
   let B = new Block();
   B.Identifier = data;
   B.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -70,7 +70,7 @@ function AddEntity(data: string): Entity {
   let B = new Entity();
   B.Identifier = data;
   B.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -86,7 +86,7 @@ function AddItem(data: string): Item {
   let B = new Item();
   B.Identifier = data;
   B.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -101,7 +101,7 @@ function AddItem(data: string): Item {
 function AddSound(data: string): Sound {
   let S = new Sound();
   S.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   S.Identifier = data;
@@ -113,7 +113,7 @@ function AddEduBlock(data: string): Block {
   let B = new Block();
   B.Identifier = data;
   B.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -128,7 +128,7 @@ function AddEduEntity(data: string): Entity {
   let B = new Entity();
   B.Identifier = data;
   B.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -144,7 +144,7 @@ function AddEduItem(data: string): Item {
   let B = new Item();
   B.Identifier = data;
   B.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   B.Documentation = {
@@ -159,7 +159,7 @@ function AddEduItem(data: string): Item {
 function AddEduSound(data: string): Sound {
   let S = new Sound();
   S.Location = {
-    range: EmptyTypes.EmptyRange,
+    range: EmptyTypes.EmptyRange(),
     uri: "https://minecraft.gamepedia.com/Add-on",
   };
   S.Identifier = data;

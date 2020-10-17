@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -34,25 +34,16 @@ import { ProvideCompletionMCCommandParameter } from "./MCCommandParameterTypeCom
 import { provideCommandCompletion } from "./CommandCompletion";
 import { getLine } from "../code/include";
 
-export function OnCompletionMcFunction(
-  doc: TextDocument,
-  pos: Position,
-  receiver: CompletionList
-): void {
+export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList): void {
   const LineIndex = pos.line;
   const Line = getLine(doc, LineIndex);
 
-  let Command: CommandIntr = CommandIntr.parse(Line, pos);
+  let Command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
 
   ProvideCompletionMcFunction(doc, pos, receiver, Command);
 }
 
-export function ProvideCompletionMcFunction(
-  doc: TextDocument,
-  pos: Position,
-  receiver: CompletionList,
-  Command: CommandIntr
-): void {
+export function ProvideCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList, Command: CommandIntr): void {
   if (Command == undefined || pos.character < 3) {
     provideCommandCompletion(receiver);
     return;
@@ -74,13 +65,7 @@ export function ProvideCompletionMcFunction(
 
     if (Match.Command.parameters.length > ParameterIndex) {
       let Parameter = Match.Command.parameters[ParameterIndex];
-      ProvideCompletionMCCommandParameter(
-        Parameter,
-        Command,
-        pos.character,
-        receiver,
-        Current
-      );
+      ProvideCompletionMCCommandParameter(Parameter, Command, pos.character, receiver, Current);
     }
   }
 }

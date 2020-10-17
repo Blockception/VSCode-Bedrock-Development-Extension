@@ -27,66 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity, Range } from 'vscode-languageserver';
-import { EmptyTypes } from '../../types/Empty';
+import { TextDocument } from 'vscode-languageserver-textdocument';
+import { Database } from '../../database/Database';
+import { CommandIntr } from '../../minecraft/commands/include';
+import { Tag } from '../../minecraft/types/Tag/Tag';
 
-export interface ContentLogHeader {
-	Time: string;
-	Category: string;
-	Severity: string;
-	Message: string;
-}
+export function ProcessTagCommand(line: string, lineIndex: number, doc: TextDocument): void {
+	if (!line.includes(' add ')) { return; }
 
-export function GetHeader(line: string): ContentLogHeader | undefined {
-	let Match = line.match(/(\d{2}:\d{2}:\d{2})\[(\w+)\]\[(\w+)\]/);
+	let Com: CommandIntr = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
 
-	if (Match)
-		if (Match.length >= 4) {
-			let Out: ContentLogHeader = {
-				Time: Match[1],
-				Category: Match[2],
-				Message: '',
-				Severity: Match[3]
-			};
+	//tag <selector> add <tag>
 
-			let Index = (Match.index ?? 0) + Match[0].length;
-			Out.Message = line.slice(Index, line.length);
+	let tag = Com.Paramaters[3];
 
-			return Out;
-		}
+	let Data = new Tag();
+	Data.Identifier = tag.text;
+	Data.Location = tag.CreateLocation();
+	Data.Documentation.value = 'The tag: ' + tag.text;
 
-	return undefined;
-}
-
-export function GetSeverity(header: ContentLogHeader): DiagnosticSeverity {
-	switch (header.Severity.toLowerCase()) {
-		case 'warning':
-			return DiagnosticSeverity.Warning;
-
-		case 'error':
-			return DiagnosticSeverity.Error;
-	}
-
-	return DiagnosticSeverity.Error;
-}
-
-export function GetRange(Header: ContentLogHeader): Range {
-	let Out = EmptyTypes.EmptyRange();
-	let LineSpec = Header.Message.match(/line (\d+)/);
-
-	if (LineSpec && LineSpec.length >= 2) {
-		let Index = Number.parseInt(LineSpec[1]);
-		Out.start.line = Index;
-		Out.end.line = Index;
-	}
-
-	return Out;
-}
-
-export function CreateDiagnostics(Header: ContentLogHeader): Diagnostic {
-	return {
-		message: Header.Message,
-		range: GetRange(Header),
-		severity: GetSeverity(Header),
-	}
+	Database.Data.Tag.Set(Data);
 }

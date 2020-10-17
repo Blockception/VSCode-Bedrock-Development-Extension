@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { RangedWord } from "../../../code/include";
+import { LocationWord, RangedWord } from "../../../code/include";
 
 export function IsSelector(value: string): boolean {
   if (value.startsWith("@")) return true;
@@ -41,13 +41,13 @@ export function IsSelector(value: string): boolean {
   return false;
 }
 
-export function InSelector(selector: RangedWord, pos: number): boolean {
-  if (selector.startindex + 2 <= pos && pos < selector.endindex) return true;
+export function InSelector(selector: LocationWord, pos: number): boolean {
+  if (selector.range.start.character + 2 <= pos && pos < selector.range.end.character) return true;
 
   return false;
 }
 
-export function InScore(selector: RangedWord, pos: number): boolean {
+export function InScore(selector: LocationWord, pos: number): boolean {
   let Index = selector.text.indexOf("scores");
 
   if (Index < 0) return false;
@@ -64,8 +64,8 @@ export function InScore(selector: RangedWord, pos: number): boolean {
   return pos < Index;
 }
 
-export function GetCurrentAttribute(selector: RangedWord, pos: number): string {
-  let StartIndex = pos - selector.startindex;
+export function GetCurrentAttribute(selector: LocationWord, pos: number): string {
+  let StartIndex = pos - selector.range.start.character;
 
   while (StartIndex > 2) {
     let C = selector.text.charAt(StartIndex);
@@ -89,8 +89,8 @@ export function IsFakePlayer(text: string): boolean {
   return !text.startsWith('@');
 }
 
-export function IsEditingValue(selector: RangedWord, pos: number): boolean {
-  let diff = pos - selector.startindex;
+export function IsEditingValue(selector: LocationWord, pos: number): boolean {
+  let diff = pos - selector.range.start.character;
 
   if (diff > 0) {
     if (selector.text.charAt(diff - 1) === "=") {

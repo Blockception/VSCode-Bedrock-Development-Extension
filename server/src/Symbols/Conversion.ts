@@ -36,14 +36,33 @@ import { Queryable } from '../minecraft/Interfaces/Queryable';
 
 export function Convert(uri: string, receiver: SymbolInformation[], query: string): void {
   if (query === '') {
-
+    if (uri === '') {
+      ConvertAll(receiver);
+    }
+    else {
+      ConvertAllFile(uri, receiver);
+    }
   }
   else {
-
+    ConvertQueried(uri, receiver, query);
   }
 }
 
-export function ConvertAll(uri: string, receiver: SymbolInformation[]): void {
+export function ConvertAll(receiver: SymbolInformation[]): void {
+  const uri = '';
+  ConvertStorage(Database.Data.Blocks, uri, Kinds.Symbol.Block, receiver);
+  ConvertStorage(Database.Data.Effects, uri, Kinds.Symbol.Effect, receiver);
+  ConvertStorage(Database.Data.Entities, uri, Kinds.Symbol.Entity, receiver);
+  ConvertStorage(Database.Data.FakeEntities, uri, Kinds.Symbol.Selector, receiver);
+  ConvertStorage(Database.Data.Functions, uri, Kinds.Symbol.Functions, receiver);
+  ConvertStorage(Database.Data.Items, uri, Kinds.Symbol.Item, receiver);
+  ConvertStorage(Database.Data.Objectives, uri, Kinds.Symbol.Objectives, receiver);
+  ConvertStorage(Database.Data.Sounds, uri, Kinds.Symbol.Sound, receiver);
+  ConvertStorage(Database.Data.Tag, uri, Kinds.Symbol.Tag, receiver);
+  ConvertStorage(Database.Data.TickingAreas, uri, Kinds.Symbol.Tickingarea, receiver);
+}
+
+export function ConvertAllFile(uri: string, receiver: SymbolInformation[]): void {
   ConvertStorage(Database.Data.Blocks, uri, Kinds.Symbol.Block, receiver);
   ConvertStorage(Database.Data.Effects, uri, Kinds.Symbol.Effect, receiver);
   ConvertStorage(Database.Data.Entities, uri, Kinds.Symbol.Entity, receiver);
@@ -116,32 +135,42 @@ export function ConvertQueried(uri: string, receiver: SymbolInformation[], query
 }
 
 export function ConvertStorageQuery<T extends Identifiable & Locatable>(Data: DataCollector<T>, uri: string, query: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
-  let Items = Data.GetFromFile(uri);
+  if (uri === '') {
+    Data.ForEach((element) => CheckOrAdd(element, query, valuekind, receiver));
+  }
+  else {
+    let Items = Data.GetFromFile(uri);
 
-  if (Items) {
-    for (let index = 0; index < Items.length; index++) {
-      const element = Items[index];
+    if (Items) {
+      Items.forEach((value) => CheckOrAdd(value, query, valuekind, receiver));
+    }
+  }
+}
 
-      if (Queryable.is(element)) {
-        if (element.MatchQuery(query))
-          ConvertItem(element, valuekind, receiver);
-      }
-      else {
-        if (element.Identifier.includes(query)) {
-          ConvertItem(element, valuekind, receiver);
-        }
-      }
+function CheckOrAdd(value: Identifiable & Locatable, query: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
+  if (Queryable.is(value)) {
+    if (value.MatchQuery(query))
+      ConvertItem(value, valuekind, receiver);
+  }
+  else {
+    if (value.Identifier.includes(query)) {
+      ConvertItem(value, valuekind, receiver);
     }
   }
 }
 
 export function ConvertStorage<T extends Identifiable & Locatable>(Data: DataCollector<T>, uri: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
-  let Items = Data.GetFromFile(uri);
+  if (uri === '') {
+    Data.ForEach((value) => ConvertItem(value, valuekind, receiver));
+  }
+  else {
+    let Items = Data.GetFromFile(uri);
 
-  if (Items) {
-    for (let index = 0; index < Items.length; index++) {
-      const element = Items[index];
-      ConvertItem(element, valuekind, receiver);
+    if (Items) {
+      for (let index = 0; index < Items.length; index++) {
+        const element = Items[index];
+        ConvertItem(element, valuekind, receiver);
+      }
     }
   }
 }

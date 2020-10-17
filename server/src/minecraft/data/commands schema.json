@@ -3,7 +3,6 @@
   "$id": "Version",
   "type": "object",
   "title": "Command Schema",
-  "additionalProperties": false,
   "definitions": {
     "commands": {
       "type": "array",

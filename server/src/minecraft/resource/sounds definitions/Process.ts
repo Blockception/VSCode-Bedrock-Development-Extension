@@ -45,47 +45,28 @@ export function Process(doc: TextDocument): void {
   if (Format == undefined) return;
 
   let sound_def = Format["sound_definitions"];
-  let Data = Database.Get(doc.uri);
-  let uri = GetFilepath(doc.uri);
-  Data.Sounds = [];
+  const uri = GetFilepath(doc.uri);
+  let names: string[]
 
   if (sound_def) {
-    let names = Object.getOwnPropertyNames(sound_def);
-
-    names.forEach((name) => {
-      let position = JDoc.GetRangeOfObject(name);
-
-      if (position == undefined) {
-        position = {
-          start: { character: 0, line: 0 },
-          end: { character: 1, line: 0 },
-        };
-      }
-
-      let s = new Sound();
-      s.Name = name;
-      s.Location = Location.create(uri, position);
-      Data.Sounds.push(s);
-    });
+    names = Object.getOwnPropertyNames(sound_def);
   } else {
-    let names = Object.getOwnPropertyNames(Format);
-
-    names.forEach((name) => {
-      if (name !== "format_version" && name !== "sound_definitions") {
-        let position = JDoc.GetRangeOfObject(name);
-
-        if (position == undefined) {
-          position = {
-            start: { character: 0, line: 0 },
-            end: { character: 1, line: 0 },
-          };
-        }
-
-        let s = new Sound();
-        s.Name = name;
-        s.Location = Location.create(uri, position);
-        Data.Sounds.push(s);
-      }
-    });
+    names = Object.getOwnPropertyNames(Format);
   }
+
+  names.forEach((name) => {
+    let position = JDoc.GetRangeOfObject(name);
+
+    if (position == undefined) {
+      position = {
+        start: { character: 0, line: 0 },
+        end: { character: 1, line: 0 },
+      };
+    }
+
+    let s = new Sound();
+    s.Identifier = name;
+    s.Location = Location.create(uri, position);
+    Database.Data.Sounds.Set(s);
+  });
 }
