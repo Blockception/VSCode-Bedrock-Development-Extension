@@ -6,14 +6,7 @@
 import * as path from "path";
 import * as vscode from "vscode";
 
-import {
-  LanguageClient,
-  LanguageClientOptions,
-  ServerOptions,
-  TransportKind,
-  TextDocument,
-  WorkspaceChange,
-} from "vscode-languageclient";
+import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient";
 import { McFunctionIdentifier, McLanguageIdentifier } from "./Constants";
 
 //The client to the server
