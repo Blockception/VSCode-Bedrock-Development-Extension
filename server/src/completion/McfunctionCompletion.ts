@@ -44,7 +44,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
 }
 
 export function ProvideCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList, Command: CommandIntr): void {
-  if (Command == undefined || pos.character < 3) {
+  if (Command == undefined || Command.Paramaters.length == 0 || pos.character < 3) {
     provideCommandCompletion(receiver);
     return;
   }

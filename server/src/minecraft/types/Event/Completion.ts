@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { CommandIntr } from "../../commands/include";
 import { Database } from "../../../database/Database";
+import { Kinds } from '../Kinds';
 
 export function provideEventCompletion(receiver: CompletionList, command: CommandIntr): void {
   let Keyword = command.GetCommandKeyword();
@@ -48,9 +49,8 @@ export function provideEventCompletion(receiver: CompletionList, command: Comman
     Entity.Events.forEach((event) => {
       receiver.items.push({
         label: event,
-        documentation:
-          'The entity "' + Entity + '" event: "' + event + '"',
-        kind: CompletionItemKind.Event,
+        documentation: 'The entity "' + Entity + '" event: "' + event + '"',
+        kind: Kinds.Completion.Event,
       });
     });
   }

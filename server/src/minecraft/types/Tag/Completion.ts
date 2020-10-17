@@ -30,16 +30,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { Completion } from '../../../completion/Functions';
 import { Database } from "../../../database/Database";
+import { Kinds } from '../Kinds';
 
 export function provideTagCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Tag, CompletionItemKind.Reference, receiver.items);
+  Completion.Convert(Database.Data.Tag, Kinds.Completion.Tag, receiver.items);
 }
 
 export function provideTagTestCompletion(receiver: CompletionList): void {
   Database.Data.Tag.ForEach((tag) => {
     receiver.items.push(
-      { label: tag.Identifier, kind: CompletionItemKind.Reference, documentation: "Tests for the tag: '" + tag.Identifier + "'" },
-      { label: "!" + tag.Identifier, kind: CompletionItemKind.Reference, documentation: "Tests not for the tag: '" + tag.Identifier + "'" }
+      { label: tag.Identifier, kind: Kinds.Completion.Tag, documentation: "Tests for the tag: '" + tag.Identifier + "'" },
+      { label: "!" + tag.Identifier, kind: Kinds.Completion.Tag, documentation: "Tests not for the tag: '" + tag.Identifier + "'" }
     );
   });
 }

@@ -41,17 +41,12 @@ import {
 import { provideBooleanCompletion } from "../minecraft/types/Boolean/Completion";
 import { provideCoordinateCompletion } from "../minecraft/types/Coordinate/Completion";
 import { provideEventCompletion } from "../minecraft/types/Event/Completion";
-import { provideFloatCompletion } from "../minecraft/types/Float/Completion";
+import { provideFloatCompletion } from "../minecraft/types/FakeEntity/Completion";
 import { provideFunctionCompletion } from "../minecraft/types/Functions/Completion";
 import {
-  provideBlockCompletion,
-  provideEffectCompletion,
-  provideEntityCompletion,
-  provideObjectiveCompletion,
-  provideSelectorCompletion,
-  provideSoundCompletion,
-  provideTagCompletion,
-  provideTickingareaCompletion,
+  provideBlockCompletion, provideEffectCompletion, provideEntityCompletion,
+  provideObjectiveCompletion, provideSelectorCompletion, provideSoundCompletion,
+  provideTagCompletion, provideTickingareaCompletion,
 } from "../minecraft/types/include";
 import { provideIntegerCompletion } from "../minecraft/types/Integer/Completion";
 import { provideItemCompletion } from "../minecraft/types/Item/Completion";

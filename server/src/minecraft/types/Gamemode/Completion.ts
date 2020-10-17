@@ -27,41 +27,42 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CompletionList } from "vscode-languageserver";
+import { Kinds } from '../Kinds';
 
 export function provideGamemodeCompletion(receiver: CompletionList): void {
   receiver.items.push(
-    { label: "c", kind: CompletionItemKind.Constant, documentation: "The creative gamemode" },
-    { label: "creative", kind: CompletionItemKind.Constant, documentation: "The creative gamemode" },
-    { label: "1", kind: CompletionItemKind.Constant, documentation: "The creative gamemode" },
-    { label: "a", kind: CompletionItemKind.Constant, documentation: "The adventure gamemode" },
-    { label: "adventure", kind: CompletionItemKind.Constant, documentation: "The adventure gamemode" },
-    { label: "2", kind: CompletionItemKind.Constant, documentation: "The adventure gamemode" },
-    { label: "s", kind: CompletionItemKind.Constant, documentation: "The survival gamemode" },
-    { label: "survival", kind: CompletionItemKind.Constant, documentation: "The survival gamemode" },
-    { label: "0", kind: CompletionItemKind.Constant, documentation: "The survival gamemode" }
+    { label: "c", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
+    { label: "creative", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
+    { label: "1", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
+    { label: "a", kind: Kinds.Completion.Gamemode, documentation: "The adventure gamemode" },
+    { label: "adventure", kind: Kinds.Completion.Gamemode, documentation: "The adventure gamemode" },
+    { label: "2", kind: Kinds.Completion.Gamemode, documentation: "The adventure gamemode" },
+    { label: "s", kind: Kinds.Completion.Gamemode, documentation: "The survival gamemode" },
+    { label: "survival", kind: Kinds.Completion.Gamemode, documentation: "The survival gamemode" },
+    { label: "0", kind: Kinds.Completion.Gamemode, documentation: "The survival gamemode" }
   );
 }
 
 export function provideGamemodeTestCompletion(receiver: CompletionList): void {
   receiver.items.push(
-    { label: "c", kind: CompletionItemKind.Constant, documentation: "Tests for the creative gamemode" },
-    { label: "!c", kind: CompletionItemKind.Constant, documentation: "Tests not for the creative gamemode" },
-    { label: "creative", kind: CompletionItemKind.Constant, documentation: "Tests for the creative gamemode" },
-    { label: "!creative", kind: CompletionItemKind.Constant, documentation: "Tests not for the creative gamemode" },
-    { label: "1", kind: CompletionItemKind.Constant, documentation: "Tests for the creative gamemode" },
-    { label: "!1", kind: CompletionItemKind.Constant, documentation: "Tests not for the creative gamemode" },
-    { label: "a", kind: CompletionItemKind.Constant, documentation: "Tests for the adventure gamemode" },
-    { label: "!a", kind: CompletionItemKind.Constant, documentation: "Tests not for the adventure gamemode" },
-    { label: "adventure", kind: CompletionItemKind.Constant, documentation: "Tests for the adventure gamemode" },
-    { label: "!adventure", kind: CompletionItemKind.Constant, documentation: "Tests not for the adventure gamemode" },
-    { label: "2", kind: CompletionItemKind.Constant, documentation: "Tests for the adventure gamemode" },
-    { label: "!2", kind: CompletionItemKind.Constant, documentation: "Tests not for the adventure gamemode" },
-    { label: "s", kind: CompletionItemKind.Constant, documentation: "Tests for the survival gamemode" },
-    { label: "!s", kind: CompletionItemKind.Constant, documentation: "Tests not for the survival gamemode" },
-    { label: "survival", kind: CompletionItemKind.Constant, documentation: "Tests for the survival gamemode" },
-    { label: "!survival", kind: CompletionItemKind.Constant, documentation: "Tests not for the survival gamemode" },
-    { label: "0", kind: CompletionItemKind.Constant, documentation: "Tests for the survival gamemode" },
-    { label: "!0", kind: CompletionItemKind.Constant, documentation: "Tests not for the survival gamemode" }
+    { label: "c", kind: Kinds.Completion.Gamemode, documentation: "Tests for the creative gamemode" },
+    { label: "!c", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the creative gamemode" },
+    { label: "creative", kind: Kinds.Completion.Gamemode, documentation: "Tests for the creative gamemode" },
+    { label: "!creative", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the creative gamemode" },
+    { label: "1", kind: Kinds.Completion.Gamemode, documentation: "Tests for the creative gamemode" },
+    { label: "!1", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the creative gamemode" },
+    { label: "a", kind: Kinds.Completion.Gamemode, documentation: "Tests for the adventure gamemode" },
+    { label: "!a", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the adventure gamemode" },
+    { label: "adventure", kind: Kinds.Completion.Gamemode, documentation: "Tests for the adventure gamemode" },
+    { label: "!adventure", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the adventure gamemode" },
+    { label: "2", kind: Kinds.Completion.Gamemode, documentation: "Tests for the adventure gamemode" },
+    { label: "!2", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the adventure gamemode" },
+    { label: "s", kind: Kinds.Completion.Gamemode, documentation: "Tests for the survival gamemode" },
+    { label: "!s", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the survival gamemode" },
+    { label: "survival", kind: Kinds.Completion.Gamemode, documentation: "Tests for the survival gamemode" },
+    { label: "!survival", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the survival gamemode" },
+    { label: "0", kind: Kinds.Completion.Gamemode, documentation: "Tests for the survival gamemode" },
+    { label: "!0", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the survival gamemode" }
   );
 }

@@ -38,7 +38,7 @@ export namespace Kinds {
 		export const Effect : SymbolKind = SymbolKind.Property;
 		export const Entity : SymbolKind = SymbolKind.Property;
 		export const Event : SymbolKind = SymbolKind.Event;
-		export const FakeEntity : SymbolKind = SymbolKind.Property;
+		export const FakeEntity : SymbolKind = SymbolKind.EnumMember;
 		export const Float : SymbolKind = SymbolKind.Constant;
 		export const Functions : SymbolKind = SymbolKind.Class;
 		export const Gamemode : SymbolKind = SymbolKind.Constant;
@@ -59,7 +59,7 @@ export namespace Kinds {
 		export const Effect : CompletionItemKind = CompletionItemKind.Property;
 		export const Entity : CompletionItemKind = CompletionItemKind.Property;
 		export const Event : CompletionItemKind = CompletionItemKind.Event;
-		export const FakeEntity : CompletionItemKind = CompletionItemKind.Property;
+		export const FakeEntity : CompletionItemKind = CompletionItemKind.EnumMember;
 		export const Float : CompletionItemKind = CompletionItemKind.Constant;
 		export const Functions : CompletionItemKind = CompletionItemKind.Class;
 		export const Gamemode : CompletionItemKind = CompletionItemKind.Constant;

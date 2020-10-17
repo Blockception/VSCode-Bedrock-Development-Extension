@@ -29,22 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { OnCommandRequestAsync } from '../commands/OnRequest';
 import { OnCompletionRequestAsync } from "../completion/OnRequest";
-import {
-  onDefinitionRequestAsync,
-  onTypeDefinitionRequestAsync,
-} from "../definition/OnRequest";
-import {
-  OnDocumentFormatRequestAsync,
-  OnDocumentRangeFormatRequestAsync,
-} from "../format/OnRequest";
+import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../definition/OnRequest";
+import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../format/OnRequest";
 import { OnHoverRequestAsync } from "../hover/OnRequest";
 import { Manager } from "../manager/Manager";
 import { OndDocumentChangedAsync } from "../process/Process";
 import { OnSignatureRequestAsync } from "../signatures/OnRequest";
-import {
-  OnDocumentSymbolRequestAsync,
-  OnWorkspaceSymbolRequestAsync,
-} from "../symbols/OnRequest";
+import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../symbols/OnRequest";
 import { onDidChangeConfigurationAsync } from "./OnConfiguration";
 
 /**
@@ -56,7 +47,7 @@ export function setEvents() {
   Manager.Data.Documents.onDidSave(OndDocumentChangedAsync);
 
   // This handler provides commands
-  //Manager.Connection.onExecuteCommand(OnCommandRequestAsync);
+  Manager.Connection.onExecuteCommand(OnCommandRequestAsync);
 
   // This handler provides completion items.
   Manager.Connection.onCompletion(OnCompletionRequestAsync);

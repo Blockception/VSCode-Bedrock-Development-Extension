@@ -89,21 +89,12 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
 
     if (parameter.Required) {
       if (parameter.Type === MCCommandParameterType.keyword) {
-        p = {
-          label: parameter.Text,
-          documentation: "Type: " + MCCommandParameterType[parameter.Type],
-        };
+        p = CreateParameter(parameter.Text, parameter.Type);
       } else {
-        p = {
-          label: "<" + parameter.Text + ">",
-          documentation: "Type: " + MCCommandParameterType[parameter.Type],
-        };
+        p = CreateParameter("<" + parameter.Text + ">", parameter.Type);
       }
     } else {
-      p = {
-        label: "[" + parameter.Text + "]",
-        documentation: "Type: " + MCCommandParameterType[parameter.Type],
-      };
+      p = CreateParameter("[" + parameter.Text + "]", parameter.Type);
     }
 
     Sign.label += p.label + " ";
@@ -111,5 +102,17 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
     Sign.parameters?.push(p);
   }
 
+  Sign.label = Sign.label.trim();
+
   return Sign;
+}
+
+function CreateParameter(label: string, kind: MCCommandParameterType): ParameterInformation {
+  return {
+    label: label,
+    documentation: {
+      kind: 'markdown',
+      value: label + '<br/>Type: ' + MCCommandParameterType[kind]
+    }
+  };
 }

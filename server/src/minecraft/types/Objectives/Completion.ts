@@ -30,9 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { Completion } from '../../../completion/Functions';
 import { Database } from "../../../database/Database";
+import { Kinds } from '../Kinds';
 
 export function provideObjectiveCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Objectives, CompletionItemKind.Variable, receiver.items);
+  Completion.Convert(Database.Data.Objectives, Kinds.Completion.Objectives, receiver.items);
 }
 
 export function provideObjectivePostCompletion(receiver: CompletionList, additionalText: string): void {
@@ -41,7 +42,7 @@ export function provideObjectivePostCompletion(receiver: CompletionList, additio
 
     receiver.items.push({
       label: Name,
-      kind: CompletionItemKind.Variable,
+      kind: Kinds.Completion.Objectives,
       insertText: Name + additionalText,
       documentation: objective.Documentation
     });

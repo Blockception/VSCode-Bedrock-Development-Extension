@@ -27,11 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import {
-  InitializeParams,
-  InitializeResult,
-  TextDocumentSyncKind,
-} from "vscode-languageserver";
+import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../manager/Manager";
 
 export async function onInitializeAsync(
@@ -55,9 +51,9 @@ function onInitialize(params: InitializeParams): InitializeResult {
       textDocumentSync: TextDocumentSyncKind.Incremental,
 
       // Tell the client that this server supports a couple commands
-      executeCommandProvider:{
-        commands:[ "bc.minecraft.errors.import"]
-      },
+      /*executeCommandProvider: {
+        commands: ["bc.minecraft.errors.import"]
+      },*/
 
       // Tell the client that this server code formatting.
       documentFormattingProvider: {},
@@ -80,7 +76,7 @@ function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports signatures
       signatureHelpProvider: {
         triggerCharacters: [" "],
-        retriggerCharacters: [" ", "\t"],
+        retriggerCharacters: [" ", "\t"]
       },
     },
     serverInfo: {

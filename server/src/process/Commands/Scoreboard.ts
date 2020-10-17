@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from 'vscode-languageserver-textdocument';
+import { Database } from '../../database/Database';
 import { CommandIntr } from '../../minecraft/commands/include';
 import { FakeEntity } from '../../minecraft/types/FakeEntity/FakeEntity';
 import { IsFakePlayer, Objective } from '../../minecraft/types/include';
@@ -70,11 +71,13 @@ function CheckObjective(Com: CommandIntr): void {
 		if (Com.Paramaters.length > 4) {
 			obj.Documentation.value += ' ' + Com.Paramaters[5].text.replace(/"/g, '');
 		}
+
+		Database.Data.Objectives.Set(obj);
 	}
 }
 
 function CheckPlayer(Com: CommandIntr): void {
-	if (Com.Paramaters.length > 2) {
+	if (Com.Paramaters.length > 3) {
 		let Selector = Com.Paramaters[3];
 
 		if (IsFakePlayer(Selector.text)) {
@@ -83,6 +86,7 @@ function CheckPlayer(Com: CommandIntr): void {
 			FE.Identifier = Selector.text;
 			FE.Location = Selector.CreateLocation();
 			FE.Documentation.value = 'The fake player: ' + FE.Identifier;
+			Database.Data.FakeEntities.Set(FE);
 		}
 	}
 }

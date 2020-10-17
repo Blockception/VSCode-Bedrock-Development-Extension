@@ -86,7 +86,7 @@ export function GetCurrentAttribute(selector: LocationWord, pos: number): string
 }
 
 export function IsFakePlayer(text: string): boolean {
-  return !text.startsWith('@');
+  return !text.startsWith('@') && text !== '*';
 }
 
 export function IsEditingValue(selector: LocationWord, pos: number): boolean {

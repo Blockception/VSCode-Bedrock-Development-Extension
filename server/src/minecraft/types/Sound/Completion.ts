@@ -30,7 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { Completion } from '../../../completion/Functions';
 import { Database } from "../../../database/Database";
+import { Kinds } from '../Kinds';
 
 export function provideSoundCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Sounds, CompletionItemKind.Reference, receiver.items);
+  Completion.Convert(Database.Data.Sounds, Kinds.Completion.Sound, receiver.items);
 }

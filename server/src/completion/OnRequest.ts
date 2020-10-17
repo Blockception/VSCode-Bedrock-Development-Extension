@@ -27,20 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import {
-  CompletionParams,
-  CompletionList,
-  CompletionItem,
-} from "vscode-languageserver";
+import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier } from "../Constants";
 import { OnCompletionMcFunction } from "./McfunctionCompletion";
 
 //Handle request
-export async function OnCompletionRequestAsync(
-  params: CompletionParams
-): Promise<CompletionList> {
+export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionList> {
   return new Promise((resolve, reject) => {
     resolve(OnCompletionRequest(params));
   });

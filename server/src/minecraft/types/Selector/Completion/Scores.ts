@@ -8,27 +8,27 @@ export function provideSelectorScoreCompletion(receiver: CompletionList, selecto
     receiver.items.push(
       {
         label: "0",
-        kind: CompletionItemKind.Constant,
+        kind: CompletionItemKind.Value,
         documentation: "test for the exact value of 0",
       },
       {
         label: "!0",
-        kind: CompletionItemKind.Constant,
+        kind: CompletionItemKind.Value,
         documentation: "test for the exact value of everything but 0",
       },
       {
         label: "0..",
-        kind: CompletionItemKind.Constant,
+        kind: CompletionItemKind.Value,
         documentation: "test for the everything equal to 0 or higher",
       },
       {
         label: "..0",
-        kind: CompletionItemKind.Constant,
+        kind: CompletionItemKind.Value,
         documentation: "test for the everything equal to 0 or lower",
       },
       {
         label: "0..10",
-        kind: CompletionItemKind.Constant,
+        kind: CompletionItemKind.Value,
         documentation:
           "test for the everything equal to 0 or 10 and everything in between",
       }

@@ -27,22 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CompletionList } from "vscode-languageserver";
 import { Completion } from '../../../completion/Functions';
-import { Database } from "../../../database/Database";
+import { Database } from '../../../database/Database';
 import { Kinds } from '../Kinds';
 
-export function provideEntityCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Entities, Kinds.Completion.Entity, receiver.items);
-}
-
-export function provideEntityTestCompletion(receiver: CompletionList): void {
-  Database.Data.Entities.ForEach((entity) => {
-    let Name = entity.Identifier;
-
-    receiver.items.push(
-      { label: Name, kind: Kinds.Completion.Entity, documentation: "test for the entity: " + Name },
-      { label: "!" + Name, kind: Kinds.Completion.Entity, documentation: "test not for the entity: " + Name }
-    );
-  });
+export function provideFakePlayersCompletion(receiver: CompletionList): void {
+  Completion.Convert(Database.Data.FakeEntities, Kinds.Completion.FakeEntity, receiver.items);
 }

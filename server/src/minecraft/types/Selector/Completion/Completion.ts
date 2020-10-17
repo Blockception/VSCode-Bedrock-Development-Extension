@@ -31,16 +31,18 @@ import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-langu
 import { LocationWord, RangedWord } from "../../../../code/include";
 import { Completion } from '../../../../completion/Functions';
 import { Database } from "../../../../database/Database";
+import { provideFakePlayersCompletion } from '../../FakeEntity/Completion';
 import { InSelector } from "../../include";
+import { Kinds } from '../../Kinds';
 import { GetCurrentAttribute, InScore, IsEditingValue } from "../Selector";
 import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 
-const AllPlayer: CompletionItem = { label: "@a", kind: CompletionItemKind.Reference, documentation: "Targets all players", };
-const AllEntities: CompletionItem = { label: "@e", kind: CompletionItemKind.Reference, documentation: "Targets all entities", };
-const Executing: CompletionItem = { label: "@s", kind: CompletionItemKind.Reference, documentation: "Targets the executing entity", };
-const Random: CompletionItem = { label: "@r", kind: CompletionItemKind.Reference, documentation: "Targets random players, or if specified, random types", };
-const NearestPlayer: CompletionItem = { label: "@p", kind: CompletionItemKind.Reference, documentation: "Targets the nearest player", };
+const AllPlayer: CompletionItem = { label: "@a", kind: Kinds.Completion.Selector, documentation: "Targets all players", };
+const AllEntities: CompletionItem = { label: "@e", kind: Kinds.Completion.Selector, documentation: "Targets all entities", };
+const Executing: CompletionItem = { label: "@s", kind: Kinds.Completion.Selector, documentation: "Targets the executing entity", };
+const Random: CompletionItem = { label: "@r", kind: Kinds.Completion.Selector, documentation: "Targets random players, or if specified, random types", };
+const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player", };
 
 export function provideSelectorCompletion(
   receiver: CompletionList, selector: LocationWord | undefined, pos: number,
@@ -60,12 +62,8 @@ export function provideSelectorCompletion(
     //Defaults
     receiver.items.push(AllPlayer, Executing, Executing, Random, NearestPlayer);
 
-    if (forEntities) {
-      receiver.items.push(AllEntities);
-    }
-    if (forFakePlayer) {
-      AddFakePlayers(receiver);
-    }
+    if (forEntities) { receiver.items.push(AllEntities); }
+    if (forFakePlayer) { provideFakePlayersCompletion(receiver); }
 
     return;
   }
@@ -83,10 +81,3 @@ export function provideSelectorCompletion(
   }
 }
 
-/**
- * 
- * @param receiver 
- */
-function AddFakePlayers(receiver: CompletionList) {
-  Completion.Convert(Database.Data.FakeEntities, CompletionItemKind.EnumMember, receiver.items);
-}
