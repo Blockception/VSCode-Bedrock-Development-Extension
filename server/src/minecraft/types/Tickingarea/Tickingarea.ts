@@ -29,21 +29,17 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from "vscode-languageserver";
 import { GetFilepath } from "../../../code/include";
+import { Identifiable } from '../../Interfaces/Identifiable';
 
-export class Tickingarea {
-  public Name: string;
+export class Tickingarea implements Identifiable {
+  public Identifier: string;
   public Location: Location;
 
-  constructor(
-    Name: string,
-    uri: string,
-    LineIndex: number,
-    StartIndex: number
-  ) {
-    this.Name = Name;
+  constructor(Identifier: string, uri: string, LineIndex: number, StartIndex: number) {
+    this.Identifier = Identifier;
     this.Location = Location.create(
       GetFilepath(uri),
-      Range.create(LineIndex, StartIndex, LineIndex, StartIndex + Name.length)
+      Range.create(LineIndex, StartIndex, LineIndex, StartIndex + Identifier.length)
     );
   }
 }

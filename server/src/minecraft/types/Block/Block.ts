@@ -28,14 +28,15 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, MarkupContent, Range } from "vscode-languageserver";
+import { Locatable, Identifiable } from '../../Interfaces/include';
 
-export class Block {
-  public Name: string;
+export class Block implements Identifiable, Locatable {
+  public Identifier: string;
   public Location: Location;
   public Documentation: MarkupContent;
 
   constructor() {
-    this.Name = "";
+    this.Identifier = "";
     this.Location = Location.create("", Range.create(0, 0, 0, 0));
     this.Documentation = { value: "", kind: "markdown" };
   }

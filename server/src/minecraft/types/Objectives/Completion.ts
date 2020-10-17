@@ -30,10 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { Database } from "../../../database/Database";
 
-export function provideObjectiveCompletion(
-  receiver: CompletionList,
-  additionalText: string | undefined = undefined
-): void {
+export function provideObjectiveCompletion(receiver: CompletionList, additionalText: string | undefined = undefined): void {
   Database.Data.forEach((dataSet) => {
     dataSet.Objectives.forEach((objective) => {
       let Name = objective.Name;
@@ -47,10 +44,7 @@ export function provideObjectiveCompletion(
   });
 }
 
-export function provideObjectivePostCompletion(
-  receiver: CompletionList,
-  additionalText: TemplateStringsArray
-): void {
+export function provideObjectivePostCompletion(receiver: CompletionList, additionalText: TemplateStringsArray): void {
   Database.Data.forEach((dataSet) => {
     dataSet.Objectives.forEach((objective) => {
       let Name = objective.Name;

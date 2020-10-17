@@ -28,13 +28,14 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from "vscode-languageserver";
+import { Identifiable } from '../../Interfaces/Identifiable';
 
-export class Sound {
-  public Name: string;
+export class Sound implements Identifiable {
+  public Identifier: string;
   public Location: Location;
 
   constructor() {
-    this.Name = "";
+    this.Identifier = "";
     this.Location = Location.create("", Range.create(0, 0, 0, 0));
   }
 }

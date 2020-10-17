@@ -29,13 +29,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import { MarkupContent } from "vscode-languageserver";
+import { Identifiable } from '../../Interfaces/Identifiable';
 
-export class Effect {
-  public Name: string;
+export class Effect implements Identifiable {
+  public Identifier: string;
   public Documentation: MarkupContent;
 
   constructor() {
-    this.Name = "";
+    this.Identifier = "";
     this.Documentation = { value: "", kind: "markdown" };
   }
 }
