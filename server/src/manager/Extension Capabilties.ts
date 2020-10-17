@@ -27,9 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { ClientCapabilities } from 'vscode-languageserver';
+
 export class ExtensionCapabiltities {
 	public hasConfigurationCapability: boolean = false;
 	public hasWorkspaceFolderCapability: boolean = false;
 	public hasDiagnosticRelatedInformationCapability: boolean = false;
 	public TraversedWorkspaces: boolean = false;
+
+
+	public Parse(capabilities: ClientCapabilities): void {
+		// Does the client support the `workspace/configuration` request?
+		// If not, we fall back using global settings.
+		this.hasConfigurationCapability = !!(capabilities.workspace && !!capabilities.workspace.configuration);
+		this.hasWorkspaceFolderCapability = !!(capabilities.workspace && !!capabilities.workspace.workspaceFolders);
+		this.hasDiagnosticRelatedInformationCapability = !!(
+			capabilities.textDocument &&
+			capabilities.textDocument.publishDiagnostics &&
+			capabilities.textDocument.publishDiagnostics.relatedInformation
+		);
+	}
 }
