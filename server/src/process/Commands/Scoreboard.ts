@@ -46,7 +46,7 @@ export function ProcessScoreboardCommand(line: string, lineIndex: number, doc: T
 		case 'players':
 			return CheckPlayer(Com);
 
-		case 'objective':
+		case 'objectives':
 			return CheckObjective(Com);
 	}
 }
@@ -54,9 +54,7 @@ export function ProcessScoreboardCommand(line: string, lineIndex: number, doc: T
 function CheckObjective(Com: CommandIntr): void {
 	let ObjectiveMode = Com.Paramaters[2];
 
-	if (Com.Paramaters.length > 4) {
-		return;
-	}
+	if (Com.Paramaters.length < 4) { return;}
 
 	if (ObjectiveMode.text === 'add') {
 		let obj = new Objective();
@@ -68,7 +66,7 @@ function CheckObjective(Com: CommandIntr): void {
 		obj.Location = ID.CreateLocation();
 		obj.Documentation.value = 'The objective: ' + ID.text + ' ' + Type.text;
 
-		if (Com.Paramaters.length > 4) {
+		if (Com.Paramaters.length > 5) {
 			obj.Documentation.value += ' ' + Com.Paramaters[5].text.replace(/"/g, '');
 		}
 

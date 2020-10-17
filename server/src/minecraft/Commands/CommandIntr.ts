@@ -58,6 +58,7 @@ export class CommandIntr {
   static parse(line: string, pos: Position, uri: string): CommandIntr {
     let Out = new CommandIntr();
 
+    line = line.trim();
     let LineIndex = pos.line;
     let Words = RangedWord.GetWords(line);
     let char = pos.character;

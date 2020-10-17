@@ -130,13 +130,13 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         }
         break;
 
+      case MCCommandParameterType.jsonItem:
       case MCCommandParameterType.jsonRawText:
         if (!IsJson(comText)) {
           return false;
         }
         break;
 
-      case MCCommandParameterType.jsonItem:
       case MCCommandParameterType.keyword:
         if (comText != patPar.Text) {
           return false;
