@@ -29,10 +29,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "examples": [
-          "Some text",
-          "{\"rawtext\":[ {\"translate\":\"some.text\"}]}"
-        ]
+        "examples": ["Some text", "{\"rawtext\":[ {\"translate\":\"some.text\"}]}"]
       },
       "description": "TODO description",
       "title": "TODO title",

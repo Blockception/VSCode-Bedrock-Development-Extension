@@ -93,15 +93,7 @@
             "type": "object",
             "title": "Events",
             "propertyNames": {
-              "enum": [
-                "default",
-                "item.use.on",
-                "break",
-                "hit",
-                "place",
-                "power.on",
-                "power.off"
-              ]
+              "enum": ["default", "item.use.on", "break", "hit", "place", "power.on", "power.off"]
             },
             "additionalProperties": {
               "$ref": "#/definitions/sound_event"

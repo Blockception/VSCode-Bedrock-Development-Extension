@@ -218,16 +218,7 @@
         "title": "Variant",
         "description": "TODO",
         "propertyNames": {
-          "enum": [
-            "fading",
-            "fog",
-            "fog.underwater",
-            "lit",
-            "skinning",
-            "skinning_color",
-            "underlava",
-            "underwater"
-          ]
+          "enum": ["fading", "fog", "fog.underwater", "lit", "skinning", "skinning_color", "underlava", "underwater"]
         },
         "additionalProperties": {
           "title": "Variant Item",
@@ -304,26 +295,13 @@
             "type": "string",
             "title": "Blend Distance",
             "description": "TODO",
-            "enum": [
-              "SourceAlpha",
-              "OneMinusSrcAlpha",
-              "OneMinusSrcColor",
-              "SourceColor",
-              "Zero",
-              "One"
-            ]
+            "enum": ["SourceAlpha", "OneMinusSrcAlpha", "OneMinusSrcColor", "SourceColor", "Zero", "One"]
           },
           "blendSrc": {
             "type": "string",
             "title": "Blend source",
             "description": "TODO",
-            "enum": [
-              "DestColor",
-              "One",
-              "OneMinusDestColor",
-              "SourceAlpha",
-              "SourceColor"
-            ]
+            "enum": ["DestColor", "One", "OneMinusDestColor", "SourceAlpha", "SourceColor"]
           },
           "defines": {
             "title": "Defines",

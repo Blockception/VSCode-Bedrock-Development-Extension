@@ -4,13 +4,7 @@
   "additionalProperties": false,
   "description": "The function enchant_book_for_trading",
   "title": "Enchant_book_for_trading",
-  "required": [
-    "function",
-    "base_cost",
-    "base_random_cost",
-    "per_level_random_cost",
-    "per_level_cost"
-  ],
+  "required": ["function", "base_cost", "base_random_cost", "per_level_random_cost", "per_level_cost"],
   "properties": {
     "function": {
       "type": "string",

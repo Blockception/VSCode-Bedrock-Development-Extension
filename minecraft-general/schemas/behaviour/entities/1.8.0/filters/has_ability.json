@@ -26,18 +26,7 @@
     "value": {
       "type": "string",
       "description": "(Required) The Ability type to test",
-      "enum": [
-        "flySpeed",
-        "flying",
-        "instabuild",
-        "invulnerable",
-        "lightning",
-        "mayfly",
-        "mute",
-        "noclip",
-        "walkSpeed",
-        "worldbuilder"
-      ],
+      "enum": ["flySpeed", "flying", "instabuild", "invulnerable", "lightning", "mayfly", "mute", "noclip", "walkSpeed", "worldbuilder"],
       "title": "Value",
       "additionalProperties": false
     }

@@ -25,14 +25,7 @@
       "type": "string",
       "default": "none",
       "description": "Type of container this entity has. Can be horse, minecart_chest, minecart_hopper, inventory, container or hopper",
-      "enum": [
-        "horse",
-        "minecart_chest",
-        "minecart_hopper",
-        "inventory",
-        "container",
-        "hopper"
-      ],
+      "enum": ["horse", "minecart_chest", "minecart_hopper", "inventory", "container", "hopper"],
       "title": "TODO title",
       "additionalProperties": false
     },

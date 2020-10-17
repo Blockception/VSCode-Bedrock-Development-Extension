@@ -3,39 +3,19 @@
   "$id": "blockception.minecraft.behaviour.blocks",
   "allOf": [
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.10.0 format_version",
-            "type": "string",
-            "const": "1.10" } } },
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.10" } } },
       "then": { "$ref": "1.10.0/blocks.json" }
     },
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.10.0 format_version",
-            "type": "string",
-            "const": "1.10.0" } } },
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.10.0" } } },
       "then": { "$ref": "1.10.0/blocks.json" }
     },
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.12.0 format_version",
-            "type": "string",
-            "const": "1.12.0" } } },
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.12.0" } } },
       "then": { "$ref": "1.12.0/blocks.json" }
     },
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.16.0 format_version",
-            "type": "string",
-            "const": "1.16.0" } } },
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.16.0" } } },
       "then": { "$ref": "1.16.0/blocks.json" }
     }
   ]

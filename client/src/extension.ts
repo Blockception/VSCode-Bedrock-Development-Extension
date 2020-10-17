@@ -16,9 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
   console.log("starting minecraft language client");
 
   // The server is implemented in node
-  let serverModule = context.asAbsolutePath(
-    path.join("server", "out", "server.js")
-  );
+  let serverModule = context.asAbsolutePath(path.join("server", "out", "server.js"));
 
   // The debug options for the server
   // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
@@ -47,16 +45,11 @@ export function activate(context: vscode.ExtensionContext) {
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace
       fileEvents: vscode.workspace.createFileSystemWatcher("**/.clientrc"),
-    }
+    },
   };
 
   // Create the language client and start the client.
-  client = new LanguageClient(
-    "languageBlockceptionMinecraftClient",
-    "Language Server Blockception minecraft",
-    serverOptions,
-    clientOptions
-  );
+  client = new LanguageClient("languageBlockceptionMinecraftClient", "Language Server Blockception minecraft", serverOptions, clientOptions);
 
   // Start the client. This will also launch the server
   client.start();

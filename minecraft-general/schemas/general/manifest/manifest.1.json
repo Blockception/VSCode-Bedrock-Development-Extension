@@ -7,12 +7,8 @@
   "additionalProperties": false,
   "required": ["format_version", "header"],
   "definitions": {
-    "uuidv4": {
-      "$ref": "../../../../json-schemas/general/UUIDV4.json"
-    },
-    "version": {
-      "$ref": "../../../../json-schemas/general/Version.json"
-    }
+    "uuidv4": { "$ref": "../../../../json-schemas/general/UUIDV4.json" },
+    "version": { "$ref": "../../../../json-schemas/general/Version.json" }
   },
   "properties": {
     "format_version": {
@@ -79,13 +75,7 @@
           "type": {
             "description": "This is the type of the module. Can be any of the following: resources, data, client_data, interface, world_template",
             "type": "string",
-            "enum": [
-              "resources",
-              "data",
-              "client_data",
-              "interface",
-              "world_template"
-            ],
+            "enum": ["resources", "data", "client_data", "interface", "world_template"],
             "title": "Type"
           },
           "description": {

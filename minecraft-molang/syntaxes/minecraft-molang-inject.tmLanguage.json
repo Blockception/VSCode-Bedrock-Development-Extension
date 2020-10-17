@@ -3,12 +3,7 @@
   "name": "Minecraft molang injection",
   "scopeName": "source.bc.minecraft.molang.inject",
   "injectionSelector": "L:string.quoted.double.json",
-  "patterns": [
-    { "include": "#keywords" },
-    { "include": "#operators" },
-    { "include": "#selectors" },
-    { "include": "#constants" }
-  ],
+  "patterns": [{ "include": "#keywords" }, { "include": "#operators" }, { "include": "#selectors" }, { "include": "#constants" }],
   "repository": {
     "keywords": {
       "patterns": [

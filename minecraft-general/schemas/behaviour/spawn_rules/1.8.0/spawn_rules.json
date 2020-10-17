@@ -32,14 +32,7 @@
               "type": "string",
               "title": "Population control",
               "description": "TODO",
-              "enum": [
-                "ambient",
-                "animal",
-                "water_animal",
-                "monster",
-                "cat",
-                "pillager"
-              ]
+              "enum": ["ambient", "animal", "water_animal", "monster", "cat", "pillager"]
             }
           }
         },

@@ -22,16 +22,7 @@
           "type": "string",
           "description": "The target of the event",
           "title": "Target",
-          "enum": [
-            "baby",
-            "block",
-            "damager",
-            "other",
-            "parent",
-            "player",
-            "self",
-            "target"
-          ]
+          "enum": ["baby", "block", "damager", "other", "parent", "player", "self", "target"]
         }
       }
     }

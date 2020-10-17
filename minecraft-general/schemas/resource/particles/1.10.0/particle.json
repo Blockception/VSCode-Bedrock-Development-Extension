@@ -23,7 +23,8 @@
               "type": "string",
               "pattern": "^.+$",
               "description": "TODO description: identifier",
-              "title": "Identifier" },
+              "title": "Identifier"
+            },
             "basic_render_parameters": {
               "additionalProperties": false,
               "type": "object",
@@ -42,7 +43,8 @@
                 }
               },
               "description": "TODO description: basic render parameters",
-              "title": "Basic Render Parameters" }
+              "title": "Basic Render Parameters"
+            }
           },
           "description": "TODO description: description",
           "title": "Description"

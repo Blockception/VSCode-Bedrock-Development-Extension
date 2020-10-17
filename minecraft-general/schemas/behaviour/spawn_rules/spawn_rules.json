@@ -3,15 +3,8 @@
   "$id": "blockception.minecraft.behaviour.spawn_rules",
   "allOf": [
     {
-      "if": {
-        "properties": {
-          "format_version": {
-            "title": "The 1.8.0 format_version",
-            "type": "string",
-            "const": "1.8.0" } } },
-      "then": {
-        "$ref": "./1.8.0/spawn_rules.json"
-      }
+      "if": { "properties": { "format_version": { "type": "string", "const": "1.8.0" } } },
+      "then": { "$ref": "./1.8.0/spawn_rules.json" }
     }
   ]
 }

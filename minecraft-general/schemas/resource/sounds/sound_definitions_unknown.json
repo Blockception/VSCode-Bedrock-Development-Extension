@@ -24,17 +24,7 @@
           "type": "string",
           "$id": "#/Sound/category",
           "title": "Sound category",
-          "enum": [
-            "block",
-            "music",
-            "weather",
-            "ui",
-            "bucket",
-            "neutral",
-            "player",
-            "hostile",
-            "record"
-          ],
+          "enum": ["block", "music", "weather", "ui", "bucket", "neutral", "player", "hostile", "record"],
           "description": "TODO description: category"
         },
         "sounds": {

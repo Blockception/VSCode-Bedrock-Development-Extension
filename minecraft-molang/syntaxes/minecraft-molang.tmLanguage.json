@@ -3,11 +3,7 @@
   "name": "Minecraft molang",
   "scopeName": "source.bc.minecraft.molang",
   "injectionSelector": "bc-molang",
-  "patterns": [
-    { "include": "#keywords" },
-    { "include": "#operators" },
-    { "include": "#constants" }
-  ],
+  "patterns": [{ "include": "#keywords" }, { "include": "#operators" }, { "include": "#constants" }],
   "repository": {
     "keywords": {
       "patterns": [

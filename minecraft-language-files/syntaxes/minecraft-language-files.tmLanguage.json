@@ -4,11 +4,7 @@
   "scopeName": "source.bc.minecraft.language",
   "foldingStartMarker": "^\\#\\#[ \t]*region",
   "foldingStopMarker": "^\\#\\#[ \t]*endregion",
-  "patterns": [
-    { "include": "#strings" },
-    { "include": "#comments" },
-    { "include": "#characters" }
-  ],
+  "patterns": [{ "include": "#strings" }, { "include": "#comments" }, { "include": "#characters" }],
   "fileTypes": ["lang"],
   "repository": {
     "strings": {
