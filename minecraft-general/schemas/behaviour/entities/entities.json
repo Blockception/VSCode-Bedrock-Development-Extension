@@ -8,10 +8,7 @@
           "format_version": {
             "title": "The 1.8.0 format_version",
             "type": "string",
-            "const": "1.8.0"
-          }
-        }
-      },
+            "const": "1.8.0" } } },
       "then": { "$ref": "./1.8.0/entities.json" }
     },
     {
@@ -20,10 +17,7 @@
           "format_version": {
             "title": "The 1.10.0 format_version",
             "type": "string",
-            "const": "1.10.0"
-          }
-        }
-      },
+            "const": "1.10.0" } } },
       "then": { "$ref": "./1.10.0/entities.json" }
     },
     {
@@ -32,10 +26,7 @@
           "format_version": {
             "title": "The 1.11.0 format_version",
             "type": "string",
-            "const": "1.11.0"
-          }
-        }
-      },
+            "const": "1.11.0" } } },
       "then": { "$ref": "./1.11.0/entities.json" }
     },
     {
@@ -44,10 +35,7 @@
           "format_version": {
             "title": "The 1.12.0 format_version",
             "type": "string",
-            "const": "1.12.0"
-          }
-        }
-      },
+            "const": "1.12.0" } } },
       "then": { "$ref": "./1.12.0/entities.json" }
     },
     {
@@ -56,10 +44,7 @@
           "format_version": {
             "title": "The 1.13.0 format_version",
             "type": "string",
-            "const": "1.13.0"
-          }
-        }
-      },
+            "const": "1.13.0" } } },
       "then": { "$ref": "./1.13.0/entities.json" }
     },
     {
@@ -68,10 +53,7 @@
           "format_version": {
             "title": "The 1.14.0 format_version",
             "type": "string",
-            "const": "1.14.0"
-          }
-        }
-      },
+            "const": "1.14.0" } } },
       "then": { "$ref": "./1.14.0/entities.json" }
     },
     {
@@ -80,10 +62,7 @@
           "format_version": {
             "title": "The 1.16.0 format_version",
             "type": "string",
-            "const": "1.16.0"
-          }
-        }
-      },
+            "const": "1.16.0" } } },
       "then": { "$ref": "./1.16.0/entities.json" }
     }
   ]

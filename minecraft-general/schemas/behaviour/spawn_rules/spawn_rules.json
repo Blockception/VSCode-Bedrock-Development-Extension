@@ -8,10 +8,7 @@
           "format_version": {
             "title": "The 1.8.0 format_version",
             "type": "string",
-            "const": "1.8.0"
-          }
-        }
-      },
+            "const": "1.8.0" } } },
       "then": {
         "$ref": "./1.8.0/spawn_rules.json"
       }

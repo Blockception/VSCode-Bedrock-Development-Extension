@@ -9,10 +9,7 @@
             "title": "The 1.8.0 format_version",
             "type": "string",
             "const": "1.8.0",
-            "description": "TODO description: format version"
-          }
-        }
-      },
+            "description": "A version that tells minecraft what type of data format can be expected when reading this file." } } },
       "then": { "$ref": "1.8.0/attachables.json" }
     },
     {
@@ -22,10 +19,7 @@
             "title": "The 1.10.0 format_version",
             "type": "string",
             "const": "1.10",
-            "description": "TODO description: format version"
-          }
-        }
-      },
+            "description": "A version that tells minecraft what type of data format can be expected when reading this file." } } },
       "then": { "$ref": "1.10.0/attachables.json" }
     },
     {
@@ -35,10 +29,7 @@
             "title": "The 1.10.0 format_version",
             "type": "string",
             "const": "1.10.0",
-            "description": "TODO description: format version"
-          }
-        }
-      },
+            "description": "A version that tells minecraft what type of data format can be expected when reading this file." } } },
       "then": { "$ref": "1.10.0/attachables.json" }
     }
   ]

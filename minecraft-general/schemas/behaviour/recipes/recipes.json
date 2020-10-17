@@ -8,10 +8,7 @@
           "format_version": {
             "title": "The 1.12.0 format_version",
             "type": "string",
-            "const": "1.12"
-          }
-        }
-      },
+            "const": "1.12" } } },
       "then": { "$ref": "1.12.0/recipes.json" }
     },
     {
@@ -20,10 +17,7 @@
           "format_version": {
             "title": "The 1.12.0 format_version",
             "type": "string",
-            "const": "1.12.0"
-          }
-        }
-      },
+            "const": "1.12.0" } } },
       "then": { "$ref": "1.12.0/recipes.json" }
     }
   ]

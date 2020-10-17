@@ -1,2 +1,2 @@
-npx prettier --check "**/*.json" --config ./json.prettierrc.json
-npx prettier --check "**/*.ts" --config ./typescript.prettierrc.json
+npx prettier --check "**/*.json" --config ./scripts/json.prettierrc.json
+npx prettier --check "**/*.ts" --config ./scripts/typescript.prettierrc.json

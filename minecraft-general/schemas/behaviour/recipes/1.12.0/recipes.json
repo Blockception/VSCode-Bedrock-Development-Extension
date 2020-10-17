@@ -9,8 +9,8 @@
   "properties": {
     "format_version": {
       "type": "string",
-      "description": "TODO description",
-      "title": "TODO title",
+      "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
+      "title": "Format version",
       "additionalProperties": false
     },
     "minecraft:recipe_furnace": {

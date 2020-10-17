@@ -16,7 +16,7 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "TODO description: format version",
+      "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
       "additionalProperties": false
     }
   },
