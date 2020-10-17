@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MarkupKind } from "vscode-languageserver";
-import { Manager } from "../../Manager";
+import { Manager } from "../../manager/Manager";
 import * as data from "./commands.json";
 import { MCCommand } from "../Commands/MCCommand";
 import { MCCommandParameter } from "../Commands/MCCommandParameter";
@@ -50,14 +50,14 @@ interface Command {
 export function AddCommands(): void {
   data.vanilla.forEach((com) => {
     let Command = Convert(com);
-    Manager.Commands.add(Command);
+    Manager.Data.Commands.add(Command);
   });
 
   if (Manager.Settings.useEducationContent)
     data.edu.forEach((com) => {
       let Command = Convert(com);
       Command.documentation.value = "**[EDU]** " + Command.documentation.value;
-      Manager.Commands.add(Command);
+      Manager.Data.Commands.add(Command);
     });
 }
 

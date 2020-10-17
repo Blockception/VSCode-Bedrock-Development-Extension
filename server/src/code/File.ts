@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { readdirSync, statSync } from 'fs';
 import { WorkspaceFolder } from 'vscode-languageserver';
 import { URI } from 'vscode-uri';
-import { Manager } from '../Manager';
+import { Manager } from '../manager/Manager';
 
 export function GetFilename(filepath: string): string {
   filepath = filepath.replace(/\\/, "//");

@@ -32,7 +32,7 @@ import {
   InitializeResult,
   TextDocumentSyncKind,
 } from "vscode-languageserver";
-import { Manager } from "../Manager";
+import { Manager } from "../manager/Manager";
 
 export async function onInitializeAsync(
   params: InitializeParams
@@ -44,21 +44,11 @@ export async function onInitializeAsync(
 
 function onInitialize(params: InitializeParams): InitializeResult {
   console.log("Initializing minecraft server");
-  let capabilities = params.capabilities;
 
-  // Does the client support the `workspace/configuration` request?
-  // If not, we fall back using global settings.
-  Manager.hasConfigurationCapability = !!(
-    capabilities.workspace && !!capabilities.workspace.configuration
-  );
-  Manager.hasWorkspaceFolderCapability = !!(
-    capabilities.workspace && !!capabilities.workspace.workspaceFolders
-  );
-  Manager.hasDiagnosticRelatedInformationCapability = !!(
-    capabilities.textDocument &&
-    capabilities.textDocument.publishDiagnostics &&
-    capabilities.textDocument.publishDiagnostics.relatedInformation
-  );
+  //process capabilities of the client
+  let capabilities = params.capabilities;
+  Manager.Capabiltities.Parse(capabilities);
+
 
   const result: InitializeResult = {
     capabilities: {
@@ -98,7 +88,7 @@ function onInitialize(params: InitializeParams): InitializeResult {
     }
   };
 
-  if (Manager.hasWorkspaceFolderCapability) {
+  if (Manager.Capabiltities.hasWorkspaceFolderCapability) {
     result.capabilities.workspace = {
       workspaceFolders: {
         supported: true

@@ -34,7 +34,7 @@ import {
 } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilepath } from "../code/include";
-import { Manager } from "../Manager";
+import { Manager } from "../manager/Manager";
 
 export function InvalidJson(doc: TextDocument, error: any): void {
   let Out: PublishDiagnosticsParams = {

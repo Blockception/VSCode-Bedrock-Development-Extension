@@ -35,7 +35,7 @@ import { GetFilename } from '../../../code/File';
 import { GetProjectData, ProjectData } from '../../../code/ProjectData';
 import { DocumentReader } from '../../../code/Reader';
 import { UniformUrl } from '../../../code/Url';
-import { Manager } from '../../../Manager';
+import { Manager } from '../../../manager/Manager';
 import { GeneralDataType } from '../../format/General Data Type';
 import { ContentError, CreateErrors } from './Errors';
 import { GetHeader, ContentLogHeader, CreateDiagnostics } from './Header';

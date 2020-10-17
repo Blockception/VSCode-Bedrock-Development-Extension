@@ -38,7 +38,7 @@ import {
   OnDocumentRangeFormatRequestAsync,
 } from "../format/OnRequest";
 import { OnHoverRequestAsync } from "../hover/OnRequest";
-import { Manager } from "../Manager";
+import { Manager } from "../manager/Manager";
 import { OndDocumentChangedAsync } from "../process/Process";
 import { OnSignatureRequestAsync } from "../signatures/OnRequest";
 import {
@@ -52,8 +52,8 @@ import { onDidChangeConfigurationAsync } from "./OnConfiguration";
  */
 export function setEvents() {
   //Provides diagnostics and such
-  Manager.Documents.onDidOpen(OndDocumentChangedAsync);
-  Manager.Documents.onDidSave(OndDocumentChangedAsync);
+  Manager.Data.Documents.onDidOpen(OndDocumentChangedAsync);
+  Manager.Data.Documents.onDidSave(OndDocumentChangedAsync);
 
   // This handler provides commands
   //Manager.Connection.onExecuteCommand(OnCommandRequestAsync);

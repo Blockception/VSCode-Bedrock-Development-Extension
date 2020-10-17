@@ -47,6 +47,12 @@ export class JsonDocument {
     return <T>object;
   }
 
+  public CastToError<T>(): { value: T | undefined | null, error: any } {
+    let object = this.CastToError();
+
+    return {value:<T>object.value,error:object.error};
+  }
+
   public GetObject(): any | undefined | null {
     if (this.object === undefined) {
       try {
@@ -64,6 +70,28 @@ export class JsonDocument {
     }
 
     return this.object;
+  }
+
+  public GetObjectError(): { value: any | undefined | null, error: any } {
+    let err: any = null;
+
+    if (this.object === undefined) {
+      try {
+        let Text = this.doc.getText();
+        Text = stripJSONComments(Text);
+        let object = JSON.parse(Text);
+
+        this.object = object;
+      } catch (error) {
+        err = error;
+        console.log(error);
+        //InvalidJson(this.doc, error);
+      }
+
+      //ValidJson(this.doc);
+    }
+
+    return { value: this.object, error: err };
   }
 
   public GetRange(Name: string, Value: string): Range | undefined {

@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Manager } from "../../Manager";
+import { Manager } from "../../manager/Manager";
 import { IsBoolean } from "../types/Boolean/Boolean";
 import { IsSelector } from "../types/include";
 import { IsJson } from "../types/Json/Json";
@@ -125,7 +125,7 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         break;
 
       case MCCommandParameterType.command:
-        if (!Manager.Commands.has(comText)) {
+        if (!Manager.Data.Commands.has(comText)) {
           return false;
         }
         break;

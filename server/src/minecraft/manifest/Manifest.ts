@@ -56,6 +56,7 @@ export namespace ManifestModule {
 	export const TypeResource = 'resources';
 	export const TypeData = 'data';
 	export const TypeWorld = 'world_template';
+	export const TypeSkinPack = 'skin_pack';
 }
 
 export interface ManifestMetadata {
@@ -88,6 +89,14 @@ export namespace Manifest {
 		return false;
 	}
 
+	export function IsSkinpackManifest(m: Manifest): boolean {
+		m.modules.forEach(mod => {
+			if (mod.type === ManifestModule.TypeData)
+				return true;
+		})
+		return false;
+	}
+
 	export function DetectType(m: Manifest): GeneralDataType {
 		for (let I = 0; I < m.modules.length; I++) {
 			let mod = m.modules[I];
@@ -101,6 +110,9 @@ export namespace Manifest {
 
 				case ManifestModule.TypeWorld:
 					return GeneralDataType.world;
+
+					case ManifestModule.TypeSkinPack:
+						return GeneralDataType.skin_pack;
 			}
 		}
 

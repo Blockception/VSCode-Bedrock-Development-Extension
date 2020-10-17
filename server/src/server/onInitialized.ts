@@ -32,7 +32,7 @@ import {
   DidChangeConfigurationNotification,
 } from "vscode-languageserver";
 import { URI } from "vscode-uri";
-import { Manager } from "../Manager";
+import { Manager } from "../manager/Manager";
 import { AddCommands, AddMinecraftData } from "../minecraft/data/include";
 import { TraveseDirectory } from "../process/traverse";
 import { UpdateSettings } from "./Settings";
@@ -52,7 +52,7 @@ function onInitialized(params: InitializedParams): void {
   //Update the settings of the language server
   UpdateSettings();
 
-  if (Manager.hasConfigurationCapability) {
+  if (Manager.Capabiltities.hasConfigurationCapability) {
     // Register for all configuration changes.
     Manager.Connection.client.register(
       DidChangeConfigurationNotification.type,
@@ -83,8 +83,10 @@ function onInitialized(params: InitializedParams): void {
       if (Path == undefined) return;
 
       new Promise((resolve, reject) => {
+        Manager.State.TraversingProject = true;
         TraveseDirectory(Path);
-        Manager.TraversedWorkspaces = true;
+        Manager.State.TraversingProject = false;
+        Manager.State.DataGathered = true;        
         resolve();
       });
     });

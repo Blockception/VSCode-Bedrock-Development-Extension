@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position } from "vscode-languageserver-textdocument";
 import { RangedWord } from "../../code/include";
-import { Manager } from "../../Manager";
+import { Manager } from "../../manager/Manager";
 import { CommandInfo } from "./CommandInfo";
 
 /**
@@ -102,7 +102,7 @@ export class CommandIntr {
    *Gets all the command data that is the possible best match data
    */
   GetCommandData(): CommandInfo[] {
-    return Manager.Commands.getBestMatches(this);
+    return Manager.Data.Commands.getBestMatches(this);
   }
 
   /**

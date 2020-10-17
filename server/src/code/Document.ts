@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Manager } from "../Manager";
+import { Manager } from "../manager/Manager";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
@@ -50,7 +50,7 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
   }
 
   if (Content == undefined) {
-    let doc = Manager.Documents.get(Old);
+    let doc = Manager.Data.Documents.get(Old);
 
     /*if (doc == undefined){
       doc = Manager.Documents.get(uri);

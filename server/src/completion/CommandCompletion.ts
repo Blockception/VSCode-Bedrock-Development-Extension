@@ -32,10 +32,10 @@ import {
   CompletionList,
   MarkupContent,
 } from "vscode-languageserver";
-import { Manager } from "../Manager";
+import { Manager } from "../manager/Manager";
 
 export function provideCommandCompletion(receiver: CompletionList): void {
-  for (let [key, value] of Manager.Commands.Subset) {
+  for (let [key, value] of Manager.Data.Commands.Subset) {
     let documentation: MarkupContent = {
       kind: "markdown",
       value: "The command: " + key,

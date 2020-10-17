@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
-import { Manager } from "../../Manager";
+import { Manager } from "../../manager/Manager";
 import { Database } from "../../database/Database";
 import { MinecraftData } from "../Minecraft Data";
 import { Block, Entity, Sound } from "../types/include";

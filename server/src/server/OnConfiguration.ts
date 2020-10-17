@@ -31,7 +31,7 @@ import {
   DidChangeConfigurationParams,
   NotificationHandler,
 } from "vscode-languageserver";
-import { Manager } from "../Manager";
+import { Manager } from "../manager/Manager";
 import { ServerSettings, UpdateSettings } from "./Settings";
 
 export async function onDidChangeConfigurationAsync(
