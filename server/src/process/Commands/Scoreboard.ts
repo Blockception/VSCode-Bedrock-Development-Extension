@@ -74,8 +74,8 @@ function CheckObjective(Com: CommandIntr): void {
 }
 
 function CheckPlayer(Com: CommandIntr): void {
-	if (Com.Paramaters.length > 3) {
-		let Selector = Com.Paramaters[4];
+	if (Com.Paramaters.length > 2) {
+		let Selector = Com.Paramaters[3];
 
 		if (IsFakePlayer(Selector.text)) {
 			let FE = new FakeEntity();

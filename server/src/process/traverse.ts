@@ -27,77 +27,59 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as fs from "fs";
-import { Process } from "./Process";
-import { GetDocument } from "../code/include";
-import {
-  McFunctionIdentifier,
-  McLanguageIdentifier,
-  McOtherIdentifier,
-} from "../Constants";
+import * as fg from "fast-glob";
+import { WorkspaceFolder } from 'vscode-languageserver';
+import { URI } from 'vscode-uri';
+import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
+import { Manager } from '../manager/Manager';
+import { GetDocument } from '../code/include';
+import { Process } from './Process';
+
+export function TraverseWorkspaces(): void {
+  Manager.Connection.workspace.getWorkspaceFolders().then((WorkFolders) => {
+    if (!WorkFolders) return;
+
+    WorkFolders.forEach((wf) => TraverseWorkspace(wf));
+  });
+}
+
+
+export function TraverseWorkspace(workspace: WorkspaceFolder): void {
+  const uri = workspace.uri;
+  let Path = URI.parse(uri).fsPath;
+  TraveseDirectory(Path);
+}
 
 //Traverse the directory
 export function TraveseDirectory(Dir: string): void {
   //console.log('exploring: ' + Dir);
-  if (!Dir.endsWith("\\")) {
-    Dir += "\\";
+  if (!Dir.endsWith('\\')) {
+    Dir += '\\';
   }
 
-  fs.readdir(Dir, (err, files) => {
-    if (err) {
-      console.log(Dir);
-      console.log(err);
-    } else {
-      if (files)
-        files.forEach((file) => {
-          let Path = Dir + file;
+  Dir = Dir.replace(/\\/g, '/');
 
-          if (Path.endsWith(".mcfunction")) {
-            PromiseParse(Path, McFunctionIdentifier);
-          } else if (Path.endsWith(".lang")) {
-            PromiseParse(Path, McLanguageIdentifier);
-          } else if (Path.endsWith(".json")) {
-            PromiseParse(Path, McOtherIdentifier);
-          } else if (fs.lstatSync(Path).isDirectory()) {
-            PromiseTraveseDirectory(Path);
-          }
-        });
-    }
-  });
+  const mcfunctions = fg.sync(Dir + "**/*.mcfunction", { absolute: true, onlyFiles: true });
+  const jsons = fg.sync(Dir + "**/*.json", { absolute: true, onlyFiles: true });
+  const languagfile = fg.sync(Dir + "**/*.lang", { absolute: true, onlyFiles: true });
+
+  if (mcfunctions.length > 0)
+    Parsefiles(mcfunctions, McFunctionIdentifier);
+
+  if (jsons.length > 0)
+    Parsefiles(jsons, McOtherIdentifier);
+
+  if (languagfile.length > 0)
+    Parsefiles(languagfile, McLanguageIdentifier);
 }
 
-export async function PromiseTraveseDirectory(path: string): Promise<boolean> {
-  return new Promise<boolean>((resolve, reject) => {
-    setTimeout(() => {
-      try {
-        TraveseDirectory(path);
-        resolve(true);
-      } catch (error) {
-        console.log(error);
-        reject(false);
-      }
-    }, 0);
-  });
-}
+function Parsefiles(files: string[], languageID: string) {
+  for (let index = 0; index < files.length; index++) {
+    Parse(files[index], languageID);
+  }
+};
 
-async function PromiseParse(
-  path: string,
-  languageID: string
-): Promise<boolean> {
-  return new Promise<boolean>((resolve, reject) => {
-    setTimeout(() => {
-      try {
-        Parse(path, languageID);
-        resolve(true);
-      } catch (error) {
-        console.log(error);
-        reject(false);
-      }
-    }, 0);
-  });
-}
-
-function Parse(path: string, languageID: string): void {
+function Parse(path: string, languageID: string) {
   let Doc = GetDocument(path, undefined, languageID);
   Process(Doc);
-}
+};
