@@ -27,44 +27,51 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Disposable, ProgressType } from 'vscode-languageserver';
+import { ProgressType, WorkDoneProgressParams } from 'vscode-languageserver';
 import { Manager } from '../manager/Manager';
 
-export class ProgressHandler implements Disposable {
-	carrier: Disposable | undefined;
-	token: string;
+export interface ProgressHandler {
 
-	progress : number;
+	sendProgress(value: number): void
+}
 
-	constructor(token: string) {
+class TokenProgressHandler implements ProgressHandler {
+	readonly token: string | number;
+
+	constructor(token: string | number) {
 		this.token = token;
-		this.carrier = undefined;
-		this.progress = 0;
 	}
 
-
-	dispose(): void {
-		this.carrier?.dispose();
-	}
-
-	NotificationHandler(params : number): void {
-		this.progress = params;
-	}
-
-	sendProgress(value : number) : void {
+	sendProgress(value: number): void {
 		Manager.Connection.sendProgress(new ProgressType<number>(), this.token, value);
 	}
 }
 
+class EmptyProgressHandler implements ProgressHandler {
+	constructor() { }
+
+	sendProgress(value: number): void { }
+}
+
 export namespace ProgressHandler {
-	export function create(token: string): ProgressHandler {
+	export function create(token: string | number | undefined | WorkDoneProgressParams): ProgressHandler {
 
-		let Out: ProgressHandler = new ProgressHandler(token);
+		if (token) {
+			if (typeof token === 'string' || typeof token === 'number') {
+				return new TokenProgressHandler(token);
+			}
 
-		let carrier = Manager.Connection.onProgress(new ProgressType<number>(), token, Out.NotificationHandler)
-		Out.carrier = carrier;
+			if (token.workDoneToken) {
+				token = token.workDoneToken;
 
+				if (token) {
+					if (typeof token === 'string' || typeof token === 'number') {
+						return new TokenProgressHandler(token);
+					}
+				}
+			}
+		}
 
-		return Out;
+		return new EmptyProgressHandler();
 	}
 }
