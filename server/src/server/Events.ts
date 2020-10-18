@@ -33,6 +33,7 @@ import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../defin
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../format/OnRequest";
 import { OnHoverRequestAsync } from "../hover/OnRequest";
 import { Manager } from "../manager/Manager";
+import { OnReferencesRequestAsync } from '../references/OnRequest';
 import { OnSignatureRequestAsync } from "../signatures/OnRequest";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../symbols/OnRequest";
 import { OndDocumentChangedAsync } from './Events/Documents';
@@ -61,6 +62,10 @@ export function setEvents() {
    Connection.onDefinition(onDefinitionRequestAsync);
    Connection.onTypeDefinition(onTypeDefinitionRequestAsync);
 
+   // This handler provides formatting
+   Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
+   Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync);
+
    // This handler provides document/workspace symbols
    Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
    Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
@@ -71,9 +76,8 @@ export function setEvents() {
    // This handler provides hover support
    Connection.onHover(OnHoverRequestAsync);
 
-   // This handler provides formatting
-   Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
-   Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync);
+      // This handler provides references
+   Connection.onReferences(OnReferencesRequestAsync);
 
    // This handler provides signatures
    Connection.onSignatureHelp(OnSignatureRequestAsync);

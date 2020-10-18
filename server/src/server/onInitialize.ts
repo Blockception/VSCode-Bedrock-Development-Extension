@@ -55,26 +55,33 @@ function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server code formatting.
       documentFormattingProvider: {},
       documentRangeFormattingProvider: {},
+
       // Tell the client that this server supports go to defintitions
       definitionProvider: true,
       typeDefinitionProvider: true,
+
       // Tell the client that this server supports symbol provider
       documentSymbolProvider: true,
       workspaceSymbolProvider: true,
+
       // Tell the client that this server supports hover support
       hoverProvider: true,
+
       // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: false,
         triggerCharacters: [" ", "\t", "[", "=", ","],
       },
-      // Tell the client that this server supports semantics
+
+      // Tell the client that this server supports go to references
+      referencesProvider: true,
 
       // Tell the client that this server supports signatures
       signatureHelpProvider: {
         triggerCharacters: [" "],
         retriggerCharacters: [" ", "\t"],
       },
+
       workspace: {
         workspaceFolders: {
           changeNotifications: true,

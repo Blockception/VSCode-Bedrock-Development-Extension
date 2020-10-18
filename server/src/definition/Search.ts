@@ -51,6 +51,7 @@ export function SearchDefinition(text: string, type: MCCommandParameterType[]): 
       case MCCommandParameterType.tickingarea:
         //keep
         return true;
+        
       default:
         return false;
     }
