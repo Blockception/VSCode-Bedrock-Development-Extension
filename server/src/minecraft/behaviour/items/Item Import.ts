@@ -27,27 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
-export interface EntityImport {
-  format_version: string;
-  "minecraft:entity": {
-    description: {
-      identifier: string;
-      is_spawnable: boolean;
-      is_summonable: boolean;
-      is_experimental: boolean;
-    };
-    component_groups: any;
-    components: any;
-    events: any;
-  };
+export interface ItemImport {
+	format_version: string;
+	"minecraft:item": {
+		description: {
+			identifier: string;
+		};
+		components: any;
+	}
 }
 
-export function IsPropertyDefined(data: EntityImport | undefined | null): data is EntityImport {
+export function IsProperlyDefined(data: ItemImport | undefined | null): data is ItemImport {
   if (data) {
-    let mce = data["minecraft:entity"];
+    let mce = data["minecraft:item"];
 
-    if (mce && mce.description) {
+    if (mce && mce.description && mce.description.identifier) {
       return true;
     }
   }

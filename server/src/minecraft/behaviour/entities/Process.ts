@@ -33,7 +33,7 @@ import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
 import { Entity } from "../../types/include";
 import { GetFilepath } from "../../../code/Url";
-import { EntityImport, IsPropertyDefined } from "./EntityImport";
+import { EntityImport, IsProperlyDefined } from "./Entity Import";
 import { EmptyTypes } from "../../types/Empty";
 
 /**
@@ -46,18 +46,15 @@ export function Process(doc: TextDocument): void {
 
   let entity: Entity | undefined;
 
-  if (IsPropertyDefined(Format)) {
+  if (IsProperlyDefined(Format)) {
     let mce = Format["minecraft:entity"];
     entity = new Entity();
 
     const ID = mce.description.identifier;
 
     entity.Identifier = ID;
-    entity.Documentation = {
-      kind: "markdown",
-      value: "The custom entity definition of: " + ID,
-    };
     entity.Location = Location.create(GetFilepath(doc.uri), EmptyTypes.EmptyRange());
+    entity.Documentation.value = "The custom entity definition of: " + ID;
 
     if (mce.events) {
       let EventsNames = Object.getOwnPropertyNames(mce.events);

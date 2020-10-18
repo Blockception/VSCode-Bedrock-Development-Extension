@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+	 list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+	 this list of conditions and the following disclaimer in the documentation
+	 and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+	 contributors may be used to endorse or promote products derived from
+	 this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,29 +27,30 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { DataType } from "../minecraft/format/Data Type";
-import { DetectDataType } from "../minecraft/format/detection";
-import * as BPEntity from "../minecraft/behaviour/entities/Process";
-import * as BPItem from "../minecraft/behaviour/items/Process";
-import * as RPSound from "../minecraft/resource/sounds definitions/Process";
-import { Database } from "../database/Database";
 
-export function Process(doc: TextDocument): void {
-  let Type = DetectDataType(doc.uri);
-  Database.Data.DeleteFile(doc.uri);
+export interface EntityImport {
+  format_version: string;
+  "minecraft:entity": {
+    description: {
+      identifier: string;
+      is_spawnable: boolean;
+      is_summonable: boolean;
+      is_experimental: boolean;
+    };
+    component_groups: any;
+    components: any;
+    events: any;
+  };
+}
 
-  switch (Type) {
-    case DataType.unknown:
-      return;
+export function IsProperlyDefined(data: EntityImport | undefined | null): data is EntityImport {
+  if (data) {
+    let mce = data["minecraft:entity"];
 
-    case DataType.behaviour_item:
-      return BPItem.Process(doc);
-
-    case DataType.behaviour_entity:
-      return BPEntity.Process(doc);
-
-    case DataType.resource_sounds_definitions:
-      return RPSound.Process(doc);
+    if (mce && mce.description && mce.description.identifier) {
+      return true;
+    }
   }
+
+  return false;
 }
