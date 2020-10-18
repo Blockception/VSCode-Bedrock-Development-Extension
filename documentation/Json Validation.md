@@ -43,6 +43,7 @@ For best results, name your folder with the letters RP/rp in them.
 |Entity models   |Can be one of the following:<br/> - `*.geo.json`<br/> - `*.geometry.json` |
 |Flipbook textures  |flipbook_textures.json |
 |Item texture |item_texture.json |
+|Materials   |*.material  |
 |Music definitions   |music_definitions.json  |
 |Particles   |Can be one of the following:<br/> - `particles/*.json`<br/> - `.particle.json` |
 |Render controllers   |render_controllers/*.json  |

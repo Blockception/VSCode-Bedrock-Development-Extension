@@ -1,4 +1,13 @@
 # Changelog 
+- Moved
+- Updated
+- Updated
+- Updating
+- Refactoring
+- Updated formatting script
+- Formatted json files
+- Updated particles for animations
+- Updated to 1.0.13
 - Updated
 - Updated
 - Refactoring
@@ -10,12 +19,3 @@
 - Fixing database refactoring
 - Updated database data structure
 - Redoing database data structure
-- Added fakeEntity object
-- formatted
-- Updated formatting scripts
-- Formatted document
-- Moved server setup
-- Moved capabilties parsing
-- Refactored the manager
-- Fixed capatislation for titles and description
-- Updated particle components for 1.10.0

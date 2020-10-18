@@ -12,7 +12,7 @@
     "url": "https://www.blockception.com/"
   },
   "displayName": "Blockception's Minecraft Bedrock Development",
-  "description": "An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop minecraft bedrock content.",
+  "description": "An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop Minecraft bedrock content. Recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft education.",
   "categories": [
     "Language Packs",
     "Programming Languages",
@@ -53,15 +53,12 @@
   "license": "BSD-3-Clause",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
+  "maintainers": [
+    { "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension", "name": "Blockception Ltd" }
+  ],
   "contributors": [
-    {
-      "name": "DaanV2",
-      "url": "https://github.com/DaanV2"
-    },
-    {
-      "name": "Soniikz",
-      "url": "https://github.com/Soniikz"
-    }
+    { "name": "DaanV2", "url": "https://github.com/DaanV2" },
+    { "name": "Soniikz", "url": "https://github.com/Soniikz" }
   ],
   "repository": {
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
@@ -317,17 +314,6 @@
       },
       {
         "fileMatch": [
-          "*.geo.json",
-          "*.geometry.json"
-        ],
-        "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json"
-      },
-      {
-        "fileMatch": "*.material",
-        "url": "./minecraft-general/schemas/resource/materials/materials.json"
-      },
-      {
-        "fileMatch": [
           "resource_packs/*/animation_controllers/*.json",
           "*RP*/animation_controllers/*.json",
           "*rp*/animation_controllers/*.json"
@@ -367,6 +353,17 @@
         "url": "./minecraft-general/schemas/resource/textures/item_texture.json"
       },
       {
+        "fileMatch": [
+          "*.geo.json",
+          "*.geometry.json"
+        ],
+        "url": "./minecraft-general/schemas/resource/models/entity/model_entity.json"
+      },
+      {
+        "fileMatch": "*.material",
+        "url": "./minecraft-general/schemas/resource/materials/materials.json"
+      },
+      {
         "fileMatch": "music_definitions.json",
         "url": "./minecraft-general/schemas/resource/sounds/music_definitions.json"
       },
@@ -395,14 +392,6 @@
       },
       {
         "fileMatch": [
-          "resource_packs/*/animation_controllers/*.json",
-          "*RP*/animation_controllers/*.json",
-          "*rp*/animation_controllers/*.json"
-        ],
-        "url": "./minecraft-general/schemas/resource/animation_controllers/animation_controller.json"
-      },
-      {
-        "fileMatch": [
           "behavior_packs/*/animation_controllers/*.json",
           "*BP*/animation_controllers/*.json",
           "*bp*/animation_controllers/*.json"
@@ -425,15 +414,6 @@
           "*.loot.json"
         ],
         "url": "./minecraft-general/schemas/behaviour/loot_tables/loot_tables.json"
-      },
-      {
-        "fileMatch": [
-          "behavior_packs/*/trading/*.json",
-          "*BP*/trading/*.json",
-          "*bp*/trading/*.json",
-          "*.trade.json"
-        ],
-        "url": "./minecraft-general/schemas/behaviour/trading/trading.json"
       },
       {
         "fileMatch": [
@@ -467,6 +447,15 @@
       {
         "fileMatch": "spawn_rules/*.json",
         "url": "./minecraft-general/schemas/behaviour/spawn_rules/spawn_rules.json"
+      },
+      {
+        "fileMatch": [
+          "behavior_packs/*/trading/*.json",
+          "*BP*/trading/*.json",
+          "*bp*/trading/*.json",
+          "*.trade.json"
+        ],
+        "url": "./minecraft-general/schemas/behaviour/trading/trading.json"
       }
     ]
   }
