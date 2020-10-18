@@ -39,7 +39,16 @@ export function TraverseWorkspaces(): void {
   Manager.Connection.workspace.getWorkspaceFolders().then((WorkFolders) => {
     if (!WorkFolders) return;
 
-    WorkFolders.forEach((wf) => TraverseWorkspace(wf));
+    Manager.State.TraversingProject = true;
+    Manager.State.DataGathered = false;
+
+    for (let index = 0; index < WorkFolders.length; index++) {
+      const wf = WorkFolders[index];
+      TraverseWorkspace(wf);
+    }
+    
+    Manager.State.TraversingProject = false;
+    Manager.State.DataGathered = true;
   });
 }
 
@@ -49,7 +58,7 @@ export function TraverseWorkspace(workspace: WorkspaceFolder): void {
   TraveseDirectory(Path);
 }
 
-//Traverse the directory
+
 export function TraveseDirectory(Dir: string): void {
   //console.log('exploring: ' + Dir);
   if (!Dir.endsWith("\\")) {

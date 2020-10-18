@@ -33,43 +33,48 @@ import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../defin
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../format/OnRequest";
 import { OnHoverRequestAsync } from "../hover/OnRequest";
 import { Manager } from "../manager/Manager";
-import { OndDocumentChangedAsync } from "../process/Process";
 import { OnSignatureRequestAsync } from "../signatures/OnRequest";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../symbols/OnRequest";
+import { OndDocumentChangedAsync } from './Events/Documents';
 import { onDidChangeConfigurationAsync } from "./OnConfiguration";
 
 /**
  * Setup the server events
  */
 export function setEvents() {
-  //Provides diagnostics and such
-  Manager.Data.Documents.onDidOpen(OndDocumentChangedAsync);
-  Manager.Data.Documents.onDidSave(OndDocumentChangedAsync);
+   let Documents = Manager.Data.Documents;
+   let Connection = Manager.Connection;
 
-  // This handler provides commands
-  Manager.Connection.onExecuteCommand(OnCommandRequestAsync);
+   //Provides diagnostics and such
+   Documents.onDidOpen(OndDocumentChangedAsync);
+   Documents.onDidSave(OndDocumentChangedAsync);
 
-  // This handler provides completion items.
-  Manager.Connection.onCompletion(OnCompletionRequestAsync);
+   //Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
 
-  // This handler provvides go to definitions
-  Manager.Connection.onDefinition(onDefinitionRequestAsync);
-  Manager.Connection.onTypeDefinition(onTypeDefinitionRequestAsync);
+   // This handler provides commands
+   Connection.onExecuteCommand(OnCommandRequestAsync);
 
-  // This handler provides document/workspace symbols
-  Manager.Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
-  Manager.Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
+   // This handler provides completion items.
+   Connection.onCompletion(OnCompletionRequestAsync);
 
-  // This handler provides support for when a configuration changes
-  Manager.Connection.onDidChangeConfiguration(onDidChangeConfigurationAsync);
+   // This handler provvides go to definitions
+   Connection.onDefinition(onDefinitionRequestAsync);
+   Connection.onTypeDefinition(onTypeDefinitionRequestAsync);
 
-  // This handler provides hover support
-  Manager.Connection.onHover(OnHoverRequestAsync);
+   // This handler provides document/workspace symbols
+   Connection.onDocumentSymbol(OnDocumentSymbolRequestAsync);
+   Connection.onWorkspaceSymbol(OnWorkspaceSymbolRequestAsync);
 
-  // This handler provides formatting
-  Manager.Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
-  Manager.Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync);
+   // This handler provides support for when a configuration changes
+   Connection.onDidChangeConfiguration(onDidChangeConfigurationAsync);
 
-  // This handler provides signatures
-  Manager.Connection.onSignatureHelp(OnSignatureRequestAsync);
+   // This handler provides hover support
+   Connection.onHover(OnHoverRequestAsync);
+
+   // This handler provides formatting
+   Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);
+   Connection.onDocumentRangeFormatting(OnDocumentRangeFormatRequestAsync);
+
+   // This handler provides signatures
+   Connection.onSignatureHelp(OnSignatureRequestAsync);
 }

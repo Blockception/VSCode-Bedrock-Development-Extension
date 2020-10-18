@@ -75,6 +75,12 @@ function onInitialize(params: InitializeParams): InitializeResult {
         triggerCharacters: [" "],
         retriggerCharacters: [" ", "\t"],
       },
+      workspace: {
+        workspaceFolders: {
+          changeNotifications: true,
+          supported: true
+        }
+      }
     },
     serverInfo: {
       name: "BC-minecraft-language-server",
