@@ -31,7 +31,7 @@ import { CompletionParams, CompletionList, CompletionItem } from "vscode-languag
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier } from "../Constants";
-import { OnCompletionMcFunction } from "./McfunctionCompletion";
+import { OnCompletionMcFunction } from "./Mcfunction";
 
 //Handle request
 export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionList> {
