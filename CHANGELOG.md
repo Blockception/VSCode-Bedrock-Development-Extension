@@ -1,4 +1,8 @@
 # Changelog 
+- Merge branch 'webpack-intergration'
+- Fixing
+- Updating sound effects in entity definitions
+- Updated webpack code
 - Updated Licenses
 - Fixed for webpacking
 - Updating for webpack
@@ -15,7 +19,3 @@
 - Updated particles for animations
 - Updated to 1.0.13
 - Updated
-- Updated
-- Refactoring
-- Redoing the processing of workspaces
-- Fixing json schema
