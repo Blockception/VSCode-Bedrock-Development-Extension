@@ -106,19 +106,14 @@
               "minItems": 1,
               "items": {
                 "oneOf": [
+                  { "type": "string" },
                   {
-                    "type": "string",
-                    "description": "TODO description: render controllers",
-                    "title": "Render Controllers"
-                  },
-                  {
+                    "type": "object",
                     "additionalProperties": {
                       "type": "string",
-                      "description": "A render controller"
-                    },
-                    "type": "object",
-                    "description": "TODO description: render controllers",
-                    "title": "Render Controllers"
+                      "description": "A render controller",
+                      "title": "Render controller"
+                    }
                   }
                 ]
               }
@@ -202,6 +197,31 @@
                 "scalez": {
                   "$ref": "../../../molang/1.8.0/number.json",
                   "title": "Scale Z"
+                },
+                "should_update_bones_and_effects_offscreen": {
+                  "title": "Should update bones and effects offscreen",
+                  "description": "Bones and effects will still be updated if the entity is off screen if this expression returns anything other than 0.0.",
+                  "$ref": "../../../molang/1.8.0/string.json"
+                },
+                "should_update_effects_offscreen": {
+                  "title": "Should update effects offscreen",
+                  "description": "Effects will still be updated if the entity is off screen if this expression or `should_update_bones_and_effects_offscreen` returns anything other than 0.0.",
+                  "$ref": "../../../molang/1.8.0/string.json"
+                },
+                "variables": {
+                  "title": "Variables",
+                  "description": " A list of variables that need certain settings applied to them. Currently, for the client, only \"public\" is supported.",
+                  "type": "object",
+                  "minProperties": 1,
+                  "propertyNames": {
+                    "pattern": "variable.[a-zA-Z_][a-zA-Z0-9_]*"
+                  },
+                  "additionalProperties": {
+                    "title": "Variable definition",
+                    "description": " If a variable is public, it can be read by other mobs. See the molang `->` operator for details.",
+                    "type": "string",
+                    "enum": ["public"]
+                  }
                 }
               }
             },

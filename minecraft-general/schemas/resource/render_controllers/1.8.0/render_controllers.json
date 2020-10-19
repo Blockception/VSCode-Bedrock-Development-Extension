@@ -18,7 +18,7 @@
         },
         {
           "type": "string",
-          "description": "A color definition in molang",
+          "description": "A color definition in molang, must result in a float between 0 and 1",
           "title": "Molang color"
         }
       ]
@@ -40,8 +40,8 @@
       "additionalProperties": {
         "additionalProperties": false,
         "type": "object",
-        "title": "TODO",
-        "description": "A single render_controller",
+        "title": "Render controller",
+        "description": "A single render_controller definition",
         "required": ["geometry", "materials", "textures"],
         "properties": {
           "arrays": {
