@@ -7,7 +7,7 @@ Recommended you use the Dark+ theme for the best color highlighting. This packag
 ## Content
 - [VSCode-Bedrock-Development-Extension](#vscode-bedrock-development-extension)
   - [Content](#content)
-  - [## Features](#h2-idfeatures-38featuresh2)
+  - [Features](#features)
     - [Mcfunction](#mcfunction)
     - [Json](#json)
       - [Molang](#molang)
@@ -16,9 +16,8 @@ Recommended you use the Dark+ theme for the best color highlighting. This packag
     - [Molang](#molang-1)
   - [Extension Settings](#extension-settings)
   - [Licenses](#licenses)
-
+  
 ## Features
----
 
 ### Mcfunction
 This plugin provides support for the `.mcfunction` files. The following features are provided:
