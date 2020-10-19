@@ -1,4 +1,6 @@
 # Changelog 
+- Updating sound effects in entity definitions
+- Fixing dependencies issues
 - Updated to 1.1.0
 - Updated Project information
 - Moved
@@ -17,5 +19,3 @@
 - Fixing json schema
 - Fixing
 - Renamed ObjectBase -> Object base
-- Updated symbol handling
-- Fixing database refactoring

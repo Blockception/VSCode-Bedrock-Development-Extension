@@ -12,9 +12,12 @@
 !server/node_modules/vscode-uri/**
 !server/node_modules/fast-glob/**
 
-server/src/*
-client/src/*
-scripts/*
+client/node_modules/**
+server/node_modules/**
+
+server/src/**
+client/src/**
+scripts/**
 
 **/*.map
 **/*.ts
@@ -35,12 +38,12 @@ CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 Debugging.md
 build.bat
-client/node_modules/**
+
 contributing.md
 documentation/
 log.txt
 node_modules
-node_modules/
+node_modules/**
 out/
 source schemas/
 src/
