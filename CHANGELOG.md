@@ -1,4 +1,5 @@
 # Changelog 
+- Fixing dependencies issues
 - Updated to 1.1.0
 - Updated Project information
 - Moved
@@ -18,4 +19,3 @@
 - Fixing
 - Renamed ObjectBase -> Object base
 - Updated symbol handling
-- Fixing database refactoring

@@ -9,7 +9,11 @@
     "outDir": "out",
     "rootDir": "src",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": ["src"],
   "exclude": ["node_modules", ".vscode-test"]
