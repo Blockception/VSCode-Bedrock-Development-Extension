@@ -65,30 +65,54 @@ export interface ManifestMetadata {
 
 export namespace Manifest {
   export function IsWorldManifest(m: Manifest): boolean {
-    m.modules.forEach((mod) => {
-      if (mod.type === ManifestModule.TypeWorld) return true;
-    });
+    let modules = m.modules;
+
+    for (let index = 0; index < modules.length; index++) {
+      const mod = modules[index];
+
+      if (mod.type === ManifestModule.TypeWorld)   
+        return true;   
+    }
+    
     return false;
   }
 
   export function IsResourceManifest(m: Manifest): boolean {
-    m.modules.forEach((mod) => {
-      if (mod.type === ManifestModule.TypeResource) return true;
-    });
+    let modules = m.modules;
+
+    for (let index = 0; index < modules.length; index++) {
+      const mod = modules[index];
+
+      if (mod.type === ManifestModule.TypeResource)   
+        return true;   
+    }
+    
     return false;
   }
 
   export function IsBehaviourManifest(m: Manifest): boolean {
-    m.modules.forEach((mod) => {
-      if (mod.type === ManifestModule.TypeData) return true;
-    });
+    let modules = m.modules;
+
+    for (let index = 0; index < modules.length; index++) {
+      const mod = modules[index];
+
+      if (mod.type === ManifestModule.TypeData)   
+        return true;   
+    }
+    
     return false;
   }
 
   export function IsSkinpackManifest(m: Manifest): boolean {
-    m.modules.forEach((mod) => {
-      if (mod.type === ManifestModule.TypeData) return true;
-    });
+    let modules = m.modules;
+
+    for (let index = 0; index < modules.length; index++) {
+      const mod = modules[index];
+
+      if (mod.type === ManifestModule.TypeSkinPack)   
+        return true;   
+    }
+    
     return false;
   }
 
