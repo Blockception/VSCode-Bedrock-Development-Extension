@@ -226,14 +226,14 @@
               }
             },
             "sound_effects": {
-              "type": "array",
-              "description": "TODO description: sound effects",
               "title": "Sound Effects",
-              "minItems": 1,
-              "items": {
+              "description": "TODO description: sound effects",              
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
                 "type": "string",
-                "description": "TODO description: sound effects",
-                "title": "Sound Effects"
+                "description": "TODO description: additionalProperties",
+                "title": "Sound effect"
               }
             },
             "spawn_egg": {
