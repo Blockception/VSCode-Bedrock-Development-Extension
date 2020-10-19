@@ -1,5 +1,7 @@
 # Changelog 
-- Updating sound effects in entity definitions
+- Updated Licenses
+- Fixed for webpacking
+- Updating for webpack
 - Fixing dependencies issues
 - Updated to 1.1.0
 - Updated Project information
@@ -17,5 +19,3 @@
 - Refactoring
 - Redoing the processing of workspaces
 - Fixing json schema
-- Fixing
-- Renamed ObjectBase -> Object base

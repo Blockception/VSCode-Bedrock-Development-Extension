@@ -7,7 +7,7 @@ Recommended you use the Dark+ theme for the best color highlighting. This packag
 ## Content
 - [VSCode-Bedrock-Development-Extension](#vscode-bedrock-development-extension)
   - [Content](#content)
-  - [## Features](#h2-idfeatures-63featuresh2)
+  - [## Features](#h2-idfeatures-38featuresh2)
     - [Mcfunction](#mcfunction)
     - [Json](#json)
       - [Molang](#molang)
@@ -15,6 +15,7 @@ Recommended you use the Dark+ theme for the best color highlighting. This packag
     - [Language files](#language-files)
     - [Molang](#molang-1)
   - [Extension Settings](#extension-settings)
+  - [Licenses](#licenses)
 
 ## Features
 ---
@@ -93,3 +94,7 @@ This plugin provides automatic highlighting for Molang code in json files. As we
 
 - **Use Education Content**: Adds education contents such as items, blocks, entities and commands into the suggestion and/or debugging. requires a
   restart for full effect.
+
+
+## Licenses
+In [Licenses](./LICENSENS/Licenses.md) all thrid party code and library are listed that make this plugin possible!

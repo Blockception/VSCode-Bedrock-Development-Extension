@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Hover, HoverParams } from "vscode-languageserver";
-import { GetDocument, getLine } from "../code/include";
+import { GetDocument } from "../code/include";
 import { McFunctionIdentifier } from "../Constants";
 import { provideHoverMcFunction } from "./Mcfunction";
 
@@ -43,4 +43,6 @@ export function OnHoverRequest(params: HoverParams): Hover | undefined {
     case McFunctionIdentifier:
       return provideHoverMcFunction(params, doc);
   }
+
+  return undefined
 }

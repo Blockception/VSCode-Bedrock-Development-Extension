@@ -1,7 +1,8 @@
 {
   "name": "blockception-minecraft-client",
   "description": "The client side of a language server for minecraft",
-  "version": "1.0.10",
+  "version": "1.2.0",
+  "private": true,
   "author": {
     "name": "Blockception Ltd",
     "url": "https://www.blockception.com/"
@@ -12,7 +13,7 @@
     "type": "git"
   },
   "engines": {
-    "vscode": "^1.43.0"
+    "vscode": "^1.50.0"
   },
   "license": "BSD-3-Clause",
   "dependencies": {
@@ -20,6 +21,9 @@
   },
   "devDependencies": {
     "@types/vscode": "1.43.0",
-    "vscode-test": "^1.3.0"
+    "ts-loader": "^8.0.5",
+    "vscode-test": "^1.3.0",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0"
   }
 }
