@@ -1,6 +1,6 @@
 {
   "main": "./client/dist/extension.js",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-minecraft-mcfunction",
@@ -65,16 +65,6 @@
     {
       "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
       "name": "Blockception Ltd"
-    }
-  ],
-  "contributors": [
-    {
-      "name": "DaanV2",
-      "url": "https://github.com/DaanV2"
-    },
-    {
-      "name": "Soniikz",
-      "url": "https://github.com/Soniikz"
     }
   ],
   "repository": {
