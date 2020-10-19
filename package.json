@@ -1,5 +1,5 @@
 {
-  "main": "./client/out/extension.js",
+  "main": "./client/dist/extension.js",
   "version": "1.2.0",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",

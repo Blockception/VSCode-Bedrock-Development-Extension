@@ -12,6 +12,8 @@ const config = {
   },
   performance: {
     hints: "warning",
+    maxAssetSize:500000000,
+    maxEntrypointSize:500000000
   },
 
   target: "node", // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
