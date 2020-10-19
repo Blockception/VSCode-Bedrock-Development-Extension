@@ -59,8 +59,8 @@ function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
   let Line = getLine(document, index);
 
   if (Line.length > 2) {
-    TrimStartFromLine(Line, index, Out, ["", "/", " ", "\t"]);
-    TrimEndFromLine(Line, index, Out, ["", " ", "\t"]);
+    TrimStartFromLine(Line, index, Out, ["/", " ", "\t"]);
+    TrimEndFromLine(Line, index, Out, [" ", "\t"]);
 
     Replace(Line, "~+", "~", index, Out);
     Replace(Line, "~0", "~", index, Out);

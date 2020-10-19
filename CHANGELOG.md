@@ -1,4 +1,7 @@
 # Changelog 
+- Updated 1.2.1
+- Updated to 1.2.1
+- Updated sounds effects
 - Merge branch 'webpack-intergration'
 - Fixing
 - Updating sound effects in entity definitions
@@ -16,6 +19,3 @@
 - Refactoring
 - Updated formatting script
 - Formatted json files
-- Updated particles for animations
-- Updated to 1.0.13
-- Updated

@@ -46,7 +46,7 @@ export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattin
   });
 }
 
-function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] {
+function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] | undefined {
   let doc = GetDocument(params.textDocument.uri);
 
   switch (doc.languageId) {
@@ -57,7 +57,7 @@ function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] {
       return formatLangauge(doc, params);
   }
 
-  return [];
+  return undefined;
 }
 
 function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] {

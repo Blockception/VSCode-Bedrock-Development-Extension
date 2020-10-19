@@ -52,10 +52,6 @@ function onInitialize(params: InitializeParams): InitializeResult {
         commands: ["bc.minecraft.errors.import"]
       },*/
 
-      // Tell the client that this server code formatting.
-      documentFormattingProvider: {},
-      documentRangeFormattingProvider: {},
-
       // Tell the client that this server supports go to defintitions
       definitionProvider: true,
       typeDefinitionProvider: true,
