@@ -1,8 +1,6 @@
 client/node_modules/**
-client/out/**
 client/src/**
 server/node_modules/**
-server/out/**
 server/src/**
 
 scripts/*

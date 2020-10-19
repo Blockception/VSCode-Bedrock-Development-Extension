@@ -1,4 +1,6 @@
 # Changelog 
+- Fixing formatt
+- Updated webpack to work for both debugging and production
 - Updated 1.2.1
 - Updated to 1.2.1
 - Updated sounds effects
@@ -17,5 +19,3 @@
 - Updated
 - Updating
 - Refactoring
-- Updated formatting script
-- Formatted json files
