@@ -3,6 +3,14 @@
 !client/node_modules/vscode-languageclient/**
 !client/node_modules/vscode-languageserver-protocol/**
 !client/node_modules/vscode-languageserver-types/**
+!client/node_modules/fast-glob/**
+!server/node_modules/vscode-jsonrpc/**
+!server/node_modules/vscode-languageclient/**
+!server/node_modules/vscode-languageserver-protocol/**
+!server/node_modules/vscode-languageserver-textdocument/**
+!server/node_modules/vscode-languageserver-types/**
+!server/node_modules/vscode-uri/**
+!server/node_modules/fast-glob/**
 
 server/src/*
 client/src/*
