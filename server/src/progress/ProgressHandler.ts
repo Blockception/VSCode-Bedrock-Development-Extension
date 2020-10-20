@@ -27,51 +27,49 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ProgressType, WorkDoneProgressParams } from 'vscode-languageserver';
-import { Manager } from '../manager/Manager';
+import { ProgressType, WorkDoneProgressParams } from "vscode-languageserver";
+import { Manager } from "../manager/Manager";
 
 export interface ProgressHandler {
-
-	sendProgress(value: number): void
+  sendProgress(value: number): void;
 }
 
 class TokenProgressHandler implements ProgressHandler {
-	readonly token: string | number;
+  readonly token: string | number;
 
-	constructor(token: string | number) {
-		this.token = token;
-	}
+  constructor(token: string | number) {
+    this.token = token;
+  }
 
-	sendProgress(value: number): void {
-		Manager.Connection.sendProgress(new ProgressType<number>(), this.token, value);
-	}
+  sendProgress(value: number): void {
+    Manager.Connection.sendProgress(new ProgressType<number>(), this.token, value);
+  }
 }
 
 class EmptyProgressHandler implements ProgressHandler {
-	constructor() { }
+  constructor() {}
 
-	sendProgress(value: number): void { }
+  sendProgress(value: number): void {}
 }
 
 export namespace ProgressHandler {
-	export function create(token: string | number | undefined | WorkDoneProgressParams): ProgressHandler {
+  export function create(token: string | number | undefined | WorkDoneProgressParams): ProgressHandler {
+    if (token) {
+      if (typeof token === "string" || typeof token === "number") {
+        return new TokenProgressHandler(token);
+      }
 
-		if (token) {
-			if (typeof token === 'string' || typeof token === 'number') {
-				return new TokenProgressHandler(token);
-			}
+      if (token.workDoneToken) {
+        token = token.workDoneToken;
 
-			if (token.workDoneToken) {
-				token = token.workDoneToken;
+        if (token) {
+          if (typeof token === "string" || typeof token === "number") {
+            return new TokenProgressHandler(token);
+          }
+        }
+      }
+    }
 
-				if (token) {
-					if (typeof token === 'string' || typeof token === 'number') {
-						return new TokenProgressHandler(token);
-					}
-				}
-			}
-		}
-
-		return new EmptyProgressHandler();
-	}
+    return new EmptyProgressHandler();
+  }
 }

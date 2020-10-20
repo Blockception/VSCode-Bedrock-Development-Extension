@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as Mcfunction from "./Mcfunction";
 import * as Json from "./Json";
 import * as Language from "./Language";
-import {  GetFilename } from "../code/include";
+import { GetFilename } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { TextDocument } from "vscode-languageserver-textdocument";
 

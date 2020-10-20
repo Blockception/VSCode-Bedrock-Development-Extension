@@ -27,42 +27,40 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ReferenceParams, Location } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { getLine } from '../code/include';
-import { SearchDefinition } from '../definition/Search';
-import { CommandIntr, MCCommandParameterType } from '../minecraft/commands/include';
+import { ReferenceParams, Location } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { getLine } from "../code/include";
+import { SearchDefinition } from "../definition/Search";
+import { CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
 
 export function ProvideMcfunctionsReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
-	const Line = getLine(doc, params.position.line);
-	let com = CommandIntr.parse(Line, params.position, doc.uri);
+  const Line = getLine(doc, params.position.line);
+  let com = CommandIntr.parse(Line, params.position, doc.uri);
 
-	let data = com.GetCommandData();
+  let data = com.GetCommandData();
 
-	if (data.length == 0) {
-		return undefined;
-	}
+  if (data.length == 0) {
+    return undefined;
+  }
 
-	let Types: MCCommandParameterType[] = [];
-	let Current = com.GetCurrent();
+  let Types: MCCommandParameterType[] = [];
+  let Current = com.GetCurrent();
 
-	if (Current == undefined)
-		return;
+  if (Current == undefined) return;
 
-	let Index = com.CursorParamater;
-	let Text = Current.text;
+  let Index = com.CursorParamater;
+  let Text = Current.text;
 
+  for (let I = 0; I < data.length; I++) {
+    let Pattern = data[I];
+    let Parameters = Pattern.Command.parameters;
 
-	for (let I = 0; I < data.length; I++) {
-		let Pattern = data[I];
-		let Parameters = Pattern.Command.parameters;
+    if (Parameters.length >= Index) {
+      Types.push(Parameters[Index].Type);
+    }
+  }
 
-		if (Parameters.length >= Index) {
-			Types.push(Parameters[Index].Type)
-		}
-	}
+  if (Types.length == 0) return undefined;
 
-	if (Types.length == 0) return undefined;
-
-	return SearchDefinition(Text, Types);
+  return SearchDefinition(Text, Types);
 }

@@ -87,8 +87,12 @@ export function ConvertQueried(uri: string, receiver: SymbolInformation[], query
 }
 
 export function ConvertStorageQuery<T extends Identifiable & Locatable>(
-  Data: DataCollector<T>, uri: string, query: string,
-  valuekind: SymbolKind, receiver: SymbolInformation[]): void {
+  Data: DataCollector<T>,
+  uri: string,
+  query: string,
+  valuekind: SymbolKind,
+  receiver: SymbolInformation[]
+): void {
   if (uri === "") {
     Data.ForEach((element) => CheckOrAdd(element, query, valuekind, receiver));
   } else {
@@ -110,7 +114,12 @@ function CheckOrAdd(value: Identifiable & Locatable, query: string, valuekind: S
   }
 }
 
-export function ConvertStorage<T extends Identifiable & Locatable>(Data: DataCollector<T>, uri: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
+export function ConvertStorage<T extends Identifiable & Locatable>(
+  Data: DataCollector<T>,
+  uri: string,
+  valuekind: SymbolKind,
+  receiver: SymbolInformation[]
+): void {
   if (uri === "") {
     Data.ForEach((value) => ConvertItem(value, valuekind, receiver));
   } else {

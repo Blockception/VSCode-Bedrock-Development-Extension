@@ -27,24 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ReferenceParams, Location } from 'vscode-languageserver';
-import { GetDocument } from '../code/include';
-import { McFunctionIdentifier } from '../Constants';
-import { ProvideMcfunctionsReferences } from './Mcfunction';
+import { ReferenceParams, Location } from "vscode-languageserver";
+import { GetDocument } from "../code/include";
+import { McFunctionIdentifier } from "../Constants";
+import { ProvideMcfunctionsReferences } from "./Mcfunction";
 
 export async function OnReferencesRequestAsync(params: ReferenceParams): Promise<Location[]> {
-	return new Promise<Location[]>((resolve, reject) => {
-		resolve(OnReferencesRequest(params));
-	});
+  return new Promise<Location[]>((resolve, reject) => {
+    resolve(OnReferencesRequest(params));
+  });
 }
 
 function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {
-	let doc = GetDocument(params.textDocument.uri);
+  let doc = GetDocument(params.textDocument.uri);
 
-	switch (doc.languageId) {
-		case McFunctionIdentifier:
-			return ProvideMcfunctionsReferences(params, doc);
-	}
+  switch (doc.languageId) {
+    case McFunctionIdentifier:
+      return ProvideMcfunctionsReferences(params, doc);
+  }
 
-	return undefined;
+  return undefined;
 }

@@ -81,9 +81,9 @@ function onInitialize(params: InitializeParams): InitializeResult {
       workspace: {
         workspaceFolders: {
           changeNotifications: true,
-          supported: true
-        }
-      }
+          supported: true,
+        },
+      },
     },
     serverInfo: {
       name: "BC-minecraft-language-server",

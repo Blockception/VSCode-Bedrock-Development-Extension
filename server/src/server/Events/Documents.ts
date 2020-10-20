@@ -27,15 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocumentChangeEvent } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { GetDocument } from '../../code/include';
-import { Process } from '../../process/Mcfunction';
+import { TextDocumentChangeEvent } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { GetDocument } from "../../code/include";
+import { Process } from "../../process/Mcfunction";
 
 export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
-	return new Promise((resolve, reject) => {
-		let doc = GetDocument(e.document.uri, e.document, e.document.languageId);
-		Process(doc);
-		resolve();
-	});
+  return new Promise((resolve, reject) => {
+    let doc = GetDocument(e.document.uri, e.document, e.document.languageId);
+    Process(doc);
+    resolve();
+  });
 }

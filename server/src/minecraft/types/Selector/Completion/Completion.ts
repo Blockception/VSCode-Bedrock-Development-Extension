@@ -47,11 +47,13 @@ const Random: CompletionItem = {
 const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
 
 export function provideSelectorCompletion(
-  receiver: CompletionList, selector: LocationWord | undefined,
-  pos: number, forEntities: boolean, forPlayers: boolean,
+  receiver: CompletionList,
+  selector: LocationWord | undefined,
+  pos: number,
+  forEntities: boolean,
+  forPlayers: boolean,
   forFakePlayer: boolean
 ) {
-  
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     if (selector !== undefined) {
       let diff = pos - selector.range.start.character;

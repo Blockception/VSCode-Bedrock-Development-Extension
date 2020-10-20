@@ -70,10 +70,9 @@ export namespace Manifest {
     for (let index = 0; index < modules.length; index++) {
       const mod = modules[index];
 
-      if (mod.type === ManifestModule.TypeWorld)   
-        return true;   
+      if (mod.type === ManifestModule.TypeWorld) return true;
     }
-    
+
     return false;
   }
 
@@ -83,10 +82,9 @@ export namespace Manifest {
     for (let index = 0; index < modules.length; index++) {
       const mod = modules[index];
 
-      if (mod.type === ManifestModule.TypeResource)   
-        return true;   
+      if (mod.type === ManifestModule.TypeResource) return true;
     }
-    
+
     return false;
   }
 
@@ -96,10 +94,9 @@ export namespace Manifest {
     for (let index = 0; index < modules.length; index++) {
       const mod = modules[index];
 
-      if (mod.type === ManifestModule.TypeData)   
-        return true;   
+      if (mod.type === ManifestModule.TypeData) return true;
     }
-    
+
     return false;
   }
 
@@ -109,10 +106,9 @@ export namespace Manifest {
     for (let index = 0; index < modules.length; index++) {
       const mod = modules[index];
 
-      if (mod.type === ManifestModule.TypeSkinPack)   
-        return true;   
+      if (mod.type === ManifestModule.TypeSkinPack) return true;
     }
-    
+
     return false;
   }
 

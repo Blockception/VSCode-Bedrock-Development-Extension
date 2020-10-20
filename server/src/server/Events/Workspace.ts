@@ -27,38 +27,38 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { WorkspaceFoldersChangeEvent } from 'vscode-languageserver';
-import { UniformUrl } from '../../code/Url';
-import { Database } from '../../database/Database';
-import { Manager } from '../../manager/Manager';
-import { TraverseWorkspace } from '../../process/traverse';
+import { WorkspaceFoldersChangeEvent } from "vscode-languageserver";
+import { UniformUrl } from "../../code/Url";
+import { Database } from "../../database/Database";
+import { Manager } from "../../manager/Manager";
+import { TraverseWorkspace } from "../../process/traverse";
 
 export async function OnWorkspaceFolderChangeAsync(params: WorkspaceFoldersChangeEvent): Promise<void> {
-	return new Promise<void>((resolve, reject) => {
-		OnWorkspaceFolderChange(params);
-		resolve();
-	});
+  return new Promise<void>((resolve, reject) => {
+    OnWorkspaceFolderChange(params);
+    resolve();
+  });
 }
 
 function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
-	let removed = params.removed;
+  let removed = params.removed;
 
-	for (let index = 0; index < removed.length; index++) {
-		let uri = removed[index].uri;
-		uri = UniformUrl(uri);
+  for (let index = 0; index < removed.length; index++) {
+    let uri = removed[index].uri;
+    uri = UniformUrl(uri);
 
-		console.log('Deleting data from workspace: ' + removed[index].name);
-		Database.Data.DeleteFolder(uri);
-	}
+    console.log("Deleting data from workspace: " + removed[index].name);
+    Database.Data.DeleteFolder(uri);
+  }
 
-	let added = params.added;
+  let added = params.added;
 
-	for (let index = 0; index < added.length; index++) {
-		const element = added[index];
+  for (let index = 0; index < added.length; index++) {
+    const element = added[index];
 
-		console.log('Processing data from added workspace: ' + element.name);
-		TraverseWorkspace(element);
-	}
+    console.log("Processing data from added workspace: " + element.name);
+    TraverseWorkspace(element);
+  }
 
-	Database.MinecraftProgramData.LoadProjectData();
+  Database.MinecraftProgramData.LoadProjectData();
 }

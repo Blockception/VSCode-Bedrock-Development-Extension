@@ -46,7 +46,7 @@ export function TraverseWorkspaces(): void {
       const wf = WorkFolders[index];
       TraverseWorkspace(wf);
     }
-    
+
     Manager.State.TraversingProject = false;
     Manager.State.DataGathered = true;
   });
@@ -57,7 +57,6 @@ export function TraverseWorkspace(workspace: WorkspaceFolder): void {
   let Path = URI.parse(uri).fsPath;
   TraveseDirectory(Path);
 }
-
 
 export function TraveseDirectory(Dir: string): void {
   //console.log('exploring: ' + Dir);

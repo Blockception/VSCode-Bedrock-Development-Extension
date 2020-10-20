@@ -27,34 +27,34 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from 'vscode-languageserver';
+import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilepath } from '../../../code/Url';
-import { Database } from '../../../database/Database';
-import { JsonDocument } from '../../../json/Json Document';
-import { EmptyTypes } from '../../types/Empty';
-import { Item } from '../../types/Item/Item';
-import { IsProperlyDefined, ItemImport } from './Item Import';
+import { GetFilepath } from "../../../code/Url";
+import { Database } from "../../../database/Database";
+import { JsonDocument } from "../../../json/Json Document";
+import { EmptyTypes } from "../../types/Empty";
+import { Item } from "../../types/Item/Item";
+import { IsProperlyDefined, ItemImport } from "./Item Import";
 
 /**
  * Processes the text document as a behaviour item definition file
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {
-	let JDoc = new JsonDocument(doc);
-	let Format = JDoc.CastTo<ItemImport>();
+  let JDoc = new JsonDocument(doc);
+  let Format = JDoc.CastTo<ItemImport>();
 
-	let item: Item | undefined;
+  let item: Item | undefined;
 
-	if (IsProperlyDefined(Format)) {
-		let mce = Format["minecraft:item"];
-		item = new Item();
+  if (IsProperlyDefined(Format)) {
+    let mce = Format["minecraft:item"];
+    item = new Item();
 
-		const ID = mce.description.identifier;
-		item.Identifier = ID;
-		item.Location = Location.create(GetFilepath(doc.uri), EmptyTypes.EmptyRange());
-		item.Documentation.value = "The custom item definition of: " + ID;
+    const ID = mce.description.identifier;
+    item.Identifier = ID;
+    item.Location = Location.create(GetFilepath(doc.uri), EmptyTypes.EmptyRange());
+    item.Documentation.value = "The custom item definition of: " + ID;
 
-		Database.Data.Items.Set(item);
-	}
+    Database.Data.Items.Set(item);
+  }
 }

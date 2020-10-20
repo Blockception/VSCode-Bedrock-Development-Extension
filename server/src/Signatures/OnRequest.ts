@@ -32,7 +32,7 @@ import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import * as Mcfunction from "./Mcfunction";
 import * as Language from "./Language";
-import { ProgressHandler } from '../progress/ProgressHandler';
+import { ProgressHandler } from "../progress/ProgressHandler";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
   return new Promise<SignatureHelp>((resolve, reject) => {
@@ -54,7 +54,7 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
 
     case McOtherIdentifier:
       return undefined;
-      //return Other.ProvideSignature(doc, pos);
+    //return Other.ProvideSignature(doc, pos);
   }
 
   return undefined;

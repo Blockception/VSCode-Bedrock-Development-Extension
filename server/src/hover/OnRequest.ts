@@ -44,5 +44,5 @@ export function OnHoverRequest(params: HoverParams): Hover | undefined {
       return provideHoverMcFunction(params, doc);
   }
 
-  return undefined
+  return undefined;
 }

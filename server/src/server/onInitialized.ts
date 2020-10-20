@@ -27,9 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { InitializedParams, DidChangeConfigurationNotification, DocumentFormattingRequest, DocumentFormattingRegistrationOptions } from "vscode-languageserver";
-import { McFunctionIdentifier, McLanguageIdentifier } from '../Constants';
-import { Database } from '../database/Database';
+import {
+  InitializedParams,
+  DidChangeConfigurationNotification,
+  DocumentFormattingRequest,
+  DocumentFormattingRegistrationOptions,
+} from "vscode-languageserver";
+import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
+import { Database } from "../database/Database";
 import { Manager } from "../manager/Manager";
 import { AddCommands, AddMinecraftData } from "../minecraft/data/include";
 import { TraverseWorkspaces } from "../process/traverse";
@@ -67,5 +72,5 @@ function onInitialized(params: InitializedParams): void {
   AddCommands();
   AddMinecraftData();
 
-  TraverseWorkspaces();
+  //TraverseWorkspaces();
 }
