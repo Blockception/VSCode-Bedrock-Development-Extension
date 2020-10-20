@@ -1,4 +1,14 @@
 # Changelog 
+- Formatted
+- Add resourcepack items schema
+- Updated components loot tables
+- Refactored loot tables json schema
+- Formatted
+- Updating json schemas
+- Updated general schemas
+- Updated version to 1.2.3
+- Updated to 1.2.2
+- Fixed Feature header
 - Fixing formatt
 - Updated webpack to work for both debugging and production
 - Updated 1.2.1
@@ -9,13 +19,3 @@
 - Updating sound effects in entity definitions
 - Updated webpack code
 - Updated Licenses
-- Fixed for webpacking
-- Updating for webpack
-- Fixing dependencies issues
-- Updated to 1.1.0
-- Updated Project information
-- Moved
-- Updated
-- Updated
-- Updating
-- Refactoring
