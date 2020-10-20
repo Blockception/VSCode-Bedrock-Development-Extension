@@ -11,6 +11,12 @@
       "title": "Condition",
       "description": "TODO"
     },
+    "chance": {
+      "type": "number",
+      "default": 0,
+      "description": "TODO",
+      "title": "Chance"
+    },
     "max_chance": {
       "type": "number",
       "default": 0,

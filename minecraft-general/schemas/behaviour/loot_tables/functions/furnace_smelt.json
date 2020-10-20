@@ -10,6 +10,14 @@
       "const": "furnace_smelt",
       "description": "TODO description",
       "title": "TODO title"
+    },
+    "conditions": {
+      "title": "Conditions",
+      "description": "TODO",
+      "type": "array",
+      "items": {
+        "$ref": "../conditions.json"
+      }
     }
   }
 }
