@@ -353,26 +353,13 @@
           "sound_effects": {
             "title": "Sound effect",
             "description": "TODO",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/SoundEffect"
-                }
-              },
-              {
-                "$ref": "#/definitions/SoundEffect"
-              },
-              {
-                "type": "object",
-                "propertyNames": {
-                  "pattern": "^[\\d.]+$"
-                },
-                "additionalProperties": {
-                  "$ref": "#/definitions/SoundEffect"
-                }
-              }
-            ]
+            "type": "object",
+            "propertyNames": {
+              "pattern": "^[\\d.]+$"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/SoundEffect"
+            }
           },
           "timeline": {
             "title": "Timeline",

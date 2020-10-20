@@ -351,26 +351,15 @@
             "$ref": "../../../molang/1.8.0/number.json"
           },
           "sound_effects": {
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/SoundEffect"
-                }
-              },
-              {
-                "$ref": "#/definitions/SoundEffect"
-              },
-              {
-                "type": "object",
-                "propertyNames": {
-                  "pattern": "^[\\d.]+$"
-                },
-                "additionalProperties": {
-                  "$ref": "#/definitions/SoundEffect"
-                }
-              }
-            ]
+            "title": "Sound effect",
+            "description": "TODO",
+            "type": "object",
+            "propertyNames": {
+              "pattern": "^[\\d.]+$"
+            },
+            "additionalProperties": {
+              "$ref": "#/definitions/SoundEffect"
+            }
           },
           "timeline": {
             "title": "Timeline",
