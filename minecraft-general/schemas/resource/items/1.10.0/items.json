@@ -14,16 +14,48 @@
       "title": "Minecraft item",
       "description": "TODO",
       "required": ["description", "components"],
+      "type": "object",
+      "additionalProperties": false,
       "properties": {
         "description": {
           "title": "Description",
           "description": "TODO",
           "required": ["identifier"],
+          "type": "object",
+          "additionalProperties": false,
           "properties": {
             "identifier": {
               "title": "Identifier",
               "description": "TODO",
               "$ref": "../../../general/item/identifier.json"
+            },
+            "category": {
+              "title": "Category",
+              "description": "TODO",
+              "type": "string",
+              "enum": [
+                "Equipment"
+              ]
+            }
+          }
+        },
+        "components": {
+          "title": "Components",
+          "description": "TODO",
+          "additionalProperties": false,
+          "properties": {
+            "minecraft:icon": {
+              "title": "Minecraft icon",
+              "description": "The texture defined in `textures/item_texture.json`",
+              "type": "string"
+            },
+            "minecraft:render_offsets": {
+              "type": "string",
+              "description": "TODO",
+              "title": "Minecraft render offsets",
+              "enum": [
+                "apple"
+              ]
             }
           }
         }
