@@ -3,11 +3,8 @@
   "$id": "blockception.minecraft.behaviour.entities.type.range_number_type.1.13.0",
   "title": "Range [a, b]",
   "description": "A described range",
-  "minItems": 2,
-  "maxItems": 2,
-  "items": {
-    "type": "number",
-    "description": "A value of the range",
-    "title": "TODO title"
-  }
+  "items": [
+    { "type": "number", "title": "Range: A", "description": "The first value of the range" },
+    { "type": "number", "title": "Range: B", "description": "The second value of the range" }
+  ]
 }

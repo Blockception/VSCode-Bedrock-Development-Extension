@@ -14,7 +14,7 @@
     "filters": {
       "$ref": "../filters.json",
       "description": "The filters to check to determine if the event should be fired",
-      "title": "TODO title"
+      "title": "Filters"
     },
     "target": {
       "$ref": "../filters/types/base_subject.json",

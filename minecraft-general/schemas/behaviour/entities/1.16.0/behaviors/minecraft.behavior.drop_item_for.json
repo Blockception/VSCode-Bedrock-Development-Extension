@@ -6,16 +6,8 @@
   "title": "Behavior.drop_item_for 1.16.0",
   "type": "object",
   "properties": {
-    "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "speed_multiplier": {
-      "ref": "types/base_speed_multiplier.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "ref": "types/base_priority.json" },
+    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
     "drop_item_chance": {
       "type": "number",
       "default": [1.0],

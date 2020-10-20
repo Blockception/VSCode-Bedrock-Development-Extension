@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.type.trigger.1.10.0",
-  "title": "Trigger1.10.0",
+  "title": "Trigger 1.10.0",
   "type": "object",
   "description": "Trigger to fire",
   "minProperties": 1,
@@ -14,7 +14,7 @@
     "filters": {
       "$ref": "../filters.json",
       "description": "The filters to check to determine if the event should be fired",
-      "title": "TODO title"
+      "title": "Filters"
     },
     "target": {
       "$ref": "../filters/types/base_subject.json",

@@ -11,7 +11,7 @@
       "type": "number",
       "default": 0.5,
       "description": "The value of the size of the entity's step",
-      "title": "TODO title"
+      "title": "Value"
     }
   }
 }

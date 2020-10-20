@@ -8,9 +8,7 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
+      "ref": "types/base_priority.json"
     },
     "avoid_water": {
       "type": "boolean",

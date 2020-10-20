@@ -7,21 +7,13 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "speed_multiplier": {
-      "ref": "types/base_speed_multiplier.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "ref": "types/base_priority.json" },
+    "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
     "can_get_scared": {
       "type": "boolean",
       "default": false,
       "description": "If true, the mob can stop being tempted if the player moves too fast while close to this mob",
-      "title": "TODO title"
+      "title": "Can get scared"
     },
     "items": {
       "type": "array",
@@ -31,33 +23,33 @@
         "title": "Item",
         "description": "An item identifier"
       },
-      "title": "TODO title"
+      "title": "Items"
     },
     "within_radius": {
       "type": "number",
       "default": 0,
       "description": "Distance in blocks this mob can get tempted by a player holding an item they like",
-      "title": "TODO title"
+      "title": "Within radius"
     },
     "tempt_sound": {
       "type": "string",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
+      "title": "Tempt sound"
     },
     "sound_interval": {
       "type": "object",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED",
+      "title": "Sound interval",
       "properties": {
         "range_min": {
           "type": "number",
           "description": "UNDOCUMENTATED",
-          "title": "UNDOCUMENTATED"
+          "title": "Range min"
         },
         "range_max": {
           "type": "number",
           "description": "UNDOCUMENTATED",
-          "title": "UNDOCUMENTATED"
+          "title": "Range max"
         }
       },
       "additionalProperties": false

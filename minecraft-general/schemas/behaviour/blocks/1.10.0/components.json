@@ -7,45 +7,13 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "minecraft:block_light_absorption": {
-      "$ref": "components/minecraft.block_light_absorption.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:block_light_emission": {
-      "$ref": "components/minecraft.block_light_emission.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:destroy_time": {
-      "$ref": "components/minecraft.destroy_time.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:explosion_resistance": {
-      "$ref": "components/minecraft.explosion_resistance.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:flammable": {
-      "$ref": "components/minecraft.flammable.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:friction": {
-      "$ref": "components/minecraft.friction.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:loot": {
-      "$ref": "components/minecraft.loot.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:map_color": {
-      "$ref": "components/minecraft.map_color.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    }
+    "minecraft:block_light_absorption": { "$ref": "components/minecraft.block_light_absorption.json" },
+    "minecraft:block_light_emission": { "$ref": "components/minecraft.block_light_emission.json" },
+    "minecraft:destroy_time": { "$ref": "components/minecraft.destroy_time.json" },
+    "minecraft:explosion_resistance": { "$ref": "components/minecraft.explosion_resistance.json" },
+    "minecraft:flammable": { "$ref": "components/minecraft.flammable.json" },
+    "minecraft:friction": { "$ref": "components/minecraft.friction.json" },
+    "minecraft:loot": { "$ref": "components/minecraft.loot.json" },
+    "minecraft:map_color": { "$ref": "components/minecraft.map_color.json" }
   }
 }
