@@ -33,9 +33,7 @@
               "title": "Category",
               "description": "TODO",
               "type": "string",
-              "enum": [
-                "Equipment"
-              ]
+              "enum": ["Equipment"]
             }
           }
         },
@@ -53,9 +51,7 @@
               "type": "string",
               "description": "TODO",
               "title": "Minecraft render offsets",
-              "enum": [
-                "apple"
-              ]
+              "enum": ["apple"]
             }
           }
         }
