@@ -12,7 +12,7 @@
         "add_items": {
           "type": "object",
           "description": "Loot table with items to add to the player's inventory upon successful interaction.",
-          "title": "Add_items"
+          "title": "Add items"
         },
         "cooldown": {
           "type": "number",
@@ -24,38 +24,38 @@
           "type": "integer",
           "default": 0,
           "description": "The amount of damage the item will take when used to interact with this entity. A value of 0 means the item won't lose durability.",
-          "title": "Hurt_item"
+          "title": "Hurt item"
         },
         "interact_text": {
           "type": "string",
           "default": "",
           "description": "Text to show when the player is able to interact in this way with this entity when playing with Touch-screen controls.",
-          "title": "Interact_text"
+          "title": "Interact text"
         },
         "on_interact": {
           "$ref": "../types/event.json",
           "description": "Event to fire when the interaction occurs.",
-          "title": "On_interact"
+          "title": "On interact"
         },
         "particle_on_start": {
           "type": "object",
           "description": "Particle effect that will be triggered at the start of the interaction.",
-          "title": "Particle_on_start",
+          "title": "Particle on start",
           "properties": {
             "particle_offset_towards_interactor": {
               "type": "boolean",
               "description": "Whether or not the particle will appear closer to who performed the interaction.",
-              "title": "Particle_offset_towards_interactor"
+              "title": "Particle offset towards interactor"
             },
             "particle_type": {
               "type": "string",
               "description": "The type of particle that will be spawned.",
-              "title": "Particle_type"
+              "title": "Particle type"
             },
             "particle_y_offset": {
               "type": "number",
               "description": "Will offset the particle this amount in the y direction.",
-              "title": "Particle_y_offset"
+              "title": "Particle y offset"
             }
           }
         },
@@ -63,18 +63,18 @@
           "type": "string",
           "default": "",
           "description": "List of sounds to play when the interaction occurs.",
-          "title": "Play_sounds"
+          "title": "Play sounds"
         },
         "spawn_entities": {
           "type": "string",
           "default": "",
           "description": "List of entities to spawn when the interaction occurs.",
-          "title": "Spawn_entities"
+          "title": "Spawn entities"
         },
         "spawn_items": {
           "type": "object",
           "description": "Loot table with items to drop on the ground upon successful interaction.",
-          "title": "Spawn_items",
+          "title": "Spawn items",
           "properties": {
             "table": {
               "type": "string",
@@ -94,13 +94,13 @@
           "type": "string",
           "default": "",
           "description": "The item used will transform to this item upon successful interaction. Format: itemName:auxValue",
-          "title": "Transform_to_item"
+          "title": "Transform to item"
         },
         "use_item": {
           "type": "boolean",
           "default": false,
           "description": "If true, the interaction will use an item.",
-          "title": "Use_item"
+          "title": "Use item"
         }
       }
     }

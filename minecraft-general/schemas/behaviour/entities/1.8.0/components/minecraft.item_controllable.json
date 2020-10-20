@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.item_controllable",
   "description": "Efines what items can be used to control this entity while ridden",
   "type": "object",
-  "title": "Item_controllable 1.8.0",
+  "title": "Item controllable 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

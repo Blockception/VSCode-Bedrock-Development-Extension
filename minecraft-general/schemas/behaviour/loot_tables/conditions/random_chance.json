@@ -4,7 +4,7 @@
   "type": "object",
   "additionalProperties": false,
   "description": "Sets a random chance of the specified value.",
-  "title": "Random_chance",
+  "title": "Random chance",
   "properties": {
     "condition": {
       "type": "string",

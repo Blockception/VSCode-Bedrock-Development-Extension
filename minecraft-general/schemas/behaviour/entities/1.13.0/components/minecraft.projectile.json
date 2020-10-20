@@ -16,25 +16,25 @@
       "type": "number",
       "default": 0,
       "description": "Determines the angle at which the projectile is thrown",
-      "title": "Angle_offset"
+      "title": "Angle offset"
     },
     "catch_fire": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity hit will be set on fire",
-      "title": "Catch_fire"
+      "title": "Catch fire"
     },
     "crit_particle_on_hurt": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will produce additional particles when a critical hit happens",
-      "title": "Crit_particle_on_hurt"
+      "title": "Crit particle on hurt"
     },
     "destroy_on_hurt": {
       "type": "boolean",
       "default": false,
       "description": "If true, this entity will be destroyed when hit",
-      "title": "Destroy_on_hurt"
+      "title": "Destroy on hurt"
     },
     "filter": {
       "type": "string",
@@ -46,7 +46,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, whether the projectile causes fire is affected by the mob griefing game rule",
-      "title": "Fire_affected_by_griefing"
+      "title": "Fire affected by griefing"
     },
     "gravity": {
       "type": "number",
@@ -58,7 +58,7 @@
       "type": "string",
       "default": "",
       "description": "The sound that plays when the projectile hits something",
-      "title": "Hit_sound"
+      "title": "Hit sound"
     },
     "homing": {
       "type": "boolean",
@@ -76,7 +76,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will be treated as dangerous to the players",
-      "title": "Is_dangerous"
+      "title": "Is dangerous"
     },
     "knockback": {
       "type": "boolean",
@@ -94,13 +94,13 @@
       "type": "number",
       "default": 0.6,
       "description": "The fraction of the projectile's speed maintained every frame while traveling in water",
-      "title": "Liquid_inertia"
+      "title": "Liquid inertia"
     },
     "multiple_targets": {
       "type": "boolean",
       "default": true,
       "description": "If true, the projectile can hit multiple entities per flight",
-      "title": "Multiple_targets"
+      "title": "Multiple targets"
     },
     "offset": {
       "type": "array",
@@ -126,7 +126,7 @@
       "type": "number",
       "default": 5,
       "description": "Time in seconds that the entity hit will be on fire for",
-      "title": "On_fire_time"
+      "title": "On fire time"
     },
     "on_hit": {
       "additionalProperties": false,
@@ -223,7 +223,7 @@
       "type": "integer",
       "default": -1,
       "description": "Defines the effect the arrow will apply to the entity it hits",
-      "title": "Potion_effect"
+      "title": "Potion effect"
     },
     "power": {
       "type": "number",
@@ -235,55 +235,55 @@
       "type": "boolean",
       "default": false,
       "description": "If true, this entity will be reflected back when hit",
-      "title": "Reflect_on_hurt"
+      "title": "Reflect on hurt"
     },
     "semi_random_diff_damage": {
       "type": "boolean",
       "default": false,
       "description": "If true, damage will be randomized based on damage and speed",
-      "title": "Semi_random_diff_damage"
+      "title": "Semi random diff damage"
     },
     "shoot_sound": {
       "type": "string",
       "default": "",
       "description": "The sound that plays when the projectile is shot",
-      "title": "Shoot_sound"
+      "title": "Shoot sound"
     },
     "shoot_target": {
       "type": "boolean",
       "default": true,
       "description": "If true, the projectile will be shot towards the target of the entity firing it",
-      "title": "Shoot_target"
+      "title": "Shoot target"
     },
     "should_bounce": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will bounce upon hit",
-      "title": "Should_bounce"
+      "title": "Should bounce"
     },
     "splash_potion": {
       "type": "boolean",
       "default": false,
       "description": "If true, the projectile will be treated like a splash potion",
-      "title": "Splash_potion"
+      "title": "Splash potion"
     },
     "splash_range": {
       "type": "number",
       "default": 4,
       "description": "Radius in blocks of the 'splash' effect",
-      "title": "Splash_range"
+      "title": "Splash range"
     },
     "uncertainty_base": {
       "type": "number",
       "default": 0,
       "description": "The base accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier",
-      "title": "Uncertainty_base"
+      "title": "Uncertainty base"
     },
     "uncertainty_multiplier": {
       "type": "number",
       "default": 0,
       "description": "Determines how much difficulty affects accuracy. Accuracy is determined by the formula uncertaintyBase - difficultyLevel * uncertaintyMultiplier",
-      "title": "Uncertainty_multiplier"
+      "title": "Uncertainty multiplier"
     }
   }
 }

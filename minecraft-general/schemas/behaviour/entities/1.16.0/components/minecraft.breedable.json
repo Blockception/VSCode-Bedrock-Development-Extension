@@ -218,25 +218,25 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the entity will become pregnant instead of spawning a baby.",
-      "title": "Causes_pregnancy"
+      "title": "Causes pregnancy"
     },
     "inherit_tamed": {
       "type": "boolean",
       "default": true,
       "description": "If true, the babies will be automatically tamed if its parents are",
-      "title": "Inherit_tamed"
+      "title": "Inherit tamed"
     },
     "require_full_health": {
       "type": "boolean",
       "default": false,
       "description": "If true, the entity needs to be at full health before it can breed.",
-      "title": "Require_full_health"
+      "title": "Require full health"
     },
     "require_tame": {
       "type": "boolean",
       "default": true,
       "description": "If true, the entities need to be tamed first before they can breed.",
-      "title": "Require_tame"
+      "title": "Require tame"
     }
   }
 }

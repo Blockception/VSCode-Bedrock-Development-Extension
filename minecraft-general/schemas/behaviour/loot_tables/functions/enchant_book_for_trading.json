@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.enchant_book_for_trading",
   "additionalProperties": false,
   "description": "The function enchant_book_for_trading",
-  "title": "Enchant_book_for_trading",
+  "title": "Enchant book for trading",
   "required": ["function", "base_cost", "base_random_cost", "per_level_random_cost", "per_level_cost"],
   "properties": {
     "function": {

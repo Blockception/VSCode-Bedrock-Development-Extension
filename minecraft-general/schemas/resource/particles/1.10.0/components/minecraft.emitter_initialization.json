@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.resource.particle.1.10.0.emitter_initialization",
   "description": "This component allows the emitter to run some Molang at creation, primarily to populate any MoLang variables that get used later.",
   "type": "object",
-  "title": "The emitter_initialization component for 1.10.0",
+  "title": "The emitter initialization component for 1.10.0",
   "additionalProperties": false,
   "properties": {
     "creation_expression": {

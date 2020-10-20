@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_brightness",
   "type": "object",
-  "title": "Filters is_brightness 1.8.0",
+  "title": "Filters is brightness 1.8.0",
   "additionalProperties": false,
   "description": "Tests the current brightness against a provided value in the range (0.0f, 1.0f).",
   "required": ["value"],

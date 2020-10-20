@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.water_movement",
   "description": "TODO description",
   "type": "object",
-  "title": "Water_movement 1.8.0",
+  "title": "Water movement 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

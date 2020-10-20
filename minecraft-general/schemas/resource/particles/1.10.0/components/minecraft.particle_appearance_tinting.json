@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.resource.particle.1.10.0.particle_appearance_tinting",
   "description": "Color tinting of the particle is controlled by this component",
   "type": "object",
-  "title": "The particle_appearance_tinting component for 1.10.0",
+  "title": "The particle appearance tinting component for 1.10.0",
   "additionalProperties": false,
   "properties": {
     "color": {

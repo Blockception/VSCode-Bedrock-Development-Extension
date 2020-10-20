@@ -21,7 +21,7 @@
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "Goal_radius"
+      "title": "Goal radius"
     },
     "interval": {
       "type": "integer",
@@ -33,19 +33,19 @@
       "type": "integer",
       "default": 10,
       "description": "The number of blocks each tick that the mob will check within it's search range and height for a valid block to move to. A value of 0 will have the mob check every block within range in one tick",
-      "title": "Search_count"
+      "title": "Search count"
     },
     "search_height": {
       "type": "integer",
       "default": 1,
       "description": "Height in blocks the mob will look for turtle eggs to move towards",
-      "title": "Search_height"
+      "title": "Search height"
     },
     "search_range": {
       "type": "integer",
       "default": 0,
       "description": "The distance in blocks it will look for turtle eggs to move towards",
-      "title": "Search_range"
+      "title": "Search range"
     }
   }
 }

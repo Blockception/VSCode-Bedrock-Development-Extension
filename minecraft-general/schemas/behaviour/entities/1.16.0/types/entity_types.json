@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.type.entity_types.1.16.0",
-  "title": "Entity_types 1.16.0",
+  "title": "Entity types 1.16.0",
   "type": "array",
   "items": {
     "description": "The entity type",

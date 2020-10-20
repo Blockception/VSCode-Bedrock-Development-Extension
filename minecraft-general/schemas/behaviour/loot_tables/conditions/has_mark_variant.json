@@ -4,7 +4,7 @@
   "type": "object",
   "additionalProperties": false,
   "description": "Returns the condition true if the actor's mark variant is matched to the value.",
-  "title": "Has_mark_variant",
+  "title": "Has mark variant",
   "properties": {
     "condition": {
       "type": "string",

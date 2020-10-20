@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.spawn_rules.1.8.0.minecraft.difficulty_filter",
   "additionalProperties": false,
   "type": "object",
-  "title": "Difficulty_filter 1.8.0",
+  "title": "Difficulty filter 1.8.0",
   "description": "TODO",
   "definitions": {
     "difficulty": {

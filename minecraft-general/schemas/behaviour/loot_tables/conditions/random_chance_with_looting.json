@@ -4,7 +4,7 @@
   "type": "object",
   "additionalProperties": false,
   "description": "Sets a random chance of the specified value. Looting enchantment increase the random chance multiplier.",
-  "title": "Random_chance_with_looting",
+  "title": "Random chance with looting",
   "properties": {
     "condition": {
       "type": "string",

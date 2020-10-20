@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.random_aux_value",
   "additionalProperties": false,
   "description": "The function random_aux_value",
-  "title": "Random_aux_value",
+  "title": "Random aux value",
   "properties": {
     "function": {
       "type": "string",

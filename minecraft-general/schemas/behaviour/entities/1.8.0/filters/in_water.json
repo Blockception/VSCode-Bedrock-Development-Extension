@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.in_water",
   "type": "object",
-  "title": "Filters in_water 1.8.0",
+  "title": "Filters in water 1.8.0",
   "additionalProperties": false,
   "description": "Returns true when the subject entity is in water.",
   "properties": {

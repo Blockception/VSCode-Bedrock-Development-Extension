@@ -10,7 +10,7 @@
       "type": "boolean",
       "default": false,
       "description": "Tells the pathfinder to avoid portals (like nether portals) when finding a path",
-      "title": "Avoid_portals"
+      "title": "Avoid portals"
     },
     "avoid_damage_blocks": {
       "type": "boolean",
@@ -21,19 +21,19 @@
       "type": "boolean",
       "default": false,
       "description": "Whether or not the pathfinder should avoid tiles that are exposed to the sun when creating paths",
-      "title": "Avoid_sun"
+      "title": "Avoid sun"
     },
     "avoid_water": {
       "type": "boolean",
       "default": false,
       "description": "Tells the pathfinder to avoid water when creating a path",
-      "title": "Avoid_water"
+      "title": "Avoid water"
     },
     "can_break_doors": {
       "type": "boolean",
       "default": false,
       "description": "Tells the pathfinder that it can path through a closed door and break it",
-      "title": "Can_break_doors"
+      "title": "Can break doors"
     },
     "can_float": {
       "type": "boolean",
@@ -87,7 +87,7 @@
       "type": "boolean",
       "default": false,
       "description": "Tells the pathfinder whether or not it can travel in lava like walking on ground",
-      "title": "Can_walk_in_lava"
+      "title": "Can walk in lava"
     },
     "can_walk": {
       "type": "boolean",

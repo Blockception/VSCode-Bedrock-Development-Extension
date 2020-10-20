@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.minecraft.spawn_entity",
   "type": "object",
   "description": "Adds a timer after which this entity will spawn another entity or item (similar to vanilla's chicken's egg-laying behavior).",
-  "title": "Spawn_entity 1.16.0",
+  "title": "Spawn entity 1.16.0",
   "additionalProperties": false,
   "required": [],
   "definitions": {

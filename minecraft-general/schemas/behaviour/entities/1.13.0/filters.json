@@ -4,7 +4,7 @@
   "title": "Filters 1.13.0",
   "definitions": {
     "filters_spec": {
-      "title": "Filters_spec 1.13.0",
+      "title": "Filters specification 1.13.0",
       "type": "object",
       "propertyNames": {
         "enum": ["test", "operator", "value", "domain", "subject"]

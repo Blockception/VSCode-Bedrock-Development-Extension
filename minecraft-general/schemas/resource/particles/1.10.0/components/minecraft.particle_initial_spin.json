@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.resource.particle.1.10.0.particle_initial_spin",
-  "title": "The particle_initial_spin component for 1.10.0",
+  "title": "The particle initial spin component for 1.10.0",
   "description": "Starts the particle with a specified orientation and rotation rate.",
   "additionalProperties": false,
   "type": "object",

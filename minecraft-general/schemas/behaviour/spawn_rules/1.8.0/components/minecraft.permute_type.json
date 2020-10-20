@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.spawn_rules.1.8.0.minecraft.permute_type",
   "additionalProperties": false,
   "type": "array",
-  "title": "Permute_type 1.8.0",
+  "title": "Permute type 1.8.0",
   "description": "TODO",
   "items": {
     "type": "object",

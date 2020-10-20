@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.set_actor_id",
   "additionalProperties": false,
   "description": "The function set_actor_id",
-  "title": "Set_actor_id",
+  "title": "Set actor id",
   "properties": {
     "function": {
       "type": "string",

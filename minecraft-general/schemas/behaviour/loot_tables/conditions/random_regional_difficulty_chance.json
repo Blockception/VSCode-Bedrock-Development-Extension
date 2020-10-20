@@ -4,7 +4,7 @@
   "type": "object",
   "additionalProperties": false,
   "description": "Sets a max regional difficulty random chance of the specified value.",
-  "title": "Random_regional_difficulty_chance",
+  "title": "Random regional difficulty chance",
   "properties": {
     "condition": {
       "type": "string",

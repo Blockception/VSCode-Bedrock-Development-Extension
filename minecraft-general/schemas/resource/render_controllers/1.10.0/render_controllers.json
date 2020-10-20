@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.render_controllers.json",
   "additionalProperties": false,
   "type": "object",
-  "title": "Render_controllers 1.10.0",
+  "title": "Render controllers 1.10.0",
   "description": "Render_controllers 1.10.0",
   "definitions": {
     "color": {

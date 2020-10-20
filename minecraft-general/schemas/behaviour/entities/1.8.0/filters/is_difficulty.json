@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_difficulty",
   "type": "object",
-  "title": "Filters is_difficulty 1.8.0",
+  "title": "Filters is difficulty 1.8.0",
   "additionalProperties": false,
   "description": "Tests the current difficulty level of the game.",
   "required": ["value"],

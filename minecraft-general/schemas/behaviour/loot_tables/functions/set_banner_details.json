@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.set_banner_details",
   "additionalProperties": false,
   "description": "The function set_banner_details",
-  "title": "Set_banner_details",
+  "title": "Set banner details",
   "properties": {
     "function": {
       "type": "string",

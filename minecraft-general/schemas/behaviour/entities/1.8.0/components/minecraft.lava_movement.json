@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.lava_movement",
   "description": "UNDOCUMENTATED",
   "type": "object",
-  "title": "Lava_movement 1.8.0",
+  "title": "Lava movement 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

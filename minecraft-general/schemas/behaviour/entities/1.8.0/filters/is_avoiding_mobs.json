@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_avoiding_mobs",
   "type": "object",
-  "title": "Filters is_avoiding_mobs 1.8.0",
+  "title": "Filters is avoiding mobs 1.8.0",
   "additionalProperties": false,
   "description": "Returns true if the subject entity is fleeing from other mobs.",
   "properties": {

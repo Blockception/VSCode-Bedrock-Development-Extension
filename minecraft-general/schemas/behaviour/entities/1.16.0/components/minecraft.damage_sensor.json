@@ -47,19 +47,19 @@
           "type": "number",
           "default": 1,
           "description": "A multiplier that modifies the base damage from the damage cause. If deals_damage is true the multiplier can only reduce the damage the entity will take to a minimum of 1.",
-          "title": "Damage_multiplier"
+          "title": "Damage multiplier"
         },
         "deals_damage": {
           "type": "boolean",
           "default": true,
           "description": "If true, the damage dealt to the entity will take away health from it, set to false to make the entity ignore that damage.",
-          "title": "Deals_damage"
+          "title": "Deals damage"
         },
         "on_damage": {
           "additionalProperties": false,
           "type": "object",
           "description": "Specifies filters for entity definitions and events.",
-          "title": "On_damage",
+          "title": "On damage",
           "properties": {
             "filters": {
               "$ref": "../filters.json"
@@ -79,7 +79,7 @@
           "on_damage_sound_event": {
             "type": "string",
             "description": "Defines what sound to play, if any, when the on_damage filters are met.",
-            "title": "On_damage_sound_event"
+            "title": "On damage sound event"
           }
         }
       }

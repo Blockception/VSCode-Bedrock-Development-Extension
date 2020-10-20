@@ -4,7 +4,7 @@
   "type": "object",
   "additionalProperties": false,
   "description": "Returns true if the actor properties defined were executed.",
-  "title": "Entity_properties",
+  "title": "Entity properties",
   "properties": {
     "condition": {
       "type": "string",

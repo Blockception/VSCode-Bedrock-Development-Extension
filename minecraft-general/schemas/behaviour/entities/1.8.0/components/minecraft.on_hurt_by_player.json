@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.on_hurt_by_player",
   "description": "Adds a trigger to call when this entity is attacked by the player.",
   "type": "object",
-  "title": "On_hurt_by_player 1.8.0",
+  "title": "On hurt by player 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

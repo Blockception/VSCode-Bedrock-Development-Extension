@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.minecraft.on_wake_with_owner",
   "description": "Adds a trigger to call when this pet's owner awakes after sleeping with the pet.",
   "type": "object",
-  "title": "On_wake_with_owner 1.8.0",
+  "title": "On wake with owner 1.8.0",
   "additionalProperties": false,
   "required": [],
   "properties": {

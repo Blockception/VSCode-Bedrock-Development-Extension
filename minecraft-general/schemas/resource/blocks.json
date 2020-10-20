@@ -76,12 +76,12 @@
     "properties": {
       "brightness_gamma": {
         "type": "number",
-        "title": "Brightness_gamma",
+        "title": "Brightness gamma",
         "description": "TODO"
       },
       "carried_textures": {
         "$ref": "#/definitions/texture",
-        "title": "Carried_textures",
+        "title": "Carried textures",
         "description": "TODO"
       },
       "isotropic": {

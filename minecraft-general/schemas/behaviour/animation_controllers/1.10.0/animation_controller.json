@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.animation_controller.1.10.0",
   "type": "object",
-  "title": "The minecraft behaviourpack animation_controller 1.10.0",
+  "title": "The minecraft behaviourpack animation controller 1.10.0",
   "description": "TODO description",
   "definitions": {
     "animationspec": {

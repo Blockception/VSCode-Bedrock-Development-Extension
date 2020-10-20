@@ -11,25 +11,25 @@
       "type": "boolean",
       "default": false,
       "description": "A bucket for all other items in the game. Note this category is always least priority items.",
-      "title": "All_items"
+      "title": "All items"
     },
     "all_items_max_amount": {
       "type": "integer",
       "default": -1,
       "description": "Maximum number of this item the mob will hold.",
-      "title": "All_items_max_amount"
+      "title": "All items max amount"
     },
     "all_items_surplus_amount": {
       "type": "integer",
       "default": -1,
       "description": "Number of this item considered extra that the entity wants to share.",
-      "title": "All_items_surplus_amount"
+      "title": "All items surplus amount"
     },
     "all_items_want_amount": {
       "type": "integer",
       "default": -1,
       "description": "Number of this item this entity wants to share.",
-      "title": "All_items_want_amount"
+      "title": "All items want amount"
     },
     "items": {
       "type": "array",
@@ -65,17 +65,17 @@
           "item_aux": {
             "type": "integer",
             "description": "Aux value for the item.",
-            "title": "Item_aux"
+            "title": "Item aux"
           },
           "max_amount": {
             "type": "integer",
             "description": "Maximum number of this item the mob will hold.",
-            "title": "Max_amount"
+            "title": "Max amount"
           },
           "pickup_limit": {
             "type": "integer",
             "description": "Maximum number of this item the mob will pick up during a single goal tick.",
-            "title": "Pickup_limit"
+            "title": "Pickup limit"
           },
           "priority": {
             "type": "integer",
@@ -85,17 +85,17 @@
           "stored_in_inventory": {
             "type": "boolean",
             "description": "Determines whether the mob will try to put the item in its inventory if it has the inventory component and if it can't be equipped.",
-            "title": "Stored_in_inventory"
+            "title": "Stored in inventory"
           },
           "surplus_amount": {
             "type": "integer",
             "description": "Number of this item considered extra that the entity wants to share.",
-            "title": "Surplus_amount"
+            "title": "Surplus amount"
           },
           "want_amount": {
             "type": "integer",
             "description": "Number of this item this entity wants to have.",
-            "title": "Want_amount"
+            "title": "Want amount"
           }
         }
       },

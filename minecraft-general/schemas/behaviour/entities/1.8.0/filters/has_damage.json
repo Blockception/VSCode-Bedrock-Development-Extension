@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.has_damage",
   "type": "object",
-  "title": "Filters has_damage 1.8.0",
+  "title": "Filters has damage 1.8.0",
   "additionalProperties": false,
   "description": "Returns true when the subject entity receives the named damage type.",
   "required": ["value"],

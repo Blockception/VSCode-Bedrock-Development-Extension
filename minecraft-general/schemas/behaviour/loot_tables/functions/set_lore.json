@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.set_lore",
   "additionalProperties": false,
   "description": "The function set_lore",
-  "title": "Set_lore",
+  "title": "Set lore",
   "properties": {
     "function": {
       "type": "string",

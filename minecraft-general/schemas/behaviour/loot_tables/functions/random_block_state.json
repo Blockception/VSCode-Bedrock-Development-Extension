@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.random_block_state",
   "additionalProperties": false,
   "description": "The function random_block_state",
-  "title": "Random_block_state",
+  "title": "Random block state",
   "properties": {
     "function": {
       "type": "string",

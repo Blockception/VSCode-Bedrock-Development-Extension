@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.behaviour.loot_tables.set_damage",
   "additionalProperties": false,
   "description": "The function set_damage",
-  "title": "Set_damage",
+  "title": "Set damage",
   "properties": {
     "function": {
       "type": "string",

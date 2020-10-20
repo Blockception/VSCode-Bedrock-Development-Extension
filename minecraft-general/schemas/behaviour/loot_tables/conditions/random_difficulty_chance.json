@@ -4,7 +4,7 @@
   "type": "object",
   "additionalProperties": false,
   "description": "Sets a random chance of the specified value based on the level difficulty.",
-  "title": "Random_difficulty_chance",
+  "title": "Random difficulty chance",
   "properties": {
     "condition": {
       "type": "string",

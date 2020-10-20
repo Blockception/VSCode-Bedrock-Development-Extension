@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_owner",
   "type": "object",
-  "title": "Filters is_owner 1.8.0",
+  "title": "Filters is owner 1.8.0",
   "additionalProperties": false,
   "description": "Returns true if the subject entity is the owner of the calling entity.",
   "properties": {

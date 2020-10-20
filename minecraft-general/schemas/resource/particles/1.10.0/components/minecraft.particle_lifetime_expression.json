@@ -3,7 +3,7 @@
   "$id": "blockception.minecraft.resource.particle.1.10.0.particle_lifetime_expression",
   "type": "object",
   "description": "TODO description: ",
-  "title": "The particle_lifetime_expression component for 1.10.0",
+  "title": "The particle lifetime expression component for 1.10.0",
   "additionalProperties": false,
   "properties": {
     "expiration_expression": {

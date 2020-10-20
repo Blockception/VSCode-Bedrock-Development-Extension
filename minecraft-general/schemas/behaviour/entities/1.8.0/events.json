@@ -12,7 +12,7 @@
       "type": "object",
       "properties": {
         "component_groups": {
-          "title": "The component_groups schema",
+          "title": "The component groups schema",
           "description": "The components groups to add or remove",
           "type": "array",
           "items": {
