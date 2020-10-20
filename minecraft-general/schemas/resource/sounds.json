@@ -9,13 +9,25 @@
     "pitch": {
       "title": "Pitch",
       "oneOf": [
-        { "default": 1, "type": "number", "description": "A defined pitch" },
+        {
+          "default": 1,
+          "type": "number",
+          "description": "A defined pitch"
+        },
         {
           "description": "A random selection between a minimum and maximum",
           "type": "array",
           "items": [
-            { "type": "number", "minimum": 0, "title": "Minimum" },
-            { "type": "number", "minimum": 0, "title": "Maximum" }
+            {
+              "type": "number",
+              "minimum": 0,
+              "title": "Minimum"
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "title": "Maximum"
+            }
           ]
         }
       ]
@@ -23,13 +35,25 @@
     "volume": {
       "title": "Volume",
       "oneOf": [
-        { "default": 1, "type": "number", "description": "A defined volume" },
+        {
+          "default": 1,
+          "type": "number",
+          "description": "A defined volume"
+        },
         {
           "description": "A random selection between a minimum and maximum",
           "type": "array",
           "items": [
-            { "type": "number", "minimum": 0, "title": "Minimum" },
-            { "type": "number", "minimum": 0, "title": "Maximum" }
+            {
+              "type": "number",
+              "minimum": 0,
+              "title": "Minimum"
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "title": "Maximum"
+            }
           ]
         }
       ]
@@ -38,20 +62,25 @@
       "title": "Sound event definition",
       "description": "A single sound event definition",
       "oneOf": [
-        { "type": "string" },
+        {
+          "type": "string"
+        },
         {
           "type": "object",
-
           "additionalProperties": false,
           "required": ["sound"],
           "properties": {
-            "volume": { "$ref": "#/definitions/volume" },
+            "volume": {
+              "$ref": "#/definitions/volume"
+            },
             "sound": {
               "type": "string",
               "title": "Sound event",
               "description": "The sound event described in sound_definitions.json"
             },
-            "pitch": { "$ref": "#/definitions/pitch" }
+            "pitch": {
+              "$ref": "#/definitions/pitch"
+            }
           }
         }
       ]
@@ -61,8 +90,12 @@
       "title": "Entity sound",
       "description": "Entity sound definitions",
       "properties": {
-        "volume": { "$ref": "#/definitions/volume" },
-        "pitch": { "$ref": "#/definitions/pitch" },
+        "volume": {
+          "$ref": "#/definitions/volume"
+        },
+        "pitch": {
+          "$ref": "#/definitions/pitch"
+        },
         "events": {
           "type": "object",
           "title": "Events",
@@ -87,8 +120,12 @@
         "description": "A single block sound definition",
         "additionalProperties": false,
         "properties": {
-          "volume": { "$ref": "#/definitions/volume" },
-          "pitch": { "$ref": "#/definitions/pitch" },
+          "volume": {
+            "$ref": "#/definitions/volume"
+          },
+          "pitch": {
+            "$ref": "#/definitions/pitch"
+          },
           "events": {
             "type": "object",
             "title": "Events",
@@ -108,7 +145,9 @@
       "description": "Entity sounds definitions",
       "additionalProperties": false,
       "properties": {
-        "defaults": { "$ref": "#/definitions/entity_event" },
+        "defaults": {
+          "$ref": "#/definitions/entity_event"
+        },
         "entities": {
           "type": "object",
           "title": "Entities",
@@ -151,8 +190,12 @@
             "description": "A single block sound definition",
             "additionalProperties": false,
             "properties": {
-              "volume": { "$ref": "#/definitions/volume" },
-              "pitch": { "$ref": "#/definitions/pitch" },
+              "volume": {
+                "$ref": "#/definitions/volume"
+              },
+              "pitch": {
+                "$ref": "#/definitions/pitch"
+              },
               "events": {
                 "type": "object",
                 "title": "Events",
@@ -163,14 +206,17 @@
                   "title": "Sound event definition",
                   "description": "A single sound event definition",
                   "oneOf": [
-                    { "type": "string" },
+                    {
+                      "type": "string"
+                    },
                     {
                       "type": "object",
-
                       "additionalProperties": false,
                       "minProperties": 1,
                       "properties": {
-                        "volume": { "$ref": "#/definitions/volume" },
+                        "volume": {
+                          "$ref": "#/definitions/volume"
+                        },
                         "sound": {
                           "type": "string",
                           "title": "Sound event",
@@ -181,7 +227,9 @@
                           "title": "Sound event",
                           "description": "The sound event described in sound_definitions.json"
                         },
-                        "pitch": { "$ref": "#/definitions/pitch" }
+                        "pitch": {
+                          "$ref": "#/definitions/pitch"
+                        }
                       }
                     }
                   ]
@@ -223,8 +271,12 @@
                 }
               },
               "properties": {
-                "volume": { "$ref": "#/definitions/volume" },
-                "pitch": { "$ref": "#/definitions/pitch" }
+                "volume": {
+                  "$ref": "#/definitions/volume"
+                },
+                "pitch": {
+                  "$ref": "#/definitions/pitch"
+                }
               }
             },
             "entities": {
@@ -235,8 +287,12 @@
                 "type": "object",
                 "title": "Entity sounds",
                 "properties": {
-                  "volume": { "$ref": "#/definitions/volume" },
-                  "pitch": { "$ref": "#/definitions/pitch" },
+                  "volume": {
+                    "$ref": "#/definitions/volume"
+                  },
+                  "pitch": {
+                    "$ref": "#/definitions/pitch"
+                  },
                   "events": {
                     "type": "object",
                     "title": "Entity events",

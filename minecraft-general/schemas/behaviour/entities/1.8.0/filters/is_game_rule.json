@@ -9,8 +9,7 @@
   "properties": {
     "domain": {
       "description": "The Game Rule to test.",
-      "title": "Domain",
-      "additionalProperties": false
+      "title": "Domain"
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -26,8 +25,7 @@
       "description": "Tests whether a named game rule is active.",
       "default": true,
       "type": "boolean",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

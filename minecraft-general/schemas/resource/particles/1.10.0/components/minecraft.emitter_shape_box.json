@@ -39,8 +39,7 @@
         "title": "Offset"
       },
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "half_dimensions": {
       "type": "array",
@@ -52,14 +51,12 @@
         "title": "Half Dimensions"
       },
       "description": "TODO description: half dimensions",
-      "title": "Half Dimensions",
-      "additionalProperties": false
+      "title": "Half Dimensions"
     },
     "surface_only": {
       "type": "boolean",
       "description": "TODO description: surface only",
-      "title": "Surface Only",
-      "additionalProperties": false
+      "title": "Surface Only"
     }
   },
   "description": "TODO description: "

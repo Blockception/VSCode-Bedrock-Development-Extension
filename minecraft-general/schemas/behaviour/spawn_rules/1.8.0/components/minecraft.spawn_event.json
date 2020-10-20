@@ -9,8 +9,7 @@
     "event": {
       "type": "string",
       "title": "Event",
-      "description": "TODO",
-      "additionalProperties": false
+      "description": "TODO"
     }
   }
 }

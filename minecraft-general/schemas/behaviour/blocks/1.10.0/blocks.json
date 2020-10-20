@@ -11,8 +11,7 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "const": "1.10.0",
-      "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
-      "additionalProperties": false
+      "description": "A version that tells minecraft what type of data format can be expected when reading this file."
     },
     "minecraft:block": {
       "title": "Minecraft block definitions",
@@ -31,7 +30,8 @@
             "identifier": {
               "type": "string",
               "description": "The identifier for this block. The name must include a namespace and must not use the Minecraft namespace unless overriding a Vanilla block.",
-              "title": "Identifier"
+              "title": "Identifier",
+              "$ref": "../../../general/block/identifier.json"
             },
             "is_experimental": {
               "type": "boolean",

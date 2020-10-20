@@ -16,8 +16,7 @@
       "type": "number",
       "default": 1.0,
       "description": "Movement speed multiplier of the mob when using this AI Goal",
-      "title": "Speed Multiplier",
-      "additionalProperties": false
+      "title": "Speed Multiplier"
     },
     "radius_range": {
       "$ref": "../types/range_number_type.json",
@@ -29,8 +28,7 @@
       "type": "integer",
       "default": 250,
       "description": "A random value to determine when to increase the size of the radius up to the maximum. This has a 1/value chance every tick to do so.",
-      "title": "Radius Change Chance",
-      "additionalProperties": false
+      "title": "Radius Change Chance"
     },
     "height_above_target_range": {
       "$ref": "../types/range_number_type.json",
@@ -48,39 +46,33 @@
       "type": "integer",
       "default": 350,
       "description": "A random value to determine when to change the height of the mob from the anchor point. This has a 1/value chance every tick to do so.",
-      "title": "Height Change Chance",
-      "additionalProperties": false
+      "title": "Height Change Chance"
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "Goal Radius",
-      "additionalProperties": false
+      "title": "Goal Radius"
     },
     "radius_change": {
       "type": "number",
       "title": "Radius change",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "radius_adjustment_chance": {
       "type": "number",
       "title": "Radius adjustment chance",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "height_adjustment_chance": {
       "type": "number",
       "title": "Height adjustment chance",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "angle_change": {
       "type": "number",
       "title": "Angle change",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   }
 }

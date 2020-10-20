@@ -15,8 +15,7 @@
     "cast_duration": {
       "type": "number",
       "description": "Time in seconds for the entire event sending process",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "sequence": {
       "type": "array",
@@ -42,8 +41,7 @@
           }
         }
       },
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

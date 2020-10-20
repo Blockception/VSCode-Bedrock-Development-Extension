@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "Test",
-      "description": "The test property",
-      "additionalProperties": false
+      "description": "The test property"
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -26,8 +25,7 @@
     "value": {
       "description": "The Family name to look for",
       "type": "integer",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

@@ -24,7 +24,14 @@
             "path": {
               "description": "A texture file",
               "type": "string",
-              "pattern": "^textures/.+$"
+              "pattern": "^textures/.+$",
+              "title": "Path"
+            },
+            "tint_color": {
+              "title": "Tint color",
+              "description": "TODO",
+              "format": "color-hex",
+              "type": "string"
             }
           }
         }
@@ -35,20 +42,17 @@
     "num_mip_levels": {
       "type": "integer",
       "title": "Num_mip_levels",
-      "description": "TODO: add description",
-      "additionalProperties": false
+      "description": "TODO: add description"
     },
     "padding": {
       "type": "integer",
       "title": "Padding",
-      "description": "TODO: add description",
-      "additionalProperties": false
+      "description": "TODO: add description"
     },
     "resource_pack_name": {
       "type": "string",
       "title": "Resource_pack_name",
-      "description": "TODO: add description",
-      "additionalProperties": false
+      "description": "TODO: add description"
     },
     "texture_data": {
       "type": "object",
@@ -81,8 +85,7 @@
     "texture_name": {
       "type": "string",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -11,8 +11,7 @@
       "type": "number",
       "default": 0.0,
       "description": "Angle in degrees",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -21,8 +21,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, the mob will only move through the village during night time",
-      "title": "Only At Night",
-      "additionalProperties": false
+      "title": "Only At Night"
     }
   }
 }

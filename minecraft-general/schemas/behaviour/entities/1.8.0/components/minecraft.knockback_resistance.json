@@ -10,14 +10,12 @@
     "value": {
       "type": "number",
       "description": "UNDOCUMENTATED",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     },
     "max": {
       "type": "number",
       "description": "UNDOCUMENTATED",
-      "title": "Maximum",
-      "additionalProperties": false
+      "title": "Maximum"
     }
   }
 }

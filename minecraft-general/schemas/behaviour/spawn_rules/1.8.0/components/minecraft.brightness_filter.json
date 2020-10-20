@@ -9,21 +9,18 @@
     "min": {
       "type": "integer",
       "description": "TODO",
-      "title": "Min",
-      "additionalProperties": false
+      "title": "Min"
     },
     "max": {
       "type": "integer",
       "description": "TODO",
-      "title": "Max",
-      "additionalProperties": false
+      "title": "Max"
     },
     "adjust_for_weather": {
       "type": "boolean",
       "description": "TODO",
       "title": "Max",
-      "default": true,
-      "additionalProperties": false
+      "default": true
     }
   }
 }

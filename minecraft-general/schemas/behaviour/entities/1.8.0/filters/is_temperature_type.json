@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "The test property",
-      "additionalProperties": false
+      "description": "The test property"
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -27,8 +26,7 @@
       "description": "The Biome temperature catagory to test",
       "type": "string",
       "enum": ["cold", "mild", "ocean", "warm"],
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

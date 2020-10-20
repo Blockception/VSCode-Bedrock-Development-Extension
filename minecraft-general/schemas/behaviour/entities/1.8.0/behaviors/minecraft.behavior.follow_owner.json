@@ -10,8 +10,7 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "$ref": "types/base_speed_multiplier.json",
@@ -22,15 +21,13 @@
       "type": "number",
       "default": 10,
       "description": "The distance in blocks that the owner can be away from this mob before it starts following it",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "stop_distance": {
       "type": "number",
       "default": 2,
       "description": "The distance in blocks this mob will stop from its owner while following it",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

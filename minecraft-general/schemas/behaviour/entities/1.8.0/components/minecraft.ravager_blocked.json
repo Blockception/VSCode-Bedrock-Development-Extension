@@ -11,8 +11,7 @@
       "type": "number",
       "default": 3,
       "description": "The strength with which blocking entities should be knocked back",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "reaction_choices": {
       "type": "array",
@@ -39,8 +38,7 @@
           }
         }
       },
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

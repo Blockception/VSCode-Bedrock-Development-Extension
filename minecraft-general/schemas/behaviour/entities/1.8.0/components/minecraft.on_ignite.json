@@ -10,8 +10,7 @@
     "event": {
       "type": "string",
       "description": "The event to run when the conditions for this trigger are met",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "filters": {
       "$ref": "../filters.json",

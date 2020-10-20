@@ -10,49 +10,42 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "Goal_radius",
-      "additionalProperties": false
+      "title": "Goal_radius"
     },
     "interval": {
       "type": "integer",
       "default": 120,
       "description": "A random value to determine when to randomly move somewhere. This has a 1/interval chance to choose this goal",
-      "title": "Interval",
-      "additionalProperties": false
+      "title": "Interval"
     },
     "search_count": {
       "type": "integer",
       "default": 10,
       "description": "The number of blocks each tick that the mob will check within it's search range and height for a valid block to move to. A value of 0 will have the mob check every block within range in one tick",
-      "title": "Search_count",
-      "additionalProperties": false
+      "title": "Search_count"
     },
     "search_height": {
       "type": "integer",
       "default": 1,
       "description": "Height in blocks the mob will look for turtle eggs to move towards",
-      "title": "Search_height",
-      "additionalProperties": false
+      "title": "Search_height"
     },
     "search_range": {
       "type": "integer",
       "default": 0,
       "description": "The distance in blocks it will look for turtle eggs to move towards",
-      "title": "Search_range",
-      "additionalProperties": false
+      "title": "Search_range"
     }
   }
 }

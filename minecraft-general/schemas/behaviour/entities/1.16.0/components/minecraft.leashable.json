@@ -10,22 +10,19 @@
       "type": "boolean",
       "default": false,
       "description": "If true, players can leash this entity even if it is already leashed to another mob.",
-      "title": "Can_be_stolen",
-      "additionalProperties": false
+      "title": "Can_be_stolen"
     },
     "hard_distance": {
       "type": "number",
       "default": 6,
       "description": "Distance in blocks at which the leash stiffens, restricting movement.",
-      "title": "Hard_distance",
-      "additionalProperties": false
+      "title": "Hard_distance"
     },
     "max_distance": {
       "type": "number",
       "default": 10,
       "description": "Distance in blocks at which the leash breaks.",
-      "title": "Max_distance",
-      "additionalProperties": false
+      "title": "Max_distance"
     },
     "on_leash": {
       "$ref": "../types/event.json",
@@ -41,8 +38,7 @@
       "type": "number",
       "default": 4,
       "description": "Distance in blocks at which the 'spring' effect starts acting to keep this entity close to the entity that leashed it.",
-      "title": "Soft_distance",
-      "additionalProperties": false
+      "title": "Soft_distance"
     }
   }
 }

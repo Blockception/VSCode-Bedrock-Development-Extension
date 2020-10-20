@@ -11,8 +11,7 @@
       "type": "string",
       "default": "air",
       "description": "The type of block you wish to be spawned by the entity as it move about the world. Solid blocks may not be spawned at an offset of (0,0,0).",
-      "title": "Block type",
-      "additionalProperties": false
+      "title": "Block type"
     },
     "spawn_filter": {
       "$ref": "../filters.json",

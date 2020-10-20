@@ -9,8 +9,7 @@
     "event": {
       "type": "string",
       "description": "Event",
-      "title": "The event to fire",
-      "additionalProperties": false
+      "title": "The event to fire"
     },
     "filters": {
       "$ref": "../filters.json",

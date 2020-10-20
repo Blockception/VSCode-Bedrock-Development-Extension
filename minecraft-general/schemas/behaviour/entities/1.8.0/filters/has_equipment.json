@@ -11,15 +11,13 @@
       "type": "string",
       "const": "has_equipment",
       "description": "Tests for the presence of a named item in the designated slot of the subject entity.",
-      "title": "Test",
-      "additionalProperties": false
+      "title": "Test"
     },
     "domain": {
       "description": "The equipment location to test",
       "default": "any",
       "enum": ["any", "armor", "feet", "hand", "head", "leg", "tors"],
-      "title": "Domain",
-      "additionalProperties": false
+      "title": "Domain"
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -34,7 +32,7 @@
     "value": {
       "description": "The item name to look for",
       "type": "string",
-      "$ref": "../../../../general/items_identifiers.json",
+      "$ref": "../../../../general/item/identifier.json",
       "title": "TODO title"
     }
   }

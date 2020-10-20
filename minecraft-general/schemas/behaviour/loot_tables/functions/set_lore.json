@@ -9,8 +9,7 @@
       "type": "string",
       "const": "set_lore",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "lore": {
       "type": "array",
@@ -18,8 +17,7 @@
         "type": "string"
       },
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

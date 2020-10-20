@@ -21,15 +21,13 @@
       "type": "number",
       "default": 0.0,
       "description": "The distance at which this mob wants to be away from its target",
-      "title": "Target Dist",
-      "additionalProperties": false
+      "title": "Target Dist"
     },
     "track_target": {
       "type": "boolean",
       "default": false,
       "description": "If true, this mob will chase after the target as long as it's a valid target",
-      "title": "Track Target",
-      "additionalProperties": false
+      "title": "Track Target"
     }
   }
 }

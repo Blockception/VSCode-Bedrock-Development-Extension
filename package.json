@@ -363,6 +363,14 @@
       },
       {
         "fileMatch": [
+          "resource_packs/*/items/*.json",
+          "*RP*/items/*.json",
+          "*rp*/items/*.json"
+        ],
+        "url": "./minecraft-general/schemas/resource/items/items.json"
+      },
+      {
+        "fileMatch": [
           "*.geo.json",
           "*.geometry.json"
         ],

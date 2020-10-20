@@ -8,7 +8,17 @@
     "creation_event": {
       "title": "Creation event",
       "description": "Fires when the particle is created",
-      "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "custom_events": {
       "title": "Custom events",
@@ -17,14 +27,21 @@
     "expiration_event": {
       "title": "Expiration event",
       "description": "Fires when the particle expires (does not wait for particles to expire too)",
-      "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "timeline": {
-      "propertyNames": { "pattern": "[0-9]*.[0-9]*" },
-      "additionalProperties": {
-        "type": "string",
-        "description": "TODO description: additionalProperties",
-        "title": "TODO"
+      "propertyNames": {
+        "pattern": "[0-9]*.[0-9]*"
       },
       "description": "TODO description: timeline",
       "title": "Timeline"

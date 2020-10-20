@@ -9,14 +9,12 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "delay_before_eating": {
       "type": "number",
       "description": "Time in seconds the mob should wait before eating the item.",
-      "title": "Delay before eating",
-      "additionalProperties": false
+      "title": "Delay before eating"
     }
   }
 }

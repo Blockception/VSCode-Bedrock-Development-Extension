@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true when the subject entity is a member of the named family.",
-      "additionalProperties": false
+      "description": "Returns true when the subject entity is a member of the named family."
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -26,8 +25,7 @@
     "value": {
       "description": "The Family name to look for",
       "type": "string",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

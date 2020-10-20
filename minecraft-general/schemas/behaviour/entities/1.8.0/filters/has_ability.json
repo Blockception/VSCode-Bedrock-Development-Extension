@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true when the subject entity has the named ability.",
-      "additionalProperties": false
+      "description": "Returns true when the subject entity has the named ability."
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -27,8 +26,7 @@
       "type": "string",
       "description": "(Required) The Ability type to test",
       "enum": ["flySpeed", "flying", "instabuild", "invulnerable", "lightning", "mayfly", "mute", "noclip", "walkSpeed", "worldbuilder"],
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

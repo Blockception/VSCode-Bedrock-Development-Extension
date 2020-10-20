@@ -13,8 +13,7 @@
       "description": "The chance of taming the entity with each item use between 0.0 and 1.0, where 1.0 is 100%",
       "minimum": 0,
       "maximum": 1,
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "tame_event": {
       "title": "Tame Event",
@@ -28,11 +27,11 @@
         {
           "type": "array",
           "items": {
-            "$ref": "../../../../general/items_identifiers.json"
+            "$ref": "../../../../general/item/identifier.json"
           }
         },
         {
-          "$ref": "../../../../general/items_identifiers.json"
+          "$ref": "../../../../general/item/identifier.json"
         }
       ]
     }

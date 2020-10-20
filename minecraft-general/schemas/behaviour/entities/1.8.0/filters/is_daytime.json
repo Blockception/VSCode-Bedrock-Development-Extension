@@ -9,8 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true during the daylight hours.",
-      "additionalProperties": false
+      "description": "Returns true during the daylight hours."
     },
     "operator": {
       "$ref": "types/base_operator.json",

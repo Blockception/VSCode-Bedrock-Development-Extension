@@ -11,8 +11,7 @@
       "type": "number",
       "default": 0.02,
       "description": "Flying speed in blocks per tick",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

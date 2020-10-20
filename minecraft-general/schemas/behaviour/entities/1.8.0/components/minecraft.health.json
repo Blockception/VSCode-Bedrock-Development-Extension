@@ -15,8 +15,7 @@
     "max": {
       "type": "integer",
       "description": "TODO",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   },
   "dependencies": {

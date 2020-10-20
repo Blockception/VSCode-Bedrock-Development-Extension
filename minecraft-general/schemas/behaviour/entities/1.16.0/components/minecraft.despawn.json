@@ -10,8 +10,7 @@
       "type": "boolean",
       "default": true,
       "description": "Determines if \"min_range_random_chance\" is used in the standard despawn rules",
-      "title": "Despawn_from_chance",
-      "additionalProperties": false
+      "title": "Despawn_from_chance"
     },
     "despawn_from_distance": {
       "type": "object",
@@ -37,15 +36,13 @@
       "type": "boolean",
       "default": true,
       "description": "Determines if the \"min_range_inactivity_timer\" is used in the standard despawn rules.",
-      "title": "Despawn_from_inactivity",
-      "additionalProperties": false
+      "title": "Despawn_from_inactivity"
     },
     "despawn_from_simulation_edge": {
       "type": "boolean",
       "default": true,
       "description": "Determines if the mob is instantly despawned at the edge of simulation distance in the standard despawn rules.",
-      "title": "Despawn_from_simulation_edge",
-      "additionalProperties": false
+      "title": "Despawn_from_simulation_edge"
     },
     "filters": {
       "$ref": "../filters.json",
@@ -56,22 +53,19 @@
       "type": "integer",
       "default": 30,
       "description": "The amount of time in seconds that the mob must be inactive.",
-      "title": "Min_range_inactivity_timer",
-      "additionalProperties": false
+      "title": "Min_range_inactivity_timer"
     },
     "min_range_random_chance": {
       "type": "integer",
       "default": 800,
       "description": "A random chance between 1 and the given value.",
-      "title": "Min_range_random_chance",
-      "additionalProperties": false
+      "title": "Min_range_random_chance"
     },
     "remove_child_entities": {
       "type": "boolean",
       "default": false,
       "description": "If true, all entities linked to this entity in a child relationship (eg. leashed) will also be despawned.",
-      "title": "Remove_child_entities",
-      "additionalProperties": false
+      "title": "Remove_child_entities"
     }
   }
 }

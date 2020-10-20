@@ -9,8 +9,7 @@
       "type": "string",
       "const": "random_dye",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

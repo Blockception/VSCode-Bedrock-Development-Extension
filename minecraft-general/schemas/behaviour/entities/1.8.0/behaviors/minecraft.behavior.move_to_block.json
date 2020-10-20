@@ -15,44 +15,37 @@
     "tick_interval": {
       "type": "number",
       "title": "Tick interval",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "start_chance": {
       "type": "number",
       "title": "Start chance",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "search_range": {
       "type": "number",
       "title": "Search range",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "search_height": {
       "type": "number",
       "title": "Search height",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "goal_radius": {
       "type": "number",
       "title": "Goal radius",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "stay_duration": {
       "type": "number",
       "title": "Stay duration",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "target_selection_method": {
       "type": "string",
       "title": "Target selection method",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "target_offset": {
       "type": "array",
@@ -76,8 +69,7 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "type": "string"
-      },
-      "additionalProperties": false
+      }
     },
     "on_stay_completed": {
       "type": "array",
@@ -85,8 +77,7 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
-      },
-      "additionalProperties": false
+      }
     },
     "on_reach": {
       "type": "array",
@@ -94,8 +85,7 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

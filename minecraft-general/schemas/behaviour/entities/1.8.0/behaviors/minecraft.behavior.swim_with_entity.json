@@ -10,62 +10,52 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "success_rate": {
       "type": "number",
       "title": "Success rate",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "chance_to_stop": {
       "type": "number",
       "title": "Chance to stop",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "state_check_interval": {
       "type": "number",
       "title": "State check interval",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "catch_up_threshold": {
       "type": "number",
       "title": "Catch up threshold",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "match_direction_threshold": {
       "type": "number",
       "title": "Match direction threshold",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "catch_up_multiplier": {
       "type": "number",
       "title": "Catch up multiplier",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "search_range": {
       "type": "number",
       "title": "Search range",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "stop_distance": {
       "type": "number",
       "title": "Stop distance",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",

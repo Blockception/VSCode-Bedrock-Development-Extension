@@ -15,20 +15,17 @@
     "add_random_time_range": {
       "type": "number",
       "title": "Add random time range",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "turn_range": {
       "type": "number",
       "title": "Turn range",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "min_change_direction_time": {
       "type": "number",
       "title": "Min change direction time",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   }
 }

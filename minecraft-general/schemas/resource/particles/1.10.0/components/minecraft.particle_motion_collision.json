@@ -8,20 +8,17 @@
     "collision_drag": {
       "type": "number",
       "description": "TODO description: collision drag",
-      "title": "Collision Drag",
-      "additionalProperties": false
+      "title": "Collision Drag"
     },
     "coefficient_of_restitution": {
       "type": "number",
       "description": "TODO description: coefficient of restitution",
-      "title": "Coefficient Of Restitution",
-      "additionalProperties": false
+      "title": "Coefficient Of Restitution"
     },
     "collision_radius": {
       "type": "number",
       "description": "TODO description: collision radius",
-      "title": "Collision Radius",
-      "additionalProperties": false
+      "title": "Collision Radius"
     },
     "enabled": {
       "$ref": "../../../../molang/1.8.0/number.json",
@@ -31,8 +28,7 @@
     "expire_on_contact": {
       "type": "boolean",
       "description": "TODO description: expire on contact",
-      "title": "Expire On Contact",
-      "additionalProperties": false
+      "title": "Expire On Contact"
     },
     "events": {
       "type": "array",
@@ -54,8 +50,7 @@
         "title": "Events"
       },
       "description": "TODO description: events",
-      "title": "Events",
-      "additionalProperties": false
+      "title": "Events"
     }
   },
   "description": "TODO description: "

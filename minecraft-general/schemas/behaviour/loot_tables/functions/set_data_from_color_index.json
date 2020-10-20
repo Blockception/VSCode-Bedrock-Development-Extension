@@ -9,8 +9,7 @@
       "type": "string",
       "const": "set_data_from_color_index",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

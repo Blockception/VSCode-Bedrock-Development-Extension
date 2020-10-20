@@ -9,8 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true when the subject entity is in water or rain.",
-      "additionalProperties": false
+      "description": "Returns true when the subject entity is in water or rain."
     },
     "operator": {
       "$ref": "types/base_operator.json",

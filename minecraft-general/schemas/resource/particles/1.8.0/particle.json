@@ -8,8 +8,7 @@
       "type": "string",
       "const": "1.8.0",
       "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
-      "title": "Format Version",
-      "additionalProperties": false
+      "title": "Format Version"
     },
     "particle_effect": {
       "type": "object",
@@ -21,9 +20,9 @@
           "properties": {
             "identifier": {
               "type": "string",
-              "pattern": "^.+$",
               "description": "TODO description: identifier",
-              "title": "Identifier"
+              "title": "Identifier",
+              "$ref": "../../../general/particle/identifier.json"
             }
           },
           "description": "TODO description: description",

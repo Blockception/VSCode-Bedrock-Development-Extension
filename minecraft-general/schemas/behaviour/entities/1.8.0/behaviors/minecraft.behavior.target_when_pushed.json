@@ -10,8 +10,7 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",
@@ -21,8 +20,7 @@
     "percent_chance": {
       "type": "number",
       "title": "Percent chance",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   }
 }

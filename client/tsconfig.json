@@ -8,8 +8,8 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "noImplicitAny": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": false
   },
   "include": ["src"],

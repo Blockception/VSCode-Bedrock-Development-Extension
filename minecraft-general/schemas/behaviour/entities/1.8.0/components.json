@@ -8,805 +8,1339 @@
   "required": [],
   "properties": {
     "minecraft:addrider": {
-      "$ref": "components/minecraft.addrider.json"
+      "$ref": "components/minecraft.addrider.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:ageable": {
-      "$ref": "components/minecraft.ageable.json"
+      "$ref": "components/minecraft.ageable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:ambient_sound_interval": {
-      "$ref": "components/minecraft.ambient_sound_interval.json"
+      "$ref": "components/minecraft.ambient_sound_interval.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:angry": {
-      "$ref": "components/minecraft.angry.json"
+      "$ref": "components/minecraft.angry.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:annotation.break_door": {
-      "$ref": "components/minecraft.annotation.break_door.json"
+      "$ref": "components/minecraft.annotation.break_door.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:annotation.open_door": {
-      "$ref": "components/minecraft.annotation.open_door.json"
+      "$ref": "components/minecraft.annotation.open_door.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:attack": {
-      "$ref": "components/minecraft.attack.json"
+      "$ref": "components/minecraft.attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:attack_damage": {
-      "$ref": "components/minecraft.attack_damage.json"
+      "$ref": "components/minecraft.attack_damage.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:balloonable": {
-      "$ref": "components/minecraft.balloonable.json"
+      "$ref": "components/minecraft.balloonable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:boss": {
-      "$ref": "components/minecraft.boss.json"
+      "$ref": "components/minecraft.boss.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:boostable": {
-      "$ref": "components/minecraft.boostable.json"
+      "$ref": "components/minecraft.boostable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:break_blocks": {
-      "$ref": "components/minecraft.break_blocks.json"
+      "$ref": "components/minecraft.break_blocks.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:breathable": {
-      "$ref": "components/minecraft.breathable.json"
+      "$ref": "components/minecraft.breathable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:breedable": {
-      "$ref": "components/minecraft.breedable.json"
+      "$ref": "components/minecraft.breedable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:bribeable": {
-      "$ref": "components/minecraft.bribeable.json"
+      "$ref": "components/minecraft.bribeable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:burns_in_daylight": {
-      "$ref": "components/minecraft.burns_in_daylight.json"
+      "$ref": "components/minecraft.burns_in_daylight.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:can_climb": {
-      "$ref": "components/minecraft.can_climb.json"
+      "$ref": "components/minecraft.can_climb.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:can_fly": {
-      "$ref": "components/minecraft.can_fly.json"
+      "$ref": "components/minecraft.can_fly.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:can_power_jump": {
-      "$ref": "components/minecraft.can_power_jump.json"
+      "$ref": "components/minecraft.can_power_jump.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:collision_box": {
-      "$ref": "components/minecraft.collision_box.json"
+      "$ref": "components/minecraft.collision_box.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:color": {
-      "$ref": "components/minecraft.color.json"
+      "$ref": "components/minecraft.color.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:color2": {
-      "$ref": "components/minecraft.color2.json"
+      "$ref": "components/minecraft.color2.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:damage_over_time": {
-      "$ref": "components/minecraft.damage_over_time.json"
+      "$ref": "components/minecraft.damage_over_time.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:damage_sensor": {
-      "$ref": "components/minecraft.damage_sensor.json"
+      "$ref": "components/minecraft.damage_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:default_look_angle": {
-      "$ref": "components/minecraft.default_look_angle.json"
+      "$ref": "components/minecraft.default_look_angle.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:despawn": {
-      "$ref": "components/minecraft.despawn.json"
+      "$ref": "components/minecraft.despawn.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:dweller": {
-      "$ref": "./components/minecraft.dweller.json"
+      "$ref": "./components/minecraft.dweller.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:economy_trade_table": {
-      "$ref": "components/minecraft.economy_trade_table.json"
+      "$ref": "components/minecraft.economy_trade_table.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:environment_sensor": {
-      "$ref": "components/minecraft.environment_sensor.json"
+      "$ref": "components/minecraft.environment_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:equipment": {
-      "$ref": "components/minecraft.equipment.json"
+      "$ref": "components/minecraft.equipment.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:equippable": {
-      "$ref": "components/minecraft.equippable.json"
+      "$ref": "components/minecraft.equippable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:explode": {
-      "$ref": "components/minecraft.explode.json"
+      "$ref": "components/minecraft.explode.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:fall_damage": {
-      "$ref": "components/minecraft.fall_damage.json"
+      "$ref": "components/minecraft.fall_damage.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:fire_immune": {
-      "$ref": "components/minecraft.fire_immune.json"
+      "$ref": "components/minecraft.fire_immune.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:floats_in_liquid": {
-      "$ref": "components/minecraft.floats_in_liquid.json"
+      "$ref": "components/minecraft.floats_in_liquid.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:flying_speed": {
-      "$ref": "components/minecraft.flying_speed.json"
+      "$ref": "components/minecraft.flying_speed.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:follow_range": {
-      "$ref": "components/minecraft.follow_range.json"
+      "$ref": "components/minecraft.follow_range.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:foot_size": {
-      "$ref": "components/minecraft.foot_size.json"
+      "$ref": "components/minecraft.foot_size.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:friction_modifier": {
-      "$ref": "components/minecraft.friction_modifier.json"
+      "$ref": "components/minecraft.friction_modifier.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:genetics": {
-      "$ref": "components/minecraft.genetics.json"
+      "$ref": "components/minecraft.genetics.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:giveable": {
-      "$ref": "components/minecraft.giveable.json"
+      "$ref": "components/minecraft.giveable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:ground_offset": {
-      "$ref": "components/minecraft.ground_offset.json"
+      "$ref": "components/minecraft.ground_offset.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:healable": {
-      "$ref": "components/minecraft.healable.json"
+      "$ref": "components/minecraft.healable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:health": {
-      "$ref": "components/minecraft.health.json"
+      "$ref": "components/minecraft.health.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:hurt_when_wet": {
-      "$ref": "components/minecraft.hurt_when_wet.json"
+      "$ref": "components/minecraft.hurt_when_wet.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:hurt_on_condition": {
-      "$ref": "components/minecraft.hurt_on_condition.json"
+      "$ref": "components/minecraft.hurt_on_condition.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:input_ground_controlled": {
-      "$ref": "components/minecraft.input_ground_controlled.json"
+      "$ref": "components/minecraft.input_ground_controlled.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:insomnia": {
-      "$ref": "components/minecraft.insomnia.json"
+      "$ref": "components/minecraft.insomnia.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:interact": {
-      "$ref": "components/minecraft.interact.json"
+      "$ref": "components/minecraft.interact.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:inventory": {
-      "$ref": "components/minecraft.inventory.json"
+      "$ref": "components/minecraft.inventory.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_baby": {
-      "$ref": "components/minecraft.is_baby.json"
+      "$ref": "components/minecraft.is_baby.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_charged": {
-      "$ref": "components/minecraft.is_charged.json"
+      "$ref": "components/minecraft.is_charged.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_chested": {
-      "$ref": "components/minecraft.is_chested.json"
+      "$ref": "components/minecraft.is_chested.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_dyeable": {
-      "$ref": "components/minecraft.is_dyeable.json"
+      "$ref": "components/minecraft.is_dyeable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_hidden_when_invisible": {
-      "$ref": "components/minecraft.is_hidden_when_invisible.json"
+      "$ref": "components/minecraft.is_hidden_when_invisible.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_ignited": {
-      "$ref": "components/minecraft.is_ignited.json"
+      "$ref": "components/minecraft.is_ignited.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_illager_captain": {
-      "$ref": "components/minecraft.is_illager_captain.json"
+      "$ref": "components/minecraft.is_illager_captain.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_saddled": {
-      "$ref": "components/minecraft.is_saddled.json"
+      "$ref": "components/minecraft.is_saddled.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_shaking": {
-      "$ref": "components/minecraft.is_shaking.json"
+      "$ref": "components/minecraft.is_shaking.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_sheared": {
-      "$ref": "components/minecraft.is_sheared.json"
+      "$ref": "components/minecraft.is_sheared.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_stackable": {
-      "$ref": "components/minecraft.is_stackable.json"
+      "$ref": "components/minecraft.is_stackable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_stunned": {
-      "$ref": "components/minecraft.is_stunned.json"
+      "$ref": "components/minecraft.is_stunned.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:is_tamed": {
-      "$ref": "components/minecraft.is_tamed.json"
+      "$ref": "components/minecraft.is_tamed.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:item_controllable": {
-      "$ref": "components/minecraft.item_controllable.json"
+      "$ref": "components/minecraft.item_controllable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:item_hopper": {
-      "$ref": "components/minecraft.item_hopper.json"
+      "$ref": "components/minecraft.item_hopper.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:jump.dynamic": {
-      "$ref": "components/minecraft.jump.dynamic.json"
+      "$ref": "components/minecraft.jump.dynamic.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:jump.static": {
-      "$ref": "components/minecraft.jump.static.json"
+      "$ref": "components/minecraft.jump.static.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:knockback_resistance": {
-      "$ref": "components/minecraft.knockback_resistance.json"
+      "$ref": "components/minecraft.knockback_resistance.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:lava_movement": {
-      "$ref": "components/minecraft.lava_movement.json"
+      "$ref": "components/minecraft.lava_movement.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:leashable": {
-      "$ref": "components/minecraft.leashable.json"
+      "$ref": "components/minecraft.leashable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:lookat": {
-      "$ref": "components/minecraft.lookat.json"
+      "$ref": "components/minecraft.lookat.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:loot": {
-      "$ref": "components/minecraft.loot.json"
+      "$ref": "components/minecraft.loot.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:managed_wandering_trader": {
-      "$ref": "components/minecraft.managed_wandering_trader.json"
+      "$ref": "components/minecraft.managed_wandering_trader.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:mark_variant": {
-      "$ref": "components/minecraft.mark_variant.json"
+      "$ref": "components/minecraft.mark_variant.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement": {
-      "$ref": "components/minecraft.movement.json"
+      "$ref": "components/minecraft.movement.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.amphibious": {
-      "$ref": "components/minecraft.movement.amphibious.json"
+      "$ref": "components/minecraft.movement.amphibious.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.basic": {
-      "$ref": "components/minecraft.movement.basic.json"
+      "$ref": "components/minecraft.movement.basic.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.fly": {
-      "$ref": "components/minecraft.movement.fly.json"
+      "$ref": "components/minecraft.movement.fly.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.generic": {
-      "$ref": "components/minecraft.movement.generic.json"
+      "$ref": "components/minecraft.movement.generic.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.glide": {
-      "$ref": "components/minecraft.movement.glide.json"
+      "$ref": "components/minecraft.movement.glide.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.jump": {
-      "$ref": "components/minecraft.movement.jump.json"
+      "$ref": "components/minecraft.movement.jump.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.skip": {
-      "$ref": "components/minecraft.movement.skip.json"
+      "$ref": "components/minecraft.movement.skip.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:movement.sway": {
-      "$ref": "components/minecraft.movement.sway.json"
+      "$ref": "components/minecraft.movement.sway.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:nameable": {
-      "$ref": "components/minecraft.nameable.json"
+      "$ref": "components/minecraft.nameable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:navigation.climb": {
-      "$ref": "components/minecraft.navigation.climb.json"
+      "$ref": "components/minecraft.navigation.climb.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:navigation.float": {
-      "$ref": "components/minecraft.navigation.float.json"
+      "$ref": "components/minecraft.navigation.float.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:navigation.fly": {
-      "$ref": "components/minecraft.navigation.fly.json"
+      "$ref": "components/minecraft.navigation.fly.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:navigation.generic": {
-      "$ref": "components/minecraft.navigation.generic.json"
+      "$ref": "components/minecraft.navigation.generic.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:navigation.swim": {
-      "$ref": "components/minecraft.navigation.swim.json"
+      "$ref": "components/minecraft.navigation.swim.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:navigation.walk": {
-      "$ref": "components/minecraft.navigation.walk.json"
+      "$ref": "components/minecraft.navigation.walk.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_death": {
-      "$ref": "components/minecraft.on_death.json"
+      "$ref": "components/minecraft.on_death.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_friendly_anger": {
-      "$ref": "components/minecraft.on_friendly_anger.json"
+      "$ref": "components/minecraft.on_friendly_anger.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_hurt": {
-      "$ref": "components/minecraft.on_hurt.json"
+      "$ref": "components/minecraft.on_hurt.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_hurt_by_player": {
-      "$ref": "components/minecraft.on_hurt_by_player.json"
+      "$ref": "components/minecraft.on_hurt_by_player.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_ignite": {
-      "$ref": "components/minecraft.on_ignite.json"
+      "$ref": "components/minecraft.on_ignite.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_start_landing": {
-      "$ref": "components/minecraft.on_start_landing.json"
+      "$ref": "components/minecraft.on_start_landing.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_start_takeoff": {
-      "$ref": "components/minecraft.on_start_takeoff.json"
+      "$ref": "components/minecraft.on_start_takeoff.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_target_acquired": {
-      "$ref": "components/minecraft.on_target_acquired.json"
+      "$ref": "components/minecraft.on_target_acquired.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_target_escape": {
-      "$ref": "components/minecraft.on_target_escape.json"
+      "$ref": "components/minecraft.on_target_escape.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:on_wake_with_owner": {
-      "$ref": "components/minecraft.on_wake_with_owner.json"
+      "$ref": "components/minecraft.on_wake_with_owner.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:player.saturation": {
-      "$ref": "components/minecraft.player.saturation.json"
+      "$ref": "components/minecraft.player.saturation.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:player.exhaustion": {
-      "$ref": "components/minecraft.player.exhaustion.json"
+      "$ref": "components/minecraft.player.exhaustion.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:player.level": {
-      "$ref": "components/minecraft.player.level.json"
+      "$ref": "components/minecraft.player.level.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:player.experience": {
-      "$ref": "components/minecraft.player.experience.json"
+      "$ref": "components/minecraft.player.experience.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:peek": {
-      "$ref": "components/minecraft.peek.json"
+      "$ref": "components/minecraft.peek.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:persistent": {
-      "$ref": "components/minecraft.persistent.json"
+      "$ref": "components/minecraft.persistent.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:physics": {
-      "$ref": "components/minecraft.physics.json"
+      "$ref": "components/minecraft.physics.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:preferred_path": {
-      "$ref": "components/minecraft.preferred_path.json"
+      "$ref": "components/minecraft.preferred_path.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:projectile": {
-      "$ref": "components/minecraft.projectile.json"
+      "$ref": "components/minecraft.projectile.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:push_through": {
-      "$ref": "components/minecraft.push_through.json"
+      "$ref": "components/minecraft.push_through.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:pushable": {
-      "$ref": "components/minecraft.pushable.json"
+      "$ref": "components/minecraft.pushable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:raid_trigger": {
-      "$ref": "components/minecraft.raid_trigger.json"
+      "$ref": "components/minecraft.raid_trigger.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:rail_movement": {
-      "$ref": "components/minecraft.rail_movement.json"
+      "$ref": "components/minecraft.rail_movement.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:rail_sensor": {
-      "$ref": "components/minecraft.rail_sensor.json"
+      "$ref": "components/minecraft.rail_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:ravager_blocked": {
-      "$ref": "components/minecraft.ravager_blocked.json"
+      "$ref": "components/minecraft.ravager_blocked.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:rideable": {
-      "$ref": "components/minecraft.rideable.json"
+      "$ref": "components/minecraft.rideable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:scaffolding_climber": {
-      "$ref": "components/minecraft.scaffolding_climber.json"
+      "$ref": "components/minecraft.scaffolding_climber.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:scale": {
-      "$ref": "components/minecraft.scale.json"
+      "$ref": "components/minecraft.scale.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:scale_by_age": {
-      "$ref": "components/minecraft.scale_by_age.json"
+      "$ref": "components/minecraft.scale_by_age.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:scheduler": {
-      "$ref": "components/minecraft.scheduler.json"
+      "$ref": "components/minecraft.scheduler.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:shareables": {
-      "$ref": "components/minecraft.shareables.json"
+      "$ref": "components/minecraft.shareables.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:shooter": {
-      "$ref": "components/minecraft.shooter.json"
+      "$ref": "components/minecraft.shooter.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:sittable": {
-      "$ref": "components/minecraft.sittable.json"
+      "$ref": "components/minecraft.sittable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:skin_id": {
-      "$ref": "components/minecraft.skin_id.json"
+      "$ref": "components/minecraft.skin_id.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:sound_volume": {
-      "$ref": "components/minecraft.sound_volume.json"
+      "$ref": "components/minecraft.sound_volume.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:spawn_entity": {
-      "$ref": "components/minecraft.spawn_entity.json"
+      "$ref": "components/minecraft.spawn_entity.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:spell_effects": {
-      "$ref": "components/minecraft.spell_effects.json"
+      "$ref": "components/minecraft.spell_effects.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:tameable": {
-      "$ref": "components/minecraft.tameable.json"
+      "$ref": "components/minecraft.tameable.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:tamemount": {
-      "$ref": "components/minecraft.tamemount.json"
+      "$ref": "components/minecraft.tamemount.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:target_nearby_sensor": {
-      "$ref": "components/minecraft.target_nearby_sensor.json"
+      "$ref": "components/minecraft.target_nearby_sensor.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:teleport": {
-      "$ref": "components/minecraft.teleport.json"
+      "$ref": "components/minecraft.teleport.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:tick_world": {
-      "$ref": "components/minecraft.tick_world.json"
+      "$ref": "components/minecraft.tick_world.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:timer": {
-      "$ref": "components/minecraft.timer.json"
+      "$ref": "components/minecraft.timer.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:trade_table": {
-      "$ref": "components/minecraft.trade_table.json"
+      "$ref": "components/minecraft.trade_table.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:transformation": {
-      "$ref": "components/minecraft.transformation.json"
+      "$ref": "components/minecraft.transformation.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:trust": {
-      "$ref": "components/minecraft.trust.json"
+      "$ref": "components/minecraft.trust.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:trusting": {
-      "$ref": "components/minecraft.trusting.json"
+      "$ref": "components/minecraft.trusting.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:type_family": {
-      "$ref": "components/minecraft.type_family.json"
+      "$ref": "components/minecraft.type_family.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:variant": {
-      "$ref": "components/minecraft.variant.json"
+      "$ref": "components/minecraft.variant.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:walk_animation_speed": {
-      "$ref": "components/minecraft.walk_animation_speed.json"
+      "$ref": "components/minecraft.walk_animation_speed.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:wants_jockey": {
-      "$ref": "components/minecraft.wants_jockey.json"
+      "$ref": "components/minecraft.wants_jockey.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:water_movement": {
-      "$ref": "components/minecraft.water_movement.json"
+      "$ref": "components/minecraft.water_movement.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.hide": {
-      "$ref": "behaviors/minecraft.behavior.hide.json"
+      "$ref": "behaviors/minecraft.behavior.hide.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_to_poi": {
-      "$ref": "behaviors/minecraft.behavior.move_to_poi.json"
+      "$ref": "behaviors/minecraft.behavior.move_to_poi.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.scared": {
-      "$ref": "behaviors/minecraft.behavior.scared.json"
+      "$ref": "behaviors/minecraft.behavior.scared.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.work": {
-      "$ref": "behaviors/minecraft.behavior.work.json"
+      "$ref": "behaviors/minecraft.behavior.work.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.avoid_mob_type": {
-      "$ref": "behaviors/minecraft.behavior.avoid_mob_type.json"
+      "$ref": "behaviors/minecraft.behavior.avoid_mob_type.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.beg": {
-      "$ref": "behaviors/minecraft.behavior.beg.json"
+      "$ref": "behaviors/minecraft.behavior.beg.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.break_door": {
-      "$ref": "behaviors/minecraft.behavior.break_door.json"
+      "$ref": "behaviors/minecraft.behavior.break_door.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.breed": {
-      "$ref": "behaviors/minecraft.behavior.breed.json"
+      "$ref": "behaviors/minecraft.behavior.breed.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.charge_attack": {
-      "$ref": "behaviors/minecraft.behavior.charge_attack.json"
+      "$ref": "behaviors/minecraft.behavior.charge_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.charge_held_item": {
-      "$ref": "behaviors/minecraft.behavior.charge_held_item.json"
+      "$ref": "behaviors/minecraft.behavior.charge_held_item.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.circle_around_anchor": {
-      "$ref": "behaviors/minecraft.behavior.circle_around_anchor.json"
+      "$ref": "behaviors/minecraft.behavior.circle_around_anchor.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.controlled_by_player": {
-      "$ref": "behaviors/minecraft.behavior.controlled_by_player.json"
+      "$ref": "behaviors/minecraft.behavior.controlled_by_player.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.defend_village_target": {
-      "$ref": "behaviors/minecraft.behavior.defend_village_target.json"
+      "$ref": "behaviors/minecraft.behavior.defend_village_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.delayed_attack": {
-      "$ref": "behaviors/minecraft.behavior.delayed_attack.json"
+      "$ref": "behaviors/minecraft.behavior.delayed_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.door_interact": {
-      "$ref": "behaviors/minecraft.behavior.door_interact.json"
+      "$ref": "behaviors/minecraft.behavior.door_interact.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragonchargeplayer": {
-      "$ref": "behaviors/minecraft.behavior.dragonchargeplayer.json"
+      "$ref": "behaviors/minecraft.behavior.dragonchargeplayer.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragondeath": {
-      "$ref": "behaviors/minecraft.behavior.dragondeath.json"
+      "$ref": "behaviors/minecraft.behavior.dragondeath.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragonflaming": {
-      "$ref": "behaviors/minecraft.behavior.dragonflaming.json"
+      "$ref": "behaviors/minecraft.behavior.dragonflaming.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragonholdingpattern": {
-      "$ref": "behaviors/minecraft.behavior.dragonholdingpattern.json"
+      "$ref": "behaviors/minecraft.behavior.dragonholdingpattern.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragonlanding": {
-      "$ref": "behaviors/minecraft.behavior.dragonlanding.json"
+      "$ref": "behaviors/minecraft.behavior.dragonlanding.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragonscanning": {
-      "$ref": "behaviors/minecraft.behavior.dragonscanning.json"
+      "$ref": "behaviors/minecraft.behavior.dragonscanning.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragonstrafeplayer": {
-      "$ref": "behaviors/minecraft.behavior.dragonstrafeplayer.json"
+      "$ref": "behaviors/minecraft.behavior.dragonstrafeplayer.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.dragontakeoff": {
-      "$ref": "behaviors/minecraft.behavior.dragontakeoff.json"
+      "$ref": "behaviors/minecraft.behavior.dragontakeoff.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.drink_potion": {
-      "$ref": "behaviors/minecraft.behavior.drink_potion.json"
+      "$ref": "behaviors/minecraft.behavior.drink_potion.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.drop_item_for": {
-      "$ref": "behaviors/minecraft.behavior.drop_item_for.json"
+      "$ref": "behaviors/minecraft.behavior.drop_item_for.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.eat_block": {
-      "$ref": "behaviors/minecraft.behavior.eat_block.json"
+      "$ref": "behaviors/minecraft.behavior.eat_block.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.enderman_leave_block": {
-      "$ref": "behaviors/minecraft.behavior.enderman_leave_block.json"
+      "$ref": "behaviors/minecraft.behavior.enderman_leave_block.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.enderman_take_block": {
-      "$ref": "behaviors/minecraft.behavior.enderman_take_block.json"
+      "$ref": "behaviors/minecraft.behavior.enderman_take_block.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.explore_outskirts": {
-      "$ref": "behaviors/minecraft.behavior.explore_outskirts.json"
+      "$ref": "behaviors/minecraft.behavior.explore_outskirts.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.find_mount": {
-      "$ref": "behaviors/minecraft.behavior.find_mount.json"
+      "$ref": "behaviors/minecraft.behavior.find_mount.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.find_underwater_treasure": {
-      "$ref": "behaviors/minecraft.behavior.find_underwater_treasure.json"
+      "$ref": "behaviors/minecraft.behavior.find_underwater_treasure.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.flee_sun": {
-      "$ref": "behaviors/minecraft.behavior.flee_sun.json"
+      "$ref": "behaviors/minecraft.behavior.flee_sun.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.float": {
-      "$ref": "behaviors/minecraft.behavior.float.json"
+      "$ref": "behaviors/minecraft.behavior.float.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.float_wander": {
-      "$ref": "behaviors/minecraft.behavior.float_wander.json"
+      "$ref": "behaviors/minecraft.behavior.float_wander.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.follow_caravan": {
-      "$ref": "behaviors/minecraft.behavior.follow_caravan.json"
+      "$ref": "behaviors/minecraft.behavior.follow_caravan.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.follow_mob": {
-      "$ref": "behaviors/minecraft.behavior.follow_mob.json"
+      "$ref": "behaviors/minecraft.behavior.follow_mob.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.follow_owner": {
-      "$ref": "behaviors/minecraft.behavior.follow_owner.json"
+      "$ref": "behaviors/minecraft.behavior.follow_owner.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.follow_parent": {
-      "$ref": "behaviors/minecraft.behavior.follow_parent.json"
+      "$ref": "behaviors/minecraft.behavior.follow_parent.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.follow_target_captain": {
-      "$ref": "behaviors/minecraft.behavior.follow_target_captain.json"
+      "$ref": "behaviors/minecraft.behavior.follow_target_captain.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.go_home": {
-      "$ref": "behaviors/minecraft.behavior.go_home.json"
+      "$ref": "behaviors/minecraft.behavior.go_home.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.guardian_attack": {
-      "$ref": "behaviors/minecraft.behavior.guardian_attack.json"
+      "$ref": "behaviors/minecraft.behavior.guardian_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.harvest_farm_block": {
-      "$ref": "behaviors/minecraft.behavior.harvest_farm_block.json"
+      "$ref": "behaviors/minecraft.behavior.harvest_farm_block.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.hurt_by_target": {
-      "$ref": "behaviors/minecraft.behavior.hurt_by_target.json"
+      "$ref": "behaviors/minecraft.behavior.hurt_by_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.inspect_bookshelf": {
-      "$ref": "behaviors/minecraft.behavior.inspect_bookshelf.json"
+      "$ref": "behaviors/minecraft.behavior.inspect_bookshelf.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.knockback_roar": {
-      "$ref": "behaviors/minecraft.behavior.knockback_roar.json"
+      "$ref": "behaviors/minecraft.behavior.knockback_roar.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.lay_down": {
-      "$ref": "behaviors/minecraft.behavior.lay_down.json"
+      "$ref": "behaviors/minecraft.behavior.lay_down.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.lay_egg": {
-      "$ref": "behaviors/minecraft.behavior.lay_egg.json"
+      "$ref": "behaviors/minecraft.behavior.lay_egg.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.leap_at_target": {
-      "$ref": "behaviors/minecraft.behavior.leap_at_target.json"
+      "$ref": "behaviors/minecraft.behavior.leap_at_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.look_at_entity": {
-      "$ref": "behaviors/minecraft.behavior.look_at_entity.json"
+      "$ref": "behaviors/minecraft.behavior.look_at_entity.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.look_at_player": {
-      "$ref": "behaviors/minecraft.behavior.look_at_player.json"
+      "$ref": "behaviors/minecraft.behavior.look_at_player.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.look_at_target": {
-      "$ref": "behaviors/minecraft.behavior.look_at_target.json"
+      "$ref": "behaviors/minecraft.behavior.look_at_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.look_at_trading_player": {
-      "$ref": "behaviors/minecraft.behavior.look_at_trading_player.json"
+      "$ref": "behaviors/minecraft.behavior.look_at_trading_player.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.make_love": {
-      "$ref": "behaviors/minecraft.behavior.make_love.json"
+      "$ref": "behaviors/minecraft.behavior.make_love.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.melee_attack": {
-      "$ref": "behaviors/minecraft.behavior.melee_attack.json"
+      "$ref": "behaviors/minecraft.behavior.melee_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.mingle": {
-      "$ref": "behaviors/minecraft.behavior.mingle.json"
+      "$ref": "behaviors/minecraft.behavior.mingle.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.mount_pathing": {
-      "$ref": "behaviors/minecraft.behavior.mount_pathing.json"
+      "$ref": "behaviors/minecraft.behavior.mount_pathing.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_indoors": {
-      "$ref": "behaviors/minecraft.behavior.move_indoors.json"
+      "$ref": "behaviors/minecraft.behavior.move_indoors.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_through_village": {
-      "$ref": "behaviors/minecraft.behavior.move_through_village.json"
+      "$ref": "behaviors/minecraft.behavior.move_through_village.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_to_block": {
-      "$ref": "behaviors/minecraft.behavior.move_to_block.json"
+      "$ref": "behaviors/minecraft.behavior.move_to_block.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_to_land": {
-      "$ref": "behaviors/minecraft.behavior.move_to_land.json"
+      "$ref": "behaviors/minecraft.behavior.move_to_land.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_to_random_block": {
-      "$ref": "behaviors/minecraft.behavior.move_to_random_block.json"
+      "$ref": "behaviors/minecraft.behavior.move_to_random_block.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_to_village": {
-      "$ref": "behaviors/minecraft.behavior.move_to_village.json"
+      "$ref": "behaviors/minecraft.behavior.move_to_village.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_to_water": {
-      "$ref": "behaviors/minecraft.behavior.move_to_water.json"
+      "$ref": "behaviors/minecraft.behavior.move_to_water.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_towards_restriction": {
-      "$ref": "behaviors/minecraft.behavior.move_towards_restriction.json"
+      "$ref": "behaviors/minecraft.behavior.move_towards_restriction.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.move_towards_target": {
-      "$ref": "behaviors/minecraft.behavior.move_towards_target.json"
+      "$ref": "behaviors/minecraft.behavior.move_towards_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.nearest_attackable_target": {
-      "$ref": "behaviors/minecraft.behavior.nearest_attackable_target.json"
+      "$ref": "behaviors/minecraft.behavior.nearest_attackable_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.ocelot_sit_on_block": {
-      "$ref": "behaviors/minecraft.behavior.ocelot_sit_on_block.json"
+      "$ref": "behaviors/minecraft.behavior.ocelot_sit_on_block.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.ocelotattack": {
-      "$ref": "behaviors/minecraft.behavior.ocelotattack.json"
+      "$ref": "behaviors/minecraft.behavior.ocelotattack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.offer_flower": {
-      "$ref": "behaviors/minecraft.behavior.offer_flower.json"
+      "$ref": "behaviors/minecraft.behavior.offer_flower.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.open_door": {
-      "$ref": "behaviors/minecraft.behavior.open_door.json"
+      "$ref": "behaviors/minecraft.behavior.open_door.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.owner_hurt_by_target": {
-      "$ref": "behaviors/minecraft.behavior.owner_hurt_by_target.json"
+      "$ref": "behaviors/minecraft.behavior.owner_hurt_by_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.owner_hurt_target": {
-      "$ref": "behaviors/minecraft.behavior.owner_hurt_target.json"
+      "$ref": "behaviors/minecraft.behavior.owner_hurt_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.panic": {
-      "$ref": "behaviors/minecraft.behavior.panic.json"
+      "$ref": "behaviors/minecraft.behavior.panic.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.peek": {
-      "$ref": "behaviors/minecraft.behavior.peek.json"
+      "$ref": "behaviors/minecraft.behavior.peek.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.pet_sleep_with_owner": {
-      "$ref": "behaviors/minecraft.behavior.pet_sleep_with_owner.json"
+      "$ref": "behaviors/minecraft.behavior.pet_sleep_with_owner.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.pickup_items": {
-      "$ref": "behaviors/minecraft.behavior.pickup_items.json"
+      "$ref": "behaviors/minecraft.behavior.pickup_items.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.play": {
-      "$ref": "behaviors/minecraft.behavior.play.json"
+      "$ref": "behaviors/minecraft.behavior.play.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.player_ride_tamed": {
-      "$ref": "behaviors/minecraft.behavior.player_ride_tamed.json"
+      "$ref": "behaviors/minecraft.behavior.player_ride_tamed.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.raid_garden": {
-      "$ref": "behaviors/minecraft.behavior.raid_garden.json"
+      "$ref": "behaviors/minecraft.behavior.raid_garden.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.random_breach": {
-      "$ref": "behaviors/minecraft.behavior.random_breach.json"
+      "$ref": "behaviors/minecraft.behavior.random_breach.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.random_fly": {
-      "$ref": "behaviors/minecraft.behavior.random_fly.json"
+      "$ref": "behaviors/minecraft.behavior.random_fly.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.random_look_around": {
-      "$ref": "behaviors/minecraft.behavior.random_look_around.json"
+      "$ref": "behaviors/minecraft.behavior.random_look_around.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.random_sitting": {
-      "$ref": "behaviors/minecraft.behavior.random_sitting.json"
+      "$ref": "behaviors/minecraft.behavior.random_sitting.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.random_stroll": {
-      "$ref": "behaviors/minecraft.behavior.random_stroll.json"
+      "$ref": "behaviors/minecraft.behavior.random_stroll.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.random_swim": {
-      "$ref": "behaviors/minecraft.behavior.random_swim.json"
+      "$ref": "behaviors/minecraft.behavior.random_swim.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.ranged_attack": {
-      "$ref": "behaviors/minecraft.behavior.ranged_attack.json"
+      "$ref": "behaviors/minecraft.behavior.ranged_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.receive_love": {
-      "$ref": "behaviors/minecraft.behavior.receive_love.json"
+      "$ref": "behaviors/minecraft.behavior.receive_love.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.restrict_open_door": {
-      "$ref": "behaviors/minecraft.behavior.restrict_open_door.json"
+      "$ref": "behaviors/minecraft.behavior.restrict_open_door.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.restrict_sun": {
-      "$ref": "behaviors/minecraft.behavior.restrict_sun.json"
+      "$ref": "behaviors/minecraft.behavior.restrict_sun.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.roll": {
-      "$ref": "behaviors/minecraft.behavior.roll.json"
+      "$ref": "behaviors/minecraft.behavior.roll.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.run_around_like_crazy": {
-      "$ref": "behaviors/minecraft.behavior.run_around_like_crazy.json"
+      "$ref": "behaviors/minecraft.behavior.run_around_like_crazy.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.send_event": {
-      "$ref": "behaviors/minecraft.behavior.send_event.json"
+      "$ref": "behaviors/minecraft.behavior.send_event.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.share_items": {
-      "$ref": "behaviors/minecraft.behavior.share_items.json"
+      "$ref": "behaviors/minecraft.behavior.share_items.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.silverfish_merge_with_stone": {
-      "$ref": "behaviors/minecraft.behavior.silverfish_merge_with_stone.json"
+      "$ref": "behaviors/minecraft.behavior.silverfish_merge_with_stone.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.silverfish_wake_up_friends": {
-      "$ref": "behaviors/minecraft.behavior.silverfish_wake_up_friends.json"
+      "$ref": "behaviors/minecraft.behavior.silverfish_wake_up_friends.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.skeleton_horse_trap": {
-      "$ref": "behaviors/minecraft.behavior.skeleton_horse_trap.json"
+      "$ref": "behaviors/minecraft.behavior.skeleton_horse_trap.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.sleep": {
-      "$ref": "behaviors/minecraft.behavior.sleep.json"
+      "$ref": "behaviors/minecraft.behavior.sleep.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.slime_attack": {
-      "$ref": "behaviors/minecraft.behavior.slime_attack.json"
+      "$ref": "behaviors/minecraft.behavior.slime_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.slime_float": {
-      "$ref": "behaviors/minecraft.behavior.slime_float.json"
+      "$ref": "behaviors/minecraft.behavior.slime_float.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.slime_keep_on_jumping": {
-      "$ref": "behaviors/minecraft.behavior.slime_keep_on_jumping.json"
+      "$ref": "behaviors/minecraft.behavior.slime_keep_on_jumping.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.slime_random_direction": {
-      "$ref": "behaviors/minecraft.behavior.slime_random_direction.json"
+      "$ref": "behaviors/minecraft.behavior.slime_random_direction.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.snacking": {
-      "$ref": "behaviors/minecraft.behavior.snacking.json"
+      "$ref": "behaviors/minecraft.behavior.snacking.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.sneeze": {
-      "$ref": "behaviors/minecraft.behavior.sneeze.json"
+      "$ref": "behaviors/minecraft.behavior.sneeze.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.squid_dive": {
-      "$ref": "behaviors/minecraft.behavior.squid_dive.json"
+      "$ref": "behaviors/minecraft.behavior.squid_dive.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.squid_flee": {
-      "$ref": "behaviors/minecraft.behavior.squid_flee.json"
+      "$ref": "behaviors/minecraft.behavior.squid_flee.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.squid_idle": {
-      "$ref": "behaviors/minecraft.behavior.squid_idle.json"
+      "$ref": "behaviors/minecraft.behavior.squid_idle.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.squid_move_away_from_ground": {
-      "$ref": "behaviors/minecraft.behavior.squid_move_away_from_ground.json"
+      "$ref": "behaviors/minecraft.behavior.squid_move_away_from_ground.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.squid_out_of_water": {
-      "$ref": "behaviors/minecraft.behavior.squid_out_of_water.json"
+      "$ref": "behaviors/minecraft.behavior.squid_out_of_water.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.stay_while_sitting": {
-      "$ref": "behaviors/minecraft.behavior.stay_while_sitting.json"
+      "$ref": "behaviors/minecraft.behavior.stay_while_sitting.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.stomp_attack": {
-      "$ref": "behaviors/minecraft.behavior.stomp_attack.json"
+      "$ref": "behaviors/minecraft.behavior.stomp_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.stomp_turtle_egg": {
-      "$ref": "behaviors/minecraft.behavior.stomp_turtle_egg.json"
+      "$ref": "behaviors/minecraft.behavior.stomp_turtle_egg.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.summon_entity": {
-      "$ref": "behaviors/minecraft.behavior.summon_entity.json"
+      "$ref": "behaviors/minecraft.behavior.summon_entity.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.swell": {
-      "$ref": "behaviors/minecraft.behavior.swell.json"
+      "$ref": "behaviors/minecraft.behavior.swell.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.swim_wander": {
-      "$ref": "behaviors/minecraft.behavior.swim_wander.json"
+      "$ref": "behaviors/minecraft.behavior.swim_wander.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.swim_with_entity": {
-      "$ref": "behaviors/minecraft.behavior.swim_with_entity.json"
+      "$ref": "behaviors/minecraft.behavior.swim_with_entity.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.swoop_attack": {
-      "$ref": "behaviors/minecraft.behavior.swoop_attack.json"
+      "$ref": "behaviors/minecraft.behavior.swoop_attack.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.take_flower": {
-      "$ref": "behaviors/minecraft.behavior.take_flower.json"
+      "$ref": "behaviors/minecraft.behavior.take_flower.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.tempt": {
-      "$ref": "behaviors/minecraft.behavior.tempt.json"
+      "$ref": "behaviors/minecraft.behavior.tempt.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.target_when_pushed": {
-      "$ref": "behaviors/minecraft.behavior.target_when_pushed.json"
+      "$ref": "behaviors/minecraft.behavior.target_when_pushed.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.trade_interest": {
-      "$ref": "behaviors/minecraft.behavior.trade_interest.json"
+      "$ref": "behaviors/minecraft.behavior.trade_interest.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.trade_with_player": {
-      "$ref": "behaviors/minecraft.behavior.trade_with_player.json"
+      "$ref": "behaviors/minecraft.behavior.trade_with_player.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.vex_copy_owner_target": {
-      "$ref": "behaviors/minecraft.behavior.vex_copy_owner_target.json"
+      "$ref": "behaviors/minecraft.behavior.vex_copy_owner_target.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.vex_random_move": {
-      "$ref": "behaviors/minecraft.behavior.vex_random_move.json"
+      "$ref": "behaviors/minecraft.behavior.vex_random_move.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.wither_random_attack_pos_goal": {
-      "$ref": "behaviors/minecraft.behavior.wither_random_attack_pos_goal.json"
+      "$ref": "behaviors/minecraft.behavior.wither_random_attack_pos_goal.json",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "minecraft:behavior.wither_target_highest_damage": {
-      "$ref": "behaviors/minecraft.behavior.wither_target_highest_damage.json"
+      "$ref": "behaviors/minecraft.behavior.wither_target_highest_damage.json",
+      "description": "TODO description",
+      "title": "TODO title"
     }
   }
 }

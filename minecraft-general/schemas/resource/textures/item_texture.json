@@ -35,8 +35,7 @@
     "resource_pack_name": {
       "type": "string",
       "title": "Resource pack name",
-      "description": "TODO: add description",
-      "additionalProperties": false
+      "description": "TODO: add description"
     },
     "texture_data": {
       "title": "Texture data",
@@ -71,8 +70,7 @@
     "texture_name": {
       "title": "Texture name",
       "description": "TODO: add description",
-      "type": "string",
-      "additionalProperties": false
+      "type": "string"
     }
   }
 }

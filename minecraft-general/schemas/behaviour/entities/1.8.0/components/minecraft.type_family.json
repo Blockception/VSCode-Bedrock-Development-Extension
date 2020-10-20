@@ -15,8 +15,7 @@
         "title": "Family"
       },
       "description": "List of family names",
-      "title": "Family",
-      "additionalProperties": false
+      "title": "Family"
     }
   }
 }

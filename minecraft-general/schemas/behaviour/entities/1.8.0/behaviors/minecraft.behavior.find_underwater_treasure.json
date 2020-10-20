@@ -21,15 +21,13 @@
       "type": "integer",
       "default": 0,
       "description": "The range that the mob will search for a treasure chest within a ruin or shipwreck to move towards.",
-      "title": "Search Range",
-      "additionalProperties": false
+      "title": "Search Range"
     },
     "stop_distance": {
       "type": "number",
       "default": 2.0,
       "description": "The distance the mob will move before stopping.",
-      "title": "Stop Distance",
-      "additionalProperties": false
+      "title": "Stop Distance"
     }
   }
 }

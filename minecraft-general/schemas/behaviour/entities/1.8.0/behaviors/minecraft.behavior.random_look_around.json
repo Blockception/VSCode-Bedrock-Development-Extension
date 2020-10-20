@@ -21,8 +21,7 @@
     "look_distance": {
       "type": "number",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "title": "UNDOCUMENTATED"
     }
   }
 }

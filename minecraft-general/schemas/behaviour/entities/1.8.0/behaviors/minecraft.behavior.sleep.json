@@ -10,56 +10,48 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "cooldown_time": {
       "type": "number",
       "default": 0,
       "description": "Time in seconds the mob has to wait before using the goal again",
-      "title": "Cooldown time",
-      "additionalProperties": false
+      "title": "Cooldown time"
     },
     "goal_radius": {
       "type": "number",
       "default": 0,
       "description": "UNDOCUMANTED",
-      "title": "UNDOCUMANTED",
-      "additionalProperties": false
+      "title": "UNDOCUMANTED"
     },
     "sleep_collider_height": {
       "type": "number",
       "default": 1,
       "description": "The height of the mob's collider while sleeping",
-      "title": "Sleep collider height",
-      "additionalProperties": false
+      "title": "Sleep collider height"
     },
     "sleep_collider_width": {
       "type": "number",
       "default": 1,
       "description": "The width of the mob's collider while sleeping",
-      "title": "Sleep collider width",
-      "additionalProperties": false
+      "title": "Sleep collider width"
     },
     "sleep_y_offset": {
       "type": "number",
       "default": 1,
       "description": "The y offset of the mob's collider while sleeping",
-      "title": "Sleep y offset",
-      "additionalProperties": false
+      "title": "Sleep y offset"
     },
     "timeout_cooldown": {
       "type": "number",
       "default": 8,
       "description": "The cooldown time in seconds before the goal can be reused after a internal failure or timeout condition",
-      "title": "Timeout cooldown",
-      "additionalProperties": false
+      "title": "Timeout cooldown"
     }
   }
 }

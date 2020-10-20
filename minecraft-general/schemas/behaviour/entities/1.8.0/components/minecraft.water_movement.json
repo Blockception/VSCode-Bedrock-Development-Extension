@@ -11,8 +11,7 @@
       "type": "number",
       "default": 0.8,
       "description": "Drag factor to determine movement speed when in water.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

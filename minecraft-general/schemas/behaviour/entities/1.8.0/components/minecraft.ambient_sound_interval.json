@@ -11,22 +11,19 @@
       "type": "string",
       "default": "ambient",
       "description": "Level sound event to be played as the ambient sound.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "max": {
       "type": "number",
       "default": 16,
       "description": "Maximum time in seconds to randomly add to the ambient sound delay time.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "min": {
       "type": "number",
       "default": 8,
       "description": "Minimum time in seconds before the entity plays its ambient sound again",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

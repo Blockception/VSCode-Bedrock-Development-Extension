@@ -11,8 +11,7 @@
       "type": "boolean",
       "default": false,
       "description": "If true, other entities of the same entity definition within the broadcastRange will also become angry",
-      "title": "Broadcast Anger",
-      "additionalProperties": false
+      "title": "Broadcast Anger"
     },
     "broadcast_filters": {
       "$ref": "../filters.json",
@@ -23,8 +22,7 @@
       "type": "integer",
       "default": 20,
       "description": "Distance in blocks within which other entities of the same entity definition will become angry",
-      "title": "Broadcast Range",
-      "additionalProperties": false
+      "title": "Broadcast Range"
     },
     "broadcast_targets": {
       "type": "array",
@@ -35,8 +33,7 @@
         "pattern": "^.+$",
         "title": "Broadcast Targets"
       },
-      "title": "Broadcast Targets",
-      "additionalProperties": false
+      "title": "Broadcast Targets"
     },
     "calm_event": {
       "$ref": "../types/event.json",
@@ -47,27 +44,23 @@
       "type": "integer",
       "default": 25,
       "description": "The amount of time in seconds that the entity will be angry",
-      "title": "Duration",
-      "additionalProperties": false
+      "title": "Duration"
     },
     "duration_delta": {
       "type": "integer",
       "default": 0,
       "description": "Variance in seconds added to the duration [-delta, delta]",
-      "title": "Duration Delta",
-      "additionalProperties": false
+      "title": "Duration Delta"
     },
     "broadcastAnger": {
       "type": "boolean",
       "description": "TODO",
-      "title": "TODO",
-      "additionalProperties": false
+      "title": "TODO"
     },
     "broadcastRange": {
       "type": "integer",
       "description": "TODO",
-      "title": "TODO",
-      "additionalProperties": false
+      "title": "TODO"
     }
   }
 }

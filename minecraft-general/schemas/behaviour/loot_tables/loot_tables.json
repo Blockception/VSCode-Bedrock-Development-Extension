@@ -4,11 +4,12 @@
   "additionalProperties": false,
   "description": "A minecraft loot table",
   "title": "Loot Table",
-  "properties": {
-    "pools": {
+  "definitions": {
+    "pools_spec": {
       "title": "Pools",
       "description": "TODO description",
       "type": "array",
+      "additionalProperties": false,
       "items": {
         "additionalProperties": false,
         "title": "A single pool",
@@ -50,7 +51,6 @@
             "items": {
               "type": "object",
               "title": "Condition",
-              "additionalProperties": false,
               "allOf": [
                 {
                   "if": {
@@ -480,19 +480,27 @@
                       }
                     ]
                   }
+                },
+                "pools": {
+                  "$ref": "#/definitions/pools_spec"
                 }
               }
             }
           }
         }
-      },
-      "additionalProperties": false
+      }
+    }
+  },
+  "properties": {
+    "pools": {
+      "$ref": "#/definitions/pools_spec",
+      "description": "TODO description",
+      "title": "TODO title"
     },
     "type": {
       "title": "Type",
       "type": "string",
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   }
 }

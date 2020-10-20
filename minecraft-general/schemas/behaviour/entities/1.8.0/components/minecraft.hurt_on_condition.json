@@ -56,8 +56,7 @@
             "description": "TODO"
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

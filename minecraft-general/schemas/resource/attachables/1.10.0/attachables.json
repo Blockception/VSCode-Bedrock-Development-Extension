@@ -10,8 +10,7 @@
       "title": "The 1.10.0 format_version",
       "type": "string",
       "pattern": "^(1.10.0|1.10)$",
-      "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
-      "additionalProperties": false
+      "description": "A version that tells minecraft what type of data format can be expected when reading this file."
     },
     "minecraft:attachable": {
       "type": "object",
@@ -69,10 +68,10 @@
               "description": "The geometry specification"
             },
             "identifier": {
-              "pattern": "^[a-z:_]+",
               "type": "string",
               "description": "TODO description: identifier",
-              "title": "Identifier"
+              "title": "Identifier",
+              "$ref": "../../../general/item/identifier.json"
             },
             "materials": {
               "type": "object",

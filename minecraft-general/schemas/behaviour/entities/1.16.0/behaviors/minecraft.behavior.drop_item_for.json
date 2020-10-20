@@ -9,21 +9,18 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "drop_item_chance": {
       "type": "number",
       "default": [1.0],
       "description": "The probability that the mob will drop an item.",
-      "title": "Drop item chance",
-      "additionalProperties": false
+      "title": "Drop item chance"
     },
     "entity_types": {
       "description": "List of entity types this mob will drop items for.",
@@ -34,29 +31,25 @@
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "Goal radius",
-      "additionalProperties": false
+      "title": "Goal radius"
     },
     "loot_table": {
       "type": "string",
       "pattern": "^loot_tables.*\\.json$",
       "description": "Loot table to select items from.",
-      "title": "Loot table",
-      "additionalProperties": false
+      "title": "Loot table"
     },
     "max_dist": {
       "type": "number",
       "default": 0,
       "description": "Maximum distance in blocks this mob will look for entities to drop an item for.",
-      "title": "Max dist",
-      "additionalProperties": false
+      "title": "Max dist"
     },
     "offering_distance": {
       "type": "number",
       "default": [1.0],
       "description": "The distance in blocks the mob will try to be away from the entity when it drops the item.",
-      "title": "Offering distance",
-      "additionalProperties": false
+      "title": "Offering distance"
     },
     "on_drop_attempt": {
       "$ref": "../types/event.json",
@@ -67,22 +60,19 @@
       "type": "integer",
       "default": 1,
       "description": "UNDOCUMENTATED",
-      "title": "Search height",
-      "additionalProperties": false
+      "title": "Search height"
     },
     "search_height": {
       "type": "integer",
       "default": 1,
       "description": "Height in blocks from the target the mob can be.",
-      "title": "Search height",
-      "additionalProperties": false
+      "title": "Search height"
     },
     "search_range": {
       "type": "integer",
       "default": 0,
       "description": "The distance in blocks from the target the mob can be.",
-      "title": "Search range",
-      "additionalProperties": false
+      "title": "Search range"
     },
     "time_of_day_range": {
       "default": [0.0, 1.0],

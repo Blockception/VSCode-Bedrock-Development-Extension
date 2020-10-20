@@ -10,15 +10,13 @@
       "type": "string",
       "default": 0,
       "description": "A molang expression defining the amount of experience rewarded when this entity is successfully bred. An array of expressions adds each expression's result together for a final total.",
-      "title": "On bred",
-      "additionalProperties": false
+      "title": "On bred"
     },
     "on_death": {
       "type": "string",
       "default": 0,
       "description": "A molang expression defining the amount of experience rewarded when this entity dies. An array of expressions adds each expression's result together for a final total.",
-      "title": "On death",
-      "additionalProperties": false
+      "title": "On death"
     }
   }
 }

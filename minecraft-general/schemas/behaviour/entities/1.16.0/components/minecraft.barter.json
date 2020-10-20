@@ -9,15 +9,13 @@
     "barter_table": {
       "type": "string",
       "description": "Loot table that's used to drop a random item.",
-      "title": "Barter table",
-      "additionalProperties": false
+      "title": "Barter table"
     },
     "cooldown_after_being_attacked": {
       "type": "integer",
       "default": 0,
       "description": "Duration, in seconds, for which mob won't barter items if it was hurt",
-      "title": "Cooldown after being attacked",
-      "additionalProperties": false
+      "title": "Cooldown after being attacked"
     }
   }
 }

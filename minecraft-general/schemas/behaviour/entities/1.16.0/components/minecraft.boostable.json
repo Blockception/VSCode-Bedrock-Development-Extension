@@ -11,15 +11,13 @@
       "type": "number",
       "default": 3,
       "description": "Time in seconds for the boost.",
-      "title": "Duration",
-      "additionalProperties": false
+      "title": "Duration"
     },
     "speed_multiplier": {
       "type": "number",
       "default": 1,
       "description": "Factor by which the entity's normal speed increases. E.g. 2.0 means go twice as fast.",
-      "title": "Speed multiplier",
-      "additionalProperties": false
+      "title": "Speed multiplier"
     },
     "boost_items": {
       "type": "array",
@@ -49,8 +47,7 @@
             "title": "Replace item"
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

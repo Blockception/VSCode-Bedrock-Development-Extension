@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true when the subject entity receives the named damage type.",
-      "additionalProperties": false
+      "description": "Returns true when the subject entity receives the named damage type."
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -52,8 +51,7 @@
         "void",
         "withe"
       ],
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Compares the current 24 hour time with an int value in the range[0, 24000]",
-      "additionalProperties": false
+      "description": "Compares the current 24 hour time with an int value in the range[0, 24000]"
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -30,8 +29,7 @@
       "minimum": 0,
       "maximum": 240000,
       "description": "(Required) An integer value.",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

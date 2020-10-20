@@ -75,8 +75,7 @@
       "type": "string",
       "const": "specific_enchants",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "enchants": {
       "title": "Enchants",
@@ -96,8 +95,7 @@
           }
         }
       ],
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   }
 }

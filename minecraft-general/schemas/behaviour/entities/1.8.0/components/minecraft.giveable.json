@@ -11,26 +11,23 @@
       "type": "number",
       "default": 0,
       "description": "An optional cool down in seconds to prevent spamming interactions.",
-      "title": "Cooldown",
-      "additionalProperties": false
+      "title": "Cooldown"
     },
     "items": {
       "type": "array",
       "description": "The list of items that can be given to the entity to place in their inventory.",
       "items": {
         "description": "An items that can be given to the entity to place in their inventory.",
-        "$ref": "../../../../general/items_identifiers.json",
+        "$ref": "../../../../general/item/identifier.json",
         "title": "Properties"
       },
-      "title": "Properties",
-      "additionalProperties": false
+      "title": "Properties"
     },
     "on_give": {
       "type": "string",
       "default": 0,
       "description": "Event to fire when the correct item is given.",
-      "title": "On Give",
-      "additionalProperties": false
+      "title": "On Give"
     }
   }
 }

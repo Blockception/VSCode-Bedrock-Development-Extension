@@ -9,8 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true when the subject entity is in lava.",
-      "additionalProperties": false
+      "description": "Returns true when the subject entity is in lava."
     },
     "operator": {
       "$ref": "types/base_operator.json",

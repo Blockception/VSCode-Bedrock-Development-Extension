@@ -9,14 +9,12 @@
     "surface": {
       "type": "integer",
       "description": "TODO",
-      "title": "Surface",
-      "additionalProperties": false
+      "title": "Surface"
     },
     "underground": {
       "type": "integer",
       "description": "TODO",
-      "title": "Underground",
-      "additionalProperties": false
+      "title": "Underground"
     }
   }
 }

@@ -16,8 +16,7 @@
       "type": "boolean",
       "default": false,
       "description": "Allows the actor to be set to persist upon targeting a player",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

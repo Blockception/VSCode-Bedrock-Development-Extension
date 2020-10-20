@@ -11,15 +11,13 @@
       "type": "boolean",
       "default": true,
       "description": "Whether or not the object collides with things.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "has_gravity": {
       "type": "boolean",
       "default": true,
       "description": "Whether or not the entity is affected by gravity.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

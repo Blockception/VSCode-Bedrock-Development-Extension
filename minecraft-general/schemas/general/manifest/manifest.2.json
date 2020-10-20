@@ -18,8 +18,12 @@
     }
   },
   "properties": {
+    "format_version": {
+      "type": "number",
+      "description": "This defines the current version of the manifest. Don't change this unless you have a good reason to",
+      "title": "Format Version"
+    },
     "capabilities": {
-      "additionalProperties": false,
       "type": "array",
       "description": "These are the different features that the pack makes use of that aren't necessarily enabled by default.",
       "properties": {
@@ -58,11 +62,9 @@
         "description": "TODO description: dependencies",
         "title": "Dependencies"
       },
-      "title": "Dependencies",
-      "additionalProperties": false
+      "title": "Dependencies"
     },
     "header": {
-      "additionalProperties": false,
       "description": "This is the heading of the manifest and is required for the manifest to be valid.",
       "title": "Header",
       "required": ["description", "name", "uuid", "version"],
@@ -99,7 +101,6 @@
       }
     },
     "modules": {
-      "additionalProperties": false,
       "type": "array",
       "title": "Modules",
       "description": "This section describes the modules that comprise the pack. Each entry here defines one of the kinds of contents of the pack.",

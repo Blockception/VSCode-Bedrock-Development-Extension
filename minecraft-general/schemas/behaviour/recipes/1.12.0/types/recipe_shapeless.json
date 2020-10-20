@@ -35,14 +35,12 @@
     "group": {
       "type": "string",
       "title": "UNDOCUMENTATED",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "priority": {
       "type": "integer",
       "description": "Item used as output for the furnace recipe.",
-      "title": "Priority",
-      "additionalProperties": false
+      "title": "Priority"
     },
     "result": {
       "description": "When input items match the pattern then these items are the result.",

@@ -11,15 +11,13 @@
       "type": "boolean",
       "default": false,
       "description": "Whether the other entity needs to be visible to trigger 'inside' events",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "inside_range": {
       "type": "number",
       "default": 1,
       "description": "Maximum distance in blocks that another entity will be considered in the 'inside' range",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "on_inside_range": {
       "$ref": "../types/event.json",
@@ -40,8 +38,7 @@
       "type": "number",
       "default": 5,
       "description": "Maximum distance in blocks that another entity will be considered in the 'outside' range",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -9,38 +9,32 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "tick_interval": {
       "type": "integer",
       "title": "Tick interval",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "search_range": {
       "type": "integer",
       "title": "Search range",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "search_height": {
       "type": "integer",
       "title": "Search height",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "sprint_speed_modifier": {
       "type": "number",
       "title": "Sprint speed modifier",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "target_selection_method": {
       "type": "string",
       "title": "Target selection method",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "target_blocks": {
       "type": "array",
@@ -50,20 +44,17 @@
         "type": "string",
         "title": "Block ID",
         "description": "UNDOCUMENTATED"
-      },
-      "additionalProperties": false
+      }
     },
     "avoid_block_sound": {
       "type": "string",
       "title": "Avoid block sound",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "walk_speed_modifier": {
       "type": "number",
       "title": "Walk speed modifier",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     },
     "on_escape": {
       "type": "array",
@@ -71,8 +62,7 @@
       "description": "UNDOCUMENTATED",
       "items": {
         "$ref": "../types/event.json"
-      },
-      "additionalProperties": false
+      }
     },
     "sound_interval": {
       "default": 0,

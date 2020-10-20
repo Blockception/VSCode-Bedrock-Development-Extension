@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "The test property",
-      "additionalProperties": false
+      "description": "The test property"
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -28,8 +27,7 @@
       "type": "number",
       "minimum": 0,
       "maximum": 1,
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

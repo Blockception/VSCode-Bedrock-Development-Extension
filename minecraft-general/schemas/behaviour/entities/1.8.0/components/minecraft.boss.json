@@ -11,22 +11,19 @@
       "type": "integer",
       "default": 55,
       "description": "The max distance from the boss at which the boss's health bar is present on the players screen.",
-      "title": "Hud range",
-      "additionalProperties": false
+      "title": "Hud range"
     },
     "name": {
       "type": "string",
       "default": "",
       "description": "The name that will be displayed above the boss's health bar.",
-      "title": "Name",
-      "additionalProperties": false
+      "title": "Name"
     },
     "should_darken_sky": {
       "type": "boolean",
       "default": false,
       "description": "Whether the sky should darken in the presence of the boss.",
-      "title": "Should darken sky",
-      "additionalProperties": false
+      "title": "Should darken sky"
     }
   }
 }

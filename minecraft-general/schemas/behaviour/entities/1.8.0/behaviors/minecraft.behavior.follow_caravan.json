@@ -26,8 +26,7 @@
       "type": "integer",
       "description": "Number of entities that can be in the caravan",
       "default": 1,
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -9,14 +9,12 @@
     "value": {
       "type": "integer",
       "description": "TODO",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     },
     "max": {
       "type": "integer",
       "description": "TODO",
-      "title": "Max",
-      "additionalProperties": false
+      "title": "Max"
     }
   },
   "description": "TODO description: "

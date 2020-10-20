@@ -33,8 +33,7 @@
     "time_until_eat": {
       "title": "Time until eat",
       "description": "UNDOCUMENTATED",
-      "type": "number",
-      "additionalProperties": false
+      "type": "number"
     },
     "eat_and_replace_block_pairs": {
       "type": "array",
@@ -56,8 +55,7 @@
             "description": "UNDOCUMENTATED"
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

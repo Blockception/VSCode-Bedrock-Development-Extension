@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true if the subject entity is the named color.",
-      "additionalProperties": false
+      "description": "Returns true if the subject entity is the named color."
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -44,8 +43,7 @@
         "white",
         "yello"
       ],
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

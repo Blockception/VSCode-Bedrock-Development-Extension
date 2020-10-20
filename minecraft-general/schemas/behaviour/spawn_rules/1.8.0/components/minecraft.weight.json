@@ -9,8 +9,7 @@
     "default": {
       "type": "integer",
       "description": "TODO",
-      "title": "Default",
-      "additionalProperties": false
+      "title": "Default"
     }
   }
 }

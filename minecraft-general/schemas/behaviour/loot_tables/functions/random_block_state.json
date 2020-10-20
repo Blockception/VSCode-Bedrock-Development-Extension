@@ -9,14 +9,12 @@
       "type": "string",
       "const": "random_block_state",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "block_state": {
       "type": "string",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "values": {
       "type": "object",

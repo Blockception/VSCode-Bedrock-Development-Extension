@@ -10,8 +10,7 @@
     "format_version": {
       "const": "1.8.0",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "minecraft:spawn_rules": {
       "type": "object",
@@ -26,6 +25,8 @@
           "additionalProperties": false,
           "properties": {
             "identifier": {
+              "title": "Identifier",
+              "description": "TODO",
               "$ref": "../../../general/entity/identifier.json"
             },
             "population_control": {

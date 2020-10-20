@@ -9,15 +9,13 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "admire_item_sound": {
       "type": "string",
       "default": "",
       "description": "The sound event to play when admiring the item",
-      "title": "Admire item sound",
-      "additionalProperties": false
+      "title": "Admire item sound"
     },
     "on_admire_item_start": {
       "$ref": "../types/event.json",

@@ -19,14 +19,12 @@
     "must_reach": {
       "title": "Must reach",
       "description": "UNDOCUMENTATED",
-      "type": "boolean",
-      "additionalProperties": false
+      "type": "boolean"
     },
     "attack_chance": {
       "title": "Attack chance",
       "description": "UNDOCUMENTATED",
-      "type": "number",
-      "additionalProperties": false
+      "type": "number"
     }
   }
 }

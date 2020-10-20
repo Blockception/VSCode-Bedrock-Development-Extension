@@ -10,20 +10,17 @@
       "type": "string",
       "const": "set_book_contents",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "author": {
       "type": "string",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "title": {
       "type": "string",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "pages": {
       "type": "array",
@@ -32,8 +29,7 @@
         "examples": ["Some text", "{\"rawtext\":[ {\"translate\":\"some.text\"}]}"]
       },
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

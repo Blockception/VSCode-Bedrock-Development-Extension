@@ -16,8 +16,7 @@
       "type": "boolean",
       "default": true,
       "description": "If true, the mob will close the door after opening it and going through it",
-      "title": "Close Door After",
-      "additionalProperties": false
+      "title": "Close Door After"
     }
   }
 }

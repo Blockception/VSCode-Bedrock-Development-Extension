@@ -11,15 +11,13 @@
       "type": "number",
       "default": 12,
       "description": "The time in seconds required to break through doors.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "min_difficulty": {
       "type": "string",
       "default": "hard",
       "description": "The minimum difficulty that the world must be on for this entity to break doors.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

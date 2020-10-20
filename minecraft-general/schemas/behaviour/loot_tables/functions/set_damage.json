@@ -9,8 +9,7 @@
       "type": "string",
       "const": "set_damage",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "damage": {
       "oneOf": [
@@ -30,8 +29,7 @@
         }
       ],
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

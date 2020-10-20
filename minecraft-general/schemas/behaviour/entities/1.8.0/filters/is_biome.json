@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Tests whether the Subject is currently in the named biome.",
-      "additionalProperties": false
+      "description": "Tests whether the Subject is currently in the named biome."
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -46,8 +45,7 @@
         "the_end",
         "the_nethe"
       ],
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

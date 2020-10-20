@@ -9,15 +9,13 @@
       "type": "string",
       "const": "fill_container",
       "title": "Function",
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     },
     "loot_table": {
       "type": "string",
       "title": "Loot table",
       "pattern": "^loot_tables/.*\\.json$",
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   }
 }

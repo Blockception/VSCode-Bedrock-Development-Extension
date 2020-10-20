@@ -1,16 +1,21 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "blockception.minecraft.behaviour.condition.random_chance",
+  "type": "object",
   "additionalProperties": false,
   "description": "Sets a random chance of the specified value.",
   "title": "Random_chance",
   "properties": {
+    "condition": {
+      "type": "string",
+      "title": "Condition",
+      "description": "TODO"
+    },
     "max_chance": {
       "type": "number",
       "default": 0,
       "description": "The maximum random chance value allowed.",
-      "title": "Max chance",
-      "additionalProperties": false
+      "title": "Max chance"
     }
   }
 }

@@ -11,8 +11,7 @@
       "type": "number",
       "default": 0.42,
       "description": "The initial vertical velocity for the jump",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

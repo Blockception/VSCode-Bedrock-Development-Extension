@@ -10,8 +10,7 @@
       "type": "integer",
       "description": "TODO",
       "title": "Sensor_radius",
-      "minimum": 0,
-      "additionalProperties": false
+      "minimum": 0
     },
     "on_break": {
       "type": "array",
@@ -37,8 +36,7 @@
           }
         }
       },
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   }
 }

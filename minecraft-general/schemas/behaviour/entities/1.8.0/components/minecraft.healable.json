@@ -16,8 +16,7 @@
       "type": "boolean",
       "default": false,
       "description": "Determines if item can be used regardless of entity being at full health",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "items": {
       "description": "The array of items that can be used to heal this entity",
@@ -40,8 +39,7 @@
           }
         }
       },
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -20,15 +20,13 @@
         "description": "TODO description: properties",
         "title": "Properties"
       },
-      "title": "Properties",
-      "additionalProperties": false
+      "title": "Properties"
     },
     "look_distance": {
       "type": "number",
       "default": 8,
       "description": "Distance in blocks the mob will beg from",
-      "title": "Look Distance",
-      "additionalProperties": false
+      "title": "Look Distance"
     },
     "look_time": {
       "description": "The range of time in seconds this mob will stare at the player holding a food they like, begging for it",

@@ -9,7 +9,6 @@
   "properties": {
     "description": {
       "required": ["identifier"],
-      "additionalProperties": false,
       "title": "Description",
       "description": "The description of the this entity",
       "properties": {
@@ -83,12 +82,7 @@
     "component_groups": {
       "title": "Component groups",
       "description": "Each group when add / remove the default components",
-      "uniqueItems": true,
-      "additionalProperties": {
-        "description": "Each group when add / remove the default components",
-        "title": "The component groups schema",
-        "$ref": "components.json"
-      }
+      "uniqueItems": true
     },
     "components": {
       "$ref": "components.json",

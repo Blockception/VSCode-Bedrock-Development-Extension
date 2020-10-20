@@ -10,47 +10,40 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "avoid_damage_blocks": {
       "type": "boolean",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "title": "UNDOCUMENTATED"
     },
     "can_land_on_trees": {
       "type": "boolean",
       "default": true,
       "description": "If true, the mob can stop flying and land on a tree instead of the ground",
-      "title": "Can land on trees",
-      "additionalProperties": false
+      "title": "Can land on trees"
     },
     "xz_dist": {
       "type": "integer",
       "default": 10,
       "description": "Distance in blocks on ground that the mob will look for a new spot to move to. Must be at least 1",
-      "title": "Xz dist",
-      "additionalProperties": false
+      "title": "Xz dist"
     },
     "y_dist": {
       "type": "integer",
       "default": 7,
       "description": "Distance in blocks that the mob will look up or down for a new spot to move to. Must be at least 1",
-      "title": "Y dist",
-      "additionalProperties": false
+      "title": "Y dist"
     },
     "y_offset": {
       "type": "integer",
       "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "title": "UNDOCUMENTATED"
     }
   }
 }

@@ -39,15 +39,13 @@
       "type": "boolean",
       "default": false,
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "format_version": {
       "title": "The 1.12.0 format_version",
       "type": "string",
       "pattern": "^1.12.0$",
-      "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
-      "additionalProperties": false
+      "description": "A version that tells minecraft what type of data format can be expected when reading this file."
     },
     "minecraft:geometry": {
       "type": "array",
@@ -459,8 +457,7 @@
             "type": "string"
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

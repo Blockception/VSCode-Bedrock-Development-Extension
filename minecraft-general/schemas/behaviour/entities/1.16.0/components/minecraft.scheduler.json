@@ -11,15 +11,13 @@
       "type": "integer",
       "description": "UNDOCUMENTATED",
       "title": "UNDOCUMENTATED",
-      "minimum": 0,
-      "additionalProperties": false
+      "minimum": 0
     },
     "max_delay_secs": {
       "type": "integer",
       "description": "UNDOCUMENTATED",
       "title": "UNDOCUMENTATED",
-      "minimum": 0,
-      "additionalProperties": false
+      "minimum": 0
     },
     "scheduled_events": {
       "type": "array",
@@ -38,8 +36,7 @@
             "$ref": "../types/event.json"
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

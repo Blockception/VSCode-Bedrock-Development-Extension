@@ -11,8 +11,7 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "pattern": "^1.8.0$",
-      "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
-      "additionalProperties": false
+      "description": "A version that tells minecraft what type of data format can be expected when reading this file."
     },
     "minecraft:client_entity": {
       "type": "object",
@@ -71,10 +70,10 @@
               "description": "TODO description: geometry"
             },
             "identifier": {
-              "pattern": "^[a-z:]+",
               "type": "string",
               "description": "TODO description: identifier",
-              "title": "Identifier"
+              "title": "Identifier",
+              "$ref": "../../../general/entity/identifier.json"
             },
             "materials": {
               "type": "object",
@@ -127,7 +126,7 @@
             },
             "sound_effects": {
               "title": "Sound Effects",
-              "description": "TODO description: sound effects",              
+              "description": "TODO description: sound effects",
               "type": "object",
               "minProperties": 1,
               "additionalProperties": {

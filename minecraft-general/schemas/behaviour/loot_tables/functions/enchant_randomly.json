@@ -9,14 +9,12 @@
       "type": "string",
       "const": "enchant_randomly",
       "title": "Function",
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     },
     "treasure": {
       "type": "boolean",
       "description": "Supports the optional treasure boolean (true/false) to allow treasure enchantments to be toggled on and off.",
-      "title": "Treasure",
-      "additionalProperties": false
+      "title": "Treasure"
     }
   }
 }

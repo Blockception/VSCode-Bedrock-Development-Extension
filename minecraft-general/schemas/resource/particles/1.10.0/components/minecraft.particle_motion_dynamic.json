@@ -15,8 +15,7 @@
         "$ref": "../../../../molang/1.8.0/number.json"
       },
       "description": "The linear acceleration applied to the particle. Units are blocks/sec/sec",
-      "title": "Linear Acceleration",
-      "additionalProperties": false
+      "title": "Linear Acceleration"
     },
     "linear_drag_coefficient": {
       "$ref": "../../../../molang/1.8.0/number.json",

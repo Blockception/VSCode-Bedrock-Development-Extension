@@ -9,12 +9,32 @@
     "creation_event": {
       "title": "Creation event",
       "description": "Fires when the emitter is created",
-      "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "expiration_event": {
       "title": "Expiration event",
       "description": "Fires when the emitter expires (does not wait for particles to expire too)",
-      "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "timeline": {
       "type": "object",
@@ -25,19 +45,25 @@
       "additionalProperties": {
         "title": "Timeline object",
         "description": "A single point in time that executes commands/molang/events",
-        "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
-      }
+        "oneOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "TODO title"
     },
     "travel_distance_events": {
       "title": "Travel distance events",
       "description": "A series of distances, e.g. 0.0 or 1.0, that trigger the event these get fired when the emitter has moved by the specified input distance, e.g. one line might be: \"0.4\": \"event\"",
       "propertyNames": {
         "pattern": "^[\\d\\.]+$"
-      },
-      "additionalProperties": {
-        "title": "Timeline object",
-        "description": "A distance that executes commands/molang/events when the emitter has moved that distance",
-        "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
       }
     },
     "looping_travel_distance_events": {
@@ -57,7 +83,17 @@
           "effects": {
             "title": "Effects",
             "description": "TODO",
-            "oneOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }]
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       }

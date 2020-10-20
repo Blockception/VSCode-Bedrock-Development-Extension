@@ -10,8 +10,7 @@
       "type": "string",
       "default": "",
       "description": "The sound event to play when admiring the item",
-      "title": "Admire item sound",
-      "additionalProperties": false
+      "title": "Admire item sound"
     },
     "sound_interval": {
       "type": "array",

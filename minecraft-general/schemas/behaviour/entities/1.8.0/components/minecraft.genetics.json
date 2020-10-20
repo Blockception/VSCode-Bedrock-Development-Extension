@@ -11,8 +11,7 @@
       "type": "number",
       "default": 0.03125,
       "description": "Chance that an allele will be replaced with a random one instead of the parent's allele during birth.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "genes": {
       "type": "array",
@@ -98,8 +97,7 @@
         }
       },
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

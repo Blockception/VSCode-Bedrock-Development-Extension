@@ -429,8 +429,7 @@
             }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "description": "TODO description",

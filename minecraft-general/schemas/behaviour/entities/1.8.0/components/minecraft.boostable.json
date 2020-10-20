@@ -11,15 +11,13 @@
       "type": "number",
       "default": 3,
       "description": "Time in seconds for the boost",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "type": "number",
       "default": 1,
       "description": "Factor by which the entity's normal speed increases. E.g. 2.0 means go twice as fast",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "boost_items": {
       "type": "array",
@@ -34,19 +32,18 @@
           },
           "item": {
             "type": "string",
-            "$ref": "../../../../general/items_identifiers.json",
+            "$ref": "../../../../general/item/identifier.json",
             "description": "Name of the item that can be used to boost"
           },
           "replaceItem": {
             "type": "string",
-            "$ref": "../../../../general/items_identifiers.json",
+            "$ref": "../../../../general/item/identifier.json",
             "description": "The item used to boost will become this item once it is used up"
           }
         }
       },
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

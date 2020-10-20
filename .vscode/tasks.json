@@ -1,29 +1,25 @@
 {
   "version": "2.0.0",
   "tasks": [
-		{
-			"type": "npm",
-			"script": "watch",
-			"isBackground": true,
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"presentation": {"reveal": "silent", "panel": "dedicated" },
-			"problemMatcher": [
-				"$tsc-watch"
-			]
-		},
-		{
-			"type": "npm",
-			"script": "compile",
-			"isBackground": false,
-			"group": "build",
-			"presentation": { "reveal": "silent", "panel": "dedicated" },
-			"problemMatcher": [
-				"$tsc"
-			]
-		},
+    {
+      "type": "npm",
+      "script": "watch",
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": { "reveal": "silent", "panel": "dedicated" },
+      "problemMatcher": ["$tsc-watch"]
+    },
+    {
+      "type": "npm",
+      "script": "compile",
+      "isBackground": false,
+      "group": "build",
+      "presentation": { "reveal": "silent", "panel": "dedicated" },
+      "problemMatcher": ["$tsc"]
+    },
     {
       "type": "shell",
       "label": "Format workspace",

@@ -10,8 +10,7 @@
       "type": "string",
       "pattern": ".*\\.json$",
       "description": "TODO description: table",
-      "title": "Table",
-      "additionalProperties": false
+      "title": "Table"
     }
   },
   "description": "TODO description: "

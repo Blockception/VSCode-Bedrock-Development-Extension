@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Compares the distance to the nearest Player with a float value.",
-      "additionalProperties": false
+      "description": "Compares the distance to the nearest Player with a float value."
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -26,8 +25,7 @@
     "value": {
       "type": "number",
       "description": "(Required) A floating point value.",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

@@ -16,15 +16,13 @@
       "type": "number",
       "default": 0,
       "description": "Time in seconds the mob has to wait before using the goal again",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "drop_item_chance": {
       "type": "number",
       "default": 1,
       "description": "The probability that the mob will drop an item when it sneezes.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "entity_types": {
       "$ref": "../types/entity_types.json",
@@ -35,22 +33,19 @@
       "type": "string",
       "default": "",
       "description": "Loot table to select dropped items from.",
-      "title": "Loot table",
-      "additionalProperties": false
+      "title": "Loot table"
     },
     "prepare_sound": {
       "type": "string",
       "default": "",
       "description": "Sound to play when the sneeze is about to happen.",
-      "title": "Prepare sound",
-      "additionalProperties": false
+      "title": "Prepare sound"
     },
     "prepare_time": {
       "type": "number",
       "default": 1,
       "description": "The time in seconds that the mob takes to prepare to sneeze (while the prepare_sound is playing).",
-      "title": "Prepare time",
-      "additionalProperties": false
+      "title": "Prepare time"
     },
     "probability": {
       "type": "number",
@@ -58,22 +53,19 @@
       "minimum": 0,
       "maximum": 1,
       "description": "The probability of sneezing. A value of 1.00 is 100%",
-      "title": "Probability",
-      "additionalProperties": false
+      "title": "Probability"
     },
     "sound": {
       "type": "string",
       "default": "",
       "description": "Sound to play when the sneeze occurs.",
-      "title": "Sound",
-      "additionalProperties": false
+      "title": "Sound"
     },
     "within_radius": {
       "type": "number",
       "default": 0,
       "description": "Distance in blocks that mobs will be startled.",
-      "title": "Within radius",
-      "additionalProperties": false
+      "title": "Within radius"
     }
   }
 }

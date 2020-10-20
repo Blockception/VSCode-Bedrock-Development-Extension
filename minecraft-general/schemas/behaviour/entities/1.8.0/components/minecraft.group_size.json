@@ -15,8 +15,7 @@
       "type": "number",
       "default": 16,
       "description": "Radius from center of entity.",
-      "title": "Radius",
-      "additionalProperties": false
+      "title": "Radius"
     }
   }
 }

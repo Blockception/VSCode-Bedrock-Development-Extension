@@ -94,5 +94,6 @@
       "title": "TODO title"
     }
   },
-  "description": "TODO description"
+  "description": "TODO description",
+  "additionalProperties": false
 }

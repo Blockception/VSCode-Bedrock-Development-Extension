@@ -134,8 +134,7 @@
           }
         }
       },
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

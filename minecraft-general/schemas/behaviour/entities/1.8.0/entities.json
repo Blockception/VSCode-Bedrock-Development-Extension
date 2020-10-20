@@ -10,8 +10,7 @@
       "title": "The 1.8.0 format_version",
       "type": "string",
       "const": "1.8.0",
-      "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
-      "additionalProperties": false
+      "description": "A version that tells minecraft what type of data format can be expected when reading this file."
     },
     "minecraft:entity": {
       "$ref": "./minecraft.entity.json",

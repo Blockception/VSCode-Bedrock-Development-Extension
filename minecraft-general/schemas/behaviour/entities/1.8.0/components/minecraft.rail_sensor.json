@@ -11,22 +11,19 @@
       "type": "boolean",
       "default": false,
       "description": "If true, on tick this entity will trigger its on_deactivate behavior",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "eject_on_activate": {
       "type": "boolean",
       "default": true,
       "description": "If true, this entity will eject all of its riders when it passes over an activated rail",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "eject_on_deactivate": {
       "type": "boolean",
       "default": false,
       "description": "If true, this entity will eject all of its riders when it passes over a deactivated rail",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "on_activate": {
       "$ref": "../types/event.json",
@@ -42,15 +39,13 @@
       "type": "boolean",
       "default": true,
       "description": "If true, command blocks will start ticking when passing over an activated rail",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "tick_command_block_on_deactivate": {
       "type": "boolean",
       "default": false,
       "description": "If false, command blocks will stop ticking when passing over a deactivated rail",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

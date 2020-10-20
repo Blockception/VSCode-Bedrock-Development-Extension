@@ -10,8 +10,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true when the subject entity contains the named component.",
-      "additionalProperties": false
+      "description": "Returns true when the subject entity contains the named component."
     },
     "operator": {
       "$ref": "types/base_operator.json",
@@ -26,8 +25,7 @@
     "value": {
       "type": "string",
       "description": "TODO description: value",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

@@ -10,8 +10,7 @@
     "value": {
       "type": "number",
       "title": "Value",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   }
 }

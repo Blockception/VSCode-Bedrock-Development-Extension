@@ -26,7 +26,7 @@
             "items": {
               "type": "string",
               "description": "A item name",
-              "$ref": "../../../../general/items_identifiers.json",
+              "$ref": "../../../../general/item/identifier.json",
               "title": "Accepted Items"
             },
             "title": "Accepted Items"
@@ -58,8 +58,7 @@
         },
         "title": "Slots"
       },
-      "title": "Slots",
-      "additionalProperties": false
+      "title": "Slots"
     }
   }
 }

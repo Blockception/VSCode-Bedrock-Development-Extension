@@ -12,23 +12,21 @@
         {
           "type": "array",
           "items": {
-            "$ref": "../../../../general/items_identifiers.json"
+            "$ref": "../../../../general/item/identifier.json"
           }
         },
         {
           "type": "string",
-          "$ref": "../../../../general/items_identifiers.json"
+          "$ref": "../../../../general/item/identifier.json"
         }
       ],
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "duration": {
       "type": "number",
       "default": 1200,
       "description": "Amount of time before the entity grows up, -1 for always a baby.",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "feed_items": {
       "description": "List of items that can be fed to the entity. Includes 'item' for the item name and 'growth' to define how much time it grows up by",
@@ -36,7 +34,7 @@
         {
           "type": "array",
           "items": {
-            "$ref": "../../../../general/items_identifiers.json"
+            "$ref": "../../../../general/item/identifier.json"
           }
         },
         {
@@ -48,18 +46,17 @@
                 "type": "number"
               },
               "item": {
-                "$ref": "../../../../general/items_identifiers.json"
+                "$ref": "../../../../general/item/identifier.json"
               }
             }
           }
         },
         {
           "type": "string",
-          "$ref": "../../../../general/items_identifiers.json"
+          "$ref": "../../../../general/item/identifier.json"
         }
       ],
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "grow_up": {
       "$ref": "../types/event.json",

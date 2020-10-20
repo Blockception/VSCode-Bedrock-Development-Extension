@@ -9,8 +9,7 @@
       "type": "string",
       "pattern": "[a-z0-9_:\\-]+",
       "title": "Recipe identifier",
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   },
   "additionalProperties": false

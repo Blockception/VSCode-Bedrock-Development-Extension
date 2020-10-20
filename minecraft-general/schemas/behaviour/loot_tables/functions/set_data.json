@@ -9,8 +9,7 @@
       "type": "string",
       "const": "set_data",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "data": {
       "title": "Data",
@@ -32,8 +31,7 @@
           }
         }
       ],
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   }
 }

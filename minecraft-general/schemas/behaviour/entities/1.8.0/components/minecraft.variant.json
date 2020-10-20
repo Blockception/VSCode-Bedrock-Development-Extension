@@ -11,8 +11,7 @@
       "type": "integer",
       "default": 0,
       "description": "The ID of the variant. By convention, 0 is the ID of the base entity",
-      "title": "Value",
-      "additionalProperties": false
+      "title": "Value"
     }
   }
 }

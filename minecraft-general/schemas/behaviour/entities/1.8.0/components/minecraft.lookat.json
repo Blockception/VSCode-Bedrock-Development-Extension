@@ -21,29 +21,25 @@
     "look_event": {
       "type": "string",
       "description": "The event identifier to run when the entities specified in filters look at this entity",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "mAllowInvulnerable": {
       "type": "boolean",
       "default": false,
       "description": "If true, invulnerable entities (e.g. Players in creative mode) are considered valid targets",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "searchRadius": {
       "type": "number",
       "default": 10,
       "description": "Maximum distance this entity will look for another entity looking at it",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "setTarget": {
       "type": "boolean",
       "default": true,
       "description": "If true, this entity will set the attack target as the entity that looked at it",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

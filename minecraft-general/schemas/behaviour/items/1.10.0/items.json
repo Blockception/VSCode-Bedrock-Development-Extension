@@ -8,8 +8,7 @@
     "format_version": {
       "type": "string",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "minecraft:item": {
       "additionalProperties": false,
@@ -22,7 +21,10 @@
           "type": "object",
           "properties": {
             "identifier": {
-              "type": "string"
+              "title": "Identifier",
+              "type": "string",
+              "description": "TODO",
+              "$ref": "../../../general/item/identifier.json"
             }
           }
         },
@@ -109,7 +111,7 @@
                 "using_converts_to": {
                   "type": "string",
                   "description": "After using,  item converts it to this item.",
-                  "$ref": "../../../general/items_identifiers.json"
+                  "$ref": "../../../general/item/identifier.json"
                 },
                 "on_use_action": {
                   "type": "string",

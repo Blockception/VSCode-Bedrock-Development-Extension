@@ -9,8 +9,7 @@
       "type": "string",
       "const": "set_count",
       "title": "Function",
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     },
     "count": {
       "title": "Count",
@@ -32,8 +31,7 @@
           }
         }
       ],
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   }
 }

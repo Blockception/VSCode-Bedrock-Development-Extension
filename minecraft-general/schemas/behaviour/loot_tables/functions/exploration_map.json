@@ -9,8 +9,7 @@
       "type": "string",
       "const": "exploration_map",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "destination": {
       "type": "string",
@@ -29,8 +28,7 @@
         "buriedtreasure",
         "pillageroutpost"
       ],
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -14,8 +14,7 @@
         "type": "object",
         "description": "UNKNOWN STRUCTURE"
       },
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

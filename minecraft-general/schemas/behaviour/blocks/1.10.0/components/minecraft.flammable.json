@@ -11,15 +11,13 @@
       "type": "integer",
       "default": 0,
       "description": "How likely the block will be destroyed by flames when on fire.",
-      "title": "Burn odds",
-      "additionalProperties": false
+      "title": "Burn odds"
     },
     "flame_odds": {
       "type": "integer",
       "default": 0,
       "description": "How likely the block will catch flame when next to a fire.",
-      "title": "Flame odds",
-      "additionalProperties": false
+      "title": "Flame odds"
     }
   }
 }

@@ -9,8 +9,7 @@
     "test": {
       "type": "string",
       "title": "The test property",
-      "description": "Returns true if the subject entity is climbing.",
-      "additionalProperties": false
+      "description": "Returns true if the subject entity is climbing."
     },
     "operator": {
       "$ref": "types/base_operator.json",

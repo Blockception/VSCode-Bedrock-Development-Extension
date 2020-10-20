@@ -13,8 +13,7 @@
       "description": "A list of the blocks that can be broken as this entity moves around",
       "items": {
         "$ref": "../../../../general/blocks_item.json"
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

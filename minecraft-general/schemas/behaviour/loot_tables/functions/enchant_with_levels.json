@@ -9,8 +9,7 @@
       "type": "string",
       "const": "enchant_with_levels",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "levels": {
       "title": "Levels",
@@ -34,14 +33,12 @@
           }
         }
       ],
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     },
     "treasure": {
       "type": "boolean",
       "title": "Treasure",
-      "description": "TODO description",
-      "additionalProperties": false
+      "description": "TODO description"
     }
   }
 }

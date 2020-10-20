@@ -11,8 +11,7 @@
       "type": "number",
       "default": 0.0,
       "description": "The value of the entity's offset from the terrain, in blocks",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

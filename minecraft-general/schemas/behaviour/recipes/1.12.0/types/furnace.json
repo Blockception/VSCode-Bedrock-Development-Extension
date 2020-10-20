@@ -20,14 +20,12 @@
     "input": {
       "type": "string",
       "description": "Items used as input for the furnace recipe.",
-      "title": "Input",
-      "additionalProperties": false
+      "title": "Input"
     },
     "output": {
       "type": "string",
       "description": "Items used as output for the furnace recipe.",
-      "title": "Output",
-      "additionalProperties": false
+      "title": "Output"
     }
   }
 }

@@ -21,8 +21,7 @@
         }
       ],
       "description": "TODO description: direction",
-      "title": "Direction",
-      "additionalProperties": false
+      "title": "Direction"
     },
     "radius": {
       "$ref": "../../../../molang/1.8.0/number.json",
@@ -39,8 +38,7 @@
         "title": "Offset"
       },
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "plane_normal": {
       "title": "Plane normal",
@@ -70,8 +68,7 @@
     "surface_only": {
       "type": "boolean",
       "description": "TODO description: surface only",
-      "title": "Surface Only",
-      "additionalProperties": false
+      "title": "Surface Only"
     }
   },
   "description": "TODO description: "

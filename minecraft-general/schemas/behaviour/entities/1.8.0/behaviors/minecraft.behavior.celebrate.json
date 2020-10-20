@@ -9,22 +9,19 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "celebration_sound": {
       "type": "string",
       "default": "",
       "description": "The sound to occasionally play.",
-      "title": "Celebration sound",
-      "additionalProperties": false
+      "title": "Celebration sound"
     },
     "duration": {
       "type": "number",
       "default": 1,
       "description": "The duration of the celebration (in seconds).",
-      "title": "Duration",
-      "additionalProperties": false
+      "title": "Duration"
     },
     "jump_interval": {
       "type": "array",

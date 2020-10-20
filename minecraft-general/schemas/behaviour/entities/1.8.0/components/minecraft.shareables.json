@@ -16,7 +16,7 @@
           "item": {
             "type": "string",
             "description": "The name of the item",
-            "$ref": "../../../../general/items_identifiers.json"
+            "$ref": "../../../../general/item/identifier.json"
           },
           "want_amount": {
             "type": "integer",
@@ -27,13 +27,12 @@
             "description": "Number of this item considered extra that the entity wants to share"
           },
           "craft_info": {
-            "$ref": "../../../../general/items_identifiers.json",
+            "$ref": "../../../../general/item/identifier.json",
             "description": "Defines the item this entity wants to craft with the item defined above. Should be an item name"
           }
         }
       },
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

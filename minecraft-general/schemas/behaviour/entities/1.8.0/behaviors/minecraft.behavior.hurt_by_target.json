@@ -21,15 +21,13 @@
       "type": "boolean",
       "default": false,
       "description": "If true, nearby mobs of the same type will be alerted about the damage",
-      "title": "Alert Same Type",
-      "additionalProperties": false
+      "title": "Alert Same Type"
     },
     "hurt_owner": {
       "type": "boolean",
       "default": false,
       "description": "If true, the mob will hurt its owner and other mobs with the same owner as itself",
-      "title": "Hurt Owner",
-      "additionalProperties": false
+      "title": "Hurt Owner"
     }
   }
 }

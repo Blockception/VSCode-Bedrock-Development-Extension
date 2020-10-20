@@ -10,28 +10,24 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "explore_dist": {
       "type": "number",
       "default": 5,
       "description": "The distance in which the mob will proceed past the village bounds",
-      "title": "Explore dist",
-      "additionalProperties": false
+      "title": "Explore dist"
     },
     "wait_time": {
       "type": "integer",
       "default": 0,
       "description": "The time the mob will stand around 'searching' for POIs",
-      "title": "Wait time",
-      "additionalProperties": false
+      "title": "Wait time"
     }
   }
 }

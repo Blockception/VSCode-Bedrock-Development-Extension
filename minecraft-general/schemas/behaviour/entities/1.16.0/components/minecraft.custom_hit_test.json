@@ -43,8 +43,7 @@
             ]
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }

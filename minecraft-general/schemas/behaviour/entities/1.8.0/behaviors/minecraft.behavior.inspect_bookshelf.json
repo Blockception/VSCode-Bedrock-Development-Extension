@@ -10,42 +10,36 @@
     "priority": {
       "ref": "types/base_priority.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "speed_multiplier": {
       "ref": "types/base_speed_multiplier.json",
       "description": "TODO description",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "search_count": {
       "type": "integer",
       "default": 10,
       "description": "The number of blocks each tick that the mob will check within it's search range and height for a valid block to move to. A value of 0 will have the mob check every block within range in one tick",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "search_height": {
       "type": "integer",
       "default": 1,
       "description": "The height that the mob will search for bookshelves",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     },
     "search_range": {
       "type": "integer",
       "default": 0,
       "description": "Distance in blocks the mob will look for books to inspect",
-      "title": "TODO title",
-      "additionalProperties": false
+      "title": "TODO title"
     }
   }
 }

@@ -43,8 +43,7 @@
     "max": {
       "type": "number",
       "title": "Maximum",
-      "description": "UNDOCUMENTATED",
-      "additionalProperties": false
+      "description": "UNDOCUMENTATED"
     }
   },
   "description": "TODO description"
