@@ -1,8 +1,0 @@
-{
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "blockception.minecraft.general.1.8.0.items",
-  "type": "string",
-  "title": "Item identifiers",
-  "description": "TODO description",
-  "pattern": "^[a-zA-Z_0-9:]+$"
-}
