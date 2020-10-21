@@ -6,8 +6,8 @@ server/src/**
 scripts/*
 node_modules
 node_modules/**
-LICENSENS
-LICENSENS/**
+LICENSES
+LICENSES/**
 
 **/*.ts
 **/*.js.map
