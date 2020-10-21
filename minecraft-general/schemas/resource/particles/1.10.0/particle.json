@@ -113,7 +113,7 @@
             "minecraft:emitter_initialization": {
               "$ref": "components/minecraft.emitter_initialization.json"
             },
-            "minecraft:emitter_lifetime_events:": {
+            "minecraft:emitter_lifetime_events": {
               "$ref": "components/minecraft.emitter_lifetime_events.json"
             },
             "minecraft:emitter_lifetime_expression": {
