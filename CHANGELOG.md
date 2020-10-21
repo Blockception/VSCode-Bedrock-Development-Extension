@@ -1,4 +1,13 @@
 # Changelog 
+- fixing typo: 'minecraft:emitter_lifetime_events:'
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Merge pull request #16 from Rexogamer/patch-1
+- update references to LICENSES folder
+- move to proper folder (part 3)
+- move to proper folder (part 2)
+- move to proper folder (part 1)
+- README: a *lot* of grammar fixes
+- Fixing on interact
 - Fixing component groups validation
 - Refactored
 - Updating titles
@@ -10,12 +19,3 @@
 - Add resourcepack items schema
 - Updated components loot tables
 - Refactored loot tables json schema
-- Formatted
-- Updating json schemas
-- Updated general schemas
-- Updated version to 1.2.3
-- Updated to 1.2.2
-- Fixed Feature header
-- Fixing formatt
-- Updated webpack to work for both debugging and production
-- Updated 1.2.1
