@@ -1,6 +1,6 @@
 # VSCode-Bedrock-Development-Extension
-An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop Minecraft bedrock content.
-Recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft education.
+An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop Minecraft Bedrock content.
+It's recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft Education Edition.
 
 ![overview](documentation/resources/overview.gif)
 
@@ -9,7 +9,7 @@ Recommended you use the Dark+ theme for the best color highlighting. This packag
   - [Content](#content)
   - [Features](#features)
     - [Mcfunction](#mcfunction)
-    - [Json](#json)
+    - [JSON](#json)
       - [Molang](#molang)
       - [Validation](#validation)
     - [Language files](#language-files)
@@ -30,70 +30,70 @@ This plugin provides support for the `.mcfunction` files. The following features
 - Syntax highlighting.
 
 ---
-### Json
+### JSON
 
 #### Molang
-This plugin provides automatic highlighting for Molang code in json files.
+This plugin provides automatic highlighting for Molang code in JSON files.
 
 #### Validation
-Automatic json validation is applied if the files follow a given pattern for naming or proper file structure.  
+Automatic JSON validation is applied if the files follow a given pattern for naming or proper file structure.  
 For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or in the world folder: `resource_packs`.  
 For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or in the world folder: `behavior_packs`.  
 
-- [General.](./documentation/Json%20Validation.md#general)
-  - Manifests.
-  - Languages.
-  - Language Names.
-- [World.](./documentation/Json%20Validation.md#world)
-  - world_behavior_packs.
-  - world_resource_packs.
-- [Resource pack.](./documentation/Json%20Validation.md#resource-packs)
-  - Animation controllers.
-  - Animations.
-  - Attachables.
-  - Biomes.
-  - Blocks.
-  - Entity.
-  - Entity Models.
-  - Flipbook textures.
-  - Item textures.
-  - Materials.
-  - Music definitions.
-  - Particles.
-  - Render controllers.
-  - Sound definitions.
-  - Sounds.
-  - Terrain texture.
-- [Behaviour pack.](./documentation/Json%20Validation.md#behaviour-packs)
-  - Animation controllers.
-  - Animations.
-  - Blocks.
-  - Entity behaviours.
-  - Item behaviours.
-  - Loot tables.
-  - Recipes.
-  - Spawn rules.
-  - Trading.
+- [**General**](./documentation/Json%20Validation.md#general)
+  - Manifests
+  - Languages
+  - Language names
+- [**World**](./documentation/Json%20Validation.md#world)
+  - world_behavior_packs
+  - world_resource_packs
+- [**Resource packs**](./documentation/Json%20Validation.md#resource-packs)
+  - Animation controllers
+  - Animations
+  - Attachables
+  - Biomes
+  - Blocks
+  - Entities
+  - Entity models
+  - Flipbook textures
+  - Item textures
+  - Materials
+  - Music definitions
+  - Particles
+  - Render controllers
+  - Sound definitions
+  - Sounds
+  - Terrain textures
+- [**Behaviour packs**](./documentation/Json%20Validation.md#behaviour-packs)
+  - Animation controllers
+  - Animations
+  - Blocks
+  - Entity behaviours
+  - Item behaviours
+  - Loot tables
+  - Recipes
+  - Spawn rules
+  - Trading
 
 ---
 ### Language files
-This plugin provides support for the `.lang` files. The following features are provided:
-- Code formatting.
-- Diagnostics.
+This plugin provides support for `.lang` files. The following features are provided:
+- Code formatting
+- Diagnostics
 - Regions
-- Symbols.
-- Syntax highlighting.
+- Symbols
+- Syntax highlighting
 
 ---
 ### Molang
-This plugin provides automatic highlighting for Molang code in json files. As well as for files that have the extension .molang. officially these files are not supported by Minecraft, but are usefull for developing Molang.
+This plugin provides automatic highlighting for Molang code in JSON files and .molang files. Officially .molang files are not supported by Minecraft, but they're useful for development.
 
 ---
 ## Extension Settings
 
-- **Use Education Content**: Adds education contents such as items, blocks, entities and commands into the suggestion and/or debugging. requires a
+- **Use Education Content**: Adds Education Edition content such as items, blocks, entities and commands into code suggestions and debugging. Requires a
   restart for full effect.
 
 
 ## Licenses
-In [Licenses](./LICENSENS/Licenses.md) all thrid party code and library are listed that make this plugin possible!
+All thrid party code and libraries this plugin uses are listed [**here**](./LICENSENS/Licenses.md)!
