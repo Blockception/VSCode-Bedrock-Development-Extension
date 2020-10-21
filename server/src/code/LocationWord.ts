@@ -55,6 +55,14 @@ export class LocationWord {
 
     return false;
   }
+
+  //Converts the given text into words
+  static GetWords(text: string, lineIndex: number, uri: string): LocationWord[] {
+    let Words = RangedWord.GetWords(text);
+    let Out = LocationWord.ConvertAll(Words, lineIndex, uri);
+
+    return Out;
+  }
 }
 
 export namespace LocationWord {

@@ -60,10 +60,10 @@ export class CommandIntr {
 
     line = line.trim();
     let LineIndex = pos.line;
-    let Words = RangedWord.GetWords(line);
+    let Words = LocationWord.GetWords(line, LineIndex, uri);
     let char = pos.character;
     Out.Line = LineIndex;
-    Out.Paramaters = LocationWord.ConvertAll(Words, pos.line, uri);
+    Out.Paramaters = Words;
 
     if (Out.Paramaters.length > 0) {
       if (Out.Paramaters[Out.Paramaters.length - 1].range.end.character < pos.character) {
