@@ -82,7 +82,14 @@
     "component_groups": {
       "title": "Component groups",
       "description": "Each group when add / remove the default components",
-      "uniqueItems": true
+      "uniqueItems": true,
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "components.json",
+        "uniqueItems": true,
+        "description": "The components that are added as the foundation of the entity",
+        "title": "The component schema"
+      }
     },
     "components": {
       "$ref": "components.json",
