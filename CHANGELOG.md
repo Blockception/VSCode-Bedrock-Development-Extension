@@ -1,4 +1,11 @@
 # Changelog 
+- Fixing component groups validation
+- Refactored
+- Updating titles
+- Removed underscore from titles
+- Fixing sound effect for animations
+- Updated to 1.2.4
+- Formatted
 - Formatted
 - Add resourcepack items schema
 - Updated components loot tables
@@ -12,10 +19,3 @@
 - Fixing formatt
 - Updated webpack to work for both debugging and production
 - Updated 1.2.1
-- Updated to 1.2.1
-- Updated sounds effects
-- Merge branch 'webpack-intergration'
-- Fixing
-- Updating sound effects in entity definitions
-- Updated webpack code
-- Updated Licenses

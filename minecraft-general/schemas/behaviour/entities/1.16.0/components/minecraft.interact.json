@@ -33,7 +33,7 @@
           "title": "Interact text"
         },
         "on_interact": {
-          "$ref": "../types/event.json",
+          "$ref": "../types/trigger.json",
           "description": "Event to fire when the interaction occurs.",
           "title": "On interact"
         },
