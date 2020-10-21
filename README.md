@@ -96,4 +96,4 @@ This plugin provides automatic highlighting for Molang code in JSON files and .m
 
 
 ## Licenses
-All thrid party code and libraries this plugin uses are listed [**here**](./LICENSENS/Licenses.md)!
+All thrid party code and libraries this plugin uses are listed [**here**](./LICENSES/Licenses.md)!
