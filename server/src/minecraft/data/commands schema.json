@@ -92,7 +92,8 @@
       "$ref": "#/definitions/commands",
       "description": "TODO description",
       "title": "TODO title"
-    }
+    },
+    "$schema": true
   },
   "description": "TODO description",
   "additionalProperties": false
