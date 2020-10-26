@@ -34,9 +34,11 @@ export function provideCoordinateCompletion(receiver: CompletionList): void {
   const Kind = Kinds.Completion.Coordinate;
 
   receiver.items.push(
+    { label: "~", documentation: "Relative coordinate", kind: Kind, preselect:true },
     { label: "~1", documentation: "Relative coordinate", kind: Kind },
     { label: "~-1", documentation: "Relative coordinate", kind: Kind },
     { label: "^1", documentation: "Local coordinate", kind: Kind },
+    { label: "^", documentation: "Local coordinate", kind: Kind },
     { label: "^-1", documentation: "Local coordinate", kind: Kind },
     { label: "1", documentation: "Coordinate", kind: Kind },
     { label: "-1", documentation: "Coordinate", kind: Kind }
