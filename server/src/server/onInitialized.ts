@@ -32,6 +32,7 @@ import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 import { Manager } from "../manager/Manager";
 import { AddCommands, AddMinecraftData } from "../minecraft/data/include";
 import { TraverseWorkspaces } from "../process/traverse";
+import { SetDynamicEvents } from './Events/Dynamic';
 import { UpdateSettings } from "./Settings";
 
 export async function onInitializedAsync(params: InitializedParams): Promise<void> {
@@ -52,9 +53,8 @@ function onInitialized(params: InitializedParams): void {
     Manager.Connection.client.register(DidChangeConfigurationNotification.type, undefined);
   }
 
-  // Tell the client that this server supports code formatting.
-  const Formatoptions: DocumentFormattingRegistrationOptions = { documentSelector: [McFunctionIdentifier, McLanguageIdentifier] };
-  Manager.Connection.client.register(DocumentFormattingRequest.type, Formatoptions);
+  //Registers any follow ups
+  SetDynamicEvents();
 
   /*if (Manager.hasWorkspaceFolderCapability) {
     connection.workspace.onDidChangeWorkspaceFolders(_event => {

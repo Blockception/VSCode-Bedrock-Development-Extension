@@ -27,17 +27,17 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { OnCommandRequestAsync } from "../commands/OnRequest";
-import { OnCompletionRequestAsync } from "../completion/OnRequest";
-import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../definition/OnRequest";
-import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../format/OnRequest";
-import { OnHoverRequestAsync } from "../hover/OnRequest";
-import { Manager } from "../manager/Manager";
-import { OnReferencesRequestAsync } from "../references/OnRequest";
-import { OnSignatureRequestAsync } from "../signatures/OnRequest";
-import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../symbols/OnRequest";
-import { OndDocumentChangedAsync } from "./Events/Documents";
-import { onDidChangeConfigurationAsync } from "./OnConfiguration";
+import { OnCommandRequestAsync } from "../../commands/OnRequest";
+import { OnCompletionRequestAsync } from "../../completion/OnRequest";
+import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../definition/OnRequest";
+import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../format/OnRequest";
+import { OnHoverRequestAsync } from "../../hover/OnRequest";
+import { Manager } from "../../manager/Manager";
+import { OnReferencesRequestAsync } from "../../references/OnRequest";
+import { OnSignatureRequestAsync } from "../../signatures/OnRequest";
+import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../symbols/OnRequest";
+import { OndDocumentChangedAsync } from "./Documents";
+import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 
 /**
  * Setup the server events
