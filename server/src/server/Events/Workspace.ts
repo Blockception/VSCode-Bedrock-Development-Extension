@@ -30,7 +30,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { WorkspaceFoldersChangeEvent } from "vscode-languageserver";
 import { UniformUrl } from "../../code/Url";
 import { Database } from "../../database/Database";
-import { Manager } from "../../manager/Manager";
 import { TraverseWorkspace } from "../../process/traverse";
 
 export async function OnWorkspaceFolderChangeAsync(params: WorkspaceFoldersChangeEvent): Promise<void> {
