@@ -1,4 +1,12 @@
 # Changelog 
+- Updated depencies
+- Updated
+- Refactored events
+- Fixing execute subcommand detection for signatures and completion
+- Updated coordinate completion to prefere '~'
+- Updated schemas
+- Formatted
+- Updated to 1.2.6
 - fixing typo: 'minecraft:emitter_lifetime_events:'
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Merge pull request #16 from Rexogamer/patch-1
@@ -11,11 +19,3 @@
 - Fixing component groups validation
 - Refactored
 - Updating titles
-- Removed underscore from titles
-- Fixing sound effect for animations
-- Updated to 1.2.4
-- Formatted
-- Formatted
-- Add resourcepack items schema
-- Updated components loot tables
-- Refactored loot tables json schema
