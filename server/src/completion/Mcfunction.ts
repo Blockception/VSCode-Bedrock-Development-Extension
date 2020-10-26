@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { CompletionList } from "vscode-languageserver";
-import { CommandIntr } from "../minecraft/commands/include";
+import { CommandIntr, IsInSubCommand } from "../minecraft/commands/include";
 import { ProvideCompletionMCCommandParameter } from "./MCCommandParameterTypeCompletion";
 import { provideCommandCompletion } from "./CommandCompletion";
 import { getLine } from "../code/include";
@@ -39,6 +39,12 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
   const Line = getLine(doc, LineIndex);
 
   let Command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
+
+  let SubCommand = IsInSubCommand(Command, pos.character);
+
+  if (SubCommand){
+    Command = SubCommand;
+  }
 
   ProvideCompletionMcFunction(doc, pos, receiver, Command);
 }

@@ -88,7 +88,8 @@ export class CommandIntr {
   slice(start?: number | undefined, end?: number | undefined): CommandIntr {
     let Out = new CommandIntr();
     Out.Line = this.Line;
-    Out.Paramaters = Out.Paramaters.slice(start, end);
+    Out.Paramaters = this.Paramaters.slice(start, end);
+    Out.CursorParamater = this.CursorParamater - (start ?? 0);
 
     return Out;
   }
@@ -129,18 +130,18 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
   let Keyword = command.GetCommandKeyword();
 
   if (Keyword == "execute") {
-    if (command.Paramaters[6].text === "detect") {
+    if (command.Paramaters[5].text === "detect") {
       //execute detect command hasn't been completed yet
-      if (command.Paramaters.length < 11) return undefined;
+      if (command.Paramaters.length < 12) return undefined;
 
-      //if cursor is on the execute command and not the sub command
-      if (character < command.Paramaters[11].range.start.character) {
+      //if cursor is on the sub command and not the execute command
+      if (character >= command.Paramaters[11].range.start.character) {
         return command.slice(11);
       }
     } else {
-      //if cursor is on the execute command and not the sub command
-      if (character < command.Paramaters[6].range.start.character) {
-        return command.slice(6);
+      //if cursor is on the sub command and not the execute command
+      if (character >= command.Paramaters[5].range.start.character) {
+        return command.slice(5);
       }
     }
   }
