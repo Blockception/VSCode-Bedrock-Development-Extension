@@ -38,16 +38,16 @@ export function AddMinecraftData() {
   let Data = Database.Data;
 
   //Import data from the json file
-  data.vanilla.blocks.forEach((block) => Data.Blocks.Update(AddBlock(block)));
-  data.vanilla.entities.forEach((entity) => Data.Entities.Update(AddEntity(entity)));
-  data.vanilla.items.forEach((item) => Data.Items.Update(AddItem(item)));
-  data.vanilla.sounds.forEach((sound) => Data.Sounds.Update(AddSound(sound)));
+  data.vanilla.blocks.forEach((block) => Data.General.Blocks.Update(AddBlock(block)));
+  data.vanilla.entities.forEach((entity) => Data.General.Entities.Update(AddEntity(entity)));
+  data.vanilla.items.forEach((item) => Data.General.Items.Update(AddItem(item)));
+  data.vanilla.sounds.forEach((sound) => Data.General.Sounds.Update(AddSound(sound)));
 
   if (Manager.Settings.useEducationContent) {
-    data.edu.blocks.forEach((block) => Data.Blocks.Update(AddEduBlock(block)));
-    data.edu.entities.forEach((entity) => Data.Entities.Update(AddEduEntity(entity)));
-    data.edu.items.forEach((item) => Data.Items.Update(AddEduItem(item)));
-    data.edu.sounds.forEach((sound) => Data.Sounds.Update(AddEduSound(sound)));
+    data.edu.blocks.forEach((block) => Data.General.Blocks.Update(AddEduBlock(block)));
+    data.edu.entities.forEach((entity) => Data.General.Entities.Update(AddEduEntity(entity)));
+    data.edu.items.forEach((item) => Data.General.Items.Update(AddEduItem(item)));
+    data.edu.sounds.forEach((sound) => Data.General.Sounds.Update(AddEduSound(sound)));
   }
 }
 

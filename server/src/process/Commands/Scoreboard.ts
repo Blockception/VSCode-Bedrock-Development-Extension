@@ -72,7 +72,7 @@ function CheckObjective(Com: CommandIntr): void {
       obj.Documentation.value += " " + Com.Paramaters[5].text.replace(/"/g, "");
     }
 
-    Database.Data.Objectives.Set(obj);
+    Database.Data.General.Objectives.Set(obj);
   }
 }
 
@@ -86,7 +86,7 @@ function CheckPlayer(Com: CommandIntr): void {
       FE.Identifier = Selector.text;
       FE.Location = Selector.CreateLocation();
       FE.Documentation.value = "The fake player: " + FE.Identifier;
-      Database.Data.FakeEntities.Set(FE);
+      Database.Data.General.FakeEntities.Set(FE);
     }
   }
 }

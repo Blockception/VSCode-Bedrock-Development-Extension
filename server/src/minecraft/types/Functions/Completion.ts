@@ -33,5 +33,5 @@ import { Database } from "../../../database/Database";
 import { Kinds } from "../Kinds";
 
 export function provideFunctionCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Functions, Kinds.Completion.Functions, receiver.items);
+  Completion.Convert(Database.Data.General.Functions, Kinds.Completion.Functions, receiver.items);
 }

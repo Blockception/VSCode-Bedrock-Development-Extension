@@ -55,6 +55,6 @@ export function Process(doc: TextDocument): void {
     item.Location = Location.create(GetFilepath(doc.uri), EmptyTypes.EmptyRange());
     item.Documentation.value = "The custom item definition of: " + ID;
 
-    Database.Data.Items.Set(item);
+    Database.Data.General.Items.Set(item);
   }
 }

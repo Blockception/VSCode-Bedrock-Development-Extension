@@ -41,7 +41,7 @@ export function provideEventCompletion(receiver: CompletionList, command: Comman
     let EntityID = command.Paramaters[1].text;
 
     //For each data set
-    let Entity = Database.Data.Entities.GetFromID(EntityID);
+    let Entity = Database.Data.General.Entities.GetFromID(EntityID);
 
     if (Entity === undefined) return;
 

@@ -33,11 +33,11 @@ import { Database } from "../../../database/Database";
 import { Kinds } from "../Kinds";
 
 export function provideObjectiveCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Objectives, Kinds.Completion.Objectives, receiver.items);
+  Completion.Convert(Database.Data.General.Objectives, Kinds.Completion.Objectives, receiver.items);
 }
 
 export function provideObjectivePostCompletion(receiver: CompletionList, additionalText: string): void {
-  Database.Data.Objectives.ForEach((objective) => {
+  Database.Data.General.Objectives.ForEach((objective) => {
     let Name = objective.Identifier;
 
     receiver.items.push({

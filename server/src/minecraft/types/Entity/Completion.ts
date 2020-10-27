@@ -33,11 +33,11 @@ import { Database } from "../../../database/Database";
 import { Kinds } from "../Kinds";
 
 export function provideEntityCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Entities, Kinds.Completion.Entity, receiver.items);
+  Completion.Convert(Database.Data.General.Entities, Kinds.Completion.Entity, receiver.items);
 }
 
 export function provideEntityTestCompletion(receiver: CompletionList): void {
-  Database.Data.Entities.ForEach((entity) => {
+  Database.Data.General.Entities.ForEach((entity) => {
     let Name = entity.Identifier;
 
     receiver.items.push(

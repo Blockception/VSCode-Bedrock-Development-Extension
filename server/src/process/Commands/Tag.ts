@@ -48,5 +48,5 @@ export function ProcessTagCommand(line: string, lineIndex: number, doc: TextDocu
   Data.Location = tag.CreateLocation();
   Data.Documentation.value = "The tag: " + tag.text;
 
-  Database.Data.Tag.Set(Data);
+  Database.Data.General.Tag.Set(Data);
 }

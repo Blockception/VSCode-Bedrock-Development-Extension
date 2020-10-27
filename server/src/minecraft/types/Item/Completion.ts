@@ -32,5 +32,5 @@ import { Completion } from "../../../completion/Functions";
 import { Database } from "../../../database/Database";
 
 export function provideItemCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Items, CompletionItemKind.Struct, receiver.items);
+  Completion.Convert(Database.Data.General.Items, CompletionItemKind.Struct, receiver.items);
 }

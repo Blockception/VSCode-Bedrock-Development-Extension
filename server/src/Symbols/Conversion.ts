@@ -48,42 +48,42 @@ export function Convert(uri: string, receiver: SymbolInformation[], query: strin
 
 export function ConvertAll(receiver: SymbolInformation[]): void {
   const uri = "";
-  ConvertStorage(Database.Data.Blocks, uri, Kinds.Symbol.Block, receiver);
-  ConvertStorage(Database.Data.Effects, uri, Kinds.Symbol.Effect, receiver);
-  ConvertStorage(Database.Data.Entities, uri, Kinds.Symbol.Entity, receiver);
-  ConvertStorage(Database.Data.FakeEntities, uri, Kinds.Symbol.Selector, receiver);
-  ConvertStorage(Database.Data.Functions, uri, Kinds.Symbol.Functions, receiver);
-  ConvertStorage(Database.Data.Items, uri, Kinds.Symbol.Item, receiver);
-  ConvertStorage(Database.Data.Objectives, uri, Kinds.Symbol.Objectives, receiver);
-  ConvertStorage(Database.Data.Sounds, uri, Kinds.Symbol.Sound, receiver);
-  ConvertStorage(Database.Data.Tag, uri, Kinds.Symbol.Tag, receiver);
-  ConvertStorage(Database.Data.TickingAreas, uri, Kinds.Symbol.Tickingarea, receiver);
+  ConvertStorage(Database.Data.General.Blocks, uri, Kinds.Symbol.Block, receiver);
+  ConvertStorage(Database.Data.General.Effects, uri, Kinds.Symbol.Effect, receiver);
+  ConvertStorage(Database.Data.General.Entities, uri, Kinds.Symbol.Entity, receiver);
+  ConvertStorage(Database.Data.General.FakeEntities, uri, Kinds.Symbol.Selector, receiver);
+  ConvertStorage(Database.Data.General.Functions, uri, Kinds.Symbol.Functions, receiver);
+  ConvertStorage(Database.Data.General.Items, uri, Kinds.Symbol.Item, receiver);
+  ConvertStorage(Database.Data.General.Objectives, uri, Kinds.Symbol.Objectives, receiver);
+  ConvertStorage(Database.Data.General.Sounds, uri, Kinds.Symbol.Sound, receiver);
+  ConvertStorage(Database.Data.General.Tag, uri, Kinds.Symbol.Tag, receiver);
+  ConvertStorage(Database.Data.General.TickingAreas, uri, Kinds.Symbol.Tickingarea, receiver);
 }
 
 export function ConvertAllFile(uri: string, receiver: SymbolInformation[]): void {
-  ConvertStorage(Database.Data.Blocks, uri, Kinds.Symbol.Block, receiver);
-  ConvertStorage(Database.Data.Effects, uri, Kinds.Symbol.Effect, receiver);
-  ConvertStorage(Database.Data.Entities, uri, Kinds.Symbol.Entity, receiver);
-  ConvertStorage(Database.Data.FakeEntities, uri, Kinds.Symbol.Selector, receiver);
-  ConvertStorage(Database.Data.Functions, uri, Kinds.Symbol.Functions, receiver);
-  ConvertStorage(Database.Data.Items, uri, Kinds.Symbol.Item, receiver);
-  ConvertStorage(Database.Data.Objectives, uri, Kinds.Symbol.Objectives, receiver);
-  ConvertStorage(Database.Data.Sounds, uri, Kinds.Symbol.Sound, receiver);
-  ConvertStorage(Database.Data.Tag, uri, Kinds.Symbol.Tag, receiver);
-  ConvertStorage(Database.Data.TickingAreas, uri, Kinds.Symbol.Tickingarea, receiver);
+  ConvertStorage(Database.Data.General.Blocks, uri, Kinds.Symbol.Block, receiver);
+  ConvertStorage(Database.Data.General.Effects, uri, Kinds.Symbol.Effect, receiver);
+  ConvertStorage(Database.Data.General.Entities, uri, Kinds.Symbol.Entity, receiver);
+  ConvertStorage(Database.Data.General.FakeEntities, uri, Kinds.Symbol.Selector, receiver);
+  ConvertStorage(Database.Data.General.Functions, uri, Kinds.Symbol.Functions, receiver);
+  ConvertStorage(Database.Data.General.Items, uri, Kinds.Symbol.Item, receiver);
+  ConvertStorage(Database.Data.General.Objectives, uri, Kinds.Symbol.Objectives, receiver);
+  ConvertStorage(Database.Data.General.Sounds, uri, Kinds.Symbol.Sound, receiver);
+  ConvertStorage(Database.Data.General.Tag, uri, Kinds.Symbol.Tag, receiver);
+  ConvertStorage(Database.Data.General.TickingAreas, uri, Kinds.Symbol.Tickingarea, receiver);
 }
 
 export function ConvertQueried(uri: string, receiver: SymbolInformation[], query: string) {
-  ConvertStorageQuery(Database.Data.Blocks, uri, query, Kinds.Symbol.Block, receiver);
-  ConvertStorageQuery(Database.Data.Effects, uri, query, Kinds.Symbol.Effect, receiver);
-  ConvertStorageQuery(Database.Data.Entities, uri, query, Kinds.Symbol.Entity, receiver);
-  ConvertStorageQuery(Database.Data.FakeEntities, uri, query, Kinds.Symbol.Selector, receiver);
-  ConvertStorageQuery(Database.Data.Functions, uri, query, Kinds.Symbol.Functions, receiver);
-  ConvertStorageQuery(Database.Data.Items, uri, query, Kinds.Symbol.Item, receiver);
-  ConvertStorageQuery(Database.Data.Objectives, uri, query, Kinds.Symbol.Objectives, receiver);
-  ConvertStorageQuery(Database.Data.Sounds, uri, query, Kinds.Symbol.Sound, receiver);
-  ConvertStorageQuery(Database.Data.Tag, uri, query, Kinds.Symbol.Tag, receiver);
-  ConvertStorageQuery(Database.Data.TickingAreas, uri, query, Kinds.Symbol.Tickingarea, receiver);
+  ConvertStorageQuery(Database.Data.General.Blocks, uri, query, Kinds.Symbol.Block, receiver);
+  ConvertStorageQuery(Database.Data.General.Effects, uri, query, Kinds.Symbol.Effect, receiver);
+  ConvertStorageQuery(Database.Data.General.Entities, uri, query, Kinds.Symbol.Entity, receiver);
+  ConvertStorageQuery(Database.Data.General.FakeEntities, uri, query, Kinds.Symbol.Selector, receiver);
+  ConvertStorageQuery(Database.Data.General.Functions, uri, query, Kinds.Symbol.Functions, receiver);
+  ConvertStorageQuery(Database.Data.General.Items, uri, query, Kinds.Symbol.Item, receiver);
+  ConvertStorageQuery(Database.Data.General.Objectives, uri, query, Kinds.Symbol.Objectives, receiver);
+  ConvertStorageQuery(Database.Data.General.Sounds, uri, query, Kinds.Symbol.Sound, receiver);
+  ConvertStorageQuery(Database.Data.General.Tag, uri, query, Kinds.Symbol.Tag, receiver);
+  ConvertStorageQuery(Database.Data.General.TickingAreas, uri, query, Kinds.Symbol.Tickingarea, receiver);
 }
 
 export function ConvertStorageQuery<T extends Identifiable & Locatable>(

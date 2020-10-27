@@ -1,3 +1,5 @@
+import { Location } from 'vscode-languageserver';
+
 export interface ReferenceFinder {
   FindReference(query : string, receiver : Location[]) : void
 }

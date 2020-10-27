@@ -61,6 +61,6 @@ export function Process(doc: TextDocument): void {
       entity.Events = EventsNames;
     }
 
-    Database.Data.Entities.Set(entity);
+    Database.Data.General.Entities.Set(entity);
   }
 }

@@ -67,6 +67,6 @@ export function Process(doc: TextDocument): void {
     let s = new Sound();
     s.Identifier = name;
     s.Location = Location.create(uri, position);
-    Database.Data.Sounds.Set(s);
+    Database.Data.General.Sounds.Set(s);
   });
 }

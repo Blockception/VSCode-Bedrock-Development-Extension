@@ -33,5 +33,5 @@ import { Database } from "../../../database/Database";
 import { Kinds } from "../Kinds";
 
 export function provideFakePlayersCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.FakeEntities, Kinds.Completion.FakeEntity, receiver.items);
+  Completion.Convert(Database.Data.General.FakeEntities, Kinds.Completion.FakeEntity, receiver.items);
 }

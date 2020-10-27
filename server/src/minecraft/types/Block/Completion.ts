@@ -33,5 +33,5 @@ import { Database } from "../../../database/Database";
 import { Kinds } from "../Kinds";
 
 export function provideBlockCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.Blocks, Kinds.Completion.Block, receiver.items);
+  Completion.Convert(Database.Data.General.Blocks, Kinds.Completion.Block, receiver.items);
 }

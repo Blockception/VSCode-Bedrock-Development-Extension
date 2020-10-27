@@ -33,5 +33,5 @@ import { Database } from "../../../database/Database";
 import { Kinds } from "../Kinds";
 
 export function provideTickingareaCompletion(receiver: CompletionList): void {
-  Completion.Convert(Database.Data.TickingAreas, Kinds.Completion.Tickingarea, receiver.items);
+  Completion.Convert(Database.Data.General.TickingAreas, Kinds.Completion.Tickingarea, receiver.items);
 }

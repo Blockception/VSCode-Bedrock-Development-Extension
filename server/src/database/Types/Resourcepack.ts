@@ -1,4 +1,5 @@
 import { DataCollector } from '../DataCollector';
+import { CollectorBase } from './CollectorBase';
 import { DataReference } from './Reference';
 
 export class Resourcepack extends CollectorBase {
