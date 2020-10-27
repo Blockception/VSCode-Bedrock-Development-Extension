@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -31,6 +31,7 @@ import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilepath } from "../../../code/Url";
 import { Database } from "../../../database/Database";
+import { DataReference } from '../../../database/Types/Reference';
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
 import { Item } from "../../types/Item/Item";
@@ -55,6 +56,7 @@ export function Process(doc: TextDocument): void {
     item.Location = Location.create(GetFilepath(doc.uri), EmptyTypes.EmptyRange());
     item.Documentation.value = "The custom item definition of: " + ID;
 
+    Database.Data.Behaviourpack.Items.Set(new DataReference(item.Identifier, item.Location));
     Database.Data.General.Items.Set(item);
   }
 }

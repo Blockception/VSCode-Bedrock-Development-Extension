@@ -35,6 +35,7 @@ import { Entity } from "../../types/include";
 import { GetFilepath } from "../../../code/Url";
 import { EntityImport, IsProperlyDefined } from "./Entity Import";
 import { EmptyTypes } from "../../types/Empty";
+import { DataReference } from '../../../database/Types/Reference';
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -61,6 +62,7 @@ export function Process(doc: TextDocument): void {
       entity.Events = EventsNames;
     }
 
+    Database.Data.Behaviourpack.Entities.Set(new DataReference(entity.Identifier, entity.Location));
     Database.Data.General.Entities.Set(entity);
   }
 }
