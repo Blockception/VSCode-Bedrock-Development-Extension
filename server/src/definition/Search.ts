@@ -68,7 +68,7 @@ export function SearchDefinition(text: string, type: MCCommandParameterType[]): 
 }
 
 export function SearchDefinitionIn(text: string, type: MCCommandParameterType[], receiver: Location[]) {
-  let Data = Database.Data;
+  let Data = Database.Data.General;
   for (let I = 0; I < type.length; I++) {
     switch (type[I]) {
       case MCCommandParameterType.block:

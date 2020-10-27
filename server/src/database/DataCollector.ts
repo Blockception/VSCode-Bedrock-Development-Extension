@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,29 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { Location } from 'vscode-languageserver';
 import { Identifiable } from "../minecraft/Interfaces/Identifiable";
 import { Locatable } from "../minecraft/Interfaces/include";
+import { DataCollectorIO } from './Interface/DataCollectorIO';
+import { ReferenceFinder } from './Interface/ReferenceFinder';
 
-export interface DataCollectorIO {
-  /**
-   * Removes any data from the associated file
-   * @param uri The filepath uri used
-   */
-  DeleteFile(uri: string): void;
-
-  /**
-   * Delete all files with given folder
-   * @param uri The folder uri to delete
-   */
-  DeleteFolder(uri: string): void;
-
-  /**
-   * Clear all data;
-   */
-  Clear(): void;
-}
-
-export class DataCollector<T extends Identifiable & Locatable> implements DataCollectorIO {
+export class DataCollector<T extends Identifiable & Locatable> implements DataCollectorIO, ReferenceFinder {
   /**
    * Stores identifier, value
    */
@@ -170,6 +154,19 @@ export class DataCollector<T extends Identifiable & Locatable> implements DataCo
 
     if (value) {
       this.Set(value);
+    }
+  }
+
+  /**
+   * 
+   * @param query 
+   * @param receiver 
+   */
+  public FindReference(query: string, receiver: Location[]): void {
+    for (let [key, value] of this.data) {
+      if (value.Identifier.includes(query)) {
+        receiver.push(value.Location);
+      }
     }
   }
 }

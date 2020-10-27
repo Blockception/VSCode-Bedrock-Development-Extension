@@ -27,17 +27,31 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CollectedData } from "./Types/CollectedData";
-import { MinecraftProgramData } from "./Types/MinecraftProgramData";
+import { GetProjectData, ProjectData } from "../../code/ProjectData";
+import { FindBedrockInstallationFolder } from "../../format/Install Location";
 
-export class Database {
-   /**
-    * The collected data from any processing
-    */
-   static Data = new CollectedData();
+export class MinecraftProgramData {
+  private BedrockInstallLocation: string | undefined;
+  private ProjectData: ProjectData | undefined;
 
-   /**
-    *
-    */
-   static MinecraftProgramData: MinecraftProgramData = new MinecraftProgramData();
+  constructor() { }
+
+  /**
+   * Retrieves the bedrock installation folder
+   */
+  public GetBedrockInstallLocation(): string {
+    if (!this.BedrockInstallLocation) this.BedrockInstallLocation = FindBedrockInstallationFolder();
+
+    return this.BedrockInstallLocation;
+  }
+
+  public GetProjecData(): ProjectData | undefined {
+    this.LoadProjectData();
+
+    return this.ProjectData;
+  }
+
+  public LoadProjectData(): void {
+    GetProjectData().then((x) => (this.ProjectData = x));
+  }
 }

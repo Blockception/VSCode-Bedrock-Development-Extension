@@ -27,33 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetProjectData, ProjectData } from "../code/ProjectData";
-import { FindBedrockInstallationFolder } from "../format/Install Location";
+import { Behaviorpack } from './Behaviorpack';
+import { CollectorBase } from './CollectorBase';
+import { GeneralData } from './GeneralData';
+import { Resourcepack } from './Resourcepack';
 
-export class MinecraftProgramData {
-  private BedrockInstallLocation: string | undefined;
-  private ProjectData: ProjectData | undefined;
+export class CollectedData extends CollectorBase {
 
-  constructor() {}
+  public Behaviourpack: Behaviorpack = new Behaviorpack();
 
-  /**
-   * Retrieves the bedrock installation folder
-   */
-  public GetBedrockInstallLocation(): string {
-    if (!this.BedrockInstallLocation) this.BedrockInstallLocation = FindBedrockInstallationFolder();
+  public Resourcepack : Resourcepack = new Resourcepack();
 
-    return this.BedrockInstallLocation;
-  }
-
-  public GetProjecData(): ProjectData | undefined {
-    if (!this.ProjectData) {
-      this.LoadProjectData();
-    }
-
-    return this.ProjectData;
-  }
-
-  public LoadProjectData(): void {
-    GetProjectData().then((x) => (this.ProjectData = x));
-  }
+  public General : GeneralData = new GeneralData();
 }
