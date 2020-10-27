@@ -65,8 +65,8 @@
   "publisher": "BlockceptionLtd",
   "maintainers": [
     {
-      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-      "name": "Blockception Ltd"
+      "name": "Blockception Ltd",
+      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
     }
   ],
   "repository": {

@@ -31,7 +31,6 @@ import { CollectedData } from "./CollectedData";
 import { MinecraftProgramData } from "./MinecraftProgramData";
 
 export class Database {
-  //uri string
   static Data = new CollectedData();
 
   /**
