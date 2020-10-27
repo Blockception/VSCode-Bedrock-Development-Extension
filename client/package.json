@@ -13,7 +13,7 @@
     "type": "git"
   },
   "engines": {
-    "vscode": "^1.50.0"
+    "vscode": "^1.41.0"
   },
   "license": "BSD-3-Clause",
   "dependencies": {
