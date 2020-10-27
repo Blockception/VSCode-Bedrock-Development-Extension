@@ -57,13 +57,14 @@
         },
         "level": {
           "title": "Level",
-          "type": "array",
-          "items": [
+          "oneOf": [
+            { "type": "integer", "title": "level" },
             {
-              "type": "integer"
-            },
-            {
-              "type": "integer"
+              "type": "array",
+              "items": [
+                { "type": "integer", "title": "min" },
+                { "type": "integer", "title": "max" }
+              ]
             }
           ]
         }
@@ -74,11 +75,12 @@
     "function": {
       "type": "string",
       "const": "specific_enchants",
-      "description": "TODO description",
-      "title": "TODO title"
+      "description": "Specific enchants",
+      "title": "Specific enchants"
     },
     "enchants": {
       "title": "Enchants",
+      "description": "A enchanting specification",
       "oneOf": [
         {
           "type": "string",
@@ -94,8 +96,7 @@
             "$ref": "#/definitions/Enchant"
           }
         }
-      ],
-      "description": "TODO description"
+      ]
     }
   }
 }
