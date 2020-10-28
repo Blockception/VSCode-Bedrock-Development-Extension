@@ -9,6 +9,7 @@ If a json validation is missing, then also post an issue. And one will be made i
   - [World](#world)
   - [Resource packs](#resource-packs)
   - [Behaviour packs](#behaviour-packs)
+  - [Skinpacks](#skinpacks)
 
 ## General
 
@@ -69,4 +70,10 @@ For best results, name your folder with the letters BP/bp in them.
 |Trading |Can be one of the following:<br/> - `behavior_packs/*/trading/*.json`<br/> - `*BP*/trading/*.json`<br/> - `*bp*/trading/*.json`<br/> - `*.trade.json`|
   
 ---
-  
+
+
+## Skinpacks
+
+|Component  |Json file pattern  |
+|-----------|-------------------|
+|Skins  |`*/skin_pack/skins.json` |
