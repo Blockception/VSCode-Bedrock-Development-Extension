@@ -27,24 +27,33 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { Location } from 'vscode-languageserver';
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import { DataType } from '../format/Data Type';
-import { DetectDataType } from '../format/detection';
-import * as RPSound from "./sounds definitions/Process";
-import * as RPAnim from "./sounds definitions/Process";
-import * as RPAnimContr from "./sounds definitions/Process";
+import { Database } from '../../../database/Database';
+import { DataReference } from '../../../database/Types/Reference';
+import { JsonDocument } from '../../../json/Json Document';
+import { EmptyTypes } from '../../types/Empty';
+import { AnimationImport } from './Animation Import';
 
+/**
+ * Processes the text document as a behaviour entity definition file
+ * @param doc The document to parse
+ */
 export function Process(doc: TextDocument): void {
-	let Type = DetectDataType(doc.uri);
+	let JDoc = new JsonDocument(doc);
+	let Format = JDoc.CastTo<AnimationImport>();
 
-	switch (Type) {
-		case DataType.behaviour_animation:
-			return RPAnim.Process(doc);
+	if (!AnimationImport.is(Format))
+		return;
 
-		case DataType.behaviour_animation_controller:
-			return RPAnimContr.Process(doc);
+	let Names = Object.getOwnPropertyNames(Format.animations);
+	for (let Name in Names) {
+		let Range = JDoc.GetRangeOfObject(Name);
+		let Location: Location = {
+			uri: doc.uri,
+			range: Range ?? EmptyTypes.EmptyRange()
+		};
 
-		case DataType.resource_sounds_definitions:
-			return RPSound.Process(doc);
+		Database.Data.Behaviourpack.Animations.Set(new DataReference(Name, Location));
 	}
 }
