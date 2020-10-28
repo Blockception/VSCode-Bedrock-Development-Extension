@@ -20,9 +20,11 @@
       "type": "object",
       "properties": {
         "min": {
+          "title": "Min",
           "type": "integer"
         },
         "max": {
+          "title": "Max",
           "type": "integer"
         }
       },
