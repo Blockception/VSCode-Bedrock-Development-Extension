@@ -28,6 +28,7 @@
           }
         },
         {
+          "required": ["test"],
           "properties": {
             "all_of": {
               "title": "All of",
