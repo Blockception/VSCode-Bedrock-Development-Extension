@@ -6,7 +6,8 @@
   "description": "Keeps track of entity group size in the given radius.",
   "additionalProperties": false,
   "properties": {
-    "filters": { "$ref": "../filters.json",
+    "filters": {
+      "$ref": "../filters.json",
       "description": "The list of conditions that must be satisfied for other entities to be counted towards group size.",
       "title": "Filters"
     },

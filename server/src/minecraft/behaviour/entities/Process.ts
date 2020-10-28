@@ -35,7 +35,7 @@ import { Entity } from "../../types/include";
 import { GetFilepath } from "../../../code/Url";
 import { EntityImport, IsProperlyDefined } from "./Entity Import";
 import { EmptyTypes } from "../../types/Empty";
-import { DataReference } from '../../../database/Types/Reference';
+import { DataReference } from "../../../database/Types/Reference";
 
 /**
  * Processes the text document as a behaviour entity definition file

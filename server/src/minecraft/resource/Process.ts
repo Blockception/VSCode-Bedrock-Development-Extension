@@ -27,24 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { DataType } from '../format/Data Type';
-import { DetectDataType } from '../format/detection';
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { DataType } from "../format/Data Type";
+import { DetectDataType } from "../format/detection";
 import * as RPSound from "./sounds definitions/Process";
 import * as RPAnim from "./sounds definitions/Process";
 import * as RPAnimContr from "./sounds definitions/Process";
 
 export function Process(doc: TextDocument): void {
-	let Type = DetectDataType(doc.uri);
+  let Type = DetectDataType(doc.uri);
 
-	switch (Type) {
-		case DataType.behaviour_animation:
-			return RPAnim.Process(doc);
+  switch (Type) {
+    case DataType.behaviour_animation:
+      return RPAnim.Process(doc);
 
-		case DataType.behaviour_animation_controller:
-			return RPAnimContr.Process(doc);
+    case DataType.behaviour_animation_controller:
+      return RPAnimContr.Process(doc);
 
-		case DataType.resource_sounds_definitions:
-			return RPSound.Process(doc);
-	}
+    case DataType.resource_sounds_definitions:
+      return RPSound.Process(doc);
+  }
 }

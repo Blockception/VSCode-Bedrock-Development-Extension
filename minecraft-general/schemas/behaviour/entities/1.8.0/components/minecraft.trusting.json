@@ -13,10 +13,7 @@
       "description": "The chance of the entity trusting with each item use between 0.0 and 1.0, where 1.0 is 100%",
       "title": "TODO title"
     },
-    "trust_event": { "$ref": "../types/event.json",
-      "description": "Event to run when this entity becomes trusting",
-      "title": "TODO title"
-    },
+    "trust_event": { "$ref": "../types/event.json", "description": "Event to run when this entity becomes trusting", "title": "TODO title" },
     "trust_items": {
       "type": "array",
       "description": "The list of items that can be used to get the entity to trust players",

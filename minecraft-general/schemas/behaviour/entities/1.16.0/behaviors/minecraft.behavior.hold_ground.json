@@ -7,7 +7,8 @@
   "additionalProperties": false,
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json" },
+      "ref": "types/base_priority.json"
+    },
     "broadcast": {
       "type": "boolean",
       "default": false,
@@ -26,7 +27,8 @@
       "description": "Minimum distance the target must be for the mob to run this goal.",
       "title": "Min radius"
     },
-    "within_radius_event": { "$ref": "../types/event.json",
+    "within_radius_event": {
+      "$ref": "../types/event.json",
       "description": "Event to run when target is within the radius. This event is broadcasted if broadcast is true.",
       "title": "Within radius event"
     }

@@ -37,7 +37,8 @@
       "description": "The distance in blocks the mob will try to be away from the entity when it drops the item.",
       "title": "TODO title"
     },
-    "on_drop_attempt": { "$ref": "../types/event.json",
+    "on_drop_attempt": {
+      "$ref": "../types/event.json",
       "description": "Event to run when this mob attempts to drop an item.",
       "title": "TODO title"
     },
@@ -53,7 +54,8 @@
       "description": "The distance in blocks from the target the mob can be.",
       "title": "TODO title"
     },
-    "time_of_day_range": { "$ref": "../types/range_number_type.json",
+    "time_of_day_range": {
+      "$ref": "../types/range_number_type.json",
       "default": [0.0, 1.0],
       "description": "The valid times of day that this goal can be used. For reference: noon is 0.0, sunset is 0.25, midnight is 0.5, and sunrise is 0.75, and back to noon for 1.0.",
       "title": "TODO title"

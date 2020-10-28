@@ -27,11 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from 'vscode-languageserver';
+import { Location } from "vscode-languageserver";
 import { Identifiable } from "../minecraft/Interfaces/Identifiable";
 import { Locatable } from "../minecraft/Interfaces/include";
-import { DataCollectorIO } from './Interface/DataCollectorIO';
-import { ReferenceFinder } from './Interface/ReferenceFinder';
+import { DataCollectorIO } from "./Interface/DataCollectorIO";
+import { ReferenceFinder } from "./Interface/ReferenceFinder";
 
 export class DataCollector<T extends Identifiable & Locatable> implements DataCollectorIO, ReferenceFinder {
   /**
@@ -158,9 +158,9 @@ export class DataCollector<T extends Identifiable & Locatable> implements DataCo
   }
 
   /**
-   * 
-   * @param query 
-   * @param receiver 
+   *
+   * @param query
+   * @param receiver
    */
   public FindReference(query: string, receiver: Location[]): void {
     for (let [key, value] of this.data) {

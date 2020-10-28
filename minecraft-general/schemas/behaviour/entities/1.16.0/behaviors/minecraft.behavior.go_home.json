@@ -65,9 +65,6 @@
         }
       ]
     },
-    "on_failed": { "$ref": "../types/event.json",
-      "title": "On failed",
-      "description": "UNDOCUMENTATED"
-    }
+    "on_failed": { "$ref": "../types/event.json", "title": "On failed", "description": "UNDOCUMENTATED" }
   }
 }

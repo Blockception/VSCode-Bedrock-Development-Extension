@@ -7,7 +7,8 @@
   "additionalProperties": false,
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json" },
+      "ref": "types/base_priority.json"
+    },
     "aggro_sound": {
       "type": "string",
       "default": "",
@@ -32,10 +33,7 @@
       "description": "Determines the amount of time in seconds that this mob will look for a target before forgetting about it and looking for a new one when the target isn't visible any more",
       "title": "Must see forget duration"
     },
-    "on_defend_start": { "$ref": "../types/event.json",
-      "title": "On defend start",
-      "description": "UNDOCUMENTATED"
-    },
+    "on_defend_start": { "$ref": "../types/event.json", "title": "On defend start", "description": "UNDOCUMENTATED" },
     "within_radius": {
       "type": "number",
       "default": 0,

@@ -90,21 +90,13 @@
       "title": "Target range",
       "description": "UNDOCUMENTATED",
       "type": "array",
-      "items": [
-        { "type": "number" },
-        { "type": "number" },
-        { "type": "number" }
-      ]
+      "items": [{ "type": "number" }, { "type": "number" }, { "type": "number" }]
     },
     "teleport_offset": {
       "title": "Teleport offset",
       "description": "UNDOCUMENTATED",
       "type": "array",
-      "items": [
-        { "type": "number" },
-        { "type": "number" },
-        { "type": "number" }
-      ]
+      "items": [{ "type": "number" }, { "type": "number" }, { "type": "number" }]
     },
     "time_of_day_range": {
       "default": [0.0, 1.0],

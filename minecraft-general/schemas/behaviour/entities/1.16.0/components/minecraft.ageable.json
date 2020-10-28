@@ -58,9 +58,6 @@
       ],
       "title": "TODO title"
     },
-    "grow_up": { "$ref": "../types/event.json",
-      "description": "Event to run when this entity grows up.",
-      "title": "TODO title"
-    }
+    "grow_up": { "$ref": "../types/event.json", "description": "Event to run when this entity grows up.", "title": "TODO title" }
   }
 }

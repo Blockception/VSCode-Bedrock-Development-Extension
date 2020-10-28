@@ -48,4 +48,4 @@ export function ProvideManifestDiagnostics(doc: TextDocument): void {
   Manager.Diagnostic.SendDiagnostics(doc, Diags);
 }
 
-function ExploreManifest(Manifest: Manifest, results: Diagnostic[], JDOC: JsonDocument): void { }
+function ExploreManifest(Manifest: Manifest, results: Diagnostic[], JDOC: JsonDocument): void {}

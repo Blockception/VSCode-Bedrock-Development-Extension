@@ -26,7 +26,8 @@
       "description": "The amount of ticks the goal will be on cooldown before it can be used again",
       "title": "TODO title"
     },
-    "on_arrival": { "$ref": "../types/event.json",
+    "on_arrival": {
+      "$ref": "../types/event.json",
       "description": "Event to run when the mob reaches their jobsite and finishes working.",
       "title": "TODO title"
     },

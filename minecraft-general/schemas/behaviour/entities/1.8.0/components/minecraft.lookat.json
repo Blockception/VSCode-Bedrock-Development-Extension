@@ -7,11 +7,9 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "filters": { "$ref": "../filters.json",
-      "description": "Defines the entities that can trigger this component",
-      "title": "TODO title"
-    },
-    "look_cooldown": { "$ref": "../types/range_number_type.json",
+    "filters": { "$ref": "../filters.json", "description": "Defines the entities that can trigger this component", "title": "TODO title" },
+    "look_cooldown": {
+      "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "The range for the random amount of time during which the entity is 'cooling down' and won't get angered or look for a target",
       "title": "TODO title"

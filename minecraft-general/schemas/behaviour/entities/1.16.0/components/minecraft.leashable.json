@@ -24,14 +24,8 @@
       "description": "Distance in blocks at which the leash breaks.",
       "title": "Max distance"
     },
-    "on_leash": { "$ref": "../types/event.json",
-      "description": "Event to call when this entity is leashed.",
-      "title": "On leash"
-    },
-    "on_unleash": { "$ref": "../types/event.json",
-      "description": "Event to call when this entity is unleashed.",
-      "title": "On unleash"
-    },
+    "on_leash": { "$ref": "../types/event.json", "description": "Event to call when this entity is leashed.", "title": "On leash" },
+    "on_unleash": { "$ref": "../types/event.json", "description": "Event to call when this entity is unleashed.", "title": "On unleash" },
     "soft_distance": {
       "type": "number",
       "default": 4,

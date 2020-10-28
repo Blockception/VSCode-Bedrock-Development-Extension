@@ -27,48 +27,48 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DataCollectorIO } from '../Interface/DataCollectorIO';
-import { ReferenceFinder } from '../Interface/ReferenceFinder';
+import { DataCollectorIO } from "../Interface/DataCollectorIO";
+import { ReferenceFinder } from "../Interface/ReferenceFinder";
 
 export class CollectorBase implements DataCollectorIO, ReferenceFinder {
-	FindReference(query: string, receiver: any[]): void {
-		for (let property in this) {
-			if (ReferenceFinder.is(property)) {
-				property.FindReference(query, receiver);
-			}
-		}
-	}
+  FindReference(query: string, receiver: any[]): void {
+    for (let property in this) {
+      if (ReferenceFinder.is(property)) {
+        property.FindReference(query, receiver);
+      }
+    }
+  }
 
-	/**
-	 * Clears any data in this collection
-	 */
-	public Clear(): void {
-		for (let property in this) {
-			if (DataCollectorIO.is(property)) {
-				property.Clear();
-			}
-		}
-	}
+  /**
+   * Clears any data in this collection
+   */
+  public Clear(): void {
+    for (let property in this) {
+      if (DataCollectorIO.is(property)) {
+        property.Clear();
+      }
+    }
+  }
 
-	/**
-	 * Clears any data in this collection that comes from a given file
-	 */
-	public DeleteFile(uri: string): void {
-		for (let property in this) {
-			if (DataCollectorIO.is(property)) {
-				property.DeleteFile(uri);
-			}
-		}
-	}
+  /**
+   * Clears any data in this collection that comes from a given file
+   */
+  public DeleteFile(uri: string): void {
+    for (let property in this) {
+      if (DataCollectorIO.is(property)) {
+        property.DeleteFile(uri);
+      }
+    }
+  }
 
-	/**
-	 * Clears any data in this collection that comes from a given folder
-	 */
-	public DeleteFolder(uri: string): void {
-		for (let property in this) {
-			if (DataCollectorIO.is(property)) {
-				property.DeleteFile(uri);
-			}
-		}
-	}
+  /**
+   * Clears any data in this collection that comes from a given folder
+   */
+  public DeleteFolder(uri: string): void {
+    for (let property in this) {
+      if (DataCollectorIO.is(property)) {
+        property.DeleteFile(uri);
+      }
+    }
+  }
 }

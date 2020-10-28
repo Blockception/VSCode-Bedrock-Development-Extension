@@ -12,7 +12,8 @@
       "description": "If true, celebration will be broadcasted to other entities in the radius.",
       "title": "Broadcast"
     },
-    "celebration_targets": { "$ref": "../filters.json",
+    "celebration_targets": {
+      "$ref": "../filters.json",
       "description": "The list of conditions that target of hunt must satisfy to initiate celebration.",
       "title": "Celeberation targets"
     },

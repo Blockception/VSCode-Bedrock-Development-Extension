@@ -13,11 +13,13 @@
       "description": "If true, other entities of the same entity definition within the broadcastRange will also become angry",
       "title": "Broadcast anger"
     },
-    "broadcast_filters": { "$ref": "../filters.json",
+    "broadcast_filters": {
+      "$ref": "../filters.json",
       "description": "Conditions that make this entry in the list valid",
       "title": "Broadcast Filters"
     },
-    "filters": { "$ref": "../filters.json",
+    "filters": {
+      "$ref": "../filters.json",
       "description": "Filter out mob types that it should not attack while angry (other Piglins)",
       "title": "Filters"
     },
@@ -38,7 +40,8 @@
       },
       "title": "Broadcast Targets"
     },
-    "calm_event": { "$ref": "../types/event.json",
+    "calm_event": {
+      "$ref": "../types/event.json",
       "description": "Event to run after the number of seconds specified in duration expires (when the entity stops being 'angry')",
       "title": "Calm event"
     },

@@ -27,28 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { DataType } from '../format/Data Type';
-import { DetectDataType } from '../format/detection';
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { DataType } from "../format/Data Type";
+import { DetectDataType } from "../format/detection";
 import * as BPEntity from "./entities/Process";
 import * as BPItem from "./items/Process";
-import * as BPAnim from './animations/Process';
-import * as BPAnimCon from './animation_controllers/Process';
+import * as BPAnim from "./animations/Process";
+import * as BPAnimCon from "./animation_controllers/Process";
 
 export function Process(doc: TextDocument): void {
-	let Type = DetectDataType(doc.uri);
+  let Type = DetectDataType(doc.uri);
 
-	switch (Type) {
-		case DataType.behaviour_animation:
-			return BPAnim.Process(doc);
+  switch (Type) {
+    case DataType.behaviour_animation:
+      return BPAnim.Process(doc);
 
-		case DataType.behaviour_animation_controller:
-			return BPAnimCon.Process(doc);
+    case DataType.behaviour_animation_controller:
+      return BPAnimCon.Process(doc);
 
-		case DataType.behaviour_item:
-			return BPItem.Process(doc);
+    case DataType.behaviour_item:
+      return BPItem.Process(doc);
 
-		case DataType.behaviour_entity:
-			return BPEntity.Process(doc);
-	}
+    case DataType.behaviour_entity:
+      return BPEntity.Process(doc);
+  }
 }

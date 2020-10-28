@@ -96,9 +96,6 @@
       "description": "The text that shows in the riding interact button",
       "title": "TODO title"
     },
-    "tame_event": { "$ref": "../types/event.json",
-      "description": "Event that triggers when the entity becomes tamed",
-      "title": "TODO title"
-    }
+    "tame_event": { "$ref": "../types/event.json", "description": "Event that triggers when the entity becomes tamed", "title": "TODO title" }
   }
 }

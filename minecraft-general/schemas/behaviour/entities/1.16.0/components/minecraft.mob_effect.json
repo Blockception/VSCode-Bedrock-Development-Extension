@@ -24,9 +24,6 @@
       "description": "The mob effect that is applied to entities that enter this entities effect range.",
       "title": "Mob effect"
     },
-    "entity_filter": { "$ref": "../filters.json",
-      "title": "Entity filter",
-      "description": "TODO"
-    }
+    "entity_filter": { "$ref": "../filters.json", "title": "Entity filter", "description": "TODO" }
   }
 }

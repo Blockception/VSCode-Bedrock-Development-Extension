@@ -44,21 +44,9 @@
       "description": "The strength of the knockback.",
       "title": "TODO title"
     },
-    "Trigger": { "$ref": "../types/trigger.json",
-      "description": "On_roar_end",
-      "title": "TODO title"
-    },
-    "knockback_filters": { "$ref": "../filters.json",
-      "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
-    },
-    "damage_filters": { "$ref": "../filters.json",
-      "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
-    },
-    "on_roar_end": { "$ref": "../types/event.json",
-      "description": "UNDOCUMENTATED",
-      "title": "UNDOCUMENTATED"
-    }
+    "Trigger": { "$ref": "../types/trigger.json", "description": "On_roar_end", "title": "TODO title" },
+    "knockback_filters": { "$ref": "../filters.json", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" },
+    "damage_filters": { "$ref": "../filters.json", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" },
+    "on_roar_end": { "$ref": "../types/event.json", "description": "UNDOCUMENTATED", "title": "UNDOCUMENTATED" }
   }
 }

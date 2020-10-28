@@ -95,9 +95,6 @@
         }
       }
     },
-    "sequence": { "$ref": "#/definitions/sequence",
-      "description": "TODO description",
-      "title": "TODO title"
-    }
+    "sequence": { "$ref": "#/definitions/sequence", "description": "TODO description", "title": "TODO title" }
   }
 }

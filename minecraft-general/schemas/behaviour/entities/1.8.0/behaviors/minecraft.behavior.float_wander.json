@@ -38,7 +38,8 @@
       "description": "If true, the mob will randomly pick a new point while moving to the previously selected one",
       "title": "Random Reselect"
     },
-    "float_duration": { "$ref": "../types/range_number_type.json",
+    "float_duration": {
+      "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "Range of time in seconds the mob will float around before landing and choosing to do something else",
       "title": "Float Duration"

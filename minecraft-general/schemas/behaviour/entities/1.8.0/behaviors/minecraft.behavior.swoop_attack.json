@@ -14,7 +14,8 @@
       "title": "Damage reach",
       "description": "UNDOCUMENTATED"
     },
-    "delay_range": { "$ref": "../types/range_number_type.json",
+    "delay_range": {
+      "$ref": "../types/range_number_type.json",
       "default": [10.0, 20.0],
       "description": "Range of time in seconds between uses of this goal.",
       "title": "TODO title"

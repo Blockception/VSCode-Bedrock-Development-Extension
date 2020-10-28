@@ -38,7 +38,7 @@ export interface EntityImport {
       animations: object;
       scripts: {
         animate: string | object[];
-      }
+      };
     };
     component_groups: object;
     components: object;

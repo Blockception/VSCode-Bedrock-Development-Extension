@@ -6,11 +6,9 @@
   "additionalProperties": false,
   "type": "object",
   "properties": {
-    "rotation": { "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "Specifies the initial rotation in degrees",
-      "title": "Rotation"
-    },
-    "rotation_rate": { "$ref": "../../../../molang/1.8.0/number.json",
+    "rotation": { "$ref": "../../../../molang/1.8.0/number.json", "description": "Specifies the initial rotation in degrees", "title": "Rotation" },
+    "rotation_rate": {
+      "$ref": "../../../../molang/1.8.0/number.json",
       "description": "Specifies the spin rate in degrees/second",
       "title": "Rotation Rate"
     }

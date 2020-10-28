@@ -8,7 +8,8 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json" },
+      "ref": "types/base_priority.json"
+    },
     "cooldown_time": {
       "type": "number",
       "default": 0,

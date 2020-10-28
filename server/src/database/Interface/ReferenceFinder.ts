@@ -27,18 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from 'vscode-languageserver';
+import { Location } from "vscode-languageserver";
 
 export interface ReferenceFinder {
-  FindReference(query : string, receiver : Location[]) : void
+  FindReference(query: string, receiver: Location[]): void;
 }
 
 export namespace ReferenceFinder {
-	export function is(value : any) : value is ReferenceFinder {
-		if (value.FindReference){
-			return true;
-		}
+  export function is(value: any): value is ReferenceFinder {
+    if (value.FindReference) {
+      return true;
+    }
 
-		return false;
-	}
+    return false;
+  }
 }

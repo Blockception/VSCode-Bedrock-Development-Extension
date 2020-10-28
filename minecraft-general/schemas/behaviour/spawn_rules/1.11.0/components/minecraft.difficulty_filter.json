@@ -12,13 +12,7 @@
     }
   },
   "properties": {
-    "min": { "$ref": "#/definitions/difficulty",
-      "description": "TODO",
-      "title": "Min"
-    },
-    "max": { "$ref": "#/definitions/difficulty",
-      "description": "TODO",
-      "title": "Max"
-    }
+    "min": { "$ref": "#/definitions/difficulty", "description": "TODO", "title": "Min" },
+    "max": { "$ref": "#/definitions/difficulty", "description": "TODO", "title": "Max" }
   }
 }

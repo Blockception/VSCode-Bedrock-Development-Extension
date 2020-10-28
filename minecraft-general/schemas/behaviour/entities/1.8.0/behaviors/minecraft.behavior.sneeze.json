@@ -20,7 +20,8 @@
       "description": "The probability that the mob will drop an item when it sneezes.",
       "title": "TODO title"
     },
-    "entity_types": { "$ref": "../types/entity_types.json",
+    "entity_types": {
+      "$ref": "../types/entity_types.json",
       "description": "List of entity types this mob will startle (cause to jump) when it sneezes.",
       "title": "TODO title"
     },

@@ -27,12 +27,17 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { InitializedParams, DidChangeConfigurationNotification, DocumentFormattingRequest, DocumentFormattingRegistrationOptions } from "vscode-languageserver";
+import {
+  InitializedParams,
+  DidChangeConfigurationNotification,
+  DocumentFormattingRequest,
+  DocumentFormattingRegistrationOptions,
+} from "vscode-languageserver";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 import { Manager } from "../manager/Manager";
 import { AddCommands, AddMinecraftData } from "../minecraft/data/include";
 import { TraverseWorkspaces } from "../process/traverse";
-import { SetDynamicEvents } from './Events/Dynamic';
+import { SetDynamicEvents } from "./Events/Dynamic";
 import { UpdateSettings } from "./Settings";
 
 export async function onInitializedAsync(params: InitializedParams): Promise<void> {
@@ -61,7 +66,6 @@ function onInitialized(params: InitializedParams): void {
       console.log('Workspace folder change event received.');
     });
   }*/
-
 
   //setup commands
   AddCommands();

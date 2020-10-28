@@ -71,7 +71,7 @@
     "minecraft:hurt_on_condition": { "$ref": "./components/minecraft.hurt_on_condition.json" },
     "minecraft:hurt_when_wet": { "$ref": "../1.8.0/components/minecraft.hurt_when_wet.json" },
     "minecraft:input_ground_controlled": { "$ref": "../1.8.0/components/minecraft.input_ground_controlled.json" },
-    "minecraft:inside_block_notifier": { "$ref": "../1.8.0/components/minecraft.inside_block_notifier.json"},
+    "minecraft:inside_block_notifier": { "$ref": "../1.8.0/components/minecraft.inside_block_notifier.json" },
     "minecraft:insomnia": { "$ref": "../1.8.0/components/minecraft.insomnia.json" },
     "minecraft:instant_despawn": { "$ref": "./components/minecraft.instant_despawn.json" },
     "minecraft:interact": { "$ref": "./components/minecraft.interact.json" },
@@ -250,12 +250,16 @@
     "minecraft:behavior.move_to_village": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_village.json" },
     "minecraft:behavior.move_to_water": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_water.json" },
     "minecraft:behavior.move_towards_home_restriction": { "$ref": "./behaviors/minecraft.behavior.move_towards_home_restriction.json" },
-    "minecraft:behavior.move_towards_dwelling_restriction": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_dwelling_restriction.json"},
+    "minecraft:behavior.move_towards_dwelling_restriction": {
+      "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_dwelling_restriction.json"
+    },
     "minecraft:behavior.move_towards_restriction": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_restriction.json" },
     "minecraft:behavior.move_towards_target": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_target.json" },
     "minecraft:behavior.nap": { "$ref": "./behaviors/minecraft.behavior.nap.json" },
     "minecraft:behavior.nearest_attackable_target": { "$ref": "./behaviors/minecraft.behavior.nearest_attackable_target.json" },
-    "minecraft:behavior.nearest_prioritized_attackable_target": { "$ref": "./behaviors/minecraft.behavior.nearest_prioritized_attackable_target.json" },
+    "minecraft:behavior.nearest_prioritized_attackable_target": {
+      "$ref": "./behaviors/minecraft.behavior.nearest_prioritized_attackable_target.json"
+    },
     "minecraft:behavior.ocelot_sit_on_block": { "$ref": "../1.8.0/behaviors/minecraft.behavior.ocelot_sit_on_block.json" },
     "minecraft:behavior.ocelotattack": { "$ref": "../1.8.0/behaviors/minecraft.behavior.ocelotattack.json" },
     "minecraft:behavior.offer_flower": { "$ref": "../1.8.0/behaviors/minecraft.behavior.offer_flower.json" },

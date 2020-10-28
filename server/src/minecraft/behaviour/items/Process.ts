@@ -31,7 +31,7 @@ import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilepath } from "../../../code/Url";
 import { Database } from "../../../database/Database";
-import { DataReference } from '../../../database/Types/Reference';
+import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
 import { Item } from "../../types/Item/Item";

@@ -5,7 +5,8 @@
   "title": "The emitter rate manual component for 1.10.0",
   "additionalProperties": false,
   "properties": {
-    "max_particles": { "$ref": "../../../../molang/1.8.0/number.json",
+    "max_particles": {
+      "$ref": "../../../../molang/1.8.0/number.json",
       "description": "Evaluated once per particle emitted",
       "title": "Max Particles"
     }

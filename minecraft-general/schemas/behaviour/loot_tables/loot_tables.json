@@ -104,10 +104,7 @@
     }
   },
   "properties": {
-    "pools": { "$ref": "#/definitions/pools_spec",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "pools": { "$ref": "#/definitions/pools_spec", "description": "TODO description", "title": "TODO title" },
     "type": {
       "title": "Type",
       "type": "string",

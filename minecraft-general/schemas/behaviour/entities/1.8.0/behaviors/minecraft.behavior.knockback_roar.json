@@ -44,9 +44,6 @@
       "description": "The strength of the knockback.",
       "title": "TODO title"
     },
-    "trigger": { "$ref": "../types/trigger.json",
-      "description": "TODO",
-      "title": "Trigger"
-    }
+    "trigger": { "$ref": "../types/trigger.json", "description": "TODO", "title": "Trigger" }
   }
 }

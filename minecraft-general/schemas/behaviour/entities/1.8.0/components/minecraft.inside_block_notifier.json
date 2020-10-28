@@ -30,7 +30,7 @@
             "description": "UNDOCUMENTATED",
             "$ref": "../types/event.json"
           }
-        }        
+        }
       }
     }
   }

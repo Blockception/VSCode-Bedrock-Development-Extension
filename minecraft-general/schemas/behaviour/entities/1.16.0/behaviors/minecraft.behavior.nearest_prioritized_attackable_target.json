@@ -11,7 +11,8 @@
     "entity_types": {
       "description": "List of entity types that this mob considers valid targets",
       "title": "Entity types",
-      "$ref": "../types/entity_types.json" },
+      "$ref": "../types/entity_types.json"
+    },
     "attack_interval": {
       "type": "integer",
       "default": 0,

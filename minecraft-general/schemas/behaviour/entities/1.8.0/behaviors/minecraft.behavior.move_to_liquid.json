@@ -31,11 +31,11 @@
       "default": 0,
       "description": "The distance in blocks it will look for lava to move towards",
       "title": "Search range"
-		},
-		"material_type": {
-			"title": "Material type",
-			"description": "UNDOCUMENTAED, examples are : Lava",
-			"type": "string"
-		}
+    },
+    "material_type": {
+      "title": "Material type",
+      "description": "UNDOCUMENTAED, examples are : Lava",
+      "type": "string"
+    }
   }
 }

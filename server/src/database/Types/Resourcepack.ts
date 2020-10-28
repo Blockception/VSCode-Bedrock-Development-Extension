@@ -27,28 +27,27 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DataCollector } from '../DataCollector';
-import { CollectorBase } from './CollectorBase';
-import { DataReference } from './Reference';
+import { DataCollector } from "../DataCollector";
+import { CollectorBase } from "./CollectorBase";
+import { DataReference } from "./Reference";
 
 export class Resourcepack extends CollectorBase {
+  public AnimationControllers: DataCollector<DataReference>;
+  public Animations: DataCollector<DataReference>;
+  public Entities: DataCollector<DataReference>;
+  public Items: DataCollector<DataReference>;
+  public Models: DataCollector<DataReference>;
+  public Particles: DataCollector<DataReference>;
+  public RenderControllers: DataCollector<DataReference>;
 
-	public AnimationControllers: DataCollector<DataReference>;
-	public Animations: DataCollector<DataReference>;
-	public Entities: DataCollector<DataReference>;
-	public Items: DataCollector<DataReference>;
-	public Models: DataCollector<DataReference>;
-	public Particles: DataCollector<DataReference>;
-	public RenderControllers: DataCollector<DataReference>;
-
-	constructor() {
-		super();
-		this.AnimationControllers = new DataCollector<DataReference>();
-		this.Animations = new DataCollector<DataReference>();
-		this.Entities = new DataCollector<DataReference>();
-		this.Items = new DataCollector<DataReference>();
-		this.Models = new DataCollector<DataReference>();
-		this.Particles = new DataCollector<DataReference>();
-		this.RenderControllers = new DataCollector<DataReference>();
-	}
+  constructor() {
+    super();
+    this.AnimationControllers = new DataCollector<DataReference>();
+    this.Animations = new DataCollector<DataReference>();
+    this.Entities = new DataCollector<DataReference>();
+    this.Items = new DataCollector<DataReference>();
+    this.Models = new DataCollector<DataReference>();
+    this.Particles = new DataCollector<DataReference>();
+    this.RenderControllers = new DataCollector<DataReference>();
+  }
 }

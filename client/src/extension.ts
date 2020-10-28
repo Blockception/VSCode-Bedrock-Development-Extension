@@ -3,12 +3,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 import * as vscode from "vscode";
-import { SetupClient } from './client/client';
+import { SetupClient } from "./client/client";
 
-import { Manager } from './Manager/Manager';
+import { Manager } from "./Manager/Manager";
 
 export function activate(context: vscode.ExtensionContext) {
-
   SetupClient(context);
 }
 

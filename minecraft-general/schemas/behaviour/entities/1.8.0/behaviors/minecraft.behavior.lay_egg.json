@@ -15,10 +15,7 @@
       "description": "Distance in blocks within the mob considers it has reached the goal. This is the \"wiggle room\" to stop the AI from bouncing back and forth trying to reach a specific spot",
       "title": "TODO title"
     },
-    "on_lay": { "$ref": "../types/event.json",
-      "description": "Event to run when this mob lays the egg.",
-      "title": "TODO title"
-    },
+    "on_lay": { "$ref": "../types/event.json", "description": "Event to run when this mob lays the egg.", "title": "TODO title" },
     "search_height": {
       "type": "integer",
       "default": 1,

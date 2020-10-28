@@ -6,5 +6,5 @@
   "additionalProperties": false,
   "description": "Defines the entity's 'out of control' state.",
   "required": [],
-  "properties": { }
+  "properties": {}
 }

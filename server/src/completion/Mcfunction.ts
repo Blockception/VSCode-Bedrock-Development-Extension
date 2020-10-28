@@ -42,7 +42,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
 
   let SubCommand = IsInSubCommand(Command, pos.character);
 
-  if (SubCommand){
+  if (SubCommand) {
     Command = SubCommand;
   }
 

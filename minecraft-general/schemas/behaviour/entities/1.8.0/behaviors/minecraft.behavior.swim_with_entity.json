@@ -49,9 +49,6 @@
       "title": "Stop distance",
       "description": "UNDOCUMENTATED"
     },
-    "entity_types": { "$ref": "../types/entity_types.json",
-      "title": "Entity types",
-      "description": "UNDOCUMENTATED"
-    }
+    "entity_types": { "$ref": "../types/entity_types.json", "title": "Entity types", "description": "UNDOCUMENTATED" }
   }
 }

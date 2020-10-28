@@ -17,10 +17,7 @@
       "description": "TODO description: relative position",
       "title": "Relative Position"
     },
-    "rotation": { "$ref": "../../../../molang/1.8.0/number.json",
-      "description": "TODO description: rotation",
-      "title": "Rotation"
-    }
+    "rotation": { "$ref": "../../../../molang/1.8.0/number.json", "description": "TODO description: rotation", "title": "Rotation" }
   },
   "description": "TODO description: "
 }
