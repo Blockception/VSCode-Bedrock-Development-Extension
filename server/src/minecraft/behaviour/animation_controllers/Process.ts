@@ -33,7 +33,7 @@ import { Database } from '../../../database/Database';
 import { DataReference } from '../../../database/Types/Reference';
 import { JsonDocument } from '../../../json/Json Document';
 import { EmptyTypes } from '../../types/Empty';
-import { AnimationImport } from './Animation Import';
+import { AnimationControllerImport } from './Animation Controller Import';
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -41,12 +41,13 @@ import { AnimationImport } from './Animation Import';
  */
 export function Process(doc: TextDocument): void {
 	let JDoc = new JsonDocument(doc);
-	let Format = JDoc.CastTo<AnimationImport>();
+	let Format = JDoc.CastTo<AnimationControllerImport>();
 
-	if (!AnimationImport.is(Format))
+	if (!AnimationControllerImport.is(Format))
 		return;
 
-	let Names = Object.getOwnPropertyNames(Format.animations);
+	let Names = Object.getOwnPropertyNames(Format.animation_controllers);
+
 	for (let Name in Names) {
 		let Range = JDoc.GetRangeOfObject(Name);
 		let Location: Location = {
@@ -54,6 +55,6 @@ export function Process(doc: TextDocument): void {
 			range: Range ?? EmptyTypes.EmptyRange()
 		};
 
-		Database.Data.Behaviourpack.Animations.Set(new DataReference(Name, Location));
+		Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
 	}
 }

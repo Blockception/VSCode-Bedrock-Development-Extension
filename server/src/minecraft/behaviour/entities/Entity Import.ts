@@ -35,10 +35,14 @@ export interface EntityImport {
       is_spawnable: boolean;
       is_summonable: boolean;
       is_experimental: boolean;
+      animations: object;
+      scripts: {
+        animate: string | object[];
+      }
     };
-    component_groups: any;
-    components: any;
-    events: any;
+    component_groups: object;
+    components: object;
+    events: object;
   };
 }
 
