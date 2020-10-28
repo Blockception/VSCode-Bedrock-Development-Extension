@@ -303,6 +303,10 @@
     ],
     "jsonValidation": [
       {
+        "fileMatch": "*/skin_pack/skins.json",
+        "url": "./minecraft-general/schemas/skinpacks/skins.json"
+      },
+      {
         "fileMatch": "language_names.json",
         "url": "./minecraft-general/schemas/language/language_names.json"
       },
