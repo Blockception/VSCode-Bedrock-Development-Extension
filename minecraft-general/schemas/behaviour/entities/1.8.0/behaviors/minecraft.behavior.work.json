@@ -6,16 +6,8 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "speed_multiplier": {
-      "$ref": "types/base_speed_multiplier.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "$ref": "types/base_priority.json" },
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "active_time": {
       "type": "integer",
       "default": 0,
@@ -34,8 +26,7 @@
       "description": "The amount of ticks the goal will be on cooldown before it can be used again",
       "title": "TODO title"
     },
-    "on_arrival": {
-      "$ref": "../types/event.json",
+    "on_arrival": { "$ref": "../types/event.json",
       "description": "Event to run when the mob reaches their jobsite and finishes working.",
       "title": "TODO title"
     },

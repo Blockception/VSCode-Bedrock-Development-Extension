@@ -12,30 +12,10 @@
       "description": "A version that tells minecraft what type of data format can be expected when reading this file.",
       "title": "Format version"
     },
-    "minecraft:recipe_furnace": {
-      "$ref": "./types/furnace.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:recipe_brewing_container": {
-      "$ref": "./types/recipe_brewing_container.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:recipe_brewing_mix": {
-      "$ref": "./types/recipe_brewing_mix.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:recipe_shaped": {
-      "$ref": "./types/recipe_shaped.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "minecraft:recipe_shapeless": {
-      "$ref": "./types/recipe_shapeless.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    }
+    "minecraft:recipe_furnace": { "$ref": "./types/furnace.json" },
+    "minecraft:recipe_brewing_container": { "$ref": "./types/recipe_brewing_container.json" },
+    "minecraft:recipe_brewing_mix": { "$ref": "./types/recipe_brewing_mix.json" },
+    "minecraft:recipe_shaped": { "$ref": "./types/recipe_shaped.json" },
+    "minecraft:recipe_shapeless": { "$ref": "./types/recipe_shapeless.json" }
   }
 }

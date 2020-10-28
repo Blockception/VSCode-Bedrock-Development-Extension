@@ -7,11 +7,7 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "$ref": "types/base_priority.json" },
     "attack_time": {
       "type": "number",
       "default": 0.5,
@@ -48,8 +44,7 @@
       "description": "The strength of the knockback.",
       "title": "TODO title"
     },
-    "trigger": {
-      "$ref": "../types/trigger.json",
+    "trigger": { "$ref": "../types/trigger.json",
       "description": "TODO",
       "title": "Trigger"
     }

@@ -99,8 +99,7 @@
     }
   },
   "properties": {
-    "pools": {
-      "$ref": "#/definitions/pools_spec",
+    "pools": { "$ref": "#/definitions/pools_spec",
       "description": "TODO description",
       "title": "TODO title"
     },

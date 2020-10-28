@@ -6,8 +6,7 @@
   "description": "Adds a cooldown to a mob. The intention of this cooldown is to be used to prevent the mob from attempting to aquire new attack targets.",
   "additionalProperties": false,
   "properties": {
-    "attack_cooldown_complete_event": {
-      "$ref": "../types/trigger.json",
+    "attack_cooldown_complete_event": { "$ref": "../types/trigger.json",
       "description": "Event to be runned when the cooldown is complete.",
       "title": "Attack cooldown complete event"
     },

@@ -151,8 +151,7 @@
       "maximum": 1.0,
       "title": "Extra Baby Chance"
     },
-    "love_filters": {
-      "$ref": "../filters.json",
+    "love_filters": { "$ref": "../filters.json",
       "description": "The filters to run when attempting to fall in love.",
       "title": "Love Filters"
     },

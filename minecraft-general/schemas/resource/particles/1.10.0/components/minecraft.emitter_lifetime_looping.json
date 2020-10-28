@@ -5,13 +5,11 @@
   "title": "The emitter lifetime looping component for 1.10.0",
   "additionalProperties": false,
   "properties": {
-    "active_time": {
-      "$ref": "../../../../molang/1.8.0/number.json",
+    "active_time": { "$ref": "../../../../molang/1.8.0/number.json",
       "description": "Emitter will emit particles for this time per loop evaluated once per particle emitter loop",
       "title": "Active Time"
     },
-    "sleep_time": {
-      "$ref": "../../../../molang/1.8.0/number.json",
+    "sleep_time": { "$ref": "../../../../molang/1.8.0/number.json",
       "description": "Emitter will pause emitting particles for this time per loop evaluated once per particle emitter loop",
       "title": "Sleep Time"
     }

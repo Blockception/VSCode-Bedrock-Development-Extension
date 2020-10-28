@@ -7,16 +7,8 @@
   "required": ["description"],
   "type": "object",
   "properties": {
-    "description": {
-      "$ref": "./base types/definition.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "tags": {
-      "$ref": "./base types/tags.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "description": { "$ref": "./base types/definition.json" },
+    "tags": { "$ref": "./base types/tags.json" },
     "input": {
       "type": "string",
       "description": "Input potion used on the brewing stand.",

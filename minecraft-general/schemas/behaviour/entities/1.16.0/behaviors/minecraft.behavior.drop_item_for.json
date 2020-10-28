@@ -17,8 +17,7 @@
     "entity_types": {
       "description": "List of entity types this mob will drop items for.",
       "title": "Entity types",
-      "$ref": "../types/entity_types.json"
-    },
+      "$ref": "../types/entity_types.json" },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
@@ -43,8 +42,7 @@
       "description": "The distance in blocks the mob will try to be away from the entity when it drops the item.",
       "title": "Offering distance"
     },
-    "on_drop_attempt": {
-      "$ref": "../types/event.json",
+    "on_drop_attempt": { "$ref": "../types/event.json",
       "description": "Event to run when this mob attempts to drop an item.",
       "title": "On drop attempt"
     },

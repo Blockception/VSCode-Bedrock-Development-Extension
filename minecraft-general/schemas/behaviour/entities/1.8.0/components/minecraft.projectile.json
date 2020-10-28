@@ -31,8 +31,7 @@
       "description": "If true, this entity will be destroyed when hit",
       "title": "TODO title"
     },
-    "filter": {
-      "$ref": "../filters.json",
+    "filter": { "$ref": "../filters.json",
       "description": "Entity Definitions defined here can't be hurt by the projectile",
       "title": "TODO title"
     },
@@ -96,8 +95,7 @@
       "description": "If true, the projectile can hit multiple entities per flight",
       "title": "TODO title"
     },
-    "offset": {
-      "$ref": "../../../../general/array_3_number.json",
+    "offset": { "$ref": "../../../../general/array_3_number.json",
       "default": [0.0, 0.5, 0.0],
       "description": "The offset from the entity's anchor where the projectile will spawn",
       "title": "TODO title"

@@ -20,8 +20,7 @@
       "description": "TODO description: collision radius",
       "title": "Collision Radius"
     },
-    "enabled": {
-      "$ref": "../../../../molang/1.8.0/number.json",
+    "enabled": { "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: enabled",
       "title": "Enabled"
     },

@@ -7,10 +7,7 @@
   "additionalProperties": false,
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+      "ref": "types/base_priority.json" },
     "celebration_sound": {
       "type": "string",
       "default": "",
@@ -58,8 +55,7 @@
         }
       ]
     },
-    "on_celebration_end_event": {
-      "$ref": "../types/trigger.json",
+    "on_celebration_end_event": { "$ref": "../types/trigger.json",
       "description": "The event to trigger when the goal's duration expires.",
       "title": "On celebration end event"
     },

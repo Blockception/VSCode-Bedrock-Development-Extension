@@ -13,8 +13,7 @@
       "description": "If true, other entities of the same entity definition within the broadcastRange will also become angry",
       "title": "Broadcast Anger"
     },
-    "broadcast_filters": {
-      "$ref": "../filters.json",
+    "broadcast_filters": { "$ref": "../filters.json",
       "description": "Conditions that make this entry in the list valid",
       "title": "Broadcast Filters"
     },
@@ -35,8 +34,7 @@
       },
       "title": "Broadcast Targets"
     },
-    "calm_event": {
-      "$ref": "../types/event.json",
+    "calm_event": { "$ref": "../types/event.json",
       "description": "Event to run after the number of seconds specified in duration expires (when the entity stops being 'angry')",
       "title": "Calm Event"
     },

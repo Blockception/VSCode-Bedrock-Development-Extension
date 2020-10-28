@@ -5,13 +5,11 @@
   "title": "The emitter rate manual component for 1.10.0",
   "additionalProperties": false,
   "properties": {
-    "activation_expression": {
-      "$ref": "../../../../molang/1.8.0/number.json",
+    "activation_expression": { "$ref": "../../../../molang/1.8.0/number.json",
       "description": "When the expression is non-zero, the emitter will emit particles. Evaluated every frame",
       "title": "Activation Expression"
     },
-    "expiration_expression": {
-      "$ref": "../../../../molang/1.8.0/number.json",
+    "expiration_expression": { "$ref": "../../../../molang/1.8.0/number.json",
       "description": "Emitter will expire if the expression is non-zero. Evaluated every frame",
       "title": "Expiration Expression"
     }

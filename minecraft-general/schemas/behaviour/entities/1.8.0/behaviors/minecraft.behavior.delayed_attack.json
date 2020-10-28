@@ -6,16 +6,8 @@
   "title": "Behavior.delayed_attack 1.8.0",
   "description": "Allows the mob to drink potions based on specified environment conditions.",
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "speed_multiplier": {
-      "$ref": "types/base_speed_multiplier.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "$ref": "types/base_priority.json" },
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "attack_duration": {
       "type": "number",
       "default": 1,

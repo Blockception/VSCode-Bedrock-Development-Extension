@@ -8,10 +8,7 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+      "ref": "types/base_priority.json" },
     "can_land_on_trees": {
       "type": "boolean",
       "default": true,

@@ -7,8 +7,7 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "value": {
-      "$ref": "../types/range_number_type.json",
+    "value": { "$ref": "../types/range_number_type.json",
       "description": "TODO",
       "title": "TODO title"
     },

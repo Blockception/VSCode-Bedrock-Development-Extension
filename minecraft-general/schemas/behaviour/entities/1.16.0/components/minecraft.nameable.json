@@ -40,8 +40,7 @@
       "description": "If true, the name will always be shown",
       "title": "Always show"
     },
-    "default_trigger": {
-      "$ref": "../types/trigger.json",
+    "default_trigger": { "$ref": "../types/trigger.json",
       "description": "Trigger to run when the entity gets named",
       "title": "Default trigger"
     },

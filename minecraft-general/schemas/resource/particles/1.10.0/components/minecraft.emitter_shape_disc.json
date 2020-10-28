@@ -23,8 +23,7 @@
       "description": "TODO description: direction",
       "title": "Direction"
     },
-    "radius": {
-      "$ref": "../../../../molang/1.8.0/number.json",
+    "radius": { "$ref": "../../../../molang/1.8.0/number.json",
       "description": "TODO description: radius",
       "title": "Radius"
     },

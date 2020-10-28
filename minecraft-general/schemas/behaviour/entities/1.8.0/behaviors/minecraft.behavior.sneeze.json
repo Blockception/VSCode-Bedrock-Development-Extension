@@ -7,11 +7,7 @@
   "title": "Behavior.sneeze 1.8.0",
   "required": [],
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "$ref": "types/base_priority.json" },
     "cooldown_time": {
       "type": "number",
       "default": 0,
@@ -24,8 +20,7 @@
       "description": "The probability that the mob will drop an item when it sneezes.",
       "title": "TODO title"
     },
-    "entity_types": {
-      "$ref": "../types/entity_types.json",
+    "entity_types": { "$ref": "../types/entity_types.json",
       "description": "List of entity types this mob will startle (cause to jump) when it sneezes.",
       "title": "TODO title"
     },

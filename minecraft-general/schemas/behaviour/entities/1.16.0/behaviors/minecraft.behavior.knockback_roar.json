@@ -7,11 +7,7 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "$ref": "types/base_priority.json" },
     "attack_time": {
       "type": "number",
       "default": 0.5,
@@ -48,23 +44,19 @@
       "description": "The strength of the knockback.",
       "title": "TODO title"
     },
-    "Trigger": {
-      "$ref": "../types/trigger.json",
+    "Trigger": { "$ref": "../types/trigger.json",
       "description": "On_roar_end",
       "title": "TODO title"
     },
-    "knockback_filters": {
-      "$ref": "../filters.json",
+    "knockback_filters": { "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
       "title": "UNDOCUMENTATED"
     },
-    "damage_filters": {
-      "$ref": "../filters.json",
+    "damage_filters": { "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
       "title": "UNDOCUMENTATED"
     },
-    "on_roar_end": {
-      "$ref": "../types/event.json",
+    "on_roar_end": { "$ref": "../types/event.json",
       "description": "UNDOCUMENTATED",
       "title": "UNDOCUMENTATED"
     }

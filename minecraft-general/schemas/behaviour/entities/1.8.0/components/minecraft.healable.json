@@ -7,8 +7,7 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "filters": {
-      "$ref": "../filters.json",
+    "filters": { "$ref": "../filters.json",
       "description": "The filter group that defines the conditions for this trigger",
       "title": "Filters"
     },

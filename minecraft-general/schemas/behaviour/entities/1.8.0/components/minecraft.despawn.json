@@ -7,8 +7,7 @@
   "description": "Despawns the associated Actor immediately or when the optional filter evaluates to true.",
   "required": [],
   "properties": {
-    "filters": {
-      "$ref": "../filters.json",
+    "filters": { "$ref": "../filters.json",
       "description": "The list of conditions that must be satisfied before the Actor is despawned",
       "title": "Filters"
     },

@@ -7,10 +7,6 @@
   "description": "Allows the enderman to drop a block they are carrying. Can only be used by Endermen.",
   "required": [],
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    }
+    "priority": { "$ref": "types/base_priority.json" }
   }
 }

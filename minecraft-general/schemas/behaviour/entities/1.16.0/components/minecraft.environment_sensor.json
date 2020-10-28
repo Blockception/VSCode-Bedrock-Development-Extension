@@ -6,9 +6,7 @@
   "type": "object",
   "additionalProperties": false,
   "definitions": {
-    "trigger": {
-      "$ref": "../types/trigger.json"
-    }
+    "trigger": { "$ref": "../types/trigger.json" }
   },
   "properties": {
     "triggers": {

@@ -7,11 +7,7 @@
   "title": "Behavior.avoid_mob_type 1.8.0",
   "required": [],
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "$ref": "types/base_priority.json" },
     "max_dist": {
       "type": "number",
       "default": 0,
@@ -48,8 +44,7 @@
       "description": "If true, visbility between this entity and the mob type will not be checked.",
       "title": "Ignore Visibility"
     },
-    "entity_types": {
-      "$ref": "../types/entity_types.json",
+    "entity_types": { "$ref": "../types/entity_types.json",
       "description": "TODO description: entity types",
       "title": "Entity Types"
     },
@@ -63,8 +58,7 @@
       "description": "UNDOCUMENTATED",
       "type": "boolean"
     },
-    "on_escape_event": {
-      "$ref": "../types/event.json",
+    "on_escape_event": { "$ref": "../types/event.json",
       "title": "On escape event",
       "description": "UNDOCUMENTATED"
     },

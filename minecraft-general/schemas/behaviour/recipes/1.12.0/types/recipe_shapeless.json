@@ -7,16 +7,8 @@
   "required": ["description"],
   "type": "object",
   "properties": {
-    "description": {
-      "$ref": "./base types/definition.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "tags": {
-      "$ref": "./base types/tags.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "description": { "$ref": "./base types/definition.json" },
+    "tags": { "$ref": "./base types/tags.json" },
     "ingredients": {
       "description": "Items used as input (without a shape) for the recipe.",
       "title": "Ingredients",

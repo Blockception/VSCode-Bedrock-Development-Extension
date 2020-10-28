@@ -7,16 +7,8 @@
   "additionalProperties": false,
   "required": [],
   "properties": {
-    "priority": {
-      "$ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "speed_multiplier": {
-      "$ref": "types/base_speed_multiplier.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "priority": { "$ref": "types/base_priority.json" },
+    "speed_multiplier": { "$ref": "types/base_speed_multiplier.json" },
     "cooldown_time": {
       "type": "number",
       "title": "Cooldown time",
@@ -63,8 +55,7 @@
       "description": "If true, this goal will only trigger if the mob can reach its target.",
       "title": "Require Complete Path"
     },
-    "on_attack": {
-      "$ref": "../types/event.json",
+    "on_attack": { "$ref": "../types/event.json",
       "title": "On attack",
       "description": "UNDOCUMENTATED"
     }

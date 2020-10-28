@@ -8,10 +8,7 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+      "ref": "types/base_priority.json" },
     "interest_time": {
       "type": "number",
       "default": 2,
@@ -71,8 +68,7 @@
       "description": "UNDOCUMENTATED",
       "title": "Leap dist"
     },
-    "stuck_blocks": {
-      "$ref": "../filters.json",
+    "stuck_blocks": { "$ref": "../filters.json",
       "description": "UNDOCUMENTATED",
       "title": "Stuck block"
     }

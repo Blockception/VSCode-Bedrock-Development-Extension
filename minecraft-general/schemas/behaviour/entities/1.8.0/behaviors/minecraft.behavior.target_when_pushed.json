@@ -8,12 +8,8 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "entity_types": {
-      "$ref": "../types/entity_types.json",
+      "ref": "types/base_priority.json" },
+    "entity_types": { "$ref": "../types/entity_types.json",
       "title": "Entity types",
       "description": "UNDOCUMENTATED"
     },

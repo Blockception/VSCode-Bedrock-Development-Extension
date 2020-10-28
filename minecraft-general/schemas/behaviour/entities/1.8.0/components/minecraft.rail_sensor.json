@@ -25,13 +25,11 @@
       "description": "If true, this entity will eject all of its riders when it passes over a deactivated rail",
       "title": "TODO title"
     },
-    "on_activate": {
-      "$ref": "../types/event.json",
+    "on_activate": { "$ref": "../types/event.json",
       "description": "Event to call when the rail is activated",
       "title": "TODO title"
     },
-    "on_deactivate": {
-      "$ref": "../types/event.json",
+    "on_deactivate": { "$ref": "../types/event.json",
       "description": "Event to call when the rail is deactivated",
       "title": "TODO title"
     },

@@ -11,13 +11,11 @@
       "description": "Event",
       "title": "The event to fire"
     },
-    "filters": {
-      "$ref": "../filters.json",
+    "filters": { "$ref": "../filters.json",
       "description": "The filters to check to determine if the event should be fired",
       "title": "Filters"
     },
-    "target": {
-      "$ref": "../filters/types/base_subject.json",
+    "target": { "$ref": "../filters/types/base_subject.json",
       "description": "The entity to target",
       "title": "Target"
     }

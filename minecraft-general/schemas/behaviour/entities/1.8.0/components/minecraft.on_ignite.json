@@ -12,8 +12,7 @@
       "description": "The event to run when the conditions for this trigger are met",
       "title": "TODO title"
     },
-    "filters": {
-      "$ref": "../filters.json",
+    "filters": { "$ref": "../filters.json",
       "description": "The list of conditions for this trigger",
       "title": "TODO title"
     },

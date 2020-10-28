@@ -8,10 +8,7 @@
   "required": [],
   "properties": {
     "priority": {
-      "ref": "types/base_priority.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+      "ref": "types/base_priority.json" },
     "liquid_y_offset": {
       "type": "number",
       "title": "Liquid y offset",

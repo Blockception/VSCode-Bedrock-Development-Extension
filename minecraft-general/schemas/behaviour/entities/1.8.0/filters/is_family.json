@@ -12,16 +12,8 @@
       "title": "The test property",
       "description": "Returns true when the subject entity is a member of the named family."
     },
-    "operator": {
-      "$ref": "types/base_operator.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
-    "subject": {
-      "$ref": "types/base_subject.json",
-      "description": "TODO description",
-      "title": "TODO title"
-    },
+    "operator": { "$ref": "types/base_operator.json" },
+    "subject": { "$ref": "types/base_subject.json" },
     "value": {
       "description": "The Family name to look for",
       "type": "string",

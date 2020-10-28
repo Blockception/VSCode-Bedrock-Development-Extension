@@ -21,8 +21,7 @@
       "description": "A random value to determine when to randomly move somewhere. This has a 1/interval chance to choose this goal",
       "title": "TODO title"
     },
-    "on_home": {
-      "$ref": "../types/event.json",
+    "on_home": { "$ref": "../types/event.json",
       "description": "Event to run when this mob gets home.",
       "title": "TODO title"
     }

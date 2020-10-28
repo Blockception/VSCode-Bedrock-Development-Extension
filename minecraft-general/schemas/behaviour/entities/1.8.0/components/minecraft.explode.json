@@ -7,8 +7,7 @@
   "description": "Defines how the entity explodes.",
   "required": [],
   "properties": {
-    "fuseLength": {
-      "$ref": "../types/range_number_type.json",
+    "fuseLength": { "$ref": "../types/range_number_type.json",
       "default": [0.0, 0.0],
       "description": "The range for the random amount of time the fuse will be lit before exploding, a negative value means the explosion will be immediate",
       "title": "Fuse Length"

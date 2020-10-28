@@ -88,14 +88,12 @@
         "title": "The component schema"
       }
     },
-    "components": {
-      "$ref": "components.json",
+    "components": { "$ref": "components.json",
       "uniqueItems": true,
       "description": "The components that are added as the foundation of the entity",
       "title": "The component schema"
     },
-    "events": {
-      "$ref": "events.json",
+    "events": { "$ref": "events.json",
       "uniqueItems": true,
       "description": "The events that the entity can run, these add or remove components_groups",
       "title": "The events schema"
