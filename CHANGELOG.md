@@ -1,21 +1,21 @@
 # Changelog 
-- Updated depencies
+- Formatted workspace
 - Updated
-- Refactored events
-- Fixing execute subcommand detection for signatures and completion
-- Updated coordinate completion to prefere '~'
-- Updated schemas
-- Formatted
-- Updated to 1.2.6
-- fixing typo: 'minecraft:emitter_lifetime_events:'
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Merge pull request #16 from Rexogamer/patch-1
-- update references to LICENSES folder
-- move to proper folder (part 3)
-- move to proper folder (part 2)
-- move to proper folder (part 1)
-- README: a *lot* of grammar fixes
-- Fixing on interact
-- Fixing component groups validation
-- Refactored
-- Updating titles
+- Updated sound definitions
+- Updated attachables
+- Added Variations
+- Updated trading
+- Updated spawnrules
+- Updated loot tables
+- Updated items
+- Updated spawn rules
+- Updated behaviour.tempt
+- Updating loottables
+- Added move_to_liquid
+- Fixing filters yet again
+- Updated filters
+- Updated filters
+- Added move_towards_dwelling_restriction
+- Added inside_block_notifier
+- Fixed conditional bandwith
+- Formatted schemas
