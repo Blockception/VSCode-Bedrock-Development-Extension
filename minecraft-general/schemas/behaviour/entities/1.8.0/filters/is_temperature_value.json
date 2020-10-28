@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_temperature_value",
   "type": "object",
   "title": "Filters is temperature value 1.8.0",
-  "additionalProperties": false,
   "description": "Tests the current temperature against a provided value in the range (0.0, 1.0) where 0.0f is the coldest temp and 1.0f is the hottest.",
   "required": ["value"],
   "properties": {

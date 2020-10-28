@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.in_water_or_rain",
   "type": "object",
   "title": "Filters in water or rain 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true when the subject entity is in water or rain.",
   "properties": {
     "test": {

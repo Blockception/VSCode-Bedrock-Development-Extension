@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.has_equipment",
   "type": "object",
   "title": "Filters has equipment 1.8.0",
-  "additionalProperties": false,
   "description": "Tests for the presence of a named item in the designated slot of the subject entity.",
   "required": ["value"],
   "properties": {
@@ -16,7 +15,7 @@
     "domain": {
       "description": "The equipment location to test",
       "default": "any",
-      "enum": ["any", "armor", "feet", "hand", "head", "leg", "tors"],
+      "enum": ["any", "armor", "feet", "hand", "head", "leg", "torso"],
       "title": "Domain"
     },
     "operator": { "$ref": "types/base_operator.json" },

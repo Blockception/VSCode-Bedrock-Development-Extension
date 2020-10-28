@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.filters.weather",
   "type": "object",
   "title": "Filters weather 1.16.0",
-  "additionalProperties": false,
   "description": "Tests the current weather in the dimension against a provided weather value.",
   "required": ["value"],
   "properties": {

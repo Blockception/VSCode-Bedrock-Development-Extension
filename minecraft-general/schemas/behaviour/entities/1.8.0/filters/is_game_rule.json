@@ -4,7 +4,6 @@
   "type": "object",
   "title": "Filters is game rule 1.8.0",
   "description": "TODO description: ",
-  "additionalProperties": false,
   "required": ["domain"],
   "properties": {
     "domain": {

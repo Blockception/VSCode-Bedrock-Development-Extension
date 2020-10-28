@@ -4,7 +4,6 @@
   "title": "Trigger",
   "type": "object",
   "description": "Trigger to fire for 1.16.0",
-  "required": ["event"],
   "properties": {
     "event": {
       "type": "string",

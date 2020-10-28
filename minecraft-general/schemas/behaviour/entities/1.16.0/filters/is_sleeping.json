@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.filters.is_sleeping",
   "type": "object",
   "title": "Filters is sleeping 1.16.0",
-  "additionalProperties": false,
   "description": "Tests whether the Subject is sleeping.",
   "properties": {
     "test": {

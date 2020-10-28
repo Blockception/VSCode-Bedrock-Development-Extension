@@ -248,6 +248,7 @@
     "minecraft:behavior.move_to_random_block": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_random_block.json" },
     "minecraft:behavior.move_to_village": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_village.json" },
     "minecraft:behavior.move_to_water": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_to_water.json" },
+    "minecraft:behavior.move_towards_home_restriction": { "$ref": "./behaviors/minecraft.behavior.move_towards_home_restriction.json" },
     "minecraft:behavior.move_towards_dwelling_restriction": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_dwelling_restriction.json"},
     "minecraft:behavior.move_towards_restriction": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_restriction.json" },
     "minecraft:behavior.move_towards_target": { "$ref": "../1.8.0/behaviors/minecraft.behavior.move_towards_target.json" },

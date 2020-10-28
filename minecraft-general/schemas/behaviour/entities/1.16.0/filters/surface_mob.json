@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.filters.surface_mob",
   "type": "object",
   "title": "Filters surface mob 1.16.0",
-  "additionalProperties": false,
   "description": "Tests if the subject is a surface mob.",
   "properties": {
     "test": {

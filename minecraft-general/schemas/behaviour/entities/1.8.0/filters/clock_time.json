@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.clock_time",
   "type": "object",
   "title": "Filters clock time 1.8.0",
-  "additionalProperties": false,
   "description": "Compares the current 24 hour time with an int value in the range[0, 24000]",
   "required": ["value"],
   "properties": {
@@ -12,7 +11,8 @@
       "title": "The test property",
       "description": "Compares the current 24 hour time with an int value in the range[0, 24000]"
     },
-    "operator": { "$ref": "types/base_operator.json",
+    "operator": { 
+      "$ref": "types/base_operator.json",
       "description": "(Optional) The comparison to apply with 'value'.",
       "default": "equals",
       "title": "Operator"

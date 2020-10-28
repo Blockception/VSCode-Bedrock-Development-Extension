@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_in_village",
   "type": "object",
   "title": "Filters is in village 1.8.0",
-  "additionalProperties": false,
   "description": "Tests whether the Subject is inside the bounds of a village.",
   "properties": {
     "test": {

@@ -8,6 +8,11 @@
   "properties": {
     "priority": { "ref": "types/base_priority.json" },
     "speed_multiplier": { "ref": "types/base_speed_multiplier.json" },
+    "cooldown": {
+      "title": "Cooldown",
+      "description": "UNDOCUMENTATED",
+      "type": "number"
+    },
     "drop_item_chance": {
       "type": "number",
       "default": [1.0],
@@ -17,7 +22,8 @@
     "entity_types": {
       "description": "List of entity types this mob will drop items for.",
       "title": "Entity types",
-      "$ref": "../types/entity_types.json" },
+      "$ref": "../types/entity_types.json"
+    },
     "goal_radius": {
       "type": "number",
       "default": 0.5,
@@ -36,15 +42,31 @@
       "description": "Maximum distance in blocks this mob will look for entities to drop an item for.",
       "title": "Max dist"
     },
+    "minimum_teleport_distance": {
+      "title": "Minimum teleport distance",
+      "description": "UNDOCUMENTATED",
+      "type": "number"
+    },
+    "max_head_look_at_height": {
+      "title": "Max head look at height",
+      "description": "UNDOCUMENTATED",
+      "type": "number"
+    },
     "offering_distance": {
       "type": "number",
       "default": [1.0],
       "description": "The distance in blocks the mob will try to be away from the entity when it drops the item.",
       "title": "Offering distance"
     },
-    "on_drop_attempt": { "$ref": "../types/event.json",
+    "on_drop_attempt": {
+      "$ref": "../types/event.json",
       "description": "Event to run when this mob attempts to drop an item.",
       "title": "On drop attempt"
+    },
+    "seconds_before_pickup": {
+      "title": "Seconds before pickup",
+      "description": "UNDOCUMENTATED",
+      "type": "number"
     },
     "search_count": {
       "type": "integer",
@@ -63,6 +85,26 @@
       "default": 0,
       "description": "The distance in blocks from the target the mob can be.",
       "title": "Search range"
+    },
+    "target_range": {
+      "title": "Target range",
+      "description": "UNDOCUMENTATED",
+      "type": "array",
+      "items": [
+        { "type": "number" },
+        { "type": "number" },
+        { "type": "number" }
+      ]
+    },
+    "teleport_offset": {
+      "title": "Teleport offset",
+      "description": "UNDOCUMENTATED",
+      "type": "array",
+      "items": [
+        { "type": "number" },
+        { "type": "number" },
+        { "type": "number" }
+      ]
     },
     "time_of_day_range": {
       "default": [0.0, 1.0],

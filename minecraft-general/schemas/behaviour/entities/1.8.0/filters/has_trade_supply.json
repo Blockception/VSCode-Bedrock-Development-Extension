@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.has_trade_supply",
   "type": "object",
   "title": "Filters has trade supply 1.8.0",
-  "additionalProperties": false,
   "description": "Tests whether the target has any trade supply left. Will return false if the target cannot be traded with.",
   "properties": {
     "test": {

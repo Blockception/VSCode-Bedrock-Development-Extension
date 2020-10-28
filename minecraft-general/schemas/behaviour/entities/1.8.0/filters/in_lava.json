@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.in_lava",
   "type": "object",
   "title": "Filters in lava 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true when the subject entity is in lava.",
   "properties": {
     "test": {

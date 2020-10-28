@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_humid",
   "type": "object",
   "title": "Filters is humid 1.8.0",
-  "additionalProperties": false,
   "description": "Tests whether the Subject is in an area with humidity",
   "properties": {
     "test": {

@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.has_mob_effect",
   "type": "object",
   "title": "Filters has mob effect 1.8.0",
-  "additionalProperties": false,
   "description": "Tests whether the Subject has the specified mob effect.",
   "required": ["value"],
   "properties": {

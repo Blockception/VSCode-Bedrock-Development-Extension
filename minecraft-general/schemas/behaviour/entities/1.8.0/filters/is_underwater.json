@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_underwater",
   "type": "object",
   "title": "Filters is underwater 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true when the subject entity is under water. An entity is considered underwater if it is completely submerged in water blocks.",
   "properties": {
     "test": {

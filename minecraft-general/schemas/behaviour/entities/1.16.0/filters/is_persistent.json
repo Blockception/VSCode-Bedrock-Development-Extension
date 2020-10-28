@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.filters.is_persistent",
   "type": "object",
   "title": "Filters is persistent 1.16.0",
-  "additionalProperties": false,
   "description": "Tests if the subject's persistence matches the bool value passed in.",
   "properties": {
     "test": {

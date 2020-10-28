@@ -344,6 +344,8 @@
         "spawn_aoe_cloud": {
           "additionalProperties": false,
           "type": "object",
+          "description": "UNDOCUMENTATED",
+          "title": "UNDOCUMENTATED",
           "properties": {
             "radius": {
               "type": "number",

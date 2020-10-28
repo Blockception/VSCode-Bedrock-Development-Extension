@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_skin_id",
   "type": "object",
   "title": "Filters is skin id 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true if the subject entity is the skin id number provided.",
   "properties": {
     "test": {

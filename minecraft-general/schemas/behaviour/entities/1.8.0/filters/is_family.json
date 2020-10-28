@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_family",
   "type": "object",
   "title": "Filters is family 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true when the subject entity is a member of the named family.",
   "required": ["value"],
   "properties": {

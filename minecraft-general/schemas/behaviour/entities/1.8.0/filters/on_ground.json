@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.on_ground",
   "type": "object",
   "title": "Filters on ground 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true when the subject entity is on ground.",
   "properties": {
     "test": {

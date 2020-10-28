@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_difficulty",
   "type": "object",
   "title": "Filters is difficulty 1.8.0",
-  "additionalProperties": false,
   "description": "Tests the current difficulty level of the game.",
   "required": ["value"],
   "properties": {
@@ -17,7 +16,7 @@
     "value": {
       "description": "The game's difficulty level to test",
       "type": "string",
-      "enum": ["easy", "hard", "normal", "peacefull"],
+      "enum": ["easy", "hard", "normal", "peaceful"],
       "title": "Value"
     }
   }

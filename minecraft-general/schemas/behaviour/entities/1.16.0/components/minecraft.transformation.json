@@ -30,9 +30,7 @@
     "delay": {
       "description": "Defines the properties of the delay for the transformation",
       "oneOf": [
-        {
-          "type": "number"
-        },
+        { "type": "number" },
         {
           "type": "object",
           "properties": {
@@ -77,29 +75,43 @@
       "type": "boolean",
       "default": false,
       "description": "Cause the entity to drop all equipment upon transformation",
-      "title": "TODO title"
+      "title": "Drop equipment"
+    },
+    "drop_inventory": {
+      "type": "boolean",
+      "default": false,
+      "description": "Cause the entity to drop all items in inventory upon transformation",
+      "title": "Drop inventory"
     },
     "into": {
       "type": "string",
+      "default": "",
       "description": "Entity Definition that this entity will transform into",
-      "title": "TODO title"
+      "title": "Into"
     },
     "keep_level": {
       "type": "boolean",
       "default": false,
       "description": "If this entity has trades and has leveled up, it should maintain that level after transformation.",
-      "title": "TODO title"
+      "title": "Keep level"
     },
     "keep_owner": {
       "type": "boolean",
       "default": false,
       "description": "If this entity is owned by another entity, it should remain owned after transformation.",
-      "title": "TODO title"
+      "title": "Keep owner"
+    },
+    "preserve_equipment": {
+      "type": "boolean",
+      "default": false,
+      "description": "Cause the entity to keep equipment after going through transformation",
+      "title": "Preserve equipment"
     },
     "transformation_sound": {
       "type": "string",
+      "default": "",
       "description": "Sound to play when the entity is done transforming",
-      "title": "TODO title"
+      "title": "Transformation sound"
     }
   }
 }

@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.16.0.filters.weather_at_position",
   "type": "object",
   "title": "Filters weather at position 1.16.0",
-  "additionalProperties": false,
   "description": "Tests the current weather, at the actor's position, against a provided weather value.",
   "required": ["value"],
   "properties": {

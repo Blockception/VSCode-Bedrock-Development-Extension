@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_altitude",
   "type": "object",
   "title": "Filters is altitude 1.8.0",
-  "additionalProperties": false,
   "description": "Tests the current altitude against a provided value. 0= bedrock elevation.",
   "required": ["value"],
   "properties": {

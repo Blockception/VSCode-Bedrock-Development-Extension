@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.is_daytime",
   "type": "object",
   "title": "Filters is daytime 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true during the daylight hours.",
   "properties": {
     "test": {

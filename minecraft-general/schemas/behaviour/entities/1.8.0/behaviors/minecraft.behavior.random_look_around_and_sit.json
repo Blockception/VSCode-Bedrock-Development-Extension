@@ -34,7 +34,7 @@
       "title": "Min look time"
     },
     "probability": {
-      "type": "integer",
+      "type": "number",
       "default": 0.02,
       "description": "The probability of randomly looking around/sitting.",
       "title": "Probability"

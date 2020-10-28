@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.8.0.filters.in_clouds",
   "type": "object",
   "title": "Filters in clouds 1.8.0",
-  "additionalProperties": false,
   "description": "Returns true when the subject entity is in the clouds.",
   "properties": {
     "test": {

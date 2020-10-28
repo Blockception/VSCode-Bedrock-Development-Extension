@@ -3,7 +3,6 @@
   "$id": "blockception.minecraft.behaviour.entities.1.13.0.filters.random_chance",
   "type": "object",
   "title": "Filters random chance 1.13.0",
-  "additionalProperties": false,
   "description": "Returns true if the random chance rolls 0 out of a specified max range.",
   "required": ["value"],
   "properties": {
