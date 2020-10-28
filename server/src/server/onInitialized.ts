@@ -71,5 +71,5 @@ function onInitialized(params: InitializedParams): void {
   AddCommands();
   AddMinecraftData();
 
-  //TraverseWorkspaces();
+  TraverseWorkspaces();
 }
