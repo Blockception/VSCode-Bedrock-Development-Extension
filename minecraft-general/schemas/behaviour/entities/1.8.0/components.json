@@ -213,6 +213,7 @@
     "minecraft:behavior.move_through_village": { "$ref": "behaviors/minecraft.behavior.move_through_village.json" },
     "minecraft:behavior.move_to_block": { "$ref": "behaviors/minecraft.behavior.move_to_block.json" },
     "minecraft:behavior.move_to_land": { "$ref": "behaviors/minecraft.behavior.move_to_land.json" },
+    "minecraft:behavior.move_to_liquid": { "$ref": "behaviors/minecraft.behavior.move_to_liquid.json" },
     "minecraft:behavior.move_to_random_block": { "$ref": "behaviors/minecraft.behavior.move_to_random_block.json" },
     "minecraft:behavior.move_to_village": { "$ref": "behaviors/minecraft.behavior.move_to_village.json" },
     "minecraft:behavior.move_to_water": { "$ref": "behaviors/minecraft.behavior.move_to_water.json" },
