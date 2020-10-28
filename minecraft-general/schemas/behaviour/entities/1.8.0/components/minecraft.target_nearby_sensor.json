@@ -19,23 +19,26 @@
       "description": "Maximum distance in blocks that another entity will be considered in the 'inside' range",
       "title": "TODO title"
     },
-    "on_inside_range": { "$ref": "../types/event.json",
+    "on_inside_range": {
+      "$ref": "../types/event.json",
       "description": "Event to call when an entity gets in the inside range. Can specify 'event' for the name of the event and 'target' for the target of the event",
-      "title": "TODO title"
+      "title": "On inside range"
     },
-    "on_outside_range": { "$ref": "../types/event.json",
+    "on_outside_range": {
+      "$ref": "../types/event.json",
       "description": "Event to call when an entity gets in the outside range. Can specify 'event' for the name of the event and 'target' for the target of the event",
-      "title": "TODO title"
+      "title": "On outside range"
     },
-    "on_vision_lost_inside_range": { "$ref": "../types/event.json",
+    "on_vision_lost_inside_range": {
+      "$ref": "../types/event.json",
       "description": "Event to call when an entity exits visual range. Can specify 'event' for the name of the event and 'target' for the target of the event",
-      "title": "TODO title"
+      "title": "On vision lost inside range"
     },
     "outside_range": {
       "type": "number",
       "default": 5,
       "description": "Maximum distance in blocks that another entity will be considered in the 'outside' range",
-      "title": "TODO title"
+      "title": "Outside range"
     }
   }
 }
