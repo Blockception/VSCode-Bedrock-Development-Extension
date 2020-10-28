@@ -90,6 +90,11 @@
                 },
                 "pools": {
                   "$ref": "#/definitions/pools_spec"
+                },
+                "quality": {
+                  "title": "Quality",
+                  "description": "UNDOCUMANTED",
+                  "type": "integer"
                 }
               }
             }
