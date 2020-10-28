@@ -216,6 +216,7 @@
     "minecraft:behavior.move_to_random_block": { "$ref": "behaviors/minecraft.behavior.move_to_random_block.json" },
     "minecraft:behavior.move_to_village": { "$ref": "behaviors/minecraft.behavior.move_to_village.json" },
     "minecraft:behavior.move_to_water": { "$ref": "behaviors/minecraft.behavior.move_to_water.json" },
+    "minecraft:behavior.move_towards_dwelling_restriction": { "$ref": "behaviors/minecraft.behavior.move_towards_dwelling_restriction.json"},
     "minecraft:behavior.move_towards_restriction": { "$ref": "behaviors/minecraft.behavior.move_towards_restriction.json" },
     "minecraft:behavior.move_towards_target": { "$ref": "behaviors/minecraft.behavior.move_towards_target.json" },
     "minecraft:behavior.nearest_attackable_target": { "$ref": "behaviors/minecraft.behavior.nearest_attackable_target.json" },
