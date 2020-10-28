@@ -10,6 +10,16 @@
       "description": "Herd",
       "additionalProperties": false,
       "properties": {
+        "initial_event": {
+          "title": "Initial event",
+          "description": "UNDOCUMENATED",
+          "type": "string"
+        },
+        "initial_event_count": {
+          "title": "Initial event count",
+          "description": "UNDOCUMENATED",
+          "type": "integer"
+        },
         "min_size": {
           "type": "integer",
           "description": "TODO",
