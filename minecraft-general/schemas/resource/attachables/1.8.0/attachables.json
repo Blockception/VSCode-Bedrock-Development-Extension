@@ -74,6 +74,16 @@
               "title": "Identifier",
               "$ref": "../../../general/item/identifier.json"
             },
+            "item": {
+              "type": "object",
+              "title": "Item",
+              "description": "TODO",
+              "additionalProperties": {
+                "type": "string",
+                "title": "TODO",
+                "description": "TODO"
+              }
+            },
             "materials": {
               "type": "object",
               "description": "TODO description: materials",

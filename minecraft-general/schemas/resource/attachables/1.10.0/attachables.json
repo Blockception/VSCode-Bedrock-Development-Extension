@@ -22,6 +22,7 @@
           "title": "Description definition",
           "type": "object",
           "required": ["identifier"],
+          "additionalProperties": false,
           "properties": {
             "animations": {
               "type": "object",
@@ -72,6 +73,16 @@
               "description": "TODO description: identifier",
               "title": "Identifier",
               "$ref": "../../../general/item/identifier.json"
+            },
+            "item": {
+              "type": "object",
+              "title": "Item",
+              "description": "TODO",
+              "additionalProperties": {
+                "type": "string",
+                "title": "TODO",
+                "description": "TODO"
+              }
             },
             "materials": {
               "type": "object",
