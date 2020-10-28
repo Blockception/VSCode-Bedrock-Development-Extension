@@ -32,6 +32,30 @@
               "description": "TODO",
               "format": "color-hex",
               "type": "string"
+            },
+            "variations": {
+              "type": "array",
+              "title": "Variantions",
+              "description": "TODO",
+              "items": {
+                "type": "object",
+                "title": "Variantion",
+                "description": "TODO",
+                "required": ["path"],
+                "properties": {
+                  "path": {
+                    "description": "A texture file",
+                    "type": "string",
+                    "pattern": "^textures/.+$",
+                    "title": "Path"
+                  },
+                  "weight": {
+                    "type": "integer",
+                    "title": "Weight",
+                    "description": "TODO"
+                  }
+                }
+              }
             }
           }
         }
@@ -66,9 +90,7 @@
         "properties": {
           "textures": {
             "oneOf": [
-              {
-                "$ref": "#/definitions/texture"
-              },
+              { "$ref": "#/definitions/texture" },
               {
                 "type": "array",
                 "items": {
