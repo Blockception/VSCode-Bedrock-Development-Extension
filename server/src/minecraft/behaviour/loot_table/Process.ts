@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+	 list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+	 this list of conditions and the following disclaimer in the documentation
+	 and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+	 contributors may be used to endorse or promote products derived from
+	 this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,29 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetDocuments } from '../../code/include';
-import { code } from '../../include';
-import { DataType } from "../format/Data Type";
-import { DetectDataType } from "../format/detection";
-import { resource } from '../include';
+import { TextDocument } from 'vscode-languageserver-textdocument';
+import { Database } from '../../../database/include';
+import { DataReference } from '../../../database/Types/include';
+import { EmptyTypes } from '../../types/Empty';
 
 export function Process(doc: TextDocument): void {
-  let Type = DetectDataType(doc.uri);
+	let filepath = decodeURI(doc.uri);
 
-  switch (Type) {
-    case DataType.resource_animation:
-      return resource.animations.Process(doc);
+	let index = filepath.indexOf('loot_tables');
 
-    case DataType.behaviour_animation_controller:
-      return resource.animation_controllers.Process(doc);
+	if (index < 0) { return; }
 
-    case DataType.resource_sounds_definitions:
-      return resource.sounds_definitions.Process(doc);
-  }
-}
+	let identifier = filepath.slice(index, filepath.length);
 
-export function ProcessResourcePack(Folder: string): void {
-  console.log('Processing resource pack: ' + Folder);
-  code.ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
+	if (identifier !== '') {
+		Database.Data.Behaviourpack.LootTables.Set(new DataReference(identifier, EmptyTypes.EmptyLocation()));
+	}
 }

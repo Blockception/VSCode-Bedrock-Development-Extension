@@ -113,6 +113,18 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
   }
 }
 
-export function GetDocuments(folder: string, pattern: string): string[] {
-  return fg.sync(folder + pattern, { absolute: true, onlyFiles: true });
+export function GetDocuments(folder: string, pattern: string | string[]): string[] {
+  let temp: string[] = [];
+
+  if (Array.isArray(pattern)) {
+    for (let index = 0; index < pattern.length; index++) {
+      const element = pattern[index];
+      temp.push(folder + element);
+    }
+  }
+  else {
+    temp.push(folder + pattern);
+  }
+
+  return fg.sync(temp, { absolute: true, onlyFiles: true });
 }
