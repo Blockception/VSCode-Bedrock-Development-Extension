@@ -27,32 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Database } from "../../../database/Database";
-import { DataReference } from "../../../database/Types/Reference";
-import { JsonDocument } from "../../../json/Json Document";
-import { EmptyTypes } from "../../types/Empty";
-import { Animation } from "./Animation";
+export interface FormatVersion {
+	format_version: string;
+}
 
-/**
- * Processes the text document as a behaviour entity definition file
- * @param doc The document to parse
- */
-export function Process(doc: TextDocument): void {
-  let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<Animation>();
+export namespace FormatVersion {
+	export function is(value: any): value is FormatVersion {
+		if (value.format_version) {
+			return true;
+		}
 
-  if (!Animation.is(Format)) return;
-
-  let Names = Object.getOwnPropertyNames(Format.animations);
-  for (let Name in Names) {
-    let Range = JDoc.GetRangeOfObject(Name);
-    let Location: Location = {
-      uri: doc.uri,
-      range: Range ?? EmptyTypes.EmptyRange(),
-    };
-
-    Database.Data.Behaviourpack.Animations.Set(new DataReference(Name, Location));
-  }
+		return false;
+	}
 }

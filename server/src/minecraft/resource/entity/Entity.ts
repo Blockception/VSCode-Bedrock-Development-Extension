@@ -27,15 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export interface AnimationImport {
-  format_version: string;
-  animations: any;
+import { FormatVersion } from '../../Interfaces/FormatVersion';
+
+export interface Entity extends FormatVersion {
+
 }
 
-export namespace AnimationImport {
-  export function is(value: any): value is AnimationImport {
-    if (value.format_version && value.animations) return true;
-
-    return false;
-  }
+export namespace Entity {
+	export function is(value : any) : value is Entity {
+		if (FormatVersion.is(value))
+	}
 }

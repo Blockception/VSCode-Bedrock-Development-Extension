@@ -33,7 +33,7 @@ import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
-import { AnimationControllerImport } from "./Animation Controller Import";
+import { AnimationController } from "./Animation Controller";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -41,9 +41,9 @@ import { AnimationControllerImport } from "./Animation Controller Import";
  */
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<AnimationControllerImport>();
+  let Format = JDoc.CastTo<AnimationController>();
 
-  if (!AnimationControllerImport.is(Format)) return;
+  if (!AnimationController.is(Format)) return;
 
   let Names = Object.getOwnPropertyNames(Format.animation_controllers);
 

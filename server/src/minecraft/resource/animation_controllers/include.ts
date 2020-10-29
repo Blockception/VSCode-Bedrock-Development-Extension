@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * from './Animation Controller Import'
+export * from './Animation Controller'
 export * from './Process'
