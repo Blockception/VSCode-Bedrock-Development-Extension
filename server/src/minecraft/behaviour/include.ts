@@ -27,9 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './animations/include'
-export * from './animation_controllers/include'
-export * from './blocks/include'
-export * from './entities/include'
-export * from './items/include'
+export * as animations from './animations/include'
+export * as animation_controllers from './animation_controllers/include'
+export * as blocks from './blocks/include'
+export * as entities from './entities/include'
+export * as items from './items/include'
+export * from './Functions'
 export * from './Process'

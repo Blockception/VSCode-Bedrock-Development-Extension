@@ -30,22 +30,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { DataType } from "../format/Data Type";
 import { DetectDataType } from "../format/detection";
-import * as BPEntity from "./entities/Process";
-import * as BPItem from "./items/Process";
-import * as BPAnim from "./animations/Process";
-import * as BPAnimCon from "./animation_controllers/Process";
+import * as behaviour from './include';
 
 export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
 
   switch (Type) {
     case DataType.behaviour_animation:
-      return BPAnim.Process(doc);
+      return behaviour.animations.Process(doc);
 
     case DataType.behaviour_animation_controller:
-      return BPAnimCon.Process(doc);
+      return behaviour.animation_controllers.Process(doc);
 
     case DataType.behaviour_item:
+      return behaviour.items.Process(doc);
       return BPItem.Process(doc);
 
     case DataType.behaviour_entity:

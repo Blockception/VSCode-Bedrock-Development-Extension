@@ -27,12 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './behaviour/include'
-export * from './Commands/include'
-export * from './data/include'
-export * from './format/include'
-export * from './Interfaces/include'
-export * from './logs/include'
-export * from './manifest/include'
-export * from './resource/include'
-export * from './types/include'
+export * as behaviour from './behaviour/include'
+export * as Commands from './Commands/include'
+export * as data from './data/include'
+export * as format from './format/include'
+export * as Interfaces from './Interfaces/include'
+export * as logs from './logs/include'
+export * as manifest from './manifest/include'
+export * as resource from './resource/include'
+export * as types from './types/include'

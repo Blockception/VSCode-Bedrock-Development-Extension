@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export * from './animations/include'
-export * from './animation_controllers/include'
-export * from './sounds definitions/include'
+export * as animations from './animations/include'
+export * as animation_controllers from './animation_controllers/include'
+export * as sounds_definitions from './sounds definitions/include'
 export * from './Process'
