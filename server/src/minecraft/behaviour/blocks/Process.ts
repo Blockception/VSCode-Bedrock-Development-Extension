@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,32 +27,31 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { DataType } from "../format/Data Type";
-import { DetectDataType } from "../format/detection";
-import * as BPEntity from "./entities/Process";
-import * as BPItem from "./items/Process";
-import * as BPAnim from "./animations/Process";
-import * as BPAnimCon from "./animation_controllers/Process";
+import { Database } from "../../../database/Database";
+import { DataReference } from "../../../database/Types/Reference";
+import { JsonDocument } from "../../../json/Json Document";
+import { EmptyTypes } from "../../types/Empty";
+import { Block } from './Blocks';
 
+/**
+ * Processes the text document as a behaviour entity definition file
+ * @param doc The document to parse
+ */
 export function Process(doc: TextDocument): void {
-  let Type = DetectDataType(doc.uri);
+  let JDoc = new JsonDocument(doc);
+  let Format = JDoc.CastTo<Block>();
 
-  switch (Type) {
-    case DataType.behaviour_animation:
-      return BPAnim.Process(doc);
+  if (!Block.is(Format)) return;
 
-    case DataType.behaviour_animation_controller:
-      return BPAnimCon.Process(doc);
 
-    case DataType.behaviour_item:
-      return BPItem.Process(doc);
+  let Name = Format['minecraft:block'].description.identifier;
+  let Range = JDoc.GetRangeOfObject(Name);
+  let Location: Location = {
+    uri: doc.uri,
+    range: Range ?? EmptyTypes.EmptyRange(),
+  };
 
-    case DataType.behaviour_entity:
-      return BPEntity.Process(doc);
-  }
-}
-
-export function ProcessBehaviourPack(Folder : string) : void {
-  
+  Database.Data.Behaviourpack.Blocks.Set(new DataReference(Name, Location));
 }

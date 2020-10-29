@@ -48,3 +48,7 @@ export function Process(doc: TextDocument): void {
       return RPSound.Process(doc);
   }
 }
+
+export function ProcessResourcePack(Folder : string) : void {
+  
+}

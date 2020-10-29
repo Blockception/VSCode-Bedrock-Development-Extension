@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -33,7 +33,7 @@ import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
-import { AnimationImport } from "./Animation Import";
+import { Animation } from "./Animation";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -41,9 +41,9 @@ import { AnimationImport } from "./Animation Import";
  */
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<AnimationImport>();
+  let Format = JDoc.CastTo<Animation>();
 
-  if (!AnimationImport.is(Format)) return;
+  if (!Animation.is(Format)) return;
 
   let Names = Object.getOwnPropertyNames(Format.animations);
   for (let Name in Names) {

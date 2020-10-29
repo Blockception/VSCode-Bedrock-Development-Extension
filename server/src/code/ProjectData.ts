@@ -79,49 +79,50 @@ function CheckStructure(folders: WorkspaceFolder[] | null): ProjectData | undefi
     if (!dir.endsWith("\\")) dir += "\\";
 
     dir = dir.replace(/\\/g, "/");
+    dirs[I] = dir + "**/manifest.json"
+  }
 
-    const entries = fg.sync(dir + "**/manifest.json", { absolute: true, onlyFiles: true });
+  const entries = fg.sync(dirs, { absolute: true, onlyFiles: true });
 
-    for (let J = 0; J < entries.length; J++) {
-      let item = entries[J];
-      let parent = GetParent(item);
-      let Type = DetectGeneralDataType(dir);
+  for (let J = 0; J < entries.length; J++) {
+    let item = entries[J];
+    let parent = GetParent(item);
+    let Type = DetectGeneralDataType(item);
 
-      switch (Type) {
-        case GeneralDataType.behaviour_pack:
-          DupeCheckAdd(PD.BehaviourPackFolders, parent);
-          continue;
+    switch (Type) {
+      case GeneralDataType.behaviour_pack:
+        DupeCheckAdd(PD.BehaviourPackFolders, parent);
+        continue;
 
-        case GeneralDataType.resource_pack:
-          DupeCheckAdd(PD.ResourcePackFolders, parent);
-          continue;
+      case GeneralDataType.resource_pack:
+        DupeCheckAdd(PD.ResourcePackFolders, parent);
+        continue;
 
-        case GeneralDataType.world:
-          DupeCheckAdd(PD.WorldFolders, parent);
-          break;
+      case GeneralDataType.world:
+        DupeCheckAdd(PD.WorldFolders, parent);
+        break;
 
-        default:
-          let JDoc = JsonDocument.GetDocument(item);
-          let manifest = JDoc.CastTo<Manifest>();
+      default:
+        let JDoc = JsonDocument.GetDocument(item);
+        let manifest = JDoc.CastTo<Manifest>();
 
-          if (!manifest) break;
+        if (!manifest) break;
 
-          Type = Manifest.DetectType(manifest);
+        Type = Manifest.DetectType(manifest);
 
-          switch (Type) {
-            case GeneralDataType.behaviour_pack:
-              DupeCheckAdd(PD.BehaviourPackFolders, parent);
-              continue;
+        switch (Type) {
+          case GeneralDataType.behaviour_pack:
+            DupeCheckAdd(PD.BehaviourPackFolders, parent);
+            continue;
 
-            case GeneralDataType.resource_pack:
-              DupeCheckAdd(PD.ResourcePackFolders, parent);
-              continue;
+          case GeneralDataType.resource_pack:
+            DupeCheckAdd(PD.ResourcePackFolders, parent);
+            continue;
 
-            case GeneralDataType.world:
-              DupeCheckAdd(PD.WorldFolders, parent);
-              break;
-          }
-      }
+          case GeneralDataType.world:
+            DupeCheckAdd(PD.WorldFolders, parent);
+            break;
+        }
     }
   }
 

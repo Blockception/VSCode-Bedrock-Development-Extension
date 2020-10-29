@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -33,27 +33,27 @@ import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
-import { AnimationControllerImport } from "./Animation Controller Import";
+import {  } from './Animation Controller';
 
-/**
- * Processes the text document as a behaviour entity definition file
- * @param doc The document to parse
- */
-export function Process(doc: TextDocument): void {
-  let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<AnimationControllerImport>();
+  /**
+   * Processes the text document as a behaviour entity definition file
+   * @param doc The document to parse
+   */
+  export function Process(doc: TextDocument): void {
+    let JDoc = new JsonDocument(doc);
+    let Format = JDoc.CastTo<Behaviourpack.AnimationController>();
 
-  if (!AnimationControllerImport.is(Format)) return;
+    if (!AnimationController.is(Format)) return;
 
-  let Names = Object.getOwnPropertyNames(Format.animation_controllers);
+    let Names = Object.getOwnPropertyNames(Format.animation_controllers);
 
-  for (let Name in Names) {
-    let Range = JDoc.GetRangeOfObject(Name);
-    let Location: Location = {
-      uri: doc.uri,
-      range: Range ?? EmptyTypes.EmptyRange(),
-    };
+    for (let Name in Names) {
+      let Range = JDoc.GetRangeOfObject(Name);
+      let Location: Location = {
+        uri: doc.uri,
+        range: Range ?? EmptyTypes.EmptyRange(),
+      };
 
-    Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
+      Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
+    }
   }
-}
