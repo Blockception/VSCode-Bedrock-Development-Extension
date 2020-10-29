@@ -28,10 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from "../code/include";
-import { Database } from "../database/Database";
-import { ProcessScoreboardCommand } from "./Commands/Scoreboard";
-import { ProcessTagCommand } from "./Commands/Tag";
+import { getLine } from "../../../code/include";
+import { Database } from "../../../database/Database";
+import { ProcessScoreboardCommand } from "../../../process/Commands/Scoreboard";
+import { ProcessTagCommand } from "../../../process/Commands/Tag";
 
 export function Process(document: TextDocument): void {
   Database.Data.DeleteFile(document.uri);

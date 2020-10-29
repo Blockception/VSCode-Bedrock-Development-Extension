@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export * as Commands from './Commands/include'
 export * from './Json'
 export * from './Language'
-export * from './Mcfunction'
+export * from '../minecraft/behaviour/functions/Process'
 export * from './Process'
 export * from './Range'
 export * from './traverse'

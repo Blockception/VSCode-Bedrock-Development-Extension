@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
+import * as fg from 'fast-glob';
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../manager/Manager";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
@@ -95,4 +96,23 @@ export function IdentifyDoc(uri: string): string {
   if (uri.endsWith(".lang")) return McLanguageIdentifier;
 
   return McOtherIdentifier;
+}
+
+/**
+ * Loops over all the given documents
+ * @param uris 
+ * @param callback 
+ */
+export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void) {
+  for (let index = 0; index < uris.length; index++) {
+    const element = uris[index];
+    let doc = GetDocument(element);
+
+    if (doc)
+      callback(doc);
+  }
+}
+
+export function GetDocuments(folder: string, pattern: string): string[] {
+  return fg.sync(folder + pattern, { absolute: true, onlyFiles: true });
 }

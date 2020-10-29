@@ -42,12 +42,14 @@ export function Process(doc: TextDocument): void {
     case DataType.behaviour_animation_controller:
       return behaviour.animation_controllers.Process(doc);
 
+    case DataType.behaviour_function:
+      return 
+
     case DataType.behaviour_item:
       return behaviour.items.Process(doc);
-      return BPItem.Process(doc);
 
     case DataType.behaviour_entity:
-      return BPEntity.Process(doc);
+      return behaviour.entities.Process(doc);
   }
 }
 
