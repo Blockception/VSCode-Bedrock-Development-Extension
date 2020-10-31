@@ -21,7 +21,7 @@ It's recommended you use the Dark+ theme for the best color highlighting. This p
 
 ### Mcfunction
 This plugin provides support for the `.mcfunction` files. The following features are provided:
-- Code completion.
+- [Code completion](documentation/completion/Mcfunctions.md).
 - Code formatting.
 - Diagnostics.
 - Go to definition.
