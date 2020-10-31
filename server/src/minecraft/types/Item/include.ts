@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * from './Completion'
-export * from './Item'
+export * from './Completion';
+export * from './Item';

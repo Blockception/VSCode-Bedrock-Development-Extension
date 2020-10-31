@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from './Process'
+export * from './Process';

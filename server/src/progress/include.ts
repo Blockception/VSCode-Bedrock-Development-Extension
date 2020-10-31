@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from './ProgressHandler'
+export * from './ProgressHandler';

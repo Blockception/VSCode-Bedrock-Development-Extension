@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * from './Entity Import'
-export * from './Process'
+export * from './Entity';
+export * from './Process';

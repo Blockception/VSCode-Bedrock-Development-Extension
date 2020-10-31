@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from './Json'
+export * from './Json';

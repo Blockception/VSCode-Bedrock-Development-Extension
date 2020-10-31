@@ -1,3 +1,5 @@
 /*	Auto generated	*/
-export * from './OnRequest'
-export * from './Search'
+export * from './Json';
+export * from './Mcfunction';
+export * from './OnRequest';
+export * from './Search';
