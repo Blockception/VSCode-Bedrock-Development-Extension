@@ -34,7 +34,7 @@ export interface AnimationController {
 
 export namespace AnimationController {
   export function is(value: any): value is AnimationController {
-    if (value.format_version && value.animation_controllers) return true;
+    if (value && value.format_version && value.animation_controllers) return true;
 
     return false;
   }
