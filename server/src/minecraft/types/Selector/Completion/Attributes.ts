@@ -31,8 +31,8 @@ import { MarkupContent, CompletionItem, CompletionItemKind, CompletionList } fro
 import { provideEntityTestCompletion } from "../../Entity/Completion";
 import { provideFloatCompletion } from "../../Float/Completion";
 import { provideGamemodeTestCompletion } from "../../Gamemode/Completion";
-import { provideTagTestCompletion } from "../../include";
 import { provideIntegerCompletion } from "../../Integer/Completion";
+import { provideTagTestCompletion } from '../../Tag/include';
 
 function AttributeCompletion(label: string, documentation: string | MarkupContent): CompletionItem {
   return {

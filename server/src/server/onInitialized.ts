@@ -30,13 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import {
   InitializedParams,
   DidChangeConfigurationNotification,
-  DocumentFormattingRequest,
-  DocumentFormattingRegistrationOptions,
 } from "vscode-languageserver";
-import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 import { Manager } from "../manager/Manager";
 import { AddCommands, AddMinecraftData } from "../minecraft/data/include";
-import { TraverseWorkspaces } from "../process/traverse";
+import { Traverse } from '../process/include';
 import { SetDynamicEvents } from "./Events/Dynamic";
 import { UpdateSettings } from "./Settings";
 
@@ -71,5 +68,5 @@ function onInitialized(params: InitializedParams): void {
   AddCommands();
   AddMinecraftData();
 
-  TraverseWorkspaces();
+  Traverse();
 }

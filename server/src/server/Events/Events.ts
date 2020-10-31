@@ -58,7 +58,7 @@ export function setEvents() {
   // This handler provides completion items.
   Connection.onCompletion(OnCompletionRequestAsync);
 
-  // This handler provvides go to definitions
+  // This handler provides go to definitions
   Connection.onDefinition(onDefinitionRequestAsync);
   Connection.onTypeDefinition(onTypeDefinitionRequestAsync);
 

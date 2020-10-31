@@ -34,7 +34,7 @@ import { GeneralDataType } from "../minecraft/format/General Data Type";
 import * as bp from "../minecraft/behaviour/Process";
 import * as rp from "../minecraft/resource/Process";
 
-export function Process(doc: TextDocument): void {
+export function ProcessJson(doc: TextDocument): void {
   Database.Data.DeleteFile(doc.uri);
   let Type = DetectGeneralDataType(doc.uri);
 

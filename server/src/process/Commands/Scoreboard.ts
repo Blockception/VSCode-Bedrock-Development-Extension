@@ -31,7 +31,8 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../database/Database";
 import { CommandIntr } from "../../minecraft/commands/include";
 import { FakeEntity } from "../../minecraft/types/FakeEntity/FakeEntity";
-import { IsFakePlayer, Objective } from "../../minecraft/types/include";
+import { Objective } from '../../minecraft/types/Objectives/include';
+import { IsFakePlayer } from '../../minecraft/types/Selector/include';
 
 export function ProcessScoreboardCommand(line: string, lineIndex: number, doc: TextDocument): void {
   let Com: CommandIntr = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);

@@ -27,37 +27,37 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
-import { GetDocument, getLine } from "../code/include";
-import { McFunctionIdentifier, McOtherIdentifier } from '../Constants';
-import { CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
-import { OnJsonDefinition } from './Json';
-import { OnMcfunctionDefinition } from './Mcfunction';
-import { SearchDefinition } from "./Search";
-
-export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[]> {
-  return new Promise<Location[]>((resolve, reject) => {
-    resolve(onDefinition(params));
-  });
+export interface Entity {
+  format_version: string;
+  "minecraft:entity": {
+    description: {
+      identifier: string;
+      is_spawnable: boolean;
+      is_summonable: boolean;
+      is_experimental: boolean;
+      animations: object;
+      scripts: {
+        animate: string | object[];
+      };
+    };
+    component_groups: object | undefined;
+    components: object | undefined;
+    events: object | undefined;
+  };
 }
 
-export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[]> {
-  return new Promise<Location[]>((resolve, reject) => {
-    resolve(onDefinition(params));
-  });
-}
+export namespace Entity {
+  export function is(data: Entity | undefined | null): data is Entity {
+    if (data) {
+      let mce = data["minecraft:entity"];
 
-function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
-  let doc = GetDocument(params.textDocument.uri);
-  let pos = params.position;
+      if (mce && mce.description && mce.description.identifier) {
+        return true;
+      }
+    }
 
-  switch (doc.languageId) {
-    case McFunctionIdentifier:
-      return OnMcfunctionDefinition(doc, pos);
-
-    case McOtherIdentifier:
-      return OnJsonDefinition(doc, pos);
+    return false;
   }
-
-  return undefined;
 }
+
+

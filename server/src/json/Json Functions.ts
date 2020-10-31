@@ -27,18 +27,55 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { FormatVersion } from '../../Interfaces/FormatVersion';
+import { Position, Range, TextDocument } from 'vscode-languageserver-textdocument';
 
-export interface Entity extends FormatVersion {
-
+export interface TextRange {
+	start: number;
+	end: number;
 }
 
-export namespace Entity {
-	export function is(value: any): value is Entity {
-		if (value.format_version && value['minecraft:client_entity'] && value['minecraft:client_entity'].description && value['minecraft:client_entity'].description.identifier) {
-			return true;
-		}
+export function GetCurrentElement(Text: string, cursor: number): TextRange | undefined {
+	let StartIndex = -1;
 
-		return false;
+	for (let Index = cursor; Index > -1; Index++) {
+		const c = Text.charAt(Index);
+
+		if (c === '"') {
+			if (Text.charAt(Index - 1) === '\\') {
+				continue;
+			}
+
+			StartIndex = Index + 1;
+			break;
+		}
+		else if (c === ',' || c === ':') {
+			StartIndex = Index + 1;
+			break;
+		}
 	}
+
+	if (StartIndex < 0) { return undefined; }
+
+	let EndIndex = -1;
+
+	for (let Index = StartIndex; Index < Text.length; Index++) {
+		const c = Text.charAt(Index);
+
+		if (c === '"') {
+			if (Text.charAt(Index - 1) === '\\') {
+				continue;
+			}
+
+			EndIndex = Index;
+			break;
+		}
+		else if (c === ',' || c === ':') {
+			EndIndex = Index;
+			break;
+		}
+	}
+
+	if (EndIndex < 0) { return undefined; }
+
+	return { start: StartIndex, end: EndIndex };
 }

@@ -30,9 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
-import * as Mcfunction from "./Mcfunction";
-import * as Language from "./Language";
-import { ProgressHandler } from "../progress/ProgressHandler";
+import { ProvideMcfunctionSignature } from '../minecraft/behaviour/functions/include';
+import { ProvideLanguageSignature } from './Language';
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
   return new Promise<SignatureHelp>((resolve, reject) => {
@@ -47,10 +46,10 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
   //Switch per language type
   switch (doc.languageId) {
     case McFunctionIdentifier:
-      return Mcfunction.ProvideSignature(doc, pos);
+      return ProvideMcfunctionSignature(doc, pos);
 
     case McLanguageIdentifier:
-      return Language.ProvideSignature(doc, pos);
+      return ProvideLanguageSignature(doc, pos);
 
     case McOtherIdentifier:
       return undefined;

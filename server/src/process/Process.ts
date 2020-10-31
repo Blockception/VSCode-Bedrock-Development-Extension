@@ -44,13 +44,13 @@ export function Process(document: TextDocument): void {
       break;
 
     case McLanguageIdentifier:
-      Language.Process(document);
+      Language.ProcessLanguageFile(document);
       break;
 
     case McOtherIdentifier:
     case "jsonc":
     case "json":
-      Json.Process(document);
+      Json.ProcessJson(document);
       break;
   }
 }

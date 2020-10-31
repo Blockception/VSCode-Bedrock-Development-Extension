@@ -29,11 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from "../code/include";
-import { CommandInfo } from "../minecraft/commands/CommandInfo";
-import { CommandIntr, IsInSubCommand, MCCommand, MCCommandParameterType } from "../minecraft/commands/include";
+import { getLine } from '../../../code/include';
+import { CommandIntr, IsInSubCommand, CommandInfo, MCCommand, MCCommandParameterType } from '../../commands/include';
 
-export function ProvideSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
+export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
   let Line = getLine(doc, pos.line);
   let command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
 

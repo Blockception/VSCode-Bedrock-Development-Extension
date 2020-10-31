@@ -27,12 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Manager } from "../../manager/Manager";
-import { Database } from "../../database/Database";
-import { Block, Entity, Sound } from "../types/include";
-import { Item } from "../types/Item/Item";
+import { Database } from '../../database/include';
+import { Manager } from '../../manager/Manager';
+import { Block } from '../types/Block/include';
+import { Entity } from '../types/Entity/include';
+import { EmptyTypes } from '../types/include';
+import { Item } from '../types/Item/include';
+import { Sound } from '../types/Sound/include';
 import * as data from "./minecraft data.json";
-import { EmptyTypes } from "../types/Empty";
+
 
 export function AddMinecraftData() {
   let Data = Database.Data;

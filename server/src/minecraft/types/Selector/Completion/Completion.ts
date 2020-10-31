@@ -30,9 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
 import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
-import { InSelector } from "../../include";
 import { Kinds } from "../../Kinds";
-import { GetCurrentAttribute, InScore, IsEditingValue } from "../Selector";
+import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Selector";
 import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 

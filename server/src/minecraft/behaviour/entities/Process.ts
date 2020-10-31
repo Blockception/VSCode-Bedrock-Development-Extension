@@ -31,11 +31,11 @@ import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
-import { Entity } from "../../types/include";
 import { GetFilepath } from "../../../code/Url";
-import { EntityImport, IsProperlyDefined } from "./Entity Import";
 import { EmptyTypes } from "../../types/Empty";
 import { DataReference } from "../../../database/Types/Reference";
+import * as behavior from '../../behaviour/include';
+import { Entity } from '../../types/Entity/include';
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -43,11 +43,11 @@ import { DataReference } from "../../../database/Types/Reference";
  */
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<EntityImport>();
+  let Format = JDoc.CastTo<behavior.entities.Entity>();
 
   let entity: Entity | undefined;
 
-  if (IsProperlyDefined(Format)) {
+  if (behavior.entities.Entity.is(Format)) {
     let mce = Format["minecraft:entity"];
     entity = new Entity();
 

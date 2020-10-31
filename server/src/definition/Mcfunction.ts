@@ -27,37 +27,44 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
-import { GetDocument, getLine } from "../code/include";
-import { McFunctionIdentifier, McOtherIdentifier } from '../Constants';
-import { CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
-import { OnJsonDefinition } from './Json';
-import { OnMcfunctionDefinition } from './Mcfunction';
-import { SearchDefinition } from "./Search";
+import { TypeDefinitionParams, DefinitionParams, Location } from 'vscode-languageserver';
+import { Position, TextDocument } from 'vscode-languageserver-textdocument';
+import { GetDocument, getLine } from '../code/include';
+import { CommandIntr, MCCommandParameterType } from '../minecraft/commands/include';
+import { SearchDefinition } from './Search';
 
-export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[]> {
-  return new Promise<Location[]>((resolve, reject) => {
-    resolve(onDefinition(params));
-  });
-}
+export function OnMcfunctionDefinition(doc : TextDocument, pos : Position): Location[] | undefined {
+  let Line = getLine(doc, pos.line);
 
-export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[]> {
-  return new Promise<Location[]>((resolve, reject) => {
-    resolve(onDefinition(params));
-  });
-}
+  if (Line === "") return undefined;
 
-function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
-  let doc = GetDocument(params.textDocument.uri);
-  let pos = params.position;
+  let Command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
+  let Data = Command.GetCommandData();
 
-  switch (doc.languageId) {
-    case McFunctionIdentifier:
-      return OnMcfunctionDefinition(doc, pos);
+  if (Data.length == 0) return undefined;
 
-    case McOtherIdentifier:
-      return OnJsonDefinition(doc, pos);
+  let PIndex = Command.CursorParamater;
+  let Types: MCCommandParameterType[] = [];
+  let Current = Command.GetCurrent();
+
+  if (Current == undefined) return;
+
+  let Text = Current.text.trim();
+
+  for (let index = 0; index < Data.length; index++) {
+    const pattern = Data[index];
+    const parameters = pattern.Command.parameters;
+
+    if (parameters.length > PIndex) {
+      let par = pattern.Command.parameters[PIndex];
+
+      if (!Types.includes(par.Type)) {
+        Types.push(par.Type);
+      }
+    }
   }
 
-  return undefined;
+  if (Types.length == 0) return undefined;
+
+  return SearchDefinition(Text, Types);
 }

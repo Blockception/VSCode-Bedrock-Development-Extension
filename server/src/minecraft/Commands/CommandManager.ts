@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Manager } from "../../manager/Manager";
 import { IsBoolean } from "../types/Boolean/Boolean";
-import { IsSelector } from "../types/include";
 import { IsJson } from "../types/Json/Json";
+import { IsSelector } from '../types/Selector/include';
 import { CommandInfo } from "./CommandInfo";
 import { CommandIntr } from "./CommandIntr";
 import { MCCommand } from "./MCCommand";

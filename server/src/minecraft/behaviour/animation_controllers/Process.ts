@@ -33,7 +33,7 @@ import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
-import {  } from './Animation Controller';
+import { AnimationController } from './include';
 
   /**
    * Processes the text document as a behaviour entity definition file
@@ -41,7 +41,7 @@ import {  } from './Animation Controller';
    */
   export function Process(doc: TextDocument): void {
     let JDoc = new JsonDocument(doc);
-    let Format = JDoc.CastTo<Behaviourpack.AnimationController>();
+    let Format = JDoc.CastTo<AnimationController>();
 
     if (!AnimationController.is(Format)) return;
 

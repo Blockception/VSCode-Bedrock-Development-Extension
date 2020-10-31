@@ -30,6 +30,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 
-export function ProvideSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
+export function ProvideOtherSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
   return undefined;
 }
