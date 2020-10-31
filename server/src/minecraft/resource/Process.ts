@@ -53,6 +53,9 @@ export function Process(doc: TextDocument): void {
     case DataType.resource_particle:
       return resource.particle.Process(doc);
 
+    case DataType.resource_render_controller:
+      return resource.render_controllers.Process(doc);
+
     case DataType.resource_sounds_definitions:
       return resource.sounds_definitions.Process(doc);
   }
