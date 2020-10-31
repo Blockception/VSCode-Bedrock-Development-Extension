@@ -46,8 +46,8 @@ export function Process(doc: TextDocument): void {
   if (!AnimationController.is(Format)) return;
 
   let Names = Object.getOwnPropertyNames(Format.animation_controllers);
-
-  for (let Name in Names) {
+  for (let Index = 0; Index < Names.length; Index++){
+    const Name = Names[Index];
     let Range = JDoc.GetRangeOfObject(Name);
     let Location: Location = {
       uri: doc.uri,
