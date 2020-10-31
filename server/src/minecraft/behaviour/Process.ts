@@ -57,7 +57,7 @@ export function Process(doc: TextDocument): void {
       return behaviour.items.Process(doc);
 
     case DataType.behaviour_loot_table:
-      
+      return behaviour.loot_table.Process(doc);
   }
 }
 

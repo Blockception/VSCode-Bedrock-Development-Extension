@@ -42,6 +42,8 @@ export function Process(doc: TextDocument): void {
 	let identifier = filepath.slice(index, filepath.length);
 
 	if (identifier !== '') {
-		Database.Data.Behaviourpack.LootTables.Set(new DataReference(identifier, EmptyTypes.EmptyLocation()));
+		let loc = EmptyTypes.EmptyLocation();
+		loc.uri = doc.uri;
+		Database.Data.Behaviourpack.LootTables.Set(new DataReference(identifier, loc));
 	}
 }

@@ -92,7 +92,11 @@ export function DetectGeneralDataType(uri: string): GeneralDataType {
  * @param uri the decoded uri
  */
 function DetectBehaviorType(uri: string): DataType {
+  if (uri.endsWith('.mcfunction')) return DataType.behaviour_function;
+
   //Folders
+  if (uri.includes("/loot_tables/")) return DataType.behaviour_loot_table;
+
   if (uri.includes("/animation_controllers/")) return DataType.behaviour_animation_controller;
 
   if (uri.includes("/animations/")) return DataType.behaviour_animation;
@@ -104,8 +108,6 @@ function DetectBehaviorType(uri: string): DataType {
   if (uri.includes("/functions/")) return DataType.behaviour_function;
 
   if (uri.includes("/items/")) return DataType.behaviour_item;
-
-  if (uri.includes("/loot_tables/")) return DataType.behaviour_loot_table;
 
   if (uri.includes("/scripts/")) return DataType.behaviour_script;
 

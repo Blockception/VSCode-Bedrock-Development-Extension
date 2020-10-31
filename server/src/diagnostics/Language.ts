@@ -27,17 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { PublishDiagnosticsParams } from "vscode-languageserver";
+import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilepath, getLine } from "../code/include";
-import { Manager } from "../manager/Manager";
+import { getLine } from "../code/include";
+import { Database } from '../database/include';
 import { NewError } from "./Functions";
 
 export function provideLanguageDiagnostics(doc: TextDocument) {
-  let Out: PublishDiagnosticsParams = {
-    uri: GetFilepath(doc.uri),
-    diagnostics: [],
-  };
+  let Out: Diagnostic[] = [];
 
   let Keys = new Array<string>(doc.lineCount);
 
@@ -51,7 +48,7 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
 
     if (Line === "" || Line === "\r" || Line === "\r\n" || Line == "") {
       if (CommentIndex > 0) {
-        NewError(Out.diagnostics, I, 0, CommentIndex, "A line cannot be with an identented comment");
+        NewError(Out, I, 0, CommentIndex, "A line cannot be with an identented comment");
       }
 
       continue;
@@ -60,23 +57,23 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
     let Index = Line.indexOf("=");
 
     if (Index < 0) {
-      NewError(Out.diagnostics, I, 0, Line.length, "A translation item needs a '=' to seperate key and value");
+      NewError(Out, I, 0, Line.length, "A translation item needs a '=' to seperate key and value");
     } else {
       const Key = Line.substring(0, Index);
       const KeyIndex = Keys.indexOf(Key);
 
       if (KeyIndex >= 0 && KeyIndex != I) {
-        NewError(Out.diagnostics, I, 0, Key.length, "Duplicate key found at: " + KeyIndex);
-        NewError(Out.diagnostics, KeyIndex, 0, Key.length, "Duplicate key found at: " + I);
+        NewError(Out, I, 0, Key.length, "Duplicate key found at: " + KeyIndex);
+        NewError(Out, KeyIndex, 0, Key.length, "Duplicate key found at: " + I);
       }
 
       Keys[I] = Key;
     }
 
     if (Index >= Line.length) {
-      NewError(Out.diagnostics, I, 0, Line.length, "A value must be atleast lenght of 1 or more");
+      NewError(Out, I, 0, Line.length, "A value must be atleast lenght of 1 or more");
     }
   }
 
-  Manager.Connection.sendDiagnostics(Out);
+  Database.Diagnotics.SetErrors(doc.uri, Out);
 }
