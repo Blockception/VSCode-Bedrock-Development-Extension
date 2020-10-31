@@ -36,6 +36,7 @@ export interface TextRange {
 
 export function GetCurrentElement(Text: string, cursor: number): TextRange | undefined {
 	let StartIndex = -1;
+	let Instring = false;
 
 	for (let Index = cursor; Index > -1; Index--) {
 		const c = Text.charAt(Index);
@@ -45,6 +46,7 @@ export function GetCurrentElement(Text: string, cursor: number): TextRange | und
 				continue;
 			}
 
+			Instring = true;
 			StartIndex = Index + 1;
 			break;
 		}
@@ -69,7 +71,7 @@ export function GetCurrentElement(Text: string, cursor: number): TextRange | und
 			EndIndex = Index;
 			break;
 		}
-		else if (c === ',' || c === ':') {
+		else if (Instring == false && (c === ',' || c === ':')) {
 			EndIndex = Index;
 			break;
 		}
