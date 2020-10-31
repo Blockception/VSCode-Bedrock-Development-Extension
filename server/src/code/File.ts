@@ -33,7 +33,7 @@ import { URI } from "vscode-uri";
 import { Manager } from "../manager/Manager";
 
 export function GetFilename(filepath: string): string {
-  filepath = filepath.replace(/\\/, "//");
+  filepath = filepath.replace(/\\/g, "//");
   let index = filepath.lastIndexOf("/");
 
   if (index > -1) {

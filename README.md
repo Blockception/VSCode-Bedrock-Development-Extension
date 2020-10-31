@@ -74,6 +74,8 @@ For behavior packs, have the files in a folder with the letter `BP` or `bp` in t
   - Recipes
   - Spawn rules
   - Trading
+- [**Skin packs**](./documentation/Json%20Validation.md#skinpacks)
+  - Skins.json
 
 ---
 ### Language files

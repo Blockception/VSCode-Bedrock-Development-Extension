@@ -29,7 +29,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { Range } from "vscode-languageserver-textdocument";
-import { GetFilepath } from "./include";
 import { RangedWord } from "./RangedWords";
 
 export class LocationWord {
@@ -44,7 +43,7 @@ export class LocationWord {
   }
 
   CreateLocation(): Location {
-    return Location.create(GetFilepath(this.uri), this.range);
+    return Location.create(this.uri, this.range);
   }
 
   //returns true or false is the cursor is inside this word

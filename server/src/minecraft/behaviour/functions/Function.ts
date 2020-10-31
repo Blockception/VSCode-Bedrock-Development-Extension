@@ -27,36 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, PublishDiagnosticsParams } from 'vscode-languageserver'
-import { Manager } from '../../manager/Manager';
+export function GetComment(line: string): string {
+	const Index = line.indexOf('#');
 
-export class DiagnosticCollector {
-	private Data: Map<string, Diagnostic[]>;
+	if (Index < 0)
+		return '';
 
-	constructor() {
-		this.Data = new Map<string, Diagnostic[]>();
-	}
-
-	public SetErrors(uri: string, errors: Diagnostic[]): void {
-		this.Data.set(uri, errors);
-		this.sendData(uri, errors);
-	}
-
-	public GetErrors(uri: string): Diagnostic[] | undefined {
-		return this.Data.get(uri);
-	}
-
-	public RemoveFile(uri: string): void {
-		this.Data.delete(uri);
-		this.sendData(uri, []);
-	}
-
-	private sendData(uri: string, errors: Diagnostic[]): void {
-		let Out: PublishDiagnosticsParams = {
-			uri: uri,
-			diagnostics: errors,
-		};
-
-		Manager.Connection.sendDiagnostics(Out);
-	}
+	return line.slice(Index + 1, line.length);
 }

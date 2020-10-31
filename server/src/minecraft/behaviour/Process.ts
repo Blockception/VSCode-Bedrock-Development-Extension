@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetDocuments } from '../../code/include';
+import { GetDocuments, GetFilename } from '../../code/include';
 import { code } from '../../include';
 import { DataType } from "../format/Data Type";
 import { DetectDataType } from "../format/detection";
@@ -36,6 +36,10 @@ import * as behaviour from './include';
 
 export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
+  if (Type === DataType.unknown)
+    return;
+
+  console.log('    Processing behavior pack file: ' + GetFilename(doc.uri));
 
   switch (Type) {
     case DataType.behaviour_animation:

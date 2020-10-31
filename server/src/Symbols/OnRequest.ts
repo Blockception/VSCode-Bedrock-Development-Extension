@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetFilename } from "../code/include";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from "vscode-languageserver";
-import { GetFilepath, UniformUrl } from "../code/Url";
-import { Convert, ConvertAllFile, ConvertQueried } from "./Conversion";
+import { UniformUrl } from "../code/Url";
+import { ConvertAllFile, ConvertQueried } from "./Conversion";
 
 /**
  * The request to provide document symbols, asynchorious
@@ -70,7 +70,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
 
   Out.push({
     kind: SymbolKind.Class,
-    location: Location.create(GetFilepath(uri), Range.create(0, 0, Number.MAX_VALUE, 0)),
+    location: Location.create(uri, Range.create(0, 0, Number.MAX_VALUE, 0)),
     name: GetFilename(uri),
   });
 

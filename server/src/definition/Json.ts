@@ -41,7 +41,30 @@ export function OnJsonDefinition(doc: TextDocument, pos: Position): Location[] |
 
 	const ElementText = Text.slice(ElementRange.start, ElementRange.end).trim();
 
+	if (ElementText === '') {
+		return undefined;
+	}
+
 	let Out: Location[] = [];
+
+	let Index = Text.indexOf(ElementText);
+	const uri = doc.uri;
+
+	while (Index > -1) {
+		if (Index < ElementRange.start || Index > ElementRange.end) {
+			Out.push(
+				{
+					range: {
+						start: doc.positionAt(Index),
+						end: doc.positionAt(Index + ElementText.length)
+					},
+					uri: uri
+				}
+			)
+		}
+
+		Index = Text.indexOf(ElementText, Index + ElementText.length);
+	}
 
 	Database.Data.FindReference(ElementText, Out);
 

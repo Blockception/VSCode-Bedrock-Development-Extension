@@ -29,7 +29,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilepath } from "../../../code/Url";
 import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
@@ -53,7 +52,7 @@ export function Process(doc: TextDocument): void {
 
     const ID = mce.description.identifier;
     item.Identifier = ID;
-    item.Location = Location.create(GetFilepath(doc.uri), EmptyTypes.EmptyRange());
+    item.Location = Location.create(doc.uri, EmptyTypes.EmptyRange());
     item.Documentation.value = "The custom item definition of: " + ID;
 
     Database.Data.Behaviourpack.Items.Set(new DataReference(item.Identifier, item.Location));

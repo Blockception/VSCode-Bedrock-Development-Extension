@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,7 +28,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
+import { getLine } from '../../code/include';
 import { Database } from "../../database/Database";
+import { GetComment } from '../../minecraft/behaviour/functions/Function';
 import { CommandIntr } from "../../minecraft/commands/include";
 import { FakeEntity } from "../../minecraft/types/FakeEntity/FakeEntity";
 import { Objective } from '../../minecraft/types/Objectives/include';
@@ -41,18 +43,19 @@ export function ProcessScoreboardCommand(line: string, lineIndex: number, doc: T
     return;
   }
 
+  let Comment = GetComment(getLine(doc, lineIndex - 1));
   let Mode = Com.Paramaters[1];
 
   switch (Mode.text) {
     case "players":
-      return CheckPlayer(Com);
+      return CheckPlayer(Com, Comment);
 
     case "objectives":
-      return CheckObjective(Com);
+      return CheckObjective(Com, Comment);
   }
 }
 
-function CheckObjective(Com: CommandIntr): void {
+function CheckObjective(Com: CommandIntr, Comment: string): void {
   let ObjectiveMode = Com.Paramaters[2];
 
   if (Com.Paramaters.length < 4) {
@@ -67,17 +70,23 @@ function CheckObjective(Com: CommandIntr): void {
     obj.Identifier = ID.text;
     obj.Type = Type.text;
     obj.Location = ID.CreateLocation();
-    obj.Documentation.value = "The objective: " + ID.text + " " + Type.text;
 
-    if (Com.Paramaters.length > 5) {
-      obj.Documentation.value += " " + Com.Paramaters[5].text.replace(/"/g, "");
+    if (Comment !== '') {
+      obj.Documentation.value = "The objective: " + ID.text + " " + Type.text;
+
+      if (Com.Paramaters.length > 5) {
+        obj.Documentation.value += " " + Com.Paramaters[5].text.replace(/"/g, "");
+      }
+    }
+    else {
+      obj.Documentation.value = Comment;
     }
 
     Database.Data.General.Objectives.Set(obj);
   }
 }
 
-function CheckPlayer(Com: CommandIntr): void {
+function CheckPlayer(Com: CommandIntr, Comment: string): void {
   if (Com.Paramaters.length > 3) {
     let Selector = Com.Paramaters[3];
 
@@ -86,7 +95,14 @@ function CheckPlayer(Com: CommandIntr): void {
 
       FE.Identifier = Selector.text;
       FE.Location = Selector.CreateLocation();
-      FE.Documentation.value = "The fake player: " + FE.Identifier;
+
+      if (Comment !== '') {
+        FE.Documentation.value = "The fake player: " + FE.Identifier;
+      }
+      else {
+        FE.Documentation.value = Comment;
+      }
+
       Database.Data.General.FakeEntities.Set(FE);
     }
   }

@@ -31,7 +31,6 @@ import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
-import { GetFilepath } from "../../../code/Url";
 import { EmptyTypes } from "../../types/Empty";
 import { DataReference } from "../../../database/Types/Reference";
 import * as behavior from '../../behaviour/include';
@@ -54,7 +53,7 @@ export function Process(doc: TextDocument): void {
     const ID = mce.description.identifier;
 
     entity.Identifier = ID;
-    entity.Location = Location.create(GetFilepath(doc.uri), EmptyTypes.EmptyRange());
+    entity.Location = Location.create(doc.uri, EmptyTypes.EmptyRange());
     entity.Documentation.value = "The custom entity definition of: " + ID;
 
     if (mce.events) {

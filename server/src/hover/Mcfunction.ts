@@ -30,7 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
+import { Database, DataCollector } from '../database/include';
 import { CommandIntr, MCCommandParameter, MCCommandParameterType } from "../minecraft/commands/include";
+import { Documentable, Identifiable, Locatable } from '../minecraft/Interfaces/include';
 
 export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): Hover | undefined {
   const pos = params.position;
@@ -48,25 +50,27 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
     if (parameters.length > Index) {
       let p = parameters[Index];
       let T = Command.Paramaters[Index];
-      let r = T.range;
 
-      if (Index == 0) {
-        return { contents: Info.Command.documentation, range: r };
-      } else return GetHoverContent(p, r);
+      if (T) {
+        let r = T.range;
+
+        if (Index == 0) {
+          return { contents: Info.Command.documentation, range: r };
+        } else return GetHoverContent(p, r, T.text);
+      }
     }
   }
 
   return undefined;
 }
 
-function GetHoverContent(parameter: MCCommandParameter, range: Range): Hover | undefined {
+function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: string): Hover | undefined {
   let title = parameter.Text;
   let doc: string = "";
 
   switch (parameter.Type) {
     case MCCommandParameterType.block:
-      doc = "A block identifier";
-      break;
+      return GetDocumentation(Text, range, Database.Data.General.Blocks);
 
     case MCCommandParameterType.boolean:
       doc = "A boolean value (true or false)";
@@ -85,8 +89,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range): Hover | u
       break;
 
     case MCCommandParameterType.entity:
-      doc = "A entity identifier";
-      break;
+      return GetDocumentation(Text, range, Database.Data.General.Entities);
 
     case MCCommandParameterType.event:
       doc = "A event";
@@ -97,8 +100,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range): Hover | u
       break;
 
     case MCCommandParameterType.function:
-      doc = "A function path";
-      break;
+      return GetDocumentation(Text, range, Database.Data.General.Functions);
 
     case MCCommandParameterType.gamemode:
       doc = "A minecraft gamemode";
@@ -129,12 +131,14 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range): Hover | u
       break;
 
     case MCCommandParameterType.objective:
-      doc = "A scoreboard objective";
-      break;
+      return GetDocumentation(Text, range, Database.Data.General.Objectives);
 
     case MCCommandParameterType.operation:
       doc = "A scoreboard math operation";
       break;
+
+    case MCCommandParameterType.particle:
+      return GetDocumentation(Text, range, Database.Data.Resourcepack.Particles);
 
     case MCCommandParameterType.replaceMode:
       doc = "A replace mode";
@@ -157,20 +161,20 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range): Hover | u
       break;
 
     case MCCommandParameterType.sound:
-      doc = "A minecraft sound identifier";
-      break;
+      return GetDocumentation(Text, range, Database.Data.General.Sounds);
 
     case MCCommandParameterType.string:
       doc = "A string";
       break;
 
     case MCCommandParameterType.tag:
-      doc = "A minecraft tag";
-      break;
+      return GetDocumentation(Text, range, Database.Data.General.Tag);
+
+    case MCCommandParameterType.tickingarea:
+      return GetDocumentation(Text, range, Database.Data.General.TickingAreas);
 
     case MCCommandParameterType.target:
-      doc = "A target";
-      break;
+      return GetDocumentation(Text, range, Database.Data.General.FakeEntities);
 
     case MCCommandParameterType.unknown:
       doc = "no idea, I quit";
@@ -182,4 +186,25 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range): Hover | u
   }
 
   return { contents: [title, doc], range: range };
+}
+
+
+function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: DataCollector<T>): Hover | undefined {
+  let Item = Collection.GetFromID(query);
+
+  if (!Item)
+    return undefined;
+
+  if (Documentable.is(Item)) {
+    return {
+      contents: Item.Documentation,
+      range: range
+    };
+  }
+  else {
+    return {
+      contents: Item.Identifier + '\n' + Item.Location.uri,
+      range: range
+    }
+  }
 }

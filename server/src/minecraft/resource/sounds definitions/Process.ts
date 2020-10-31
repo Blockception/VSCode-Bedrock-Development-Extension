@@ -29,7 +29,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilepath } from "../../../code/Url";
 import { Database } from "../../../database/Database";
 import { JsonDocument } from "../../../json/Json Document";
 import { Sound } from "../../types/include";
@@ -45,7 +44,7 @@ export function Process(doc: TextDocument): void {
   if (Format == undefined) return;
 
   let sound_def = Format["sound_definitions"];
-  const uri = GetFilepath(doc.uri);
+  const uri = doc.uri;
   let names: string[];
 
   if (sound_def) {

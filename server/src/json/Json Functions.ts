@@ -37,7 +37,7 @@ export interface TextRange {
 export function GetCurrentElement(Text: string, cursor: number): TextRange | undefined {
 	let StartIndex = -1;
 
-	for (let Index = cursor; Index > -1; Index++) {
+	for (let Index = cursor; Index > -1; Index--) {
 		const c = Text.charAt(Index);
 
 		if (c === '"') {

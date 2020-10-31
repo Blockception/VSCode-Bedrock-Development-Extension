@@ -32,6 +32,8 @@ import { getLine } from "../../../code/include";
 import { Database } from "../../../database/Database";
 import { ProcessScoreboardCommand } from "../../../process/Commands/Scoreboard";
 import { ProcessTagCommand } from "../../../process/Commands/Tag";
+import { McFunction } from '../../types/Functions/include';
+import { GetComment } from './Function';
 
 export function Process(document: TextDocument): void {
   Database.Data.DeleteFile(document.uri);
@@ -43,7 +45,7 @@ export function Process(document: TextDocument): void {
 
     let SpaceIndex = Line.indexOf(" ");
 
-    if (SpaceIndex < 0) return;
+    if (SpaceIndex < 0) continue;
 
     let Command = Line.slice(0, SpaceIndex);
 
@@ -58,5 +60,35 @@ export function Process(document: TextDocument): void {
 
       case "tickingarea":
     }
+  }
+
+  const uri = document.uri;
+  let Index = uri.indexOf('\\functions\\');
+
+  if (Index > -1) {
+    let Identifier = uri.slice(Index + 11, uri.length);
+    Identifier = Identifier.replace(/\\/g, '/');
+    Identifier = Identifier.replace('.mcfunction', '');
+
+    if (Identifier.includes(' ')) {
+      Identifier = '"' + Identifier + '"';
+    }
+
+    let Mcfunction = new McFunction();
+    Mcfunction.Identifier = Identifier;
+    Mcfunction.Location.uri = uri;
+
+    //Get first comment as documentation
+    const FirstLine = getLine(document, 0);
+    const Comment = GetComment(FirstLine).trim();
+
+    if (Comment === '') {
+      Mcfunction.Documentation.value = 'A function without definition, make a comment on the first line to fill this space :D';
+    }
+    else {
+      Mcfunction.Documentation.value = Comment
+    }
+
+    Database.Data.General.Functions.Set(Mcfunction);
   }
 }

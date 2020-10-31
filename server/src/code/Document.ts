@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
 import * as fg from 'fast-glob';
-import { TextDocument } from "vscode-languageserver-textdocument";
+import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../manager/Manager";
 import { JsonIdentifier, McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
-import { UniformUrl } from "./Url";
+import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
 
 /**
@@ -44,7 +44,7 @@ import { fileURLToPath } from "url";
  */
 export function GetDocument(uri: string, Content: string | TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
   let Old = uri;
-  uri = UniformUrl(uri);
+  uri = GetFilepath(UniformUrl(uri));
 
   if (languageID === "") {
     languageID = IdentifyDoc(uri);
@@ -59,7 +59,7 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
 
     if (doc) {
       //Cached document
-      return doc;
+      return new ImpDoc(doc);
     }
 
     //Reading file
@@ -74,7 +74,7 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
   }
   //The interface is provided
   else {
-    return TextDocument.create(uri, languageID, Content.version, Content.getText());
+    return new ImpDoc(Content);
   }
 }
 
@@ -129,4 +129,34 @@ export function GetDocuments(folder: string, pattern: string | string[]): string
   }
 
   return fg.sync(temp, { absolute: true, onlyFiles: true });
+}
+
+
+export class ImpDoc implements TextDocument {
+  private doc: TextDocument;
+
+  readonly uri: string;
+  readonly languageId: string;
+  readonly version: number;
+  readonly lineCount: number;
+
+  getText(range?: Range): string {
+    return this.doc.getText(range);
+  }
+
+  positionAt(offset: number): Position {
+    return this.doc.positionAt(offset);
+  }
+
+  offsetAt(position: Position): number {
+    return this.doc.offsetAt(position);
+  }
+
+  constructor(doc: TextDocument) {
+    this.doc = doc;
+    this.uri = GetFilepath(UniformUrl(doc.uri));
+    this.languageId = doc.languageId;
+    this.lineCount = doc.lineCount;
+    this.version = doc.version;
+  }
 }
