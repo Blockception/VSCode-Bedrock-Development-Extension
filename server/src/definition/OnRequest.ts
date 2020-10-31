@@ -55,8 +55,12 @@ function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location
     case McFunctionIdentifier:
       return OnMcfunctionDefinition(doc, pos);
 
-    case McOtherIdentifier:
+    case 'jsonc':
+    case 'json':
       return OnJsonDefinition(doc, pos);
+
+    case McOtherIdentifier:
+      break;
   }
 
   return undefined;

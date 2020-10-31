@@ -34,7 +34,7 @@ export interface Animation {
 
 export namespace Animation {
   export function is(value: any): value is Animation {
-    if (value.format_version && value.animations) return true;
+    if (value && value.format_version && value.animations) return true;
 
     return false;
   }

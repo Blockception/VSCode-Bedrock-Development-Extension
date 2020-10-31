@@ -29,18 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, PublishDiagnosticsParams, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilepath } from "../code/include";
-import { Manager } from "../manager/Manager";
+import { Database } from '../database/include';
 import { EmptyTypes } from "../minecraft/types/Empty";
 
 export function InvalidJson(doc: TextDocument, error: any): void {
-  let Out: PublishDiagnosticsParams = {
-    uri: GetFilepath(doc.uri),
-    diagnostics: [],
-  };
-
   let Message = "Invalid json";
   let R = EmptyTypes.EmptyRange();
+  let Errors: Diagnostic[] = [];
 
   if (error.message) {
     Message = error.message;
@@ -53,9 +48,9 @@ export function InvalidJson(doc: TextDocument, error: any): void {
     }
   }
 
-  Out.diagnostics.push(Diagnostic.create(R, Message));
-
-  Manager.Connection.sendDiagnostics(Out);
+  Database.Diagnotics.SetErrors(doc.uri, Errors);
 }
 
-export function ValidJson(doc: TextDocument): void {}
+export function ValidJson(doc: TextDocument): void { 
+  Database.Diagnotics.RemoveFile(doc.uri);
+}

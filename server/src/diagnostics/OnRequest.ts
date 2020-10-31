@@ -36,5 +36,9 @@ export function provideDiagnostics(doc: TextDocument) {
     case McLanguageIdentifier:
       provideLanguageDiagnostics(doc);
       break;
+
+    case "jsonc":
+    case "json":
+      break;
   }
 }

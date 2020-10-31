@@ -50,6 +50,10 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
     case McFunctionIdentifier:
       OnCompletionMcFunction(Doc, Pos, List);
       break;
+
+    case 'jsonc':
+    case 'json':
+      break;
   }
 
   List.items = removeDuplicate(List.items);

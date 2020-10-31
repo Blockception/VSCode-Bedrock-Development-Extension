@@ -47,6 +47,10 @@ function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {
       return ProvideMcfunctionsReferences(params, doc);
 
     case McOtherIdentifier:
+      return;
+
+    case "jsonc":
+    case "json":
       return ProvideJsonReferences(params, doc);
   }
 

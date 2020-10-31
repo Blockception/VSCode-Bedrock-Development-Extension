@@ -31,7 +31,7 @@ import * as fs from "fs";
 import * as fg from 'fast-glob';
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../manager/Manager";
-import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
+import { JsonIdentifier, McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
 
@@ -94,6 +94,8 @@ export function IdentifyDoc(uri: string): string {
   if (uri.endsWith(".mcfunction")) return McFunctionIdentifier;
 
   if (uri.endsWith(".lang")) return McLanguageIdentifier;
+
+  if (uri.endsWith('.json')) return JsonIdentifier;
 
   return McOtherIdentifier;
 }

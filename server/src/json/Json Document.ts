@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import * as Code from "../code/include";
+import { InvalidJson, ValidJson } from '../diagnostics/Json';
 
 export class JsonDocument {
   private doc: TextDocument;
@@ -40,12 +41,14 @@ export class JsonDocument {
     this.doc = doc;
   }
 
+  /**Casts the contents of the document to the specified interface*/
   public CastTo<T>(): T | undefined | null {
     let object = this.GetObject();
 
     return <T>object;
   }
 
+  /**Casts the contents of the document to the specified interface, if any errors is occured during that process. that error is returned */
   public CastToError<T>(): { value: T | undefined | null; error: any } {
     let object = this.CastToError();
 
@@ -58,6 +61,7 @@ export class JsonDocument {
     return { value: <T>value, error: undefined };
   }
 
+  /**Retrieves the json object from the given contents. if failed a null or undefined is returned*/
   public GetObject(): any | undefined | null {
     if (this.object === undefined) {
       try {
@@ -68,15 +72,16 @@ export class JsonDocument {
         this.object = object;
       } catch (error) {
         console.log(error);
-        //InvalidJson(this.doc, error);
+        InvalidJson(this.doc, error);
       }
 
-      //ValidJson(this.doc);
+      ValidJson(this.doc);
     }
 
     return this.object;
   }
 
+  /**Retrieves the json object from the given contents. if failed a the error is returned*/
   public GetObjectError(): { value: any | undefined | null; error: any } {
     let err: any = null;
 
@@ -90,21 +95,30 @@ export class JsonDocument {
       } catch (error) {
         err = error;
         console.log(error);
-        //InvalidJson(this.doc, error);
+        InvalidJson(this.doc, error);
       }
 
-      //ValidJson(this.doc);
+      ValidJson(this.doc);
     }
 
     return { value: this.object, error: err };
   }
 
+  /**
+   * Tries to find the range of the given text.
+   * @param Name The name of the property to find,
+   * @param Value The value of the property to find
+   */
   public GetRange(Name: string, Value: string): Range | undefined {
     let RegX = new RegExp('"' + Name + '"s*:s*"' + Value + '"', "m");
 
     return FindReg(this.doc, RegX);
   }
 
+  /**
+   * Tries to find the range of the given property
+   * @param Name The name of the property to find
+   */
   public GetRangeOfObject(Name: string): Range | undefined {
     let RegX = new RegExp('"' + Name + '"s*:', "m");
 
@@ -121,6 +135,11 @@ function stripJSONComments(data: string): string {
   return data.replace(re, "");
 }
 
+/**
+ * Searches the document with a given index and returns the index of that match.
+ * @param doc 
+ * @param search 
+ */
 function FindReg(doc: TextDocument, search: RegExp): Range | undefined {
   let Text = doc.getText();
   let Matches = Text.match(search);
