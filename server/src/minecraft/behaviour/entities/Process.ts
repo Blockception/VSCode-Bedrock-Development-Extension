@@ -61,6 +61,11 @@ export function Process(doc: TextDocument): void {
       entity.Events = EventsNames;
     }
 
+    if (mce.component_groups){
+      let Groups = Object.getOwnPropertyNames(mce.component_groups);
+      entity.ComponentGroups = Groups;
+    }
+
     Database.Data.Behaviourpack.Entities.Set(new DataReference(entity.Identifier, entity.Location));
     Database.Data.General.Entities.Set(entity);
   }

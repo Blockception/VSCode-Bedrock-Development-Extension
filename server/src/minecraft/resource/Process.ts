@@ -47,8 +47,11 @@ export function Process(doc: TextDocument): void {
     case DataType.resource_animation:
       return resource.animations.Process(doc);
 
-    case DataType.behaviour_animation_controller:
+    case DataType.resource_animation_controller:
       return resource.animation_controllers.Process(doc);
+
+    case DataType.resource_particle:
+      return resource.particle.Process(doc);
 
     case DataType.resource_sounds_definitions:
       return resource.sounds_definitions.Process(doc);

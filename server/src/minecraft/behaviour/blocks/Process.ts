@@ -32,6 +32,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
+import { types } from '../../include';
 import { EmptyTypes } from "../../types/Empty";
 import { Block } from './Blocks';
 
@@ -45,7 +46,6 @@ export function Process(doc: TextDocument): void {
 
   if (!Block.is(Format)) return;
 
-
   let Name = Format['minecraft:block'].description.identifier;
   let Range = JDoc.GetRangeOfObject(Name);
   let Location: Location = {
@@ -54,4 +54,9 @@ export function Process(doc: TextDocument): void {
   };
 
   Database.Data.Behaviourpack.Blocks.Set(new DataReference(Name, Location));
+
+  let B = new types.Block.Block();
+  B.Location = Location;
+  B.Identifier = Name;
+  B.Documentation.value = 'The custom block: `' + Name + '`';
 }
