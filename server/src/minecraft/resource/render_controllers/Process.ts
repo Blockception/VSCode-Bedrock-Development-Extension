@@ -33,7 +33,7 @@ import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
-import { Animation } from "./Animation";
+import { RenderController } from './Render Controller';
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -41,11 +41,12 @@ import { Animation } from "./Animation";
  */
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<Animation>();
+  let Format = JDoc.CastTo<RenderController>();
 
-  if (!Animation.is(Format)) return;
+  if (!RenderController.is(Format)) return;
 
-  let Names = Object.getOwnPropertyNames(Format.animations);
+  let Names = Object.getOwnPropertyNames(Format.render_controllers);
+  
   for (let Index = 0; Index < Names.length; Index++) {
     const Name = Names[Index];
     let Range = JDoc.GetRangeOfObject(Name);
@@ -54,6 +55,6 @@ export function Process(doc: TextDocument): void {
       range: Range ?? EmptyTypes.EmptyRange(),
     };
 
-    Database.Data.Resourcepack.Animations.Set(new DataReference(Name, Location));
+    Database.Data.Resourcepack.RenderControllers.Set(new DataReference(Name, Location));
   }
 }

@@ -54,6 +54,6 @@ export function Process(doc: TextDocument): void {
       range: Range ?? EmptyTypes.EmptyRange(),
     };
 
-    Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
+    Database.Data.Resourcepack.AnimationControllers.Set(new DataReference(Name, Location));
   }
 }
