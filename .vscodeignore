@@ -3,6 +3,9 @@ client/src/**
 server/node_modules/**
 server/src/**
 
+minecraft-bedrock-schemas/**
+!minecraft-bedrock-schemas/**/*.json
+
 scripts/*
 node_modules
 node_modules/**
