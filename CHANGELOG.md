@@ -1,4 +1,11 @@
 # Changelog 
+- Moved to own repository
+- Added schema repo
+- Updated
+- Making sure resourcepack data ends up in resourcepack
+- Added render controller parsing
+- auto generated
+- Updated to 1.3.1
 - Fixing undefined handling
 - Fixing json
 - Fixing parsing of animation controllers
@@ -12,10 +19,3 @@
 - Updated contents
 - Refactored
 - Refactoring
-- Refactoring
-- regenerated includes
-- Updated
-- Updated Behaviour pack parsing
-- regenerated
-- Refactoring
-- Regenerated
