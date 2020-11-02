@@ -2,3 +2,4 @@
 export * from "./Function";
 export * from "./Process";
 export * from "./Signature";
+export * from "./Diagnostics";
