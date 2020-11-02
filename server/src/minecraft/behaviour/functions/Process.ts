@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
 import { Database } from "../../../database/Database";
+import { ProcessTickingAreaCommand } from '../../../process/Commands/include';
 import { ProcessScoreboardCommand } from "../../../process/Commands/Scoreboard";
 import { ProcessTagCommand } from "../../../process/Commands/Tag";
 import { McFunction } from "../../types/Functions/include";
@@ -51,14 +52,13 @@ export function Process(document: TextDocument): void {
 
     switch (Command) {
       case "tag":
-        ProcessTagCommand(Line, Index, document);
-        break;
+        return ProcessTagCommand(Line, Index, document);
 
       case "scoreboard":
-        ProcessScoreboardCommand(Line, Index, document);
-        break;
+        return ProcessScoreboardCommand(Line, Index, document);
 
       case "tickingarea":
+        return ProcessTickingAreaCommand(Line, Index, document);
     }
   }
 
