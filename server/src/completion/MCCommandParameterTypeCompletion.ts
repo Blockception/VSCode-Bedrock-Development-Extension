@@ -27,30 +27,29 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { LocationWord } from '../code/include';
-import { Database } from '../database/include';
-import { MCCommandParameter, CommandIntr, MCCommandParameterType } from '../minecraft/commands/include';
-import { ItemComponents, RawText } from '../minecraft/json/include';
-import { provideBlockCompletion } from '../minecraft/types/Block/include';
-import { provideBooleanCompletion } from '../minecraft/types/Boolean/include';
-import { provideCoordinateCompletion } from '../minecraft/types/Coordinate/include';
-import { provideEffectCompletion } from '../minecraft/types/Effect/include';
-import { provideEntityCompletion } from '../minecraft/types/Entity/include';
-import { provideEventCompletion } from '../minecraft/types/Event/include';
-import { provideFloatCompletion } from '../minecraft/types/Float/include';
-import { provideFunctionCompletion } from '../minecraft/types/Functions/include';
-import { provideIntegerCompletion } from '../minecraft/types/Integer/include';
-import { provideItemCompletion } from '../minecraft/types/Item/include';
-import { Kinds } from '../minecraft/types/Kinds';
-import { provideObjectiveCompletion } from '../minecraft/types/Objectives/include';
-import { provideSelectorCompletion } from '../minecraft/types/Selector/Completion/include';
-import { provideSoundCompletion } from '../minecraft/types/Sound/include';
-import { provideTagCompletion } from '../minecraft/types/Tag/include';
-import { provideTickingareaCompletion } from '../minecraft/types/Tickingarea/include';
-import { provideXPCompletion } from '../minecraft/types/Xp/include';
-import { Completion, provideCommandCompletion } from './include';
-
+import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { LocationWord } from "../code/include";
+import { Database } from "../database/include";
+import { MCCommandParameter, CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
+import { ItemComponents, RawText } from "../minecraft/json/include";
+import { provideBlockCompletion } from "../minecraft/types/Block/include";
+import { provideBooleanCompletion } from "../minecraft/types/Boolean/include";
+import { provideCoordinateCompletion } from "../minecraft/types/Coordinate/include";
+import { provideEffectCompletion } from "../minecraft/types/Effect/include";
+import { provideEntityCompletion } from "../minecraft/types/Entity/include";
+import { provideEventCompletion } from "../minecraft/types/Event/include";
+import { provideFloatCompletion } from "../minecraft/types/Float/include";
+import { provideFunctionCompletion } from "../minecraft/types/Functions/include";
+import { provideIntegerCompletion } from "../minecraft/types/Integer/include";
+import { provideItemCompletion } from "../minecraft/types/Item/include";
+import { Kinds } from "../minecraft/types/Kinds";
+import { provideObjectiveCompletion } from "../minecraft/types/Objectives/include";
+import { provideSelectorCompletion } from "../minecraft/types/Selector/Completion/include";
+import { provideSoundCompletion } from "../minecraft/types/Sound/include";
+import { provideTagCompletion } from "../minecraft/types/Tag/include";
+import { provideTickingareaCompletion } from "../minecraft/types/Tickingarea/include";
+import { provideXPCompletion } from "../minecraft/types/Xp/include";
+import { Completion, provideCommandCompletion } from "./include";
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
   let Out: CompletionItem = {

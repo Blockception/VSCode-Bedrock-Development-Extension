@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fs from "fs";
-import * as fg from 'fast-glob';
+import * as fg from "fast-glob";
 import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../manager/Manager";
 import { JsonIdentifier, McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
@@ -95,23 +95,22 @@ export function IdentifyDoc(uri: string): string {
 
   if (uri.endsWith(".lang")) return McLanguageIdentifier;
 
-  if (uri.endsWith('.json')) return JsonIdentifier;
+  if (uri.endsWith(".json")) return JsonIdentifier;
 
   return McOtherIdentifier;
 }
 
 /**
  * Loops over all the given documents
- * @param uris 
- * @param callback 
+ * @param uris
+ * @param callback
  */
 export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void) {
   for (let index = 0; index < uris.length; index++) {
     const element = uris[index];
     let doc = GetDocument(element);
 
-    if (doc)
-      callback(doc);
+    if (doc) callback(doc);
   }
 }
 
@@ -123,14 +122,12 @@ export function GetDocuments(folder: string, pattern: string | string[]): string
       const element = pattern[index];
       temp.push(folder + element);
     }
-  }
-  else {
+  } else {
     temp.push(folder + pattern);
   }
 
   return fg.sync(temp, { absolute: true, onlyFiles: true });
 }
-
 
 export class ImpDoc implements TextDocument {
   private doc: TextDocument;

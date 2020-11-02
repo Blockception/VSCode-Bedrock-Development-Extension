@@ -51,8 +51,8 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
       OnCompletionMcFunction(Doc, Pos, List);
       break;
 
-    case 'jsonc':
-    case 'json':
+    case "jsonc":
+    case "json":
       break;
   }
 

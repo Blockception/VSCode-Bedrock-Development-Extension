@@ -28,15 +28,15 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export interface FormatVersion {
-	format_version: string;
+  format_version: string;
 }
 
 export namespace FormatVersion {
-	export function is(value: any): value is FormatVersion {
-		if (value.format_version) {
-			return true;
-		}
+  export function is(value: any): value is FormatVersion {
+    if (value.format_version) {
+      return true;
+    }
 
-		return false;
-	}
+    return false;
+  }
 }

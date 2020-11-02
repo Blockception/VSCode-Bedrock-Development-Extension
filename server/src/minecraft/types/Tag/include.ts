@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * from './Completion';
-export * from './Tag';
+export * from "./Completion";
+export * from "./Tag";

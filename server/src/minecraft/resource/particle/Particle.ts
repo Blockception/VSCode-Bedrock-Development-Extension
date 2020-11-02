@@ -27,29 +27,31 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { FormatVersion } from '../../Interfaces/FormatVersion';
+import { FormatVersion } from "../../Interfaces/FormatVersion";
 
 export interface Particle extends FormatVersion {
-	particle_effect: {
-		description: {
-			identifier: string
-		},
-		components: object;
-	}
+  particle_effect: {
+    description: {
+      identifier: string;
+    };
+    components: object;
+  };
 }
 
 export namespace Particle {
-	export function is(value: any | undefined): value is Particle {
-		if (value) {
-			if (value.format_version &&
-				value.particle_effect &&
-				value.particle_effect.description &&
-				value.particle_effect.description.identifier &&
-				value.particle_effect.components) {
-				return true;
-			}
-		}
+  export function is(value: any | undefined): value is Particle {
+    if (value) {
+      if (
+        value.format_version &&
+        value.particle_effect &&
+        value.particle_effect.description &&
+        value.particle_effect.description.identifier &&
+        value.particle_effect.components
+      ) {
+        return true;
+      }
+    }
 
-		return false;
-	}
+    return false;
+  }
 }

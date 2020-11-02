@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
 import { GetDocument, getLine } from "../code/include";
-import { McFunctionIdentifier, McOtherIdentifier } from '../Constants';
+import { McFunctionIdentifier, McOtherIdentifier } from "../Constants";
 import { CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
-import { OnJsonDefinition } from './Json';
-import { OnMcfunctionDefinition } from './Mcfunction';
+import { OnJsonDefinition } from "./Json";
+import { OnMcfunctionDefinition } from "./Mcfunction";
 import { SearchDefinition } from "./Search";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[]> {
@@ -55,8 +55,8 @@ function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location
     case McFunctionIdentifier:
       return OnMcfunctionDefinition(doc, pos);
 
-    case 'jsonc':
-    case 'json':
+    case "jsonc":
+    case "json":
       return OnJsonDefinition(doc, pos);
 
     case McOtherIdentifier:

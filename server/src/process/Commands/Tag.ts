@@ -28,9 +28,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from '../../code/include';
+import { getLine } from "../../code/include";
 import { Database } from "../../database/Database";
-import { GetComment } from '../../minecraft/behaviour/functions/Function';
+import { GetComment } from "../../minecraft/behaviour/functions/Function";
 import { CommandIntr } from "../../minecraft/commands/include";
 import { Tag } from "../../minecraft/types/Tag/Tag";
 
@@ -51,10 +51,9 @@ export function ProcessTagCommand(line: string, lineIndex: number, doc: TextDocu
 
   let Comment = GetComment(getLine(doc, lineIndex - 1));
 
-  if (Comment !== '') {
+  if (Comment !== "") {
     Data.Documentation.value = Comment;
-  }
-  else {
+  } else {
     Data.Documentation.value = "The tag: " + tag.text;
   }
 

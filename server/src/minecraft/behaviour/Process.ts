@@ -28,18 +28,17 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetDocuments, GetFilename } from '../../code/include';
-import { code } from '../../include';
+import { GetDocuments, GetFilename } from "../../code/include";
+import { code } from "../../include";
 import { DataType } from "../format/Data Type";
 import { DetectDataType } from "../format/detection";
-import * as behaviour from './include';
+import * as behaviour from "./include";
 
 export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
-  if (Type === DataType.unknown)
-    return;
+  if (Type === DataType.unknown) return;
 
-  console.log('    Processing behavior pack file: ' + GetFilename(doc.uri));
+  console.log("    Processing behavior pack file: " + GetFilename(doc.uri));
 
   switch (Type) {
     case DataType.behaviour_animation:
@@ -67,9 +66,9 @@ export function Process(doc: TextDocument): void {
 
 /**
  * Process the given folder as if it was a behaviour pack
- * @param Folder 
+ * @param Folder
  */
 export function ProcessBehaviourPack(Folder: string): void {
-  console.log('Processing behaviour pack: ' + Folder);
+  console.log("Processing behaviour pack: " + Folder);
   code.ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
 }

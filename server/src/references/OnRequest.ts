@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McOtherIdentifier } from "../Constants";
-import { ProvideJsonReferences } from './Json';
+import { ProvideJsonReferences } from "./Json";
 import { ProvideMcfunctionsReferences } from "./Mcfunction";
 
 export async function OnReferencesRequestAsync(params: ReferenceParams): Promise<Location[]> {

@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
-import { ProvideMcfunctionSignature } from '../minecraft/behaviour/functions/include';
-import { ProvideLanguageSignature } from './Language';
+import { ProvideMcfunctionSignature } from "../minecraft/behaviour/functions/include";
+import { ProvideLanguageSignature } from "./Language";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
   return new Promise<SignatureHelp>((resolve, reject) => {

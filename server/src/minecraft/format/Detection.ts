@@ -92,7 +92,7 @@ export function DetectGeneralDataType(uri: string): GeneralDataType {
  * @param uri the decoded uri
  */
 function DetectBehaviorType(uri: string): DataType {
-  if (uri.endsWith('.mcfunction')) return DataType.behaviour_function;
+  if (uri.endsWith(".mcfunction")) return DataType.behaviour_function;
 
   //Folders
   if (uri.includes("\\loot_tables\\")) return DataType.behaviour_loot_table;

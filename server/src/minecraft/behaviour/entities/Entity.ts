@@ -59,5 +59,3 @@ export namespace Entity {
     return false;
   }
 }
-
-

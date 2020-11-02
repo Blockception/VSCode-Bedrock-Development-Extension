@@ -45,7 +45,7 @@ export namespace Kinds {
     export const Integer: SymbolKind = SymbolKind.Constant;
     export const Item: SymbolKind = SymbolKind.Property;
     export const Objectives: SymbolKind = SymbolKind.Variable;
-    export const Particle : SymbolKind = SymbolKind.Property
+    export const Particle: SymbolKind = SymbolKind.Property;
     export const Selector: SymbolKind = SymbolKind.TypeParameter;
     export const Sound: SymbolKind = SymbolKind.Property;
     export const Tag: SymbolKind = SymbolKind.Property;
@@ -67,7 +67,7 @@ export namespace Kinds {
     export const Integer: CompletionItemKind = CompletionItemKind.Constant;
     export const Item: CompletionItemKind = CompletionItemKind.Property;
     export const Objectives: CompletionItemKind = CompletionItemKind.Variable;
-    export const Particle : CompletionItemKind = CompletionItemKind.Property
+    export const Particle: CompletionItemKind = CompletionItemKind.Property;
     export const Selector: CompletionItemKind = CompletionItemKind.TypeParameter;
     export const Sound: CompletionItemKind = CompletionItemKind.Property;
     export const Tag: CompletionItemKind = CompletionItemKind.Property;

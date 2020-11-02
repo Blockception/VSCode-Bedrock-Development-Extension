@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Manager } from "../../manager/Manager";
 import { IsBoolean } from "../types/Boolean/Boolean";
 import { IsJson } from "../types/Json/Json";
-import { IsSelector } from '../types/Selector/include';
+import { IsSelector } from "../types/Selector/include";
 import { CommandInfo } from "./CommandInfo";
 import { CommandIntr } from "./CommandIntr";
 import { MCCommand } from "./MCCommand";

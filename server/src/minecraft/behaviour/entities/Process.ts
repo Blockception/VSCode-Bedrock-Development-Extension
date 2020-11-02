@@ -33,8 +33,8 @@ import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
 import { EmptyTypes } from "../../types/Empty";
 import { DataReference } from "../../../database/Types/Reference";
-import * as behavior from '../../behaviour/include';
-import { Entity } from '../../types/Entity/include';
+import * as behavior from "../../behaviour/include";
+import { Entity } from "../../types/Entity/include";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -61,7 +61,7 @@ export function Process(doc: TextDocument): void {
       entity.Events = EventsNames;
     }
 
-    if (mce.component_groups){
+    if (mce.component_groups) {
       let Groups = Object.getOwnPropertyNames(mce.component_groups);
       entity.ComponentGroups = Groups;
     }

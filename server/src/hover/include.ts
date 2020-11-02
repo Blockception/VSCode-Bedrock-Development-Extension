@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * from './Mcfunction';
-export * from './OnRequest';
+export * from "./Mcfunction";
+export * from "./OnRequest";

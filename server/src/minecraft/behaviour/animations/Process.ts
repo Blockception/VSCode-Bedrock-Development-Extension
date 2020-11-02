@@ -46,7 +46,7 @@ export function Process(doc: TextDocument): void {
   if (!Animation.is(Format)) return;
 
   let Names = Object.getOwnPropertyNames(Format.animations);
-  for (let Index = 0; Index < Names.length; Index++){
+  for (let Index = 0; Index < Names.length; Index++) {
     const Name = Names[Index];
     let Range = JDoc.GetRangeOfObject(Name);
     let Location: Location = {

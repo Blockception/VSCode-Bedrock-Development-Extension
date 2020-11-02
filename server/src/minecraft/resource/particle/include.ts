@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * from './Particle';
-export * from './Process';
+export * from "./Particle";
+export * from "./Process";

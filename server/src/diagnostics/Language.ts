@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
-import { Database } from '../database/include';
+import { Database } from "../database/include";
 import { NewError } from "./Functions";
 
 export function provideLanguageDiagnostics(doc: TextDocument) {

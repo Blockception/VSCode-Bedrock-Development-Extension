@@ -1,5 +1,5 @@
-import { inflateRaw } from 'zlib';
-import { FormatVersion } from '../../Interfaces/include';
+import { inflateRaw } from "zlib";
+import { FormatVersion } from "../../Interfaces/include";
 
 /*BSD 3-Clause License
 
@@ -31,14 +31,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export interface RenderController extends FormatVersion {
-	render_controllers: object
+  render_controllers: object;
 }
 
 export namespace RenderController {
-	export function is(value: any): value is RenderController {
-		if (value && value.format_version && value.render_controllers)
-			return true;
+  export function is(value: any): value is RenderController {
+    if (value && value.format_version && value.render_controllers) return true;
 
-		return false;
-	}
+    return false;
+  }
 }

@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * from './Diagnostics';
-export * from './Manifest';
+export * from "./Diagnostics";
+export * from "./Manifest";

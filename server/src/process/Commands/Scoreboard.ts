@@ -28,13 +28,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from '../../code/include';
+import { getLine } from "../../code/include";
 import { Database } from "../../database/Database";
-import { GetComment } from '../../minecraft/behaviour/functions/Function';
+import { GetComment } from "../../minecraft/behaviour/functions/Function";
 import { CommandIntr } from "../../minecraft/commands/include";
 import { FakeEntity } from "../../minecraft/types/FakeEntity/FakeEntity";
-import { Objective } from '../../minecraft/types/Objectives/include';
-import { IsFakePlayer } from '../../minecraft/types/Selector/include';
+import { Objective } from "../../minecraft/types/Objectives/include";
+import { IsFakePlayer } from "../../minecraft/types/Selector/include";
 
 export function ProcessScoreboardCommand(line: string, lineIndex: number, doc: TextDocument): void {
   let Com: CommandIntr = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
@@ -71,14 +71,13 @@ function CheckObjective(Com: CommandIntr, Comment: string): void {
     obj.Type = Type.text;
     obj.Location = ID.CreateLocation();
 
-    if (Comment !== '') {
+    if (Comment !== "") {
       obj.Documentation.value = "The objective: " + ID.text + " " + Type.text;
 
       if (Com.Paramaters.length > 5) {
         obj.Documentation.value += " " + Com.Paramaters[5].text.replace(/"/g, "");
       }
-    }
-    else {
+    } else {
       obj.Documentation.value = Comment;
     }
 
@@ -96,10 +95,9 @@ function CheckPlayer(Com: CommandIntr, Comment: string): void {
       FE.Identifier = Selector.text;
       FE.Location = Selector.CreateLocation();
 
-      if (Comment !== '') {
+      if (Comment !== "") {
         FE.Documentation.value = "The fake player: " + FE.Identifier;
-      }
-      else {
+      } else {
         FE.Documentation.value = Comment;
       }
 

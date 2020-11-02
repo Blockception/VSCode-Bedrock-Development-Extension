@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from './ObjectBase';
+export * from "./ObjectBase";

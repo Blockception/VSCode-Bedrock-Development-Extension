@@ -30,9 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
-import { Database, DataCollector } from '../database/include';
+import { Database, DataCollector } from "../database/include";
 import { CommandIntr, MCCommandParameter, MCCommandParameterType } from "../minecraft/commands/include";
-import { Documentable, Identifiable, Locatable } from '../minecraft/Interfaces/include';
+import { Documentable, Identifiable, Locatable } from "../minecraft/Interfaces/include";
 
 export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): Hover | undefined {
   const pos = params.position;
@@ -188,23 +188,20 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
   return { contents: [title, doc], range: range };
 }
 
-
 function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: DataCollector<T>): Hover | undefined {
   let Item = Collection.GetFromID(query);
 
-  if (!Item)
-    return undefined;
+  if (!Item) return undefined;
 
   if (Documentable.is(Item)) {
     return {
       contents: Item.Documentation,
-      range: range
+      range: range,
     };
-  }
-  else {
+  } else {
     return {
-      contents: Item.Identifier + '\n' + Item.Location.uri,
-      range: range
-    }
+      contents: Item.Identifier + "\n" + Item.Location.uri,
+      range: range,
+    };
   }
 }

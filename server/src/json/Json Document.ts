@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import * as Code from "../code/include";
-import { InvalidJson, ValidJson } from '../diagnostics/Json';
+import { InvalidJson, ValidJson } from "../diagnostics/Json";
 
 export class JsonDocument {
   private doc: TextDocument;
@@ -137,8 +137,8 @@ function stripJSONComments(data: string): string {
 
 /**
  * Searches the document with a given index and returns the index of that match.
- * @param doc 
- * @param search 
+ * @param doc
+ * @param search
  */
 function FindReg(doc: TextDocument, search: RegExp): Range | undefined {
   let Text = doc.getText();

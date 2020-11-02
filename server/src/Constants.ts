@@ -32,8 +32,8 @@ export const McOtherIdentifier: string = "bc-minecraft-Other";
 export const McLanguageIdentifier: string = "bc-minecraft-language";
 
 export const SettingsConfigurationIdentifier: string = "BC-MC-LanguageServer";
-export const JsonIdentifier : string = 'json';
-export const JsonCIdentifier : string = 'jsonc';
+export const JsonIdentifier: string = "json";
+export const JsonCIdentifier: string = "jsonc";
 
 //Commands
 export const McImportErrorsCommandID: string = "bc.minecraft.errors.import";

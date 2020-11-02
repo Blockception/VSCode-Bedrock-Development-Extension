@@ -27,24 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { Database } from '../../../database/include';
-import { DataReference } from '../../../database/Types/include';
-import { EmptyTypes } from '../../types/Empty';
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { Database } from "../../../database/include";
+import { DataReference } from "../../../database/Types/include";
+import { EmptyTypes } from "../../types/Empty";
 
 export function Process(doc: TextDocument): void {
-	let filepath = decodeURI(doc.uri);
+  let filepath = decodeURI(doc.uri);
 
-	let index = filepath.indexOf('loot_tables');
+  let index = filepath.indexOf("loot_tables");
 
-	if (index < 0) { return; }
+  if (index < 0) {
+    return;
+  }
 
-	let identifier = filepath.slice(index, filepath.length);
-	identifier = identifier.replace(/\\/g, '/');
+  let identifier = filepath.slice(index, filepath.length);
+  identifier = identifier.replace(/\\/g, "/");
 
-	if (identifier !== '') {
-		let loc = EmptyTypes.EmptyLocation();
-		loc.uri = doc.uri;
-		Database.Data.Behaviourpack.LootTables.Set(new DataReference(identifier, loc));
-	}
+  if (identifier !== "") {
+    let loc = EmptyTypes.EmptyLocation();
+    loc.uri = doc.uri;
+    Database.Data.Behaviourpack.LootTables.Set(new DataReference(identifier, loc));
+  }
 }

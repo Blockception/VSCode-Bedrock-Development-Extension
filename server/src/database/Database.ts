@@ -27,24 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic } from 'vscode-languageserver';
+import { Diagnostic } from "vscode-languageserver";
 import { CollectedData } from "./Types/CollectedData";
-import { DiagnosticCollector } from './Types/DiagnoticsCollector';
+import { DiagnosticCollector } from "./Types/DiagnoticsCollector";
 import { MinecraftProgramData } from "./Types/MinecraftProgramData";
 
 export class Database {
-   /**
-    * The collected data from any processing
-    */
-   static Data = new CollectedData();
+  /**
+   * The collected data from any processing
+   */
+  static Data = new CollectedData();
 
-   /**
-    *
-    */
-   static MinecraftProgramData: MinecraftProgramData = new MinecraftProgramData();
+  /**
+   *
+   */
+  static MinecraftProgramData: MinecraftProgramData = new MinecraftProgramData();
 
-   /**
-    * 
-    */
-   static Diagnotics = new DiagnosticCollector();
+  /**
+   *
+   */
+  static Diagnotics = new DiagnosticCollector();
 }

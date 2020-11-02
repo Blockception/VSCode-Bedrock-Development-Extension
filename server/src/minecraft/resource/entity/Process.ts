@@ -27,26 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { Database } from '../../../database/include';
-import { DataReference } from '../../../database/Types/include';
-import { JsonDocument } from '../../../json/include';
-import { types } from '../../include';
-import { EmptyTypes } from '../../types/Empty';
-import { Entity } from './Entity';
+import { Location } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { Database } from "../../../database/include";
+import { DataReference } from "../../../database/Types/include";
+import { JsonDocument } from "../../../json/include";
+import { types } from "../../include";
+import { EmptyTypes } from "../../types/Empty";
+import { Entity } from "./Entity";
 
 export function Process(doc: TextDocument): void {
-	let JDoc = new JsonDocument(doc);
-	let Format = JDoc.CastTo<Entity>();
+  let JDoc = new JsonDocument(doc);
+  let Format = JDoc.CastTo<Entity>();
 
-	if (Entity.is(Format)) {
-		let Identifier = Format['minecraft:client_entity'].description.identifier;
-		let Location: Location = {
-			range: EmptyTypes.EmptyRange(),
-			uri: doc.uri
-		};
+  if (Entity.is(Format)) {
+    let Identifier = Format["minecraft:client_entity"].description.identifier;
+    let Location: Location = {
+      range: EmptyTypes.EmptyRange(),
+      uri: doc.uri,
+    };
 
-		Database.Data.Resourcepack.Entities.Set(new DataReference(Identifier, Location));
-	}
+    Database.Data.Resourcepack.Entities.Set(new DataReference(Identifier, Location));
+  }
 }

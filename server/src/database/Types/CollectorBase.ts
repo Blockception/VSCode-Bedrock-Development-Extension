@@ -32,7 +32,7 @@ import { ReferenceFinder } from "../Interface/ReferenceFinder";
 
 export class CollectorBase implements DataCollectorIO, ReferenceFinder {
   FindReference(query: string, receiver: any[]): void {
-    for (let [key, property] of Object.entries(this)){
+    for (let [key, property] of Object.entries(this)) {
       if (ReferenceFinder.is(property)) {
         property.FindReference(query, receiver);
       }

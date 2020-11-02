@@ -49,7 +49,7 @@ export function Process(document: TextDocument): void {
 
     case McOtherIdentifier:
       break;
-      
+
     case "jsonc":
     case "json":
       Json.ProcessJson(document);

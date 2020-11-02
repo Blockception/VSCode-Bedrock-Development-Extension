@@ -28,11 +28,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetDocuments, GetFilename } from '../../code/include';
-import { code } from '../../include';
+import { GetDocuments, GetFilename } from "../../code/include";
+import { code } from "../../include";
 import { DataType } from "../format/Data Type";
 import { DetectDataType } from "../format/detection";
-import { resource } from '../include';
+import { resource } from "../include";
 
 export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
@@ -41,7 +41,7 @@ export function Process(doc: TextDocument): void {
     return;
   }
 
-  console.log('    Processing resource pack file: ' + GetFilename(doc.uri));
+  console.log("    Processing resource pack file: " + GetFilename(doc.uri));
 
   switch (Type) {
     case DataType.resource_animation:
@@ -62,6 +62,6 @@ export function Process(doc: TextDocument): void {
 }
 
 export function ProcessResourcePack(Folder: string): void {
-  console.log('Processing resource pack: ' + Folder);
+  console.log("Processing resource pack: " + Folder);
   code.ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
 }

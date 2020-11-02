@@ -79,7 +79,7 @@ function CheckStructure(folders: WorkspaceFolder[] | null): ProjectData | undefi
     if (!dir.endsWith("\\")) dir += "\\";
 
     dir = dir.replace(/\\/g, "/");
-    dirs[I] = dir + "**/manifest.json"
+    dirs[I] = dir + "**/manifest.json";
   }
 
   const entries = fg.sync(dirs, { absolute: true, onlyFiles: true });

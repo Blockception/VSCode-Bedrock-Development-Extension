@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocumentChangeEvent } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetDocument } from "../../code/include";
-import { Process } from '../../process/Process';
+import { Process } from "../../process/Process";
 
 export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
   return new Promise((resolve, reject) => {

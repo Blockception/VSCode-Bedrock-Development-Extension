@@ -29,46 +29,46 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export interface TextComponent {
-	text: string;
+  text: string;
 }
 
 export namespace TextComponent {
-	export function is(value: any): value is TextComponent {
-		if (value && value.text) {
-			return true;
-		}
+  export function is(value: any): value is TextComponent {
+    if (value && value.text) {
+      return true;
+    }
 
-		return false;
-	}
+    return false;
+  }
 }
 
 export interface TranslateComponent {
-	translate: string;
-	with: string[] | RawText | undefined;
+  translate: string;
+  with: string[] | RawText | undefined;
 }
 
 export namespace TranslateComponent {
-	export function is(value: any): value is TranslateComponent {
-		if (value && value.translate) {
-			return true;
-		}
+  export function is(value: any): value is TranslateComponent {
+    if (value && value.translate) {
+      return true;
+    }
 
-		return false;
-	}
+    return false;
+  }
 }
 
-export type RawTextComponent = TextComponent | TranslateComponent | string
+export type RawTextComponent = TextComponent | TranslateComponent | string;
 
 export interface RawText {
-	rawtext: RawTextComponent[];
+  rawtext: RawTextComponent[];
 }
 
 export namespace RawText {
-	export function is(value: any): value is RawText {
-		if (value && value.rawtext) {
-			return true;
-		}
+  export function is(value: any): value is RawText {
+    if (value && value.rawtext) {
+      return true;
+    }
 
-		return false;
-	}
+    return false;
+  }
 }

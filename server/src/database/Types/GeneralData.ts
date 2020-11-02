@@ -27,16 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Block } from '../../minecraft/types/Block/include';
-import { Effect } from '../../minecraft/types/Effect/include';
-import { Entity } from '../../minecraft/types/Entity/include';
+import { Block } from "../../minecraft/types/Block/include";
+import { Effect } from "../../minecraft/types/Effect/include";
+import { Entity } from "../../minecraft/types/Entity/include";
 import { FakeEntity } from "../../minecraft/types/FakeEntity/FakeEntity";
 import { McFunction } from "../../minecraft/types/Functions/Function";
 import { Item } from "../../minecraft/types/Item/Item";
-import { Objective } from '../../minecraft/types/Objectives/include';
-import { Sound } from '../../minecraft/types/Sound/include';
+import { Objective } from "../../minecraft/types/Objectives/include";
+import { Sound } from "../../minecraft/types/Sound/include";
 import { Tag } from "../../minecraft/types/Tag/Tag";
-import { Tickingarea } from '../../minecraft/types/Tickingarea/include';
+import { Tickingarea } from "../../minecraft/types/Tickingarea/include";
 import { DataCollector } from "../DataCollector";
 import { CollectorBase } from "./CollectorBase";
 

@@ -27,44 +27,40 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, Range, ReferenceParams } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { Database } from '../database/include';
-import { json } from '../include';
-
+import { Location, Range, ReferenceParams } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { Database } from "../database/include";
+import { json } from "../include";
 
 export function ProvideJsonReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
-	let pos = params.position;
+  let pos = params.position;
 
-	const Text = doc.getText();
-	let ElementRange = json.GetCurrentElement(Text, doc.offsetAt(pos));
+  const Text = doc.getText();
+  let ElementRange = json.GetCurrentElement(Text, doc.offsetAt(pos));
 
-	if (!ElementRange)
-		return undefined;
+  if (!ElementRange) return undefined;
 
-	const ElementText = Text.slice(ElementRange.start, ElementRange.end).trim();
+  const ElementText = Text.slice(ElementRange.start, ElementRange.end).trim();
 
-	let Index = Text.indexOf(ElementText);
-	let Out: Location[] = [];
-	const uri = doc.uri;
+  let Index = Text.indexOf(ElementText);
+  let Out: Location[] = [];
+  const uri = doc.uri;
 
-	while (Index > -1) {
-		if (Index < ElementRange.start || Index > ElementRange.end) {
-			Out.push(
-				{
-					range: {
-						start: doc.positionAt(Index),
-						end: doc.positionAt(Index + ElementText.length)
-					},
-					uri: uri
-				}
-			)
-		}
+  while (Index > -1) {
+    if (Index < ElementRange.start || Index > ElementRange.end) {
+      Out.push({
+        range: {
+          start: doc.positionAt(Index),
+          end: doc.positionAt(Index + ElementText.length),
+        },
+        uri: uri,
+      });
+    }
 
-		Index = Text.indexOf(ElementText, Index + ElementText.length);
-	}
+    Index = Text.indexOf(ElementText, Index + ElementText.length);
+  }
 
-	Database.Data.FindReference(ElementText, Out);
+  Database.Data.FindReference(ElementText, Out);
 
-	return Out;
+  return Out;
 }

@@ -33,27 +33,27 @@ import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
-import { AnimationController } from './include';
+import { AnimationController } from "./include";
 
-  /**
-   * Processes the text document as a behaviour entity definition file
-   * @param doc The document to parse
-   */
-  export function Process(doc: TextDocument): void {
-    let JDoc = new JsonDocument(doc);
-    let Format = JDoc.CastTo<AnimationController>();
+/**
+ * Processes the text document as a behaviour entity definition file
+ * @param doc The document to parse
+ */
+export function Process(doc: TextDocument): void {
+  let JDoc = new JsonDocument(doc);
+  let Format = JDoc.CastTo<AnimationController>();
 
-    if (!AnimationController.is(Format)) return;
+  if (!AnimationController.is(Format)) return;
 
-    let Names = Object.getOwnPropertyNames(Format.animation_controllers);
-    for (let Index = 0; Index < Names.length; Index++){
-      const Name = Names[Index];
-      let Range = JDoc.GetRangeOfObject(Name);
-      let Location: Location = {
-        uri: doc.uri,
-        range: Range ?? EmptyTypes.EmptyRange(),
-      };
+  let Names = Object.getOwnPropertyNames(Format.animation_controllers);
+  for (let Index = 0; Index < Names.length; Index++) {
+    const Name = Names[Index];
+    let Range = JDoc.GetRangeOfObject(Name);
+    let Location: Location = {
+      uri: doc.uri,
+      range: Range ?? EmptyTypes.EmptyRange(),
+    };
 
-      Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
-    }
+    Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
   }
+}

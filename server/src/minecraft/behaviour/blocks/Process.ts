@@ -32,9 +32,9 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
-import { types } from '../../include';
+import { types } from "../../include";
 import { EmptyTypes } from "../../types/Empty";
-import { Block } from './Blocks';
+import { Block } from "./Blocks";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -46,7 +46,7 @@ export function Process(doc: TextDocument): void {
 
   if (!Block.is(Format)) return;
 
-  let Name = Format['minecraft:block'].description.identifier;
+  let Name = Format["minecraft:block"].description.identifier;
   let Range = JDoc.GetRangeOfObject(Name);
   let Location: Location = {
     uri: doc.uri,
@@ -58,5 +58,5 @@ export function Process(doc: TextDocument): void {
   let B = new types.Block.Block();
   B.Location = Location;
   B.Identifier = Name;
-  B.Documentation.value = 'The custom block: `' + Name + '`';
+  B.Documentation.value = "The custom block: `" + Name + "`";
 }

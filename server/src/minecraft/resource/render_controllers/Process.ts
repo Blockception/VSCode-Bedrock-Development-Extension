@@ -33,7 +33,7 @@ import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
 import { EmptyTypes } from "../../types/Empty";
-import { RenderController } from './Render Controller';
+import { RenderController } from "./Render Controller";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -46,7 +46,7 @@ export function Process(doc: TextDocument): void {
   if (!RenderController.is(Format)) return;
 
   let Names = Object.getOwnPropertyNames(Format.render_controllers);
-  
+
   for (let Index = 0; Index < Names.length; Index++) {
     const Name = Names[Index];
     let Range = JDoc.GetRangeOfObject(Name);
