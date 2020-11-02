@@ -27,92 +27,86 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { Database } from '../../database/include';
-import { CommandIntr } from '../../minecraft/commands/include';
-import { Tickingarea } from '../../minecraft/types/Tickingarea/include';
+import { Location } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { Database } from "../../database/include";
+import { CommandIntr } from "../../minecraft/commands/include";
+import { Tickingarea } from "../../minecraft/types/Tickingarea/include";
 
 export function ProcessTickingAreaCommand(line: string, lineIndex: number, doc: TextDocument): void {
-	if (!line.startsWith('tickingarea add'))
-		return;
+  if (!line.startsWith("tickingarea add")) return;
 
-	let Command = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
+  let Command = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
 
-	if (line.startsWith('tickingarea add circle')) {
-		ProcessCircleCommand(Command);
-	}
-	else{
-		ProcessBoxCommand(Command);
-	}
+  if (line.startsWith("tickingarea add circle")) {
+    ProcessCircleCommand(Command);
+  } else {
+    ProcessBoxCommand(Command);
+  }
 }
 
 function ProcessCircleCommand(Command: CommandIntr): void {
-	//Tickingarea add circle <x> <y> <z> <r> [name]
-	const Parameters = Command.Paramaters;
+  //Tickingarea add circle <x> <y> <z> <r> [name]
+  const Parameters = Command.Paramaters;
 
-	if (Parameters.length < 7)
-		return;
+  if (Parameters.length < 7) return;
 
-	let Area = 'x: ' + Parameters[3].text + 'y: ' + Parameters[4].text + 'z: ' + Parameters[5].text + '; radius: ' + Parameters[6].text;
-	let Name = '';
-	const uri = Command.Paramaters[0].uri;
+  let Area = "x: " + Parameters[3].text + "y: " + Parameters[4].text + "z: " + Parameters[5].text + "; radius: " + Parameters[6].text;
+  let Name = "";
+  const uri = Command.Paramaters[0].uri;
 
-	let Location: Location;
+  let Location: Location;
 
-	if (Parameters.length > 7) {
-		Name = Parameters[7].text;
-		Location = Parameters[7].CreateLocation();
-	}
-	else {
-		Location = {
-			uri: uri,
-			range: {
-				start: Parameters[3].range.start,
-				end: Parameters[6].range.end
-			}
-		}
-	}
+  if (Parameters.length > 7) {
+    Name = Parameters[7].text;
+    Location = Parameters[7].CreateLocation();
+  } else {
+    Location = {
+      uri: uri,
+      range: {
+        start: Parameters[3].range.start,
+        end: Parameters[6].range.end,
+      },
+    };
+  }
 
-	Create(Location, Name, 'The circular tickingarea: "' + Name + '"; ' + Area);
+  Create(Location, Name, 'The circular tickingarea: "' + Name + '"; ' + Area);
 }
 
 function ProcessBoxCommand(Command: CommandIntr): void {
-	//Tickingarea add <x> <y> <z> <x> <y> <z> [name]
-	const Parameters = Command.Paramaters;
+  //Tickingarea add <x> <y> <z> <x> <y> <z> [name]
+  const Parameters = Command.Paramaters;
 
-	if (Parameters.length < 8)
-		return;
+  if (Parameters.length < 8) return;
 
-	let Area = 'x: ' + Parameters[2].text + 'y: ' + Parameters[3].text + 'z: ' + Parameters[4].text + ';';
-	Area += 'x: ' + Parameters[5].text + 'y: ' + Parameters[6].text + 'z: ' + Parameters[7].text + ';';
-	let Name = '';
-	const uri = Command.Paramaters[0].uri;
+  let Area = "x: " + Parameters[2].text + "y: " + Parameters[3].text + "z: " + Parameters[4].text + ";";
+  Area += "x: " + Parameters[5].text + "y: " + Parameters[6].text + "z: " + Parameters[7].text + ";";
+  let Name = "";
+  const uri = Command.Paramaters[0].uri;
 
-	let Location: Location;
+  let Location: Location;
 
-	if (Parameters.length > 8) {
-		Name = Parameters[8].text;
-		Location = Parameters[8].CreateLocation();
-	}
-	else {
-		Location = {
-			uri: uri,
-			range: {
-				start: Parameters[2].range.start,
-				end: Parameters[7].range.end
-			}
-		}
-	}
+  if (Parameters.length > 8) {
+    Name = Parameters[8].text;
+    Location = Parameters[8].CreateLocation();
+  } else {
+    Location = {
+      uri: uri,
+      range: {
+        start: Parameters[2].range.start,
+        end: Parameters[7].range.end,
+      },
+    };
+  }
 
-	Create(Location, Name, 'The box tickingarea: "' + Name + '"; ' + Area);
+  Create(Location, Name, 'The box tickingarea: "' + Name + '"; ' + Area);
 }
 
 function Create(Loc: Location, Name: string, Doc: string): void {
-	let Ta = new Tickingarea();
-	Ta.Location = Loc;
-	Ta.Identifier = Name;
-	Ta.Documentation.value = Doc;
+  let Ta = new Tickingarea();
+  Ta.Location = Loc;
+  Ta.Identifier = Name;
+  Ta.Documentation.value = Doc;
 
-	Database.Data.General.TickingAreas.Set(Ta);
+  Database.Data.General.TickingAreas.Set(Ta);
 }

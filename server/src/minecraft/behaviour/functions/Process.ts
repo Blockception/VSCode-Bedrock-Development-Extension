@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
 import { Database } from "../../../database/Database";
-import { ProcessTickingAreaCommand } from '../../../process/Commands/include';
+import { ProcessTickingAreaCommand } from "../../../process/Commands/include";
 import { ProcessScoreboardCommand } from "../../../process/Commands/Scoreboard";
 import { ProcessTagCommand } from "../../../process/Commands/Tag";
 import { McFunction } from "../../types/Functions/include";
