@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../manager/Manager";
+import { Progress } from '../progress/Progress';
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {
@@ -70,12 +71,15 @@ function onInitialize(params: InitializeParams): InitializeResult {
       },
 
       // Tell the client that this server supports go to references
-      referencesProvider: true,
+      referencesProvider: {
+        workDoneProgress: true
+      },
 
       // Tell the client that this server supports signatures
       signatureHelpProvider: {
         triggerCharacters: [" "],
         retriggerCharacters: [" ", "\t"],
+        workDoneProgress: true
       },
 
       workspace: {
@@ -86,7 +90,7 @@ function onInitialize(params: InitializeParams): InitializeResult {
       },
     },
     serverInfo: {
-      name: "BC-minecraft-language-server",
+      name: "BC-minecraft-language-server"
     },
   };
 

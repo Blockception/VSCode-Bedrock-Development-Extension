@@ -27,49 +27,127 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ProgressType, WorkDoneProgressParams } from "vscode-languageserver";
-import { Manager } from "../manager/Manager";
+import { WorkDoneProgressParams } from 'vscode-languageserver';
+import { WorkDoneProgress } from 'vscode-languageserver/lib/progress';
+import { Manager } from '../manager/Manager';
 
-export interface ProgressHandler {
-  sendProgress(value: number): void;
-}
+export class ProgressHandler {
+	private Title: string;
+	private value: number;
+	private max: number;
+	private reporter: WorkDoneProgress | undefined;
+	private _done: boolean;
 
-class TokenProgressHandler implements ProgressHandler {
-  readonly token: string | number;
+	constructor(Title: string, value: number = 0, max: number = 1, reporter: WorkDoneProgress | undefined = undefined) {
+		this._done = false;
+		this.Title = Title;
+		this.value = value;
+		this.max = max;
 
-  constructor(token: string | number) {
-    this.token = token;
-  }
+		this.setup(reporter);
+	}
 
-  sendProgress(value: number): void {
-    Manager.Connection.sendProgress(new ProgressType<number>(), this.token, value);
-  }
-}
+	/**
+	 * Returns true if the connection has been made
+	 */
+	public IsSetup(): boolean {
+		return this.reporter !== undefined;
+	}
 
-class EmptyProgressHandler implements ProgressHandler {
-  constructor() {}
+	/**
+	 * 
+	 */
+	public IsCanceled(): boolean {
+		return this.reporter?.token.isCancellationRequested ?? false;
+	}
 
-  sendProgress(value: number): void {}
+	/**
+	 * 
+	 * @param value 
+	 * @param update wheter or not to send an update to the client, default = true;
+	 */
+	public setProgress(value: number, update: boolean = true): void {
+		this.value = value;
+
+		if (update) this.update();
+	}
+
+	/**
+	 * 
+	 * @param value 
+	 * @param update 
+	 */
+	public addProgress(value: number, update: boolean = true): void {
+		this.value += value;
+
+		if (update) this.update();
+	}
+
+	/**
+	 * Sets the maximum value fo the progress
+	 * @param value 
+	 * @param update 
+	 */
+	public setMax(value: number, update: boolean = false): void {
+		this.max = value;
+
+		if (update) this.update();
+	}
+
+	/**
+	 * 
+	 * @param value 
+	 * @param update 
+	 */
+	public addMax(value: number, update: boolean = false): void {
+		this.max += value;
+
+		if (update) this.update();
+	}
+
+	/**
+	 * Updates the given values back to the client
+	 */
+	public update() {
+		this.reporter?.report(this.value / this.max);
+	}
+
+	/**
+	 * Marks the progress as done
+	 */
+	public done() {
+		this.reporter?.done();
+		this._done = true;
+		this.reporter = undefined;
+	}
+
+	/**
+	 * setups the connection
+	 */
+	private setup(reporter: WorkDoneProgress | undefined) {
+		if (reporter === undefined) {
+			//has to request a token
+			Manager.Connection.window.createWorkDoneProgress().then(x => {
+				if (this._done) {
+					x.done();
+				}
+				else {
+					this.reporter = x;
+					this.reporter.begin(this.Title, this.value / this.max);
+				}
+			});
+
+			return;
+		}
+
+		this.reporter = reporter;
+		this.reporter.begin(this.Title, this.value / this.max);
+	}
 }
 
 export namespace ProgressHandler {
-  export function create(token: string | number | undefined | WorkDoneProgressParams): ProgressHandler {
-    if (token) {
-      if (typeof token === "string" || typeof token === "number") {
-        return new TokenProgressHandler(token);
-      }
-
-      if (token.workDoneToken) {
-        token = token.workDoneToken;
-
-        if (token) {
-          if (typeof token === "string" || typeof token === "number") {
-            return new TokenProgressHandler(token);
-          }
-        }
-      }
-    }
-
-    return new EmptyProgressHandler();
-  }
+	export function Attach(token: WorkDoneProgressParams, Title: string, value: number = 0, max: number = 1): ProgressHandler {
+		let reporter = Manager.Connection.window.attachWorkDoneProgress(token.workDoneToken);
+		return new ProgressHandler(Title, value, max, reporter);
+	}
 }
