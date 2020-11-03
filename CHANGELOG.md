@@ -1,4 +1,15 @@
 # Changelog 
+- auto: generated includes
+- auto: Formatted typescript files files
+- Setting up diagnostics
+- Adding tickingarea parsing
+- removed lint
+- Updating formatting script
+- Formatted workspace
+- Updated submodule
+- Updated json validation paths
+- Updated bedrock schemas
+- Updated
 - Moved to own repository
 - Added schema repo
 - Updated
@@ -8,14 +19,3 @@
 - Updated to 1.3.1
 - Fixing undefined handling
 - Fixing json
-- Fixing parsing of animation controllers
-- Fixing compile errors
-- fixed animation controller specification
-- Add particle configuration
-- Added resource pack parsing
-- Added particle parsing
-- Regenerated
-- Updated
-- Updated contents
-- Refactored
-- Refactoring
