@@ -5,4 +5,4 @@ git add **/*.json
 git commit -m "auto: Formatted json files"
 npx prettier --write "**/*.ts" --config ./scripts/typescript.prettierrc.json
 git add **/*.ts
-git commit -m "auto: Formatted typescript files files"
+git commit -m "auto: Formatted typescript files"

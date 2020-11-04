@@ -1,4 +1,8 @@
 # Changelog 
+- auto: Formatted typescript files
+- Updating json raw text and item components for completion
+- Updated
+- Updated to 1.3.3
 - auto: generated includes
 - auto: Formatted typescript files files
 - Setting up diagnostics
@@ -15,7 +19,3 @@
 - Updated
 - Making sure resourcepack data ends up in resourcepack
 - Added render controller parsing
-- auto generated
-- Updated to 1.3.1
-- Fixing undefined handling
-- Fixing json
