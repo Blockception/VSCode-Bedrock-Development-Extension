@@ -31,6 +31,7 @@ import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscod
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
 import { CommandIntr, IsInSubCommand, CommandInfo, MCCommand, MCCommandParameterType } from "../../commands/include";
+import { RawText } from '../../json/include';
 
 export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
   let Line = getLine(doc, pos.line);
@@ -107,6 +108,11 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
 }
 
 function CreateParameter(label: string, kind: MCCommandParameterType): ParameterInformation {
+  switch (kind) {
+    case MCCommandParameterType.jsonRawText:
+      return RawText.provideParameterInformation();
+  }
+
   let documentation = label;
   let Temp: ParameterInformation = { label: label, documentation: { kind: "markdown", value: documentation } };
 

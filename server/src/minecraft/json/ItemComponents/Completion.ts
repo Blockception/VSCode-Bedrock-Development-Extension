@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,12 +28,51 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
+import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from './Constants';
 
 export function Completion(receiver: CompletionItem[]): void {
-  receiver.push({
-    label: "Json Item Components",
-    kind: CompletionItemKind.Snippet,
-    insertText:
-      '{ "minecraft:can_destroy": { "blocks": [ "grass" ] }, "minecraft:can_place_on": { "blocks": [ "grass" ] }, "minecraft:lock_in_inventory":{}, "minecraft:keep_on_death":{}, "minecraft:lock_in_slot":{} }',
-  });
+  receiver.push(
+    {
+      label: "Json Item Components Example",
+      kind: CompletionItemKind.Snippet,
+      insertText: Example,
+      documentation: Example
+    },
+    {
+      label:'Can destroy component',
+      kind: CompletionItemKind.Snippet,
+      insertText:CanDestroyComponent,
+      documentation:CanDestroyComponent
+    },
+    {
+      label:'Can place on component',
+      kind: CompletionItemKind.Snippet,
+      insertText:CanPlaceOnComponent,
+      documentation:CanPlaceOnComponent
+    },
+    {
+      label:'Can destroy component',
+      kind: CompletionItemKind.Snippet,
+      insertText:CanDestroyComponent,
+      documentation:CanDestroyComponent
+    },
+    {
+      label:'Lock in inventory component',
+      kind: CompletionItemKind.Snippet,
+      insertText:LockInInventoryComponent,
+      documentation:LockInInventoryComponent
+    },
+    {
+      label:'Keep on death component',
+      kind: CompletionItemKind.Snippet,
+      insertText:KeepOnDeathComponent,
+      documentation:KeepOnDeathComponent
+    },
+    {
+      label:'Lock in slot component',
+      kind: CompletionItemKind.Snippet,
+      insertText:LockInSlotComponent,
+      documentation:LockInSlotComponent
+    }
+  );
 }

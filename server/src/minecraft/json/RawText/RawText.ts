@@ -57,7 +57,7 @@ export namespace TranslateComponent {
   }
 }
 
-export type RawTextComponent = TextComponent | TranslateComponent | string;
+export type RawTextComponent = TextComponent | TranslateComponent;
 
 export interface RawText {
   rawtext: RawTextComponent[];
