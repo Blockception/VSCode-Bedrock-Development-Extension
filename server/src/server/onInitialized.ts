@@ -53,7 +53,7 @@ function onInitialized(params: InitializedParams): void {
   }
 
   //Registers any follow ups
-  SetDynamicEvents();  
+  SetDynamicEvents();
 
   /*if (Manager.hasWorkspaceFolderCapability) {
     connection.workspace.onDidChangeWorkspaceFolders(_event => {

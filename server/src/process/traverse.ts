@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetProjectData, ProjectData } from "../code/ProjectData";
 import { ProcessBehaviourPack } from "../minecraft/behaviour/include";
 import { ProcessResourcePack } from "../minecraft/resource/include";
-import { Progress } from '../progress/Progress';
+import { Progress } from "../progress/Progress";
 
 export function Traverse(): void {
   GetProjectData().then(TraverseProject);

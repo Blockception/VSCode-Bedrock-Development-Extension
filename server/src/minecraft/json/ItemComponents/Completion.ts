@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
-import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from './Constants';
+import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from "./Constants";
 
 export function Completion(receiver: CompletionItem[]): void {
   receiver.push(
@@ -36,43 +36,43 @@ export function Completion(receiver: CompletionItem[]): void {
       label: "Json Item Components Example",
       kind: CompletionItemKind.Snippet,
       insertText: Example,
-      documentation: Example
+      documentation: Example,
     },
     {
-      label:'Can destroy component',
+      label: "Can destroy component",
       kind: CompletionItemKind.Snippet,
-      insertText:CanDestroyComponent,
-      documentation:CanDestroyComponent
+      insertText: CanDestroyComponent,
+      documentation: CanDestroyComponent,
     },
     {
-      label:'Can place on component',
+      label: "Can place on component",
       kind: CompletionItemKind.Snippet,
-      insertText:CanPlaceOnComponent,
-      documentation:CanPlaceOnComponent
+      insertText: CanPlaceOnComponent,
+      documentation: CanPlaceOnComponent,
     },
     {
-      label:'Can destroy component',
+      label: "Can destroy component",
       kind: CompletionItemKind.Snippet,
-      insertText:CanDestroyComponent,
-      documentation:CanDestroyComponent
+      insertText: CanDestroyComponent,
+      documentation: CanDestroyComponent,
     },
     {
-      label:'Lock in inventory component',
+      label: "Lock in inventory component",
       kind: CompletionItemKind.Snippet,
-      insertText:LockInInventoryComponent,
-      documentation:LockInInventoryComponent
+      insertText: LockInInventoryComponent,
+      documentation: LockInInventoryComponent,
     },
     {
-      label:'Keep on death component',
+      label: "Keep on death component",
       kind: CompletionItemKind.Snippet,
-      insertText:KeepOnDeathComponent,
-      documentation:KeepOnDeathComponent
+      insertText: KeepOnDeathComponent,
+      documentation: KeepOnDeathComponent,
     },
     {
-      label:'Lock in slot component',
+      label: "Lock in slot component",
       kind: CompletionItemKind.Snippet,
-      insertText:LockInSlotComponent,
-      documentation:LockInSlotComponent
+      insertText: LockInSlotComponent,
+      documentation: LockInSlotComponent,
     }
   );
 }

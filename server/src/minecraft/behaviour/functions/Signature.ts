@@ -31,7 +31,7 @@ import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscod
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
 import { CommandIntr, IsInSubCommand, CommandInfo, MCCommand, MCCommandParameterType } from "../../commands/include";
-import { RawText } from '../../json/include';
+import { RawText } from "../../json/include";
 
 export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
   let Line = getLine(doc, pos.line);

@@ -27,16 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Hover } from 'vscode-languageserver';
-import { Range } from 'vscode-languageserver-textdocument';
-import { McFunction } from '../../types/Functions/include';
+import { Hover } from "vscode-languageserver";
+import { Range } from "vscode-languageserver-textdocument";
+import { McFunction } from "../../types/Functions/include";
 
 export function provideHover(range: Range): Hover | undefined {
-	return {
-		contents: {
-			kind: 'markdown',
-			value: 'The raw text component'
-		},
-		range: range
-	}
+  return {
+    contents: {
+      kind: "markdown",
+      value: "The raw text component",
+    },
+    range: range,
+  };
 }

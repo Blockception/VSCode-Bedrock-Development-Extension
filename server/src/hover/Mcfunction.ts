@@ -33,7 +33,7 @@ import { getLine } from "../code/include";
 import { Database, DataCollector } from "../database/include";
 import { CommandIntr, MCCommandParameter, MCCommandParameterType } from "../minecraft/commands/include";
 import { Documentable, Identifiable, Locatable } from "../minecraft/Interfaces/include";
-import { RawText } from '../minecraft/json/include';
+import { RawText } from "../minecraft/json/include";
 
 export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): Hover | undefined {
   const pos = params.position;
@@ -124,7 +124,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       break;
 
     case MCCommandParameterType.jsonRawText:
-      return RawText.provideHover(range);      
+      return RawText.provideHover(range);
 
     case MCCommandParameterType.locateFeature:
       doc = "A locate feature";

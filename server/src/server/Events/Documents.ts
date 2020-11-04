@@ -36,6 +36,6 @@ export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDoc
   return new Promise((resolve, reject) => {
     let doc = GetDocument(e.document.uri, e.document, e.document.languageId);
     Process(doc);
-		resolve();
+    resolve();
   });
 }

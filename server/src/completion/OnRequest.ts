@@ -42,7 +42,7 @@ export async function OnCompletionRequestAsync(params: CompletionParams): Promis
 
 //Processes request
 function OnCompletionRequest(params: CompletionParams): CompletionList {
-  params.workDoneToken
+  params.workDoneToken;
 
   let List: CompletionList = { isIncomplete: true, items: [] };
   let Doc = GetDocument(params.textDocument.uri);
