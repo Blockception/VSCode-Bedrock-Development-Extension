@@ -1,6 +1,6 @@
 /*	Auto generated	*/
-export * from "./Command/Completion";
+export * as Command from './Command/include';
+export * as MCCommandParameterType from './MCCommandParameterType/include';
 export * from "./Functions";
-export * from "./MCCommandParameterType/Completion";
 export * from "./Mcfunction";
 export * from "./OnRequest";
