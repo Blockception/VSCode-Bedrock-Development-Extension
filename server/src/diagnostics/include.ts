@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 export * from "./Functions";
 export * from "./Json";
-export * from "./Language";
+export * from "./general/Language";
 export * from "./OnRequest";
