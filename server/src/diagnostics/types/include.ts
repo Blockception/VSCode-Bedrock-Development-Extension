@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from "./contents";
+export * from "./Context";

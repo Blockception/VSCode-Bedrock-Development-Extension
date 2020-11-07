@@ -37,3 +37,4 @@ export const JsonCIdentifier: string = "jsonc";
 
 //Commands
 export const McImportErrorsCommandID: string = "bc.minecraft.errors.import";
+export const McDiagnoseProjectCommanID: string = "bc.minecraft.diagnose.project";
