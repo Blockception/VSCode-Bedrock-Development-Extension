@@ -34,7 +34,7 @@ import { IsSelector } from "../types/Selector/include";
 import { CommandInfo } from "./CommandInfo";
 import { CommandIntr } from "./CommandIntr";
 import { MCCommand } from "./MCCommand";
-import { MCCommandParameterType } from "./MCCommandParameterType";
+import { MCCommandParameterType } from "./ParameterType";
 
 export class CommandManager {
   Subset: Map<string, CommandInfo[]>;

@@ -13,6 +13,7 @@
         "type": "object",
         "properties": {
           "name": {
+            "title": "Name",
             "type": "string"
           },
           "documentation": {
@@ -20,10 +21,12 @@
             "type": "object",
             "properties": {
               "kind": {
+                "title": "Kind",
                 "type": "string",
                 "enum": ["plaintext", "markdown"]
               },
               "value": {
+                "title": "Value",
                 "type": "string"
               }
             }
@@ -34,9 +37,11 @@
               "type": "object",
               "properties": {
                 "Text": {
+                  "title": "Text",
                   "type": "string"
                 },
                 "Type": {
+                  "title": "Type",
                   "type": "string",
                   "enum": [
                     "block",
@@ -60,7 +65,6 @@
                     "operation",
                     "replaceMode",
                     "selector",
-                    "selectorPlayer",
                     "slotType",
                     "slotID",
                     "sound",
@@ -73,7 +77,39 @@
                   ]
                 },
                 "Required": {
+                  "title": "Required",
                   "type": "boolean"
+                },
+                "Options": {
+                  "title": "Options",
+                  "type": "object",
+                  "properties": {
+                    "acceptedValues": {
+                      "type": "array",
+                      "title": "Accepted values",
+                      "items": { "type": "string" }
+                    },
+                    "allowFakePlayers": {
+                      "type": "boolean",
+                      "title": "Allow Fake Players"
+                    },
+                    "playerOnly": {
+                      "type": "boolean",
+                      "title": "Player only"
+                    },
+                    "wildcard": {
+                      "type": "boolean",
+                      "title": "Wildcard"
+                    },
+                    "minimum": {
+                      "type": "number",
+                      "title": "Minimum"
+                    },
+                    "maximum": {
+                      "type": "number",
+                      "title": "Maximum"
+                    }
+                  }
                 }
               }
             }

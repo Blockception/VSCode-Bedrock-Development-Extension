@@ -30,9 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MarkupKind } from "vscode-languageserver";
 import { Manager } from "../../manager/Manager";
 import * as data from "./commands.json";
-import { MCCommand } from "../Commands/MCCommand";
-import { MCCommandParameter } from "../Commands/MCCommandParameter";
-import { MCCommandParameterType } from "../Commands/MCCommandParameterType";
+import { MCCommand } from "../commands/MCCommand";
+import { MCCommandParameter } from "../commands/Parameter";
+import { MCCommandParameterType } from "../commands/ParameterType";
 
 interface Command {
   parameters: {
