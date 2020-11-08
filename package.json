@@ -303,6 +303,10 @@
     ],
     "jsonValidation": [
       {
+        "fileMatch": "**/minecraft-validation.json",
+        "url": "./minecraft-schemas/minecraft-validation.json"
+      },
+      {
         "fileMatch": "*/skin_pack/skins.json",
         "url": "./minecraft-bedrock-schemas/skinpacks/skins.json"
       },

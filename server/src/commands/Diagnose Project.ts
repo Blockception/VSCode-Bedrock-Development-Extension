@@ -32,10 +32,13 @@ import { Database } from '../database/include';
 import { world } from '../diagnostics/include';
 import { DiagnoseContext } from '../diagnostics/types/Context';
 import { ProgressHandler } from '../progress/include';
+import { GetValidationData } from '../validation/include';
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
 	Database.MinecraftProgramData.GetProjecData((data) => {
 		let progress = ProgressHandler.Attach(params, "Diagnosing project", 0, 1);
+
+		let Validation = GetValidationData(data.Workspaces);
 
 		let context: DiagnoseContext = {
 			progress: progress,

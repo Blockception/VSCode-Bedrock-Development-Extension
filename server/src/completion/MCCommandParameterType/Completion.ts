@@ -49,7 +49,8 @@ import { provideSoundCompletion } from "../../minecraft/types/Sound/include";
 import { provideTagCompletion } from "../../minecraft/types/Tag/include";
 import { provideTickingareaCompletion } from "../../minecraft/types/Tickingarea/include";
 import { provideXPCompletion } from "../../minecraft/types/Xp/include";
-import { Completion, provideCommandCompletion } from "../include";
+import { provideCommandCompletion } from '../Command/include';
+import { Completion } from "../include";
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
   let Out: CompletionItem = {
