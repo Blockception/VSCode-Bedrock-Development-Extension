@@ -32,6 +32,7 @@ import { LocationWord } from "../../code/include";
 import { Database } from "../../database/include";
 import { MCCommandParameter, CommandIntr, MCCommandParameterType } from "../../minecraft/commands/include";
 import { ItemComponents, RawText } from "../../minecraft/json/include";
+import { provideParticleCompletion } from '../../minecraft/resource/particle/Completion';
 import { provideBlockCompletion } from "../../minecraft/types/Block/include";
 import { provideBooleanCompletion } from "../../minecraft/types/Boolean/include";
 import { provideCoordinateCompletion } from "../../minecraft/types/Coordinate/include";
@@ -63,12 +64,24 @@ function toCompletion(parameter: MCCommandParameter): CompletionItem {
 }
 
 export function ProvideCompletionMCCommandParameter(
-  Parameter: MCCommandParameter,
-  Command: CommandIntr,
-  pos: number,
-  receiver: CompletionList,
-  Current: LocationWord | undefined
-): void {
+  Parameter: MCCommandParameter, Command: CommandIntr, pos: number,
+  receiver: CompletionList, Current: LocationWord | undefined): void {
+
+  //Check default option
+  if (Parameter.Options) {
+    //Accepted values
+    if (Parameter.Options.acceptedValues) {
+      Parameter.Options.acceptedValues.forEach(value => {
+        receiver.items.push({ label: value, kind: CompletionItemKind.Text });
+      });
+    }
+
+    //Wildcard
+    if (Parameter.Options.wildcard) {
+      receiver.items.push({ label: '*', kind: CompletionItemKind.Constant });
+    }
+  }
+
   switch (Parameter.Type) {
     case MCCommandParameterType.block:
       return provideBlockCompletion(receiver);
@@ -93,7 +106,7 @@ export function ProvideCompletionMCCommandParameter(
       return provideEventCompletion(receiver, Command);
 
     case MCCommandParameterType.float:
-      return provideFloatCompletion(receiver, 0.0, 10.0);
+      return provideFloatCompletion(receiver, Parameter);
       break;
 
     case MCCommandParameterType.function:
@@ -104,7 +117,7 @@ export function ProvideCompletionMCCommandParameter(
       break;
 
     case MCCommandParameterType.integer:
-      return provideIntegerCompletion(receiver, 0, 10);
+      return provideIntegerCompletion(receiver, Parameter);
 
     case MCCommandParameterType.item:
       return provideItemCompletion(receiver);
@@ -123,17 +136,15 @@ export function ProvideCompletionMCCommandParameter(
       return provideObjectiveCompletion(receiver);
 
     case MCCommandParameterType.particle:
-      return Completion.Convert(Database.Data.Resourcepack.Particles, Kinds.Completion.Particle, receiver.items);
+      return provideParticleCompletion(receiver);
 
     case MCCommandParameterType.replaceMode:
       //TODO
       break;
 
     case MCCommandParameterType.selector:
-      return provideSelectorCompletion(receiver, Current, pos, true, true, true);
+      return provideSelectorCompletion(receiver, Current, pos, Parameter);
 
-    case MCCommandParameterType.selectorPlayer:
-      return provideSelectorCompletion(receiver, Current, pos, false, true, true);
 
     case MCCommandParameterType.slotID:
       //TODO

@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
+import { MCCommandParameter } from '../../../commands/include';
 import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
 import { Kinds } from "../../Kinds";
 import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Selector";
@@ -46,14 +47,15 @@ const Random: CompletionItem = {
 const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
 
 export function provideSelectorCompletion(
-  receiver: CompletionList,
-  selector: LocationWord | undefined,
-  pos: number,
-  forEntities: boolean,
-  forPlayers: boolean,
-  forFakePlayer: boolean
-) {
+  receiver: CompletionList, selector: LocationWord | undefined,
+  pos: number, parameter: MCCommandParameter): void {
+
+  const playerOnly = parameter.Options?.playerOnly ?? false;
+  const wildcard = parameter.Options?.wildcard ?? false;
+  const fakePlayer = parameter.Options?.allowFakePlayers ?? false;
+
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
+    //In selector
     if (selector !== undefined) {
       let diff = pos - selector.range.start.character;
 
@@ -66,16 +68,17 @@ export function provideSelectorCompletion(
     //Defaults
     receiver.items.push(AllPlayer, Executing, Executing, Random, NearestPlayer);
 
-    if (forEntities) {
+    if (!playerOnly) {
       receiver.items.push(AllEntities);
     }
-    if (forFakePlayer) {
+    if (fakePlayer) {
       provideFakePlayersCompletion(receiver);
     }
 
     return;
   }
 
+  //Not in selector
   if (InScore(selector, pos)) {
     provideSelectorScoreCompletion(receiver, selector, pos);
     return;
@@ -83,8 +86,8 @@ export function provideSelectorCompletion(
 
   if (IsEditingValue(selector, pos)) {
     let Attribute = GetCurrentAttribute(selector, pos);
-    provideSelectorAttributeValueCompletion(receiver, Attribute, forEntities);
+    provideSelectorAttributeValueCompletion(receiver, Attribute, !playerOnly);
   } else {
-    provideSelectorAttributeCompletion(receiver, forEntities);
+    provideSelectorAttributeCompletion(receiver, !playerOnly);
   }
 }

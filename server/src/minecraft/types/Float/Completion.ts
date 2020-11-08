@@ -28,24 +28,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { MCCommandParameter } from '../../commands/include';
 
-export function provideFloatCompletion(
-  receiver: CompletionList,
-  minimum: number | undefined = undefined,
-  maximum: number | undefined = undefined
-): void {
-  if (minimum == undefined) {
-    if (maximum == undefined) {
-      minimum = 0.0;
-      maximum = 10.0;
-    } else {
-      minimum = maximum - 10.0;
-    }
-  } else {
-    if (maximum == undefined) {
-      maximum = minimum + 10.0;
-    }
-  }
+export function provideFloatCompletion(receiver: CompletionList, parameter: MCCommandParameter): void {
+  const minimum = parameter.Options?.minimum ?? 0;
+  const maximum = parameter.Options?.maximum ?? 10;
 
   let steps = (maximum - minimum) / 10;
 

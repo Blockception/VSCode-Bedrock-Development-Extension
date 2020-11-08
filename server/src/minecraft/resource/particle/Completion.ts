@@ -27,20 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { MCCommandParameter } from '../../commands/include';
+import { CompletionList } from "vscode-languageserver";
+import { Completion } from "../../../completion/Functions";
+import { Database } from "../../../database/Database";
+import { Kinds } from '../../types/Kinds';
 
-export function provideIntegerCompletion(receiver: CompletionList, parameter: MCCommandParameter): void {
-  const minimum = parameter.Options?.minimum ?? 0;
-  const maximum = parameter.Options?.maximum ?? 10;
-
-  let steps = (maximum - minimum) / 10;
-
-  for (let I = minimum; I < maximum; I += steps) {
-    receiver.items.push({
-      label: I.toPrecision(),
-      kind: CompletionItemKind.Constant,
-      documentation: "The integer number: " + I.toString(),
-    });
-  }
+export function provideParticleCompletion(receiver: CompletionList): void {
+  Completion.Convert(Database.Data.Resourcepack.Particles, Kinds.Completion.Particle, receiver.items);
 }
