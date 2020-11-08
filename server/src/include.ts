@@ -16,5 +16,6 @@ export * as references from './references/include';
 export * as server from './server/include';
 export * as signatures from './signatures/include';
 export * as symbols from './symbols/include';
+export * as validation from './validation/include';
 export * from "./Constants";
 export * from "./server";
