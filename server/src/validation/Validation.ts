@@ -28,13 +28,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export interface ValidationData {
-	tags: ValidationDataStringLists;
-	objectives: ValidationDataStringLists;
+	tags?: ValidationDataStringLists;
+	objectives?: ValidationDataStringLists;
 }
 
 export interface ValidationDataStringLists {
-	valid: string[] | undefined;
-	invalid: string[] | undefined;
+	valid?: string[] | undefined;
+	invalid?: string[] | undefined;
 }
 
 export namespace ValidationData {
