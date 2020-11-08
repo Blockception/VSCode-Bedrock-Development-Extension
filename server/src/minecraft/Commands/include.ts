@@ -3,5 +3,6 @@ export * from "./CommandInfo";
 export * from "./CommandIntr";
 export * from "./CommandManager";
 export * from "./MCCommand";
-export * from "./MCCommandParameter";
-export * from "./MCCommandParameterType";
+export * from "./Parameter Options";
+export * from "./Parameter";
+export * from "./ParameterType";

@@ -1,6 +1,6 @@
 /*	Auto generated	*/
 export * as behavior from './behavior/include';
-export * as Commands from './Commands/include';
+export * as commands from './commands/include';
 export * as data from './data/include';
 export * as format from './format/include';
 export * as Interfaces from './Interfaces/include';
