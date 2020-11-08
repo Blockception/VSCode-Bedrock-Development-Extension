@@ -33,12 +33,14 @@ import * as data from "./commands.json";
 import { MCCommand } from "../commands/MCCommand";
 import { MCCommandParameter } from "../commands/Parameter";
 import { MCCommandParameterType } from "../commands/ParameterType";
+import { ParameterOptions } from '../commands/include';
 
 interface Command {
   parameters: {
     Text: string;
     Type: string;
     Required: boolean;
+    Options?: ParameterOptions | undefined;
   }[];
   name: string;
   documentation: {
@@ -61,6 +63,7 @@ export function AddCommands(): void {
     });
 }
 
+
 function Convert(com: Command): MCCommand {
   let Command = new MCCommand();
   let kind: MarkupKind = MarkupKind.Markdown;
@@ -74,6 +77,14 @@ function Convert(com: Command): MCCommand {
     let type = par.Type as keyof typeof MCCommandParameterType;
     let Par = new MCCommandParameter(par.Text, MCCommandParameterType[type], par.Required);
     Command.parameters.push(Par);
+
+    if (par.Options){
+      Par.Options = par.Options;
+    }
+    else{
+      Par.Options = undefined;
+    }
+
   });
 
   return Command;

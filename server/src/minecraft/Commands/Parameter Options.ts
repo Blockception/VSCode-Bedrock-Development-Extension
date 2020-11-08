@@ -33,25 +33,23 @@ export interface ParameterOptions {
 	/**
 	 * Any accepted values
 	 */
-	acceptedValues: string[] | undefined;
+	acceptedValues?: string[] | undefined;
 
 	/**
 	 * Marks that the selector should accept fake players
 	 */
-	allowFakePlayers: boolean | undefined;
+	allowFakePlayers?: boolean | undefined;
 
 	/**
 	 * Marks that the selector should only target players
 	 */
-	playerOnly: boolean | undefined;
+	playerOnly?: boolean | undefined;
 
 	/**
 	 * Marks that a wildcard is allowed: '*'
 	 */
-	wildcard: boolean | undefined;
+	wildcard?: boolean | undefined;
 
-	minimum: number | undefined;
-	maximum: number | undefined;
-
-
+	minimum?: number | undefined;
+	maximum?: number | undefined;
 }
