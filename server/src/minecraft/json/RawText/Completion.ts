@@ -28,45 +28,45 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
-import { RawTextComponent, RawTextExample, TextComponent, TranslationComponent, TranslationWith, TranslationWithComplex } from "./Constants";
+import { cRawTextComponent, cRawTextExample, cTextComponent, cTranslationComponent, cTranslationWith, cTranslationWithComplex } from "./Constants";
 
 export function Completion(receiver: CompletionItem[]): void {
   receiver.push(
     {
       label: "Json Raw Text",
       kind: CompletionItemKind.Snippet,
-      insertText: RawTextComponent,
-      documentation: RawTextComponent,
+      insertText: cRawTextComponent,
+      documentation: cRawTextComponent,
     },
     {
       label: "Json Raw Text example",
       kind: CompletionItemKind.Snippet,
-      insertText: RawTextExample,
-      documentation: RawTextExample,
+      insertText: cRawTextExample,
+      documentation: cRawTextExample,
     },
     {
       label: "Translation component",
       kind: CompletionItemKind.Snippet,
-      insertText: TranslationComponent,
-      documentation: TranslationComponent,
+      insertText: cTranslationComponent,
+      documentation: cTranslationComponent,
     },
     {
       label: "Translation component, with",
       kind: CompletionItemKind.Snippet,
-      insertText: TranslationWith,
-      documentation: TranslationWith,
+      insertText: cTranslationWith,
+      documentation: cTranslationWith,
     },
     {
       label: "Translation component, with complex",
       kind: CompletionItemKind.Snippet,
-      insertText: TranslationWithComplex,
-      documentation: TranslationWithComplex,
+      insertText: cTranslationWithComplex,
+      documentation: cTranslationWithComplex,
     },
     {
       label: "Text component",
       kind: CompletionItemKind.Snippet,
-      insertText: TextComponent,
-      documentation: TextComponent,
+      insertText: cTextComponent,
+      documentation: cTextComponent,
     }
   );
 }

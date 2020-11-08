@@ -33,7 +33,7 @@ import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
 import { EmptyTypes } from "../../types/Empty";
 import { DataReference } from "../../../database/Types/Reference";
-import * as behavior from "../../behaviour/include";
+import * as behavior from "../../behavior/include";
 import { Entity } from "../../types/Entity/include";
 
 /**

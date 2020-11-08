@@ -58,6 +58,5 @@ function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
     console.log("Processing data from added workspace: " + element.name);
   }
 
-  Database.MinecraftProgramData.LoadProjectData();
   Traverse();
 }

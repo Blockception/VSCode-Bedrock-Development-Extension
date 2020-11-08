@@ -31,7 +31,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { DetectGeneralDataType } from "../minecraft/format/detection";
 import { Database } from "../database/Database";
 import { GeneralDataType } from "../minecraft/format/General Data Type";
-import * as bp from "../minecraft/behaviour/Process";
+import * as bp from "../minecraft/behavior/Process";
 import * as rp from "../minecraft/resource/Process";
 
 export function ProcessJson(doc: TextDocument): void {
