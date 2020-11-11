@@ -71,7 +71,6 @@ export class JsonDocument {
 
         this.object = object;
         ValidJson(this.doc);
-
       } catch (error) {
         console.log(error);
         InvalidJson(this.doc, error);
@@ -93,7 +92,6 @@ export class JsonDocument {
         this.object = object;
 
         ValidJson(this.doc);
-
       } catch (error) {
         err = error;
         console.log(error);

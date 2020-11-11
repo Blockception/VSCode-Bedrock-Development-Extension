@@ -28,28 +28,27 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-
 export interface ParameterOptions {
-	/**
-	 * Any accepted values
-	 */
-	acceptedValues?: string[] | undefined;
+  /**
+   * Any accepted values
+   */
+  acceptedValues?: string[] | undefined;
 
-	/**
-	 * Marks that the selector should accept fake players
-	 */
-	allowFakePlayers?: boolean | undefined;
+  /**
+   * Marks that the selector should accept fake players
+   */
+  allowFakePlayers?: boolean | undefined;
 
-	/**
-	 * Marks that the selector should only target players
-	 */
-	playerOnly?: boolean | undefined;
+  /**
+   * Marks that the selector should only target players
+   */
+  playerOnly?: boolean | undefined;
 
-	/**
-	 * Marks that a wildcard is allowed: '*'
-	 */
-	wildcard?: boolean | undefined;
+  /**
+   * Marks that a wildcard is allowed: '*'
+   */
+  wildcard?: boolean | undefined;
 
-	minimum?: number | undefined;
-	maximum?: number | undefined;
+  minimum?: number | undefined;
+  maximum?: number | undefined;
 }

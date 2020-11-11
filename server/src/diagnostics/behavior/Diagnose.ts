@@ -27,18 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { code } from '../../include';
-import { DiagnoseContext } from '../types/include';
-import { functions } from './include';
+import { code } from "../../include";
+import { DiagnoseContext } from "../types/include";
+import { functions } from "./include";
 
 export function Diagnose(context: DiagnoseContext): void {
-	context.progress.addMax(context.projectStructure.BehaviourPackFolders.length);
+  context.progress.addMax(context.projectStructure.BehaviourPackFolders.length);
 
-	context.projectStructure.BehaviourPackFolders.forEach(BP => DiagnoseFolder(BP, context));
+  context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
 
-	context.progress.addProgress(context.projectStructure.BehaviourPackFolders.length);
+  context.progress.addProgress(context.projectStructure.BehaviourPackFolders.length);
 }
 
 export function DiagnoseFolder(uri: string, context: DiagnoseContext): void {
-	code.ForEachDocument(code.GetDocuments(uri, ['**/*.mcfunction']), (D) => functions.Diagnose(D, context.data));
+  code.ForEachDocument(code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => functions.Diagnose(D, context.data));
 }

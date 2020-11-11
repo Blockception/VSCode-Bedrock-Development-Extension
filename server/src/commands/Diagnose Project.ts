@@ -27,38 +27,41 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ExecuteCommandParams, MessageType, ShowMessageNotification } from 'vscode-languageserver';
-import { Database } from '../database/include';
-import { behavior, world } from '../diagnostics/include';
-import { DiagnoseContext } from '../diagnostics/types/Context';
-import { manager } from '../include';
-import { Manager } from '../manager/Manager';
-import { ProgressHandler } from '../progress/include';
-import { GetValidationData } from '../validation/include';
+import { ExecuteCommandParams, MessageType, ShowMessageNotification } from "vscode-languageserver";
+import { Database } from "../database/include";
+import { behavior, world } from "../diagnostics/include";
+import { DiagnoseContext } from "../diagnostics/types/Context";
+import { manager } from "../include";
+import { Manager } from "../manager/Manager";
+import { ProgressHandler } from "../progress/include";
+import { GetValidationData } from "../validation/include";
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
-	console.log('Starting on diagnosing project');
+  console.log("Starting on diagnosing project");
 
-	Database.MinecraftProgramData.GetProjecData((data) => {
-		let progress = new ProgressHandler('Diagnosing', 0, 1, undefined);
+  Database.MinecraftProgramData.GetProjecData((data) => {
+    let progress = new ProgressHandler("Diagnosing", 0, 1, undefined);
 
-		let Validation = GetValidationData(data.Workspaces);
+    let Validation = GetValidationData(data.Workspaces);
 
-		let context: DiagnoseContext = {
-			progress: progress,
-			projectStructure: data,
-			data: Validation
-		};
+    let context: DiagnoseContext = {
+      progress: progress,
+      projectStructure: data,
+      data: Validation,
+    };
 
-		if (Manager.State.TraversingProject || !Manager.State.DataGathered) {
-			Manager.Connection.sendNotification(ShowMessageNotification.type, { message: 'Extension is traversing the project. please wait a couple more seconds.', type: MessageType.Info });
-			return;
-		}
+    if (Manager.State.TraversingProject || !Manager.State.DataGathered) {
+      Manager.Connection.sendNotification(ShowMessageNotification.type, {
+        message: "Extension is traversing the project. please wait a couple more seconds.",
+        type: MessageType.Info,
+      });
+      return;
+    }
 
-		world.Diagnose(context);
-		behavior.Diagnose(context);
+    world.Diagnose(context);
+    behavior.Diagnose(context);
 
-		progress.done();
-		console.log('Diagnosing done');
-	});
+    progress.done();
+    console.log("Diagnosing done");
+  });
 }

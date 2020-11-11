@@ -30,12 +30,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
 import { Database } from "../../../database/Database";
-import { diagnostics } from '../../../include';
-import { Manager } from '../../../manager/Manager';
+import { diagnostics } from "../../../include";
+import { Manager } from "../../../manager/Manager";
 import { ProcessTickingAreaCommand } from "../../../process/Commands/include";
 import { ProcessScoreboardCommand } from "../../../process/Commands/Scoreboard";
 import { ProcessTagCommand } from "../../../process/Commands/Tag";
-import { CommandIntr, GetSubCommand } from '../../commands/include';
+import { CommandIntr, GetSubCommand } from "../../commands/include";
 import { McFunction } from "../../types/Functions/include";
 import { GetComment } from "./Function";
 
@@ -46,11 +46,10 @@ export function Process(document: TextDocument): void {
     const Line = getLine(document, Index);
 
     if (Line.startsWith("#")) continue;
-    let Command : CommandIntr | undefined = CommandIntr.parse(Line, { character: 0, line: 0 }, document.uri);
+    let Command: CommandIntr | undefined = CommandIntr.parse(Line, { character: 0, line: 0 }, document.uri);
 
     while (Command) {
-      if (Command.Paramaters.length === 0)
-        break;
+      if (Command.Paramaters.length === 0) break;
 
       switch (Command.Paramaters[0].text) {
         case "tag":

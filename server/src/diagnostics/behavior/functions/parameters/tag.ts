@@ -27,36 +27,36 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver';
-import { LocationWord } from '../../../../code/include';
-import { Database } from '../../../../database/include';
-import { ValidationData } from '../../../../validation/include';
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
+import { LocationWord } from "../../../../code/include";
+import { Database } from "../../../../database/include";
+import { ValidationData } from "../../../../validation/include";
 
 export function DiagnoseTag(data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
-	const text = data.text;
+  const text = data.text;
 
-	//Check rules first
-	if (validation.tags?.valid?.includes(text)) {
-		return;
-	}
+  //Check rules first
+  if (validation.tags?.valid?.includes(text)) {
+    return;
+  }
 
-	if (validation.tags?.invalid?.includes(text)) {
-		receiver.push({
-			range: data.range,
-			message: 'Tag has been blacklisted through rules: "' + text + '"',
-			severity:DiagnosticSeverity.Error
-		});
+  if (validation.tags?.invalid?.includes(text)) {
+    receiver.push({
+      range: data.range,
+      message: 'Tag has been blacklisted through rules: "' + text + '"',
+      severity: DiagnosticSeverity.Error,
+    });
 
-		return;
-	}
+    return;
+  }
 
-	if (Database.Data.General.Tag.HasID(text)) {
-		return;
-	}
+  if (Database.Data.General.Tag.HasID(text)) {
+    return;
+  }
 
-	receiver.push({
-		range: data.range,
-		message: 'The tag: "' + text + '" never seems to get added to any type of entity',
-		severity:DiagnosticSeverity.Error
-	});
+  receiver.push({
+    range: data.range,
+    message: 'The tag: "' + text + '" never seems to get added to any type of entity',
+    severity: DiagnosticSeverity.Error,
+  });
 }

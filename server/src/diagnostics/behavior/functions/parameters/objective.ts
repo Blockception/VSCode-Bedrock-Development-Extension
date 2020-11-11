@@ -27,36 +27,35 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver';
-import { LocationWord } from '../../../../code/include';
-import { Database } from '../../../../database/include';
-import { ValidationData } from '../../../../validation/include';
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
+import { LocationWord } from "../../../../code/include";
+import { Database } from "../../../../database/include";
+import { ValidationData } from "../../../../validation/include";
 
 export function DiagnoseObjective(data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
-	const text = data.text;
+  const text = data.text;
 
-	//Check rules first
-	if (validation.objectives?.valid?.includes(text)) {
-		return;
-	}
+  //Check rules first
+  if (validation.objectives?.valid?.includes(text)) {
+    return;
+  }
 
-	if (validation.objectives?.invalid?.includes(text)) {
-		receiver.push({
-			range: data.range,
-			message: 'Objective has been blacklisted through rules: "' + text + '"',
-			severity:DiagnosticSeverity.Error
-		});
+  if (validation.objectives?.invalid?.includes(text)) {
+    receiver.push({
+      range: data.range,
+      message: 'Objective has been blacklisted through rules: "' + text + '"',
+      severity: DiagnosticSeverity.Error,
+    });
 
-		return;
-	}
+    return;
+  }
 
-	//Does database has a reference?
-	if (Database.Data.General.Objectives.HasID(text))
-		return;
+  //Does database has a reference?
+  if (Database.Data.General.Objectives.HasID(text)) return;
 
-	receiver.push({
-		range: data.range,
-		message: 'No objective has been created: "' + text + '"',
-		severity:DiagnosticSeverity.Error
-	});
+  receiver.push({
+    range: data.range,
+    message: 'No objective has been created: "' + text + '"',
+    severity: DiagnosticSeverity.Error,
+  });
 }

@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
-import { MCCommandParameter } from '../../../commands/include';
+import { MCCommandParameter } from "../../../commands/include";
 import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
 import { Kinds } from "../../Kinds";
 import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Selector";
@@ -47,9 +47,11 @@ const Random: CompletionItem = {
 const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
 
 export function provideSelectorCompletion(
-  receiver: CompletionList, selector: LocationWord | undefined,
-  pos: number, parameter: MCCommandParameter): void {
-
+  receiver: CompletionList,
+  selector: LocationWord | undefined,
+  pos: number,
+  parameter: MCCommandParameter
+): void {
   const playerOnly = parameter.Options?.playerOnly ?? false;
   const wildcard = parameter.Options?.wildcard ?? false;
   const fakePlayer = parameter.Options?.allowFakePlayers ?? false;

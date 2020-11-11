@@ -34,7 +34,7 @@ import { Manager } from "../manager/Manager";
 import { JsonIdentifier, McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
-import { TextComponent } from '../minecraft/json/RawText/include';
+import { TextComponent } from "../minecraft/json/RawText/include";
 
 /**
  * Returns an usable document interaction from the given data.
@@ -68,9 +68,8 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
     if (fs.existsSync(path)) {
       Content = fs.readFileSync(path, "utf8");
       return TextDocument.create(uri, languageID, 1, Content);
-    }
-    else{
-      return TextDocument.create(uri, languageID, 0, '');
+    } else {
+      return TextDocument.create(uri, languageID, 0, "");
     }
   }
   //Content is provided

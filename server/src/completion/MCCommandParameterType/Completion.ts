@@ -32,7 +32,7 @@ import { LocationWord } from "../../code/include";
 import { Database } from "../../database/include";
 import { MCCommandParameter, CommandIntr, MCCommandParameterType } from "../../minecraft/commands/include";
 import { ItemComponents, RawText } from "../../minecraft/json/include";
-import { provideParticleCompletion } from '../../minecraft/resource/particle/Completion';
+import { provideParticleCompletion } from "../../minecraft/resource/particle/Completion";
 import { provideBlockCompletion } from "../../minecraft/types/Block/include";
 import { provideBooleanCompletion } from "../../minecraft/types/Boolean/include";
 import { provideCoordinateCompletion } from "../../minecraft/types/Coordinate/include";
@@ -50,7 +50,7 @@ import { provideSoundCompletion } from "../../minecraft/types/Sound/include";
 import { provideTagCompletion } from "../../minecraft/types/Tag/include";
 import { provideTickingareaCompletion } from "../../minecraft/types/Tickingarea/include";
 import { provideXPCompletion } from "../../minecraft/types/Xp/include";
-import { provideCommandCompletion } from '../Command/include';
+import { provideCommandCompletion } from "../Command/include";
 import { Completion } from "../include";
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
@@ -64,21 +64,24 @@ function toCompletion(parameter: MCCommandParameter): CompletionItem {
 }
 
 export function ProvideCompletionMCCommandParameter(
-  Parameter: MCCommandParameter, Command: CommandIntr, pos: number,
-  receiver: CompletionList, Current: LocationWord | undefined): void {
-
+  Parameter: MCCommandParameter,
+  Command: CommandIntr,
+  pos: number,
+  receiver: CompletionList,
+  Current: LocationWord | undefined
+): void {
   //Check default option
   if (Parameter.Options) {
     //Accepted values
     if (Parameter.Options.acceptedValues) {
-      Parameter.Options.acceptedValues.forEach(value => {
+      Parameter.Options.acceptedValues.forEach((value) => {
         receiver.items.push({ label: value, kind: CompletionItemKind.Text });
       });
     }
 
     //Wildcard
     if (Parameter.Options.wildcard) {
-      receiver.items.push({ label: '*', kind: CompletionItemKind.Constant });
+      receiver.items.push({ label: "*", kind: CompletionItemKind.Constant });
     }
   }
 
@@ -144,7 +147,6 @@ export function ProvideCompletionMCCommandParameter(
 
     case MCCommandParameterType.selector:
       return provideSelectorCompletion(receiver, Current, pos, Parameter);
-
 
     case MCCommandParameterType.slotID:
       //TODO

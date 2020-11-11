@@ -31,7 +31,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import { LocationWord, RangedWord } from "../../code/include";
 import { Manager } from "../../manager/Manager";
 import { CommandInfo } from "./CommandInfo";
-import { MCCommandParameterType } from './ParameterType';
+import { MCCommandParameterType } from "./ParameterType";
 
 /**
  *A class that helps interpeting written commands

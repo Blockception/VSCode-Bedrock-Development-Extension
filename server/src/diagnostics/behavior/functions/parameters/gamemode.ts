@@ -27,28 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver';
-import { LocationWord } from '../../../../code/include';
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
+import { LocationWord } from "../../../../code/include";
 
 export function DiagnoseGamemode(data: LocationWord, receiver: Diagnostic[]): void {
-	const text = data.text;
+  const text = data.text;
 
-	switch (text) {
-		case "c":
-		case "creative":
-		case "1":
-		case "a":
-		case "adventure":
-		case "2":
-		case "s":
-		case "survival":
-		case "0":
-			return;
-	}
+  switch (text) {
+    case "c":
+    case "creative":
+    case "1":
+    case "a":
+    case "adventure":
+    case "2":
+    case "s":
+    case "survival":
+    case "0":
+      return;
+  }
 
-	receiver.push({
-		message: 'Unknown gamemode: "' + text + '"',
-		range: data.range,
-		severity: DiagnosticSeverity.Error
-	})
+  receiver.push({
+    message: 'Unknown gamemode: "' + text + '"',
+    range: data.range,
+    severity: DiagnosticSeverity.Error,
+  });
 }

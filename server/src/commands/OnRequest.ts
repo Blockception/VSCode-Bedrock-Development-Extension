@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ExecuteCommandParams } from "vscode-languageserver";
 import { McDiagnoseProjectCommanID, McImportErrorsCommandID } from "../Constants";
-import { Database } from '../database/include';
-import { DiagnoseProjectCommand } from './Diagnose Project';
+import { Database } from "../database/include";
+import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { McImportErrorsCommand } from "./import errors";
 
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
@@ -47,7 +47,6 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
 
       case McDiagnoseProjectCommanID:
         return DiagnoseProjectCommand(params);
-
     }
   } catch (error) {
     console.log(error);

@@ -27,26 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Manifest } from '../../minecraft/manifest/include';
-import { DiagnoseContext } from '../types/include';
+import { Manifest } from "../../minecraft/manifest/include";
+import { DiagnoseContext } from "../types/include";
 
 export function DiagnoseManifest(data: DiagnoseContext): void {
-	let Behaviorpacks: Manifest[] = [];
-	let Resourcepacks: Manifest[] = [];
-	let Worldpacks: Manifest[] = [];
+  let Behaviorpacks: Manifest[] = [];
+  let Resourcepacks: Manifest[] = [];
+  let Worldpacks: Manifest[] = [];
 
-	const ps = data.projectStructure;
-	let prog = data.progress;
+  const ps = data.projectStructure;
+  let prog = data.progress;
 
-	ps.BehaviourPackFolders.forEach((f) => Get(f, Behaviorpacks));
-	ps.ResourcePackFolders.forEach((f) => Get(f, Resourcepacks));
-	ps.WorldFolders.forEach((f) => Get(f, Worldpacks));
+  ps.BehaviourPackFolders.forEach((f) => Get(f, Behaviorpacks));
+  ps.ResourcePackFolders.forEach((f) => Get(f, Resourcepacks));
+  ps.WorldFolders.forEach((f) => Get(f, Worldpacks));
 }
 
 function Get(folder: string, receiver: Manifest[]): void {
-	let M = Manifest.GetManifest(folder + 'manifest.json');
+  let M = Manifest.GetManifest(folder + "manifest.json");
 
-	if (M) {
-		receiver.push(M);
-	}
+  if (M) {
+    receiver.push(M);
+  }
 }

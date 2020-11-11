@@ -34,12 +34,11 @@ import { CommandIntr } from "../../minecraft/commands/include";
 import { Tickingarea } from "../../minecraft/types/Tickingarea/include";
 
 export function ProcessTickingAreaCommand(Command: CommandIntr, lineIndex: number, doc: TextDocument): void {
-  //tickingarea add 
-  if (Command.Paramaters[1]?.text !== 'add')
-    return;
+  //tickingarea add
+  if (Command.Paramaters[1]?.text !== "add") return;
 
   //tickingarea add circle
-  if (Command.Paramaters[2]?.text === 'circle') {
+  if (Command.Paramaters[2]?.text === "circle") {
     ProcessCircleCommand(Command);
   } else {
     ProcessBoxCommand(Command);

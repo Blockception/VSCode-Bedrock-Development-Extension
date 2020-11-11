@@ -36,8 +36,7 @@ import { Tag } from "../../minecraft/types/Tag/Tag";
 
 export function ProcessTagCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
   //tag <selector> add <tag>
-  if (Com.Paramaters[2]?.text !== 'add')
-    return;
+  if (Com.Paramaters[2]?.text !== "add") return;
 
   let tag = Com.Paramaters[3];
 

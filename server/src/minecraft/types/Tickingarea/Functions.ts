@@ -27,18 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Database } from '../../../database/include';
+import { Database } from "../../../database/include";
 
 export function IsTickingArea(name: string): boolean {
-	if (Database.Data.General.TickingAreas.GetFromID(name) === undefined) {
+  if (Database.Data.General.TickingAreas.GetFromID(name) === undefined) {
+    if (name.startsWith('"') && name.endsWith('"')) return true;
 
-		if (name.startsWith('"') && name.endsWith('"'))
-			return true;
+    if (name.includes(" ")) {
+      return false;
+    }
+  }
 
-		if (name.includes(' ')) {
-			return false;
-		}
-	}
-
-	return true;
+  return true;
 }
