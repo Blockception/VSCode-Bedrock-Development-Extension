@@ -12,7 +12,7 @@
     {
       "parameters": [
         { "Text": "clear", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
         { "Text": "itemName", "Type": "item", "Required": false },
         { "Text": "data", "Type": "integer", "Required": false },
         { "Text": "maxCount", "Type": "integer", "Required": false }
@@ -337,7 +337,7 @@
     {
       "parameters": [
         { "Text": "effect", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true },
+        { "Text": "player", "Type": "selector", "Required": true },
         { "Text": "effect", "Type": "effect", "Required": true },
         { "Text": "seconds", "Type": "integer", "Required": false },
         { "Text": "amplifier", "Type": "integer", "Required": false },
@@ -349,7 +349,7 @@
     {
       "parameters": [
         { "Text": "effect", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true },
+        { "Text": "player", "Type": "selector", "Required": true },
         { "Text": "clear", "Type": "keyword", "Required": true }
       ],
       "name": "effect",
@@ -358,7 +358,7 @@
     {
       "parameters": [
         { "Text": "enchant", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "id", "Type": "integer", "Required": true },
         { "Text": "level", "Type": "integer", "Required": false }
       ],
@@ -368,7 +368,7 @@
     {
       "parameters": [
         { "Text": "enchant", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "id", "Type": "keyword", "Required": true },
         { "Text": "level", "Type": "keyword", "Required": false }
       ],
@@ -499,7 +499,7 @@
       "parameters": [
         { "Text": "gamemode", "Type": "keyword", "Required": true },
         { "Text": "gamemode", "Type": "gamemode", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
       ],
       "name": "gamemode",
       "documentation": { "value": "Sets a player's game mode.", "kind": "markdown" }
@@ -750,10 +750,10 @@
     {
       "parameters": [
         { "Text": "give", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "itemName", "Type": "item", "Required": true },
-        { "Text": "amount", "Type": "keyword", "Required": false },
-        { "Text": "data", "Type": "keyword", "Required": false },
+        { "Text": "amount", "Type": "integer", "Required": false },
+        { "Text": "data", "Type": "integer", "Required": false },
         { "Text": "components", "Type": "keyword", "Required": false }
       ],
       "name": "give",
@@ -795,7 +795,7 @@
     {
       "parameters": [
         { "Text": "op", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } }
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } }
       ],
       "name": "op",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -803,7 +803,7 @@
     {
       "parameters": [
         { "Text": "particle", "Type": "keyword", "Required": true },
-        { "Text": "effect", "Type": "keyword", "Required": true },
+        { "Text": "effect", "Type": "particle", "Required": true },
         { "Text": "position x", "Type": "coordinate", "Required": true },
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true }
@@ -815,7 +815,7 @@
       "parameters": [
         { "Text": "playsound", "Type": "keyword", "Required": true },
         { "Text": "sound", "Type": "sound", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
         { "Text": "position x", "Type": "coordinate", "Required": false },
         { "Text": "position y", "Type": "coordinate", "Required": false },
         { "Text": "position z", "Type": "coordinate", "Required": false },
@@ -969,7 +969,7 @@
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
         { "Text": "players", "Type": "keyword", "Required": true },
         { "Text": "add", "Type": "keyword", "Required": true },
-        { "Text": "entity", "Type": "selector", "Required": true },
+        { "Text": "entity", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": true },
         { "Text": "count", "Type": "integer", "Required": true }
       ],
@@ -981,7 +981,7 @@
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
         { "Text": "players", "Type": "keyword", "Required": true },
         { "Text": "list", "Type": "keyword", "Required": true },
-        { "Text": "entity", "Type": "selector", "Required": false }
+        { "Text": "entity", "Type": "selector", "Required": false, "Options": { "allowFakePlayers": true } }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -1005,7 +1005,7 @@
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
         { "Text": "players", "Type": "keyword", "Required": true },
         { "Text": "random", "Type": "keyword", "Required": true },
-        { "Text": "entity", "Type": "selector", "Required": true },
+        { "Text": "entity", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": true },
         { "Text": "min", "Type": "integer", "Required": true },
         { "Text": "max", "Type": "integer", "Required": true }
@@ -1018,7 +1018,7 @@
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
         { "Text": "players", "Type": "keyword", "Required": true },
         { "Text": "remove", "Type": "keyword", "Required": true },
-        { "Text": "entity", "Type": "selector", "Required": true },
+        { "Text": "entity", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": true },
         { "Text": "count", "Type": "integer", "Required": true }
       ],
@@ -1030,7 +1030,7 @@
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
         { "Text": "players", "Type": "keyword", "Required": true },
         { "Text": "reset", "Type": "keyword", "Required": true },
-        { "Text": "entity", "Type": "selector", "Required": true },
+        { "Text": "entity", "Type": "selector", "Required": true, "Options": { "wildcard": true, "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": false }
       ],
       "name": "scoreboard",
@@ -1041,7 +1041,7 @@
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
         { "Text": "players", "Type": "keyword", "Required": true },
         { "Text": "set", "Type": "keyword", "Required": true },
-        { "Text": "entity", "Type": "selector", "Required": true },
+        { "Text": "entity", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": true },
         { "Text": "score", "Type": "integer", "Required": true }
       ],
@@ -1053,7 +1053,7 @@
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
         { "Text": "players", "Type": "keyword", "Required": true },
         { "Text": "test", "Type": "keyword", "Required": true },
-        { "Text": "entity", "Type": "selector", "Required": true },
+        { "Text": "entity", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": true },
         { "Text": "min", "Type": "integerTest", "Required": true },
         { "Text": "max", "Type": "integerTest", "Required": true }
@@ -1081,7 +1081,7 @@
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true },
         { "Text": "tile Name", "Type": "block", "Required": true },
-        { "Text": "til eData", "Type": "integer", "Required": false },
+        { "Text": "tile Data", "Type": "integer", "Required": false },
         { "Text": "destroy", "Type": "keyword", "Required": false }
       ],
       "name": "setblock",
@@ -1103,7 +1103,9 @@
     {
       "parameters": [
         { "Text": "setworldspawn", "Type": "keyword", "Required": true },
-        { "Text": "spawnPoint", "Type": "keyword", "Required": false }
+        { "Text": "spawn x", "Type": "coordinate", "Required": false },
+        { "Text": "spawn y", "Type": "coordinate", "Required": false },
+        { "Text": "spawn z", "Type": "coordinate", "Required": false }
       ],
       "name": "setworldspawn",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -1111,10 +1113,10 @@
     {
       "parameters": [
         { "Text": "spawnpoint", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
-        { "Text": "spawn position x", "Type": "coordinate", "Required": false },
-        { "Text": "spawn position y", "Type": "coordinate", "Required": false },
-        { "Text": "spawn position z", "Type": "coordinate", "Required": false }
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
+        { "Text": "spawn x", "Type": "coordinate", "Required": false },
+        { "Text": "spawn y", "Type": "coordinate", "Required": false },
+        { "Text": "spawn z", "Type": "coordinate", "Required": false }
       ],
       "name": "spawnpoint",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -1134,7 +1136,7 @@
     {
       "parameters": [
         { "Text": "stopsound", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "sound", "Type": "sound", "Required": false }
       ],
       "name": "stopsound",
@@ -1186,8 +1188,8 @@
     },
     {
       "parameters": [
-        { "Text": "tag", "Type": "keyword", "Required": true, "Options": { "wildcard": true } },
-        { "Text": "selector", "Type": "selector", "Required": true },
+        { "Text": "tag", "Type": "keyword", "Required": true },
+        { "Text": "selector", "Type": "selector", "Required": true, "Options": { "wildcard": true } },
         { "Text": "remove", "Type": "keyword", "Required": true },
         { "Text": "name", "Type": "tag", "Required": true }
       ],
@@ -1197,7 +1199,7 @@
     {
       "parameters": [
         { "Text": "tell", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "message", "Type": "keyword", "Required": true }
       ],
       "name": "tell",
@@ -1206,7 +1208,7 @@
     {
       "parameters": [
         { "Text": "tellraw", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
       ],
       "name": "tellraw",
@@ -1324,7 +1326,18 @@
       "parameters": [
         { "Text": "tickingarea", "Type": "keyword", "Required": true },
         { "Text": "remove", "Type": "keyword", "Required": true },
-        { "Text": "position", "Type": "keyword", "Required": true }
+        { "Text": "x", "Type": "coordinate", "Required": true },
+        { "Text": "y", "Type": "coordinate", "Required": true },
+        { "Text": "z", "Type": "coordinate", "Required": true }
+      ],
+      "name": "tickingarea",
+      "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "tickingarea", "Type": "keyword", "Required": true },
+        { "Text": "remove", "Type": "keyword", "Required": true },
+        { "Text": "name", "Type": "tickingarea", "Required": true }
       ],
       "name": "tickingarea",
       "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
@@ -1385,7 +1398,7 @@
     {
       "parameters": [
         { "Text": "title", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "title", "Type": "keyword", "Required": true },
         { "Text": "titleText", "Type": "string", "Required": true }
       ],
@@ -1395,7 +1408,7 @@
     {
       "parameters": [
         { "Text": "title", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "subtitle", "Type": "keyword", "Required": true },
         { "Text": "titleText", "Type": "string", "Required": true }
       ],
@@ -1405,7 +1418,7 @@
     {
       "parameters": [
         { "Text": "title", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "actionbar", "Type": "keyword", "Required": true },
         { "Text": "titleText", "Type": "string", "Required": true }
       ],
@@ -1415,7 +1428,7 @@
     {
       "parameters": [
         { "Text": "title", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "clear", "Type": "keyword", "Required": true }
       ],
       "name": "title",
@@ -1424,7 +1437,7 @@
     {
       "parameters": [
         { "Text": "title", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "reset", "Type": "keyword", "Required": true }
       ],
       "name": "title",
@@ -1433,7 +1446,7 @@
     {
       "parameters": [
         { "Text": "title", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "times", "Type": "keyword", "Required": true },
         { "Text": "fade in", "Type": "integer", "Required": true },
         { "Text": "stay", "Type": "integer", "Required": true },
@@ -1445,7 +1458,7 @@
     {
       "parameters": [
         { "Text": "titleraw", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "title", "Type": "keyword", "Required": true },
         { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
       ],
@@ -1455,7 +1468,7 @@
     {
       "parameters": [
         { "Text": "titleraw", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "subtitle", "Type": "keyword", "Required": true },
         { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
       ],
@@ -1465,7 +1478,7 @@
     {
       "parameters": [
         { "Text": "titleraw", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "actionbar", "Type": "keyword", "Required": true },
         { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
       ],
@@ -1475,7 +1488,7 @@
     {
       "parameters": [
         { "Text": "titleraw", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "clear", "Type": "keyword", "Required": true }
       ],
       "name": "titleraw",
@@ -1484,7 +1497,7 @@
     {
       "parameters": [
         { "Text": "titleraw", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "reset", "Type": "keyword", "Required": true }
       ],
       "name": "titleraw",
@@ -1493,7 +1506,7 @@
     {
       "parameters": [
         { "Text": "titleraw", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "times", "Type": "keyword", "Required": true },
         { "Text": "fade in", "Type": "integer", "Required": true },
         { "Text": "stay", "Type": "integer", "Required": true },
@@ -1748,7 +1761,7 @@
       "parameters": [
         { "Text": "xp", "Type": "keyword", "Required": true },
         { "Text": "amount", "Type": "xp", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
       ],
       "name": "xp",
       "documentation": { "value": "Adds or removes player experience", "kind": "markdown" }
@@ -1757,7 +1770,7 @@
       "parameters": [
         { "Text": "xp", "Type": "keyword", "Required": true },
         { "Text": "amount", "Type": "integer", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
       ],
       "name": "xp",
       "documentation": { "value": "Adds or removes player experience", "kind": "markdown" }
@@ -1772,7 +1785,7 @@
     {
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } }
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } }
       ],
       "name": "ability",
       "documentation": { "value": "Returns a list of abillities assigned to the specified player", "kind": "markdown" }
@@ -1780,7 +1793,7 @@
     {
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "mayfly", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
       ],
@@ -1790,7 +1803,7 @@
     {
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "mute", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
       ],
@@ -1800,7 +1813,7 @@
     {
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "Player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "worldbuilder", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
       ],
