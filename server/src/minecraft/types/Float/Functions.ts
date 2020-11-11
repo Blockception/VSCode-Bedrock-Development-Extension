@@ -27,19 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/include";
-import { Database } from "../../../../database/include";
-import { Manager } from '../../../../manager/Manager';
 
-export function DiagnoseBlock(data: LocationWord, receiver: Diagnostic[]): void {
-  const text = data.text;
+export function IsFloat(text: string): boolean {
+	let match = text.match(/^[\-\.\d]*$/);
 
-  if (Database.Data.General.Blocks.HasID(text)) return;
+	if (match) {
+		return true;
+	}
 
-  receiver.push({
-    range: data.range,
-    message: 'No known block found with the id: "' + text + '"',
-    severity: DiagnosticSeverity.Error,
-  });
+	return false
 }

@@ -32,14 +32,15 @@ import { LocationWord } from "../../../../code/include";
 import { Database } from "../../../../database/include";
 import { Manager } from '../../../../manager/Manager';
 
-export function DiagnoseBlock(data: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseEntity(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
 
-  if (Database.Data.General.Blocks.HasID(text)) return;
+  if (Database.Data.General.Entities.HasID(text))
+    return;
 
   receiver.push({
     range: data.range,
-    message: 'No known block found with the id: "' + text + '"',
+    message: 'No known entity found with the id: "' + text + '"',
     severity: DiagnosticSeverity.Error,
   });
 }

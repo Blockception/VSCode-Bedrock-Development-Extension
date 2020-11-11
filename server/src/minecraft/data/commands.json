@@ -733,7 +733,7 @@
       "parameters": [
         { "Text": "gamerule", "Type": "keyword", "Required": true },
         { "Text": "spawnradius", "Type": "keyword", "Required": true },
-        { "Text": "value", "Type": "boolean", "Required": false }
+        { "Text": "value", "Type": "integer", "Required": false }
       ],
       "name": "gamerule",
       "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
@@ -1307,7 +1307,7 @@
         { "Text": "center x", "Type": "coordinate", "Required": true },
         { "Text": "center y", "Type": "coordinate", "Required": true },
         { "Text": "center z", "Type": "coordinate", "Required": true },
-        { "Text": "radius", "Type": "keyword", "Required": true },
+        { "Text": "radius", "Type": "integer", "Required": true },
         { "Text": "name", "Type": "tickingarea", "Required": false }
       ],
       "name": "tickingarea",

@@ -33,6 +33,11 @@ import { getLine, LocationWord } from "../../../code/include";
 import { Database } from "../../../database/include";
 import { CommandIntr, GetSubCommand, MCCommandParameter, MCCommandParameterType } from "../../../minecraft/commands/include";
 import { ValidationData } from "../../../validation/include";
+import { DiagnoseCommandP } from './parameters/command';
+import { DiagnoseCoordinate } from './parameters/coordinate';
+import { DiagnoseEffect } from './parameters/effect';
+import { DiagnoseEntity } from './parameters/entity';
+import { DiagnoseFloat } from './parameters/float';
 import {
   DiagnoseBlock,
   DiagnoseBoolean,
@@ -43,6 +48,7 @@ import {
   DiagnoseTag,
   DiagnoseTickingarea,
 } from "./parameters/include";
+import { DiagnoseInteger } from './parameters/integer';
 
 /**
  *
@@ -159,11 +165,23 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
       return DiagnoseBoolean(data, receiver);
 
     case MCCommandParameterType.command:
+      return DiagnoseCommandP(data, receiver);
+
     case MCCommandParameterType.coordinate:
+      return DiagnoseCoordinate(data, receiver);
+
     case MCCommandParameterType.effect:
+      return DiagnoseEffect(data, receiver);
+
     case MCCommandParameterType.entity:
+      return DiagnoseEntity(data, receiver);
+
     case MCCommandParameterType.event:
+      return; //TODO
+
     case MCCommandParameterType.float:
+      return DiagnoseFloat(data, receiver);
+
     case MCCommandParameterType.function:
       return;
 
@@ -171,6 +189,8 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
       return DiagnoseGamemode(data, receiver);
 
     case MCCommandParameterType.integer:
+      return DiagnoseInteger(data, receiver);
+
     case MCCommandParameterType.integerTest:
     case MCCommandParameterType.item:
     case MCCommandParameterType.jsonItem:

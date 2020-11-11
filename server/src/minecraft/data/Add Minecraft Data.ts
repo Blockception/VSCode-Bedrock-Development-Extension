@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Database } from "../../database/include";
 import { Manager } from "../../manager/Manager";
 import { Block } from "../types/Block/include";
+import { Effect } from '../types/Effect/Effect';
 import { Entity } from "../types/Entity/include";
 import { EmptyTypes } from "../types/include";
 import { Item } from "../types/Item/include";
@@ -44,6 +45,7 @@ export function AddMinecraftData() {
   data.vanilla.entities.forEach((entity) => Data.General.Entities.Update(AddEntity(entity)));
   data.vanilla.items.forEach((item) => Data.General.Items.Update(AddItem(item)));
   data.vanilla.sounds.forEach((sound) => Data.General.Sounds.Update(AddSound(sound)));
+  data.vanilla.effects.forEach((effect) => Data.General.Effects.Update(AddEffect(effect)));
 
   if (Manager.Settings.useEducationContent) {
     data.edu.blocks.forEach((block) => Data.General.Blocks.Update(AddEduBlock(block)));
@@ -82,6 +84,21 @@ function AddEntity(data: string): Entity {
   B.Events = ["minecraft:entity_spawned"];
 
   return B;
+}
+
+function AddEffect(data: string): Effect {
+  let E = new Effect();
+  E.Identifier = data;
+  E.Location = {
+    range: EmptyTypes.EmptyRange(),
+    uri: "https://minecraft.gamepedia.com/Add-on",
+  };
+  E.Documentation = {
+    kind: "markdown",
+    value: "minecraft vanilla effect: " + data,
+  };
+
+  return E;
 }
 
 function AddItem(data: string): Item {

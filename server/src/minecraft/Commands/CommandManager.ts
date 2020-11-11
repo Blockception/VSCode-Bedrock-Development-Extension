@@ -30,6 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ProvideCompletionMCCommandParameter } from "../../completion/MCCommandParameterType/include";
 import { Manager } from "../../manager/Manager";
 import { IsBoolean } from "../types/Boolean/Boolean";
+import { IsCoordinate } from '../types/Coordinate/Functions';
+import { IsFloat } from '../types/Float/Functions';
+import { IsInteger } from '../types/Integer/Functions';
 import { IsJson } from "../types/Json/Json";
 import { IsSelector } from "../types/Selector/include";
 import { IsTickingArea } from "../types/Tickingarea/Functions";
@@ -113,13 +116,12 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 
     switch (patPar.Type) {
       case MCCommandParameterType.block:
-      case MCCommandParameterType.coordinate:
-      case MCCommandParameterType.effect:
+
       case MCCommandParameterType.entity:
       case MCCommandParameterType.event:
-      case MCCommandParameterType.float:
+
       case MCCommandParameterType.function:
-      case MCCommandParameterType.integer:
+
       case MCCommandParameterType.item:
       case MCCommandParameterType.objective:
       case MCCommandParameterType.sound:
@@ -128,10 +130,24 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         //TODO program matches types for these
         continue;
 
+      case MCCommandParameterType.coordinate:
+        if (!IsCoordinate(comText)) return false;
+        break;
+
+      case MCCommandParameterType.effect:
+        if (comText === 'clear') return false;
+        break;
+
+      case MCCommandParameterType.float:
+        if (!IsFloat(comText)) return false;
+        break;
+
+      case MCCommandParameterType.integer:
+        if (!IsInteger(comText)) return false;
+        break;
+
       case MCCommandParameterType.boolean:
-        if (!IsBoolean(comText)) {
-          return false;
-        }
+        if (!IsBoolean(comText)) { return false; }
         break;
 
       case MCCommandParameterType.command:
@@ -142,15 +158,11 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 
       case MCCommandParameterType.jsonItem:
       case MCCommandParameterType.jsonRawText:
-        if (!IsJson(comText)) {
-          return false;
-        }
+        if (!IsJson(comText)) { return false; }
         break;
 
       case MCCommandParameterType.keyword:
-        if (comText != patPar.Text) {
-          return false;
-        }
+        if (comText != patPar.Text) { return false; }
         break;
 
       case MCCommandParameterType.selector:

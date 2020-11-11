@@ -1,21 +1,21 @@
 # Changelog 
+- Merged
 - auto: Formatted typescript files
-- Updating json raw text and item components for completion
-- Updated
-- Updated to 1.3.3
-- auto: generated includes
-- auto: Formatted typescript files files
-- Setting up diagnostics
-- Adding tickingarea parsing
-- removed lint
-- Updating formatting script
-- Formatted workspace
-- Updated submodule
-- Updated json validation paths
-- Updated bedrock schemas
-- Updated
-- Moved to own repository
-- Added schema repo
-- Updated
-- Making sure resourcepack data ends up in resourcepack
-- Added render controller parsing
+- auto: Formatted json files
+- Updated script
+- auto: Updated dependencies
+- Updated refs
+- auto: regenerated
+- Updated scoreboard parsing
+- Updated tag parsing
+- Updated tickingarea parsing
+- Added boolean diagnostics
+- auto: Regenerated
+- Added the basics of vlaidation processing
+- Added Diagnose Command beginnins
+- Fixing command syntax
+- auto: Regenerated
+- auto: regenerated
+- auto : Updated
+- Updated completion for the parameter options
+- Adding the new parameters options to the commands

@@ -32,15 +32,10 @@ import { Documentable } from "../../Interfaces/Documentable";
 import { Identifiable } from "../../Interfaces/Identifiable";
 import { Locatable } from "../../Interfaces/include";
 import { EmptyTypes } from "../Empty";
+import { ObjectBase } from '../Object Base/include';
 
-export class Effect implements Identifiable, Locatable, Documentable {
-  public Identifier: string;
-  public Documentation: MarkupContent;
-  public Location: Location;
-
+export class Effect extends ObjectBase {
   constructor() {
-    this.Identifier = "";
-    this.Documentation = EmptyTypes.EmptyDocumentation();
-    this.Location = EmptyTypes.EmptyLocation();
+    super();
   }
 }
