@@ -1,4 +1,6 @@
 /*	Auto generated	*/
+export * from "./block";
+export * from "./boolean";
 export * from "./gamemode";
 export * from "./keyword";
 export * from "./objective";
