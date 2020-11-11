@@ -34,14 +34,10 @@ import { GetComment } from "../../minecraft/behavior/functions/Function";
 import { CommandIntr } from "../../minecraft/commands/include";
 import { Tag } from "../../minecraft/types/Tag/Tag";
 
-export function ProcessTagCommand(line: string, lineIndex: number, doc: TextDocument): void {
-  if (!line.includes(" add ")) {
-    return;
-  }
-
-  let Com: CommandIntr = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
-
+export function ProcessTagCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
   //tag <selector> add <tag>
+  if (Com.Paramaters[2]?.text !== 'add')
+    return;
 
   let tag = Com.Paramaters[3];
 
