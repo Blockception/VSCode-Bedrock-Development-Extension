@@ -27,23 +27,20 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
 import { Diagnostic } from 'vscode-languageserver';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import { getLine, LocationWord } from '../../../code/include';
 import { Database } from '../../../database/include';
-import { diagnostics } from '../../../include';
-import { CommandIntr, GetSubCommand, IsInSubCommand, MCCommandParameter, MCCommandParameterType } from '../../../minecraft/commands/include';
-import { ValidationData, ValidationDataStringLists } from '../../../validation/include';
-import { DiagnoseBlock } from './parameters/block';
-import { DiagnoseBoolean } from './parameters/boolean';
-import { DiagnoseGamemode } from './parameters/gamemode';
-import { DiagnoseKeyword } from './parameters/keyword';
-import { DiagnoseObjective } from './parameters/objective';
-import { DiagnoseParticle } from './parameters/particle';
-import { DiagnoseTag } from './parameters/tag';
-import { DiagnoseTickingarea } from './parameters/tickingarea';
+import { CommandIntr, GetSubCommand, MCCommandParameter, MCCommandParameterType } from '../../../minecraft/commands/include';
+import { ValidationData } from '../../../validation/include';
+import { DiagnoseBlock, DiagnoseBoolean, DiagnoseGamemode, DiagnoseKeyword, DiagnoseObjective, DiagnoseParticle, DiagnoseTag, DiagnoseTickingarea } from './parameters/include';
 
+
+/**
+ * 
+ * @param doc 
+ * @param validation 
+ */
 export function Diagnose(doc: TextDocument, validation: ValidationData) {
 	let receiver: Diagnostic[] = [];
 
@@ -67,6 +64,13 @@ export function Diagnose(doc: TextDocument, validation: ValidationData) {
 	Database.Diagnotics.SetErrors(doc.uri, receiver);
 }
 
+/**
+ * 
+ * @param line 
+ * @param lineIndex 
+ * @param validation 
+ * @param receiver 
+ */
 export function DiagnoseLine(line: string, lineIndex: number, validation: ValidationData, receiver: Diagnostic[]): void {
 	line = line.trim();
 
@@ -92,6 +96,13 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
 	}
 }
 
+/**
+ * 
+ * @param Command 
+ * @param line 
+ * @param validation 
+ * @param receiver 
+ */
 function DiagnoseCommand(Command: CommandIntr, line: string, validation: ValidationData, receiver: Diagnostic[]): void {
 	let Matches = Command.GetCommandData();
 
