@@ -233,6 +233,13 @@
         "description": "Minecraft black colour code"
       }
     ],
+    "commands": [
+      {
+        "title": "Run diagnose on project",
+        "command": "bc.minecraft.diagnose.project",
+        "category": "Blockception"
+      }
+    ],
     "languages": [
       {
         "id": "bc-minecraft-language",

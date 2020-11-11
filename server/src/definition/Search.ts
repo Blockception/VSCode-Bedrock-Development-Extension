@@ -45,7 +45,6 @@ export function SearchDefinition(text: string, type: MCCommandParameterType[]): 
       case MCCommandParameterType.item:
       case MCCommandParameterType.objective:
       case MCCommandParameterType.selector:
-      case MCCommandParameterType.selectorPlayer:
       case MCCommandParameterType.sound:
       case MCCommandParameterType.tag:
       case MCCommandParameterType.tickingarea:
@@ -92,7 +91,6 @@ export function SearchDefinitionIn(text: string, type: MCCommandParameterType[],
         break;
 
       case MCCommandParameterType.selector:
-      case MCCommandParameterType.selectorPlayer:
         SearchInCollection(text, Data.FakeEntities, receiver);
         break;
 

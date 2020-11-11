@@ -28,14 +28,24 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "../../../code/include";
+import { ParameterOptions } from '../../commands/include';
 
-export function IsSelector(value: string): boolean {
+export function IsSelector(value: string, Options: ParameterOptions | undefined): boolean {
   if (value.startsWith("@")) return true;
 
-  if (value.includes(" ")) {
-    if (value.startsWith('"') && value.endsWith('"')) return true;
+  if (Options) {
+    if (Options.wildcard === true) {
+      if (value === '*')
+        return true;
+    }
 
-    return false;
+    if (Options.allowFakePlayers === true) {
+      if (value.startsWith('"') && value.endsWith('"'))
+        return true;
+
+      if (value.includes(' ')) { return false; }
+      return true;
+    }
   }
 
   return false;

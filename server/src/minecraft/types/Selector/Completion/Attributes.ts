@@ -126,7 +126,7 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionList
     case "rm":
     case "lm":
     case "l":
-      provideIntegerCompletion(receiver, 0, 10);
+      provideIntegerCompletion(receiver, { minimum: 0, maximum: 100 });
       return;
 
     case "m":
@@ -145,7 +145,7 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionList
     case "rxm":
     case "ry":
     case "rym":
-      provideFloatCompletion(receiver, -45, 45);
+      provideFloatCompletion(receiver, { minimum: -180, maximum: 180 });
       return;
 
     case "tag":

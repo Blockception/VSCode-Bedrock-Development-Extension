@@ -148,10 +148,6 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       doc = "A selector that target all players, entities or fake players";
       break;
 
-    case MCCommandParameterType.selectorPlayer:
-      doc = "A selector that can only target players or fake players";
-      break;
-
     case MCCommandParameterType.slotID:
       doc = "A slot id";
       break;

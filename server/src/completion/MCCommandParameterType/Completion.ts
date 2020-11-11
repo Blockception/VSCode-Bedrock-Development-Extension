@@ -106,7 +106,7 @@ export function ProvideCompletionMCCommandParameter(
       return provideEventCompletion(receiver, Command);
 
     case MCCommandParameterType.float:
-      return provideFloatCompletion(receiver, Parameter);
+      return provideFloatCompletion(receiver, Parameter.Options);
       break;
 
     case MCCommandParameterType.function:
@@ -117,7 +117,7 @@ export function ProvideCompletionMCCommandParameter(
       break;
 
     case MCCommandParameterType.integer:
-      return provideIntegerCompletion(receiver, Parameter);
+      return provideIntegerCompletion(receiver, Parameter.Options);
 
     case MCCommandParameterType.item:
       return provideItemCompletion(receiver);

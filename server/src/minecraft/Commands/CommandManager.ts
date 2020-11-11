@@ -27,10 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { ProvideCompletionMCCommandParameter } from '../../completion/MCCommandParameterType/include';
 import { Manager } from "../../manager/Manager";
 import { IsBoolean } from "../types/Boolean/Boolean";
 import { IsJson } from "../types/Json/Json";
 import { IsSelector } from "../types/Selector/include";
+import { IsTickingArea } from '../types/Tickingarea/Functions';
 import { CommandInfo } from "./CommandInfo";
 import { CommandIntr } from "./CommandIntr";
 import { MCCommand } from "./MCCommand";
@@ -101,6 +103,14 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
     let comText = comPar.text;
     let patPar = pattern.parameters[I];
 
+    if (patPar.Options) {
+      if (patPar.Options.acceptedValues) {
+        if (patPar.Options.acceptedValues.includes(comText)) {
+          continue;
+        }
+      }
+    }
+
     switch (patPar.Type) {
       case MCCommandParameterType.block:
       case MCCommandParameterType.coordinate:
@@ -119,35 +129,28 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         continue;
 
       case MCCommandParameterType.boolean:
-        if (!IsBoolean(comText)) {
-          return false;
-        }
+        if (!IsBoolean(comText)) { return false; }
         break;
 
       case MCCommandParameterType.command:
-        if (!Manager.Data.Commands.has(comText)) {
-          return false;
-        }
+        if (!Manager.Data.Commands.has(comText)) { return false; }
         break;
 
       case MCCommandParameterType.jsonItem:
       case MCCommandParameterType.jsonRawText:
-        if (!IsJson(comText)) {
-          return false;
-        }
+        if (!IsJson(comText)) { return false; }
         break;
 
       case MCCommandParameterType.keyword:
-        if (comText != patPar.Text) {
-          return false;
-        }
+        if (comText != patPar.Text) { return false; }
         break;
 
       case MCCommandParameterType.selector:
-      case MCCommandParameterType.selectorPlayer:
-        if (!IsSelector(comText)) {
-          return false;
-        }
+        if (!IsSelector(comText, patPar.Options)) { return false; }
+        break;
+
+      case MCCommandParameterType.tickingarea:
+        if (!IsTickingArea(comText)) { return false; }
         break;
     }
   }

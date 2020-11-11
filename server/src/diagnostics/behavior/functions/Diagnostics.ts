@@ -30,21 +30,93 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 import { Diagnostic } from 'vscode-languageserver';
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import { getLine } from '../../../code/include';
+import { getLine, LocationWord } from '../../../code/include';
 import { Database } from '../../../database/include';
+import { CommandIntr, MCCommandParameter, MCCommandParameterType } from '../../../minecraft/commands/include';
 import { ValidationData } from '../../../validation/include';
+import { DiagnoseKeyword } from './parameters/keyword';
 
 export function Diagnose(doc: TextDocument, validation: ValidationData) {
 	let receiver: Diagnostic[] = [];
 
-	for (let index = 0; index < doc.lineCount; index++) {
-		const line = getLine(doc, index);
-		DiagnoseLine(line, validation, receiver);
+	if (doc.uri.includes('quest_reset')) {
+		let hi = '';
+	}
+
+	try {
+		for (let index = 0; index < doc.lineCount; index++) {
+			const line = getLine(doc, index);
+			DiagnoseLine(line, index, validation, receiver);
+		}
+	}
+	catch (error) {
+		receiver.push({
+			message: JSON.stringify(error),
+			range: { start: { character: 0, line: 0 }, end: { character: 1, line: 0 } }
+		})
 	}
 
 	Database.Diagnotics.SetErrors(doc.uri, receiver);
 }
 
-export function DiagnoseLine(line: string, validation: ValidationData, receiver: Diagnostic[]): void {
+export function DiagnoseLine(line: string, lineIndex: number, validation: ValidationData, receiver: Diagnostic[]): void {
+	line = line.trim();
 
+	if (line === '' || line === '\r\n')
+		return;
+
+	if (line.startsWith('scoreboard players set CH3')) {
+		line = line;
+	}
+
+	let Command = CommandIntr.parse(line, { character: 0, line: lineIndex }, '');
+
+	if (Command.Paramaters.length === 0)
+		return;
+
+	let Matches = Command.GetCommandData();
+
+	if (Matches.length === 0) {
+		receiver.push({ message: 'Unknown command syntax: "' + line + '"', range: Command.Paramaters[0].range });
+		return;
+	}
+
+	let Data = Matches[0];
+	let max = Data.Command.parameters.length;
+
+	if (Command.Paramaters.length < max) {
+		max = Command.Paramaters.length;
+	}
+
+	for (let I = 0; I < Data.Command.parameters.length; I++) {
+		DiagnoseParameter(Data.Command.parameters[I], Command.Paramaters[I], validation, receiver)
+	}
+}
+
+function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
+	if (pattern === undefined || data === undefined)
+		return;
+
+	if (pattern.Options) {
+		//If wildcard is allowed and the text is an wildcard, then skip diagnose
+		if (pattern.Options.wildcard && pattern.Options.wildcard === true) {
+			if (data.text === '*')
+				return;
+		}
+
+		//If accepted values is filled in and the text is a match, then skip diagnose
+		if (pattern.Options.acceptedValues) {
+			if (pattern.Options.acceptedValues.includes(data.text)) {
+				return;
+			}
+		}
+	}
+
+	switch (pattern.Type) {
+		case MCCommandParameterType.keyword:
+			return DiagnoseKeyword(pattern, data, receiver);
+
+
+
+	}
 }

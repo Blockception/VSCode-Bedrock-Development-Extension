@@ -49,9 +49,9 @@ function onInitialize(params: InitializeParams): InitializeResult {
       textDocumentSync: TextDocumentSyncKind.Incremental,
 
       // Tell the client that this server supports a couple commands
-      /*executeCommandProvider: {
-        commands: ["bc.minecraft.errors.import"]
-      },*/
+      executeCommandProvider: {
+        commands: ["bc.minecraft.errors.import", "bc.minecraft.diagnose.project"]
+      },
 
       // Tell the client that this server supports go to defintitions
       definitionProvider: true,

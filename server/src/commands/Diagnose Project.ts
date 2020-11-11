@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ExecuteCommandParams } from 'vscode-languageserver';
 import { Database } from '../database/include';
-import { world } from '../diagnostics/include';
+import { behavior, world } from '../diagnostics/include';
 import { DiagnoseContext } from '../diagnostics/types/Context';
 import { ProgressHandler } from '../progress/include';
 import { GetValidationData } from '../validation/include';
@@ -42,10 +42,13 @@ export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
 
 		let context: DiagnoseContext = {
 			progress: progress,
-			projectStructure: data
+			projectStructure: data,
+			data: Validation
 		};
 
 		world.Diagnose(context);
-
+		behavior.Diagnose(context);
+		
+		progress.done();
 	});
 }
