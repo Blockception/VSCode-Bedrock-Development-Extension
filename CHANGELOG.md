@@ -1,4 +1,8 @@
 # Changelog 
+- Updated documentation
+- Updated
+- Updated documentation
+- Updating diagnostics
 - Merged
 - auto: Formatted typescript files
 - auto: Formatted json files
@@ -15,7 +19,3 @@
 - Added Diagnose Command beginnins
 - Fixing command syntax
 - auto: Regenerated
-- auto: regenerated
-- auto : Updated
-- Updated completion for the parameter options
-- Adding the new parameters options to the commands
