@@ -1,20 +1,10 @@
 {
   "tags": {
-    "valid": [
-      "Initialize"
-    ],
-    "invalid": [
-      "Init"
-    ]
+    "valid": ["Initialize"],
+    "invalid": ["Init"]
   },
   "objectives": {
-    "valid": [
-      "timer",
-      "score",
-      "check"
-    ],
-    "invalid": [
-      "jumpingCheck"
-    ]
+    "valid": ["timer", "score", "check"],
+    "invalid": ["jumpingCheck"]
   }
 }
