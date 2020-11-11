@@ -14,6 +14,7 @@ It's recommended you use the Dark+ theme for the best color highlighting. This p
       - [Validation](#validation)
     - [Language files](#language-files)
     - [Molang](#molang-1)
+  - [Commands](#commands)
   - [Extension Settings](#extension-settings)
   - [Licenses](#licenses)
   
@@ -28,6 +29,7 @@ This plugin provides support for the `.mcfunction` files. The following features
 - Regions
 - Symbols.
 - Syntax highlighting.
+- [Validation files for diagnosing](documentation/Commands.md).
 
 ---
 ### JSON
@@ -89,6 +91,11 @@ This plugin provides support for `.lang` files. The following features are provi
 ---
 ### Molang
 This plugin provides automatic highlighting for Molang code in JSON files and .molang files. Officially .molang files are not supported by Minecraft, but they're useful for development.
+
+
+---
+## Commands
+A complete list can be found [here](documentation/Commands.md)
 
 ---
 ## Extension Settings
