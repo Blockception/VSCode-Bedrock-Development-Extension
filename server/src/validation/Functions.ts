@@ -27,9 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { GetDocuments } from '../code/include';
-import { code } from '../include';
+import { URI } from 'vscode-uri';
+import { GetDocuments, GetFilepath } from '../code/include';
 import { JsonDocument } from '../json/include';
 import { ValidationData } from './Validation';
 
@@ -37,6 +36,11 @@ export function GetValidationData(workspaces: string[]): ValidationData {
 	let Out: ValidationData = ValidationData.createEmpty();
 
 	workspaces.forEach(ws => {
+		ws = URI.parse(ws).fsPath;
+
+		if (!ws.endsWith("\\")) ws += "\\";
+		ws = ws.replace(/\\/g, "/");
+
 		GetDocuments(ws, '**/minecraft-validation.json').forEach(D => Process(D, Out));
 	});
 
@@ -48,5 +52,12 @@ function Process(uri: string, receiver: ValidationData): void {
 
 	let data = doc.CastTo<ValidationData>();
 
-	
+	if (data === undefined || data === null)
+		return;
+
+	data.objectives?.invalid?.forEach(m => receiver.objectives?.invalid?.push(m));
+	data.objectives?.valid?.forEach(m => receiver.objectives?.valid?.push(m));
+
+	data.tags?.invalid?.forEach(m => receiver.tags?.invalid?.push(m));
+	data.tags?.valid?.forEach(m => receiver.tags?.valid?.push(m));
 }

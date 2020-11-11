@@ -34,7 +34,12 @@ import { getLine, LocationWord } from '../../../code/include';
 import { Database } from '../../../database/include';
 import { CommandIntr, MCCommandParameter, MCCommandParameterType } from '../../../minecraft/commands/include';
 import { ValidationData } from '../../../validation/include';
+import { DiagnoseGamemode } from './parameters/gamemode';
 import { DiagnoseKeyword } from './parameters/keyword';
+import { DiagnoseObjective } from './parameters/objective';
+import { DiagnoseParticle } from './parameters/particle';
+import { DiagnoseTag } from './parameters/tag';
+import { DiagnoseTickingarea } from './parameters/tickingarea';
 
 export function Diagnose(doc: TextDocument, validation: ValidationData) {
 	let receiver: Diagnostic[] = [];
@@ -93,6 +98,13 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
 	}
 }
 
+/**
+ * Diagnoses the single parameter
+ * @param pattern 
+ * @param data 
+ * @param validation 
+ * @param receiver 
+ */
 function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
 	if (pattern === undefined || data === undefined)
 		return;
@@ -113,10 +125,60 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
 	}
 
 	switch (pattern.Type) {
+		case MCCommandParameterType.block:
+		case MCCommandParameterType.boolean:
+		case MCCommandParameterType.command:
+		case MCCommandParameterType.coordinate:
+		case MCCommandParameterType.effect:
+		case MCCommandParameterType.entity:
+		case MCCommandParameterType.event:
+		case MCCommandParameterType.float:
+		case MCCommandParameterType.function:
+			return;
+			
+		case MCCommandParameterType.gamemode:
+			return DiagnoseGamemode(data, receiver);
+
+		case MCCommandParameterType.integer:
+		case MCCommandParameterType.integerTest:
+		case MCCommandParameterType.item:
+		case MCCommandParameterType.jsonItem:
+		case MCCommandParameterType.jsonRawText:
+			return;
+
 		case MCCommandParameterType.keyword:
 			return DiagnoseKeyword(pattern, data, receiver);
 
+		case MCCommandParameterType.locateFeature:
+			return;
+		case MCCommandParameterType.objective:
+			return DiagnoseObjective(data, validation, receiver);
 
+		case MCCommandParameterType.operation:
+			return;
 
+		case MCCommandParameterType.particle:
+			return DiagnoseParticle(data, receiver);
+
+		case MCCommandParameterType.replaceMode:
+		case MCCommandParameterType.selector:
+		case MCCommandParameterType.slotID:
+		case MCCommandParameterType.slotType:
+		case MCCommandParameterType.sound:
+		case MCCommandParameterType.string:
+			return;
+
+		case MCCommandParameterType.tag:
+			return DiagnoseTag(data, validation, receiver);
+
+		case MCCommandParameterType.target:
+			return;
+
+		case MCCommandParameterType.tickingarea:
+			return DiagnoseTickingarea(data, receiver)
+
+		case MCCommandParameterType.unknown:
+		case MCCommandParameterType.xp:
+			return;
 	}
 }

@@ -50,7 +50,8 @@ function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: ["bc.minecraft.errors.import", "bc.minecraft.diagnose.project"]
+        commands: ["bc.minecraft.errors.import", "bc.minecraft.diagnose.project"],
+        workDoneProgress:true
       },
 
       // Tell the client that this server supports go to defintitions

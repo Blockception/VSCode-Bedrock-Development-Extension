@@ -60,8 +60,8 @@ export namespace ValidationData {
 
 	export function createEmpty(): ValidationData {
 		return {
-			objectives: ValidationDataStringLists.create(),
-			tags: ValidationDataStringLists.create()
+			objectives: ValidationDataStringLists.create([], []),
+			tags: ValidationDataStringLists.create([], [])
 		};
 	}
 }

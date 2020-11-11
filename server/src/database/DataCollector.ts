@@ -110,6 +110,18 @@ export class DataCollector<T extends Identifiable & Locatable> implements DataCo
     return Item;
   }
 
+  /**
+   * 
+   * @param Identifier 
+   */
+  public HasID(Identifier: string): boolean {
+    return this.data.has(Identifier);
+  }
+
+  /**
+   * 
+   * @param value 
+   */
   public Set(value: T): void {
     this.data.set(value.Identifier, value);
   }

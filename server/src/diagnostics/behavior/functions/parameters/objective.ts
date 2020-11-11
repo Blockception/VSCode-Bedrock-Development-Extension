@@ -27,35 +27,36 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ExecuteCommandParams, MessageType, ShowMessageNotification } from 'vscode-languageserver';
-import { Database } from '../database/include';
-import { behavior, world } from '../diagnostics/include';
-import { DiagnoseContext } from '../diagnostics/types/Context';
-import { manager } from '../include';
-import { Manager } from '../manager/Manager';
-import { ProgressHandler } from '../progress/include';
-import { GetValidationData } from '../validation/include';
+import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver';
+import { LocationWord } from '../../../../code/include';
+import { Database } from '../../../../database/include';
+import { ValidationData } from '../../../../validation/include';
 
-export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
-	Database.MinecraftProgramData.GetProjecData((data) => {
-		let progress = new ProgressHandler('Diagnosing', 0, 1, undefined);
+export function DiagnoseObjective(data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
+	const text = data.text;
 
-		let Validation = GetValidationData(data.Workspaces);
+	//Check rules first
+	if (validation.objectives?.valid?.includes(text)) {
+		return;
+	}
 
-		let context: DiagnoseContext = {
-			progress: progress,
-			projectStructure: data,
-			data: Validation
-		};
+	if (validation.objectives?.invalid?.includes(text)) {
+		receiver.push({
+			range: data.range,
+			message: 'Objective has been blacklisted through rules: "' + text + '"',
+			severity:DiagnosticSeverity.Error
+		});
 
-		if (Manager.State.TraversingProject || !Manager.State.DataGathered) {
-			Manager.Connection.sendNotification(ShowMessageNotification.type, { message: 'Extension is traversing the project. please wait a couple more seconds.', type: MessageType.Info });
-			return;
-		}
+		return;
+	}
 
-		world.Diagnose(context);
-		behavior.Diagnose(context);
+	//Does database has a reference?
+	if (Database.Data.General.Objectives.HasID(text))
+		return;
 
-		progress.done();
+	receiver.push({
+		range: data.range,
+		message: 'No objective has been created: "' + text + '"',
+		severity:DiagnosticSeverity.Error
 	});
 }

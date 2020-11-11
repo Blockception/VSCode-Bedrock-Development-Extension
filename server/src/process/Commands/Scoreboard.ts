@@ -71,7 +71,7 @@ function CheckObjective(Com: CommandIntr, Comment: string): void {
     obj.Type = Type.text;
     obj.Location = ID.CreateLocation();
 
-    if (Comment !== "") {
+    if (Comment === "") {
       obj.Documentation.value = "The objective: " + ID.text + " " + Type.text;
 
       if (Com.Paramaters.length > 5) {

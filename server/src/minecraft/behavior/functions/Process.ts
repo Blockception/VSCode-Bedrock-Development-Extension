@@ -52,13 +52,16 @@ export function Process(document: TextDocument): void {
 
     switch (Command) {
       case "tag":
-        return ProcessTagCommand(Line, Index, document);
+        ProcessTagCommand(Line, Index, document);
+        break;
 
       case "scoreboard":
-        return ProcessScoreboardCommand(Line, Index, document);
+        ProcessScoreboardCommand(Line, Index, document);
+        break;
 
       case "tickingarea":
-        return ProcessTickingAreaCommand(Line, Index, document);
+        ProcessTickingAreaCommand(Line, Index, document);
+        break;
     }
   }
 
