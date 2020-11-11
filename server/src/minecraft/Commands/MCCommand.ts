@@ -64,4 +64,13 @@ export class MCCommand {
 
     return false;
   }
+
+  getIndexOfType(type: MCCommandParameterType): number {
+    for (let I = 0; I < this.parameters.length; I++) {
+      if (this.parameters[I].Type === type)
+        return I;
+    }
+
+    return -1;
+  }
 }

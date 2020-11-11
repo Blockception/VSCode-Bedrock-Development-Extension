@@ -59,4 +59,5 @@ export function Process(doc: TextDocument): void {
   B.Location = Location;
   B.Identifier = Name;
   B.Documentation.value = "The custom block: `" + Name + "`";
+  Database.Data.General.Blocks.Set(B);
 }

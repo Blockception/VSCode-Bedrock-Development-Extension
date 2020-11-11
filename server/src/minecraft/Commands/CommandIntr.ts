@@ -31,6 +31,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import { LocationWord, RangedWord } from "../../code/include";
 import { Manager } from "../../manager/Manager";
 import { CommandInfo } from "./CommandInfo";
+import { MCCommandParameterType } from './ParameterType';
 
 /**
  *A class that helps interpeting written commands
@@ -144,6 +145,23 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
         return command.slice(5);
       }
     }
+  }
+
+  return undefined;
+}
+
+export function GetSubCommand(command: CommandIntr): CommandIntr | undefined {
+  let Matches = command.GetCommandData();
+
+  if (Matches.length === 0) {
+    return;
+  }
+
+  let Item = Matches[0];
+  let index = Item.Command.getIndexOfType(MCCommandParameterType.command);
+
+  if (index > -1) {
+    return command.slice(index);
   }
 
   return undefined;

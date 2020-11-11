@@ -30,9 +30,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
 import { Database } from "../../../database/Database";
+import { diagnostics } from '../../../include';
+import { Manager } from '../../../manager/Manager';
 import { ProcessTickingAreaCommand } from "../../../process/Commands/include";
 import { ProcessScoreboardCommand } from "../../../process/Commands/Scoreboard";
 import { ProcessTagCommand } from "../../../process/Commands/Tag";
+import { CommandIntr, GetSubCommand } from '../../commands/include';
 import { McFunction } from "../../types/Functions/include";
 import { GetComment } from "./Function";
 
@@ -43,25 +46,27 @@ export function Process(document: TextDocument): void {
     const Line = getLine(document, Index);
 
     if (Line.startsWith("#")) continue;
+    let Command : CommandIntr | undefined = CommandIntr.parse(Line, { character: 0, line: 0 }, document.uri);
 
-    let SpaceIndex = Line.indexOf(" ");
-
-    if (SpaceIndex < 0) continue;
-
-    let Command = Line.slice(0, SpaceIndex);
-
-    switch (Command) {
-      case "tag":
-        ProcessTagCommand(Line, Index, document);
+    while (Command) {
+      if (Command.Paramaters.length === 0)
         break;
 
-      case "scoreboard":
-        ProcessScoreboardCommand(Line, Index, document);
-        break;
+      switch (Command.Paramaters[0].text) {
+        case "tag":
+          ProcessTagCommand(Command, Index, document);
+          break;
 
-      case "tickingarea":
-        ProcessTickingAreaCommand(Line, Index, document);
-        break;
+        case "scoreboard":
+          ProcessScoreboardCommand(Command, Index, document);
+          break;
+
+        case "tickingarea":
+          ProcessTickingAreaCommand(Command, Index, document);
+          break;
+      }
+
+      Command = GetSubCommand(Command);
     }
   }
 

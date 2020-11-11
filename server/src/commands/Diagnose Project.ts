@@ -37,6 +37,8 @@ import { ProgressHandler } from '../progress/include';
 import { GetValidationData } from '../validation/include';
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
+	console.log('Starting on diagnosing project');
+
 	Database.MinecraftProgramData.GetProjecData((data) => {
 		let progress = new ProgressHandler('Diagnosing', 0, 1, undefined);
 
@@ -57,5 +59,6 @@ export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
 		behavior.Diagnose(context);
 
 		progress.done();
+		console.log('Diagnosing done');
 	});
 }

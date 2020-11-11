@@ -36,9 +36,7 @@ import { FakeEntity } from "../../minecraft/types/FakeEntity/FakeEntity";
 import { Objective } from "../../minecraft/types/Objectives/include";
 import { IsFakePlayer } from "../../minecraft/types/Selector/include";
 
-export function ProcessScoreboardCommand(line: string, lineIndex: number, doc: TextDocument): void {
-  let Com: CommandIntr = CommandIntr.parse(line, { character: 0, line: lineIndex }, doc.uri);
-
+export function ProcessScoreboardCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
   if (Com.Paramaters.length < 3) {
     return;
   }

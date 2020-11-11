@@ -32,8 +32,11 @@ import { Diagnostic } from 'vscode-languageserver';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import { getLine, LocationWord } from '../../../code/include';
 import { Database } from '../../../database/include';
-import { CommandIntr, MCCommandParameter, MCCommandParameterType } from '../../../minecraft/commands/include';
-import { ValidationData } from '../../../validation/include';
+import { diagnostics } from '../../../include';
+import { CommandIntr, GetSubCommand, IsInSubCommand, MCCommandParameter, MCCommandParameterType } from '../../../minecraft/commands/include';
+import { ValidationData, ValidationDataStringLists } from '../../../validation/include';
+import { DiagnoseBlock } from './parameters/block';
+import { DiagnoseBoolean } from './parameters/boolean';
 import { DiagnoseGamemode } from './parameters/gamemode';
 import { DiagnoseKeyword } from './parameters/keyword';
 import { DiagnoseObjective } from './parameters/objective';
@@ -79,6 +82,17 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
 	if (Command.Paramaters.length === 0)
 		return;
 
+	DiagnoseCommand(Command, line, validation, receiver);
+
+
+	let Sub = GetSubCommand(Command);
+	while (Sub) {
+		DiagnoseCommand(Sub, line, validation, receiver);
+		Sub = GetSubCommand(Sub);
+	}
+}
+
+function DiagnoseCommand(Command: CommandIntr, line: string, validation: ValidationData, receiver: Diagnostic[]): void {
 	let Matches = Command.GetCommandData();
 
 	if (Matches.length === 0) {
@@ -94,7 +108,7 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
 	}
 
 	for (let I = 0; I < Data.Command.parameters.length; I++) {
-		DiagnoseParameter(Data.Command.parameters[I], Command.Paramaters[I], validation, receiver)
+		DiagnoseParameter(Data.Command.parameters[I], Command.Paramaters[I], validation, receiver);
 	}
 }
 
@@ -126,7 +140,11 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
 
 	switch (pattern.Type) {
 		case MCCommandParameterType.block:
+			return DiagnoseBlock(data, receiver);
+
 		case MCCommandParameterType.boolean:
+			return DiagnoseBoolean(data, receiver);
+
 		case MCCommandParameterType.command:
 		case MCCommandParameterType.coordinate:
 		case MCCommandParameterType.effect:
@@ -135,7 +153,7 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
 		case MCCommandParameterType.float:
 		case MCCommandParameterType.function:
 			return;
-			
+
 		case MCCommandParameterType.gamemode:
 			return DiagnoseGamemode(data, receiver);
 
