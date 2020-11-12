@@ -32,7 +32,7 @@ import { Documentable } from "../../Interfaces/Documentable";
 import { Identifiable } from "../../Interfaces/Identifiable";
 import { Locatable } from "../../Interfaces/include";
 import { EmptyTypes } from "../Empty";
-import { ObjectBase } from '../Object Base/include';
+import { ObjectBase } from "../Object Base/include";
 
 export class Effect extends ObjectBase {
   constructor() {

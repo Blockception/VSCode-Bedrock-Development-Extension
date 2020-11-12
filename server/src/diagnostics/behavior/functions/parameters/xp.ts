@@ -34,7 +34,6 @@ import { Database } from "../../../../database/include";
 export function DiagnoseTickingarea(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
 
-
   receiver.push({
     range: data.range,
     message: 'No tickingarea has been defined with the name: "' + text + '"',

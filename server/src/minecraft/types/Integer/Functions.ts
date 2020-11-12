@@ -29,11 +29,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export function IsInteger(text: string): boolean {
-	let match = text.match(/^[\-\d]*$/);
+  let match = text.match(/^[\-\d]*$/);
 
-	if (match) {
-		return true;
-	}
+  if (match) {
+    return true;
+  }
 
-	return false
+  return false;
 }

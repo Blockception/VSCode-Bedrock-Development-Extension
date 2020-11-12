@@ -47,7 +47,6 @@ function onInitialize(params: InitializeParams): InitializeResult {
   const result: InitializeResult = {
     capabilities: {
       textDocumentSync: TextDocumentSyncKind.Incremental,
-      
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {

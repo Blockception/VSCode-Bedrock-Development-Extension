@@ -28,25 +28,23 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Database } from '../../../database/include';
-import { functions } from '../../../diagnostics/behavior/include';
-import { Manager } from '../../../manager/Manager';
-import { GetValidationData, ValidationData } from '../../../validation/include';
+import { Database } from "../../../database/include";
+import { functions } from "../../../diagnostics/behavior/include";
+import { Manager } from "../../../manager/Manager";
+import { GetValidationData, ValidationData } from "../../../validation/include";
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
-	if (!Manager.State.DataGathered)
-		return;
+  if (!Manager.State.DataGathered) return;
 
-	let Data = Database.MinecraftProgramData.GetProjecData();
+  let Data = Database.MinecraftProgramData.GetProjecData();
 
-	let validation: ValidationData | undefined
+  let validation: ValidationData | undefined;
 
-	if (Data) {
-		validation = GetValidationData(Data.Workspaces);
-	}
-	else {
-		validation = ValidationData.createEmpty();
-	}
+  if (Data) {
+    validation = GetValidationData(Data.Workspaces);
+  } else {
+    validation = ValidationData.createEmpty();
+  }
 
-	functions.Diagnose(doc, validation);
+  functions.Diagnose(doc, validation);
 }

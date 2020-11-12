@@ -34,7 +34,7 @@ export class MinecraftProgramData {
   private BedrockInstallLocation: string | undefined;
   private ProjectData: ProjectData | undefined;
 
-  constructor() { }
+  constructor() {}
 
   /**
    * Retrieves the bedrock installation folder

@@ -29,17 +29,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
-import { IsFloat } from '../../../../minecraft/types/Float/Functions';
+import { IsFloat } from "../../../../minecraft/types/Float/Functions";
 
 export function DiagnoseFloat(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
 
-  if (IsFloat(text))
-    return;
+  if (IsFloat(text)) return;
 
   receiver.push({
-    message: 'Invalid float',
+    message: "Invalid float",
     range: data.range,
-    severity: DiagnosticSeverity.Error
+    severity: DiagnosticSeverity.Error,
   });
 }

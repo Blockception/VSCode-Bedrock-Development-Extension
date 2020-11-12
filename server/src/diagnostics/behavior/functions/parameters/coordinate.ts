@@ -29,17 +29,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
-import { IsCoordinate } from '../../../../minecraft/types/Coordinate/Functions';
+import { IsCoordinate } from "../../../../minecraft/types/Coordinate/Functions";
 
 export function DiagnoseCoordinate(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
 
-  if (IsCoordinate(text))
-    return;
+  if (IsCoordinate(text)) return;
 
   receiver.push({
-    message: 'Invalid coordinate',
+    message: "Invalid coordinate",
     range: data.range,
-    severity: DiagnosticSeverity.Error
+    severity: DiagnosticSeverity.Error,
   });
 }

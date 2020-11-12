@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Database } from "../../database/include";
 import { Manager } from "../../manager/Manager";
 import { Block } from "../types/Block/include";
-import { Effect } from '../types/Effect/Effect';
+import { Effect } from "../types/Effect/Effect";
 import { Entity } from "../types/Entity/include";
 import { EmptyTypes } from "../types/include";
 import { Item } from "../types/Item/include";

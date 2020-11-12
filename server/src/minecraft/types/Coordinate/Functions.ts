@@ -28,11 +28,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export function IsCoordinate(text: string): boolean {
-	let match = text.match(/^[\~\^\+\-\d][\+\-\.\d]*$/);
+  let match = text.match(/^[\~\^\+\-\d][\+\-\.\d]*$/);
 
-	if (match) {
-		return true;
-	}
+  if (match) {
+    return true;
+  }
 
-	return false;
+  return false;
 }

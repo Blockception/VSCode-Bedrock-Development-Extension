@@ -32,14 +32,13 @@ import { LocationWord } from "../../../../code/include";
 import { Database } from "../../../../database/include";
 
 export function DiagnoseFunctionPath(data: LocationWord, receiver: Diagnostic[]): void {
-   const text = data.text;
+  const text = data.text;
 
-   if (Database.Data.General.Functions.HasID(text))
-      return;
+  if (Database.Data.General.Functions.HasID(text)) return;
 
-   receiver.push({
-      range: data.range,
-      message: 'No known function found with the path: ' + text,
-      severity: DiagnosticSeverity.Error,
-   });
+  receiver.push({
+    range: data.range,
+    message: "No known function found with the path: " + text,
+    severity: DiagnosticSeverity.Error,
+  });
 }

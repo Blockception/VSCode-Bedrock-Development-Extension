@@ -32,13 +32,13 @@ import { LocationWord } from "../../../../code/include";
 import { Database } from "../../../../database/include";
 
 export function DiagnoseBlock(data: LocationWord, receiver: Diagnostic[]): void {
-	const text = data.text;
+  const text = data.text;
 
-	if (Database.Data.General.Items.HasID(text)) return;
+  if (Database.Data.General.Items.HasID(text)) return;
 
-	receiver.push({
-		range: data.range,
-		message: 'No known item found with the id: "' + text + '"',
-		severity: DiagnosticSeverity.Error,
-	});
+  receiver.push({
+    range: data.range,
+    message: 'No known item found with the id: "' + text + '"',
+    severity: DiagnosticSeverity.Error,
+  });
 }

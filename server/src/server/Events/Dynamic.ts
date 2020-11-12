@@ -1,7 +1,4 @@
-import {
-  DocumentFormattingRegistrationOptions,
-  DocumentFormattingRequest,
-} from "vscode-languageserver";
+import { DocumentFormattingRegistrationOptions, DocumentFormattingRequest } from "vscode-languageserver";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../../Constants";
 import { Manager } from "../../manager/Manager";
 

@@ -30,13 +30,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
 import { Database } from "../../../../database/include";
-import { Manager } from '../../../../manager/Manager';
+import { Manager } from "../../../../manager/Manager";
 
 export function DiagnoseEffect(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
 
-  if (Database.Data.General.Effects.HasID(text))
-    return;
+  if (Database.Data.General.Effects.HasID(text)) return;
 
   receiver.push({
     range: data.range,

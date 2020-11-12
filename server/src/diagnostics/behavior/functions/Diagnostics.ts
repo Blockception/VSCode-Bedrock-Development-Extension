@@ -33,7 +33,7 @@ import { getLine, LocationWord } from "../../../code/include";
 import { Database } from "../../../database/include";
 import { CommandIntr, GetSubCommand, MCCommandParameter, MCCommandParameterType } from "../../../minecraft/commands/include";
 import { ValidationData } from "../../../validation/include";
-import { DiagnoseFunctionPath } from './parameters/function';
+import { DiagnoseFunctionPath } from "./parameters/function";
 import {
   DiagnoseBlock,
   DiagnoseBoolean,
@@ -49,7 +49,7 @@ import {
   DiagnoseTag,
   DiagnoseTickingarea,
 } from "./parameters/include";
-import { DiagnoseInteger } from './parameters/integer';
+import { DiagnoseInteger } from "./parameters/integer";
 
 /**
  *
