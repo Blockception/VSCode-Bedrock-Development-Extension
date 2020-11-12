@@ -1,4 +1,6 @@
 # Changelog 
+- auto: Updated dependecies
+- Updated to 1.3.5
 - Updated documentation
 - Updated
 - Updated documentation
@@ -17,5 +19,3 @@
 - auto: Regenerated
 - Added the basics of vlaidation processing
 - Added Diagnose Command beginnins
-- Fixing command syntax
-- auto: Regenerated
