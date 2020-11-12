@@ -111,10 +111,6 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       doc = "An integer number";
       break;
 
-    case MCCommandParameterType.integerTest:
-      doc = "An integer number or * for highest/lowest value";
-      break;
-
     case MCCommandParameterType.item:
       doc = "An item identifier";
       break;

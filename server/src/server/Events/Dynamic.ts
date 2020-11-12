@@ -1,10 +1,6 @@
 import {
   DocumentFormattingRegistrationOptions,
   DocumentFormattingRequest,
-  ExecuteCommandClientCapabilities,
-  ExecuteCommandRequest,
-  RequestType,
-  ShowMessageRequest,
 } from "vscode-languageserver";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../../Constants";
 import { Manager } from "../../manager/Manager";

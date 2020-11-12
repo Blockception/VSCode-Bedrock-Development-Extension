@@ -30,7 +30,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/include";
 import { Database } from "../../../../database/include";
-import { Manager } from '../../../../manager/Manager';
 
 export function DiagnoseEntity(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;

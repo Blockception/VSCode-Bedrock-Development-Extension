@@ -1055,8 +1055,8 @@
         { "Text": "test", "Type": "keyword", "Required": true },
         { "Text": "entity", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": true },
-        { "Text": "min", "Type": "integerTest", "Required": true },
-        { "Text": "max", "Type": "integerTest", "Required": true }
+        { "Text": "min", "Type": "integer", "Required": true, "Options": { "wildcard": true } },
+        { "Text": "max", "Type": "integer", "Required": true, "Options": { "wildcard": true } }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }

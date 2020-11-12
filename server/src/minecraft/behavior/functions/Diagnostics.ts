@@ -28,17 +28,25 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetProjectData } from '../../../code/include';
+import { Database } from '../../../database/include';
 import { functions } from '../../../diagnostics/behavior/include';
 import { Manager } from '../../../manager/Manager';
-import { GetValidationData } from '../../../validation/include';
+import { GetValidationData, ValidationData } from '../../../validation/include';
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
 	if (!Manager.State.DataGathered)
 		return;
 
-	GetProjectData().then(ds => {
-		let validation = GetValidationData(ds.Workspaces);
-		functions.Diagnose(doc, validation);
-	})
+	let Data = Database.MinecraftProgramData.GetProjecData();
+
+	let validation: ValidationData | undefined
+
+	if (Data) {
+		validation = GetValidationData(Data.Workspaces);
+	}
+	else {
+		validation = ValidationData.createEmpty();
+	}
+
+	functions.Diagnose(doc, validation);
 }

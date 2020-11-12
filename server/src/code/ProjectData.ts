@@ -35,6 +35,7 @@ import { Manager } from "../manager/Manager";
 import { DetectGeneralDataType } from "../minecraft/format/detection";
 import { GeneralDataType } from "../minecraft/format/General Data Type";
 import { Manifest } from "../minecraft/manifest/Manifest";
+import { GetValidationData, ValidationData } from '../validation/include';
 import { DupeCheckAdd } from "./Array";
 import { GetParent } from "./File";
 
@@ -63,7 +64,7 @@ function CheckStructure(folders: WorkspaceFolder[] | null): ProjectData | undefi
     BehaviourPackFolders: [],
     ResourcePackFolders: [],
     WorldFolders: [],
-    Workspaces: [],
+    Workspaces: []
   };
 
   for (let I = 0; I < folders.length; I++) {

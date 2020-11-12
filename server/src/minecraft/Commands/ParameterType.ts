@@ -52,8 +52,6 @@ export enum MCCommandParameterType {
   gamemode,
   //Marks that the parameter is an integer
   integer,
-  //Marks that the parameter is an integer
-  integerTest,
   //Marks that the parameter is an item
   item,
   //Marks that the parameter is an json structure for items
