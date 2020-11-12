@@ -1,4 +1,7 @@
 # Changelog 
+- Updated schemas
+- Added new items
+- Updated
 - auto: Updated dependecies
 - Updated to 1.3.5
 - Updated documentation
@@ -16,6 +19,3 @@
 - Updated tag parsing
 - Updated tickingarea parsing
 - Added boolean diagnostics
-- auto: Regenerated
-- Added the basics of vlaidation processing
-- Added Diagnose Command beginnins
