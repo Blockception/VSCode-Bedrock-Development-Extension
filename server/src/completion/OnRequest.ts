@@ -30,7 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
-import { McFunctionIdentifier } from "../Constants";
+import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
+import { OnCompletionLanguage } from './Language';
 import { OnCompletionMcFunction } from "./Mcfunction";
 
 //Handle request
@@ -49,6 +50,10 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
   let Pos = params.position;
 
   switch (Doc.languageId) {
+    case McLanguageIdentifier:
+      OnCompletionLanguage(Doc, Pos, List);
+      break;
+
     case McFunctionIdentifier:
       OnCompletionMcFunction(Doc, Pos, List);
       break;
