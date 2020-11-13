@@ -70,10 +70,10 @@ export class JsonDocument {
         let object = JSON.parse(Text);
 
         this.object = object;
-        ValidJson(this.doc);
+        //ValidJson(this.doc);
       } catch (error) {
         console.log(error);
-        InvalidJson(this.doc, error);
+        //InvalidJson(this.doc, error);
       }
     }
 
@@ -91,11 +91,11 @@ export class JsonDocument {
         let object = JSON.parse(Text);
         this.object = object;
 
-        ValidJson(this.doc);
+        //ValidJson(this.doc);
       } catch (error) {
         err = error;
         console.log(error);
-        InvalidJson(this.doc, error);
+        //InvalidJson(this.doc, error);
       }
     }
 

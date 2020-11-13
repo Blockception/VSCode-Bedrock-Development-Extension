@@ -37,7 +37,7 @@ export function ProvideLanguageSignature(doc: TextDocument, pos: Position): Sign
   let index = Line.indexOf("=");
   let parameter = 0;
 
-  if (index > 0 && index > pos.character) {
+  if (index > 0 && index < pos.character) {
     parameter = 1;
   }
 
@@ -56,7 +56,7 @@ export function ProvideLanguageSignature(doc: TextDocument, pos: Position): Sign
           {
             label: "[text]",
             documentation:
-              "The translation text, some pretty stuff can be done with the following: \n§ = ALT + 0167 on the numpad\nOther need functions: %%s, %%#, see the wiki",
+              "The translation text, some pretty stuff can be done with the following: \n§ = ALT + 0167 on the numpad\nOther neat functions: %%s, %%#, see the wiki",
           },
         ],
       },

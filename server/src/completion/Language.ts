@@ -93,7 +93,7 @@ export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver:
 function isIn(text: string, index: number, inText: string): boolean {
 	let findIndex = inText.indexOf(text);
 
-	if (findIndex < -1)
+	if (findIndex < 0)
 		return false;
 
 	if (index > findIndex)
