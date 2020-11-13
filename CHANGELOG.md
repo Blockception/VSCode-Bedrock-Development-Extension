@@ -1,4 +1,7 @@
 # Changelog 
+- Readded language file completion
+- auto: Formatted typescript files
+- Updated version to 1.3.6
 - Updated schemas
 - Added new items
 - Updated
@@ -16,6 +19,3 @@
 - Updated refs
 - auto: regenerated
 - Updated scoreboard parsing
-- Updated tag parsing
-- Updated tickingarea parsing
-- Added boolean diagnostics
