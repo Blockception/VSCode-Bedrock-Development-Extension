@@ -1046,6 +1046,144 @@
       "name": "replaceitem",
       "documentation": { "value": "TODO description", "kind": "markdown" }
     },
+
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "start_riding", "Type": "keyword", "Required": true },
+        { "Text": "ride", "Type": "selector", "Required": true },
+        { "Text": "teleport_ride", "Type": "keyword", "Required": false },
+        { "Text": "if_group_fits", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "start_riding", "Type": "keyword", "Required": true },
+        { "Text": "ride", "Type": "selector", "Required": true },
+        { "Text": "teleport_rider", "Type": "keyword", "Required": false },
+        { "Text": "if_group_fits", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "start_riding", "Type": "keyword", "Required": true },
+        { "Text": "ride", "Type": "selector", "Required": true },
+        { "Text": "teleport_ride", "Type": "keyword", "Required": false },
+        { "Text": "until_full", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "start_riding", "Type": "keyword", "Required": true },
+        { "Text": "ride", "Type": "selector", "Required": true },
+        { "Text": "teleport_rider", "Type": "keyword", "Required": false },
+        { "Text": "until_full", "Type": "keyword", "Required": false }
+      ]
+    },
+
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "stop_riding", "Type": "keyword", "Required": true }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "summon_ride", "Type": "keyword", "Required": true },
+        { "Text": "entity type", "Type": "entity", "Required": true },
+        { "Text": "no_ride_change", "Type": "keyword", "Required": true },
+        { "Text": "event", "Type": "event", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "summon_ride", "Type": "keyword", "Required": true },
+        { "Text": "entity type", "Type": "entity", "Required": true },
+        { "Text": "reassign_rides", "Type": "keyword", "Required": true },
+        { "Text": "event", "Type": "event", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "riders", "Type": "selector", "Required": true },
+        { "Text": "summon_ride", "Type": "keyword", "Required": true },
+        { "Text": "entity type", "Type": "entity", "Required": true },
+        { "Text": "skip_riders", "Type": "keyword", "Required": true },
+        { "Text": "event", "Type": "event", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "rides", "Type": "selector", "Required": true },
+        { "Text": "summon_rider", "Type": "keyword", "Required": true },
+        { "Text": "entity type", "Type": "entity", "Required": true },
+        { "Text": "event", "Type": "event", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true }
+      ]
+    },
+
     {
       "parameters": [
         { "Text": "say", "Type": "keyword", "Required": true },
