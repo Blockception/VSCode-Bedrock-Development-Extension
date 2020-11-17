@@ -403,6 +403,16 @@
       "documentation": { "value": "Enchants a player item.", "kind": "markdown" }
     },
     {
+      "name": "event",
+      "documentation": { "value": "Triggers an event for the specified objects", "kind": "markdown" },
+      "parameters": [
+        { "Text": "event", "Type": "keyword", "Required": true },
+        { "Text": "entity", "Type": "keyword", "Required": true },
+        { "Text": "target", "Type": "selector", "Required": true },
+        { "Text": "event name", "Type": "event", "Required": true }
+      ]
+    },
+    {
       "parameters": [
         { "Text": "execute", "Type": "keyword", "Required": true },
         { "Text": "origin", "Type": "selector", "Required": true },
