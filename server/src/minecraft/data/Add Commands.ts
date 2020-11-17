@@ -45,7 +45,7 @@ interface Command {
   name: string;
   documentation: {
     value: string;
-    kind: string;
+    kind?: string;
   };
 }
 

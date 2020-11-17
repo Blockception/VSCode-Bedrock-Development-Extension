@@ -1,4 +1,8 @@
 # Changelog 
+- auto: Updated dependecies
+- auto: Formatted typescript files
+- auto: Formatted json files
+- Updated changelog
 - Added /structure
 - Added /schedule
 - Added /ride
@@ -15,7 +19,3 @@
 - Readded language file completion
 - auto: Formatted typescript files
 - Updated version to 1.3.6
-- Updated schemas
-- Added new items
-- Updated
-- auto: Updated dependecies
