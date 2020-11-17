@@ -1,4 +1,7 @@
 # Changelog 
+- Updated
+- Fixing language completion
+- Updated to 1.3.7
 - Readded language file completion
 - auto: Formatted typescript files
 - Updated version to 1.3.6
@@ -16,6 +19,3 @@
 - auto: Formatted json files
 - Updated script
 - auto: Updated dependencies
-- Updated refs
-- auto: regenerated
-- Updated scoreboard parsing
