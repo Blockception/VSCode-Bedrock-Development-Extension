@@ -2,25 +2,49 @@
   "$schema": "./commands schema.json",
   "vanilla": [
     {
+      "name": "alwaysday",
+      "documentation": { "value": "Locks and unlocks the day-night cycle.", "kind": "markdown" },
       "parameters": [
         { "Text": "alwaysday", "Type": "keyword", "Required": true },
         { "Text": "lock", "Type": "boolean", "Required": false }
-      ],
-      "name": "alwaysday",
-      "documentation": { "value": "Locks and unlocks the day-night cycle.", "kind": "markdown" }
+      ]
     },
     {
+      "name": "clear",
+      "documentation": { "value": "Clears items from player inventory.", "kind": "markdown" },
       "parameters": [
         { "Text": "clear", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
         { "Text": "itemName", "Type": "item", "Required": false },
         { "Text": "data", "Type": "integer", "Required": false },
         { "Text": "maxCount", "Type": "integer", "Required": false }
-      ],
-      "name": "clear",
-      "documentation": { "value": "Clears items from player inventory.", "kind": "markdown" }
+      ]
     },
     {
+      "name": "camerashake",
+      "documentation": { "value": "Applies shaking to the players' camera with specified intensity and duration" },
+      "parameters": [
+        { "Text": "add", "Type": "keyword", "Required": true },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "intensity", "Type": "float", "Required": false, "Options": { "minimum": 0, "maximum": 4 } },
+        { "Text": "seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
+        { "Text": "positional", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "camerashake",
+      "documentation": { "value": "Applies shaking to the players' camera with specified intensity and duration" },
+      "parameters": [
+        { "Text": "add", "Type": "keyword", "Required": true },
+        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
+        { "Text": "intensity", "Type": "float", "Required": false, "Options": { "minimum": 0, "maximum": 4 } },
+        { "Text": "seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
+        { "Text": "rotational", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "clone",
+      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" },
       "parameters": [
         { "Text": "clone", "Type": "keyword", "Required": true },
         { "Text": "begin x", "Type": "coordinate", "Required": true },
@@ -32,9 +56,7 @@
         { "Text": "destination x", "Type": "coordinate", "Required": true },
         { "Text": "destination y", "Type": "coordinate", "Required": true },
         { "Text": "destination z", "Type": "coordinate", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+      ]
     },
     {
       "parameters": [
