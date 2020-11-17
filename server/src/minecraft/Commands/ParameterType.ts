@@ -62,6 +62,7 @@ export enum MCCommandParameterType {
   keyword,
   //Marks that the parameter is a locate feature
   locateFeature,
+  mirror,
   //Marks that the parameter is a scoreboard objective
   objective,
   //Marks that the parameter is a scoreboard operation
@@ -70,6 +71,9 @@ export enum MCCommandParameterType {
   particle,
   //Marks that the parameter is a replace mode
   replaceMode,
+  rotation,
+  //Marks that the parameter is a selector
+  saveMode,
   //Marks that the parameter is a selector
   selector,
   //Marks that the parameter is a player selector
@@ -80,6 +84,7 @@ export enum MCCommandParameterType {
   sound,
   //Marks that the parameter is a string
   string,
+  structureAnimationMode,
   //Marks that the parameter is a target
   target,
   //Marks that the parameter is a tag

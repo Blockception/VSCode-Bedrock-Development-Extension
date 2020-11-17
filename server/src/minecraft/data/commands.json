@@ -1488,6 +1488,81 @@
       "name": "stopsound",
       "documentation": { "value": "TODO description", "kind": "markdown" }
     },
+
+
+    {
+      "name": "structure",
+      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "parameters": [
+        { "Text": "structure", "Type": "keyword", "Required": true },
+        { "Text": "save", "Type": "keyword", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true },
+        { "Text": "from x", "Type": "coordinate", "Required": true },
+        { "Text": "from y", "Type": "coordinate", "Required": true },
+        { "Text": "from z", "Type": "coordinate", "Required": true },
+        { "Text": "to x", "Type": "coordinate", "Required": true },
+        { "Text": "to y", "Type": "coordinate", "Required": true },
+        { "Text": "to z", "Type": "coordinate", "Required": true },
+        { "Text": "save mode", "Type": "saveMode", "Required": false }
+      ]
+    },
+    {
+      "name": "structure",
+      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "parameters": [
+        { "Text": "structure", "Type": "keyword", "Required": true },
+        { "Text": "save", "Type": "keyword", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true },
+        { "Text": "from x", "Type": "coordinate", "Required": true },
+        { "Text": "from y", "Type": "coordinate", "Required": true },
+        { "Text": "from z", "Type": "coordinate", "Required": true },
+        { "Text": "to x", "Type": "coordinate", "Required": true },
+        { "Text": "to y", "Type": "coordinate", "Required": true },
+        { "Text": "to z", "Type": "coordinate", "Required": true },
+        { "Text": "include entities", "Type": "boolean", "Required": false },
+        { "Text": "save mode", "Type": "saveMode", "Required": false },
+        { "Text": "include blocks", "Type": "boolean", "Required": false }
+      ]
+    },
+    {
+      "name": "structure",
+      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "parameters": [
+        { "Text": "structure", "Type": "keyword", "Required": true },
+        { "Text": "load", "Type": "keyword", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true },
+        { "Text": "to x", "Type": "coordinate", "Required": true },
+        { "Text": "to y", "Type": "coordinate", "Required": true },
+        { "Text": "to z", "Type": "coordinate", "Required": true },
+        { "Text": "rotation", "Type": "rotation", "Required": false },
+        { "Text": "mirror", "Type": "mirror", "Required": false },
+        { "Text": "include entities", "Type": "boolean", "Required": false },
+        { "Text": "include blocks", "Type": "boolean", "Required": false },
+        { "Text": "integrity", "Type": "float", "Required": false },
+        { "Text": "seed", "Type": "string", "Required": false }
+      ]
+    },
+    {
+      "name": "structure",
+      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "parameters": [
+        { "Text": "structure", "Type": "keyword", "Required": true },
+        { "Text": "load", "Type": "keyword", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true },
+        { "Text": "to x", "Type": "coordinate", "Required": true },
+        { "Text": "to y", "Type": "coordinate", "Required": true },
+        { "Text": "to z", "Type": "coordinate", "Required": true },
+        { "Text": "rotation", "Type": "rotation", "Required": false },
+        { "Text": "mirror", "Type": "mirror", "Required": false },
+        { "Text": "animation mode", "Type": "structureAnimationMode", "Required": false },
+        { "Text": "animation seconds", "Type": "float", "Required": false },
+        { "Text": "include entities", "Type": "boolean", "Required": false },
+        { "Text": "include blocks", "Type": "boolean", "Required": false },
+        { "Text": "integrity", "Type": "float", "Required": false },
+        { "Text": "seed", "Type": "string", "Required": false }
+      ]
+    },
+
     {
       "parameters": [
         { "Text": "summon", "Type": "keyword", "Required": true },
