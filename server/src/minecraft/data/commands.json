@@ -525,12 +525,43 @@
       "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
     },
     {
+      "name": "fog",
+      "documentation": { "value": "Adds or remove fog settings file", "kind": "markdown" },
+      "parameters": [
+        { "Text": "fog", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "push", "Type": "keyword", "Required": true },
+        { "Text": "fog id", "Type": "string", "Required": true },
+        { "Text": "user provided id", "Type": "string", "Required": true }
+      ]
+    },
+    {
+      "name": "fog",
+      "documentation": { "value": "Adds or remove fog settings file", "kind": "markdown" },
+      "parameters": [
+        { "Text": "fog", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "pop", "Type": "keyword", "Required": true },
+        { "Text": "user provided id", "Type": "string", "Required": true }
+      ]
+    },
+    {
+      "name": "fog",
+      "documentation": { "value": "Adds or remove fog settings file", "kind": "markdown" },
+      "parameters": [
+        { "Text": "fog", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "remove", "Type": "keyword", "Required": true },
+        { "Text": "user provided id", "Type": "string", "Required": true }
+      ]
+    },
+    {
+      "name": "function",
+      "documentation": { "value": "Runs a function.", "kind": "markdown" },
       "parameters": [
         { "Text": "function", "Type": "keyword", "Required": true },
         { "Text": "function path", "Type": "function", "Required": true }
-      ],
-      "name": "function",
-      "documentation": { "value": "Runs a function.", "kind": "markdown" }
+      ]
     },
     {
       "parameters": [
