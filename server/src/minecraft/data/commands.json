@@ -1192,6 +1192,60 @@
       "name": "say",
       "documentation": { "value": "TODO description", "kind": "markdown" }
     },
+
+    {
+      "name": "schedule",
+      "documentation": {
+        "value": "Schedules an action to be executed once an area is loaded, or after a certain amount of time",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "schedule", "Type": "keyword", "Required": true },
+        { "Text": "on_area_loaded", "Type": "keyword", "Required": true },
+        { "Text": "add", "Type": "keyword", "Required": true },
+        { "Text": "from x", "Type": "coordinate", "Required": true },
+        { "Text": "from y", "Type": "coordinate", "Required": true },
+        { "Text": "from z", "Type": "coordinate", "Required": true },
+        { "Text": "to x", "Type": "coordinate", "Required": true },
+        { "Text": "to y", "Type": "coordinate", "Required": true },
+        { "Text": "to z", "Type": "coordinate", "Required": true },
+        { "Text": "function", "Type": "function", "Required": true }
+      ]
+    },
+    {
+      "name": "schedule",
+      "documentation": {
+        "value": "Schedules an action to be executed once an area is loaded, or after a certain amount of time",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "schedule", "Type": "keyword", "Required": true },
+        { "Text": "on_area_loaded", "Type": "keyword", "Required": true },
+        { "Text": "add", "Type": "keyword", "Required": true },
+        { "Text": "circle", "Type": "keyword", "Required": true },
+        { "Text": "center x", "Type": "coordinate", "Required": true },
+        { "Text": "center y", "Type": "coordinate", "Required": true },
+        { "Text": "center z", "Type": "coordinate", "Required": true },
+        { "Text": "radius", "Type": "integer", "Required": true },
+        { "Text": "function", "Type": "function", "Required": true }
+      ]
+    },
+    {
+      "name": "schedule",
+      "documentation": {
+        "value": "Schedules an action to be executed once an area is loaded, or after a certain amount of time",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "schedule", "Type": "keyword", "Required": true },
+        { "Text": "on_area_loaded", "Type": "keyword", "Required": true },
+        { "Text": "add", "Type": "keyword", "Required": true },
+        { "Text": "tickingarea", "Type": "keyword", "Required": true },
+        { "Text": "tickingarea name", "Type": "tickingarea", "Required": true },
+        { "Text": "function", "Type": "function", "Required": true }
+      ]
+    },
+
     {
       "parameters": [
         { "Text": "scoreboard", "Type": "keyword", "Required": true },
