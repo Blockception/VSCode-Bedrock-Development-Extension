@@ -573,40 +573,40 @@
       "documentation": { "value": "Sets a player's game mode.", "kind": "markdown" }
     },
     {
+      "name": "gamerule",
+      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" },
       "parameters": [
         { "Text": "gamerule", "Type": "keyword", "Required": true },
         { "Text": "commandblockoutput", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
-      ],
-      "name": "gamerule",
-      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+      ]
     },
     {
+      "name": "gamerule",
+      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" },
       "parameters": [
         { "Text": "gamerule", "Type": "keyword", "Required": true },
         { "Text": "commandblocksenabled", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
-      ],
-      "name": "gamerule",
-      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+      ]
     },
     {
+      "name": "gamerule",
+      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" },
       "parameters": [
         { "Text": "gamerule", "Type": "keyword", "Required": true },
         { "Text": "dodaylightcycle", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
-      ],
-      "name": "gamerule",
-      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+      ]
     },
     {
+      "name": "gamerule",
+      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" },
       "parameters": [
         { "Text": "gamerule", "Type": "keyword", "Required": true },
         { "Text": "doentitydrops", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
-      ],
-      "name": "gamerule",
-      "documentation": { "value": "Sets or queries a game rule value.", "kind": "markdown" }
+      ]
     },
     {
       "parameters": [
@@ -860,6 +860,75 @@
       "name": "msg",
       "documentation": { "value": "TODO description", "kind": "markdown" }
     },
+
+    {
+      "name": "music",
+      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "parameters": [
+        { "Text": "music", "Type": "keyword", "Required": true },
+        { "Text": "queue", "Type": "keyword", "Required": true },
+        { "Text": "track name", "Type": "string", "Required": true },
+        { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
+        { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
+        { "Text": "play_once", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "music",
+      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "parameters": [
+        { "Text": "music", "Type": "keyword", "Required": true },
+        { "Text": "queue", "Type": "keyword", "Required": true },
+        { "Text": "track name", "Type": "string", "Required": true },
+        { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
+        { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
+        { "Text": "loop", "Type": "keyword", "Required": false }
+      ]
+    },
+
+    {
+      "name": "music",
+      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "parameters": [
+        { "Text": "music", "Type": "keyword", "Required": true },
+        { "Text": "play", "Type": "keyword", "Required": true },
+        { "Text": "track name", "Type": "string", "Required": true },
+        { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
+        { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
+        { "Text": "play_once", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "music",
+      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "parameters": [
+        { "Text": "music", "Type": "keyword", "Required": true },
+        { "Text": "play", "Type": "keyword", "Required": true },
+        { "Text": "track name", "Type": "string", "Required": true },
+        { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
+        { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
+        { "Text": "loop", "Type": "keyword", "Required": false }
+      ]
+    },
+    {
+      "name": "music",
+      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "parameters": [
+        { "Text": "music", "Type": "keyword", "Required": true },
+        { "Text": "stop", "Type": "keyword", "Required": true },
+        { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } }
+      ]
+    },
+    {
+      "name": "music",
+      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "parameters": [
+        { "Text": "music", "Type": "keyword", "Required": true },
+        { "Text": "volume", "Type": "keyword", "Required": true },
+        { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } }
+      ]
+    },
+
     {
       "parameters": [
         { "Text": "op", "Type": "keyword", "Required": true },
