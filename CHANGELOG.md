@@ -1,4 +1,14 @@
 # Changelog 
+- Added /structure
+- Added /schedule
+- Added /ride
+- Added /playanimation
+- Added /music
+- Added /fog
+- Added /event
+- Added /clearspawnpoint
+- Added /camerashake
+- auto: Updated dependecies
 - Updated
 - Fixing language completion
 - Updated to 1.3.7
@@ -9,13 +19,3 @@
 - Added new items
 - Updated
 - auto: Updated dependecies
-- Updated to 1.3.5
-- Updated documentation
-- Updated
-- Updated documentation
-- Updating diagnostics
-- Merged
-- auto: Formatted typescript files
-- auto: Formatted json files
-- Updated script
-- auto: Updated dependencies
