@@ -10,17 +10,6 @@
       ]
     },
     {
-      "name": "clear",
-      "documentation": { "value": "Clears items from player inventory.", "kind": "markdown" },
-      "parameters": [
-        { "Text": "clear", "Type": "keyword", "Required": true },
-        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
-        { "Text": "itemName", "Type": "item", "Required": false },
-        { "Text": "data", "Type": "integer", "Required": false },
-        { "Text": "maxCount", "Type": "integer", "Required": false }
-      ]
-    },
-    {
       "name": "camerashake",
       "documentation": { "value": "Applies shaking to the players' camera with specified intensity and duration" },
       "parameters": [
@@ -41,6 +30,22 @@
         { "Text": "seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
         { "Text": "rotational", "Type": "keyword", "Required": false }
       ]
+    },
+    {
+      "name": "clear",
+      "documentation": { "value": "Clears items from player inventory.", "kind": "markdown" },
+      "parameters": [
+        { "Text": "clear", "Type": "keyword", "Required": true },
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
+        { "Text": "itemName", "Type": "item", "Required": false },
+        { "Text": "data", "Type": "integer", "Required": false },
+        { "Text": "maxCount", "Type": "integer", "Required": false }
+      ]
+    },
+    {
+      "name": "clearspawnpoint",
+      "documentation": { "value": "Removes the spawnpoint from the player", "kind": "markdown" },
+      "parameters": [{ "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }]
     },
     {
       "name": "clone",
