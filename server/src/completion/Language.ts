@@ -27,77 +27,76 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { TextDocument, Position } from 'vscode-languageserver-textdocument';
-import { getLine } from '../code/include';
+import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { TextDocument, Position } from "vscode-languageserver-textdocument";
+import { getLine } from "../code/include";
 
 export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver: CompletionList): void {
-	const cursor = pos.character;
+  const cursor = pos.character;
 
-	if (cursor <= 0) {
-		//key or comment
-		receiver.items.push({
-			label: '###',
-			documentation: 'Comment',
-			kind: CompletionItemKind.Snippet
-		}, {
-			label: '###region',
-			documentation: 'Region',
-			kind: CompletionItemKind.Snippet,
-			insertText: '###region example\n\n###endregion'
-		});
+  if (cursor <= 0) {
+    //key or comment
+    receiver.items.push(
+      {
+        label: "###",
+        documentation: "Comment",
+        kind: CompletionItemKind.Snippet,
+      },
+      {
+        label: "###region",
+        documentation: "Region",
+        kind: CompletionItemKind.Snippet,
+        insertText: "###region example\n\n###endregion",
+      }
+    );
 
-		return;
-	}
+    return;
+  }
 
-	const line = getLine(doc, pos.line);
+  const line = getLine(doc, pos.line);
 
-	//in comment
-	if (isIn('#', cursor, line)) {
-		return;
-	}
+  //in comment
+  if (isIn("#", cursor, line)) {
+    return;
+  }
 
-	if (isIn('=', cursor, line)) {
-		receiver.items.push(
-			{ label: 'Black §0', kind: CompletionItemKind.Color, insertText: '§0' },
-			{ label: 'Dark Blue §1', kind: CompletionItemKind.Color, insertText: '§1' },
-			{ label: 'Dark Green §2', kind: CompletionItemKind.Color, insertText: '§2' },
-			{ label: 'Dark Aqua §3', kind: CompletionItemKind.Color, insertText: '§3' },
-			{ label: 'Dark Red §4', kind: CompletionItemKind.Color, insertText: '§4' },
-			{ label: 'Dark Purple §5', kind: CompletionItemKind.Color, insertText: '§5' },
-			{ label: 'Gold §6', kind: CompletionItemKind.Color, insertText: '§6' },
-			{ label: 'Gray §7', kind: CompletionItemKind.Color, insertText: '§7' },
-			{ label: 'Dark Gray §8', kind: CompletionItemKind.Color, insertText: '§8' },
-			{ label: 'Blue §9', kind: CompletionItemKind.Color, insertText: '§9' },
-			{ label: 'Green §a', kind: CompletionItemKind.Color, insertText: '§a' },
-			{ label: 'Aqua §b', kind: CompletionItemKind.Color, insertText: '§b' },
-			{ label: 'Red §c', kind: CompletionItemKind.Color, insertText: '§c' },
-			{ label: 'Light Purple §d', kind: CompletionItemKind.Color, insertText: '§d' },
-			{ label: 'Yellow §e', kind: CompletionItemKind.Color, insertText: '§e' },
-			{ label: 'White §f', kind: CompletionItemKind.Color, insertText: '§f' },
+  if (isIn("=", cursor, line)) {
+    receiver.items.push(
+      { label: "Black §0", kind: CompletionItemKind.Color, insertText: "§0" },
+      { label: "Dark Blue §1", kind: CompletionItemKind.Color, insertText: "§1" },
+      { label: "Dark Green §2", kind: CompletionItemKind.Color, insertText: "§2" },
+      { label: "Dark Aqua §3", kind: CompletionItemKind.Color, insertText: "§3" },
+      { label: "Dark Red §4", kind: CompletionItemKind.Color, insertText: "§4" },
+      { label: "Dark Purple §5", kind: CompletionItemKind.Color, insertText: "§5" },
+      { label: "Gold §6", kind: CompletionItemKind.Color, insertText: "§6" },
+      { label: "Gray §7", kind: CompletionItemKind.Color, insertText: "§7" },
+      { label: "Dark Gray §8", kind: CompletionItemKind.Color, insertText: "§8" },
+      { label: "Blue §9", kind: CompletionItemKind.Color, insertText: "§9" },
+      { label: "Green §a", kind: CompletionItemKind.Color, insertText: "§a" },
+      { label: "Aqua §b", kind: CompletionItemKind.Color, insertText: "§b" },
+      { label: "Red §c", kind: CompletionItemKind.Color, insertText: "§c" },
+      { label: "Light Purple §d", kind: CompletionItemKind.Color, insertText: "§d" },
+      { label: "Yellow §e", kind: CompletionItemKind.Color, insertText: "§e" },
+      { label: "White §f", kind: CompletionItemKind.Color, insertText: "§f" },
 
-			{ label: 'Reset §r', kind: CompletionItemKind.Color, insertText: '§r' },
-			{ label: 'Italic §o', kind: CompletionItemKind.Color, insertText: '§o' },
-			{ label: 'Bold §l', kind: CompletionItemKind.Color, insertText: '§l' },
-			{ label: 'Random Symbols §k', kind: CompletionItemKind.Color, insertText: '§k' }
-		);
+      { label: "Reset §r", kind: CompletionItemKind.Color, insertText: "§r" },
+      { label: "Italic §o", kind: CompletionItemKind.Color, insertText: "§o" },
+      { label: "Bold §l", kind: CompletionItemKind.Color, insertText: "§l" },
+      { label: "Random Symbols §k", kind: CompletionItemKind.Color, insertText: "§k" }
+    );
 
-		return;
-	}
+    return;
+  }
 
-	receiver.items.push(
-		{ label: '=', kind: CompletionItemKind.Snippet }
-	);
+  receiver.items.push({ label: "=", kind: CompletionItemKind.Snippet });
 }
 
 function isIn(text: string, index: number, inText: string): boolean {
-	let findIndex = inText.indexOf(text);
+  let findIndex = inText.indexOf(text);
 
-	if (findIndex < 0)
-		return false;
+  if (findIndex < 0) return false;
 
-	if (index > findIndex)
-		return true;
+  if (index > findIndex) return true;
 
-	return false;
+  return false;
 }

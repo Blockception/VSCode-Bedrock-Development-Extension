@@ -31,7 +31,7 @@ import { CompletionParams, CompletionList, CompletionItem } from "vscode-languag
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
-import { OnCompletionLanguage } from './Language';
+import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
 
 //Handle request
