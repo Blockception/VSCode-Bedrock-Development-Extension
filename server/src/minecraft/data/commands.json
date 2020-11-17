@@ -963,6 +963,23 @@
       "name": "playsound",
       "documentation": { "value": "TODO description", "kind": "markdown" }
     },
+
+    {
+      "name": "playanimation",
+      "documentation": {
+        "value": "Makes one or more entities play a one-off animation. Assumes all variables are set up correctly",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "playanimation", "Type": "keyword", "Required": true },
+        { "Text": "entity", "Type": "selector", "Required": true },
+        { "Text": "animation", "Type": "string", "Required": true },
+        { "Text": "next state", "Type": "string", "Required": false },
+        { "Text": "stop expression", "Type": "string", "Required": false },
+        { "Text": "controller name", "Type": "string", "Required": false }
+      ]
+    },
+
     {
       "parameters": [
         { "Text": "replaceitem", "Type": "keyword", "Required": true },
