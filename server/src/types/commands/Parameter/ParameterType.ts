@@ -34,7 +34,9 @@ export enum MCCommandParameterType {
    block,
    //Marks that the parameter is a boolean value
    boolean,
+   //Marks that the parameter is a camera shake mode
    cameraShakeType,
+   //Marks that the parameter is a clone mode
    cloneMode,
    //Marks that the parameter is the start of a command
    command,
