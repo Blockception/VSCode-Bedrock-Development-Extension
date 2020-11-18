@@ -17,18 +17,7 @@
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "intensity", "Type": "float", "Required": false, "Options": { "minimum": 0, "maximum": 4 } },
         { "Text": "seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
-        { "Text": "positional", "Type": "keyword", "Required": false }
-      ]
-    },
-    {
-      "name": "camerashake",
-      "documentation": { "value": "Applies shaking to the players' camera with specified intensity and duration" },
-      "parameters": [
-        { "Text": "add", "Type": "keyword", "Required": true },
-        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
-        { "Text": "intensity", "Type": "float", "Required": false, "Options": { "minimum": 0, "maximum": 4 } },
-        { "Text": "seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
-        { "Text": "rotational", "Type": "keyword", "Required": false }
+        { "Text": "shake type", "Type": "cameraShakeType", "Required": false }
       ]
     },
     {
@@ -37,9 +26,9 @@
       "parameters": [
         { "Text": "clear", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } },
-        { "Text": "itemName", "Type": "item", "Required": false },
+        { "Text": "item name", "Type": "item", "Required": false },
         { "Text": "data", "Type": "integer", "Required": false },
-        { "Text": "maxCount", "Type": "integer", "Required": false }
+        { "Text": "max count", "Type": "integer", "Required": false }
       ]
     },
     {
@@ -48,22 +37,6 @@
       "parameters": [{ "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }]
     },
     {
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" },
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true }
-      ]
-    },
-    {
       "parameters": [
         { "Text": "clone", "Type": "keyword", "Required": true },
         { "Text": "begin x", "Type": "coordinate", "Required": true },
@@ -75,132 +48,8 @@
         { "Text": "destination x", "Type": "coordinate", "Required": true },
         { "Text": "destination y", "Type": "coordinate", "Required": true },
         { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "replace", "Type": "keyword", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "replace", "Type": "keyword", "Required": true },
-        { "Text": "normal", "Type": "keyword", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "replace", "Type": "keyword", "Required": true },
-        { "Text": "force", "Type": "keyword", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "replace", "Type": "keyword", "Required": true },
-        { "Text": "move", "Type": "keyword", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "masked", "Type": "keyword", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "masked", "Type": "keyword", "Required": true },
-        { "Text": "normal", "Type": "keyword", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "masked", "Type": "keyword", "Required": true },
-        { "Text": "force", "Type": "keyword", "Required": true }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "masked", "Type": "keyword", "Required": true },
-        { "Text": "move", "Type": "keyword", "Required": true }
+        { "Text": "mask", "Type": "maskMode", "Required": false },
+        { "Text": "clone mode", "Type": "cloneMode", "Required": true }
       ],
       "name": "clone",
       "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
@@ -218,49 +67,9 @@
         { "Text": "destination y", "Type": "coordinate", "Required": true },
         { "Text": "destination z", "Type": "coordinate", "Required": true },
         { "Text": "filtered", "Type": "keyword", "Required": true },
-        { "Text": "normal", "Type": "keyword", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "filtered", "Type": "keyword", "Required": true },
-        { "Text": "force", "Type": "keyword", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false }
-      ],
-      "name": "clone",
-      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "clone", "Type": "keyword", "Required": true },
-        { "Text": "begin x", "Type": "coordinate", "Required": true },
-        { "Text": "begin y", "Type": "coordinate", "Required": true },
-        { "Text": "begin z", "Type": "coordinate", "Required": true },
-        { "Text": "end x", "Type": "coordinate", "Required": true },
-        { "Text": "end y", "Type": "coordinate", "Required": true },
-        { "Text": "end z", "Type": "coordinate", "Required": true },
-        { "Text": "destination x", "Type": "coordinate", "Required": true },
-        { "Text": "destination y", "Type": "coordinate", "Required": true },
-        { "Text": "destination z", "Type": "coordinate", "Required": true },
-        { "Text": "filtered", "Type": "keyword", "Required": true },
-        { "Text": "move", "Type": "keyword", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false }
+        { "Text": "clone mode", "Type": "cloneMode", "Required": true },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "tile data", "Type": "integer", "Required": false }
       ],
       "name": "clone",
       "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
@@ -268,95 +77,7 @@
     {
       "parameters": [
         { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "peaceful", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "easy", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "normal", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "hard", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "p", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "e", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "n", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "h", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "0", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "1", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "2", "Type": "keyword", "Required": true }
-      ],
-      "name": "difficulty",
-      "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "difficulty", "Type": "keyword", "Required": true },
-        { "Text": "3", "Type": "keyword", "Required": true }
+        { "Text": "mode", "Type": "difficulty", "Required": true }
       ],
       "name": "difficulty",
       "documentation": { "value": "Sets the difficulty level.", "kind": "markdown" }
@@ -451,11 +172,11 @@
         { "Text": "to x", "Type": "coordinate", "Required": true },
         { "Text": "to y", "Type": "coordinate", "Required": true },
         { "Text": "to z", "Type": "coordinate", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": true },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "tile data", "Type": "integer", "Required": true },
         { "Text": "replace", "Type": "keyword", "Required": true },
-        { "Text": "replaceTileName", "Type": "block", "Required": false },
-        { "Text": "replaceDataValue", "Type": "integer", "Required": false }
+        { "Text": "replace tile name", "Type": "block", "Required": false },
+        { "Text": "replace data value", "Type": "integer", "Required": false }
       ],
       "name": "fill",
       "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
@@ -469,57 +190,9 @@
         { "Text": "to x", "Type": "coordinate", "Required": true },
         { "Text": "to y", "Type": "coordinate", "Required": true },
         { "Text": "to z", "Type": "coordinate", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false },
-        { "Text": "outline", "Type": "keyword", "Required": true }
-      ],
-      "name": "fill",
-      "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "fill", "Type": "keyword", "Required": true },
-        { "Text": "from x", "Type": "coordinate", "Required": true },
-        { "Text": "from y", "Type": "coordinate", "Required": true },
-        { "Text": "from z", "Type": "coordinate", "Required": true },
-        { "Text": "to x", "Type": "coordinate", "Required": true },
-        { "Text": "to y", "Type": "coordinate", "Required": true },
-        { "Text": "to z", "Type": "coordinate", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false },
-        { "Text": "hollow", "Type": "keyword", "Required": true }
-      ],
-      "name": "fill",
-      "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "fill", "Type": "keyword", "Required": true },
-        { "Text": "from x", "Type": "coordinate", "Required": true },
-        { "Text": "from y", "Type": "coordinate", "Required": true },
-        { "Text": "from z", "Type": "coordinate", "Required": true },
-        { "Text": "to x", "Type": "coordinate", "Required": true },
-        { "Text": "to y", "Type": "coordinate", "Required": true },
-        { "Text": "to z", "Type": "coordinate", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false },
-        { "Text": "destroy", "Type": "keyword", "Required": true }
-      ],
-      "name": "fill",
-      "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
-    },
-    {
-      "parameters": [
-        { "Text": "fill", "Type": "keyword", "Required": true },
-        { "Text": "from x", "Type": "coordinate", "Required": true },
-        { "Text": "from y", "Type": "coordinate", "Required": true },
-        { "Text": "from z", "Type": "coordinate", "Required": true },
-        { "Text": "to x", "Type": "coordinate", "Required": true },
-        { "Text": "to y", "Type": "coordinate", "Required": true },
-        { "Text": "to z", "Type": "coordinate", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false },
-        { "Text": "keep", "Type": "keyword", "Required": true }
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "tile data", "Type": "integer", "Required": false },
+        { "Text": "mode", "Type": "fillMode", "Required": true }
       ],
       "name": "fill",
       "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
@@ -819,10 +492,10 @@
       "parameters": [
         { "Text": "give", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
-        { "Text": "itemName", "Type": "item", "Required": true },
+        { "Text": "item name", "Type": "item", "Required": true },
         { "Text": "amount", "Type": "integer", "Required": false },
         { "Text": "data", "Type": "integer", "Required": false },
-        { "Text": "components", "Type": "keyword", "Required": false }
+        { "Text": "components", "Type": "jsonItem", "Required": false }
       ],
       "name": "give",
       "documentation": { "value": "Gives an item to a player.", "kind": "markdown" }
@@ -870,19 +543,7 @@
         { "Text": "track name", "Type": "string", "Required": true },
         { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
         { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
-        { "Text": "play_once", "Type": "keyword", "Required": false }
-      ]
-    },
-    {
-      "name": "music",
-      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
-      "parameters": [
-        { "Text": "music", "Type": "keyword", "Required": true },
-        { "Text": "queue", "Type": "keyword", "Required": true },
-        { "Text": "track name", "Type": "string", "Required": true },
-        { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
-        { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
-        { "Text": "loop", "Type": "keyword", "Required": false }
+        { "Text": "repeat", "Type": "musicRepeatMode", "Required": false }
       ]
     },
 
@@ -895,19 +556,7 @@
         { "Text": "track name", "Type": "string", "Required": true },
         { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
         { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
-        { "Text": "play_once", "Type": "keyword", "Required": false }
-      ]
-    },
-    {
-      "name": "music",
-      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
-      "parameters": [
-        { "Text": "music", "Type": "keyword", "Required": true },
-        { "Text": "play", "Type": "keyword", "Required": true },
-        { "Text": "track name", "Type": "string", "Required": true },
-        { "Text": "volume", "Type": "float", "Required": false, "Options": { "minimum": 0.01, "maximum": 1 } },
-        { "Text": "fade seconds", "Type": "float", "Required": false, "Options": { "minimum": 0 } },
-        { "Text": "loop", "Type": "keyword", "Required": false }
+        { "Text": "repeat", "Type": "musicRepeatMode", "Required": false }
       ]
     },
     {
@@ -988,8 +637,8 @@
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true },
         { "Text": "slot.container", "Type": "slotType", "Required": true },
-        { "Text": "slotId", "Type": "slotType", "Required": true },
-        { "Text": "itemName", "Type": "item", "Required": true },
+        { "Text": "slot id", "Type": "slotID", "Required": true },
+        { "Text": "item name", "Type": "item", "Required": true },
         { "Text": "amount", "Type": "keyword", "Required": false },
         { "Text": "data", "Type": "keyword", "Required": false },
         { "Text": "components", "Type": "keyword", "Required": false }
@@ -1005,9 +654,9 @@
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true },
         { "Text": "slot.container", "Type": "slotType", "Required": true },
-        { "Text": "slotId", "Type": "slotType", "Required": true },
+        { "Text": "slotId", "Type": "slotID", "Required": true },
         { "Text": "replacemode", "Type": "replaceMode", "Required": true },
-        { "Text": "itemName", "Type": "item", "Required": true },
+        { "Text": "item name", "Type": "item", "Required": true },
         { "Text": "amount", "Type": "keyword", "Required": false },
         { "Text": "data", "Type": "keyword", "Required": false },
         { "Text": "components", "Type": "keyword", "Required": false }
@@ -1021,8 +670,8 @@
         { "Text": "entity", "Type": "keyword", "Required": true },
         { "Text": "selector", "Type": "selector", "Required": true },
         { "Text": "slot.container", "Type": "slotType", "Required": true },
-        { "Text": "slotId", "Type": "slotType", "Required": true },
-        { "Text": "itemName", "Type": "item", "Required": true },
+        { "Text": "slotId", "Type": "slotID", "Required": true },
+        { "Text": "item name", "Type": "item", "Required": true },
         { "Text": "amount", "Type": "integer", "Required": false },
         { "Text": "data", "Type": "integer", "Required": false },
         { "Text": "components", "Type": "jsonItem", "Required": false }
@@ -1058,56 +707,10 @@
         { "Text": "riders", "Type": "selector", "Required": true },
         { "Text": "start_riding", "Type": "keyword", "Required": true },
         { "Text": "ride", "Type": "selector", "Required": true },
-        { "Text": "teleport_ride", "Type": "keyword", "Required": false },
-        { "Text": "if_group_fits", "Type": "keyword", "Required": false }
+        { "Text": "teleport", "Type": "teleportRules", "Required": false },
+        { "Text": "fill mode", "Type": "fillMode", "Required": false }
       ]
     },
-    {
-      "name": "ride",
-      "documentation": {
-        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
-        "kind": "markdown"
-      },
-      "parameters": [
-        { "Text": "ride", "Type": "keyword", "Required": true },
-        { "Text": "riders", "Type": "selector", "Required": true },
-        { "Text": "start_riding", "Type": "keyword", "Required": true },
-        { "Text": "ride", "Type": "selector", "Required": true },
-        { "Text": "teleport_rider", "Type": "keyword", "Required": false },
-        { "Text": "if_group_fits", "Type": "keyword", "Required": false }
-      ]
-    },
-    {
-      "name": "ride",
-      "documentation": {
-        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
-        "kind": "markdown"
-      },
-      "parameters": [
-        { "Text": "ride", "Type": "keyword", "Required": true },
-        { "Text": "riders", "Type": "selector", "Required": true },
-        { "Text": "start_riding", "Type": "keyword", "Required": true },
-        { "Text": "ride", "Type": "selector", "Required": true },
-        { "Text": "teleport_ride", "Type": "keyword", "Required": false },
-        { "Text": "until_full", "Type": "keyword", "Required": false }
-      ]
-    },
-    {
-      "name": "ride",
-      "documentation": {
-        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
-        "kind": "markdown"
-      },
-      "parameters": [
-        { "Text": "ride", "Type": "keyword", "Required": true },
-        { "Text": "riders", "Type": "selector", "Required": true },
-        { "Text": "start_riding", "Type": "keyword", "Required": true },
-        { "Text": "ride", "Type": "selector", "Required": true },
-        { "Text": "teleport_rider", "Type": "keyword", "Required": false },
-        { "Text": "until_full", "Type": "keyword", "Required": false }
-      ]
-    },
-
     {
       "name": "ride",
       "documentation": {
@@ -1131,39 +734,7 @@
         { "Text": "riders", "Type": "selector", "Required": true },
         { "Text": "summon_ride", "Type": "keyword", "Required": true },
         { "Text": "entity type", "Type": "entity", "Required": true },
-        { "Text": "no_ride_change", "Type": "keyword", "Required": true },
-        { "Text": "event", "Type": "event", "Required": true },
-        { "Text": "name", "Type": "string", "Required": true }
-      ]
-    },
-    {
-      "name": "ride",
-      "documentation": {
-        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
-        "kind": "markdown"
-      },
-      "parameters": [
-        { "Text": "ride", "Type": "keyword", "Required": true },
-        { "Text": "riders", "Type": "selector", "Required": true },
-        { "Text": "summon_ride", "Type": "keyword", "Required": true },
-        { "Text": "entity type", "Type": "entity", "Required": true },
-        { "Text": "reassign_rides", "Type": "keyword", "Required": true },
-        { "Text": "event", "Type": "event", "Required": true },
-        { "Text": "name", "Type": "string", "Required": true }
-      ]
-    },
-    {
-      "name": "ride",
-      "documentation": {
-        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
-        "kind": "markdown"
-      },
-      "parameters": [
-        { "Text": "ride", "Type": "keyword", "Required": true },
-        { "Text": "riders", "Type": "selector", "Required": true },
-        { "Text": "summon_ride", "Type": "keyword", "Required": true },
-        { "Text": "entity type", "Type": "entity", "Required": true },
-        { "Text": "skip_riders", "Type": "keyword", "Required": true },
+        { "Text": "ride rules", "Type": "rideRules", "Required": true },
         { "Text": "event", "Type": "event", "Required": true },
         { "Text": "name", "Type": "string", "Required": true }
       ]
@@ -1283,7 +854,20 @@
         { "Text": "objectives", "Type": "keyword", "Required": true },
         { "Text": "setdisplay", "Type": "keyword", "Required": true },
         { "Text": "list", "Type": "keyword", "Required": true },
-        { "Text": "objective", "Type": "objective", "Required": false }
+        { "Text": "objective", "Type": "objective", "Required": false },
+        { "Text": "ascending", "Type": "objective", "Required": false }
+      ],
+      "name": "scoreboard",
+      "documentation": { "value": "TODO description", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "scoreboard", "Type": "keyword", "Required": true },
+        { "Text": "objectives", "Type": "keyword", "Required": true },
+        { "Text": "setdisplay", "Type": "keyword", "Required": true },
+        { "Text": "list", "Type": "keyword", "Required": true },
+        { "Text": "objective", "Type": "objective", "Required": false },
+        { "Text": "descending", "Type": "objective", "Required": false }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -1294,7 +878,20 @@
         { "Text": "objectives", "Type": "keyword", "Required": true },
         { "Text": "setdisplay", "Type": "keyword", "Required": true },
         { "Text": "sidebar", "Type": "keyword", "Required": true },
-        { "Text": "objective", "Type": "objective", "Required": false }
+        { "Text": "objective", "Type": "objective", "Required": false },
+        { "Text": "ascending", "Type": "objective", "Required": false }
+      ],
+      "name": "scoreboard",
+      "documentation": { "value": "TODO description", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "scoreboard", "Type": "keyword", "Required": true },
+        { "Text": "objectives", "Type": "keyword", "Required": true },
+        { "Text": "setdisplay", "Type": "keyword", "Required": true },
+        { "Text": "sidebar", "Type": "keyword", "Required": true },
+        { "Text": "objective", "Type": "objective", "Required": false },
+        { "Text": "descending", "Type": "objective", "Required": false }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -1413,8 +1010,8 @@
         { "Text": "position x", "Type": "coordinate", "Required": true },
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true },
-        { "Text": "tileName", "Type": "block", "Required": true },
-        { "Text": "tileData", "Type": "integer", "Required": false },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "tile data", "Type": "integer", "Required": false },
         { "Text": "replace", "Type": "keyword", "Required": false }
       ],
       "name": "setblock",
@@ -1426,8 +1023,8 @@
         { "Text": "position x", "Type": "coordinate", "Required": true },
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true },
-        { "Text": "tile Name", "Type": "block", "Required": true },
-        { "Text": "tile Data", "Type": "integer", "Required": false },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "tile data", "Type": "integer", "Required": false },
         { "Text": "destroy", "Type": "keyword", "Required": false }
       ],
       "name": "setblock",
@@ -1439,8 +1036,8 @@
         { "Text": "position x", "Type": "coordinate", "Required": true },
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true },
-        { "Text": "tile Name", "Type": "block", "Required": true },
-        { "Text": "tile Data", "Type": "integer", "Required": false },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "tile data", "Type": "integer", "Required": false },
         { "Text": "keep", "Type": "keyword", "Required": false }
       ],
       "name": "setblock",
@@ -1472,8 +1069,8 @@
         { "Text": "spreadplayers", "Type": "keyword", "Required": true },
         { "Text": "x", "Type": "coordinate", "Required": true },
         { "Text": "z", "Type": "coordinate", "Required": true },
-        { "Text": "spread Distance", "Type": "float", "Required": true },
-        { "Text": "max Range", "Type": "float", "Required": true },
+        { "Text": "spread distance", "Type": "float", "Required": true },
+        { "Text": "max range", "Type": "float", "Required": true },
         { "Text": "victim", "Type": "selector", "Required": true }
       ],
       "name": "spreadplayers",

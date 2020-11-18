@@ -34,16 +34,20 @@ export enum MCCommandParameterType {
   block,
   //Marks that the parameter is a boolean value
   boolean,
+  cameraShakeType,
+  cloneMode,
   //Marks that the parameter is the start of a command
   command,
   //Marks that the parameter is a coordinate
   coordinate,
+  difficulty,
   //Marks that the parameter is an effect
   effect,
   //Marks that the parameter is an entity
   entity,
   //Marks that the parameter is an event
   event,
+  fillMode,
   //Marks that the parameter is a function
   function,
   //Marks that the parameter is a float
@@ -62,7 +66,9 @@ export enum MCCommandParameterType {
   keyword,
   //Marks that the parameter is a locate feature
   locateFeature,
+  maskMode,
   mirror,
+  musicRepeatMode,
   //Marks that the parameter is a scoreboard objective
   objective,
   //Marks that the parameter is a scoreboard operation
@@ -71,6 +77,7 @@ export enum MCCommandParameterType {
   particle,
   //Marks that the parameter is a replace mode
   replaceMode,
+  rideRules,
   rotation,
   //Marks that the parameter is a selector
   saveMode,
@@ -89,6 +96,7 @@ export enum MCCommandParameterType {
   target,
   //Marks that the parameter is a tag
   tag,
+  teleportRules,
   //Marks that the parameter is a ticking area
   tickingarea,
   //Marks that the parameter is of an unknown type
