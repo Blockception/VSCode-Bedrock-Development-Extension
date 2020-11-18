@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { CompletionList } from "vscode-languageserver";
 import { CommandIntr, IsInSubCommand } from "../minecraft/commands/include";
-import { ProvideCompletionMCCommandParameter } from "./MCCommandParameterType/Completion";
-import { provideCommandCompletion } from "./Command/Completion";
+import { ProvideCompletionMCCommandParameter } from "../types/commands/Parameter/Completion";
+import { provideCommandCompletion } from "../types/commands/Command/Completion";
 import { getLine } from "../code/include";
 
 export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList): void {

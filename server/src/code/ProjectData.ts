@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as fg from "fast-glob";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
-import { JsonDocument } from "../json/Json Document";
+import { JsonDocument } from "./json/Json Document";
 import { Manager } from "../manager/Manager";
 import { DetectGeneralDataType } from "../minecraft/format/detection";
 import { GeneralDataType } from "../minecraft/format/General Data Type";
