@@ -8,7 +8,6 @@ export * as definition from "./definition/include";
 export * as diagnostics from "./diagnostics/include";
 export * as format from "./format/include";
 export * as hover from "./hover/include";
-export * as json from "./json/include";
 export * as manager from "./manager/include";
 export * as process from "./process/include";
 export * as progress from "./progress/include";
