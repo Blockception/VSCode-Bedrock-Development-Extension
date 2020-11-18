@@ -31,7 +31,7 @@ import { SymbolInformation, SymbolKind } from "vscode-languageserver";
 import { Identifiable, Locatable } from "../minecraft/Interfaces/include";
 import { DataCollector } from "../database/DataCollector";
 import { Database } from "../database/Database";
-import { Kinds } from "../minecraft/types/Kinds";
+import { Kinds } from "../minecraft/general/types/Kinds";
 import { Queryable } from "../minecraft/Interfaces/Queryable";
 
 export function Convert(uri: string, receiver: SymbolInformation[], query: string): void {

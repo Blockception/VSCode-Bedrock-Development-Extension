@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Hover } from "vscode-languageserver";
 import { Range } from "vscode-languageserver-textdocument";
-import { McFunction } from "../../types/Functions/include";
+import { McFunction } from "../../general/types/Functions/include";
 
 export function provideHover(range: Range): Hover | undefined {
   return {

@@ -31,7 +31,7 @@ import { Location, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../database/Database";
 import { JsonDocument } from "../../../json/Json Document";
-import { Sound } from "../../types/include";
+import { Sound } from "../../general/types/include";
 
 /**
  * Processes the text document as a behaviour entity definition file

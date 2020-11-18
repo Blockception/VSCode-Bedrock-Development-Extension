@@ -32,7 +32,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../database/include";
 import { DataReference } from "../../../database/Types/include";
 import { JsonDocument } from "../../../json/include";
-import { EmptyTypes } from "../../types/Empty";
+import { EmptyTypes } from "../../general/types/Empty";
 import { Particle } from "./Particle";
 
 export function Process(doc: TextDocument): void {

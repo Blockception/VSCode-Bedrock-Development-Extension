@@ -32,7 +32,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
-import { EmptyTypes } from "../../types/Empty";
+import { EmptyTypes } from "../../general/types/Empty";
 import { RenderController } from "./Render Controller";
 
 /**

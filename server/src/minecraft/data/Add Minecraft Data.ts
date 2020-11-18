@@ -29,12 +29,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Database } from "../../database/include";
 import { Manager } from "../../manager/Manager";
-import { Block } from "../types/Block/include";
-import { Effect } from "../types/Effect/Effect";
-import { Entity } from "../types/Entity/include";
-import { EmptyTypes } from "../types/include";
-import { Item } from "../types/Item/include";
-import { Sound } from "../types/Sound/include";
+import { Block } from "../general/types/Block/include";
+import { Effect } from "../general/types/Effect/Effect";
+import { Entity } from "../general/types/Entity/include";
+import { EmptyTypes } from "../general/types/include";
+import { Item } from "../general/types/Item/include";
+import { Sound } from "../general/types/Sound/include";
 import * as data from "./minecraft data.json";
 
 export function AddMinecraftData() {

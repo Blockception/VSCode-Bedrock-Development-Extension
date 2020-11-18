@@ -31,10 +31,10 @@ import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../json/Json Document";
 import { Database } from "../../../database/Database";
-import { EmptyTypes } from "../../types/Empty";
+import { EmptyTypes } from "../../general/types/Empty";
 import { DataReference } from "../../../database/Types/Reference";
 import * as behavior from "../../behavior/include";
-import { Entity } from "../../types/Entity/include";
+import { Entity } from "../../general/types/Entity/include";
 
 /**
  * Processes the text document as a behaviour entity definition file

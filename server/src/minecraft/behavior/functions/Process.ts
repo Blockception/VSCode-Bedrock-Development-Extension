@@ -36,7 +36,7 @@ import { ProcessTickingAreaCommand } from "../../../process/Commands/include";
 import { ProcessScoreboardCommand } from "../../../process/Commands/Scoreboard";
 import { ProcessTagCommand } from "../../../process/Commands/Tag";
 import { CommandIntr, GetSubCommand } from "../../commands/include";
-import { McFunction } from "../../types/Functions/include";
+import { McFunction } from "../../general/types/Functions/include";
 import { ProvideMcfunctionDiagnostics } from "./Diagnostics";
 import { GetComment } from "./Function";
 

@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList } from "vscode-languageserver";
 import { Completion } from "../../../completion/Functions";
 import { Database } from "../../../database/Database";
-import { Kinds } from "../../types/Kinds";
+import { Kinds } from "../../general/types/Kinds";
 
 export function provideParticleCompletion(receiver: CompletionList): void {
   Completion.Convert(Database.Data.Resourcepack.Particles, Kinds.Completion.Particle, receiver.items);

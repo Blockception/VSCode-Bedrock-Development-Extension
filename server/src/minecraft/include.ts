@@ -8,4 +8,4 @@ export * as json from "./json/include";
 export * as logs from "./logs/include";
 export * as manifest from "./manifest/include";
 export * as resource from "./resource/include";
-export * as types from "./types/include";
+export * as types from "./general/types/include";

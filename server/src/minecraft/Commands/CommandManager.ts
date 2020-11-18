@@ -29,13 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ProvideCompletionMCCommandParameter } from "../../completion/MCCommandParameterType/include";
 import { Manager } from "../../manager/Manager";
-import { IsBoolean } from "../types/Boolean/Boolean";
-import { IsCoordinate } from "../types/Coordinate/Functions";
-import { IsFloat } from "../types/Float/Functions";
-import { IsInteger } from "../types/Integer/Functions";
-import { IsJson } from "../types/Json/Json";
-import { IsSelector } from "../types/Selector/include";
-import { IsTickingArea } from "../types/Tickingarea/Functions";
+import { IsBoolean } from "../general/types/Boolean/Boolean";
+import { IsCoordinate } from "../general/types/Coordinate/Functions";
+import { IsFloat } from "../general/types/Float/Functions";
+import { IsInteger } from "../general/types/Integer/Functions";
+import { IsJson } from "../general/types/Json/Json";
+import { IsSelector } from "../general/types/Selector/include";
+import { IsTickingArea } from "../general/types/Tickingarea/Functions";
 import { CommandInfo } from "./CommandInfo";
 import { CommandIntr } from "./CommandIntr";
 import { MCCommand } from "./MCCommand";

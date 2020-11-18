@@ -32,9 +32,9 @@ import { getLine } from "../../code/include";
 import { Database } from "../../database/Database";
 import { GetComment } from "../../minecraft/behavior/functions/Function";
 import { CommandIntr } from "../../minecraft/commands/include";
-import { FakeEntity } from "../../minecraft/types/FakeEntity/FakeEntity";
-import { Objective } from "../../minecraft/types/Objectives/include";
-import { IsFakePlayer } from "../../minecraft/types/Selector/include";
+import { FakeEntity } from "../../minecraft/general/types/FakeEntity/FakeEntity";
+import { Objective } from "../../minecraft/general/types/Objectives/include";
+import { IsFakePlayer } from "../../minecraft/general/types/Selector/include";
 
 export function ProcessScoreboardCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
   if (Com.Paramaters.length < 3) {

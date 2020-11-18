@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../database/include";
 import { DataReference } from "../../../database/Types/include";
-import { EmptyTypes } from "../../types/Empty";
+import { EmptyTypes } from "../../general/types/Empty";
 
 export function Process(doc: TextDocument): void {
   let filepath = decodeURI(doc.uri);

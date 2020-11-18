@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../database/include";
-import { EmptyTypes } from "../minecraft/types/Empty";
+import { EmptyTypes } from "../minecraft/general/types/Empty";
 
 export function InvalidJson(doc: TextDocument, error: any): void {
   let Message = "Invalid json";

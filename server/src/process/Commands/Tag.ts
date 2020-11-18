@@ -32,7 +32,7 @@ import { getLine } from "../../code/include";
 import { Database } from "../../database/Database";
 import { GetComment } from "../../minecraft/behavior/functions/Function";
 import { CommandIntr } from "../../minecraft/commands/include";
-import { Tag } from "../../minecraft/types/Tag/Tag";
+import { Tag } from "../../minecraft/general/types/Tag/Tag";
 
 export function ProcessTagCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
   //tag <selector> add <tag>

@@ -31,7 +31,7 @@ import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../database/include";
 import { CommandIntr } from "../../minecraft/commands/include";
-import { Tickingarea } from "../../minecraft/types/Tickingarea/include";
+import { Tickingarea } from "../../minecraft/general/types/Tickingarea/include";
 
 export function ProcessTickingAreaCommand(Command: CommandIntr, lineIndex: number, doc: TextDocument): void {
   //tickingarea add

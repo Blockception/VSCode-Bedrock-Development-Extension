@@ -32,8 +32,8 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../database/Database";
 import { DataReference } from "../../../database/Types/Reference";
 import { JsonDocument } from "../../../json/Json Document";
-import { EmptyTypes } from "../../types/Empty";
-import { Item } from "../../types/Item/Item";
+import { EmptyTypes } from "../../general/types/Empty";
+import { Item } from "../../general/types/Item/Item";
 import { IsProperlyDefined, ItemImport } from "./Item Import";
 
 /**
