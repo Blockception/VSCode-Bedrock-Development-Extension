@@ -27,19 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ProvideCompletionMCCommandParameter } from "../../../completion/MCCommandParameterType/include";
 import { Manager } from "../../../manager/Manager";
-import { IsBoolean } from "../general/types/Boolean/Boolean";
-import { IsCoordinate } from "../general/types/Coordinate/Functions";
-import { IsFloat } from "../general/types/Float/Functions";
-import { IsInteger } from "../general/types/Integer/Functions";
-import { IsJson } from "../general/types/Json/Json";
-import { IsSelector } from "../general/types/Selector/include";
-import { IsTickingArea } from "../general/types/Tickingarea/Functions";
 import { CommandInfo } from "../Command Info/CommandInfo";
 import { CommandIntr } from "../Command Intertation/CommandIntr";
 import { MCCommand } from "../Command/MCCommand";
-import { MCCommandParameterType } from "../ParameterType";
+import { MCCommandParameterType } from '../Parameter/include';
 
 export class CommandManager {
   Subset: Map<string, CommandInfo[]>;

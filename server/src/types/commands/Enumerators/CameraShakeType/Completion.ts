@@ -27,36 +27,20 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { URI } from "vscode-uri";
-import { GetDocuments } from "../code/include";
-import { JsonDocument } from "../code/json/include";
-import { ValidationData } from "./Validation";
+import { CompletionItem, CompletionItemKind } from 'vscode-languageserver';
+import { CameraShakeType } from './Constants';
 
-export function GetValidationData(workspaces: string[]): ValidationData {
-  let Out: ValidationData = ValidationData.createEmpty();
-
-  workspaces.forEach((ws) => {
-    ws = URI.parse(ws).fsPath;
-
-    if (!ws.endsWith("\\")) ws += "\\";
-    ws = ws.replace(/\\/g, "/");
-
-    GetDocuments(ws, "**/minecraft-validation.json").forEach((D) => Process(D, Out));
-  });
-
-  return Out;
-}
-
-function Process(uri: string, receiver: ValidationData): void {
-  let doc = JsonDocument.GetDocument(uri);
-
-  let data = doc.CastTo<ValidationData>();
-
-  if (data === undefined || data === null) return;
-
-  data.objectives?.invalid?.forEach((m) => receiver.objectives?.invalid?.push(m));
-  data.objectives?.valid?.forEach((m) => receiver.objectives?.valid?.push(m));
-
-  data.tags?.invalid?.forEach((m) => receiver.tags?.invalid?.push(m));
-  data.tags?.valid?.forEach((m) => receiver.tags?.valid?.push(m));
+export function ProvideCompletion(receiver: CompletionItem[]): void {
+	receiver.push(
+		{
+			label: CameraShakeType.Positional,
+			documentation: { kind: 'markdown', value: 'Shakes the camera only over the position' },
+			kind: CompletionItemKind.TypeParameter
+		},
+		{
+			label: CameraShakeType.Rotational,
+			documentation: { kind: 'markdown', value: 'Shakes the camera only over the rotation' },
+			kind: CompletionItemKind.TypeParameter
+		}
+	)
 }

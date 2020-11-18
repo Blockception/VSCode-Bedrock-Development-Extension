@@ -27,36 +27,42 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { URI } from "vscode-uri";
-import { GetDocuments } from "../code/include";
-import { JsonDocument } from "../code/json/include";
-import { ValidationData } from "./Validation";
+import { MarkupContent } from 'vscode-languageserver';
 
-export function GetValidationData(workspaces: string[]): ValidationData {
-  let Out: ValidationData = ValidationData.createEmpty();
-
-  workspaces.forEach((ws) => {
-    ws = URI.parse(ws).fsPath;
-
-    if (!ws.endsWith("\\")) ws += "\\";
-    ws = ws.replace(/\\/g, "/");
-
-    GetDocuments(ws, "**/minecraft-validation.json").forEach((D) => Process(D, Out));
-  });
-
-  return Out;
+export interface Gamemodedescription {
+	readonly short: string;
+	readonly long: string;
+	readonly value: string;
+	readonly documentation: MarkupContent;
 }
 
-function Process(uri: string, receiver: ValidationData): void {
-  let doc = JsonDocument.GetDocument(uri);
-
-  let data = doc.CastTo<ValidationData>();
-
-  if (data === undefined || data === null) return;
-
-  data.objectives?.invalid?.forEach((m) => receiver.objectives?.invalid?.push(m));
-  data.objectives?.valid?.forEach((m) => receiver.objectives?.valid?.push(m));
-
-  data.tags?.invalid?.forEach((m) => receiver.tags?.invalid?.push(m));
-  data.tags?.valid?.forEach((m) => receiver.tags?.valid?.push(m));
+export namespace Gamemode {
+	//adventure mode
+	export const adventure: Gamemodedescription = {
+		value: "2",
+		short: "a",
+		long: "adventure",
+		documentation: { value: "adventure mode", kind: 'markdown' }
+	};
+	//creative mode
+	export const creative: Gamemodedescription = {
+		value: "1",
+		short: "c",
+		long: "creative",
+		documentation: { value: "creative mode", kind: 'markdown' }
+	};
+	//survival mode
+	export const defaultmode: Gamemodedescription = {
+		value: "",
+		short: "d",
+		long: "default",
+		documentation: { value: "default mode", kind: 'markdown' }
+	};
+	//survival mode
+	export const survival: Gamemodedescription = {
+		value: "0",
+		short: "s",
+		long: "survival",
+		documentation: { value: "survival mode", kind: 'markdown' }
+	};
 }
