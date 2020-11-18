@@ -33,7 +33,7 @@ import * as data from "./commands.json";
 import { MCCommand } from "../commands/MCCommand";
 import { MCCommandParameter } from "../commands/Parameter";
 import { MCCommandParameterType } from "../commands/ParameterType";
-import { ParameterOptions } from "../commands/include";
+import { ParameterOptions } from "../../commands/include";
 
 interface Command {
   parameters: {

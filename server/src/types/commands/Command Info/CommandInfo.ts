@@ -27,15 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, MarkupContent } from "vscode-languageserver";
-import { Documentable } from "../../../Interfaces/Documentable";
-import { Identifiable } from "../../../Interfaces/Identifiable";
-import { Locatable } from "../../../Interfaces/include";
-import { EmptyTypes } from "../Empty";
-import { ObjectBase } from "../Object Base/include";
+import { SignatureInformation } from "vscode-languageserver";
+import { MCCommand } from "../Command/MCCommand";
 
-export class Effect extends ObjectBase {
-  constructor() {
-    super();
+export class CommandInfo {
+  public Command: MCCommand;
+  public Signature: SignatureInformation | undefined;
+
+  constructor(Command: MCCommand) {
+    this.Command = Command;
   }
 }

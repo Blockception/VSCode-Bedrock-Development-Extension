@@ -31,7 +31,7 @@ import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { DataCollector } from "../database/DataCollector";
 import { Documentable } from "../minecraft/Interfaces/Documentable";
 import { Identifiable, Locatable } from "../minecraft/Interfaces/include";
-import { Item } from "../minecraft/general/types/include";
+import { Item } from "../types/general/types/include";
 
 export namespace Completion {
   export function CreateCompletion(value: Identifiable, valuekind: CompletionItemKind): CompletionItem {

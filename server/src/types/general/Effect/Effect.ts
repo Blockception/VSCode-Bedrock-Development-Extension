@@ -27,20 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { MCCommandParameter, ParameterOptions } from "../../../commands/include";
+import { Location, MarkupContent } from "vscode-languageserver";
+import { Documentable } from "../../../../minecraft/Interfaces/Documentable";
+import { Identifiable } from "../../../../minecraft/Interfaces/Identifiable";
+import { Locatable } from "../../../../minecraft/Interfaces/include";
+import { EmptyTypes } from "../Empty";
+import { ObjectBase } from "../Object Base/include";
 
-export function provideFloatCompletion(receiver: CompletionList, Options: ParameterOptions | undefined): void {
-  const minimum = Options?.minimum ?? 0;
-  const maximum = Options?.maximum ?? 10;
-
-  let steps = (maximum - minimum) / 10;
-
-  for (let I = minimum; I < maximum; I += steps) {
-    receiver.items.push({
-      label: I.toPrecision(),
-      kind: CompletionItemKind.Constant,
-      documentation: "The float number: " + I.toPrecision(),
-    });
+export class Effect extends ObjectBase {
+  constructor() {
+    super();
   }
 }
