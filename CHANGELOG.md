@@ -1,4 +1,6 @@
 # Changelog 
+- Updated to 1.3.9
+- Fixing
 - auto: Updated dependecies
 - auto: Formatted typescript files
 - auto: Formatted json files
@@ -17,5 +19,3 @@
 - Fixing language completion
 - Updated to 1.3.7
 - Readded language file completion
-- auto: Formatted typescript files
-- Updated version to 1.3.6
