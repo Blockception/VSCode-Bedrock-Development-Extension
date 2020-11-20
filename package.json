@@ -89,11 +89,7 @@
     ],
     "colors": [
       {
-        "defaults": {
-          "dark": "#AA0000",
-          "highContrast": "#AA0000",
-          "light": "#AA0000"
-        },
+        "defaults": { "dark": "#AA0000", "highContrast": "#AA0000", "light": "#AA0000" },
         "id": "mc.dark.red",
         "description": "Minecraft dark red colour code"
       },
