@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/include";
-import { IsInteger } from "../../../../types/general/types/Integer/Functions";
+import { LocationWord } from "../../../../code/words/include";
+import { IsInteger } from '../../../../types/general/Integer/include';
 
 export function DiagnoseInteger(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;

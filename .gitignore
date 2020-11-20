@@ -8,3 +8,4 @@ out
 node_modules
 client/server
 .vscode-test
+/documentation/cheat-sheet/*.html

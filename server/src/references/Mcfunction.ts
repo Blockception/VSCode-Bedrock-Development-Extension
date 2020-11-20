@@ -31,7 +31,8 @@ import { ReferenceParams, Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { SearchDefinition } from "../definition/Search";
-import { CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
+import { CommandIntr } from '../types/commands/Command Intertation/include';
+import { MCCommandParameterType } from '../types/commands/Parameter/include';
 
 export function ProvideMcfunctionsReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
   const Line = getLine(doc, params.position.line);

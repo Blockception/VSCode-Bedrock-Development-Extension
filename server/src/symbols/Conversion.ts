@@ -28,11 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SymbolInformation, SymbolKind } from "vscode-languageserver";
-import { Identifiable, Locatable } from "../minecraft/Interfaces/include";
 import { DataCollector } from "../database/DataCollector";
 import { Database } from "../database/Database";
-import { Kinds } from "../types/general/types/Kinds";
-import { Queryable } from "../minecraft/Interfaces/Queryable";
+import { Kinds } from '../types/general/Kinds';
+import { Identifiable, Locatable, Queryable } from '../types/minecraft/Interfaces/include';
 
 export function Convert(uri: string, receiver: SymbolInformation[], query: string): void {
   if (query === "") {

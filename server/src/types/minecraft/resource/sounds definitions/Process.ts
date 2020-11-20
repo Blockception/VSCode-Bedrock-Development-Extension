@@ -27,11 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, Range } from "vscode-languageserver";
+import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Database } from "../../../database/Database";
-import { JsonDocument } from "../../../json/Json Document";
-import { Sound } from "../../general/types/include";
+import { JsonDocument } from '../../../../code/json/include';
+import { Database } from '../../../../database/include';
+import { Sound } from '../../../general/include';
+
 
 /**
  * Processes the text document as a behaviour entity definition file

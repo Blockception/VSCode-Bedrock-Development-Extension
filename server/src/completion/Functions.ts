@@ -29,9 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { DataCollector } from "../database/DataCollector";
-import { Documentable } from "../minecraft/Interfaces/Documentable";
-import { Identifiable, Locatable } from "../minecraft/Interfaces/include";
-import { Item } from "../types/general/types/include";
+import { Identifiable, Documentable, Locatable } from '../types/minecraft/Interfaces/include';
 
 export namespace Completion {
   export function CreateCompletion(value: Identifiable, valuekind: CompletionItemKind): CompletionItem {

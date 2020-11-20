@@ -27,16 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Block } from "../../types/general/types/Block/include";
-import { Effect } from "../../types/general/types/Effect/include";
-import { Entity } from "../../types/general/types/Entity/include";
-import { FakeEntity } from "../../types/general/types/FakeEntity/FakeEntity";
-import { McFunction } from "../../types/general/types/Functions/Function";
-import { Item } from "../../types/general/types/Item/Item";
-import { Objective } from "../../types/general/types/Objectives/include";
-import { Sound } from "../../types/general/types/Sound/include";
-import { Tag } from "../../types/general/types/Tag/Tag";
-import { Tickingarea } from "../../types/general/types/Tickingarea/include";
+import { Block } from '../../types/general/Block/Block';
+import { Effect } from '../../types/general/Effect/Effect';
+import { Entity } from '../../types/general/Entity/Entity';
+import { FakeEntity } from '../../types/general/FakeEntity/include';
+import { McFunction } from '../../types/general/Functions/include';
+import { Item } from '../../types/general/Item/Item';
+import { Objective } from '../../types/general/Objectives/include';
+import { Sound } from '../../types/general/Sound/Sound';
+import { Tag } from '../../types/general/Tag/Tag';
+import { Tickingarea } from '../../types/general/Tickingarea/include';
 import { DataCollector } from "../DataCollector";
 import { CollectorBase } from "./CollectorBase";
 

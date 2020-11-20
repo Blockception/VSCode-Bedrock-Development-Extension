@@ -31,9 +31,10 @@ import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { Database, DataCollector } from "../database/include";
-import { CommandIntr, MCCommandParameter, MCCommandParameterType } from "../minecraft/commands/include";
-import { Documentable, Identifiable, Locatable } from "../minecraft/Interfaces/include";
-import { RawText } from "../minecraft/json/include";
+import { CommandIntr } from '../types/commands/Command Intertation/include';
+import { MCCommandParameter, MCCommandParameterType } from '../types/commands/Parameter/include';
+import { Identifiable, Locatable, Documentable } from '../types/minecraft/Interfaces/include';
+import { RawText } from '../types/minecraft/json/include';
 
 export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): Hover | undefined {
   const pos = params.position;

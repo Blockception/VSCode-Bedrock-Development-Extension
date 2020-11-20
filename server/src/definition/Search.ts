@@ -28,10 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
-import { MCCommandParameterType } from "../minecraft/commands/include";
 import { Database } from "../database/Database";
 import { DataCollector } from "../database/DataCollector";
-import { Identifiable, Locatable } from "../minecraft/Interfaces/include";
+import { MCCommandParameterType } from '../types/commands/Parameter/include';
+import { Identifiable, Locatable } from '../types/minecraft/Interfaces/include';
 
 export function SearchDefinition(text: string, type: MCCommandParameterType[]): Location[] {
   let Out: Location[] = [];

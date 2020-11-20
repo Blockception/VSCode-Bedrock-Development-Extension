@@ -34,7 +34,6 @@ import { Manager } from "../manager/Manager";
 import { JsonIdentifier, McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
-import { TextComponent } from "../minecraft/json/RawText/include";
 
 /**
  * Returns an usable document interaction from the given data.

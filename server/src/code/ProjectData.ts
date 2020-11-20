@@ -32,12 +32,10 @@ import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { JsonDocument } from "./json/Json Document";
 import { Manager } from "../manager/Manager";
-import { DetectGeneralDataType } from "../minecraft/format/detection";
-import { GeneralDataType } from "../minecraft/format/General Data Type";
-import { Manifest } from "../minecraft/manifest/Manifest";
-import { GetValidationData, ValidationData } from "../validation/include";
 import { DupeCheckAdd } from "./Array";
 import { GetParent } from "./File";
+import { DetectGeneralDataType, GeneralDataType } from '../types/minecraft/format/include';
+import { Manifest } from '../types/minecraft/manifest/include';
 
 export interface ProjectData {
   WorldFolders: string[];

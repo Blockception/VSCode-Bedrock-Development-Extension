@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../database/include";
-import { CommandIntr } from "../../minecraft/commands/include";
-import { Tickingarea } from "../../types/general/types/Tickingarea/include";
+import { CommandIntr } from '../../types/commands/Command Intertation/include';
+import { Tickingarea } from '../../types/general/Tickingarea/include';
 
 export function ProcessTickingAreaCommand(Command: CommandIntr, lineIndex: number, doc: TextDocument): void {
   //tickingarea add

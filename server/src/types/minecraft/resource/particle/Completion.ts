@@ -28,9 +28,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList } from "vscode-languageserver";
-import { Completion } from "../../../completion/Functions";
-import { Database } from "../../../database/Database";
-import { Kinds } from "../../general/types/Kinds";
+import { Completion } from '../../../../completion/include';
+import { Database } from '../../../../database/include';
+import { Kinds } from '../../../general/Kinds';
 
 export function provideParticleCompletion(receiver: CompletionList): void {
   Completion.Convert(Database.Data.Resourcepack.Particles, Kinds.Completion.Particle, receiver.items);

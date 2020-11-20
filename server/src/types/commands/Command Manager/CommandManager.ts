@@ -28,6 +28,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Manager } from "../../../manager/Manager";
+import { IsBoolean } from '../../general/Boolean/Boolean';
+import { IsCoordinate } from '../../general/Coordinate/include';
+import { IsFloat } from '../../general/Float/include';
+import { IsInteger } from '../../general/Integer/include';
+import { IsJson } from '../../general/Json/Json';
+import { IsSelector } from '../../general/Selector/include';
+import { IsTickingArea } from '../../general/Tickingarea/include';
 import { CommandInfo } from "../Command Info/CommandInfo";
 import { CommandIntr } from "../Command Intertation/CommandIntr";
 import { MCCommand } from "../Command/MCCommand";

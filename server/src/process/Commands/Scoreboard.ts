@@ -30,11 +30,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../code/include";
 import { Database } from "../../database/Database";
-import { GetComment } from "../../minecraft/behavior/functions/Function";
-import { CommandIntr } from "../../minecraft/commands/include";
-import { FakeEntity } from "../../types/general/types/FakeEntity/FakeEntity";
-import { Objective } from "../../types/general/types/Objectives/include";
-import { IsFakePlayer } from "../../types/general/types/Selector/include";
+import { CommandIntr } from '../../types/commands/Command Intertation/include';
+import { FakeEntity } from '../../types/general/FakeEntity/include';
+import { Objective } from '../../types/general/Objectives/include';
+import { IsFakePlayer } from '../../types/general/Selector/include';
+import { GetComment } from '../../types/minecraft/behavior/functions/include';
 
 export function ProcessScoreboardCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
   if (Com.Paramaters.length < 3) {

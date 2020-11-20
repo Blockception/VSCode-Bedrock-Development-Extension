@@ -28,14 +28,15 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { LocationWord } from "../../../../../code/include";
-import { MCCommandParameter } from "../../../../../minecraft/commands/include";
+import { LocationWord } from '../../../../code/words/include';
+import { MCCommandParameter } from '../../../commands/Parameter/include';
 import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
 import { Kinds } from "../../Kinds";
 import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Selector";
 import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 
+//Constants
 const AllPlayer: CompletionItem = { label: "@a", kind: Kinds.Completion.Selector, documentation: "Targets all players" };
 const AllEntities: CompletionItem = { label: "@e", kind: Kinds.Completion.Selector, documentation: "Targets all entities" };
 const Executing: CompletionItem = { label: "@s", kind: Kinds.Completion.Selector, documentation: "Targets the executing entity" };

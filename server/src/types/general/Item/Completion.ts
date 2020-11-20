@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { Completion } from "../../../../completion/Functions";
-import { Database } from "../../../../database/Database";
+import { Completion } from '../../../completion/include';
+import { Database } from '../../../database/include';
 
 export function provideItemCompletion(receiver: CompletionList): void {
   Completion.Convert(Database.Data.General.Items, CompletionItemKind.Struct, receiver.items);

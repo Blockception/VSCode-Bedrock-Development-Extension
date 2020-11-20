@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { TextDocument, Position } from "vscode-languageserver-textdocument";
+import { json } from '../code/include';
 import { Database } from "../database/include";
-import { json } from "../include";
 
 export function OnJsonDefinition(doc: TextDocument, pos: Position): Location[] | undefined {
   const Text = doc.getText();

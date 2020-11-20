@@ -27,12 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as Mcfunction from "../minecraft/behavior/functions/Process";
 import * as Json from "./Json";
 import * as Language from "./Language";
 import { GetFilename } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { TextDocument } from "vscode-languageserver-textdocument";
+import { behavior } from '../types/minecraft/include';
 
 //Process the given document
 export function Process(document: TextDocument): void {
@@ -40,7 +40,7 @@ export function Process(document: TextDocument): void {
 
   switch (document.languageId) {
     case McFunctionIdentifier:
-      Mcfunction.Process(document);
+      behavior.functions.Process(document);
       break;
 
     case McLanguageIdentifier:

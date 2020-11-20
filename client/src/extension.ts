@@ -4,10 +4,12 @@
  * ------------------------------------------------------------------------------------------ */
 import * as vscode from "vscode";
 import { SetupClient } from "./client/client";
+import { Activate } from './commands/CheatSheet/CheatSeet';
 
 import { Manager } from "./Manager/Manager";
 
 export function activate(context: vscode.ExtensionContext) {
+  Activate(context);
   SetupClient(context);
 }
 

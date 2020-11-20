@@ -27,10 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TypeDefinitionParams, DefinitionParams, Location } from "vscode-languageserver";
+import { Location } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { GetDocument, getLine } from "../code/include";
-import { CommandIntr, MCCommandParameterType } from "../minecraft/commands/include";
+import { getLine } from "../code/include";
+import { CommandIntr } from '../types/commands/Command Intertation/include';
+import { MCCommandParameterType } from '../types/commands/Parameter/include';
 import { SearchDefinition } from "./Search";
 
 export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Location[] | undefined {

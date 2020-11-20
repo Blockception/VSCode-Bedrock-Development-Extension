@@ -28,11 +28,9 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { DetectGeneralDataType } from "../minecraft/format/detection";
 import { Database } from "../database/Database";
-import { GeneralDataType } from "../minecraft/format/General Data Type";
-import * as bp from "../minecraft/behavior/Process";
-import * as rp from "../minecraft/resource/Process";
+import { DetectGeneralDataType, GeneralDataType } from '../types/minecraft/format/include';
+import { behavior, resource } from '../types/minecraft/include';
 
 export function ProcessJson(doc: TextDocument): void {
   Database.Data.DeleteFile(doc.uri);
@@ -43,11 +41,11 @@ export function ProcessJson(doc: TextDocument): void {
       return;
 
     case GeneralDataType.behaviour_pack:
-      bp.Process(doc);
+      behavior.Process(doc);
       return;
 
     case GeneralDataType.resource_pack:
-      rp.Process(doc);
+      resource.Process(doc);
       return;
   }
 }

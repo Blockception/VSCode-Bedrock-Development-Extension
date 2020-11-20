@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { GetProjectData, ProjectData } from "../code/ProjectData";
 import { Manager } from "../manager/Manager";
-import { ProcessBehaviourPack } from "../minecraft/behavior/include";
-import { ProcessResourcePack } from "../minecraft/resource/include";
+import { ProcessBehaviourPack } from '../types/minecraft/behavior/Process';
+import { ProcessResourcePack } from '../types/minecraft/resource/Process';
 
 export function Traverse(): void {
   Manager.State.TraversingProject = true;

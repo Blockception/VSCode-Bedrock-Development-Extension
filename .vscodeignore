@@ -6,6 +6,9 @@ server/src/**
 minecraft-bedrock-schemas/**
 !minecraft-bedrock-schemas/**/*.json
 
+/documentation/cheat-sheet/*.md
+/documentation/cheat-sheet/**/*.md
+
 scripts/*
 node_modules
 node_modules/**
