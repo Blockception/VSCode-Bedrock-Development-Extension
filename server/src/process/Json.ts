@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../database/Database";
-import { DetectGeneralDataType, GeneralDataType } from '../types/minecraft/format/include';
-import { behavior, resource } from '../types/minecraft/include';
+import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
+import { behavior, resource } from "../types/minecraft/include";
 
 export function ProcessJson(doc: TextDocument): void {
   Database.Data.DeleteFile(doc.uri);

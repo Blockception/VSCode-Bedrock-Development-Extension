@@ -27,27 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Gamemode } from './Constants';
+import { Gamemode } from "./Constants";
 
 export function IsGamemode(value: string): boolean {
-	if (value === '')
-		return false;
+  if (value === "") return false;
 
-	switch (value) {
-		case Gamemode.adventure.value:
-		case Gamemode.adventure.long:
-		case Gamemode.adventure.short:
-		case Gamemode.creative.value:
-		case Gamemode.creative.long:
-		case Gamemode.creative.short:
-		case Gamemode.defaultmode.value:
-		case Gamemode.defaultmode.long:
-		case Gamemode.defaultmode.short:
-		case Gamemode.survival.value:
-		case Gamemode.survival.long:
-		case Gamemode.survival.short:
-			return true;
-	}
+  switch (value) {
+    case Gamemode.adventure.value:
+    case Gamemode.adventure.long:
+    case Gamemode.adventure.short:
+    case Gamemode.creative.value:
+    case Gamemode.creative.long:
+    case Gamemode.creative.short:
+    case Gamemode.defaultmode.value:
+    case Gamemode.defaultmode.long:
+    case Gamemode.defaultmode.short:
+    case Gamemode.survival.value:
+    case Gamemode.survival.long:
+    case Gamemode.survival.short:
+      return true;
+  }
 
-	return false;
+  return false;
 }

@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SymbolInformation, SymbolKind } from "vscode-languageserver";
 import { DataCollector } from "../database/DataCollector";
 import { Database } from "../database/Database";
-import { Kinds } from '../types/general/Kinds';
-import { Identifiable, Locatable, Queryable } from '../types/minecraft/Interfaces/include';
+import { Kinds } from "../types/general/Kinds";
+import { Identifiable, Locatable, Queryable } from "../types/minecraft/Interfaces/include";
 
 export function Convert(uri: string, receiver: SymbolInformation[], query: string): void {
   if (query === "") {

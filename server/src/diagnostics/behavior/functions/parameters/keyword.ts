@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/words/include";
-import { MCCommandParameter } from '../../../../types/commands/Parameter/include';
+import { MCCommandParameter } from "../../../../types/commands/Parameter/include";
 
 export function DiagnoseKeyword(pattern: MCCommandParameter, data: LocationWord, receiver: Diagnostic[]): void {
   if (pattern.Text !== data.text) {

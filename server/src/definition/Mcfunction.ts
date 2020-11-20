@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
-import { CommandIntr } from '../types/commands/Command Intertation/include';
-import { MCCommandParameterType } from '../types/commands/Parameter/include';
+import { CommandIntr } from "../types/commands/Command Intertation/include";
+import { MCCommandParameterType } from "../types/commands/Parameter/include";
 import { SearchDefinition } from "./Search";
 
 export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Location[] | undefined {

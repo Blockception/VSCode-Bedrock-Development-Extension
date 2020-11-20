@@ -27,16 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind } from 'vscode-languageserver';
-import { CloneMode } from './Constants';
+import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
+import { CloneMode } from "./Constants";
 
 export function ProvideCompletion(receiver: CompletionItem[]): void {
-	receiver.push(
-		{ label: CloneMode.Force, documentation: 'The mode to force cloning', kind: CompletionItemKind.TypeParameter },
-		{ label: CloneMode.Move, documentation: 'The mode to delete the source', kind: CompletionItemKind.TypeParameter },
-		{ label: CloneMode.Normal, documentation: 'The mode to do as usual', kind: CompletionItemKind.TypeParameter }
-	)
+  receiver.push(
+    { label: CloneMode.Force, documentation: "The mode to force cloning", kind: CompletionItemKind.TypeParameter },
+    { label: CloneMode.Move, documentation: "The mode to delete the source", kind: CompletionItemKind.TypeParameter },
+    { label: CloneMode.Normal, documentation: "The mode to do as usual", kind: CompletionItemKind.TypeParameter }
+  );
 }
-
-
-

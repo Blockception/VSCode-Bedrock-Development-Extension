@@ -32,7 +32,7 @@ import { CompletionList } from "vscode-languageserver";
 import { ProvideCompletionMCCommandParameter } from "../types/commands/Parameter/Completion";
 import { provideCommandCompletion } from "../types/commands/Command/Completion";
 import { getLine } from "../code/include";
-import { CommandIntr, IsInSubCommand } from '../types/commands/Command Intertation/include';
+import { CommandIntr, IsInSubCommand } from "../types/commands/Command Intertation/include";
 
 export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList): void {
   const LineIndex = pos.line;

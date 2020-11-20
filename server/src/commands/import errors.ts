@@ -31,7 +31,7 @@ import { readdirSync } from "fs";
 import { ExecuteCommandParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
 import { Database } from "../database/Database";
-import { ProcessContentLog } from '../types/minecraft/logs/Content Logs/include';
+import { ProcessContentLog } from "../types/minecraft/logs/Content Logs/include";
 
 /**
  *

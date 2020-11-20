@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MarkupKind } from "vscode-languageserver";
 import { Manager } from "../../manager/Manager";
-import { MCCommand } from '../../types/commands/Command/include';
-import { ParameterOptions, MCCommandParameterType, MCCommandParameter } from '../../types/commands/Parameter/include';
+import { MCCommand } from "../../types/commands/Command/include";
+import { ParameterOptions, MCCommandParameterType, MCCommandParameter } from "../../types/commands/Parameter/include";
 import * as data from "./commands.json";
 
 interface Command {

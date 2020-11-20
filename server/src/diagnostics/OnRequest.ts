@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
-import { ProvideMcfunctionDiagnostics } from '../types/minecraft/behavior/functions/include';
+import { ProvideMcfunctionDiagnostics } from "../types/minecraft/behavior/functions/include";
 import { provideLanguageDiagnostics } from "./general/Language";
 
 export function provideDiagnostics(doc: TextDocument): void {

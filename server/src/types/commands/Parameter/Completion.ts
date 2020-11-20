@@ -30,26 +30,26 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { ItemComponents, RawText } from "../../minecraft/json/include";
 import { provideParticleCompletion } from "../../minecraft/resource/particle/Completion";
-import { LocationWord } from '../../../code/words/include';
-import { provideBlockCompletion } from '../../general/Block/include';
-import { provideBooleanCompletion } from '../../general/Boolean/include';
-import { provideCoordinateCompletion } from '../../general/Coordinate/include';
-import { provideEffectCompletion } from '../../general/Effect/include';
-import { provideEntityCompletion } from '../../general/Entity/include';
-import { provideEventCompletion } from '../../general/Event/include';
-import { provideFloatCompletion } from '../../general/Float/include';
-import { provideFunctionCompletion } from '../../general/Functions/include';
-import { provideIntegerCompletion } from '../../general/Integer/include';
-import { provideItemCompletion } from '../../general/Item/include';
-import { provideObjectiveCompletion } from '../../general/Objectives/include';
-import { provideSelectorCompletion } from '../../general/Selector/Completion/include';
-import { provideSoundCompletion } from '../../general/Sound/include';
-import { provideTagCompletion } from '../../general/Tag/include';
-import { provideTickingareaCompletion } from '../../general/Tickingarea/include';
-import { provideXPCompletion } from '../../general/Xp/include';
-import { CommandIntr } from '../Command Intertation/include';
-import { provideCommandCompletion } from '../Command/Completion';
-import { MCCommandParameter, MCCommandParameterType } from './include';
+import { LocationWord } from "../../../code/words/include";
+import { provideBlockCompletion } from "../../general/Block/include";
+import { provideBooleanCompletion } from "../../general/Boolean/include";
+import { provideCoordinateCompletion } from "../../general/Coordinate/include";
+import { provideEffectCompletion } from "../../general/Effect/include";
+import { provideEntityCompletion } from "../../general/Entity/include";
+import { provideEventCompletion } from "../../general/Event/include";
+import { provideFloatCompletion } from "../../general/Float/include";
+import { provideFunctionCompletion } from "../../general/Functions/include";
+import { provideIntegerCompletion } from "../../general/Integer/include";
+import { provideItemCompletion } from "../../general/Item/include";
+import { provideObjectiveCompletion } from "../../general/Objectives/include";
+import { provideSelectorCompletion } from "../../general/Selector/Completion/include";
+import { provideSoundCompletion } from "../../general/Sound/include";
+import { provideTagCompletion } from "../../general/Tag/include";
+import { provideTickingareaCompletion } from "../../general/Tickingarea/include";
+import { provideXPCompletion } from "../../general/Xp/include";
+import { CommandIntr } from "../Command Intertation/include";
+import { provideCommandCompletion } from "../Command/Completion";
+import { MCCommandParameter, MCCommandParameterType } from "./include";
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
   let Out: CompletionItem = {
@@ -61,7 +61,13 @@ function toCompletion(parameter: MCCommandParameter): CompletionItem {
   return Out;
 }
 
-export function ProvideCompletionMCCommandParameter(Parameter: MCCommandParameter, Command: CommandIntr, pos: number, receiver: CompletionList, Current: LocationWord | undefined): void {
+export function ProvideCompletionMCCommandParameter(
+  Parameter: MCCommandParameter,
+  Command: CommandIntr,
+  pos: number,
+  receiver: CompletionList,
+  Current: LocationWord | undefined
+): void {
   //Check default option
   if (Parameter.Options) {
     //Accepted values

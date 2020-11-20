@@ -27,20 +27,20 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { commands, ExtensionContext, Uri, ViewColumn, window } from 'vscode';
-import * as path from 'path';
-import { readFileSync } from 'fs';
+import { commands, ExtensionContext, Uri, ViewColumn, window } from "vscode";
+import * as path from "path";
+import { readFileSync } from "fs";
 
 export function Activate(context: ExtensionContext): void {
-	context.subscriptions.push(
-		commands.registerCommand('bc-cheat-sheet-molang', (args) => createView(context, 'Molang cheat sheet', 'documentation/cheat-sheet/Molang.html'))
-	);
+  context.subscriptions.push(
+    commands.registerCommand("bc-cheat-sheet-molang", (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Molang.html"))
+  );
 }
 
-function createView(context: ExtensionContext, title : string, uri: string): void {
-	const panel = window.createWebviewPanel('cheat-sheet', title, ViewColumn.One, {});
-	const Path = Uri.file(path.join(context.extensionPath, uri));
-	
-	const Data = readFileSync(Path.fsPath, 'utf-8');
-	panel.webview.html = Data;
+function createView(context: ExtensionContext, title: string, uri: string): void {
+  const panel = window.createWebviewPanel("cheat-sheet", title, ViewColumn.One, {});
+  const Path = Uri.file(path.join(context.extensionPath, uri));
+
+  const Data = readFileSync(Path.fsPath, "utf-8");
+  panel.webview.html = Data;
 }

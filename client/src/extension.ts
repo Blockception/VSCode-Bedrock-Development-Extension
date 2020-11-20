@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------------------------ */
 import * as vscode from "vscode";
 import { SetupClient } from "./client/client";
-import { Activate } from './commands/CheatSheet/CheatSeet';
+import { Activate } from "./commands/CheatSheet/CheatSeet";
 
 import { Manager } from "./Manager/Manager";
 

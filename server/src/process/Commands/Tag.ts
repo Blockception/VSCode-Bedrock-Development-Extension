@@ -30,9 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../code/include";
 import { Database } from "../../database/Database";
-import { CommandIntr } from '../../types/commands/Command Intertation/include';
-import { Tag } from '../../types/general/Tag/Tag';
-import { GetComment } from '../../types/minecraft/behavior/functions/include';
+import { CommandIntr } from "../../types/commands/Command Intertation/include";
+import { Tag } from "../../types/general/Tag/Tag";
+import { GetComment } from "../../types/minecraft/behavior/functions/include";
 
 export function ProcessTagCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
   //tag <selector> add <tag>

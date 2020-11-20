@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
-import { Identifiable, Locatable } from '../types/minecraft/Interfaces/include';
+import { Identifiable, Locatable } from "../types/minecraft/Interfaces/include";
 import { DataCollectorIO } from "./Interface/DataCollectorIO";
 import { ReferenceFinder } from "./Interface/ReferenceFinder";
 

@@ -30,11 +30,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { existsSync } from "fs";
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilename } from '../../../../code/File';
-import { GetProjectData, ProjectData } from '../../../../code/include';
-import { DocumentReader } from '../../../../code/Reader';
-import { UniformUrl } from '../../../../code/Url';
-import { Manager } from '../../../../manager/Manager';
+import { GetFilename } from "../../../../code/File";
+import { GetProjectData, ProjectData } from "../../../../code/include";
+import { DocumentReader } from "../../../../code/Reader";
+import { UniformUrl } from "../../../../code/Url";
+import { Manager } from "../../../../manager/Manager";
 import { GeneralDataType } from "../../format/General Data Type";
 import { ContentError, CreateErrors } from "./Errors";
 import { GetHeader, ContentLogHeader, CreateDiagnostics } from "./Header";

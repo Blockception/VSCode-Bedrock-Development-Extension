@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { MarkupContent } from "vscode-languageserver";
-import { Identifiable, Locatable, Documentable } from '../../minecraft/Interfaces/include';
+import { Identifiable, Locatable, Documentable } from "../../minecraft/Interfaces/include";
 import { EmptyTypes } from "../Empty";
 
 export class ObjectBase implements Identifiable, Locatable, Documentable {

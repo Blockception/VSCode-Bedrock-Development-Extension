@@ -27,19 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver';
-import { LocationWord } from '../../../../code/words/include';
-import { IsCameraShake } from './Functions';
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
+import { LocationWord } from "../../../../code/words/include";
+import { IsCameraShake } from "./Functions";
 
 export function ProvideDiagnotics(word: LocationWord, receiver: Diagnostic[]): void {
-	if (IsCameraShake(word.text))
-		return;
+  if (IsCameraShake(word.text)) return;
 
-	receiver.push(
-		{
-			message: 'invalid camera shake mode: ' + word.text,
-			range: word.range,
-			severity: DiagnosticSeverity.Error
-		}
-	);
+  receiver.push({
+    message: "invalid camera shake mode: " + word.text,
+    range: word.range,
+    severity: DiagnosticSeverity.Error,
+  });
 }

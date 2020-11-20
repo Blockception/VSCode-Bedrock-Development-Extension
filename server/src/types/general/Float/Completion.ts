@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { ParameterOptions } from '../../commands/Parameter/include';
+import { ParameterOptions } from "../../commands/Parameter/include";
 
 export function provideFloatCompletion(receiver: CompletionList, Options: ParameterOptions | undefined): void {
   const minimum = Options?.minimum ?? 0;

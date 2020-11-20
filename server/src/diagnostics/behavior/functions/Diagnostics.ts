@@ -30,10 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
-import { LocationWord } from '../../../code/words/include';
+import { LocationWord } from "../../../code/words/include";
 import { Database } from "../../../database/include";
-import { CommandIntr, GetSubCommand } from '../../../types/commands/Command Intertation/include';
-import { MCCommandParameter, MCCommandParameterType } from '../../../types/commands/Parameter/include';
+import { CommandIntr, GetSubCommand } from "../../../types/commands/Command Intertation/include";
+import { MCCommandParameter, MCCommandParameterType } from "../../../types/commands/Parameter/include";
 import { ValidationData } from "../../../validation/include";
 import { DiagnoseFunctionPath } from "./parameters/function";
 import {

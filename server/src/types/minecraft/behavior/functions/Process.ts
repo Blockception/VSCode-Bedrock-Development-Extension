@@ -28,12 +28,12 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from '../../../../code/include';
-import { Database } from '../../../../database/include';
-import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from '../../../../process/Commands/include';
-import { ProcessTagCommand } from '../../../../process/Commands/Tag';
-import { CommandIntr, GetSubCommand } from '../../../commands/Command Intertation/include';
-import { McFunction } from '../../../general/Functions/include';
+import { getLine } from "../../../../code/include";
+import { Database } from "../../../../database/include";
+import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../../../../process/Commands/include";
+import { ProcessTagCommand } from "../../../../process/Commands/Tag";
+import { CommandIntr, GetSubCommand } from "../../../commands/Command Intertation/include";
+import { McFunction } from "../../../general/Functions/include";
 import { ProvideMcfunctionDiagnostics } from "./Diagnostics";
 import { GetComment } from "./Function";
 

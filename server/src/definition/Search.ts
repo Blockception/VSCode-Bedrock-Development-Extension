@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { Database } from "../database/Database";
 import { DataCollector } from "../database/DataCollector";
-import { MCCommandParameterType } from '../types/commands/Parameter/include';
-import { Identifiable, Locatable } from '../types/minecraft/Interfaces/include';
+import { MCCommandParameterType } from "../types/commands/Parameter/include";
+import { Identifiable, Locatable } from "../types/minecraft/Interfaces/include";
 
 export function SearchDefinition(text: string, type: MCCommandParameterType[]): Location[] {
   let Out: Location[] = [];

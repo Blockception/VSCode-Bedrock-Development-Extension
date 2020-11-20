@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { JsonDocument } from '../../../../code/json/include';
-import { Database } from '../../../../database/include';
-import { DataReference } from '../../../../database/Types/include';
-import { EmptyTypes } from '../../../general/Empty';
+import { JsonDocument } from "../../../../code/json/include";
+import { Database } from "../../../../database/include";
+import { DataReference } from "../../../../database/Types/include";
+import { EmptyTypes } from "../../../general/Empty";
 import { RenderController } from "./Render Controller";
 
 /**

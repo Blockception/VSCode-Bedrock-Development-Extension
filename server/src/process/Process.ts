@@ -32,7 +32,7 @@ import * as Language from "./Language";
 import { GetFilename } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { behavior } from '../types/minecraft/include';
+import { behavior } from "../types/minecraft/include";
 
 //Process the given document
 export function Process(document: TextDocument): void {

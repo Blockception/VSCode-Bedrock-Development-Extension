@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MCCommandParameter } from "../Parameter/Parameter";
 import { MarkupContent } from "vscode-languageserver";
-import { MCCommandParameterType } from '../Parameter/include';
+import { MCCommandParameterType } from "../Parameter/include";
 
 export class MCCommand {
   public name: string;

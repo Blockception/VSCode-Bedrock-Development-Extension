@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../database/include";
-import { EmptyTypes } from '../types/general/include';
+import { EmptyTypes } from "../types/general/include";
 
 export function InvalidJson(doc: TextDocument, error: any): void {
   let Message = "Invalid json";

@@ -27,31 +27,29 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, MarkupContent } from 'vscode-languageserver';
-import { Gamemode, Gamemodedescription } from './Constants';
+import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver";
+import { Gamemode, Gamemodedescription } from "./Constants";
 
 export function ProvideCompletion(receiver: CompletionItem[]): void {
-	Convert(Gamemode.adventure, receiver);
-	Convert(Gamemode.creative, receiver);
-	Convert(Gamemode.defaultmode, receiver);
-	Convert(Gamemode.survival, receiver);
+  Convert(Gamemode.adventure, receiver);
+  Convert(Gamemode.creative, receiver);
+  Convert(Gamemode.defaultmode, receiver);
+  Convert(Gamemode.survival, receiver);
 }
 
 function Convert(data: Gamemodedescription, receiver: CompletionItem[]): void {
-	const doc = data.documentation;
-	Create(data.value, doc, receiver);
-	Create(data.short, doc, receiver);
-	Create(data.long, doc, receiver);
+  const doc = data.documentation;
+  Create(data.value, doc, receiver);
+  Create(data.short, doc, receiver);
+  Create(data.long, doc, receiver);
 }
 
 function Create(label: string, documentation: MarkupContent, receiver: CompletionItem[]): void {
-	if (label === '')
-		return;
+  if (label === "") return;
 
-	receiver.push({
-		label: label,
-		documentation: documentation,
-		kind: CompletionItemKind.TypeParameter
-	});
+  receiver.push({
+    label: label,
+    documentation: documentation,
+    kind: CompletionItemKind.TypeParameter,
+  });
 }
-

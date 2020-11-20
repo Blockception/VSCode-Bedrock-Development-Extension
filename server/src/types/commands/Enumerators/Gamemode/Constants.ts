@@ -27,42 +27,42 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { MarkupContent } from 'vscode-languageserver';
+import { MarkupContent } from "vscode-languageserver";
 
 export interface Gamemodedescription {
-	readonly short: string;
-	readonly long: string;
-	readonly value: string;
-	readonly documentation: MarkupContent;
+  readonly short: string;
+  readonly long: string;
+  readonly value: string;
+  readonly documentation: MarkupContent;
 }
 
 export namespace Gamemode {
-	//adventure mode
-	export const adventure: Gamemodedescription = {
-		value: "2",
-		short: "a",
-		long: "adventure",
-		documentation: { value: "adventure mode", kind: 'markdown' }
-	};
-	//creative mode
-	export const creative: Gamemodedescription = {
-		value: "1",
-		short: "c",
-		long: "creative",
-		documentation: { value: "creative mode", kind: 'markdown' }
-	};
-	//survival mode
-	export const defaultmode: Gamemodedescription = {
-		value: "",
-		short: "d",
-		long: "default",
-		documentation: { value: "default mode", kind: 'markdown' }
-	};
-	//survival mode
-	export const survival: Gamemodedescription = {
-		value: "0",
-		short: "s",
-		long: "survival",
-		documentation: { value: "survival mode", kind: 'markdown' }
-	};
+  //adventure mode
+  export const adventure: Gamemodedescription = {
+    value: "2",
+    short: "a",
+    long: "adventure",
+    documentation: { value: "adventure mode", kind: "markdown" },
+  };
+  //creative mode
+  export const creative: Gamemodedescription = {
+    value: "1",
+    short: "c",
+    long: "creative",
+    documentation: { value: "creative mode", kind: "markdown" },
+  };
+  //survival mode
+  export const defaultmode: Gamemodedescription = {
+    value: "",
+    short: "d",
+    long: "default",
+    documentation: { value: "default mode", kind: "markdown" },
+  };
+  //survival mode
+  export const survival: Gamemodedescription = {
+    value: "0",
+    short: "s",
+    long: "survival",
+    documentation: { value: "survival mode", kind: "markdown" },
+  };
 }

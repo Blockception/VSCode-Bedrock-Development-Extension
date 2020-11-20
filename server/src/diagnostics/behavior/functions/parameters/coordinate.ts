@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from '../../../../code/words/include';
-import { IsCoordinate } from '../../../../types/general/Coordinate/include';
+import { LocationWord } from "../../../../code/words/include";
+import { IsCoordinate } from "../../../../types/general/Coordinate/include";
 
 export function DiagnoseCoordinate(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;

@@ -27,20 +27,20 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind } from 'vscode-languageserver';
-import { CameraShakeType } from './Constants';
+import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
+import { CameraShakeType } from "./Constants";
 
 export function ProvideCompletion(receiver: CompletionItem[]): void {
-	receiver.push(
-		{
-			label: CameraShakeType.Positional,
-			documentation: { kind: 'markdown', value: 'Shakes the camera only over the position' },
-			kind: CompletionItemKind.TypeParameter
-		},
-		{
-			label: CameraShakeType.Rotational,
-			documentation: { kind: 'markdown', value: 'Shakes the camera only over the rotation' },
-			kind: CompletionItemKind.TypeParameter
-		}
-	)
+  receiver.push(
+    {
+      label: CameraShakeType.Positional,
+      documentation: { kind: "markdown", value: "Shakes the camera only over the position" },
+      kind: CompletionItemKind.TypeParameter,
+    },
+    {
+      label: CameraShakeType.Rotational,
+      documentation: { kind: "markdown", value: "Shakes the camera only over the rotation" },
+      kind: CompletionItemKind.TypeParameter,
+    }
+  );
 }

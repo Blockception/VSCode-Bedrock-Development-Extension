@@ -29,6 +29,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export namespace CameraShakeType {
-	export const Rotational = 'rotational';
-	export const Positional = 'positional';
+  export const Rotational = "rotational";
+  export const Positional = "positional";
 }

@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { InitializedParams, DidChangeConfigurationNotification } from "vscode-languageserver";
-import { AddCommands } from '../data/Commands/include';
-import { AddMinecraftData } from '../data/include';
+import { AddCommands } from "../data/Commands/include";
+import { AddMinecraftData } from "../data/include";
 import { Manager } from "../manager/Manager";
 import { Traverse } from "../process/include";
 import { SetDynamicEvents } from "./Events/Dynamic";

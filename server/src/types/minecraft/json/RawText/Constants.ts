@@ -28,7 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export const cRawTextComponent = '{ "rawtext": [ ] }';
-export const cRawTextExample = '{ "rawtext": [ { "translate": "example.key" }, { "text": "hello" }, { "translate": "example.key", "with": [ "Steve" ] } ] }';
+export const cRawTextExample =
+  '{ "rawtext": [ { "translate": "example.key" }, { "text": "hello" }, { "translate": "example.key", "with": [ "Steve" ] } ] }';
 export const cTranslationComponent = '{ "translate": "" }';
 export const cTranslationWith = '{ "translate": "", "with": [] }';
 export const cTranslationWithComplex = '{ "translate": "", "with": { "rawtext": [] } }';

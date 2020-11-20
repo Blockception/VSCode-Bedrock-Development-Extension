@@ -27,18 +27,17 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CloneMode } from './Constants';
+import { CloneMode } from "./Constants";
 
 export function IsCloneMode(value: string): boolean {
-	if (value === '')
-		return false;
+  if (value === "") return false;
 
-	switch (value) {
-		case CloneMode.Force:
-		case CloneMode.Move:
-		case CloneMode.Normal:
-			return true;
-	}
+  switch (value) {
+    case CloneMode.Force:
+    case CloneMode.Move:
+    case CloneMode.Normal:
+      return true;
+  }
 
-	return false;
+  return false;
 }
