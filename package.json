@@ -5,7 +5,10 @@
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-minecraft-mcfunction",
     "onLanguage:json",
-    "onLanguage:jsonc"
+    "onLanguage:jsonc",
+
+    "onCommand:bc-cheat-sheet-molang",
+    "onCommand:bc.minecraft.diagnose.project"
   ],
   "author": {
     "name": "Blockception Ltd",
@@ -52,12 +55,8 @@
     "webpack": "^5.5.0",
     "webpack-cli": "^4.2.0"
   },
-  "engines": {
-    "vscode": "^1.41.0"
-  },
-  "extensionKind": [
-    "workspace"
-  ],
+  "engines": { "vscode": "^1.41.0" },
+  "extensionKind": [ "workspace" ],
   "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
   "icon": "resources/logo.png",
   "license": "BSD-3-Clause",
@@ -89,7 +88,11 @@
     ],
     "colors": [
       {
-        "defaults": { "dark": "#AA0000", "highContrast": "#AA0000", "light": "#AA0000" },
+        "defaults": {
+          "dark": "#AA0000",
+          "highContrast": "#AA0000",
+          "light": "#AA0000"
+        },
         "id": "mc.dark.red",
         "description": "Minecraft dark red colour code"
       },
@@ -233,6 +236,11 @@
       {
         "title": "Run diagnose on project",
         "command": "bc.minecraft.diagnose.project",
+        "category": "Blockception"
+      },
+      {
+        "title": "Cheat sheet: Molang",
+        "command": "bc-cheat-sheet-molang",
         "category": "Blockception"
       }
     ],
