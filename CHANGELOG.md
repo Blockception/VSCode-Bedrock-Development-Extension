@@ -1,21 +1,21 @@
 # Changelog 
+- Updated
+- auto: Formatted typescript files
+- Updated
+- Updated
+- Updated json Item
+- Fixed references
+- Updated comments
+- Added clone mode parameter type
+- Adding
+- Moved
+- auto: regenerated
+- Re organizing
+- Updated includes
+- Moved
+- Refactoring
+- Updated to 1.3.10
 - Updated to 1.3.9
 - Fixing
 - auto: Updated dependecies
 - auto: Formatted typescript files
-- auto: Formatted json files
-- Updated changelog
-- Added /structure
-- Added /schedule
-- Added /ride
-- Added /playanimation
-- Added /music
-- Added /fog
-- Added /event
-- Added /clearspawnpoint
-- Added /camerashake
-- auto: Updated dependecies
-- Updated
-- Fixing language completion
-- Updated to 1.3.7
-- Readded language file completion
