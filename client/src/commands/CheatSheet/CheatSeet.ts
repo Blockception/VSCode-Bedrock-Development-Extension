@@ -33,7 +33,8 @@ import { readFileSync } from "fs";
 
 export function Activate(context: ExtensionContext): void {
   context.subscriptions.push(
-    commands.registerCommand("bc-cheat-sheet-molang", (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Molang.html"))
+    commands.registerCommand("bc-cheat-sheet-molang", (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Molang.html")),
+    commands.registerCommand("bc-cheat-sheet-behavior-filters", (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Behavior filters.html"))
   );
 }
 
