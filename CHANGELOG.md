@@ -1,4 +1,6 @@
 # Changelog 
+- Updated
+- Updated
 - Updating
 - Updated
 - Updated
@@ -17,5 +19,3 @@
 - Moved
 - Refactoring
 - Updated to 1.3.10
-- Updated to 1.3.9
-- Fixing
