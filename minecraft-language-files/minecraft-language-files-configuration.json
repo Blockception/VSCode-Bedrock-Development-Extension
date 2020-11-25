@@ -1,6 +1,6 @@
 {
   "comments": {
-    "lineComment": "###"
+    "lineComment": "##"
   },
   "brackets": [
     ["{", "}"],
@@ -23,8 +23,8 @@
   ],
   "folding": {
     "markers": {
-      "start": "^\\#\\#\\#[ \t]*region",
-      "end": "^\\#\\#\\#[ \t]*endregion"
+      "start": "^\\#\\#[ \t]*region",
+      "end": "^\\#\\#[ \t]*endregion"
     }
   }
 }

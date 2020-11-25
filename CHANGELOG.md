@@ -1,4 +1,5 @@
 # Changelog 
+- Updating
 - Updated
 - Updated
 - auto: Formatted typescript files
@@ -18,4 +19,3 @@
 - Updated to 1.3.10
 - Updated to 1.3.9
 - Fixing
-- auto: Updated dependecies

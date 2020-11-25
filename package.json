@@ -246,12 +246,8 @@
     "languages": [
       {
         "id": "bc-minecraft-language",
-        "aliases": [
-          "Minecraft Language"
-        ],
-        "extensions": [
-          ".lang"
-        ],
+        "aliases": [ "Minecraft Language" ],
+        "extensions": [ ".lang" ],
         "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
       },
       {

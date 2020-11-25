@@ -43,6 +43,16 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
 
     let CommentIndex = Line.indexOf("#");
     if (CommentIndex >= 0) {
+      if (Line.substring(CommentIndex, CommentIndex + 2) !== "##") {
+        NewError(Out, I, CommentIndex, CommentIndex + 1, "A comment is always ##");
+      }
+
+      if (CommentIndex > 0) {
+        if (Line.charAt(CommentIndex - 1) !== '\t') {
+          NewError(Out, I, CommentIndex - 1, CommentIndex, "Before a comment but be a tab");
+        }
+      }
+
       Line = Line.substring(0, CommentIndex).trim();
     }
 
