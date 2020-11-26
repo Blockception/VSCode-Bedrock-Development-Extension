@@ -1,7 +1,7 @@
 {
   "name": "blockception-minecraft-client",
   "description": "The client side of a language server for minecraft",
-  "version": "1.3.13",
+  "version": "1.3.14",
   "private": true,
   "author": {
     "name": "Blockception Ltd",

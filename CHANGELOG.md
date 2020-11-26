@@ -1,4 +1,9 @@
 # Changelog 
+- Formatted
+- Added support for ~~~
+- Removed debug code
+- Fixed comments getting parsed as commands
+- Updated to 1.3.12
 - Updated
 - Updated
 - Updating
@@ -14,8 +19,3 @@
 - Adding
 - Moved
 - auto: regenerated
-- Re organizing
-- Updated includes
-- Moved
-- Refactoring
-- Updated to 1.3.10
