@@ -61,10 +61,6 @@ import { DiagnoseInteger } from "./parameters/integer";
 export function Diagnose(doc: TextDocument, validation: ValidationData) {
   let receiver: Diagnostic[] = [];
 
-  if (doc.uri.includes("quest_reset")) {
-    let hi = "";
-  }
-
   try {
     for (let index = 0; index < doc.lineCount; index++) {
       const line = getLine(doc, index);
@@ -92,8 +88,8 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
 
   if (line === "" || line === "\r\n") return;
 
-  if (line.startsWith("scoreboard players set CH3")) {
-    line = line;
+  if (line.startsWith("#")) {
+    return;
   }
 
   let Command = CommandIntr.parse(line, { character: 0, line: lineIndex }, "");
