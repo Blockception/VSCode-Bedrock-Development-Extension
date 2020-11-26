@@ -48,7 +48,7 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
       }
 
       if (CommentIndex > 0) {
-        if (Line.charAt(CommentIndex - 1) !== '\t') {
+        if (Line.charAt(CommentIndex - 1) !== "\t") {
           NewError(Out, I, CommentIndex - 1, CommentIndex, "Before a comment but be a tab");
         }
       }

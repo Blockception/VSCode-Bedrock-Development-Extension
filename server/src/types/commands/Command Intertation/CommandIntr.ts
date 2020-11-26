@@ -57,8 +57,8 @@ export class CommandIntr {
   }
 
   static parse(line: string, pos: Position, uri: string): CommandIntr {
-    line = line.replace(/~~~/g, '~ ~ ~');
-    line = line.replace(/~~/g, '~ ~');
+    line = line.replace(/~~~/g, "~ ~ ~");
+    line = line.replace(/~~/g, "~ ~");
     let Out = new CommandIntr();
 
     line = line.trim();

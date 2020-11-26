@@ -38,11 +38,10 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
   const LineIndex = pos.line;
   const Line = getLine(doc, LineIndex);
 
-  let CommentIndex = Line.indexOf('#');
+  let CommentIndex = Line.indexOf("#");
 
   if (CommentIndex >= 0) {
-    if (pos.character > CommentIndex)
-      return;
+    if (pos.character > CommentIndex) return;
   }
 
   let Command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
