@@ -59,7 +59,9 @@
   "engines": {
     "vscode": "^1.41.0"
   },
-  "extensionKind": [ "workspace" ],
+  "extensionKind": [
+    "workspace"
+  ],
   "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
   "icon": "resources/logo.png",
   "license": "BSD-3-Clause",
@@ -239,15 +241,31 @@
       }
     ],
     "commands": [
-      { "title": "Run diagnose on project", "command": "bc.minecraft.diagnose.project", "category": "Blockception" },
-      { "title": "Cheat sheet: Molang", "command": "bc-cheat-sheet-molang", "category": "Blockception" },
-      { "title": "Cheat sheet: Behavior Filters", "command": "bc-cheat-sheet-behavior-filters", "category": "Blockception" }
+      {
+        "title": "Run diagnose on project",
+        "command": "bc.minecraft.diagnose.project",
+        "category": "Blockception"
+      },
+      {
+        "title": "Cheat sheet: Molang",
+        "command": "bc-cheat-sheet-molang",
+        "category": "Blockception"
+      },
+      {
+        "title": "Cheat sheet: Behavior Filters",
+        "command": "bc-cheat-sheet-behavior-filters",
+        "category": "Blockception"
+      }
     ],
     "languages": [
       {
         "id": "bc-minecraft-language",
-        "aliases": [ "Minecraft Language" ],
-        "extensions": [ ".lang" ],
+        "aliases": [
+          "Minecraft Language"
+        ],
+        "extensions": [
+          ".lang"
+        ],
         "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
       },
       {
