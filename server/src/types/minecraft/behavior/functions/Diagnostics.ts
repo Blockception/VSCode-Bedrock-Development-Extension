@@ -37,7 +37,6 @@ export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
 
   let Data = Database.MinecraftProgramData.GetProjecData();
-
   let validation: ValidationData | undefined;
 
   if (Data) {
