@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Version",
+  "type": "object",
+  "title": "Command Schema",
+  "definitions": {
+    "commands": {
+      "type": "array",
+      "title": "Commands",
+      "items": {
+        "additionalProperties": false,
+        "title": "Command",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "documentation": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "kind": {
+                "title": "Kind",
+                "type": "string",
+                "enum": ["plaintext", "markdown"]
+              },
+              "value": {
+                "title": "Value",
+                "type": "string"
+              }
+            }
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Text": {
+                  "title": "Text",
+                  "type": "string"
+                },
+                "Type": {
+                  "title": "Type",
+                  "type": "string",
+                  "enum": [
+                    "block",
+                    "boolean",
+                    "cameraShakeType",
+                    "cloneMode",
+                    "command",
+                    "coordinate",
+                    "difficulty",
+                    "effect",
+                    "entity",
+                    "event",
+                    "fillMode",
+                    "function",
+                    "float",
+                    "gamemode",
+                    "integer",
+                    "item",
+                    "jsonItem",
+                    "jsonRawText",
+                    "keyword",
+                    "locateFeature",
+                    "maskMode",
+                    "mirror",
+                    "musicRepeatMode",
+                    "objective",
+                    "operation",
+                    "particle",
+                    "replaceMode",
+                    "rideRules",
+                    "rotation",
+                    "saveMode",
+                    "selector",
+                    "slotType",
+                    "slotID",
+                    "sound",
+                    "string",
+                    "structureAnimationMode",
+                    "target",
+                    "tag",
+                    "teleportRules",
+                    "tickingarea",
+                    "unknown",
+                    "xp"
+                  ]
+                },
+                "Required": {
+                  "title": "Required",
+                  "type": "boolean"
+                },
+                "Options": {
+                  "title": "Options",
+                  "type": "object",
+                  "properties": {
+                    "acceptedValues": {
+                      "type": "array",
+                      "title": "Accepted values",
+                      "items": { "type": "string" }
+                    },
+                    "allowFakePlayers": {
+                      "type": "boolean",
+                      "title": "Allow Fake Players"
+                    },
+                    "playerOnly": {
+                      "type": "boolean",
+                      "title": "Player only"
+                    },
+                    "wildcard": {
+                      "type": "boolean",
+                      "title": "Wildcard"
+                    },
+                    "minimum": {
+                      "type": "number",
+                      "title": "Minimum"
+                    },
+                    "maximum": {
+                      "type": "number",
+                      "title": "Maximum"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "vanilla": { "$ref": "#/definitions/commands", "description": "TODO description", "title": "TODO title" },
+    "edu": { "$ref": "#/definitions/commands", "description": "TODO description", "title": "TODO title" },
+    "$schema": true
+  },
+  "description": "TODO description",
+  "additionalProperties": false
+}

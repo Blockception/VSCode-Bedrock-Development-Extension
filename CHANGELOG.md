@@ -1,21 +1,21 @@
 # Changelog 
-- Updated Looting and trading tables
+- Formatted
+- Added support for ~~~
+- Removed debug code
+- Fixed comments getting parsed as commands
+- Updated to 1.3.12
 - Updated
 - Updated
-- Added sounds.json validation
-- Updated to 0.2.11
-- Fixed dummy player regoncization
-- Updated to 0.2.10
-- Updated Components
-- Updated Behaviour Components
-- Updated documentation
-- Updated behaviour components
+- Updating
 - Updated
 - Updated
-- Fixed Selector
-- Added the start of symbol searching
-- Added overview
+- auto: Formatted typescript files
 - Updated
 - Updated
-- Updated
-- Updated to 0.2.9
+- Updated json Item
+- Fixed references
+- Updated comments
+- Added clone mode parameter type
+- Adding
+- Moved
+- auto: regenerated

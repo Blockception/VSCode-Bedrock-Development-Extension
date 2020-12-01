@@ -9,6 +9,7 @@ If a json validation is missing, then also post an issue. And one will be made i
   - [World](#world)
   - [Resource packs](#resource-packs)
   - [Behaviour packs](#behaviour-packs)
+  - [Skinpacks](#skinpacks)
 
 ## General
 
@@ -17,38 +18,62 @@ If a json validation is missing, then also post an issue. And one will be made i
 |Manifest   |manifest.json |
 |Languages   |languages.json |
 |Language_names   |language_names.json |
-
+  
+---
+  
 ## World
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
 |World_behavior_packs   |world_behavior_packs.json |
 |World_resource_packs   |world_resource_packs.json  |
-
+  
+---
+  
 ## Resource packs
+For best results, name your folder with the letters RP/rp in them.  
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|Animation controllers   |animation_controllers/*.json |
+|Animation controllers   |Can be one of the following:<br/> - `resource_packs/*/animation_controllers/*.json`<br/> - `*RP*/animation_controllers/*.json`<br/> - `*rp*/animation_controllers/*.json`|
 |Animations   |animations/*.animation.json  |
 |Attachables   |attachables/*.json  |
 |Biomes client   |biomes_client.json  |
+|Blocks |blocks.json  |
 |Entity   |entity/*entity.json  |
-|Models   |'*.geo.json' or '*.geometry.json' |
+|Entity models   |Can be one of the following:<br/> - `*.geo.json`<br/> - `*.geometry.json` |
+|Flipbook textures  |flipbook_textures.json |
+|Item texture |item_texture.json |
+|Materials   |*.material  |
 |Music definitions   |music_definitions.json  |
-|Particles   |particles/*.json or .particle.json |
+|Particles   |Can be one of the following:<br/> - `particles/*.json`<br/> - `.particle.json` |
 |Render controllers   |render_controllers/*.json  |
 |Sound definitions   |sound_definitions.json  |
 |Sounds   |sounds.json  |
 |Terrain texture   |terrain_texture.json  |
-
+  
+---
+  
 ## Behaviour packs
+For best results, name your folder with the letters BP/bp in them.  
 
 |Component  |Json file pattern  |
 |-----------|-------------------|
-|Animation controllers   |animation_controllers/*.json |
-|Entity behaviours |entities/*.json|
-|Item behaviours |items/*.json|
-|Loot tables |loot_tables/*.json|
-|Spawn rules |spawn_rules/*.json|
-|Trading |trading/*.json|
+|Animation controllers   |Can be one of the following:<br/> - `behavior_packs/*/animation_controllers/*.json`<br/> - `*BP*/animation_controllers/*.json`<br/> - `*bp*/animation_controllers/*.json`|
+|Animations   |Can be one of the following:<br/> - `behavior_packs/*/animations/*.json`<br/> - `*BP*/animations/*.json`<br/> - `*bp*/animations/*.json`|
+|Blocks |Can be one of the following:<br/> - `behavior_packs/*/blocks/*.json`<br/> - `*BP*/blocks/*.json`<br/> - `*bp*/blocks/*.json`|
+|Entity behaviours |Can be one of the following:<br/> - `behavior_packs/*/entities/*.json`<br/> - `*BP*/entities/*.json`<br/> - `*bp*/entities/*.json`|
+|Item behaviours |Can be one of the following:<br/> - `behavior_packs/*/items/*.json`<br/> - `*BP*/items/*.json`<br/> - `*bp*/items/*.json`|
+|Loot tables |Can be one of the following:<br/> - `behavior_packs/*/loot_tables/*.json`<br/> - `*BP*/loot_tables/*.json`<br/> - `*bp*/loot_tables/*.json`<br/> - `*.loot.json`|
+|Recipes |`recipes/*.json`|
+|Spawn rules |`spawn_rules/*.json`|
+|Trading |Can be one of the following:<br/> - `behavior_packs/*/trading/*.json`<br/> - `*BP*/trading/*.json`<br/> - `*bp*/trading/*.json`<br/> - `*.trade.json`|
+  
+---
+
+
+## Skinpacks
+
+|Component  |Json file pattern  |
+|-----------|-------------------|
+|Skins  |`*/skin_pack/skins.json` |

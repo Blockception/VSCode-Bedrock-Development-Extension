@@ -19,39 +19,41 @@
     "selectors": {
       "patterns": [
         { "name": "markup.bold", "match": "(@[cvasrep]\\b)" },
-        { "name": "entity.name.variable", "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
+        {
+          "name": "entity.name.variable",
+          "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)"
+        },
         { "name": "entity.name.variable", "match": "\\b[a-z0-9]+(?=\\=)" },
-        { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+"},
-        { "name": "string.regexp", "match": "\\b(?<=tag=!)[a-zA-Z_\\-0-9]+"},
+        { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+" },
+        { "name": "string.regexp", "match": "\\b(?<=tag=!)[a-zA-Z_\\-0-9]+" },
         { "name": "invalid", "match": "@[cvasrep]\\[.*$" }
       ]
     },
-   "characters": {
+    "characters": {
       "patterns": [
-        { "name": "entity.name.function.keyword", "match": "%s"},
-        { "name": "markup.bold", "match": "§l"},
-        { "name": "markup.deleted", "match": "§k"},
-        { "name": "keyword.control", "match": "§m"},
-        { "name": "markup.underline", "match": "§n"},
-        { "name": "markup.italic", "match": "§o"},
-        { "name": "keyword.control", "match": "§r"},
-
+        { "name": "entity.name.function.keyword", "match": "%s" },
+        { "name": "markup.bold", "match": "§l" },
+        { "name": "markup.deleted", "match": "§k" },
+        { "name": "keyword.control", "match": "§m" },
+        { "name": "markup.underline", "match": "§n" },
+        { "name": "markup.italic", "match": "§o" },
+        { "name": "keyword.control", "match": "§r" },
         { "name": "punctuation.tag.js", "match": "§0" },
         { "name": "markup.heading", "match": "§1" },
         { "name": "comment", "match": "§2" },
         { "name": "entity.other.attribute-name", "match": "§3" },
-        { "name": "string.regexp", "match": "§4" }, 
+        { "name": "string.regexp", "match": "§4" },
         { "name": "constant.regexp", "match": "§5" },
         { "name": "entity.name.selector", "match": "§6" },
         { "name": "punctuation.tag.tsx", "match": "§7" },
         { "name": "punctuation.tag.js", "match": "§8" },
         { "name": "keyword.operator.new", "match": "§9" },
-        { "name": "meta.preprocessor.numeric", "match": "§a" }, 
+        { "name": "meta.preprocessor.numeric", "match": "§a" },
         { "name": "entity.other.attribute-name", "match": "§b" },
         { "name": "invalid", "match": "§c" },
         { "name": "constant.regexp", "match": "§d" },
         { "name": "entity.name.selector", "match": "§e" },
-        { "name": "constant.rgb-value", "match": "§f" } 
+        { "name": "constant.rgb-value", "match": "§f" }
       ]
     },
     "constants": {
@@ -65,163 +67,369 @@
         { "name": "keyword.control", "match": "\\.\\." },
         { "name": "constant.character", "match": "\\b[Tt]rue\\b" },
         { "name": "constant.character", "match": "\\b[Ff]alse\\b" },
-        { "name": "string.jade", "match": "\\b(?<=function )[a-z0-9\/_]+\\b" },
-        { "name": "string.quoted.double.minecraft-program", "match": "\"[^\"]*\"" },        
-        { "name": "entity.name.function.identifier", "match": "[a-z0-9_]+\\:[a-z0-9_]+"}
+        { "name": "string.jade", "match": "\\b(?<=function )[a-z0-9/_]+\\b" },
+        { "name": "string.quoted.double.minecraft", "match": "\"[^\"]*\"" },
+        {
+          "name": "entity.name.function.identifier",
+          "match": "[a-z0-9_]+\\:[a-z0-9_]+"
+        }
       ]
     },
     "operators": {
       "patterns": [
-        { "name": "keyword.operator", "match": "(~|\\^|\b\\.\\.\b|\\,|\\+|\\-|\\*|\\=)" }
+        {
+          "name": "keyword.operator",
+          "match": "(~|\\^|\b\\.\\.\b|\\,|\\+|\\-|\\*|\\=)"
+        }
       ]
     },
     "strings": {
-      "patterns":[
+      "patterns": [
         {
-          "name": "string.quoted.double.minecraft-program",
+          "name": "string.quoted.double.minecraft",
           "begin": "\"",
           "end": "\"",
-          "patterns": [{ "name": "constant.character.escape.minecraft-program", "match": "\\\\." }]
+          "patterns": [
+            {
+              "name": "constant.character.escape.minecraft",
+              "match": "\\\\."
+            }
+          ]
         }
-      ]      
+      ]
     },
     "jsonDetect": {
       "name": "source.json",
       "begin": "(?<=[^=])(?=\\{)",
       "end": "(?<=\\})",
-      "patterns": [ { "include": "source.json" } ]      
+      "patterns": [
+        {
+          "include": "source.json"
+        }
+      ]
     },
     "minecraftcommands": {
       "patterns": [
         { "name": "entity.name.function.add", "match": "\\badd\\b" },
-        { "name": "entity.name.function.actionbar", "match": "\\bactionbar\\b" },
-        { "name": "entity.name.function.belowname", "match": "\\bbelowname\\b" },
+        {
+          "name": "entity.name.function.actionbar",
+          "match": "\\bactionbar\\b"
+        },
+        {
+          "name": "entity.name.function.belowname",
+          "match": "\\bbelowname\\b"
+        },
         { "name": "entity.name.function.block", "match": "\\bblock\\b" },
-        { "name": "entity.name.function.buriedtreasure", "match": "\\bburiedtreasure\\b" },
+        {
+          "name": "entity.name.function.buriedtreasure",
+          "match": "\\bburiedtreasure\\b"
+        },
         { "name": "entity.name.function.circle", "match": "\\bcircle\\b" },
-        { "name": "entity.name.function.class.endcity", "match": "\\bendcity\\b" },
+        {
+          "name": "entity.name.function.class.endcity",
+          "match": "\\bendcity\\b"
+        },
         { "name": "entity.name.function.detect", "match": "\\bdetect\\b" },
         { "name": "entity.name.function.entity", "match": "\\bentity\\b" },
         { "name": "entity.name.function.fortress", "match": "\\bfortress\\b" },
         { "name": "entity.name.function.force", "match": "\\bforce\\b" },
         { "name": "entity.name.function.filtered", "match": "\\bfiltered\\b" },
-        { "name": "entity.name.function.immediateRespawn", "match": "\\bimmediateRespawn\\b" },
-        { "name": "entity.name.function.keepInventory", "match": "\\bkeepInventory\\b" },
+        {
+          "name": "entity.name.function.immediateRespawn",
+          "match": "\\bimmediateRespawn\\b"
+        },
+        {
+          "name": "entity.name.function.keepInventory",
+          "match": "\\bkeepInventory\\b"
+        },
         { "name": "entity.name.function.mansion", "match": "\\bmansion\\b" },
         { "name": "entity.name.function.me", "match": "\\bme\\b" },
         { "name": "entity.name.function.masked", "match": "\\bmasked\\b" },
-        { "name": "entity.name.function.minecraft.pillager_patrols_event", "match": "\\bminecraft:pillager_patrols_event\\b" },
-        { "name": "entity.name.function.mineshaft", "match": "\\bmineshaft\\b" },
+        { "name": "entity.name.function.mayfly", "match": "\\bmayfly\\b" },
+        {
+          "name": "entity.name.function.minecraft.pillager_patrols_event",
+          "match": "\\bminecraft:pillager_patrols_event\\b"
+        },
+        {
+          "name": "entity.name.function.mineshaft",
+          "match": "\\bmineshaft\\b"
+        },
         { "name": "entity.name.function.move", "match": "\\bmove\\b" },
+        { "name": "entity.name.function.mute", "match": "\\bmute\\b" },
         { "name": "entity.name.function.normal", "match": "\\bnormal\\b" },
-        { "name": "entity.name.function.objectives", "match": "\\bobjectives\\b" },
-        { "name": "entity.name.function.operation", "match": "\\boperation\\b" },
+        {
+          "name": "entity.name.function.objectives",
+          "match": "\\bobjectives\\b"
+        },
+        {
+          "name": "entity.name.function.operation",
+          "match": "\\boperation\\b"
+        },
         { "name": "entity.name.function.players", "match": "\\bplayers\\b" },
         { "name": "entity.name.function.remove", "match": "\\bremove\\b" },
-        { "name": "entity.name.function.remove_all", "match": "\\bremove_all\\b" },
+        {
+          "name": "entity.name.function.remove_all",
+          "match": "\\bremove_all\\b"
+        },
         { "name": "entity.name.function.replace", "match": "\\breplace\\b" },
         { "name": "entity.name.function.reset", "match": "\\breset\\b" },
         { "name": "entity.name.function.ruins", "match": "\\bruins\\b" },
         { "name": "entity.name.function.monument", "match": "\\bmonument\\b" },
         { "name": "entity.name.function.set", "match": "\\bset\\b" },
-        { "name": "entity.name.function.shipwreck", "match": "\\bshipwreck\\b" },
+        {
+          "name": "entity.name.function.shipwreck",
+          "match": "\\bshipwreck\\b"
+        },
         { "name": "entity.name.function.sidebar", "match": "\\bsidebar\\b" },
         { "name": "entity.name.function.subtitle", "match": "\\bsubtitle\\b" },
         { "name": "entity.name.function.village", "match": "\\bvillage\\b" },
-        { "name": "entity.name.function.wandering_trader_event", "match": "\\bwandering_trader_event\\b" },        
+        {
+          "name": "entity.name.function.wandering_trader_event",
+          "match": "\\bwandering_trader_event\\b"
+        },
+        {
+          "name": "entity.name.function.worldbuilder",
+          "match": "\\bworldbuilder\\b"
+        },
 
-        { "name": "entity.name.variable.slot", "match": "\\bslot\\.[a-z\\.]+\\b" },
+        {
+          "name": "entity.name.variable.slot",
+          "match": "\\bslot\\.[a-z\\.]+\\b"
+        },
+        { "name": "entity.name.variable.facing", "match": "\\bfacing\\b" },
         { "name": "entity.name.variable.dummy", "match": "\\bdummy\\b" },
-        { "name": "entity.name.variable.commandBlockOutput", "match": "\\bcommandBlockOutput\\b" },
-        { "name": "entity.name.variable.commandBlocksEnabled", "match": "\\bcommandBlocksEnabled\\b" },
-        { "name": "entity.name.variable.doDaylightCycle", "match": "\\bdoDaylightCycle\\b" },
-        { "name": "entity.name.variable.doEntityDrops", "match": "\\bdoEntityDrops\\b" },
-        { "name": "entity.name.variable.doFireTick", "match": "\\bdoFireTick\\b" },
-        { "name": "entity.name.variable.doInsomnia", "match": "\\bdoInsomnia\\b" },
-        { "name": "entity.name.variable.doMobLoot", "match": "\\bdoMobLoot\\b" },
-        { "name": "entity.name.variable.doMobSpawning", "match": "\\bdoMobSpawning\\b" },
-        { "name": "entity.name.variable.doTileDrops", "match": "\\bdoTileDrops\\b" },
-        { "name": "entity.name.variable.doWeatherCycle", "match": "\\bdoWeatherCycle\\b" },
-        { "name": "entity.name.variable.drowningDamage", "match": "\\bdrowningDamage\\b" },
-        { "name": "entity.name.variable.fallDamage", "match": "\\bfallDamage\\b" },
-        { "name": "entity.name.variable.fireDamage", "match": "\\bfireDamage\\b" },
-        { "name": "entity.name.variable.maxCommandChainLength", "match": "\\bmaxCommandChainLength\\b" },
-        { "name": "entity.name.variable.mobGriefing", "match": "\\bmobGriefing\\b" },        
-        { "name": "entity.name.variable.naturalRegeneration", "match": "\\bnaturalRegeneration\\b" },
-        { "name": "entity.name.variable.sendCommandFeedback", "match": "\\bsendCommandFeedback\\b" },        
-        { "name": "entity.name.variable.showCoordinates", "match": "\\bshowCoordinates\\b" },
-        { "name": "entity.name.variable.showDeathMessages", "match": "\\bshowDeathMessages\\b" },
-        { "name": "entity.name.variable.showTags", "match": "\\bshowTags\\b" },        
-        { "name": "entity.name.variable.spawnRadius", "match": "\\bspawnRadius\\b" },
-        { "name": "entity.name.variable.stronghold", "match": "\\bstronghold\\b" },
-        { "name": "entity.name.variable.tntExplodes", "match": "\\btntExplodes\\b" },
+        {
+          "name": "entity.name.variable.commandBlockOutput",
+          "match": "\\bcommandBlockOutput\\b"
+        },
+        {
+          "name": "entity.name.variable.commandBlocksEnabled",
+          "match": "\\bcommandBlocksEnabled\\b"
+        },
+        {
+          "name": "entity.name.variable.doDaylightCycle",
+          "match": "\\bdoDaylightCycle\\b"
+        },
+        {
+          "name": "entity.name.variable.doEntityDrops",
+          "match": "\\bdoEntityDrops\\b"
+        },
+        {
+          "name": "entity.name.variable.doFireTick",
+          "match": "\\bdoFireTick\\b"
+        },
+        {
+          "name": "entity.name.variable.doInsomnia",
+          "match": "\\bdoInsomnia\\b"
+        },
+        {
+          "name": "entity.name.variable.doMobLoot",
+          "match": "\\bdoMobLoot\\b"
+        },
+        {
+          "name": "entity.name.variable.doMobSpawning",
+          "match": "\\bdoMobSpawning\\b"
+        },
+        {
+          "name": "entity.name.variable.doTileDrops",
+          "match": "\\bdoTileDrops\\b"
+        },
+        {
+          "name": "entity.name.variable.doWeatherCycle",
+          "match": "\\bdoWeatherCycle\\b"
+        },
+        {
+          "name": "entity.name.variable.drowningDamage",
+          "match": "\\bdrowningDamage\\b"
+        },
+        {
+          "name": "entity.name.variable.fallDamage",
+          "match": "\\bfallDamage\\b"
+        },
+        {
+          "name": "entity.name.variable.fireDamage",
+          "match": "\\bfireDamage\\b"
+        },
+        {
+          "name": "entity.name.variable.maxCommandChainLength",
+          "match": "\\bmaxCommandChainLength\\b"
+        },
+        {
+          "name": "entity.name.variable.mobGriefing",
+          "match": "\\bmobGriefing\\b"
+        },
+        {
+          "name": "entity.name.variable.naturalRegeneration",
+          "match": "\\bnaturalRegeneration\\b"
+        },
+        {
+          "name": "entity.name.variable.sendCommandFeedback",
+          "match": "\\bsendCommandFeedback\\b"
+        },
+        {
+          "name": "entity.name.variable.showCoordinates",
+          "match": "\\bshowCoordinates\\b"
+        },
+        {
+          "name": "entity.name.variable.showDeathMessages",
+          "match": "\\bshowDeathMessages\\b"
+        },
+        { "name": "entity.name.variable.showTags", "match": "\\bshowTags\\b" },
+        {
+          "name": "entity.name.variable.spawnRadius",
+          "match": "\\bspawnRadius\\b"
+        },
+        {
+          "name": "entity.name.variable.stronghold",
+          "match": "\\bstronghold\\b"
+        },
+        {
+          "name": "entity.name.variable.tntExplodes",
+          "match": "\\btntExplodes\\b"
+        },
 
-
-        { "name": "entity.name.type.class.alwaysday", "match": "\\balwaysday\\b" },
+        { "name": "entity.name.type.class.ability", "match": "\\bability\\b" },
+        {
+          "name": "entity.name.type.class.alwaysday",
+          "match": "\\balwaysday\\b"
+        },
         { "name": "entity.name.type.class.clear", "match": "\\bclear\\b" },
         { "name": "entity.name.type.class.clone", "match": "\\bclone\\b" },
         { "name": "entity.name.type.class.connect", "match": "\\bconnect\\b" },
         { "name": "entity.name.type.class.daylock", "match": "\\bdaylock\\b" },
         { "name": "entity.name.type.class.deop", "match": "\\bdeop\\b" },
-        { "name": "entity.name.type.class.difficulty", "match": "\\bdifficulty\\b" },        
+        {
+          "name": "entity.name.type.class.difficulty",
+          "match": "\\bdifficulty\\b"
+        },
         { "name": "entity.name.type.class.effect", "match": "\\beffect\\b" },
-        { "name": "entity.name.type.class.enchant", "match": "\\benchant\\b" },        
-        { "name": "entity.name.type.class.events_enabled", "match": "\\bevents_enabled\\b" },
-        { "name": "entity.name.type.class.execute", "match": "\\bexecute\\b" },        
+        { "name": "entity.name.type.class.enchant", "match": "\\benchant\\b" },
+        {
+          "name": "entity.name.type.class.events_enabled",
+          "match": "\\bevents_enabled\\b"
+        },
+        { "name": "entity.name.type.class.execute", "match": "\\bexecute\\b" },
         { "name": "entity.name.type.class.fill", "match": "\\bfill\\b" },
-        { "name": "entity.name.type.class.function", "match": "\\bfunction\\b" },
-        { "name": "entity.name.type.class.gamemode", "match": "\\bgamemode\\b" },
-        { "name": "entity.name.type.class.gamerule", "match": "\\bgamerule\\b" },
+        {
+          "name": "entity.name.type.class.function",
+          "match": "\\bfunction\\b"
+        },
+        {
+          "name": "entity.name.type.class.gamemode",
+          "match": "\\bgamemode\\b"
+        },
+        {
+          "name": "entity.name.type.class.gamerule",
+          "match": "\\bgamerule\\b"
+        },
         { "name": "entity.name.type.class.give", "match": "\\bgive\\b" },
         { "name": "entity.name.type.class.kill", "match": "\\bkill\\b" },
         { "name": "entity.name.type.class.list", "match": "\\blist\\b" },
-        { "name": "entity.name.type.class.locate", "match": "\\blocate\\b" },        
-        { "name": "entity.name.type.class.mobevent", "match": "\\bmobevent\\b" },        
+        { "name": "entity.name.type.class.locate", "match": "\\blocate\\b" },
+        {
+          "name": "entity.name.type.class.mobevent",
+          "match": "\\bmobevent\\b"
+        },
         { "name": "entity.name.type.class.msg", "match": "\\bmsg\\b" },
-        { "name": "entity.name.type.class.op", "match": "\\bop\\b" },        
-        { "name": "entity.name.type.class.particle", "match": "\\bparticle\\b" },
-        { "name": "entity.name.type.class.pillageroutpost", "match": "\\bpillageroutpost\\b" },
-        { "name": "entity.name.type.class.playsound", "match": "\\bplaysound\\b" },
+        { "name": "entity.name.type.class.op", "match": "\\bop\\b" },
+        {
+          "name": "entity.name.type.class.particle",
+          "match": "\\bparticle\\b"
+        },
+        {
+          "name": "entity.name.type.class.pillageroutpost",
+          "match": "\\bpillageroutpost\\b"
+        },
+        {
+          "name": "entity.name.type.class.playsound",
+          "match": "\\bplaysound\\b"
+        },
         { "name": "entity.name.type.class.pvp", "match": "\\bpvp\\b" },
         { "name": "entity.name.type.class.query", "match": "\\bquery\\b" },
         { "name": "entity.name.type.class.random", "match": "\\brandom\\b" },
-        { "name": "entity.name.type.class.randomTickSpeed", "match": "\\brandomTickSpeed\\b" },
+        {
+          "name": "entity.name.type.class.randomTickSpeed",
+          "match": "\\brandomTickSpeed\\b"
+        },
         { "name": "entity.name.type.class.reload", "match": "\\breload\\b" },
-        { "name": "entity.name.type.class.replaceitem", "match": "\\breplaceitem\\b" },        
+        {
+          "name": "entity.name.type.class.replaceitem",
+          "match": "\\breplaceitem\\b"
+        },
         { "name": "entity.name.type.class.say", "match": "\\bsay\\b" },
-        { "name": "entity.name.type.class.scoreboard", "match": "\\bscoreboard\\b" },
-        { "name": "entity.name.type.class.setblock", "match": "\\bsetblock\\b" },
-        { "name": "entity.name.type.class.setdisplay", "match": "\\bsetdisplay\\b" },
-        { "name": "entity.name.type.class.setmaxplayers", "match": "\\bsetmaxplayers\\b" },
-        { "name": "entity.name.type.class.setworldspawn", "match": "\\bsetworldspawn\\b" },
-        { "name": "entity.name.type.class.spawnpoint", "match": "\\bspawnpoint\\b" },
-        { "name": "entity.name.type.class.spreadplayers", "match": "\\bspreadplayers\\b" },
-        { "name": "entity.name.type.class.stopsound", "match": "\\bstopsound\\b" },        
+        {
+          "name": "entity.name.type.class.scoreboard",
+          "match": "\\bscoreboard\\b"
+        },
+        {
+          "name": "entity.name.type.class.setblock",
+          "match": "\\bsetblock\\b"
+        },
+        {
+          "name": "entity.name.type.class.setdisplay",
+          "match": "\\bsetdisplay\\b"
+        },
+        {
+          "name": "entity.name.type.class.setmaxplayers",
+          "match": "\\bsetmaxplayers\\b"
+        },
+        {
+          "name": "entity.name.type.class.setworldspawn",
+          "match": "\\bsetworldspawn\\b"
+        },
+        {
+          "name": "entity.name.type.class.spawnpoint",
+          "match": "\\bspawnpoint\\b"
+        },
+        {
+          "name": "entity.name.type.class.spreadplayers",
+          "match": "\\bspreadplayers\\b"
+        },
+        {
+          "name": "entity.name.type.class.stopsound",
+          "match": "\\bstopsound\\b"
+        },
         { "name": "entity.name.type.class.summon", "match": "\\bsummon\\b" },
         { "name": "entity.name.type.class.tag", "match": "\\btag\\b" },
-        { "name": "entity.name.type.class.teleport", "match": "\\bteleport\\b" },
+        {
+          "name": "entity.name.type.class.teleport",
+          "match": "\\bteleport\\b"
+        },
         { "name": "entity.name.type.class.tell", "match": "\\btell\\b" },
         { "name": "entity.name.type.class.tellraw", "match": "\\btellraw\\b" },
         { "name": "entity.name.type.class.temple", "match": "\\btemple\\b" },
         { "name": "entity.name.type.class.test", "match": "\\btest\\b" },
         { "name": "entity.name.type.class.testfor", "match": "\\btestfor\\b" },
-        { "name": "entity.name.type.class.testforblock", "match": "\\btestforblock\\b" },
-        { "name": "entity.name.type.class.testforblocks", "match": "\\btestforblocks\\b" },
-        { "name": "entity.name.type.class.tickingarea", "match": "\\btickingarea\\b" },
+        {
+          "name": "entity.name.type.class.testforblock",
+          "match": "\\btestforblock\\b"
+        },
+        {
+          "name": "entity.name.type.class.testforblocks",
+          "match": "\\btestforblocks\\b"
+        },
+        {
+          "name": "entity.name.type.class.tickingarea",
+          "match": "\\btickingarea\\b"
+        },
         { "name": "entity.name.type.class.time", "match": "\\btime\\b" },
         { "name": "entity.name.type.class.title", "match": "\\btitle\\b" },
-        { "name": "entity.name.type.class.titleraw", "match": "\\btitleraw\\b" },        
-        { "name": "entity.name.type.class.toggledownfall", "match": "\\btoggledownfall\\b" },
-        { "name": "entity.name.type.class.tp", "match": "\\btp\\b" },        
+        {
+          "name": "entity.name.type.class.titleraw",
+          "match": "\\btitleraw\\b"
+        },
+        {
+          "name": "entity.name.type.class.toggledownfall",
+          "match": "\\btoggledownfall\\b"
+        },
+        { "name": "entity.name.type.class.tp", "match": "\\btp\\b" },
         { "name": "entity.name.type.class.w", "match": "\\bw\\b" },
         { "name": "entity.name.type.class.weather", "match": "\\bweather\\b" },
         { "name": "entity.name.type.class.xp", "match": "\\bxp\\b" }
       ]
     },
     "comments": {
-      "patterns": [
-        { "name": "comment", "begin": "#", "end": "$" }
-      ]
+      "patterns": [{ "name": "comment", "begin": "#", "end": "$" }]
     }
   }
 }
