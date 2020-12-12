@@ -1,4 +1,14 @@
 # Changelog 
+- Updated mcfunction diagnostics
+- auto: Formatted json files
+- auto: Updated dependecies
+- Fix for vscode relative path problems
+- Fixed selector being keyword
+- Updated
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- auto: formatted
+- auto: Formatted typescript files
+- Updated to 1.3.14
 - Formatted
 - Added support for ~~~
 - Removed debug code
@@ -9,13 +19,3 @@
 - Updating
 - Updated
 - Updated
-- auto: Formatted typescript files
-- Updated
-- Updated
-- Updated json Item
-- Fixed references
-- Updated comments
-- Added clone mode parameter type
-- Adding
-- Moved
-- auto: regenerated
