@@ -19,8 +19,7 @@
     "selectors": {
       "patterns": [
         { "name": "markup.bold", "match": "(@[cvasrep]\\b)" },
-        { "name": "entity.name.variable", "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)"
-        },
+        { "name": "entity.name.variable", "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
         { "name": "entity.name.variable", "match": "\\b[a-z0-9]+(?=\\=)" },
         { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+" },
         { "name": "string.regexp", "match": "\\b(?<=tag=!)[a-zA-Z_\\-0-9]+" },
@@ -67,19 +66,16 @@
         { "name": "constant.character", "match": "\\b[Ff]alse\\b" },
         { "name": "string.jade", "match": "\\b(?<=function )[a-z0-9/_]+\\b" },
         { "name": "string.quoted.double.minecraft", "match": "\"[^\"]*\"" },
-        { "name": "entity.name.function.identifier", "match": "[a-z0-9_]+\\:[a-z0-9_]+"
-        }
+        { "name": "entity.name.function.identifier", "match": "[a-z0-9_]+\\:[a-z0-9_]+" }
       ]
     },
     "operators": {
-      "patterns": [
-        { "name": "keyword.operator", "match": "(~|\\^|\b\\.\\.\b|\\,|\\+|\\-|\\*|\\=)"
-        }
-      ]
+      "patterns": [{ "name": "keyword.operator", "match": "(~|\\^|\b\\.\\.\b|\\,|\\+|\\-|\\*|\\=)" }]
     },
     "strings": {
       "patterns": [
-        { "name": "string.quoted.double.minecraft",
+        {
+          "name": "string.quoted.double.minecraft",
           "begin": "\"",
           "end": "\"",
           "patterns": [

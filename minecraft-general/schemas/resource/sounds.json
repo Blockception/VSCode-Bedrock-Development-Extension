@@ -12,7 +12,7 @@
         {
           "type": "array",
           "items": [
-            { "type": "number", "title": "Lowest value" }, 
+            { "type": "number", "title": "Lowest value" },
             { "type": "number", "title": "Highest value" }
           ]
         }
@@ -223,25 +223,18 @@
           "description": "TODO",
 
           "propertyNames": {
-            "enum": [
-              "gallop",
-              "heavy.step",
-              "step"
-            ]
+            "enum": ["gallop", "heavy.step", "step"]
           },
           "additionalProperties": {
             "title": "Entity event",
             "type": "object",
             "propertyNames": {
-              "enum": [
-                "default",
-                "wood"
-              ]
+              "enum": ["default", "wood"]
             },
             "additionalProperties": {
               "title": "Sound event",
               "type": "string"
-            }            
+            }
           }
         }
       }
