@@ -12,3 +12,4 @@ entities, particles and items are to be included in the future + many more. The 
 Cheat sheet are accesable through the following command(s):
 
 - `Blockception: Cheat sheet: Molang`
+- `Blockception: Cheat sheet: Behaviors Filters`
