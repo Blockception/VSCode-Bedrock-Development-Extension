@@ -937,7 +937,7 @@
         { "Text": "destination", "Type": "selector", "Required": true },
         { "Text": "objective", "Type": "objective", "Required": true },
         { "Text": "operation", "Type": "operation", "Required": true },
-        { "Text": "selector", "Type": "keyword", "Required": true },
+        { "Text": "selector", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": true } },
         { "Text": "objective", "Type": "objective", "Required": true }
       ],
       "name": "scoreboard",
