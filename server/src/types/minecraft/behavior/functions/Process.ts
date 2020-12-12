@@ -40,6 +40,11 @@ import { GetComment } from "./Function";
 export function Process(document: TextDocument): void {
   Database.Data.DeleteFile(document.uri);
 
+  ProcessContent(document);
+  ProvideMcfunctionDiagnostics(document);
+}
+
+function ProcessContent(document : TextDocument) : void {
   for (let Index = 0; Index < document.lineCount; Index++) {
     const Line = getLine(document, Index);
 
@@ -95,6 +100,4 @@ export function Process(document: TextDocument): void {
 
     Database.Data.General.Functions.Set(Mcfunction);
   }
-
-  ProvideMcfunctionDiagnostics(document);
 }

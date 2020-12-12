@@ -91,11 +91,6 @@ export class CommandManager {
 export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
   let Limit = pattern.parameters.length;
 
-  //has sub commands
-  let HasSubCommand = pattern.includes(MCCommandParameterType.command);
-
-  if (!HasSubCommand && Limit < com.Paramaters.length) return false;
-
   if (Limit > com.Paramaters.length) {
     Limit = com.Paramaters.length;
   }

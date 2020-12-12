@@ -27,13 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic } from "vscode-languageserver";
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../code/include";
 import { LocationWord } from "../../../code/words/include";
 import { Database } from "../../../database/include";
 import { CommandIntr, GetSubCommand } from "../../../types/commands/Command Intertation/include";
 import { MCCommandParameter, MCCommandParameterType } from "../../../types/commands/Parameter/include";
+import { EmptyTypes } from '../../../types/general/Empty';
 import { ValidationData } from "../../../validation/include";
 import { DiagnoseFunctionPath } from "./parameters/function";
 import {
@@ -60,6 +61,14 @@ import { DiagnoseInteger } from "./parameters/integer";
  */
 export function Diagnose(doc: TextDocument, validation: ValidationData) {
   let receiver: Diagnostic[] = [];
+
+  if (doc.lineCount == 0) {
+    receiver.push({
+      range:EmptyTypes.EmptyRange(),
+      message:"Empty mcfunction found, minecraft will not lot this function",
+      severity:DiagnosticSeverity.Error
+    });
+  }
 
   try {
     for (let index = 0; index < doc.lineCount; index++) {
