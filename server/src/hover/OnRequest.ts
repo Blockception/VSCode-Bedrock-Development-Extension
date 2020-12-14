@@ -32,8 +32,8 @@ import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McOtherIdentifier } from "../Constants";
 import { provideHoverMcFunction } from "./Mcfunction";
 
-export function OnHoverRequestAsync(params: HoverParams): Promise<Hover> {
-  return new Promise<Hover>((resolve, reject) => resolve(OnHoverRequest(params)));
+export function OnHoverRequestAsync(params: HoverParams): Promise<Hover | undefined> {
+  return new Promise<Hover | undefined>((resolve, reject) => resolve(OnHoverRequest(params)));
 }
 
 export function OnHoverRequest(params: HoverParams): Hover | undefined {
