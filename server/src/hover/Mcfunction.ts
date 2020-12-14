@@ -44,7 +44,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
   let Command: CommandIntr = CommandIntr.parse(Line, params.position, doc.uri);
   let Data = Command.GetCommandData();
 
-  if (Data.length === 1) {
+  if (Data.length >= 1) {
     let Info = Data[0];
     let parameters = Info.Command.parameters;
     let Index = Command.CursorParamater;
