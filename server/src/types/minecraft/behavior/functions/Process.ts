@@ -44,7 +44,7 @@ export function Process(document: TextDocument): void {
   ProvideMcfunctionDiagnostics(document);
 }
 
-function ProcessContent(document : TextDocument) : void {
+function ProcessContent(document: TextDocument): void {
   for (let Index = 0; Index < document.lineCount; Index++) {
     const Line = getLine(document, Index);
 

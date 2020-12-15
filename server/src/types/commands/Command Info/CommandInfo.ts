@@ -38,7 +38,7 @@ export class CommandInfo {
     this.Command = Command;
   }
 
-  GetRequiredAmount() : number {
+  GetRequiredAmount(): number {
     for (var I = 0; I < this.Command.parameters.length; I++) {
       var Current = this.Command.parameters[I];
 

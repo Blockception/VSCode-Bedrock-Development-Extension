@@ -34,7 +34,7 @@ import { LocationWord } from "../../../code/words/include";
 import { Database } from "../../../database/include";
 import { CommandIntr, GetSubCommand } from "../../../types/commands/Command Intertation/include";
 import { MCCommandParameter, MCCommandParameterType } from "../../../types/commands/Parameter/include";
-import { EmptyTypes } from '../../../types/general/Empty';
+import { EmptyTypes } from "../../../types/general/Empty";
 import { ValidationData } from "../../../validation/include";
 import { DiagnoseFunctionPath } from "./parameters/function";
 import {
@@ -64,9 +64,9 @@ export function Diagnose(doc: TextDocument, validation: ValidationData) {
 
   if (doc.lineCount == 0) {
     receiver.push({
-      range:EmptyTypes.EmptyRange(),
-      message:"Empty mcfunction found, minecraft will not lot this function",
-      severity:DiagnosticSeverity.Error
+      range: EmptyTypes.EmptyRange(),
+      message: "Empty mcfunction found, minecraft will not lot this function",
+      severity: DiagnosticSeverity.Error,
     });
   }
 
