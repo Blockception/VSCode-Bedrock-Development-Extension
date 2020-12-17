@@ -172,7 +172,6 @@
         { "name": "entity.name.variable.spawnradius", "match": "\\bspawnradius\\b" },
         { "name": "entity.name.variable.tntexplodes", "match": "\\btntexplodes\\b" },
         { "name": "entity.name.variable.showtags", "match": "\\bshowtags\\b" },
-        
 
         { "name": "entity.name.type.class.ability", "match": "\\bability\\b" },
         { "name": "entity.name.type.class.alwaysday", "match": "\\balwaysday\\b" },
