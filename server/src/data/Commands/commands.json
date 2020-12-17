@@ -855,7 +855,7 @@
         { "Text": "setdisplay", "Type": "keyword", "Required": true },
         { "Text": "list", "Type": "keyword", "Required": true },
         { "Text": "objective", "Type": "objective", "Required": false },
-        { "Text": "ascending", "Type": "objective", "Required": false }
+        { "Text": "ascending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -867,7 +867,7 @@
         { "Text": "setdisplay", "Type": "keyword", "Required": true },
         { "Text": "list", "Type": "keyword", "Required": true },
         { "Text": "objective", "Type": "objective", "Required": false },
-        { "Text": "descending", "Type": "objective", "Required": false }
+        { "Text": "descending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -879,7 +879,7 @@
         { "Text": "setdisplay", "Type": "keyword", "Required": true },
         { "Text": "sidebar", "Type": "keyword", "Required": true },
         { "Text": "objective", "Type": "objective", "Required": false },
-        { "Text": "ascending", "Type": "objective", "Required": false }
+        { "Text": "ascending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -891,7 +891,7 @@
         { "Text": "setdisplay", "Type": "keyword", "Required": true },
         { "Text": "sidebar", "Type": "keyword", "Required": true },
         { "Text": "objective", "Type": "objective", "Required": false },
-        { "Text": "descending", "Type": "objective", "Required": false }
+        { "Text": "descending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
       "documentation": { "value": "TODO description", "kind": "markdown" }
