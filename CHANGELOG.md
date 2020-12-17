@@ -1,21 +1,21 @@
 # Changelog 
+- Updated
+- auto: Formatted typescript files
+- auto: Updated dependecies
+- Updated to 1.3.16
+- Updated schemas
+- Fixing hovers
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Updated
+- Merge pull request #23 from Blockception/dependabot/npm_and_yarn/server/ini-1.3.8
+- Merge pull request #24 from Blockception/dependabot/npm_and_yarn/client/ini-1.3.8
+- Bump ini from 1.3.5 to 1.3.8 in /client
+- Bump ini from 1.3.5 to 1.3.8 in /server
+- Updated commands
+- auto: Changelog
+- Updated
 - Updated mcfunction diagnostics
 - auto: Formatted json files
 - auto: Updated dependecies
 - Fix for vscode relative path problems
 - Fixed selector being keyword
-- Updated
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- auto: formatted
-- auto: Formatted typescript files
-- Updated to 1.3.14
-- Formatted
-- Added support for ~~~
-- Removed debug code
-- Fixed comments getting parsed as commands
-- Updated to 1.3.12
-- Updated
-- Updated
-- Updating
-- Updated
-- Updated
