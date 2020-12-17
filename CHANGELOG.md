@@ -1,4 +1,9 @@
 # Changelog 
+- auto: Updated dependecies
+- auto: Formatted json files
+- Updating to 1.3.17
+- Fixing fake players not allowed as destinations on scoreboard operations
+- Fixing ascending/descending being parsed as objectives instead of keywords
 - Updated
 - auto: Formatted typescript files
 - auto: Updated dependecies
@@ -14,8 +19,3 @@
 - Updated commands
 - auto: Changelog
 - Updated
-- Updated mcfunction diagnostics
-- auto: Formatted json files
-- auto: Updated dependecies
-- Fix for vscode relative path problems
-- Fixed selector being keyword
