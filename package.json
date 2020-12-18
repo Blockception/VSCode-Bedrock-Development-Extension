@@ -53,26 +53,33 @@
     "mocha": "^8.2.1",
     "ts-loader": "^8.0.12",
     "typescript": "^3.9.7",
-    "webpack": "^5.10.3",
+    "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0"
   },
   "engines": {
     "vscode": "^1.41.0"
   },
-  "extensionKind": [ "workspace" ],
+  "extensionKind": [
+    "workspace"
+  ],
   "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
   "icon": "resources/logo.png",
   "license": "BSD-3-Clause",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
   "maintainers": [
-    { "name": "Blockception Ltd", "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension" }
+    {
+      "name": "Blockception Ltd",
+      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
+    }
   ],
   "repository": {
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "type": "git"
   },
-  "files": [ "*.html" ],
+  "files": [
+    "*.html"
+  ],
   "contributes": {
     "configuration": [
       {

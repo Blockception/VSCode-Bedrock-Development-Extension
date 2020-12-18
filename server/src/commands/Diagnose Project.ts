@@ -31,7 +31,6 @@ import { ExecuteCommandParams, MessageType, ShowMessageNotification } from "vsco
 import { Database } from "../database/include";
 import { behavior, world } from "../diagnostics/include";
 import { DiagnoseContext } from "../diagnostics/types/Context";
-import { manager } from "../include";
 import { Manager } from "../manager/Manager";
 import { ProgressHandler } from "../progress/include";
 import { GetValidationData } from "../validation/include";
