@@ -35,6 +35,7 @@ export function DiagnoseEntity(data: LocationWord, receiver: Diagnostic[]): void
   const text = data.text;
 
   if (Database.Data.General.Entities.HasID(text)) return;
+  if (Database.Data.General.Entities.HasID("minecraft:" + text)) return;
 
   receiver.push({
     range: data.range,
