@@ -1,4 +1,7 @@
 # Changelog 
+- Updated
+- Updated to 1.3.18
+- Updated to 1.3.18
 - auto: Updated dependecies
 - auto: Formatted json files
 - Updating to 1.3.17
@@ -16,6 +19,3 @@
 - Merge pull request #24 from Blockception/dependabot/npm_and_yarn/client/ini-1.3.8
 - Bump ini from 1.3.5 to 1.3.8 in /client
 - Bump ini from 1.3.5 to 1.3.8 in /server
-- Updated commands
-- auto: Changelog
-- Updated
