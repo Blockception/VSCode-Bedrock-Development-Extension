@@ -219,7 +219,11 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
       return DiagnoseParticle(data, receiver);
 
     case MCCommandParameterType.replaceMode:
+      return; 
+
     case MCCommandParameterType.selector:
+      return ProvideDiagno;
+
     case MCCommandParameterType.slotID:
     case MCCommandParameterType.slotType:
     case MCCommandParameterType.sound:
