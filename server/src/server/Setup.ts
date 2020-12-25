@@ -27,19 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { createConnection, ProposedFeatures } from "vscode-languageserver";
+import { createConnection, InitializeParams, ProposedFeatures, WatchDog } from 'vscode-languageserver';
 import { Manager } from "../manager/Manager";
 import { setEvents } from "./Events/Events";
-import { onInitializeAsync } from "./onInitialize";
+import { onInitialize, onInitializeAsync } from "./onInitialize";
 import { onInitializedAsync } from "./onInitialized";
 import { onShutdownAsync } from "./onShutdown";
 
 export function Setup() {
   console.log("starting minecraft server");
 
+  var Watch : WatchDog = {
+    exit() {console.log('exit called');},
+    initialize(params: InitializeParams) { onInitialize(params); },
+  }
+
   // Create a connection for the server, using Node's IPC as a transport.
   // Also include all preview / proposed LSP features.
-  let connection = createConnection(ProposedFeatures.all);
+  let connection = createConnection(ProposedFeatures.all, Watch);
   Manager.Connection = connection;
 
   setEvents();

@@ -8,4 +8,5 @@ export function SetDynamicEvents() {
   // Tell the client that this server supports code formatting.
   const Formatoptions: DocumentFormattingRegistrationOptions = { documentSelector: [McFunctionIdentifier, McLanguageIdentifier] };
   client.register(DocumentFormattingRequest.type, Formatoptions);
+
 }

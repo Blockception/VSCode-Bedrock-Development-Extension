@@ -37,7 +37,7 @@ export async function onInitializeAsync(params: InitializeParams): Promise<Initi
   });
 }
 
-function onInitialize(params: InitializeParams): InitializeResult {
+export function onInitialize(params: InitializeParams): InitializeResult {
   console.log("Initializing minecraft server");
 
   //process capabilities of the client
@@ -81,6 +81,20 @@ function onInitialize(params: InitializeParams): InitializeResult {
         triggerCharacters: [" "],
         retriggerCharacters: [" ", "\t"],
         workDoneProgress: true,
+      },
+
+      semanticTokensProvider: {
+        documentSelector: [
+          { language:"json" },
+          { language:"jsonc" },
+          { language:"bc-minecraft-mcfunction" },
+          { language:"bc-minecraft-language" },
+          { language:"bc-minecraft-Other" }
+        ],
+        legend: {
+          tokenTypes:[],
+          tokenModifiers:[]
+        }
       },
 
       workspace: {
