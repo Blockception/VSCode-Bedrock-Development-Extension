@@ -32,7 +32,7 @@ import { LocationWord } from "../../../../code/words/include";
 import { MCCommandParameter } from "../../../commands/Parameter/include";
 import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
 import { Kinds } from "../../Kinds";
-import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Selector";
+import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Functions";
 import { provideSelectorAttributeValueCompletion } from './Attribute Value';
 import { provideSelectorAttributeCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";

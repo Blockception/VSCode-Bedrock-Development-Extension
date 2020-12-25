@@ -35,6 +35,7 @@ import { Database } from "../../../database/include";
 import { CommandIntr, GetSubCommand } from "../../../types/commands/Command Intertation/include";
 import { MCCommandParameter, MCCommandParameterType } from "../../../types/commands/Parameter/include";
 import { EmptyTypes } from "../../../types/general/Empty";
+import { Selector } from '../../../types/general/include';
 import { ValidationData } from "../../../validation/include";
 import { DiagnoseFunctionPath } from "./parameters/function";
 import {
@@ -219,10 +220,10 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
       return DiagnoseParticle(data, receiver);
 
     case MCCommandParameterType.replaceMode:
-      return; 
+      return;
 
     case MCCommandParameterType.selector:
-      return ProvideDiagno;
+      return Selector.ProvideDiagnostics(data, receiver);
 
     case MCCommandParameterType.slotID:
     case MCCommandParameterType.slotType:

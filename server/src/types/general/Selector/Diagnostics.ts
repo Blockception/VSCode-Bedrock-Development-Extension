@@ -31,5 +31,5 @@ import { Diagnostic } from 'vscode-languageserver';
 import { LocationWord } from '../../../code/words/include';
 
 export function ProvideDiagnostics(data: LocationWord, receiver: Diagnostic[]): void {
-
+	
 }

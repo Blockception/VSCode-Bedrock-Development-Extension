@@ -1,7 +1,7 @@
 import { CompletionList, CompletionItemKind } from "vscode-languageserver";
 import { LocationWord } from "../../../../code/words/include";
 import { provideObjectivePostCompletion } from "../../Objectives/Completion";
-import { IsEditingValue } from "../Selector";
+import { IsEditingValue } from "../Functions";
 
 export function provideSelectorScoreCompletion(receiver: CompletionList, selector: LocationWord, pos: number): void {
   if (IsEditingValue(selector, pos)) {
