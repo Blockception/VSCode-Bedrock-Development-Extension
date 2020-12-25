@@ -28,11 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MarkupContent, CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { provideEntityTestCompletion } from "../../Entity/Completion";
-import { provideFloatCompletion } from "../../Float/Completion";
-import { provideGamemodeTestCompletion } from "../../Gamemode/Completion";
-import { provideIntegerCompletion } from "../../Integer/Completion";
-import { provideTagTestCompletion } from "../../Tag/include";
+
 
 function AttributeCompletion(label: string, documentation: string | MarkupContent): CompletionItem {
   return {
@@ -43,13 +39,14 @@ function AttributeCompletion(label: string, documentation: string | MarkupConten
   };
 }
 
-//Doesnt do scores
+//Doesnt do scores and doesnt need to
 export function provideSelectorAttributeCompletion(receiver: CompletionList, forEntities: boolean): void {
   receiver.items.push(
     AttributeCompletion("c", "limits the amount of entities/player to be targeted"),
     AttributeCompletion("dx", "The length of the box over the axis X"),
     AttributeCompletion("dy", "The length of the box over the axis Y"),
     AttributeCompletion("dz", "The length of the box over the axis Z"),
+    AttributeCompletion("family", "Tests whether or not the target has a given family type. Can be either string or single word"),
     AttributeCompletion("l", "The maximum amount of XP the target has"),
     AttributeCompletion("lm", "The minimum amount of XP the target has"),
     AttributeCompletion("m", "The gamemode of the player"),
@@ -77,107 +74,3 @@ export function provideSelectorAttributeCompletion(receiver: CompletionList, for
   }
 }
 
-//Doesnt do scores
-export function provideSelectorAttributeValueCompletion(receiver: CompletionList, attribute: string, forEntities: boolean): void {
-  switch (attribute) {
-    case "c":
-      receiver.items.push(
-        {
-          label: "1",
-          documentation: "Limits the amount of target to 1",
-          kind: CompletionItemKind.Constant,
-        },
-        {
-          label: "-1",
-          documentation: "Limits the amount of target to 1, but picked from the end of the list",
-          kind: CompletionItemKind.Constant,
-        },
-        {
-          label: "5",
-          documentation: "Limits the amount of target to 5",
-          kind: CompletionItemKind.Constant,
-        },
-        {
-          label: "-5",
-          documentation: "Limits the amount of target to 5, but picked from the end of the list",
-          kind: CompletionItemKind.Constant,
-        }
-      );
-      return;
-
-    case "dx":
-    case "dy":
-    case "dz":
-      receiver.items.push(
-        {
-          label: "5",
-          documentation: "A length of 5",
-          kind: CompletionItemKind.Constant,
-        },
-        {
-          label: "-5",
-          documentation: "A length of 5, in the other direction",
-          kind: CompletionItemKind.Constant,
-        }
-      );
-      return;
-
-    case "r":
-    case "rm":
-    case "lm":
-    case "l":
-      provideIntegerCompletion(receiver, { minimum: 0, maximum: 100 });
-      return;
-
-    case "m":
-      provideGamemodeTestCompletion(receiver);
-      return;
-
-    case "name":
-      receiver.items.push({
-        label: '"',
-        documentation: "The start of a string name",
-        kind: CompletionItemKind.Constant,
-      });
-      return;
-
-    case "rx":
-    case "rxm":
-    case "ry":
-    case "rym":
-      provideFloatCompletion(receiver, { minimum: -180, maximum: 180 });
-      return;
-
-    case "tag":
-      provideTagTestCompletion(receiver);
-      return;
-
-    case "type":
-      if (forEntities) {
-        provideEntityTestCompletion(receiver);
-      }
-      return;
-
-    case "x":
-    case "y":
-    case "z":
-      receiver.items.push(
-        {
-          label: "1",
-          documentation: "An absolute coordinate",
-          kind: CompletionItemKind.Constant,
-        },
-        {
-          label: "~1",
-          documentation: "A relative coordinate",
-          kind: CompletionItemKind.Constant,
-        },
-        {
-          label: "~-1",
-          documentation: "A relative coordinate",
-          kind: CompletionItemKind.Constant,
-        }
-      );
-      return;
-  }
-}

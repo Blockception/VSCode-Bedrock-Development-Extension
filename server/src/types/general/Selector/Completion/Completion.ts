@@ -33,7 +33,8 @@ import { MCCommandParameter } from "../../../commands/Parameter/include";
 import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
 import { Kinds } from "../../Kinds";
 import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Selector";
-import { provideSelectorAttributeCompletion, provideSelectorAttributeValueCompletion } from "./Attributes";
+import { provideSelectorAttributeValueCompletion } from './Attribute Value';
+import { provideSelectorAttributeCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 
 //Constants
