@@ -59,7 +59,9 @@
   "engines": {
     "vscode": "^1.41.0"
   },
-  "extensionKind": [ "workspace" ],
+  "extensionKind": [
+    "workspace"
+  ],
   "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
   "icon": "resources/logo.png",
   "license": "BSD-3-Clause",
@@ -75,7 +77,9 @@
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "type": "git"
   },
-  "files": [ "*.html" ],
+  "files": [
+    "*.html"
+  ],
   "contributes": {
     "configuration": [
       {
