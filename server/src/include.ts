@@ -12,6 +12,7 @@ export * as manager from "./manager/include";
 export * as process from "./process/include";
 export * as progress from "./progress/include";
 export * as references from "./references/include";
+export * as semantics from "./semantics/include";
 export * as server from "./server/include";
 export * as signatures from "./signatures/include";
 export * as symbols from "./symbols/include";
