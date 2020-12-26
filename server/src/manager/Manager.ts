@@ -28,9 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Connection, Diagnostic, TextDocuments, _ } from "vscode-languageserver";
-import { CallHierarchy } from "vscode-languageserver/lib/callHierarchy.proposed";
-import { SemanticTokens } from "vscode-languageserver/lib/sematicTokens.proposed";
+import { Connection, Diagnostic } from "vscode-languageserver";
 import { ServerSettings } from "../server/Settings";
 import { ExtensionState } from "./Extension State";
 import { ExtensionData } from "./Extension Data";
@@ -53,7 +51,7 @@ export class Manager {
   static Capabiltities = new ExtensionCapabiltities();
 
   //Server stuff
-  static Connection: Connection<_, _, _, _, _, _, CallHierarchy & SemanticTokens>;
+  static Connection: Connection;
   static Settings: ServerSettings = ServerSettings.createDefaulSettings();
 }
 

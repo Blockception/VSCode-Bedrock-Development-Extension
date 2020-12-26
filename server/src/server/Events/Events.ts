@@ -38,6 +38,7 @@ import { OnSignatureRequestAsync } from "../../signatures/OnRequest";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../symbols/OnRequest";
 import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
+import { OnProvideDeltaSemanticRequestAsync, OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from '../../semantics/include';
 
 /**
  * Setup the server events
@@ -81,4 +82,9 @@ export function setEvents() {
 
    // This handler provides signatures
    Connection.onSignatureHelp(OnSignatureRequestAsync);
+
+   // This handler provides semantic Tokens
+   Connection.languages.semanticTokens.on(OnProvideSemanticRequestAsync);
+   Connection.languages.semanticTokens.onDelta(OnProvideDeltaSemanticRequestAsync);
+   Connection.languages.semanticTokens.onRange(OnProvideRangeSemanticRequestAsync);
 }
