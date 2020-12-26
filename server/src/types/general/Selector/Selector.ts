@@ -91,8 +91,9 @@ export namespace IParameter {
 			let Out: IScoreParameter = {
 				Name: Name,
 				Range: Range,
-				
-			}
+				Value: Value,
+				Scores:
+			};
 
 
 			return Out;
