@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList, CompletionItemKind } from 'vscode-languageserver';
+import { CompletionList, CompletionItemKind } from "vscode-languageserver";
 import { provideEntityTestCompletion } from "../../Entity/Completion";
 import { provideFloatCompletion } from "../../Float/Completion";
 import { provideGamemodeTestCompletion } from "../../Gamemode/Completion";
@@ -56,7 +56,7 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionList
       return;
 
     case "family":
-        //TODO do family type gathering
+      //TODO do family type gathering
       return;
 
     case "r":

@@ -29,7 +29,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { MarkupContent, CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 
-
 function AttributeCompletion(label: string, documentation: string | MarkupContent): CompletionItem {
   return {
     label: label,
@@ -73,4 +72,3 @@ export function provideSelectorAttributeCompletion(receiver: CompletionList, for
     receiver.items.push(AttributeCompletion("type", "Tests if the target has or does not have the specified type"));
   }
 }
-

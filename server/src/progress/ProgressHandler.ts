@@ -57,8 +57,7 @@ export class ProgressHandler {
    *
    */
   public IsCanceled(): boolean {
-    if (this.reporter)
-      return true;
+    if (this.reporter) return true;
 
     return false;
   }

@@ -55,7 +55,7 @@ export class LocationWord {
     return false;
   }
 
-  substring(start : number, end? : number | undefined) : LocationWord {
+  substring(start: number, end?: number | undefined): LocationWord {
     let text = this.text.substring(start, end);
 
     let startindex = start + this.range.start.character;

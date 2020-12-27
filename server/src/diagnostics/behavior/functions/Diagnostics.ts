@@ -35,7 +35,7 @@ import { Database } from "../../../database/include";
 import { CommandIntr, GetSubCommand } from "../../../types/commands/Command Intertation/include";
 import { MCCommandParameter, MCCommandParameterType } from "../../../types/commands/Parameter/include";
 import { EmptyTypes } from "../../../types/general/Empty";
-import { Selector } from '../../../types/general/include';
+import { Selector } from "../../../types/general/include";
 import { ValidationData } from "../../../validation/include";
 import { DiagnoseFunctionPath } from "./parameters/function";
 import {
@@ -71,7 +71,6 @@ export function Diagnose(doc: TextDocument, validation: ValidationData) {
     });
   }
 
-
   for (let index = 0; index < doc.lineCount; index++) {
     try {
       const line = getLine(doc, index);
@@ -83,7 +82,6 @@ export function Diagnose(doc: TextDocument, validation: ValidationData) {
       });
     }
   }
-
 
   Database.Diagnotics.SetErrors(doc.uri, receiver);
 }
