@@ -114,6 +114,34 @@ function DiagnoseSelector(selector: Selector, receiver: Diagnostic[], onlyPlayer
    AllPositivesAndNegatives('family', selector, receiver);
    AllPositivesAndNegatives('tag', selector, receiver);
    ScoresCheck(selector, receiver, validation);
+
+   for (let index = 0; index < selector.Parameters.length; index++) {
+      const element = selector.Parameters[index];
+
+      switch (element.Name) {
+         case 'c':
+         case 'dx':
+         case 'dy':
+         case 'dz':
+         case 'family':
+         case 'lm':
+         case 'l':
+         case 'm':
+         case 'name':
+         case 'rm':
+         case 'r':
+         case 'scores':
+         case 'type':
+         case 'tag':
+         case 'x':
+         case 'y':
+         case 'z':
+            continue;
+
+         default:
+            NewError2(receiver, element.Range, 'Illegal selector attribute ' + element.Name);
+      }
+   }
 }
 
 function NoDuplicates(name: string, selector: Selector, receiver: Diagnostic[]): void {
@@ -284,7 +312,7 @@ function ScoresCheck(selector: Selector, receiver: Diagnostic[], validation: Val
       if (Parameter.length > 1) {
          NewError2(receiver, selector.Range, 'Selector has multiple scores definitions, but can only have 1');
       }
-      
+
       Parameter = Parameter[0];
    }
 
