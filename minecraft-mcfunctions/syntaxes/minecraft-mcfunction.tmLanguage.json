@@ -140,6 +140,10 @@
         { "name": "entity.name.function.village", "match": "\\bvillage\\b" },
         { "name": "entity.name.function.wandering_trader_event", "match": "\\bwandering_trader_event\\b" },
         { "name": "entity.name.function.worldbuilder", "match": "\\bworldbuilder\\b" },
+        { "name": "entity.name.function.summon_ride", "match": "\\bsummon_ride\\b" },
+        { "name": "entity.name.function.start_riding", "match": "\\bstart_riding\\b" },
+        { "name": "entity.name.function.stop_riding", "match": "\\bstop_riding\\b" },
+        { "name": "entity.name.function.summonrider", "match": "\\bsummonrider\\b" },
 
         { "name": "entity.name.variable.ascending", "match": "\\bascending\\b" },
         { "name": "entity.name.variable.descending", "match": "\\bdescending\\b" },
@@ -208,6 +212,7 @@
         { "name": "entity.name.type.class.randomTickSpeed", "match": "\\brandomTickSpeed\\b" },
         { "name": "entity.name.type.class.reload", "match": "\\breload\\b" },
         { "name": "entity.name.type.class.replaceitem", "match": "\\breplaceitem\\b" },
+        { "name": "entity.name.type.class.ride", "match": "\\bride\\b" },
         { "name": "entity.name.type.class.say", "match": "\\bsay\\b" },
         { "name": "entity.name.type.class.scoreboard", "match": "\\bscoreboard\\b" },
         { "name": "entity.name.type.class.schedule", "match": "\\bschedule\\b" },
