@@ -31,29 +31,101 @@ import { Range } from 'vscode-languageserver';
 import { LocationWord } from '../../../code/words/include';
 
 
-export interface ISelector {
-	Type: LocationWord;
-	Parameters: IParameter[];
-}
+export class Selector {
+	public Range: Range;
+	public Type: String;
+	public Parameters: IParameter[];
 
-export namespace ISelector {
+	constructor(Type: string, Range: Range) {
+		this.Type = Type;
+		this.Range = Range;
+		this.Parameters = [];
+	}
 
-	export function is(value: any): value is ISelector {
-		if (value) {
-			if (value.Type && value.Parameters) {
-				if (value.Type.text && value.Type.range, value.uri) {
-					if (Array.isArray(value.Parameters)) {
-						return true;
-					}
-				}
-			}
+	contains(parameter: string): boolean {
+		for (let index = 0; index < this.Parameters.length; index++) {
+			const element = this.Parameters[index];
+			if (element.Name == parameter)
+				return true;
 		}
 
 		return false;
 	}
 
-	export function Parse(text: LocationWord): ISelector {
+	count(parameter: string): number {
+		let Out = 0;
+		for (let index = 0; index < this.Parameters.length; index++) {
+			const element = this.Parameters[index];
+			if (element.Name == parameter)
+				Out++;
+		}
 
+		return Out;
+	}
+
+	get(parameter: string): IParameter[] | IParameter {
+		let Out = this.Parameters.filter((x) => x.Name == parameter);
+
+		if (Out.length == 1)
+			return Out[0];
+
+		return Out;
+	}
+}
+
+export namespace Selector {
+	export const AllPlayersType = 'a';
+	export const AllEntitiesType = 'e';
+	export const NearestPlayerType = 'p';
+	export const ExecutingEntityType = 's';
+	export const RandomType = 'r';
+
+	export function Parse(text: LocationWord): Selector {
+		let Out = new Selector(text.text.substring(1, 2), text.range);
+
+		//remove prefix
+		let data = text.text.substring(2);
+
+		if (data.startsWith('[') && data.endsWith(']')) {
+			var Parameters = ParseParameters(data.substring(1, data.length - 1), 3, text.range.start.line);
+
+			Out.Parameters = Parameters;
+		}
+
+		return Out;
+	}
+
+	export function ParseParameters(text: string, startindex: number, line: number): IParameter[] {
+		let Out: IParameter[] = [];
+
+		let start: number = 0;
+		let level: number = 0;
+
+		for (let index = 0; index < text.length; index++) {
+			const char = text[index];
+
+			switch (char) {
+				case '{':
+					level++;
+					break;
+				case '}':
+					level--;
+					break;
+
+				case ',':
+					if (level == 0) {
+						let P = IParameter.Parse(text.substring(start, index), index + startindex, line);
+						start = index + 1;
+
+						Out.push(P);
+					}
+
+				default:
+					continue;
+			}
+		}
+
+		return Out;
 	}
 }
 
@@ -87,19 +159,25 @@ export namespace IParameter {
 		let Value = text.substring(Index, text.length);
 
 		if (Name == "scores") {
+			let Scores = Selector.ParseParameters(Value, Index + startIndex, Line);
 
 			let Out: IScoreParameter = {
 				Name: Name,
 				Range: Range,
 				Value: Value,
-				Scores:
+				Scores: Scores
 			};
-
 
 			return Out;
 		}
 		else {
+			let Out: IParameter = {
+				Name: Name,
+				Range: Range,
+				Value: Value,
+			};
 
+			return Out;
 		}
 	}
 }

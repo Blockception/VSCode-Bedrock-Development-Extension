@@ -223,7 +223,7 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
       return;
 
     case MCCommandParameterType.selector:
-      return Selector.ProvideDiagnostics(data, receiver);
+      return Selector.ProvideDiagnostics(pattern, data, receiver, validation);
 
     case MCCommandParameterType.slotID:
     case MCCommandParameterType.slotType:

@@ -55,6 +55,15 @@ export class LocationWord {
     return false;
   }
 
+  substring(start : number, end? : number | undefined) : LocationWord {
+    let text = this.text.substring(start, end);
+
+    let startindex = start + this.range.start.character;
+    let RW = new RangedWord(text, startindex, startindex + text.length);
+    let out = new LocationWord(RW, this.range.start.line, this.uri);
+    return out;
+  }
+
   //Converts the given text into words
   static GetWords(text: string, lineIndex: number, uri: string): LocationWord[] {
     let Words = RangedWord.GetWords(text);
