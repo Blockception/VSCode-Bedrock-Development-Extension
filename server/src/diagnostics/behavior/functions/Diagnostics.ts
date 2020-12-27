@@ -71,17 +71,19 @@ export function Diagnose(doc: TextDocument, validation: ValidationData) {
     });
   }
 
-  try {
-    for (let index = 0; index < doc.lineCount; index++) {
+
+  for (let index = 0; index < doc.lineCount; index++) {
+    try {
       const line = getLine(doc, index);
       DiagnoseLine(line, index, validation, receiver);
+    } catch (error) {
+      receiver.push({
+        message: JSON.stringify(error),
+        range: { start: { character: 0, line: 0 }, end: { character: 1, line: index } },
+      });
     }
-  } catch (error) {
-    receiver.push({
-      message: JSON.stringify(error),
-      range: { start: { character: 0, line: 0 }, end: { character: 1, line: 0 } },
-    });
   }
+
 
   Database.Diagnotics.SetErrors(doc.uri, receiver);
 }
