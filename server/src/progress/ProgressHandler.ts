@@ -27,17 +27,17 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { WorkDoneProgressParams, WorkDoneProgressReporter } from "vscode-languageserver/node";
+import { WorkDoneProgress, WorkDoneProgressParams } from "vscode-languageserver";
 import { Manager } from "../manager/Manager";
 
 export class ProgressHandler {
   private Title: string;
   private value: number;
   private max: number;
-  private reporter: WorkDoneProgressReporter | undefined;
+  private reporter: WorkDoneProgress | undefined;
   private _done: boolean;
 
-  constructor(Title: string, value: number = 0, max: number = 1, reporter: WorkDoneProgressReporter | undefined = undefined) {
+  constructor(Title: string, value: number = 0, max: number = 1, reporter: WorkDoneProgress | undefined = undefined) {
     this._done = false;
     this.Title = Title;
     this.value = value;
@@ -125,7 +125,7 @@ export class ProgressHandler {
   /**
    * setups the connection
    */
-  private setup(reporter: WorkDoneProgressReporter | undefined) {
+  private setup(reporter: WorkDoneProgress | undefined) {
     if (reporter === undefined) {
       //has to request a token
       Manager.Connection.window.createWorkDoneProgress().then((x) => {

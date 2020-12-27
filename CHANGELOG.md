@@ -1,4 +1,5 @@
 # Changelog 
+- auto: Updated dependecies
 - auto: Project information Updated
 - auto: Generated includes
 - auto: Formatted typescript files
@@ -18,4 +19,3 @@
 - auto: Updated dependecies
 - Updated to 1.3.19
 - Updated
-- Updated to 1.3.18
