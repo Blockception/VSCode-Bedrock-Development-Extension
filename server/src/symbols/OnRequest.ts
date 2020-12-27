@@ -37,8 +37,8 @@ import { ConvertAllFile, ConvertQueried } from "./Conversion";
  *
  * @param params The parameter that specify which symbols to provide
  */
-export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[]> {
-  return new Promise<SymbolInformation[]>((resolve, reject) => {
+export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[] | undefined> {
+  return new Promise<SymbolInformation[] | undefined>((resolve, reject) => {
     resolve(OnDocumentSymbolRequest(params));
   });
 }
@@ -70,7 +70,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
 
   Out.push({
     kind: SymbolKind.Class,
-    location: Location.create(uri, Range.create(0, 0, Number.MAX_VALUE, 0)),
+    location: Location.create(uri, Range.create(0, 0, 0, 0)),
     name: GetFilename(uri),
   });
 
