@@ -96,9 +96,7 @@ export function getLine(doc: TextDocument, lineIndex: number): string {
  */
 export function IdentifyDoc(uri: string): string {
   if (uri.endsWith(".mcfunction")) return McFunctionIdentifier;
-
   if (uri.endsWith(".lang")) return McLanguageIdentifier;
-
   if (uri.endsWith(".json")) return JsonIdentifier;
 
   return McOtherIdentifier;
