@@ -1,21 +1,21 @@
 # Changelog 
-- Updated
-- Updated to 1.3.18
-- Updated to 1.3.18
-- auto: Updated dependecies
-- auto: Formatted json files
-- Updating to 1.3.17
-- Fixing fake players not allowed as destinations on scoreboard operations
-- Fixing ascending/descending being parsed as objectives instead of keywords
-- Updated
+- auto: Project information Updated
+- auto: Generated includes
 - auto: Formatted typescript files
-- auto: Updated dependecies
-- Updated to 1.3.16
-- Updated schemas
-- Fixing hovers
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Added selector check that only legal attributes are allowed
+- Refactored new server setup
+- Refactored diagnostics errors
+- Added selector diagnostics
+- Formatted
+- Added colours for riding
 - Updated
-- Merge pull request #23 from Blockception/dependabot/npm_and_yarn/server/ini-1.3.8
-- Merge pull request #24 from Blockception/dependabot/npm_and_yarn/client/ini-1.3.8
-- Bump ini from 1.3.5 to 1.3.8 in /client
-- Bump ini from 1.3.5 to 1.3.8 in /server
+- Updated
+- Updated
+- Moved files
+- auto: Generated Includes
+- Adding selector diagnostics
+- Updated
+- auto: Updated dependecies
+- Updated to 1.3.19
+- Updated
+- Updated to 1.3.18
