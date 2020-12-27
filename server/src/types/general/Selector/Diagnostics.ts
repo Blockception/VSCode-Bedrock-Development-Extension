@@ -193,8 +193,11 @@ function Coordinate(name: string, selector: Selector, receiver: Diagnostic[]): v
 
    var Parameter = selector.get(name);
 
-   if (Array.isArray(Parameter))
+   if (Array.isArray(Parameter)) {
+      if (Parameter.length == 0)
+         return;
       Parameter = Parameter[0];
+   }
 
    let value = Parameter.Value;
 
@@ -222,7 +225,11 @@ function Number(name: string, selector: Selector, receiver: Diagnostic[]) {
 
    var Parameters = selector.get(name);
 
-   if (Array.isArray(Parameters)) Parameters = Parameters[0];
+   if (Array.isArray(Parameters)) {
+      if (Parameters.length == 0)
+         return;
+      Parameters = Parameters[0];
+   }
 
    let Value = Parameters.Value;
    let NegativeTest = false;
@@ -242,7 +249,11 @@ function Range(name: string, selector: Selector, receiver: Diagnostic[]) {
 
    var Parameters = selector.get(name);
 
-   if (Array.isArray(Parameters)) Parameters = Parameters[0];
+   if (Array.isArray(Parameters)) {
+      if (Parameters.length == 0)
+         return;
+      Parameters = Parameters[0];
+   }
 
    let Value = Parameters.Value;
    let NegativeTest = false;
@@ -267,9 +278,13 @@ function ScoresCheck(selector: Selector, receiver: Diagnostic[], validation: Val
    let Parameter = selector.get('scores');
 
    if (Array.isArray(Parameter)) {
+      if (Parameter.length == 0)
+         return;
+
       if (Parameter.length > 1) {
          NewError2(receiver, selector.Range, 'Selector has multiple scores definitions, but can only have 1');
       }
+      
       Parameter = Parameter[0];
    }
 

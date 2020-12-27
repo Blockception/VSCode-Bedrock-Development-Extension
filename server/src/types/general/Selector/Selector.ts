@@ -125,6 +125,11 @@ export namespace Selector {
 			}
 		}
 
+		if (start < text.length) {
+			let P = IParameter.Parse(text.substring(start, text.length), start + startindex, line);
+			Out.push(P);
+		}
+
 		return Out;
 	}
 }
@@ -156,10 +161,11 @@ export namespace IParameter {
 
 		let Range: Range = { start: { character: startIndex, line: Line }, end: { character: startIndex + text.length, line: Line } };
 		let Name = text.substring(0, Index);
-		let Value = text.substring(Index, text.length);
+		let Value = text.substring(Index + 1, text.length);
 
 		if (Name == "scores") {
-			let Scores = Selector.ParseParameters(Value, Index + startIndex, Line);
+			Value = Value.substring(1, Value.length - 1);
+			let Scores = Selector.ParseParameters(Value, Index + 2 + startIndex, Line);
 
 			let Out: IScoreParameter = {
 				Name: Name,
