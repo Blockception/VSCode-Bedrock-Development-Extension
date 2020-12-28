@@ -85,6 +85,5 @@ export function setEvents() {
 
    // This handler provides semantic Tokens
    Connection.languages.semanticTokens.on(OnProvideSemanticRequestAsync);
-   Connection.languages.semanticTokens.onDelta(OnProvideDeltaSemanticRequestAsync);
    Connection.languages.semanticTokens.onRange(OnProvideRangeSemanticRequestAsync);
 }

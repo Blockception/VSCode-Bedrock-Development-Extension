@@ -1,4 +1,6 @@
 # Changelog 
+- Merge branch 'Language-server-update'
+- Updated
 - auto: Updated dependecies
 - auto: Project information Updated
 - auto: Generated includes
@@ -10,12 +12,10 @@
 - Formatted
 - Added colours for riding
 - Updated
+- Adding semantics supports
+- auto: Generated includeds
 - Updated
 - Updated
 - Moved files
 - auto: Generated Includes
 - Adding selector diagnostics
-- Updated
-- auto: Updated dependecies
-- Updated to 1.3.19
-- Updated

@@ -16,9 +16,9 @@ modification, are permitted provided that the following conditions are met:
 3. Neither the name of the copyright holder nor the names of its
    contributors may be used to endorse or promote products derived from
    this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED W
+THIS SOFTWARE IS PROVIDED BY THE ARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
 FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
@@ -27,32 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ReferenceParams, Location } from "vscode-languageserver";
-import { GetDocument } from "../code/include";
-import { McFunctionIdentifier, McOtherIdentifier } from "../Constants";
-import { ProvideJsonReferences } from "./Json";
-import { ProvideMcfunctionsReferences } from "./Mcfunction";
+import { Range, TextDocument } from 'vscode-languageserver-textdocument';
+import { SemanticTokens } from 'vscode-languageserver/node';
 
-export async function OnReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {
-  return new Promise<Location[] | undefined>((resolve, reject) => {
-    resolve(OnReferencesRequest(params));
-  });
-}
+export function ProvideJsonSemanticTokens(doc : TextDocument, range? : Range | undefined) : SemanticTokens {
+	if (range) {
+		
+	}
+	else {
 
-function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {
-  let doc = GetDocument(params.textDocument.uri);
-
-  switch (doc.languageId) {
-    case McFunctionIdentifier:
-      return ProvideMcfunctionsReferences(params, doc);
-
-    case McOtherIdentifier:
-      return;
-
-    case "jsonc":
-    case "json":
-      return ProvideJsonReferences(params, doc);
-  }
-
-  return undefined;
+	}
 }
