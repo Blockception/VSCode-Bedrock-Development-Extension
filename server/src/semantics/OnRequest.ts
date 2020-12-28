@@ -27,44 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Connection, Diagnostic } from "vscode-languageserver";
-import { ServerSettings } from "../server/Settings";
-import { ExtensionState } from "./Extension State";
-import { ExtensionData } from "./Extension Data";
-import { ExtensionCapabiltities } from "./Extension Capabilties";
+import { SemanticTokens, SemanticTokensDeltaParams, SemanticTokensParams, SemanticTokensRangeParams } from 'vscode-languageserver/node';
 
-export class Manager {
-  /**
-   * The different state the manager can posssibly have or be in
-   */
-  static State: ExtensionState = new ExtensionState();
+export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
 
-  /**
-   * The data that the extension can have
-   */
-  static Data: ExtensionData = new ExtensionData();
-
-  /**
-   * The possible capabiltities of the server
-   */
-  static Capabiltities = new ExtensionCapabiltities();
-
-  //Server stuff
-  static Connection: Connection;
-  static Settings: ServerSettings = ServerSettings.createDefaulSettings();
 }
 
-export namespace Manager {
-  export namespace Diagnostic {
-    /**
-     * Sends the diagnostics to the client
-     */
-    export function SendDiagnostics(doc: TextDocument, Diagnostics: Diagnostic[]): void {
-      Manager.Connection.sendDiagnostics({
-        diagnostics: Diagnostics,
-        uri: doc.uri,
-      });
-    }
-  }
+export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
+
+}
+
+export function OnProvideDeltaSemanticRequestAsync(params: SemanticTokensDeltaParams): Promise<SemanticTokens | SemanticTokensDelta> {
+
 }

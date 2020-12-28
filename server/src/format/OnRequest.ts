@@ -34,14 +34,14 @@ import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
 import { formatLangauge, formatLangaugeRange } from "./Language";
 import { formatMcfunction, formatMcfunctionRange } from "./Mcfunction";
 
-export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): Promise<TextEdit[]> {
-  return new Promise<TextEdit[]>((resolve, reject) => {
+export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): Promise<TextEdit[] | undefined> {
+  return new Promise<TextEdit[] | undefined>((resolve, reject) => {
     resolve(OnDocumentFormatRequest(params));
   });
 }
 
-export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattingParams): Promise<TextEdit[]> {
-  return new Promise<TextEdit[]>((resolve, reject) => {
+export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattingParams): Promise<TextEdit[] | undefined> {
+  return new Promise<TextEdit[] | undefined>((resolve, reject) => {
     resolve(OnDocumentRangeFormatRequest(params));
   });
 }

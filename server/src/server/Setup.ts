@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { createConnection, ProposedFeatures } from "vscode-languageserver/node";
+import { createConnection, ProposedFeatures } from 'vscode-languageserver/node';
 import { Manager } from "../manager/Manager";
 import { setEvents } from "./Events/Events";
 import { onInitializeAsync } from "./onInitialize";
@@ -39,6 +39,7 @@ export function Setup() {
 
   // Create a connection for the server, using Node's IPC as a transport.
   // Also include all preview / proposed LSP features.
+
   let connection = createConnection(ProposedFeatures.all);
   Manager.Connection = connection;
 

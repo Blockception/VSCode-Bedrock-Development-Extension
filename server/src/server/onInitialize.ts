@@ -30,6 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../manager/Manager";
 import { Progress } from "../progress/Progress";
+import * as Constants from '../Constants';
+import { semantics } from '../include';
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {
@@ -37,7 +39,7 @@ export async function onInitializeAsync(params: InitializeParams): Promise<Initi
   });
 }
 
-function onInitialize(params: InitializeParams): InitializeResult {
+export function onInitialize(params: InitializeParams): InitializeResult {
   console.log("Initializing minecraft server");
 
   //process capabilities of the client
@@ -50,7 +52,7 @@ function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: ["bc.minecraft.errors.import", "bc.minecraft.diagnose.project"],
+        commands: [Constants.McImportErrorsCommandID, Constants.McDiagnoseProjectCommanID],
         workDoneProgress: true,
       },
 
@@ -81,6 +83,22 @@ function onInitialize(params: InitializeParams): InitializeResult {
         triggerCharacters: [" "],
         retriggerCharacters: [" ", "\t"],
         workDoneProgress: true,
+      },
+
+      semanticTokensProvider: {
+        documentSelector: [
+          Constants.McFunctionIdentifier,
+          Constants.McLanguageIdentifier,
+          Constants.McOtherIdentifier,
+          Constants.JsonCIdentifier,
+          Constants.JsonIdentifier
+        ],
+        legend: {
+          tokenModifiers: semantics.SemanticModifiers,
+          tokenTypes: semantics.SemanticTokens
+        },
+        full: true,
+        range: true
       },
 
       workspace: {
