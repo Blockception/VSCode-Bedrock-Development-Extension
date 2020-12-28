@@ -33,38 +33,44 @@ import { GetDocument } from '../code/include';
 import * as Constants from '../Constants'
 import { ProvideJsonSemanticTokens } from './Json';
 
-export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
-   return new Promise<SemanticTokens>((resolve, reject) => {
+export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens | undefined> {
+   return new Promise<SemanticTokens | undefined>((resolve, reject) => {
       resolve(OnProvideSemanticRequest(params));
    });
 }
 
-export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
-   return new Promise<SemanticTokens>((resolve, reject) => {
+export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens | undefined> {
+   return new Promise<SemanticTokens | undefined>((resolve, reject) => {
       resolve(OnProvideSemanticRequest(params));
    });
 }
 
 
-function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
+function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens | undefined {
    let doc = GetDocument(params.textDocument.uri);
-   let range : Range | undefined = undefined;
+   let range: Range | undefined = undefined;
 
    if (IsSemanticTokensRangeParams(params)) {
       range = params.range;
    }
 
-   switch(doc.languageId) {
+   switch (doc.languageId) {
       case Constants.JsonCIdentifier:
       case Constants.JsonIdentifier:
          return ProvideJsonSemanticTokens(doc, range);
-         
+
+      case Constants.McFunctionIdentifier:
+      case Constants.McOtherIdentifier:
+      case Constants.McLanguageIdentifier:
+         break;
    }
+
+   return undefined;
 }
 
 
 function IsSemanticTokensRangeParams(value: SemanticTokensRangeParams | SemanticTokensParams): value is SemanticTokensRangeParams {
-   let temp : any = value;
+   let temp: any = value;
 
    if (temp.range)
       if (Range.is(temp.range))

@@ -16,9 +16,9 @@ modification, are permitted provided that the following conditions are met:
 3. Neither the name of the copyright holder nor the names of its
    contributors may be used to endorse or promote products derived from
    this software without specific prior written permission.
-COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED W
-THIS SOFTWARE IS PROVIDED BY THE ARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
 FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
@@ -27,14 +27,70 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { off } from 'process';
 import { Range, TextDocument } from 'vscode-languageserver-textdocument';
 import { SemanticTokens } from 'vscode-languageserver/node';
+import { IsMolang } from '../molang/Functions';
+import { JsonSemanticTokensBuilder } from './builders/JsonSemanticTokensBuilder';
 
-export function ProvideJsonSemanticTokens(doc : TextDocument, range? : Range | undefined) : SemanticTokens {
-	if (range) {
-		
-	}
-	else {
+export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
+   let Builder = new JsonSemanticTokensBuilder(doc);
+   let text = doc.getText(range);
+   let offset = 0;
 
-	}
+   if (range) {
+      offset = doc.offsetAt(range.start);
+   }
+   else {
+      offset = 0;
+   }
+
+   CreateTokens(text, offset, Builder);
+
+   return Builder.build();
+}
+
+/**
+ * 
+ * @param text 
+ * @param offset 
+ * @param Builder 
+ */
+function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensBuilder): void {
+   let index = 0;
+   let max = text.length;
+
+   while (index >= 0) {
+      let startindex = findNext(text, index);
+      if (startindex < 0) return;
+
+      let endindex = findNext(text, startindex);
+      if (endindex < 0) return;
+
+      startindex++;
+      let property = text.substring(startindex, endindex);
+
+      if (IsMolang(property)) {
+         CreateMolangTokens(property, startindex + offset, Builder);
+      }
+   }
+}
+
+function CreateMolangTokens(text : string, offset : number, Builder: JsonSemanticTokensBuilder): void {
+   
+}
+
+function findNext(text : string, startIndex : number) : number {
+   while (startIndex > -1) {
+      let startindex = text.indexOf('"', startIndex);
+      if (startindex < 0) break;
+
+      if (text.charAt(startindex - 1) === '\\' && text.charAt(startindex - 2) !== '\\') {
+         continue;
+      }
+
+      return startindex;
+   }
+
+   return -1;
 }
