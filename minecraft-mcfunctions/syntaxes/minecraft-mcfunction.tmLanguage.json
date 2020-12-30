@@ -109,6 +109,7 @@
         { "name": "entity.name.function.detect", "match": "\\bdetect\\b" },
         { "name": "entity.name.function.entity", "match": "\\bentity\\b" },
         { "name": "entity.name.function.filtered", "match": "\\bfiltered\\b" },
+        { "name": "entity.name.function.fog", "match": "\\bfog\\b" },
         { "name": "entity.name.function.force", "match": "\\bforce\\b" },
         { "name": "entity.name.function.fortress", "match": "\\bfortress\\b" },
         { "name": "entity.name.function.immediateRespawn", "match": "\\bimmediateRespawn\\b" },
