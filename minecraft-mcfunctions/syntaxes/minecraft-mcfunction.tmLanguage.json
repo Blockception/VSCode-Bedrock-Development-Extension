@@ -128,6 +128,8 @@
         { "name": "entity.name.function.on_area_loaded", "match": "\\bon_area_loaded\\b" },
         { "name": "entity.name.function.operation", "match": "\\boperation\\b" },
         { "name": "entity.name.function.players", "match": "\\bplayers\\b" },
+        { "name": "entity.name.function.pop", "match": "\\bpop\\b" },
+        { "name": "entity.name.function.push", "match": "\\bpush\\b" },
         { "name": "entity.name.function.remove", "match": "\\bremove\\b" },
         { "name": "entity.name.function.remove_all", "match": "\\bremove_all\\b" },
         { "name": "entity.name.function.replace", "match": "\\breplace\\b" },
