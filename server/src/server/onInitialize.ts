@@ -98,9 +98,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
           tokenTypes: SemanticTokens
         },
         range: true,
-        full: {
-          delta: true
-        }
+        full: true
       },
 
       workspace: {

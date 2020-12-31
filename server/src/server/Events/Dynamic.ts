@@ -45,7 +45,7 @@ export function SetDynamicEvents() {
 
   client.register(DocumentFormattingRequest.type, Formatoptions);
 
-  const registrationOptions: SemanticTokensRegistrationOptions = {
+  /*const registrationOptions: SemanticTokensRegistrationOptions = {
     documentSelector: [
       Constants.JsonCIdentifier,
       Constants.JsonIdentifier,
@@ -58,9 +58,7 @@ export function SetDynamicEvents() {
       tokenTypes: SemanticTokens
     },
     range: true,
-    full: {
-      delta: true
-    }
+    full: true
   }
-  client.register(SemanticTokensRegistrationType.type, registrationOptions);
+  client.register(SemanticTokensRegistrationType.type, registrationOptions);*/
 }

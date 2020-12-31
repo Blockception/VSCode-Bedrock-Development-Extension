@@ -80,6 +80,9 @@ export class CommandManager {
       return Out;
     }
 
+    if (Storage.length == 1)
+      return Storage;
+
     for (let I = 0; I < Storage.length; I++) {
       if (isMatch(com, Storage[I].Command)) Out.push(Storage[I]);
     }

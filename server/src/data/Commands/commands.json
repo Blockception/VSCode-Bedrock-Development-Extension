@@ -13,6 +13,7 @@
       "name": "camerashake",
       "documentation": { "value": "Applies shaking to the players' camera with specified intensity and duration" },
       "parameters": [
+        { "Text": "camerashake", "Type": "keyword", "Required": true },
         { "Text": "add", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "intensity", "Type": "float", "Required": false, "Options": { "minimum": 0, "maximum": 4 } },

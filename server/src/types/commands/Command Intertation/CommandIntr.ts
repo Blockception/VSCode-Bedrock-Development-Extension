@@ -63,7 +63,7 @@ export class CommandIntr {
 
     line = line.trim();
     let LineIndex = pos.line;
-    let Words = LocationWord.GetWords(line, LineIndex, uri);
+    let Words = LocationWord.GetWords(line, LineIndex, uri, pos.character);
     let char = pos.character;
     Out.Line = LineIndex;
     Out.Paramaters = Words;

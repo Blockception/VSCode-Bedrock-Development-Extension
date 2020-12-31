@@ -182,6 +182,7 @@
 
         { "name": "entity.name.type.class.ability", "match": "\\bability\\b" },
         { "name": "entity.name.type.class.alwaysday", "match": "\\balwaysday\\b" },
+        { "name": "entity.name.type.class.camerashake", "match": "\\bcamerashake\\b" },
         { "name": "entity.name.type.class.clear", "match": "\\bclear\\b" },
         { "name": "entity.name.type.class.clone", "match": "\\bclone\\b" },
         { "name": "entity.name.type.class.connect", "match": "\\bconnect\\b" },

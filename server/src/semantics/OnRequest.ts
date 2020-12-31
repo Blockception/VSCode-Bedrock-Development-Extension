@@ -32,6 +32,7 @@ import { SemanticTokensParams, SemanticTokensRangeParams } from 'vscode-language
 import { GetDocument, GetFilename } from '../code/include';
 import * as Constants from '../Constants'
 import { ProvideJsonSemanticTokens } from './Json';
+import { ProvideMcfunctionSemanticTokens } from './Mcfunctions';
 
 export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
    return new Promise<SemanticTokens>((resolve, reject) => {
@@ -62,6 +63,8 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
          return ProvideJsonSemanticTokens(doc, range);
 
       case Constants.McFunctionIdentifier:
+         return ProvideMcfunctionSemanticTokens(doc, range);
+
       case Constants.McOtherIdentifier:
       case Constants.McLanguageIdentifier:
          break;

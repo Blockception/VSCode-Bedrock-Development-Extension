@@ -28,18 +28,25 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, TextDocument } from 'vscode-languageserver-textdocument';
-import { SemanticTokenModifiers, SemanticTokens } from 'vscode-languageserver/node';
-import { words } from '../code/include';
-import { LocationWord } from '../code/words/include';
+import { SemanticTokens } from 'vscode-languageserver/node';
 import { OffsetWord } from '../code/words/OffsetWord';
 import { IsMolang } from '../molang/Functions';
 import { CreateMolangTokens } from '../molang/Words';
 import { IsFloat } from '../types/general/Float/include';
 import { IsSelector } from '../types/general/Selector/include';
+import { DetectGeneralDataType, GeneralDataType } from '../types/minecraft/format/include';
 import { JsonSemanticTokensBuilder } from './builders/JsonSemanticTokensBuilder';
-import { SemanticModifiers, SemanticModifiersEnum, SemanticTokensEnum } from './Legend';
+import { McfunctionSemanticTokensBuilder } from './builders/McfunctionSemanticTokensBuilder';
+import { SemanticModifiersEnum, SemanticTokensEnum } from './Legend';
+import { McfunctionLineTokens } from './Mcfunctions';
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
+   var Type = DetectGeneralDataType(doc.uri);
+
+   //Not related to minecraft
+   if (Type == GeneralDataType.unknown)
+      return { data: [] };
+
    let Builder = new JsonSemanticTokensBuilder(doc);
    let text = doc.getText(range);
    let offset = 0;
@@ -64,37 +71,53 @@ export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | und
  */
 function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensBuilder): void {
    let index = 0;
-   let max = text.length;
 
    while (index >= 0) {
       let startindex = findNext(text, index);
       if (startindex < 0) return;
 
-      let endindex = findNext(text, startindex);
+      let endindex = findNext(text, startindex + 1);
       if (endindex < 0) return;
 
       startindex++;
       let property = text.substring(startindex, endindex);
+      index = endindex + 1;
 
       if (IsMolang(property)) {
 
          if (property.startsWith('/')) {
-
+            property = property.substring(1, property.length);
+            Builder.Add(startindex, endindex + 1, SemanticTokensEnum.operator);
+            startindex++;
+            McfunctionLineTokens(property, offset + startindex, McfunctionSemanticTokensBuilder.FromJson(Builder));
          }
          else {
-            let Words = CreateMolangTokens(property, offset);
+            let Words = CreateMolangTokens(property, offset + startindex);
             ConvertWords(Words, Builder);
          }
       }
    }
 }
 
+/**
+ * 
+ * @param Words 
+ * @param Builder 
+ */
 function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
    for (let I = 0; I < Words.length; I++) {
       let Word = Words[I];
 
       let text = Word.text;
       switch (text) {
+         case 'Array':
+         case 'array':
+         case 'geometry':
+         case 'Geometry':
+         case 'material':
+         case 'Material':
+         case 'texture':
+         case 'Texture':
          case 'Math':
          case 'math':
          case 'query':
@@ -102,9 +125,17 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
             Builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
             break;
 
+         case '(':
+         case '[':
+         case '{':
+         case '}':
+         case ']':
+         case ')':
          case '==':
          case '!=':
          case '&&':
+         case '||':
+         case '|=':
          case '>=':
          case '<=':
          case '>':
@@ -112,6 +143,7 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
          case '<':
          case '?':
          case ':':
+         case ';':
          case '+':
          case '-':
          case '/':

@@ -46,8 +46,8 @@ export class RangedWord {
   }
 
   //Creates a range of the given word
-  ToRange(lineIndex: number): Range {
-    return Range.create(lineIndex, this.startindex, lineIndex, this.endindex);
+  ToRange(lineIndex: number, charOffset : number = 0): Range {
+    return Range.create(lineIndex, this.startindex + charOffset, lineIndex, this.endindex + charOffset);
   }
 
   //returns true or false is the cursor is inside this word

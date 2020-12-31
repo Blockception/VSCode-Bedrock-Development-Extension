@@ -43,7 +43,7 @@ export function IsMolang(text: string): boolean {
    }
 
    //general test
-   let matches = text.match(/((query|math|variable|texture|temp|geometry|material)\.[a-z_]+|->)/);
+   let matches = text.match(/(([Qq]uery|[Mm]ath|[Vv]ariable|[Tt]exture|[tT]emp|[Gg]eometry|[Mm]aterial)\.[a-z_]+|->)/);
 
    if (matches)
       return true;

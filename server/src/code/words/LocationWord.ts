@@ -69,9 +69,9 @@ export class LocationWord {
   }
 
   //Converts the given text into words
-  static GetWords(text: string, lineIndex: number, uri: string): LocationWord[] {
+  static GetWords(text: string, lineIndex: number, uri: string, charOffset: number = 0): LocationWord[] {
     let Words = RangedWord.GetWords(text);
-    let Out = LocationWord.ConvertAll(Words, lineIndex, uri);
+    let Out = LocationWord.ConvertAll(Words, lineIndex, uri, charOffset);
 
     return Out;
   }
@@ -79,12 +79,12 @@ export class LocationWord {
 
 export namespace LocationWord {
   //
-  export function ConvertAll(Words: RangedWord[], lineIndex: number, uri: string): LocationWord[] {
+  export function ConvertAll(Words: RangedWord[], lineIndex: number, uri: string, charOffset: number = 0): LocationWord[] {
     let Out: LocationWord[] = [];
 
     for (let index = 0; index < Words.length; index++) {
       const element = Words[index];
-      Out.push(new LocationWord(element.text, element.ToRange(lineIndex), uri));
+      Out.push(new LocationWord(element.text, element.ToRange(lineIndex, charOffset), uri));
     }
 
     return Out;

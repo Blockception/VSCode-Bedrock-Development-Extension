@@ -27,28 +27,51 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { OffsetWord } from '../code/words/OffsetWord';
+import { LocationWord } from '../code/words/include';
+import { IParameter, IScoreParameter, Selector } from '../types/general/Selector/include';
+import { McfunctionSemanticTokensBuilder } from './builders/McfunctionSemanticTokensBuilder';
+import { SemanticModifiersEnum, SemanticTokensEnum } from './Legend';
 
-export function CreateMolangTokens(text: string, offset: number): OffsetWord[] {
-	let startindex = 0;
-	let Out: OffsetWord[] = [];
+export function CreateSelectorTokens(Word: LocationWord, Builder: McfunctionSemanticTokensBuilder): void {
+	let sel = Selector.Parse(Word);
 
-	let matches = text.match(/([A-Za-z_]+|[\/\.!+\-\*\&\[\]\{\}\(\)><=:;?\|]+|@[a-z]|[0-9\.]+)/gi);
+	ProcessParameters(sel.Parameters, Builder);
+}
 
-	if (matches) {
-		for (let I = 0; I < matches.length; I++) {
-			let match = matches[I];
+function ProcessParameters(Paramaters: IParameter[], Builder: McfunctionSemanticTokensBuilder): void {
+	for (let I = 0; I < Paramaters.length; I++) {
+		let parameter = Paramaters[I];
 
-			let index = text.indexOf(match, startindex);
+		CreateTokens(parameter, Builder);
+	}
+}
 
-			if (index < 0) break;
 
-			let word = new OffsetWord(match, index + offset);
-			Out.push(word);
+function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: McfunctionSemanticTokensBuilder): void {
+	//process header
+	let P = Parameter.Range.start;
+	let LineIndex = P.line;
+	let startindex = P.character;
+	let Length = Parameter.Name.length;
+	let attribute = Parameter.Name;
+	Builder.AddAt(LineIndex, startindex, Length, SemanticTokensEnum.parameter);
 
-			startindex = index + 1;
-		}
+	if (IScoreParameter.is(Parameter)) {
+		ProcessParameters(Parameter.Scores, Builder);
+		return;
 	}
 
-	return Out;
+	//startindex of the value
+	startindex += Length = 1;
+	let value = Parameter.Value;
+	Length = value.length;
+
+	switch (attribute) {
+		case 'name':
+			Builder.AddAt(LineIndex, startindex, Length, SemanticTokensEnum.string);
+			return;
+
+		case 'tag':
+		default:
+	}
 }
