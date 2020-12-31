@@ -33,20 +33,20 @@ import { GetDocument } from '../code/include';
 import * as Constants from '../Constants'
 import { ProvideJsonSemanticTokens } from './Json';
 
-export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens | undefined> {
-   return new Promise<SemanticTokens | undefined>((resolve, reject) => {
+export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
+   return new Promise<SemanticTokens>((resolve, reject) => {
       resolve(OnProvideSemanticRequest(params));
    });
 }
 
-export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens | undefined> {
-   return new Promise<SemanticTokens | undefined>((resolve, reject) => {
+export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
+   return new Promise<SemanticTokens>((resolve, reject) => {
       resolve(OnProvideSemanticRequest(params));
    });
 }
 
 
-function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens | undefined {
+function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
    let doc = GetDocument(params.textDocument.uri);
    let range: Range | undefined = undefined;
 
@@ -65,7 +65,7 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
          break;
    }
 
-   return undefined;
+   return { data: [] };
 }
 
 

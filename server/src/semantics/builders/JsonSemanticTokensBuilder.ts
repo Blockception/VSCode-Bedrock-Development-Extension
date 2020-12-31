@@ -28,20 +28,25 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SemanticTokens, SemanticTokensBuilder } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
+import { Position, TextDocument } from 'vscode-languageserver-textdocument';
+import { OffsetWord } from '../../code/words/OffsetWord';
 import { SemanticModifiersEnum, SemanticTokensEnum } from '../include';
 
 export class JsonSemanticTokensBuilder {
-   private Builder : SemanticTokensBuilder;
-   private doc : TextDocument;
+   public Builder : SemanticTokensBuilder;
+   public doc : TextDocument;
 
    constructor(doc : TextDocument) {
       this.doc = doc;
       this.Builder = new SemanticTokensBuilder();
    }
 
-   build() : SemanticTokens {
+   Build() : SemanticTokens {
       return this.Builder.build();
+   }
+
+   PositionAt(offset : number) : Position {
+      return this.doc.positionAt(offset);
    }
 
    /**
@@ -53,7 +58,13 @@ export class JsonSemanticTokensBuilder {
     */
    Add(startindex : number, endindex : number, tokenType : SemanticTokensEnum, tokenModifier : SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
       let p = this.doc.positionAt(startindex);
-      let length = endindex = startindex;
+      let length = endindex - startindex;
+      this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+   }
+
+   AddWord(word : OffsetWord, tokenType : SemanticTokensEnum, tokenModifier : SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
+      let p = this.doc.positionAt(word.offset);
+      let length = word.text.length;
       this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
    }
 }

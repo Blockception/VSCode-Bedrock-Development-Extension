@@ -27,28 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { OffsetWord } from '../code/words/OffsetWord';
+import { Range, TextDocument } from 'vscode-languageserver-textdocument';
 
-export function CreateMolangTokens(text: string, offset: number): OffsetWord[] {
-	let startindex = 0;
-	let Out: OffsetWord[] = [];
+export class OffsetWord {
+	public text: string;
+	public offset: number;
 
-	let matches = text.match(/([A-Za-z_]+|[\/\.!+\-\*\&\[\]\{\}\(\)><=:?]+|@[a-z]|[0-9\.]+)/);
-
-	if (matches) {
-		for (let I = 0; I < matches.length; I++) {
-			let match = matches[I];
-
-			let index = text.indexOf(match, startindex);
-
-			if (index < 0) break;
-
-			let word = new OffsetWord(match, index + offset);
-			Out.push(word);
-
-			startindex = index;
-		}
+	constructor(text: string, offset: number) {
+		this.text = text;
+		this.offset = offset;
 	}
 
-	return Out;
+	ToRange(doc: TextDocument): Range {
+		return {
+			start: doc.positionAt(this.offset),
+			end: doc.positionAt(this.offset + this.text.length)
+		};
+	}
 }

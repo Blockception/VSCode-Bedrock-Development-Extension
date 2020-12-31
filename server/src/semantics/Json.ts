@@ -28,9 +28,16 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, TextDocument } from 'vscode-languageserver-textdocument';
-import { SemanticTokens } from 'vscode-languageserver/node';
+import { SemanticTokenModifiers, SemanticTokens } from 'vscode-languageserver/node';
+import { words } from '../code/include';
+import { LocationWord } from '../code/words/include';
+import { OffsetWord } from '../code/words/OffsetWord';
 import { IsMolang } from '../molang/Functions';
+import { CreateMolangTokens } from '../molang/Words';
+import { IsFloat } from '../types/general/Float/include';
+import { IsSelector } from '../types/general/Selector/include';
 import { JsonSemanticTokensBuilder } from './builders/JsonSemanticTokensBuilder';
+import { SemanticModifiers, SemanticModifiersEnum, SemanticTokensEnum } from './Legend';
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
    let Builder = new JsonSemanticTokensBuilder(doc);
@@ -46,7 +53,7 @@ export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | und
 
    CreateTokens(text, offset, Builder);
 
-   return Builder.build();
+   return Builder.Build();
 }
 
 /**
@@ -70,11 +77,64 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
       let property = text.substring(startindex, endindex);
 
       if (IsMolang(property)) {
-         CreateTokens(property, startindex + offset, Builder);
+
+         if (property.startsWith('/')) {
+
+         }
+         else {
+            let Words = CreateMolangTokens(property, offset);
+            ConvertWords(Words, Builder);
+         }
       }
    }
 }
-function findNext(text : string, startIndex : number) : number {
+
+function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
+   for (let I = 0; I < Words.length; I++) {
+      let Word = Words[I];
+
+      let text = Word.text;
+      switch (text) {
+         case 'Math':
+         case 'math':
+         case 'query':
+         case 'variable':
+            Builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
+            break;
+
+         case '==':
+         case '!=':
+         case '&&':
+         case '>=':
+         case '<=':
+         case '>':
+         case '!':
+         case '<':
+         case '?':
+         case ':':
+         case '+':
+         case '-':
+         case '/':
+         case '*':
+            Builder.AddWord(Word, SemanticTokensEnum.operator);
+            break;
+
+         default:
+            if (IsFloat(text)) {
+               Builder.AddWord(Word, SemanticTokensEnum.number);
+            }
+            else if (IsSelector(text, undefined)) {
+               Builder.AddWord(Word, SemanticTokensEnum.variable);
+            }
+            else {
+               Builder.AddWord(Word, SemanticTokensEnum.method);
+            }
+      }
+   }
+}
+
+
+function findNext(text: string, startIndex: number): number {
    while (startIndex > -1) {
       let startindex = text.indexOf('"', startIndex);
       if (startindex < 0) break;

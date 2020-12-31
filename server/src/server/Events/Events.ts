@@ -38,7 +38,7 @@ import { OnSignatureRequestAsync } from "../../signatures/OnRequest";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../symbols/OnRequest";
 import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
-import { OnProvideDeltaSemanticRequestAsync, OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from '../../semantics/include';
+import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from '../../semantics/include';
 
 /**
  * Setup the server events

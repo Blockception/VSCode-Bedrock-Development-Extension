@@ -36,9 +36,9 @@ export class LocationWord {
   public range: Range;
   public uri: string;
 
-  constructor(word: RangedWord, lineIndex: number, uri: string) {
-    this.text = word.text;
-    this.range = word.ToRange(lineIndex);
+  constructor(word: string, range: Range, uri: string) {
+    this.text = word;
+    this.range = range;
     this.uri = uri;
   }
 
@@ -59,8 +59,12 @@ export class LocationWord {
     let text = this.text.substring(start, end);
 
     let startindex = start + this.range.start.character;
-    let RW = new RangedWord(text, startindex, startindex + text.length);
-    let out = new LocationWord(RW, this.range.start.line, this.uri);
+    let range: Range = {
+      start: { character: startindex, line: this.range.start.line },
+      end: { character: startindex + text.length, line: this.range.end.line }
+    };
+
+    let out = new LocationWord(text, range, this.uri);
     return out;
   }
 
@@ -74,12 +78,13 @@ export class LocationWord {
 }
 
 export namespace LocationWord {
+  //
   export function ConvertAll(Words: RangedWord[], lineIndex: number, uri: string): LocationWord[] {
     let Out: LocationWord[] = [];
 
     for (let index = 0; index < Words.length; index++) {
       const element = Words[index];
-      Out.push(new LocationWord(Words[index], lineIndex, uri));
+      Out.push(new LocationWord(element.text, element.ToRange(lineIndex), uri));
     }
 
     return Out;
