@@ -1,4 +1,9 @@
 # Changelog 
+- Stopping vscode from forcing wrong semantics
+- auto: Updated dependecies
+- auto: Updated dependecies
+- Updated to 1.3.20
+- bug fixing for compiling
 - auto: Formatted typescript files
 - Finsihing semantic tokens
 - auto: Updated dependecies
@@ -14,8 +19,3 @@
 - Merge branch 'Language-server-update'
 - Updated
 - auto: Updated dependecies
-- auto: Project information Updated
-- auto: Generated includes
-- auto: Formatted typescript files
-- Added selector check that only legal attributes are allowed
-- Refactored new server setup
