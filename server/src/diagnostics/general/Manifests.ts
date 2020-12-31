@@ -36,7 +36,6 @@ export function DiagnoseManifest(data: DiagnoseContext): void {
   let Worldpacks: Manifest[] = [];
 
   const ps = data.projectStructure;
-  let prog = data.progress;
 
   ps.BehaviourPackFolders.forEach((f) => Get(f, Behaviorpacks));
   ps.ResourcePackFolders.forEach((f) => Get(f, Resourcepacks));

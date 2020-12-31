@@ -32,19 +32,15 @@ import { Database } from "../database/include";
 import { behavior, world } from "../diagnostics/include";
 import { DiagnoseContext } from "../diagnostics/types/Context";
 import { Manager } from "../manager/Manager";
-import { ProgressHandler } from "../progress/include";
 import { GetValidationData } from "../validation/include";
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
   console.log("Starting on diagnosing project");
 
   Database.MinecraftProgramData.GetProjecData((data) => {
-    let progress = new ProgressHandler("Diagnosing", 0, 1, undefined);
-
-    let Validation = GetValidationData(data.Workspaces);
+     let Validation = GetValidationData(data.Workspaces);
 
     let context: DiagnoseContext = {
-      progress: progress,
       projectStructure: data,
       data: Validation,
     };
@@ -60,7 +56,6 @@ export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
     world.Diagnose(context);
     behavior.Diagnose(context);
 
-    progress.done();
     console.log("Diagnosing done");
   });
 }

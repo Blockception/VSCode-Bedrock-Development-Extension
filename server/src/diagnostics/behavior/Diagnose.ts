@@ -32,11 +32,7 @@ import { DiagnoseContext } from "../types/include";
 import { functions } from "./include";
 
 export function Diagnose(context: DiagnoseContext): void {
-  context.progress.addMax(context.projectStructure.BehaviourPackFolders.length);
-
   context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
-
-  context.progress.addProgress(context.projectStructure.BehaviourPackFolders.length);
 }
 
 export function DiagnoseFolder(uri: string, context: DiagnoseContext): void {
