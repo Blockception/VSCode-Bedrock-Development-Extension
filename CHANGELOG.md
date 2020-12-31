@@ -1,4 +1,16 @@
 # Changelog 
+- auto: Formatted typescript files
+- Finsihing semantic tokens
+- auto: Updated dependecies
+- auto: Updated dependecies
+- Removed progress handling
+- auto: Generated Includes
+- Finishing up on semantic tokens
+- Added push and pop syntax highlighting
+- Added fog
+- Updated
+- Adding semantic tokens
+- Adding semantic tokens support
 - Merge branch 'Language-server-update'
 - Updated
 - auto: Updated dependecies
@@ -7,15 +19,3 @@
 - auto: Formatted typescript files
 - Added selector check that only legal attributes are allowed
 - Refactored new server setup
-- Refactored diagnostics errors
-- Added selector diagnostics
-- Formatted
-- Added colours for riding
-- Updated
-- Adding semantics supports
-- auto: Generated includeds
-- Updated
-- Updated
-- Moved files
-- auto: Generated Includes
-- Adding selector diagnostics
