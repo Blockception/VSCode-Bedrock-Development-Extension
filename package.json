@@ -51,9 +51,9 @@
     "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
     "mocha": "^8.2.1",
-    "ts-loader": "^8.0.12",
+    "ts-loader": "^8.0.13",
     "typescript": "^3.9.7",
-    "webpack": "^5.11.0",
+    "webpack": "^5.11.1",
     "webpack-cli": "^4.3.0"
   },
   "engines": {
@@ -134,21 +134,35 @@
     "languages": [
       {
         "id": "bc-minecraft-language",
-        "aliases": [ "Minecraft Language" ],
-        "extensions": [ ".lang" ],
-        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json",
+        "aliases": [
+          "Minecraft Language"
+        ],
+        "extensions": [
+          ".lang"
+        ],
+        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
       },
       {
         "id": "bc-minecraft-mcfunction",
-        "aliases": [ "Minecraft Mcfunction" ],
-        "extensions": [ ".mcfunction" ],
+        "aliases": [
+          "Minecraft Mcfunction"
+        ],
+        "extensions": [
+          ".mcfunction"
+        ],
         "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
-        "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
+        "filenamePatterns": [
+          "[a-z0-9_]*\\.mcfunction"
+        ]
       },
       {
         "id": "bc-minecraft-molang",
-        "aliases": [ "Minecraft molang" ],
-        "extensions": [ ".molang" ],
+        "aliases": [
+          "Minecraft molang"
+        ],
+        "extensions": [
+          ".molang"
+        ],
         "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
       }
     ],
