@@ -28,25 +28,21 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-
 export function IsMolang(text: string): boolean {
-   if (text.startsWith('@s'))
-      return true;
+  if (text.startsWith("@s")) return true;
 
-   if (text.startsWith('/')) {
-      let matches = text.match(/^\/[a-z]+ /);
+  if (text.startsWith("/")) {
+    let matches = text.match(/^\/[a-z]+ /);
 
-      if (matches)
-         return true;
+    if (matches) return true;
 
-      return false;
-   }
+    return false;
+  }
 
-   //general test
-   let matches = text.match(/(([Qq]uery|[Mm]ath|[Vv]ariable|[Tt]exture|[tT]emp|[Gg]eometry|[Mm]aterial)\.[a-z_]+|->)/);
+  //general test
+  let matches = text.match(/(([Qq]uery|[Mm]ath|[Vv]ariable|[Tt]exture|[tT]emp|[Gg]eometry|[Mm]aterial)\.[a-z_]+|->)/);
 
-   if (matches)
-      return true;
+  if (matches) return true;
 
-   return false;
+  return false;
 }

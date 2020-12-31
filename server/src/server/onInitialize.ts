@@ -29,9 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../manager/Manager";
-import * as Constants from '../Constants';
-import { semantics } from '../include';
-import { SemanticModifiers, SemanticTokens } from '../semantics/include';
+import * as Constants from "../Constants";
+import { semantics } from "../include";
+import { SemanticModifiers, SemanticTokens } from "../semantics/include";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {
@@ -91,21 +91,21 @@ export function onInitialize(params: InitializeParams): InitializeResult {
           Constants.JsonIdentifier,
           Constants.McFunctionIdentifier,
           Constants.McLanguageIdentifier,
-          Constants.McOtherIdentifier
+          Constants.McOtherIdentifier,
         ],
         legend: {
           tokenModifiers: SemanticModifiers,
-          tokenTypes: SemanticTokens
+          tokenTypes: SemanticTokens,
         },
         range: true,
-        full: true
+        full: true,
       },
 
       workspace: {
         workspaceFolders: {
           changeNotifications: true,
           supported: true,
-        }
+        },
       },
     },
     serverInfo: {

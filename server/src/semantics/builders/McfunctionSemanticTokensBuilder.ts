@@ -27,57 +27,68 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SemanticTokens, SemanticTokensBuilder } from 'vscode-languageserver';
-import { Position, TextDocument } from 'vscode-languageserver-textdocument';
-import { LocationWord } from '../../code/words/include';
-import { OffsetWord } from '../../code/words/OffsetWord';
-import { SemanticModifiersEnum, SemanticTokensEnum } from '../include';
-import { JsonSemanticTokensBuilder } from './include';
+import { SemanticTokens, SemanticTokensBuilder } from "vscode-languageserver";
+import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { LocationWord } from "../../code/words/include";
+import { OffsetWord } from "../../code/words/OffsetWord";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../include";
+import { JsonSemanticTokensBuilder } from "./include";
 
 export class McfunctionSemanticTokensBuilder {
-   public Builder: SemanticTokensBuilder;
-   public doc: TextDocument;
+  public Builder: SemanticTokensBuilder;
+  public doc: TextDocument;
 
-   constructor(doc: TextDocument) {
-      this.doc = doc;
-      this.Builder = new SemanticTokensBuilder();
-   }
+  constructor(doc: TextDocument) {
+    this.doc = doc;
+    this.Builder = new SemanticTokensBuilder();
+  }
 
-   Build(): SemanticTokens {
-      return this.Builder.build();
-   }
+  Build(): SemanticTokens {
+    return this.Builder.build();
+  }
 
-   PositionAt(offset: number): Position {
-      return this.doc.positionAt(offset);
-   }
+  PositionAt(offset: number): Position {
+    return this.doc.positionAt(offset);
+  }
 
-   /**
-    * Adds the given text locations into the tokens builder
-    * @param startindex 
-    * @param endindex 
-    * @param tokenType 
-    * @param tokenModifier 
-    */
-   Add(startindex: number, endindex: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-      let p = this.doc.positionAt(startindex);
-      let length = endindex - startindex;
-      this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
-   }
+  /**
+   * Adds the given text locations into the tokens builder
+   * @param startindex
+   * @param endindex
+   * @param tokenType
+   * @param tokenModifier
+   */
+  Add(
+    startindex: number,
+    endindex: number,
+    tokenType: SemanticTokensEnum,
+    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
+  ): void {
+    let p = this.doc.positionAt(startindex);
+    let length = endindex - startindex;
+    this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+  }
 
-   AddWord(word: LocationWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-      let p = word.range.start;
-      let length = word.text.length;
-      this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
-   }
+  AddWord(word: LocationWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
+    let p = word.range.start;
+    let length = word.text.length;
+    this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+  }
 
-   AddAt(line: number, char: number, length: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-      this.Builder.push(line, char, length, tokenType, tokenModifier);
-   }
+  AddAt(
+    line: number,
+    char: number,
+    length: number,
+    tokenType: SemanticTokensEnum,
+    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
+  ): void {
+    this.Builder.push(line, char, length, tokenType, tokenModifier);
+  }
 
-   static FromJson(Builder: JsonSemanticTokensBuilder): McfunctionSemanticTokensBuilder {
-      let Out = new McfunctionSemanticTokensBuilder(Builder.doc);
-      Out.Builder = Builder.Builder;
+  static FromJson(Builder: JsonSemanticTokensBuilder): McfunctionSemanticTokensBuilder {
+    let Out = new McfunctionSemanticTokensBuilder(Builder.doc);
+    Out.Builder = Builder.Builder;
 
-      return Out;
-   }
+    return Out;
+  }
 }

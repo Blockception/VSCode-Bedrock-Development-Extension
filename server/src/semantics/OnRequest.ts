@@ -27,59 +27,55 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Range, SemanticTokens } from 'vscode-languageserver/node';
-import { SemanticTokensParams, SemanticTokensRangeParams } from 'vscode-languageserver/node';
-import { GetDocument, GetFilename } from '../code/include';
-import * as Constants from '../Constants'
-import { ProvideJsonSemanticTokens } from './Json';
-import { ProvideMcfunctionSemanticTokens } from './Mcfunctions';
+import { Range, SemanticTokens } from "vscode-languageserver/node";
+import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
+import { GetDocument, GetFilename } from "../code/include";
+import * as Constants from "../Constants";
+import { ProvideJsonSemanticTokens } from "./Json";
+import { ProvideMcfunctionSemanticTokens } from "./Mcfunctions";
 
 export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
-   return new Promise<SemanticTokens>((resolve, reject) => {
-      resolve(OnProvideSemanticRequest(params));
-   });
+  return new Promise<SemanticTokens>((resolve, reject) => {
+    resolve(OnProvideSemanticRequest(params));
+  });
 }
 
 export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
-   return new Promise<SemanticTokens>((resolve, reject) => {
-      resolve(OnProvideSemanticRequest(params));
-   });
+  return new Promise<SemanticTokens>((resolve, reject) => {
+    resolve(OnProvideSemanticRequest(params));
+  });
 }
-
 
 function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
-   let doc = GetDocument(params.textDocument.uri);
-   console.log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
+  let doc = GetDocument(params.textDocument.uri);
+  console.log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
 
-   let range: Range | undefined = undefined;
+  let range: Range | undefined = undefined;
 
-   if (IsSemanticTokensRangeParams(params)) {
-      range = params.range;
-   }
+  if (IsSemanticTokensRangeParams(params)) {
+    range = params.range;
+  }
 
-   switch (doc.languageId) {
-      case Constants.JsonCIdentifier:
-      case Constants.JsonIdentifier:
-         return ProvideJsonSemanticTokens(doc, range);
+  switch (doc.languageId) {
+    case Constants.JsonCIdentifier:
+    case Constants.JsonIdentifier:
+      return ProvideJsonSemanticTokens(doc, range);
 
-      case Constants.McFunctionIdentifier:
-         return ProvideMcfunctionSemanticTokens(doc, range);
+    case Constants.McFunctionIdentifier:
+      return ProvideMcfunctionSemanticTokens(doc, range);
 
-      case Constants.McOtherIdentifier:
-      case Constants.McLanguageIdentifier:
-         break;
-   }
+    case Constants.McOtherIdentifier:
+    case Constants.McLanguageIdentifier:
+      break;
+  }
 
-   return { data: [] };
+  return { data: [] };
 }
 
-
 function IsSemanticTokensRangeParams(value: SemanticTokensRangeParams | SemanticTokensParams): value is SemanticTokensRangeParams {
-   let temp: any = value;
+  let temp: any = value;
 
-   if (temp.range)
-      if (Range.is(temp.range))
-         return true;
+  if (temp.range) if (Range.is(temp.range)) return true;
 
-   return false;
+  return false;
 }

@@ -46,7 +46,7 @@ export class RangedWord {
   }
 
   //Creates a range of the given word
-  ToRange(lineIndex: number, charOffset : number = 0): Range {
+  ToRange(lineIndex: number, charOffset: number = 0): Range {
     return Range.create(lineIndex, this.startindex + charOffset, lineIndex, this.endindex + charOffset);
   }
 

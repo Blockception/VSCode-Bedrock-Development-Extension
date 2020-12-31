@@ -61,7 +61,7 @@ export class LocationWord {
     let startindex = start + this.range.start.character;
     let range: Range = {
       start: { character: startindex, line: this.range.start.line },
-      end: { character: startindex + text.length, line: this.range.end.line }
+      end: { character: startindex + text.length, line: this.range.end.line },
     };
 
     let out = new LocationWord(text, range, this.uri);

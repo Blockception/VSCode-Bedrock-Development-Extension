@@ -27,20 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DocumentFormattingRegistrationOptions, DocumentFormattingRequest, SemanticTokensRegistrationOptions, SemanticTokensRegistrationType, SemanticTokensRequest, SemanticTokenTypes } from "vscode-languageserver";
-import * as Constants from '../../Constants';
+import {
+  DocumentFormattingRegistrationOptions,
+  DocumentFormattingRequest,
+  SemanticTokensRegistrationOptions,
+  SemanticTokensRegistrationType,
+  SemanticTokensRequest,
+  SemanticTokenTypes,
+} from "vscode-languageserver";
+import * as Constants from "../../Constants";
 import { Manager } from "../../manager/Manager";
-import { SemanticModifiers, SemanticTokens } from '../../semantics/Legend';
+import { SemanticModifiers, SemanticTokens } from "../../semantics/Legend";
 
 export function SetDynamicEvents() {
   let client = Manager.Connection.client;
 
   // Tell the client that this server supports code formatting.
   const Formatoptions: DocumentFormattingRegistrationOptions = {
-    documentSelector: [
-      Constants.McFunctionIdentifier,
-      Constants.McLanguageIdentifier
-    ],
+    documentSelector: [Constants.McFunctionIdentifier, Constants.McLanguageIdentifier],
   };
 
   client.register(DocumentFormattingRequest.type, Formatoptions);

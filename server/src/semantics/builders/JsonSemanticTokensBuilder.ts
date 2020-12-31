@@ -27,44 +27,44 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SemanticTokens, SemanticTokensBuilder } from 'vscode-languageserver';
-import { Position, TextDocument } from 'vscode-languageserver-textdocument';
-import { OffsetWord } from '../../code/words/OffsetWord';
-import { SemanticModifiersEnum, SemanticTokensEnum } from '../include';
+import { SemanticTokens, SemanticTokensBuilder } from "vscode-languageserver";
+import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { OffsetWord } from "../../code/words/OffsetWord";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../include";
 
 export class JsonSemanticTokensBuilder {
-   public Builder : SemanticTokensBuilder;
-   public doc : TextDocument;
+  public Builder: SemanticTokensBuilder;
+  public doc: TextDocument;
 
-   constructor(doc : TextDocument) {
-      this.doc = doc;
-      this.Builder = new SemanticTokensBuilder();
-   }
+  constructor(doc: TextDocument) {
+    this.doc = doc;
+    this.Builder = new SemanticTokensBuilder();
+  }
 
-   Build() : SemanticTokens {
-      return this.Builder.build();
-   }
+  Build(): SemanticTokens {
+    return this.Builder.build();
+  }
 
-   PositionAt(offset : number) : Position {
-      return this.doc.positionAt(offset);
-   }
+  PositionAt(offset: number): Position {
+    return this.doc.positionAt(offset);
+  }
 
-   /**
-    * Adds the given text locations into the tokens builder
-    * @param startindex 
-    * @param endindex 
-    * @param tokenType 
-    * @param tokenModifier 
-    */
-   Add(startindex : number, endindex : number, tokenType : SemanticTokensEnum, tokenModifier : SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
-      let p = this.doc.positionAt(startindex);
-      let length = endindex - startindex;
-      this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
-   }
+  /**
+   * Adds the given text locations into the tokens builder
+   * @param startindex
+   * @param endindex
+   * @param tokenType
+   * @param tokenModifier
+   */
+  Add(startindex: number, endindex: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
+    let p = this.doc.positionAt(startindex);
+    let length = endindex - startindex;
+    this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+  }
 
-   AddWord(word : OffsetWord, tokenType : SemanticTokensEnum, tokenModifier : SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
-      let p = this.doc.positionAt(word.offset);
-      let length = word.text.length;
-      this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
-   }
+  AddWord(word: OffsetWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
+    let p = this.doc.positionAt(word.offset);
+    let length = word.text.length;
+    this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+  }
 }

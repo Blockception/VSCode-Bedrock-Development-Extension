@@ -38,7 +38,7 @@ export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
   console.log("Starting on diagnosing project");
 
   Database.MinecraftProgramData.GetProjecData((data) => {
-     let Validation = GetValidationData(data.Workspaces);
+    let Validation = GetValidationData(data.Workspaces);
 
     let context: DiagnoseContext = {
       projectStructure: data,

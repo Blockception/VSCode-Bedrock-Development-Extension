@@ -27,21 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Range, TextDocument } from 'vscode-languageserver-textdocument';
+import { Range, TextDocument } from "vscode-languageserver-textdocument";
 
 export class OffsetWord {
-	public text: string;
-	public offset: number;
+  public text: string;
+  public offset: number;
 
-	constructor(text: string, offset: number) {
-		this.text = text;
-		this.offset = offset;
-	}
+  constructor(text: string, offset: number) {
+    this.text = text;
+    this.offset = offset;
+  }
 
-	ToRange(doc: TextDocument): Range {
-		return {
-			start: doc.positionAt(this.offset),
-			end: doc.positionAt(this.offset + this.text.length)
-		};
-	}
+  ToRange(doc: TextDocument): Range {
+    return {
+      start: doc.positionAt(this.offset),
+      end: doc.positionAt(this.offset + this.text.length),
+    };
+  }
 }

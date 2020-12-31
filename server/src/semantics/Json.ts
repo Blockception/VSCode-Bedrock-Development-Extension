@@ -27,156 +27,149 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Range, TextDocument } from 'vscode-languageserver-textdocument';
-import { SemanticTokens } from 'vscode-languageserver/node';
-import { OffsetWord } from '../code/words/OffsetWord';
-import { IsMolang } from '../molang/Functions';
-import { CreateMolangTokens } from '../molang/Words';
-import { IsFloat } from '../types/general/Float/include';
-import { IsSelector } from '../types/general/Selector/include';
-import { DetectGeneralDataType, GeneralDataType } from '../types/minecraft/format/include';
-import { JsonSemanticTokensBuilder } from './builders/JsonSemanticTokensBuilder';
-import { McfunctionSemanticTokensBuilder } from './builders/McfunctionSemanticTokensBuilder';
-import { SemanticModifiersEnum, SemanticTokensEnum } from './Legend';
-import { McfunctionLineTokens } from './Mcfunctions';
+import { Range, TextDocument } from "vscode-languageserver-textdocument";
+import { SemanticTokens } from "vscode-languageserver/node";
+import { OffsetWord } from "../code/words/OffsetWord";
+import { IsMolang } from "../molang/Functions";
+import { CreateMolangTokens } from "../molang/Words";
+import { IsFloat } from "../types/general/Float/include";
+import { IsSelector } from "../types/general/Selector/include";
+import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
+import { JsonSemanticTokensBuilder } from "./builders/JsonSemanticTokensBuilder";
+import { McfunctionSemanticTokensBuilder } from "./builders/McfunctionSemanticTokensBuilder";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
+import { McfunctionLineTokens } from "./Mcfunctions";
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
-   var Type = DetectGeneralDataType(doc.uri);
+  var Type = DetectGeneralDataType(doc.uri);
 
-   //Not related to minecraft
-   if (Type == GeneralDataType.unknown)
-      return { data: [] };
+  //Not related to minecraft
+  if (Type == GeneralDataType.unknown) return { data: [] };
 
-   let Builder = new JsonSemanticTokensBuilder(doc);
-   let text = doc.getText(range);
-   let offset = 0;
+  let Builder = new JsonSemanticTokensBuilder(doc);
+  let text = doc.getText(range);
+  let offset = 0;
 
-   if (range) {
-      offset = doc.offsetAt(range.start);
-   }
-   else {
-      offset = 0;
-   }
+  if (range) {
+    offset = doc.offsetAt(range.start);
+  } else {
+    offset = 0;
+  }
 
-   CreateTokens(text, offset, Builder);
+  CreateTokens(text, offset, Builder);
 
-   return Builder.Build();
+  return Builder.Build();
 }
 
 /**
- * 
- * @param text 
- * @param offset 
- * @param Builder 
+ *
+ * @param text
+ * @param offset
+ * @param Builder
  */
 function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensBuilder): void {
-   let index = 0;
+  let index = 0;
 
-   while (index >= 0) {
-      let startindex = findNext(text, index);
-      if (startindex < 0) return;
+  while (index >= 0) {
+    let startindex = findNext(text, index);
+    if (startindex < 0) return;
 
-      let endindex = findNext(text, startindex + 1);
-      if (endindex < 0) return;
+    let endindex = findNext(text, startindex + 1);
+    if (endindex < 0) return;
 
-      startindex++;
-      let property = text.substring(startindex, endindex);
-      index = endindex + 1;
+    startindex++;
+    let property = text.substring(startindex, endindex);
+    index = endindex + 1;
 
-      if (IsMolang(property)) {
-
-         if (property.startsWith('/')) {
-            property = property.substring(1, property.length);
-            Builder.Add(startindex, endindex + 1, SemanticTokensEnum.operator);
-            startindex++;
-            McfunctionLineTokens(property, offset + startindex, McfunctionSemanticTokensBuilder.FromJson(Builder));
-         }
-         else {
-            let Words = CreateMolangTokens(property, offset + startindex);
-            ConvertWords(Words, Builder);
-         }
+    if (IsMolang(property)) {
+      if (property.startsWith("/")) {
+        property = property.substring(1, property.length);
+        Builder.Add(startindex, endindex + 1, SemanticTokensEnum.operator);
+        startindex++;
+        McfunctionLineTokens(property, offset + startindex, McfunctionSemanticTokensBuilder.FromJson(Builder));
+      } else {
+        let Words = CreateMolangTokens(property, offset + startindex);
+        ConvertWords(Words, Builder);
       }
-   }
+    }
+  }
 }
 
 /**
- * 
- * @param Words 
- * @param Builder 
+ *
+ * @param Words
+ * @param Builder
  */
 function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
-   for (let I = 0; I < Words.length; I++) {
-      let Word = Words[I];
+  for (let I = 0; I < Words.length; I++) {
+    let Word = Words[I];
 
-      let text = Word.text;
-      switch (text) {
-         case 'Array':
-         case 'array':
-         case 'geometry':
-         case 'Geometry':
-         case 'material':
-         case 'Material':
-         case 'texture':
-         case 'Texture':
-         case 'Math':
-         case 'math':
-         case 'query':
-         case 'variable':
-            Builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
-            break;
+    let text = Word.text;
+    switch (text) {
+      case "Array":
+      case "array":
+      case "geometry":
+      case "Geometry":
+      case "material":
+      case "Material":
+      case "texture":
+      case "Texture":
+      case "Math":
+      case "math":
+      case "query":
+      case "variable":
+        Builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
+        break;
 
-         case '(':
-         case '[':
-         case '{':
-         case '}':
-         case ']':
-         case ')':
-         case '==':
-         case '!=':
-         case '&&':
-         case '||':
-         case '|=':
-         case '>=':
-         case '<=':
-         case '>':
-         case '!':
-         case '<':
-         case '?':
-         case ':':
-         case ';':
-         case '+':
-         case '-':
-         case '/':
-         case '*':
-            Builder.AddWord(Word, SemanticTokensEnum.operator);
-            break;
+      case "(":
+      case "[":
+      case "{":
+      case "}":
+      case "]":
+      case ")":
+      case "==":
+      case "!=":
+      case "&&":
+      case "||":
+      case "|=":
+      case ">=":
+      case "<=":
+      case ">":
+      case "!":
+      case "<":
+      case "?":
+      case ":":
+      case ";":
+      case "+":
+      case "-":
+      case "/":
+      case "*":
+        Builder.AddWord(Word, SemanticTokensEnum.operator);
+        break;
 
-         default:
-            if (IsFloat(text)) {
-               Builder.AddWord(Word, SemanticTokensEnum.number);
-            }
-            else if (IsSelector(text, undefined)) {
-               Builder.AddWord(Word, SemanticTokensEnum.variable);
-            }
-            else {
-               Builder.AddWord(Word, SemanticTokensEnum.method);
-            }
-      }
-   }
+      default:
+        if (IsFloat(text)) {
+          Builder.AddWord(Word, SemanticTokensEnum.number);
+        } else if (IsSelector(text, undefined)) {
+          Builder.AddWord(Word, SemanticTokensEnum.variable);
+        } else {
+          Builder.AddWord(Word, SemanticTokensEnum.method);
+        }
+    }
+  }
 }
 
-
 function findNext(text: string, startIndex: number): number {
-   while (startIndex > -1) {
-      let startindex = text.indexOf('"', startIndex);
-      if (startindex < 0) break;
+  while (startIndex > -1) {
+    let startindex = text.indexOf('"', startIndex);
+    if (startindex < 0) break;
 
-      if (text.charAt(startindex - 1) === '\\' && text.charAt(startindex - 2) !== '\\') {
-         continue;
-      }
+    if (text.charAt(startindex - 1) === "\\" && text.charAt(startindex - 2) !== "\\") {
+      continue;
+    }
 
-      return startindex;
-   }
+    return startindex;
+  }
 
-   return -1;
+  return -1;
 }
