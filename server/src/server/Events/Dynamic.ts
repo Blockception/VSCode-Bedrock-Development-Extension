@@ -49,20 +49,20 @@ export function SetDynamicEvents() {
 
   client.register(DocumentFormattingRequest.type, Formatoptions);
 
-  /*const registrationOptions: SemanticTokensRegistrationOptions = {
+  const registrationOptions: SemanticTokensRegistrationOptions = {
     documentSelector: [
       Constants.JsonCIdentifier,
       Constants.JsonIdentifier,
       Constants.McFunctionIdentifier,
       Constants.McLanguageIdentifier,
-      Constants.McOtherIdentifier
+      Constants.McOtherIdentifier,
     ],
     legend: {
       tokenModifiers: SemanticModifiers,
-      tokenTypes: SemanticTokens
+      tokenTypes: SemanticTokens,
     },
     range: true,
     full: true
-  }
-  client.register(SemanticTokensRegistrationType.type, registrationOptions);*/
+  };
+  client.register(SemanticTokensRegistrationType.type, registrationOptions);
 }

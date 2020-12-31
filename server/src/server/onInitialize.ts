@@ -85,7 +85,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         workDoneProgress: true,
       },
 
-      semanticTokensProvider: {
+      /*semanticTokensProvider: {
         documentSelector: [
           Constants.JsonCIdentifier,
           Constants.JsonIdentifier,
@@ -99,7 +99,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         },
         range: true,
         full: true,
-      },
+      },*/
 
       workspace: {
         workspaceFolders: {

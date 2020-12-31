@@ -47,6 +47,11 @@ export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangePa
 }
 
 function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
+  console.log(params.textDocument.uri);
+
+  if (params.textDocument.uri.includes('file:\\vscode:\\'))
+    return { data: [] };
+
   let doc = GetDocument(params.textDocument.uri);
   console.log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
 
