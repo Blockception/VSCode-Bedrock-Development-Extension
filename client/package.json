@@ -13,17 +13,17 @@
     "type": "git"
   },
   "engines": {
-    "vscode": "^1.41.0"
+    "vscode": "^1.83.0"
   },
   "license": "BSD-3-Clause",
   "dependencies": {
     "vscode-languageclient": "^7.0.0"
   },
   "devDependencies": {
-    "@types/vscode": "1.43.0",
-    "ts-loader": "^8.0.5",
-    "vscode-test": "^1.3.0",
-    "webpack": "^5.1.3",
-    "webpack-cli": "^4.0.0"
+    "@types/vscode": "1.52.0",
+    "ts-loader": "^8.0.13",
+    "vscode-test": "^1.4.1",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0"
   }
 }
