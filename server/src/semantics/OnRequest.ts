@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, SemanticTokens } from 'vscode-languageserver/node';
 import { SemanticTokensParams, SemanticTokensRangeParams } from 'vscode-languageserver/node';
-import { GetDocument } from '../code/include';
+import { GetDocument, GetFilename } from '../code/include';
 import * as Constants from '../Constants'
 import { ProvideJsonSemanticTokens } from './Json';
 
@@ -48,6 +48,8 @@ export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangePa
 
 function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
    let doc = GetDocument(params.textDocument.uri);
+   console.log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
+
    let range: Range | undefined = undefined;
 
    if (IsSemanticTokensRangeParams(params)) {

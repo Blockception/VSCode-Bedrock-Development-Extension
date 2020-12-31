@@ -27,10 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DocumentFormattingRegistrationOptions, DocumentFormattingRequest, SemanticTokensRegistrationOptions, SemanticTokensRequest } from "vscode-languageserver";
+import { DocumentFormattingRegistrationOptions, DocumentFormattingRequest, SemanticTokensRegistrationOptions, SemanticTokensRegistrationType, SemanticTokensRequest, SemanticTokenTypes } from "vscode-languageserver";
 import * as Constants from '../../Constants';
-import { semantics } from '../../include';
 import { Manager } from "../../manager/Manager";
+import { SemanticModifiers, SemanticTokens } from '../../semantics/Legend';
 
 export function SetDynamicEvents() {
   let client = Manager.Connection.client;
@@ -42,5 +42,25 @@ export function SetDynamicEvents() {
       Constants.McLanguageIdentifier
     ],
   };
+
   client.register(DocumentFormattingRequest.type, Formatoptions);
+
+  const registrationOptions: SemanticTokensRegistrationOptions = {
+    documentSelector: [
+      Constants.JsonCIdentifier,
+      Constants.JsonIdentifier,
+      Constants.McFunctionIdentifier,
+      Constants.McLanguageIdentifier,
+      Constants.McOtherIdentifier
+    ],
+    legend: {
+      tokenModifiers: SemanticModifiers,
+      tokenTypes: SemanticTokens
+    },
+    range: true,
+    full: {
+      delta: true
+    }
+  }
+  client.register(SemanticTokensRegistrationType.type, registrationOptions);
 }

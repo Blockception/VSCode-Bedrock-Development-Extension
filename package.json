@@ -94,152 +94,6 @@
         }
       }
     ],
-    "colors": [
-      {
-        "defaults": {
-          "dark": "#AA0000",
-          "highContrast": "#AA0000",
-          "light": "#AA0000"
-        },
-        "id": "mc.dark.red",
-        "description": "Minecraft dark red colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#FF5555",
-          "highContrast": "#FF5555",
-          "light": "#FF5555"
-        },
-        "id": "mc.red",
-        "description": "Minecraft red colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#FFAA00",
-          "highContrast": "#FFAA00",
-          "light": "#FFAA00"
-        },
-        "id": "mc.gold",
-        "description": "Minecraft gold colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#FFFF55",
-          "highContrast": "#FFFF55",
-          "light": "#FFFF55"
-        },
-        "id": "mc.yellow",
-        "description": "Minecraft yellow colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#00AA00",
-          "highContrast": "#00AA00",
-          "light": "#00AA00"
-        },
-        "id": "mc.dark.green",
-        "description": "Minecraft dark green colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#55FF55",
-          "highContrast": "#55FF55",
-          "light": "#55FF55"
-        },
-        "id": "mc.green",
-        "description": "Minecraft green colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#55FFFF",
-          "highContrast": "#55FFFF",
-          "light": "#55FFFF"
-        },
-        "id": "mc.aqua",
-        "description": "Minecraft aqua colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#00AAAA",
-          "highContrast": "#00AAAA",
-          "light": "#00AAAA"
-        },
-        "id": "mc.dark.aqua",
-        "description": "Minecraft dark aqua colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#0000AA",
-          "highContrast": "#0000AA",
-          "light": "#0000AA"
-        },
-        "id": "mc.dark.blue",
-        "description": "Minecraft dark blue colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#5555FF",
-          "highContrast": "#5555FF",
-          "light": "#5555FF"
-        },
-        "id": "mc.blue",
-        "description": "Minecraft blue colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#FF55FF",
-          "highContrast": "#FF55FF",
-          "light": "#FF55FF"
-        },
-        "id": "mc.light.purple",
-        "description": "Minecraft light purple colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#AA00AA",
-          "highContrast": "#AA00AA",
-          "light": "#AA00AA"
-        },
-        "id": "mc.dark.purple",
-        "description": "Minecraft dark purple colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#FFFFFF",
-          "highContrast": "#FFFFFF",
-          "light": "#FFFFFF"
-        },
-        "id": "mc.dark.white",
-        "description": "Minecraft white colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#AAAAAA",
-          "highContrast": "#AAAAAA",
-          "light": "#AAAAAA"
-        },
-        "id": "mc.gray",
-        "description": "Minecraft gray colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#555555",
-          "highContrast": "#555555",
-          "light": "#555555"
-        },
-        "id": "mc.dark.gray",
-        "description": "Minecraft dark gray colour code"
-      },
-      {
-        "defaults": {
-          "dark": "#000000",
-          "highContrast": "#000000",
-          "light": "#000000"
-        },
-        "id": "mc.dark.red",
-        "description": "Minecraft black colour code"
-      }
-    ],
     "commands": [
       {
         "title": "Run diagnose on project",
@@ -255,41 +109,6 @@
         "title": "Cheat sheet: Behavior Filters",
         "command": "bc-cheat-sheet-behavior-filters",
         "category": "Blockception"
-      }
-    ],
-    "languages": [
-      {
-        "id": "bc-minecraft-language",
-        "aliases": [
-          "Minecraft Language"
-        ],
-        "extensions": [
-          ".lang"
-        ],
-        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
-      },
-      {
-        "id": "bc-minecraft-mcfunction",
-        "aliases": [
-          "Minecraft Mcfunction"
-        ],
-        "extensions": [
-          ".mcfunction"
-        ],
-        "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
-        "filenamePatterns": [
-          "[a-z0-9_]*\\.mcfunction"
-        ]
-      },
-      {
-        "id": "bc-minecraft-molang",
-        "aliases": [
-          "Minecraft molang"
-        ],
-        "extensions": [
-          ".molang"
-        ],
-        "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
       }
     ],
     "grammars": [
@@ -310,19 +129,27 @@
         "language": "bc-minecraft-molang",
         "path": "./minecraft-molang/syntaxes/minecraft-molang.tmLanguage.json",
         "scopeName": "source.bc.minecraft.molang"
+      }
+    ],
+    "languages": [
+      {
+        "id": "bc-minecraft-language",
+        "aliases": [ "Minecraft Language" ],
+        "extensions": [ ".lang" ],
+        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json",
       },
       {
-        "path": "./minecraft-molang/syntaxes/minecraft-molang-inject.tmLanguage.json",
-        "scopeName": "source.bc.minecraft.molang.inject",
-        "embeddedLanguages": {
-          "meta.embedded.block.molang": "source.bc.minecraft.molang",
-          "meta.embedded.block.mcfunction": "source.bc.minecraft.mcfunction",
-          "molang": "source.bc.minecraft.molang"
-        },
-        "injectTo": [
-          "source.json",
-          "source.jsonc"
-        ]
+        "id": "bc-minecraft-mcfunction",
+        "aliases": [ "Minecraft Mcfunction" ],
+        "extensions": [ ".mcfunction" ],
+        "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
+        "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
+      },
+      {
+        "id": "bc-minecraft-molang",
+        "aliases": [ "Minecraft molang" ],
+        "extensions": [ ".molang" ],
+        "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
       }
     ],
     "jsonValidation": [
