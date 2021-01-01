@@ -1,4 +1,9 @@
 # Changelog 
+- Updated
+- auto: Formatted typescript files
+- Updated readme
+- Updated to 1.3.22
+- Fixing webpack compiling errors
 - Fixing errors vscode gives the plugin
 - Updated to 1.3.21
 - Stopping vscode from forcing wrong semantics
@@ -14,8 +19,3 @@
 - auto: Generated Includes
 - Finishing up on semantic tokens
 - Added push and pop syntax highlighting
-- Added fog
-- Updated
-- Adding semantic tokens
-- Adding semantic tokens support
-- Merge branch 'Language-server-update'
