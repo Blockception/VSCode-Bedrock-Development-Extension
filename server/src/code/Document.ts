@@ -72,8 +72,7 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
         Content = fs.readFileSync(path, "utf8");
         Out = TextDocument.create(uri, languageID, 1, Content);
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(JSON.stringify(path));
     }
 
@@ -126,7 +125,6 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
     if (doc) callback(doc);
   }
 }
-
 
 export function GetDocuments(folder: string, pattern: string | string[]): string[] {
   let temp: string[] = [];

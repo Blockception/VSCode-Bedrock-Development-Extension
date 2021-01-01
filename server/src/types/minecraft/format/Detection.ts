@@ -60,8 +60,8 @@ export function DetectDataType(uri: string): DataType {
 }
 
 /**
- * 
- * @param uri 
+ *
+ * @param uri
  */
 export function DetectGeneralDataType(uri: string): GeneralDataType {
   uri = decodeURI(uri);

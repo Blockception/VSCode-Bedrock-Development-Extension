@@ -60,7 +60,7 @@ export function SetDynamicEvents() {
       tokenTypes: SemanticTokens,
     },
     range: true,
-    full: true
+    full: true,
   };
   client.register(SemanticTokensRegistrationType.type, registrationOptions);
 }
