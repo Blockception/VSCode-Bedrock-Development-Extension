@@ -1,10 +1,20 @@
 # VSCode-Bedrock-Development-Extension
-An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, and development tools to help develop Minecraft Bedrock content.
-It's recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft Education Edition.
+
+An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, and development tools to help develop Minecraft
+Bedrock content. It's recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft Education Edition.
 
 ![overview](documentation/resources/overview.gif)
 
+<p align="center">
+  <a href="https://marketplace.visualstudio.com/items?itemName=BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension">
+  <img alt="Visual Studio Marketplace Version" src="https://img.shields.io/visual-studio-marketplace/v/BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension?style=for-the-badge">
+    <img alt="Visual Studio Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension?style=for-the-badge">
+    <img alt="Visual Studio Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension?style=for-the-badge">
+  </a>
+</p>
+
 ## Content
+
 - [VSCode-Bedrock-Development-Extension](#vscode-bedrock-development-extension)
   - [Content](#content)
   - [Features](#features)
@@ -14,34 +24,39 @@ It's recommended you use the Dark+ theme for the best color highlighting. This p
       - [Validation](#validation)
     - [Language files](#language-files)
     - [Molang](#molang-1)
+  - [Cheat Sheets](#cheat-sheets)
   - [Commands](#commands)
   - [Extension Settings](#extension-settings)
   - [Licenses](#licenses)
-  
+
 ## Features
 
-
 ### Mcfunction
+
 This plugin provides support for the `.mcfunction` files. The following features are provided:
+
 - [Code completion](documentation/completion/Mcfunctions.md).
 - Code formatting.
 - Diagnostics.
 - Go to definition.
-- Regions
+- Regions.
 - Symbols.
 - Syntax highlighting.
 - [Validation files for diagnosing](documentation/Commands.md).
 
 ---
+
 ### JSON
 
 #### Molang
+
 This plugin provides automatic highlighting for Molang code in JSON files.
 
 #### Validation
+
 Automatic JSON validation is applied if the files follow a given pattern for naming or proper file structure.  
 For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or in the world folder: `resource_packs`.  
-For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or in the world folder: `behavior_packs`.  
+For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or in the world folder: `behavior_packs`.
 
 - [**General**](./documentation/Json%20Validation.md#general)
   - Manifests
@@ -81,29 +96,43 @@ For behavior packs, have the files in a folder with the letter `BP` or `bp` in t
   - Skins.json
 
 ---
+
 ### Language files
+
 This plugin provides support for `.lang` files. The following features are provided:
-- Code formatting
-- Diagnostics
-- Regions
-- Symbols
-- Syntax highlighting
+
+- Code formatting.
+- Diagnostics.
+- Regions.
+- Symbols.
+- Syntax highlighting.
 
 ---
+
 ### Molang
-This plugin provides automatic highlighting for Molang code in JSON files and .molang files. Officially .molang files are not supported by Minecraft, but they're useful for development.
 
+This plugin provides automatic highlighting for Molang code in JSON files and .molang files. Officially .molang files are not supported by Minecraft,
+but they're useful for development.
 
 ---
+
+## Cheat Sheets
+
+Cheat Sheets has been added for easy lookup.
+
+---
+
 ## Commands
-A complete list can be found [here](documentation/Commands.md)
+
+A complete list can be found [here](documentation/Commands.md).
 
 ---
+
 ## Extension Settings
 
-- **Use Education Content**: Adds Education Edition content such as items, blocks, entities and commands into code suggestions and debugging. Requires a
-  restart for full effect.
-
+- **Use Education Content**: Adds Education Edition content such as items, blocks, entities and commands into code suggestions and debugging. Requires
+  a restart for full effect.
 
 ## Licenses
+
 All thrid party code and libraries this plugin uses are listed [**here**](./LICENSES/Licenses.md)!
