@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "../code/words/include";
 import { IParameter, IScoreParameter, Selector } from "../types/general/Selector/include";
 import { McfunctionSemanticTokensBuilder } from "./builders/McfunctionSemanticTokensBuilder";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
+import { SemanticTokensEnum } from "./Legend";
 
 export function CreateSelectorTokens(Word: LocationWord, Builder: McfunctionSemanticTokensBuilder): void {
   let sel = Selector.Parse(Word);

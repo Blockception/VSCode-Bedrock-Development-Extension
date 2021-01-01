@@ -32,8 +32,6 @@ import {
   DocumentFormattingRequest,
   SemanticTokensRegistrationOptions,
   SemanticTokensRegistrationType,
-  SemanticTokensRequest,
-  SemanticTokenTypes,
 } from "vscode-languageserver";
 import * as Constants from "../../Constants";
 import { Manager } from "../../manager/Manager";

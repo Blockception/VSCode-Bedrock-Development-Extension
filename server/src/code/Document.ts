@@ -59,27 +59,38 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
 
     if (doc) {
       //Cached document
-      return new ImpDoc(doc);
+      return new CachedDoc(doc);
     }
+
+    let Out: TextDocument | undefined;
 
     //Reading file
     let path = fileURLToPath(uri);
-    if (fs.existsSync(path)) {
-      Content = fs.readFileSync(path, "utf8");
-      return TextDocument.create(uri, languageID, 1, Content);
-    } else {
-      return TextDocument.create(uri, languageID, 0, "");
+
+    try {
+      if (fs.existsSync(path)) {
+        Content = fs.readFileSync(path, "utf8");
+        Out = TextDocument.create(uri, languageID, 1, Content);
+      }
     }
+    catch (err) {
+      console.log(JSON.stringify(path));
+    }
+
+    if (Out === undefined) {
+      Out = TextDocument.create(uri, languageID, 0, "");
+    }
+
+    return Out;
   }
   //Content is provided
   else if (typeof Content === "string") {
     //string provided
     return TextDocument.create(uri, languageID, 1, Content);
   }
+
   //The interface is provided
-  else {
-    return new ImpDoc(Content);
-  }
+  return new CachedDoc(Content);
 }
 
 export function getLine(doc: TextDocument, lineIndex: number): string {
@@ -116,6 +127,7 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
   }
 }
 
+
 export function GetDocuments(folder: string, pattern: string | string[]): string[] {
   let temp: string[] = [];
 
@@ -131,7 +143,7 @@ export function GetDocuments(folder: string, pattern: string | string[]): string
   return fg.sync(temp, { absolute: true, onlyFiles: true });
 }
 
-export class ImpDoc implements TextDocument {
+export class CachedDoc implements TextDocument {
   private doc: TextDocument;
 
   readonly uri: string;
