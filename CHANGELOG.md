@@ -1,4 +1,6 @@
 # Changelog 
+- Fixing errors vscode gives the plugin
+- Updated to 1.3.21
 - Stopping vscode from forcing wrong semantics
 - auto: Updated dependecies
 - auto: Updated dependecies
@@ -17,5 +19,3 @@
 - Adding semantic tokens
 - Adding semantic tokens support
 - Merge branch 'Language-server-update'
-- Updated
-- auto: Updated dependecies

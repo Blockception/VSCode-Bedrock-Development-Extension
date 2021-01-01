@@ -32,7 +32,7 @@ import { GetFilename } from "../../../code/File";
 import { GetDocuments } from "../../../code/include";
 import { code } from "../../../include";
 import { DataType } from "../format/Data Type";
-import { DetectDataType } from "../format/detection";
+import { DetectDataType } from "../format/Detection";
 import { resource } from "../include";
 
 export function Process(doc: TextDocument): void {
