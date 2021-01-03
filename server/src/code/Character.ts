@@ -29,33 +29,28 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export namespace Character {
+  const Character_a = "a".charCodeAt(0);
+  const Character_z = "z".charCodeAt(0);
+  const Character_A = "A".charCodeAt(0);
+  const Character_Z = "Z".charCodeAt(0);
+  const Character_0 = "A".charCodeAt(0);
+  const Character_9 = "Z".charCodeAt(0);
 
-	const Character_a = 'a'.charCodeAt(0);
-	const Character_z = 'z'.charCodeAt(0);
-	const Character_A = 'A'.charCodeAt(0);
-	const Character_Z = 'Z'.charCodeAt(0);
-	const Character_0 = 'A'.charCodeAt(0);
-	const Character_9 = 'Z'.charCodeAt(0);
+  export function IsLetter(char: string): boolean {
+    var code = char.charCodeAt(0);
 
-	export function IsLetter(char: string): boolean {
-		var code = char.charCodeAt(0);
+    if (code >= Character_a && code <= Character_z) return true;
 
-		if (code >= Character_a && code <= Character_z)
-			return true;
+    if (code >= Character_A && code <= Character_Z) return true;
 
-		if (code >= Character_A && code <= Character_Z)
-			return true;
+    return false;
+  }
 
-		return false;
-	}
+  export function IsNumber(char: string): boolean {
+    var code = char.charCodeAt(0);
 
-	export function IsNumber(char: string): boolean {
-		var code = char.charCodeAt(0);
+    if (code >= Character_0 && code <= Character_9) return true;
 
-		if (code >= Character_0 && code <= Character_9)
-			return true;
-
-		return false;
-	}
-
+    return false;
+  }
 }

@@ -55,7 +55,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
   ProvideCompletionMcFunction(pos, receiver, Command);
 }
 
-export function OnCompletionMcFunctionLine(text: string, cursor: number, offset : number, doc: TextDocument, receiver: CompletionList): void {
+export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionList): void {
   let pos = doc.positionAt(cursor);
   let posB = doc.positionAt(offset);
 
@@ -64,7 +64,6 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset 
   let Command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
   ProvideCompletionMcFunction(pos, receiver, Command);
 }
-
 
 export function ProvideCompletionMcFunction(pos: Position, receiver: CompletionList, Command: CommandIntr): void {
   if (Command == undefined || Command.Paramaters.length == 0 || pos.character < 3) {

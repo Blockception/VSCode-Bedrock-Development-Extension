@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { Character } from '../code/include';
+import { Character } from "../code/include";
 
 export function IsMolang(text: string): boolean {
   if (text.startsWith("@s")) return true;
@@ -52,15 +52,13 @@ export function IsMolang(text: string): boolean {
 export function GetPreviousWord(text: string, cursor: number): string {
   let endIndex = cursor;
 
-  if (text.charAt(endIndex - 1) === '.')
-    endIndex = cursor - 1;
+  if (text.charAt(endIndex - 1) === ".") endIndex = cursor - 1;
 
   let Index;
   for (Index = endIndex - 1; Index > -1; Index--) {
     const c = text.charAt(Index);
 
-    if (Character.IsLetter(c) || Character.IsNumber(c) || c === '_')
-      continue;
+    if (Character.IsLetter(c) || Character.IsNumber(c) || c === "_") continue;
 
     break;
   }

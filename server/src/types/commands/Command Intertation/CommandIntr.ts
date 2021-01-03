@@ -67,8 +67,7 @@ export class CommandIntr {
     if (startPos) {
       charOffset = startPos.character;
       LineIndex = startPos.line;
-    }
-    else {
+    } else {
       LineIndex = cursor.line;
     }
 

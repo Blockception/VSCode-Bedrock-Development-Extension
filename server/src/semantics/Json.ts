@@ -82,13 +82,11 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
     index = endindex + 1;
 
     if (IsMolang(property)) {
-
       if (property.startsWith("/")) {
         property = property.substring(1);
         Builder.Add(startindex, startindex + 1, SemanticTokensEnum.operator);
         startindex++;
         McfunctionLineTokens(property, 0, offset + startindex, McfunctionSemanticTokensBuilder.FromJson(Builder));
-
       } else {
         let Words = CreateMolangTokens(property, offset + startindex);
         ConvertWords(Words, Builder);

@@ -27,104 +27,102 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { receiveMessageOnPort } from 'worker_threads';
-import { Database, DataCollector } from '../../database/include';
-import { DataReference } from '../../database/Types/include';
-import { molang } from '../../include';
-import { Manager } from '../../manager/Manager';
-import { GetPreviousWord } from '../../molang/include';
-import { MolangFunctionDataItem } from '../../molang/MolangData';
-import { Entity } from '../../types/general/include';
-import { Kinds } from '../../types/general/Kinds';
-import { Completion } from '../Functions';
-import { OnCompletionMolangVariable } from './Variables';
+import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { receiveMessageOnPort } from "worker_threads";
+import { Database, DataCollector } from "../../database/include";
+import { DataReference } from "../../database/Types/include";
+import { molang } from "../../include";
+import { Manager } from "../../manager/Manager";
+import { GetPreviousWord } from "../../molang/include";
+import { MolangFunctionDataItem } from "../../molang/MolangData";
+import { Entity } from "../../types/general/include";
+import { Kinds } from "../../types/general/Kinds";
+import { Completion } from "../Functions";
+import { OnCompletionMolangVariable } from "./Variables";
 
 export function OnCompletionEntityEvents(receiver: CompletionList): void {
-	Database.Data.General.Entities.ForEach(x => {
-		x.Events.forEach(event => {
-
-			receiver.items.push({
-				label: event,
-				documentation: { kind: 'markdown', value: `The ${x.Identifier} event: ${event}` },
-				kind: Kinds.Completion.Event
-			});
-		});
-	});
+  Database.Data.General.Entities.ForEach((x) => {
+    x.Events.forEach((event) => {
+      receiver.items.push({
+        label: event,
+        documentation: { kind: "markdown", value: `The ${x.Identifier} event: ${event}` },
+        kind: Kinds.Completion.Event,
+      });
+    });
+  });
 }
 
 export function OnCompletionMolang(line: string, cursor: number, doc: TextDocument, receiver: CompletionList): void {
-	let Word = GetPreviousWord(line, cursor);
+  let Word = GetPreviousWord(line, cursor);
 
-	switch (Word.toLowerCase()) {
-		case 'query':
-			return Convert(Manager.Data.Molang.Query, receiver);
+  switch (Word.toLowerCase()) {
+    case "query":
+      return Convert(Manager.Data.Molang.Query, receiver);
 
-		case 'math':
-			return Convert(Manager.Data.Molang.Math, receiver);
+    case "math":
+      return Convert(Manager.Data.Molang.Math, receiver);
 
-		case 'geometry':
-			return CreateGeometries(Database.Data.Resourcepack.Models, receiver);
+    case "geometry":
+      return CreateGeometries(Database.Data.Resourcepack.Models, receiver);
 
-		case 'variable':
-			return OnCompletionMolangVariable(doc, receiver);
+    case "variable":
+      return OnCompletionMolangVariable(doc, receiver);
 
-		case 'texture':
-		case 'temp':
-	}
+    case "texture":
+    case "temp":
+  }
 
-	if (molang.IsMolang(line)) {
-		receiver.items.push(
-			{ label: 'query', kind: CompletionItemKind.Module },
-			{ label: 'variable', kind: CompletionItemKind.Module },
-			{ label: 'math', kind: CompletionItemKind.Module },
-			{ label: 'texture', kind: CompletionItemKind.Module },
-			{ label: 'geometry', kind: CompletionItemKind.Module },
-			{ label: 'temp', kind: CompletionItemKind.Module }
-		)
+  if (molang.IsMolang(line)) {
+    receiver.items.push(
+      { label: "query", kind: CompletionItemKind.Module },
+      { label: "variable", kind: CompletionItemKind.Module },
+      { label: "math", kind: CompletionItemKind.Module },
+      { label: "texture", kind: CompletionItemKind.Module },
+      { label: "geometry", kind: CompletionItemKind.Module },
+      { label: "temp", kind: CompletionItemKind.Module }
+    );
 
-		ConvertPrefixed(Manager.Data.Molang.Query, receiver, 'query.');
-		ConvertPrefixed(Manager.Data.Molang.Math, receiver, 'math.');
-	}
+    ConvertPrefixed(Manager.Data.Molang.Query, receiver, "query.");
+    ConvertPrefixed(Manager.Data.Molang.Math, receiver, "math.");
+  }
 }
 
 function CreateGeometries(Models: DataCollector<DataReference>, receiver: CompletionList): void {
-	Models.ForEach(model => {
-		let data = model.Identifier;
-		let index = data.indexOf('.');
+  Models.ForEach((model) => {
+    let data = model.Identifier;
+    let index = data.indexOf(".");
 
-		if (index > -1)
-			data = data.substring(index + 1);
+    if (index > -1) data = data.substring(index + 1);
 
-		receiver.items.push({
-			label: data,
-			documentation: 'The geometry of: ' + model.Identifier,
-			kind: CompletionItemKind.Property
-		});
-	});
+    receiver.items.push({
+      label: data,
+      documentation: "The geometry of: " + model.Identifier,
+      kind: CompletionItemKind.Property,
+    });
+  });
 }
 
 function Convert(data: MolangFunctionDataItem[], receiver: CompletionList): void {
-	for (let I = 0; I < data.length; I++) {
-		let Item = data[I];
+  for (let I = 0; I < data.length; I++) {
+    let Item = data[I];
 
-		receiver.items.push({
-			label: Item.function,
-			documentation: { kind: 'markdown', value: Item.documentation },
-			kind: CompletionItemKind.Function
-		});
-	}
+    receiver.items.push({
+      label: Item.function,
+      documentation: { kind: "markdown", value: Item.documentation },
+      kind: CompletionItemKind.Function,
+    });
+  }
 }
 
 function ConvertPrefixed(data: MolangFunctionDataItem[], receiver: CompletionList, prefix: string): void {
-	for (let I = 0; I < data.length; I++) {
-		let Item = data[I];
+  for (let I = 0; I < data.length; I++) {
+    let Item = data[I];
 
-		receiver.items.push({
-			label: prefix + Item.function,
-			documentation: { kind: 'markdown', value: Item.documentation },
-			kind: CompletionItemKind.Function
-		});
-	}
+    receiver.items.push({
+      label: prefix + Item.function,
+      documentation: { kind: "markdown", value: Item.documentation },
+      kind: CompletionItemKind.Function,
+    });
+  }
 }

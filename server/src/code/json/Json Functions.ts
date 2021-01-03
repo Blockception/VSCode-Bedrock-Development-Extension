@@ -82,7 +82,6 @@ export function GetCurrentElement(Text: string, cursor: number): TextRange | und
   return { start: StartIndex, end: EndIndex };
 }
 
-
 export function GetCurrentString(Text: string, cursor: number): TextRange | undefined {
   let StartIndex = -1;
 
@@ -126,7 +125,6 @@ export function GetCurrentString(Text: string, cursor: number): TextRange | unde
 }
 
 export function GetStartString(Text: string, cursor: number): number {
-
   for (let Index = cursor; Index > -1; Index--) {
     const c = Text.charAt(Index);
 
@@ -143,17 +141,13 @@ export function GetStartString(Text: string, cursor: number): number {
 }
 
 export function IsProperty(Text: string, startindex: number): boolean {
-
   for (let Index = startindex; Index > -1; Index--) {
     const c = Text.charAt(Index);
 
-    if (c === ':') {
+    if (c === ":") {
       return true;
-    }
-    else if (c.trim() === '')
-      continue;
-    else
-      break;
+    } else if (c.trim() === "") continue;
+    else break;
   }
 
   return false;

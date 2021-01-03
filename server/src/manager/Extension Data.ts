@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocuments } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { MolangData } from '../molang/MolangData';
+import { MolangData } from "../molang/MolangData";
 import { CommandManager } from "../types/commands/Command Manager/include";
 
 export class ExtensionData {

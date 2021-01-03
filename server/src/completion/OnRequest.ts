@@ -31,20 +31,19 @@ import { CompletionParams, CompletionList, CompletionItem } from "vscode-languag
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
-import { OnCompletionJson } from './Json';
+import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
 
 //Handle request
 export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[]> {
   return new Promise((resolve, reject) => {
-     resolve(OnCompletionRequest(params).items);
+    resolve(OnCompletionRequest(params).items);
   });
 }
 
-export async function OnCompletionResolveRequestAsync(params : CompletionItem) : Promise<CompletionItem> { 
-  return new Promise<CompletionItem>((resolve, reject)=>resolve(params));
-  
+export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem> {
+  return new Promise<CompletionItem>((resolve, reject) => resolve(params));
 }
 
 //Processes request
