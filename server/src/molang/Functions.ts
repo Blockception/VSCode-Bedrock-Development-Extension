@@ -53,10 +53,10 @@ export function GetPreviousWord(text: string, cursor: number): string {
   let endIndex = cursor;
 
   if (text.charAt(endIndex - 1) === '.')
-    endIndex = cursor - 2;
+    endIndex = cursor - 1;
 
   let Index;
-  for (Index = cursor; Index > 0; Index--) {
+  for (Index = endIndex - 1; Index > 0; Index--) {
     const c = text.charAt(Index);
 
     if (Character.IsLetter(c) || Character.IsNumber(c) || c === '_')
@@ -65,5 +65,5 @@ export function GetPreviousWord(text: string, cursor: number): string {
     break;
   }
 
-  return text.substring(Index, endIndex);
+  return text.substring(Index + 1, endIndex);
 }

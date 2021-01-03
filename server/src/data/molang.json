@@ -398,24 +398,24 @@
 	],
 	"entities": {
     "variable": [
-			{ "function": "variable.attack_time", "documentation": "" }
+			{ "function": "attack_time", "documentation": "" }
 		]
 	},
   "particles": {
     "variable": [
-      { "function": "variable.emitter_lifetime", "documentation": "" },
-      { "function": "variable.emitter_age", "documentation": "" },
-      { "function": "variable.emitter_random_1", "documentation": "" },
-      { "function": "variable.emitter_random_2", "documentation": "" },
-      { "function": "variable.emitter_random_3", "documentation": "" },
-      { "function": "variable.emitter_random_4", "documentation": "" },
-      { "function": "variable.particle_lifetime", "documentation": "" },
-      { "function": "variable.particle_age", "documentation": "" },
-      { "function": "variable.particle_random_1", "documentation": "" },
-      { "function": "variable.particle_random_2", "documentation": "" },
-      { "function": "variable.particle_random_3", "documentation": "" },
-      { "function": "variable.particle_random_4", "documentation": "" },
-      { "function": "variable.entity_scale", "documentation": "" }
+      { "function": "emitter_lifetime", "documentation": "" },
+      { "function": "emitter_age", "documentation": "" },
+      { "function": "emitter_random_1", "documentation": "" },
+      { "function": "emitter_random_2", "documentation": "" },
+      { "function": "emitter_random_3", "documentation": "" },
+      { "function": "emitter_random_4", "documentation": "" },
+      { "function": "particle_lifetime", "documentation": "" },
+      { "function": "particle_age", "documentation": "" },
+      { "function": "particle_random_1", "documentation": "" },
+      { "function": "particle_random_2", "documentation": "" },
+      { "function": "particle_random_3", "documentation": "" },
+      { "function": "particle_random_4", "documentation": "" },
+      { "function": "entity_scale", "documentation": "" }
     ]
   }
 }

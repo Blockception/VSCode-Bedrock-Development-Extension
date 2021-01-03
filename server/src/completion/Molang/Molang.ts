@@ -54,7 +54,7 @@ export function OnCompletionEntityEvents(receiver: CompletionList): void {
 	});
 }
 
-export function OnCompletionMolang(line: string, cursor: number, doc : TextDocument, receiver: CompletionList): void {
+export function OnCompletionMolang(line: string, cursor: number, doc: TextDocument, receiver: CompletionList): void {
 	let Word = GetPreviousWord(line, cursor);
 
 	switch (Word.toLowerCase()) {
@@ -83,6 +83,9 @@ export function OnCompletionMolang(line: string, cursor: number, doc : TextDocum
 			{ label: 'geometry', kind: CompletionItemKind.Module },
 			{ label: 'temp', kind: CompletionItemKind.Module }
 		)
+
+		ConvertPrefixed(Manager.Data.Molang.Query, receiver, 'query.');
+		ConvertPrefixed(Manager.Data.Molang.Math, receiver, 'math.');
 	}
 }
 
@@ -108,6 +111,18 @@ function Convert(data: MolangFunctionDataItem[], receiver: CompletionList): void
 
 		receiver.items.push({
 			label: Item.function,
+			documentation: { kind: 'markdown', value: Item.documentation },
+			kind: CompletionItemKind.Function
+		});
+	}
+}
+
+function ConvertPrefixed(data: MolangFunctionDataItem[], receiver: CompletionList, prefix: string): void {
+	for (let I = 0; I < data.length; I++) {
+		let Item = data[I];
+
+		receiver.items.push({
+			label: prefix + Item.function,
 			documentation: { kind: 'markdown', value: Item.documentation },
 			kind: CompletionItemKind.Function
 		});

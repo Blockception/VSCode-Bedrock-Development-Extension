@@ -70,7 +70,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: false,
-        triggerCharacters: [" ", "\t", "[", "=", ","],
+        triggerCharacters: [" ", "\t", "[", "=", ",", "."],
       },
 
       // Tell the client that this server supports go to references
