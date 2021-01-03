@@ -52,10 +52,23 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
     Command = SubCommand;
   }
 
-  ProvideCompletionMcFunction(doc, pos, receiver, Command);
+  ProvideCompletionMcFunction(pos, receiver, Command);
 }
 
-export function ProvideCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList, Command: CommandIntr): void {
+export function OnCompletionMcFunctionLine(text: string, cursor: number, offset : number, doc: TextDocument, receiver: CompletionList): void {
+  let pos = doc.positionAt(cursor);
+  let posB = doc.positionAt(offset);
+
+  pos.character -= posB.character;
+
+  let Out: CompletionList = CompletionList.create([], false);
+
+  let Command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
+  ProvideCompletionMcFunction(pos, Out, Command);
+}
+
+
+export function ProvideCompletionMcFunction(pos: Position, receiver: CompletionList, Command: CommandIntr): void {
   if (Command == undefined || Command.Paramaters.length == 0 || pos.character < 3) {
     provideCommandCompletion(receiver);
     return;
