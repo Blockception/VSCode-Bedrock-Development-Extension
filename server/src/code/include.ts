@@ -2,6 +2,7 @@
 export * as json from "./json/include";
 export * as words from "./words/include";
 export * from "./Array";
+export * from "./Character";
 export * from "./Document";
 export * from "./Equal";
 export * from "./File";

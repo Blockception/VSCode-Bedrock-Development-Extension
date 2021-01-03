@@ -61,10 +61,8 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset 
 
   pos.character -= posB.character;
 
-  let Out: CompletionList = CompletionList.create([], false);
-
   let Command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
-  ProvideCompletionMcFunction(pos, Out, Command);
+  ProvideCompletionMcFunction(pos, receiver, Command);
 }
 
 

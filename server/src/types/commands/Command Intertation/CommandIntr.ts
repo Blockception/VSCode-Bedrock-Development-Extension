@@ -56,20 +56,31 @@ export class CommandIntr {
     this.Paramaters = [];
   }
 
-  static parse(line: string, pos: Position, uri: string): CommandIntr {
+  static parse(line: string, cursor: Position, uri: string, startPos: Position | undefined = undefined): CommandIntr {
     line = line.replace(/~~~/g, "~ ~ ~");
     line = line.replace(/~~/g, "~ ~");
     let Out = new CommandIntr();
 
+    let charOffset = 0;
+    let LineIndex = 0;
+
+    if (startPos) {
+      charOffset = startPos.character;
+      LineIndex = startPos.line;
+    }
+    else {
+      LineIndex = cursor.line;
+    }
+
     line = line.trim();
-    let LineIndex = pos.line;
-    let Words = LocationWord.GetWords(line, LineIndex, uri, pos.character);
-    let char = pos.character;
+
+    let Words = LocationWord.GetWords(line, LineIndex, uri, charOffset);
+    let char = cursor.character;
     Out.Line = LineIndex;
     Out.Paramaters = Words;
 
     if (Out.Paramaters.length > 0) {
-      if (Out.Paramaters[Out.Paramaters.length - 1].range.end.character < pos.character) {
+      if (Out.Paramaters[Out.Paramaters.length - 1].range.end.character < char) {
         Out.CursorParamater = Out.Paramaters.length;
       } else {
         for (let I = 0; I < Out.Paramaters.length; I++) {

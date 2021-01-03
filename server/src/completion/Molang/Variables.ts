@@ -27,28 +27,38 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { OffsetWord } from "../code/words/OffsetWord";
+import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
+import { TextDocument } from 'vscode-languageserver-textdocument';
+import { Manager } from '../../manager/Manager';
+import { MolangFunctionDataItem } from '../../molang/include';
+import { DataType, DetectDataType } from '../../types/minecraft/format/include';
 
-export function CreateMolangTokens(text: string, offset: number): OffsetWord[] {
-  let startindex = 0;
-  let Out: OffsetWord[] = [];
+export function OnCompletionMolangVariable(doc: TextDocument, receiver: CompletionList): void {
+   let Type = DetectDataType(doc.uri);
 
-  let matches = text.match(/([A-Za-z_]+|[\/\.!+\-\*\&\[\]\{\}\(\)><=:;?\|]+|@[a-z]|[0-9\.]+)/gi);
+   switch (Type) {
+      case DataType.resource_particle:
+         return Convert(Manager.Data.Molang.Particles.variable, receiver);
 
-  if (matches) {
-    for (let I = 0; I < matches.length; I++) {
-      let match = matches[I];
+      case DataType.behaviour_animation:
+      case DataType.behaviour_animation_controller:
+      case DataType.behaviour_entity:
+      case DataType.resource_animation:
+      case DataType.resource_animation_controller:
+      case DataType.resource_entity:
+         return Convert(Manager.Data.Molang.Particles.variable, receiver);
 
-      let index = text.indexOf(match, startindex);
+   }
+}
 
-      if (index < 0) break;
+function Convert(data: MolangFunctionDataItem[], receiver: CompletionList): void {
+	for (let I = 0; I < data.length; I++) {
+		let Item = data[I];
 
-      let word = new OffsetWord(match, index + offset);
-      Out.push(word);
-
-      startindex = index + 1;
-    }
-  }
-
-  return Out;
+		receiver.items.push({
+			label: Item.function,
+			documentation: { kind: 'markdown', value: Item.documentation },
+			kind: CompletionItemKind.Variable
+		});
+	}
 }

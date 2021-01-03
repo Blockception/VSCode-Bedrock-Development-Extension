@@ -31,23 +31,28 @@ import { CompletionParams, CompletionList, CompletionItem } from "vscode-languag
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
 import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
+import { OnCompletionJson } from './Json';
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
 
 //Handle request
-export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionList> {
+export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[]> {
   return new Promise((resolve, reject) => {
-    resolve(OnCompletionRequest(params));
+     resolve(OnCompletionRequest(params).items);
   });
+}
+
+export async function OnCompletionResolveRequestAsync(params : CompletionItem) : Promise<CompletionItem> { 
+  return new Promise<CompletionItem>((resolve, reject)=>resolve(params));
+  
 }
 
 //Processes request
 function OnCompletionRequest(params: CompletionParams): CompletionList {
-  params.workDoneToken;
-
   let List: CompletionList = { isIncomplete: true, items: [] };
   let Doc = GetDocument(params.textDocument.uri);
   let Pos = params.position;
+  List.isIncomplete = false;
 
   switch (Doc.languageId) {
     case McLanguageIdentifier:
@@ -60,11 +65,11 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
 
     case "jsonc":
     case "json":
+      OnCompletionJson(Doc, Doc.offsetAt(Pos), List);
       break;
   }
 
   List.items = removeDuplicate(List.items);
-  List.isIncomplete = false;
 
   return List;
 }
@@ -85,8 +90,10 @@ function removeDuplicate(items: CompletionItem[]): CompletionItem[] {
 }
 
 function hasItem(items: CompletionItem[], item: CompletionItem): boolean {
+  let label = item.label;
+
   for (let I = 0; I < items.length; I++) {
-    if (IsEqual(items[I], item)) return true;
+    if (label == items[I].label) return true;
   }
 
   return false;

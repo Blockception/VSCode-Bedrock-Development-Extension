@@ -27,24 +27,29 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocuments } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { MolangData } from '../molang/MolangData';
-import { CommandManager } from "../types/commands/Command Manager/include";
+import { AddMolangData } from '../data/Add Molang Data';
 
-export class ExtensionData {
-  /**
-   * The command manager that stores all the minecraft commands
-   */
-  public Commands: CommandManager = new CommandManager();
+export interface MolangFunctionDataItem {
+	function: string;
+	documentation: string;
+}
 
-  /**
-   * The molang data manager that stores all default molang values
-   */
-  public Molang: MolangData = new MolangData();
+export interface MolangSpecificData {
+	variable: MolangFunctionDataItem[]
+}
 
-  /**
-   * The document manager that has possible cached documents, use GetDocument!
-   */
-  public Documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
+export class MolangData {
+	public Query: MolangFunctionDataItem[];
+	public Math: MolangFunctionDataItem[];
+	public Entities: MolangSpecificData;
+	public Particles: MolangSpecificData;
+
+	constructor() {
+		this.Math = [];
+		this.Query = [];
+		this.Entities = { variable: [] };
+		this.Particles = { variable: [] };
+
+		AddMolangData(this);
+	}
 }
