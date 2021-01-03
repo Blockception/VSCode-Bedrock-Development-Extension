@@ -395,12 +395,10 @@
     { "function": "sin(value)", "documentation": "Sine (in degrees) of value" },
     { "function": "sqrt(value)", "documentation": "Square root of value" },
     { "function": "trunc(value)", "documentation": "Round value towards zero" }
-	],
-	"entities": {
-    "variable": [
-			{ "function": "attack_time", "documentation": "" }
-		]
-	},
+  ],
+  "entities": {
+    "variable": [{ "function": "attack_time", "documentation": "" }]
+  },
   "particles": {
     "variable": [
       { "function": "emitter_lifetime", "documentation": "" },
