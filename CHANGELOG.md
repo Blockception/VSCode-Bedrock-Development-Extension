@@ -1,4 +1,11 @@
 # Changelog 
+- Bug fixing
+- Updating
+- Adding molang completion support
+- Added errors when format_version is missing from entities
+- Adding molang completion supports
+- Refactored
+- Updated to 1.3.23
 - Updated
 - auto: Formatted typescript files
 - Updated readme
@@ -12,10 +19,3 @@
 - Updated to 1.3.20
 - bug fixing for compiling
 - auto: Formatted typescript files
-- Finsihing semantic tokens
-- auto: Updated dependecies
-- auto: Updated dependecies
-- Removed progress handling
-- auto: Generated Includes
-- Finishing up on semantic tokens
-- Added push and pop syntax highlighting
