@@ -46,7 +46,7 @@ export function OnCompletionMolangVariable(doc: TextDocument, receiver: Completi
       case DataType.resource_animation:
       case DataType.resource_animation_controller:
       case DataType.resource_entity:
-         return Convert(Manager.Data.Molang.Particles.variable, receiver);
+         return Convert(Manager.Data.Molang.Entities.variable, receiver);
 
    }
 }

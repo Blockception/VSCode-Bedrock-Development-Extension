@@ -56,7 +56,7 @@ export function GetPreviousWord(text: string, cursor: number): string {
     endIndex = cursor - 1;
 
   let Index;
-  for (Index = endIndex - 1; Index > 0; Index--) {
+  for (Index = endIndex - 1; Index > -1; Index--) {
     const c = text.charAt(Index);
 
     if (Character.IsLetter(c) || Character.IsNumber(c) || c === '_')
