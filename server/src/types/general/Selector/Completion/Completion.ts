@@ -48,12 +48,7 @@ const Random: CompletionItem = {
 };
 const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
 
-export function provideSelectorCompletion(
-  receiver: CompletionList,
-  selector: LocationWord | undefined,
-  pos: number,
-  parameter: MCCommandParameter
-): void {
+export function provideSelectorCompletion(receiver: CompletionList, selector: LocationWord | undefined, pos: number, parameter: MCCommandParameter): void {
   const playerOnly = parameter.Options?.playerOnly ?? false;
   const wildcard = parameter.Options?.wildcard ?? false;
   const fakePlayer = parameter.Options?.allowFakePlayers ?? false;
