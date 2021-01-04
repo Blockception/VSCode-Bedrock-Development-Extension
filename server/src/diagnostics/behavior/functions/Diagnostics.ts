@@ -71,14 +71,13 @@ export function Diagnose(doc: TextDocument, validation: ValidationData) {
     });
   }
 
-  let line: string = '';
+  let line: string = "";
 
   for (let index = 0; index < doc.lineCount; index++) {
     try {
       line = getLine(doc, index);
       DiagnoseLine(line, index, validation, receiver);
     } catch (error) {
-
       if (error.message)
         receiver.push({
           message: error.message,

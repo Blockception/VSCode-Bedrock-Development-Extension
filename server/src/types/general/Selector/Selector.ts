@@ -161,11 +161,10 @@ export namespace IParameter {
     if (Name == "scores") {
       let Scores: IParameter[];
 
-      if (Value.startsWith('{') && Value.endsWith('}') && Value.includes('=')) {
+      if (Value.startsWith("{") && Value.endsWith("}") && Value.includes("=")) {
         Value = Value.substring(1, Value.length - 1);
         Scores = Selector.ParseParameters(Value, Index + 10 + startIndex, Line);
-      }
-      else {
+      } else {
         Scores = [];
       }
 

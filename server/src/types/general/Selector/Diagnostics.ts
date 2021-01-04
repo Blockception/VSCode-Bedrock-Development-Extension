@@ -39,11 +39,11 @@ import { IsInteger } from "../Integer/include";
 import { IScoreParameter, Selector } from "./Selector";
 
 /**
- * 
- * @param pattern 
- * @param data 
- * @param receiver 
- * @param validation 
+ *
+ * @param pattern
+ * @param data
+ * @param receiver
+ * @param validation
  */
 export function ProvideDiagnostics(pattern: MCCommandParameter, data: LocationWord, receiver: Diagnostic[], validation: ValidationData): void {
   let text = data.text;
@@ -63,9 +63,9 @@ export function ProvideDiagnostics(pattern: MCCommandParameter, data: LocationWo
 }
 
 /**
- * 
- * @param data 
- * @param receiver 
+ *
+ * @param data
+ * @param receiver
  */
 function DiagnoseFakePlayer(data: LocationWord, receiver: Diagnostic[]): void {
   let fakePlayer = data.text;
@@ -83,11 +83,11 @@ function DiagnoseFakePlayer(data: LocationWord, receiver: Diagnostic[]): void {
 }
 
 /**
- * 
- * @param selector 
- * @param receiver 
- * @param onlyPlayer 
- * @param validation 
+ *
+ * @param selector
+ * @param receiver
+ * @param onlyPlayer
+ * @param validation
  */
 function DiagnoseSelector(selector: Selector, receiver: Diagnostic[], onlyPlayer: boolean, validation: ValidationData): void {
   var HasType = selector.contains("type");
@@ -163,10 +163,10 @@ function DiagnoseSelector(selector: Selector, receiver: Diagnostic[], onlyPlayer
 }
 
 /**
- * 
- * @param name 
- * @param selector 
- * @param receiver 
+ *
+ * @param name
+ * @param selector
+ * @param receiver
  */
 function NoDuplicates(name: string, selector: Selector, receiver: Diagnostic[]): void {
   var Count = selector.count(name);
@@ -177,10 +177,10 @@ function NoDuplicates(name: string, selector: Selector, receiver: Diagnostic[]):
 }
 
 /**
- * 
- * @param name 
- * @param selector 
- * @param receiver 
+ *
+ * @param name
+ * @param selector
+ * @param receiver
  */
 function OnlyPositiveOrMultipleNegatives(name: string, selector: Selector, receiver: Diagnostic[]): void {
   var Parameters = selector.get(name);
@@ -203,10 +203,10 @@ function OnlyPositiveOrMultipleNegatives(name: string, selector: Selector, recei
 }
 
 /**
- * 
- * @param name 
- * @param selector 
- * @param receiver 
+ *
+ * @param name
+ * @param selector
+ * @param receiver
  */
 function OnlyPositiveAndMultipleNegatives(name: string, selector: Selector, receiver: Diagnostic[]): void {
   var Parameters = selector.get(name);
@@ -229,10 +229,10 @@ function OnlyPositiveAndMultipleNegatives(name: string, selector: Selector, rece
 }
 
 /**
- * 
- * @param name 
- * @param selector 
- * @param receiver 
+ *
+ * @param name
+ * @param selector
+ * @param receiver
  */
 function AllPositivesAndNegatives(name: string, selector: Selector, receiver: Diagnostic[]): void {
   var Parameters = selector.get(name);
@@ -253,10 +253,10 @@ function AllPositivesAndNegatives(name: string, selector: Selector, receiver: Di
 }
 
 /**
- * 
- * @param name 
- * @param selector 
- * @param receiver 
+ *
+ * @param name
+ * @param selector
+ * @param receiver
  */
 function Coordinate(name: string, selector: Selector, receiver: Diagnostic[]): void {
   NoDuplicates(name, selector, receiver);
@@ -275,8 +275,8 @@ function Coordinate(name: string, selector: Selector, receiver: Diagnostic[]): v
 }
 
 /**
- * 
- * @param selector 
+ *
+ * @param selector
  */
 function IsBox(selector: Selector): boolean {
   if (selector.contains("dx")) return true;
@@ -287,8 +287,8 @@ function IsBox(selector: Selector): boolean {
 }
 
 /**
- * 
- * @param selector 
+ *
+ * @param selector
  */
 function IsSphere(selector: Selector): boolean {
   if (selector.contains("r")) return true;
@@ -298,10 +298,10 @@ function IsSphere(selector: Selector): boolean {
 }
 
 /**
- * 
- * @param name 
- * @param selector 
- * @param receiver 
+ *
+ * @param name
+ * @param selector
+ * @param receiver
  */
 function Number(name: string, selector: Selector, receiver: Diagnostic[]) {
   NoDuplicates(name, selector, receiver);
@@ -327,10 +327,10 @@ function Number(name: string, selector: Selector, receiver: Diagnostic[]) {
 }
 
 /**
- * 
- * @param name 
- * @param selector 
- * @param receiver 
+ *
+ * @param name
+ * @param selector
+ * @param receiver
  */
 function Range(name: string, selector: Selector, receiver: Diagnostic[]) {
   NoDuplicates(name, selector, receiver);
@@ -360,10 +360,10 @@ function Range(name: string, selector: Selector, receiver: Diagnostic[]) {
 }
 
 /**
- * 
- * @param selector 
- * @param receiver 
- * @param validation 
+ *
+ * @param selector
+ * @param receiver
+ * @param validation
  */
 function ScoresCheck(selector: Selector, receiver: Diagnostic[], validation: ValidationData): void {
   let Parameter = selector.get("scores");
