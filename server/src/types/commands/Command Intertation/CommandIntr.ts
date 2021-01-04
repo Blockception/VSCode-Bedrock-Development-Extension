@@ -172,7 +172,7 @@ export function GetSubCommand(command: CommandIntr): CommandIntr | undefined {
   let Item = Matches[0];
   let index = Item.Command.getIndexOfType(MCCommandParameterType.command);
 
-  if (index > -1) {
+  if (index > -1 && index < command.Paramaters.length) {
     return command.slice(index);
   }
 
