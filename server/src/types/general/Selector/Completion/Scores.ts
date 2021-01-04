@@ -30,6 +30,11 @@ export function provideSelectorScoreCompletion(receiver: CompletionList, selecto
         label: "0..10",
         kind: CompletionItemKind.Value,
         documentation: "test for the everything equal to 0 or 10 and everything in between",
+      },
+      {
+        label: "!0..10",
+        kind: CompletionItemKind.Value,
+        documentation: "test for the everything not equal to 0 or 10 and everything in between",
       }
     );
   } else {
