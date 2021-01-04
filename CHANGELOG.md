@@ -1,21 +1,21 @@
 # Changelog 
+- Updated
+- auto: Formatted typescript files
+- Updated schemas reference
+- Added negative range check completion for scores
+- Formatted
+- Better parsing for selector on error handling
+- Offseting index calculations for detecting if the user is in the scores selector
+- Added comments placeholders
+- Sub command didnt return undefined, if no parameter was aviable
+- Fixed range checking not taking negatives in account
+- Fixed error handling on diagnostics
+- formatted
+- auto: Formatted typescript files
+- auto: Formatted json files
+- Updated to 1.4.1
+- Updated to 1.4.0
 - Bug fixing
 - Updating
 - Adding molang completion support
 - Added errors when format_version is missing from entities
-- Adding molang completion supports
-- Refactored
-- Updated to 1.3.23
-- Updated
-- auto: Formatted typescript files
-- Updated readme
-- Updated to 1.3.22
-- Fixing webpack compiling errors
-- Fixing errors vscode gives the plugin
-- Updated to 1.3.21
-- Stopping vscode from forcing wrong semantics
-- auto: Updated dependecies
-- auto: Updated dependecies
-- Updated to 1.3.20
-- bug fixing for compiling
-- auto: Formatted typescript files
