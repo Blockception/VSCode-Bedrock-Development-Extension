@@ -67,11 +67,11 @@ export function InScore(selector: LocationWord, pos: number): boolean {
     return false;
   }
 
-  Index = selector.text.indexOf("}");
+  Index = selector.text.indexOf("}") + selector.range.start.character;
 
   if (Index < 0) return true;
 
-  return pos < Index;
+  return pos <= Index;
 }
 
 export function GetCurrentAttribute(selector: LocationWord, pos: number): string {
