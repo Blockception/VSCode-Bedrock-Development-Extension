@@ -1,6 +1,6 @@
 {
   "main": "./client/out/extension.js",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-minecraft-mcfunction",

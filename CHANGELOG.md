@@ -1,4 +1,12 @@
 # Changelog 
+- Updated 1.4.3
+- Updated
+- Making sure only mcfunctions are parsed
+- auto: Updated dependecies
+- added submodule formatting support
+- Updated schemas
+- Updated
+- Updated to 1.4.2
 - Updated
 - auto: Formatted typescript files
 - Updated schemas reference
@@ -11,11 +19,3 @@
 - Fixed range checking not taking negatives in account
 - Fixed error handling on diagnostics
 - formatted
-- auto: Formatted typescript files
-- auto: Formatted json files
-- Updated to 1.4.1
-- Updated to 1.4.0
-- Bug fixing
-- Updating
-- Adding molang completion support
-- Added errors when format_version is missing from entities
