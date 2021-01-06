@@ -36,13 +36,23 @@ import { ProvideMcfunctionSemanticTokens } from "./Mcfunctions";
 
 export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
   return new Promise<SemanticTokens>((resolve, reject) => {
-    resolve(OnProvideSemanticRequest(params));
+    try {
+      resolve(OnProvideSemanticRequest(params));
+    } catch (err) {
+      console.log(JSON.stringify(err));
+      resolve({ data: [] });
+    }
   });
 }
 
 export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
   return new Promise<SemanticTokens>((resolve, reject) => {
-    resolve(OnProvideSemanticRequest(params));
+    try {
+      resolve(OnProvideSemanticRequest(params));
+    } catch (err) {
+      console.log(JSON.stringify(err));
+      resolve({ data: [] });
+    }
   });
 }
 

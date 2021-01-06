@@ -1,4 +1,6 @@
 # Changelog 
+- Less errors for semantic requests
+- Updated to version 1.4.4
 - Updated 1.4.3
 - Updated
 - Making sure only mcfunctions are parsed
@@ -17,5 +19,3 @@
 - Added comments placeholders
 - Sub command didnt return undefined, if no parameter was aviable
 - Fixed range checking not taking negatives in account
-- Fixed error handling on diagnostics
-- formatted
