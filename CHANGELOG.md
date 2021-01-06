@@ -1,4 +1,6 @@
 # Changelog 
+- auto: Updated dependecies
+- Updated to 1.4.5
 - Less errors for semantic requests
 - Updated to version 1.4.4
 - Updated 1.4.3
@@ -17,5 +19,3 @@
 - Better parsing for selector on error handling
 - Offseting index calculations for detecting if the user is in the scores selector
 - Added comments placeholders
-- Sub command didnt return undefined, if no parameter was aviable
-- Fixed range checking not taking negatives in account
