@@ -59,7 +59,9 @@
   "engines": {
     "vscode": "^1.41.0"
   },
-  "extensionKind": [ "workspace" ],
+  "extensionKind": [
+    "workspace"
+  ],
   "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
   "icon": "resources/logo.png",
   "license": "BSD-3-Clause",
@@ -93,17 +95,35 @@
       }
     ],
     "commands": [
-      { "title": "Run diagnose on project", "command": "bc.minecraft.diagnose.project", "category": "Blockception" },
-      { "title": "Cheat sheet: Molang", "command": "bc-cheat-sheet-molang", "category": "Blockception" },
-      { "title": "Cheat sheet: Behavior Filters", "command": "bc-cheat-sheet-behavior-filters","category": "Blockception" },
-      { "title": "Create Entity", "command": "bc-create-entity", "category": "Blockception" }
+      {
+        "title": "Run diagnose on project",
+        "command": "bc.minecraft.diagnose.project",
+        "category": "Blockception"
+      },
+      {
+        "title": "Cheat sheet: Molang",
+        "command": "bc-cheat-sheet-molang",
+        "category": "Blockception"
+      },
+      {
+        "title": "Cheat sheet: Behavior Filters",
+        "command": "bc-cheat-sheet-behavior-filters",
+        "category": "Blockception"
+      },
+      {
+        "title": "Create Entity",
+        "command": "bc-create-entity",
+        "category": "Blockception"
+      }
     ],
     "grammars": [
       {
         "language": "bc-minecraft-mcfunction",
         "scopeName": "source.bc.minecraft.mcfunction",
         "path": "./minecraft-mcfunctions/syntaxes/minecraft-mcfunction.tmLanguage.json",
-        "embeddedLanguages": { "meta.embedded.block.json": "json" }
+        "embeddedLanguages": {
+          "meta.embedded.block.json": "json"
+        }
       },
       {
         "language": "bc-minecraft-language",
@@ -119,30 +139,59 @@
     "languages": [
       {
         "id": "bc-minecraft-language",
-        "aliases": [ "Minecraft Language" ],
-        "extensions": [ ".lang" ],
+        "aliases": [
+          "Minecraft Language"
+        ],
+        "extensions": [
+          ".lang"
+        ],
         "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
       },
       {
         "id": "bc-minecraft-mcfunction",
-        "aliases": [ "Minecraft Mcfunction" ],
-        "extensions": [ ".mcfunction" ],
+        "aliases": [
+          "Minecraft Mcfunction"
+        ],
+        "extensions": [
+          ".mcfunction"
+        ],
         "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
-        "filenamePatterns": [ "[a-z0-9_]*\\.mcfunction" ]
+        "filenamePatterns": [
+          "[a-z0-9_]*\\.mcfunction"
+        ]
       },
       {
         "id": "bc-minecraft-molang",
-        "aliases": [ "Minecraft molang" ],
-        "extensions": [ ".molang" ],
+        "aliases": [
+          "Minecraft molang"
+        ],
+        "extensions": [
+          ".molang"
+        ],
         "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
       }
     ],
     "jsonValidation": [
-      { "fileMatch": "**/minecraft-validation.json", "url": "./minecraft-schemas/minecraft-validation.json" },
-      { "fileMatch": "*/skin_pack/skins.json", "url": "./minecraft-bedrock-schemas/skinpacks/skins.json" },
-      { "fileMatch": "language_names.json", "url": "./minecraft-bedrock-schemas/language/language_names.json" },
-      { "fileMatch": "languages.json", "url": "./minecraft-bedrock-schemas/language/languages.json" },
-      { "fileMatch": "manifest.json", "url": "./minecraft-bedrock-schemas/general/manifest.json" },
+      {
+        "fileMatch": "**/minecraft-validation.json",
+        "url": "./minecraft-schemas/minecraft-validation.json"
+      },
+      {
+        "fileMatch": "*/skin_pack/skins.json",
+        "url": "./minecraft-bedrock-schemas/skinpacks/skins.json"
+      },
+      {
+        "fileMatch": "language_names.json",
+        "url": "./minecraft-bedrock-schemas/language/language_names.json"
+      },
+      {
+        "fileMatch": "languages.json",
+        "url": "./minecraft-bedrock-schemas/language/languages.json"
+      },
+      {
+        "fileMatch": "manifest.json",
+        "url": "./minecraft-bedrock-schemas/general/manifest.json"
+      },
       {
         "fileMatch": [
           "world_behavior_packs.json",
