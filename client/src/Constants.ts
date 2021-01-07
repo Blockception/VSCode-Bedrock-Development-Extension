@@ -52,5 +52,7 @@ export namespace Commands {
 
    export namespace Create {
       export const Entity: string = 'bc-create-entity';
+      export const EntityRP: string = 'bc-create-entity-RP';
+      export const EntityBP: string = 'bc-create-entity-BP';
    };
 }

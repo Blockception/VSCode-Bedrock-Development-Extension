@@ -36,6 +36,8 @@ export function Activate(context: ExtensionContext): void {
 	console.log('registering create commands');
 
 	Create(context, Commands.Create.Entity, 'Create Entity');
+	Create(context, Commands.Create.EntityBP, 'Create Entity - Behaviour Pack Only');
+	Create(context, Commands.Create.EntityRP, 'Create Entity - Resource Pack Only');
 }
 
 
