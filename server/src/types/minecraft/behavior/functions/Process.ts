@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../../code/include";
-import { Languages } from '../../../../Constants';
+import { Languages } from "../../../../Constants";
 import { Database } from "../../../../database/include";
 import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../../../../process/Commands/include";
 import { ProcessTagCommand } from "../../../../process/Commands/Tag";
@@ -41,8 +41,7 @@ import { GetComment } from "./Function";
 export function Process(document: TextDocument): void {
   Database.Data.DeleteFile(document.uri);
 
-  if (document.languageId !== Languages.McFunctionIdentifier)
-    return;
+  if (document.languageId !== Languages.McFunctionIdentifier) return;
 
   ProcessContent(document);
   ProvideMcfunctionDiagnostics(document);

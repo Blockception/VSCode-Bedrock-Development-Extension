@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
-import { Languages } from '../Constants';
+import { Languages } from "../Constants";
 import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";

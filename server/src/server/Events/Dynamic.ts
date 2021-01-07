@@ -33,7 +33,7 @@ import {
   SemanticTokensRegistrationOptions,
   SemanticTokensRegistrationType,
 } from "vscode-languageserver";
-import { Languages } from '../../Constants';
+import { Languages } from "../../Constants";
 import { Manager } from "../../manager/Manager";
 import { SemanticModifiers, SemanticTokens } from "../../semantics/Legend";
 

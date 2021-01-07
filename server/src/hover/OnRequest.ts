@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Hover, HoverParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
-import { Languages } from '../Constants';
+import { Languages } from "../Constants";
 import { provideHoverMcFunction } from "./Mcfunction";
 
 export function OnHoverRequestAsync(params: HoverParams): Promise<Hover | undefined> {

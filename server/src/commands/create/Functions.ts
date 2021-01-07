@@ -27,52 +27,63 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import * as fs from 'fs';
-import { CreateFileOptions, TextDocumentEdit, CreateFile, DeleteFile, RenameFile, OptionalVersionedTextDocumentIdentifier, TextEdit, WorkspaceEdit, ApplyWorkspaceEditResponse } from 'vscode-languageserver/node';
-import { URI } from 'vscode-uri';
-import { Manager } from '../../manager/include';
-import { EmptyTypes } from '../../types/general/Empty';
+import * as fs from "fs";
+import {
+  CreateFileOptions,
+  TextDocumentEdit,
+  CreateFile,
+  DeleteFile,
+  RenameFile,
+  OptionalVersionedTextDocumentIdentifier,
+  TextEdit,
+  WorkspaceEdit,
+  ApplyWorkspaceEditResponse,
+} from "vscode-languageserver/node";
+import { URI } from "vscode-uri";
+import { Manager } from "../../manager/include";
+import { EmptyTypes } from "../../types/general/Empty";
 
 const CreateOptions: CreateFileOptions = { ignoreIfExists: true, overwrite: false };
 
 export function CreateFileFunction(uri: string, content: string, receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[]): void {
-	let Obj = URI.file(uri);
-	let path = Obj.fsPath;
+  let Obj = URI.file(uri);
+  let path = Obj.fsPath;
 
-	if (fs.existsSync(path)) { return; }
+  if (fs.existsSync(path)) {
+    return;
+  }
 
-	uri = Obj.toString();
+  uri = Obj.toString();
 
-	let Content: TextEdit = {
-		newText: content,
-		range: EmptyTypes.EmptyRange()
-	}
+  let Content: TextEdit = {
+    newText: content,
+    range: EmptyTypes.EmptyRange(),
+  };
 
-	let Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
-	receiver.push(CreateFile.create(uri, CreateOptions), TextDocumentEdit.create(Version, [Content]));
+  let Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
+  receiver.push(CreateFile.create(uri, CreateOptions), TextDocumentEdit.create(Version, [Content]));
 }
 
 export function SendEdit(WorkspaceEdit: WorkspaceEdit): void {
-	Manager.Connection.workspace.applyEdit(WorkspaceEdit).then(Response);
+  Manager.Connection.workspace.applyEdit(WorkspaceEdit).then(Response);
 }
 
 function Response(response: ApplyWorkspaceEditResponse): void {
-	if (response.applied)
-		return;
+  if (response.applied) return;
 
-	console.log('Workspace edit failed:');
-	console.log(`Item index: ${response.failedChange}`);
-	console.log(`Item reason: ${response.failureReason}`);
+  console.log("Workspace edit failed:");
+  console.log(`Item index: ${response.failedChange}`);
+  console.log(`Item reason: ${response.failureReason}`);
 }
 
 export function GenerateSafeID(ID: string): string {
-	let Index = ID.indexOf(':');
+  let Index = ID.indexOf(":");
 
-	if (Index > -1) {
-		ID = ID.substring(Index + 1);
-	}
+  if (Index > -1) {
+    ID = ID.substring(Index + 1);
+  }
 
-	ID = ID.replace(/:/gi, '.');
+  ID = ID.replace(/:/gi, ".");
 
-	return ID;
+  return ID;
 }

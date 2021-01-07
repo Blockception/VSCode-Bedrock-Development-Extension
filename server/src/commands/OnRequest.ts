@@ -27,11 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SSL_OP_CISCO_ANYCONNECT } from 'constants';
+import { SSL_OP_CISCO_ANYCONNECT } from "constants";
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { Commands, Languages } from '../Constants';
+import { Commands, Languages } from "../Constants";
 import { Database } from "../database/include";
-import { CreateBPEntity, CreateEntity, CreateRPEntity } from './create/Entity';
+import { CreateBPEntity, CreateEntity, CreateRPEntity } from "./create/Entity";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { McImportErrorsCommand } from "./import errors";
 

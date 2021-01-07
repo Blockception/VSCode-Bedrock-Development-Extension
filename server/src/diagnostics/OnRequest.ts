@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Languages } from '../Constants';
+import { Languages } from "../Constants";
 import { ProvideMcfunctionDiagnostics } from "../types/minecraft/behavior/functions/include";
 import { provideLanguageDiagnostics } from "./general/Language";
 

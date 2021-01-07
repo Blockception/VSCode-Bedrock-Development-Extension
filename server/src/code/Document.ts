@@ -33,7 +33,7 @@ import { Position, Range, TextDocument } from "vscode-languageserver-textdocumen
 import { Manager } from "../manager/Manager";
 import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
-import { Languages } from '../Constants';
+import { Languages } from "../Constants";
 
 /**
  * Returns an usable document interaction from the given data.
@@ -105,7 +105,6 @@ export function getLine(doc: TextDocument, lineIndex: number): string {
  * @param uri The documents uri
  */
 export function IdentifyDoc(uri: string): string {
-  
   if (uri.endsWith(".mcfunction")) return Languages.McFunctionIdentifier;
   if (uri.endsWith(".lang")) return Languages.McLanguageIdentifier;
   if (uri.endsWith(".json")) return Languages.JsonIdentifier;

@@ -28,57 +28,53 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { commands, ExtensionContext, InputBoxOptions, window } from "vscode";
-import { ExecuteCommandParams, ExecuteCommandRequest } from 'vscode-languageclient';
-import { Commands } from '../../Constants';
-import { Manager } from '../../Manager/Manager';
+import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
+import { Commands } from "../../Constants";
+import { Manager } from "../../Manager/Manager";
 
 export function Activate(context: ExtensionContext): void {
-	console.log('registering create commands');
+  console.log("registering create commands");
 
-	Create(context, Commands.Create.Entity, 'Create Entity');
-	Create(context, Commands.Create.EntityBP, 'Create Entity - Behaviour Pack Only');
-	Create(context, Commands.Create.EntityRP, 'Create Entity - Resource Pack Only');
+  Create(context, Commands.Create.Entity, "Create Entity");
+  Create(context, Commands.Create.EntityBP, "Create Entity - Behaviour Pack Only");
+  Create(context, Commands.Create.EntityRP, "Create Entity - Resource Pack Only");
 }
 
-
 function Create(context: ExtensionContext, command: string, title: string) {
-	context.subscriptions.push(commands.registerCommand(command, (arg: any[]) => {
-		let Options: InputBoxOptions = {
-			validateInput(value): string | undefined {
-				return ValidIdentifier(value)
-			},
-			prompt: title,
-			password: false,
-			ignoreFocusOut: true,
-			placeHolder: 'namespace:example'
-		};
+  context.subscriptions.push(
+    commands.registerCommand(command, (arg: any[]) => {
+      let Options: InputBoxOptions = {
+        validateInput(value): string | undefined {
+          return ValidIdentifier(value);
+        },
+        prompt: title,
+        password: false,
+        ignoreFocusOut: true,
+        placeHolder: "namespace:example",
+      };
 
-		window.showInputBox(Options).then((value) => OnComplete(value, command));
-	}));
+      window.showInputBox(Options).then((value) => OnComplete(value, command));
+    })
+  );
 }
 
 function OnComplete(value: string, command: string): Promise<any> {
-	if (value === undefined)
-		return new Promise<void>(undefined);
+  if (value === undefined) return new Promise<void>(undefined);
 
-	let Options: ExecuteCommandParams = {
-		command: command,
-		arguments: [value]
-	};
+  let Options: ExecuteCommandParams = {
+    command: command,
+    arguments: [value],
+  };
 
-	return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
+  return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
 }
 
 function ValidIdentifier(ID: string): string | undefined {
-	if (ID === undefined)
-		return undefined;
+  if (ID === undefined) return undefined;
 
-	if (ID.match(/^[0-9a-zA-Z:_\\.\\-]+$/)) {
-		return undefined;
-	}
-	else {
-		return 'Does not match pattern: namespace:example OR namespace:example.hello';
-	}
+  if (ID.match(/^[0-9a-zA-Z:_\\.\\-]+$/)) {
+    return undefined;
+  } else {
+    return "Does not match pattern: namespace:example OR namespace:example.hello";
+  }
 }
-
-

@@ -27,66 +27,69 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { NotificationType0 } from 'vscode-languageserver';
-import { ProjectData } from '../../code/include';
-import { Database } from '../../database/include';
-import { Manager } from '../../manager/Manager';
+import { NotificationType0 } from "vscode-languageserver";
+import { ProjectData } from "../../code/include";
+import { Database } from "../../database/include";
+import { Manager } from "../../manager/Manager";
 
 export interface Context {
-	BehaviorPack: string;
-	ResourcePack: string;
+  BehaviorPack: string;
+  ResourcePack: string;
 }
 
 export function GetContext(): Context | undefined {
-	let Data = Database.MinecraftProgramData.GetProjecData();
-	if (Data === undefined)
-		return undefined;
+  let Data = Database.MinecraftProgramData.GetProjecData();
+  if (Data === undefined) return undefined;
 
-	return Convert(Data);
+  return Convert(Data);
 }
 
 export function GetContextAsync<T>(data: T, callback: (c: Context, data: T) => void): void {
-	Database.MinecraftProgramData.GetProjecData((projectData) => {
-		let Context = Convert(projectData);
+  Database.MinecraftProgramData.GetProjecData((projectData) => {
+    let Context = Convert(projectData);
 
-		if (Context)
-			callback(Context, data);
-	});
+    if (Context) callback(Context, data);
+  });
 }
 
 function Convert(Data: ProjectData): Context | undefined {
+  let Base: string | undefined;
 
-	let Base: string | undefined;
+  //Some assembly required
+  if (Data.ResourcePackFolders.length === 0 || Data.BehaviourPackFolders.length === 0) {
+    if (Data.WorldFolders.length > 0) {
+      Base = Data.WorldFolders[0];
+    } else if (Data.Workspaces.length > 0) {
+      Base = Data.Workspaces[0];
+    }
+  }
 
-	//Some assembly required
-	if (Data.ResourcePackFolders.length === 0 || Data.BehaviourPackFolders.length === 0) {
-		if (Data.WorldFolders.length > 0) {
-			Base = Data.WorldFolders[0];
-		}
-		else if (Data.Workspaces.length > 0) {
-			Base = Data.Workspaces[0];
-		}
-	}
+  let BP: string | undefined;
+  let RP: string | undefined;
 
-	let BP: string | undefined;
-	let RP: string | undefined;
+  if (Data.BehaviourPackFolders.length > 0) {
+    BP = Data.BehaviourPackFolders[0];
+  }
+  if (Data.ResourcePackFolders.length > 0) {
+    RP = Data.ResourcePackFolders[0];
+  }
 
-	if (Data.BehaviourPackFolders.length > 0) { BP = Data.BehaviourPackFolders[0]; }
-	if (Data.ResourcePackFolders.length > 0) { RP = Data.ResourcePackFolders[0]; }
+  if (Base === undefined) {
+    if (BP === undefined || RP === undefined) {
+      Manager.Connection.window.showErrorMessage("Cannot get context on either: workspace, behavior pack, resourcepack or world");
 
-	if (Base === undefined) {
-		if (BP === undefined || RP === undefined) {
-			Manager.Connection.window.showErrorMessage('Cannot get context on either: workspace, behavior pack, resourcepack or world');
+      return undefined;
+    }
+  }
 
-			return undefined;
-		}
-	}
+  if (BP === undefined) {
+    BP = Base + "behavior_packs/missing_BP/";
+  }
+  if (RP === undefined) {
+    RP = Base + "resource_packs/missing_RP/";
+  }
 
-	if (BP === undefined) { BP = Base + 'behavior_packs/missing_BP/'; }
-	if (RP === undefined) { RP = Base + 'resource_packs/missing_RP/'; }
+  let Context: Context = { BehaviorPack: BP, ResourcePack: RP };
 
-	let Context: Context = { BehaviorPack: BP, ResourcePack: RP };
-
-	return Context;
+  return Context;
 }
-

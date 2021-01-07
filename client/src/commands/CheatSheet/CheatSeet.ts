@@ -30,14 +30,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { commands, ExtensionContext, Uri, ViewColumn, window } from "vscode";
 import * as path from "path";
 import { readFileSync } from "fs";
-import { Commands } from '../../Constants';
+import { Commands } from "../../Constants";
 
 export function Activate(context: ExtensionContext): void {
-  console.log('registering cheat sheets');
+  console.log("registering cheat sheets");
 
   context.subscriptions.push(
-    commands.registerCommand(Commands.CheatSheet.Molang, (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Molang.html")),
-    commands.registerCommand(Commands.CheatSheet.BehaviorFilters, (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Behavior filters.html"))
+    commands.registerCommand(Commands.CheatSheet.Molang, (args) =>
+      createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Molang.html")
+    ),
+    commands.registerCommand(Commands.CheatSheet.BehaviorFilters, (args) =>
+      createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Behavior filters.html")
+    )
   );
 }
 

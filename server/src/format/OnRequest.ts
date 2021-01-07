@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
 import { TextEdit } from "vscode-languageserver-textdocument";
 import { GetDocument } from "../code/include";
-import { Languages } from '../Constants';
+import { Languages } from "../Constants";
 import { formatLangauge, formatLangaugeRange } from "./Language";
 import { formatMcfunction, formatMcfunctionRange } from "./Mcfunction";
 

@@ -31,7 +31,7 @@ import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode
 import { Manager } from "../manager/Manager";
 import { semantics } from "../include";
 import { SemanticModifiers, SemanticTokens } from "../semantics/include";
-import { Commands, Languages } from '../Constants';
+import { Commands, Languages } from "../Constants";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {

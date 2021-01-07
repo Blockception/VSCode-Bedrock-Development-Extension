@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
 import { GetDocument, GetFilename } from "../code/include";
-import { Languages } from '../include';
+import { Languages } from "../include";
 import { ProvideJsonSemanticTokens } from "./Json";
 import { ProvideMcfunctionSemanticTokens } from "./Mcfunctions";
 
@@ -58,7 +58,7 @@ export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangePa
 
 function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
   let uri = params.textDocument.uri;
-  if (uri.includes("vscode://schemas") || uri.includes("git:/") || uri.startsWith('private:')) return { data: [] };
+  if (uri.includes("vscode://schemas") || uri.includes("git:/") || uri.startsWith("private:")) return { data: [] };
 
   //console.log(params.textDocument.uri);
 
