@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
 import { TextEdit } from "vscode-languageserver-textdocument";
 import { GetDocument } from "../code/include";
-import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
+import { Languages } from '../Constants';
 import { formatLangauge, formatLangaugeRange } from "./Language";
 import { formatMcfunction, formatMcfunctionRange } from "./Mcfunction";
 
@@ -50,14 +50,14 @@ function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] |
   let doc = GetDocument(params.textDocument.uri);
 
   switch (doc.languageId) {
-    case McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       return formatMcfunction(doc, params);
 
-    case McLanguageIdentifier:
+    case Languages.McLanguageIdentifier:
       return formatLangauge(doc, params);
 
-    case "jsonc":
-    case "json":
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
       break;
   }
 
@@ -68,11 +68,15 @@ function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): Te
   let doc = GetDocument(params.textDocument.uri);
 
   switch (doc.languageId) {
-    case McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       return formatMcfunctionRange(doc, params);
 
-    case McLanguageIdentifier:
+    case Languages.McLanguageIdentifier:
       return formatLangaugeRange(doc, params);
+
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
+    default:
   }
 
   return [];

@@ -27,5 +27,30 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
-export const McLanguageIdentifier: string = "bc-minecraft-language";
+
+export namespace Languages {
+   export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
+   export const McOtherIdentifier: string = "bc-minecraft-Other";
+   export const McLanguageIdentifier: string = "bc-minecraft-language";
+   export const JsonIdentifier: string = "json";
+   export const JsonCIdentifier: string = "jsonc";
+}
+
+export namespace Identification {
+   export const SettingsConfigurationIdentifier: string = "BC-MC-LanguageServer";
+}
+
+
+export namespace Commands {
+   export const ImportErrors: string = "bc.minecraft.errors.import";
+   export const DiagnoseProject: string = "bc.minecraft.diagnose.project";
+
+   export namespace CheatSheet {
+      export const Molang: string = "bc-cheat-sheet-molang";
+      export const BehaviorFilters: string = "bc-cheat-sheet-behavior-filters";
+   };
+
+   export namespace Create {
+      export const Entity: string = 'bc-create-entity';
+   };
+}

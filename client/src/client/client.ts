@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient/node";
-import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
+import { Languages } from "../Constants";
 import * as path from "path";
 import * as vscode from "vscode";
 import { Manager } from "../Manager/Manager";
@@ -58,10 +58,10 @@ export function SetupClient(context: vscode.ExtensionContext) {
   let clientOptions: LanguageClientOptions = {
     // Register the server for plain text documents
     documentSelector: [
-      { scheme: "file", language: McFunctionIdentifier },
-      { scheme: "file", language: McLanguageIdentifier },
-      { scheme: "file", language: "json" },
-      { scheme: "file", language: "jsonc" },
+      { scheme: "file", language: Languages.McFunctionIdentifier },
+      { scheme: "file", language: Languages.McLanguageIdentifier },
+      { scheme: "file", language: Languages.JsonIdentifier },
+      { scheme: "file", language: Languages.JsonCIdentifier }
     ],
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace

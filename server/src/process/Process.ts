@@ -30,28 +30,28 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as Json from "./Json";
 import * as Language from "./Language";
 import { GetFilename } from "../code/include";
-import { McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { behavior } from "../types/minecraft/include";
+import { Languages } from '../include';
 
 //Process the given document
 export function Process(document: TextDocument): void {
   console.log("Processing: " + GetFilename(document.uri) + " | " + document.languageId);
 
   switch (document.languageId) {
-    case McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       behavior.functions.Process(document);
       break;
 
-    case McLanguageIdentifier:
+    case Languages.McLanguageIdentifier:
       Language.ProcessLanguageFile(document);
       break;
 
-    case McOtherIdentifier:
+    case Languages.McOtherIdentifier:
       break;
 
-    case "jsonc":
-    case "json":
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
       Json.ProcessJson(document);
       break;
   }

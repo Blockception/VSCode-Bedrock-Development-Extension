@@ -29,9 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../manager/Manager";
-import * as Constants from "../Constants";
 import { semantics } from "../include";
 import { SemanticModifiers, SemanticTokens } from "../semantics/include";
+import { Commands, Languages } from '../Constants';
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {
@@ -52,7 +52,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: [Constants.McImportErrorsCommandID, Constants.McDiagnoseProjectCommanID],
+        commands: [Commands.DiagnoseProject, Commands.ImportErrors],
         workDoneProgress: true,
       },
 

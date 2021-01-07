@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
-import { McFunctionIdentifier, McLanguageIdentifier } from "../Constants";
+import { Languages } from '../Constants';
 import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
@@ -54,16 +54,16 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
   List.isIncomplete = false;
 
   switch (Doc.languageId) {
-    case McLanguageIdentifier:
+    case Languages.McLanguageIdentifier:
       OnCompletionLanguage(Doc, Pos, List);
       break;
 
-    case McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       OnCompletionMcFunction(Doc, Pos, List);
       break;
 
-    case "jsonc":
-    case "json":
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
       OnCompletionJson(Doc, Doc.offsetAt(Pos), List);
       break;
   }

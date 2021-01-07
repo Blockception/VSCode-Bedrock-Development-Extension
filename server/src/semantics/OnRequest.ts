@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
 import { GetDocument, GetFilename } from "../code/include";
-import * as Constants from "../Constants";
+import { Languages } from '../include';
 import { ProvideJsonSemanticTokens } from "./Json";
 import { ProvideMcfunctionSemanticTokens } from "./Mcfunctions";
 
@@ -72,15 +72,15 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
   }
 
   switch (doc.languageId) {
-    case Constants.JsonCIdentifier:
-    case Constants.JsonIdentifier:
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
       return ProvideJsonSemanticTokens(doc, range);
 
-    case Constants.McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       return ProvideMcfunctionSemanticTokens(doc, range);
 
-    case Constants.McOtherIdentifier:
-    case Constants.McLanguageIdentifier:
+    case Languages.McOtherIdentifier:
+    case Languages.McLanguageIdentifier:
       break;
   }
 

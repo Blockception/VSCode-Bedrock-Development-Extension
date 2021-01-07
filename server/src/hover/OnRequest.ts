@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Hover, HoverParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
-import { McFunctionIdentifier, McOtherIdentifier } from "../Constants";
+import { Languages } from '../Constants';
 import { provideHoverMcFunction } from "./Mcfunction";
 
 export function OnHoverRequestAsync(params: HoverParams): Promise<Hover | undefined> {
@@ -40,14 +40,12 @@ export function OnHoverRequest(params: HoverParams): Hover | undefined {
   let doc = GetDocument(params.textDocument.uri);
 
   switch (doc.languageId) {
-    case McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       return provideHoverMcFunction(params, doc);
 
-    case "jsonc":
-    case "json":
-      break;
-
-    case McOtherIdentifier:
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
+    case Languages.McOtherIdentifier:
       break;
   }
 

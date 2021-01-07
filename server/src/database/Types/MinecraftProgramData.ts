@@ -34,7 +34,7 @@ export class MinecraftProgramData {
   private BedrockInstallLocation: string | undefined;
   private ProjectData: ProjectData | undefined;
 
-  constructor() {}
+  constructor() { }
 
   /**
    * Retrieves the bedrock installation folder
@@ -61,10 +61,12 @@ export class MinecraftProgramData {
    */
   public LoadProjectData(callback: ((data: ProjectData) => void) | undefined): void {
     GetProjectData().then((x) => {
-      this.ProjectData = x;
+      if (x) {
+        this.ProjectData = x;
 
-      if (callback) {
-        callback(x);
+        if (callback) {
+          callback(x);
+        }
       }
     });
   }

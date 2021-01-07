@@ -1,4 +1,5 @@
 # Changelog 
+- Updated
 - auto: Updated dependecies
 - Updated to 1.4.5
 - Less errors for semantic requests
@@ -18,4 +19,3 @@
 - Formatted
 - Better parsing for selector on error handling
 - Offseting index calculations for detecting if the user is in the scores selector
-- Added comments placeholders

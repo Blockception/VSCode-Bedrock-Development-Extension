@@ -27,9 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { SSL_OP_CISCO_ANYCONNECT } from 'constants';
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { McDiagnoseProjectCommanID, McImportErrorsCommandID } from "../Constants";
+import { Commands, Languages } from '../Constants';
 import { Database } from "../database/include";
+import { CreateBPEntity, CreateEntity, CreateRPEntity } from './create/Entity';
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { McImportErrorsCommand } from "./import errors";
 
@@ -42,11 +44,20 @@ export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any
 function OnCommandRequest(params: ExecuteCommandParams): any {
   try {
     switch (params.command) {
-      case McImportErrorsCommandID:
+      case Commands.ImportErrors:
         return McImportErrorsCommand(params);
 
-      case McDiagnoseProjectCommanID:
+      case Commands.DiagnoseProject:
         return DiagnoseProjectCommand(params);
+
+      case Commands.Create.Entity:
+        return CreateEntity(params);
+
+      case Commands.Create.EntityBP:
+        return CreateBPEntity(params);
+
+      case Commands.Create.EntityRP:
+        return CreateRPEntity(params);
     }
   } catch (error) {
     console.log(error);

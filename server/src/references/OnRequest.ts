@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
-import { McFunctionIdentifier, McOtherIdentifier } from "../Constants";
+import { Languages } from '../Constants';
 import { ProvideJsonReferences } from "./Json";
 import { ProvideMcfunctionsReferences } from "./Mcfunction";
 
@@ -43,14 +43,14 @@ function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {
   let doc = GetDocument(params.textDocument.uri);
 
   switch (doc.languageId) {
-    case McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       return ProvideMcfunctionsReferences(params, doc);
 
-    case McOtherIdentifier:
+    case Languages.McOtherIdentifier:
       return;
 
-    case "jsonc":
-    case "json":
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
       return ProvideJsonReferences(params, doc);
   }
 

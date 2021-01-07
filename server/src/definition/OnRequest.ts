@@ -29,18 +29,18 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
-import { McFunctionIdentifier, McOtherIdentifier } from "../Constants";
+import { Languages } from '../Constants';
 import { OnJsonDefinition } from "./Json";
 import { OnMcfunctionDefinition } from "./Mcfunction";
 
-export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[]> {
-  return new Promise<Location[]>((resolve, reject) => {
+export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {
+  return new Promise<Location[] | undefined>((resolve, reject) => {
     resolve(onDefinition(params));
   });
 }
 
-export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[]> {
-  return new Promise<Location[]>((resolve, reject) => {
+export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[] | undefined> {
+  return new Promise<Location[] | undefined>((resolve, reject) => {
     resolve(onDefinition(params));
   });
 }
@@ -50,14 +50,14 @@ function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location
   let pos = params.position;
 
   switch (doc.languageId) {
-    case McFunctionIdentifier:
+    case Languages.McFunctionIdentifier:
       return OnMcfunctionDefinition(doc, pos);
 
-    case "jsonc":
-    case "json":
+    case Languages.JsonCIdentifier:
+    case Languages.JsonIdentifier:
       return OnJsonDefinition(doc, pos);
 
-    case McOtherIdentifier:
+    case Languages.McOtherIdentifier:
       break;
   }
 

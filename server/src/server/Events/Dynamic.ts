@@ -33,7 +33,7 @@ import {
   SemanticTokensRegistrationOptions,
   SemanticTokensRegistrationType,
 } from "vscode-languageserver";
-import * as Constants from "../../Constants";
+import { Languages } from '../../Constants';
 import { Manager } from "../../manager/Manager";
 import { SemanticModifiers, SemanticTokens } from "../../semantics/Legend";
 
@@ -42,18 +42,18 @@ export function SetDynamicEvents() {
 
   // Tell the client that this server supports code formatting.
   const Formatoptions: DocumentFormattingRegistrationOptions = {
-    documentSelector: [Constants.McFunctionIdentifier, Constants.McLanguageIdentifier],
+    documentSelector: [Languages.McFunctionIdentifier, Languages.McLanguageIdentifier],
   };
 
   client.register(DocumentFormattingRequest.type, Formatoptions);
 
   const registrationOptions: SemanticTokensRegistrationOptions = {
     documentSelector: [
-      Constants.JsonCIdentifier,
-      Constants.JsonIdentifier,
-      Constants.McFunctionIdentifier,
-      Constants.McLanguageIdentifier,
-      Constants.McOtherIdentifier,
+      Languages.JsonCIdentifier,
+      Languages.JsonIdentifier,
+      Languages.McFunctionIdentifier,
+      Languages.McLanguageIdentifier,
+      Languages.McOtherIdentifier,
     ],
     legend: {
       tokenModifiers: SemanticModifiers,

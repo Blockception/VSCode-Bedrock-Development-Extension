@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SettingsConfigurationIdentifier } from "../Constants";
+import { Identification } from '../Constants';
 import { Manager } from "../manager/Manager";
 
 export interface ServerSettings {
@@ -43,7 +43,7 @@ export namespace ServerSettings {
 }
 
 export function UpdateSettings(): void {
-  let Settings = Manager.Connection.workspace.getConfiguration(SettingsConfigurationIdentifier);
+  let Settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
 
   //If settings is nothing then skip it.
   if (Settings === undefined || Settings === null) return;
