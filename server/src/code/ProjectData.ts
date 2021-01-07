@@ -44,11 +44,11 @@ export interface ProjectData {
   Workspaces: string[];
 }
 
-export function GetProjectData(): Promise<ProjectData> {
+export function GetProjectData(): Promise<ProjectData | undefined> {
   let WS = Manager.Connection.workspace.getWorkspaceFolders();
 
   return WS.then(
-    (x) => new Promise<ProjectData>((resolve, reject) => resolve(CheckStructure(x)))
+    (x) => new Promise<ProjectData | undefined>((resolve, reject) => resolve(CheckStructure(x)))
   );
 }
 

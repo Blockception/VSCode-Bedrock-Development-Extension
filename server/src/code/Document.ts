@@ -31,9 +31,9 @@ import * as fs from "fs";
 import * as fg from "fast-glob";
 import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../manager/Manager";
-import { JsonIdentifier, McFunctionIdentifier, McLanguageIdentifier, McOtherIdentifier } from "../Constants";
 import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
+import { Languages } from '../Constants';
 
 /**
  * Returns an usable document interaction from the given data.
@@ -105,11 +105,12 @@ export function getLine(doc: TextDocument, lineIndex: number): string {
  * @param uri The documents uri
  */
 export function IdentifyDoc(uri: string): string {
-  if (uri.endsWith(".mcfunction")) return McFunctionIdentifier;
-  if (uri.endsWith(".lang")) return McLanguageIdentifier;
-  if (uri.endsWith(".json")) return JsonIdentifier;
+  
+  if (uri.endsWith(".mcfunction")) return Languages.McFunctionIdentifier;
+  if (uri.endsWith(".lang")) return Languages.McLanguageIdentifier;
+  if (uri.endsWith(".json")) return Languages.JsonIdentifier;
 
-  return McOtherIdentifier;
+  return Languages.McOtherIdentifier;
 }
 
 /**
