@@ -1,4 +1,10 @@
 # Changelog 
+- auto: Formatted typescript files
+- Updated package
+- Added creation commands
+- Adding creation commands
+- Refactoring
+- Refactor
 - Updated
 - auto: Updated dependecies
 - Updated to 1.4.5
@@ -13,9 +19,3 @@
 - Updated
 - Updated to 1.4.2
 - Updated
-- auto: Formatted typescript files
-- Updated schemas reference
-- Added negative range check completion for scores
-- Formatted
-- Better parsing for selector on error handling
-- Offseting index calculations for detecting if the user is in the scores selector
