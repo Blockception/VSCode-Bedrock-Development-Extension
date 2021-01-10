@@ -1,4 +1,8 @@
 # Changelog 
+- auto: Updated dependecies
+- Updated
+- Removed unnesscary files
+- Updated to 1.4.6
 - auto: Formatted typescript files
 - Updated package
 - Added creation commands
@@ -15,7 +19,3 @@
 - Making sure only mcfunctions are parsed
 - auto: Updated dependecies
 - added submodule formatting support
-- Updated schemas
-- Updated
-- Updated to 1.4.2
-- Updated
