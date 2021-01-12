@@ -27,10 +27,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
-import { exitCode } from "process";
-import { Behaviorpack } from "./database/Types/include";
-
 export namespace Languages {
   export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
   export const McOtherIdentifier: string = "bc-minecraft-Other";
@@ -86,11 +82,11 @@ export namespace Commands {
       export const Loot_Table: string = BPBase + 'loot_table';
       /**The command to create all manifests*/
       export const Manifests: string = BPBase + 'manifest';
-      /**The command to create loot_table files */
+      /**The command to create recipe files */
       export const Recipe: string = BPBase + 'recipe';
-      /**The command to create loot_table files */
+      /**The command to create spawn_rule files */
       export const Spawn_Rule: string = BPBase + 'spawn_rule';
-      /**The command to create loot_table files */
+      /**The command to create trading files */
       export const Trading: string = BPBase + 'trading';
     }
 
@@ -136,12 +132,12 @@ export namespace Commands {
 
     /**The namespace that stores all World creation commands */
     export namespace World {
-      const BPBase = Base + 'world-';
+      const WPBase = Base + 'world-';
 
       /**The command to create language files */
-      export const Languages: string = BPBase + 'language';
+      export const Languages: string = WPBase + 'language';
       /**The command to create all manifests*/
-      export const Manifests: string = BPBase + 'manifest';
+      export const Manifests: string = WPBase + 'manifest';
     }
   }
 }
