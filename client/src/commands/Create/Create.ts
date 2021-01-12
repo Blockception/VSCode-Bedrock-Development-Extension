@@ -32,19 +32,21 @@ import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclie
 import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
 
-const AnimationControllerID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
-const AnimationID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
-const AttachableID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
-const EntityID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
-const BlockID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
-const ItemID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
-const LootTableID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
-const ModelID: RegExp = /^geometrey.[0-9a-zA-Z_\\.\\-]+$/;
-const ParticleID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
-const RecipeID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
-const RenderControllerID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
-const SpawnRuleID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
-const TradingID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+interface IDExample { ID : RegExp, example : string };
+
+const AnimationControllerID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :'example.foo | example'};
+const AnimationID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :'example.foo | example'};
+const AttachableID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:attachable'};
+const EntityID: IDExample ={ ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:entity'};
+const BlockID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:block'};
+const ItemID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:item'};
+const LootTableID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :'example.foo | example'};
+const ModelID: IDExample = { ID :/^geometry.[0-9a-zA-Z_\\.\\-]+$/, example :'geometry.model_name'};
+const ParticleID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:particle'};
+const RecipeID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:recipe'};
+const RenderControllerID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :''};
+const SpawnRuleID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'example.foo | example'};
+const TradingID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'example.foo | example'};
 
 export function Activate(context: ExtensionContext): void {
   console.log("registering create commands");
@@ -84,7 +86,7 @@ export function Activate(context: ExtensionContext): void {
   CreateID(context, Commands.Create.Resourcepack.Render_Controller, 'Create render_controller file', RenderControllerID);
   Create(context, Commands.Create.Resourcepack.Sounds, 'Create the sreate the sounds file');
   Create(context, Commands.Create.Resourcepack.Sound_Definitions, 'Create the sound definireate the sound definitions file');
-  Create(context, Commands.Create.Resourcepack.Terrain_Texture, 'Create the terrain tereate the terrain texture file');
+  Create(context, Commands.Create.Resourcepack.Terrain_Texture, 'Create the terrain texture file');
 
   //World
   Create(context, Commands.Create.World.Manifests, 'Create manifest');
@@ -95,7 +97,7 @@ function Create(context: ExtensionContext, command: string, title: string) {
   context.subscriptions.push(commands.registerCommand(command, (arg: any[]) => { OnComplete(command); }));
 }
 
-function CreateID(context: ExtensionContext, command: string, title: string, IDRegex: RegExp) {
+function CreateID(context: ExtensionContext, command: string, title: string, IDRegex: IDExample) {
   context.subscriptions.push(
     commands.registerCommand(command, (arg: any[]) => {
       let Options: InputBoxOptions = {
@@ -105,7 +107,7 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
         prompt: title,
         password: false,
         ignoreFocusOut: true,
-        placeHolder: "namespace:example",
+        placeHolder: IDRegex.example,
       };
 
       window.showInputBox(Options).then((value) => OnCompleteID(value, command));
@@ -133,12 +135,12 @@ function OnComplete(command: string): Promise<any> {
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
 }
 
-function ValidIdentifier(ID: string, IDRegex: RegExp): string | undefined {
+function ValidIdentifier(ID: string, IDRegex: IDExample): string | undefined {
   if (ID === undefined) return undefined;
 
-  if (ID.match(IDRegex)) {
+  if (ID.match(IDRegex.ID)) {
     return undefined;
   } else {
-    return "Does not match pattern: namespace:example OR namespace:example.hello";
+    return `Does not match pattern: ${IDRegex.example}`;
   }
 }

@@ -33,7 +33,7 @@ export function create_animation_controller(ID: string): string { return animati
 const animation_controller: string = `{
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
-		"controller.animation.%ID%.example" : {
+		"controller.animation.%ID%" : {
 			"initial_state" : "default",
 			"states" : {
 				"default" : {
@@ -44,8 +44,8 @@ const animation_controller: string = `{
 				},
 				"state_1" : {
 					"animations" : [ "state_animation" ],
-					"on_entry": ["@s example:foor"]
-					"on_exit": ["/tp @s ~ ~2 ~"]
+					"on_entry": ["@s example:foo"],
+					"on_exit": ["/tp @s ~ ~2 ~"],
 					"transitions" : [
 						{ "default" : "!query.is_baby" }
 					]
@@ -98,7 +98,7 @@ const entity: string = `{
     "component_groups": {
     },
     "components": {
-      "minecraft:health": { "value": 10, "max": 10 },
+      "minecraft:health": { "value": 10, "max": 10 }
     },
     "events": {
     }
@@ -127,7 +127,7 @@ const loot_table: string = `{
       "entries": [
         {
           "type": "item",
-          "name": "potato",
+          "name": "minecraft:potato",
           "weight": 1
         }
       ]

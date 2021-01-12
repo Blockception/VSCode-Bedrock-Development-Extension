@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { URI } from "vscode-uri";
 
 export function UniformUrl(Uri: string): string {
+  
   let Out: string;
 
   if (Uri.startsWith("file://")) {

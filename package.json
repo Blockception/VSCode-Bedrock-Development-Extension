@@ -201,7 +201,7 @@
         "category": "Blockception"
       },
       {
-        "title": "Resource Pack: Create the blocks file files",
+        "title": "Resource Pack: Create the blocks file",
         "command": "bc-create-resource_pack-blocks",
         "category": "Blockception"
       },
@@ -211,7 +211,7 @@
         "category": "Blockception"
       },
       {
-        "title": "Resource Pack: Create flipbook_textures files",
+        "title": "Resource Pack: Create flipbook_textures file",
         "command": "bc-create-resource_pack-flipbook_textures",
         "category": "Blockception"
       },
@@ -262,7 +262,7 @@
       },
       {
         "title": "Resource Pack: Create the terrain texture file",
-        "command": "bc-create-resource_pack-terrain_texture'",
+        "command": "bc-create-resource_pack-terrain_texture",
         "category": "Blockception"
       },
       {

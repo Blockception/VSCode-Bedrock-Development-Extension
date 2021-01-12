@@ -33,7 +33,7 @@ export interface FormatVersion {
 
 export namespace FormatVersion {
   export function is(value: any): value is FormatVersion {
-    if (value.format_version) {
+    if (value && value.format_version) {
       return true;
     }
 

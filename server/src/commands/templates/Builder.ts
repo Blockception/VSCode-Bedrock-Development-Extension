@@ -32,6 +32,8 @@ import { URI } from 'vscode-uri';
 import { Manager } from '../../manager/Manager';
 import * as fs from "fs";
 import { EmptyTypes } from '../../types/general/include';
+import { normalize } from 'path';
+import { GetFilepath, UniformUrl } from '../../code/Url';
 
 export class TemplateBuilder {
 	private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -52,6 +54,13 @@ export class TemplateBuilder {
 	}
 
 	CreateFile(uri: string, content: string): void {
+		uri = uri.replace(/\\/g, '/');
+		uri = uri.replace("%3A", ":");
+		if (uri.startsWith('file:/')) {
+			uri = uri.substring(6);
+		}
+
+
 		let Obj = URI.file(uri);
 		let path = Obj.fsPath;
 

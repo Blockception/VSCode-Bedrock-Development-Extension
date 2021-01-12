@@ -107,7 +107,7 @@ export function create_particle_File(ID: string, Context: Context, Builder: Temp
 
 export function create_render_controller_File(ID: string,Context: Context, Builder: TemplateBuilder): void {
 	let safeID = SafeIDNoNamespace(ID)
-	let uri = path.join(Context.ResourcePack, 'render_controllers', safeID + '.render_controllers.json');
+	let uri = path.join(Context.ResourcePack, 'render_controllers', safeID + '.render_controller.json');
 	Builder.CreateFile(uri, Templates.resource_pack.create_render_controller(ID));
 }
 

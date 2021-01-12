@@ -30,7 +30,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import * as Code from "../include";
-import { InvalidJson, ValidJson } from "../../diagnostics/Json";
 
 export class JsonDocument {
   private doc: TextDocument;
@@ -67,7 +66,11 @@ export class JsonDocument {
       try {
         let Text = this.doc.getText();
         Text = stripJSONComments(Text);
-        let object = JSON.parse(Text);
+
+        let object;
+        if (Text !== '') {
+          object = JSON.parse(Text);
+        }
 
         this.object = object;
         //ValidJson(this.doc);

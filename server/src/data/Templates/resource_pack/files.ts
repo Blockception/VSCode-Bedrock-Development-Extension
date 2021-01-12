@@ -55,7 +55,7 @@ const animation_controller: string = `{
 }`;
 
 /**The template for the resourcepack animation*/
-export function create_animation(ID: string): string { return animation_controller.replace(/%SafeID%/gi, SafeID(ID, '.')); }
+export function create_animation(ID: string): string { return animation.replace(/%SafeID%/gi, SafeID(ID, '.')); }
 const animation: string = `{
   "format_version": "1.10.0",
   "animations": {
@@ -117,31 +117,28 @@ const entity: string = `{
       "min_engine_version": "1.8.0",
       "materials": {
 				"default": "entity",
-				"alpha": ""
+				"alpha": "entity_alphatest"
       },
       "textures": {
         "default": "textures/entity/example"
       },
       "animations": {
-        "default_pose": "animation.armor_stand.default_pose",
-        "controller.pose": "controller.animation.armor_stand.pose",
-        "controller.wiggling": "controller.animation.armor_stand.wiggle"
+        "default_pose": "animation.example.default_pose",
+        "controller.pose": "controller.animation.example.pose"
       },
       "scripts": {
         "initialize": [
-          "variable.armor_stand.pose_index = 0;",
-          "variable.armor_stand.hurt_time = 0;"
+          "variable.example.a = 0;",
+          "variable.example.b = 0;"
         ],
         "animate": [
-          "controller.pose",
-          "controller.wiggling"
+          "controller.pose"
         ]
       },
       "geometry": {
-        "default": "geometry.armor_stand"
+        "default": "geometry.example"
       },
-      "render_controllers": [ "controller.render.armor_stand" ],
-      "enable_attachables": true
+      "render_controllers": [ "controller.render.example" ]
     }
   }
 }`;
@@ -159,11 +156,10 @@ const flipbook_textures: string = `[
 /**The template for the resourcepack item_texture*/
 export function create_item_texture(): string { return item_texture; }
 const item_texture: string = `{
-  "resource_pack_name" : "vanilla",
-  "texture_data" : {
-      "example" : {
-        "textures" : "textures/items/example"
-      }
+  "resource_pack_name": "vanilla",
+  "texture_data": {
+    "example": {
+      "textures": "textures/items/example"
     }
   }
 }`;
@@ -352,13 +348,12 @@ const sound_definitions: string = `{
 /**The template for the resourcepack terrain_texture*/
 export function create_terrain_texture(): string { return terrain_texture; }
 const terrain_texture: string = `{
-  "num_mip_levels" : 4,
-  "padding" : 8,
-  "resource_pack_name" : "vanilla",
-  "texture_data" : {
-     "example" : {
-        "textures" : "textures/blocks/example"
-      },
+  "num_mip_levels": 4,
+  "padding": 8,
+  "resource_pack_name": "vanilla",
+  "texture_data": {
+    "example": {
+      "textures": "textures/blocks/example"
     }
   }
 }`;

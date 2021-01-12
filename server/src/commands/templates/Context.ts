@@ -74,16 +74,21 @@ function Convert(Data: ProjectData): Context | undefined {
   if (Data.ResourcePackFolders.length > 0) { RP = Data.ResourcePackFolders[0]; }
 
   if (Base === undefined) {
-    if (BP === undefined || RP === undefined) {
+    if (BP === undefined || RP === undefined || WP === undefined) {
       Manager.Connection.window.showErrorMessage("Cannot get context on either: workspace, behavior pack, resourcepack or world");
 
       return undefined;
     }
+
+    Base = '';
+  }
+
+  if (!Base.endsWith('/')) {
+    Base += '/';
   }
 
   if (WP === undefined) {
-    WP = Base + 'world/';
-    Base = WP;
+      WP = Base;
   }
 
   if (BP === undefined) {

@@ -66,7 +66,7 @@ export function create_item_file(ID: string, Context: Context, Builder: Template
 
 export function create_loot_table_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
 	let safeID = SafeIDNoNamespace(ID);
-	let uri = path.join(Context.BehaviorPack, 'loot_tables', safeID + 'loot.json');
+	let uri = path.join(Context.BehaviorPack, 'loot_tables', safeID + '.loot.json');
 	Builder.CreateFile(uri, Templates.behavior_pack.create_loot_table());
 }
 
