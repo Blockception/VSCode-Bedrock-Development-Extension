@@ -1,4 +1,6 @@
 # Changelog 
+- Updating the parsing of selectors
+- Updated to 1.5.1
 - auto: Updated dependecies
 - auto: Formatted typescript files
 - auto: Formatted json files
@@ -17,5 +19,3 @@
 - Updated
 - Removed unnesscary files
 - Updated to 1.4.6
-- auto: Formatted typescript files
-- Updated package
