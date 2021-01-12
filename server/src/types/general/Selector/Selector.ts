@@ -83,7 +83,7 @@ export namespace Selector {
     let data = text.text.substring(2);
 
     if (data.startsWith("[") && data.endsWith("]")) {
-      var Parameters = ParseParameters(data.substring(1, data.length - 1), 3, text.range.start.line);
+      var Parameters = ParseParameters(data.substring(1, data.length - 1), text.range.start.character + 3, text.range.start.line);
 
       Out.Parameters = Parameters;
     }
@@ -163,7 +163,7 @@ export namespace IParameter {
 
       if (Value.startsWith("{") && Value.endsWith("}") && Value.includes("=")) {
         Value = Value.substring(1, Value.length - 1);
-        Scores = Selector.ParseParameters(Value, Index + 10 + startIndex, Line);
+        Scores = Selector.ParseParameters(Value, 8 + startIndex, Line);
       } else {
         Scores = [];
       }
