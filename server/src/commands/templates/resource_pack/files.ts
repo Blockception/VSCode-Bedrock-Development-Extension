@@ -35,19 +35,19 @@ import { Context } from '../Context';
 import { uuid } from 'uuidv4';
 
 export function create_animation_controller_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	let safeID = SafeID(ID);
+	let safeID = SafeIDNoNamespace(ID);
 	let uri = path.join(Context.ResourcePack, 'animation_controllers', safeID + '.controller.json');
 	Builder.CreateFile(uri, Templates.resource_pack.create_animation_controller(ID));
 }
 
 export function create_animation_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	let safeID = SafeID(ID);
+	let safeID = SafeIDNoNamespace(ID);
 	let uri = path.join(Context.ResourcePack, 'animations', safeID + '.animation.json');
 	Builder.CreateFile(uri, Templates.resource_pack.create_animation(ID));
 }
 
 export function create_attachable_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	let safeID = SafeID(ID);
+	let safeID = SafeIDNoNamespace(ID);
 	let uri = path.join(Context.ResourcePack, 'attachables', safeID + '.json');
 	Builder.CreateFile(uri, Templates.resource_pack.create_attachable(ID));
 }
@@ -63,7 +63,7 @@ export function create_blocks_file(Context: Context, Builder: TemplateBuilder): 
 }
 
 export function create_entity_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	let safeID = SafeID(ID);
+	let safeID = SafeIDNoNamespace(ID);
 	let uri = path.join(Context.ResourcePack, 'entities', safeID + '.entity.json');
 	Builder.CreateFile(uri, Templates.resource_pack.create_entity(ID));
 }
@@ -89,7 +89,7 @@ export function create_model_file(ID: string, Context: Context, Builder: Templat
 	if (!(ID.startsWith('geometry.') || ID.startsWith('Geometry.')))
 		ID = 'geometry.' + ID;
 
-	let safeID = SafeID(ID).replace('geometry.', '');
+	let safeID = SafeIDNoNamespace(ID).replace('geometry.', '');
 	let uri = path.join(Context.ResourcePack, 'models/entities', safeID + '.geo.json');
 	Builder.CreateFile(uri, Templates.resource_pack.create_model(ID));
 }
@@ -100,7 +100,7 @@ export function create_music_definitions_File(Context: Context, Builder: Templat
 }
 
 export function create_particle_File(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	let safeID = SafeID(ID)
+	let safeID = SafeIDNoNamespace(ID)
 	let uri = path.join(Context.ResourcePack, 'particles', safeID + '.particle.json');
 	Builder.CreateFile(uri, Templates.resource_pack.create_particle(ID));
 }
