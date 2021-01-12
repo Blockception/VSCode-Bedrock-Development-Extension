@@ -50,94 +50,94 @@ export namespace Commands {
 
   /**The namespace that stores all creation commands */
   export namespace Create {
-    export const Base = 'bc-create-';
+    export const Base = "bc-create-";
 
     /**The namespace that stores all general creation commands */
     export namespace General {
       /**The command to create entities files */
-      export const Entity: string = Base + 'entity';
+      export const Entity: string = Base + "entity";
       /**The command to create language files */
-      export const Languages: string = Base + 'language-all';
+      export const Languages: string = Base + "language-all";
       /**The command to create all manifests */
-      export const Manifests: string = Base + 'manifest-all';
+      export const Manifests: string = Base + "manifest-all";
     }
 
     /**The namespace that stores all Behavior pack creation commands */
     export namespace Behaviorpack {
-      const BPBase = Base + 'behavior_pack-';
+      const BPBase = Base + "behavior_pack-";
 
       /**The command to create animation controllers files */
-      export const Animation_Controller: string = BPBase + 'animation_controllers';
+      export const Animation_Controller: string = BPBase + "animation_controllers";
       /**The command to create animations files */
-      export const Animation: string = BPBase + 'animations';
+      export const Animation: string = BPBase + "animations";
       /**The command to create block file */
-      export const Block: string = BPBase + 'block';
+      export const Block: string = BPBase + "block";
       /**The command to create entities files */
-      export const Entity: string = BPBase + 'entity';
+      export const Entity: string = BPBase + "entity";
       /**The command to create item files */
-      export const Item: string = BPBase + 'item';
+      export const Item: string = BPBase + "item";
       /**The command to create language files */
-      export const Languages: string = BPBase + 'language';
+      export const Languages: string = BPBase + "language";
       /**The command to create loot_table files */
-      export const Loot_Table: string = BPBase + 'loot_table';
+      export const Loot_Table: string = BPBase + "loot_table";
       /**The command to create all manifests*/
-      export const Manifests: string = BPBase + 'manifest';
+      export const Manifests: string = BPBase + "manifest";
       /**The command to create recipe files */
-      export const Recipe: string = BPBase + 'recipe';
+      export const Recipe: string = BPBase + "recipe";
       /**The command to create spawn_rule files */
-      export const Spawn_Rule: string = BPBase + 'spawn_rule';
+      export const Spawn_Rule: string = BPBase + "spawn_rule";
       /**The command to create trading files */
-      export const Trading: string = BPBase + 'trading';
+      export const Trading: string = BPBase + "trading";
     }
 
     /**The namespace that stores all resourcepack creation commands */
     export namespace Resourcepack {
-      const RPBase = Base + 'resource_pack-';
+      const RPBase = Base + "resource_pack-";
 
       /**The command to create animation controllers files */
-      export const Animation_Controller: string = RPBase + 'animation_controllers';
+      export const Animation_Controller: string = RPBase + "animation_controllers";
       /**The command to create animations files */
-      export const Animation: string = RPBase + 'animations';
+      export const Animation: string = RPBase + "animations";
       /**The command to create animations files */
-      export const Attachable: string = RPBase + 'attachable';
+      export const Attachable: string = RPBase + "attachable";
       /**The command to create animations files */
-      export const Biomes_Client: string = RPBase + 'biomes_client';
+      export const Biomes_Client: string = RPBase + "biomes_client";
       /**The command to create animations files */
-      export const Blocks: string = RPBase + 'blocks';
+      export const Blocks: string = RPBase + "blocks";
       /**The command to create entities files */
-      export const Entity: string = RPBase + 'entity';
+      export const Entity: string = RPBase + "entity";
       /**The command to create flipbook_textures files */
-      export const Flipbook_Textures: string = RPBase + 'flipbook_textures';
+      export const Flipbook_Textures: string = RPBase + "flipbook_textures";
       /**The command to create language files */
-      export const Languages: string = RPBase + 'language';
+      export const Languages: string = RPBase + "language";
       /**The command to create item texture file */
-      export const Item_Texture: string = RPBase + 'item_texture';
+      export const Item_Texture: string = RPBase + "item_texture";
       /**The command to create all manifests*/
-      export const Manifests: string = RPBase + 'manifest';
+      export const Manifests: string = RPBase + "manifest";
       /**The command to create model file */
-      export const Model: string = RPBase + 'model';
+      export const Model: string = RPBase + "model";
       /**The command to create the music definitions file */
-      export const Music_Definitions: string = RPBase + 'music_definitions';
+      export const Music_Definitions: string = RPBase + "music_definitions";
       /**The command to create the particle file */
-      export const Particle: string = RPBase + 'particle';
+      export const Particle: string = RPBase + "particle";
       /**The command to create the particle file */
-      export const Render_Controller: string = RPBase + 'render_controller';
+      export const Render_Controller: string = RPBase + "render_controller";
       /**The command to create the sounds file */
-      export const Sounds: string = RPBase + 'sounds';
+      export const Sounds: string = RPBase + "sounds";
       /**The command to create the sound definitions file */
-      export const Sound_Definitions: string = RPBase + 'sound_definitions';
+      export const Sound_Definitions: string = RPBase + "sound_definitions";
       /**The command to create the terrain texture file */
-      export const Terrain_Texture: string = RPBase + 'terrain_texture';
+      export const Terrain_Texture: string = RPBase + "terrain_texture";
     }
 
     /**The namespace that stores all World creation commands */
     export namespace World {
-      const WPBase = Base + 'world-';
+      const WPBase = Base + "world-";
 
       /**The command to create language files */
-      export const Languages: string = WPBase + 'language';
+      export const Languages: string = WPBase + "language";
       /**The command to create all manifests*/
-      export const Manifests: string = WPBase + 'manifest';
+      export const Manifests: string = WPBase + "manifest";
     }
   }
 }

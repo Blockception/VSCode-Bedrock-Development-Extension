@@ -27,64 +27,73 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocumentEdit, CreateFile, RenameFile, DeleteFile, WorkspaceEdit, ApplyWorkspaceEditResponse, CreateFileOptions, TextEdit, OptionalVersionedTextDocumentIdentifier } from 'vscode-languageserver';
-import { URI } from 'vscode-uri';
-import { Manager } from '../../manager/Manager';
+import {
+  TextDocumentEdit,
+  CreateFile,
+  RenameFile,
+  DeleteFile,
+  WorkspaceEdit,
+  ApplyWorkspaceEditResponse,
+  CreateFileOptions,
+  TextEdit,
+  OptionalVersionedTextDocumentIdentifier,
+} from "vscode-languageserver";
+import { URI } from "vscode-uri";
+import { Manager } from "../../manager/Manager";
 import * as fs from "fs";
-import { EmptyTypes } from '../../types/general/include';
-import { normalize } from 'path';
-import { GetFilepath, UniformUrl } from '../../code/Url';
+import { EmptyTypes } from "../../types/general/include";
+import { normalize } from "path";
+import { GetFilepath, UniformUrl } from "../../code/Url";
 
 export class TemplateBuilder {
-	private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
-	public CreateOptions: CreateFileOptions;
+  private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
+  public CreateOptions: CreateFileOptions;
 
-	constructor() {
-		this.receiver = [];
-		this.CreateOptions = { ignoreIfExists: true, overwrite: false };
-	}
+  constructor() {
+    this.receiver = [];
+    this.CreateOptions = { ignoreIfExists: true, overwrite: false };
+  }
 
-	/**Sends the edits to the client*/
-	Send() {
-		let Edit: WorkspaceEdit = {
-			documentChanges: this.receiver,
-		};
+  /**Sends the edits to the client*/
+  Send() {
+    let Edit: WorkspaceEdit = {
+      documentChanges: this.receiver,
+    };
 
-		Manager.Connection.workspace.applyEdit(Edit).then(Response);
-	}
+    Manager.Connection.workspace.applyEdit(Edit).then(Response);
+  }
 
-	CreateFile(uri: string, content: string): void {
-		uri = uri.replace(/\\/g, '/');
-		uri = uri.replace("%3A", ":");
-		if (uri.startsWith('file:/')) {
-			uri = uri.substring(6);
-		}
+  CreateFile(uri: string, content: string): void {
+    uri = uri.replace(/\\/g, "/");
+    uri = uri.replace("%3A", ":");
+    if (uri.startsWith("file:/")) {
+      uri = uri.substring(6);
+    }
 
+    let Obj = URI.file(uri);
+    let path = Obj.fsPath;
 
-		let Obj = URI.file(uri);
-		let path = Obj.fsPath;
+    if (fs.existsSync(path)) {
+      console.log("creation of file skipped because it already exists: " + path);
+      return;
+    }
 
-		if (fs.existsSync(path)) {
-			console.log('creation of file skipped because it already exists: ' + path);
-			return;
-		}
+    uri = Obj.toString();
 
-		uri = Obj.toString();
+    let Content: TextEdit = {
+      newText: content,
+      range: EmptyTypes.EmptyRange(),
+    };
 
-		let Content: TextEdit = {
-			newText: content,
-			range: EmptyTypes.EmptyRange(),
-		};
-
-		let Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
-		this.receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
-	}
+    let Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
+    this.receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
+  }
 }
 
 function Response(response: ApplyWorkspaceEditResponse): void {
-	if (response.applied) return;
+  if (response.applied) return;
 
-	console.log("Workspace edit failed:");
-	console.log(`Item index: ${response.failedChange}`);
-	console.log(`Item reason: ${response.failureReason}`);
+  console.log("Workspace edit failed:");
+  console.log(`Item index: ${response.failedChange}`);
+  console.log(`Item reason: ${response.failureReason}`);
 }

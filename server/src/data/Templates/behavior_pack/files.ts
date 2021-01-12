@@ -29,7 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 /**The template for the behaviorpack animation_controller*/
-export function create_animation_controller(ID: string): string { return animation_controller.replace('%ID%', ID); }
+export function create_animation_controller(ID: string): string {
+  return animation_controller.replace("%ID%", ID);
+}
 const animation_controller: string = `{
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
@@ -56,7 +58,9 @@ const animation_controller: string = `{
 }`;
 
 /**The template for the behaviorpack animation*/
-export function create_animation(ID: string): string { return animation.replace('%ID%', ID); }
+export function create_animation(ID: string): string {
+  return animation.replace("%ID%", ID);
+}
 const animation: string = `{
   "format_version": "1.8.0",
   "animations": {
@@ -72,7 +76,9 @@ const animation: string = `{
 }`;
 
 /**The template for the behaviorpack block*/
-export function create_block(ID: string): string { return block.replace('%ID%', ID); }
+export function create_block(ID: string): string {
+  return block.replace("%ID%", ID);
+}
 const block: string = `{
   "format_version": "1.16.0",
   "minecraft:block": {
@@ -86,7 +92,9 @@ const block: string = `{
 }`;
 
 /**The template for the behaviorpack entity*/
-export function create_entity(ID: string): string { return entity.replace('%ID%', ID); }
+export function create_entity(ID: string): string {
+  return entity.replace("%ID%", ID);
+}
 const entity: string = `{
   "format_version": "1.16.0",
   "minecraft:entity": {
@@ -106,7 +114,9 @@ const entity: string = `{
 }`;
 
 /**The template for the behaviorpack item*/
-export function create_item(ID: string): string { return item.replace('%ID%', ID); }
+export function create_item(ID: string): string {
+  return item.replace("%ID%", ID);
+}
 const item: string = `{
   "format_version": "1.10.0",
   "minecraft:item": {
@@ -119,7 +129,9 @@ const item: string = `{
 }`;
 
 /**The template for the behaviorpack loot_table*/
-export function create_loot_table(): string { return loot_table; }
+export function create_loot_table(): string {
+  return loot_table;
+}
 const loot_table: string = `{
   "pools": [
     {
@@ -136,7 +148,9 @@ const loot_table: string = `{
 }`;
 
 /**The template for the behaviorpack manifest*/
-export function create_manifest(UUID1: string, UUID2: string): string { return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2); }
+export function create_manifest(UUID1: string, UUID2: string): string {
+  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2);
+}
 const manifest: string = `{
   "format_version": 2,
   "header": {
@@ -157,7 +171,9 @@ const manifest: string = `{
 }`;
 
 /**The template for the behaviorpack recipe*/
-export function create_recipe(ID: string): string { return recipe.replace('%ID%', ID); }
+export function create_recipe(ID: string): string {
+  return recipe.replace("%ID%", ID);
+}
 const recipe: string = `{
   "format_version": "1.12",
   "minecraft:<type>": {
@@ -172,7 +188,9 @@ const recipe: string = `{
 }`;
 
 /**The template for the behaviorpack spawn_rule*/
-export function create_spawn_rule(ID: string): string { return spawn_rule.replace('%ID%', ID); }
+export function create_spawn_rule(ID: string): string {
+  return spawn_rule.replace("%ID%", ID);
+}
 const spawn_rule: string = `{
 	"format_version": "1.8.0",
 	"minecraft:spawn_rules": {
@@ -189,7 +207,9 @@ const spawn_rule: string = `{
 }`;
 
 /**The template for the behaviorpack trading*/
-export function create_trading(ID: string): string { return trading.replace('%ID%', ID); }
+export function create_trading(ID: string): string {
+  return trading.replace("%ID%", ID);
+}
 const trading: string = `{
   "tiers": [
     {

@@ -40,7 +40,13 @@ export interface Block {
 
 export namespace Block {
   export function is(value: any): value is Block {
-    if (value && value.format_version && value["minecraft:block"] && value["minecraft:block"].description && value["minecraft:block"].description.identifier) {
+    if (
+      value &&
+      value.format_version &&
+      value["minecraft:block"] &&
+      value["minecraft:block"].description &&
+      value["minecraft:block"].description.identifier
+    ) {
       return true;
     }
 

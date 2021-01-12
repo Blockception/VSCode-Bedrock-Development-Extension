@@ -28,10 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { Commands} from "../Constants";
+import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { McImportErrorsCommand } from "./import errors";
-import { Create } from './templates/Create';
+import { Create } from "./templates/Create";
 
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
   return new Promise<any>((resolve, reject) => {
@@ -50,7 +50,7 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
 
       default:
         if (params.command.startsWith(Commands.Create.Base)) {
-          return Create(params)
+          return Create(params);
         }
     }
   } catch (error) {

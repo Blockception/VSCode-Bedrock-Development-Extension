@@ -28,19 +28,18 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-export function SafeID(ID: string, replace: string = '_'): string {
-   ID = ID.replace(/[:]/gi, replace);
+export function SafeID(ID: string, replace: string = "_"): string {
+  ID = ID.replace(/[:]/gi, replace);
 
-   return ID;
+  return ID;
 }
 
-export function SafeIDNoNamespace(ID: string, replace: string = '_'): string {
-   let Index = ID.indexOf(':');
+export function SafeIDNoNamespace(ID: string, replace: string = "_"): string {
+  let Index = ID.indexOf(":");
 
-   if (Index > 0)
-      ID = ID.substring(Index + 1);
+  if (Index > 0) ID = ID.substring(Index + 1);
 
-   ID = ID.replace(/[:]/gi, replace);
+  ID = ID.replace(/[:]/gi, replace);
 
-   return ID;
+  return ID;
 }

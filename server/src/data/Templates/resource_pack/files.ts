@@ -27,10 +27,12 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SafeID } from '../Function';
+import { SafeID } from "../Function";
 
 /**The template for the resourcepack animation controller*/
-export function create_animation_controller(ID: string): string { return animation_controller.replace(/%ID%/gi, ID); }
+export function create_animation_controller(ID: string): string {
+  return animation_controller.replace(/%ID%/gi, ID);
+}
 const animation_controller: string = `{
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
@@ -55,7 +57,9 @@ const animation_controller: string = `{
 }`;
 
 /**The template for the resourcepack animation*/
-export function create_animation(ID: string): string { return animation.replace(/%SafeID%/gi, SafeID(ID, '.')); }
+export function create_animation(ID: string): string {
+  return animation.replace(/%SafeID%/gi, SafeID(ID, "."));
+}
 const animation: string = `{
   "format_version": "1.10.0",
   "animations": {
@@ -67,7 +71,9 @@ const animation: string = `{
 }`;
 
 /**The template for the resourcepack attachable*/
-export function create_attachable(ID: string): string { return attachable.replace(/%ID%/gi, ID); }
+export function create_attachable(ID: string): string {
+  return attachable.replace(/%ID%/gi, ID);
+}
 const attachable: string = `{
   "format_version": "1.10.0",
   "minecraft:attachable": {
@@ -91,7 +97,9 @@ const attachable: string = `{
 }`;
 
 /**The template for the resourcepack blocks.json*/
-export function create_blocks(): string { return blocks; }
+export function create_blocks(): string {
+  return blocks;
+}
 const blocks: string = `{
   "Example": {
     "textures": "example",
@@ -100,7 +108,9 @@ const blocks: string = `{
 }`;
 
 /**The template for the resourcepack biomes_client*/
-export function create_biomes_client(): string { return biomes_client; }
+export function create_biomes_client(): string {
+  return biomes_client;
+}
 const biomes_client: string = `{
   "biomes" : {
 
@@ -108,7 +118,9 @@ const biomes_client: string = `{
 }`;
 
 /**The template for the entity resourcepack definition */
-export function create_entity(ID: string): string { return entity.replace(/%ID%/gi, ID); }
+export function create_entity(ID: string): string {
+  return entity.replace(/%ID%/gi, ID);
+}
 const entity: string = `{
   "format_version": "1.10.0",
   "minecraft:client_entity": {
@@ -144,7 +156,9 @@ const entity: string = `{
 }`;
 
 /**The template for the resourcepack flipbook_textures*/
-export function create_flipbook_textures(): string { return flipbook_textures; }
+export function create_flipbook_textures(): string {
+  return flipbook_textures;
+}
 const flipbook_textures: string = `[
   {
     "flipbook_texture": "textures/example",
@@ -154,7 +168,9 @@ const flipbook_textures: string = `[
 ]`;
 
 /**The template for the resourcepack item_texture*/
-export function create_item_texture(): string { return item_texture; }
+export function create_item_texture(): string {
+  return item_texture;
+}
 const item_texture: string = `{
   "resource_pack_name": "vanilla",
   "texture_data": {
@@ -165,7 +181,9 @@ const item_texture: string = `{
 }`;
 
 /**The template for the resourcepack manifest*/
-export function create_manifest(UUID1: string, UUID2: string): string { return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2); }
+export function create_manifest(UUID1: string, UUID2: string): string {
+  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2);
+}
 const manifest: string = `{
   "format_version": 2,
   "header": {
@@ -186,7 +204,9 @@ const manifest: string = `{
 }`;
 
 /**The template for the resourcepack model*/
-export function create_model(ID: string): string { return model.replace(/%ID%/gi, ID); }
+export function create_model(ID: string): string {
+  return model.replace(/%ID%/gi, ID);
+}
 const model: string = `{
   "format_version": "1.12.0",
   "minecraft:geometry": [
@@ -212,7 +232,9 @@ const model: string = `{
 }`;
 
 /**The template for the resourcepack music_definitions*/
-export function create_music_definitions(): string { return music_definitions; }
+export function create_music_definitions(): string {
+  return music_definitions;
+}
 const music_definitions: string = `{
   "creative" : {
      "event_name" : "music.game.creative",
@@ -272,7 +294,9 @@ const music_definitions: string = `{
 }`;
 
 /**The template for the resourcepack particle*/
-export function create_particle(ID: string): string { return particle.replace(/%ID%/gi, ID); }
+export function create_particle(ID: string): string {
+  return particle.replace(/%ID%/gi, ID);
+}
 const particle: string = `{
   "format_version": "1.10.0",
   "particle_effect": {
@@ -289,7 +313,9 @@ const particle: string = `{
 }`;
 
 /**The template for the resourcepack render_controller*/
-export function create_render_controller(ID: string): string { return render_controller.replace(/%ID%/gi, ID); }
+export function create_render_controller(ID: string): string {
+  return render_controller.replace(/%ID%/gi, ID);
+}
 const render_controller: string = `{
   "format_version": "1.8.0",
   "render_controllers": {
@@ -306,7 +332,9 @@ const render_controller: string = `{
 `;
 
 /**The template for the resourcepack sounds*/
-export function create_sounds(): string { return sounds; }
+export function create_sounds(): string {
+  return sounds;
+}
 const sounds: string = `{
   "block_sounds" : {     
   },
@@ -329,7 +357,9 @@ const sounds: string = `{
 }`;
 
 /**The template for the resourcepack sound_definitions*/
-export function create_sound_definitions(): string { return sound_definitions; }
+export function create_sound_definitions(): string {
+  return sound_definitions;
+}
 const sound_definitions: string = `{
   "format_version" : "1.14.0",
   "sound_definitions" : {
@@ -346,7 +376,9 @@ const sound_definitions: string = `{
 }`;
 
 /**The template for the resourcepack terrain_texture*/
-export function create_terrain_texture(): string { return terrain_texture; }
+export function create_terrain_texture(): string {
+  return terrain_texture;
+}
 const terrain_texture: string = `{
   "num_mip_levels": 4,
   "padding": 8,

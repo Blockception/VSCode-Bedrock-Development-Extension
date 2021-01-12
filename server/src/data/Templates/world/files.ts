@@ -28,9 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-
 /**The template for the world manifest*/
-export function create_manifest(UUID1: string, UUID2: string): string { return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2); }
+export function create_manifest(UUID1: string, UUID2: string): string {
+  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2);
+}
 const manifest: string = `{
    "format_version": 2,
    "header": {

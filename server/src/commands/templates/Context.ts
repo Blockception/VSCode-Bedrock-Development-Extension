@@ -55,7 +55,6 @@ export function GetContextAsync<T>(data: T, callback: (c: Context, data: T) => v
 function Convert(Data: ProjectData): Context | undefined {
   let Base: string | undefined;
 
-
   //Some assembly required
   if (Data.ResourcePackFolders.length === 0 || Data.BehaviourPackFolders.length === 0) {
     if (Data.WorldFolders.length > 0) {
@@ -69,9 +68,15 @@ function Convert(Data: ProjectData): Context | undefined {
   let BP: string | undefined;
   let RP: string | undefined;
 
-  if (Data.WorldFolders.length > 0) { WP = Data.WorldFolders[0]; }
-  if (Data.BehaviourPackFolders.length > 0) { BP = Data.BehaviourPackFolders[0]; }
-  if (Data.ResourcePackFolders.length > 0) { RP = Data.ResourcePackFolders[0]; }
+  if (Data.WorldFolders.length > 0) {
+    WP = Data.WorldFolders[0];
+  }
+  if (Data.BehaviourPackFolders.length > 0) {
+    BP = Data.BehaviourPackFolders[0];
+  }
+  if (Data.ResourcePackFolders.length > 0) {
+    RP = Data.ResourcePackFolders[0];
+  }
 
   if (Base === undefined) {
     if (BP === undefined || RP === undefined || WP === undefined) {
@@ -80,15 +85,15 @@ function Convert(Data: ProjectData): Context | undefined {
       return undefined;
     }
 
-    Base = '';
+    Base = "";
   }
 
-  if (!Base.endsWith('/')) {
-    Base += '/';
+  if (!Base.endsWith("/")) {
+    Base += "/";
   }
 
   if (WP === undefined) {
-      WP = Base;
+    WP = Base;
   }
 
   if (BP === undefined) {

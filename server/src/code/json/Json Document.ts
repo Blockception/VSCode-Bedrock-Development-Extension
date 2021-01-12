@@ -68,7 +68,7 @@ export class JsonDocument {
         Text = stripJSONComments(Text);
 
         let object;
-        if (Text !== '') {
+        if (Text !== "") {
           object = JSON.parse(Text);
         }
 

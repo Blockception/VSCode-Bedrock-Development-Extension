@@ -27,15 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { uuid } from 'uuidv4';
-import * as path from 'path';
-import { Templates } from '../../../data/include';
-import { TemplateBuilder } from '../Builder';
-import { Context } from '../Context';
+import { uuid } from "uuidv4";
+import * as path from "path";
+import { Templates } from "../../../data/include";
+import { TemplateBuilder } from "../Builder";
+import { Context } from "../Context";
 
 export function create_manifest_file(Context: Context, Builder: TemplateBuilder): void {
-	let uri = path.join(Context.WorldFolder, 'manifest.json');
-	let UUID1 = uuid();
-	let UUID2 = uuid();
-	Builder.CreateFile(uri, Templates.world.create_manifest(UUID1, UUID2));
+  let uri = path.join(Context.WorldFolder, "manifest.json");
+  let UUID1 = uuid();
+  let UUID2 = uuid();
+  Builder.CreateFile(uri, Templates.world.create_manifest(UUID1, UUID2));
 }

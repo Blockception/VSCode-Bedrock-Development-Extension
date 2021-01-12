@@ -32,21 +32,24 @@ import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclie
 import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
 
-interface IDExample { ID : RegExp, example : string };
+interface IDExample {
+  ID: RegExp;
+  example: string;
+}
 
-const AnimationControllerID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :'example.foo | example'};
-const AnimationID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :'example.foo | example'};
-const AttachableID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:attachable'};
-const EntityID: IDExample ={ ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:entity'};
-const BlockID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:block'};
-const ItemID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:item'};
-const LootTableID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :'example.foo | example'};
-const ModelID: IDExample = { ID :/^geometry.[0-9a-zA-Z_\\.\\-]+$/, example :'geometry.model_name'};
-const ParticleID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:particle'};
-const RecipeID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'namespace:recipe'};
-const RenderControllerID: IDExample = { ID :/^[0-9a-zA-Z_\\.\\-]+$/, example :''};
-const SpawnRuleID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'example.foo | example'};
-const TradingID: IDExample = { ID :/^[0-9a-zA-Z:_\\.\\-]+$/, example :'example.foo | example'};
+const AnimationControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
+const AnimationID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
+const AttachableID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:attachable" };
+const EntityID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:entity" };
+const BlockID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:block" };
+const ItemID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
+const LootTableID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
+const ModelID: IDExample = { ID: /^geometry.[0-9a-zA-Z_\\.\\-]+$/, example: "geometry.model_name" };
+const ParticleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:particle" };
+const RecipeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:recipe" };
+const RenderControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "" };
+const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
+const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
 
 export function Activate(context: ExtensionContext): void {
   console.log("registering create commands");
@@ -57,44 +60,48 @@ export function Activate(context: ExtensionContext): void {
   Create(context, Commands.Create.General.Manifests, "Create Manifests");
 
   //Behavior pack
-  CreateID(context, Commands.Create.Behaviorpack.Animation_Controller, 'Create animation controller', AnimationControllerID);
-  CreateID(context, Commands.Create.Behaviorpack.Animation, 'Create animation', AnimationID);
-  CreateID(context, Commands.Create.Behaviorpack.Block, 'Create block', BlockID);
-  CreateID(context, Commands.Create.Behaviorpack.Entity, 'Create entity', EntityID);
-  CreateID(context, Commands.Create.Behaviorpack.Item, 'Create item', ItemID);
-  Create(context, Commands.Create.Behaviorpack.Languages, 'Create language files');
-  CreateID(context, Commands.Create.Behaviorpack.Loot_Table, 'Create loot table', LootTableID);
-  Create(context, Commands.Create.Behaviorpack.Manifests, 'Create manifest');
-  CreateID(context, Commands.Create.Behaviorpack.Recipe, 'Create recipe', RecipeID);
-  CreateID(context, Commands.Create.Behaviorpack.Spawn_Rule, 'Create spawn rule', SpawnRuleID);
-  CreateID(context, Commands.Create.Behaviorpack.Trading, 'Create trading', TradingID);
+  CreateID(context, Commands.Create.Behaviorpack.Animation_Controller, "Create animation controller", AnimationControllerID);
+  CreateID(context, Commands.Create.Behaviorpack.Animation, "Create animation", AnimationID);
+  CreateID(context, Commands.Create.Behaviorpack.Block, "Create block", BlockID);
+  CreateID(context, Commands.Create.Behaviorpack.Entity, "Create entity", EntityID);
+  CreateID(context, Commands.Create.Behaviorpack.Item, "Create item", ItemID);
+  Create(context, Commands.Create.Behaviorpack.Languages, "Create language files");
+  CreateID(context, Commands.Create.Behaviorpack.Loot_Table, "Create loot table", LootTableID);
+  Create(context, Commands.Create.Behaviorpack.Manifests, "Create manifest");
+  CreateID(context, Commands.Create.Behaviorpack.Recipe, "Create recipe", RecipeID);
+  CreateID(context, Commands.Create.Behaviorpack.Spawn_Rule, "Create spawn rule", SpawnRuleID);
+  CreateID(context, Commands.Create.Behaviorpack.Trading, "Create trading", TradingID);
 
   //Resource pack
-  CreateID(context, Commands.Create.Resourcepack.Animation_Controller, 'Create animation controllers files', AnimationControllerID);
-  CreateID(context, Commands.Create.Resourcepack.Animation, 'Create animations files', AnimationID);
-  CreateID(context, Commands.Create.Resourcepack.Attachable, 'Create attachable files', AttachableID);
-  Create(context, Commands.Create.Resourcepack.Biomes_Client, 'Create biomesclient file');
-  Create(context, Commands.Create.Resourcepack.Blocks, 'Create the blocks file', );
-  CreateID(context, Commands.Create.Resourcepack.Entity, 'Create entities files', EntityID);
-  Create(context, Commands.Create.Resourcepack.Flipbook_Textures, 'Create flipbook_texreate flipbook_textures file');
-  Create(context, Commands.Create.Resourcepack.Languages, 'Create lanreate language file');
-  Create(context, Commands.Create.Resourcepack.Item_Texture, 'Create item tereate item texture file');
-  Create(context, Commands.Create.Resourcepack.Manifests, 'Creatreate all manifest');
-  CreateID(context, Commands.Create.Resourcepack.Model, 'Create reate model file', ModelID);
-  Create(context, Commands.Create.Resourcepack.Music_Definitions, 'Create the music definireate the music definitions file');
-  CreateID(context, Commands.Create.Resourcepack.Particle, 'Create particle file', ParticleID);
-  CreateID(context, Commands.Create.Resourcepack.Render_Controller, 'Create render_controller file', RenderControllerID);
-  Create(context, Commands.Create.Resourcepack.Sounds, 'Create the sreate the sounds file');
-  Create(context, Commands.Create.Resourcepack.Sound_Definitions, 'Create the sound definireate the sound definitions file');
-  Create(context, Commands.Create.Resourcepack.Terrain_Texture, 'Create the terrain texture file');
+  CreateID(context, Commands.Create.Resourcepack.Animation_Controller, "Create animation controllers files", AnimationControllerID);
+  CreateID(context, Commands.Create.Resourcepack.Animation, "Create animations files", AnimationID);
+  CreateID(context, Commands.Create.Resourcepack.Attachable, "Create attachable files", AttachableID);
+  Create(context, Commands.Create.Resourcepack.Biomes_Client, "Create biomesclient file");
+  Create(context, Commands.Create.Resourcepack.Blocks, "Create the blocks file");
+  CreateID(context, Commands.Create.Resourcepack.Entity, "Create entities files", EntityID);
+  Create(context, Commands.Create.Resourcepack.Flipbook_Textures, "Create flipbook_texreate flipbook_textures file");
+  Create(context, Commands.Create.Resourcepack.Languages, "Create lanreate language file");
+  Create(context, Commands.Create.Resourcepack.Item_Texture, "Create item tereate item texture file");
+  Create(context, Commands.Create.Resourcepack.Manifests, "Creatreate all manifest");
+  CreateID(context, Commands.Create.Resourcepack.Model, "Create reate model file", ModelID);
+  Create(context, Commands.Create.Resourcepack.Music_Definitions, "Create the music definireate the music definitions file");
+  CreateID(context, Commands.Create.Resourcepack.Particle, "Create particle file", ParticleID);
+  CreateID(context, Commands.Create.Resourcepack.Render_Controller, "Create render_controller file", RenderControllerID);
+  Create(context, Commands.Create.Resourcepack.Sounds, "Create the sreate the sounds file");
+  Create(context, Commands.Create.Resourcepack.Sound_Definitions, "Create the sound definireate the sound definitions file");
+  Create(context, Commands.Create.Resourcepack.Terrain_Texture, "Create the terrain texture file");
 
   //World
-  Create(context, Commands.Create.World.Manifests, 'Create manifest');
-  Create(context, Commands.Create.World.Languages, 'Create language files');
+  Create(context, Commands.Create.World.Manifests, "Create manifest");
+  Create(context, Commands.Create.World.Languages, "Create language files");
 }
 
 function Create(context: ExtensionContext, command: string, title: string) {
-  context.subscriptions.push(commands.registerCommand(command, (arg: any[]) => { OnComplete(command); }));
+  context.subscriptions.push(
+    commands.registerCommand(command, (arg: any[]) => {
+      OnComplete(command);
+    })
+  );
 }
 
 function CreateID(context: ExtensionContext, command: string, title: string, IDRegex: IDExample) {
