@@ -1,21 +1,21 @@
 # Changelog 
 - auto: Updated dependecies
+- auto: Formatted typescript files
+- auto: Formatted json files
+- Refactored adding commands
+- Added the commands to client side
+- Refactored constants
+- Updating creation code to remove namespace
+- Added command creations on server side
+- Added Commands for creation
+- auto: Generated Includes
+- auto : Generated includes
+- auto: Generated Includes
+- Adding templates
+- Updated to 1.4.7
+- auto: Updated dependecies
 - Updated
 - Removed unnesscary files
 - Updated to 1.4.6
 - auto: Formatted typescript files
 - Updated package
-- Added creation commands
-- Adding creation commands
-- Refactoring
-- Refactor
-- Updated
-- auto: Updated dependecies
-- Updated to 1.4.5
-- Less errors for semantic requests
-- Updated to version 1.4.4
-- Updated 1.4.3
-- Updated
-- Making sure only mcfunctions are parsed
-- auto: Updated dependecies
-- added submodule formatting support
