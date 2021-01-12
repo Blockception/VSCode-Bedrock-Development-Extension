@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-	 list of conditions and the following disclaimer.
+   list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-	 this list of conditions and the following disclaimer in the documentation
-	 and/or other materials provided with the distribution.
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-	 contributors may be used to endorse or promote products derived from
-	 this software without specific prior written permission.
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -32,20 +32,75 @@ import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclie
 import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
 
+const AnimationControllerID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
+const AnimationID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
+const AttachableID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+const EntityID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+const BlockID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+const ItemID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+const LootTableID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
+const ModelID: RegExp = /^geometrey.[0-9a-zA-Z_\\.\\-]+$/;
+const ParticleID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
+const RecipeID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+const RenderControllerID: RegExp = /^[0-9a-zA-Z_\\.\\-]+$/;
+const SpawnRuleID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+const TradingID: RegExp = /^[0-9a-zA-Z:_\\.\\-]+$/;
+
 export function Activate(context: ExtensionContext): void {
   console.log("registering create commands");
 
-  Create(context, Commands.Create.Entity, "Create Entity");
-  Create(context, Commands.Create.EntityBP, "Create Entity - Behaviour Pack Only");
-  Create(context, Commands.Create.EntityRP, "Create Entity - Resource Pack Only");
+  //General
+  CreateID(context, Commands.Create.General.Entity, "Create Entity", EntityID);
+  Create(context, Commands.Create.General.Languages, "Create Languages");
+  Create(context, Commands.Create.General.Manifests, "Create Manifests");
+
+  //Behavior pack
+  CreateID(context, Commands.Create.Behaviorpack.Animation_Controller, 'Create animation controller', AnimationControllerID);
+  CreateID(context, Commands.Create.Behaviorpack.Animation, 'Create animation', AnimationID);
+  CreateID(context, Commands.Create.Behaviorpack.Block, 'Create block', BlockID);
+  CreateID(context, Commands.Create.Behaviorpack.Entity, 'Create entity', EntityID);
+  CreateID(context, Commands.Create.Behaviorpack.Item, 'Create item', ItemID);
+  Create(context, Commands.Create.Behaviorpack.Languages, 'Create language files');
+  CreateID(context, Commands.Create.Behaviorpack.Loot_Table, 'Create loot table', LootTableID);
+  Create(context, Commands.Create.Behaviorpack.Manifests, 'Create manifest');
+  CreateID(context, Commands.Create.Behaviorpack.Recipe, 'Create recipe', RecipeID);
+  CreateID(context, Commands.Create.Behaviorpack.Spawn_Rule, 'Create spawn rule', SpawnRuleID);
+  CreateID(context, Commands.Create.Behaviorpack.Trading, 'Create trading', TradingID);
+
+  //Resource pack
+  CreateID(context, Commands.Create.Resourcepack.Animation_Controller, 'Create animation controllers files', AnimationControllerID);
+  CreateID(context, Commands.Create.Resourcepack.Animation, 'Create animations files', AnimationID);
+  CreateID(context, Commands.Create.Resourcepack.Attachable, 'Create attachable files', AttachableID);
+  Create(context, Commands.Create.Resourcepack.Biomes_Client, 'Create biomesclient file');
+  Create(context, Commands.Create.Resourcepack.Blocks, 'Create the blocks file', );
+  CreateID(context, Commands.Create.Resourcepack.Entity, 'Create entities files', EntityID);
+  Create(context, Commands.Create.Resourcepack.Flipbook_Textures, 'Create flipbook_texreate flipbook_textures file');
+  Create(context, Commands.Create.Resourcepack.Languages, 'Create lanreate language file');
+  Create(context, Commands.Create.Resourcepack.Item_Texture, 'Create item tereate item texture file');
+  Create(context, Commands.Create.Resourcepack.Manifests, 'Creatreate all manifest');
+  CreateID(context, Commands.Create.Resourcepack.Model, 'Create reate model file', ModelID);
+  Create(context, Commands.Create.Resourcepack.Music_Definitions, 'Create the music definireate the music definitions file');
+  CreateID(context, Commands.Create.Resourcepack.Particle, 'Create particle file', ParticleID);
+  CreateID(context, Commands.Create.Resourcepack.Render_Controller, 'Create render_controller file', RenderControllerID);
+  Create(context, Commands.Create.Resourcepack.Sounds, 'Create the sreate the sounds file');
+  Create(context, Commands.Create.Resourcepack.Sound_Definitions, 'Create the sound definireate the sound definitions file');
+  Create(context, Commands.Create.Resourcepack.Terrain_Texture, 'Create the terrain tereate the terrain texture file');
+
+  //World
+  Create(context, Commands.Create.World.Manifests, 'Create manifest');
+  Create(context, Commands.Create.World.Languages, 'Create language files');
 }
 
 function Create(context: ExtensionContext, command: string, title: string) {
+  context.subscriptions.push(commands.registerCommand(command, (arg: any[]) => { OnComplete(command); }));
+}
+
+function CreateID(context: ExtensionContext, command: string, title: string, IDRegex: RegExp) {
   context.subscriptions.push(
     commands.registerCommand(command, (arg: any[]) => {
       let Options: InputBoxOptions = {
         validateInput(value): string | undefined {
-          return ValidIdentifier(value);
+          return ValidIdentifier(value, IDRegex);
         },
         prompt: title,
         password: false,
@@ -53,12 +108,12 @@ function Create(context: ExtensionContext, command: string, title: string) {
         placeHolder: "namespace:example",
       };
 
-      window.showInputBox(Options).then((value) => OnComplete(value, command));
+      window.showInputBox(Options).then((value) => OnCompleteID(value, command));
     })
   );
 }
 
-function OnComplete(value: string, command: string): Promise<any> {
+function OnCompleteID(value: string, command: string): Promise<any> {
   if (value === undefined) return new Promise<void>(undefined);
 
   let Options: ExecuteCommandParams = {
@@ -69,10 +124,19 @@ function OnComplete(value: string, command: string): Promise<any> {
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
 }
 
-function ValidIdentifier(ID: string): string | undefined {
+function OnComplete(command: string): Promise<any> {
+  let Options: ExecuteCommandParams = {
+    command: command,
+    arguments: [],
+  };
+
+  return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
+}
+
+function ValidIdentifier(ID: string, IDRegex: RegExp): string | undefined {
   if (ID === undefined) return undefined;
 
-  if (ID.match(/^[0-9a-zA-Z:_\\.\\-]+$/)) {
+  if (ID.match(IDRegex)) {
     return undefined;
   } else {
     return "Does not match pattern: namespace:example OR namespace:example.hello";
