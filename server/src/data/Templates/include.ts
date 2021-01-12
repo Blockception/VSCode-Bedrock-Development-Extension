@@ -1,4 +1,4 @@
 /*	Auto generated	*/
-export * from "./behavior_pack";
+export * as behavior_pack from "./behavior_pack/include";
+export * as resource_pack from "./resource_pack/include";
 export * from "./Function";
-export * from "./resource_pack";
