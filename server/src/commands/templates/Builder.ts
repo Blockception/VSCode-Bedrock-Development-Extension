@@ -27,63 +27,55 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { TextDocumentEdit, CreateFile, RenameFile, DeleteFile, WorkspaceEdit, ApplyWorkspaceEditResponse, CreateFileOptions, TextEdit, OptionalVersionedTextDocumentIdentifier } from 'vscode-languageserver';
+import { URI } from 'vscode-uri';
+import { Manager } from '../../manager/Manager';
 import * as fs from "fs";
-import {
-  CreateFileOptions,
-  TextDocumentEdit,
-  CreateFile,
-  DeleteFile,
-  RenameFile,
-  OptionalVersionedTextDocumentIdentifier,
-  TextEdit,
-  WorkspaceEdit,
-  ApplyWorkspaceEditResponse,
-} from "vscode-languageserver/node";
-import { URI } from "vscode-uri";
-import { Manager } from "../../manager/include";
-import { EmptyTypes } from "../../types/general/Empty";
+import { EmptyTypes } from '../../types/general/include';
 
-const CreateOptions: CreateFileOptions = { ignoreIfExists: true, overwrite: false };
+export class TemplateBuilder {
+	private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
+	public CreateOptions: CreateFileOptions;
 
-export function CreateFileFunction(uri: string, content: string, receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[]): void {
-  let Obj = URI.file(uri);
-  let path = Obj.fsPath;
+	constructor() {
+		this.receiver = [];
+		this.CreateOptions = { ignoreIfExists: true, overwrite: false };
+	}
 
-  if (fs.existsSync(path)) {
-    return;
-  }
+	/**Sends the edits to the client*/
+	Send() {
+		let Edit: WorkspaceEdit = {
+			documentChanges: this.receiver,
+		};
 
-  uri = Obj.toString();
+		Manager.Connection.workspace.applyEdit(Edit).then(Response);
+	}
 
-  let Content: TextEdit = {
-    newText: content,
-    range: EmptyTypes.EmptyRange(),
-  };
+	CreateFile(uri: string, content: string): void {
+		let Obj = URI.file(uri);
+		let path = Obj.fsPath;
 
-  let Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
-  receiver.push(CreateFile.create(uri, CreateOptions), TextDocumentEdit.create(Version, [Content]));
-}
+		if (fs.existsSync(path)) {
+			console.log('creation of file skipped because it already exists: ' + path);
+			return;
+		}
 
-export function SendEdit(WorkspaceEdit: WorkspaceEdit): void {
-  Manager.Connection.workspace.applyEdit(WorkspaceEdit).then(Response);
+		uri = Obj.toString();
+
+		let Content: TextEdit = {
+			newText: content,
+			range: EmptyTypes.EmptyRange(),
+		};
+
+		let Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
+		this.receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
+	}
 }
 
 function Response(response: ApplyWorkspaceEditResponse): void {
-  if (response.applied) return;
+	if (response.applied) return;
 
-  console.log("Workspace edit failed:");
-  console.log(`Item index: ${response.failedChange}`);
-  console.log(`Item reason: ${response.failureReason}`);
-}
-
-export function GenerateSafeID(ID: string): string {
-  let Index = ID.indexOf(":");
-
-  if (Index > -1) {
-    ID = ID.substring(Index + 1);
-  }
-
-  ID = ID.replace(/:/gi, ".");
-
-  return ID;
+	console.log("Workspace edit failed:");
+	console.log(`Item index: ${response.failedChange}`);
+	console.log(`Item reason: ${response.failureReason}`);
 }

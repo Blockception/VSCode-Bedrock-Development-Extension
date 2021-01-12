@@ -27,35 +27,26 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ExecuteCommandParams } from "vscode-languageserver";
-import { Commands} from "../Constants";
-import { DiagnoseProjectCommand } from "./Diagnose Project";
-import { McImportErrorsCommand } from "./import errors";
-import { Create } from './templates/Create';
 
-export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
-  return new Promise<any>((resolve, reject) => {
-    resolve(OnCommandRequest(params));
-  });
-}
 
-function OnCommandRequest(params: ExecuteCommandParams): any {
-  try {
-    switch (params.command) {
-      case Commands.ImportErrors:
-        return McImportErrorsCommand(params);
-
-      case Commands.DiagnoseProject:
-        return DiagnoseProjectCommand(params);
-
-      default:
-        if (params.command.startsWith(Commands.Create.Base)) {
-          return Create(params)
-        }
-    }
-  } catch (error) {
-    console.log(error);
-  }
-
-  return undefined;
-}
+/**The template for the world manifest*/
+export function create_manifest(UUID1: string, UUID2: string): string { return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2); }
+const manifest: string = `{
+   "format_version": 2,
+   "header": {
+     "name": "pack.name",
+     "description": "pack.description",
+     "uuid": "%UUID1%",
+     "version": [1, 0, 0],
+     "lock_template_options": true,
+     "base_game_version": [1, 16, 200]
+   },
+   "modules": [
+     {
+       "type": "world_template",
+       "uuid": "%UUID2%",
+       "version": [1, 0, 0]
+     }
+   ],
+   "metadata": { "authors": ["Example author"] }
+}`;

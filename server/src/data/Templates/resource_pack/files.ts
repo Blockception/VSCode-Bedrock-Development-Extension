@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SafeID } from './Function';
+import { SafeID } from '../Function';
 
 /**The template for the resourcepack animation controller*/
 export function create_animation_controller(ID: string): string { return animation_controller.replace(/%ID%/gi, ID); }
@@ -91,9 +91,9 @@ const attachable: string = `{
 }`;
 
 /**The template for the resourcepack blocks.json*/
-export function create_blocks(ID: string): string { return blocks.replace(/%ID%/gi, ID); }
+export function create_blocks(): string { return blocks; }
 const blocks: string = `{
-  "%ID%": {
+  "Example": {
     "textures": "example",
     "sound": "obsidian"
   }
@@ -147,7 +147,7 @@ const entity: string = `{
 }`;
 
 /**The template for the resourcepack flipbook_textures*/
-export function create_flipbook_textures(ID: string): string { return flipbook_textures.replace(/%ID%/gi, ID); }
+export function create_flipbook_textures(): string { return flipbook_textures; }
 const flipbook_textures: string = `[
   {
     "flipbook_texture": "textures/example",
@@ -157,7 +157,7 @@ const flipbook_textures: string = `[
 ]`;
 
 /**The template for the resourcepack item_texture*/
-export function create_item_texture(ID: string): string { return item_texture.replace(/%ID%/gi, ID); }
+export function create_item_texture(): string { return item_texture; }
 const item_texture: string = `{
   "resource_pack_name" : "vanilla",
   "texture_data" : {
@@ -310,7 +310,7 @@ const render_controller: string = `{
 `;
 
 /**The template for the resourcepack sounds*/
-export function create_sounds(ID: string): string { return sounds.replace(/%ID%/gi, ID); }
+export function create_sounds(): string { return sounds; }
 const sounds: string = `{
   "block_sounds" : {     
   },
@@ -350,7 +350,7 @@ const sound_definitions: string = `{
 }`;
 
 /**The template for the resourcepack terrain_texture*/
-export function create_terrain_texture(ID: string): string { return terrain_texture.replace(/%ID%/gi, ID); }
+export function create_terrain_texture(): string { return terrain_texture; }
 const terrain_texture: string = `{
   "num_mip_levels" : 4,
   "padding" : 8,
