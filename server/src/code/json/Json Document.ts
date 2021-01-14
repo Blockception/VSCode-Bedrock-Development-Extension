@@ -28,11 +28,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
+import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import * as Code from "../include";
 
 export class JsonDocument {
-  private doc: TextDocument;
+  public doc: TextDocument;
   private object: any | undefined;
 
   constructor(doc: TextDocument) {
@@ -113,7 +113,7 @@ export class JsonDocument {
   public GetRange(Name: string, Value: string): Range | undefined {
     let RegX = new RegExp('"' + Name + '"s*:s*"' + Value + '"', "m");
 
-    return FindReg(this.doc, RegX);
+    return FindRangeReg(this.doc, RegX);
   }
 
   /**
@@ -123,7 +123,23 @@ export class JsonDocument {
   public GetRangeOfObject(Name: string): Range | undefined {
     let RegX = new RegExp('"' + Name + '"s*:', "m");
 
-    return FindReg(this.doc, RegX);
+    return FindRangeReg(this.doc, RegX);
+  }
+
+  public GetStartOfObject(Name: string): Position | undefined {
+    let RegX = new RegExp('"' + Name + '"s*:', "m");
+
+    return FindLocationReg(this.doc, RegX);
+  }
+
+  public GetPositionOf(value: string): Position | undefined {
+    let text = this.doc.getText();
+    let index = text.indexOf(value);
+
+    if (index >= 0)
+      return this.doc.positionAt(index);
+
+    return undefined;
   }
 }
 
@@ -141,7 +157,7 @@ function stripJSONComments(data: string): string {
  * @param doc
  * @param search
  */
-function FindReg(doc: TextDocument, search: RegExp): Range | undefined {
+function FindRangeReg(doc: TextDocument, search: RegExp): Range | undefined {
   let Text = doc.getText();
   let Matches = Text.match(search);
 
@@ -154,6 +170,26 @@ function FindReg(doc: TextDocument, search: RegExp): Range | undefined {
     let endP = doc.positionAt(index + Matches.length);
 
     return Range.create(startP, endP);
+  }
+
+  return undefined;
+}
+
+/**
+ * Searches the document with a given index and returns the index of that match.
+ * @param doc
+ * @param search
+ */
+function FindLocationReg(doc: TextDocument, search: RegExp): Position | undefined {
+  let Text = doc.getText();
+  let Matches = Text.match(search);
+
+  if (Matches) {
+    let index = 0;
+
+    if (Matches.index) index = Matches.index;
+
+    return doc.positionAt(index);
   }
 
   return undefined;
