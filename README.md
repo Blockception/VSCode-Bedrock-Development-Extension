@@ -131,9 +131,13 @@ A complete list can be found [here](documentation/Commands.md). These commands p
 
 ## Extension Settings
 
-- **Use Education Content**: Adds Education Edition content such as items, blocks, entities and commands into code suggestions and debugging. Requires
-  a restart for full effect.
+| Settings                        | Description                                                                                                                                          |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Use Education Content**       | Adds Education Edition content such as items, blocks, entities and commands into code suggestions and debugging. Requires a restart for full effect. |
+| **Use Diagnostics Languages**   | Turn the diagnostics for language files on or off. Requires a restart for full effect.                                                               |
+| **Use Diagnostics Mcfunctions** | Turn the diagnostics for mcfunctions files on or off. Requires a restart for full effect.                                                            |
 
+---
 ## Licenses
 
 All thrid party code and libraries this plugin uses are listed [**here**](./LICENSES/Licenses.md)!
