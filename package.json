@@ -120,11 +120,17 @@
             "default": true,
             "description": "Requires restart: Adds education contents such as items, blocks, entities and commands into the suggestion and/or debugging"
           },
-          "BC-MC-LanguageServer.useDiagnostics": {
+          "BC-MC-LanguageServer.useDiagnosticsMcfunctions": {
             "scope": "window",
             "type": "boolean",
             "default": true,
-            "description": "Requires restart: Turns on or off the diagnostics"
+            "description": "Requires restart: Turns on or off the diagnostics for mcfunctions"
+          },
+          "BC-MC-LanguageServer.useDiagnosticsLanguages": {
+            "scope": "window",
+            "type": "boolean",
+            "default": true,
+            "description": "Requires restart: Turns on or off the diagnostics for languages"
           }
         }
       }

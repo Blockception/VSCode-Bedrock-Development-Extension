@@ -36,5 +36,5 @@ export function ProcessLanguageFile(document: TextDocument): void {
   //TODO process language files
 
   //provide diagnostics on the language document
-  if (Manager.Settings.useDiagnostics) provideLanguageDiagnostics(document);
+  provideLanguageDiagnostics(document);
 }

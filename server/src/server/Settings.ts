@@ -32,12 +32,13 @@ import { Manager } from "../manager/Manager";
 
 export interface ServerSettings {
   useEducationContent: boolean;
-  useDiagnostics: boolean;
+  useDiagnosticsMcfunctions: boolean;
+  useDiagnosticsLanguages: boolean;
 }
 
 export namespace ServerSettings {
   export function is(value: any): value is ServerSettings {
-    if (value && value.useEducationContent && value.useDiagnostics) return true;
+    if (value && value.useEducationContent && value.useDiagnosticsLanguages && value.useDiagnosticsMcfunctions) return true;
 
     return false;
   }
@@ -45,7 +46,8 @@ export namespace ServerSettings {
   export function createDefaulSettings(): ServerSettings {
     return {
       useEducationContent: true,
-      useDiagnostics: true,
+      useDiagnosticsMcfunctions: true,
+      useDiagnosticsLanguages: true
     };
   }
 }

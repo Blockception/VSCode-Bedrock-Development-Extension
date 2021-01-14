@@ -34,7 +34,7 @@ import { Manager } from "../../../../manager/Manager";
 import { ValidationData, GetValidationData } from "../../../../validation/include";
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
-  if (!Manager.Settings.useDiagnostics) return;
+  if (!Manager.Settings.useDiagnosticsMcfunctions) return;
   if (!Manager.State.DataGathered) return;
 
   let Data = Database.MinecraftProgramData.GetProjecData();

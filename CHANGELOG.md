@@ -1,4 +1,6 @@
 # Changelog 
+- auto: Formatted typescript files
+- Updated changelog
 - Added diagnostics setting
 - Added json signature support
 - Added comments
@@ -17,5 +19,3 @@
 - Updating the parsing of selectors
 - Updated to 1.5.1
 - auto: Updated dependecies
-- auto: Formatted typescript files
-- auto: Formatted json files
