@@ -47,6 +47,7 @@ export function SetDynamicEvents() {
 
   client.register(DocumentFormattingRequest.type, Formatoptions);
 
+  // Tell the client that this server supports semantic tokens
   const registrationOptions: SemanticTokensRegistrationOptions = {
     documentSelector: [
       Languages.JsonCIdentifier,
