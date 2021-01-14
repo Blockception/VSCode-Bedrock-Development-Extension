@@ -1,4 +1,6 @@
 # Changelog 
+- Updated
+- Updated to 1.5.3
 - Updated diagnostics settings
 - auto: Formatted typescript files
 - Updated changelog
@@ -16,6 +18,4 @@
 - Updated json document functionaility
 - Commands are only enabled on workspaces
 - auto : Generated Includes
-- Updated to 1.5.1
-- Updating the parsing of selectors
 - Updated to 1.5.1
