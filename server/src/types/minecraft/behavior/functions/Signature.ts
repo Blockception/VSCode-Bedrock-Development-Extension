@@ -37,12 +37,16 @@ import { MCCommandParameterType } from "../../../commands/Parameter/include";
 import { RawText } from "../../json/include";
 
 export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
-  let Line = getLine(doc, pos.line);
-  let command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
+  const Line = getLine(doc, pos.line);
+  return ProvideMcfunctionCommandSignature(Line, { character: 0, line: pos.line }, pos, doc);
+}
+
+export function ProvideMcfunctionCommandSignature(Line: string, Start: Position, cursor: Position, doc: TextDocument): SignatureHelp | undefined {
+  let command: CommandIntr = CommandIntr.parse(Line, cursor, doc.uri, Start);
 
   if (command.IsEmpty()) return undefined;
 
-  let SubCommand = IsInSubCommand(command, pos.character);
+  let SubCommand = IsInSubCommand(command, cursor.character);
 
   if (SubCommand != undefined) {
     command = SubCommand;
