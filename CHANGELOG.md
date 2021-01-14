@@ -1,4 +1,5 @@
 # Changelog 
+- Updated diagnostics settings
 - auto: Formatted typescript files
 - Updated changelog
 - Added diagnostics setting
@@ -18,4 +19,3 @@
 - Updated to 1.5.1
 - Updating the parsing of selectors
 - Updated to 1.5.1
-- auto: Updated dependecies
