@@ -33,7 +33,7 @@ import { Database } from "../../database/include";
 import { CommandIntr } from "../../types/commands/Command Intertation/include";
 import { Tickingarea } from "../../types/general/Tickingarea/include";
 
-export function ProcessTickingAreaCommand(Command: CommandIntr, lineIndex: number, doc: TextDocument): void {
+export function ProcessTickingAreaCommand(Command: CommandIntr): void {
   //tickingarea add
   if (Command.Paramaters[1]?.text !== "add") return;
 

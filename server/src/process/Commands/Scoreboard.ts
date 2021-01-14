@@ -36,12 +36,12 @@ import { Objective } from "../../types/general/Objectives/include";
 import { IsFakePlayer } from "../../types/general/Selector/include";
 import { GetComment } from "../../types/minecraft/behavior/functions/include";
 
-export function ProcessScoreboardCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
+export function ProcessScoreboardCommand(Com: CommandIntr, doc: TextDocument): void {
   if (Com.Paramaters.length < 3) {
     return;
   }
 
-  let Comment = GetComment(getLine(doc, lineIndex - 1));
+  let Comment = GetComment(getLine(doc, Com.Line));
   let Mode = Com.Paramaters[1];
 
   switch (Mode.text) {

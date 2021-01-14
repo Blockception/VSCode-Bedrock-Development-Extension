@@ -34,7 +34,7 @@ import { CommandIntr } from "../../types/commands/Command Intertation/include";
 import { Tag } from "../../types/general/Tag/Tag";
 import { GetComment } from "../../types/minecraft/behavior/functions/include";
 
-export function ProcessTagCommand(Com: CommandIntr, lineIndex: number, doc: TextDocument): void {
+export function ProcessTagCommand(Com: CommandIntr, doc: TextDocument): void {
   //tag <selector> add <tag>
   if (Com.Paramaters[2]?.text !== "add") return;
 
@@ -44,7 +44,7 @@ export function ProcessTagCommand(Com: CommandIntr, lineIndex: number, doc: Text
   Data.Identifier = tag.text;
   Data.Location = tag.CreateLocation();
 
-  let Comment = GetComment(getLine(doc, lineIndex - 1));
+  let Comment = GetComment(getLine(doc, Com.Line));
 
   if (Comment !== "") {
     Data.Documentation.value = Comment;
