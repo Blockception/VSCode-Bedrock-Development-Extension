@@ -29,11 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../../code/include";
+import { ProcessCommand } from '../../../../commands/Process';
 import { Languages } from "../../../../Constants";
 import { Database } from "../../../../database/include";
-import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../../../../process/Commands/include";
-import { ProcessTagCommand } from "../../../../process/Commands/Tag";
-import { CommandIntr, GetSubCommand } from "../../../commands/Command Intertation/include";
 import { McFunction } from "../../../general/Functions/include";
 import { ProvideMcfunctionDiagnostics } from "./Diagnostics";
 import { GetComment } from "./Function";
@@ -51,28 +49,7 @@ function ProcessContent(document: TextDocument): void {
   for (let Index = 0; Index < document.lineCount; Index++) {
     const Line = getLine(document, Index);
 
-    if (Line.startsWith("#")) continue;
-    let Command: CommandIntr | undefined = CommandIntr.parse(Line, { character: 0, line: 0 }, document.uri);
-
-    while (Command) {
-      if (Command.Paramaters.length === 0) break;
-
-      switch (Command.Paramaters[0].text) {
-        case "tag":
-          ProcessTagCommand(Command, Index, document);
-          break;
-
-        case "scoreboard":
-          ProcessScoreboardCommand(Command, Index, document);
-          break;
-
-        case "tickingarea":
-          ProcessTickingAreaCommand(Command, Index, document);
-          break;
-      }
-
-      Command = GetSubCommand(Command);
-    }
+    ProcessCommand(Line, { character: 0, line: Index }, document);
   }
 
   const uri = document.uri;
