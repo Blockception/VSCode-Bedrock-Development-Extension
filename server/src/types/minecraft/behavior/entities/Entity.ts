@@ -27,22 +27,36 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+export interface EntityEvent {
+  run_command?: string;
+  add?: { component_groups?: string[] }
+  remove?: { component_groups?: string[] }
+}
+
 export interface Entity {
   format_version: string;
   "minecraft:entity": {
     description: {
       identifier: string;
-      is_spawnable: boolean;
-      is_summonable: boolean;
-      is_experimental: boolean;
-      animations: object;
-      scripts: {
-        animate: string | object[];
+      is_spawnable?: boolean;
+      is_summonable?: boolean;
+      is_experimental?: boolean;
+      animations?: object;
+      scripts?: {
+        animate?: string | object[];
       };
     };
-    component_groups: object | undefined;
-    components: object | undefined;
-    events: object | undefined;
+    component_groups?: {
+      [component_group: string]: {
+        [component: string]: any;
+      };
+    };
+    components?: {
+      [component: string]: any;
+    };
+    events?: {
+      [event: string]: EntityEvent;
+    };
   };
 }
 

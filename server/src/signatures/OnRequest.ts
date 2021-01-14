@@ -31,6 +31,7 @@ import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { GetDocument } from "../code/include";
 import { Languages } from "../Constants";
 import { ProvideMcfunctionSignature } from "../types/minecraft/behavior/functions/include";
+import { ProvideJsonSignature } from './Json';
 import { ProvideLanguageSignature } from "./Language";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
@@ -52,9 +53,11 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
       return ProvideLanguageSignature(doc, pos);
 
     case Languages.McOtherIdentifier:
+      return undefined;
+
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      return undefined;
+      return ProvideJsonSignature(doc, pos);
     //return Other.ProvideSignature(doc, pos);
   }
 

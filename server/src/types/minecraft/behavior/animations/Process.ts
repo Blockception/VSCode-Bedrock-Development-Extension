@@ -27,13 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location } from "vscode-languageserver";
+import { Location, Position } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../../code/json/include";
 import { Database } from "../../../../database/include";
 import { DataReference } from "../../../../database/Types/include";
+import { molang } from '../../../../include';
 import { EmptyTypes } from "../../../general/Empty";
-import { Animation } from "./Animation";
+import { Animation, SingleAnimation } from "./Animation";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -55,5 +56,35 @@ export function Process(doc: TextDocument): void {
     };
 
     Database.Data.Behaviourpack.Animations.Set(new DataReference(Name, Location));
+    let Animation = Format.animations[Name];
+
+    /*if (Animation) {
+      ExploreAnimation(Animation, JDoc);
+    }*/
+  }
+}
+
+function ExploreAnimation(Animation: SingleAnimation, doc: JsonDocument) {
+  let timelines = Animation.timeline;
+  if (timelines) {
+    let Names = Object.getOwnPropertyNames(timelines);
+
+    for (let I = 0; I < Names.length; I++) {
+      let Name = Names[I];
+
+      let timeline = timelines[Name];
+      if (timeline && timeline.length) {
+        for (let I = 0; I < timeline.length; I++) {
+          let data = timeline[I];
+          let start = doc.GetStartOfObject(data);
+
+          if (!start) {
+            start = Position.create(0, 0);
+          }
+
+          molang.Process(data, start, doc.doc);
+        }
+      }
+    }
   }
 }

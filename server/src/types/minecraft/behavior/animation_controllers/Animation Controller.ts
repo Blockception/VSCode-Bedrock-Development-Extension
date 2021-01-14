@@ -27,9 +27,28 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+export type Animation = string | { [state: string]: string };
+export type Transition = string | { [state: string]: string };
+
+export interface State {
+  on_entry?: string[];
+  on_exit?: string[];
+  transitions?: Transition[];
+  animations?: Animation[];
+}
+
+export interface Controller {
+  initial_state?: string;
+  states?: {
+    [state: string]: State;
+  }
+}
+
 export interface AnimationController {
   format_version: string;
-  animation_controllers: any;
+  animation_controllers: {
+    [controller: string]: Controller;
+  };
 }
 
 export namespace AnimationController {
