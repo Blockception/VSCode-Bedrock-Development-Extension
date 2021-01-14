@@ -27,38 +27,38 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Position } from 'vscode-languageserver';
-import { TextDocument } from 'vscode-languageserver-textdocument';
-import { LocationWord } from '../code/words/include';
-import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from '../process/Commands/include';
-import { ProcessTagCommand } from '../process/Commands/Tag';
-import { CommandIntr, GetSubCommand } from '../types/commands/Command Intertation/include';
+import { Position } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { LocationWord } from "../code/words/include";
+import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../process/Commands/include";
+import { ProcessTagCommand } from "../process/Commands/Tag";
+import { CommandIntr, GetSubCommand } from "../types/commands/Command Intertation/include";
 
 export function ProcessCommand(Line: string, Start: Position, document: TextDocument): void {
-	if (Line.startsWith("#")) return;
-	let Command: CommandIntr | undefined = CommandIntr.parse(Line, { character: 0, line: 0 }, document.uri, Start);
+  if (Line.startsWith("#")) return;
+  let Command: CommandIntr | undefined = CommandIntr.parse(Line, { character: 0, line: 0 }, document.uri, Start);
 
-	while (Command) {
-		if (Command.Paramaters.length === 0) break;
+  while (Command) {
+    if (Command.Paramaters.length === 0) break;
 
-		switch (Command.Paramaters[0].text) {
-			case "tag":
-				ProcessTagCommand(Command, document);
-				break;
+    switch (Command.Paramaters[0].text) {
+      case "tag":
+        ProcessTagCommand(Command, document);
+        break;
 
-			case "scoreboard":
-				ProcessScoreboardCommand(Command, document);
-				break;
+      case "scoreboard":
+        ProcessScoreboardCommand(Command, document);
+        break;
 
-			case "tickingarea":
-				ProcessTickingAreaCommand(Command);
-				break;
-		}
+      case "tickingarea":
+        ProcessTickingAreaCommand(Command);
+        break;
+    }
 
-		Command = GetSubCommand(Command);
-	}
+    Command = GetSubCommand(Command);
+  }
 }
 
 export function ProcessWord(Word: LocationWord, document: TextDocument): void {
-	return ProcessCommand(Word.text, Word.range.start, document);
+  return ProcessCommand(Word.text, Word.range.start, document);
 }

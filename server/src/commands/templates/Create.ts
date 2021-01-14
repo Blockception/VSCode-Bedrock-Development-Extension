@@ -67,36 +67,50 @@ function Initialize(): CommandManager {
   };
 
   //Behavior pack
-  Out[Commands.Create.Behaviorpack.Animation_Controller] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_animation_controller_file);
-  Out[Commands.Create.Behaviorpack.Animation] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_animation_file);
+  Out[Commands.Create.Behaviorpack.Animation_Controller] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.behavior_pack.create_animation_controller_file);
+  Out[Commands.Create.Behaviorpack.Animation] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.behavior_pack.create_animation_file);
   Out[Commands.Create.Behaviorpack.Block] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_block_file);
   Out[Commands.Create.Behaviorpack.Entity] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_entity_file);
   Out[Commands.Create.Behaviorpack.Item] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_item_file);
   Out[Commands.Create.Behaviorpack.Languages] = (params: ExecuteCommandParams) => FunctionBP(params, templates.language.create_language_files);
-  Out[Commands.Create.Behaviorpack.Loot_Table] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_loot_table_file);
+  Out[Commands.Create.Behaviorpack.Loot_Table] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.behavior_pack.create_loot_table_file);
   Out[Commands.Create.Behaviorpack.Manifests] = (params: ExecuteCommandParams) => Function(params, templates.behavior_pack.create_manifest_file);
   Out[Commands.Create.Behaviorpack.Recipe] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_recipe_file);
-  Out[Commands.Create.Behaviorpack.Spawn_Rule] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_spawn_rule_file);
+  Out[Commands.Create.Behaviorpack.Spawn_Rule] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.behavior_pack.create_spawn_rule_file);
   Out[Commands.Create.Behaviorpack.Trading] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.behavior_pack.create_trading_file);
 
   //Resource pack
-  Out[Commands.Create.Resourcepack.Animation_Controller] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_animation_controller_file);
-  Out[Commands.Create.Resourcepack.Animation] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_animation_file);
-  Out[Commands.Create.Resourcepack.Attachable] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_attachable_file);
-  Out[Commands.Create.Resourcepack.Biomes_Client] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_biomes_client_file);
+  Out[Commands.Create.Resourcepack.Animation_Controller] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.resource_pack.create_animation_controller_file);
+  Out[Commands.Create.Resourcepack.Animation] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.resource_pack.create_animation_file);
+  Out[Commands.Create.Resourcepack.Attachable] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.resource_pack.create_attachable_file);
+  Out[Commands.Create.Resourcepack.Biomes_Client] = (params: ExecuteCommandParams) =>
+    Function(params, templates.resource_pack.create_biomes_client_file);
   Out[Commands.Create.Resourcepack.Blocks] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_blocks_file);
   Out[Commands.Create.Resourcepack.Entity] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_entity_file);
-  Out[Commands.Create.Resourcepack.Flipbook_Textures] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_flipbook_textures_file);
+  Out[Commands.Create.Resourcepack.Flipbook_Textures] = (params: ExecuteCommandParams) =>
+    Function(params, templates.resource_pack.create_flipbook_textures_file);
   Out[Commands.Create.Resourcepack.Languages] = (params: ExecuteCommandParams) => FunctionRP(params, templates.language.create_language_files);
-  Out[Commands.Create.Resourcepack.Item_Texture] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_item_texture_file);
+  Out[Commands.Create.Resourcepack.Item_Texture] = (params: ExecuteCommandParams) =>
+    Function(params, templates.resource_pack.create_item_texture_file);
   Out[Commands.Create.Resourcepack.Manifests] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_manifest_file);
   Out[Commands.Create.Resourcepack.Model] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_model_file);
-  Out[Commands.Create.Resourcepack.Music_Definitions] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_music_definitions_File);
+  Out[Commands.Create.Resourcepack.Music_Definitions] = (params: ExecuteCommandParams) =>
+    Function(params, templates.resource_pack.create_music_definitions_File);
   Out[Commands.Create.Resourcepack.Particle] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_particle_File);
-  Out[Commands.Create.Resourcepack.Render_Controller] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_render_controller_File);
+  Out[Commands.Create.Resourcepack.Render_Controller] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.resource_pack.create_render_controller_File);
   Out[Commands.Create.Resourcepack.Sounds] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_sounds_File);
-  Out[Commands.Create.Resourcepack.Sound_Definitions] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_sound_definitions_File);
-  Out[Commands.Create.Resourcepack.Terrain_Texture] = (params: ExecuteCommandParams) => Function(params, templates.resource_pack.create_terrain_texture_file);
+  Out[Commands.Create.Resourcepack.Sound_Definitions] = (params: ExecuteCommandParams) =>
+    Function(params, templates.resource_pack.create_sound_definitions_File);
+  Out[Commands.Create.Resourcepack.Terrain_Texture] = (params: ExecuteCommandParams) =>
+    Function(params, templates.resource_pack.create_terrain_texture_file);
 
   //World
   Out[Commands.Create.World.Languages] = (params: ExecuteCommandParams) => FunctionWP(params, templates.language.create_language_files);

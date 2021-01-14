@@ -136,8 +136,7 @@ export class JsonDocument {
     let text = this.doc.getText();
     let index = text.indexOf(value);
 
-    if (index >= 0)
-      return this.doc.positionAt(index);
+    if (index >= 0) return this.doc.positionAt(index);
 
     return undefined;
   }

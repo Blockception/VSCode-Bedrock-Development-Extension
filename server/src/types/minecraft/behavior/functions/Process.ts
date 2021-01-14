@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../../code/include";
-import { ProcessCommand } from '../../../../commands/Process';
+import { ProcessCommand } from "../../../../commands/Process";
 import { Languages } from "../../../../Constants";
 import { Database } from "../../../../database/include";
-import { Manager } from '../../../../manager/Manager';
+import { Manager } from "../../../../manager/Manager";
 import { McFunction } from "../../../general/Functions/include";
 import { ProvideMcfunctionDiagnostics } from "./Diagnostics";
 import { GetComment } from "./Function";

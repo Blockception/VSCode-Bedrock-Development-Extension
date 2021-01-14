@@ -37,8 +37,7 @@ export interface ServerSettings {
 
 export namespace ServerSettings {
   export function is(value: any): value is ServerSettings {
-    if (value && value.useEducationContent && value.useDiagnostics)
-      return true;
+    if (value && value.useEducationContent && value.useDiagnostics) return true;
 
     return false;
   }
@@ -46,7 +45,7 @@ export namespace ServerSettings {
   export function createDefaulSettings(): ServerSettings {
     return {
       useEducationContent: true,
-      useDiagnostics: true
+      useDiagnostics: true,
     };
   }
 }
@@ -68,5 +67,5 @@ function UpdateSettingsThen(data: any): void {
 
   if (ServerSettings.is(Casted)) {
     Manager.Settings = Casted;
-  };
+  }
 }

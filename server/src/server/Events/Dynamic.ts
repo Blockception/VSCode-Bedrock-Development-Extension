@@ -42,12 +42,10 @@ import { SemanticModifiers, SemanticTokens } from "../../semantics/Legend";
 export function SetDynamicEvents() {
   let client = Manager.Connection.client;
 
-
   if (Manager.Capabiltities.hasConfigurationCapability) {
     // Register for all configuration changes.
     Manager.Connection.client.register(DidChangeConfigurationNotification.type);
   }
-
 
   // Tell the client that this server supports code formatting.
   const Formatoptions: DocumentFormattingRegistrationOptions = {

@@ -32,7 +32,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../../code/json/include";
 import { Database } from "../../../../database/include";
 import { DataReference } from "../../../../database/Types/include";
-import { molang } from '../../../../include';
+import { molang } from "../../../../include";
 import { EmptyTypes } from "../../../general/Empty";
 import { Animation, SingleAnimation } from "./Animation";
 

@@ -41,7 +41,7 @@ export interface Controller {
   initial_state?: string;
   states?: {
     [state: string]: State;
-  }
+  };
 }
 
 export interface AnimationController {

@@ -27,35 +27,30 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Position, Range, TextDocument } from 'vscode-languageserver-textdocument';
-import { LocationWord } from '../code/words/include';
-import { commands } from '../include';
-import { DataCollector } from './files/Data Collector';
-
+import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
+import { LocationWord } from "../code/words/include";
+import { commands } from "../include";
+import { DataCollector } from "./files/Data Collector";
 
 export function Process(text: string, Start: Position, doc: TextDocument) {
-	if (text.startsWith('/')) {
-		let command = text.substring(1);
-		commands.ProcessCommand(command, { character: Start.character + 1, line: Start.line }, doc);
-	}
-	else if (text.startsWith('@s ')) {
-		//Process event
-	}
-	else {
-		//Process general molang
-	}
+  if (text.startsWith("/")) {
+    let command = text.substring(1);
+    commands.ProcessCommand(command, { character: Start.character + 1, line: Start.line }, doc);
+  } else if (text.startsWith("@s ")) {
+    //Process event
+  } else {
+    //Process general molang
+  }
 }
 
 export function ProcessInto(text: string, range: Range, doc: TextDocument, receiver: DataCollector) {
-	if (text.startsWith('/')) {
-		range.start.character += 1;
-		receiver.Command.push(new LocationWord(text.substring(1), range, doc.uri));
-	}
-	else if (text.startsWith('@s ')) {
-		range.start.character += 3;
-		receiver.Events.push(new LocationWord(text.substring(3), range, doc.uri));
-	}
-	else {
-		receiver.Molang.push(new LocationWord(text, range, doc.uri));
-	}
+  if (text.startsWith("/")) {
+    range.start.character += 1;
+    receiver.Command.push(new LocationWord(text.substring(1), range, doc.uri));
+  } else if (text.startsWith("@s ")) {
+    range.start.character += 3;
+    receiver.Events.push(new LocationWord(text.substring(3), range, doc.uri));
+  } else {
+    receiver.Molang.push(new LocationWord(text, range, doc.uri));
+  }
 }

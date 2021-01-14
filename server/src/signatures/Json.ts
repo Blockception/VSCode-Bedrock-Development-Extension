@@ -27,33 +27,31 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SignatureHelp } from 'vscode-languageserver';
-import { Position, TextDocument } from 'vscode-languageserver-textdocument';
-import { json } from '../code/include';
-import { IsMolang } from '../molang/include';
-import { ProvideMcfunctionCommandSignature } from '../types/minecraft/behavior/functions/include';
+import { SignatureHelp } from "vscode-languageserver";
+import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { json } from "../code/include";
+import { IsMolang } from "../molang/include";
+import { ProvideMcfunctionCommandSignature } from "../types/minecraft/behavior/functions/include";
 
 export function ProvideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
-	let text = doc.getText();
-	let Range = json.GetCurrentString(text, doc.offsetAt(cursor));
+  let text = doc.getText();
+  let Range = json.GetCurrentString(text, doc.offsetAt(cursor));
 
-	if (!Range) return;
-	let property = text.substring(Range.start, Range.end);
+  if (!Range) return;
+  let property = text.substring(Range.start, Range.end);
 
-	if (IsMolang(property)) {
-		if (property.startsWith('/')) {
-			//On command
-			property = property.substring(1);
-			Range.start++;
-			return ProvideMcfunctionCommandSignature(property, doc.positionAt(Range.start), cursor, doc);
-		}
-		else if (property.startsWith('@s')) {
-			//On event
-		}
-		else {
-			//On other molang
-		}
-	}
+  if (IsMolang(property)) {
+    if (property.startsWith("/")) {
+      //On command
+      property = property.substring(1);
+      Range.start++;
+      return ProvideMcfunctionCommandSignature(property, doc.positionAt(Range.start), cursor, doc);
+    } else if (property.startsWith("@s")) {
+      //On event
+    } else {
+      //On other molang
+    }
+  }
 
-	return undefined;
+  return undefined;
 }

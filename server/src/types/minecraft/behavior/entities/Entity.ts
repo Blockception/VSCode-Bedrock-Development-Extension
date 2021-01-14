@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export interface EntityEvent {
   run_command?: string;
-  add?: { component_groups?: string[] }
-  remove?: { component_groups?: string[] }
+  add?: { component_groups?: string[] };
+  remove?: { component_groups?: string[] };
 }
 
 export interface Entity {
