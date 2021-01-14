@@ -1,21 +1,21 @@
 # Changelog 
+- Added diagnostics setting
+- Added json signature support
+- Added comments
+- Removed comment
+- Refactored functions
+- Added general molang document parsing
+- Added processing of molang data
+- Wait async await on the arrival of context data, and formatted
+- Added command parsing for each given line
+- Added collection of molang data for the commands. This still needs refactoring
+- Added molang signature base support
+- Updated json document functionaility
+- Commands are only enabled on workspaces
+- auto : Generated Includes
+- Updated to 1.5.1
 - Updating the parsing of selectors
 - Updated to 1.5.1
 - auto: Updated dependecies
 - auto: Formatted typescript files
 - auto: Formatted json files
-- Refactored adding commands
-- Added the commands to client side
-- Refactored constants
-- Updating creation code to remove namespace
-- Added command creations on server side
-- Added Commands for creation
-- auto: Generated Includes
-- auto : Generated includes
-- auto: Generated Includes
-- Adding templates
-- Updated to 1.4.7
-- auto: Updated dependecies
-- Updated
-- Removed unnesscary files
-- Updated to 1.4.6
