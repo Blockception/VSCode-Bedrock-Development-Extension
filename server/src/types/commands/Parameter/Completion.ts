@@ -136,6 +136,9 @@ export function ProvideCompletionMCCommandParameter(
     case MCCommandParameterType.objective:
       return provideObjectiveCompletion(receiver);
 
+    case MCCommandParameterType.operation:
+      return 
+
     case MCCommandParameterType.particle:
       return provideParticleCompletion(receiver);
 
