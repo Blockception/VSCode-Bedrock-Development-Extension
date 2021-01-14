@@ -27,6 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { DidChangeConfigurationParams } from 'vscode-languageserver/node';
 import { Identification } from "../Constants";
 import { Manager } from "../manager/Manager";
 
@@ -50,6 +51,10 @@ export namespace ServerSettings {
       useDiagnosticsLanguages: true
     };
   }
+}
+
+export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {
+  UpdateSettingsThen(params.settings);
 }
 
 export function UpdateSettings(): void {

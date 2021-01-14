@@ -36,7 +36,7 @@ export namespace Languages {
 }
 
 export namespace Identification {
-  export const SettingsConfigurationIdentifier: string = "BC-MC-LanguageServer";
+  export const SettingsConfigurationIdentifier: string = "BC-MC";
 }
 
 export namespace Commands {
