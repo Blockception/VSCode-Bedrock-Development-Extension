@@ -48,11 +48,6 @@ function onInitialized(params: InitializedParams): void {
   //Update the settings of the language server
   UpdateSettings();
 
-  if (Manager.Capabiltities.hasConfigurationCapability) {
-    // Register for all configuration changes.
-    Manager.Connection.client.register(DidChangeConfigurationNotification.type, undefined);
-  }
-
   //Registers any follow ups
   SetDynamicEvents();
 

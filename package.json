@@ -38,7 +38,7 @@
     "onCommand:bc-create-resource_pack-sound_definitions",
     "onCommand:bc-create-resource_pack-terrain_texture",
     "onCommand:bc-create-world-language",
-    "onCommand:bc-create-world-manifest"    
+    "onCommand:bc-create-world-manifest"
   ],
   "author": {
     "name": "Blockception Ltd",
@@ -115,10 +115,16 @@
         "title": "Minecraft bedrock language configuration",
         "properties": {
           "BC-MC-LanguageServer.useEducationContent": {
-            "scope": "machine",
+            "scope": "window",
             "type": "boolean",
             "default": true,
             "description": "Requires restart: Adds education contents such as items, blocks, entities and commands into the suggestion and/or debugging"
+          },
+          "BC-MC-LanguageServer.useDiagnostics": {
+            "scope": "window",
+            "type": "boolean",
+            "default": true,
+            "description": "Requires restart: Turns on or off the diagnostics"
           }
         }
       }

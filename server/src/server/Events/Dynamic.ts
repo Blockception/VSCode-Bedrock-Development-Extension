@@ -28,6 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import {
+  DidChangeConfigurationNotification,
+  DidChangeConfigurationRegistrationOptions,
   DocumentFormattingRegistrationOptions,
   DocumentFormattingRequest,
   SemanticTokensRegistrationOptions,
@@ -39,6 +41,13 @@ import { SemanticModifiers, SemanticTokens } from "../../semantics/Legend";
 
 export function SetDynamicEvents() {
   let client = Manager.Connection.client;
+
+
+  if (Manager.Capabiltities.hasConfigurationCapability) {
+    // Register for all configuration changes.
+    Manager.Connection.client.register(DidChangeConfigurationNotification.type);
+  }
+
 
   // Tell the client that this server supports code formatting.
   const Formatoptions: DocumentFormattingRegistrationOptions = {

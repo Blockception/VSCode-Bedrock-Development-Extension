@@ -32,12 +32,21 @@ import { Manager } from "../manager/Manager";
 
 export interface ServerSettings {
   useEducationContent: boolean;
+  useDiagnostics: boolean;
 }
 
 export namespace ServerSettings {
+  export function is(value: any): value is ServerSettings {
+    if (value && value.useEducationContent && value.useDiagnostics)
+      return true;
+
+    return false;
+  }
+
   export function createDefaulSettings(): ServerSettings {
     return {
       useEducationContent: true,
+      useDiagnostics: true
     };
   }
 }
@@ -57,7 +66,7 @@ function UpdateSettingsThen(data: any): void {
 
   let Casted = <ServerSettings>data;
 
-  if (Casted === undefined || Casted === null) return;
-
-  Manager.Settings = Casted;
+  if (ServerSettings.is(Casted)) {
+    Manager.Settings = Casted;
+  };
 }

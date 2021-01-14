@@ -29,11 +29,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { provideLanguageDiagnostics } from "../diagnostics/general/Language";
 import { TextDocument } from "vscode-languageserver-textdocument";
+import { Manager } from '../manager/Manager';
 
 export function ProcessLanguageFile(document: TextDocument): void {
   //Process language file
   //TODO process language files
 
   //provide diagnostics on the language document
-  provideLanguageDiagnostics(document);
+  if (Manager.Settings.useDiagnostics) provideLanguageDiagnostics(document);
 }
