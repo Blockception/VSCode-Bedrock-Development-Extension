@@ -1,4 +1,7 @@
 # Changelog 
+- Updated settings
+- Updated documentation
+- Updated to 1.5.4
 - Updated
 - Updated to 1.5.3
 - Updated diagnostics settings
@@ -16,6 +19,3 @@
 - Added collection of molang data for the commands. This still needs refactoring
 - Added molang signature base support
 - Updated json document functionaility
-- Commands are only enabled on workspaces
-- auto : Generated Includes
-- Updated to 1.5.1
