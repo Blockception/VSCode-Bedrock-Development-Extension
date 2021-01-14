@@ -115,19 +115,19 @@
         "title": "Minecraft bedrock language configuration",
         "properties": {
           "BC-MC-LanguageServer.useEducationContent": {
-            "scope": "window",
+            "scope": "machine",
             "type": "boolean",
-            "default": true,
+            "default": false,
             "description": "Requires restart: Adds education contents such as items, blocks, entities and commands into the suggestion and/or debugging"
           },
           "BC-MC-LanguageServer.useDiagnosticsMcfunctions": {
-            "scope": "window",
+            "scope": "machine",
             "type": "boolean",
             "default": true,
             "description": "Requires restart: Turns on or off the diagnostics for mcfunctions"
           },
           "BC-MC-LanguageServer.useDiagnosticsLanguages": {
-            "scope": "window",
+            "scope": "machine",
             "type": "boolean",
             "default": true,
             "description": "Requires restart: Turns on or off the diagnostics for languages"

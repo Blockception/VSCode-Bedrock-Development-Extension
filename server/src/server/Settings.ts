@@ -45,7 +45,7 @@ export namespace ServerSettings {
 
   export function createDefaulSettings(): ServerSettings {
     return {
-      useEducationContent: true,
+      useEducationContent: false,
       useDiagnosticsMcfunctions: true,
       useDiagnosticsLanguages: true
     };
