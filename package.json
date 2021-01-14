@@ -127,7 +127,8 @@
       {
         "title": "Run diagnose on project",
         "command": "bc.minecraft.diagnose.project",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Cheat sheet: Molang",
@@ -142,167 +143,200 @@
       {
         "title": "Create BP-RP entities files",
         "command": "bc-create-entity",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Create all language files",
         "command": "bc-create-language-all",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Create all manifests",
         "command": "bc-create-manifest-all",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create animation controllers file",
         "command": "bc-create-behavior_pack-animation_controllers",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create animations file",
         "command": "bc-create-behavior_pack-animations",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create block file",
         "command": "bc-create-behavior_pack-block",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create entities file",
         "command": "bc-create-behavior_pack-entity",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create item file",
         "command": "bc-create-behavior_pack-item",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create language files",
         "command": "bc-create-behavior_pack-language",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create loot_table file",
         "command": "bc-create-behavior_pack-loot_table",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create manifest",
         "command": "bc-create-behavior_pack-manifest",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create recipe file",
         "command": "bc-create-behavior_pack-recipe",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create spawn_rule file",
         "command": "bc-create-behavior_pack-spawn_rule",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Behavior Pack: Create trading file",
         "command": "bc-create-behavior_pack-trading",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create animation controllers files",
         "command": "bc-create-resource_pack-animation_controllers",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create animations files",
         "command": "bc-create-resource_pack-animations",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create attachable files",
         "command": "bc-create-resource_pack-attachable",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the biomes_client file",
         "command": "bc-create-resource_pack-biomes_client",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the blocks file",
         "command": "bc-create-resource_pack-blocks",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create entities files",
         "command": "bc-create-resource_pack-entity",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create flipbook_textures file",
         "command": "bc-create-resource_pack-flipbook_textures",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create language files",
         "command": "bc-create-resource_pack-language",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create item texture file",
         "command": "bc-create-resource_pack-item_texture",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create manifest",
         "command": "bc-create-resource_pack-manifest",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create model file",
         "command": "bc-create-resource_pack-model",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the music definitions file",
         "command": "bc-create-resource_pack-music_definitions",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the particle file",
         "command": "bc-create-resource_pack-particle",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the render controller file",
         "command": "bc-create-resource_pack-render_controller",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the sounds file",
         "command": "bc-create-resource_pack-sounds",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the sound definitions file",
         "command": "bc-create-resource_pack-sound_definitions",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Resource Pack: Create the terrain texture file",
         "command": "bc-create-resource_pack-terrain_texture",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "World: Create language files",
         "command": "bc-create-world-language",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "World: Create all manifest",
         "command": "bc-create-world-manifest",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       }
     ],
     "grammars": [

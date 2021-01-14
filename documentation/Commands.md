@@ -23,7 +23,8 @@ Cheat sheet are accesable through the following command(s):
 
 ## Create Files
 
-All these command do not work if the file already exists.
+All these command do not work if the file already exists. These commands are only enabled on workspaces being present. They requires manifest for the
+world or the BP & RP to exist
 
 | Command                                             | Description                                                                       |
 | --------------------------------------------------- | --------------------------------------------------------------------------------- |
