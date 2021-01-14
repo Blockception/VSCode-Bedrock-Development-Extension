@@ -56,12 +56,6 @@ function onInitialized(params: InitializedParams): void {
   //Registers any follow ups
   SetDynamicEvents();
 
-  /*if (Manager.hasWorkspaceFolderCapability) {
-    connection.workspace.onDidChangeWorkspaceFolders(_event => {
-      console.log('Workspace folder change event received.');
-    });
-  }*/
-
   //setup commands
   AddCommands();
   AddMinecraftData();
