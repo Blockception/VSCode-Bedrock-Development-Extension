@@ -50,6 +50,8 @@ import { provideXPCompletion } from "../../general/Xp/include";
 import { CommandIntr } from "../Command Intertation/include";
 import { provideCommandCompletion } from "../Command/Completion";
 import { MCCommandParameter, MCCommandParameterType } from "./include";
+import { ProvideModeCompletion } from '../modes/Completion';
+import { OperationModes } from '../modes/operation/operation';
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
   let Out: CompletionItem = {
@@ -137,7 +139,7 @@ export function ProvideCompletionMCCommandParameter(
       return provideObjectiveCompletion(receiver);
 
     case MCCommandParameterType.operation:
-      return 
+      return ProvideModeCompletion(OperationModes, receiver);
 
     case MCCommandParameterType.particle:
       return provideParticleCompletion(receiver);

@@ -33,6 +33,8 @@ import { getLine } from "../../../code/include";
 import { LocationWord } from "../../../code/words/include";
 import { Database } from "../../../database/include";
 import { CommandIntr, GetSubCommand } from "../../../types/commands/Command Intertation/include";
+import { DiagnoseMode } from '../../../types/commands/modes/Diagnose';
+import { OperationModes } from '../../../types/commands/modes/operation/operation';
 import { MCCommandParameter, MCCommandParameterType } from "../../../types/commands/Parameter/include";
 import { EmptyTypes } from "../../../types/general/Empty";
 import { Selector } from "../../../types/general/include";
@@ -213,11 +215,12 @@ function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, vali
 
     case MCCommandParameterType.locateFeature:
       return;
+      
     case MCCommandParameterType.objective:
       return DiagnoseObjective(data, validation, receiver);
 
     case MCCommandParameterType.operation:
-      return;
+      return DiagnoseMode(data, OperationModes, receiver);
 
     case MCCommandParameterType.particle:
       return DiagnoseParticle(data, receiver);

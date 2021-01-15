@@ -64,7 +64,7 @@ export function create_blocks_file(Context: Context, Builder: TemplateBuilder): 
 
 export function create_entity_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
   let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.ResourcePack, "entities", safeID + ".entity.json");
+  let uri = path.join(Context.ResourcePack, "entity", safeID + ".entity.json");
   Builder.CreateFile(uri, Templates.resource_pack.create_entity(ID));
 }
 

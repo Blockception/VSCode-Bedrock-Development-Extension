@@ -27,9 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { Mode, ModeCollection } from '../Interface';
 
-import { Mode } from '../Interface';
-
-export const OperationModes: Mode[] = [
-	{ Name: '=', Description: 'Assigns the targets score to that of the source' }
-]
+export const OperationModes: ModeCollection = {
+	Name: "scoreboard operation",
+	Modes: [
+		{ Name: '=', Description: 'Assigns the targets score to that of the source' },
+		{ Name: '>', Description: "Calculates the maximum value of the sources and the target and stores it in the target" },
+		{ Name: '<', Description: 'Calculates the minimum value of the sources and the target' },
+		{ Name: '><', Description: 'Swaps the scores between the given source and the target' },
+		{ Name: '+=', Description: 'Adds the sources score to the target' },
+		{ Name: '-=', Description: 'Substracts the sources score to the target' },
+		{ Name: '*=', Description: 'Multiplies the sources score to the target' },
+		{ Name: '/=', Description: 'Divides the source score to the target' }
+	]
+}

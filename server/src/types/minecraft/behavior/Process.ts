@@ -40,6 +40,7 @@ export function Process(doc: TextDocument): void {
   if (Type === DataType.unknown) return;
 
   console.log("    Processing behavior pack file: " + GetFilename(doc.uri));
+  ValidateFolder(doc);
 
   switch (Type) {
     case DataType.behaviour_animation:
@@ -72,4 +73,10 @@ export function Process(doc: TextDocument): void {
 export function ProcessBehaviourPack(Folder: string): void {
   console.log("Processing behaviour pack: " + Folder);
   code.ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
+}
+
+export function ValidateFolder(doc: TextDocument): void {
+  const uri = doc.uri;
+
+
 }
