@@ -43,7 +43,7 @@ import { DiagnoseMode } from '../modes/Diagnose';
 import { OperationModes } from '../modes/operation/operation';
 import { MCCommandParameter, MCCommandParameterType } from './include';
 import { DiagnoseFunctionPath } from '../../general/Functions/include';
-import { DiagnoseCommandParameter } from '../Command/include';
+import { DiagnoseCommandParameter } from '../command/include';
 import { DiagnoseCoordinate } from '../../general/Coordinate/include';
 import { DiagnoseGamemode } from '../../general/Gamemode/include';
 import { DiagnoseObjective } from '../../general/Objectives/include';

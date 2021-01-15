@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position } from "vscode-languageserver-textdocument";
 import { LocationWord } from "../../../code/words/include";
 import { Manager } from "../../../manager/Manager";
-import { CommandInfo } from "../Command Info/CommandInfo";
-import { MCCommandParameterType } from "../Parameter/include";
+import { CommandInfo } from "../info/CommandInfo";
+import { MCCommandParameterType } from "../parameter/include";
 
 /**
  *A class that helps interpeting written commands

@@ -32,7 +32,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { LocationWord } from "../code/words/include";
 import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../process/Commands/include";
 import { ProcessTagCommand } from "../process/Commands/Tag";
-import { CommandIntr, GetSubCommand } from "../types/commands/Command Intertation/include";
+import { CommandIntr, GetSubCommand } from "../types/commands/interpertation/include";
 
 export function ProcessCommand(Line: string, Start: Position, document: TextDocument): void {
   if (Line.startsWith("#")) return;

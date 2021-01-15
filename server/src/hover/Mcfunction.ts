@@ -31,8 +31,8 @@ import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { Database, DataCollector } from "../database/include";
-import { CommandIntr } from "../types/commands/Command Intertation/include";
-import { MCCommandParameter, MCCommandParameterType } from "../types/commands/Parameter/include";
+import { CommandIntr } from "../types/commands/interpertation/include";
+import { MCCommandParameter, MCCommandParameterType } from "../types/commands/parameter/include";
 import { Identifiable, Locatable, Documentable } from "../types/minecraft/Interfaces/include";
 import { RawText } from "../types/minecraft/json/include";
 

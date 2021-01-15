@@ -30,8 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, SemanticTokens } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
-import { CommandIntr, GetSubCommand } from "../types/commands/Command Intertation/include";
-import { MCCommandParameterType } from "../types/commands/Parameter/include";
+import { CommandIntr, GetSubCommand } from "../types/commands/interpertation/include";
+import { MCCommandParameterType } from "../types/commands/parameter/include";
 import { McfunctionSemanticTokensBuilder } from "./builders/McfunctionSemanticTokensBuilder";
 import { SemanticTokensEnum } from "./Legend";
 

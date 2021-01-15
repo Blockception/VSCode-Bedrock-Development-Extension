@@ -33,7 +33,7 @@ import { Database } from "../../../database/include";
 import { NewError2, NewWarning } from "../../../diagnostics/include";
 import { IsRangeInteger, IsRangeNumber } from "../../../process/Range";
 import { ValidationData } from "../../../validation/include";
-import { MCCommandParameter } from "../../commands/Parameter/include";
+import { MCCommandParameter } from "../../commands/parameter/include";
 import { IsFloat } from "../Float/include";
 import { IsInteger } from "../Integer/include";
 import { IScoreParameter, Selector } from "./Selector";

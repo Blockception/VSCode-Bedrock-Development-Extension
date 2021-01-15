@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../code/include";
 import { Database } from "../../database/Database";
-import { CommandIntr } from "../../types/commands/Command Intertation/include";
+import { CommandIntr } from "../../types/commands/interpertation/include";
 import { Tag } from "../../types/general/Tag/Tag";
 import { GetComment } from "../../types/minecraft/behavior/functions/include";
 

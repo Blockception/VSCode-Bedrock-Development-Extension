@@ -30,10 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../../code/include";
-import { CommandInfo } from "../../../commands/Command Info/include";
-import { CommandIntr, IsInSubCommand } from "../../../commands/Command Intertation/include";
-import { MCCommand } from "../../../commands/Command/include";
-import { MCCommandParameterType } from "../../../commands/Parameter/include";
+import { CommandInfo } from "../../../commands/info/include";
+import { CommandIntr, IsInSubCommand } from "../../../commands/interpertation/include";
+import { MCCommand } from "../../../commands/command/include";
+import { MCCommandParameterType } from "../../../commands/parameter/include";
 import { RawText } from "../../json/include";
 
 export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {

@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../database/include";
-import { CommandIntr } from "../../types/commands/Command Intertation/include";
+import { CommandIntr } from "../../types/commands/interpertation/include";
 import { Tickingarea } from "../../types/general/Tickingarea/include";
 
 export function ProcessTickingAreaCommand(Command: CommandIntr): void {

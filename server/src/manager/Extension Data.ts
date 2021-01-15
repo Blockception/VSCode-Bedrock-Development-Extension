@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocuments } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { MolangData } from "../molang/MolangData";
-import { CommandManager } from "../types/commands/Command Manager/include";
+import { CommandManager } from "../types/commands/manager/include";
 
 export class ExtensionData {
   /**

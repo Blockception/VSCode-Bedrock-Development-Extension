@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { CompletionList } from "vscode-languageserver";
-import { ProvideCompletionMCCommandParameter } from "../types/commands/Parameter/Completion";
-import { provideCommandCompletion } from "../types/commands/Command/Completion";
+import { ProvideCompletionMCCommandParameter } from "../types/commands/parameter/Completion";
+import { provideCommandCompletion } from "../types/commands/command/Completion";
 import { getLine } from "../code/include";
-import { CommandIntr, IsInSubCommand } from "../types/commands/Command Intertation/include";
+import { CommandIntr, IsInSubCommand } from "../types/commands/interpertation/include";
 
 export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList): void {
   const LineIndex = pos.line;

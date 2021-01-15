@@ -33,8 +33,8 @@ import { getLine } from '../../../../code/include';
 import { Database } from "../../../../database/include";
 import { Manager } from "../../../../manager/Manager";
 import { ValidationData, GetValidationData } from "../../../../validation/include";
-import { CommandIntr, GetSubCommand } from '../../../commands/Command Intertation/include';
-import { DiagnoseParameter } from '../../../commands/Parameter/Diagnose';
+import { CommandIntr, GetSubCommand } from '../../../commands/interpertation/include';
+import { DiagnoseParameter } from '../../../commands/parameter/Diagnose';
 import { EmptyTypes } from '../../../general/Empty';
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {

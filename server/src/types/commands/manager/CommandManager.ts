@@ -35,10 +35,10 @@ import { IsInteger } from "../../general/Integer/include";
 import { IsJson } from "../../general/Json/Json";
 import { IsSelector } from "../../general/Selector/include";
 import { IsTickingArea } from "../../general/Tickingarea/include";
-import { CommandInfo } from "../Command Info/CommandInfo";
-import { CommandIntr } from "../Command Intertation/CommandIntr";
-import { MCCommand } from "../Command/MCCommand";
-import { MCCommandParameterType } from "../Parameter/include";
+import { CommandInfo } from "../info/CommandInfo";
+import { CommandIntr } from "../interpertation/CommandIntr";
+import { MCCommand } from "../command/MCCommand";
+import { MCCommandParameterType } from "../parameter/include";
 
 export class CommandManager {
   Subset: Map<string, CommandInfo[]>;

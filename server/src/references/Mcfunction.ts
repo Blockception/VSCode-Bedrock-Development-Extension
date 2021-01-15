@@ -31,8 +31,8 @@ import { ReferenceParams, Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { SearchDefinition } from "../definition/Search";
-import { CommandIntr } from "../types/commands/Command Intertation/include";
-import { MCCommandParameterType } from "../types/commands/Parameter/include";
+import { CommandIntr } from "../types/commands/interpertation/include";
+import { MCCommandParameterType } from "../types/commands/parameter/include";
 
 export function ProvideMcfunctionsReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
   const Line = getLine(doc, params.position.line);
