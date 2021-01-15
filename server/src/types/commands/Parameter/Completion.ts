@@ -52,6 +52,8 @@ import { provideCommandCompletion } from "../command/Completion";
 import { MCCommandParameter, MCCommandParameterType } from "./include";
 import { ProvideModeCompletion } from '../modes/Completion';
 import { OperationModes } from '../modes/operation/operation';
+import { provideGamemodeCompletion } from '../../general/Gamemode/include';
+import { SlotTypeModes } from '../../general/slot type/slot type';
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
   let Out: CompletionItem = {
@@ -110,14 +112,12 @@ export function ProvideCompletionMCCommandParameter(
 
     case MCCommandParameterType.float:
       return provideFloatCompletion(receiver, Parameter.Options);
-      break;
 
     case MCCommandParameterType.function:
       return provideFunctionCompletion(receiver);
 
     case MCCommandParameterType.gamemode:
-      //TODO
-      break;
+      return provideGamemodeCompletion(receiver);
 
     case MCCommandParameterType.integer:
       return provideIntegerCompletion(receiver, Parameter.Options);
@@ -156,8 +156,7 @@ export function ProvideCompletionMCCommandParameter(
       break;
 
     case MCCommandParameterType.slotType:
-      //TODO
-      break;
+      return ProvideModeCompletion(SlotTypeModes, receiver);
 
     case MCCommandParameterType.sound:
       return provideSoundCompletion(receiver);

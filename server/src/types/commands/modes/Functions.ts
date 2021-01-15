@@ -27,23 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, MarkupContent } from "vscode-languageserver";
-import { Position, Range } from "vscode-languageserver-textdocument";
 
-export namespace EmptyTypes {
-  export function EmptyDocumentation(): MarkupContent {
-    return { kind: "markdown", value: "" };
-  }
+import { ModeCollection } from './Interface';
 
-  export function EmptyPosition(): Position {
-    return { character: 0, line: 0 };
-  }
+export function GetMode<T extends ModeCollection>(Collection: T, Name: string) {
+	for (let I = 0; I < Collection.Modes.length; I++) {
+		let Mode = Collection.Modes[I];
+		if (Mode.Name === Name)
+			return Mode;
+	}
 
-  export function EmptyRange(): Range {
-    return { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } };
-  }
-
-  export function EmptyLocation(): Location {
-    return { uri: "", range: { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } } };
-  }
+	return undefined;
 }

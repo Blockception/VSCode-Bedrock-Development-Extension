@@ -27,23 +27,35 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Location, MarkupContent } from "vscode-languageserver";
-import { Position, Range } from "vscode-languageserver-textdocument";
+import { Diagnostic } from 'vscode-languageserver';
+import { LocationWord } from '../../../code/words/include';
+import { NewError2 } from '../../../diagnostics/include';
+import { CommandIntr } from '../../commands/interpertation/include';
+import { GetMode } from '../../commands/modes/Functions';
+import { DiagnoseInteger } from '../Integer/include';
+import { SlotTypeMode, SlotTypeModes } from '../slot type/slot type';
 
-export namespace EmptyTypes {
-  export function EmptyDocumentation(): MarkupContent {
-    return { kind: "markdown", value: "" };
-  }
+export function DiagnoseSlotID(word: LocationWord, Command: CommandIntr, receiver: Diagnostic[]): void {
+	let Index = Command.Paramaters.indexOf(word);
 
-  export function EmptyPosition(): Position {
-    return { character: 0, line: 0 };
-  }
+	if (Index < 0) return;
 
-  export function EmptyRange(): Range {
-    return { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } };
-  }
+	DiagnoseInteger(word, receiver);
 
-  export function EmptyLocation(): Location {
-    return { uri: "", range: { start: { character: 0, line: 0 }, end: { character: 0, line: 0 } } };
-  }
+	const SlotType = Command.Paramaters[Index - 1].text;
+	const SlotID = Number.parseInt(word.text);
+
+	let Mode = GetMode(SlotTypeModes, SlotType);
+
+	if (SlotTypeMode.is(Mode)) {
+		if (Mode.range) {
+			ErrorCheck(receiver, word, SlotType, SlotID, Mode.range.min, Mode.range.max);
+		}
+	}
+}
+
+function ErrorCheck(receiver: Diagnostic[], word: LocationWord, slotType: string, value: number, min: number, max: number): void {
+	if (value < min && value > max) {
+		NewError2(receiver, word.range, `Slot id '${value}' for '${slotType}' needs to be between, including: ${min} and ${max}`);
+	}
 }

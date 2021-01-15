@@ -33,8 +33,8 @@ import { getLine } from '../../../../code/include';
 import { Database } from "../../../../database/include";
 import { Manager } from "../../../../manager/Manager";
 import { ValidationData, GetValidationData } from "../../../../validation/include";
+import { DiagnoseCommand } from '../../../commands/command/include';
 import { CommandIntr, GetSubCommand } from '../../../commands/interpertation/include';
-import { DiagnoseParameter } from '../../../commands/parameter/Diagnose';
 import { EmptyTypes } from '../../../general/Empty';
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
@@ -113,32 +113,5 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
   while (Sub) {
     DiagnoseCommand(Sub, line, validation, receiver);
     Sub = GetSubCommand(Sub);
-  }
-}
-
-/**
- *
- * @param Command
- * @param line
- * @param validation
- * @param receiver
- */
-export function DiagnoseCommand(Command: CommandIntr, line: string, validation: ValidationData, receiver: Diagnostic[]): void {
-  let Matches = Command.GetCommandData();
-
-  if (Matches.length === 0) {
-    receiver.push({ message: 'Unknown command syntax: "' + line + '"', range: Command.Paramaters[0].range });
-    return;
-  }
-
-  let Data = Matches[0];
-  let max = Data.Command.parameters.length;
-
-  if (Command.Paramaters.length < max) {
-    max = Command.Paramaters.length;
-  }
-
-  for (let I = 0; I < max; I++) {
-    DiagnoseParameter(Data.Command.parameters[I], Command.Paramaters[I], validation, receiver);
   }
 }

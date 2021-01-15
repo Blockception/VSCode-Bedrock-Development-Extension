@@ -37,3 +37,25 @@ export interface Mode {
 	Name: string;
 	Description: string;
 }
+
+
+export namespace ModeCollection {
+	export function is(value: any): value is ModeCollection {
+		if (value && value.Name && value.Modes) {
+
+			if (Array.isArray(value.Modes))
+				return true;
+		}
+
+		return false;
+	}
+}
+
+export namespace Mode {
+	export function is(value: any): value is Mode {
+		if (value && value.Name && value.Description)
+			return true;
+
+		return false;
+	}
+}

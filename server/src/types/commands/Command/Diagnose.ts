@@ -27,10 +27,39 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "../../../code/words/include";
 import { Manager } from "../../../manager/Manager";
+import { ValidationData } from '../../../validation/include';
+import { CommandIntr } from '../interpertation/include';
+import { DiagnoseParameter } from '../parameter/include';
+
+/**
+ *
+ * @param Command
+ * @param line
+ * @param validation
+ * @param receiver
+ */
+export function DiagnoseCommand(Command: CommandIntr, line: string, validation: ValidationData, receiver: Diagnostic[]): void {
+  let Matches = Command.GetCommandData();
+
+  if (Matches.length === 0) {
+    receiver.push({ message: 'Unknown command syntax: "' + line + '"', range: Command.Paramaters[0].range });
+    return;
+  }
+
+  let Data = Matches[0];
+  let max = Data.Command.parameters.length;
+
+  if (Command.Paramaters.length < max) {
+    max = Command.Paramaters.length;
+  }
+
+  for (let I = 0; I < max; I++) {
+    DiagnoseParameter(Data.Command.parameters[I], Command.Paramaters[I], validation, receiver, Command);
+  }
+}
 
 /**
  * Diagnoses the command parameter
@@ -48,3 +77,4 @@ export function DiagnoseCommandParameter(data: LocationWord, receiver: Diagnosti
     severity: DiagnosticSeverity.Error,
   });
 }
+

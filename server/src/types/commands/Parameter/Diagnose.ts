@@ -39,8 +39,6 @@ import { DiagnoseKeyword } from '../../general/Keyword/Diagnose';
 import { DiagnoseTag } from '../../general/Tag/Diagnose';
 import { ValidationData } from '../../../validation/include';
 import { Selector } from '../../general/include';
-import { DiagnoseMode } from '../modes/Diagnose';
-import { OperationModes } from '../modes/operation/operation';
 import { MCCommandParameter, MCCommandParameterType } from './include';
 import { DiagnoseFunctionPath } from '../../general/Functions/include';
 import { DiagnoseCommandParameter } from '../command/include';
@@ -49,6 +47,14 @@ import { DiagnoseGamemode } from '../../general/Gamemode/include';
 import { DiagnoseObjective } from '../../general/Objectives/include';
 import { DiagnoseTickingarea } from '../../general/Tickingarea/include';
 import { DiagnoseParticle } from '../../minecraft/resource/particle/include';
+import { ProvideOperationDiagnose } from '../modes/operation/include';
+import { CommandIntr } from '../interpertation/include';
+import { DiagnoseItem } from '../../general/Item/include';
+import { DiagnoseString } from '../../general/String/Diagnose';
+import { DiagnoseSound } from '../../general/Sound/Diagnose';
+import { DiagnoseMode } from '../modes/include';
+import { SlotTypeModes } from '../../general/slot type/slot type';
+import { DiagnoseSlotID } from '../../general/slot id/Diagnose';
 
 /**Diagnoses the single parameter
  * @param pattern
@@ -56,7 +62,7 @@ import { DiagnoseParticle } from '../../minecraft/resource/particle/include';
  * @param validation
  * @param receiver
  */
-export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
+export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, receiver: Diagnostic[], Command: CommandIntr): void {
 	if (pattern === undefined || data === undefined) return;
 
 	if (pattern.Options) {
@@ -108,6 +114,8 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
 			return DiagnoseInteger(data, receiver);
 
 		case MCCommandParameterType.item:
+			return DiagnoseItem(data, receiver);
+
 		case MCCommandParameterType.jsonItem:
 		case MCCommandParameterType.jsonRawText:
 			return;
@@ -122,7 +130,7 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
 			return DiagnoseObjective(data, validation, receiver);
 
 		case MCCommandParameterType.operation:
-			return DiagnoseMode(data, OperationModes, receiver);
+			return ProvideOperationDiagnose(data, Command, receiver);
 
 		case MCCommandParameterType.particle:
 			return DiagnoseParticle(data, receiver);
@@ -134,10 +142,16 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
 			return Selector.ProvideDiagnostics(pattern, data, receiver, validation);
 
 		case MCCommandParameterType.slotID:
+			return DiagnoseSlotID(data, Command, receiver);
+
 		case MCCommandParameterType.slotType:
+			return DiagnoseMode(data, SlotTypeModes, receiver);
+
 		case MCCommandParameterType.sound:
+			return DiagnoseSound(data, receiver);
+
 		case MCCommandParameterType.string:
-			return;
+			return DiagnoseString(data, receiver);
 
 		case MCCommandParameterType.tag:
 			return DiagnoseTag(data, validation, receiver);
