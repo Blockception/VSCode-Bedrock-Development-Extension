@@ -1,8 +1,8 @@
 /*	Auto generated	*/
-export * as Command from "./command/include";
-export * as Command_Info from "./info/include";
-export * as Command_Intertation from "./interpertation/include";
-export * as Command_Manager from "./manager/include";
+export * as command from "./command/include";
 export * as Enumerators from "./Enumerators/include";
+export * as info from "./info/include";
+export * as interpertation from "./interpertation/include";
+export * as manager from "./manager/include";
 export * as modes from "./modes/include";
-export * as Parameter from "./parameter/include";
+export * as parameter from "./parameter/include";
