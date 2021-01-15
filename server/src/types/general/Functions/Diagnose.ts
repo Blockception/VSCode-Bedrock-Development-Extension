@@ -27,17 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/words/include";
+import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver';
+import { LocationWord } from '../../../code/words/include';
+import { Database } from '../../../database/include';
 
-export function DiagnoseBoolean(data: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseFunctionPath(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
 
-  if (text === "false" || text === "true") return;
+  if (Database.Data.General.Functions.HasID(text)) return;
 
   receiver.push({
     range: data.range,
-    message: 'Invalid boolean found: "' + text + '", must be: true or false',
+    message: "No known function found with the path: " + text,
     severity: DiagnosticSeverity.Error,
   });
 }

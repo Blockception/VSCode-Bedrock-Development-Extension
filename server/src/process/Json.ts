@@ -27,10 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { SIGWINCH } from 'constants';
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver/node';
-import { receiveMessageOnPort } from 'worker_threads';
 import { Database } from "../database/Database";
 import { commands, molang } from "../include";
 import { Manager } from '../manager/include';
@@ -80,6 +78,7 @@ export function ValidateBehaviourFolder(doc: TextDocument): void {
     case 'scripts':
     case 'spawn_rules':
     case 'trading':
+    case 'texts':
       return;
 
     default:

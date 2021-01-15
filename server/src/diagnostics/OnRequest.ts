@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Languages } from "../Constants";
 import { ProvideMcfunctionDiagnostics } from "../types/minecraft/behavior/functions/include";
-import { provideLanguageDiagnostics } from "./general/Language";
+import { provideLanguageDiagnostics } from "../types/languages/Diagnose";
 
 export function provideDiagnostics(doc: TextDocument): void {
   switch (doc.languageId) {

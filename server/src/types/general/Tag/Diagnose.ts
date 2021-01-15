@@ -28,34 +28,35 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/words/include";
-import { Database } from "../../../../database/include";
-import { ValidationData } from "../../../../validation/include";
+import { LocationWord } from "../../../code/words/include";
+import { Database } from "../../../database/include";
+import { ValidationData } from "../../../validation/include";
 
-export function DiagnoseObjective(data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
+export function DiagnoseTag(data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
   const text = data.text;
 
   //Check rules first
-  if (validation.objectives?.valid?.includes(text)) {
+  if (validation.tags?.valid?.includes(text)) {
     return;
   }
 
-  if (validation.objectives?.invalid?.includes(text)) {
+  if (validation.tags?.invalid?.includes(text)) {
     receiver.push({
       range: data.range,
-      message: 'Objective has been blacklisted through rules: "' + text + '"',
+      message: 'Tag has been blacklisted through rules: "' + text + '"',
       severity: DiagnosticSeverity.Error,
     });
 
     return;
   }
 
-  //Does database has a reference?
-  if (Database.Data.General.Objectives.HasID(text)) return;
+  if (Database.Data.General.Tag.HasID(text)) {
+    return;
+  }
 
   receiver.push({
     range: data.range,
-    message: 'No objective has been created: "' + text + '"',
+    message: 'The tag: "' + text + '" never seems to get added to any type of entity',
     severity: DiagnosticSeverity.Error,
   });
 }

@@ -27,14 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { provideLanguageDiagnostics } from "../types/languages/Diagnose";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Manager } from "../manager/Manager";
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
+import { LocationWord } from "../../../code/words/include";
+import { IsInteger } from "./include";
 
-export function ProcessLanguageFile(document: TextDocument): void {
-  //Process language file
-  //TODO process language files
+export function DiagnoseInteger(data: LocationWord, receiver: Diagnostic[]): void {
+  const text = data.text;
 
-  //provide diagnostics on the language document
-  provideLanguageDiagnostics(document);
+  if (IsInteger(text)) return;
+
+  receiver.push({
+    message: "Invalid integer",
+    range: data.range,
+    severity: DiagnosticSeverity.Error,
+  });
 }

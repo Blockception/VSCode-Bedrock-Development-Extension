@@ -27,18 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/words/include";
-import { Database } from "../../../../database/include";
+import { code } from "../../../include";
+import { DiagnoseContext } from "../../../diagnostics/types/include";
+import { functions } from "../../../diagnostics/behavior/include";
 
-export function DiagnoseItem(data: LocationWord, receiver: Diagnostic[]): void {
-  const text = data.text;
+export function Diagnose(context: DiagnoseContext): void {
+  context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
+}
 
-  if (Database.Data.General.Items.HasID(text)) return;
-
-  receiver.push({
-    range: data.range,
-    message: 'No known item found with the id: "' + text + '"',
-    severity: DiagnosticSeverity.Error,
-  });
+export function DiagnoseFolder(uri: string, context: DiagnoseContext): void {
+  code.ForEachDocument(code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => functions.Diagnose(D, context.data));
 }

@@ -28,17 +28,17 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/words/include";
-import { IsInteger } from "../../../../types/general/Integer/include";
+import { LocationWord } from "../../../code/words/include";
+import { Database } from "../../../database/include";
 
-export function DiagnoseInteger(data: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseBlock(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
 
-  if (IsInteger(text)) return;
+  if (Database.Data.General.Blocks.HasID(text)) return;
 
   receiver.push({
-    message: "Invalid integer",
     range: data.range,
+    message: 'No known block found with the id: "' + text + '"',
     severity: DiagnosticSeverity.Error,
   });
 }

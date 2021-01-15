@@ -7,15 +7,15 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+	 list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
+	 this list of conditions and the following disclaimer in the documentation
+	 and/or other materials provided with the distribution.
 
 3. Neither the name of the copyright holder nor the names of its
-   contributors may be used to endorse or promote products derived from
-   this software without specific prior written permission.
+	 contributors may be used to endorse or promote products derived from
+	 this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,18 +28,34 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/words/include";
-import { Database } from "../../../../database/include";
+import { LocationWord } from "../../../code/words/include";
+import { Database } from "../../../database/include";
+import { ValidationData } from "../../../validation/include";
 
-export function DiagnoseEntity(data: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseObjective(data: LocationWord, validation: ValidationData, receiver: Diagnostic[]): void {
   const text = data.text;
 
-  if (Database.Data.General.Entities.HasID(text)) return;
-  if (Database.Data.General.Entities.HasID("minecraft:" + text)) return;
+  //Check rules first
+  if (validation.objectives?.valid?.includes(text)) {
+    return;
+  }
+
+  if (validation.objectives?.invalid?.includes(text)) {
+    receiver.push({
+      range: data.range,
+      message: 'Objective has been blacklisted through rules: "' + text + '"',
+      severity: DiagnosticSeverity.Error,
+    });
+
+    return;
+  }
+
+  //Does database has a reference?
+  if (Database.Data.General.Objectives.HasID(text)) return;
 
   receiver.push({
     range: data.range,
-    message: 'No known entity found with the id: "' + text + '"',
+    message: 'No objective has been created: "' + text + '"',
     severity: DiagnosticSeverity.Error,
   });
 }
