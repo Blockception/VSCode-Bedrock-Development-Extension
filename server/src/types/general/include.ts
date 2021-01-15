@@ -12,6 +12,7 @@ export * as Gamemode from "./Gamemode/include";
 export * as Integer from "./Integer/include";
 export * as Item from "./Item/include";
 export * as Json from "./Json/include";
+export * as Keyword from "./Keyword/include";
 export * as Object_Base from "./Object Base/include";
 export * as Objectives from "./Objectives/include";
 export * as Selector from "./Selector/include";

@@ -1,5 +1,4 @@
 /*	Auto generated	*/
-export * as behavior from "./behavior/include";
 export * as general from "./general/include";
 export * as resource from "./resource/include";
 export * as types from "./types/include";
