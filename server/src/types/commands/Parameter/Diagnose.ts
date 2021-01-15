@@ -34,7 +34,6 @@ import { DiagnoseBoolean } from '../../general/Boolean/Diagnose';
 import { DiagnoseEffect } from '../../general/Effect/Diagnose';
 import { DiagnoseEntity } from '../../general/Entity/Diagnose';
 import { DiagnoseFloat } from '../../general/Float/Diagnose';
-import { DiagnoseCommandParameter, DiagnoseCoordinate, DiagnoseGamemode, DiagnoseObjective, DiagnoseParticle, DiagnoseTickingarea } from '../../../diagnostics/behavior/functions/types/include';
 import { DiagnoseInteger } from '../../general/Integer/Diagnose';
 import { DiagnoseKeyword } from '../../general/Keyword/Diagnose';
 import { DiagnoseTag } from '../../general/Tag/Diagnose';
@@ -44,6 +43,12 @@ import { DiagnoseMode } from '../modes/Diagnose';
 import { OperationModes } from '../modes/operation/operation';
 import { MCCommandParameter, MCCommandParameterType } from './include';
 import { DiagnoseFunctionPath } from '../../general/Functions/include';
+import { DiagnoseCommandParameter } from '../Command/include';
+import { DiagnoseCoordinate } from '../../general/Coordinate/include';
+import { DiagnoseGamemode } from '../../general/Gamemode/include';
+import { DiagnoseObjective } from '../../general/Objectives/include';
+import { DiagnoseTickingarea } from '../../general/Tickingarea/include';
+import { DiagnoseParticle } from '../../minecraft/resource/particle/include';
 
 /**Diagnoses the single parameter
  * @param pattern
