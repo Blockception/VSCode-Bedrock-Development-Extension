@@ -1,4 +1,7 @@
 # Changelog 
+- auto: Formatted typescript files
+- Refactored code
+- Added the teleport command
 - Updated
 - auto: Generated includes
 - Restructering
@@ -16,6 +19,3 @@
 - Updated settings
 - Updated documentation
 - Updated to 1.5.4
-- Updated
-- Updated to 1.5.3
-- Updated diagnostics settings
