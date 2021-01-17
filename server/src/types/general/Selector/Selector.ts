@@ -155,8 +155,8 @@ export namespace IParameter {
     if (Index < 0) throw new Error("index cannot be lower then 0");
 
     let Range: Range = { start: { character: startIndex, line: Line }, end: { character: startIndex + text.length, line: Line } };
-    let Name = text.substring(0, Index);
-    let Value = text.substring(Index + 1, text.length);
+    let Name = text.substring(0, Index).trim();
+    let Value = text.substring(Index + 1, text.length).trim();
 
     if (Name == "scores") {
       let Scores: IParameter[];

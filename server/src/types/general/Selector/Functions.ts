@@ -92,7 +92,7 @@ export function GetCurrentAttribute(selector: LocationWord, pos: number): string
 
   if (EndIndex < 0) EndIndex = selector.text.length;
 
-  return selector.text.slice(StartIndex, EndIndex);
+  return selector.text.slice(StartIndex, EndIndex).trim();
 }
 
 export function IsFakePlayer(text: string): boolean {
