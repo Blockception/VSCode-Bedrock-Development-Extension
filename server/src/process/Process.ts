@@ -33,6 +33,8 @@ import { GetFilename } from "../code/include";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { behavior } from "../types/minecraft/include";
 import { Languages } from "../include";
+import { ValidateBehaviourFolder, ValidateResourceFolder } from './Validate';
+import { DetectGeneralDataType, GeneralDataType } from '../types/minecraft/format/include';
 
 //Process the given document
 export function Process(document: TextDocument): void {
@@ -53,6 +55,22 @@ export function Process(document: TextDocument): void {
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
       Json.ProcessJson(document);
+      break;
+  }
+
+  //Validate folder
+  let Type = DetectGeneralDataType(document.uri);
+
+  switch (Type) {
+    case GeneralDataType.unknown:
+      return;
+
+    case GeneralDataType.behaviour_pack:
+      ValidateBehaviourFolder(document);
+      break;
+
+    case GeneralDataType.resource_pack:
+      ValidateResourceFolder(document);
       break;
   }
 }
