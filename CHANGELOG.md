@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 1.5.7
 - White spaces in selectors caused errors
 - Refactored
 - Updated to 1.5.6
@@ -18,4 +19,3 @@
 - Added translate components
 - Starting on modes support
 - auto: Updated dependecies
-- Updated to 1.5.5
