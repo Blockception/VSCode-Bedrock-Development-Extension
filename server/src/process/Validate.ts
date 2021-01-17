@@ -40,6 +40,7 @@ export function ValidateBehaviourFolder(doc: TextDocument): void {
   switch (SubFolder.toLowerCase()) {
     case "animation_controllers":
     case "animations":
+    case "blocks":
     case "documentation":
     case "entities":
     case "functions":
@@ -67,7 +68,9 @@ export function ValidateResourceFolder(doc: TextDocument): void {
     case "animation_controllers":
     case "animations":
     case "attachables":
+    case "blocks":
     case "entity":
+    case "items":
     case "models":
     case "particles":
     case "render_controllers":
