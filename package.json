@@ -1,6 +1,6 @@
 {
   "main": "./client/out/extension.js",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-minecraft-mcfunction",
@@ -16,7 +16,7 @@
     "onCommand:bc-create-behavior_pack-item",
     "onCommand:bc-create-behavior_pack-language",
     "onCommand:bc-create-behavior_pack-loot_table",
-    "onCommand:bc-create-behavior_pack-manifest",
+    "onCommand:bc-create-behavior_pack-amanifest",
     "onCommand:bc-create-behavior_pack-recipe",
     "onCommand:bc-create-behavior_pack-spawn_rule",
     "onCommand:bc-create-behavior_pack-trading",

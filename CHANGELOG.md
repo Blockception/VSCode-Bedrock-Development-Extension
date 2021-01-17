@@ -1,4 +1,7 @@
 # Changelog 
+- White spaces in selectors caused errors
+- Refactored
+- Updated to 1.5.6
 - auto: Formatted typescript files
 - Refactored code
 - Added the teleport command
@@ -16,6 +19,3 @@
 - Starting on modes support
 - auto: Updated dependecies
 - Updated to 1.5.5
-- Updated settings
-- Updated documentation
-- Updated to 1.5.4
