@@ -1741,6 +1741,207 @@
     },
     {
       "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "yRot", "Type": "coordinate", "Required": false },
+        { "Text": "xRot", "Type": "coordinate", "Required": false },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "yRot", "Type": "coordinate", "Required": false },
+        { "Text": "xRot", "Type": "coordinate", "Required": false },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "yRot", "Type": "coordinate", "Required": false },
+        { "Text": "xRot", "Type": "coordinate", "Required": false },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "TODO description", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "yRot", "Type": "coordinate", "Required": false },
+        { "Text": "xRot", "Type": "coordinate", "Required": false },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at", "Type": "selector", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at x", "Type": "coordinate", "Required": true },
+        { "Text": "look at y", "Type": "coordinate", "Required": true },
+        { "Text": "look at z", "Type": "coordinate", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at", "Type": "selector", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination", "Type": "selector", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at x", "Type": "coordinate", "Required": true },
+        { "Text": "look at y", "Type": "coordinate", "Required": true },
+        { "Text": "look at z", "Type": "coordinate", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at", "Type": "selector", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at x", "Type": "coordinate", "Required": true },
+        { "Text": "look at y", "Type": "coordinate", "Required": true },
+        { "Text": "look at z", "Type": "coordinate", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at", "Type": "selector", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "teleport", "Type": "keyword", "Required": true },
+        { "Text": "victim", "Type": "selector", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "facing", "Type": "keyword", "Required": true },
+        { "Text": "look at x", "Type": "coordinate", "Required": true },
+        { "Text": "look at y", "Type": "coordinate", "Required": true },
+        { "Text": "look at z", "Type": "coordinate", "Required": true },
+        { "Text": "check for blocks", "Type": "boolean", "Required": false }
+      ],
+      "name": "teleport",
+      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+    },
+    {
+      "parameters": [
         { "Text": "w", "Type": "keyword", "Required": true },
         { "Text": "selector", "Type": "selector", "Required": true },
         { "Text": "message", "Type": "keyword", "Required": true }
