@@ -31,7 +31,7 @@ import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../code/include";
 import { Database } from "../../database/include";
-import { Manager } from '../../manager/include';
+import { Manager } from "../../manager/include";
 import { NewError } from "../../diagnostics/Functions";
 
 export function provideLanguageDiagnostics(doc: TextDocument) {

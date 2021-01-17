@@ -28,14 +28,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { ModeCollection } from './Interface';
+import { ModeCollection } from "./Interface";
 
 export function GetMode<T extends ModeCollection>(Collection: T, Name: string) {
-	for (let I = 0; I < Collection.Modes.length; I++) {
-		let Mode = Collection.Modes[I];
-		if (Mode.Name === Name)
-			return Mode;
-	}
+  for (let I = 0; I < Collection.Modes.length; I++) {
+    let Mode = Collection.Modes[I];
+    if (Mode.Name === Name) return Mode;
+  }
 
-	return undefined;
+  return undefined;
 }

@@ -27,15 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic } from 'vscode-languageserver/node';
-import { LocationWord } from '../../../../code/words/include';
-import { CommandIntr } from '../../interpertation/include';
-import { DiagnoseMode } from '../Diagnose';
-import { OperationModes } from './operation';
+import { Diagnostic } from "vscode-languageserver/node";
+import { LocationWord } from "../../../../code/words/include";
+import { CommandIntr } from "../../interpertation/include";
+import { DiagnoseMode } from "../Diagnose";
+import { OperationModes } from "./operation";
 
 export function ProvideOperationDiagnose(Word: LocationWord, Command: CommandIntr, receiver: Diagnostic[]): void {
-	DiagnoseMode(Word, OperationModes, receiver);
-	let Index = Command.Paramaters.indexOf(Word);
+  DiagnoseMode(Word, OperationModes, receiver);
+  let Index = Command.Paramaters.indexOf(Word);
 
-	if (Index < 0) return;
+  if (Index < 0) return;
 }

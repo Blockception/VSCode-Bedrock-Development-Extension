@@ -28,11 +28,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver/node';
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver/node";
 import { Database } from "../database/Database";
 import { commands, molang } from "../include";
-import { Manager } from '../manager/include';
-import { EmptyTypes } from '../types/general/Empty';
+import { Manager } from "../manager/include";
+import { EmptyTypes } from "../types/general/Empty";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
 import { behavior, resource } from "../types/minecraft/include";
 
@@ -59,26 +59,24 @@ export function ProcessJson(doc: TextDocument): void {
   Data.Command.forEach((word) => commands.ProcessWord(word, doc));
 }
 
-
-
 export function ValidateBehaviourFolder(doc: TextDocument): void {
   const SubFolder = GetSubFolder(doc.uri);
 
   if (!SubFolder) return;
 
   switch (SubFolder.toLowerCase()) {
-    case 'animation_controllers':
-    case 'animations':
-    case 'documentation':
-    case 'entities':
-    case 'functions':
-    case 'loot_tables':
-    case 'items':
-    case 'recipes':
-    case 'scripts':
-    case 'spawn_rules':
-    case 'trading':
-    case 'texts':
+    case "animation_controllers":
+    case "animations":
+    case "documentation":
+    case "entities":
+    case "functions":
+    case "loot_tables":
+    case "items":
+    case "recipes":
+    case "scripts":
+    case "spawn_rules":
+    case "trading":
+    case "texts":
       return;
 
     default:
@@ -92,19 +90,19 @@ export function ValidateResourceFolder(doc: TextDocument): void {
   if (!SubFolder) return;
 
   switch (SubFolder.toLowerCase()) {
-    case 'animation_controllers':
-    case 'animations':
-    case 'attachables':
-    case 'entity':
-    case 'models':
-    case 'particles':
-    case 'render_controllers':
-    case 'sounds':
-    case 'texts':
-    case 'textures':
-    case 'ui':
+    case "animation_controllers":
+    case "animations":
+    case "attachables":
+    case "entity":
+    case "models":
+    case "particles":
+    case "render_controllers":
+    case "sounds":
+    case "texts":
+    case "textures":
+    case "ui":
       return;
-      
+
     default:
       IllegalFolder(doc, SubFolder);
   }
@@ -115,9 +113,11 @@ function GetSubFolder(uri: string): string | undefined {
 
   if (match) {
     let index = 0;
-    if (match.index) { index = match.index; }
+    if (match.index) {
+      index = match.index;
+    }
     const StartIndex = index + match[0].length;
-    const EndIndex = uri.indexOf('\\', StartIndex);
+    const EndIndex = uri.indexOf("\\", StartIndex);
 
     if (EndIndex < 0) return undefined;
     const element = uri.substring(StartIndex, EndIndex);
@@ -133,7 +133,7 @@ function IllegalFolder(doc: TextDocument, SubFolder: string): void {
       message: `Illegal folder found in behaviour pack: "${SubFolder}"`,
       range: EmptyTypes.EmptyRange(),
       severity: DiagnosticSeverity.Error,
-    }
+    },
   ];
 
   Manager.Diagnostic.SendDiagnostics(doc, receiver);

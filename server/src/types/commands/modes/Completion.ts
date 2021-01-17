@@ -27,19 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from 'vscode-languageserver';
-import { ModeCollection } from './Interface';
+import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { ModeCollection } from "./Interface";
 
 export function ProvideModeCompletion(Mode: ModeCollection, receiver: CompletionList): void {
-	const Modes = Mode.Modes
-	for (let I = 0; I < Modes.length; I++) {
-		let Element = Modes[I];
+  const Modes = Mode.Modes;
+  for (let I = 0; I < Modes.length; I++) {
+    let Element = Modes[I];
 
-		receiver.items.push({
-			label: Element.Name,
-			documentation: { kind: 'markdown', value: Element.Description },
-			kind: CompletionItemKind.EnumMember
-		})
-	}
+    receiver.items.push({
+      label: Element.Name,
+      documentation: { kind: "markdown", value: Element.Description },
+      kind: CompletionItemKind.EnumMember,
+    });
+  }
 }
-

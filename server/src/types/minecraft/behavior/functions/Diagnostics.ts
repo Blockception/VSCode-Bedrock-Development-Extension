@@ -28,14 +28,14 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver/node';
-import { getLine } from '../../../../code/include';
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver/node";
+import { getLine } from "../../../../code/include";
 import { Database } from "../../../../database/include";
 import { Manager } from "../../../../manager/Manager";
 import { ValidationData, GetValidationData } from "../../../../validation/include";
-import { DiagnoseCommand } from '../../../commands/command/include';
-import { CommandIntr, GetSubCommand } from '../../../commands/interpertation/include';
-import { EmptyTypes } from '../../../general/Empty';
+import { DiagnoseCommand } from "../../../commands/command/include";
+import { CommandIntr, GetSubCommand } from "../../../commands/interpertation/include";
+import { EmptyTypes } from "../../../general/Empty";
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
   if (!Manager.Settings.useDiagnosticsMcfunctions) return;

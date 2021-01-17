@@ -28,7 +28,16 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
-import { cRawTextComponent, cRawTextExample, cScoreComponent, cSelectorComponent, cTextComponent, cTranslationComponent, cTranslationWith, cTranslationWithComplex } from "./Constants";
+import {
+  cRawTextComponent,
+  cRawTextExample,
+  cScoreComponent,
+  cSelectorComponent,
+  cTextComponent,
+  cTranslationComponent,
+  cTranslationWith,
+  cTranslationWithComplex,
+} from "./Constants";
 
 export function Completion(receiver: CompletionItem[]): void {
   receiver.push(
@@ -39,7 +48,7 @@ export function Completion(receiver: CompletionItem[]): void {
     create("Translation component, with complex", cTranslationWithComplex),
     create("Text component", cTextComponent),
     create("Score component", cScoreComponent),
-    create("Selector component", cSelectorComponent),
+    create("Selector component", cSelectorComponent)
   );
 }
 
@@ -49,5 +58,5 @@ function create(Label: string, content: string): CompletionItem {
     kind: CompletionItemKind.Snippet,
     insertText: content,
     documentation: content,
-  }
+  };
 }

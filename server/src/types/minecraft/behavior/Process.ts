@@ -77,6 +77,4 @@ export function ProcessBehaviourPack(Folder: string): void {
 
 export function ValidateFolder(doc: TextDocument): void {
   const uri = doc.uri;
-
-
 }

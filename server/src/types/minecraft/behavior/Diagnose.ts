@@ -29,12 +29,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { code } from "../../../include";
 import { DiagnoseContext } from "../../../diagnostics/types/include";
-import { functions } from './include';
+import { functions } from "./include";
 
 export function Diagnose(context: DiagnoseContext): void {
-	context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
+  context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
 }
 
 export function DiagnoseFolder(uri: string, context: DiagnoseContext): void {
-	code.ForEachDocument(code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => functions.DiagnoseMcFunction(D, context.data));
+  code.ForEachDocument(code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => functions.DiagnoseMcFunction(D, context.data));
 }

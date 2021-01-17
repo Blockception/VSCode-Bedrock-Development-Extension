@@ -29,33 +29,29 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export interface ModeCollection {
-	Modes: Mode[];
-	Name: string;
+  Modes: Mode[];
+  Name: string;
 }
 
 export interface Mode {
-	Name: string;
-	Description: string;
+  Name: string;
+  Description: string;
 }
 
-
 export namespace ModeCollection {
-	export function is(value: any): value is ModeCollection {
-		if (value && value.Name && value.Modes) {
+  export function is(value: any): value is ModeCollection {
+    if (value && value.Name && value.Modes) {
+      if (Array.isArray(value.Modes)) return true;
+    }
 
-			if (Array.isArray(value.Modes))
-				return true;
-		}
-
-		return false;
-	}
+    return false;
+  }
 }
 
 export namespace Mode {
-	export function is(value: any): value is Mode {
-		if (value && value.Name && value.Description)
-			return true;
+  export function is(value: any): value is Mode {
+    if (value && value.Name && value.Description) return true;
 
-		return false;
-	}
+    return false;
+  }
 }

@@ -27,40 +27,40 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Mode, ModeCollection } from '../../commands/modes/include';
+import { Mode, ModeCollection } from "../../commands/modes/include";
 
 export interface SlotTypeModeCollection extends ModeCollection {
-	Modes: SlotTypeMode[];
+  Modes: SlotTypeMode[];
 }
 
 export interface SlotTypeMode extends Mode {
-	range?: { min: number, max: number }
+  range?: { min: number; max: number };
 }
 
 export namespace SlotTypeMode {
-	export function is(value : any) : value is SlotTypeMode {
-		if (value && value.Name && value.Description) {
-			return true;
-		}
+  export function is(value: any): value is SlotTypeMode {
+    if (value && value.Name && value.Description) {
+      return true;
+    }
 
-		return false;
-	}
+    return false;
+  }
 }
 
 export const SlotTypeModes: SlotTypeModeCollection = {
-	Name: "slot type",
-	Modes: [
-		{ Name: 'slot.armor.chest', Description: '' },
-		{ Name: 'slot.armor.feet', Description: '' },
-		{ Name: 'slot.armor.head', Description: '' },
-		{ Name: 'slot.armor.legs', Description: '' },
-		{ Name: 'slot.chest', Description: '', range: { min: 0, max: 14 } },
-		{ Name: 'slot.container', Description: '', range: { min: 0, max: 53 } },
-		{ Name: 'slot.enderchest', Description: '', range: { min: 0, max: 26 } },
-		{ Name: 'slot.hotbar', Description: '', range: { min: 0, max: 8 } },
-		{ Name: 'slot.inventory', Description: '', range: { min: 0, max: 26 } },
-		{ Name: 'slot.saddle', Description: '' },
-		{ Name: 'slot.weapon.mainhand', Description: '' },
-		{ Name: 'slot.weapon.offhand', Description: '' }
-	]
-}
+  Name: "slot type",
+  Modes: [
+    { Name: "slot.armor.chest", Description: "" },
+    { Name: "slot.armor.feet", Description: "" },
+    { Name: "slot.armor.head", Description: "" },
+    { Name: "slot.armor.legs", Description: "" },
+    { Name: "slot.chest", Description: "", range: { min: 0, max: 14 } },
+    { Name: "slot.container", Description: "", range: { min: 0, max: 53 } },
+    { Name: "slot.enderchest", Description: "", range: { min: 0, max: 26 } },
+    { Name: "slot.hotbar", Description: "", range: { min: 0, max: 8 } },
+    { Name: "slot.inventory", Description: "", range: { min: 0, max: 26 } },
+    { Name: "slot.saddle", Description: "" },
+    { Name: "slot.weapon.mainhand", Description: "" },
+    { Name: "slot.weapon.offhand", Description: "" },
+  ],
+};

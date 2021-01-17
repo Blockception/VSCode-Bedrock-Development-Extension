@@ -50,10 +50,10 @@ import { provideXPCompletion } from "../../general/Xp/include";
 import { CommandIntr } from "../interpertation/include";
 import { provideCommandCompletion } from "../command/Completion";
 import { MCCommandParameter, MCCommandParameterType } from "./include";
-import { ProvideModeCompletion } from '../modes/Completion';
-import { OperationModes } from '../modes/operation/operation';
-import { provideGamemodeCompletion } from '../../general/Gamemode/include';
-import { SlotTypeModes } from '../../general/slot type/slot type';
+import { ProvideModeCompletion } from "../modes/Completion";
+import { OperationModes } from "../modes/operation/operation";
+import { provideGamemodeCompletion } from "../../general/Gamemode/include";
+import { SlotTypeModes } from "../../general/slot type/slot type";
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
   let Out: CompletionItem = {

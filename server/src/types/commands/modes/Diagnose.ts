@@ -27,23 +27,25 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from 'vscode-languageserver';
-import { LocationWord } from '../../../code/words/include';
-import { ModeCollection } from './Interface';
+import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
+import { LocationWord } from "../../../code/words/include";
+import { ModeCollection } from "./Interface";
 
 export function DiagnoseMode(Word: LocationWord, Mode: ModeCollection, receiver: Diagnostic[]): void {
-	const Text = Word.text;
+  const Text = Word.text;
 
-	const Modes = Mode.Modes;
-	for (let I = 0; I < Modes.length; I++) {
-		let Element = Modes[I];
+  const Modes = Mode.Modes;
+  for (let I = 0; I < Modes.length; I++) {
+    let Element = Modes[I];
 
-		if (Text === Element.Name) { return; }
-	}
+    if (Text === Element.Name) {
+      return;
+    }
+  }
 
-	receiver.push({
-		message: `Unknown mode type: ${Text} for mode type: '${Mode.Name}'`,
-		range: Word.range,
-		severity: DiagnosticSeverity.Error
-	});
+  receiver.push({
+    message: `Unknown mode type: ${Text} for mode type: '${Mode.Name}'`,
+    range: Word.range,
+    severity: DiagnosticSeverity.Error,
+  });
 }

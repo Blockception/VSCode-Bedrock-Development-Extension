@@ -30,9 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "../../../code/words/include";
 import { Manager } from "../../../manager/Manager";
-import { ValidationData } from '../../../validation/include';
-import { CommandIntr } from '../interpertation/include';
-import { DiagnoseParameter } from '../parameter/include';
+import { ValidationData } from "../../../validation/include";
+import { CommandIntr } from "../interpertation/include";
+import { DiagnoseParameter } from "../parameter/include";
 
 /**
  *
@@ -63,8 +63,8 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, validation: 
 
 /**
  * Diagnoses the command parameter
- * @param data 
- * @param receiver 
+ * @param data
+ * @param receiver
  */
 export function DiagnoseCommandParameter(data: LocationWord, receiver: Diagnostic[]): void {
   const text = data.text;
@@ -77,4 +77,3 @@ export function DiagnoseCommandParameter(data: LocationWord, receiver: Diagnosti
     severity: DiagnosticSeverity.Error,
   });
 }
-

@@ -31,7 +31,7 @@ import { ExecuteCommandParams, MessageType, ShowMessageNotification } from "vsco
 import { Database } from "../database/include";
 import { DiagnoseContext } from "../diagnostics/types/Context";
 import { Manager } from "../manager/Manager";
-import { behavior, world } from '../types/minecraft/include';
+import { behavior, world } from "../types/minecraft/include";
 import { GetValidationData } from "../validation/include";
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {

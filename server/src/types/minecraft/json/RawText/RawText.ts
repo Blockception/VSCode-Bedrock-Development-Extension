@@ -72,8 +72,8 @@ export namespace SelectorComponent {
 
 export interface ScoreComponent {
   score: {
-    name: string,
-    objective: string
+    name: string;
+    objective: string;
   };
 }
 
@@ -86,7 +86,6 @@ export namespace ScoreComponent {
     return false;
   }
 }
-
 
 export type RawTextComponent = TextComponent | TranslateComponent | SelectorComponent | ScoreComponent;
 
