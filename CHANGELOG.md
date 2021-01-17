@@ -1,21 +1,21 @@
 # Changelog 
+- Updated
+- auto: Generated includes
+- Restructering
+- auto: Generated Includes
+- Refactoring
+- auto: Generated Includes
+- Fixing references
+- auto: Generated Includes
+- Restructuring files
+- Updated
+- Added translate components
+- Starting on modes support
+- auto: Updated dependecies
+- Updated to 1.5.5
 - Updated settings
 - Updated documentation
 - Updated to 1.5.4
 - Updated
 - Updated to 1.5.3
 - Updated diagnostics settings
-- auto: Formatted typescript files
-- Updated changelog
-- Added diagnostics setting
-- Added json signature support
-- Added comments
-- Removed comment
-- Refactored functions
-- Added general molang document parsing
-- Added processing of molang data
-- Wait async await on the arrival of context data, and formatted
-- Added command parsing for each given line
-- Added collection of molang data for the commands. This still needs refactoring
-- Added molang signature base support
-- Updated json document functionaility

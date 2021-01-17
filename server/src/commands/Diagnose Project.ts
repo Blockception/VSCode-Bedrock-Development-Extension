@@ -29,10 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ExecuteCommandParams, MessageType, ShowMessageNotification } from "vscode-languageserver";
 import { Database } from "../database/include";
-import { world } from "../diagnostics/include";
 import { DiagnoseContext } from "../diagnostics/types/Context";
 import { Manager } from "../manager/Manager";
-import { behavior } from '../types/minecraft/include';
+import { behavior, world } from '../types/minecraft/include';
 import { GetValidationData } from "../validation/include";
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
