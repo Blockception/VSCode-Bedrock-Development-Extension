@@ -9,3 +9,6 @@ node_modules
 client/server
 .vscode-test
 /documentation/cheat-sheet/*.html
+
+minecraft-bedrock-schemas/**/*.json
+!minecraft-bedrock-schemas/compress specification.json

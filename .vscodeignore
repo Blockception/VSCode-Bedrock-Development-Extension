@@ -41,3 +41,7 @@ webpack.config.js
 
 !documentation/cheat-sheet/*.html
 !documentation/cheat-sheet/**/*.html
+
+minecraft-bedrock-schemas/compress specification.json
+!minecraft-bedrock-schemas/**/*.json
+minecraft-bedrock-schemas-source/

@@ -1,4 +1,10 @@
 # Changelog 
+- Added submodule in new folder
+- Removed submodule
+- Removing schemas
+- auto: Formatted typescript files
+- Updated to 1.5.8
+- Fixing folder validation
 - Updated to 1.5.7
 - White spaces in selectors caused errors
 - Refactored
@@ -13,9 +19,3 @@
 - Refactoring
 - auto: Generated Includes
 - Fixing references
-- auto: Generated Includes
-- Restructuring files
-- Updated
-- Added translate components
-- Starting on modes support
-- auto: Updated dependecies

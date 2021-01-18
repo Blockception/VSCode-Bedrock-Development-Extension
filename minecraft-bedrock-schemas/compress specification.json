@@ -1,0 +1,132 @@
+{
+  "Files": [
+    {
+      "Source": "../minecraft-bedrock-schemas-source/skinpacks/skins.json",
+      "Destination": "./skinpacks/skins.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/language/language_names.json",
+      "Destination": "./language/language_names.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/language/languages.json",
+      "Destination": "./language/languages.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/general/manifest.json",
+      "Destination": "./general/manifest.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/general/world_x_packs.json",
+      "Destination": "./general/world_x_packs.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/animation_controllers/animation_controller.json",
+      "Destination": "./resource/animation_controllers/animation_controller.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/animations/actor_animation.json",
+      "Destination": "./resource/animations/actor_animation.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/attachables/attachables.json",
+      "Destination": "./resource/attachables/attachables.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/biomes_client.json",
+      "Destination": "./resource/biomes_client.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/blocks.json",
+      "Destination": "./resource/blocks.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/entity/entity.json",
+      "Destination": "./resource/entity/entity.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/fog/fog.json",
+      "Destination": "./resource/fog/fog.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/textures/flipbook_textures.json",
+      "Destination": "./resource/textures/flipbook_textures.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/textures/item_texture.json",
+      "Destination": "./resource/textures/item_texture.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/items/items.json",
+      "Destination": "./resource/items/items.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/models/entity/model_entity.json",
+      "Destination": "./resource/models/entity/model_entity.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/materials/materials.json",
+      "Destination": "./resource/materials/materials.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/sounds/music_definitions.json",
+      "Destination": "./resource/sounds/music_definitions.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/particles/particles.json",
+      "Destination": "./resource/particles/particles.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/render_controllers/render_controllers.json",
+      "Destination": "./resource/render_controllers/render_controllers.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/sounds/sound_definitions.json",
+      "Destination": "./resource/sounds/sound_definitions.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/sounds.json",
+      "Destination": "./resource/sounds.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/resource/textures/terrain_texture.json",
+      "Destination": "./resource/textures/terrain_texture.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/animation_controllers/animation_controller.json",
+      "Destination": "./behaviour/animation_controllers/animation_controller.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/animations/animations.json",
+      "Destination": "./behaviour/animations/animations.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/loot_tables/loot_tables.json",
+      "Destination": "./behaviour/loot_tables/loot_tables.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/blocks/blocks.json",
+      "Destination": "./behaviour/blocks/blocks.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/entities/entities.json",
+      "Destination": "./behaviour/entities/entities.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/items/items.json",
+      "Destination": "./behaviour/items/items.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/recipes/recipes.json",
+      "Destination": "./behaviour/recipes/recipes.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/spawn_rules/spawn_rules.json",
+      "Destination": "./behaviour/spawn_rules/spawn_rules.json"
+    },
+    {
+      "Source": "../minecraft-bedrock-schemas-source/behaviour/trading/trading.json",
+      "Destination": "./behaviour/trading/trading.json"
+    }
+  ]
+}
