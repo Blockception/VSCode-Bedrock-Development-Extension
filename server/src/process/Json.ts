@@ -53,5 +53,3 @@ export function ProcessJson(doc: TextDocument): void {
   let Data = molang.files.DataCollector.Parse(doc);
   Data.Command.forEach((word) => commands.ProcessWord(word, doc));
 }
-
-
