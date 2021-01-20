@@ -1,4 +1,8 @@
 # Changelog 
+- auto: Updated dependecies
+- auto: Updated dependecies
+- auto: Formatted typescript files
+- Updated changelog
 - Updated project information
 - Updating semantic tokens
 - Updated
@@ -15,7 +19,3 @@
 - Refactored
 - Updated to 1.5.6
 - auto: Formatted typescript files
-- Refactored code
-- Added the teleport command
-- Updated
-- auto: Generated includes
