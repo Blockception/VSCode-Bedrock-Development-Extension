@@ -71,19 +71,19 @@
     "clean": "rimraf client/out && rimraf server/out"
   },
   "dependencies": {
-    "fast-glob": "^3.2.4",
-    "vsce": "^1.83.0"
+    "fast-glob": "^3.2.5",
+    "vsce": "^1.84.0"
   },
   "devDependencies": {
     "@types/mocha": "^7.0.2",
-    "@types/node": "^12.19.13",
+    "@types/node": "^12.19.14",
     "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
     "mocha": "^8.2.1",
     "ts-loader": "^8.0.14",
     "typescript": "^3.9.7",
-    "webpack": "^5.14.0",
-    "webpack-cli": "^4.3.1"
+    "webpack": "^5.16.0",
+    "webpack-cli": "^4.4.0"
   },
   "engines": {
     "vscode": "^1.41.0"
@@ -384,7 +384,9 @@
       },
       {
         "id": "bc-minecraft-mcfunction",
-        "aliases": [ "Minecraft Mcfunction" ],
+        "aliases": [
+          "Minecraft Mcfunction"
+        ],
         "extensions": [
           ".mcfunction"
         ],
@@ -395,8 +397,12 @@
       },
       {
         "id": "bc-minecraft-molang",
-        "aliases": [ "Minecraft molang" ],
-        "extensions": [ ".molang" ],
+        "aliases": [
+          "Minecraft molang"
+        ],
+        "extensions": [
+          ".molang"
+        ],
         "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
       }
     ],
