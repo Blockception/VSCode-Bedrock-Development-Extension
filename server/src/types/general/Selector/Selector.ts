@@ -110,7 +110,7 @@ export namespace Selector {
 
         case ",":
           if (level == 0) {
-            let P = IParameter.Parse(text.substring(start, index), index + startindex, line);
+            let P = IParameter.Parse(text.substring(start, index), startindex + start, line);
             start = index + 1;
 
             Out.push(P);
@@ -155,8 +155,8 @@ export namespace IParameter {
     if (Index < 0) throw new Error("index cannot be lower then 0");
 
     let Range: Range = { start: { character: startIndex, line: Line }, end: { character: startIndex + text.length, line: Line } };
-    let Name = text.substring(0, Index).trim();
-    let Value = text.substring(Index + 1, text.length).trim();
+    let Name = text.substring(0, Index);
+    let Value = text.substring(Index + 1, text.length);
 
     if (Name == "scores") {
       let Scores: IParameter[];
@@ -171,7 +171,7 @@ export namespace IParameter {
       let Out: IScoreParameter = {
         Name: Name,
         Range: Range,
-        Value: Value,
+        Value: Value.trim(),
         Scores: Scores,
       };
 
@@ -180,7 +180,7 @@ export namespace IParameter {
       let Out: IParameter = {
         Name: Name,
         Range: Range,
-        Value: Value,
+        Value: Value.trim(),
       };
 
       return Out;

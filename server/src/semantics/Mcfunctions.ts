@@ -33,7 +33,9 @@ import { getLine } from "../code/include";
 import { CommandIntr, GetSubCommand } from "../types/commands/interpertation/include";
 import { MCCommandParameterType } from "../types/commands/parameter/include";
 import { McfunctionSemanticTokensBuilder } from "./builders/McfunctionSemanticTokensBuilder";
-import { SemanticTokensEnum } from "./Legend";
+import { CreateRangeTokensWord } from './Functions';
+import { CreateSelectorTokens } from './include';
+import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
 export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   let Builder = new McfunctionSemanticTokensBuilder(doc);
@@ -47,6 +49,12 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
 
   for (let I = startindex; I < endindex; I++) {
     let line = getLine(doc, I);
+
+    let CommentIndex = line.indexOf('#');
+
+    if (CommentIndex >= 0) {
+      Builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
+    }
 
     let P: Position = { character: 0, line: I };
     let Command = CommandIntr.parse(line, P, Builder.doc.uri);
@@ -105,18 +113,30 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
       case MCCommandParameterType.particle:
       case MCCommandParameterType.sound:
       case MCCommandParameterType.tickingarea:
-        Builder.AddWord(Word, SemanticTokensEnum.parameter);
+
+        let Index = Word.text.indexOf(':');
+
+        if (Index >= 0) {
+          let Namespace = Word.substring(0, Index);
+          Builder.AddWord(Namespace, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
+          Builder.AddAt(Word.range.start.line, Namespace.range.end.character + 1, Word.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
+        }
+        else {
+          Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
+        }
+
         break;
 
       case MCCommandParameterType.coordinate:
       case MCCommandParameterType.float:
       case MCCommandParameterType.integer:
       case MCCommandParameterType.xp:
-        Builder.AddWord(Word, SemanticTokensEnum.number);
+        CreateRangeTokensWord(Word, Builder);
+
         break;
 
       case MCCommandParameterType.keyword:
-        Builder.AddWord(Word, SemanticTokensEnum.method);
+        Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.defaultLibrary);
         break;
 
       case MCCommandParameterType.function:
@@ -129,11 +149,12 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
         break;
 
       case MCCommandParameterType.tag:
-        Builder.AddWord(Word, SemanticTokensEnum.property);
+        Builder.AddWord(Word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
         break;
 
       case MCCommandParameterType.operation:
         Builder.AddWord(Word, SemanticTokensEnum.operator);
+        break;
 
       //Modes
       case MCCommandParameterType.cameraShakeType:
@@ -164,8 +185,8 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
         break;
 
       //
-      case MCCommandParameterType.teleportRules:
       case MCCommandParameterType.selector:
+        CreateSelectorTokens(Word, Builder);
         break;
 
       default:
