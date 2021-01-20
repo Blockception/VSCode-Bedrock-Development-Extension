@@ -1,4 +1,9 @@
 # Changelog 
+- Updated project information
+- Updating semantic tokens
+- Updated
+- Ooops reverting submodule
+- Updated
 - Added submodule in new folder
 - Removed submodule
 - Removing schemas
@@ -14,8 +19,3 @@
 - Added the teleport command
 - Updated
 - auto: Generated includes
-- Restructering
-- auto: Generated Includes
-- Refactoring
-- auto: Generated Includes
-- Fixing references
