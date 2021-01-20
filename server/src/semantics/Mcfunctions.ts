@@ -33,8 +33,8 @@ import { getLine } from "../code/include";
 import { CommandIntr, GetSubCommand } from "../types/commands/interpertation/include";
 import { MCCommandParameterType } from "../types/commands/parameter/include";
 import { McfunctionSemanticTokensBuilder } from "./builders/McfunctionSemanticTokensBuilder";
-import { CreateRangeTokensWord } from './Functions';
-import { CreateSelectorTokens } from './include';
+import { CreateRangeTokensWord } from "./Functions";
+import { CreateSelectorTokens } from "./include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
 export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
@@ -50,7 +50,7 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
   for (let I = startindex; I < endindex; I++) {
     let line = getLine(doc, I);
 
-    let CommentIndex = line.indexOf('#');
+    let CommentIndex = line.indexOf("#");
 
     if (CommentIndex >= 0) {
       Builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
@@ -113,15 +113,19 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
       case MCCommandParameterType.particle:
       case MCCommandParameterType.sound:
       case MCCommandParameterType.tickingarea:
-
-        let Index = Word.text.indexOf(':');
+        let Index = Word.text.indexOf(":");
 
         if (Index >= 0) {
           let Namespace = Word.substring(0, Index);
           Builder.AddWord(Namespace, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
-          Builder.AddAt(Word.range.start.line, Namespace.range.end.character + 1, Word.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
-        }
-        else {
+          Builder.AddAt(
+            Word.range.start.line,
+            Namespace.range.end.character + 1,
+            Word.text.length - (Index + 1),
+            SemanticTokensEnum.method,
+            SemanticModifiersEnum.readonly
+          );
+        } else {
           Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
         }
 

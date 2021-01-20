@@ -28,42 +28,47 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { LocationWord } from '../code/words/include';
-import { McfunctionSemanticTokensBuilder } from './builders/include';
-import { SemanticModifiersEnum, SemanticTokensEnum } from './Legend';
+import { LocationWord } from "../code/words/include";
+import { McfunctionSemanticTokensBuilder } from "./builders/include";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
-export function CreateRangeTokensWord(Word : LocationWord, Builder: McfunctionSemanticTokensBuilder) : void  {
-	CreateRangeTokens(Word.text, Word.range.start.line, Word.range.start.character, Builder);
+export function CreateRangeTokensWord(Word: LocationWord, Builder: McfunctionSemanticTokensBuilder): void {
+  CreateRangeTokens(Word.text, Word.range.start.line, Word.range.start.character, Builder);
 }
 
-export function CreateRangeTokens(value : string, line : number, start: number, Builder: McfunctionSemanticTokensBuilder) : void {
-	if (value.startsWith('~') || value.startsWith('^') || value.startsWith('-') || value.startsWith('+') || value.startsWith('+') || value.startsWith('!')) {
-		Builder.AddAt(line, start, 1, SemanticTokensEnum.operator);
+export function CreateRangeTokens(value: string, line: number, start: number, Builder: McfunctionSemanticTokensBuilder): void {
+  if (
+    value.startsWith("~") ||
+    value.startsWith("^") ||
+    value.startsWith("-") ||
+    value.startsWith("+") ||
+    value.startsWith("+") ||
+    value.startsWith("!")
+  ) {
+    Builder.AddAt(line, start, 1, SemanticTokensEnum.operator);
 
-		value = value.substring(1);
-		start++;
-	}
+    value = value.substring(1);
+    start++;
+  }
 
-	if (value === '')
-	return;
+  if (value === "") return;
 
-	let Range = value.indexOf('..');
+  let Range = value.indexOf("..");
 
-	if (Range >= 0) {
-		var First = value.substring(0, Range);
-		var Second = value.substring(Range + 2);
+  if (Range >= 0) {
+    var First = value.substring(0, Range);
+    var Second = value.substring(Range + 2);
 
-		Builder.AddAt(line, start + Range, 2, SemanticTokensEnum.operator);
+    Builder.AddAt(line, start + Range, 2, SemanticTokensEnum.operator);
 
-		if (First && First !== '') {
-			Builder.AddAt(line, start + value.indexOf(First), First.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
-		}
+    if (First && First !== "") {
+      Builder.AddAt(line, start + value.indexOf(First), First.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
+    }
 
-		if (Second && Second !== '') {
-			Builder.AddAt(line, start + value.indexOf(Second), Second.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
-		}
-	}
-	else{
-		Builder.AddAt(line, start, value.length, SemanticTokensEnum.number);
-	}
+    if (Second && Second !== "") {
+      Builder.AddAt(line, start + value.indexOf(Second), Second.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
+    }
+  } else {
+    Builder.AddAt(line, start, value.length, SemanticTokensEnum.number);
+  }
 }

@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "../code/words/include";
 import { IParameter, IScoreParameter, Selector } from "../types/general/Selector/include";
 import { McfunctionSemanticTokensBuilder } from "./builders/McfunctionSemanticTokensBuilder";
-import { CreateRangeTokens } from './Functions';
+import { CreateRangeTokens } from "./Functions";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
 export function CreateSelectorTokens(Word: LocationWord, Builder: McfunctionSemanticTokensBuilder): void {
@@ -40,8 +40,7 @@ export function CreateSelectorTokens(Word: LocationWord, Builder: McfunctionSema
     Builder.AddAt(Word.range.start.line, Word.range.start.character, 2, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
 
     ProcessParameters(sel.Parameters, Builder);
-  }
-  else {
+  } else {
     Builder.AddWord(Word, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
   }
 }
@@ -72,7 +71,6 @@ function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: Mcfuncti
   let attribute = Parameter.Name;
   Builder.AddAt(LineIndex, attributeStart, Length, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
 
-
   if (IScoreParameter.is(Parameter)) {
     ProcessScoreParameters(Parameter.Scores, Builder);
     return;
@@ -91,15 +89,20 @@ function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: Mcfuncti
       Builder.AddAt(LineIndex, valueStart, Length, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
       break;
 
-    case 'type':
-      let Index = value.indexOf(':');
+    case "type":
+      let Index = value.indexOf(":");
 
       if (Index >= 0) {
         let Namespace = value.substring(0, Index);
         Builder.AddAt(LineIndex, valueStart, Namespace.length, SemanticTokensEnum.namespace, SemanticModifiersEnum.readonly);
-        Builder.AddAt(LineIndex, valueStart + Namespace.length + 1, Length - (Namespace.length + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
-      }
-      else {
+        Builder.AddAt(
+          LineIndex,
+          valueStart + Namespace.length + 1,
+          Length - (Namespace.length + 1),
+          SemanticTokensEnum.method,
+          SemanticModifiersEnum.readonly
+        );
+      } else {
         Builder.AddAt(LineIndex, valueStart, Length, SemanticTokensEnum.type, SemanticModifiersEnum.readonly);
       }
       break;
@@ -110,7 +113,7 @@ function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: Mcfuncti
       break;
   }
 
-  let Index = value.indexOf('..');
+  let Index = value.indexOf("..");
 
   if (Index >= 0) {
     Builder.AddAt(LineIndex, valueStart + Index, 2, SemanticTokensEnum.operator);
