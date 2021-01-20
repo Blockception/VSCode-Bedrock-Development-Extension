@@ -17,8 +17,7 @@
   },
   "license": "BSD-3-Clause",
   "dependencies": {
-    "vscode-languageclient": "^7.0.0",
-    "shared": "../shared/src"
+    "vscode-languageclient": "^7.0.0"
   },
   "devDependencies": {
     "@types/vscode": "1.52.0",
