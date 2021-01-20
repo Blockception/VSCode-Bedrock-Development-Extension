@@ -384,9 +384,7 @@
       },
       {
         "id": "bc-minecraft-mcfunction",
-        "aliases": [
-          "Minecraft Mcfunction"
-        ],
+        "aliases": [ "Minecraft Mcfunction" ],
         "extensions": [
           ".mcfunction"
         ],
@@ -397,12 +395,8 @@
       },
       {
         "id": "bc-minecraft-molang",
-        "aliases": [
-          "Minecraft molang"
-        ],
-        "extensions": [
-          ".molang"
-        ],
+        "aliases": [ "Minecraft molang" ],
+        "extensions": [ ".molang" ],
         "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
       }
     ],
@@ -590,6 +584,40 @@
           "*.trade.json"
         ],
         "url": "./minecraft-bedrock-schemas/behaviour/trading/trading.json"
+      }
+    ],
+    "semanticTokenScopes": [
+      {
+        "language": "bc-minecraft-mcfunction",
+        "scopes": {
+          "regexp": [
+            "constant.regexp"
+          ]
+        }
+      },
+      {
+        "language": "bc-minecraft-molang",
+        "scopes": {
+          "regexp": [
+            "constant.regexp"
+          ]
+        }
+      },
+      {
+        "language": "json",
+        "scopes": {
+          "regexp": [
+            "constant.regexp"
+          ]
+        }
+      },
+      {
+        "language": "jsonc",
+        "scopes": {
+          "regexp": [
+            "constant.regexp"
+          ]
+        }
       }
     ]
   }
