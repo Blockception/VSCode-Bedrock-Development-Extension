@@ -597,23 +597,19 @@
         "language": "bc-minecraft-mcfunction",
         "scopes": {
           "regexp": [
-            "constant.regexp"
+            "string.regexp"
           ]
         }
       },
       {
         "language": "bc-minecraft-molang",
-        "scopes": {
-          "regexp": [
-            "constant.regexp"
-          ]
-        }
+        "scopes": { "regexp": [ "string.regexp" ] }
       },
       {
         "language": "json",
         "scopes": {
           "regexp": [
-            "constant.regexp"
+            "string.regexp"
           ]
         }
       },
@@ -621,7 +617,7 @@
         "language": "jsonc",
         "scopes": {
           "regexp": [
-            "constant.regexp"
+            "string.regexp"
           ]
         }
       }
