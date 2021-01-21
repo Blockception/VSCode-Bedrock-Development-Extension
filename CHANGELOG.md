@@ -1,4 +1,6 @@
 # Changelog 
+- Fixed colouring of tags
+- Updated to 1.5.9
 - auto: Updated dependecies
 - auto: Updated dependecies
 - auto: Formatted typescript files
@@ -17,5 +19,3 @@
 - Updated to 1.5.7
 - White spaces in selectors caused errors
 - Refactored
-- Updated to 1.5.6
-- auto: Formatted typescript files
