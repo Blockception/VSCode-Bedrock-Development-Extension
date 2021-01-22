@@ -1,4 +1,6 @@
 # Changelog 
+- Added
+- Updated 1.5.10
 - Fixed colouring of tags
 - Updated to 1.5.9
 - auto: Updated dependecies
@@ -17,5 +19,3 @@
 - Updated to 1.5.8
 - Fixing folder validation
 - Updated to 1.5.7
-- White spaces in selectors caused errors
-- Refactored
