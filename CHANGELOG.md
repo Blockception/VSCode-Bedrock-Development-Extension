@@ -1,4 +1,8 @@
 # Changelog 
+- Refactoring
+- Updated
+- Updated to 1.5.11
+- Fixing errors
 - Added
 - Updated 1.5.10
 - Fixed colouring of tags
@@ -15,7 +19,3 @@
 - Added submodule in new folder
 - Removed submodule
 - Removing schemas
-- auto: Formatted typescript files
-- Updated to 1.5.8
-- Fixing folder validation
-- Updated to 1.5.7
