@@ -61,5 +61,5 @@ function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location
       break;
   }
 
-  return undefined;
+  return [];
 }

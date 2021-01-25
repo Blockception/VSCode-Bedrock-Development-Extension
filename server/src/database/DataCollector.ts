@@ -175,7 +175,7 @@ export class DataCollector<T extends Identifiable & Locatable> implements DataCo
    */
   public FindReference(query: string, receiver: Location[]): void {
     for (let [key, value] of this.data) {
-      if (value.Identifier.includes(query)) {
+      if (value && value.Identifier.includes(query)) {
         receiver.push(value.Location);
       }
     }
