@@ -34,6 +34,7 @@ import { GetFilename } from "../../../../code/File";
 import { GetProjectData, ProjectData } from "../../../../code/include";
 import { DocumentReader } from "../../../../code/Reader";
 import { UniformUrl } from "../../../../code/Url";
+import { Console } from '../../../../console/Console';
 import { Manager } from "../../../../manager/Manager";
 import { GeneralDataType } from "../../format/General Data Type";
 import { ContentError, CreateErrors } from "./Errors";
@@ -47,7 +48,7 @@ export function ProcessContentLog(doc: TextDocument): void {
 }
 
 function PrivateProcessContentLog(PD: ProjectData, doc: TextDocument): void {
-  console.log("Reading content log: " + GetFilename(doc.uri));
+  Console.Log("Reading content log: " + GetFilename(doc.uri));
   let Lines: ContentLogHeader[] = [];
 
   let Reader = new DocumentReader(doc);
@@ -64,7 +65,7 @@ function PrivateProcessContentLog(PD: ProjectData, doc: TextDocument): void {
     }
   }
 
-  console.log("Found: " + Lines.length + " lines");
+  Console.Log("Found: " + Lines.length + " lines");
   let Errors = CreateErrors(Lines);
 
   for (let I = 0; I < Errors.length; I++) {

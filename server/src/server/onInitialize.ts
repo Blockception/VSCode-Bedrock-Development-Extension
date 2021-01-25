@@ -29,9 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../manager/Manager";
-import { semantics } from "../include";
-import { SemanticModifiers, SemanticTokens } from "../semantics/include";
-import { Commands, Languages } from "../Constants";
+import { Commands } from "../Constants";
+import { Console } from '../console/Console';
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {
@@ -40,7 +39,7 @@ export async function onInitializeAsync(params: InitializeParams): Promise<Initi
 }
 
 export function onInitialize(params: InitializeParams): InitializeResult {
-  console.log("Initializing minecraft server");
+  Console.Log("Initializing minecraft server");
 
   //process capabilities of the client
   let capabilities = params.capabilities;

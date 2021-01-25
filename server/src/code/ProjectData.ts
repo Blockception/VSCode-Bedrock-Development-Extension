@@ -36,6 +36,7 @@ import { DupeCheckAdd } from "./Array";
 import { GetParent } from "./File";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
 import { Manifest } from "../types/minecraft/manifest/include";
+import { Console } from '../console/Console';
 
 export interface ProjectData {
   WorldFolders: string[];
@@ -53,7 +54,7 @@ export function GetProjectData(): Promise<ProjectData | undefined> {
 }
 
 function CheckStructure(folders: WorkspaceFolder[] | null): ProjectData | undefined {
-  console.log("discovering workspace layout");
+  Console.Log("discovering workspace layout");
   let dirs: string[] = [];
 
   if (folders == null) return undefined;

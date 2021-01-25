@@ -35,10 +35,11 @@ import { behavior } from "../types/minecraft/include";
 import { Languages } from "../include";
 import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
+import { Console } from '../console/Console';
 
 //Process the given document
 export function Process(document: TextDocument): void {
-  console.log("Processing: " + GetFilename(document.uri) + " | " + document.languageId);
+  Console.Log("Processing: " + GetFilename(document.uri) + " | " + document.languageId);
 
   switch (document.languageId) {
     case Languages.McFunctionIdentifier:

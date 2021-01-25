@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilename } from "../../../code/File";
 import { GetDocuments } from "../../../code/include";
+import { Console } from '../../../console/Console';
 import { code } from "../../../include";
 import { DataType } from "../format/Data Type";
 import { DetectDataType } from "../format/Detection";
@@ -42,7 +43,7 @@ export function Process(doc: TextDocument): void {
     return;
   }
 
-  console.log("    Processing resource pack file: " + GetFilename(doc.uri));
+  Console.Log("    Processing resource pack file: " + GetFilename(doc.uri));
 
   switch (Type) {
     case DataType.resource_animation:
@@ -63,6 +64,6 @@ export function Process(doc: TextDocument): void {
 }
 
 export function ProcessResourcePack(Folder: string): void {
-  console.log("Processing resource pack: " + Folder);
+  Console.Log("Processing resource pack: " + Folder);
   code.ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
 }

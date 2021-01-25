@@ -27,6 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { Console } from '../console/Console';
 
 /**
  * The code to run when the server is shutting down
@@ -41,5 +42,5 @@ export async function onShutdownAsync(): Promise<void> {
  * The code to run when the server is shutting down
  */
 function onShutdown(): void {
-  console.log("shutting down minecraft server");
+  Console.Log("shutting down minecraft server");
 }

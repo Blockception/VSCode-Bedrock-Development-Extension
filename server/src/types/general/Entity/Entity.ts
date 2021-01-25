@@ -35,7 +35,7 @@ export class Entity extends ObjectBase {
 
   constructor() {
     super();
-
+    
     this.ComponentGroups = [];
     this.Events = [];
   }

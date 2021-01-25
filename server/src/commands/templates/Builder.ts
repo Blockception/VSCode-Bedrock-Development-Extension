@@ -44,6 +44,7 @@ import * as fs from "fs";
 import { EmptyTypes } from "../../types/general/include";
 import { normalize } from "path";
 import { GetFilepath, UniformUrl } from "../../code/Url";
+import { Console } from '../../console/Console';
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -74,7 +75,7 @@ export class TemplateBuilder {
     let path = Obj.fsPath;
 
     if (fs.existsSync(path)) {
-      console.log("creation of file skipped because it already exists: " + path);
+      Console.Log("creation of file skipped because it already exists: " + path);
       return;
     }
 
@@ -93,7 +94,7 @@ export class TemplateBuilder {
 function Response(response: ApplyWorkspaceEditResponse): void {
   if (response.applied) return;
 
-  console.log("Workspace edit failed:");
-  console.log(`Item index: ${response.failedChange}`);
-  console.log(`Item reason: ${response.failureReason}`);
+  Console.Log("Workspace edit failed:");
+  Console.Log(`Item index: ${response.failedChange}`);
+  Console.Log(`Item reason: ${response.failureReason}`);
 }

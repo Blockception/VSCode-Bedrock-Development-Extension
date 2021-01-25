@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { WorkspaceFoldersChangeEvent } from "vscode-languageserver";
 import { UniformUrl } from "../../code/Url";
+import { Console } from '../../console/Console';
 import { Database } from "../../database/Database";
 import { Traverse } from "../../process/traverse";
 
@@ -46,7 +47,7 @@ function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
     let uri = removed[index].uri;
     uri = UniformUrl(uri);
 
-    console.log("Deleting data from workspace: " + removed[index].name);
+    Console.Log("Deleting data from workspace: " + removed[index].name);
     Database.Data.DeleteFolder(uri);
   }
 
@@ -55,7 +56,7 @@ function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
   for (let index = 0; index < added.length; index++) {
     const element = added[index];
 
-    console.log("Processing data from added workspace: " + element.name);
+    Console.Log("Processing data from added workspace: " + element.name);
   }
 
   Traverse();

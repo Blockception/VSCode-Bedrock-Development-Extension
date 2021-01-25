@@ -29,6 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { Console } from '../../console/Console';
+import { Manager } from '../../manager/include';
 import * as Code from "../include";
 
 export class JsonDocument {
@@ -75,7 +77,7 @@ export class JsonDocument {
         this.object = object;
         //ValidJson(this.doc);
       } catch (error) {
-        console.log(error);
+        Console.Error("Invalid Json: " + this.doc.uri + "\n + " + error);
         //InvalidJson(this.doc, error);
       }
     }
@@ -96,8 +98,7 @@ export class JsonDocument {
 
         //ValidJson(this.doc);
       } catch (error) {
-        err = error;
-        console.log(error);
+        Console.Error("Invalid Json: " + this.doc.uri + "\n + " + error);
         //InvalidJson(this.doc, error);
       }
     }

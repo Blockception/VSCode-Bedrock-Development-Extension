@@ -29,10 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { LocationWord } from "../code/words/include";
-import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../process/Commands/include";
-import { ProcessTagCommand } from "../process/Commands/Tag";
-import { CommandIntr, GetSubCommand } from "../types/commands/interpertation/include";
+import { LocationWord } from "../../code/words/include";
+import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../../process/Commands/include";
+import { ProcessTagCommand } from "../../process/Commands/Tag";
+import { CommandIntr, GetSubCommand } from "./interpertation/include";
 
 export function ProcessCommand(Line: string, Start: Position, document: TextDocument): void {
   if (Line.startsWith("#")) return;

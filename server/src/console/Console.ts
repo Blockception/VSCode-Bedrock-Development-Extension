@@ -27,44 +27,27 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Connection, Diagnostic, RemoteConsole, _ } from "vscode-languageserver";
-import { ServerSettings } from "../server/Settings";
-import { ExtensionState } from "./Extension State";
-import { ExtensionData } from "./Extension Data";
-import { ExtensionCapabiltities } from "./Extension Capabilties";
 
-export class Manager {
-  /**
-   * The different state the manager can posssibly have or be in
-   */
-  static State: ExtensionState = new ExtensionState();
+import { Manager } from '../manager/Manager';
 
-  /**
-   * The data that the extension can have
-   */
-  static Data: ExtensionData = new ExtensionData();
+export class Console {
+   /**Sends a error to the console log of the server*/
+   static Error(message: string): void {
+      Manager.Connection.console.error(message);
+   }
 
-  /**
-   * The possible capabiltities of the server
-   */
-  static Capabiltities = new ExtensionCapabiltities();
+   /**Sends a error to the console log of the server*/
+   static Info(message: string): void {
+      Manager.Connection.console.info(message);
+   }
 
-  //Server stuff
-  static Connection: Connection;
-  static Settings: ServerSettings = ServerSettings.createDefaulSettings();
-}
+   /**Sends a error to the console log of the server*/
+   static Log(message: string): void {
+      Manager.Connection.console.log(message);
+   }
 
-export namespace Manager {
-  export namespace Diagnostic {
-    /**
-     * Sends the diagnostics to the client
-     */
-    export function SendDiagnostics(doc: TextDocument, Diagnostics: Diagnostic[]): void {
-      Manager.Connection.sendDiagnostics({
-        diagnostics: Diagnostics,
-        uri: doc.uri,
-      });
-    }
-  }
+   /**Sends a error to the console log of the server*/
+   static Warn(message: string): void {
+      Manager.Connection.console.warn(message);
+   }
 }

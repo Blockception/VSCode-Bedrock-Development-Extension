@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { createConnection, ProposedFeatures } from "vscode-languageserver/node";
+import { Console } from '../console/Console';
 import { Manager } from "../manager/Manager";
 import { setEvents } from "./Events/Events";
 import { onInitializeAsync } from "./onInitialize";
@@ -35,13 +36,13 @@ import { onInitializedAsync } from "./onInitialized";
 import { onShutdownAsync } from "./onShutdown";
 
 export function Setup() {
-  console.log("starting minecraft server");
-
   // Create a connection for the server, using Node's IPC as a transport.
   // Also include all preview / proposed LSP features.
 
   let connection = createConnection(ProposedFeatures.all);
   Manager.Connection = connection;
+
+  Console.Log("starting minecraft server");
 
   setEvents();
 

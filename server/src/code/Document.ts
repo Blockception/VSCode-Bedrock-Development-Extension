@@ -34,6 +34,7 @@ import { Manager } from "../manager/Manager";
 import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
 import { Languages } from "../Constants";
+import { Console } from '../console/Console';
 
 /**
  * Returns an usable document interaction from the given data.
@@ -73,7 +74,7 @@ export function GetDocument(uri: string, Content: string | TextDocument | undefi
         Out = TextDocument.create(uri, languageID, 1, Content);
       }
     } catch (err) {
-      console.log(JSON.stringify(path));
+      Console.Error(JSON.stringify(path));
     }
 
     if (Out === undefined) {

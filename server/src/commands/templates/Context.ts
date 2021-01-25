@@ -60,7 +60,7 @@ function Convert(Data: ProjectData): Context | undefined {
     if (Data.WorldFolders.length > 0) {
       Base = Data.WorldFolders[0];
     } else if (Data.Workspaces.length > 0) {
-      Base = Data.Workspaces[0];
+      Base = decodeURI(Data.Workspaces[0]);
     }
   }
 

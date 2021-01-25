@@ -27,7 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { InitializedParams, DidChangeConfigurationNotification } from "vscode-languageserver";
+import { InitializedParams, ExecuteCommandRequest } from "vscode-languageserver";
+import { Console } from '../console/Console';
 import { AddCommands } from "../data/Commands/include";
 import { AddMinecraftData } from "../data/include";
 import { Manager } from "../manager/Manager";
@@ -43,7 +44,7 @@ export async function onInitializedAsync(params: InitializedParams): Promise<voi
 }
 
 function onInitialized(params: InitializedParams): void {
-  console.log("Initialized minecraft server");
+  Console.Log("Initialized minecraft server");
 
   //Update the settings of the language server
   UpdateSettings();

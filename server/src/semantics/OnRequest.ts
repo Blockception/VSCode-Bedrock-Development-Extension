@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
 import { GetDocument, GetFilename } from "../code/include";
+import { Console } from '../console/Console';
 import { Languages } from "../include";
 import { ProvideJsonSemanticTokens } from "./Json";
 import { ProvideMcfunctionSemanticTokens } from "./Mcfunctions";
@@ -39,7 +40,7 @@ export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Pro
     try {
       resolve(OnProvideSemanticRequest(params));
     } catch (err) {
-      console.log(JSON.stringify(err));
+      Console.Error(JSON.stringify(err));
       resolve({ data: [] });
     }
   });
@@ -50,7 +51,7 @@ export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangePa
     try {
       resolve(OnProvideSemanticRequest(params));
     } catch (err) {
-      console.log(JSON.stringify(err));
+      Console.Error(JSON.stringify(err));
       resolve({ data: [] });
     }
   });
@@ -60,10 +61,10 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
   let uri = params.textDocument.uri;
   if (uri.includes("vscode://schemas") || uri.includes("git:/") || uri.startsWith("private:")) return { data: [] };
 
-  //console.log(params.textDocument.uri);
+  //Console.Log(params.textDocument.uri);
 
   let doc = GetDocument(uri);
-  console.log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
+  Console.Log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
 
   let range: Range | undefined = undefined;
 

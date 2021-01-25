@@ -32,6 +32,7 @@ import { Commands } from "../../Constants";
 import { TemplateBuilder } from "./Builder";
 import { Context, GetContext, GetContextAsync } from "./Context";
 import { templates } from "../include";
+import { Console } from '../../console/Console';
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
@@ -43,7 +44,7 @@ export function Create(params: ExecuteCommandParams): void {
   if (Data) {
     Data(params);
   } else {
-    console.log("Unknown creation command: " + params.command);
+    Console.Error("Unknown creation command: " + params.command);
   }
 }
 
