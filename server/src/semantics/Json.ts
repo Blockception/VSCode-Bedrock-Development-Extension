@@ -105,6 +105,13 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
     let Word = Words[I];
 
     let text = Word.text;
+
+    if ((text.startsWith("'") && text.endsWith("'")) || (text.startsWith('"') && text.endsWith('"'))) {
+      Builder.AddWord(Word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
+
+      continue;
+    }
+
     switch (text) {
       case "Array":
       case "array":
@@ -119,6 +126,10 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
       case "query":
       case "variable":
         Builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
+        break;
+
+      case "this":
+        Builder.AddWord(Word, SemanticTokensEnum.keyword, SemanticModifiersEnum.readonly);
         break;
 
       case "(":
