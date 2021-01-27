@@ -406,6 +406,8 @@
       {
         "fileMatch": [
           "resource_packs/*/animation_controllers/*.json",
+          "*Resource pack*/animation_controllers/*.json",
+          "*resource pack*/animation_controllers/*.json",
           "*RP*/animation_controllers/*.json",
           "*rp*/animation_controllers/*.json"
         ],
@@ -414,6 +416,8 @@
       {
         "fileMatch": [
           "resource_packs/*/animations/*.json",
+          "*Resource pack*/animations/*.json",
+          "*resource pack*/animations/*.json",
           "*RP*/animations/*.json",
           "*rp*/animations/*.json"
         ],
@@ -450,6 +454,8 @@
       {
         "fileMatch": [
           "resource_packs/*/items/*.json",
+          "*Resource pack*/*/items/*.json",
+          "*resource pack*/*/items/*.json",
           "*RP*/items/*.json",
           "*rp*/items/*.json"
         ],
