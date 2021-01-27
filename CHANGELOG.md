@@ -1,4 +1,6 @@
 # Changelog 
+- Formatted
+- Updated to 1.5.14
 - Added texture_list.json generation command
 - Fixed carrots
 - Added texture_list json validation
@@ -17,5 +19,3 @@
 - Updated 1.5.10
 - Fixed colouring of tags
 - Updated to 1.5.9
-- auto: Updated dependecies
-- auto: Updated dependecies
