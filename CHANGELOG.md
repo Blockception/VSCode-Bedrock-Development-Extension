@@ -1,4 +1,8 @@
 # Changelog 
+- Added texture_list.json generation command
+- Fixed carrots
+- Added texture_list json validation
+- Updated to 1.5.13
 - Updated
 - Updated molang tokenization
 - Updated molang detection
@@ -15,7 +19,3 @@
 - Updated to 1.5.9
 - auto: Updated dependecies
 - auto: Updated dependecies
-- auto: Formatted typescript files
-- Updated changelog
-- Updated project information
-- Updating semantic tokens
