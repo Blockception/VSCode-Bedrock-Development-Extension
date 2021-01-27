@@ -1,4 +1,10 @@
 # Changelog 
+- Updated
+- Updated molang tokenization
+- Updated molang detection
+- Adding semantic keywords: 'this', and string support
+- Fixed score and selector component for raw  text
+- Updated to 1.5.12
 - Refactoring
 - Updated
 - Updated to 1.5.11
@@ -13,9 +19,3 @@
 - Updated changelog
 - Updated project information
 - Updating semantic tokens
-- Updated
-- Ooops reverting submodule
-- Updated
-- Added submodule in new folder
-- Removed submodule
-- Removing schemas
