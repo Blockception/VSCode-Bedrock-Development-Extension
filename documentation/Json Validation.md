@@ -53,6 +53,7 @@ For best results, name your folder with the letters RP/rp in them.
 | Sound definitions     | sound_definitions.json                                                                                                                                                    |
 | Sounds                | sounds.json                                                                                                                                                               |
 | Terrain texture       | terrain_texture.json                                                                                                                                                      |
+| Terrain list          | texture_list.json                                                                                                                                                         |
 
 ---
 

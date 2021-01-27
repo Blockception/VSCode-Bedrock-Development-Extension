@@ -308,6 +308,12 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Resource Pack: Create the texture_list file",
+        "command": "bc-create-resource_pack-texture_list",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "World: Create language files",
         "command": "bc-create-world-language",
         "category": "Blockception",
@@ -450,6 +456,10 @@
       {
         "fileMatch": "item_texture.json",
         "url": "./minecraft-bedrock-schemas/resource/textures/item_texture.json"
+      },
+      {
+        "fileMatch": "texture_list.json",
+        "url": "./minecraft-bedrock-schemas/resource/textures/texture_list.json"
       },
       {
         "fileMatch": [

@@ -90,6 +90,7 @@ export function Activate(context: ExtensionContext): void {
   Create(context, Commands.Create.Resourcepack.Sounds, "Create the sreate the sounds file");
   Create(context, Commands.Create.Resourcepack.Sound_Definitions, "Create the sound definireate the sound definitions file");
   Create(context, Commands.Create.Resourcepack.Terrain_Texture, "Create the terrain texture file");
+  Create(context, Commands.Create.Resourcepack.Texture_List, "Create texturelist");
 
   //World
   Create(context, Commands.Create.World.Manifests, "Create manifest");

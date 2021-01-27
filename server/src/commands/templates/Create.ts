@@ -112,6 +112,8 @@ function Initialize(): CommandManager {
     Function(params, templates.resource_pack.create_sound_definitions_File);
   Out[Commands.Create.Resourcepack.Terrain_Texture] = (params: ExecuteCommandParams) =>
     Function(params, templates.resource_pack.create_terrain_texture_file);
+  Out[Commands.Create.Resourcepack.Texture_List] = (params: ExecuteCommandParams) =>
+    Function(params, templates.resource_pack.create_terrain_list_file);
 
   //World
   Out[Commands.Create.World.Languages] = (params: ExecuteCommandParams) => FunctionWP(params, templates.language.create_language_files);

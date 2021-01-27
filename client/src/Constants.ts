@@ -36,7 +36,7 @@ export namespace Languages {
 }
 
 export namespace Identification {
-  export const SettingsConfigurationIdentifier: string = "BC-MC-LanguageServer";
+  export const SettingsConfigurationIdentifier: string = "BC-MC";
 }
 
 export namespace Commands {
@@ -128,6 +128,8 @@ export namespace Commands {
       export const Sound_Definitions: string = RPBase + "sound_definitions";
       /**The command to create the terrain texture file */
       export const Terrain_Texture: string = RPBase + "terrain_texture";
+      /**The command to create the terrain texture list file */
+      export const Texture_List: string = RPBase + "texture_list";
     }
 
     /**The namespace that stores all World creation commands */
