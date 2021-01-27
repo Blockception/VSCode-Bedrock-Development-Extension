@@ -33,7 +33,7 @@ export function CreateMolangTokens(text: string, offset: number): OffsetWord[] {
   let startindex = 0;
   let Out: OffsetWord[] = [];
 
-  let matches = text.match(/([A-Za-z_]+|[\/\.!+\-\*\&\[\]\{\}\(\)><=:;?\|]+|@[a-z]|[0-9\.]+)/gi);
+  let matches = text.match(/(['"][^'"]+['"]|[A-Za-z_]+|[\/\.!+\-\*\&\[\]\{\}\(\)><=:;?\|]+|@[a-z]|[0-9\.]+)/gi);
 
   if (matches) {
     for (let I = 0; I < matches.length; I++) {
