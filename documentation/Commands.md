@@ -20,17 +20,21 @@ Cheat sheet are accesable through the following command(s):
 | ---------------------------------------------- | ------------------------------------------------------------------------- |
 | `Blockception: Cheat sheet: Molang`            | Displays the cheat sheet for molang, containing filters, queries and more |
 | `Blockception: Cheat sheet: Behaviors Filters` | Displays the cheat sheet for filters                                      |
-
+  
+	
+---
 ## Create Files
 
-All these command do not work if the file already exists. These commands are only enabled on workspaces being present. They requires manifest for the
-world or the BP & RP to exist
+All these command do not work if the file already exists. These commands work best with a workspace being present. They requires manifest for the
+world, behavior pack and/or resource pack to exist.
 
 | Command                                             | Description                                                                       |
 | --------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **General**                                         |                                                                                   |
 | `Create BP-RP entities files`                       | Creates resource pack and behaviour pack entities file                            |
 | `Create all language files`                         | Creates for all known worlds, resourcepacks, and behaviourpacks `texts` folders   |
 | `Create all manifests`                              | Creates for all known worlds, resourcepacks, and behaviourpacks `texts` manifests |
+| **Behavior pack**                                   |                                                                                   |
 | `Behavior Pack: Create animation controllers file`  | Creates an animation controller for the behavior pack                             |
 | `Behavior Pack: Create animations file`             | Creates an animations for the behavior pack                                       |
 | `Behavior Pack: Create block file`                  | Creates a block for the behavior pack                                             |
@@ -42,6 +46,7 @@ world or the BP & RP to exist
 | `Behavior Pack: Create recipe file`                 | Creates a recipe for the behavior pack                                            |
 | `Behavior Pack: Create spawn_rule file`             | Creates a spawn rule for the behavior pack                                        |
 | `Behavior Pack: Create trading file`                | Creates a trading for the behavior pack                                           |
+| **Resource pack**                                   |                                                                                   |
 | `Resource Pack: Create animation controllers files` | Creates an animation controller for the resource pack                             |
 | `Resource Pack: Create animations files`            | Creates an animation for the resource pack                                        |
 | `Resource Pack: Create attachable files`            | Creates an attachable for the resource pack                                       |
@@ -58,6 +63,10 @@ world or the BP & RP to exist
 | `Resource Pack: Create the render controller file`  | Creates a render controller for the resource pack                                 |
 | `Resource Pack: Create the sounds file`             | Creates the `sounds.json` file in the resource pack                               |
 | `Resource Pack: Create the sound definitions file`  | Creates the `sound_definitions.json` file in the resource pack                    |
-| `Resource Pack: Create the terrain texture file`    | Creates an the for the resource pack                                              |
+| `Resource Pack: Create the terrain texture file`    | Creates the `terrain_texture.json` the for the resource pack                      |
+| `Resource Pack: Create the texture_list file`       | Creates the `texture_list.json` the for the resource pack, Pre filled             |
+| **World pack**                                      |                                                                                   |
 | `World: Create language files`                      | Creates the language files for the world                                          |
 | `World: Create all manifest`                        | Creates a manifest for the world                                                  |
+
+---
