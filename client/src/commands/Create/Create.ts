@@ -43,6 +43,7 @@ const AttachableID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namesp
 const EntityID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:entity" };
 const BlockID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:block" };
 const ItemID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
+const FogID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
 const LootTableID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
 const ModelID: IDExample = { ID: /^geometry.[0-9a-zA-Z_\\.\\-]+$/, example: "geometry.model_name" };
 const ParticleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:particle" };
@@ -79,7 +80,8 @@ export function Activate(context: ExtensionContext): void {
   Create(context, Commands.Create.Resourcepack.Biomes_Client, "Create biomesclient file");
   Create(context, Commands.Create.Resourcepack.Blocks, "Create the blocks file");
   CreateID(context, Commands.Create.Resourcepack.Entity, "Create entities files", EntityID);
-  Create(context, Commands.Create.Resourcepack.Flipbook_Textures, "Create flipbook_texreate flipbook_textures file");
+  Create(context, Commands.Create.Resourcepack.Flipbook_Textures, "Create flipbook_textures file");
+  CreateID(context, Commands.Create.Resourcepack.Fog, "Create fog file", FogID);
   Create(context, Commands.Create.Resourcepack.Languages, "Create lanreate language file");
   Create(context, Commands.Create.Resourcepack.Item_Texture, "Create item tereate item texture file");
   Create(context, Commands.Create.Resourcepack.Manifests, "Creatreate all manifest");

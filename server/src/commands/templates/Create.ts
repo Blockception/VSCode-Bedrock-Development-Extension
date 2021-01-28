@@ -97,6 +97,8 @@ function Initialize(): CommandManager {
   Out[Commands.Create.Resourcepack.Entity] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_entity_file);
   Out[Commands.Create.Resourcepack.Flipbook_Textures] = (params: ExecuteCommandParams) =>
     Function(params, templates.resource_pack.create_flipbook_textures_file);
+  Out[Commands.Create.Resourcepack.Fog] = (params: ExecuteCommandParams) =>
+    FunctionWithID(params, templates.resource_pack.create_fog);
   Out[Commands.Create.Resourcepack.Languages] = (params: ExecuteCommandParams) => FunctionRP(params, templates.language.create_language_files);
   Out[Commands.Create.Resourcepack.Item_Texture] = (params: ExecuteCommandParams) =>
     Function(params, templates.resource_pack.create_item_texture_file);
@@ -113,7 +115,7 @@ function Initialize(): CommandManager {
   Out[Commands.Create.Resourcepack.Terrain_Texture] = (params: ExecuteCommandParams) =>
     Function(params, templates.resource_pack.create_terrain_texture_file);
   Out[Commands.Create.Resourcepack.Texture_List] = (params: ExecuteCommandParams) =>
-    Function(params, templates.resource_pack.create_terrain_list_file);
+    Function(params, templates.resource_pack.create_texture_list_file);
 
   //World
   Out[Commands.Create.World.Languages] = (params: ExecuteCommandParams) => FunctionWP(params, templates.language.create_language_files);

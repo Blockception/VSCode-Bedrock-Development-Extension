@@ -70,6 +70,7 @@ export function ValidateResourceFolder(doc: TextDocument): void {
     case "attachables":
     case "blocks":
     case "entity":
+    case "fogs":
     case "font":
     case "items":
     case "materials":

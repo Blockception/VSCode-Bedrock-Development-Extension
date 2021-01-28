@@ -155,6 +155,27 @@ const entity: string = `{
   }
 }`;
 
+export function create_fog(ID: string) {
+  return fog.replace(/%ID%/gi, ID);
+}
+const fog: string = `{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "%ID%"
+    },
+    "distance": {
+      "air": {
+        "fog_color": "#402347",
+        "fog_start": 10,
+        "fog_end": 100,
+        "render_distance_type": "fixed"
+      }
+    }
+  }
+}`;
+
+
 /**The template for the resourcepack flipbook_textures*/
 export function create_flipbook_textures(): string {
   return flipbook_textures;

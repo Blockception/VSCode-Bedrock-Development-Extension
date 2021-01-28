@@ -108,6 +108,8 @@ export namespace Commands {
       export const Entity: string = RPBase + "entity";
       /**The command to create flipbook_textures files */
       export const Flipbook_Textures: string = RPBase + "flipbook_textures";
+      /**The command to create fog files */
+      export const Fog: string = RPBase + "fog";
       /**The command to create language files */
       export const Languages: string = RPBase + "language";
       /**The command to create item texture file */

@@ -74,6 +74,12 @@ export function create_flipbook_textures_file(Context: Context, Builder: Templat
   Builder.CreateFile(uri, Templates.resource_pack.create_flipbook_textures());
 }
 
+export function create_fog(ID: string, Context: Context, Builder: TemplateBuilder): void {
+  let safeID = SafeIDNoNamespace(ID);
+  let uri = path.join(Context.ResourcePack, "fogs", safeID + ".fog.json");
+  Builder.CreateFile(uri, Templates.resource_pack.create_fog(ID));
+}
+
 export function create_item_texture_file(Context: Context, Builder: TemplateBuilder): void {
   let uri = path.join(Context.ResourcePack, "textures", "item_texture.json");
   Builder.CreateFile(uri, Templates.resource_pack.create_item_texture());
@@ -127,8 +133,8 @@ export function create_terrain_texture_file(Context: Context, Builder: TemplateB
 }
 
 
-export function create_terrain_list_file(Context: Context, Builder: TemplateBuilder): void {
-  let uri = path.join(Context.ResourcePack, "textures", "terrain_list.json");
+export function create_texture_list_file(Context: Context, Builder: TemplateBuilder): void {
+  let uri = path.join(Context.ResourcePack, "textures", "texture_list.json");
 
   let Textures = GetDocuments(Context.ResourcePack + "textures/", ["**/*.png", "**/*.tga"]);
 
