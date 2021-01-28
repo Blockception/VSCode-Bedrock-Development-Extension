@@ -28,26 +28,26 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-import { Manager } from '../manager/Manager';
+import { Manager } from "../manager/Manager";
 
 export class Console {
-   /**Sends a error to the console log of the server*/
-   static Error(message: string): void {
-      Manager.Connection.console.error(message);
-   }
+  /**Sends a error to the console log of the server*/
+  static Error(message: string): void {
+    Manager.Connection.console.error(message);
+  }
 
-   /**Sends a error to the console log of the server*/
-   static Info(message: string): void {
-      Manager.Connection.console.info(message);
-   }
+  /**Sends a error to the console log of the server*/
+  static Info(message: string): void {
+    Manager.Connection.console.info(message);
+  }
 
-   /**Sends a error to the console log of the server*/
-   static Log(message: string): void {
-      Manager.Connection.console.log(message);
-   }
+  /**Sends a error to the console log of the server*/
+  static Log(message: string): void {
+    Manager.Connection.console.log(message);
+  }
 
-   /**Sends a error to the console log of the server*/
-   static Warn(message: string): void {
-      Manager.Connection.console.warn(message);
-   }
+  /**Sends a error to the console log of the server*/
+  static Warn(message: string): void {
+    Manager.Connection.console.warn(message);
+  }
 }

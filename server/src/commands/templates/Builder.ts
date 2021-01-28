@@ -44,7 +44,7 @@ import * as fs from "fs";
 import { EmptyTypes } from "../../types/general/include";
 import { normalize } from "path";
 import { GetFilepath, UniformUrl } from "../../code/Url";
-import { Console } from '../../console/Console';
+import { Console } from "../../console/Console";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];

@@ -32,7 +32,7 @@ import { Commands } from "../../Constants";
 import { TemplateBuilder } from "./Builder";
 import { Context, GetContext, GetContextAsync } from "./Context";
 import { templates } from "../include";
-import { Console } from '../../console/Console';
+import { Console } from "../../console/Console";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
@@ -97,8 +97,7 @@ function Initialize(): CommandManager {
   Out[Commands.Create.Resourcepack.Entity] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_entity_file);
   Out[Commands.Create.Resourcepack.Flipbook_Textures] = (params: ExecuteCommandParams) =>
     Function(params, templates.resource_pack.create_flipbook_textures_file);
-  Out[Commands.Create.Resourcepack.Fog] = (params: ExecuteCommandParams) =>
-    FunctionWithID(params, templates.resource_pack.create_fog);
+  Out[Commands.Create.Resourcepack.Fog] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.resource_pack.create_fog);
   Out[Commands.Create.Resourcepack.Languages] = (params: ExecuteCommandParams) => FunctionRP(params, templates.language.create_language_files);
   Out[Commands.Create.Resourcepack.Item_Texture] = (params: ExecuteCommandParams) =>
     Function(params, templates.resource_pack.create_item_texture_file);

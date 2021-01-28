@@ -35,7 +35,7 @@ import { behavior } from "../types/minecraft/include";
 import { Languages } from "../include";
 import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
-import { Console } from '../console/Console';
+import { Console } from "../console/Console";
 
 //Process the given document
 export function Process(document: TextDocument): void {

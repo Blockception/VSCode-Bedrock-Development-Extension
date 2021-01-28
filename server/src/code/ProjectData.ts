@@ -36,7 +36,7 @@ import { DupeCheckAdd } from "./Array";
 import { GetParent } from "./File";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
 import { Manifest } from "../types/minecraft/manifest/include";
-import { Console } from '../console/Console';
+import { Console } from "../console/Console";
 
 export interface ProjectData {
   WorldFolders: string[];

@@ -34,7 +34,7 @@ import { Manager } from "../manager/Manager";
 import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
 import { Languages } from "../Constants";
-import { Console } from '../console/Console';
+import { Console } from "../console/Console";
 
 /**
  * Returns an usable document interaction from the given data.

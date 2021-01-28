@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ExecuteCommandParams, MessageType, ShowMessageNotification } from "vscode-languageserver";
-import { Console } from '../console/Console';
+import { Console } from "../console/Console";
 import { Database } from "../database/include";
 import { DiagnoseContext } from "../diagnostics/types/Context";
 import { Manager } from "../manager/Manager";

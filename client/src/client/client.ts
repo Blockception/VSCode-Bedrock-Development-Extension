@@ -72,7 +72,6 @@ export function SetupClient(context: vscode.ExtensionContext) {
   // Create the language client and start the client.
   Manager.Client = new LanguageClient("languageBlockceptionMinecraftClient", "Language Server Blockception minecraft", serverOptions, clientOptions);
 
-
   // Start the client. This will also launch the server
   Manager.Client.start();
 

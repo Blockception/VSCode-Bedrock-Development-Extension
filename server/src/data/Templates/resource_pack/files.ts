@@ -175,7 +175,6 @@ const fog: string = `{
   }
 }`;
 
-
 /**The template for the resourcepack flipbook_textures*/
 export function create_flipbook_textures(): string {
   return flipbook_textures;

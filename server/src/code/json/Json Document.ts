@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { Console } from '../../console/Console';
-import { Manager } from '../../manager/include';
+import { Console } from "../../console/Console";
+import { Manager } from "../../manager/include";
 import * as Code from "../include";
 
 export class JsonDocument {

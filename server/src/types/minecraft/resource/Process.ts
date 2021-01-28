@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilename } from "../../../code/File";
 import { GetDocuments } from "../../../code/include";
-import { Console } from '../../../console/Console';
+import { Console } from "../../../console/Console";
 import { code } from "../../../include";
 import { DataType } from "../format/Data Type";
 import { DetectDataType } from "../format/Detection";
