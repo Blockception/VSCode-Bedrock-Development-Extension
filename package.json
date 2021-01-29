@@ -248,6 +248,12 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Resource Pack: Create fog file",
+        "command": "bc-create-resource_pack-fog",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "Resource Pack: Create language files",
         "command": "bc-create-resource_pack-language",
         "category": "Blockception",
@@ -412,8 +418,8 @@
       {
         "fileMatch": [
           "resource_packs/*/animation_controllers/*.json",
-          "*Resource pack*/animation_controllers/*.json",
-          "*resource pack*/animation_controllers/*.json",
+          "*resource*pack*/animation_controllers/*.json",
+          "*Resource*Pack*/animation_controllers/*.json",
           "*RP*/animation_controllers/*.json",
           "*rp*/animation_controllers/*.json"
         ],
@@ -422,8 +428,8 @@
       {
         "fileMatch": [
           "resource_packs/*/animations/*.json",
-          "*Resource pack*/animations/*.json",
-          "*resource pack*/animations/*.json",
+          "*resource*pack*/animations/*.json",
+          "*Resource*Pack*/animations/*.json",
           "*RP*/animations/*.json",
           "*rp*/animations/*.json"
         ],
@@ -464,8 +470,8 @@
       {
         "fileMatch": [
           "resource_packs/*/items/*.json",
-          "*Resource pack*/*/items/*.json",
-          "*resource pack*/*/items/*.json",
+          "*resource*pack*/items/*.json",
+          "*Resource*Pack*/items/*.json",
           "*RP*/items/*.json",
           "*rp*/items/*.json"
         ],
@@ -512,6 +518,8 @@
       {
         "fileMatch": [
           "behavior_packs/*/animation_controllers/*.json",
+          "*behavior*pack*/animation_controllers/*.json",
+          "*Behavior*Pack*/animation_controllers/*.json",
           "*BP*/animation_controllers/*.json",
           "*bp*/animation_controllers/*.json"
         ],
@@ -520,6 +528,8 @@
       {
         "fileMatch": [
           "behavior_packs/*/animations/*.json",
+          "*behavior*pack*/animations/*.json",
+          "*Behavior*Pack*/animations/*.json",
           "*BP*/animations/*.json",
           "*bp*/animations/*.json"
         ],
@@ -528,6 +538,8 @@
       {
         "fileMatch": [
           "behavior_packs/*/loot_tables/*.json",
+          "*behavior*pack*/loot_tables/*.json",
+          "*Behavior*Pack*/loot_tables/*.json",
           "*BP*/loot_tables/*.json",
           "*bp*/loot_tables/*.json",
           "*.loot.json"
@@ -537,6 +549,8 @@
       {
         "fileMatch": [
           "behavior_packs/*/blocks/*.json",
+          "*behavior*pack*/blocks/*.json",
+          "*Behavior*Pack*/blocks/*.json",
           "*BP*/blocks/*.json",
           "*bp*/blocks/*.json"
         ],
@@ -545,6 +559,8 @@
       {
         "fileMatch": [
           "behavior_packs/*/entities/*.json",
+          "*behavior*pack*/entities/*.json",
+          "*Behavior*Pack*/entities/*.json",
           "*BP*/entities/*.json",
           "*bp*/entities/*.json",
           "!*loot_tables*"
@@ -554,6 +570,8 @@
       {
         "fileMatch": [
           "behavior_packs/*/items/*.json",
+          "*behavior*pack*/items/*.json",
+          "*Behavior*Pack*/items/*.json",
           "*BP*/items/*.json",
           "*bp*/items/*.json"
         ],
@@ -570,6 +588,8 @@
       {
         "fileMatch": [
           "behavior_packs/*/trading/*.json",
+          "*behavior*pack*/trading/*.json",
+          "*Behavior*Pack*/trading/*.json",
           "*BP*/trading/*.json",
           "*bp*/trading/*.json",
           "*.trade.json"
