@@ -1,4 +1,6 @@
 # Changelog 
+- Updated 1.5.16
+- Added insertions highlighted
 - auto: Formatted json files
 - auto: Formatted typescript files
 - auto: Updated dependecies
@@ -17,5 +19,3 @@
 - Adding semantic keywords: 'this', and string support
 - Fixed score and selector component for raw  text
 - Updated to 1.5.12
-- Refactoring
-- Updated
