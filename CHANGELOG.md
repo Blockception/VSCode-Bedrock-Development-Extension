@@ -1,4 +1,10 @@
 # Changelog 
+- auto: Formatted json files
+- auto: Formatted typescript files
+- auto: Updated dependecies
+- Updated Sounds.json json validation
+- Added fog template
+- Updated to 1.5.15
 - Formatted
 - Updated to 1.5.14
 - Added texture_list.json generation command
@@ -13,9 +19,3 @@
 - Updated to 1.5.12
 - Refactoring
 - Updated
-- Updated to 1.5.11
-- Fixing errors
-- Added
-- Updated 1.5.10
-- Fixed colouring of tags
-- Updated to 1.5.9

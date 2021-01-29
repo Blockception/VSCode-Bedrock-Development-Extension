@@ -8,7 +8,11 @@ const path = require("path");
 const config = {
   optimization: {
     mergeDuplicateChunks: true,
-    minimize:true
+    minimize:true,
+    mangleExports:true,
+    mangleWasmImports:true,
+    removeEmptyChunks:true,
+    concatenateModules:true
   },
   performance: {
     hints: "warning",
