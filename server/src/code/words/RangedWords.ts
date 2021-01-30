@@ -99,6 +99,19 @@ export class RangedWord {
 
               startindex = index + 1;
             }
+            break;
+
+          case "~":
+          case "^":
+            if (level == 0) {
+              if (startindex < index) {
+                let RW = new RangedWord(text.substring(startindex, index).trim(), startindex, index);
+                out.push(RW);
+              }
+
+              startindex = index;
+            }
+
 
             break;
           default:
