@@ -1,4 +1,8 @@
 # Changelog 
+- Updated handling of ~~~
+- Updated hover detection
+- Updated to 1.5.17
+- Updated json validation
 - Updated 1.5.16
 - Added insertions highlighted
 - auto: Formatted json files
@@ -15,7 +19,3 @@
 - Updated to 1.5.13
 - Updated
 - Updated molang tokenization
-- Updated molang detection
-- Adding semantic keywords: 'this', and string support
-- Fixed score and selector component for raw  text
-- Updated to 1.5.12
