@@ -66,16 +66,11 @@ export function DetectDataType(uri: string): DataType {
 export function DetectGeneralDataType(uri: string): GeneralDataType {
   uri = decodeURI(uri);
 
-  if (uri.includes("behavior_packs")) {
+  if (uri.includes("behavior_packs") || uri.includes("Behavior_Pack") || uri.includes("behavior pack") || uri.includes("Behavior Pack")) {
     return GeneralDataType.behaviour_pack;
   }
-  if (uri.includes("Behavior_Pack")) {
-    return GeneralDataType.behaviour_pack;
-  }
-  if (uri.includes("resource_packs")) {
-    return GeneralDataType.resource_pack;
-  }
-  if (uri.includes("Resource_Pack")) {
+
+  if (uri.includes("resource_packs") || uri.includes("Resource_Pack") || uri.includes("resource pack") || uri.includes("Resource Pack")) {
     return GeneralDataType.resource_pack;
   }
 
