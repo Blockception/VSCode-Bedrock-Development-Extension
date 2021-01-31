@@ -27,49 +27,50 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export interface EntityEvent {
-  run_command?: string;
-  add?: { component_groups?: string[] };
-  remove?: { component_groups?: string[] };
-}
+import { CompletionList } from "vscode-languageserver";
+import { Database } from "../../../database/include";
+import { Entity } from '../include';
+import { Kinds } from "../Kinds";
 
-export interface ComponentContainer {
-  [component: string]: any;
-}
+export function provideFamilyCompletion(receiver: CompletionList, type: string | undefined = undefined): void {
+  if (type) {
+    let entity = Database.Data.General.Entities.GetFromID(type);
 
-export interface Entity {
-  format_version: string;
-  "minecraft:entity": {
-    description: {
-      identifier: string;
-      is_spawnable?: boolean;
-      is_summonable?: boolean;
-      is_experimental?: boolean;
-      animations?: object;
-      scripts?: {
-        animate?: string | object[];
-      };
-    };
-    component_groups?: {
-      [component_group: string]: ComponentContainer;
-    };
-    components?: ComponentContainer;
-    events?: {
-      [event: string]: EntityEvent;
-    };
-  };
-}
-
-export namespace Entity {
-  export function is(data: Entity | undefined | null): data is Entity {
-    if (data) {
-      let mce = data["minecraft:entity"];
-
-      if (mce && mce.description && mce.description.identifier) {
-        return true;
-      }
+    if (entity) {
+      ConvertEntity(entity, receiver);
     }
-
-    return false;
   }
+  else {
+    Database.Data.General.Entities.ForEach(entity => ConvertEntity(entity, receiver));
+  }
+}
+
+function ConvertEntity(entity: Entity.Entity, receiver: CompletionList) {
+  entity.Families.forEach(family => {
+    receiver.items.push(
+      { label: family, kind: Kinds.Completion.Family, documentation: "The entity family: " + family }
+    )
+  });
+}
+
+export function provideFamilyTestCompletion(receiver: CompletionList, type: string | undefined = undefined): void {
+  if (type) {
+    let entity = Database.Data.General.Entities.GetFromID(type);
+
+    if (entity) {
+      ConvertTestEntity(entity, receiver);
+    }
+  }
+  else {
+    Database.Data.General.Entities.ForEach((entity) => ConvertTestEntity(entity, receiver));
+  }
+}
+
+function ConvertTestEntity(entity: Entity.Entity, receiver: CompletionList) {
+  entity.Families.forEach(family => {
+    receiver.items.push(
+      { label: family, kind: Kinds.Completion.Family, documentation: "test for the Family: " + family },
+      { label: "!" + family, kind: Kinds.Completion.Family, documentation: "test not for the Family: " + family }
+    );
+  });
 }

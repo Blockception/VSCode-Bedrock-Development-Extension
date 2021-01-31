@@ -29,13 +29,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList, CompletionItemKind } from "vscode-languageserver";
 import { provideEntityTestCompletion } from "../../Entity/Completion";
+import { provideFamilyTestCompletion } from '../../Family/Completion';
 import { provideFloatCompletion } from "../../Float/Completion";
 import { provideGamemodeTestCompletion } from "../../Gamemode/Completion";
 import { provideIntegerCompletion } from "../../Integer/Completion";
 import { provideTagTestCompletion } from "../../Tag/include";
 
 //Doesnt do scores and doesnt need to
-export function provideSelectorAttributeValueCompletion(receiver: CompletionList, attribute: string, forEntities: boolean): void {
+export function provideSelectorAttributeValueCompletion(receiver: CompletionList, attribute: string, forEntities: boolean, type : string | undefined = undefined): void {
   switch (attribute) {
     case "c":
       receiver.items.push(
@@ -56,7 +57,7 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionList
       return;
 
     case "family":
-      //TODO do family type gathering
+      provideFamilyTestCompletion(receiver, type);
       return;
 
     case "r":
