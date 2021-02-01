@@ -3,9 +3,6 @@ client/src/**
 server/node_modules/**
 server/src/**
 
-minecraft-bedrock-schemas/**
-!minecraft-bedrock-schemas/**/*.json
-
 scripts/*
 node_modules
 node_modules/**
@@ -42,6 +39,10 @@ webpack.config.js
 !documentation/cheat-sheet/*.html
 !documentation/cheat-sheet/**/*.html
 
-minecraft-bedrock-schemas/compress specification.json
-!minecraft-bedrock-schemas/**/*.json
-minecraft-bedrock-schemas-source/
+minecraft-bedrock-schemas/
+minecraft-bedrock-schemas/**
+!minecraft-bedrock-schemas/behaviour
+!minecraft-bedrock-schemas/general
+!minecraft-bedrock-schemas/language
+!minecraft-bedrock-schemas/resource
+!minecraft-bedrock-schemas/skinpacks
