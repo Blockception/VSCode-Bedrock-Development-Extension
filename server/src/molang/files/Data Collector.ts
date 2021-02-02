@@ -93,6 +93,7 @@ function findNext(text: string, startIndex: number): number {
     if (startindex < 0) break;
 
     if (text.charAt(startindex - 1) === "\\" && text.charAt(startindex - 2) !== "\\") {
+      startIndex++;
       continue;
     }
 
