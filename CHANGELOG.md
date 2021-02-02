@@ -1,4 +1,6 @@
 # Changelog 
+- Added entity family parsing
+- Updated to 1.5.18
 - Updated handling of ~~~
 - Updated hover detection
 - Updated to 1.5.17
@@ -17,5 +19,3 @@
 - Fixed carrots
 - Added texture_list json validation
 - Updated to 1.5.13
-- Updated
-- Updated molang tokenization
