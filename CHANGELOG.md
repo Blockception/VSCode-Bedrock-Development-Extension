@@ -1,4 +1,8 @@
 # Changelog 
+- Updated to 1.5.19
+- Fixed infinite loop
+- Compressed schema's
+- Removed unnesscary schemas
 - Added entity family parsing
 - Updated to 1.5.18
 - Updated handling of ~~~
@@ -15,7 +19,3 @@
 - Updated to 1.5.15
 - Formatted
 - Updated to 1.5.14
-- Added texture_list.json generation command
-- Fixed carrots
-- Added texture_list json validation
-- Updated to 1.5.13
