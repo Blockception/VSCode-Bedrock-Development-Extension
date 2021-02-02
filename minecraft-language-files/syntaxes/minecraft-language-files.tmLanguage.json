@@ -11,11 +11,11 @@
       "patterns": [
         { "name": "support.type.property-name", "match": "^[^#=]+(?=\\=)" },
         { "name": "keyword.operator", "match": "=" },
-        { "name": "constant.regexp", "match": "%[0-9]+$s"},
-        { "name": "constant.numeric", "match": "%[0-9]+$d"},
-        { "name": "keyword.control", "match": "%[0-9]+"},
-        { "name": "constant.regexp", "match": "%s"},
-        { "name": "constant.numeric", "match": "%d"}                
+        { "name": "constant.regexp", "match": "%[0-9]+$s" },
+        { "name": "constant.numeric", "match": "%[0-9]+$d" },
+        { "name": "keyword.control", "match": "%[0-9]+" },
+        { "name": "constant.regexp", "match": "%s" },
+        { "name": "constant.numeric", "match": "%d" }
       ]
     },
     "characters": {
