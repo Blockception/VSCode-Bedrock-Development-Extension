@@ -49,8 +49,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
     if (Sub && Sub.Paramaters[0].range.start.character <= pos.character) {
       Command = Sub;
       Sub = GetSubCommand(Command);
-    }
-    else {
+    } else {
       Sub = undefined;
     }
   }

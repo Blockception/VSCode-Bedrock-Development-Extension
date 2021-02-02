@@ -112,7 +112,6 @@ export class RangedWord {
               startindex = index;
             }
 
-
             break;
           default:
             break;

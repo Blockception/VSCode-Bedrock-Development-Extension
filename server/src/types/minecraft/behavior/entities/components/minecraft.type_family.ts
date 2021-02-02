@@ -29,14 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 export interface type_family {
-	family: string[];
+  family: string[];
 }
 
 export namespace type_family {
-	export function is(value: any): value is type_family {
-		if (value && value.family && Array.isArray(value.family))
-			return true;
+  export function is(value: any): value is type_family {
+    if (value && value.family && Array.isArray(value.family)) return true;
 
-		return false;
-	}
+    return false;
+  }
 }

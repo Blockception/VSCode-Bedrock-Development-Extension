@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList } from "vscode-languageserver";
 import { Database } from "../../../database/include";
-import { Entity } from '../include';
+import { Entity } from "../include";
 import { Kinds } from "../Kinds";
 
 export function provideFamilyCompletion(receiver: CompletionList, type: string | undefined = undefined): void {
@@ -39,17 +39,14 @@ export function provideFamilyCompletion(receiver: CompletionList, type: string |
     if (entity) {
       ConvertEntity(entity, receiver);
     }
-  }
-  else {
-    Database.Data.General.Entities.ForEach(entity => ConvertEntity(entity, receiver));
+  } else {
+    Database.Data.General.Entities.ForEach((entity) => ConvertEntity(entity, receiver));
   }
 }
 
 function ConvertEntity(entity: Entity.Entity, receiver: CompletionList) {
-  entity.Families.forEach(family => {
-    receiver.items.push(
-      { label: family, kind: Kinds.Completion.Family, documentation: "The entity family: " + family }
-    )
+  entity.Families.forEach((family) => {
+    receiver.items.push({ label: family, kind: Kinds.Completion.Family, documentation: "The entity family: " + family });
   });
 }
 
@@ -60,14 +57,13 @@ export function provideFamilyTestCompletion(receiver: CompletionList, type: stri
     if (entity) {
       ConvertTestEntity(entity, receiver);
     }
-  }
-  else {
+  } else {
     Database.Data.General.Entities.ForEach((entity) => ConvertTestEntity(entity, receiver));
   }
 }
 
 function ConvertTestEntity(entity: Entity.Entity, receiver: CompletionList) {
-  entity.Families.forEach(family => {
+  entity.Families.forEach((family) => {
     receiver.items.push(
       { label: family, kind: Kinds.Completion.Family, documentation: "test for the Family: " + family },
       { label: "!" + family, kind: Kinds.Completion.Family, documentation: "test not for the Family: " + family }

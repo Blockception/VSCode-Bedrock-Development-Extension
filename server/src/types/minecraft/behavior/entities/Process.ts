@@ -35,8 +35,8 @@ import { DataReference } from "../../../../database/Types/include";
 import { EmptyTypes } from "../../../general/Empty";
 import { Entity } from "../../../general/Entity/Entity";
 import { behavior } from "../../include";
-import { type_family } from './components/minecraft.type_family';
-import { ComponentContainer } from './include';
+import { type_family } from "./components/minecraft.type_family";
+import { ComponentContainer } from "./include";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -72,7 +72,7 @@ export function Process(doc: TextDocument): void {
 
         if (element) {
           RetrieveFamilies(element, entity);
-        }        
+        }
       }
     }
 
@@ -83,18 +83,14 @@ export function Process(doc: TextDocument): void {
   }
 }
 
-
 function RetrieveFamilies(componentContainer: ComponentContainer | undefined, receiver: Entity) {
-  if (componentContainer == undefined)
-    return;
+  if (componentContainer == undefined) return;
 
   let family_comp = componentContainer["minecraft:type_family"];
 
   if (type_family.is(family_comp)) {
-    family_comp.family.forEach(f => {
-      if (!receiver.Families.includes(f))
-        receiver.Families.push(f);
+    family_comp.family.forEach((f) => {
+      if (!receiver.Families.includes(f)) receiver.Families.push(f);
     });
   }
 }
-
