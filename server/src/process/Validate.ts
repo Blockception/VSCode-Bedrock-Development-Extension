@@ -41,8 +41,10 @@ export function ValidateBehaviourFolder(doc: TextDocument): void {
     case "animation_controllers":
     case "animations":
     case "blocks":
+    case "biomes":
     case "documentation":
     case "entities":
+    case "feature_rules":
     case "functions":
     case "loot_tables":
     case "items":
