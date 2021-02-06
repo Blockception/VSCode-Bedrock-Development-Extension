@@ -537,6 +537,16 @@
       },
       {
         "fileMatch": [
+          "behavior_packs/*/biomes/*.json",
+          "*behavior*pack*/biomes/*.json",
+          "*Behavior*Pack*/biomes/*.json",
+          "*BP*/biomes/*.json",
+          "*bp*/biomes/*.json"
+        ],
+        "url": "./minecraft-bedrock-schemas/behaviour/biomes/biomes.json"
+      },
+      {
+        "fileMatch": [
           "behavior_packs/*/loot_tables/*.json",
           "*behavior*pack*/loot_tables/*.json",
           "*Behavior*Pack*/loot_tables/*.json",
