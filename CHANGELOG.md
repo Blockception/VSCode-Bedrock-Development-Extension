@@ -1,4 +1,9 @@
 # Changelog 
+- Updated schemas
+- Paramaters -> Parameters
+- Updated to 1.5.21
+- auto: Formatted
+- Updated changelog
 - Updated
 - auto: generated schemas
 - Added biomes schema
@@ -14,8 +19,3 @@
 - Added entity family parsing
 - Updated to 1.5.18
 - Updated handling of ~~~
-- Updated hover detection
-- Updated to 1.5.17
-- Updated json validation
-- Updated 1.5.16
-- Added insertions highlighted
