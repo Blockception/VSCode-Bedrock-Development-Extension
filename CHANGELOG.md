@@ -1,4 +1,12 @@
 # Changelog 
+- Updated
+- auto: generated schemas
+- Added biomes schema
+- Added biome and features_rules folder
+- Updated submodule
+- auto: Formatted typescript files
+- auto: Formatted json files
+- Updated to 1.5.20
 - Updated to 1.5.19
 - Fixed infinite loop
 - Compressed schema's
@@ -11,11 +19,3 @@
 - Updated json validation
 - Updated 1.5.16
 - Added insertions highlighted
-- auto: Formatted json files
-- auto: Formatted typescript files
-- auto: Updated dependecies
-- Updated Sounds.json json validation
-- Added fog template
-- Updated to 1.5.15
-- Formatted
-- Updated to 1.5.14
