@@ -36,13 +36,13 @@ import { DiagnoseInteger } from "../Integer/include";
 import { SlotTypeMode, SlotTypeModes } from "../slot type/slot type";
 
 export function DiagnoseSlotID(word: LocationWord, Command: CommandIntr, receiver: Diagnostic[]): void {
-  let Index = Command.Paramaters.indexOf(word);
+  let Index = Command.Parameters.indexOf(word);
 
   if (Index < 0) return;
 
   DiagnoseInteger(word, receiver);
 
-  const SlotType = Command.Paramaters[Index - 1].text;
+  const SlotType = Command.Parameters[Index - 1].text;
   const SlotID = Number.parseInt(word.text);
 
   let Mode = GetMode(SlotTypeModes, SlotType);

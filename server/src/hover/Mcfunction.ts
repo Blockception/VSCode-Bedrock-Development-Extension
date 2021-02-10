@@ -46,7 +46,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
   let Sub = GetSubCommand(Command);
 
   while (Sub) {
-    if (Sub && Sub.Paramaters[0].range.start.character <= pos.character) {
+    if (Sub && Sub.Parameters[0].range.start.character <= pos.character) {
       Command = Sub;
       Sub = GetSubCommand(Command);
     } else {
@@ -63,7 +63,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
 
     if (parameters.length > Index) {
       let p = parameters[Index];
-      let T = Command.Paramaters[Index];
+      let T = Command.Parameters[Index];
 
       if (T) {
         let r = T.range;

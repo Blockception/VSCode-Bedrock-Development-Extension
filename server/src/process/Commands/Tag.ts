@@ -36,9 +36,9 @@ import { GetComment } from "../../types/minecraft/behavior/functions/include";
 
 export function ProcessTagCommand(Com: CommandIntr, doc: TextDocument): void {
   //tag <selector> add <tag>
-  if (Com.Paramaters[2]?.text !== "add") return;
+  if (Com.Parameters[2]?.text !== "add") return;
 
-  let tag = Com.Paramaters[3];
+  let tag = Com.Parameters[3];
 
   let Data = new Tag();
   Data.Identifier = tag.text;

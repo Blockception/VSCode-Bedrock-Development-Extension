@@ -45,17 +45,17 @@ export function CreateSelectorTokens(Word: LocationWord, Builder: McfunctionSema
   }
 }
 
-function ProcessParameters(Paramaters: IParameter[], Builder: McfunctionSemanticTokensBuilder): void {
-  for (let I = 0; I < Paramaters.length; I++) {
-    let parameter = Paramaters[I];
+function ProcessParameters(Parameters: IParameter[], Builder: McfunctionSemanticTokensBuilder): void {
+  for (let I = 0; I < Parameters.length; I++) {
+    let parameter = Parameters[I];
 
     CreateTokens(parameter, Builder);
   }
 }
 
-function ProcessScoreParameters(Paramaters: IParameter[], Builder: McfunctionSemanticTokensBuilder): void {
-  for (let I = 0; I < Paramaters.length; I++) {
-    let parameter = Paramaters[I];
+function ProcessScoreParameters(Parameters: IParameter[], Builder: McfunctionSemanticTokensBuilder): void {
+  for (let I = 0; I < Parameters.length; I++) {
+    let parameter = Parameters[I];
 
     CreateTokens(parameter, Builder);
   }

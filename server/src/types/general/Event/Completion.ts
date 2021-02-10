@@ -36,9 +36,9 @@ export function provideEventCompletion(receiver: CompletionList, command: Comman
   let Keyword = command.GetCommandKeyword();
 
   if (Keyword == "summon") {
-    if (command.Paramaters.length < 2) return;
+    if (command.Parameters.length < 2) return;
 
-    let EntityID = command.Paramaters[1].text;
+    let EntityID = command.Parameters[1].text;
 
     //For each data set
     let Entity = Database.Data.General.Entities.GetFromID(EntityID);

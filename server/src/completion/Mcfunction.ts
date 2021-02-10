@@ -66,7 +66,7 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
 }
 
 export function ProvideCompletionMcFunction(pos: Position, receiver: CompletionList, Command: CommandIntr): void {
-  if (Command == undefined || Command.Paramaters.length == 0 || pos.character < 3) {
+  if (Command == undefined || Command.Parameters.length == 0 || pos.character < 3) {
     provideCommandCompletion(receiver);
     return;
   }

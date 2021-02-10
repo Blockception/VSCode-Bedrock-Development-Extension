@@ -35,7 +35,7 @@ import { OperationModes } from "./operation";
 
 export function ProvideOperationDiagnose(Word: LocationWord, Command: CommandIntr, receiver: Diagnostic[]): void {
   DiagnoseMode(Word, OperationModes, receiver);
-  let Index = Command.Paramaters.indexOf(Word);
+  let Index = Command.Parameters.indexOf(Word);
 
   if (Index < 0) return;
 }

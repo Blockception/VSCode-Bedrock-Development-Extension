@@ -39,9 +39,9 @@ export function ProcessCommand(Line: string, Start: Position, document: TextDocu
   let Command: CommandIntr | undefined = CommandIntr.parse(Line, { character: 0, line: 0 }, document.uri, Start);
 
   while (Command) {
-    if (Command.Paramaters.length === 0) break;
+    if (Command.Parameters.length === 0) break;
 
-    switch (Command.Paramaters[0].text) {
+    switch (Command.Parameters[0].text) {
       case "tag":
         ProcessTagCommand(Command, document);
         break;

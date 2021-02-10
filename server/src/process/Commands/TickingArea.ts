@@ -35,10 +35,10 @@ import { Tickingarea } from "../../types/general/Tickingarea/include";
 
 export function ProcessTickingAreaCommand(Command: CommandIntr): void {
   //tickingarea add
-  if (Command.Paramaters[1]?.text !== "add") return;
+  if (Command.Parameters[1]?.text !== "add") return;
 
   //tickingarea add circle
-  if (Command.Paramaters[2]?.text === "circle") {
+  if (Command.Parameters[2]?.text === "circle") {
     ProcessCircleCommand(Command);
   } else {
     ProcessBoxCommand(Command);
@@ -47,13 +47,13 @@ export function ProcessTickingAreaCommand(Command: CommandIntr): void {
 
 function ProcessCircleCommand(Command: CommandIntr): void {
   //Tickingarea add circle <x> <y> <z> <r> [name]
-  const Parameters = Command.Paramaters;
+  const Parameters = Command.Parameters;
 
   if (Parameters.length < 7) return;
 
   let Area = "x: " + Parameters[3].text + "y: " + Parameters[4].text + "z: " + Parameters[5].text + "; radius: " + Parameters[6].text;
   let Name = "";
-  const uri = Command.Paramaters[0].uri;
+  const uri = Command.Parameters[0].uri;
 
   let Location: Location;
 
@@ -75,14 +75,14 @@ function ProcessCircleCommand(Command: CommandIntr): void {
 
 function ProcessBoxCommand(Command: CommandIntr): void {
   //Tickingarea add <x> <y> <z> <x> <y> <z> [name]
-  const Parameters = Command.Paramaters;
+  const Parameters = Command.Parameters;
 
   if (Parameters.length < 8) return;
 
   let Area = "x: " + Parameters[2].text + "y: " + Parameters[3].text + "z: " + Parameters[4].text + ";";
   Area += "x: " + Parameters[5].text + "y: " + Parameters[6].text + "z: " + Parameters[7].text + ";";
   let Name = "";
-  const uri = Command.Paramaters[0].uri;
+  const uri = Command.Parameters[0].uri;
 
   let Location: Location;
 

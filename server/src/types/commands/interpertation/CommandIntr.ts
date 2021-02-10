@@ -40,7 +40,7 @@ export class CommandIntr {
   /**
    * The parameters of the command
    */
-  public Paramaters: LocationWord[];
+  public Parameters: LocationWord[];
   /**
    * The line the command is comming from
    */
@@ -53,7 +53,7 @@ export class CommandIntr {
   constructor() {
     this.Line = 0;
     this.CursorParamater = 0;
-    this.Paramaters = [];
+    this.Parameters = [];
   }
 
   static parse(line: string, cursor: Position, uri: string, startPos: Position | undefined = undefined): CommandIntr {
@@ -74,14 +74,14 @@ export class CommandIntr {
     let Words = LocationWord.GetWords(line, LineIndex, uri, charOffset);
     let char = cursor.character;
     Out.Line = LineIndex;
-    Out.Paramaters = Words;
+    Out.Parameters = Words;
 
-    if (Out.Paramaters.length > 0) {
-      if (Out.Paramaters[Out.Paramaters.length - 1].range.end.character < char) {
-        Out.CursorParamater = Out.Paramaters.length;
+    if (Out.Parameters.length > 0) {
+      if (Out.Parameters[Out.Parameters.length - 1].range.end.character < char) {
+        Out.CursorParamater = Out.Parameters.length;
       } else {
-        for (let I = 0; I < Out.Paramaters.length; I++) {
-          let x = Out.Paramaters[I];
+        for (let I = 0; I < Out.Parameters.length; I++) {
+          let x = Out.Parameters[I];
 
           if (x.CheckCursor(char)) {
             Out.CursorParamater = I;
@@ -99,16 +99,16 @@ export class CommandIntr {
   slice(start?: number | undefined, end?: number | undefined): CommandIntr {
     let Out = new CommandIntr();
     Out.Line = this.Line;
-    Out.Paramaters = this.Paramaters.slice(start, end);
+    Out.Parameters = this.Parameters.slice(start, end);
     Out.CursorParamater = this.CursorParamater - (start ?? 0);
 
     return Out;
   }
 
   GetCommandKeyword(): string {
-    if (this.Paramaters.length <= 0) return "";
+    if (this.Parameters.length <= 0) return "";
 
-    return this.Paramaters[0].text;
+    return this.Parameters[0].text;
   }
 
   /**
@@ -122,13 +122,13 @@ export class CommandIntr {
    *Gets the current word
    */
   GetCurrent(): LocationWord | undefined {
-    if (this.CursorParamater >= 0 && this.CursorParamater < this.Paramaters.length) return this.Paramaters[this.CursorParamater];
+    if (this.CursorParamater >= 0 && this.CursorParamater < this.Parameters.length) return this.Parameters[this.CursorParamater];
 
     return undefined;
   }
 
   IsEmpty(): Boolean {
-    if (this.Paramaters.length <= 0) return true;
+    if (this.Parameters.length <= 0) return true;
 
     return false;
   }
@@ -136,22 +136,22 @@ export class CommandIntr {
 
 export function IsInSubCommand(command: CommandIntr, character: number): CommandIntr | undefined {
   //execute command hasn't been completed yet
-  if (command.Paramaters.length < 6) return undefined;
+  if (command.Parameters.length < 6) return undefined;
 
   let Keyword = command.GetCommandKeyword();
 
   if (Keyword == "execute") {
-    if (command.Paramaters[5].text === "detect") {
+    if (command.Parameters[5].text === "detect") {
       //execute detect command hasn't been completed yet
-      if (command.Paramaters.length < 12) return undefined;
+      if (command.Parameters.length < 12) return undefined;
 
       //if cursor is on the sub command and not the execute command
-      if (character >= command.Paramaters[11].range.start.character) {
+      if (character >= command.Parameters[11].range.start.character) {
         return command.slice(11);
       }
     } else {
       //if cursor is on the sub command and not the execute command
-      if (character >= command.Paramaters[5].range.start.character) {
+      if (character >= command.Parameters[5].range.start.character) {
         return command.slice(5);
       }
     }
@@ -170,7 +170,7 @@ export function GetSubCommand(command: CommandIntr): CommandIntr | undefined {
   let Item = Matches[0];
   let index = Item.Command.getIndexOfType(MCCommandParameterType.command);
 
-  if (index > -1 && index < command.Paramaters.length) {
+  if (index > -1 && index < command.Parameters.length) {
     return command.slice(index);
   }
 

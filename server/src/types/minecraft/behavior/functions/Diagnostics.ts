@@ -105,7 +105,7 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
 
   let Command = CommandIntr.parse(line, { character: 0, line: lineIndex }, "");
 
-  if (Command.Paramaters.length === 0) return;
+  if (Command.Parameters.length === 0) return;
 
   DiagnoseCommand(Command, line, validation, receiver);
 

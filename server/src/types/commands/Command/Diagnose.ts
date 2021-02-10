@@ -45,19 +45,19 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, validation: 
   let Matches = Command.GetCommandData();
 
   if (Matches.length === 0) {
-    receiver.push({ message: 'Unknown command syntax: "' + line + '"', range: Command.Paramaters[0].range });
+    receiver.push({ message: 'Unknown command syntax: "' + line + '"', range: Command.Parameters[0].range });
     return;
   }
 
   let Data = Matches[0];
   let max = Data.Command.parameters.length;
 
-  if (Command.Paramaters.length < max) {
-    max = Command.Paramaters.length;
+  if (Command.Parameters.length < max) {
+    max = Command.Parameters.length;
   }
 
   for (let I = 0; I < max; I++) {
-    DiagnoseParameter(Data.Command.parameters[I], Command.Paramaters[I], validation, receiver, Command);
+    DiagnoseParameter(Data.Command.parameters[I], Command.Parameters[I], validation, receiver, Command);
   }
 }
 

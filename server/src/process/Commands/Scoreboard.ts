@@ -37,12 +37,12 @@ import { IsFakePlayer } from "../../types/general/Selector/include";
 import { GetComment } from "../../types/minecraft/behavior/functions/include";
 
 export function ProcessScoreboardCommand(Com: CommandIntr, doc: TextDocument): void {
-  if (Com.Paramaters.length < 3) {
+  if (Com.Parameters.length < 3) {
     return;
   }
 
   let Comment = GetComment(getLine(doc, Com.Line));
-  let Mode = Com.Paramaters[1];
+  let Mode = Com.Parameters[1];
 
   switch (Mode.text) {
     case "players":
@@ -54,17 +54,17 @@ export function ProcessScoreboardCommand(Com: CommandIntr, doc: TextDocument): v
 }
 
 function CheckObjective(Com: CommandIntr, Comment: string): void {
-  let ObjectiveMode = Com.Paramaters[2];
+  let ObjectiveMode = Com.Parameters[2];
 
-  if (Com.Paramaters.length < 4) {
+  if (Com.Parameters.length < 4) {
     return;
   }
 
   if (ObjectiveMode.text === "add") {
     let obj = new Objective();
 
-    let ID = Com.Paramaters[3];
-    let Type = Com.Paramaters[4];
+    let ID = Com.Parameters[3];
+    let Type = Com.Parameters[4];
     obj.Identifier = ID.text;
     obj.Type = Type.text;
     obj.Location = ID.CreateLocation();
@@ -72,8 +72,8 @@ function CheckObjective(Com: CommandIntr, Comment: string): void {
     if (Comment === "") {
       obj.Documentation.value = "The objective: " + ID.text + " " + Type.text;
 
-      if (Com.Paramaters.length > 5) {
-        obj.Documentation.value += " " + Com.Paramaters[5].text.replace(/"/g, "");
+      if (Com.Parameters.length > 5) {
+        obj.Documentation.value += " " + Com.Parameters[5].text.replace(/"/g, "");
       }
     } else {
       obj.Documentation.value = Comment;
@@ -84,8 +84,8 @@ function CheckObjective(Com: CommandIntr, Comment: string): void {
 }
 
 function CheckPlayer(Com: CommandIntr, Comment: string): void {
-  if (Com.Paramaters.length > 3) {
-    let Selector = Com.Paramaters[3];
+  if (Com.Parameters.length > 3) {
+    let Selector = Com.Parameters[3];
 
     if (IsFakePlayer(Selector.text)) {
       let FE = new FakeEntity();

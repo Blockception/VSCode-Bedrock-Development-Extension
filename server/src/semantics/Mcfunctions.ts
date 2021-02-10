@@ -75,9 +75,9 @@ export function McfunctionLineTokens(line: string, cursor: number, offset: numbe
 }
 
 function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBuilder): void {
-  if (Command.Paramaters.length == 0) return;
+  if (Command.Parameters.length == 0) return;
 
-  let First = Command.Paramaters[0];
+  let First = Command.Parameters[0];
   Builder.AddWord(First, SemanticTokensEnum.class);
   let Matches = Command.GetCommandData();
   let Match;
@@ -86,12 +86,12 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
 
   Match = Matches[0];
 
-  let Max = Command.Paramaters.length;
+  let Max = Command.Parameters.length;
   if (Match.Command.parameters.length < Max) Max = Match.Command.parameters.length;
 
   for (let I = 1; I < Max; I++) {
     let Data = Match.Command.parameters[I];
-    let Word = Command.Paramaters[I];
+    let Word = Command.Parameters[I];
 
     switch (Data.Type) {
       case MCCommandParameterType.command:

@@ -93,12 +93,12 @@ export class CommandManager {
 export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
   let Limit = pattern.parameters.length;
 
-  if (Limit > com.Paramaters.length) {
-    Limit = com.Paramaters.length;
+  if (Limit > com.Parameters.length) {
+    Limit = com.Parameters.length;
   }
 
   for (let I = 0; I < Limit; I++) {
-    let comPar = com.Paramaters[I];
+    let comPar = com.Parameters[I];
     let comText = comPar.text;
     let patPar = pattern.parameters[I];
 
