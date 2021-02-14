@@ -1,4 +1,7 @@
 # Changelog 
+- auto: Updated dependecies
+- auto: Formatted typescript files
+- Updated changelog
 - Added create project commands
 - Fixing finding context
 - Update to 1.5.22
@@ -16,6 +19,3 @@
 - auto: Formatted json files
 - Updated to 1.5.20
 - Updated to 1.5.19
-- Fixed infinite loop
-- Compressed schema's
-- Removed unnesscary schemas
