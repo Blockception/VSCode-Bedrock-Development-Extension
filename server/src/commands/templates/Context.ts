@@ -35,7 +35,7 @@ export interface Context {
   BehaviorPack: string;
   ResourcePack: string;
   WorldFolder: string;
-  WorkFolder : string;
+  WorkFolder: string;
 }
 
 export function GetContext(): Context | undefined {
@@ -63,8 +63,7 @@ function Convert(Data: ProjectData): Context | undefined {
     } else if (Data.Workspaces.length > 0) {
       Base = decodeURI(Data.Workspaces[0]);
     }
-  }
-  else if (Data.Workspaces.length > 0) {
+  } else if (Data.Workspaces.length > 0) {
     Base = decodeURI(Data.Workspaces[0]);
   }
 

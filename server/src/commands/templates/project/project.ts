@@ -27,67 +27,67 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { templates } from '../../include';
-import { TemplateBuilder } from '../Builder';
+import { templates } from "../../include";
+import { TemplateBuilder } from "../Builder";
 import { Context } from "../Context";
 import * as path from "path";
 
 /**
- * 
- * @param ID 
- * @param Context 
- * @param Builder 
+ *
+ * @param ID
+ * @param Context
+ * @param Builder
  */
 export function create_world_project(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	var Folder = path.join(Context.WorkFolder, "world");
+  var Folder = path.join(Context.WorkFolder, "world");
 
-	var NewContext : Context = {
-		WorkFolder:Context.WorkFolder,
-		BehaviorPack:path.join(Folder, "behavior_packs", ID + "-BP"),
-		ResourcePack:path.join(Folder, "resource_packs", ID + "-RP"),
-		WorldFolder:Folder
-	}
+  var NewContext: Context = {
+    WorkFolder: Context.WorkFolder,
+    BehaviorPack: path.join(Folder, "behavior_packs", ID + "-BP"),
+    ResourcePack: path.join(Folder, "resource_packs", ID + "-RP"),
+    WorldFolder: Folder,
+  };
 
-	//create world manifest
-	templates.world.create_manifest_file(NewContext, Builder);
-	templates.behavior_pack.create_manifest_file(NewContext, Builder);
-	templates.resource_pack.create_manifest_file(NewContext, Builder);
+  //create world manifest
+  templates.world.create_manifest_file(NewContext, Builder);
+  templates.behavior_pack.create_manifest_file(NewContext, Builder);
+  templates.resource_pack.create_manifest_file(NewContext, Builder);
 }
 
 /**
- * 
- * @param ID 
- * @param Context 
- * @param Builder 
+ *
+ * @param ID
+ * @param Context
+ * @param Builder
  */
 export function create_behaviorpack(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	var Folder = path.join(Context.WorkFolder, ID + "-BP");
+  var Folder = path.join(Context.WorkFolder, ID + "-BP");
 
-	var NewContext : Context = {
-		WorkFolder:Context.WorkFolder,
-		BehaviorPack:Folder,
-		ResourcePack:Folder,
-		WorldFolder:Context.WorldFolder
-	}
+  var NewContext: Context = {
+    WorkFolder: Context.WorkFolder,
+    BehaviorPack: Folder,
+    ResourcePack: Folder,
+    WorldFolder: Context.WorldFolder,
+  };
 
-	templates.behavior_pack.create_manifest_file(NewContext, Builder);
+  templates.behavior_pack.create_manifest_file(NewContext, Builder);
 }
 
 /**
- * 
- * @param ID 
- * @param Context 
- * @param Builder 
+ *
+ * @param ID
+ * @param Context
+ * @param Builder
  */
 export function create_resourcepack(ID: string, Context: Context, Builder: TemplateBuilder): void {
-	var Folder = path.join(Context.WorkFolder, ID + "-RP");
+  var Folder = path.join(Context.WorkFolder, ID + "-RP");
 
-	var NewContext : Context = {
-		WorkFolder:Context.WorkFolder,
-		BehaviorPack:Folder,
-		ResourcePack:Folder,
-		WorldFolder:Context.WorldFolder
-	}
+  var NewContext: Context = {
+    WorkFolder: Context.WorkFolder,
+    BehaviorPack: Folder,
+    ResourcePack: Folder,
+    WorldFolder: Context.WorldFolder,
+  };
 
-	templates.resource_pack.create_manifest_file(NewContext, Builder);
+  templates.resource_pack.create_manifest_file(NewContext, Builder);
 }
