@@ -63,6 +63,9 @@ function Convert(Data: ProjectData): Context | undefined {
       Base = decodeURI(Data.Workspaces[0]);
     }
   }
+  else if (Data.Workspaces.length > 0) {
+    Base = decodeURI(Data.Workspaces[0]);
+  }
 
   let WP: string | undefined;
   let BP: string | undefined;
