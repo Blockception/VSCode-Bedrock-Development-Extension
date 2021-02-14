@@ -1,4 +1,7 @@
 # Changelog 
+- Added create project commands
+- Fixing finding context
+- Update to 1.5.22
 - Updated schemas
 - Paramaters -> Parameters
 - Updated to 1.5.21
@@ -16,6 +19,3 @@
 - Fixed infinite loop
 - Compressed schema's
 - Removed unnesscary schemas
-- Added entity family parsing
-- Updated to 1.5.18
-- Updated handling of ~~~
