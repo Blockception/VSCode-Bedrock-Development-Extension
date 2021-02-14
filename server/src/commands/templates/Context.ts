@@ -35,6 +35,7 @@ export interface Context {
   BehaviorPack: string;
   ResourcePack: string;
   WorldFolder: string;
+  WorkFolder : string;
 }
 
 export function GetContext(): Context | undefined {
@@ -107,7 +108,7 @@ function Convert(Data: ProjectData): Context | undefined {
     RP = Base + "resource_packs/missing_RP/";
   }
 
-  let Context: Context = { BehaviorPack: BP, ResourcePack: RP, WorldFolder: WP };
+  let Context: Context = { BehaviorPack: BP, ResourcePack: RP, WorldFolder: WP, WorkFolder: Base };
 
   return Context;
 }

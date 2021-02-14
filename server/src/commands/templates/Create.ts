@@ -67,6 +67,11 @@ function Initialize(): CommandManager {
     Function(params, templates.world.create_manifest_file);
   };
 
+  //Project
+  Out[Commands.Create.Project.WorldProject] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.project.create_world_project);
+  Out[Commands.Create.Project.Resourcepack] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.project.create_resourcepack);
+  Out[Commands.Create.Project.Behaviorpack] = (params: ExecuteCommandParams) => FunctionWithID(params, templates.project.create_behaviorpack);
+
   //Behavior pack
   Out[Commands.Create.Behaviorpack.Animation_Controller] = (params: ExecuteCommandParams) =>
     FunctionWithID(params, templates.behavior_pack.create_animation_controller_file);

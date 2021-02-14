@@ -52,6 +52,8 @@ const RenderControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: ""
 const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
 const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
 
+const ProjectID: IDExample = { ID: /^[A-Z]+$/, example: "EP" };
+
 export function Activate(context: ExtensionContext): void {
   console.log("registering create commands");
 
@@ -59,6 +61,11 @@ export function Activate(context: ExtensionContext): void {
   CreateID(context, Commands.Create.General.Entity, "Create Entity", EntityID);
   Create(context, Commands.Create.General.Languages, "Create Languages");
   Create(context, Commands.Create.General.Manifests, "Create Manifests");
+
+  //Project
+  CreateID(context, Commands.Create.Project.WorldProject, "Create World, BP, RP project", ProjectID);
+  CreateID(context, Commands.Create.Project.Resourcepack, "Create BP", ProjectID);
+  CreateID(context, Commands.Create.Project.Behaviorpack, "Create RP", ProjectID);
 
   //Behavior pack
   CreateID(context, Commands.Create.Behaviorpack.Animation_Controller, "Create animation controller", AnimationControllerID);

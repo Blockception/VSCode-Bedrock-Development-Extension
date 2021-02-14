@@ -62,6 +62,17 @@ export namespace Commands {
       export const Manifests: string = Base + "manifest-all";
     }
 
+    export namespace Project {
+      const PPBase = Base + "project-";
+
+      /**The command to create world project */
+      export const WorldProject: string = PPBase + "world";
+      /**The command to create resourcepack */
+      export const Resourcepack: string = PPBase + "resource-pack";
+      /**The command to create behaviorpack */
+      export const Behaviorpack: string = PPBase + "behavior-pack";
+    }
+
     /**The namespace that stores all Behavior pack creation commands */
     export namespace Behaviorpack {
       const BPBase = Base + "behavior_pack-";

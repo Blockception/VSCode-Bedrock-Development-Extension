@@ -140,6 +140,24 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Create world project",
+        "command": "bc-create-project-world",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Create behavior pack project",
+        "command": "bc-create-project-behavior-pack",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Create resource pack project",
+        "command": "bc-create-project-resource-pack",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "Behavior Pack: Create animation controllers file",
         "command": "bc-create-behavior_pack-animation_controllers",
         "category": "Blockception",
