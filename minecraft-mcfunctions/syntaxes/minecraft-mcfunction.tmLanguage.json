@@ -198,6 +198,7 @@
         { "name": "entity.name.type.class.function", "match": "\\bfunction\\b" },
         { "name": "entity.name.type.class.gamemode", "match": "\\bgamemode\\b" },
         { "name": "entity.name.type.class.gamerule", "match": "\\bgamerule\\b" },
+        { "name": "entity.name.type.class.hide", "match": "\\bhide\\b" },
         { "name": "entity.name.type.class.give", "match": "\\bgive\\b" },
         { "name": "entity.name.type.class.kill", "match": "\\bkill\\b" },
         { "name": "entity.name.type.class.list", "match": "\\blist\\b" },
