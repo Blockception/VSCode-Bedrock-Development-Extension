@@ -1,4 +1,6 @@
 # Changelog 
+- Updates settings
+- Updated to 1.5.23
 - auto: Updated dependecies
 - auto: Formatted typescript files
 - Updated changelog
@@ -17,5 +19,3 @@
 - Updated submodule
 - auto: Formatted typescript files
 - auto: Formatted json files
-- Updated to 1.5.20
-- Updated to 1.5.19
