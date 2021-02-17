@@ -1,4 +1,6 @@
 # Changelog 
+- Updated formatter
+- Updated to 1.5.23
 - Updates settings
 - Updated to 1.5.23
 - auto: Updated dependecies
@@ -17,5 +19,3 @@
 - Added biomes schema
 - Added biome and features_rules folder
 - Updated submodule
-- auto: Formatted typescript files
-- auto: Formatted json files
