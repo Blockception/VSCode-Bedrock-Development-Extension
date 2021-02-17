@@ -36,7 +36,7 @@ export function Replace(line: string, oldText: string, newText: string, lineInde
     let R = Range.create(lineIndex, Index, lineIndex, Index + oldText.length);
     receiver.push(TextEdit.replace(R, newText));
 
-    Index = line.indexOf(oldText, Index);
+    Index = line.indexOf(oldText, Index + 1);
   }
 }
 
