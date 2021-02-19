@@ -1,4 +1,6 @@
 # Changelog 
+- Fixed Minecraft:entity_sensor
+- Updated to 1.5.26
 - Updated formatter
 - Updated to 1.5.23
 - Updates settings
@@ -17,5 +19,3 @@
 - Updated
 - auto: generated schemas
 - Added biomes schema
-- Added biome and features_rules folder
-- Updated submodule
