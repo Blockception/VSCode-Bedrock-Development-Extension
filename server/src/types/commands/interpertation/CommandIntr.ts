@@ -27,8 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver-textdocument";
-import { LocationWord } from "../../../code/words/include";
+import { Range } from "../../../code/Range";
+import { CreateMinecraftCommandWords } from "../../../commands/Words";
 import { Manager } from "../../../manager/Manager";
 import { CommandInfo } from "../info/CommandInfo";
 import { MCCommandParameterType } from "../parameter/include";
@@ -59,34 +61,30 @@ export class CommandIntr {
   static parse(line: string, cursor: Position, uri: string, startPos: Position | undefined = undefined): CommandIntr {
     let Out = new CommandIntr();
 
-    let charOffset = 0;
-    let LineIndex = 0;
-
-    if (startPos) {
-      charOffset = startPos.character;
-      LineIndex = startPos.line;
-    } else {
-      LineIndex = cursor.line;
+    if (!startPos) {
+      startPos = { character: 0, line: 0 };
     }
 
     line = line.trim();
 
-    let Words = LocationWord.GetWords(line, LineIndex, uri, charOffset);
+    let Words = LocationWord.Text.Parse(line, uri, CreateMinecraftCommandWords, startPos);
     let char = cursor.character;
-    Out.Line = LineIndex;
+
+    Out.Line = startPos.line;
     Out.Parameters = Words;
 
     if (Out.Parameters.length > 0) {
-      if (Out.Parameters[Out.Parameters.length - 1].range.end.character < char) {
+      if (Out.Parameters[Out.Parameters.length - 1].location.range.end.character < char) {
         Out.CursorParamater = Out.Parameters.length;
       } else {
         for (let I = 0; I < Out.Parameters.length; I++) {
           let x = Out.Parameters[I];
+          let r = x.location.range;
 
-          if (x.CheckCursor(char)) {
+          if (Range.Within(r, cursor)) {
             Out.CursorParamater = I;
             break;
-          } else if (char > x.range.end.character) {
+          } else if (r.end.character < char) {
             Out.CursorParamater = I + 1;
           }
         }
@@ -146,12 +144,12 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
       if (command.Parameters.length < 12) return undefined;
 
       //if cursor is on the sub command and not the execute command
-      if (character >= command.Parameters[11].range.start.character) {
+      if (character >= command.Parameters[11].location.range.start.character) {
         return command.slice(11);
       }
     } else {
       //if cursor is on the sub command and not the execute command
-      if (character >= command.Parameters[5].range.start.character) {
+      if (character >= command.Parameters[5].location.range.start.character) {
         return command.slice(5);
       }
     }

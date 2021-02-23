@@ -42,7 +42,7 @@ export function ProcessTagCommand(Com: CommandIntr, doc: TextDocument): void {
 
   let Data = new Tag();
   Data.Identifier = tag.text;
-  Data.Location = tag.CreateLocation();
+  Data.Location = tag.location;
 
   let Comment = GetComment(getLine(doc, Com.Line));
 

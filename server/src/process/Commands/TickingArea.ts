@@ -53,19 +53,19 @@ function ProcessCircleCommand(Command: CommandIntr): void {
 
   let Area = "x: " + Parameters[3].text + "y: " + Parameters[4].text + "z: " + Parameters[5].text + "; radius: " + Parameters[6].text;
   let Name = "";
-  const uri = Command.Parameters[0].uri;
+  const uri = Command.Parameters[0].location.uri;
 
   let Location: Location;
 
   if (Parameters.length > 7) {
     Name = Parameters[7].text;
-    Location = Parameters[7].CreateLocation();
+    Location = Parameters[7].location;
   } else {
     Location = {
       uri: uri,
       range: {
-        start: Parameters[3].range.start,
-        end: Parameters[6].range.end,
+        start: Parameters[3].location.range.start,
+        end: Parameters[6].location.range.end,
       },
     };
   }
@@ -82,19 +82,19 @@ function ProcessBoxCommand(Command: CommandIntr): void {
   let Area = "x: " + Parameters[2].text + "y: " + Parameters[3].text + "z: " + Parameters[4].text + ";";
   Area += "x: " + Parameters[5].text + "y: " + Parameters[6].text + "z: " + Parameters[7].text + ";";
   let Name = "";
-  const uri = Command.Parameters[0].uri;
+  const uri = Command.Parameters[0].location.uri;
 
   let Location: Location;
 
   if (Parameters.length > 8) {
     Name = Parameters[8].text;
-    Location = Parameters[8].CreateLocation();
+    Location = Parameters[8].location;
   } else {
     Location = {
       uri: uri,
       range: {
-        start: Parameters[2].range.start,
-        end: Parameters[7].range.end,
+        start: Parameters[2].location.range.start,
+        end: Parameters[7].location.range.end,
       },
     };
   }

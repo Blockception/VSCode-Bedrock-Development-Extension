@@ -27,32 +27,38 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
+import { DiagnosticSeverity } from "vscode-languageserver";
 import { Range } from "vscode-languageserver-textdocument";
+import { DiagnosticsBuilder } from "./Builder";
 
-export function NewError(receiver: Diagnostic[], Line: number, start: number, end: number, message: string) {
-  receiver.push({
-    message: message,
-    severity: DiagnosticSeverity.Error,
-    range: {
-      start: { character: start, line: Line },
-      end: { character: end, line: Line },
-    },
-  });
+/**
+ * @deprecated Use the builder normally
+ * @param builder
+ * @param Line
+ * @param start
+ * @param end
+ * @param message
+ */
+export function NewError(builder: DiagnosticsBuilder, Line: number, start: number, end: number, message: string) {
+  builder.Add(message, { start: { character: start, line: Line }, end: { character: end, line: Line } });
 }
 
-export function NewError2(receiver: Diagnostic[], range: Range, message: string) {
-  receiver.push({
-    message: message,
-    severity: DiagnosticSeverity.Error,
-    range: range,
-  });
+/**
+ * * @deprecated Use the builder normally
+ * @param builder
+ * @param range
+ * @param message
+ */
+export function NewError2(builder: DiagnosticsBuilder, range: Range, message: string) {
+  builder.Add(message, range);
 }
 
-export function NewWarning(receiver: Diagnostic[], range: Range, message: string) {
-  receiver.push({
-    message: message,
-    severity: DiagnosticSeverity.Warning,
-    range: range,
-  });
+/**
+ ** @deprecated Use the builder normally
+ * @param builder
+ * @param range
+ * @param message
+ */
+export function NewWarning(builder: DiagnosticsBuilder, range: Range, message: string) {
+  builder.Add(message, range, DiagnosticSeverity.Warning);
 }

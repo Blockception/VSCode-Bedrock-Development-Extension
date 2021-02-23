@@ -28,12 +28,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
+import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../database/include";
 import { NewError2 } from "../../../diagnostics/include";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseSound(word: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseSound(word: LocationWord, builder: DiagnosticsBuilder): void {
   if (!Database.Data.General.Sounds.HasID(word.text)) {
-    NewError2(receiver, word.range, `Unknown sound id. Doesn't seems to be defined: '${word.text}'`);
+    builder.AddWord(word, `Unknown sound id. Doesn't seems to be defined: '${word.text}'`);
   }
 }

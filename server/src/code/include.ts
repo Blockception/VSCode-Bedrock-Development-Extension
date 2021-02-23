@@ -1,6 +1,5 @@
 /*	Auto generated	*/
 export * as json from "./json/include";
-export * as words from "./words/include";
 export * from "./Array";
 export * from "./Character";
 export * from "./Document";

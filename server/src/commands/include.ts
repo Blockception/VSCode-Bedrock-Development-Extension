@@ -4,3 +4,4 @@ export * from "./Diagnose Project";
 export * from "./import errors";
 export * from "./OnRequest";
 export * from "../types/commands/Process";
+export * from "./Words";

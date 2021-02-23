@@ -27,9 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { OffsetWord } from "bc-vscode-words";
 import { SemanticTokens, SemanticTokensBuilder } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { OffsetWord } from "../../code/words/OffsetWord";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../include";
 
 export class JsonSemanticTokensBuilder {

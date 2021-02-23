@@ -27,9 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { LocationWord } from "../../code/words/include";
 import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../../process/Commands/include";
 import { ProcessTagCommand } from "../../process/Commands/Tag";
 import { CommandIntr, GetSubCommand } from "./interpertation/include";
@@ -60,5 +60,5 @@ export function ProcessCommand(Line: string, Start: Position, document: TextDocu
 }
 
 export function ProcessWord(Word: LocationWord, document: TextDocument): void {
-  return ProcessCommand(Word.text, Word.range.start, document);
+  return ProcessCommand(Word.text, Word.location.range.start, document);
 }

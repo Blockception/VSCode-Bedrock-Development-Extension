@@ -27,9 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { LocationWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { LocationWord } from "../../code/words/include";
 import { IsMolang } from "../include";
 
 export class DataCollector {
@@ -73,12 +73,12 @@ export namespace DataCollector {
 
         if (property.startsWith("/")) {
           range.start.character += 1;
-          Out.Command.push(new LocationWord(property.substring(1), range, doc.uri));
+          Out.Command.push(new LocationWord(property.substring(1), doc.uri, range));
         } else if (property.startsWith("@s ")) {
           range.start.character += 3;
-          Out.Events.push(new LocationWord(property.substring(3), range, doc.uri));
+          Out.Events.push(new LocationWord(property.substring(3), doc.uri, range));
         } else {
-          Out.Molang.push(new LocationWord(property, range, doc.uri));
+          Out.Molang.push(new LocationWord(property, doc.uri, range));
         }
       }
     }

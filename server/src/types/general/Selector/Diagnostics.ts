@@ -27,8 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
+import { LocationWord, RangedWord } from "bc-vscode-words";
 import { Database } from "../../../database/include";
 import { NewError2, NewWarning } from "../../../diagnostics/include";
 import { IsRangeInteger, IsRangeNumber } from "../../../process/Range";
@@ -37,6 +36,9 @@ import { MCCommandParameter } from "../../commands/parameter/include";
 import { IsFloat } from "../Float/include";
 import { IsInteger } from "../Integer/include";
 import { IScoreParameter, Selector } from "./Selector";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
+import { DiagnosticSeverity } from "vscode-languageserver";
+import { parameter } from "../../commands/include";
 
 /**
  *
@@ -45,19 +47,19 @@ import { IScoreParameter, Selector } from "./Selector";
  * @param receiver
  * @param validation
  */
-export function ProvideDiagnostics(pattern: MCCommandParameter, data: LocationWord, receiver: Diagnostic[], validation: ValidationData): void {
+export function ProvideDiagnostics(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, validation: ValidationData): void {
   let text = data.text;
 
   if (pattern.Options?.acceptedValues?.includes(data.text)) return;
 
   if (text.startsWith("@")) {
     let selector = Selector.Parse(data);
-    DiagnoseSelector(selector, receiver, pattern.Options?.playerOnly ?? false, validation);
+    DiagnoseSelector(selector, builder, pattern.Options?.playerOnly ?? false, validation);
   } else {
     if (pattern.Options?.allowFakePlayers) {
-      DiagnoseFakePlayer(data, receiver);
+      DiagnoseFakePlayer(data, builder);
     } else {
-      NewError2(receiver, data.range, "Fake players for this parameter are not allowed");
+      builder.AddWord(data, "Fake players for this parameter are not allowed");
     }
   }
 }
@@ -67,7 +69,7 @@ export function ProvideDiagnostics(pattern: MCCommandParameter, data: LocationWo
  * @param data
  * @param receiver
  */
-function DiagnoseFakePlayer(data: LocationWord, receiver: Diagnostic[]): void {
+function DiagnoseFakePlayer(data: LocationWord, builder: DiagnosticsBuilder): void {
   let fakePlayer = data.text;
 
   //Has fake player
@@ -75,11 +77,7 @@ function DiagnoseFakePlayer(data: LocationWord, receiver: Diagnostic[]): void {
     return;
   }
 
-  receiver.push({
-    message: 'Fake player: "' + fakePlayer + '" has not been assigned a value.',
-    range: data.range,
-    severity: DiagnosticSeverity.Error,
-  });
+  builder.AddWord(data, 'Fake player: "' + fakePlayer + '" has not been assigned a value.');
 }
 
 /**
@@ -89,50 +87,52 @@ function DiagnoseFakePlayer(data: LocationWord, receiver: Diagnostic[]): void {
  * @param onlyPlayer
  * @param validation
  */
-function DiagnoseSelector(selector: Selector, receiver: Diagnostic[], onlyPlayer: boolean, validation: ValidationData): void {
+function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyPlayer: boolean, validation: ValidationData): void {
   var HasType = selector.contains("type");
 
   if (onlyPlayer) {
     if (HasType) {
-      NewError2(receiver, selector.Range, "Selector has type definitions but this parameter should only be for players");
+      builder.Add("Selector has type definitions but this parameter should only be for players", selector.Range);
     } else {
       if (selector.Type == Selector.AllEntitiesType) {
-        NewError2(receiver, selector.Range, "Selector is for all entities but this parameter should only be for players");
+        builder.Add("Selector is for all entities but this parameter should only be for players", selector.Range);
       }
     }
   }
 
-  if (IsBox(selector) && IsSphere(selector)) NewError2(receiver, selector.Range, "Selector has both box and sphere definitions");
+  if (IsBox(selector) && IsSphere(selector)) {
+    builder.Add("Selector has both box and sphere definitions", selector.Range);
+  }
 
-  Coordinate("x", selector, receiver);
-  Coordinate("y", selector, receiver);
-  Coordinate("z", selector, receiver);
-  Coordinate("dx", selector, receiver);
-  Coordinate("dy", selector, receiver);
-  Coordinate("dz", selector, receiver);
-  Coordinate("rx", selector, receiver);
-  Coordinate("rxm", selector, receiver);
-  Coordinate("ry", selector, receiver);
-  Coordinate("rym", selector, receiver);
+  Coordinate("x", selector, builder);
+  Coordinate("y", selector, builder);
+  Coordinate("z", selector, builder);
+  Coordinate("dx", selector, builder);
+  Coordinate("dy", selector, builder);
+  Coordinate("dz", selector, builder);
+  Coordinate("rx", selector, builder);
+  Coordinate("rxm", selector, builder);
+  Coordinate("ry", selector, builder);
+  Coordinate("rym", selector, builder);
 
-  Number("c", selector, receiver);
+  Number("c", selector, builder);
 
-  Range("l", selector, receiver);
-  Range("lm", selector, receiver);
+  Range("l", selector, builder);
+  Range("lm", selector, builder);
 
   //Family attribute is allowed multiple tests
-  OnlyPositiveOrMultipleNegatives("m", selector, receiver);
-  OnlyPositiveOrMultipleNegatives("name", selector, receiver);
-  OnlyPositiveOrMultipleNegatives("type", selector, receiver);
+  OnlyPositiveOrMultipleNegatives("m", selector, builder);
+  OnlyPositiveOrMultipleNegatives("name", selector, builder);
+  OnlyPositiveOrMultipleNegatives("type", selector, builder);
 
-  AllPositivesAndNegatives("family", selector, receiver);
-  AllPositivesAndNegatives("tag", selector, receiver);
-  ScoresCheck(selector, receiver, validation);
+  AllPositivesAndNegatives("family", selector, builder);
+  AllPositivesAndNegatives("tag", selector, builder);
+  ScoresCheck(selector, builder, validation);
 
   for (let index = 0; index < selector.Parameters.length; index++) {
     const element = selector.Parameters[index];
 
-    switch (element.Name) {
+    switch (element.Name.text) {
       case "c":
       case "dx":
       case "dy":
@@ -157,7 +157,7 @@ function DiagnoseSelector(selector: Selector, receiver: Diagnostic[], onlyPlayer
         continue;
 
       default:
-        NewError2(receiver, element.Range, "Illegal selector attribute " + element.Name);
+        builder.AddWord(element.Name, "Illegal selector attribute " + element.Name.text);
     }
   }
 }
@@ -168,11 +168,11 @@ function DiagnoseSelector(selector: Selector, receiver: Diagnostic[], onlyPlayer
  * @param selector
  * @param receiver
  */
-function NoDuplicates(name: string, selector: Selector, receiver: Diagnostic[]): void {
+function NoDuplicates(name: string, selector: Selector, builder: DiagnosticsBuilder): void {
   var Count = selector.count(name);
 
   if (Count > 1) {
-    NewError2(receiver, selector.Range, 'Parameter: "' + name + '" can only be used once in a selector');
+    builder.Add('Parameter: "' + name + '" can only be used once in a selector', selector.Range);
   }
 }
 
@@ -182,7 +182,7 @@ function NoDuplicates(name: string, selector: Selector, receiver: Diagnostic[]):
  * @param selector
  * @param receiver
  */
-function OnlyPositiveOrMultipleNegatives(name: string, selector: Selector, receiver: Diagnostic[]): void {
+function OnlyPositiveOrMultipleNegatives(name: string, selector: Selector, builder: DiagnosticsBuilder): void {
   var Parameters = selector.get(name);
 
   if (Array.isArray(Parameters)) {
@@ -193,11 +193,11 @@ function OnlyPositiveOrMultipleNegatives(name: string, selector: Selector, recei
     for (let index = 0; index < Parameters.length; index++) {
       const element = Parameters[index];
 
-      if (element.Value.startsWith("!")) Negatives++;
+      if (element.Value.text.startsWith("!")) Negatives++;
     }
 
     if (Negatives != Parameters.length) {
-      NewError2(receiver, selector.Range, 'Parameter: "' + name + '" can only have a positive test or multiple negatives test');
+      builder.Add('Parameter: "' + name + '" can only have a positive test or multiple negatives test', selector.Range);
     }
   }
 }
@@ -208,7 +208,7 @@ function OnlyPositiveOrMultipleNegatives(name: string, selector: Selector, recei
  * @param selector
  * @param receiver
  */
-function OnlyPositiveAndMultipleNegatives(name: string, selector: Selector, receiver: Diagnostic[]): void {
+function OnlyPositiveAndMultipleNegatives(name: string, selector: Selector, builder: DiagnosticsBuilder): void {
   var Parameters = selector.get(name);
 
   if (Array.isArray(Parameters)) {
@@ -219,11 +219,11 @@ function OnlyPositiveAndMultipleNegatives(name: string, selector: Selector, rece
     for (let index = 0; index < Parameters.length; index++) {
       const element = Parameters[index];
 
-      if (element.Value.startsWith("!")) Negatives++;
+      if (element.Value.text.startsWith("!")) Negatives++;
     }
 
     if (Negatives != Parameters.length - 1) {
-      NewError2(receiver, selector.Range, 'Parameter: "' + name + '" can only have 1 positive test or/and multiple negatives test');
+      builder.Add('Parameter: "' + name + '" can only have 1 positive test or/and multiple negatives test', selector.Range);
     }
   }
 }
@@ -234,7 +234,7 @@ function OnlyPositiveAndMultipleNegatives(name: string, selector: Selector, rece
  * @param selector
  * @param receiver
  */
-function AllPositivesAndNegatives(name: string, selector: Selector, receiver: Diagnostic[]): void {
+function AllPositivesAndNegatives(name: string, selector: Selector, builder: DiagnosticsBuilder): void {
   var Parameters = selector.get(name);
 
   if (Array.isArray(Parameters)) {
@@ -246,7 +246,8 @@ function AllPositivesAndNegatives(name: string, selector: Selector, receiver: Di
       for (let J = I + 1; J < Parameters.length; J++) {
         const second = Parameters[J];
 
-        if (first.Value == second.Value) NewWarning(receiver, second.Range, 'duplicate test statement found for: "' + name + '"');
+        if (first.Value == second.Value)
+          builder.AddWord(second.Name, 'duplicate test statement found for: "' + name + '"', DiagnosticSeverity.Warning);
       }
     }
   }
@@ -258,8 +259,8 @@ function AllPositivesAndNegatives(name: string, selector: Selector, receiver: Di
  * @param selector
  * @param receiver
  */
-function Coordinate(name: string, selector: Selector, receiver: Diagnostic[]): void {
-  NoDuplicates(name, selector, receiver);
+function Coordinate(name: string, selector: Selector, builder: DiagnosticsBuilder): void {
+  NoDuplicates(name, selector, builder);
 
   var Parameter = selector.get(name);
 
@@ -270,8 +271,8 @@ function Coordinate(name: string, selector: Selector, receiver: Diagnostic[]): v
 
   let value = Parameter.Value;
 
-  if (value.startsWith("^"))
-    NewError2(receiver, Parameter.Range, 'Parameter: "' + name + '" cannot be a local coordinate, only relative or absolute');
+  if (value.text.startsWith("^"))
+    builder.AddWord(Parameter.Value, 'Parameter: "' + name + '" cannot be a local coordinate, only relative or absolute');
 }
 
 /**
@@ -303,8 +304,8 @@ function IsSphere(selector: Selector): boolean {
  * @param selector
  * @param receiver
  */
-function Number(name: string, selector: Selector, receiver: Diagnostic[]) {
-  NoDuplicates(name, selector, receiver);
+function Number(name: string, selector: Selector, builder: DiagnosticsBuilder) {
+  NoDuplicates(name, selector, builder);
 
   var Parameters = selector.get(name);
 
@@ -316,13 +317,13 @@ function Number(name: string, selector: Selector, receiver: Diagnostic[]) {
   let Value = Parameters.Value;
   let NegativeTest = false;
 
-  if (Value.startsWith("!")) {
+  if (Value.text.startsWith("!")) {
     NegativeTest = true;
-    Value = Value.substring(1);
+    Value = new RangedWord(Value.text.substring(1), Value.range);
   }
 
-  if (!IsFloat(Value)) {
-    NewError2(receiver, Parameters.Range, 'Parameter: "' + name + '" must be valid a number/float');
+  if (!IsFloat(Value.text)) {
+    builder.AddWord(Value, 'Parameter: "' + name + '" must be valid a number/float');
   }
 }
 
@@ -332,8 +333,8 @@ function Number(name: string, selector: Selector, receiver: Diagnostic[]) {
  * @param selector
  * @param receiver
  */
-function Range(name: string, selector: Selector, receiver: Diagnostic[]) {
-  NoDuplicates(name, selector, receiver);
+function Range(name: string, selector: Selector, builder: DiagnosticsBuilder) {
+  NoDuplicates(name, selector, builder);
 
   var Parameters = selector.get(name);
 
@@ -345,16 +346,16 @@ function Range(name: string, selector: Selector, receiver: Diagnostic[]) {
   let Value = Parameters.Value;
   let NegativeTest = false;
 
-  if (Value.startsWith("!")) {
+  if (Value.text.startsWith("!")) {
     NegativeTest = true;
-    Value = Value.substring(1);
+    Value = new RangedWord(Value.text.substring(1), Value.range);
   }
 
-  if (IsRangeNumber(Value)) {
+  if (IsRangeNumber(Value.text)) {
     return;
   } else {
-    if (!IsFloat(Value)) {
-      NewError2(receiver, Parameters.Range, 'Parameter: "' + name + '" must be valid a number/float/range');
+    if (!IsFloat(Value.text)) {
+      builder.AddWord(Value, 'Parameter: "' + name + '" must be valid a number/float/range');
     }
   }
 }
@@ -365,14 +366,14 @@ function Range(name: string, selector: Selector, receiver: Diagnostic[]) {
  * @param receiver
  * @param validation
  */
-function ScoresCheck(selector: Selector, receiver: Diagnostic[], validation: ValidationData): void {
+function ScoresCheck(selector: Selector, builder: DiagnosticsBuilder, validation: ValidationData): void {
   let Parameter = selector.get("scores");
 
   if (Array.isArray(Parameter)) {
     if (Parameter.length == 0) return;
 
     if (Parameter.length > 1) {
-      NewError2(receiver, selector.Range, "Selector has multiple scores definitions, but can only have 1");
+      builder.Add("Selector has multiple scores definitions, but can only have 1", selector.Range);
     }
 
     Parameter = Parameter[0];
@@ -389,22 +390,22 @@ function ScoresCheck(selector: Selector, receiver: Diagnostic[], validation: Val
     let Value = Score.Value;
     let NegativeTest = false;
 
-    if (Value.startsWith("!")) {
+    if (Value.text.startsWith("!")) {
       NegativeTest = true;
-      Value = Value.substring(1);
+      Value = new RangedWord(Value.text.substring(1), Value.range);
     }
 
-    if (!(IsRangeInteger(Value) || IsInteger(Value))) {
-      NewError2(receiver, Score.Range, `Not a valid range or integer: ${Score.Name}=${Score.Value}`);
+    if (!(IsRangeInteger(Value.text) || IsInteger(Value.text))) {
+      builder.AddWord(Value, `Not a valid range or integer: ${Score.Name}=${Score.Value}`);
     }
 
-    if (validation.objectives?.valid?.includes(Score.Name)) {
+    if (validation.objectives?.valid?.includes(Score.Name.text)) {
       continue;
-    } else if (validation.objectives?.invalid?.includes(Score.Name)) {
-      NewError2(receiver, Score.Range, `Score: ${Score.Name} has been marked as invalid`);
+    } else if (validation.objectives?.invalid?.includes(Score.Name.text)) {
+      builder.AddWord(Score.Name, `Score: ${Score.Name} has been marked as invalid`);
     } else {
-      if (!Database.Data.General.Objectives.HasID(Score.Name)) {
-        NewError2(receiver, Score.Range, `No valid definition of ${Score.Name} has been found.`);
+      if (!Database.Data.General.Objectives.HasID(Score.Name.text)) {
+        builder.AddWord(Score.Name, `No valid definition of ${Score.Name} has been found.`);
       }
     }
   }

@@ -28,9 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver/node";
+import { Diagnostic, DiagnosticSeverity, Range } from "vscode-languageserver/node";
 import { getLine } from "../../../../code/include";
 import { Database } from "../../../../database/include";
+import { DiagnosticsBuilder } from "../../../../diagnostics/Builder";
 import { Manager } from "../../../../manager/Manager";
 import { ValidationData, GetValidationData } from "../../../../validation/include";
 import { DiagnoseCommand } from "../../../commands/command/include";
@@ -59,14 +60,10 @@ export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
  * @param validation
  */
 export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData) {
-  let receiver: Diagnostic[] = [];
+  let Builder = new DiagnosticsBuilder(doc);
 
   if (doc.lineCount == 0) {
-    receiver.push({
-      range: EmptyTypes.EmptyRange(),
-      message: "Empty mcfunction found, minecraft will not lot this function",
-      severity: DiagnosticSeverity.Error,
-    });
+    Builder.Add("Empty mcfunction found, minecraft will not lot this function");
   }
 
   let line: string = "";
@@ -74,17 +71,13 @@ export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData
   for (let index = 0; index < doc.lineCount; index++) {
     try {
       line = getLine(doc, index);
-      DiagnoseLine(line, index, validation, receiver);
+      DiagnoseLine(line, index, validation, Builder);
     } catch (error) {
-      if (error.message)
-        receiver.push({
-          message: error.message,
-          range: { start: { character: 0, line: index }, end: { character: line.length, line: index } },
-        });
+      if (error.message) Builder.Add(error.message, Range.create(index, 0, line.length, index));
     }
   }
 
-  Database.Diagnotics.SetErrors(doc.uri, receiver);
+  Builder.SendDiagnostics();
 }
 
 /**
@@ -94,7 +87,7 @@ export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData
  * @param validation
  * @param receiver
  */
-export function DiagnoseLine(line: string, lineIndex: number, validation: ValidationData, receiver: Diagnostic[]): void {
+export function DiagnoseLine(line: string, lineIndex: number, validation: ValidationData, builder: DiagnosticsBuilder): void {
   line = line.trim();
 
   if (line === "" || line === "\r\n") return;
@@ -107,11 +100,11 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
 
   if (Command.Parameters.length === 0) return;
 
-  DiagnoseCommand(Command, line, validation, receiver);
+  DiagnoseCommand(Command, line, validation, builder);
 
   let Sub = GetSubCommand(Command);
   while (Sub) {
-    DiagnoseCommand(Sub, line, validation, receiver);
+    DiagnoseCommand(Sub, line, validation, builder);
     Sub = GetSubCommand(Sub);
   }
 }

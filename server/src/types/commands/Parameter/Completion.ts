@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { ItemComponents, RawText } from "../../minecraft/json/include";
 import { provideParticleCompletion } from "../../minecraft/resource/particle/Completion";
-import { LocationWord } from "../../../code/words/include";
+import { LocationWord } from "bc-vscode-words";
 import { provideBlockCompletion } from "../../general/Block/include";
 import { provideBooleanCompletion } from "../../general/Boolean/include";
 import { provideCoordinateCompletion } from "../../general/Coordinate/include";

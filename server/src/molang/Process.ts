@@ -27,8 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { LocationWord } from "bc-vscode-words";
 import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
-import { LocationWord } from "../code/words/include";
 import { commands } from "../include";
 import { DataCollector } from "./files/Data Collector";
 
@@ -46,11 +46,11 @@ export function Process(text: string, Start: Position, doc: TextDocument) {
 export function ProcessInto(text: string, range: Range, doc: TextDocument, receiver: DataCollector) {
   if (text.startsWith("/")) {
     range.start.character += 1;
-    receiver.Command.push(new LocationWord(text.substring(1), range, doc.uri));
+    receiver.Command.push(new LocationWord(text.substring(1), doc.uri, range));
   } else if (text.startsWith("@s ")) {
     range.start.character += 3;
-    receiver.Events.push(new LocationWord(text.substring(3), range, doc.uri));
+    receiver.Events.push(new LocationWord(text.substring(3), doc.uri, range));
   } else {
-    receiver.Molang.push(new LocationWord(text, range, doc.uri));
+    receiver.Molang.push(new LocationWord(text, doc.uri, range));
   }
 }

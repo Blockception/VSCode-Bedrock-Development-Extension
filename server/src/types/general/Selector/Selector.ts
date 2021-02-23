@@ -27,8 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { LocationWord, RangedWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
 
 export class Selector {
   public Range: Range;
@@ -44,7 +44,7 @@ export class Selector {
   contains(parameter: string): boolean {
     for (let index = 0; index < this.Parameters.length; index++) {
       const element = this.Parameters[index];
-      if (element.Name == parameter) return true;
+      if (element.Name.text === parameter) return true;
     }
 
     return false;
@@ -54,14 +54,14 @@ export class Selector {
     let Out = 0;
     for (let index = 0; index < this.Parameters.length; index++) {
       const element = this.Parameters[index];
-      if (element.Name == parameter) Out++;
+      if (element.Name.text === parameter) Out++;
     }
 
     return Out;
   }
 
   get(parameter: string): IParameter[] | IParameter {
-    let Out = this.Parameters.filter((x) => x.Name == parameter);
+    let Out = this.Parameters.filter((x) => x.Name.text === parameter);
 
     if (Out.length == 1) return Out[0];
 
@@ -77,13 +77,13 @@ export namespace Selector {
   export const RandomType = "r";
 
   export function Parse(text: LocationWord): Selector {
-    let Out = new Selector(text.text.substring(1, 2), text.range);
+    let Out = new Selector(text.text.substring(1, 2), text.location.range);
 
     //remove prefix
     let data = text.text.substring(2);
 
     if (data.startsWith("[") && data.endsWith("]")) {
-      var Parameters = ParseParameters(data.substring(1, data.length - 1), text.range.start.character + 3, text.range.start.line);
+      var Parameters = ParseParameters(data.substring(1, data.length - 1), text.location.range.start.character + 3, text.location.range.start.line);
 
       Out.Parameters = Parameters;
     }
@@ -131,9 +131,8 @@ export namespace Selector {
 }
 
 export interface IParameter {
-  Range: Range;
-  Name: string;
-  Value: string;
+  Name: RangedWord;
+  Value: RangedWord;
 }
 
 export namespace IParameter {
@@ -154,24 +153,23 @@ export namespace IParameter {
 
     if (Index < 0) throw new Error("index cannot be lower then 0");
 
-    let Range: Range = { start: { character: startIndex, line: Line }, end: { character: startIndex + text.length, line: Line } };
-    let Name = text.substring(0, Index);
-    let Value = text.substring(Index + 1, text.length);
+    let Name = new RangedWord(text.substring(0, Index).trim(), Range.create(Line, startIndex, Line, startIndex + Index));
+    Index = Index + 1;
+    let Value = new RangedWord(text.substring(Index + 1, text.length), Range.create(Line, Index + startIndex, Line, text.length + startIndex));
 
-    if (Name == "scores") {
+    if (Name.text === "scores") {
       let Scores: IParameter[];
 
-      if (Value.startsWith("{") && Value.endsWith("}") && Value.includes("=")) {
-        Value = Value.substring(1, Value.length - 1);
-        Scores = Selector.ParseParameters(Value, 8 + startIndex, Line);
+      if (Value.text.startsWith("{") && Value.text.endsWith("}") && Value.text.includes("=")) {
+        Value.text = Value.text.substring(1, Value.text.length - 1);
+        Scores = Selector.ParseParameters(Value.text, 8 + startIndex, Line);
       } else {
         Scores = [];
       }
 
       let Out: IScoreParameter = {
         Name: Name,
-        Range: Range,
-        Value: Value.trim(),
+        Value: Value,
         Scores: Scores,
       };
 
@@ -179,8 +177,7 @@ export namespace IParameter {
     } else {
       let Out: IParameter = {
         Name: Name,
-        Range: Range,
-        Value: Value.trim(),
+        Value: Value,
       };
 
       return Out;

@@ -27,8 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-export function GetWords(text: string): string[] {
-  let out: string[] = [];
+import { IBaseWordBuilder } from "bc-vscode-words";
+
+export function CreateMinecraftCommandWords(text: string, Builder: IBaseWordBuilder): void {
   let level = 0;
   let startindex = 0;
   let Instring = false;
@@ -36,37 +37,55 @@ export function GetWords(text: string): string[] {
   for (let index = 0; index < text.length; index++) {
     let c = text.charAt(index);
 
+    //If instring or not
     if (Instring) {
-      if (c == '"') Instring = false;
+      //Is end of string and not escaped?
+      if (c == '"' && text.charAt(index - 1) !== "\\") Instring = false;
     } else {
+      //Switch on character
       switch (c) {
+        //Its a string start
         case '"':
           Instring = true;
           break;
 
+        //Bracket start
         case "[":
         case "(":
         case "{":
-        case "<":
           level++;
           break;
 
+        //Bracket end
         case "]":
         case ")":
         case "}":
-        case ">":
           level--;
           break;
 
+        //Empty spaces
         case " ":
         case "\t":
           if (level == 0) {
             if (startindex < index) {
-              let RW = text.substring(startindex, index).trim();
-              out.push(RW);
+              const word = text.substring(startindex, index).trim();
+              Builder.Add(word, startindex);
             }
 
             startindex = index + 1;
+          }
+          break;
+
+        //Coordinates start
+        case "~":
+        case "^":
+          if (level == 0) {
+            if (startindex < index) {
+              const word = text.substring(startindex, index).trim();
+              Builder.Add(word, startindex);
+            }
+
+            startindex = index;
           }
 
           break;
@@ -79,9 +98,7 @@ export function GetWords(text: string): string[] {
   }
 
   if (startindex < text.length) {
-    let RW = text.substring(startindex, text.length);
-    out.push(RW);
+    const word = text.substring(startindex, text.length).trim();
+    Builder.Add(word, startindex);
   }
-
-  return out;
 }

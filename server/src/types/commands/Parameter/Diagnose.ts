@@ -27,8 +27,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
 import { DiagnoseBlock } from "../../general/Block/Diagnose";
 import { DiagnoseBoolean } from "../../general/Boolean/Diagnose";
 import { DiagnoseEffect } from "../../general/Effect/Diagnose";
@@ -55,18 +53,20 @@ import { DiagnoseSound } from "../../general/Sound/Diagnose";
 import { DiagnoseMode } from "../modes/include";
 import { SlotTypeModes } from "../../general/slot type/slot type";
 import { DiagnoseSlotID } from "../../general/slot id/Diagnose";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
+import { LocationWord } from "bc-vscode-words";
 
 /**Diagnoses the single parameter
  * @param pattern
  * @param data
  * @param validation
- * @param receiver
+ * @param builder
  */
 export function DiagnoseParameter(
   pattern: MCCommandParameter,
   data: LocationWord,
   validation: ValidationData,
-  receiver: Diagnostic[],
+  builder: DiagnosticsBuilder,
   Command: CommandIntr
 ): void {
   if (pattern === undefined || data === undefined) return;
@@ -87,86 +87,86 @@ export function DiagnoseParameter(
 
   switch (pattern.Type) {
     case MCCommandParameterType.block:
-      return DiagnoseBlock(data, receiver);
+      return DiagnoseBlock(data, builder);
 
     case MCCommandParameterType.boolean:
-      return DiagnoseBoolean(data, receiver);
+      return DiagnoseBoolean(data, builder);
 
     case MCCommandParameterType.command:
-      return DiagnoseCommandParameter(data, receiver);
+      return DiagnoseCommandParameter(data, builder);
 
     case MCCommandParameterType.coordinate:
-      return DiagnoseCoordinate(data, receiver);
+      return DiagnoseCoordinate(data, builder);
 
     case MCCommandParameterType.effect:
-      return DiagnoseEffect(data, receiver);
+      return DiagnoseEffect(data, builder);
 
     case MCCommandParameterType.entity:
-      return DiagnoseEntity(data, receiver);
+      return DiagnoseEntity(data, builder);
 
     case MCCommandParameterType.event:
       return; //TODO
 
     case MCCommandParameterType.float:
-      return DiagnoseFloat(data, receiver);
+      return DiagnoseFloat(data, builder);
 
     case MCCommandParameterType.function:
-      return DiagnoseFunctionPath(data, receiver);
+      return DiagnoseFunctionPath(data, builder);
 
     case MCCommandParameterType.gamemode:
-      return DiagnoseGamemode(data, receiver);
+      return DiagnoseGamemode(data, builder);
 
     case MCCommandParameterType.integer:
-      return DiagnoseInteger(data, receiver);
+      return DiagnoseInteger(data, builder);
 
     case MCCommandParameterType.item:
-      return DiagnoseItem(data, receiver);
+      return DiagnoseItem(data, builder);
 
     case MCCommandParameterType.jsonItem:
     case MCCommandParameterType.jsonRawText:
       return;
 
     case MCCommandParameterType.keyword:
-      return DiagnoseKeyword(pattern, data, receiver);
+      return DiagnoseKeyword(pattern, data, builder);
 
     case MCCommandParameterType.locateFeature:
       return;
 
     case MCCommandParameterType.objective:
-      return DiagnoseObjective(data, validation, receiver);
+      return DiagnoseObjective(data, validation, builder);
 
     case MCCommandParameterType.operation:
-      return ProvideOperationDiagnose(data, Command, receiver);
+      return ProvideOperationDiagnose(data, Command, builder);
 
     case MCCommandParameterType.particle:
-      return DiagnoseParticle(data, receiver);
+      return DiagnoseParticle(data, builder);
 
     case MCCommandParameterType.replaceMode:
       return;
 
     case MCCommandParameterType.selector:
-      return Selector.ProvideDiagnostics(pattern, data, receiver, validation);
+      return Selector.ProvideDiagnostics(pattern, data, builder, validation);
 
     case MCCommandParameterType.slotID:
-      return DiagnoseSlotID(data, Command, receiver);
+      return DiagnoseSlotID(data, Command, builder);
 
     case MCCommandParameterType.slotType:
-      return DiagnoseMode(data, SlotTypeModes, receiver);
+      return DiagnoseMode(data, SlotTypeModes, builder);
 
     case MCCommandParameterType.sound:
-      return DiagnoseSound(data, receiver);
+      return DiagnoseSound(data, builder);
 
     case MCCommandParameterType.string:
-      return DiagnoseString(data, receiver);
+      return DiagnoseString(data, builder);
 
     case MCCommandParameterType.tag:
-      return DiagnoseTag(data, validation, receiver);
+      return DiagnoseTag(data, validation, builder);
 
     case MCCommandParameterType.target:
       return;
 
     case MCCommandParameterType.tickingarea:
-      return DiagnoseTickingarea(data, receiver);
+      return DiagnoseTickingarea(data, builder);
 
     case MCCommandParameterType.unknown:
     case MCCommandParameterType.xp:

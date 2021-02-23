@@ -28,9 +28,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
+import { LocationWord } from "bc-vscode-words";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseGamemode(data: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseGamemode(data: LocationWord, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
   switch (text) {
@@ -46,9 +47,5 @@ export function DiagnoseGamemode(data: LocationWord, receiver: Diagnostic[]): vo
       return;
   }
 
-  receiver.push({
-    message: 'Unknown gamemode: "' + text + '"',
-    range: data.range,
-    severity: DiagnosticSeverity.Error,
-  });
+  builder.AddWord(data, 'Unknown gamemode: "' + text + '"');
 }

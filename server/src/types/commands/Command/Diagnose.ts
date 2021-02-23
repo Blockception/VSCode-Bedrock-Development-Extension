@@ -27,8 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
+import { LocationWord } from "bc-vscode-words";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 import { Manager } from "../../../manager/Manager";
 import { ValidationData } from "../../../validation/include";
 import { CommandIntr } from "../interpertation/include";
@@ -41,11 +41,11 @@ import { DiagnoseParameter } from "../parameter/include";
  * @param validation
  * @param receiver
  */
-export function DiagnoseCommand(Command: CommandIntr, line: string, validation: ValidationData, receiver: Diagnostic[]): void {
+export function DiagnoseCommand(Command: CommandIntr, line: string, validation: ValidationData, builder: DiagnosticsBuilder): void {
   let Matches = Command.GetCommandData();
 
   if (Matches.length === 0) {
-    receiver.push({ message: 'Unknown command syntax: "' + line + '"', range: Command.Parameters[0].range });
+    builder.Add('Unknown command syntax: "' + line + '"');
     return;
   }
 
@@ -57,7 +57,7 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, validation: 
   }
 
   for (let I = 0; I < max; I++) {
-    DiagnoseParameter(Data.Command.parameters[I], Command.Parameters[I], validation, receiver, Command);
+    DiagnoseParameter(Data.Command.parameters[I], Command.Parameters[I], validation, builder, Command);
   }
 }
 
@@ -66,14 +66,10 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, validation: 
  * @param data
  * @param receiver
  */
-export function DiagnoseCommandParameter(data: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseCommandParameter(data: LocationWord, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
   if (Manager.Data.Commands.has(text)) return;
 
-  receiver.push({
-    range: data.range,
-    message: 'No command found with text: "' + text + '"',
-    severity: DiagnosticSeverity.Error,
-  });
+  builder.AddWord(data, 'No command found with text: "' + text + '"');
 }

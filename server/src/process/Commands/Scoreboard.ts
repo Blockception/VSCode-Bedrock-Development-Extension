@@ -67,7 +67,7 @@ function CheckObjective(Com: CommandIntr, Comment: string): void {
     let Type = Com.Parameters[4];
     obj.Identifier = ID.text;
     obj.Type = Type.text;
-    obj.Location = ID.CreateLocation();
+    obj.Location = ID.location;
 
     if (Comment === "") {
       obj.Documentation.value = "The objective: " + ID.text + " " + Type.text;
@@ -91,7 +91,7 @@ function CheckPlayer(Com: CommandIntr, Comment: string): void {
       let FE = new FakeEntity();
 
       FE.Identifier = Selector.text;
-      FE.Location = Selector.CreateLocation();
+      FE.Location = Selector.location;
 
       if (Comment !== "") {
         FE.Documentation.value = "The fake player: " + FE.Identifier;

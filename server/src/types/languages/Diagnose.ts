@@ -27,65 +27,67 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from "../../code/include";
-import { Database } from "../../database/include";
 import { Manager } from "../../manager/include";
-import { NewError } from "../../diagnostics/Functions";
+import { DiagnosticsBuilder } from "../../diagnostics/Builder";
+import { getLine } from "../../code/include";
 
 export function provideLanguageDiagnostics(doc: TextDocument) {
   if (!Manager.Settings.useDiagnosticsLanguages) return;
-  let Out: Diagnostic[] = [];
+
+  let builder = new DiagnosticsBuilder(doc);
 
   let Keys = new Array<string>(doc.lineCount);
 
   for (let I = 0; I < doc.lineCount; I++) {
-    let Line = getLine(doc, I).trim();
-
-    let CommentIndex = Line.indexOf("#");
-    if (CommentIndex >= 0) {
-      if (Line.substring(CommentIndex, CommentIndex + 2) !== "##") {
-        NewError(Out, I, CommentIndex, CommentIndex + 1, "A comment is always ##");
-      }
-
-      if (CommentIndex > 0) {
-        if (Line.charAt(CommentIndex - 1) !== "\t") {
-          NewError(Out, I, CommentIndex - 1, CommentIndex, "Before a comment but be a tab");
-        }
-      }
-
-      Line = Line.substring(0, CommentIndex).trim();
-    }
-
-    if (Line === "" || Line === "\r" || Line === "\r\n" || Line == "") {
-      if (CommentIndex > 0) {
-        NewError(Out, I, 0, CommentIndex, "A line cannot be with an identented comment");
-      }
-
-      continue;
-    }
-
-    let Index = Line.indexOf("=");
-
-    if (Index < 0) {
-      NewError(Out, I, 0, Line.length, "A translation item needs a '=' to seperate key and value");
-    } else {
-      const Key = Line.substring(0, Index);
-      const KeyIndex = Keys.indexOf(Key);
-
-      if (KeyIndex >= 0 && KeyIndex != I) {
-        NewError(Out, I, 0, Key.length, "Duplicate key found at: " + KeyIndex);
-        NewError(Out, KeyIndex, 0, Key.length, "Duplicate key found at: " + I);
-      }
-
-      Keys[I] = Key;
-    }
-
-    if (Index >= Line.length) {
-      NewError(Out, I, 0, Line.length, "A value must be atleast lenght of 1 or more");
-    }
+    let line = getLine(doc, I).trim();
+    Diagnoseline(line, I, Keys, builder);
   }
 
-  Database.Diagnotics.SetErrors(doc.uri, Out);
+  builder.SendDiagnostics();
+}
+
+export function Diagnoseline(line: string, index: number, Keys: string[], builder: DiagnosticsBuilder): void {
+  let CommentIndex = line.indexOf("#");
+  if (CommentIndex >= 0) {
+    if (line.substring(CommentIndex, CommentIndex + 2) !== "##") {
+      builder.AddAt("A comment is always ##", index, CommentIndex, CommentIndex + 1);
+    }
+
+    if (CommentIndex > 0) {
+      if (line.charAt(CommentIndex - 1) !== "\t") {
+        builder.AddAt("Before a comment but be a tab", index, CommentIndex - 1, CommentIndex);
+      }
+    }
+
+    line = line.substring(0, CommentIndex).trim();
+  }
+
+  if (line === "" || line === "\r" || line === "\r\n" || line == "") {
+    if (CommentIndex > 0) {
+      builder.AddAt("A line cannot be with an identented comment", index, 0, CommentIndex);
+    }
+
+    return;
+  }
+
+  let Index = line.indexOf("=");
+
+  if (Index < 0) {
+    builder.AddAt("A translation item needs a '=' to seperate key and value", index, 0, line.length);
+  } else {
+    const Key = line.substring(0, Index);
+    const KeyIndex = Keys.indexOf(Key);
+
+    if (KeyIndex >= 0 && KeyIndex != index) {
+      builder.AddAt("Duplicate key found at: " + KeyIndex, index, 0, Key.length);
+      builder.AddAt("Duplicate key found at: " + index, KeyIndex, 0, Key.length);
+    }
+
+    Keys[index] = Key;
+  }
+
+  if (Index >= line.length) {
+    builder.AddAt("A value must be atleast lenght of 1 or more", index, 0, line.length);
+  }
 }

@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
+import { DiagnosticsBuilder } from "../diagnostics/Builder";
 import { Manager } from "../manager/include";
 import { EmptyTypes } from "../types/general/Empty";
 
@@ -110,13 +111,6 @@ function GetSubFolder(uri: string): string | undefined {
 }
 
 function IllegalFolder(doc: TextDocument, SubFolder: string): void {
-  let receiver: Diagnostic[] = [
-    {
-      message: `Illegal folder found in behaviour pack: "${SubFolder}"`,
-      range: EmptyTypes.EmptyRange(),
-      severity: DiagnosticSeverity.Error,
-    },
-  ];
-
-  Manager.Diagnostic.SendDiagnostics(doc, receiver);
+  let builder: DiagnosticsBuilder = new DiagnosticsBuilder(doc);
+  builder.Add(`Illegal folder found in behaviour pack: "${SubFolder}"`);
 }

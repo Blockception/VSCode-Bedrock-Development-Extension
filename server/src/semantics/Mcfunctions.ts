@@ -27,7 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Range, SemanticTokens } from "vscode-languageserver";
+import { LocationWord } from "bc-vscode-words";
+import { Location, Range, SemanticTokens } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { CommandIntr, GetSubCommand } from "../types/commands/interpertation/include";
@@ -116,15 +117,18 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
         let Index = Word.text.indexOf(":");
 
         if (Index >= 0) {
-          let Namespace = Word.substring(0, Index);
-          Builder.AddWord(Namespace, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
-          Builder.AddAt(
-            Word.range.start.line,
-            Namespace.range.end.character + 1,
-            Word.text.length - (Index + 1),
-            SemanticTokensEnum.method,
-            SemanticModifiersEnum.readonly
-          );
+          let Line = Word.location.range.start.line;
+          let char = Word.location.range.start.character;
+
+          let NamespaceV = Word.text.substring(0, Index);
+          let OldRange = Word.location.range;
+          let Namespace = new LocationWord(NamespaceV, Word.location.uri, {
+            start: OldRange.start,
+            end: { character: OldRange.start.character + NamespaceV.length, line: OldRange.start.line },
+          });
+
+          Builder.AddAt(Line, char, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
+          Builder.AddAt(Line, char + Index + 1, NamespaceV.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
         } else {
           Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
         }

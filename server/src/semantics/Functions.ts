@@ -27,16 +27,22 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-
-import { LocationWord } from "../code/words/include";
+import { LocationWord, RangedWord } from "bc-vscode-words";
 import { McfunctionSemanticTokensBuilder } from "./builders/include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
-export function CreateRangeTokensWord(Word: LocationWord, Builder: McfunctionSemanticTokensBuilder): void {
-  CreateRangeTokens(Word.text, Word.range.start.line, Word.range.start.character, Builder);
+export function CreateRangeTokensWord(Word: LocationWord | RangedWord, Builder: McfunctionSemanticTokensBuilder): void {
+  if (!RangedWord.is(Word)) {
+    Word = new RangedWord(Word.text, Word.location.range);
+  }
+
+  CreateRangeTokens(Word, Builder);
 }
 
-export function CreateRangeTokens(value: string, line: number, start: number, Builder: McfunctionSemanticTokensBuilder): void {
+export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticTokensBuilder): void {
+  let value = Word.text;
+  let start = 0;
+
   if (
     value.startsWith("~") ||
     value.startsWith("^") ||
@@ -45,7 +51,7 @@ export function CreateRangeTokens(value: string, line: number, start: number, Bu
     value.startsWith("+") ||
     value.startsWith("!")
   ) {
-    Builder.AddAt(line, start, 1, SemanticTokensEnum.operator);
+    Builder.AddWord(Word, SemanticTokensEnum.operator);
 
     value = value.substring(1);
     start++;
@@ -54,21 +60,22 @@ export function CreateRangeTokens(value: string, line: number, start: number, Bu
   if (value === "") return;
 
   let Range = value.indexOf("..");
+  let Line = Word.range.start.line;
 
   if (Range >= 0) {
     var First = value.substring(0, Range);
     var Second = value.substring(Range + 2);
 
-    Builder.AddAt(line, start + Range, 2, SemanticTokensEnum.operator);
+    Builder.AddAt(Line, start + Range, 2, SemanticTokensEnum.operator);
 
     if (First && First !== "") {
-      Builder.AddAt(line, start + value.indexOf(First), First.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
+      Builder.AddAt(Line, start + value.indexOf(First), First.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
     }
 
     if (Second && Second !== "") {
-      Builder.AddAt(line, start + value.indexOf(Second), Second.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
+      Builder.AddAt(Line, start + value.indexOf(Second), Second.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
     }
   } else {
-    Builder.AddAt(line, start, value.length, SemanticTokensEnum.number);
+    Builder.AddAt(Line, start, value.length, SemanticTokensEnum.number);
   }
 }

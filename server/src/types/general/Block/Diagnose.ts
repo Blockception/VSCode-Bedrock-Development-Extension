@@ -27,18 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
+import { DiagnosticSeverity } from "vscode-languageserver";
+import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../database/include";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseBlock(data: LocationWord, receiver: Diagnostic[]): void {
+export function DiagnoseBlock(data: LocationWord, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
   if (Database.Data.General.Blocks.HasID(text)) return;
 
-  receiver.push({
-    range: data.range,
-    message: 'No known block found with the id: "' + text + '"',
-    severity: DiagnosticSeverity.Error,
-  });
+  builder.AddWord(data, 'No known block found with the id: "' + text + '"');
 }

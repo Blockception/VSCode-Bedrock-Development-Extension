@@ -27,11 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { OffsetWord } from "bc-vscode-words";
 import { Range, TextDocument } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
-import { OffsetWord } from "../code/words/OffsetWord";
 import { IsMolang } from "../molang/Functions";
-import { CreateMolangTokens } from "../molang/Words";
+import { CreateMolangWords } from "../molang/Words";
 import { IsFloat } from "../types/general/Float/include";
 import { IsSelector } from "../types/general/Selector/include";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
@@ -88,7 +88,7 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
         startindex++;
         McfunctionLineTokens(property, 0, offset + startindex, McfunctionSemanticTokensBuilder.FromJson(Builder));
       } else {
-        let Words = CreateMolangTokens(property, offset + startindex);
+        let Words = CreateMolangWords(property, offset + startindex);
         ConvertWords(Words, Builder);
       }
     }

@@ -1,5 +1,5 @@
 import { CompletionList, CompletionItemKind } from "vscode-languageserver";
-import { LocationWord } from "../../../../code/words/include";
+import { LocationWord } from "bc-vscode-words";
 import { provideObjectivePostCompletion } from "../../Objectives/Completion";
 import { IsEditingValue } from "../Functions";
 

@@ -28,19 +28,20 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Diagnostic } from "vscode-languageserver";
-import { LocationWord } from "../../../code/words/include";
+import { LocationWord } from "bc-vscode-words";
 import { NewError2 } from "../../../diagnostics/include";
 import { CommandIntr } from "../../commands/interpertation/include";
 import { GetMode } from "../../commands/modes/Functions";
 import { DiagnoseInteger } from "../Integer/include";
 import { SlotTypeMode, SlotTypeModes } from "../slot type/slot type";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseSlotID(word: LocationWord, Command: CommandIntr, receiver: Diagnostic[]): void {
+export function DiagnoseSlotID(word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
   let Index = Command.Parameters.indexOf(word);
 
   if (Index < 0) return;
 
-  DiagnoseInteger(word, receiver);
+  DiagnoseInteger(word, builder);
 
   const SlotType = Command.Parameters[Index - 1].text;
   const SlotID = Number.parseInt(word.text);
@@ -49,13 +50,13 @@ export function DiagnoseSlotID(word: LocationWord, Command: CommandIntr, receive
 
   if (SlotTypeMode.is(Mode)) {
     if (Mode.range) {
-      ErrorCheck(receiver, word, SlotType, SlotID, Mode.range.min, Mode.range.max);
+      ErrorCheck(builder, word, SlotType, SlotID, Mode.range.min, Mode.range.max);
     }
   }
 }
 
-function ErrorCheck(receiver: Diagnostic[], word: LocationWord, slotType: string, value: number, min: number, max: number): void {
+function ErrorCheck(builder: DiagnosticsBuilder, word: LocationWord, slotType: string, value: number, min: number, max: number): void {
   if (value < min && value > max) {
-    NewError2(receiver, word.range, `Slot id '${value}' for '${slotType}' needs to be between, including: ${min} and ${max}`);
+    builder.AddWord(word, `Slot id '${value}' for '${slotType}' needs to be between, including: ${min} and ${max}`);
   }
 }

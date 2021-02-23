@@ -27,10 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { LocationWord, RangedWord } from "bc-vscode-words";
 import { SemanticTokens, SemanticTokensBuilder } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { LocationWord } from "../../code/words/include";
-import { OffsetWord } from "../../code/words/OffsetWord";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../include";
 import { JsonSemanticTokensBuilder } from "./include";
 
@@ -69,8 +68,13 @@ export class McfunctionSemanticTokensBuilder {
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 
-  AddWord(word: LocationWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-    let p = word.range.start;
+  AddWord(
+    word: LocationWord | RangedWord,
+    tokenType: SemanticTokensEnum,
+    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
+  ): void {
+    let p: Position = RangedWord.is(word) ? word.range.start : word.location.range.start;
+
     let length = word.text.length;
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }

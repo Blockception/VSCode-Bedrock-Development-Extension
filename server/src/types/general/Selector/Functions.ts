@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { LocationWord } from "../../../code/words/include";
+import { LocationWord } from "bc-vscode-words";
 import { ParameterOptions } from "../../commands/parameter/include";
 
 export function IsSelector(value: string, Options: ParameterOptions | undefined): boolean {
@@ -52,7 +52,7 @@ export function IsSelector(value: string, Options: ParameterOptions | undefined)
 }
 
 export function InSelector(selector: LocationWord, pos: number): boolean {
-  if (selector.range.start.character + 2 <= pos && pos < selector.range.end.character) return true;
+  if (selector.location.range.start.character + 2 <= pos && pos < selector.location.range.end.character) return true;
 
   return false;
 }
@@ -67,7 +67,7 @@ export function InScore(selector: LocationWord, pos: number): boolean {
     return false;
   }
 
-  Index = selector.text.indexOf("}") + selector.range.start.character;
+  Index = selector.text.indexOf("}") + selector.location.range.start.character;
 
   if (Index < 0) return true;
 
@@ -75,7 +75,7 @@ export function InScore(selector: LocationWord, pos: number): boolean {
 }
 
 export function GetCurrentAttribute(selector: LocationWord, pos: number): string {
-  let StartIndex = pos - selector.range.start.character;
+  let StartIndex = pos - selector.location.range.start.character;
 
   while (StartIndex > 2) {
     let C = selector.text.charAt(StartIndex);
@@ -100,7 +100,7 @@ export function IsFakePlayer(text: string): boolean {
 }
 
 export function IsEditingValue(selector: LocationWord, pos: number): boolean {
-  let diff = pos - selector.range.start.character;
+  let diff = pos - selector.location.range.start.character;
 
   if (diff > 0) {
     if (selector.text.charAt(diff - 1) === "=") {

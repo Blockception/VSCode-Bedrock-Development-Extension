@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { LocationWord } from "../code/words/include";
+import { LocationWord } from "bc-vscode-words";
 import { IParameter, IScoreParameter, Selector } from "../types/general/Selector/include";
 import { McfunctionSemanticTokensBuilder } from "./builders/McfunctionSemanticTokensBuilder";
 import { CreateRangeTokens } from "./Functions";
@@ -37,7 +37,9 @@ export function CreateSelectorTokens(Word: LocationWord, Builder: McfunctionSema
   if (Word.text.startsWith("@")) {
     let sel = Selector.Parse(Word);
 
-    Builder.AddAt(Word.range.start.line, Word.range.start.character, 2, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
+    let Start = Word.location.range.start;
+
+    Builder.AddAt(Start.line, Start.character, 2, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
 
     ProcessParameters(sel.Parameters, Builder);
   } else {
@@ -63,59 +65,42 @@ function ProcessScoreParameters(Parameters: IParameter[], Builder: McfunctionSem
 
 function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: McfunctionSemanticTokensBuilder): void {
   //process header
-  let P = Parameter.Range.start;
-  let LineIndex = P.line;
-  let attributeStart = P.character;
-  let valueStart = attributeStart + Parameter.Name.length + 1;
-  let Length = Parameter.Name.length;
-  let attribute = Parameter.Name;
-  Builder.AddAt(LineIndex, attributeStart, Length, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
+  let Name = Parameter.Name;
+  let Value = Parameter.Value;
+
+  Builder.AddWord(Name, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
 
   if (IScoreParameter.is(Parameter)) {
     ProcessScoreParameters(Parameter.Scores, Builder);
     return;
   }
 
-  //startindex of the value
-  let value = Parameter.Value;
-  Length = value.length;
-
-  switch (attribute) {
+  switch (Name.text) {
     case "name":
-      Builder.AddAt(LineIndex, valueStart, Length, SemanticTokensEnum.string);
+      Builder.AddWord(Value, SemanticTokensEnum.string);
       break;
 
     case "tag":
-      Builder.AddAt(LineIndex, valueStart, Length, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
+      Builder.AddWord(Value, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
       break;
 
     case "type":
-      let Index = value.indexOf(":");
+      let Index = Value.text.indexOf(":");
 
       if (Index >= 0) {
-        let Namespace = value.substring(0, Index);
-        Builder.AddAt(LineIndex, valueStart, Namespace.length, SemanticTokensEnum.namespace, SemanticModifiersEnum.readonly);
-        Builder.AddAt(
-          LineIndex,
-          valueStart + Namespace.length + 1,
-          Length - (Namespace.length + 1),
-          SemanticTokensEnum.method,
-          SemanticModifiersEnum.readonly
-        );
+        let LineIndex = Value.range.start.line;
+        let ValueStart = Value.range.start.character;
+
+        Builder.AddAt(LineIndex, ValueStart, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.readonly);
+        Builder.AddAt(LineIndex, Index + 1, Value.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
       } else {
-        Builder.AddAt(LineIndex, valueStart, Length, SemanticTokensEnum.type, SemanticModifiersEnum.readonly);
+        Builder.AddWord(Value, SemanticTokensEnum.type, SemanticModifiersEnum.readonly);
       }
       break;
 
     default:
-      CreateRangeTokens(value, LineIndex, valueStart, Builder);
+      CreateRangeTokens(Value, Builder);
 
       break;
-  }
-
-  let Index = value.indexOf("..");
-
-  if (Index >= 0) {
-    Builder.AddAt(LineIndex, valueStart + Index, 2, SemanticTokensEnum.operator);
   }
 }
