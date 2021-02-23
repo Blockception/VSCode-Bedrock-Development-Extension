@@ -33,6 +33,7 @@ import { TemplateBuilder } from "./Builder";
 import { Context, GetContext, GetContextAsync } from "./Context";
 import { templates } from "../include";
 import { Console } from "../../console/Console";
+import { GetProjectData } from "../../code/include";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
@@ -57,9 +58,7 @@ function Initialize(): CommandManager {
     FunctionWithID(params, templates.resource_pack.create_entity_file);
   };
   Out[Commands.Create.General.Languages] = (params: ExecuteCommandParams) => {
-    FunctionBP(params, templates.language.create_language_files);
-    FunctionRP(params, templates.language.create_language_files);
-    FunctionWP(params, templates.language.create_language_files);
+    CreateAll(params, templates.language.create_language_files);
   };
   Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams) => {
     Function(params, templates.behavior_pack.create_manifest_file);
@@ -187,6 +186,20 @@ function Function(params: ExecuteCommandParams, callback: (Context: Context, Bui
     let Builder = new TemplateBuilder();
 
     callback(Context, Builder);
+
+    Builder.Send();
+  });
+}
+
+function CreateAll(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void) {
+  GetProjectData().then((data) => {
+    if (!data) return;
+
+    let Builder = new TemplateBuilder();
+
+    data.BehaviourPackFolders.forEach((Folder) => callback(Folder, Builder));
+    data.ResourcePackFolders.forEach((Folder) => callback(Folder, Builder));
+    data.WorldFolders.forEach((Folder) => callback(Folder, Builder));
 
     Builder.Send();
   });

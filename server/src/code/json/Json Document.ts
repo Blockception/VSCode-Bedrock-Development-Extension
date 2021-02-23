@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { Console } from "../../console/Console";
-import { Manager } from "../../manager/include";
+import * as JSONC from "comment-json";
 import * as Code from "../include";
 
 export class JsonDocument {
@@ -67,11 +67,10 @@ export class JsonDocument {
     if (this.object === undefined) {
       try {
         let Text = this.doc.getText();
-        Text = stripJSONComments(Text);
 
         let object;
         if (Text !== "") {
-          object = JSON.parse(Text);
+          object = JSONC.parse(Text, undefined, true);
         }
 
         this.object = object;
@@ -149,7 +148,11 @@ export class JsonDocument {
  */
 function stripJSONComments(data: string): string {
   var re = new RegExp("//(.*)", "g");
-  return data.replace(re, "");
+  data = data.replace(re, "");
+  data = data.replace(/\n/gi, "");
+  data = data.replace(/\r/gi, "");
+
+  return data;
 }
 
 /**
