@@ -7,8 +7,6 @@
   "settings": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "BC-MC-LanguageServer.useDiagnosticsMcfunctions": true,
-    "BC-MC-LanguageServer.useEducationContent": true,
     "[bc-minecraft-language]": {
       "breadcrumbs.showVariables": true
     },

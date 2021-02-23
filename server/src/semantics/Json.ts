@@ -164,7 +164,11 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
         } else if (IsSelector(text, undefined)) {
           Builder.AddWord(Word, SemanticTokensEnum.variable);
         } else {
-          Builder.AddWord(Word, SemanticTokensEnum.method);
+          if (Words[I + 1]?.text === ":") {
+            Builder.AddWord(Word, SemanticTokensEnum.namespace);
+          } else {
+            Builder.AddWord(Word, SemanticTokensEnum.method);
+          }
         }
     }
   }
