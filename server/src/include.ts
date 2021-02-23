@@ -2,6 +2,7 @@
 export * as code from "./code/include";
 export * as commands from "./commands/include";
 export * as completion from "./completion/include";
+export * as console from "./console/include";
 export * as data from "./data/include";
 export * as database from "./database/include";
 export * as definition from "./definition/include";

@@ -5,3 +5,4 @@ export * from "./Language";
 export * from "./Process";
 export * from "./Range";
 export * from "./traverse";
+export * from "./Validate";

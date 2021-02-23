@@ -6,3 +6,4 @@ export * as interpertation from "./interpertation/include";
 export * as manager from "./manager/include";
 export * as modes from "./modes/include";
 export * as parameter from "./parameter/include";
+export * from "./Process";
