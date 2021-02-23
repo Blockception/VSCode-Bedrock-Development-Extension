@@ -91,14 +91,14 @@ export class JsonDocument {
     if (this.object === undefined) {
       try {
         let Text = this.doc.getText();
-        Text = stripJSONComments(Text);
-        let object = JSON.parse(Text);
+        let object = JSONC.parse(Text);
         this.object = object;
 
         //ValidJson(this.doc);
       } catch (error) {
         Console.Error("Invalid Json: " + this.doc.uri + "\n + " + error);
         //InvalidJson(this.doc, error);
+        err = error;
       }
     }
 

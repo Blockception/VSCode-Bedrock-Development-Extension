@@ -27,33 +27,25 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from "../../code/include";
-import { Console } from "../../console/Console";
-import { Database } from "../../database/Database";
-import { Manager } from "../../manager/include";
-import { CommandIntr } from "../../types/commands/interpertation/include";
-import { Tag } from "../../types/general/Tag/Tag";
-import { GetComment } from "../../types/minecraft/behavior/functions/include";
 
-export function ProcessTagCommand(Com: CommandIntr, doc: TextDocument): void {
-  //tag <selector> add <tag>
-  if (Com.Parameters[2]?.text !== "add") return;
-
-  let tag = Com.Parameters[3];
-
-  let Data = new Tag();
-  Data.Identifier = tag.text;
-  Data.Location = tag.location;
-
-  let Comment = GetComment(getLine(doc, Com.Line));
-
-  if (Comment !== "") {
-    Data.Documentation.value = Comment;
-  } else {
-    Data.Documentation.value = "The tag: " + tag.text;
+export class Console {
+  /**Sends a error to the console log of the server*/
+  static Error(message: string): void {
+    console.error(message);
   }
 
-  Console.Info("Found tag: " + tag.text);
-  Database.Data.General.Tag.Set(Data);
+  /**Sends a error to the console log of the server*/
+  static Info(message: string): void {
+    console.info(message);
+  }
+
+  /**Sends a error to the console log of the server*/
+  static Log(message: string): void {
+    console.log(message);
+  }
+
+  /**Sends a error to the console log of the server*/
+  static Warn(message: string): void {
+    console.warn(message);
+  }
 }

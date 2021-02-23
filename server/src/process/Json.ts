@@ -27,11 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { LocationWord } from "bc-vscode-words";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../database/Database";
-import { commands, molang } from "../include";
+import { DiagnosticsBuilder } from "../diagnostics/Builder";
+import { molang } from "../include";
+import { ProcessWord } from "../types/commands/include";
+import { DiagnoseLine } from "../types/minecraft/behavior/functions/include";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
 import { behavior, resource } from "../types/minecraft/include";
+import { GetValidationData, ValidationData } from "../validation/include";
 
 export function ProcessJson(doc: TextDocument): void {
   Database.Data.DeleteFile(doc.uri);
@@ -51,5 +56,28 @@ export function ProcessJson(doc: TextDocument): void {
   }
 
   let Data = molang.files.DataCollector.Parse(doc);
-  Data.Command.forEach((word) => commands.ProcessWord(word, doc));
+
+  if (Data.Command.length > 0) {
+    let Builder = new DiagnosticsBuilder(doc);
+    Data.Command.forEach((w) => ProcessJsonCommand(w, doc, Builder));
+    //Builder.SendDiagnostics();
+  }
+}
+
+function ProcessJsonCommand(word: LocationWord, doc: TextDocument, Builder: DiagnosticsBuilder) {
+  //Process contents
+  ProcessWord(word, doc);
+  /*
+  let start = word.location.range.start;
+
+  let Data = Database.MinecraftProgramData.GetProjecData();
+  let validation: ValidationData | undefined;
+
+  if (Data) {
+    validation = GetValidationData(Data.Workspaces);
+  } else {
+    validation = ValidationData.createEmpty();
+  }
+
+  DiagnoseLine(word.text, start, start, validation, Builder);*/
 }

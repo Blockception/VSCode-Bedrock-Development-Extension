@@ -27,11 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetProjectData, ProjectData } from "../code/ProjectData";
+import { GetDocuments } from "../code/include";
+import { ProjectData } from "../code/ProjectData";
+import { Console } from "../console/Console";
 import { Database } from "../database/include";
+import { code } from "../include";
 import { Manager } from "../manager/Manager";
 import { ProcessBehaviourPack } from "../types/minecraft/behavior/Process";
 import { ProcessResourcePack } from "../types/minecraft/resource/Process";
+import { Process } from "./Process";
 
 export function Traverse(): void {
   Manager.State.TraversingProject = true;
@@ -43,9 +47,17 @@ export function Traverse(): void {
 export function TraverseProject(Project: ProjectData | undefined): void {
   if (!Project) return;
 
-  Project.BehaviourPackFolders.forEach(ProcessBehaviourPack);
-  Project.ResourcePackFolders.forEach(ProcessResourcePack);
+  Console.Log("Processing behavior packs");
+  Project.BehaviourPackFolders.forEach(ProcessFolder);
+
+  Console.Log("Processing resource packs");
+  Project.ResourcePackFolders.forEach(ProcessFolder);
 
   Manager.State.TraversingProject = false;
   Manager.State.DataGathered = true;
+}
+
+export function ProcessFolder(Folder: string) {
+  Console.Log("\tFolder: " + Folder);
+  code.ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
 }

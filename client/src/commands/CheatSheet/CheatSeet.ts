@@ -31,9 +31,10 @@ import { commands, ExtensionContext, Uri, ViewColumn, window } from "vscode";
 import * as path from "path";
 import { readFileSync } from "fs";
 import { Commands } from "../../Constants";
+import { Console } from "../../console/Console";
 
 export function Activate(context: ExtensionContext): void {
-  console.log("registering cheat sheets");
+  Console.Log("registering cheat sheets");
 
   context.subscriptions.push(
     commands.registerCommand(Commands.CheatSheet.Molang, (args) =>

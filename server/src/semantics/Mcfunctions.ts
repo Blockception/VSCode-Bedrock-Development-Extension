@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
-import { Location, Range, SemanticTokens } from "vscode-languageserver";
-import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { Position, Range, SemanticTokens } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
 import { CommandIntr, GetSubCommand } from "../types/commands/interpertation/include";
 import { MCCommandParameterType } from "../types/commands/parameter/include";
@@ -57,8 +57,8 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
       Builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
     }
 
-    let P: Position = { character: 0, line: I };
-    let Command = CommandIntr.parse(line, P, Builder.doc.uri);
+    let P = Position.create(I, 0);
+    let Command = CommandIntr.parse(line, P, Builder.doc.uri, P);
     CreateTokens(Command, Builder);
   }
 
@@ -120,15 +120,8 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
           let Line = Word.location.range.start.line;
           let char = Word.location.range.start.character;
 
-          let NamespaceV = Word.text.substring(0, Index);
-          let OldRange = Word.location.range;
-          let Namespace = new LocationWord(NamespaceV, Word.location.uri, {
-            start: OldRange.start,
-            end: { character: OldRange.start.character + NamespaceV.length, line: OldRange.start.line },
-          });
-
           Builder.AddAt(Line, char, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
-          Builder.AddAt(Line, char + Index + 1, NamespaceV.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
+          Builder.AddAt(Line, char + Index + 1, Word.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
         } else {
           Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
         }

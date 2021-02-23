@@ -29,7 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
+import { Console } from "../../console/Console";
 import { Database } from "../../database/include";
+import { Manager } from "../../manager/include";
 import { CommandIntr } from "../../types/commands/interpertation/include";
 import { Tickingarea } from "../../types/general/Tickingarea/include";
 
@@ -108,5 +110,6 @@ function Create(Loc: Location, Name: string, Doc: string): void {
   Ta.Identifier = Name;
   Ta.Documentation.value = Doc;
 
+  Console.Info("Found ticking area: " + Name);
   Database.Data.General.TickingAreas.Set(Ta);
 }

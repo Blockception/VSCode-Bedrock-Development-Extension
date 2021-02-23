@@ -5,6 +5,7 @@
 import * as vscode from "vscode";
 import { SetupClient } from "./client/client";
 import { Activate } from "./commands/Activate";
+import { Console } from "./console/include";
 
 import { Manager } from "./Manager/Manager";
 
@@ -15,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 //shutdown server
 export function deactivate(): Thenable<void> | undefined {
-  console.log("stopping minecraft language client");
+  Console.Log("stopping minecraft language client");
 
   if (!Manager.Client) {
     return undefined;

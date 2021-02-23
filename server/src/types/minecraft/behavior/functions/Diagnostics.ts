@@ -27,8 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { Position, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Diagnostic, DiagnosticSeverity, Range } from "vscode-languageserver/node";
 import { getLine } from "../../../../code/include";
 import { Database } from "../../../../database/include";
 import { DiagnosticsBuilder } from "../../../../diagnostics/Builder";
@@ -71,7 +71,7 @@ export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData
   for (let index = 0; index < doc.lineCount; index++) {
     try {
       line = getLine(doc, index);
-      DiagnoseLine(line, index, validation, Builder);
+      DiagnoseLine(line, Position.create(index, 0), undefined, validation, Builder);
     } catch (error) {
       if (error.message) Builder.Add(error.message, Range.create(index, 0, line.length, index));
     }
@@ -87,7 +87,13 @@ export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData
  * @param validation
  * @param receiver
  */
-export function DiagnoseLine(line: string, lineIndex: number, validation: ValidationData, builder: DiagnosticsBuilder): void {
+export function DiagnoseLine(
+  line: string,
+  StartPos: Position | undefined,
+  Cursor: Position | undefined,
+  validation: ValidationData,
+  builder: DiagnosticsBuilder
+): void {
   line = line.trim();
 
   if (line === "" || line === "\r\n") return;
@@ -96,7 +102,15 @@ export function DiagnoseLine(line: string, lineIndex: number, validation: Valida
     return;
   }
 
-  let Command = CommandIntr.parse(line, { character: 0, line: lineIndex }, "");
+  if (!Cursor) {
+    if (!StartPos) {
+      Cursor = Position.create(0, 0);
+    } else {
+      Cursor = StartPos;
+    }
+  }
+
+  let Command = CommandIntr.parse(line, Cursor, "", StartPos);
 
   if (Command.Parameters.length === 0) return;
 

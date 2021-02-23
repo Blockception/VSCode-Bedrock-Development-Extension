@@ -29,7 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../code/include";
+import { Console } from "../../console/Console";
 import { Database } from "../../database/Database";
+import { Manager } from "../../manager/include";
 import { CommandIntr } from "../../types/commands/interpertation/include";
 import { FakeEntity } from "../../types/general/FakeEntity/include";
 import { Objective } from "../../types/general/Objectives/include";
@@ -79,6 +81,7 @@ function CheckObjective(Com: CommandIntr, Comment: string): void {
       obj.Documentation.value = Comment;
     }
 
+    Console.Info(`Found objective: ${obj.Identifier}`);
     Database.Data.General.Objectives.Set(obj);
   }
 }
@@ -99,6 +102,7 @@ function CheckPlayer(Com: CommandIntr, Comment: string): void {
         FE.Documentation.value = Comment;
       }
 
+      Console.Info(`Found fake player: ${FE.Identifier}`);
       Database.Data.General.FakeEntities.Set(FE);
     }
   }

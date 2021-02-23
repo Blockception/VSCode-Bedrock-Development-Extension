@@ -29,13 +29,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
 import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
-import { commands } from "../include";
+import { ProcessCommand } from "../types/commands/include";
 import { DataCollector } from "./files/Data Collector";
 
 export function Process(text: string, Start: Position, doc: TextDocument) {
   if (text.startsWith("/")) {
     let command = text.substring(1);
-    commands.ProcessCommand(command, { character: Start.character + 1, line: Start.line }, doc);
+    ProcessCommand(command, { character: Start.character + 1, line: Start.line }, doc);
   } else if (text.startsWith("@s ")) {
     //Process event
   } else {
