@@ -1,4 +1,7 @@
 # Changelog 
+- Fixing
+- Refactor of code to use diagnostic builder and vscode-bc-words
+- Updated to 1.5.27
 - Fixed Minecraft:entity_sensor
 - Updated to 1.5.26
 - Updated formatter
@@ -16,6 +19,3 @@
 - Updated to 1.5.21
 - auto: Formatted
 - Updated changelog
-- Updated
-- auto: generated schemas
-- Added biomes schema
