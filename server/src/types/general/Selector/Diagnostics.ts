@@ -29,7 +29,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord, RangedWord } from "bc-vscode-words";
 import { Database } from "../../../database/include";
-import { NewError2, NewWarning } from "../../../diagnostics/include";
 import { IsRangeInteger, IsRangeNumber } from "../../../process/Range";
 import { ValidationData } from "../../../validation/include";
 import { MCCommandParameter } from "../../commands/parameter/include";
@@ -38,7 +37,6 @@ import { IsInteger } from "../Integer/include";
 import { IScoreParameter, Selector } from "./Selector";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 import { DiagnosticSeverity } from "vscode-languageserver";
-import { parameter } from "../../commands/include";
 
 /**
  *
