@@ -1,4 +1,9 @@
 # Changelog 
+- Refactor
+- auto: Generated
+- Added JSON comments parsing
+- Updated to 1.6.0
+- Refactor
 - Fixing
 - Refactor of code to use diagnostic builder and vscode-bc-words
 - Updated to 1.5.27
@@ -14,8 +19,3 @@
 - Added create project commands
 - Fixing finding context
 - Update to 1.5.22
-- Updated schemas
-- Paramaters -> Parameters
-- Updated to 1.5.21
-- auto: Formatted
-- Updated changelog
