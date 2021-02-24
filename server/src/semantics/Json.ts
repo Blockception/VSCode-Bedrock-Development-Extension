@@ -176,14 +176,15 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
 
 function findNext(text: string, startIndex: number): number {
   while (startIndex > -1) {
-    let startindex = text.indexOf('"', startIndex);
-    if (startindex < 0) break;
+    startIndex = text.indexOf('"', startIndex);
+    if (startIndex < 0) break;
 
-    if (text.charAt(startindex - 1) === "\\" && text.charAt(startindex - 2) !== "\\") {
+    if (text.charAt(startIndex - 1) === "\\" && text.charAt(startIndex - 2) !== "\\") {
+      startIndex++;
       continue;
     }
 
-    return startindex;
+    return startIndex;
   }
 
   return -1;
