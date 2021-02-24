@@ -1,4 +1,6 @@
 # Changelog 
+- Json Semantic tokens stuck in infiinite loop
+- Updated to 1.6.1
 - Refactor
 - auto: Generated
 - Added JSON comments parsing
@@ -17,5 +19,3 @@
 - auto: Formatted typescript files
 - Updated changelog
 - Added create project commands
-- Fixing finding context
-- Update to 1.5.22
