@@ -43,7 +43,12 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
   let value = Word.text;
   let start = 0;
 
-  if (
+  if (value.startsWith("~-") || value.startsWith("~+") || value.startsWith("^-") || value.startsWith("^+")) {
+    Builder.AddAt(Word.range.start.line, Word.range.start.character, 2, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
+
+    value = value.substring(2);
+    start += 2;
+  } else if (
     value.startsWith("~") ||
     value.startsWith("^") ||
     value.startsWith("-") ||
@@ -51,7 +56,7 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
     value.startsWith("+") ||
     value.startsWith("!")
   ) {
-    Builder.AddWord(Word, SemanticTokensEnum.operator);
+    Builder.AddAt(Word.range.start.line, Word.range.start.character, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(1);
     start++;

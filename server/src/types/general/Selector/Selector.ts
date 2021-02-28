@@ -155,7 +155,7 @@ export namespace IParameter {
 
     let Name = new RangedWord(text.substring(0, Index).trim(), Range.create(Line, startIndex, Line, startIndex + Index));
     Index = Index + 1;
-    let Value = new RangedWord(text.substring(Index + 1, text.length), Range.create(Line, Index + startIndex, Line, text.length + startIndex));
+    let Value = new RangedWord(text.substring(Index, text.length), Range.create(Line, Index + startIndex, Line, text.length + startIndex));
 
     if (Name.text === "scores") {
       let Scores: IParameter[];
