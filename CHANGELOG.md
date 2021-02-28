@@ -1,4 +1,5 @@
 # Changelog 
+- Updated to 1.6.2
 - Json Semantic tokens stuck in infiinite loop
 - Updated to 1.6.1
 - Refactor
@@ -18,4 +19,3 @@
 - auto: Updated dependecies
 - auto: Formatted typescript files
 - Updated changelog
-- Added create project commands
