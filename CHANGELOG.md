@@ -1,4 +1,7 @@
 # Changelog 
+- Updated
+- Updated to 1.6.3
+- Fixing semantics
 - Updated to 1.6.2
 - Json Semantic tokens stuck in infiinite loop
 - Updated to 1.6.1
@@ -16,6 +19,3 @@
 - Updated to 1.5.23
 - Updates settings
 - Updated to 1.5.23
-- auto: Updated dependecies
-- auto: Formatted typescript files
-- Updated changelog
