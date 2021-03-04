@@ -36,7 +36,6 @@ import { Manager } from "../../../../manager/Manager";
 import { ValidationData, GetValidationData } from "../../../../validation/include";
 import { DiagnoseCommand } from "../../../commands/command/include";
 import { CommandIntr, GetSubCommand } from "../../../commands/interpertation/include";
-import { EmptyTypes } from "../../../general/Empty";
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
   if (!Manager.Settings.useDiagnosticsMcfunctions) return;
