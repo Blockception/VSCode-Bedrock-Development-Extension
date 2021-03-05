@@ -1,4 +1,6 @@
 # Changelog 
+- Fixing semantics colouring
+- Updated to 1.6.4
 - Updated
 - Updated to 1.6.3
 - Fixing semantics
@@ -16,6 +18,4 @@
 - Fixed Minecraft:entity_sensor
 - Updated to 1.5.26
 - Updated formatter
-- Updated to 1.5.23
-- Updates settings
 - Updated to 1.5.23
