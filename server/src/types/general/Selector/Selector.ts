@@ -192,8 +192,9 @@ export interface IScoreParameter extends IParameter {
 export namespace IScoreParameter {
   export function is(value: any): value is IScoreParameter {
     if (value) {
-      if (value.Name && value.Value && value.Range && value.Scores) {
-        if (Range.is(value.Range) && Array.isArray(value.Scores)) {
+      let temp = value as IScoreParameter;
+      if (temp.Name && temp.Value && temp.Scores) {
+        if (Array.isArray(value.Scores)) {
           return true;
         }
       }

@@ -59,7 +59,7 @@ export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangePa
 
 function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
   let uri = params.textDocument.uri;
-  if (uri.includes("vscode://schemas") || uri.includes("git:/") || uri.startsWith("private:")) return { data: [] };
+  if (!uri.startsWith("file://")) return { data: [] };
 
   //Console.Log(params.textDocument.uri);
 

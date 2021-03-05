@@ -41,10 +41,10 @@ export function CreateRangeTokensWord(Word: LocationWord | RangedWord, Builder: 
 
 export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticTokensBuilder): void {
   let value = Word.text;
-  let start = 0;
+  let start = Word.range.start.character;
 
   if (value.startsWith("~-") || value.startsWith("~+") || value.startsWith("^-") || value.startsWith("^+")) {
-    Builder.AddAt(Word.range.start.line, Word.range.start.character, 2, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
+    Builder.AddAt(Word.range.start.line, start, 2, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(2);
     start += 2;
@@ -56,7 +56,7 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
     value.startsWith("+") ||
     value.startsWith("!")
   ) {
-    Builder.AddAt(Word.range.start.line, Word.range.start.character, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
+    Builder.AddAt(Word.range.start.line, start, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(1);
     start++;
