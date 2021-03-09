@@ -127,13 +127,10 @@ const entity: string = `{
     "description": {
       "identifier": "%ID%",
       "min_engine_version": "1.8.0",
-      "materials": {
-				"default": "entity",
-				"alpha": "entity_alphatest"
-      },
-      "textures": {
-        "default": "textures/entity/example"
-      },
+      "materials": { "default": "entity", "alpha": "entity_alphatest" },
+      "textures": { "default": "textures/entity/zombie/zombie" },
+      "render_controllers": ["controller.render.default"],
+      "geometry": { "default": "geometry.zombie" },
       "animations": {
         "default_pose": "animation.example.default_pose",
         "controller.pose": "controller.animation.example.pose"
@@ -146,11 +143,7 @@ const entity: string = `{
         "animate": [
           "controller.pose"
         ]
-      },
-      "geometry": {
-        "default": "geometry.example"
-      },
-      "render_controllers": [ "controller.render.example" ]
+      }
     }
   }
 }`;
