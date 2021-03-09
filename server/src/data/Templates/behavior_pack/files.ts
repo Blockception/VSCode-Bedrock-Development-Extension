@@ -106,7 +106,8 @@ const entity: string = `{
     "component_groups": {
     },
     "components": {
-      "minecraft:health": { "value": 10, "max": 10 }
+      "minecraft:health": { "value": 10, "max": 10 },
+      "minecraft:behavior.look_at_player": { "probability": 1.0, "target_distance": 16 }
     },
     "events": {
     }
