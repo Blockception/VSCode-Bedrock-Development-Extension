@@ -44,6 +44,7 @@ export enum MCCommandParameterType {
   command,
   //Marks that the parameter is a coordinate
   coordinate,
+  //TODO
   difficulty,
   //Marks that the parameter is an effect
   effect,
@@ -70,8 +71,11 @@ export enum MCCommandParameterType {
   keyword,
   //Marks that the parameter is a locate feature
   locateFeature,
+  //TODO
   maskMode,
+  //TODO
   mirror,
+  //TODO
   musicRepeatMode,
   //Marks that the parameter is a scoreboard objective
   objective,
@@ -98,11 +102,13 @@ export enum MCCommandParameterType {
   sound,
   //Marks that the parameter is a string
   string,
+  //TODO
   structureAnimationMode,
   //Marks that the parameter is a target
   target,
   //Marks that the parameter is a tag
   tag,
+  //TODO
   teleportRules,
   //Marks that the parameter is a ticking area
   tickingarea,
@@ -111,3 +117,5 @@ export enum MCCommandParameterType {
   //Marks that the parameter is an xp value
   xp,
 }
+
+//TODO add function that wraps a parameter around a pointer to Completion/Diagnostics/Is

@@ -29,9 +29,32 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { CommandCompletionContext } from "../../../completion/Commands/Context";
-import { Block, Boolean, Coordinate } from "../../general/include";
+import {
+  Block,
+  BlockStates,
+  Boolean,
+  Coordinate,
+  Effect,
+  Entity,
+  Event,
+  Float,
+  Functions,
+  Gamemode,
+  Integer,
+  Item,
+  Objectives,
+  Selector,
+  Slot_id,
+  Slot_type,
+  Sound,
+  Tag,
+  Tickingarea,
+  Xp,
+} from "../../general/include";
 import { ItemComponents, RawText } from "../../minecraft/json/include";
+import { particle } from "../../minecraft/resource/include";
 import { command } from "../include";
+import { OldBlockMode, Operation } from "../modes/include";
 import { MCCommandParameterType } from "./include";
 
 function toCompletion(Context: CommandCompletionContext): void {
@@ -60,57 +83,110 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   switch (Parameter.Type) {
     case MCCommandParameterType.block:
       return Block.ProvideCompletion(Context);
+    case MCCommandParameterType.blockStates:
+      return BlockStates.ProvideCompletion(Context);
     case MCCommandParameterType.boolean:
       return Boolean.ProvideCompletion(Context);
+    case MCCommandParameterType.cameraShakeType:
+      //TODO
+      return;
+    case MCCommandParameterType.cloneMode:
+      //TODO
+      return;
     case MCCommandParameterType.command:
       return command.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.coordinate:
       return Coordinate.ProvideCompletion(Context);
+    case MCCommandParameterType.difficulty:
+      //TODO
+      return;
     case MCCommandParameterType.effect:
-      return Coordinate.ProvideCompletion(Context);
+      return Effect.ProvideCompletion(Context);
     case MCCommandParameterType.entity:
-      return Coordinate.ProvideCompletion(Context);
+      return Entity.ProvideCompletion(Context);
     case MCCommandParameterType.event:
-      return Coordinate.ProvideCompletion(Context);
+      return Event.ProvideCompletion(Context);
     case MCCommandParameterType.float:
-      return Coordinate.ProvideCompletion(Context);
+      return Float.ProvideCompletion(Context);
+    case MCCommandParameterType.fillMode:
+      //TODO
+      return;
     case MCCommandParameterType.function:
-      return Coordinate.ProvideCompletion(Context);
+      return Functions.ProvideCompletion(Context);
     case MCCommandParameterType.gamemode:
-      return Coordinate.ProvideCompletion(Context);
+      return Gamemode.ProvideCompletion(Context);
     case MCCommandParameterType.integer:
-      return Coordinate.ProvideCompletion(Context);
+      return Integer.ProvideCompletion(Context);
     case MCCommandParameterType.item:
-      return Coordinate.ProvideCompletion(Context);
+      return Item.ProvideCompletion(Context);
     case MCCommandParameterType.jsonItem:
       return ItemComponents.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.jsonRawText:
       return RawText.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.keyword:
       return toCompletion(Context);
-    case MCCommandParameterType.objective:
-      return Coordinate.ProvideCompletion(Context);
-    case MCCommandParameterType.operation:
-      return Coordinate.ProvideCompletion(Context);
-    case MCCommandParameterType.particle:
-      return Coordinate.ProvideCompletion(Context);
-    case MCCommandParameterType.replaceMode:
-      break;
-    case MCCommandParameterType.selector:
-      return Coordinate.ProvideCompletion(Context);
-    case MCCommandParameterType.slotID:
+    case MCCommandParameterType.locateFeature:
+      //TODO
       return;
+    case MCCommandParameterType.maskMode:
+      //TODO
+      return;
+    case MCCommandParameterType.mirror:
+      //TODO
+      return;
+    case MCCommandParameterType.musicRepeatMode:
+      //TODO
+      return;
+    case MCCommandParameterType.oldBlockMode:
+      return OldBlockMode.ProvideCompletion(Context);
+    case MCCommandParameterType.objective:
+      return Objectives.ProvideCompletion(Context);
+    case MCCommandParameterType.operation:
+      return Operation.ProvideCompletion(Context);
+    case MCCommandParameterType.particle:
+      return particle.ProvideCompletion(Context);
+    case MCCommandParameterType.replaceMode:
+      //TODO
+      return;
+    case MCCommandParameterType.rideRules:
+      //TODO
+      return;
+    case MCCommandParameterType.rotation:
+      //TODO
+      return;
+    case MCCommandParameterType.saveMode:
+      //TODO
+      return;
+    case MCCommandParameterType.selector:
+      return Selector.Completion.ProvideCompletion(Context);
+    case MCCommandParameterType.slotID:
+      return Slot_id.ProvideCompletion(Context);
     case MCCommandParameterType.slotType:
-      return Coordinate.ProvideCompletion(Context);
+      return Slot_type.ProvideCompletion(Context);
     case MCCommandParameterType.sound:
-      return Coordinate.ProvideCompletion(Context);
+      return Sound.ProvideCompletion(Context);
+    case MCCommandParameterType.string:
+      //TODO
+      return;
+    case MCCommandParameterType.structureAnimationMode:
+      //TODO
+      return;
+    case MCCommandParameterType.target:
+      //TODO
+      return;
     case MCCommandParameterType.tag:
-      return Coordinate.ProvideCompletion(Context);
+      return Tag.ProvideCompletion(Context);
+    case MCCommandParameterType.teleportRules:
+      //TODO
+      return;
     case MCCommandParameterType.tickingarea:
-      return Coordinate.ProvideCompletion(Context);
+      return Tickingarea.ProvideCompletion(Context);
+
+    case MCCommandParameterType.xp:
+      return Xp.ProvideCompletion(Context);
+
+    default:
     case MCCommandParameterType.unknown:
       return;
-    case MCCommandParameterType.xp:
-      return Coordinate.ProvideCompletion(Context);
   }
 }

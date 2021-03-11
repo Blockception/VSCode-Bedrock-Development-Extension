@@ -101,7 +101,6 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
         }
         return;
 
-      //Keywords
       case MCCommandParameterType.boolean:
         Builder.AddWord(Word, SemanticTokensEnum.keyword);
         break;
@@ -176,10 +175,12 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
       case MCCommandParameterType.slotID:
       case MCCommandParameterType.structureAnimationMode:
       case MCCommandParameterType.teleportRules:
+      case MCCommandParameterType.oldBlockMode:
         Builder.AddWord(Word, SemanticTokensEnum.enumMember);
         break;
 
       //json
+      case MCCommandParameterType.blockStates:
       case MCCommandParameterType.jsonItem:
       case MCCommandParameterType.jsonRawText:
         break;

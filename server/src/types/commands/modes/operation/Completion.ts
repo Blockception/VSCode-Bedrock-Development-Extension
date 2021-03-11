@@ -27,23 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { CompletionItemKind } from "vscode-languageserver-types";
+import { CommandCompletionContext } from "../../../../completion/Commands/Context";
+import { ProvideModeCompletion } from "../Completion";
+import { OperationModes } from "./Operation";
 
-import { ModeCollection } from "./Interface";
-
-export function GetMode<T extends ModeCollection>(Collection: T, Name: string) {
-  for (let I = 0; I < Collection.Modes.length; I++) {
-    let Mode = Collection.Modes[I];
-    if (Mode.Name === Name) return Mode;
-  }
-
-  return undefined;
-}
-
-export function IsMode<T extends ModeCollection>(Collection: T, Name: string): boolean {
-  for (let I = 0; I < Collection.Modes.length; I++) {
-    let Mode = Collection.Modes[I];
-    if (Mode.Name === Name) return true;
-  }
-
-  return false;
+export function ProvideCompletion(Context: CommandCompletionContext): void {
+  ProvideModeCompletion(OperationModes, Context.receiver, CompletionItemKind.Operator);
 }

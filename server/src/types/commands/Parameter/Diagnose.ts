@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ValidationData } from "../../../validation/include";
 import {
   Block,
+  BlockStates,
   Boolean,
   Coordinate,
   Effect,
@@ -55,7 +56,8 @@ import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 import { LocationWord } from "bc-vscode-words";
 import { command } from "../include";
 import { particle } from "../../minecraft/resource/include";
-import { Operation } from "../modes/include";
+import { DiagnoseMode, OldBlockMode, Operation } from "../modes/include";
+import { OldBlockModeModes } from "../modes/OldBlockMode/OldBlockMode";
 
 /**Diagnoses the single parameter
  * @param pattern
@@ -84,8 +86,21 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
     case MCCommandParameterType.block:
       return Block.ProvideDiagnose(data, builder);
 
+    case MCCommandParameterType.blockStates:
+      BlockStates.ProvideDiagnose(data, builder);
+      //TODO
+      return;
+
     case MCCommandParameterType.boolean:
       return Boolean.ProvideDiagnose(data, builder);
+
+    case MCCommandParameterType.cameraShakeType:
+      //TODO
+      return;
+
+    case MCCommandParameterType.cloneMode:
+      //TODO
+      return;
 
     case MCCommandParameterType.command:
       return command.DiagnoseCommandParameter(data, builder);
@@ -101,6 +116,10 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
 
     case MCCommandParameterType.event:
       return; //TODO
+
+    case MCCommandParameterType.fillMode:
+      //TODO
+      return;
 
     case MCCommandParameterType.float:
       return Float.ProvideDiagnose(data, builder);
@@ -129,6 +148,21 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       //TODO
       return;
 
+    case MCCommandParameterType.maskMode:
+      //TODO
+      return;
+
+    case MCCommandParameterType.mirror:
+      //TODO
+      return;
+
+    case MCCommandParameterType.musicRepeatMode:
+      //TODO
+      return;
+
+    case MCCommandParameterType.oldBlockMode:
+      return OldBlockMode.Diagnose(data, Command, builder);
+
     case MCCommandParameterType.objective:
       return Objectives.ProvideDiagnose(data, validation, builder);
 
@@ -139,6 +173,18 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return particle.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.replaceMode:
+      //TODO
+      return;
+
+    case MCCommandParameterType.rideRules:
+      //TODO
+      return;
+
+    case MCCommandParameterType.rotation:
+      //TODO
+      return;
+
+    case MCCommandParameterType.saveMode:
       //TODO
       return;
 
@@ -157,12 +203,17 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
     case MCCommandParameterType.string:
       return String.ProvideDiagnose(data, builder);
 
+    case MCCommandParameterType.structureAnimationMode:
+      //TODO
+      return;
+
     case MCCommandParameterType.tag:
       return Tag.ProvideDiagnose(data, validation, builder);
 
     case MCCommandParameterType.target:
       //TODO
       return;
+    case MCCommandParameterType.teleportRules:
 
     case MCCommandParameterType.tickingarea:
       return Block.ProvideDiagnose(data, builder);
