@@ -22,6 +22,15 @@
       ]
     },
     {
+      "name": "camerashake",
+      "documentation": { "value": "Stops shaking to the players' camera with specified intensity and duration" },
+      "parameters": [
+        { "Text": "camerashake", "Type": "keyword", "Required": true },
+        { "Text": "stop", "Type": "keyword", "Required": true },
+        { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
+      ]
+    },
+    {
       "name": "clear",
       "documentation": { "value": "Clears items from player inventory.", "kind": "markdown" },
       "parameters": [
@@ -74,6 +83,31 @@
       ],
       "name": "clone",
       "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "clone", "Type": "keyword", "Required": true },
+        { "Text": "begin x", "Type": "coordinate", "Required": true },
+        { "Text": "begin y", "Type": "coordinate", "Required": true },
+        { "Text": "begin z", "Type": "coordinate", "Required": true },
+        { "Text": "end x", "Type": "coordinate", "Required": true },
+        { "Text": "end y", "Type": "coordinate", "Required": true },
+        { "Text": "end z", "Type": "coordinate", "Required": true },
+        { "Text": "destination x", "Type": "coordinate", "Required": true },
+        { "Text": "destination y", "Type": "coordinate", "Required": true },
+        { "Text": "destination z", "Type": "coordinate", "Required": true },
+        { "Text": "filtered", "Type": "keyword", "Required": true },
+        { "Text": "clone mode", "Type": "cloneMode", "Required": true },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "block states", "Type": "blockStates", "Required": false }
+      ],
+      "name": "clone",
+      "documentation": { "value": "Copies blocks from one place to another.", "kind": "markdown" }
+    },
+    {
+      "name": "daylock",
+      "documentation": { "value": "Locks and unlocks the day-night cycle.", "kind": "markdown" },
+      "parameters": [{ "Text": "lock", "Type": "boolean", "Required": false }]
     },
     {
       "parameters": [
@@ -178,6 +212,42 @@
         { "Text": "replace", "Type": "keyword", "Required": true },
         { "Text": "replace tile name", "Type": "block", "Required": false },
         { "Text": "replace data value", "Type": "integer", "Required": false }
+      ],
+      "name": "fill",
+      "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "fill", "Type": "keyword", "Required": true },
+        { "Text": "from x", "Type": "coordinate", "Required": true },
+        { "Text": "from y", "Type": "coordinate", "Required": true },
+        { "Text": "from z", "Type": "coordinate", "Required": true },
+        { "Text": "to x", "Type": "coordinate", "Required": true },
+        { "Text": "to y", "Type": "coordinate", "Required": true },
+        { "Text": "to z", "Type": "coordinate", "Required": true },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "tile data", "Type": "integer", "Required": true },
+        { "Text": "replace", "Type": "keyword", "Required": true },
+        { "Text": "replace tile name", "Type": "block", "Required": false },
+        { "Text": "replace block states", "Type": "blockStates", "Required": false }
+      ],
+      "name": "fill",
+      "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
+    },
+    {
+      "parameters": [
+        { "Text": "fill", "Type": "keyword", "Required": true },
+        { "Text": "from x", "Type": "coordinate", "Required": true },
+        { "Text": "from y", "Type": "coordinate", "Required": true },
+        { "Text": "from z", "Type": "coordinate", "Required": true },
+        { "Text": "to x", "Type": "coordinate", "Required": true },
+        { "Text": "to y", "Type": "coordinate", "Required": true },
+        { "Text": "to z", "Type": "coordinate", "Required": true },
+        { "Text": "tile name", "Type": "block", "Required": true },
+        { "Text": "block states", "Type": "blockStates", "Required": true },
+        { "Text": "replace", "Type": "keyword", "Required": true },
+        { "Text": "replace tile name", "Type": "block", "Required": false },
+        { "Text": "replace block states", "Type": "blockStates", "Required": false }
       ],
       "name": "fill",
       "documentation": { "value": "Fills a region with a specific block.", "kind": "markdown" }
@@ -1154,6 +1224,15 @@
         { "Text": "include blocks", "Type": "boolean", "Required": false },
         { "Text": "integrity", "Type": "float", "Required": false },
         { "Text": "seed", "Type": "string", "Required": false }
+      ]
+    },
+    {
+      "name": "structure",
+      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "parameters": [
+        { "Text": "structure", "Type": "keyword", "Required": true },
+        { "Text": "delete", "Type": "keyword", "Required": true },
+        { "Text": "name", "Type": "string", "Required": true }
       ]
     },
 
