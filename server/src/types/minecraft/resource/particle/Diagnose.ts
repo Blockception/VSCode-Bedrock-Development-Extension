@@ -31,7 +31,7 @@ import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../../database/include";
 import { DiagnosticsBuilder } from "../../../../diagnostics/Builder";
 
-export function DiagnoseParticle(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
   if (Database.Data.Resourcepack.Particles.HasID(data.text)) return;
 
   builder.AddWord(data, 'No particle found in resourcepack with identifier: "' + data.text + '"');

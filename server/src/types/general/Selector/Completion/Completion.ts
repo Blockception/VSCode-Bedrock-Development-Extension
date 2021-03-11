@@ -39,7 +39,7 @@ import { CommandCompletionContext } from "../../../../completion/Commands/Contex
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
   let selector = Context.Current;
-  let pos = Context.pos;
+  let pos = Context.Pos.character;
   let Options = Context.Parameter.Options;
 
   const playerOnly = Options?.playerOnly ?? false;

@@ -33,7 +33,7 @@ import { DiagnoseMode } from "../Diagnose";
 import { OperationModes } from "./Operation";
 import { DiagnosticsBuilder } from "../../../../diagnostics/Builder";
 
-export function Diagnose(Word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(Word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
   DiagnoseMode(Word, OperationModes, builder);
   let Index = Command.Parameters.indexOf(Word);
 

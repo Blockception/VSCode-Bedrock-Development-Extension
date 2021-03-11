@@ -29,12 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList, CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../../completion/Builder";
-import { provideEntityTestCompletion } from "../../Entity/Completion";
-import { provideFamilyTestCompletion } from "../../Family/Completion";
-import { provideFloatCompletion } from "../../Float/Completion";
-import { provideGamemodeTestCompletion } from "../../Gamemode/Completion";
-import { provideIntegerCompletion } from "../../Integer/Completion";
-import { provideTagTestCompletion } from "../../Tag/include";
+import { Entity, Family, Float, Gamemode, Integer, Tag } from "../../include";
 
 //Doesnt do scores and doesnt need to
 export function provideSelectorAttributeValueCompletion(receiver: CompletionBuilder, attribute: string, forEntities: boolean, type: string | undefined = undefined): void {
@@ -54,18 +49,18 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionBuil
       return;
 
     case "family":
-      provideFamilyTestCompletion(receiver, type);
+      Family.ProvideCompletionTest(receiver, type);
       return;
 
     case "r":
     case "rm":
     case "lm":
     case "l":
-      provideIntegerCompletion(receiver, { minimum: 0, maximum: 100 });
+      Integer.ProvideCreateCompletion(receiver, 0, 100);
       return;
 
     case "m":
-      provideGamemodeTestCompletion(receiver);
+      Gamemode.ProvideCompletionTest(receiver);
       return;
 
     case "name":
@@ -76,16 +71,16 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionBuil
     case "rxm":
     case "ry":
     case "rym":
-      provideFloatCompletion(receiver, { minimum: -180, maximum: 180 });
+      Float.ProvideCreateCompletion(receiver, -180, 180);
       return;
 
     case "tag":
-      provideTagTestCompletion(receiver);
+      Tag.ProvideCompletionTest(receiver);
       return;
 
     case "type":
       if (forEntities) {
-        provideEntityTestCompletion(receiver);
+        Entity.ProvideCompletionTest(receiver);
       }
       return;
 

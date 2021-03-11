@@ -27,52 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
+import { CompletionItemKind } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../../completion/Builder";
 import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from "./Constants";
 
-export function Completion(receiver: CompletionItem[]): void {
-  receiver.push(
-    {
-      label: "Json Item Components Example",
-      kind: CompletionItemKind.Snippet,
-      insertText: Example,
-      documentation: Example,
-    },
-    {
-      label: "Can destroy component",
-      kind: CompletionItemKind.Snippet,
-      insertText: CanDestroyComponent,
-      documentation: CanDestroyComponent,
-    },
-    {
-      label: "Can place on component",
-      kind: CompletionItemKind.Snippet,
-      insertText: CanPlaceOnComponent,
-      documentation: CanPlaceOnComponent,
-    },
-    {
-      label: "Can destroy component",
-      kind: CompletionItemKind.Snippet,
-      insertText: CanDestroyComponent,
-      documentation: CanDestroyComponent,
-    },
-    {
-      label: "Lock in inventory component",
-      kind: CompletionItemKind.Snippet,
-      insertText: LockInInventoryComponent,
-      documentation: LockInInventoryComponent,
-    },
-    {
-      label: "Keep on death component",
-      kind: CompletionItemKind.Snippet,
-      insertText: KeepOnDeathComponent,
-      documentation: KeepOnDeathComponent,
-    },
-    {
-      label: "Lock in slot component",
-      kind: CompletionItemKind.Snippet,
-      insertText: LockInSlotComponent,
-      documentation: LockInSlotComponent,
-    }
-  );
+export function ProvideCompletion(receiver: CompletionBuilder): void {
+  receiver.Add("Json Item Components Example", Example, CompletionItemKind.Snippet, Example);
+  receiver.Add("Can destroy component", CanDestroyComponent, CompletionItemKind.Snippet, CanDestroyComponent);
+  receiver.Add("Can place on component", CanPlaceOnComponent, CompletionItemKind.Snippet, CanPlaceOnComponent);
+  receiver.Add("Lock in inventory component", LockInInventoryComponent, CompletionItemKind.Snippet, LockInInventoryComponent);
+  receiver.Add("Keep on death component", KeepOnDeathComponent, CompletionItemKind.Snippet, KeepOnDeathComponent);
+  receiver.Add("Lock in slot component", LockInSlotComponent, CompletionItemKind.Snippet, LockInSlotComponent);
 }

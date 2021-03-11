@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CommandCompletionContext } from "../../../completion/Commands/include";
+import { CompletionBuilder } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
@@ -37,8 +38,10 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   receiver.AddFromRange(Database.Data.General.Entities, Kinds.Completion.Entity);
 }
 
-export function ProvideCompletionTest(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
+export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder): void {
+  let receiver: CompletionBuilder;
+  if (CommandCompletionContext.is(Context)) receiver = Context.receiver;
+  else receiver = Context;
 
   Database.Data.General.Entities.ForEach((entity) => {
     let Name = entity.Identifier;

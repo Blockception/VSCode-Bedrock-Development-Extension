@@ -27,6 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { CompletionBuilder } from "../../../completion/Builder";
 import { CommandCompletionContext } from "../../../completion/Commands/Context";
 import { ProvideModeCompletion, ProvideModeTestCompletion } from "../../commands/modes/Completion";
 import { Kinds } from "../Kinds";
@@ -37,7 +38,10 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   ProvideModeCompletion(GameMode, receiver, Kinds.Completion.Gamemode);
 }
 
-export function ProvideCompletionTest(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
+export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder): void {
+  let receiver: CompletionBuilder;
+  if (CommandCompletionContext.is(Context)) receiver = Context.receiver;
+  else receiver = Context;
+
   ProvideModeTestCompletion(GameMode, receiver, Kinds.Completion.Gamemode);
 }

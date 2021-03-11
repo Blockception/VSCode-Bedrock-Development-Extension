@@ -29,6 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { CommandCompletionContext } from "../../../completion/Commands/include";
+import { CompletionBuilder } from "../../../completion/include";
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
@@ -37,7 +38,16 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   const minimum = Options?.minimum ?? 0;
   const maximum = Options?.maximum ?? 10;
 
-  let steps = (maximum - minimum) / 10;
+  ProvideCreateCompletion(receiver, minimum, maximum);
+}
+
+export function ProvideCreateCompletion(Context: CommandCompletionContext | CompletionBuilder, minimum: number, maximum: number): void {
+  let receiver: CompletionBuilder;
+  if (CommandCompletionContext.is(Context)) receiver = Context.receiver;
+  else receiver = Context;
+
+  let diff = maximum - minimum;
+  let steps = diff / 10;
 
   for (let I = minimum; I < maximum; I += steps) {
     let text = I.toPrecision();

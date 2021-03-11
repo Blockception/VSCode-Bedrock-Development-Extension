@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
+import { Position } from "vscode-languageserver-textdocument";
 import { CommandInfo } from "../../types/commands/info/include";
 import { CommandIntr } from "../../types/commands/interpertation/CommandIntr";
 import { MCCommandParameter } from "../../types/commands/parameter/Parameter";
@@ -41,7 +42,7 @@ export interface CommandCompletionContext {
   ParameterIndex: number;
   Command: CommandIntr;
   BestMatch: CommandInfo;
-  pos: number;
+  Pos: Position;
   receiver: CompletionBuilder;
   Current: LocationWord | undefined;
 }
@@ -59,7 +60,7 @@ export namespace CommandCompletionContext {
     if (value) {
       let temp = value as CommandCompletionContext;
 
-      if (temp.Parameter && temp.Command && temp.pos && temp.receiver) return true;
+      if (temp.Parameter && temp.Command && temp.Pos && temp.receiver) return true;
     }
 
     return false;
@@ -78,7 +79,7 @@ export namespace CommandCompletionContext {
     Parameter: MCCommandParameter,
     ParameterIndex: number,
     Command: CommandIntr,
-    pos: number,
+    Pos: Position,
     receiver: CompletionBuilder,
     Current: LocationWord | undefined = undefined
   ): CommandCompletionContext {
@@ -89,7 +90,7 @@ export namespace CommandCompletionContext {
       ParameterIndex: ParameterIndex,
       Command: Command,
       BestMatch: BestMatch,
-      pos: pos,
+      Pos: Pos,
       receiver: receiver,
       Current: Current,
     };

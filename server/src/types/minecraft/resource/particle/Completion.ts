@@ -31,6 +31,6 @@ import { CompletionBuilder } from "../../../../completion/Builder";
 import { Database } from "../../../../database/include";
 import { Kinds } from "../../../general/Kinds";
 
-export function provideParticleCompletion(receiver: CompletionBuilder): void {
+export function ProvideCompletion(receiver: CompletionBuilder): void {
   receiver.AddFromRange(Database.Data.Resourcepack.Particles, Kinds.Completion.Particle);
 }

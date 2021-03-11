@@ -29,9 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { LocationWord } from "bc-vscode-words";
-import { provideObjectivePostCompletion } from "../../Objectives/Completion";
 import { IsEditingValue } from "../Functions";
 import { CompletionBuilder } from "../../../../completion/Builder";
+import { Objectives } from "../../include";
 
 export function provideSelectorScoreCompletion(receiver: CompletionBuilder, selector: LocationWord, pos: number): void {
   if (IsEditingValue(selector, pos)) {
@@ -42,6 +42,6 @@ export function provideSelectorScoreCompletion(receiver: CompletionBuilder, sele
     receiver.Add("0..10", "test for the everything equal to 0 or 10 and everything in between", CompletionItemKind.Value);
     receiver.Add("!0..10", "test for the everything not equal to 0 or 10 and everything in between", CompletionItemKind.Value);
   } else {
-    provideObjectivePostCompletion(receiver, "=");
+    Objectives.ProvideCompletionPost(receiver, "=");
   }
 }

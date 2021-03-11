@@ -29,6 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { CommandCompletionContext } from "../../../completion/Commands/Context";
+import { Block, Boolean, Coordinate } from "../../general/include";
+import { ItemComponents, RawText } from "../../minecraft/json/include";
+import { command } from "../include";
 import { MCCommandParameterType } from "./include";
 
 function toCompletion(Context: CommandCompletionContext): void {
@@ -56,58 +59,58 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
 
   switch (Parameter.Type) {
     case MCCommandParameterType.block:
-      return ProvideCompletion(Context);
+      return Block.ProvideCompletion(Context);
     case MCCommandParameterType.boolean:
-      return provideBooleanCompletion(Context);
+      return Boolean.ProvideCompletion(Context);
     case MCCommandParameterType.command:
-      return provideCommandCompletion(Context);
+      return command.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.coordinate:
-      return provideCoordinateCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.effect:
-      return provideEffectCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.entity:
-      return provideEntityCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.event:
-      return provideEventCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.float:
-      return provideFloatCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.function:
-      return provideFunctionCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.gamemode:
-      return provideGamemodeCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.integer:
-      return provideIntegerCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.item:
-      return provideItemCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.jsonItem:
-      return ItemComponents.Completion(Context);
+      return ItemComponents.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.jsonRawText:
-      return RawText.Completion(Context);
+      return RawText.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.keyword:
       return toCompletion(Context);
     case MCCommandParameterType.objective:
-      return provideObjectiveCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.operation:
-      return ProvideModeCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.particle:
-      return provideParticleCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.replaceMode:
       break;
     case MCCommandParameterType.selector:
-      return provideSelectorCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.slotID:
       return;
     case MCCommandParameterType.slotType:
-      return ProvideModeCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.sound:
-      return provideSoundCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.tag:
-      return provideTagCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.tickingarea:
-      return provideTickingareaCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.unknown:
       return;
     case MCCommandParameterType.xp:
-      return provideXPCompletion(Context);
+      return Coordinate.ProvideCompletion(Context);
   }
 }

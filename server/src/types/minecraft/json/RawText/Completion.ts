@@ -27,7 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
+import { CompletionItemKind } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../../completion/Builder";
 import {
   cRawTextComponent,
   cRawTextExample,
@@ -39,24 +40,13 @@ import {
   cTranslationWithComplex,
 } from "./Constants";
 
-export function Completion(receiver: CompletionItem[]): void {
-  receiver.push(
-    create("Json Raw Text", cRawTextComponent),
-    create("Json Raw Text example", cRawTextExample),
-    create("Translation component", cTranslationComponent),
-    create("Translation component, with", cTranslationWith),
-    create("Translation component, with complex", cTranslationWithComplex),
-    create("Text component", cTextComponent),
-    create("Score component", cScoreComponent),
-    create("Selector component", cSelectorComponent)
-  );
-}
-
-function create(Label: string, content: string): CompletionItem {
-  return {
-    label: Label,
-    kind: CompletionItemKind.Snippet,
-    insertText: content,
-    documentation: content,
-  };
+export function ProvideCompletion(receiver: CompletionBuilder): void {
+  receiver.Add("Json Raw Text", cRawTextComponent, CompletionItemKind.Snippet, cRawTextComponent);
+  receiver.Add("Json Raw Text example", cRawTextExample, CompletionItemKind.Snippet, cRawTextExample);
+  receiver.Add("Translation component", cTranslationComponent, CompletionItemKind.Snippet, cTranslationComponent);
+  receiver.Add("Translation component, with", cTranslationWith, CompletionItemKind.Snippet, cTranslationWith);
+  receiver.Add("Translation component, with complex", cTranslationWithComplex, CompletionItemKind.Snippet, cTranslationWithComplex);
+  receiver.Add("Text component", cTextComponent, CompletionItemKind.Snippet, cTextComponent);
+  receiver.Add("Score component", cScoreComponent, CompletionItemKind.Snippet, cScoreComponent);
+  receiver.Add("Selector component", cSelectorComponent, CompletionItemKind.Snippet, cSelectorComponent);
 }

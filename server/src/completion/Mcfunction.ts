@@ -27,12 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { receiveMessageOnPort } from "node:worker_threads";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { ProvideCompletionMCCommandParameter } from "../types/commands/parameter/Completion";
-import { provideCommandCompletion } from "../types/commands/command/Completion";
 import { getLine } from "../code/include";
+import { command, parameter } from "../types/commands/include";
 import { CommandIntr, IsInSubCommand } from "../types/commands/interpertation/include";
 import { CompletionBuilder } from "./Builder";
+import { CommandCompletionContext } from "./Commands/Context";
 
 export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
   const LineIndex = pos.line;
@@ -52,7 +53,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
     Command = SubCommand;
   }
 
-  ProvideCompletionMcFunction(pos, receiver, Command);
+  ProvideCompletion(pos, receiver, Command);
 }
 
 export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionBuilder): void {
@@ -62,19 +63,19 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
   pos.character -= posB.character;
 
   let Command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
-  ProvideCompletionMcFunction(pos, receiver, Command);
+  ProvideCompletion(pos, receiver, Command);
 }
 
-export function ProvideCompletionMcFunction(pos: Position, receiver: CompletionBuilder, Command: CommandIntr): void {
+export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, Command: CommandIntr): void {
   if (Command == undefined || Command.Parameters.length == 0 || pos.character < 3) {
-    provideCommandCompletion(receiver);
+    command.ProvideCompletion(receiver);
     return;
   }
 
   let Matches = Command.GetCommandData();
 
   if (Matches.length === 0) {
-    if (pos.character < 10) provideCommandCompletion(receiver);
+    if (pos.character < 10) command.ProvideCompletion(receiver);
 
     return;
   }
@@ -87,7 +88,9 @@ export function ProvideCompletionMcFunction(pos: Position, receiver: CompletionB
 
     if (Match.Command.parameters.length > ParameterIndex) {
       let Parameter = Match.Command.parameters[ParameterIndex];
-      ProvideCompletionMCCommandParameter(Parameter, Command, pos.character, receiver, Current);
+      let Context = CommandCompletionContext.create(Parameter, ParameterIndex, Command, pos, receiver, Current);
+
+      parameter.ProvideCompletion(Context);
     }
   }
 }

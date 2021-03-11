@@ -27,34 +27,35 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { DiagnoseBlock } from "../../general/Block/Diagnose";
-import { DiagnoseBoolean } from "../../general/Boolean/Diagnose";
-import { DiagnoseEffect } from "../../general/Effect/Diagnose";
-import { DiagnoseEntity } from "../../general/Entity/Diagnose";
-import { DiagnoseFloat } from "../../general/Float/Diagnose";
-import { DiagnoseInteger } from "../../general/Integer/Diagnose";
-import { DiagnoseKeyword } from "../../general/Keyword/Diagnose";
-import { DiagnoseTag } from "../../general/Tag/Diagnose";
 import { ValidationData } from "../../../validation/include";
-import { Selector } from "../../general/include";
+import {
+  Block,
+  Boolean,
+  Coordinate,
+  Effect,
+  Entity,
+  Float,
+  Functions,
+  Gamemode,
+  Integer,
+  Item,
+  Keyword,
+  Objectives,
+  Selector,
+  Slot_id,
+  Slot_type,
+  Sound,
+  String,
+  Tag,
+  Xp,
+} from "../../general/include";
 import { MCCommandParameter, MCCommandParameterType } from "./include";
-import { DiagnoseFunctionPath } from "../../general/Functions/include";
-import { DiagnoseCommandParameter } from "../command/include";
-import { DiagnoseCoordinate } from "../../general/Coordinate/include";
-import { DiagnoseGamemode } from "../../general/Gamemode/include";
-import { DiagnoseObjective } from "../../general/Objectives/include";
-import { DiagnoseTickingarea } from "../../general/Tickingarea/include";
-import { DiagnoseParticle } from "../../minecraft/resource/particle/include";
-import { ProvideOperationDiagnose } from "../modes/Operation/include";
 import { CommandIntr } from "../interpertation/include";
-import { DiagnoseItem } from "../../general/Item/include";
-import { DiagnoseString } from "../../general/String/Diagnose";
-import { DiagnoseSound } from "../../general/Sound/Diagnose";
-import { DiagnoseMode } from "../modes/include";
-import { SlotTypeModes } from "../../general/Slot type/Slot type";
-import { DiagnoseSlotID } from "../../general/Slot id/Diagnose";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 import { LocationWord } from "bc-vscode-words";
+import { command } from "../include";
+import { particle } from "../../minecraft/resource/include";
+import { Operation } from "../modes/include";
 
 /**Diagnoses the single parameter
  * @param pattern
@@ -81,89 +82,97 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
 
   switch (pattern.Type) {
     case MCCommandParameterType.block:
-      return DiagnoseBlock(data, builder);
+      return Block.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.boolean:
-      return DiagnoseBoolean(data, builder);
+      return Boolean.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.command:
-      return DiagnoseCommandParameter(data, builder);
+      return command.DiagnoseCommandParameter(data, builder);
 
     case MCCommandParameterType.coordinate:
-      return DiagnoseCoordinate(data, builder);
+      return Coordinate.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.effect:
-      return DiagnoseEffect(data, builder);
+      return Effect.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.entity:
-      return DiagnoseEntity(data, builder);
+      return Entity.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.event:
       return; //TODO
 
     case MCCommandParameterType.float:
-      return DiagnoseFloat(data, builder);
+      return Float.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.function:
-      return DiagnoseFunctionPath(data, builder);
+      return Functions.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.gamemode:
-      return DiagnoseGamemode(data, builder);
+      return Gamemode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.integer:
-      return DiagnoseInteger(data, builder);
+      return Integer.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.item:
-      return DiagnoseItem(data, builder);
+      return Item.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.jsonItem:
     case MCCommandParameterType.jsonRawText:
+      //TODO
       return;
 
     case MCCommandParameterType.keyword:
-      return DiagnoseKeyword(pattern, data, builder);
+      return Keyword.ProvideDiagnose(pattern, data, builder);
 
     case MCCommandParameterType.locateFeature:
+      //TODO
       return;
 
     case MCCommandParameterType.objective:
-      return DiagnoseObjective(data, validation, builder);
+      return Objectives.ProvideDiagnose(data, validation, builder);
 
     case MCCommandParameterType.operation:
-      return ProvideOperationDiagnose(data, Command, builder);
+      return Operation.ProvideDiagnose(data, Command, builder);
 
     case MCCommandParameterType.particle:
-      return DiagnoseParticle(data, builder);
+      return particle.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.replaceMode:
+      //TODO
       return;
 
     case MCCommandParameterType.selector:
-      return Selector.ProvideDiagnostics(pattern, data, builder, validation);
+      return Selector.ProvideDiagnose(pattern, data, builder, validation);
 
     case MCCommandParameterType.slotID:
-      return DiagnoseSlotID(data, Command, builder);
+      return Slot_id.ProvideDiagnose(data, Command, builder);
 
     case MCCommandParameterType.slotType:
-      return DiagnoseMode(data, SlotTypeModes, builder);
+      return Slot_type.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.sound:
-      return DiagnoseSound(data, builder);
+      return Sound.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.string:
-      return DiagnoseString(data, builder);
+      return String.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.tag:
-      return DiagnoseTag(data, validation, builder);
+      return Tag.ProvideDiagnose(data, validation, builder);
 
     case MCCommandParameterType.target:
+      //TODO
       return;
 
     case MCCommandParameterType.tickingarea:
-      return DiagnoseTickingarea(data, builder);
+      return Block.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.unknown:
+      //TODO
+      return;
+
     case MCCommandParameterType.xp:
+      Xp.ProvideDiagnose(data, builder);
       return;
   }
 }

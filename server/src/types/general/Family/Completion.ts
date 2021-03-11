@@ -54,8 +54,10 @@ function ConvertEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   });
 }
 
-export function ProvideCompletionTest(Context: CommandCompletionContext, type: string | undefined = undefined): void {
-  let receiver = Context.receiver;
+export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder, type: string | undefined = undefined): void {
+  let receiver: CompletionBuilder;
+  if (CommandCompletionContext.is(Context)) receiver = Context.receiver;
+  else receiver = Context;
 
   if (type) {
     let entity = Database.Data.General.Entities.GetFromID(type);
