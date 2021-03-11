@@ -1,21 +1,21 @@
 # Changelog 
-- Fixing semantics colouring
-- Updated to 1.6.4
-- Updated
-- Updated to 1.6.3
-- Fixing semantics
-- Updated to 1.6.2
-- Json Semantic tokens stuck in infiinite loop
-- Updated to 1.6.1
-- Refactor
+- Updated schemas
+- Refactor completion and diagnostics
 - auto: Generated
-- Added JSON comments parsing
-- Updated to 1.6.0
-- Refactor
-- Fixing
-- Refactor of code to use diagnostic builder and vscode-bc-words
-- Updated to 1.5.27
-- Fixed Minecraft:entity_sensor
-- Updated to 1.5.26
-- Updated formatter
-- Updated to 1.5.23
+- Updated command syntax detection
+- Fixed command data
+- Adding blockstate basic support
+- auto: Generated includes
+- Last Completion Refactor
+- auto: Formatted typescript files
+- Updated formatting
+- Refactored completion
+- auto: Generated includes
+- auto: Generated includes
+- Add more commands
+- Refactor completion
+- Updated
+- Added oldblockmode
+- Refactor of completion
+- Added completion builder
+- Adding blockstates
