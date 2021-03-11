@@ -36,6 +36,10 @@
       "function": "average_frame_time",
       "documentation": "Returns the time in *seconds* of the average frame time over the last 'n' frames. If an argument is passed, it is assumed to be the number of frames in the past that you wish to query. `query.average_frame_time` (or the equivalent `query.average_frame_time(0)`) will return the frame time of the frame before the current one. `query.average_frame_time(1)` will return the average frame time of the previous two frames. Currently we store the history of the last 30 frames, although note that this may change in the future. Asking for more frames will result in only sampling the number of frames stored."
     },
+    {
+      "function": "block_face",
+      "documentation": "Returns the block face for this (only valid for certain triggers such as placing blocks, or interacting with block) (Down=0.0, Up=1.0, North=2.0, South=3.0, West=4.0, East=5.0, Undefined=6.0)."
+    },
     { "function": "block_property", "documentation": "Returns the value of the associated Blocks Block State" },
     { "function": "blocking", "documentation": "Returns 1.0 if the entity is blocking, else it returns 0.0" },
     { "function": "body_x_rotation", "documentation": "Returns the body pitch rotation if called on an actor, else it returns 0.0" },
@@ -49,6 +53,7 @@
       "documentation": "Returns the rotation of the camera. Requires one argument representing the rotation axis you would like (`0==x`, `1==y`)"
     },
     { "function": "can_climb", "documentation": "Returns 1.0 if the entity can climb, else it returns 0.0" },
+    { "function": "can_damage_nearby_mobs", "documentation": "Returns 1.0 if the entity can damage nearby mobs, else it returns 0.0" },
     { "function": "can_fly", "documentation": "Returns 1.0 if the entity can fly, else it returns 0.0" },
     { "function": "can_power_jump", "documentation": "Returns 1.0 if the entity can power jump, else it returns 0.0" },
     { "function": "can_swim", "documentation": "Returns 1.0 if the entity can swim, else it returns 0.0" },
@@ -59,7 +64,15 @@
     },
     {
       "function": "cardinal_block_face_placed_on",
-      "documentation": "Returns the block face that was placed on by the player (Down=0.0, Up=1.0, North=2.0, South=3.0, West=4.0, East=5.0, Undefined=6.0)."
+      "documentation": "DEPRECATED (please use query.block_face instead) Returns the block face for this (only valid for on_placed_by_player trigger) (Down=0.0, Up=1.0, North=2.0, South=3.0, West=4.0, East=5.0, Undefined=6.0)."
+    },
+    {
+      "function": "cardinal_facing",
+      "documentation": "Returns the current facing of the player (Down=0.0, Up=1.0, North=2.0, South=3.0, West=4.0, East=5.0, Undefined=6.0)."
+    },
+    {
+      "function": "cardinal_facing_2d",
+      "documentation": "Returns the current facing of the player ignoring up/down part of the direction (North=2.0, South=3.0, West=4.0, East=5.0, Undefined=6.0)."
     },
     {
       "function": "cardinal_player_facing",
@@ -89,10 +102,15 @@
       "function": "equipped_item_any_tag",
       "documentation": "takes a slot name followed by any tag you want to check for in the form of 'tag_name' and returns 0 if none of the tags are on that equipped item or 1 if at least 1 tag exists"
     },
+    {
+      "function": "equipped_item_is_attachable",
+      "documentation": "Takes the desired hand slot as a parameter (0 or 'main_hand' for main hand, 1 or 'off_hand' for off hand), and returns whether the item is an attachable or not."
+    },
     { "function": "eye_target_x_rotation", "documentation": "returns the X eye rotation of the entity if it makes sense, else it returns 0.0" },
     { "function": "eye_target_y_rotation", "documentation": "returns the Y eye rotation of the entity if it makes sense, else it returns 0.0" },
     { "function": "frame_alpha", "documentation": "Returns the ratio (from 0 to 1) of how much between AI ticks this frame is being rendered" },
     { "function": "get_actor_info_id", "documentation": "Returns the integer id of an actor by its string name" },
+    { "function": "get_animation_frame", "documentation": "Returns the current texture of the item" },
     {
       "function": "get_equipped_item_name",
       "documentation": "takes one optional hand slot as a parameter (0 or 'main_hand' for main hand, 1 or 'off_hand' for off hand), and a second parameter (0=default) if you would like the equipped item or any non-zero number for the currently rendered item, and returns the name of the item in the requested slot (defaulting to the main hand if no parameter is supplied) if there is one, otherwise returns ''."
@@ -190,6 +208,7 @@
     { "function": "is_persona_or_premium_skin", "documentation": "Returns 1.0 if the player has a persona or permium skin, else it returns 0.0" },
     { "function": "is_powered", "documentation": "Returns 1.0 if the entity is powered, else it returns 0.0" },
     { "function": "is_pregnant", "documentation": "Returns 1.0 if the entity is pregnant, else it returns 0.0" },
+    { "function": "is_ram_attacking", "documentation": "Returns 1.0 if the entity is using a ram attack, else it returns 0.0" },
     { "function": "is_resting", "documentation": "Returns 1.0 if the entity is resting, else it returns 0.0" },
     { "function": "is_riding", "documentation": "Returns 1.0 if the entity is riding, else it returns 0.0" },
     { "function": "is_roaring", "documentation": "returns 1.0 if the entity is currently roaring, else it returns 0.0" },
@@ -234,6 +253,10 @@
     {
       "function": "item_remaining_use_duration",
       "documentation": "Returns the amount of time an item has left to use in seconds, else 0.0 if it doesn't make sense"
+    },
+    {
+      "function": "item_slot_to_bone_name",
+      "documentation": "query.item_slot_to_bone_name requires one parameter: the name of the equipment slot. This function returns the name of the bone this entity has mapped to that slot."
     },
     { "function": "key_frame_lerp_time", "documentation": "Returns the ratio between the previous and next key frames" },
     {
@@ -319,6 +342,10 @@
     },
     { "function": "shake_angle", "documentation": "returns the shaking angle of the entity if it makes sense, else it returns 0.0" },
     { "function": "shake_time", "documentation": "Returns the shake time of the entity." },
+    {
+      "function": "shield_blocking_bob",
+      "documentation": "Returns the how much the offhand shield should translate down when blocking and being hit."
+    },
     { "function": "sit_amount", "documentation": "Returns the current sit amount of the entity" },
     { "function": "skin_id", "documentation": "Returns the entity's skin ID" },
     { "function": "sleep_rotation", "documentation": "returns the rotation of the bed the player is sleeping on." },
