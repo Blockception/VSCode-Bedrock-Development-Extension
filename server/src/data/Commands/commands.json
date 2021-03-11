@@ -107,7 +107,10 @@
     {
       "name": "daylock",
       "documentation": { "value": "Locks and unlocks the day-night cycle.", "kind": "markdown" },
-      "parameters": [{ "Text": "lock", "Type": "boolean", "Required": false }]
+      "parameters": [
+        { "Text": "daylock", "Type": "keyword", "Required": true },
+        { "Text": "lock", "Type": "boolean", "Required": false }
+      ]
     },
     {
       "parameters": [
