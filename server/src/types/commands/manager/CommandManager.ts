@@ -39,6 +39,9 @@ import { CommandInfo } from "../info/CommandInfo";
 import { CommandIntr } from "../interpertation/CommandIntr";
 import { MCCommand } from "../command/MCCommand";
 import { MCCommandParameterType } from "../parameter/include";
+import { BlockStates } from "../../general/include";
+import { OldBlockModeModes } from "../modes/OldBlockMode/OldBlockMode";
+import { IsMode } from "../modes/include";
 
 export class CommandManager {
   Subset: Map<string, CommandInfo[]>;
@@ -112,19 +115,50 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 
     switch (patPar.Type) {
       case MCCommandParameterType.block:
-
+      case MCCommandParameterType.cameraShakeType:
+      case MCCommandParameterType.cloneMode:
+      case MCCommandParameterType.difficulty:
       case MCCommandParameterType.entity:
       case MCCommandParameterType.event:
-
+      case MCCommandParameterType.fillMode:
       case MCCommandParameterType.function:
-
+      case MCCommandParameterType.gamemode:
       case MCCommandParameterType.item:
+      case MCCommandParameterType.locateFeature:
+      case MCCommandParameterType.maskMode:
+      case MCCommandParameterType.mirror:
+      case MCCommandParameterType.musicRepeatMode:
       case MCCommandParameterType.objective:
+      case MCCommandParameterType.operation:
+      case MCCommandParameterType.particle:
+      case MCCommandParameterType.replaceMode:
+      case MCCommandParameterType.rideRules:
+      case MCCommandParameterType.rotation:
+      case MCCommandParameterType.saveMode:
+      case MCCommandParameterType.slotID:
+      case MCCommandParameterType.slotType:
       case MCCommandParameterType.sound:
+      case MCCommandParameterType.string:
+      case MCCommandParameterType.structureAnimationMode:
       case MCCommandParameterType.tag:
+      case MCCommandParameterType.target:
+      case MCCommandParameterType.teleportRules:
+      case MCCommandParameterType.unknown:
       case MCCommandParameterType.xp:
         //TODO program matches types for these
         continue;
+
+      case MCCommandParameterType.boolean:
+        if (!IsBoolean(comText)) return false;
+        break;
+
+      case MCCommandParameterType.blockStates:
+        if (!BlockStates.BlockStates.IsStates(comText)) return false;
+        break;
+
+      case MCCommandParameterType.command:
+        if (!Manager.Data.Commands.has(comText)) return false;
+        break;
 
       case MCCommandParameterType.coordinate:
         if (!IsCoordinate(comText)) return false;
@@ -142,41 +176,25 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         if (!IsInteger(comText)) return false;
         break;
 
-      case MCCommandParameterType.boolean:
-        if (!IsBoolean(comText)) {
-          return false;
-        }
-        break;
-
-      case MCCommandParameterType.command:
-        if (!Manager.Data.Commands.has(comText)) {
-          return false;
-        }
-        break;
-
       case MCCommandParameterType.jsonItem:
       case MCCommandParameterType.jsonRawText:
-        if (!IsJson(comText)) {
-          return false;
-        }
+        if (!IsJson(comText)) return false;
         break;
 
       case MCCommandParameterType.keyword:
-        if (comText != patPar.Text) {
-          return false;
-        }
+        if (comText != patPar.Text) return false;
+        break;
+
+      case MCCommandParameterType.oldBlockMode:
+        if (!IsMode(OldBlockModeModes, comText)) return false;
         break;
 
       case MCCommandParameterType.selector:
-        if (!IsSelector(comText, patPar.Options)) {
-          return false;
-        }
+        if (!IsSelector(comText, patPar.Options)) return false;
         break;
 
       case MCCommandParameterType.tickingarea:
-        if (!IsTickingArea(comText)) {
-          return false;
-        }
+        if (!IsTickingArea(comText)) return false;
         break;
     }
   }
