@@ -1,5 +1,6 @@
 /*	Auto generated	*/
-export * as operation from "./operation/include";
+export * as OldBlockMode from "./OldBlockMode/include";
+export * as Operation from "./Operation/include";
 export * from "./Completion";
 export * from "./Diagnose";
 export * from "./Functions";

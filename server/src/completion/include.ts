@@ -1,5 +1,6 @@
 /*	Auto generated	*/
 export * as Molang from "./Molang/include";
+export * from "./Builder";
 export * from "./Functions";
 export * from "./Json";
 export * from "./Language";
