@@ -27,11 +27,10 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList } from "vscode-languageserver";
-import { Completion } from "../../../completion/include";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
 export function provideFunctionCompletion(receiver: CompletionBuilder): void {
-  Completion.Convert(Database.Data.General.Functions, Kinds.Completion.Functions, receiver.items);
+  receiver.AddFromRange(Database.Data.General.Functions, Kinds.Completion.Functions);
 }

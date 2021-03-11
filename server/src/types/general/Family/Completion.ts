@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { Database } from "../../../database/include";
 import { Entity } from "../include";
 import { Kinds } from "../Kinds";
@@ -46,7 +46,7 @@ export function provideFamilyCompletion(receiver: CompletionBuilder, type: strin
 
 function ConvertEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   entity.Families.forEach((family) => {
-    receiver.items.push({ label: family, kind: Kinds.Completion.Family, documentation: "The entity family: " + family });
+    receiver.Add(family, "The entity family: " + family, Kinds.Completion.Family);
   });
 }
 
@@ -64,9 +64,7 @@ export function provideFamilyTestCompletion(receiver: CompletionBuilder, type: s
 
 function ConvertTestEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   entity.Families.forEach((family) => {
-    receiver.items.push(
-      { label: family, kind: Kinds.Completion.Family, documentation: "test for the Family: " + family },
-      { label: "!" + family, kind: Kinds.Completion.Family, documentation: "test not for the Family: " + family }
-    );
+    receiver.Add(family, "test for the Family: " + family, Kinds.Completion.Family);
+    receiver.Add("!" + family, "test not for the Family: " + family, Kinds.Completion.Family);
   });
 }

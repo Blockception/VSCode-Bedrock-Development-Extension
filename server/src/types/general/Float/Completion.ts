@@ -27,7 +27,8 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CompletionItemKind } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { ParameterOptions } from "../../commands/parameter/include";
 
 export function provideFloatCompletion(receiver: CompletionBuilder, Options: ParameterOptions | undefined): void {
@@ -37,10 +38,7 @@ export function provideFloatCompletion(receiver: CompletionBuilder, Options: Par
   let steps = (maximum - minimum) / 10;
 
   for (let I = minimum; I < maximum; I += steps) {
-    receiver.items.push({
-      label: I.toPrecision(),
-      kind: CompletionItemKind.Constant,
-      documentation: "The float number: " + I.toPrecision(),
-    });
+    let text = I.toPrecision();
+    receiver.Add(text, "The float number: " + text, CompletionItemKind.Constant);
   }
 }

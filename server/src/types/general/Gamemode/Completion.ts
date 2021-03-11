@@ -27,42 +27,38 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { Kinds } from "../Kinds";
 
 export function provideGamemodeCompletion(receiver: CompletionBuilder): void {
-  receiver.items.push(
-    { label: "c", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
-    { label: "creative", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
-    { label: "1", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
-    { label: "a", kind: Kinds.Completion.Gamemode, documentation: "The adventure gamemode" },
-    { label: "adventure", kind: Kinds.Completion.Gamemode, documentation: "The adventure gamemode" },
-    { label: "2", kind: Kinds.Completion.Gamemode, documentation: "The adventure gamemode" },
-    { label: "s", kind: Kinds.Completion.Gamemode, documentation: "The survival gamemode" },
-    { label: "survival", kind: Kinds.Completion.Gamemode, documentation: "The survival gamemode" },
-    { label: "0", kind: Kinds.Completion.Gamemode, documentation: "The survival gamemode" }
-  );
+  receiver.Add("c", "The creative gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("creative", "The creative gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("1", "The creative gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("a", "The adventure gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("adventure", "The adventure gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("2", "The adventure gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("s", "The survival gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("survival", "The survival gamemode", Kinds.Completion.Gamemode);
+  receiver.Add("0", "The survival gamemode", Kinds.Completion.Gamemode);
 }
 
 export function provideGamemodeTestCompletion(receiver: CompletionBuilder): void {
-  receiver.items.push(
-    { label: "c", kind: Kinds.Completion.Gamemode, documentation: "Tests for the creative gamemode" },
-    { label: "!c", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the creative gamemode" },
-    { label: "creative", kind: Kinds.Completion.Gamemode, documentation: "Tests for the creative gamemode" },
-    { label: "!creative", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the creative gamemode" },
-    { label: "1", kind: Kinds.Completion.Gamemode, documentation: "Tests for the creative gamemode" },
-    { label: "!1", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the creative gamemode" },
-    { label: "a", kind: Kinds.Completion.Gamemode, documentation: "Tests for the adventure gamemode" },
-    { label: "!a", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the adventure gamemode" },
-    { label: "adventure", kind: Kinds.Completion.Gamemode, documentation: "Tests for the adventure gamemode" },
-    { label: "!adventure", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the adventure gamemode" },
-    { label: "2", kind: Kinds.Completion.Gamemode, documentation: "Tests for the adventure gamemode" },
-    { label: "!2", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the adventure gamemode" },
-    { label: "s", kind: Kinds.Completion.Gamemode, documentation: "Tests for the survival gamemode" },
-    { label: "!s", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the survival gamemode" },
-    { label: "survival", kind: Kinds.Completion.Gamemode, documentation: "Tests for the survival gamemode" },
-    { label: "!survival", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the survival gamemode" },
-    { label: "0", kind: Kinds.Completion.Gamemode, documentation: "Tests for the survival gamemode" },
-    { label: "!0", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the survival gamemode" }
-  );
+  receiver.Add("c", "Tests for the creative gamemode");
+  receiver.Add("!c", "Tests not for the creative gamemode");
+  receiver.Add("creative", "Tests for the creative gamemode");
+  receiver.Add("!creative", "Tests not for the creative gamemode");
+  receiver.Add("1", "Tests for the creative gamemode");
+  receiver.Add("!1", "Tests not for the creative gamemode");
+  receiver.Add("a", "Tests for the adventure gamemode");
+  receiver.Add("!a", "Tests not for the adventure gamemode");
+  receiver.Add("adventure", "Tests for the adventure gamemode");
+  receiver.Add("!adventure", "Tests not for the adventure gamemode");
+  receiver.Add("2", "Tests for the adventure gamemode");
+  receiver.Add("!2", "Tests not for the adventure gamemode");
+  receiver.Add("s", "Tests for the survival gamemode");
+  receiver.Add("!s", "Tests not for the survival gamemode");
+  receiver.Add("survival", "Tests for the survival gamemode");
+  receiver.Add("!survival", "Tests not for the survival gamemode");
+  receiver.Add("0", "Tests for the survival gamemode");
+  receiver.Add("!0", "Tests not for the survival gamemode");
 }

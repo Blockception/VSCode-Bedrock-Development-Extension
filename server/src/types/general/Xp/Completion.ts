@@ -27,12 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CompletionItemKind } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../completion/Builder";
 
 export function provideXPCompletion(receiver: CompletionBuilder): void {
-  receiver.items.push(
-    { label: "1L", documentation: "Add 1 level of xp", kind: CompletionItemKind.Value },
-    { label: "-1L", documentation: "Remove 1 level of xp", kind: CompletionItemKind.Value },
-    { label: "-1000L", documentation: "Removes 1000 xp levels", kind: CompletionItemKind.Value }
-  );
+  receiver.Add("1L", "Add 1 level of xp", CompletionItemKind.Value);
+  receiver.Add("-1L", "Remove 1 level of xp", CompletionItemKind.Value);
+  receiver.Add("-1000L", "Removes 1000 xp levels", CompletionItemKind.Value);
 }

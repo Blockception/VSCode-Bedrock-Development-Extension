@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
@@ -40,11 +40,6 @@ export function provideObjectivePostCompletion(receiver: CompletionBuilder, addi
   Database.Data.General.Objectives.ForEach((objective) => {
     let Name = objective.Identifier;
 
-    receiver.items.push({
-      label: Name,
-      kind: Kinds.Completion.Objectives,
-      insertText: Name + additionalText,
-      documentation: objective.Documentation,
-    });
+    receiver.Add(Name, objective.Documentation, Kinds.Completion.Objectives, Name + additionalText);
   });
 }

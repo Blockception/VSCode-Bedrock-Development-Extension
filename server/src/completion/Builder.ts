@@ -27,15 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, MarkupContent, MarkupKind } from "vscode-languageserver-types";
+import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { DataCollector } from "../database/include";
+import { Item } from "../types/general/include";
 import { Documentable, Identifiable, Locatable } from "../types/minecraft/Interfaces/include";
 
 export class CompletionBuilder {
   public items: CompletionItem[];
+  public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
 
   constructor() {
     this.items = [];
+    this.OnNewItem = undefined;
   }
 
   /**
@@ -50,7 +53,7 @@ export class CompletionBuilder {
     documentation: string | MarkupContent,
     kind: CompletionItemKind = CompletionItemKind.Keyword,
     insertText: string | undefined = undefined
-  ) {
+  ): CompletionItem {
     let item = CompletionItem.create(label);
 
     if (typeof documentation === "string") {
@@ -64,7 +67,13 @@ export class CompletionBuilder {
     }
 
     item.kind = kind;
+
+    if (this.OnNewItem) {
+      this.OnNewItem(item);
+    }
+
     this.items.push(item);
+    return item;
   }
 
   AddFrom(value: Identifiable, valuekind: CompletionItemKind): void {

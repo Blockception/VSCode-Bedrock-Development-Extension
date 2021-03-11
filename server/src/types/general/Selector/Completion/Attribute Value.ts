@@ -28,6 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList, CompletionItemKind } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../../completion/Builder";
 import { provideEntityTestCompletion } from "../../Entity/Completion";
 import { provideFamilyTestCompletion } from "../../Family/Completion";
 import { provideFloatCompletion } from "../../Float/Completion";
@@ -44,21 +45,17 @@ export function provideSelectorAttributeValueCompletion(
 ): void {
   switch (attribute) {
     case "c":
-      receiver.items.push(
-        { label: "1", documentation: "Limits the amount of target to 1", kind: CompletionItemKind.Constant },
-        { label: "-1", documentation: "Limits the amount of target to 1, but picked from the end of the list", kind: CompletionItemKind.Constant },
-        { label: "5", documentation: "Limits the amount of target to 5", kind: CompletionItemKind.Constant },
-        { label: "-5", documentation: "Limits the amount of target to 5, but picked from the end of the list", kind: CompletionItemKind.Constant }
-      );
+      receiver.Add("1", "Limits the amount of target to 1", CompletionItemKind.Constant);
+      receiver.Add("-1", "Limits the amount of target to 1, but picked from the end of the list", CompletionItemKind.Constant);
+      receiver.Add("5", "Limits the amount of target to 5", CompletionItemKind.Constant);
+      receiver.Add("-5", "Limits the amount of target to 5, but picked from the end of the list", CompletionItemKind.Constant);
       return;
 
     case "dx":
     case "dy":
     case "dz":
-      receiver.items.push(
-        { label: "5", documentation: "A length of 5", kind: CompletionItemKind.Constant },
-        { label: "-5", documentation: "A length of 5, in the other direction", kind: CompletionItemKind.Constant }
-      );
+      receiver.Add("5", "A length of 5", CompletionItemKind.Constant);
+      receiver.Add("-5", "A length of 5, in the other direction", CompletionItemKind.Constant);
       return;
 
     case "family":
@@ -77,7 +74,7 @@ export function provideSelectorAttributeValueCompletion(
       return;
 
     case "name":
-      receiver.items.push({ label: '""', documentation: "The start of a string name", kind: CompletionItemKind.Constant });
+      receiver.Add('""', "The start of a string name", CompletionItemKind.Constant);
       return;
 
     case "rx":
@@ -100,11 +97,9 @@ export function provideSelectorAttributeValueCompletion(
     case "x":
     case "y":
     case "z":
-      receiver.items.push(
-        { label: "1", documentation: "An absolute coordinate", kind: CompletionItemKind.Constant },
-        { label: "~1", documentation: "A relative coordinate", kind: CompletionItemKind.Constant },
-        { label: "~-1", documentation: "A relative coordinate", kind: CompletionItemKind.Constant }
-      );
+      receiver.Add("1", "An absolute coordinate", CompletionItemKind.Constant);
+      receiver.Add("~1", "A relative coordinate", CompletionItemKind.Constant);
+      receiver.Add("~-1", "A relative coordinate", CompletionItemKind.Constant);
       return;
   }
 }

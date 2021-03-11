@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { LocationWord } from "bc-vscode-words";
 import { MCCommandParameter } from "../../../commands/parameter/include";
 import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
@@ -36,6 +36,7 @@ import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Fun
 import { provideSelectorAttributeValueCompletion } from "./Attribute Value";
 import { provideSelectorAttributeCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
+import { CompletionBuilder } from "../../../../completion/Builder";
 
 //Constants
 const AllPlayer: CompletionItem = { label: "@a", kind: Kinds.Completion.Selector, documentation: "Targets all players" };

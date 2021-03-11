@@ -27,20 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { Kinds } from "../Kinds";
 
 export function provideCoordinateCompletion(receiver: CompletionBuilder): void {
   const Kind = Kinds.Completion.Coordinate;
 
-  receiver.items.push(
-    { label: "~", documentation: "Relative coordinate", kind: Kind, preselect: true },
-    { label: "~1", documentation: "Relative coordinate", kind: Kind },
-    { label: "~-1", documentation: "Relative coordinate", kind: Kind },
-    { label: "^1", documentation: "Local coordinate", kind: Kind },
-    { label: "^", documentation: "Local coordinate", kind: Kind },
-    { label: "^-1", documentation: "Local coordinate", kind: Kind },
-    { label: "1", documentation: "Coordinate", kind: Kind },
-    { label: "-1", documentation: "Coordinate", kind: Kind }
-  );
+  receiver.Add("~", "Relative coordinate", Kind).preselect = true;
+  receiver.Add("~1", "Relative coordinate", Kind);
+  receiver.Add("~-1", "Relative coordinate", Kind);
+  receiver.Add("^1", "Local coordinate", Kind);
+  receiver.Add("^", "Local coordinate", Kind);
+  receiver.Add("^-1", "Local coordinate", Kind);
+  receiver.Add("1", "Coordinate", Kind);
+  receiver.Add("-1", "Coordinate", Kind);
 }

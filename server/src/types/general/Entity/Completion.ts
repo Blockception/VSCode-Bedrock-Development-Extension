@@ -27,22 +27,19 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList } from "vscode-languageserver";
-import { Completion } from "../../../completion/include";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
 export function provideEntityCompletion(receiver: CompletionBuilder): void {
-  Completion.Convert(Database.Data.General.Entities, Kinds.Completion.Entity, receiver.items);
+  receiver.AddFromRange(Database.Data.General.Entities, Kinds.Completion.Entity);
 }
 
 export function provideEntityTestCompletion(receiver: CompletionBuilder): void {
   Database.Data.General.Entities.ForEach((entity) => {
     let Name = entity.Identifier;
 
-    receiver.items.push(
-      { label: Name, kind: Kinds.Completion.Entity, documentation: "test for the entity: " + Name },
-      { label: "!" + Name, kind: Kinds.Completion.Entity, documentation: "test not for the entity: " + Name }
-    );
+    receiver.Add(Name, "test for the entity: " + Name, Kinds.Completion.Entity);
+    receiver.Add("!" + Name, "test not for the entity: " + Name, Kinds.Completion.Entity);
   });
 }

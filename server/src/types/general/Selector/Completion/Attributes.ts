@@ -27,15 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { MarkupContent, CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { MarkupContent, CompletionItem, CompletionItemKind } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../../completion/Builder";
 
 function AttributeCompletion(label: string, documentation: string | MarkupContent): CompletionItem {
-  return {
-    label: label,
-    insertText: label + "=",
-    kind: CompletionItemKind.Property,
-    documentation: documentation,
-  };
+  return { label: label, insertText: label + "=", kind: CompletionItemKind.Property, documentation: documentation };
 }
 
 //Doesnt do scores and doesnt need to
@@ -56,12 +52,7 @@ export function provideSelectorAttributeCompletion(receiver: CompletionBuilder, 
     AttributeCompletion("rxm", "The minimum vertical rotation"),
     AttributeCompletion("ry", "The maximum horizontal rotation"),
     AttributeCompletion("rym", "The minimum horizontal rotation"),
-    {
-      label: "scores",
-      insertText: "scores" + "={",
-      kind: CompletionItemKind.Property,
-      documentation: "The testing of scores",
-    },
+    { label: "scores", insertText: "scores" + "={", kind: CompletionItemKind.Property, documentation: "The testing of scores" },
     AttributeCompletion("tag", "Tests if the target has or does not have the specified tag"),
     AttributeCompletion("x", "The x coordinate this selector works from, can be relative, but not local"),
     AttributeCompletion("y", "The y coordinate this selector works from, can be relative, but not local"),

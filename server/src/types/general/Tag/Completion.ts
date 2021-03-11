@@ -27,20 +27,17 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { Completion } from "../../../completion/include";
+import { CompletionBuilder } from "../../../completion/Builder";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
 export function provideTagCompletion(receiver: CompletionBuilder): void {
-  Completion.Convert(Database.Data.General.Tag, Kinds.Completion.Tag, receiver.items);
+  receiver.AddFromRange(Database.Data.General.Tag, Kinds.Completion.Tag);
 }
 
 export function provideTagTestCompletion(receiver: CompletionBuilder): void {
   Database.Data.General.Tag.ForEach((tag) => {
-    receiver.items.push(
-      { label: tag.Identifier, kind: Kinds.Completion.Tag, documentation: "Tests for the tag: '" + tag.Identifier + "'" },
-      { label: "!" + tag.Identifier, kind: Kinds.Completion.Tag, documentation: "Tests not for the tag: '" + tag.Identifier + "'" }
-    );
+    receiver.Add(tag.Identifier, `Tests for the tag: '${tag.Identifier}'`, Kinds.Completion.Tag);
+    receiver.Add("!" + tag.Identifier, `Tests not for the tag: '${tag.Identifier}'`, Kinds.Completion.Tag);
   });
 }

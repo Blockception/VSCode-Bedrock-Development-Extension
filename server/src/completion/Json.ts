@@ -27,10 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionList, InsertReplaceEdit, Range } from "vscode-languageserver";
+import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { json } from "../code/include";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
+import { CompletionBuilder } from "./Builder";
 import { OnCompletionMcFunctionLine } from "./Mcfunction";
 import { OnCompletionEntityEvents, OnCompletionMolang } from "./Molang/Molang";
 
@@ -41,34 +42,33 @@ export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: Co
 
   let text = doc.getText();
   let range = json.GetCurrentString(text, cursor);
-  let Out = CompletionList.create([], false);
 
   //If start has not been found or not a property
   if (range == undefined) return;
 
   let data = text.substring(range.start, range.end);
-
-  //Find all events
-  if (data.startsWith("@s")) {
-    OnCompletionEntityEvents(Out);
-  } else if (data.startsWith("/")) {
-    let temp = data.substring(1);
-    OnCompletionMcFunctionLine(temp, cursor, range.start + 1, doc, Out);
-  } else {
-    OnCompletionMolang(data, cursor - range.start, doc, Out);
-  }
-
   let insertIndex = cursor - range.start;
   let first = '"' + data.substring(0, insertIndex);
   let second = data.substring(insertIndex) + '"';
   let P = doc.positionAt(cursor);
   let R = Range.create(P, P);
 
-  for (let I = 0; I < Out.items.length; I++) {
-    let Item = Out.items[I];
+  //Have each new item pass through a new function
+  receiver.OnNewItem = (NewItem: CompletionItem) => {
+    //Update the filtering text
+    NewItem.filterText = first + NewItem.label + second;
+    NewItem.textEdit = InsertReplaceEdit.create(NewItem.label, R, R);
+  };
 
-    Item.filterText = first + Item.label + second;
-    Item.textEdit = InsertReplaceEdit.create(Item.label, R, R);
-    receiver.items.push(Item);
+  //Find all events
+  if (data.startsWith("@s")) {
+    OnCompletionEntityEvents(receiver);
+  } else if (data.startsWith("/")) {
+    let temp = data.substring(1);
+    OnCompletionMcFunctionLine(temp, cursor, range.start + 1, doc, receiver);
+  } else {
+    OnCompletionMolang(data, cursor - range.start, doc, receiver);
   }
+
+  receiver.OnNewItem = undefined;
 }
