@@ -1022,7 +1022,7 @@
         { "Text": "position z", "Type": "coordinate", "Required": true },
         { "Text": "tile name", "Type": "block", "Required": true },
         { "Text": "tile data", "Type": "integer", "Required": false },
-        { "Text": "replace", "Type": "keyword", "Required": false }
+        { "Text": "old block mode", "Type": "oldBlockMode", "Required": false }
       ],
       "name": "setblock",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -1034,25 +1034,13 @@
         { "Text": "position y", "Type": "coordinate", "Required": true },
         { "Text": "position z", "Type": "coordinate", "Required": true },
         { "Text": "tile name", "Type": "block", "Required": true },
-        { "Text": "tile data", "Type": "integer", "Required": false },
-        { "Text": "destroy", "Type": "keyword", "Required": false }
+        { "Text": "block states", "Type": "blockStates", "Required": false },
+        { "Text": "old block mode", "Type": "oldBlockMode", "Required": false }
       ],
       "name": "setblock",
       "documentation": { "value": "TODO description", "kind": "markdown" }
     },
-    {
-      "parameters": [
-        { "Text": "setblock", "Type": "keyword", "Required": true },
-        { "Text": "position x", "Type": "coordinate", "Required": true },
-        { "Text": "position y", "Type": "coordinate", "Required": true },
-        { "Text": "position z", "Type": "coordinate", "Required": true },
-        { "Text": "tile name", "Type": "block", "Required": true },
-        { "Text": "tile data", "Type": "integer", "Required": false },
-        { "Text": "keep", "Type": "keyword", "Required": false }
-      ],
-      "name": "setblock",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
-    },
+
     {
       "parameters": [
         { "Text": "setworldspawn", "Type": "keyword", "Required": true },

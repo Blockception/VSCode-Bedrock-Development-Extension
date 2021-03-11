@@ -46,6 +46,7 @@
                   "enum": [
                     "block",
                     "boolean",
+                    "blockStates",
                     "cameraShakeType",
                     "cloneMode",
                     "command",
@@ -69,6 +70,7 @@
                     "musicRepeatMode",
                     "objective",
                     "operation",
+                    "oldBlockMode",
                     "particle",
                     "replaceMode",
                     "rideRules",
