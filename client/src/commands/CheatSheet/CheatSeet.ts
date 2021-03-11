@@ -37,12 +37,8 @@ export function Activate(context: ExtensionContext): void {
   Console.Log("registering cheat sheets");
 
   context.subscriptions.push(
-    commands.registerCommand(Commands.CheatSheet.Molang, (args) =>
-      createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Molang.html")
-    ),
-    commands.registerCommand(Commands.CheatSheet.BehaviorFilters, (args) =>
-      createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Behavior filters.html")
-    )
+    commands.registerCommand(Commands.CheatSheet.Molang, (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Molang.html")),
+    commands.registerCommand(Commands.CheatSheet.BehaviorFilters, (args) => createView(context, "Molang cheat sheet", "documentation/cheat-sheet/Behavior filters.html"))
   );
 }
 

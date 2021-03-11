@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
-import { Integer } from '../include';
+import { Integer } from "../include";
 
 export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
   //TODO

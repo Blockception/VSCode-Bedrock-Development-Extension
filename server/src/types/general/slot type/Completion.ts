@@ -27,13 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CommandCompletionContext } from '../../../completion/Commands/include';
-import { ProvideModeCompletion } from '../../commands/modes/Completion';
+import { CommandCompletionContext } from "../../../completion/Commands/include";
+import { ProvideModeCompletion } from "../../commands/modes/Completion";
 import { Kinds } from "../Kinds";
-import { SlotTypeModes } from './Slot type';
+import { SlotTypeModes } from "./Slot type";
 
-export function ProvideCompletion(Context : CommandCompletionContext) : void {
-   let receiver = Context.receiver;
-   
+export function ProvideCompletion(Context: CommandCompletionContext): void {
+  let receiver = Context.receiver;
+
   ProvideModeCompletion(SlotTypeModes, receiver, Kinds.Completion.Gamemode);
 }

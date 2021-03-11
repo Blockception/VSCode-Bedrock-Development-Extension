@@ -39,12 +39,7 @@ export interface Entity extends FormatVersion {
 
 export namespace Entity {
   export function is(value: any): value is Entity {
-    if (
-      value.format_version &&
-      value["minecraft:client_entity"] &&
-      value["minecraft:client_entity"].description &&
-      value["minecraft:client_entity"].description.identifier
-    ) {
+    if (value.format_version && value["minecraft:client_entity"] && value["minecraft:client_entity"].description && value["minecraft:client_entity"].description.identifier) {
       return true;
     }
 

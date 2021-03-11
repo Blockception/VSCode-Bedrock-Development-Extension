@@ -113,12 +113,7 @@ function CheckOrAdd(value: Identifiable & Locatable, query: string, valuekind: S
   }
 }
 
-export function ConvertStorage<T extends Identifiable & Locatable>(
-  Data: DataCollector<T>,
-  uri: string,
-  valuekind: SymbolKind,
-  receiver: SymbolInformation[]
-): void {
+export function ConvertStorage<T extends Identifiable & Locatable>(Data: DataCollector<T>, uri: string, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
   if (uri === "") {
     Data.ForEach((value) => ConvertItem(value, valuekind, receiver));
   } else {

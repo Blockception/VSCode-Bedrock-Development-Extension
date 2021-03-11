@@ -27,14 +27,14 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind } from 'vscode-languageserver-types';
+import { CompletionItemKind } from "vscode-languageserver-types";
 import { CompletionBuilder } from "../../../completion/Builder";
-import { CommandCompletionContext } from '../../../completion/Commands/include';
+import { CommandCompletionContext } from "../../../completion/Commands/include";
 import { Database } from "../../../database/include";
-import { MCCommandParameterType } from '../../commands/parameter/ParameterType';
-import { Entity } from '../Entity/Entity';
+import { MCCommandParameterType } from "../../commands/parameter/ParameterType";
+import { Entity } from "../Entity/Entity";
 
-export function ProvideCompletion(Context : CommandCompletionContext): void {
+export function ProvideCompletion(Context: CommandCompletionContext): void {
   let Index = Context.BestMatch.Command.getIndexOfTypeReverse(MCCommandParameterType.entity, Context.ParameterIndex);
 
   if (Index >= 0) {
@@ -44,14 +44,14 @@ export function ProvideCompletion(Context : CommandCompletionContext): void {
     if (Entity) {
       Convert(Entity, Context.receiver);
       return;
-    }    
+    }
   }
 
-  Database.Data.General.Entities.ForEach(entity=>Convert(entity, Context.receiver));
+  Database.Data.General.Entities.ForEach((entity) => Convert(entity, Context.receiver));
 }
 
-function Convert(Entity : Entity, builder : CompletionBuilder) : void {
-  Entity.Events.forEach(event => {
+function Convert(Entity: Entity, builder: CompletionBuilder): void {
+  Entity.Events.forEach((event) => {
     builder.Add(event, `The entity: ${Entity.Identifier} event: ${event}`, CompletionItemKind.Event);
   });
 }

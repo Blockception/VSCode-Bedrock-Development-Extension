@@ -32,7 +32,7 @@ import { CommandIntr } from "../../commands/interpertation/include";
 import { GetMode } from "../../commands/modes/Functions";
 import { SlotTypeMode, SlotTypeModes } from "../Slot type/Slot type";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
-import { Integer } from '../include';
+import { Integer } from "../include";
 
 export function ProvideDiagnose(word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
   let Index = Command.Parameters.indexOf(word);

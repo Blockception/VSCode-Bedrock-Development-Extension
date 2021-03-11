@@ -27,18 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CommandCompletionContext } from '../../../completion/Commands/Context';
+import { CommandCompletionContext } from "../../../completion/Commands/Context";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(Context : CommandCompletionContext) : void {
-	let receiver = Context.receiver;
-  
+export function ProvideCompletion(Context: CommandCompletionContext): void {
+  let receiver = Context.receiver;
+
   receiver.AddFromRange(Database.Data.General.Tag, Kinds.Completion.Tag);
 }
 
-export function ProvideCompletionTest(Context : CommandCompletionContext) : void {
-	let receiver = Context.receiver;
+export function ProvideCompletionTest(Context: CommandCompletionContext): void {
+  let receiver = Context.receiver;
 
   Database.Data.General.Tag.ForEach((tag) => {
     receiver.Add(tag.Identifier, `Tests for the tag: '${tag.Identifier}'`, Kinds.Completion.Tag);

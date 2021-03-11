@@ -37,12 +37,7 @@ import { provideIntegerCompletion } from "../../Integer/Completion";
 import { provideTagTestCompletion } from "../../Tag/include";
 
 //Doesnt do scores and doesnt need to
-export function provideSelectorAttributeValueCompletion(
-  receiver: CompletionBuilder,
-  attribute: string,
-  forEntities: boolean,
-  type: string | undefined = undefined
-): void {
+export function provideSelectorAttributeValueCompletion(receiver: CompletionBuilder, attribute: string, forEntities: boolean, type: string | undefined = undefined): void {
   switch (attribute) {
     case "c":
       receiver.Add("1", "Limits the amount of target to 1", CompletionItemKind.Constant);

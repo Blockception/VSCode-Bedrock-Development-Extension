@@ -55,8 +55,7 @@ export function ProvideLanguageSignature(doc: TextDocument, pos: Position): Sign
           },
           {
             label: "[text]",
-            documentation:
-              "The translation text, some pretty stuff can be done with the following: \n§ = ALT + 0167 on the numpad\nOther neat functions: %%s, %%#, see the wiki",
+            documentation: "The translation text, some pretty stuff can be done with the following: \n§ = ALT + 0167 on the numpad\nOther neat functions: %%s, %%#, see the wiki",
           },
         ],
       },

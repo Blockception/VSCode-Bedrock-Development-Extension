@@ -27,13 +27,13 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CommandCompletionContext } from '../../../completion/Commands/include';
+import { CommandCompletionContext } from "../../../completion/Commands/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(Context : CommandCompletionContext) : void {
+export function ProvideCompletion(Context: CommandCompletionContext): void {
   //False
-  Context.receiver.Add("false","The boolean value for false",Kinds.Completion.Boolean);
+  Context.receiver.Add("false", "The boolean value for false", Kinds.Completion.Boolean);
 
   //true
-  Context.receiver.Add("true","The boolean value for true",Kinds.Completion.Boolean);
+  Context.receiver.Add("true", "The boolean value for true", Kinds.Completion.Boolean);
 }

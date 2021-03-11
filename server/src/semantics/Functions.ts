@@ -48,14 +48,7 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
 
     value = value.substring(2);
     start += 2;
-  } else if (
-    value.startsWith("~") ||
-    value.startsWith("^") ||
-    value.startsWith("-") ||
-    value.startsWith("+") ||
-    value.startsWith("+") ||
-    value.startsWith("!")
-  ) {
+  } else if (value.startsWith("~") || value.startsWith("^") || value.startsWith("-") || value.startsWith("+") || value.startsWith("+") || value.startsWith("!")) {
     Builder.AddAt(Word.range.start.line, start, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(1);

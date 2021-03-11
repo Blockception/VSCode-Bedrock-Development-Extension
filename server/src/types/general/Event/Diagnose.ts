@@ -31,27 +31,26 @@ import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../database/include";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function ProvideDiagnose(event: LocationWord, builder: DiagnosticsBuilder, EntityID : string | undefined = undefined): void {
-   let eventData = event.text;
+export function ProvideDiagnose(event: LocationWord, builder: DiagnosticsBuilder, EntityID: string | undefined = undefined): void {
+  let eventData = event.text;
 
-   if (EntityID) {
-      let Entity = Database.Data.General.Entities.GetFromID(EntityID);
+  if (EntityID) {
+    let Entity = Database.Data.General.Entities.GetFromID(EntityID);
 
-      if (Entity) {
-         if (!Entity.Events.includes(eventData)) {
-            builder.AddWord(event, `Cannot find event: '${eventData}' in entity: '${Entity.Identifier}'`);
-         }
+    if (Entity) {
+      if (!Entity.Events.includes(eventData)) {
+        builder.AddWord(event, `Cannot find event: '${eventData}' in entity: '${Entity.Identifier}'`);
       }
-   }
+    }
+  }
 
-   let Found = false;
+  let Found = false;
 
-   Database.Data.General.Entities.ForEach(entity=>{
-      if (!Found && entity.Events.includes(eventData)) {
-         Found = true;
-      }
-   });
+  Database.Data.General.Entities.ForEach((entity) => {
+    if (!Found && entity.Events.includes(eventData)) {
+      Found = true;
+    }
+  });
 
-   if (!Found)
-    builder.AddWord(event, `Cannot find event: '${eventData}'`);
+  if (!Found) builder.AddWord(event, `Cannot find event: '${eventData}'`);
 }

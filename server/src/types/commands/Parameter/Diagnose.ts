@@ -62,13 +62,7 @@ import { LocationWord } from "bc-vscode-words";
  * @param validation
  * @param builder
  */
-export function DiagnoseParameter(
-  pattern: MCCommandParameter,
-  data: LocationWord,
-  validation: ValidationData,
-  builder: DiagnosticsBuilder,
-  Command: CommandIntr
-): void {
+export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder, Command: CommandIntr): void {
   if (pattern === undefined || data === undefined) return;
 
   if (pattern.Options) {

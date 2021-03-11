@@ -29,12 +29,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../completion/Builder";
-import { CommandCompletionContext } from '../../../completion/Commands/Context';
+import { CommandCompletionContext } from "../../../completion/Commands/Context";
 
-export function ProvideCompletion(Context : CommandCompletionContext) : void {
+export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
   let Options = Context.Parameter.Options;
-  
+
   const minimum = Options?.minimum ?? 0;
   const maximum = Options?.maximum ?? 10;
 

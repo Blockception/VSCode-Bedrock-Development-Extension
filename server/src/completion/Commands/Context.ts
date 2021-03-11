@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
-import { CommandInfo } from '../../types/commands/info/include';
+import { CommandInfo } from "../../types/commands/info/include";
 import { CommandIntr } from "../../types/commands/interpertation/CommandIntr";
 import { MCCommandParameter } from "../../types/commands/parameter/Parameter";
 import { CompletionBuilder } from "../include";
@@ -38,9 +38,9 @@ import { CompletionBuilder } from "../include";
  */
 export interface CommandCompletionContext {
   Parameter: MCCommandParameter;
-  ParameterIndex : number;
+  ParameterIndex: number;
   Command: CommandIntr;
-  BestMatch : CommandInfo;
+  BestMatch: CommandInfo;
   pos: number;
   receiver: CompletionBuilder;
   Current: LocationWord | undefined;
@@ -76,7 +76,7 @@ export namespace CommandCompletionContext {
    */
   export function create(
     Parameter: MCCommandParameter,
-    ParameterIndex : number,
+    ParameterIndex: number,
     Command: CommandIntr,
     pos: number,
     receiver: CompletionBuilder,
@@ -86,9 +86,9 @@ export namespace CommandCompletionContext {
 
     return {
       Parameter: Parameter,
-      ParameterIndex:ParameterIndex,
+      ParameterIndex: ParameterIndex,
       Command: Command,
-      BestMatch:BestMatch,
+      BestMatch: BestMatch,
       pos: pos,
       receiver: receiver,
       Current: Current,

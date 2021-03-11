@@ -27,11 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { LocationWord } from 'bc-vscode-words';
-import { DiagnosticsBuilder } from '../../../diagnostics/Builder';
-import { DiagnoseMode } from '../../commands/modes/Diagnose';
-import { SlotTypeModes } from './Slot type';
+import { LocationWord } from "bc-vscode-words";
+import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
+import { DiagnoseMode } from "../../commands/modes/Diagnose";
+import { SlotTypeModes } from "./Slot type";
 
 export function ProvideDiagnose(word: LocationWord, builder: DiagnosticsBuilder): void {
-  DiagnoseMode(word, SlotTypeModes, builder)
+  DiagnoseMode(word, SlotTypeModes, builder);
 }

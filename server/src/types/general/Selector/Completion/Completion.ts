@@ -34,11 +34,11 @@ import { provideSelectorAttributeCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 import { SelectorBase } from "./BaseMode";
 import { FakeEntity } from "../../include";
-import { CommandCompletionContext } from '../../../../completion/Commands/Context';
+import { CommandCompletionContext } from "../../../../completion/Commands/Context";
 
-export function ProvideCompletion(Context : CommandCompletionContext) : void {
+export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
-  let selector = Context.Current
+  let selector = Context.Current;
   let pos = Context.pos;
   let Options = Context.Parameter.Options;
 

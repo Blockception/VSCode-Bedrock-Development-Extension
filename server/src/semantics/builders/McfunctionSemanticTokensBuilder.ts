@@ -57,35 +57,20 @@ export class McfunctionSemanticTokensBuilder {
    * @param tokenType
    * @param tokenModifier
    */
-  Add(
-    startindex: number,
-    endindex: number,
-    tokenType: SemanticTokensEnum,
-    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
-  ): void {
+  Add(startindex: number, endindex: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
     let p = this.doc.positionAt(startindex);
     let length = endindex - startindex;
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 
-  AddWord(
-    word: LocationWord | RangedWord,
-    tokenType: SemanticTokensEnum,
-    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
-  ): void {
+  AddWord(word: LocationWord | RangedWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
     let p: Position = RangedWord.is(word) ? word.range.start : word.location.range.start;
 
     let length = word.text.length;
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 
-  AddAt(
-    line: number,
-    char: number,
-    length: number,
-    tokenType: SemanticTokensEnum,
-    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
-  ): void {
+  AddAt(line: number, char: number, length: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
     this.Builder.push(line, char, length, tokenType, tokenModifier);
   }
 

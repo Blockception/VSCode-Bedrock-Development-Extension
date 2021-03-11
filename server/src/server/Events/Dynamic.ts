@@ -56,13 +56,7 @@ export function SetDynamicEvents() {
 
   // Tell the client that this server supports semantic tokens
   const registrationOptions: SemanticTokensRegistrationOptions = {
-    documentSelector: [
-      Languages.JsonCIdentifier,
-      Languages.JsonIdentifier,
-      Languages.McFunctionIdentifier,
-      Languages.McLanguageIdentifier,
-      Languages.McOtherIdentifier,
-    ],
+    documentSelector: [Languages.JsonCIdentifier, Languages.JsonIdentifier, Languages.McFunctionIdentifier, Languages.McLanguageIdentifier, Languages.McOtherIdentifier],
     legend: {
       tokenModifiers: SemanticModifiers,
       tokenTypes: SemanticTokens,

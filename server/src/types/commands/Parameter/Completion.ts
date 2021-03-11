@@ -55,32 +55,59 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   }
 
   switch (Parameter.Type) {
-    case MCCommandParameterType.block: return ProvideCompletion(Context);
-    case MCCommandParameterType.boolean: return provideBooleanCompletion(Context);
-    case MCCommandParameterType.command: return provideCommandCompletion(Context);
-    case MCCommandParameterType.coordinate: return provideCoordinateCompletion(Context);
-    case MCCommandParameterType.effect: return provideEffectCompletion(Context);
-    case MCCommandParameterType.entity: return provideEntityCompletion(Context);
-    case MCCommandParameterType.event: return provideEventCompletion(Context);
-    case MCCommandParameterType.float: return provideFloatCompletion(Context);
-    case MCCommandParameterType.function: return provideFunctionCompletion(Context);
-    case MCCommandParameterType.gamemode: return provideGamemodeCompletion(Context);
-    case MCCommandParameterType.integer: return provideIntegerCompletion(Context);
-    case MCCommandParameterType.item: return provideItemCompletion(Context);
-    case MCCommandParameterType.jsonItem: return ItemComponents.Completion(Context);
-    case MCCommandParameterType.jsonRawText: return RawText.Completion(Context);
-    case MCCommandParameterType.keyword: return toCompletion(Context);
-    case MCCommandParameterType.objective: return provideObjectiveCompletion(Context);
-    case MCCommandParameterType.operation: return ProvideModeCompletion(Context);
-    case MCCommandParameterType.particle: return provideParticleCompletion(Context);
-    case MCCommandParameterType.replaceMode: break;
-    case MCCommandParameterType.selector: return provideSelectorCompletion(Context);
-    case MCCommandParameterType.slotID: return;
-    case MCCommandParameterType.slotType: return ProvideModeCompletion(Context);
-    case MCCommandParameterType.sound: return provideSoundCompletion(Context);
-    case MCCommandParameterType.tag: return provideTagCompletion(Context);
-    case MCCommandParameterType.tickingarea: return provideTickingareaCompletion(Context);
-    case MCCommandParameterType.unknown: return;
-    case MCCommandParameterType.xp: return provideXPCompletion(Context);
+    case MCCommandParameterType.block:
+      return ProvideCompletion(Context);
+    case MCCommandParameterType.boolean:
+      return provideBooleanCompletion(Context);
+    case MCCommandParameterType.command:
+      return provideCommandCompletion(Context);
+    case MCCommandParameterType.coordinate:
+      return provideCoordinateCompletion(Context);
+    case MCCommandParameterType.effect:
+      return provideEffectCompletion(Context);
+    case MCCommandParameterType.entity:
+      return provideEntityCompletion(Context);
+    case MCCommandParameterType.event:
+      return provideEventCompletion(Context);
+    case MCCommandParameterType.float:
+      return provideFloatCompletion(Context);
+    case MCCommandParameterType.function:
+      return provideFunctionCompletion(Context);
+    case MCCommandParameterType.gamemode:
+      return provideGamemodeCompletion(Context);
+    case MCCommandParameterType.integer:
+      return provideIntegerCompletion(Context);
+    case MCCommandParameterType.item:
+      return provideItemCompletion(Context);
+    case MCCommandParameterType.jsonItem:
+      return ItemComponents.Completion(Context);
+    case MCCommandParameterType.jsonRawText:
+      return RawText.Completion(Context);
+    case MCCommandParameterType.keyword:
+      return toCompletion(Context);
+    case MCCommandParameterType.objective:
+      return provideObjectiveCompletion(Context);
+    case MCCommandParameterType.operation:
+      return ProvideModeCompletion(Context);
+    case MCCommandParameterType.particle:
+      return provideParticleCompletion(Context);
+    case MCCommandParameterType.replaceMode:
+      break;
+    case MCCommandParameterType.selector:
+      return provideSelectorCompletion(Context);
+    case MCCommandParameterType.slotID:
+      return;
+    case MCCommandParameterType.slotType:
+      return ProvideModeCompletion(Context);
+    case MCCommandParameterType.sound:
+      return provideSoundCompletion(Context);
+    case MCCommandParameterType.tag:
+      return provideTagCompletion(Context);
+    case MCCommandParameterType.tickingarea:
+      return provideTickingareaCompletion(Context);
+    case MCCommandParameterType.unknown:
+      return;
+    case MCCommandParameterType.xp:
+      return provideXPCompletion(Context);
   }
 }

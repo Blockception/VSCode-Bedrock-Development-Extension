@@ -48,11 +48,7 @@ export namespace Completion {
     }
   }
 
-  export function Convert<T extends Identifiable & Locatable>(
-    value: DataCollector<T>,
-    valuekind: CompletionItemKind,
-    receiver: CompletionItem[]
-  ): void {
+  export function Convert<T extends Identifiable & Locatable>(value: DataCollector<T>, valuekind: CompletionItemKind, receiver: CompletionItem[]): void {
     value.ForEach((data) => {
       let Item = CreateCompletion(data, valuekind);
       receiver.push(Item);

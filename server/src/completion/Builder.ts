@@ -48,12 +48,7 @@ export class CompletionBuilder {
    * @param kind
    * @param insertText
    */
-  Add(
-    label: string,
-    documentation: string | MarkupContent,
-    kind: CompletionItemKind = CompletionItemKind.Keyword,
-    insertText: string | undefined = undefined
-  ): CompletionItem {
+  Add(label: string, documentation: string | MarkupContent, kind: CompletionItemKind = CompletionItemKind.Keyword, insertText: string | undefined = undefined): CompletionItem {
     let item = CompletionItem.create(label);
 
     if (typeof documentation === "string") {

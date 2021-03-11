@@ -86,13 +86,7 @@ export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData
  * @param validation
  * @param receiver
  */
-export function DiagnoseLine(
-  line: string,
-  StartPos: Position | undefined,
-  Cursor: Position | undefined,
-  validation: ValidationData,
-  builder: DiagnosticsBuilder
-): void {
+export function DiagnoseLine(line: string, StartPos: Position | undefined, Cursor: Position | undefined, validation: ValidationData, builder: DiagnosticsBuilder): void {
   line = line.trim();
 
   if (line === "" || line === "\r\n") return;
