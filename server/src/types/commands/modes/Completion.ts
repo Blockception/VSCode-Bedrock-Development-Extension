@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { ModeCollection } from "./Interface";
 
-export function ProvideModeCompletion(Mode: ModeCollection, receiver: CompletionList): void {
+export function ProvideModeCompletion(Mode: ModeCollection, receiver: CompletionBuilder): void {
   const Modes = Mode.Modes;
   for (let I = 0; I < Modes.length; I++) {
     let Element = Modes[I];

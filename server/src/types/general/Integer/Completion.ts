@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { ParameterOptions } from "../../commands/parameter/include";
 
-export function provideIntegerCompletion(receiver: CompletionList, Options: ParameterOptions | undefined): void {
+export function provideIntegerCompletion(receiver: CompletionBuilder, Options: ParameterOptions | undefined): void {
   const minimum = Options?.minimum ?? 0;
   const maximum = Options?.maximum ?? 10;
 

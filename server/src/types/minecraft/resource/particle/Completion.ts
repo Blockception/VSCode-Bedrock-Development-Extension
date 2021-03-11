@@ -32,6 +32,6 @@ import { Completion } from "../../../../completion/include";
 import { Database } from "../../../../database/include";
 import { Kinds } from "../../../general/Kinds";
 
-export function provideParticleCompletion(receiver: CompletionList): void {
+export function provideParticleCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.Resourcepack.Particles, Kinds.Completion.Particle, receiver.items);
 }

@@ -32,6 +32,6 @@ import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
-export function provideBlockCompletion(receiver: CompletionList): void {
+export function provideBlockCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.General.Blocks, Kinds.Completion.Block, receiver.items);
 }

@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList } from "vscode-languageserver";
 import { Kinds } from "../Kinds";
 
-export function provideCoordinateCompletion(receiver: CompletionList): void {
+export function provideCoordinateCompletion(receiver: CompletionBuilder): void {
   const Kind = Kinds.Completion.Coordinate;
 
   receiver.items.push(

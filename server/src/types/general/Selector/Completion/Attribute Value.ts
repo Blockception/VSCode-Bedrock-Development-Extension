@@ -37,7 +37,7 @@ import { provideTagTestCompletion } from "../../Tag/include";
 
 //Doesnt do scores and doesnt need to
 export function provideSelectorAttributeValueCompletion(
-  receiver: CompletionList,
+  receiver: CompletionBuilder,
   attribute: string,
   forEntities: boolean,
   type: string | undefined = undefined

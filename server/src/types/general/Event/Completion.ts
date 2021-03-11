@@ -32,7 +32,7 @@ import { Database } from "../../../database/include";
 import { CommandIntr } from "../../commands/interpertation/include";
 import { Kinds } from "../Kinds";
 
-export function provideEventCompletion(receiver: CompletionList, command: CommandIntr): void {
+export function provideEventCompletion(receiver: CompletionBuilder, command: CommandIntr): void {
   let Keyword = command.GetCommandKeyword();
 
   if (Keyword == "summon") {

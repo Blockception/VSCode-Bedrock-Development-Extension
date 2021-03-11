@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 
-export function provideXPCompletion(receiver: CompletionList): void {
+export function provideXPCompletion(receiver: CompletionBuilder): void {
   receiver.items.push(
     { label: "1L", documentation: "Add 1 level of xp", kind: CompletionItemKind.Value },
     { label: "-1L", documentation: "Remove 1 level of xp", kind: CompletionItemKind.Value },

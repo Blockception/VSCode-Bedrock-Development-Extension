@@ -49,7 +49,7 @@ const Random: CompletionItem = {
 const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
 
 export function provideSelectorCompletion(
-  receiver: CompletionList,
+  receiver: CompletionBuilder,
   selector: LocationWord | undefined,
   pos: number,
   parameter: MCCommandParameter

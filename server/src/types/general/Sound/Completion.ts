@@ -32,6 +32,6 @@ import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
-export function provideSoundCompletion(receiver: CompletionList): void {
+export function provideSoundCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.General.Sounds, Kinds.Completion.Sound, receiver.items);
 }

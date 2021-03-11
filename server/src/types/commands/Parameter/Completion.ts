@@ -54,6 +54,7 @@ import { ProvideModeCompletion } from "../modes/Completion";
 import { OperationModes } from "../modes/operation/operation";
 import { provideGamemodeCompletion } from "../../general/Gamemode/include";
 import { SlotTypeModes } from "../../general/slot type/slot type";
+import { CompletionBuilder } from "../../../completion/Builder";
 
 function toCompletion(parameter: MCCommandParameter): CompletionItem {
   let Out: CompletionItem = {
@@ -69,7 +70,7 @@ export function ProvideCompletionMCCommandParameter(
   Parameter: MCCommandParameter,
   Command: CommandIntr,
   pos: number,
-  receiver: CompletionList,
+  receiver: CompletionBuilder,
   Current: LocationWord | undefined
 ): void {
   //Check default option

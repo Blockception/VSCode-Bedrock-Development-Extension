@@ -32,11 +32,11 @@ import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
-export function provideObjectiveCompletion(receiver: CompletionList): void {
+export function provideObjectiveCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.General.Objectives, Kinds.Completion.Objectives, receiver.items);
 }
 
-export function provideObjectivePostCompletion(receiver: CompletionList, additionalText: string): void {
+export function provideObjectivePostCompletion(receiver: CompletionBuilder, additionalText: string): void {
   Database.Data.General.Objectives.ForEach((objective) => {
     let Name = objective.Identifier;
 

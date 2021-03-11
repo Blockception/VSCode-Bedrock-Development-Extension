@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList } from "vscode-languageserver";
 import { Kinds } from "../Kinds";
 
-export function provideGamemodeCompletion(receiver: CompletionList): void {
+export function provideGamemodeCompletion(receiver: CompletionBuilder): void {
   receiver.items.push(
     { label: "c", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
     { label: "creative", kind: Kinds.Completion.Gamemode, documentation: "The creative gamemode" },
@@ -44,7 +44,7 @@ export function provideGamemodeCompletion(receiver: CompletionList): void {
   );
 }
 
-export function provideGamemodeTestCompletion(receiver: CompletionList): void {
+export function provideGamemodeTestCompletion(receiver: CompletionBuilder): void {
   receiver.items.push(
     { label: "c", kind: Kinds.Completion.Gamemode, documentation: "Tests for the creative gamemode" },
     { label: "!c", kind: Kinds.Completion.Gamemode, documentation: "Tests not for the creative gamemode" },

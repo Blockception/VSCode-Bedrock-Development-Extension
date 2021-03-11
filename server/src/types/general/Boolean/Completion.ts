@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionList } from "vscode-languageserver";
 import { Kinds } from "../Kinds";
 
-export function provideBooleanCompletion(receiver: CompletionList) {
+export function provideBooleanCompletion(receiver: CompletionBuilder) {
   //False
   receiver.items.push({
     label: "false",

@@ -32,6 +32,6 @@ import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
-export function provideEffectCompletion(receiver: CompletionList): void {
+export function provideEffectCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.General.Effects, Kinds.Completion.Effect, receiver.items);
 }

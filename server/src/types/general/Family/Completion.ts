@@ -32,7 +32,7 @@ import { Database } from "../../../database/include";
 import { Entity } from "../include";
 import { Kinds } from "../Kinds";
 
-export function provideFamilyCompletion(receiver: CompletionList, type: string | undefined = undefined): void {
+export function provideFamilyCompletion(receiver: CompletionBuilder, type: string | undefined = undefined): void {
   if (type) {
     let entity = Database.Data.General.Entities.GetFromID(type);
 
@@ -44,13 +44,13 @@ export function provideFamilyCompletion(receiver: CompletionList, type: string |
   }
 }
 
-function ConvertEntity(entity: Entity.Entity, receiver: CompletionList) {
+function ConvertEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   entity.Families.forEach((family) => {
     receiver.items.push({ label: family, kind: Kinds.Completion.Family, documentation: "The entity family: " + family });
   });
 }
 
-export function provideFamilyTestCompletion(receiver: CompletionList, type: string | undefined = undefined): void {
+export function provideFamilyTestCompletion(receiver: CompletionBuilder, type: string | undefined = undefined): void {
   if (type) {
     let entity = Database.Data.General.Entities.GetFromID(type);
 
@@ -62,7 +62,7 @@ export function provideFamilyTestCompletion(receiver: CompletionList, type: stri
   }
 }
 
-function ConvertTestEntity(entity: Entity.Entity, receiver: CompletionList) {
+function ConvertTestEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   entity.Families.forEach((family) => {
     receiver.items.push(
       { label: family, kind: Kinds.Completion.Family, documentation: "test for the Family: " + family },

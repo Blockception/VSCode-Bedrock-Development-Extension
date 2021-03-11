@@ -32,11 +32,11 @@ import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
-export function provideEntityCompletion(receiver: CompletionList): void {
+export function provideEntityCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.General.Entities, Kinds.Completion.Entity, receiver.items);
 }
 
-export function provideEntityTestCompletion(receiver: CompletionList): void {
+export function provideEntityTestCompletion(receiver: CompletionBuilder): void {
   Database.Data.General.Entities.ForEach((entity) => {
     let Name = entity.Identifier;
 

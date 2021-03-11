@@ -39,7 +39,7 @@ function AttributeCompletion(label: string, documentation: string | MarkupConten
 }
 
 //Doesnt do scores and doesnt need to
-export function provideSelectorAttributeCompletion(receiver: CompletionList, forEntities: boolean): void {
+export function provideSelectorAttributeCompletion(receiver: CompletionBuilder, forEntities: boolean): void {
   receiver.items.push(
     AttributeCompletion("c", "limits the amount of entities/player to be targeted"),
     AttributeCompletion("dx", "The length of the box over the axis X"),

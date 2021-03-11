@@ -3,7 +3,7 @@ import { LocationWord } from "bc-vscode-words";
 import { provideObjectivePostCompletion } from "../../Objectives/Completion";
 import { IsEditingValue } from "../Functions";
 
-export function provideSelectorScoreCompletion(receiver: CompletionList, selector: LocationWord, pos: number): void {
+export function provideSelectorScoreCompletion(receiver: CompletionBuilder, selector: LocationWord, pos: number): void {
   if (IsEditingValue(selector, pos)) {
     receiver.items.push(
       {

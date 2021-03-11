@@ -32,11 +32,11 @@ import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 import { Kinds } from "../Kinds";
 
-export function provideTagCompletion(receiver: CompletionList): void {
+export function provideTagCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.General.Tag, Kinds.Completion.Tag, receiver.items);
 }
 
-export function provideTagTestCompletion(receiver: CompletionList): void {
+export function provideTagTestCompletion(receiver: CompletionBuilder): void {
   Database.Data.General.Tag.ForEach((tag) => {
     receiver.items.push(
       { label: tag.Identifier, kind: Kinds.Completion.Tag, documentation: "Tests for the tag: '" + tag.Identifier + "'" },

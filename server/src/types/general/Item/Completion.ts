@@ -31,6 +31,6 @@ import { CompletionItemKind, CompletionList } from "vscode-languageserver";
 import { Completion } from "../../../completion/include";
 import { Database } from "../../../database/include";
 
-export function provideItemCompletion(receiver: CompletionList): void {
+export function provideItemCompletion(receiver: CompletionBuilder): void {
   Completion.Convert(Database.Data.General.Items, CompletionItemKind.Struct, receiver.items);
 }
