@@ -200,7 +200,10 @@
     },
     {
       "name": "fog",
-      "documentation": { "value": "Adds or remove fog settings file", "kind": "markdown" },
+      "documentation": {
+        "value": "Pushes a new fog setting, to specified player(s), along with a user provided ID, onto the top of the Fog Command layers of the players' active fog stacks.",
+        "kind": "markdown"
+      },
       "parameters": [
         { "Text": "fog", "Type": "keyword", "Required": true },
         { "Text": "victim", "Type": "selector", "Required": true },
@@ -211,7 +214,10 @@
     },
     {
       "name": "fog",
-      "documentation": { "value": "Adds or remove fog settings file", "kind": "markdown" },
+      "documentation": {
+        "value": "Removes the top-most fog setting, from selected player(s), that matches the user provided ID (i.e. as provided previously via a \"/fog push\" command).",
+        "kind": "markdown"
+      },
       "parameters": [
         { "Text": "fog", "Type": "keyword", "Required": true },
         { "Text": "victim", "Type": "selector", "Required": true },
@@ -221,7 +227,10 @@
     },
     {
       "name": "fog",
-      "documentation": { "value": "Adds or remove fog settings file", "kind": "markdown" },
+      "documentation": {
+        "value": "Removes all matching fog settings, from the selected player(s), that matches the user-provided ID (i.e. as provided previously via one or more \"/fog push\" commands).",
+        "kind": "markdown"
+      },
       "parameters": [
         { "Text": "fog", "Type": "keyword", "Required": true },
         { "Text": "victim", "Type": "selector", "Required": true },
