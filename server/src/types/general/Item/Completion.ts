@@ -29,8 +29,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../completion/Builder";
+import { CommandCompletionContext } from '../../../completion/Commands/include';
 import { Database } from "../../../database/include";
 
-export function provideItemCompletion(receiver: CompletionBuilder): void {
+export function ProvideCompletion(Context : CommandCompletionContext) : void {
+   let receiver = Context.receiver;
   receiver.AddFromRange(Database.Data.General.Items, CompletionItemKind.Struct);
 }

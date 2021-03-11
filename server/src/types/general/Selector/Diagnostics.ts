@@ -45,7 +45,7 @@ import { DiagnosticSeverity } from "vscode-languageserver";
  * @param receiver
  * @param validation
  */
-export function ProvideDiagnostics(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, validation: ValidationData): void {
+export function ProvideDiagnose(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, validation: ValidationData): void {
   let text = data.text;
 
   if (pattern.Options?.acceptedValues?.includes(data.text)) return;
@@ -244,8 +244,7 @@ function AllPositivesAndNegatives(name: string, selector: Selector, builder: Dia
       for (let J = I + 1; J < Parameters.length; J++) {
         const second = Parameters[J];
 
-        if (first.Value == second.Value)
-          builder.AddWord(second.Name, 'duplicate test statement found for: "' + name + '"', DiagnosticSeverity.Warning);
+        if (first.Value == second.Value) builder.AddWord(second.Name, 'duplicate test statement found for: "' + name + '"', DiagnosticSeverity.Warning);
       }
     }
   }
@@ -269,8 +268,7 @@ function Coordinate(name: string, selector: Selector, builder: DiagnosticsBuilde
 
   let value = Parameter.Value;
 
-  if (value.text.startsWith("^"))
-    builder.AddWord(Parameter.Value, 'Parameter: "' + name + '" cannot be a local coordinate, only relative or absolute');
+  if (value.text.startsWith("^")) builder.AddWord(Parameter.Value, 'Parameter: "' + name + '" cannot be a local coordinate, only relative or absolute');
 }
 
 /**

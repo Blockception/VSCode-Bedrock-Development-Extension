@@ -27,37 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
-import { LocationWord } from "bc-vscode-words";
-import { MCCommandParameter } from "../../../commands/parameter/include";
-import { provideFakePlayersCompletion } from "../../FakeEntity/Completion";
-import { Kinds } from "../../Kinds";
+import { CompletionItemKind } from "vscode-languageserver";
 import { GetCurrentAttribute, InScore, InSelector, IsEditingValue } from "../Functions";
 import { provideSelectorAttributeValueCompletion } from "./Attribute Value";
 import { provideSelectorAttributeCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
-import { CompletionBuilder } from "../../../../completion/Builder";
+import { SelectorBase } from "./BaseMode";
+import { FakeEntity } from "../../include";
+import { CommandCompletionContext } from '../../../../completion/Commands/Context';
 
-//Constants
-const AllPlayer: CompletionItem = { label: "@a", kind: Kinds.Completion.Selector, documentation: "Targets all players" };
-const AllEntities: CompletionItem = { label: "@e", kind: Kinds.Completion.Selector, documentation: "Targets all entities" };
-const Executing: CompletionItem = { label: "@s", kind: Kinds.Completion.Selector, documentation: "Targets the executing entity" };
-const Random: CompletionItem = {
-  label: "@r",
-  kind: Kinds.Completion.Selector,
-  documentation: "Targets random players, or if specified, random types",
-};
-const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
+export function ProvideCompletion(Context : CommandCompletionContext) : void {
+  let receiver = Context.receiver;
+  let selector = Context.Current
+  let pos = Context.pos;
+  let Options = Context.Parameter.Options;
 
-export function provideSelectorCompletion(
-  receiver: CompletionBuilder,
-  selector: LocationWord | undefined,
-  pos: number,
-  parameter: MCCommandParameter
-): void {
-  const playerOnly = parameter.Options?.playerOnly ?? false;
-  const wildcard = parameter.Options?.wildcard ?? false;
-  const fakePlayer = parameter.Options?.allowFakePlayers ?? false;
+  const playerOnly = Options?.playerOnly ?? false;
+  const wildcard = Options?.wildcard ?? false;
+  const fakePlayer = Options?.allowFakePlayers ?? false;
 
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     //In selector
@@ -71,13 +58,19 @@ export function provideSelectorCompletion(
     }
 
     //Defaults
-    receiver.items.push(AllPlayer, Executing, Executing, Random, NearestPlayer);
+    receiver.items.push(
+      SelectorBase.Completion.AllPlayer,
+      SelectorBase.Completion.Executing,
+      SelectorBase.Completion.Executing,
+      SelectorBase.Completion.Random,
+      SelectorBase.Completion.NearestPlayer
+    );
 
     if (!playerOnly) {
-      receiver.items.push(AllEntities);
+      receiver.items.push(SelectorBase.Completion.AllEntities);
     }
     if (fakePlayer) {
-      provideFakePlayersCompletion(receiver);
+      FakeEntity.ProvideCompletion(Context);
     }
 
     return;

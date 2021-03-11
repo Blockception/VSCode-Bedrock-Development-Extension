@@ -27,12 +27,19 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionBuilder } from "../../../completion/Builder";
-import { CommandCompletionContext } from '../../../completion/Commands/include';
-import { Database } from "../../../database/include";
-import { Kinds } from "../Kinds";
+import { ModeCollection } from "../../commands/modes/include";
 
-export function ProvideCompletion(Context : CommandCompletionContext) : void {
-   let receiver = Context.receiver;
-  receiver.AddFromRange(Database.Data.General.Effects, Kinds.Completion.Effect);
-}
+export const GameMode: ModeCollection = {
+  Name: "gamemodes",
+  Modes: [
+    { Name: "c", Description: "The creative gamemode" },
+    { Name: "creative", Description: "The creative gamemode" },
+    { Name: "1", Description: "The creative gamemode" },
+    { Name: "a", Description: "The adventure gamemode" },
+    { Name: "adventure", Description: "The adventure gamemode" },
+    { Name: "2", Description: "The adventure gamemode" },
+    { Name: "s", Description: "The survival gamemode" },
+    { Name: "survival", Description: "The survival gamemode" },
+    { Name: "0", Description: "The survival gamemode" },
+  ],
+};

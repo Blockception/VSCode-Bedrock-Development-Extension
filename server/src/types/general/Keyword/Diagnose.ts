@@ -31,7 +31,7 @@ import { LocationWord } from "bc-vscode-words";
 import { MCCommandParameter } from "../../commands/parameter/include";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseKeyword(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder): void {
   if (pattern.Text !== data.text) {
     builder.AddWord(data, `expected keyword: "${pattern.Text}" but got: "${data.text}"`);
   }

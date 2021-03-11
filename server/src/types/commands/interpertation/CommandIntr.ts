@@ -125,6 +125,10 @@ export class CommandIntr {
     return undefined;
   }
 
+  /**
+   *
+   * @returns
+   */
   IsEmpty(): Boolean {
     if (this.Parameters.length <= 0) return true;
 

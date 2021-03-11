@@ -72,4 +72,14 @@ export class MCCommand {
 
     return -1;
   }
+
+  getIndexOfTypeReverse(type: MCCommandParameterType, startindex : number = -1): number {
+    if (startindex < 0 || startindex >= this.parameters.length) startindex = this.parameters.length - 1;
+
+    for (let I = startindex; I >= 0; I--) {
+      if (this.parameters[I].Type === type) return I;
+    }
+
+    return -1;
+  }
 }

@@ -29,9 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
-import { DiagnoseInteger } from "../Integer/include";
+import { Integer } from '../include';
 
-export function DiagnoseXp(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
   //TODO
 
   let text = data.text;
@@ -42,5 +42,5 @@ export function DiagnoseXp(data: LocationWord, builder: DiagnosticsBuilder): voi
 
   data = new LocationWord(text, data.location.uri, data.location.range);
 
-  DiagnoseInteger(data, builder);
+  Integer.ProvideDiagnose(data, builder);
 }

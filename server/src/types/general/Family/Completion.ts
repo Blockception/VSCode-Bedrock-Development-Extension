@@ -27,12 +27,16 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { isUndefined } from 'node:util';
 import { CompletionBuilder } from "../../../completion/Builder";
+import { CommandCompletionContext } from '../../../completion/Commands/include';
 import { Database } from "../../../database/include";
 import { Entity } from "../include";
 import { Kinds } from "../Kinds";
 
-export function provideFamilyCompletion(receiver: CompletionBuilder, type: string | undefined = undefined): void {
+export function ProvideCompletion(Context : CommandCompletionContext, type : string | undefined = undefined) : void {
+  let receiver = Context.receiver;
+  
   if (type) {
     let entity = Database.Data.General.Entities.GetFromID(type);
 
@@ -50,7 +54,9 @@ function ConvertEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   });
 }
 
-export function provideFamilyTestCompletion(receiver: CompletionBuilder, type: string | undefined = undefined): void {
+export function ProvideCompletionTest(Context : CommandCompletionContext, type: string | undefined = undefined): void {
+  let receiver = Context.receiver;
+
   if (type) {
     let entity = Database.Data.General.Entities.GetFromID(type);
 

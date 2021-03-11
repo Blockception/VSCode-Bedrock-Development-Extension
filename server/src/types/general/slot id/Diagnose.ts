@@ -27,21 +27,19 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic } from "vscode-languageserver";
 import { LocationWord } from "bc-vscode-words";
-import { NewError2 } from "../../../diagnostics/include";
 import { CommandIntr } from "../../commands/interpertation/include";
 import { GetMode } from "../../commands/modes/Functions";
-import { DiagnoseInteger } from "../Integer/include";
-import { SlotTypeMode, SlotTypeModes } from "../slot type/slot type";
+import { SlotTypeMode, SlotTypeModes } from "../Slot type/Slot type";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
+import { Integer } from '../include';
 
-export function DiagnoseSlotID(word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
   let Index = Command.Parameters.indexOf(word);
 
   if (Index < 0) return;
 
-  DiagnoseInteger(word, builder);
+  Integer.ProvideDiagnose(word, builder);
 
   const SlotType = Command.Parameters[Index - 1].text;
   const SlotID = Number.parseInt(word.text);

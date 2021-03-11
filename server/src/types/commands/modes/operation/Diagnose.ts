@@ -30,10 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
 import { CommandIntr } from "../../interpertation/include";
 import { DiagnoseMode } from "../Diagnose";
-import { OperationModes } from "./operation";
+import { OperationModes } from "./Operation";
 import { DiagnosticsBuilder } from "../../../../diagnostics/Builder";
 
-export function ProvideOperationDiagnose(Word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
+export function Diagnose(Word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
   DiagnoseMode(Word, OperationModes, builder);
   let Index = Command.Parameters.indexOf(Word);
 

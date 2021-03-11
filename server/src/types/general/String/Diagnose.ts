@@ -30,6 +30,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseString(Word: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(Word: LocationWord, builder: DiagnosticsBuilder): void {
   const text = Word.text;
 }

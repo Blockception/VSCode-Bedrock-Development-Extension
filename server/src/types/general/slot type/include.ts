@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from "./slot type";
+export * from "./Slot type";

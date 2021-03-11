@@ -27,26 +27,31 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { CompletionItemKind } from 'vscode-languageserver-types';
 import { CompletionBuilder } from "../../../completion/Builder";
+import { CommandCompletionContext } from '../../../completion/Commands/include';
 import { Database } from "../../../database/include";
-import { CommandIntr } from "../../commands/interpertation/include";
-import { Kinds } from "../Kinds";
+import { MCCommandParameterType } from '../../commands/parameter/ParameterType';
+import { Entity } from '../Entity/Entity';
 
-export function provideEventCompletion(receiver: CompletionBuilder, command: CommandIntr): void {
-  let Keyword = command.GetCommandKeyword();
+export function ProvideCompletion(Context : CommandCompletionContext): void {
+  let Index = Context.BestMatch.Command.getIndexOfTypeReverse(MCCommandParameterType.entity, Context.ParameterIndex);
 
-  if (Keyword == "summon") {
-    if (command.Parameters.length < 2) return;
-
-    let EntityID = command.Parameters[1].text;
-
-    //For each data set
+  if (Index >= 0) {
+    let EntityID = Context.Command.Parameters[Index].text;
     let Entity = Database.Data.General.Entities.GetFromID(EntityID);
 
-    if (Entity === undefined) return;
-
-    Entity.Events.forEach((event) => {
-      receiver.Add(event, 'The entity "' + Entity + '" event: "' + event + '"', Kinds.Completion.Event);
-    });
+    if (Entity) {
+      Convert(Entity, Context.receiver);
+      return;
+    }    
   }
+
+  Database.Data.General.Entities.ForEach(entity=>Convert(entity, Context.receiver));
+}
+
+function Convert(Entity : Entity, builder : CompletionBuilder) : void {
+  Entity.Events.forEach(event => {
+    builder.Add(event, `The entity: ${Entity.Identifier} event: ${event}`, CompletionItemKind.Event);
+  });
 }

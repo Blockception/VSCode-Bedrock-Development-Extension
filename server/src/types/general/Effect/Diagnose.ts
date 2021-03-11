@@ -31,7 +31,7 @@ import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../database/include";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseEffect(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
   if (Database.Data.General.Effects.HasID(text)) return;

@@ -27,25 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
 import { LocationWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
+import { DiagnoseMode } from '../../commands/modes/Diagnose';
+import { GameMode } from './Mode';
 
-export function DiagnoseGamemode(data: LocationWord, builder: DiagnosticsBuilder): void {
-  const text = data.text;
-
-  switch (text) {
-    case "c":
-    case "creative":
-    case "1":
-    case "a":
-    case "adventure":
-    case "2":
-    case "s":
-    case "survival":
-    case "0":
-      return;
-  }
-
-  builder.AddWord(data, 'Unknown gamemode: "' + text + '"');
+export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
+  DiagnoseMode(data, GameMode, builder);
 }

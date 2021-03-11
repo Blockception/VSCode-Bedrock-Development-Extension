@@ -27,152 +27,60 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, CompletionList } from "vscode-languageserver";
-import { ItemComponents, RawText } from "../../minecraft/json/include";
-import { provideParticleCompletion } from "../../minecraft/resource/particle/Completion";
-import { LocationWord } from "bc-vscode-words";
-import { provideBlockCompletion } from "../../general/Block/include";
-import { provideBooleanCompletion } from "../../general/Boolean/include";
-import { provideCoordinateCompletion } from "../../general/Coordinate/include";
-import { provideEffectCompletion } from "../../general/Effect/include";
-import { provideEntityCompletion } from "../../general/Entity/include";
-import { provideEventCompletion } from "../../general/Event/include";
-import { provideFloatCompletion } from "../../general/Float/include";
-import { provideFunctionCompletion } from "../../general/Functions/include";
-import { provideIntegerCompletion } from "../../general/Integer/include";
-import { provideItemCompletion } from "../../general/Item/include";
-import { provideObjectiveCompletion } from "../../general/Objectives/include";
-import { provideSelectorCompletion } from "../../general/Selector/Completion/include";
-import { provideSoundCompletion } from "../../general/Sound/include";
-import { provideTagCompletion } from "../../general/Tag/include";
-import { provideTickingareaCompletion } from "../../general/Tickingarea/include";
-import { provideXPCompletion } from "../../general/Xp/include";
-import { CommandIntr } from "../interpertation/include";
-import { provideCommandCompletion } from "../command/Completion";
-import { MCCommandParameter, MCCommandParameterType } from "./include";
-import { ProvideModeCompletion } from "../modes/Completion";
-import { OperationModes } from "../modes/operation/operation";
-import { provideGamemodeCompletion } from "../../general/Gamemode/include";
-import { SlotTypeModes } from "../../general/slot type/slot type";
-import { CompletionBuilder } from "../../../completion/Builder";
+import { CompletionItemKind } from "vscode-languageserver";
+import { CommandCompletionContext } from "../../../completion/Commands/Context";
+import { MCCommandParameterType } from "./include";
 
-function toCompletion(parameter: MCCommandParameter): CompletionItem {
-  let Out: CompletionItem = {
-    label: parameter.Text,
-    documentation: "keyword",
-    kind: CompletionItemKind.Keyword,
-  };
-
-  return Out;
+function toCompletion(Context: CommandCompletionContext): void {
+  let Parameter = Context.Parameter;
+  Context.receiver.Add(Parameter.Text, "keyword", CompletionItemKind.Keyword);
 }
 
-export function ProvideCompletionMCCommandParameter(
-  Parameter: MCCommandParameter,
-  Command: CommandIntr,
-  pos: number,
-  receiver: CompletionBuilder,
-  Current: LocationWord | undefined
-): void {
+export function ProvideCompletion(Context: CommandCompletionContext): void {
+  let Parameter = Context.Parameter;
+
   //Check default option
   if (Parameter.Options) {
     //Accepted values
     if (Parameter.Options.acceptedValues) {
       Parameter.Options.acceptedValues.forEach((value) => {
-        receiver.items.push({ label: value, kind: CompletionItemKind.Text });
+        Context.receiver.Add(value, "accepted values", CompletionItemKind.Text);
       });
     }
 
     //Wildcard
     if (Parameter.Options.wildcard) {
-      receiver.items.push({ label: "*", kind: CompletionItemKind.Constant });
+      Context.receiver.Add("*", "wild card", CompletionItemKind.Constant);
     }
   }
 
   switch (Parameter.Type) {
-    case MCCommandParameterType.block:
-      return provideBlockCompletion(receiver);
-
-    case MCCommandParameterType.boolean:
-      return provideBooleanCompletion(receiver);
-
-    case MCCommandParameterType.command:
-      return provideCommandCompletion(receiver);
-
-    case MCCommandParameterType.coordinate:
-      return provideCoordinateCompletion(receiver);
-
-    case MCCommandParameterType.effect:
-      return provideEffectCompletion(receiver);
-
-    case MCCommandParameterType.entity:
-      return provideEntityCompletion(receiver);
-
-    //Entity events
-    case MCCommandParameterType.event:
-      return provideEventCompletion(receiver, Command);
-
-    case MCCommandParameterType.float:
-      return provideFloatCompletion(receiver, Parameter.Options);
-
-    case MCCommandParameterType.function:
-      return provideFunctionCompletion(receiver);
-
-    case MCCommandParameterType.gamemode:
-      return provideGamemodeCompletion(receiver);
-
-    case MCCommandParameterType.integer:
-      return provideIntegerCompletion(receiver, Parameter.Options);
-
-    case MCCommandParameterType.item:
-      return provideItemCompletion(receiver);
-
-    case MCCommandParameterType.jsonItem:
-      return ItemComponents.Completion(receiver.items);
-
-    case MCCommandParameterType.jsonRawText:
-      return RawText.Completion(receiver.items);
-
-    case MCCommandParameterType.keyword:
-      receiver.items.push(toCompletion(Parameter));
-      return;
-
-    case MCCommandParameterType.objective:
-      return provideObjectiveCompletion(receiver);
-
-    case MCCommandParameterType.operation:
-      return ProvideModeCompletion(OperationModes, receiver);
-
-    case MCCommandParameterType.particle:
-      return provideParticleCompletion(receiver);
-
-    case MCCommandParameterType.replaceMode:
-      //TODO
-      break;
-
-    case MCCommandParameterType.selector:
-      return provideSelectorCompletion(receiver, Current, pos, Parameter);
-
-    case MCCommandParameterType.slotID:
-      //TODO
-      break;
-
-    case MCCommandParameterType.slotType:
-      return ProvideModeCompletion(SlotTypeModes, receiver);
-
-    case MCCommandParameterType.sound:
-      return provideSoundCompletion(receiver);
-
-    case MCCommandParameterType.tag:
-      return provideTagCompletion(receiver);
-
-    case MCCommandParameterType.tickingarea:
-      return provideTickingareaCompletion(receiver);
-
-    case MCCommandParameterType.unknown:
-      //TODO
-      break;
-
-    case MCCommandParameterType.xp:
-      return provideXPCompletion(receiver);
+    case MCCommandParameterType.block: return ProvideCompletion(Context);
+    case MCCommandParameterType.boolean: return provideBooleanCompletion(Context);
+    case MCCommandParameterType.command: return provideCommandCompletion(Context);
+    case MCCommandParameterType.coordinate: return provideCoordinateCompletion(Context);
+    case MCCommandParameterType.effect: return provideEffectCompletion(Context);
+    case MCCommandParameterType.entity: return provideEntityCompletion(Context);
+    case MCCommandParameterType.event: return provideEventCompletion(Context);
+    case MCCommandParameterType.float: return provideFloatCompletion(Context);
+    case MCCommandParameterType.function: return provideFunctionCompletion(Context);
+    case MCCommandParameterType.gamemode: return provideGamemodeCompletion(Context);
+    case MCCommandParameterType.integer: return provideIntegerCompletion(Context);
+    case MCCommandParameterType.item: return provideItemCompletion(Context);
+    case MCCommandParameterType.jsonItem: return ItemComponents.Completion(Context);
+    case MCCommandParameterType.jsonRawText: return RawText.Completion(Context);
+    case MCCommandParameterType.keyword: return toCompletion(Context);
+    case MCCommandParameterType.objective: return provideObjectiveCompletion(Context);
+    case MCCommandParameterType.operation: return ProvideModeCompletion(Context);
+    case MCCommandParameterType.particle: return provideParticleCompletion(Context);
+    case MCCommandParameterType.replaceMode: break;
+    case MCCommandParameterType.selector: return provideSelectorCompletion(Context);
+    case MCCommandParameterType.slotID: return;
+    case MCCommandParameterType.slotType: return ProvideModeCompletion(Context);
+    case MCCommandParameterType.sound: return provideSoundCompletion(Context);
+    case MCCommandParameterType.tag: return provideTagCompletion(Context);
+    case MCCommandParameterType.tickingarea: return provideTickingareaCompletion(Context);
+    case MCCommandParameterType.unknown: return;
+    case MCCommandParameterType.xp: return provideXPCompletion(Context);
   }
 }

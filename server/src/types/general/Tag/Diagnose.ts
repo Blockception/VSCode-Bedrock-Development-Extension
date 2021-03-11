@@ -32,7 +32,7 @@ import { Database } from "../../../database/include";
 import { ValidationData } from "../../../validation/include";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseTag(data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
   //Check rules first

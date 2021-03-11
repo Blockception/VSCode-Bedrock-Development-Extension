@@ -28,13 +28,70 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
-import { IsInteger } from "./include";
-import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
+import { CommandInfo } from '../../types/commands/info/include';
+import { CommandIntr } from "../../types/commands/interpertation/CommandIntr";
+import { MCCommandParameter } from "../../types/commands/parameter/Parameter";
+import { CompletionBuilder } from "../include";
 
-export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
-  const text = data.text;
+/**
+ *
+ */
+export interface CommandCompletionContext {
+  Parameter: MCCommandParameter;
+  ParameterIndex : number;
+  Command: CommandIntr;
+  BestMatch : CommandInfo;
+  pos: number;
+  receiver: CompletionBuilder;
+  Current: LocationWord | undefined;
+}
 
-  if (IsInteger(text)) return;
+/**
+ *
+ */
+export namespace CommandCompletionContext {
+  /**
+   *
+   * @param value
+   * @returns
+   */
+  export function is(value: any): value is CommandCompletionContext {
+    if (value) {
+      let temp = value as CommandCompletionContext;
 
-  builder.AddWord(data, "Invalid integer");
+      if (temp.Parameter && temp.Command && temp.pos && temp.receiver) return true;
+    }
+
+    return false;
+  }
+
+  /**
+   *
+   * @param Parameter
+   * @param Command
+   * @param pos
+   * @param receiver
+   * @param Current
+   * @returns
+   */
+  export function create(
+    Parameter: MCCommandParameter,
+    ParameterIndex : number,
+    Command: CommandIntr,
+    pos: number,
+    receiver: CompletionBuilder,
+    Current: LocationWord | undefined = undefined
+  ): CommandCompletionContext {
+    let BestMatch = Command.GetCommandData()[0];
+
+    return {
+      Parameter: Parameter,
+      ParameterIndex:ParameterIndex,
+      Command: Command,
+      BestMatch:BestMatch,
+      pos: pos,
+      receiver: receiver,
+      Current: Current,
+    };
+  }
 }

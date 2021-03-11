@@ -28,10 +28,12 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
-import { CompletionBuilder } from "../../../completion/Builder";
-import { ParameterOptions } from "../../commands/parameter/include";
+import { CommandCompletionContext } from '../../../completion/Commands/include';
 
-export function provideFloatCompletion(receiver: CompletionBuilder, Options: ParameterOptions | undefined): void {
+export function ProvideCompletion(Context : CommandCompletionContext) : void {
+  let receiver = Context.receiver;
+  let Options = Context.Parameter.Options;
+  
   const minimum = Options?.minimum ?? 0;
   const maximum = Options?.maximum ?? 10;
 

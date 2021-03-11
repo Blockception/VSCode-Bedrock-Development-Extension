@@ -32,6 +32,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 export enum MCCommandParameterType {
   //Marks that the parameter is a block
   block,
+  //Marks that the parameter is a block states
+  blockStates,
   //Marks that the parameter is a boolean value
   boolean,
   //Marks that the parameter is a camera shake mode
@@ -73,6 +75,7 @@ export enum MCCommandParameterType {
   musicRepeatMode,
   //Marks that the parameter is a scoreboard objective
   objective,
+  oldBlockMode,
   //Marks that the parameter is a scoreboard operation
   operation,
   //Marks that the parameter is a particle

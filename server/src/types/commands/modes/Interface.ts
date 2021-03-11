@@ -28,20 +28,28 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
+/** The interface that marks a gamemode*/
 export interface ModeCollection {
+  /**The collection of different modes*/
   Modes: Mode[];
+  /**The name of the collection*/
   Name: string;
 }
 
+/** The mode interface */
 export interface Mode {
+  /**The name of this mode*/
   Name: string;
+  /**The description of this mode*/
   Description: string;
 }
 
 export namespace ModeCollection {
   export function is(value: any): value is ModeCollection {
-    if (value && value.Name && value.Modes) {
-      if (Array.isArray(value.Modes)) return true;
+    if (value) {
+      let temp = value as ModeCollection;
+
+      if (temp.Name && temp.Modes && Array.isArray(value.Modes)) return true;
     }
 
     return false;

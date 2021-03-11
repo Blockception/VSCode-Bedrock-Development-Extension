@@ -31,7 +31,7 @@ import { LocationWord } from "bc-vscode-words";
 import { IsCoordinate } from "./include";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 
-export function DiagnoseCoordinate(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
   if (IsCoordinate(text)) return;

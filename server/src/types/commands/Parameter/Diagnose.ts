@@ -45,14 +45,14 @@ import { DiagnoseGamemode } from "../../general/Gamemode/include";
 import { DiagnoseObjective } from "../../general/Objectives/include";
 import { DiagnoseTickingarea } from "../../general/Tickingarea/include";
 import { DiagnoseParticle } from "../../minecraft/resource/particle/include";
-import { ProvideOperationDiagnose } from "../modes/operation/include";
+import { ProvideOperationDiagnose } from "../modes/Operation/include";
 import { CommandIntr } from "../interpertation/include";
 import { DiagnoseItem } from "../../general/Item/include";
 import { DiagnoseString } from "../../general/String/Diagnose";
 import { DiagnoseSound } from "../../general/Sound/Diagnose";
 import { DiagnoseMode } from "../modes/include";
-import { SlotTypeModes } from "../../general/slot type/slot type";
-import { DiagnoseSlotID } from "../../general/slot id/Diagnose";
+import { SlotTypeModes } from "../../general/Slot type/Slot type";
+import { DiagnoseSlotID } from "../../general/Slot id/Diagnose";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
 import { LocationWord } from "bc-vscode-words";
 

@@ -31,7 +31,7 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../completion/Builder";
 import { Manager } from "../../../manager/Manager";
 
-export function provideCommandCompletion(receiver: CompletionBuilder): void {
+export function ProvideCompletion(receiver: CompletionBuilder): void {
   for (let [key, value] of Manager.Data.Commands.Subset) {
     let documentation: string = "The command: " + key;
 

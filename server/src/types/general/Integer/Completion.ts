@@ -29,13 +29,21 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../completion/Builder";
-import { ParameterOptions } from "../../commands/parameter/include";
+import { CommandCompletionContext } from '../../../completion/Commands/Context';
 
-export function provideIntegerCompletion(receiver: CompletionBuilder, Options: ParameterOptions | undefined): void {
+export function ProvideCompletion(Context : CommandCompletionContext) : void {
+  let receiver = Context.receiver;
+  let Options = Context.Parameter.Options;
+  
   const minimum = Options?.minimum ?? 0;
   const maximum = Options?.maximum ?? 10;
 
-  let steps = (maximum - minimum) / 10;
+  ProvideCreateCompletion(receiver, minimum, maximum);
+}
+
+export function ProvideCreateCompletion(receiver: CompletionBuilder, minimum: number, maximum: number): void {
+  let diff = maximum - minimum;
+  let steps = diff > 10 ? diff / 10 : 1;
 
   for (let I = minimum; I < maximum; I += steps) {
     receiver.Add(I.toPrecision(), "The integer number: " + I.toString(), CompletionItemKind.Constant);
