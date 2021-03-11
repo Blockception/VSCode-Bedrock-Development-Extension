@@ -33,7 +33,7 @@ import { Manager } from "../../manager/Manager";
 import { MolangFunctionDataItem } from "../../molang/include";
 import { DataType, DetectDataType } from "../../types/minecraft/format/include";
 
-export function OnCompletionMolangVariable(doc: TextDocument, receiver: CompletionList): void {
+export function OnCompletionMolangVariable(doc: TextDocument, receiver: CompletionBuilder): void {
   let Type = DetectDataType(doc.uri);
 
   switch (Type) {
@@ -50,7 +50,7 @@ export function OnCompletionMolangVariable(doc: TextDocument, receiver: Completi
   }
 }
 
-function Convert(data: MolangFunctionDataItem[], receiver: CompletionList): void {
+function Convert(data: MolangFunctionDataItem[], receiver: CompletionBuilder): void {
   for (let I = 0; I < data.length; I++) {
     let Item = data[I];
 

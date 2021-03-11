@@ -34,7 +34,7 @@ import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/forma
 import { OnCompletionMcFunctionLine } from "./Mcfunction";
 import { OnCompletionEntityEvents, OnCompletionMolang } from "./Molang/Molang";
 
-export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: CompletionList): void {
+export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: CompletionBuilder): void {
   let type = DetectGeneralDataType(doc.uri);
 
   if (type == GeneralDataType.unknown) return;

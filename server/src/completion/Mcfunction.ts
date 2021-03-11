@@ -28,13 +28,13 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { CompletionList } from "vscode-languageserver";
 import { ProvideCompletionMCCommandParameter } from "../types/commands/parameter/Completion";
 import { provideCommandCompletion } from "../types/commands/command/Completion";
 import { getLine } from "../code/include";
 import { CommandIntr, IsInSubCommand } from "../types/commands/interpertation/include";
+import { CompletionBuilder } from "./Builder";
 
-export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionList): void {
+export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
   const LineIndex = pos.line;
   const Line = getLine(doc, LineIndex);
 
@@ -55,7 +55,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
   ProvideCompletionMcFunction(pos, receiver, Command);
 }
 
-export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionList): void {
+export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionBuilder): void {
   let pos = doc.positionAt(cursor);
   let posB = doc.positionAt(offset);
 
@@ -65,7 +65,7 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
   ProvideCompletionMcFunction(pos, receiver, Command);
 }
 
-export function ProvideCompletionMcFunction(pos: Position, receiver: CompletionList, Command: CommandIntr): void {
+export function ProvideCompletionMcFunction(pos: Position, receiver: CompletionBuilder, Command: CommandIntr): void {
   if (Command == undefined || Command.Parameters.length == 0 || pos.character < 3) {
     provideCommandCompletion(receiver);
     return;

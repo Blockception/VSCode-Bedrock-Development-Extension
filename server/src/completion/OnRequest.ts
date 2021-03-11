@@ -31,6 +31,7 @@ import { CompletionParams, CompletionList, CompletionItem } from "vscode-languag
 import { IsEqual } from "../code/Equal";
 import { GetDocument } from "../code/include";
 import { Languages } from "../Constants";
+import { CompletionBuilder } from "./Builder";
 import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
@@ -48,27 +49,27 @@ export async function OnCompletionResolveRequestAsync(params: CompletionItem): P
 
 //Processes request
 function OnCompletionRequest(params: CompletionParams): CompletionList {
-  let List: CompletionList = { isIncomplete: true, items: [] };
+  let Builder = new CompletionBuilder();
   let Doc = GetDocument(params.textDocument.uri);
   let Pos = params.position;
-  List.isIncomplete = false;
 
   switch (Doc.languageId) {
     case Languages.McLanguageIdentifier:
-      OnCompletionLanguage(Doc, Pos, List);
+      OnCompletionLanguage(Doc, Pos, Builder);
       break;
 
     case Languages.McFunctionIdentifier:
-      OnCompletionMcFunction(Doc, Pos, List);
+      OnCompletionMcFunction(Doc, Pos, Builder);
       break;
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      OnCompletionJson(Doc, Doc.offsetAt(Pos), List);
+      OnCompletionJson(Doc, Doc.offsetAt(Pos), Builder);
       break;
   }
 
-  List.items = removeDuplicate(List.items);
+  let List: CompletionList = { isIncomplete: false, items: [] };
+  List.items = removeDuplicate(Builder.items);
 
   return List;
 }

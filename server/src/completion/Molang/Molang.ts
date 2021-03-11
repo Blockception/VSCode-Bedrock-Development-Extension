@@ -41,7 +41,7 @@ import { Kinds } from "../../types/general/Kinds";
 import { Completion } from "../Functions";
 import { OnCompletionMolangVariable } from "./Variables";
 
-export function OnCompletionEntityEvents(receiver: CompletionList): void {
+export function OnCompletionEntityEvents(receiver: CompletionBuilder): void {
   Database.Data.General.Entities.ForEach((x) => {
     x.Events.forEach((event) => {
       receiver.items.push({
@@ -53,7 +53,7 @@ export function OnCompletionEntityEvents(receiver: CompletionList): void {
   });
 }
 
-export function OnCompletionMolang(line: string, cursor: number, doc: TextDocument, receiver: CompletionList): void {
+export function OnCompletionMolang(line: string, cursor: number, doc: TextDocument, receiver: CompletionBuilder): void {
   let Word = GetPreviousWord(line, cursor);
 
   switch (Word.toLowerCase()) {
@@ -89,7 +89,7 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
   }
 }
 
-function CreateGeometries(Models: DataCollector<DataReference>, receiver: CompletionList): void {
+function CreateGeometries(Models: DataCollector<DataReference>, receiver: CompletionBuilder): void {
   Models.ForEach((model) => {
     let data = model.Identifier;
     let index = data.indexOf(".");
@@ -104,7 +104,7 @@ function CreateGeometries(Models: DataCollector<DataReference>, receiver: Comple
   });
 }
 
-function Convert(data: MolangFunctionDataItem[], receiver: CompletionList): void {
+function Convert(data: MolangFunctionDataItem[], receiver: CompletionBuilder): void {
   for (let I = 0; I < data.length; I++) {
     let Item = data[I];
 
@@ -116,7 +116,7 @@ function Convert(data: MolangFunctionDataItem[], receiver: CompletionList): void
   }
 }
 
-function ConvertPrefixed(data: MolangFunctionDataItem[], receiver: CompletionList, prefix: string): void {
+function ConvertPrefixed(data: MolangFunctionDataItem[], receiver: CompletionBuilder, prefix: string): void {
   for (let I = 0; I < data.length; I++) {
     let Item = data[I];
 

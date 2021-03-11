@@ -27,28 +27,18 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItemKind, CompletionList } from "vscode-languageserver";
+import { CompletionItemKind } from "vscode-languageserver";
 import { TextDocument, Position } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
+import { CompletionBuilder } from "./Builder";
 
-export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver: CompletionList): void {
+export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
   const cursor = pos.character;
 
   if (cursor <= 0) {
     //key or comment
-    receiver.items.push(
-      {
-        label: "###",
-        documentation: "Comment",
-        kind: CompletionItemKind.Snippet,
-      },
-      {
-        label: "###region",
-        documentation: "Region",
-        kind: CompletionItemKind.Snippet,
-        insertText: "###region example\n\n###endregion",
-      }
-    );
+    receiver.Add("###", "comment", CompletionItemKind.Snippet);
+    receiver.Add("###region", "Region", CompletionItemKind.Snippet, "###region example\n\n###endregion");
 
     return;
   }
@@ -61,34 +51,32 @@ export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver:
   }
 
   if (isIn("=", cursor, line)) {
-    receiver.items.push(
-      { label: "Black §0", kind: CompletionItemKind.Color, insertText: "§0" },
-      { label: "Dark Blue §1", kind: CompletionItemKind.Color, insertText: "§1" },
-      { label: "Dark Green §2", kind: CompletionItemKind.Color, insertText: "§2" },
-      { label: "Dark Aqua §3", kind: CompletionItemKind.Color, insertText: "§3" },
-      { label: "Dark Red §4", kind: CompletionItemKind.Color, insertText: "§4" },
-      { label: "Dark Purple §5", kind: CompletionItemKind.Color, insertText: "§5" },
-      { label: "Gold §6", kind: CompletionItemKind.Color, insertText: "§6" },
-      { label: "Gray §7", kind: CompletionItemKind.Color, insertText: "§7" },
-      { label: "Dark Gray §8", kind: CompletionItemKind.Color, insertText: "§8" },
-      { label: "Blue §9", kind: CompletionItemKind.Color, insertText: "§9" },
-      { label: "Green §a", kind: CompletionItemKind.Color, insertText: "§a" },
-      { label: "Aqua §b", kind: CompletionItemKind.Color, insertText: "§b" },
-      { label: "Red §c", kind: CompletionItemKind.Color, insertText: "§c" },
-      { label: "Light Purple §d", kind: CompletionItemKind.Color, insertText: "§d" },
-      { label: "Yellow §e", kind: CompletionItemKind.Color, insertText: "§e" },
-      { label: "White §f", kind: CompletionItemKind.Color, insertText: "§f" },
+      receiver.Add("Black §0", "The colour: Black", CompletionItemKind.Color, "§0");
+      receiver.Add("Dark Blue §1", "The colour: Dark blue", CompletionItemKind.Color,  "§1" );
+      receiver.Add("Dark Green §2", "The colour: Dark green", CompletionItemKind.Color,  "§2");,
+      receiver.Add("Dark Aqua §3", "The colour: Dark aqua", CompletionItemKind.Color,  "§3" );
+      receiver.Add("Dark Red §4", "The colour: Dark red", CompletionItemKind.Color, "§4" );
+      receiver.Add("Dark Purple §5", "The colour: Dark purple", CompletionItemKind.Color, "§5" );
+      receiver.Add("Gold §6", "The colour: Gold", CompletionItemKind.Color, "§6" );
+      receiver.Add("Gray §7", "The colour: Gray", CompletionItemKind.Color, "§7" );
+      receiver.Add("Dark Gray §8", "The colour: Dark gray", CompletionItemKind.Color, "§8" );
+      receiver.Add("Blue §9", "The colour: Blue", CompletionItemKind.Color, "§9" );
+      receiver.Add("Green §a", "The colour: Green", CompletionItemKind.Color, "§a" );
+      receiver.Add("Aqua §b", "The colour: Aqua", CompletionItemKind.Color, "§b" );
+      receiver.Add("Red §c", "The colour: Red", CompletionItemKind.Color, "§c" );
+      receiver.Add("Light Purple §d", "The colour: Light purple", CompletionItemKind.Color, "§d" );
+      receiver.Add("Yellow §e", "The colour: Yellow", CompletionItemKind.Color, "§e" );
+      receiver.Add("White §f", "The colour: White", CompletionItemKind.Color, "§f" );
 
-      { label: "Reset §r", kind: CompletionItemKind.Color, insertText: "§r" },
-      { label: "Italic §o", kind: CompletionItemKind.Color, insertText: "§o" },
-      { label: "Bold §l", kind: CompletionItemKind.Color, insertText: "§l" },
-      { label: "Random Symbols §k", kind: CompletionItemKind.Color, insertText: "§k" }
-    );
+      receiver.Add("Reset §r", "Resets the current formatting of text", CompletionItemKind.Color, "§r" );
+      receiver.Add("Italic §o", "Makes the text from this point italic", CompletionItemKind.Color, "§o" );
+      receiver.Add("Bold §l", "Makes the text from this point bold", CompletionItemKind.Color, "§l" );
+      receiver.Add("Random Symbols §k", "Makes the text from this point random symbols", CompletionItemKind.Color, "§k");
 
     return;
   }
 
-  receiver.items.push({ label: "=", kind: CompletionItemKind.Snippet });
+  receiver.Add("=", "start of the value", CompletionItemKind.Snippet);
 }
 
 function isIn(text: string, index: number, inText: string): boolean {
