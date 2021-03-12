@@ -1,4 +1,6 @@
 # Changelog 
+- Added ride evict_riders
+- Updated to 1.7.1
 - Updated schemas
 - Refactor completion and diagnostics
 - auto: Generated
@@ -17,5 +19,3 @@
 - Updated
 - Added oldblockmode
 - Refactor of completion
-- Added completion builder
-- Adding blockstates
