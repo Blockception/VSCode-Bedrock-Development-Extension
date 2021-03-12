@@ -814,6 +814,18 @@
       },
       "parameters": [
         { "Text": "ride", "Type": "keyword", "Required": true },
+        { "Text": "rides", "Type": "selector", "Required": true },
+        { "Text": "evict_riders", "Type": "keyword", "Required": true }
+      ]
+    },
+    {
+      "name": "ride",
+      "documentation": {
+        "value": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders",
+        "kind": "markdown"
+      },
+      "parameters": [
+        { "Text": "ride", "Type": "keyword", "Required": true },
         { "Text": "riders", "Type": "selector", "Required": true },
         { "Text": "summon_ride", "Type": "keyword", "Required": true },
         { "Text": "entity type", "Type": "entity", "Required": true },
