@@ -401,7 +401,7 @@ function ScoresCheck(selector: Selector, builder: DiagnosticsBuilder, validation
       builder.AddWord(Score.Name, `Score: ${Score.Name} has been marked as invalid`);
     } else {
       if (!Database.Data.General.Objectives.HasID(Score.Name.text)) {
-        builder.AddWord(Score.Name, `No valid definition of ${Score.Name} has been found.`);
+        builder.AddWord(Score.Name, `No valid definition of ${Score.Name.text} has been found.`);
       }
     }
   }
