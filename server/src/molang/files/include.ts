@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Data Collector.ts";
+export * from "./Data Collector";

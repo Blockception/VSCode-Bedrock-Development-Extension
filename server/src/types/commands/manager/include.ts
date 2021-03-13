@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./CommandManager.ts";
+export * from "./CommandManager";

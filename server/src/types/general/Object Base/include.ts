@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./ObjectBase.ts";
+export * from "./ObjectBase";

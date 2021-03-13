@@ -1,6 +1,6 @@
 /*	Auto generated	*/
 
-export * from "./BlockStates.ts";
-export * from "./Completion.ts";
-export * from "./Diagnose.ts";
-export * from "./Functions.ts";
+export * from "./BlockStates";
+export * from "./Completion";
+export * from "./Diagnose";
+export * from "./Functions";

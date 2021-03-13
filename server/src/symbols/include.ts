@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./Conversion.ts";
-export * from "./OnRequest.ts";
+export * from "./Conversion";
+export * from "./OnRequest";

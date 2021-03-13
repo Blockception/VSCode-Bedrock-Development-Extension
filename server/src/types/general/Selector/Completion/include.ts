@@ -1,7 +1,7 @@
 /*	Auto generated	*/
 
-export * from "./Attribute Value.ts";
-export * from "./Attributes.ts";
-export * from "./BaseMode.ts";
-export * from "./Completion.ts";
-export * from "./Scores.ts";
+export * from "./Attribute Value";
+export * from "./Attributes";
+export * from "./BaseMode";
+export * from "./Completion";
+export * from "./Scores";

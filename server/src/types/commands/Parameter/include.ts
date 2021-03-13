@@ -1,7 +1,7 @@
 /*	Auto generated	*/
 
-export * from "./Completion.ts";
-export * from "./Diagnose.ts";
-export * from "./Parameter Options.ts";
-export * from "./Parameter.ts";
-export * from "./ParameterType.ts";
+export * from "./Completion";
+export * from "./Diagnose";
+export * from "./Parameter Options";
+export * from "./Parameter";
+export * from "./ParameterType";

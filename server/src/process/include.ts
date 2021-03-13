@@ -1,8 +1,8 @@
 /*	Auto generated	*/
 export * as Commands from "./Commands/include";
-export * from "./Json.ts";
-export * from "./Language.ts";
-export * from "./Process.ts";
-export * from "./Range.ts";
-export * from "./Validate.ts";
-export * from "./traverse.ts";
+export * from "./Json";
+export * from "./Language";
+export * from "./Process";
+export * from "./Range";
+export * from "./Validate";
+export * from "./traverse";

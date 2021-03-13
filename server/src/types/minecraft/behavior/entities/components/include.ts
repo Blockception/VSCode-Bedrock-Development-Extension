@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./minecraft.type_family.ts";
+export * from "./minecraft.type_family";

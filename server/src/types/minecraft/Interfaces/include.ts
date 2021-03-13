@@ -1,7 +1,7 @@
 /*	Auto generated	*/
 
-export * from "./Documentable.ts";
-export * from "./FormatVersion.ts";
-export * from "./Identifiable.ts";
-export * from "./Locatable.ts";
-export * from "./Queryable.ts";
+export * from "./Documentable";
+export * from "./FormatVersion";
+export * from "./Identifiable";
+export * from "./Locatable";
+export * from "./Queryable";

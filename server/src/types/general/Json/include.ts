@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Json.ts";
+export * from "./Json";

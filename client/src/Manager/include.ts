@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Manager.ts";
+export * from "./Manager";

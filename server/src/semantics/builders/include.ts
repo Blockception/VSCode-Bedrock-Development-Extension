@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./JsonSemanticTokensBuilder.ts";
-export * from "./McfunctionSemanticTokensBuilder.ts";
+export * from "./JsonSemanticTokensBuilder";
+export * from "./McfunctionSemanticTokensBuilder";

@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./Item Import.ts";
-export * from "./Process.ts";
+export * from "./Item Import";
+export * from "./Process";

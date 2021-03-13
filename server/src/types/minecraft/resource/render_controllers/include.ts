@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./Process.ts";
-export * from "./Render Controller.ts";
+export * from "./Process";
+export * from "./Render Controller";

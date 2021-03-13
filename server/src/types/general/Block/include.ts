@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 
-export * from "./Block.ts";
-export * from "./Completion.ts";
-export * from "./Diagnose.ts";
+export * from "./Block";
+export * from "./Completion";
+export * from "./Diagnose";

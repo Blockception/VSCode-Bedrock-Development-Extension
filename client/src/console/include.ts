@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Console.ts";
+export * from "./Console";

@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Add Commands.ts";
+export * from "./Add Commands";

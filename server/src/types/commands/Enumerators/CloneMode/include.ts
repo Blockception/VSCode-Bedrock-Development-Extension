@@ -1,6 +1,6 @@
 /*	Auto generated	*/
 
-export * from "./Completion.ts";
-export * from "./Constants.ts";
-export * from "./Diagnostics.ts";
-export * from "./Functions.ts";
+export * from "./Completion";
+export * from "./Constants";
+export * from "./Diagnostics";
+export * from "./Functions";

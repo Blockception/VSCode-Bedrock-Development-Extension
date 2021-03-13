@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./CheatSeet.ts";
+export * from "./CheatSeet";

@@ -26,5 +26,5 @@ export * as Tickingarea from "./Tickingarea/include";
 export * as Xp from "./Xp/include";
 export * as slot_id from "./slot id/include";
 export * as slot_type from "./slot type/include";
-export * from "./Empty.ts";
-export * from "./Kinds.ts";
+export * from "./Empty";
+export * from "./Kinds";
