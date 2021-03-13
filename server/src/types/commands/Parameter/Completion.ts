@@ -44,8 +44,8 @@ import {
   Item,
   Objectives,
   Selector,
-  Slot_id,
-  Slot_type,
+  slot_id,
+  slot_type,
   Sound,
   Tag,
   Tickingarea,
@@ -53,8 +53,8 @@ import {
 } from "../../general/include";
 import { ItemComponents, RawText } from "../../minecraft/json/include";
 import { particle } from "../../minecraft/resource/include";
-import { command } from "../include";
-import { OldBlockMode, Operation } from "../modes/include";
+import { Command } from "../include";
+import { OldBlockMode, operation } from "../modes/include";
 import { MCCommandParameterType } from "./include";
 
 function toCompletion(Context: CommandCompletionContext): void {
@@ -94,7 +94,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       //TODO
       return;
     case MCCommandParameterType.command:
-      return command.ProvideCompletion(Context.receiver);
+      return Command.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.coordinate:
       return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.difficulty:
@@ -142,7 +142,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.objective:
       return Objectives.ProvideCompletion(Context);
     case MCCommandParameterType.operation:
-      return Operation.ProvideCompletion(Context);
+      return operation.ProvideCompletion(Context);
     case MCCommandParameterType.particle:
       return particle.ProvideCompletion(Context);
     case MCCommandParameterType.replaceMode:
@@ -160,9 +160,9 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.selector:
       return Selector.Completion.ProvideCompletion(Context);
     case MCCommandParameterType.slotID:
-      return Slot_id.ProvideCompletion(Context);
+      return slot_id.ProvideCompletion(Context);
     case MCCommandParameterType.slotType:
-      return Slot_type.ProvideCompletion(Context);
+      return slot_type.ProvideCompletion(Context);
     case MCCommandParameterType.sound:
       return Sound.ProvideCompletion(Context);
     case MCCommandParameterType.string:

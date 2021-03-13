@@ -43,8 +43,8 @@ import {
   Keyword,
   Objectives,
   Selector,
-  Slot_id,
-  Slot_type,
+  slot_id,
+  slot_type,
   Sound,
   String,
   Tag,
@@ -53,10 +53,10 @@ import {
 import { MCCommandParameter, MCCommandParameterType } from "./include";
 import { CommandIntr } from "../interpertation/include";
 import { DiagnosticsBuilder } from "../../../diagnostics/Builder";
+import { Command } from "../include";
 import { LocationWord } from "bc-vscode-words";
-import { command } from "../include";
 import { particle } from "../../minecraft/resource/include";
-import { DiagnoseMode, OldBlockMode, Operation } from "../modes/include";
+import { DiagnoseMode, OldBlockMode, operation } from "../modes/include";
 import { OldBlockModeModes } from "../modes/OldBlockMode/OldBlockMode";
 
 /**Diagnoses the single parameter
@@ -65,7 +65,7 @@ import { OldBlockModeModes } from "../modes/OldBlockMode/OldBlockMode";
  * @param validation
  * @param builder
  */
-export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder, Command: CommandIntr): void {
+export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder, Com: CommandIntr): void {
   if (pattern === undefined || data === undefined) return;
 
   if (pattern.Options) {
@@ -103,7 +103,7 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return;
 
     case MCCommandParameterType.command:
-      return command.DiagnoseCommandParameter(data, builder);
+      return Command.DiagnoseCommandParameter(data, builder);
 
     case MCCommandParameterType.coordinate:
       return Coordinate.ProvideDiagnose(data, builder);
@@ -161,13 +161,13 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return;
 
     case MCCommandParameterType.oldBlockMode:
-      return OldBlockMode.Diagnose(data, Command, builder);
+      return OldBlockMode.Diagnose(data, Com, builder);
 
     case MCCommandParameterType.objective:
       return Objectives.ProvideDiagnose(data, validation, builder);
 
     case MCCommandParameterType.operation:
-      return Operation.ProvideDiagnose(data, Command, builder);
+      return operation.ProvideDiagnose(data, Com, builder);
 
     case MCCommandParameterType.particle:
       return particle.ProvideDiagnose(data, builder);
@@ -192,10 +192,10 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return Selector.ProvideDiagnose(pattern, data, builder, validation);
 
     case MCCommandParameterType.slotID:
-      return Slot_id.ProvideDiagnose(data, Command, builder);
+      return slot_id.ProvideDiagnose(data, Com, builder);
 
     case MCCommandParameterType.slotType:
-      return Slot_type.ProvideDiagnose(data, builder);
+      return slot_type.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.sound:
       return Sound.ProvideDiagnose(data, builder);
