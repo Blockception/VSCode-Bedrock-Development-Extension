@@ -1,2 +1,3 @@
 /*	Auto generated	*/
-export * from "./Create";
+
+export * from "./Create.ts";

@@ -1,2 +1,3 @@
 /*	Auto generated	*/
-export * from "./client";
+
+export * from "./client.ts";
