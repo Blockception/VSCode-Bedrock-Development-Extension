@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../code/include";
-import { CommandIntr } from "../types/commands/interpertation/include";
+import { CommandIntr, GetSubCommand, IsInSubCommand } from "../types/commands/interpertation/include";
 import { MCCommandParameterType } from "../types/commands/parameter/include";
 import { SearchDefinition } from "./Search";
 
@@ -39,9 +39,15 @@ export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Locati
 
   if (Line === "") return undefined;
 
-  let Command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
-  let Data = Command.GetCommandData();
+  let Command: CommandIntr | undefined = CommandIntr.parse(Line, pos, doc.uri);
 
+  while (IsInSubCommand(Command, pos.character)) {
+    Command = GetSubCommand(Command);
+
+    if (Command === undefined) return;
+  }
+
+  let Data = Command.GetCommandData();
   if (Data.length == 0) return undefined;
 
   let PIndex = Command.CursorParamater;
