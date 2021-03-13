@@ -1,21 +1,21 @@
 # Changelog 
-- Added ride evict_riders
-- Updated to 1.7.1
-- Updated schemas
-- Refactor completion and diagnostics
-- auto: Generated
-- Updated command syntax detection
-- Fixed command data
-- Adding blockstate basic support
-- auto: Generated includes
-- Last Completion Refactor
-- auto: Formatted typescript files
-- Updated formatting
-- Refactored completion
-- auto: Generated includes
-- auto: Generated includes
-- Add more commands
-- Refactor completion
 - Updated
-- Added oldblockmode
-- Refactor of completion
+- Updated
+- Fixing go to definition on subcommands
+- auto: Generated typescript includes
+- refactor
+- auto: Generated typescript includes
+- Update Create typescript includes.yml
+- Update Create typescript includes.yml
+- Revert "auto: Generated markdown indexes pages"
+- auto: Generated markdown indexes pages
+- Update Create typescript includes.yml
+- auto: Generated markdown indexes pages
+- Update Create typescript includes.yml
+- auto: Generated markdown indexes pages
+- Revert "auto: Generated markdown indexes pages"
+- auto: Generated markdown indexes pages
+- Create Create typescript includes.yml
+- Updated selector score diagnostics
+- Updated to 1.7.2
+- Added ride evict_riders
