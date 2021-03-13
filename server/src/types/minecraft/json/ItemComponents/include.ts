@@ -1,4 +1,5 @@
 /*	Auto generated	*/
-export * from "./Completion";
-export * from "./Constants";
-export * from "./ItemComponents";
+
+export * from "./Completion.ts";
+export * from "./Constants.ts";
+export * from "./ItemComponents.ts";

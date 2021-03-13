@@ -1,4 +1,5 @@
 /*	Auto generated	*/
-export * from "./ContentLogs";
-export * from "./Errors";
-export * from "./Header";
+
+export * from "./ContentLogs.ts";
+export * from "./Errors.ts";
+export * from "./Header.ts";

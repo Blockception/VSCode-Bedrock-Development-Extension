@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Entity";
-export * from "./Process";
+
+export * from "./Entity.ts";
+export * from "./Process.ts";

@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Animation";
-export * from "./Process";
+
+export * from "./Animation.ts";
+export * from "./Process.ts";

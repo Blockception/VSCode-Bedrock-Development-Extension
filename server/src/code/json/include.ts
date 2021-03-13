@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Json Document";
-export * from "./Json Functions";
+
+export * from "./Json Document.ts";
+export * from "./Json Functions.ts";

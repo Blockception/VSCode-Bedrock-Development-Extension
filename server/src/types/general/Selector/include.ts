@@ -1,6 +1,6 @@
 /*	Auto generated	*/
 export * as Completion from "./Completion/include";
-export * from "./Diagnostics";
-export * from "./Functions";
-export * from "./Process";
-export * from "./Selector";
+export * from "./Diagnostics.ts";
+export * from "./Functions.ts";
+export * from "./Process.ts";
+export * from "./Selector.ts";

@@ -1,5 +1,6 @@
 /*	Auto generated	*/
-export * from "./Json";
-export * from "./Mcfunction";
-export * from "./OnRequest";
-export * from "./Search";
+
+export * from "./Json.ts";
+export * from "./Mcfunction.ts";
+export * from "./OnRequest.ts";
+export * from "./Search.ts";

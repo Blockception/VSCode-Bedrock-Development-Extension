@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Blocks";
-export * from "./Process";
+
+export * from "./Blocks.ts";
+export * from "./Process.ts";

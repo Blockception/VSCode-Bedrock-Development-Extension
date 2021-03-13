@@ -1,5 +1,6 @@
 /*	Auto generated	*/
-export * from "./Diagnostics";
-export * from "./Function";
-export * from "./Process";
-export * from "./Signature";
+
+export * from "./Diagnostics.ts";
+export * from "./Function.ts";
+export * from "./Process.ts";
+export * from "./Signature.ts";

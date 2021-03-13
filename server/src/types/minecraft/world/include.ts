@@ -1,2 +1,3 @@
 /*	Auto generated	*/
-export * from "./Diagnose";
+
+export * from "./Diagnose.ts";

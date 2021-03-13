@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Molang";
-export * from "./Variables";
+
+export * from "./Molang.ts";
+export * from "./Variables.ts";

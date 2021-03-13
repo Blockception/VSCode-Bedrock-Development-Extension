@@ -1,4 +1,5 @@
 /*	Auto generated	*/
-export * from "./Diagnose";
-export * from "./Operation";
-export * from "./Completion";
+
+export * from "./Completion.ts";
+export * from "./Diagnose.ts";
+export * from "./operation.ts";

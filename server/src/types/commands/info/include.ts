@@ -1,2 +1,3 @@
 /*	Auto generated	*/
-export * from "./CommandInfo";
+
+export * from "./CommandInfo.ts";

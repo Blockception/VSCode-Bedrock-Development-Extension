@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Completion";
-export * from "./FakeEntity";
+
+export * from "./Completion.ts";
+export * from "./FakeEntity.ts";

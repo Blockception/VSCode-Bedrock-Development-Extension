@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Diagnostics";
-export * from "./Manifest";
+
+export * from "./Diagnostics.ts";
+export * from "./Manifest.ts";

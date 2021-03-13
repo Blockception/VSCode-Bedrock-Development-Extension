@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Functions";
-export * from "./Validation";
+
+export * from "./Functions.ts";
+export * from "./Validation.ts";

@@ -1,8 +1,8 @@
 /*	Auto generated	*/
 export * as builders from "./builders/include";
-export * from "./Functions";
-export * from "./Json";
-export * from "./Legend";
-export * from "./Mcfunctions";
-export * from "./OnRequest";
-export * from "./Selector";
+export * from "./Functions.ts";
+export * from "./Json.ts";
+export * from "./Legend.ts";
+export * from "./Mcfunctions.ts";
+export * from "./OnRequest.ts";
+export * from "./Selector.ts";

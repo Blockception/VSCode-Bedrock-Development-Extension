@@ -1,5 +1,6 @@
 /*	Auto generated	*/
-export * from "./Json";
-export * from "./Language";
-export * from "./OnRequest";
-export * from "./Other";
+
+export * from "./Json.ts";
+export * from "./Language.ts";
+export * from "./OnRequest.ts";
+export * from "./Other.ts";

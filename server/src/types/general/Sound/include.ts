@@ -1,4 +1,5 @@
 /*	Auto generated	*/
-export * from "./Completion";
-export * from "./Diagnose";
-export * from "./Sound";
+
+export * from "./Completion.ts";
+export * from "./Diagnose.ts";
+export * from "./Sound.ts";

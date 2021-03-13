@@ -1,2 +1,3 @@
 /*	Auto generated	*/
-export * from "./Script";
+
+export * from "./Script.ts";

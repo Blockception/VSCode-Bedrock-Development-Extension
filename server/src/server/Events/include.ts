@@ -1,5 +1,6 @@
 /*	Auto generated	*/
-export * from "./Documents";
-export * from "./Dynamic";
-export * from "./Events";
-export * from "./Workspace";
+
+export * from "./Documents.ts";
+export * from "./Dynamic.ts";
+export * from "./Events.ts";
+export * from "./Workspace.ts";

@@ -1,7 +1,7 @@
 /*	Auto generated	*/
 export * as OldBlockMode from "./OldBlockMode/include";
-export * as Operation from "./Operation/include";
-export * from "./Completion";
-export * from "./Diagnose";
-export * from "./Functions";
-export * from "./Interface";
+export * as operation from "./operation/include";
+export * from "./Completion.ts";
+export * from "./Diagnose.ts";
+export * from "./Functions.ts";
+export * from "./Interface.ts";

@@ -1,3 +1,4 @@
 /*	Auto generated	*/
-export * from "./Mcfunction";
-export * from "./OnRequest";
+
+export * from "./Mcfunction.ts";
+export * from "./OnRequest.ts";

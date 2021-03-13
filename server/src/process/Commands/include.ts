@@ -1,4 +1,5 @@
 /*	Auto generated	*/
-export * from "./Scoreboard";
-export * from "./Tag";
-export * from "./TickingArea";
+
+export * from "./Scoreboard.ts";
+export * from "./Tag.ts";
+export * from "./TickingArea.ts";
