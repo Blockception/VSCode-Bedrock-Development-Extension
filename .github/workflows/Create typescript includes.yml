@@ -39,5 +39,5 @@ jobs:
           git config user.name bot
           git config user.email bot@example.com
           git add .
-          git commit -m "auto: Generated markdown indexes pages"
+          git commit -m "auto: Generated typescript includes"
           git push
