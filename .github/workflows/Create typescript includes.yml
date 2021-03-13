@@ -28,7 +28,7 @@ jobs:
         with: 
           folder: ${{github.workspace}}/server/src
 
-      - uses: DaanV2/Typescript-Action-Create-Includes@v1.0
+      - uses: DaanV2/Typescript-Action-Create-Includes@v1.1
         with: 
           folder: ${{github.workspace}}/client/src
 
