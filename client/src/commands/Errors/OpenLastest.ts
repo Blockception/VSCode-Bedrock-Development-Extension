@@ -27,10 +27,9 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { fstat, readdirSync, statSync } from "fs";
+import { readdirSync, statSync } from "fs";
 import path = require("path");
-import { commands, ExtensionContext, Uri, window } from "vscode";
-import { TextDocument } from "vscode-languageserver-types";
+import { commands, ExtensionContext, languages, Uri, window } from "vscode";
 import { Commands } from "../../Constants";
 
 export function Activate(context: ExtensionContext): void {
@@ -80,7 +79,7 @@ function FindLastestLog(folder: string): void {
       let filepath = path.join(LogFolder, Child);
       let stat = statSync(filepath);
 
-      if (Lastest === "" || stat.mtimeMs < LastestTime) {
+      if (Lastest === "" || stat.mtimeMs > LastestTime) {
         Lastest = filepath;
         LastestTime = stat.mtimeMs;
       }
@@ -89,7 +88,10 @@ function FindLastestLog(folder: string): void {
 
   if (Lastest !== "") {
     let uri = Uri.file(Lastest);
-    window.showTextDocument(uri);
+
+    window.showTextDocument(uri).then((ed) => {
+      languages.setTextDocumentLanguage(ed.document, "log");
+    });
   } else {
     window.showInformationMessage("Couldn't find content logs");
   }
