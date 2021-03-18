@@ -1,4 +1,9 @@
 # Changelog 
+- Updated log format
+- auto: Generated typescript includes
+- Adding command
+- Adding open the lastest content log command
+- Updated to 1.7.3
 - Updated
 - Updated
 - Fixing go to definition on subcommands
@@ -14,8 +19,3 @@
 - Update Create typescript includes.yml
 - auto: Generated markdown indexes pages
 - Revert "auto: Generated markdown indexes pages"
-- auto: Generated markdown indexes pages
-- Create Create typescript includes.yml
-- Updated selector score diagnostics
-- Updated to 1.7.2
-- Added ride evict_riders
