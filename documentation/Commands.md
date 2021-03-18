@@ -9,8 +9,8 @@
 
 `Blockception: Run diagnose on project`
 
-This command causes the plugin to traverse the entire project and look for errors and problems. currently only mcfunctions are processed, but
-entities, particles and items are to be included in the future + many more. The diagnoses also uses [validation rules](./validation/Validation.md)
+This command causes the plugin to traverse the entire project and look for errors and problems. currently only mcfunctions are processed, but entities, particles and items are to
+be included in the future + many more. The diagnoses also uses [validation rules](./validation/Validation.md)
 
 ## Cheat Sheets
 
@@ -20,13 +20,13 @@ Cheat sheet are accesable through the following command(s):
 | ---------------------------------------------- | ------------------------------------------------------------------------- |
 | `Blockception: Cheat sheet: Molang`            | Displays the cheat sheet for molang, containing filters, queries and more |
 | `Blockception: Cheat sheet: Behaviors Filters` | Displays the cheat sheet for filters                                      |
-  
-	
+
 ---
+
 ## Create Files
 
-All these command do not work if the file already exists. These commands work best with a workspace being present. They requires manifest for the
-world, behavior pack and/or resource pack to exist.
+All these command do not work if the file already exists. These commands work best with a workspace being present. They requires manifest for the world, behavior pack and/or
+resource pack to exist.
 
 | Command                                             | Description                                                                       |
 | --------------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -34,6 +34,7 @@ world, behavior pack and/or resource pack to exist.
 | `Create BP-RP entities files`                       | Creates resource pack and behaviour pack entities file                            |
 | `Create all language files`                         | Creates for all known worlds, resourcepacks, and behaviourpacks `texts` folders   |
 | `Create all manifests`                              | Creates for all known worlds, resourcepacks, and behaviourpacks `texts` manifests |
+| `Open lastest errors`                               | Tries to look for the lastest content log produced by minecraft and opens it      |
 | **Behavior pack**                                   |                                                                                   |
 | `Behavior Pack: Create animation controllers file`  | Creates an animation controller for the behavior pack                             |
 | `Behavior Pack: Create animations file`             | Creates an animations for the behavior pack                                       |
