@@ -48,6 +48,7 @@ import {
   Sound,
   String,
   Tag,
+  Tickingarea,
   Xp,
 } from "../../general/include";
 import { MCCommandParameter, MCCommandParameterType } from "./include";
@@ -216,7 +217,7 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
     case MCCommandParameterType.teleportRules:
 
     case MCCommandParameterType.tickingarea:
-      return Block.ProvideDiagnose(data, builder);
+      return Tickingarea.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.unknown:
       //TODO

@@ -30,8 +30,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ExtensionContext } from "vscode";
 import * as CheatSeet from "./CheatSheet/CheatSeet";
 import * as Create from "./Create/Create";
+import * as Errors from "./Errors/OpenLastest";
 
 export function Activate(context: ExtensionContext): void {
   CheatSeet.Activate(context);
   Create.Activate(context);
+  Errors.Activate(context);
 }

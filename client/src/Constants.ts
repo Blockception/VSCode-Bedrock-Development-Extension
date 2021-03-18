@@ -155,4 +155,8 @@ export namespace Commands {
       export const Manifests: string = WPBase + "manifest";
     }
   }
+
+  export namespace Errors {
+    export const OpenLastest = "bc.errors.open_lastest";
+  }
 }
