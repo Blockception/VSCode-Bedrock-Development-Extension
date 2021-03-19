@@ -1,4 +1,7 @@
 # Changelog 
+- Fixing command
+- Updated documentation
+- Updated to 1.7.4
 - Updated log format
 - auto: Generated typescript includes
 - Adding command
@@ -16,6 +19,3 @@
 - auto: Generated markdown indexes pages
 - Update Create typescript includes.yml
 - auto: Generated markdown indexes pages
-- Update Create typescript includes.yml
-- auto: Generated markdown indexes pages
-- Revert "auto: Generated markdown indexes pages"
