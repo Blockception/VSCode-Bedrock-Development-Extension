@@ -92,7 +92,7 @@ function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: Mcfuncti
         let ValueStart = Value.range.start.character;
 
         Builder.AddAt(LineIndex, ValueStart, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.readonly);
-        Builder.AddAt(LineIndex, Index + 1, Value.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
+        Builder.AddAt(LineIndex, ValueStart + Index + 1, Value.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
       } else {
         Builder.AddWord(Value, SemanticTokensEnum.type, SemanticModifiersEnum.readonly);
       }
