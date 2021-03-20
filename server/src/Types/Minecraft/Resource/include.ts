@@ -1,9 +1,9 @@
 /*	Auto generated	*/
-export * as animation_controllers from "./Animation Controllers/include";
-export * as animations from "./Animations/include";
-export * as entity from "./Entity/include";
-export * as particle from "./Particle/include";
-export * as render_controllers from "./Render Controllers/include";
-export * as sounds_definitions from "./Sounds Definitions/include";
+export * as Animation_Controllers from "./Animation Controllers/include";
+export * as Animations from "./Animations/include";
+export * as Entity from "./Entity/include";
+export * as Particle from "./Particle/include";
+export * as Render_Controllers from "./Render Controllers/include";
+export * as Sounds_Definitions from "./Sounds Definitions/include";
 export * from "./Diagnose";
 export * from "./Process";

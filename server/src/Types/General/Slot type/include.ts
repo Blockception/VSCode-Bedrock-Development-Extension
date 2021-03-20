@@ -2,4 +2,4 @@
 
 export * from "./Completion";
 export * from "./Diagnose";
-export * from "./slot type";
+export * from "./Slot type";

@@ -1,5 +1,5 @@
 /*	Auto generated	*/
-export * as builders from "./Builders/include";
+export * as Builders from "./Builders/include";
 export * from "./Functions";
 export * from "./Json";
 export * from "./Legend";

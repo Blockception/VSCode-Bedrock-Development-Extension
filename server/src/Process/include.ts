@@ -4,5 +4,5 @@ export * from "./Json";
 export * from "./Language";
 export * from "./Process";
 export * from "./Range";
-export * from "./Validate";
 export * from "./Traverse";
+export * from "./Validate";

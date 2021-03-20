@@ -1,5 +1,5 @@
 /*	Auto generated	*/
-export * as commands from "./Commands/include";
-export * as general from "./General/include";
-export * as languages from "./Languages/include";
-export * as minecraft from "./Minecraft/include";
+export * as Commands from "./Commands/include";
+export * as General from "./General/include";
+export * as Languages from "./Languages/include";
+export * as Minecraft from "./Minecraft/include";
