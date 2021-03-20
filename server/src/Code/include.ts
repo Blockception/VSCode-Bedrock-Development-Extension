@@ -1,5 +1,5 @@
 /*	Auto generated	*/
-export * as json from "./Json/include";
+export * as Json from "./Json/include";
 export * from "./Array";
 export * from "./Character";
 export * from "./Document";
