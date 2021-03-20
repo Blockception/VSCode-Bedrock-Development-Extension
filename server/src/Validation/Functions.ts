@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { URI } from "vscode-uri";
 import { GetDocuments } from "../Code/include";
-import { JsonDocument } from "../Code/json/include";
+import { JsonDocument } from "../Code/Json/include";
 import { ValidationData } from "./Validation";
 
 export function GetValidationData(workspaces: string[]): ValidationData {
