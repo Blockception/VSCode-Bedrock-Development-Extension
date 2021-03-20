@@ -112,16 +112,14 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
       continue;
     }
 
-    switch (text) {
-      case "Array":
+    switch (text.toLowerCase()) {
       case "array":
       case "geometry":
-      case "Geometry":
       case "material":
-      case "Material":
       case "texture":
-      case "Texture":
-      case "Math":
+        Builder.AddWord(Word, SemanticTokensEnum.interface, SemanticModifiersEnum.readonly);
+        break;
+
       case "math":
       case "query":
       case "variable":
@@ -159,19 +157,37 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
         break;
 
       default:
-        if (IsFloat(text)) {
-          Builder.AddWord(Word, SemanticTokensEnum.number);
-        } else if (IsSelector(text, undefined)) {
-          Builder.AddWord(Word, SemanticTokensEnum.variable);
-        } else {
-          if (Words[I + 1]?.text === ":") {
-            Builder.AddWord(Word, SemanticTokensEnum.namespace);
-          } else {
-            Builder.AddWord(Word, SemanticTokensEnum.method);
-          }
-        }
+        ConvertWordsDefault(Words, I, Builder);
     }
   }
+}
+
+/**
+ *
+ * @param Words
+ * @param Index
+ * @param Builder
+ */
+function ConvertWordsDefault(Words: OffsetWord[], Index: number, Builder: JsonSemanticTokensBuilder): void {
+  let Word = Words[Index];
+  let text = Word.text;
+
+  if (IsFloat(text)) {
+    Builder.AddWord(Word, SemanticTokensEnum.number);
+    return;
+  }
+
+  if (IsSelector(text, undefined)) {
+    Builder.AddWord(Word, SemanticTokensEnum.variable);
+    return;
+  }
+
+  if (Words[Index + 1]?.text === ":") {
+    Builder.AddWord(Word, SemanticTokensEnum.namespace);
+    return;
+  }
+
+  Builder.AddWord(Word, SemanticTokensEnum.method);
 }
 
 function findNext(text: string, startIndex: number): number {
