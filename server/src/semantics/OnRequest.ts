@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
-import { GetDocument, GetFilename } from "../code/include";
+import { GetDocument, GetFilename } from "../Code/include";
 import { Console } from "../console/Console";
 import { Languages } from "../include";
 import { ProvideJsonSemanticTokens } from "./Json";

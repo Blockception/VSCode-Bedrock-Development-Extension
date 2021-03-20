@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItemKind } from "vscode-languageserver";
 import { TextDocument, Position } from "vscode-languageserver-textdocument";
-import { getLine } from "../code/include";
+import { getLine } from "../Code/include";
 import { CompletionBuilder } from "./Builder";
 
 export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {

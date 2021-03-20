@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { json } from "../code/include";
+import { json } from "../Code/include";
 import { DetectGeneralDataType, GeneralDataType } from "../types/minecraft/format/include";
 import { CompletionBuilder } from "./Builder";
 import { OnCompletionMcFunctionLine } from "./Mcfunction";

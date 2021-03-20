@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location, ReferenceParams } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { json } from "../code/include";
+import { json } from "../Code/include";
 import { Database } from "../database/include";
 
 export function ProvideJsonReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {

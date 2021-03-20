@@ -43,7 +43,7 @@ import { Manager } from "../../manager/Manager";
 import * as fs from "fs";
 import { EmptyTypes } from "../../types/general/include";
 import { normalize } from "path";
-import { GetFilepath, UniformUrl } from "../../code/Url";
+import { GetFilepath, UniformUrl } from "../../Code/Url";
 import { Console } from "../../console/Console";
 
 export class TemplateBuilder {

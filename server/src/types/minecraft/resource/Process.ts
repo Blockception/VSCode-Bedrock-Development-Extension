@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilename } from "../../../code/File";
-import { GetDocuments } from "../../../code/include";
+import { GetFilename } from "../../../Code/File";
+import { GetDocuments } from "../../../Code/include";
 import { Console } from "../../../console/Console";
 import { code } from "../../../include";
 import { DataType } from "../format/Data Type";

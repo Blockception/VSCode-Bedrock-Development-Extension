@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { URI } from "vscode-uri";
-import { GetDocuments } from "../code/include";
-import { JsonDocument } from "../code/json/include";
+import { GetDocuments } from "../Code/include";
+import { JsonDocument } from "../Code/json/include";
 import { ValidationData } from "./Validation";
 
 export function GetValidationData(workspaces: string[]): ValidationData {

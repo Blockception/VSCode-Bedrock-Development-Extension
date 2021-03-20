@@ -29,8 +29,8 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DocumentFormattingParams, DocumentRangeFormattingParams, TextEdit } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from "../code/include";
-import { Replace, TrimEndFromLine, TrimStartFromLine } from "../code/TextEdit";
+import { getLine } from "../Code/include";
+import { Replace, TrimEndFromLine, TrimStartFromLine } from "../Code/TextEdit";
 
 export function formatMcfunction(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];

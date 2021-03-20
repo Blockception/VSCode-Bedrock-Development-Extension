@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { getLine } from "../code/include";
+import { getLine } from "../Code/include";
 import { SearchDefinition } from "../definition/Search";
 import { CommandIntr } from "../types/commands/interpertation/include";
 import { MCCommandParameterType } from "../types/commands/parameter/include";

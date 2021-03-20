@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
 import { TextDocument, TextEdit } from "vscode-languageserver-textdocument";
-import { getLine, TrimStartFromLine, TrimEndFromLine } from "../code/include";
+import { getLine, TrimStartFromLine, TrimEndFromLine } from "../Code/include";
 
 export function formatLangauge(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];

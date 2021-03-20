@@ -1,4 +1,7 @@
 # Changelog 
+- Updated
+- Updated to 1.7.5
+- Fixing a type semantic tokens in selectors
 - Fixing command
 - Updated documentation
 - Updated to 1.7.4
@@ -16,6 +19,3 @@
 - Update Create typescript includes.yml
 - Update Create typescript includes.yml
 - Revert "auto: Generated markdown indexes pages"
-- auto: Generated markdown indexes pages
-- Update Create typescript includes.yml
-- auto: Generated markdown indexes pages

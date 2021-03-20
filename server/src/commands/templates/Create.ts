@@ -33,7 +33,7 @@ import { TemplateBuilder } from "./Builder";
 import { Context, GetContext, GetContextAsync } from "./Context";
 import { templates } from "../include";
 import { Console } from "../../console/Console";
-import { GetProjectData } from "../../code/include";
+import { GetProjectData } from "../../Code/include";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();

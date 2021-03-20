@@ -28,8 +28,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
-import { IsEqual } from "../code/Equal";
-import { GetDocument } from "../code/include";
+import { IsEqual } from "../Code/Equal";
+import { GetDocument } from "../Code/include";
 import { Languages } from "../Constants";
 import { CompletionBuilder } from "./Builder";
 import { OnCompletionJson } from "./Json";

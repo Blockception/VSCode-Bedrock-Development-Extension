@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { readdirSync } from "fs";
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { GetDocument } from "../code/include";
+import { GetDocument } from "../Code/include";
 import { Database } from "../database/Database";
 import { ProcessContentLog } from "../types/minecraft/logs/Content Logs/include";
 
