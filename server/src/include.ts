@@ -1,5 +1,5 @@
 /*	Auto generated	*/
-export * as code from "./Code/include";
+export * as code from "./code/include";
 export * as commands from "./commands/include";
 export * as completion from "./completion/include";
 export * as console from "./console/include";
