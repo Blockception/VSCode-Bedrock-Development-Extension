@@ -1,4 +1,10 @@
 # Changelog 
+- Updating
+- auto: Generated typescript includes
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Raised version
+- Updated
+- auto: Generated typescript includes
 - Updated
 - Updated to 1.7.7
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
@@ -13,9 +19,3 @@
 - Updated
 - auto: Generated typescript includes
 - Updated
-- Update Create typescript includes.yml
-- Update Create typescript includes.yml
-- Update Create typescript includes.yml
-- auto: Generated typescript includes
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated paths
