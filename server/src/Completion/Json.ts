@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { json } from "../Code/include";
+import { Json } from "../Code/include";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
 import { CompletionBuilder } from "./Builder";
 import { OnCompletionMcFunctionLine } from "./Mcfunction";
@@ -41,7 +41,7 @@ export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: Co
   if (type == GeneralDataType.unknown) return;
 
   let text = doc.getText();
-  let range = json.GetCurrentString(text, cursor);
+  let range = Json.GetCurrentString(text, cursor);
 
   //If start has not been found or not a property
   if (range == undefined) return;

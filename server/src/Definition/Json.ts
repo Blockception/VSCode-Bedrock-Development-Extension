@@ -29,12 +29,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Location } from "vscode-languageserver";
 import { TextDocument, Position } from "vscode-languageserver-textdocument";
-import { json } from "../Code/include";
+import { Json } from "../Code/include";
 import { Database } from "../Database/include";
 
 export function OnJsonDefinition(doc: TextDocument, pos: Position): Location[] | undefined {
   const Text = doc.getText();
-  let ElementRange = json.GetCurrentElement(Text, doc.offsetAt(pos));
+  let ElementRange = Json.GetCurrentElement(Text, doc.offsetAt(pos));
 
   if (!ElementRange) return undefined;
 

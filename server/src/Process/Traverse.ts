@@ -31,9 +31,9 @@ import { GetDocuments } from "../Code/include";
 import { ProjectData } from "../Code/ProjectData";
 import { Console } from "../Console/Console";
 import { Database } from "../Database/include";
-import { code } from "../include";
+import { Code } from "../include";
 import { Manager } from "../Manager/Manager";
-import { behavior, resource } from "../Types/Minecraft/include";
+import { Behavior, Resource } from "../Types/Minecraft/include";
 import { Process } from "./Process";
 
 export function Traverse(): void {
@@ -47,10 +47,10 @@ export function TraverseProject(Project: ProjectData | undefined): void {
   if (!Project) return;
 
   Console.Log("Processing behavior packs");
-  Project.BehaviourPackFolders.forEach(behavior.ProcessBehaviourPack);
+  Project.BehaviourPackFolders.forEach(Behavior.ProcessBehaviourPack);
 
   Console.Log("Processing resource packs");
-  Project.ResourcePackFolders.forEach(resource.ProcessResourcePack);
+  Project.ResourcePackFolders.forEach(Resource.ProcessResourcePack);
 
   Manager.State.TraversingProject = false;
   Manager.State.DataGathered = true;

@@ -43,8 +43,8 @@ import {
   Keyword,
   Objectives,
   Selector,
-  slot_id,
-  slot_type,
+  Slot_id,
+  Slot_type,
   Sound,
   String,
   Tag,
@@ -56,8 +56,8 @@ import { CommandIntr } from "../Interpertation/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { Command } from "../include";
 import { LocationWord } from "bc-vscode-words";
-import { particle } from "../../Minecraft/Resource/include";
-import { DiagnoseMode, OldBlockMode, operation } from "../Modes/include";
+import { Particle } from "../../Minecraft/Resource/include";
+import { DiagnoseMode, OldBlockMode, Operation } from "../Modes/include";
 import { OldBlockModeModes } from "../Modes/OldBlockMode/OldBlockMode";
 
 /**Diagnoses the single parameter
@@ -168,10 +168,10 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return Objectives.ProvideDiagnose(data, validation, builder);
 
     case MCCommandParameterType.operation:
-      return operation.ProvideDiagnose(data, Com, builder);
+      return Operation.ProvideDiagnose(data, Com, builder);
 
     case MCCommandParameterType.particle:
-      return particle.ProvideDiagnose(data, builder);
+      return Particle.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.replaceMode:
       //TODO
@@ -193,10 +193,10 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return Selector.ProvideDiagnose(pattern, data, builder, validation);
 
     case MCCommandParameterType.slotID:
-      return slot_id.ProvideDiagnose(data, Com, builder);
+      return Slot_id.ProvideDiagnose(data, Com, builder);
 
     case MCCommandParameterType.slotType:
-      return slot_type.ProvideDiagnose(data, builder);
+      return Slot_type.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.sound:
       return Sound.ProvideDiagnose(data, builder);

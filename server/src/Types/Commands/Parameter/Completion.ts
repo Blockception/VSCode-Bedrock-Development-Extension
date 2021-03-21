@@ -44,17 +44,17 @@ import {
   Item,
   Objectives,
   Selector,
-  slot_id,
-  slot_type,
+  Slot_id,
+  Slot_type,
   Sound,
   Tag,
   Tickingarea,
   Xp,
 } from "../../General/include";
 import { ItemComponents, RawText } from "../../Minecraft/Json/include";
-import { particle } from "../../Minecraft/Resource/include";
+import { Particle } from "../../Minecraft/Resource/include";
 import { Command } from "../include";
-import { OldBlockMode, operation } from "../Modes/include";
+import { OldBlockMode, Operation } from "../Modes/include";
 import { MCCommandParameterType } from "./include";
 
 function toCompletion(Context: CommandCompletionContext): void {
@@ -142,9 +142,9 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.objective:
       return Objectives.ProvideCompletion(Context);
     case MCCommandParameterType.operation:
-      return operation.ProvideCompletion(Context);
+      return Operation.ProvideCompletion(Context);
     case MCCommandParameterType.particle:
-      return particle.ProvideCompletion(Context);
+      return Particle.ProvideCompletion(Context);
     case MCCommandParameterType.replaceMode:
       //TODO
       return;
@@ -160,9 +160,9 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.selector:
       return Selector.Completion.ProvideCompletion(Context);
     case MCCommandParameterType.slotID:
-      return slot_id.ProvideCompletion(Context);
+      return Slot_id.ProvideCompletion(Context);
     case MCCommandParameterType.slotType:
-      return slot_type.ProvideCompletion(Context);
+      return Slot_type.ProvideCompletion(Context);
     case MCCommandParameterType.sound:
       return Sound.ProvideCompletion(Context);
     case MCCommandParameterType.string:

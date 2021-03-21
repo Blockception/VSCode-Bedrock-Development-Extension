@@ -31,7 +31,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilename } from "../../../Code/File";
 import { GetDocuments } from "../../../Code/include";
 import { Console } from "../../../Console/Console";
-import { code } from "../../../include";
+import { Code } from "../../../include";
 import { DataType } from "../Format/Data Type";
 import { DetectDataType } from "../Format/Detection";
 import * as behaviour from "./include";
@@ -45,25 +45,25 @@ export function Process(doc: TextDocument): void {
 
   switch (Type) {
     case DataType.behaviour_animation:
-      return behaviour.animations.Process(doc);
+      return behaviour.Animations.Process(doc);
 
     case DataType.behaviour_animation_controller:
-      return behaviour.animation_controllers.Process(doc);
+      return behaviour.Animation_Controllers.Process(doc);
 
     case DataType.behaviour_block:
-      return behaviour.blocks.Process(doc);
+      return behaviour.Blocks.Process(doc);
 
     case DataType.behaviour_entity:
-      return behaviour.entities.Process(doc);
+      return behaviour.Entities.Process(doc);
 
     case DataType.behaviour_function:
-      return behaviour.functions.Process(doc);
+      return behaviour.Functions.Process(doc);
 
     case DataType.behaviour_item:
-      return behaviour.items.Process(doc);
+      return behaviour.Items.Process(doc);
 
     case DataType.behaviour_loot_table:
-      return behaviour.loot_table.Process(doc);
+      return behaviour.Loot_Table.Process(doc);
   }
 }
 
@@ -73,7 +73,7 @@ export function Process(doc: TextDocument): void {
  */
 export function ProcessBehaviourPack(Folder: string): void {
   Console.Log("Processing behaviour pack: " + Folder);
-  code.ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
+  Code.ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
 }
 
 export function ValidateFolder(doc: TextDocument): void {

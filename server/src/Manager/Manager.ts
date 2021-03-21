@@ -33,6 +33,7 @@ import { ExtensionState } from "./Extension State";
 import { ExtensionData } from "./Extension Data";
 import { ExtensionCapabiltities } from "./Extension Capabilties";
 import { Connection } from "vscode-languageserver/lib/common/server";
+import { Diagnostic } from "vscode-languageserver";
 
 export class Manager {
   /**

@@ -34,7 +34,7 @@ import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
 
 import { EmptyTypes } from "../../../General/Empty";
-import { general } from "../../../include";
+import { General } from "../../../include";
 import { Block } from "./Blocks";
 
 /**
@@ -56,7 +56,7 @@ export function Process(doc: TextDocument): void {
 
   Database.Data.Behaviourpack.Blocks.Set(new DataReference(Name, Location));
 
-  let B = new general.Block.Block();
+  let B = new General.Block.Block();
   B.Location = Location;
   B.Identifier = Name;
   B.Documentation.value = "The custom block: `" + Name + "`";

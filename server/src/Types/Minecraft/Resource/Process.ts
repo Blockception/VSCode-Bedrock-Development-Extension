@@ -31,10 +31,10 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilename } from "../../../Code/File";
 import { GetDocuments } from "../../../Code/include";
 import { Console } from "../../../Console/Console";
-import { code } from "../../../include";
+import { Code } from "../../../include";
 import { DataType } from "../Format/Data Type";
 import { DetectDataType } from "../Format/Detection";
-import { resource } from "../include";
+import { Resource } from "../include";
 
 export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
@@ -47,23 +47,23 @@ export function Process(doc: TextDocument): void {
 
   switch (Type) {
     case DataType.resource_animation:
-      return resource.animations.Process(doc);
+      return Resource.Animations.Process(doc);
 
     case DataType.resource_animation_controller:
-      return resource.animation_controllers.Process(doc);
+      return Resource.Animation_Controllers.Process(doc);
 
     case DataType.resource_particle:
-      return resource.particle.Process(doc);
+      return Resource.Particle.Process(doc);
 
     case DataType.resource_render_controller:
-      return resource.render_controllers.Process(doc);
+      return Resource.Render_Controllers.Process(doc);
 
     case DataType.resource_sounds_definitions:
-      return resource.sounds_definitions.Process(doc);
+      return Resource.Sounds_Definitions.Process(doc);
   }
 }
 
 export function ProcessResourcePack(Folder: string): void {
   Console.Log("Processing resource pack: " + Folder);
-  code.ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
+  Code.ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
 }

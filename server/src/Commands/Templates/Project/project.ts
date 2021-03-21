@@ -27,7 +27,7 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { templates } from "../../include";
+import { Templates } from "../../include";
 import { TemplateBuilder } from "../Builder";
 import { Context } from "../Context";
 import * as path from "path";
@@ -49,9 +49,9 @@ export function create_world_project(ID: string, Context: Context, Builder: Temp
   };
 
   //create world manifest
-  templates.world.create_manifest_file(NewContext, Builder);
-  templates.behavior_pack.create_manifest_file(NewContext, Builder);
-  templates.resource_pack.create_manifest_file(NewContext, Builder);
+  Templates.World.create_manifest_file(NewContext, Builder);
+  Templates.Behavior_Pack.create_manifest_file(NewContext, Builder);
+  Templates.Resource_Pack.create_manifest_file(NewContext, Builder);
 }
 
 /**
@@ -70,7 +70,7 @@ export function create_behaviorpack(ID: string, Context: Context, Builder: Templ
     WorldFolder: Context.WorldFolder,
   };
 
-  templates.behavior_pack.create_manifest_file(NewContext, Builder);
+  Templates.Behavior_Pack.create_manifest_file(NewContext, Builder);
 }
 
 /**
@@ -89,5 +89,5 @@ export function create_resourcepack(ID: string, Context: Context, Builder: Templ
     WorldFolder: Context.WorldFolder,
   };
 
-  templates.resource_pack.create_manifest_file(NewContext, Builder);
+  Templates.Resource_Pack.create_manifest_file(NewContext, Builder);
 }

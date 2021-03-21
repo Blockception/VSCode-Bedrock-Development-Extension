@@ -31,7 +31,7 @@ import * as Json from "./Json";
 import * as Language from "./Language";
 import { GetFilename } from "../Code/include";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { behavior } from "../Types/Minecraft/include";
+import { Behavior } from "../Types/Minecraft/include";
 import { Languages } from "../include";
 import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
@@ -43,7 +43,7 @@ export function Process(document: TextDocument): void {
 
   switch (document.languageId) {
     case Languages.McFunctionIdentifier:
-      behavior.functions.Process(document);
+      Behavior.Functions.Process(document);
       break;
 
     case Languages.McLanguageIdentifier:

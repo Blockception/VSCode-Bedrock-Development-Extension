@@ -34,7 +34,7 @@ import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
 import { EmptyTypes } from "../../../General/Empty";
 import { Entity } from "../../../General/Entity/Entity";
-import { behavior } from "../../include";
+import { Behavior } from "../../include";
 import { type_family } from "./Components/minecraft.type_family";
 import { ComponentContainer } from "./include";
 
@@ -44,11 +44,11 @@ import { ComponentContainer } from "./include";
  */
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<behavior.entities.Entity>();
+  let Format = JDoc.CastTo<Behavior.Entities.Entity>();
 
   let entity: Entity | undefined;
 
-  if (behavior.entities.Entity.is(Format)) {
+  if (Behavior.Entities.Entity.is(Format)) {
     let mce = Format["minecraft:entity"];
     entity = new Entity();
 

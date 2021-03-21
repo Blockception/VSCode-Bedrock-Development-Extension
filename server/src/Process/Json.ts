@@ -31,11 +31,11 @@ import { LocationWord } from "bc-vscode-words";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../Database/Database";
 import { DiagnosticsBuilder } from "../Diagnostics/Builder";
-import { molang } from "../include";
+import { Molang } from "../include";
 import { ProcessWord } from "../Types/Commands/include";
 import { DiagnoseLine } from "../Types/Minecraft/Behavior/Functions/include";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
-import { behavior, resource } from "../Types/Minecraft/include";
+import { Behavior, Resource } from "../Types/Minecraft/include";
 import { GetValidationData, ValidationData } from "../Validation/include";
 
 export function ProcessJson(doc: TextDocument): void {
@@ -47,15 +47,15 @@ export function ProcessJson(doc: TextDocument): void {
       return;
 
     case GeneralDataType.behaviour_pack:
-      behavior.Process(doc);
+      Behavior.Process(doc);
       break;
 
     case GeneralDataType.resource_pack:
-      resource.Process(doc);
+      Resource.Process(doc);
       break;
   }
 
-  let Data = molang.files.DataCollector.Parse(doc);
+  let Data = Molang.Files.DataCollector.Parse(doc);
 
   if (Data.Command.length > 0) {
     let Builder = new DiagnosticsBuilder(doc);

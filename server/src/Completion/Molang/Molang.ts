@@ -31,7 +31,7 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database, DataCollector } from "../../Database/include";
 import { DataReference } from "../../Database/Types/include";
-import { molang } from "../../include";
+import { Molang } from "../../include";
 import { Manager } from "../../Manager/Manager";
 import { GetPreviousWord } from "../../Molang/include";
 import { MolangFunctionDataItem } from "../../Molang/MolangData";
