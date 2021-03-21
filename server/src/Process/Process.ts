@@ -29,13 +29,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import * as Json from "./Json";
 import * as Language from "./Language";
-import { GetFilename } from "../Code/include";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Behavior } from "../Types/Minecraft/include";
-import { Languages } from "../include";
+import { Languages } from "../Constants";
 import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
-import { Console } from "../Console/Console";
 
 //Process the given document
 export function Process(document: TextDocument): void {

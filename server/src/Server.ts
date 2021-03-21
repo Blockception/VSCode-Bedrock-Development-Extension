@@ -3,11 +3,11 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 import { isMainThread } from "worker_threads";
-import { Setup } from "./Server/Setup";
+import { SetupServer } from "./Server/include";
 
 //Setup the server
 if (isMainThread) {
-  Setup();
+  SetupServer();
 } else {
   //If worker thread
 }

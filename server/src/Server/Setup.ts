@@ -35,7 +35,7 @@ import { onInitializeAsync } from "./OnInitialize";
 import { onInitializedAsync } from "./OnInitialized";
 import { onShutdownAsync } from "./onShutdown";
 
-export function Setup() {
+export function SetupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
   // Also include all preview / proposed LSP features.
 
