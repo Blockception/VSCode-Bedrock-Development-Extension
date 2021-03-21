@@ -3,9 +3,9 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 import * as vscode from "vscode";
-import { SetupClient } from "./client/client";
-import { Activate } from "./commands/Activate";
-import { Console } from "./console/include";
+import { SetupClient } from "./Client/Client";
+import { Activate } from "./Commands/Activate";
+import { Console } from "./Console/include";
 
 import { Manager } from "./Manager/Manager";
 

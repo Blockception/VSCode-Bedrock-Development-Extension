@@ -31,7 +31,7 @@ import { commands, ExtensionContext, Uri, ViewColumn, window } from "vscode";
 import * as path from "path";
 import { readFileSync } from "fs";
 import { Commands } from "../../Constants";
-import { Console } from "../../console/Console";
+import { Console } from "../../Console/Console";
 
 export function Activate(context: ExtensionContext): void {
   Console.Log("registering cheat sheets");

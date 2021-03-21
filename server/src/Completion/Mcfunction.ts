@@ -32,7 +32,7 @@ import { getLine } from "../Code/include";
 import { Command, Parameter } from "../Types/Commands/include";
 import { CommandIntr, IsInSubCommand } from "../Types/Commands/Interpertation/include";
 import { CompletionBuilder } from "./Builder";
-import { CommandCompletionContext } from "./commands/Context";
+import { CommandCompletionContext } from "./Commands/Context";
 
 export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
   const LineIndex = pos.line;

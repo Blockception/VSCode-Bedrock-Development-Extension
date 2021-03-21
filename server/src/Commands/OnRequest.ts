@@ -31,7 +31,7 @@ import { ExecuteCommandParams } from "vscode-languageserver";
 import { Console } from "../Console/Console";
 import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
-import { McImportErrorsCommand } from "./import errors";
+import { McImportErrorsCommand } from "./Import Errors";
 import { Create } from "./Templates/Create";
 
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {

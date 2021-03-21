@@ -8,16 +8,17 @@ const path = require("path");
 const config = {
   optimization: {
     mergeDuplicateChunks: true,
-    minimize:true,
-    mangleExports:true,
-    mangleWasmImports:true,
-    removeEmptyChunks:true,
-    concatenateModules:true
+    minimize: true,
+    mangleExports: true,
+    mangleWasmImports: true,
+    removeEmptyChunks: true,
+    concatenateModules: true,
+    usedExports: true,
   },
   performance: {
     hints: "warning",
-    maxAssetSize:500000000,
-    maxEntrypointSize:500000000
+    maxAssetSize: 500000000,
+    maxEntrypointSize: 500000000,
   },
 
   target: "node", // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/

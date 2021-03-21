@@ -32,7 +32,7 @@ import { Languages } from "../Constants";
 import * as path from "path";
 import * as vscode from "vscode";
 import { Manager } from "../Manager/Manager";
-import { Console } from "../console/Console";
+import { Console } from "../Console/Console";
 
 export function SetupClient(context: vscode.ExtensionContext) {
   Console.Log("starting minecraft language client");
