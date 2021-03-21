@@ -1,9 +1,9 @@
 # Json Validation
 
-Json validation is applied to a specific filename or when it is placed in the appropriate folder. If \* is present in the json file pattern, then it
-means that any amount of random character can be placed there. Version specific json validation is automatically applied. All elements should have
-received a description and title. If none are present. Then that version hasn't been supported yet. You can request one as an issue. If a json
-validation is missing, then also post an issue. And one will be made in the future unless a good reason why not has been given.
+Json validation is applied to a specific filename or when it is placed in the appropriate folder. If \* is present in the json file pattern, then it means that any amount of random
+character can be placed there. Version specific json validation is automatically applied. All elements should have received a description and title. If none are present. Then that
+version hasn't been supported yet. You can request one as an issue. If a json validation is missing, then also post an issue. And one will be made in the future unless a good
+reason why not has been given.
 
 - [Json Validation](#json-validation)
   - [General](#general)
@@ -45,6 +45,7 @@ For best results, name your folder with the letters RP/rp in them.
 | Entity                | entity/\*entity.json                                                                                                                                                                                                                                                           |
 | Entity models         | Can be one of the following:<br/> - `*.geo.json`<br/> - `*.geometry.json`                                                                                                                                                                                                      |
 | Flipbook textures     | flipbook_textures.json                                                                                                                                                                                                                                                         |
+| Fog                   | fogs/\*.json                                                                                                                                                                                                                                                                   |
 | Item texture          | item_texture.json                                                                                                                                                                                                                                                              |
 | Materials             | \*.material                                                                                                                                                                                                                                                                    |
 | Music definitions     | music_definitions.json                                                                                                                                                                                                                                                         |
