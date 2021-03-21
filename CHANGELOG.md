@@ -1,4 +1,9 @@
 # Changelog 
+- Updated
+- Updated to 1.7.7
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Fixing bugs
+- auto: Generated typescript includes
 - Refactored
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated schemas
@@ -14,8 +19,3 @@
 - auto: Generated typescript includes
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated paths
-- auto: Generated typescript includes
-- auto: Updated dependecies
-- Updated
-- Updated to 1.7.5
-- Fixing a type semantic tokens in selectors
