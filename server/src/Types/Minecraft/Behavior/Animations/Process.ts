@@ -32,7 +32,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../../Code/Json/include";
 import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
-import { molang } from "../../../../include";
+import { Molang } from "../../../../include";
 import { EmptyTypes } from "../../../General/Empty";
 import { Animation, SingleAnimation } from "./Animation";
 
@@ -82,7 +82,7 @@ function ExploreAnimation(Animation: SingleAnimation, doc: JsonDocument) {
             start = Position.create(0, 0);
           }
 
-          molang.Process(data, start, doc.doc);
+          Molang.Process(data, start, doc.doc);
         }
       }
     }

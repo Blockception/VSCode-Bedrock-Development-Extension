@@ -35,7 +35,7 @@ import { ProvideMcfunctionCommandSignature } from "../Types/Minecraft/Behavior/F
 
 export function ProvideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
   let text = doc.getText();
-  let Range = json.GetCurrentString(text, doc.offsetAt(cursor));
+  let Range = Json.GetCurrentString(text, doc.offsetAt(cursor));
 
   if (!Range) return;
   let property = text.substring(Range.start, Range.end);

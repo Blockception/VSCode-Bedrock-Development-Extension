@@ -67,7 +67,7 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
     case "temp":
   }
 
-  if (molang.IsMolang(line)) {
+  if (Molang.IsMolang(line)) {
     receiver.Add("query", "", CompletionItemKind.Class);
     receiver.Add("variable", "", CompletionItemKind.Variable);
     receiver.Add("math", "", CompletionItemKind.Class);
