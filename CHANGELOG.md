@@ -1,21 +1,21 @@
 # Changelog 
+- Refactored
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Updated schemas
+- Update Create typescript includes.yml
+- Updated
+- Updated
+- Updated
+- auto: Generated typescript includes
+- Updated
+- Update Create typescript includes.yml
+- Update Create typescript includes.yml
+- Update Create typescript includes.yml
+- auto: Generated typescript includes
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Updated paths
+- auto: Generated typescript includes
+- auto: Updated dependecies
 - Updated
 - Updated to 1.7.5
 - Fixing a type semantic tokens in selectors
-- Fixing command
-- Updated documentation
-- Updated to 1.7.4
-- Updated log format
-- auto: Generated typescript includes
-- Adding command
-- Adding open the lastest content log command
-- Updated to 1.7.3
-- Updated
-- Updated
-- Fixing go to definition on subcommands
-- auto: Generated typescript includes
-- refactor
-- auto: Generated typescript includes
-- Update Create typescript includes.yml
-- Update Create typescript includes.yml
-- Revert "auto: Generated markdown indexes pages"
