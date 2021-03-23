@@ -26,7 +26,7 @@ jobs:
       # Runs a single command using the runners shell
       - uses: DaanV2/Typescript-Action-Create-Includes@v1.2
         with: 
-          folder: ${{github.workspace}}/server/src
+          folder: ${{github.workspace}}/server/src/Lib
 
       - uses: DaanV2/Typescript-Action-Create-Includes@v1.2
         with: 
