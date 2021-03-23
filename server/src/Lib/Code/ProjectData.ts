@@ -34,9 +34,9 @@ import { JsonDocument } from "./Json/Json Document";
 import { Manager } from "../Manager/Manager";
 import { DupeCheckAdd } from "./Array";
 import { GetParent } from "./File";
-import { DetectGeneralDataType, GeneralDataType } from "../../Types/Minecraft/Format/include";
-import { Manifest } from "../../Types/Minecraft/Manifest/include";
 import { Console } from "../Console/Console";
+import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
+import { Manifest } from "../Types/Minecraft/Manifest/Manifest";
 
 export interface ProjectData {
   WorldFolders: string[];

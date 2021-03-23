@@ -30,7 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/include";
 import { DiagnosticsBuilder } from "../../Diagnostics/Builder";
-import { getLine } from "../../Lib/Code/include";
+import { getLine } from "../../Code/include";
 
 export function provideLanguageDiagnostics(doc: TextDocument) {
   if (!Manager.Settings.useDiagnosticsLanguages) return;

@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver-textdocument";
-import { Range } from "../../../Lib/Code/Range";
+import { Range } from "../../../Code/Range";
 import { CreateMinecraftCommandWords } from "../../../Commands/Words";
 import { Manager } from "../../../Manager/Manager";
 import { CommandInfo } from "../Info/CommandInfo";

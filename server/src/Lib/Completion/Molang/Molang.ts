@@ -33,9 +33,8 @@ import { Database, DataCollector } from "../../Database/include";
 import { DataReference } from "../../Database/Types/include";
 import { Molang } from "../../include";
 import { Manager } from "../../Manager/Manager";
-import { GetPreviousWord } from "../../Molang/include";
-import { MolangFunctionDataItem } from "../../Molang/MolangData";
-import { Kinds } from "../../Types/General/Kinds";
+import { GetPreviousWord, MolangFunctionDataItem } from "../../Molang/include";
+import { Kinds } from "../../Types/General/include";
 import { CompletionBuilder } from "../Builder";
 import { OnCompletionMolangVariable } from "./Variables";
 

@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
-import { GetDocument } from "../Lib/Code/include";
+import { GetDocument } from "../Code/include";
 import { Languages } from "../Constants";
 import { ProvideMcfunctionSignature } from "../Types/Minecraft/Behavior/Functions/include";
 import { ProvideJsonSignature } from "./Json";

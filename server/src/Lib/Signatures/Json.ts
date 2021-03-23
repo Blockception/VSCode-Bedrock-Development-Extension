@@ -29,7 +29,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { SignatureHelp } from "vscode-languageserver";
 import { Position, TextDocument } from "vscode-languageserver-textdocument";
-import { Json } from "../Lib/Code/include";
+import { Json } from "../Code/include";
 import { IsMolang } from "../Molang/include";
 import { ProvideMcfunctionCommandSignature } from "../Types/Minecraft/Behavior/Functions/include";
 

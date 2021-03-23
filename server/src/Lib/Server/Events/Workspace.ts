@@ -28,7 +28,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { WorkspaceFoldersChangeEvent } from "vscode-languageserver";
-import { UniformUrl } from "../../Lib/Code/Url";
+import { UniformUrl } from "../../Code/Url";
 import { Console } from "../../Console/Console";
 import { Database } from "../../Database/Database";
 import { Traverse } from "../../Process/Traverse";
