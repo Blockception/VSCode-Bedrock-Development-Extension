@@ -101,6 +101,12 @@
             "type": "boolean",
             "default": true,
             "description": "Requires restart: Turns on or off the diagnostics for languages"
+          },
+          "BC-MC.useDiagnosticsJson": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Requires restart: Turns on or off the diagnostics for json"
           }
         }
       }
