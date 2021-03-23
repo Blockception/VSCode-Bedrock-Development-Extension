@@ -33,6 +33,7 @@ import { Range, TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../Manager/include";
 import { EmptyTypes } from "../Types/General/Empty";
 
+/** A builder that helps with providing diagnostics */
 export class DiagnosticsBuilder {
   private calculator: PositionCalculator;
   public doc: TextDocument;
