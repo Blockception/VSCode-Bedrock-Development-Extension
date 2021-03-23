@@ -116,6 +116,16 @@ export class JsonDocument {
     return FindRangeReg(this.doc, RegX);
   }
 
+  public RangeOf(Value: string): Range | undefined {
+    let Text = this.doc.getText();
+
+    let index = Text.indexOf(Value);
+
+    if (index < 0) return undefined;
+
+    return Range.create(this.doc.positionAt(index), this.doc.positionAt(index + Value.length));
+  }
+
   /**
    * Tries to find the range of the given property
    * @param Name The name of the property to find

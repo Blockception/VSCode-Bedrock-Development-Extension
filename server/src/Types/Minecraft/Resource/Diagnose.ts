@@ -27,6 +27,22 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
+import { TextDocument } from "vscode-languageserver-textdocument";
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
+import { DataType, DetectResourceType } from "../Format/include";
+import { Entity } from "./include";
 
 export function Diagnose(context: DiagnoseContext): void {}
+
+export function DiagnoseJson(doc: TextDocument): void {
+  const uri = decodeURI(doc.uri);
+  let type = DetectResourceType(uri);
+
+  switch (type) {
+    case DataType.resource_entity:
+      Entity.Diagnose(doc);
+
+    default:
+      return;
+  }
+}

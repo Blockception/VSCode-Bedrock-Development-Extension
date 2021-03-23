@@ -31,6 +31,8 @@ export interface EntityEvent {
   run_command?: string;
   add?: { component_groups?: string[] };
   remove?: { component_groups?: string[] };
+  sequence?: EntityEvent;
+  random?: EntityEvent;
 }
 
 export interface ComponentContainer {
@@ -45,7 +47,7 @@ export interface Entity {
       is_spawnable?: boolean;
       is_summonable?: boolean;
       is_experimental?: boolean;
-      animations?: object;
+      animations?: { [key: string]: string };
       scripts?: {
         animate?: string | object[];
       };

@@ -29,10 +29,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { FormatVersion } from "../../Interfaces/FormatVersion";
 
+export type render_controller_ref = string | { [render_controller: string]: string };
+
 export interface Entity extends FormatVersion {
   "minecraft:client_entity": {
     description: {
       identifier: string;
+      animations?: { [animation: string]: string };
+      geometry?: { [geo: string]: string };
+      render_controllers?: render_controller_ref[];
+      textures?: { [geo: string]: string };
     };
   };
 }

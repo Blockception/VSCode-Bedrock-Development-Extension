@@ -35,11 +35,12 @@ export interface ServerSettings {
   useEducationContent: boolean;
   useDiagnosticsMcfunctions: boolean;
   useDiagnosticsLanguages: boolean;
+  useDiagnosticsJson: boolean;
 }
 
 export namespace ServerSettings {
   export function is(value: any): value is ServerSettings {
-    if (value && value.useEducationContent && value.useDiagnosticsLanguages && value.useDiagnosticsMcfunctions) return true;
+    if (value && value.useEducationContent && value.useDiagnosticsLanguages && value.useDiagnosticsMcfunctions && value.useDiagnosticsJson) return true;
 
     return false;
   }
@@ -49,6 +50,7 @@ export namespace ServerSettings {
       useEducationContent: false,
       useDiagnosticsMcfunctions: true,
       useDiagnosticsLanguages: true,
+      useDiagnosticsJson: true,
     };
   }
 }

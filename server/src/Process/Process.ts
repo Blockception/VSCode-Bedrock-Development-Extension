@@ -34,6 +34,7 @@ import { Behavior } from "../Types/Minecraft/include";
 import { Languages } from "../Constants";
 import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
+import { Diagnostics } from "../Diagnostics/OnRequest";
 
 //Process the given document
 export function Process(document: TextDocument): void {
@@ -62,7 +63,7 @@ export function Process(document: TextDocument): void {
 
   switch (Type) {
     case GeneralDataType.unknown:
-      return;
+      break;
 
     case GeneralDataType.behaviour_pack:
       ValidateBehaviourFolder(document);
@@ -72,4 +73,6 @@ export function Process(document: TextDocument): void {
       ValidateResourceFolder(document);
       break;
   }
+
+  Diagnostics(document);
 }

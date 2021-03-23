@@ -90,7 +90,7 @@ export function DetectGeneralDataType(uri: string): GeneralDataType {
  * Detects behaviour pack resource, already assumed the path belongs to a behaviour pack
  * @param uri the decoded uri
  */
-function DetectBehaviorType(uri: string): DataType {
+export function DetectBehaviorType(uri: string): DataType {
   if (uri.endsWith(".mcfunction")) return DataType.behaviour_function;
 
   //Folders
@@ -124,7 +124,7 @@ function DetectBehaviorType(uri: string): DataType {
  * Detects resource pack resource, already assumed the path belongs to a resource pack
  * @param uri the decoded uri
  */
-function DetectResourceType(uri: string): DataType {
+export function DetectResourceType(uri: string): DataType {
   //Folders
   if (uri.includes("\\animation_controllers\\")) return DataType.resource_animation_controller;
 

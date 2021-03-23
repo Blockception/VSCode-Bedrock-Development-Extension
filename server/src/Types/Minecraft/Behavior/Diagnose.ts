@@ -29,7 +29,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 import { Code } from "../../../include";
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
-import { Functions } from "./include";
+import { Entities, Functions } from "./include";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { DataType, DetectBehaviorType } from "../Format/include";
 
 export function Diagnose(context: DiagnoseContext): void {
   context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
@@ -37,4 +39,18 @@ export function Diagnose(context: DiagnoseContext): void {
 
 export function DiagnoseFolder(uri: string, context: DiagnoseContext): void {
   Code.ForEachDocument(Code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => Functions.DiagnoseMcFunction(D, context.data));
+  Code.ForEachDocument(Code.GetDocuments(uri, ["**/*.json"]), (D) => DiagnoseJson(D));
+}
+
+export function DiagnoseJson(doc: TextDocument): void {
+  const uri = decodeURI(doc.uri);
+  let type = DetectBehaviorType(uri);
+
+  switch (type) {
+    case DataType.behaviour_entity:
+      Entities.Diagnose(doc);
+
+    default:
+      return;
+  }
 }

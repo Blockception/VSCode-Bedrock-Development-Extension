@@ -38,8 +38,8 @@ import { DiagnoseCommand } from "../../../Commands/Command/include";
 import { CommandIntr, GetSubCommand } from "../../../Commands/Interpertation/include";
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
-  if (!Manager.Settings.useDiagnosticsMcfunctions) return;
   if (!Manager.State.DataGathered) return;
+  if (!Manager.Settings.useDiagnosticsMcfunctions) return;
 
   let Data = Database.MinecraftProgramData.GetProjecData();
   let validation: ValidationData | undefined;
