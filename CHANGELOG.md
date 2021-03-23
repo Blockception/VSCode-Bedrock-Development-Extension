@@ -1,4 +1,9 @@
 # Changelog 
+- Added json diagnostics settings
+- Adding entity diagnostics
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Updated to 1.7.9
+- auto: Generated typescript includes
 - Updating
 - auto: Generated typescript includes
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
@@ -14,8 +19,3 @@
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated schemas
 - Update Create typescript includes.yml
-- Updated
-- Updated
-- Updated
-- auto: Generated typescript includes
-- Updated
