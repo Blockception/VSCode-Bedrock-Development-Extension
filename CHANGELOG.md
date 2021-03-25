@@ -1,4 +1,8 @@
 # Changelog 
+- Updated model detection
+- Updated to 1.7.10
+- Updated
+- auto: Generated typescript includes
 - Fixing
 - auto: Generated typescript includes
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
@@ -14,8 +18,4 @@
 - Updated to 1.7.9
 - auto: Generated typescript includes
 - Updating
-- auto: Generated typescript includes
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Raised version
-- Updated
 - auto: Generated typescript includes
