@@ -121,6 +121,7 @@ export function DetectResourceType(uri: string): DataType {
   if (uri.includes("\\animations\\")) return DataType.resource_animation;
   if (uri.includes("\\attachables\\")) return DataType.resource_attachable;
   if (uri.includes("\\models\\entity\\")) return DataType.resource_entity_model;
+  if (uri.includes("\\models\\entities\\")) return DataType.resource_entity_model;
   if (uri.includes("\\entity\\")) return DataType.resource_entity;
   if (uri.includes("\\particles\\")) return DataType.resource_particle;
   if (uri.includes("\\render_controllers\\")) return DataType.resource_render_controller;

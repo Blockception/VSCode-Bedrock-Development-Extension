@@ -27,14 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { GetDocuments } from "../Code/include";
 import { ProjectData } from "../Code/ProjectData";
 import { Console } from "../Console/Console";
 import { Database } from "../Database/include";
-import { Code } from "../include";
 import { Manager } from "../Manager/Manager";
 import { Behavior, Resource } from "../Types/Minecraft/include";
-import { Process } from "./Process";
 
 export function Traverse(): void {
   Manager.State.TraversingProject = true;
