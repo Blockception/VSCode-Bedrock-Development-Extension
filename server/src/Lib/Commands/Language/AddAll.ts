@@ -46,14 +46,20 @@ export function AddAllItems(params: ExecuteCommandParams): any {
         let builder = new TextEditBuilder(doc);
 
         Database.Data.Behaviourpack.Entities.ForEach((entity) => {
-          builder.Add("entity." + entity.Identifier + ".name", " ", "Entity: " + entity.Identifier);
-          builder.Add("item.spawn_egg.entity." + entity.Identifier + ".name", " ", "Spawn egg for entity: " + entity.Identifier);
+          let id = Safe(entity.Identifier);
+
+          builder.Add("entity." + entity.Identifier + ".name", id, "Entity: " + entity.Identifier);
+          builder.Add("item.spawn_egg.entity." + entity.Identifier + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.Identifier);
         });
         Database.Data.Behaviourpack.Items.ForEach((data) => {
-          builder.Add("item." + data.Identifier + ".name", " ", "Item: " + data.Identifier);
+          let id = Safe(data.Identifier);
+
+          builder.Add("item." + data.Identifier + ".name", id, "Item: " + data.Identifier);
         });
         Database.Data.Behaviourpack.Blocks.ForEach((data) => {
-          builder.Add("tile." + data.Identifier + ".name", " ", "Block: " + data.Identifier);
+          let id = Safe(data.Identifier);
+
+          builder.Add("tile." + data.Identifier + ".name", id, "Block: " + data.Identifier);
         });
 
         let edit = TextEdit.insert(doc.positionAt(builder.textdoc.length), builder.out);
@@ -66,6 +72,15 @@ export function AddAllItems(params: ExecuteCommandParams): any {
   }
 
   return undefined;
+}
+
+function Safe(id: string): string {
+  let index = id.indexOf(":");
+  if (index > -1) {
+    return id.substring(index + 1, id.length).trim();
+  }
+
+  return id;
 }
 
 class TextEditBuilder {
