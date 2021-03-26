@@ -1,4 +1,6 @@
 # Changelog 
+- Added missing items to language file
+- Updated to 1.7.11
 - Updated model detection
 - Updated to 1.7.10
 - Updated
@@ -16,6 +18,4 @@
 - Adding entity diagnostics
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated to 1.7.9
-- auto: Generated typescript includes
-- Updating
 - auto: Generated typescript includes
