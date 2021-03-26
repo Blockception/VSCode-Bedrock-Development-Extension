@@ -124,6 +124,12 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Add all from project to language file",
+        "category": "Blockception",
+        "command": "bc.minecraft.language.add",
+        "enablement": "editorLangId==bc-minecraft-language"
+      },
+      {
         "title": "Cheat sheet: Molang",
         "command": "bc-cheat-sheet-molang",
         "category": "Blockception"

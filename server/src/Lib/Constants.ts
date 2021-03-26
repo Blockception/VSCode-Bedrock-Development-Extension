@@ -42,6 +42,7 @@ export namespace Identification {
 export namespace Commands {
   export const ImportErrors: string = "bc.minecraft.errors.import";
   export const DiagnoseProject: string = "bc.minecraft.diagnose.project";
+  export const AddLanguageFile: string = "bc.minecraft.language.add";
 
   export namespace CheatSheet {
     export const Molang: string = "bc-cheat-sheet-molang";
@@ -154,5 +155,9 @@ export namespace Commands {
       /**The command to create all manifests*/
       export const Manifests: string = WPBase + "manifest";
     }
+  }
+
+  export namespace Errors {
+    export const OpenLastest = "bc.errors.open_lastest";
   }
 }

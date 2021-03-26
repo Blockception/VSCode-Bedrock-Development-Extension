@@ -32,6 +32,7 @@ import { Console } from "../Console/Console";
 import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { McImportErrorsCommand } from "./Import Errors";
+import { AddAllItems } from "./Language/AddAll";
 import { Create } from "./Templates/Create";
 
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
@@ -49,13 +50,16 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
       case Commands.DiagnoseProject:
         return DiagnoseProjectCommand(params);
 
+      case Commands.AddLanguageFile:
+        return AddAllItems(params);
+
       default:
         if (params.command.startsWith(Commands.Create.Base)) {
           return Create(params);
         }
     }
   } catch (error) {
-    Console.Error(error);
+    Console.Error(JSON.stringify(error));
   }
 
   return undefined;

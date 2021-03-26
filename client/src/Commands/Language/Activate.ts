@@ -27,15 +27,21 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { ExtensionContext } from "vscode";
-import * as CheatSeet from "./CheatSheet/CheatSeet";
-import * as Create from "./Create/Create";
-import * as Errors from "./Errors/OpenLastest";
-import * as Language from "./Language/Activate";
+import { commands, ExtensionContext, window } from "vscode";
+import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
+import { Commands } from "../../Constants";
+import { Manager } from "../../Manager/Manager";
 
 export function Activate(context: ExtensionContext): void {
-  CheatSeet.Activate(context);
-  Create.Activate(context);
-  Errors.Activate(context);
-  Language.Activate(context);
+  context.subscriptions.push(commands.registerCommand(Commands.AddLanguageFile, AddAll));
+}
+
+function AddAll(args: any): any {
+  let Current = window.activeTextEditor.document.uri.path;
+  let Params: ExecuteCommandParams = {
+    command: Commands.AddLanguageFile,
+    arguments: [Current],
+  };
+
+  return Manager.Client.sendRequest(ExecuteCommandRequest.type, Params);
 }
