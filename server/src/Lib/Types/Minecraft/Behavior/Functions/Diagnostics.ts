@@ -39,7 +39,7 @@ import { CommandIntr, GetSubCommand } from "../../../Commands/Interpertation/inc
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
-  if (!Manager.Settings.useDiagnosticsMcfunctions) return;
+  if (!Manager.Settings.Diagnostics.Mcfunctions) return;
 
   let Data = Database.MinecraftProgramData.GetProjecData();
   let validation: ValidationData | undefined;

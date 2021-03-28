@@ -84,29 +84,41 @@
       {
         "title": "Minecraft bedrock language configuration",
         "properties": {
-          "BC-MC.useEducationContent": {
-            "scope": "resource",
-            "type": "boolean",
-            "default": false,
-            "description": "Requires restart: Adds education contents such as items, blocks, entities and commands into the suggestion and/or debugging"
-          },
-          "BC-MC.useDiagnosticsMcfunctions": {
+          "BC-MC.Education.Enable": {
             "scope": "resource",
             "type": "boolean",
             "default": true,
-            "description": "Requires restart: Turns on or off the diagnostics for mcfunctions"
+            "description": "Requires restart: Turns on or off the education content"
           },
-          "BC-MC.useDiagnosticsLanguages": {
+          "BC-MC.Diagnostics.Lang": {
             "scope": "resource",
             "type": "boolean",
             "default": true,
             "description": "Requires restart: Turns on or off the diagnostics for languages"
           },
-          "BC-MC.useDiagnosticsJson": {
+          "BC-MC.Diagnostics.Json": {
+            "scope": "resource",
+            "default": true,
+            "type": "boolean",
+            "description": "Requires restart: Turns on or off the diagnostics for json files"
+          },
+          "BC-MC.Diagnostics.Mcfunctions": {
             "scope": "resource",
             "type": "boolean",
             "default": true,
-            "description": "Requires restart: Turns on or off the diagnostics for json"
+            "description": "Requires restart: Turns on or off the diagnostics for mcfunctions"
+          },
+          "BC-MC.Diagnostics.Objectives": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Requires restart: Turns on or off the diagnostics for scoreboard objectives"
+          },
+          "BC-MC.Diagnostics.Tags": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Requires restart: Turns on or off the diagnostics for tags"
           }
         }
       }

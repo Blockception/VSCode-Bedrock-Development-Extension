@@ -53,7 +53,7 @@ export function AddCommands(): void {
     Manager.Data.Commands.add(Command);
   });
 
-  if (Manager.Settings.useEducationContent)
+  if (Manager.Settings.Education.Enable)
     data.edu.forEach((com) => {
       let Command = Convert(com);
       Command.documentation.value = "**[EDU]** " + Command.documentation.value;

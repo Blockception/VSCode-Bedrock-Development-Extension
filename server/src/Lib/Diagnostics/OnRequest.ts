@@ -48,7 +48,7 @@ export function Diagnostics(doc: TextDocument): void {
 
     case Languages.JsonIdentifier:
     case Languages.JsonCIdentifier:
-      if (!Manager.Settings.useDiagnosticsJson) return;
+      if (!Manager.Settings.Diagnostics.Json) return;
       break;
   }
 

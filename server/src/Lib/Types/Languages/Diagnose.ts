@@ -33,7 +33,7 @@ import { DiagnosticsBuilder } from "../../Diagnostics/Builder";
 import { getLine } from "../../Code/include";
 
 export function provideLanguageDiagnostics(doc: TextDocument) {
-  if (!Manager.Settings.useDiagnosticsLanguages) return;
+  if (!Manager.Settings.Diagnostics.Lang) return;
 
   let builder = new DiagnosticsBuilder(doc);
 

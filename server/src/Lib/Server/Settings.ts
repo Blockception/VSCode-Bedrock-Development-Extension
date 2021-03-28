@@ -32,31 +32,59 @@ import { Identification } from "../Constants";
 import { Manager } from "../Manager/Manager";
 
 export interface ServerSettings {
-  useEducationContent: boolean;
-  useDiagnosticsMcfunctions: boolean;
-  useDiagnosticsLanguages: boolean;
-  useDiagnosticsJson: boolean;
+  Education: {
+    Enable: boolean;
+  };
+  Diagnostics: {
+    Lang: boolean;
+    Json: boolean;
+    Mcfunctions: boolean;
+    Objectives: boolean;
+    Tags: boolean;
+  };
 }
 
 export namespace ServerSettings {
   export function is(value: any): value is ServerSettings {
-    if (value && value.useEducationContent && value.useDiagnosticsLanguages && value.useDiagnosticsMcfunctions && value.useDiagnosticsJson) return true;
+    if (value) {
+      let temp = <ServerSettings>value;
+
+      if (temp.Education && temp.Diagnostics) {
+        if (typeof temp.Education.Enable !== "boolean") return false;
+
+        if (typeof temp.Diagnostics.Lang !== "boolean") return false;
+        if (typeof temp.Diagnostics.Json !== "boolean") return false;
+        if (typeof temp.Diagnostics.Mcfunctions !== "boolean") return false;
+        if (typeof temp.Diagnostics.Objectives !== "boolean") return false;
+        if (typeof temp.Diagnostics.Tags !== "boolean") return false;
+
+        return true;
+      }
+    }
 
     return false;
   }
 
   export function createDefaulSettings(): ServerSettings {
-    return {
-      useEducationContent: false,
-      useDiagnosticsMcfunctions: true,
-      useDiagnosticsLanguages: true,
-      useDiagnosticsJson: true,
+    let Out: ServerSettings = {
+      Education: {
+        Enable: true,
+      },
+      Diagnostics: {
+        Lang: true,
+        Json: true,
+        Mcfunctions: true,
+        Objectives: true,
+        Tags: true,
+      },
     };
+
+    return Out;
   }
 }
 
 export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {
-  UpdateSettingsThen(params.settings);
+  UpdateSettings();
 }
 
 export function UpdateSettings(): void {
