@@ -87,7 +87,7 @@
           "BC-MC.Education.Enable": {
             "scope": "resource",
             "type": "boolean",
-            "default": true,
+            "default": false,
             "description": "Requires restart: Turns on or off the education content"
           },
           "BC-MC.Diagnostics.Lang": {

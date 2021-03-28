@@ -35,6 +35,7 @@ import { provideSelectorScoreCompletion } from "./Scores";
 import { SelectorBase } from "./BaseMode";
 import { FakeEntity } from "../../include";
 import { CommandCompletionContext } from "../../../../Completion/Commands/Context";
+import { Manager } from "../../../../Manager/include";
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
@@ -65,6 +66,10 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       SelectorBase.Completion.Random,
       SelectorBase.Completion.NearestPlayer
     );
+
+    if (Manager.Settings.Education.Enable) {
+      receiver.items.push(SelectorBase.Completion.MyAgent, SelectorBase.Completion.SomethingEdu);
+    }
 
     if (!playerOnly) {
       receiver.items.push(SelectorBase.Completion.AllEntities);

@@ -585,6 +585,14 @@
     },
     {
       "parameters": [
+        { "Text": "kick", "Type": "keyword", "Required": true },
+        { "Text": "selector", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
+      ],
+      "name": "kick",
+      "documentation": { "value": "Kicks the specified players", "kind": "markdown" }
+    },
+    {
+      "parameters": [
         { "Text": "kill", "Type": "keyword", "Required": true },
         { "Text": "selector", "Type": "selector", "Required": false }
       ],
@@ -2088,52 +2096,62 @@
   ],
   "edu": [
     {
-      "parameters": [{ "Text": "ability", "Type": "keyword", "Required": true }],
       "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability.", "kind": "markdown" }
+      "documentation": { "value": "Grants or revokes a player ability.", "kind": "markdown" },
+      "parameters": [{ "Text": "ability", "Type": "keyword", "Required": true }]
     },
     {
+      "name": "ability",
+      "documentation": { "value": "Returns a list of abillities assigned to the specified player", "kind": "markdown" },
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } }
-      ],
-      "name": "ability",
-      "documentation": { "value": "Returns a list of abillities assigned to the specified player", "kind": "markdown" }
+      ]
     },
     {
+      "name": "ability",
+      "documentation": { "value": "Grants or revokes a player ability to fly", "kind": "markdown" },
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "mayfly", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
-      ],
-      "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability to fly", "kind": "markdown" }
+      ]
     },
     {
+      "name": "ability",
+      "documentation": { "value": "Grants or revokes a player ability to speak", "kind": "markdown" },
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "mute", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
-      ],
-      "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability to speak", "kind": "markdown" }
+      ]
     },
     {
+      "name": "ability",
+      "documentation": { "value": "Grants or revokes a player ability to build", "kind": "markdown" },
       "parameters": [
         { "Text": "ability", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "worldbuilder", "Type": "keyword", "Required": true },
         { "Text": "value", "Type": "boolean", "Required": false }
-      ],
-      "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability to build", "kind": "markdown" }
+      ]
     },
     {
-      "parameters": [{ "Text": "value", "Type": "boolean", "Required": false }],
+      "name": "classroommode",
+      "documentation": { "value": "??", "kind": "plaintext" },
+      "parameters": [{ "Text": "classroommode", "Type": "keyword", "Required": true }]
+    },
+    {
+      "name": "code",
+      "documentation": { "value": "??", "kind": "plaintext" },
+      "parameters": [{ "Text": "code", "Type": "keyword", "Required": true }]
+    },
+    {
       "name": "immutableworld",
-      "documentation": { "value": "Sets the immutable state of the world", "kind": "markdown" }
+      "documentation": { "value": "Sets the immutable state of the world", "kind": "markdown" },
+      "parameters": [{ "Text": "immutableworld", "Type": "boolean", "Required": false }]
     }
   ]
 }

@@ -31,8 +31,11 @@ import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../Database/include";
 import { ValidationData } from "../../../Validation/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
+import { Manager } from "../../../Manager/include";
 
 export function ProvideDiagnose(data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder): void {
+  if (!Manager.Settings.Diagnostics.Objectives) return;
+
   const text = data.text;
 
   //Check rules first
