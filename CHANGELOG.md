@@ -1,4 +1,10 @@
 # Changelog 
+- Updated
+- Settup different settings
+- Adding automatic filling of language filling
+- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Updated to 1.7.12
+- auto: Generated typescript includes
 - Added missing items to language file
 - Updated to 1.7.11
 - Updated model detection
@@ -13,9 +19,3 @@
 - auto: Generated typescript includes
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Updated
-- auto: Generated typescript includes
-- Added json diagnostics settings
-- Adding entity diagnostics
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated to 1.7.9
-- auto: Generated typescript includes
