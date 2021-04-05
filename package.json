@@ -571,7 +571,7 @@
           "*BP*/animation_controllers/*.json",
           "*bp*/animation_controllers/*.json"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/animation_controllers/animation_controller.json"
+        "url": "./minecraft-bedrock-schemas/behavior/animation_controllers/animation_controller.json"
       },
       {
         "fileMatch": [
@@ -581,7 +581,7 @@
           "*BP*/animations/*.json",
           "*bp*/animations/*.json"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/animations/animations.json"
+        "url": "./minecraft-bedrock-schemas/behavior/animations/animations.json"
       },
       {
         "fileMatch": [
@@ -591,7 +591,7 @@
           "*BP*/biomes/*.json",
           "*bp*/biomes/*.json"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/biomes/biomes.json"
+        "url": "./minecraft-bedrock-schemas/behavior/biomes/biomes.json"
       },
       {
         "fileMatch": [
@@ -602,7 +602,7 @@
           "*bp*/loot_tables/*.json",
           "*.loot.json"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/loot_tables/loot_tables.json"
+        "url": "./minecraft-bedrock-schemas/behavior/loot_tables/loot_tables.json"
       },
       {
         "fileMatch": [
@@ -612,7 +612,7 @@
           "*BP*/blocks/*.json",
           "*bp*/blocks/*.json"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/blocks/blocks.json"
+        "url": "./minecraft-bedrock-schemas/behavior/blocks/blocks.json"
       },
       {
         "fileMatch": [
@@ -623,7 +623,7 @@
           "*bp*/entities/*.json",
           "!*loot_tables*"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/entities/entities.json"
+        "url": "./minecraft-bedrock-schemas/behavior/entities/entities.json"
       },
       {
         "fileMatch": [
@@ -633,15 +633,15 @@
           "*BP*/items/*.json",
           "*bp*/items/*.json"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/items/items.json"
+        "url": "./minecraft-bedrock-schemas/behavior/items/items.json"
       },
       {
         "fileMatch": "recipes/*.json",
-        "url": "./minecraft-bedrock-schemas/behaviour/recipes/recipes.json"
+        "url": "./minecraft-bedrock-schemas/behavior/recipes/recipes.json"
       },
       {
         "fileMatch": "spawn_rules/*.json",
-        "url": "./minecraft-bedrock-schemas/behaviour/spawn_rules/spawn_rules.json"
+        "url": "./minecraft-bedrock-schemas/behavior/spawn_rules/spawn_rules.json"
       },
       {
         "fileMatch": [
@@ -652,7 +652,7 @@
           "*bp*/trading/*.json",
           "*.trade.json"
         ],
-        "url": "./minecraft-bedrock-schemas/behaviour/trading/trading.json"
+        "url": "./minecraft-bedrock-schemas/behavior/trading/trading.json"
       }
     ],
     "semanticTokenScopes": [
