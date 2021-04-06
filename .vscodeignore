@@ -41,7 +41,7 @@ webpack.config.js
 
 minecraft-bedrock-schemas/
 minecraft-bedrock-schemas/**
-!minecraft-bedrock-schemas/behaviour
+!minecraft-bedrock-schemas/behavior
 !minecraft-bedrock-schemas/general
 !minecraft-bedrock-schemas/language
 !minecraft-bedrock-schemas/resource
