@@ -1,4 +1,7 @@
 # Changelog 
+- Updated schemas,
+- Updated
+- Updated to 1.7.13
 - Updated
 - Settup different settings
 - Adding automatic filling of language filling
@@ -16,6 +19,3 @@
 - Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Moved
 - Update Create typescript includes.yml
-- auto: Generated typescript includes
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated
