@@ -75,6 +75,8 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
       if (event.remove) DiagnoseComponentGroups(event.remove.component_groups, Entity, JDoc, Builder);
     }
   }
+
+  DiagnoseMovement(Entity, Builder);
 }
 
 /** Tries to find the animation or animation controller
@@ -103,5 +105,30 @@ function DiagnoseComponentGroups(groups: string | string[] | undefined, entity: 
     }
 
     Builder.Add("Cannot find componentgroup: " + group, JDoc.RangeOf(group));
+  }
+}
+
+function DiagnoseMovement(entity: Entity, Builder: DiagnosticsBuilder): void {
+  const hasMovement = Entity.MatchComponentName(entity, "minecraft:movement.") ? 1 : 0;
+  const hasNavigation = Entity.MatchComponentName(entity, "minecraft:navigation.") ? 1 : 0;
+
+  const hasBaseMovement = Entity.HasComponentName(entity, "minecraft:movement") ? 1 : 0;
+  const Count = hasMovement + hasNavigation + hasBaseMovement;
+
+  if (Count > 0 && Count != 3) {
+    if (hasMovement == 0)
+      Builder.Add(
+        `${entity["minecraft:entity"].description.identifier}: Has part of movement but no specific movement component was found such as: 'minecraft:movement.basic'`,
+        undefined,
+        DiagnosticSeverity.Error
+      );
+    if (hasNavigation == 0)
+      Builder.Add(
+        `${entity["minecraft:entity"].description.identifier}: Has part of movement but no specific navigation component was found such as: 'minecraft:navigation.generic'`,
+        undefined,
+        DiagnosticSeverity.Error
+      );
+    if (hasBaseMovement == 0)
+      Builder.Add(`${entity["minecraft:entity"].description.identifier}: Has part of movement but not the required: 'minecraft:movement'`, undefined, DiagnosticSeverity.Error);
   }
 }
