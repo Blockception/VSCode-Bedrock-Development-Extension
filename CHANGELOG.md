@@ -1,4 +1,11 @@
-# Changelog 
+# Changelog
+
+## Plugin
+
+- Updated schemas
+- Added glowsquid
+- Updated to 1.7.15
+- Fixed inclusion of behaviour schema files
 - Updated schemas,
 - Updated
 - Updated to 1.7.13
@@ -14,8 +21,27 @@
 - Updated to 1.7.10
 - Updated
 - auto: Generated typescript includes
+- Fixing.
+
+## Schemas
+
+- auto: Generated Json Schemas
+- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
+- Minecraft is throwing errors
+- auto: Generated Json Schemas
+- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
+- Added new damage sources
+- auto: Generated Json Schemas
+- Increased height range for Fogs following the new docs 1.16.220
+- auto: Generated Json Schemas
 - Fixing
-- auto: Generated typescript includes
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Moved
-- Update Create typescript includes.yml
+- auto: Generated Json Schemas
+- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
+- Adding format version regex
+- auto: Generated Json Schemas
+- Updating
+- auto: Generated Json Schemas
+- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
+- Updated
+- auto: Generated Json Schemas
+- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
