@@ -1,7 +1,8 @@
-# Changelog
-
-## Plugin
-
+# Changelog 
+## Plugin 
+- Updated
+- Added Diagnostics for movements in entitieszz
+- Updated
 - Updated schemas
 - Added glowsquid
 - Updated to 1.7.15
@@ -18,13 +19,8 @@
 - Added missing items to language file
 - Updated to 1.7.11
 - Updated model detection
-- Updated to 1.7.10
-- Updated
-- auto: Generated typescript includes
-- Fixing.
-
-## Schemas
-
+- Updated to 1.7.10. 
+## Schemas 
 - auto: Generated Json Schemas
 - Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
 - Minecraft is throwing errors
