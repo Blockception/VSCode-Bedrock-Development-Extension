@@ -27,26 +27,24 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Gamemode } from "./Constants";
+import { ModeCollection } from "../Interface";
 
-export function IsGamemode(value: string): boolean {
-  if (value === "") return false;
+export const GameMode: ModeCollection = {
+  Name: "Game Mode",
+  Modes: [
+    { Name: "s", Description: "Survival mode" },
+    { Name: "0", Description: "Survival mode" },
+    { Name: "survival", Description: "Survival mode" },
 
-  switch (value) {
-    case Gamemode.adventure.value:
-    case Gamemode.adventure.long:
-    case Gamemode.adventure.short:
-    case Gamemode.creative.value:
-    case Gamemode.creative.long:
-    case Gamemode.creative.short:
-    case Gamemode.defaultmode.value:
-    case Gamemode.defaultmode.long:
-    case Gamemode.defaultmode.short:
-    case Gamemode.survival.value:
-    case Gamemode.survival.long:
-    case Gamemode.survival.short:
-      return true;
-  }
+    { Name: "c", Description: "Creative mode" },
+    { Name: "1", Description: "Creative mode" },
+    { Name: "creative", Description: "Creative mode" },
 
-  return false;
-}
+    { Name: "a", Description: "Adventure mode" },
+    { Name: "2", Description: "Adventure mode" },
+    { Name: "adventure", Description: "Adventure mode" },
+
+    { Name: "d", Description: "Default mode" },
+    { Name: "default", Description: "Default mode" },
+  ],
+};

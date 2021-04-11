@@ -27,26 +27,11 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver";
-import { CompletionBuilder } from "../../../../Completion/include";
-import { Gamemode, Gamemodedescription } from "./Constants";
+import { CompletionItemKind } from "vscode-languageserver-types";
+import { CommandCompletionContext } from "../../../../Completion/Commands/Context";
+import { ProvideModeCompletion } from "../Completion";
+import { GameMode } from "./Gamemode";
 
-export function ProvideCompletion(receiver: CompletionBuilder): void {
-  Convert(Gamemode.adventure, receiver);
-  Convert(Gamemode.creative, receiver);
-  Convert(Gamemode.defaultmode, receiver);
-  Convert(Gamemode.survival, receiver);
-}
-
-function Convert(data: Gamemodedescription, receiver: CompletionBuilder): void {
-  const doc = data.documentation;
-  Create(data.value, doc, receiver);
-  Create(data.short, doc, receiver);
-  Create(data.long, doc, receiver);
-}
-
-function Create(label: string, documentation: MarkupContent, receiver: CompletionBuilder): void {
-  if (label === "") return;
-
-  receiver.Add(label, documentation, CompletionItemKind.TypeParameter);
+export function ProvideCompletion(Context: CommandCompletionContext): void {
+  ProvideModeCompletion(GameMode, Context.receiver, CompletionItemKind.Operator);
 }
