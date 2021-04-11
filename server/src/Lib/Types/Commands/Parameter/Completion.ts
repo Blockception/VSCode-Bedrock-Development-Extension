@@ -53,9 +53,8 @@ import {
 } from "../../General/include";
 import { ItemComponents, RawText } from "../../Minecraft/Json/include";
 import { Particle } from "../../Minecraft/Resource/include";
-import { CloneMode } from "../Enumerators/include";
 import { Command } from "../include";
-import { CameraShake, OldBlockMode, Operation } from "../Modes/include";
+import { CameraShakeMode, CloneMode, Difficulty, LocateFeature } from "../Modes/include";
 import { MCCommandParameterType } from "./include";
 
 function toCompletion(Context: CommandCompletionContext): void {
@@ -89,7 +88,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.boolean:
       return Boolean.ProvideCompletion(Context);
     case MCCommandParameterType.cameraShakeType:
-      return CameraShake.ProvideCompletion(Context);
+      return CameraShakeMode.ProvideCompletion(Context);
     case MCCommandParameterType.cloneMode:
       return CloneMode.ProvideCompletion(Context);
     case MCCommandParameterType.command:
@@ -97,8 +96,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.coordinate:
       return Coordinate.ProvideCompletion(Context);
     case MCCommandParameterType.difficulty:
-      //TODO
-      return;
+      return Difficulty.ProvideCompletion(Context);
     case MCCommandParameterType.effect:
       return Effect.ProvideCompletion(Context);
     case MCCommandParameterType.entity:
@@ -125,8 +123,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.keyword:
       return toCompletion(Context);
     case MCCommandParameterType.locateFeature:
-      //TODO
-      return;
+      return LocateFeature.ProvideCompletion(Context);
     case MCCommandParameterType.maskMode:
       //TODO
       return;
