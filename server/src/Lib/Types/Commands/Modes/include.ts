@@ -10,6 +10,7 @@ export * as MirrorMode from "./MirrorMode/include";
 export * as MusicRepeatMode from "./MusicRepeatMode/include";
 export * as OldBlockMode from "./OldBlockMode/include";
 export * as OperationMode from "./OperationMode/include";
+export * as ReplaceMode from "./ReplaceMode/include";
 export * as RotationMode from "./RotationMode/include";
 export * as StructureAnimationMode from "./StructureAnimationMode/include";
 export * from "./Completion";
