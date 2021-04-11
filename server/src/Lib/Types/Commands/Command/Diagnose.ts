@@ -45,7 +45,7 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, validation: 
   let Matches = Command.GetCommandData();
 
   if (Matches.length === 0) {
-    builder.Add('Unknown command syntax: "' + line + '"');
+    builder.Add('Unknown command syntax: "' + line + '"', Command.Parameters[0]?.location.range);
     return;
   }
 

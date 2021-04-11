@@ -178,9 +178,6 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
     case MCCommandParameterType.tickingarea:
       return GetDocumentation(Text, range, Database.Data.General.TickingAreas);
 
-    case MCCommandParameterType.target:
-      return GetDocumentation(Text, range, Database.Data.General.FakeEntities);
-
     case MCCommandParameterType.unknown:
       doc = "no idea, I quit";
       break;

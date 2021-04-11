@@ -2,8 +2,8 @@ import { LocationWord } from "bc-vscode-words";
 import { CommandIntr } from "../../Interpertation/include";
 import { DiagnoseMode } from "../Diagnose";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
-import { CameraShakeModes } from "./CloneMode";
+import { CloneMode } from "./CloneMode";
 
 export function ProvideDiagnose(Word: LocationWord, builder: DiagnosticsBuilder): void {
-  DiagnoseMode(Word, CameraShakeModes, builder);
+  DiagnoseMode(Word, CloneMode, builder);
 }

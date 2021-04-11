@@ -2052,7 +2052,7 @@
       "parameters": [
         { "Text": "weather", "Type": "keyword", "Required": true },
         { "Text": "clear", "Type": "keyword", "Required": true },
-        { "Text": "duration", "Type": "keyword", "Required": false }
+        { "Text": "duration", "Type": "integer", "Required": false }
       ],
       "name": "weather",
       "documentation": { "value": "Sets the weather", "kind": "markdown" }
@@ -2061,7 +2061,7 @@
       "parameters": [
         { "Text": "weather", "Type": "keyword", "Required": true },
         { "Text": "rain", "Type": "keyword", "Required": true },
-        { "Text": "duration", "Type": "keyword", "Required": false }
+        { "Text": "duration", "Type": "integer", "Required": false }
       ],
       "name": "weather",
       "documentation": { "value": "Sets the weather", "kind": "markdown" }
@@ -2070,7 +2070,7 @@
       "parameters": [
         { "Text": "weather", "Type": "keyword", "Required": true },
         { "Text": "thunder", "Type": "keyword", "Required": true },
-        { "Text": "duration", "Type": "keyword", "Required": false }
+        { "Text": "duration", "Type": "integer", "Required": false }
       ],
       "name": "weather",
       "documentation": { "value": "Sets the weather", "kind": "markdown" }
