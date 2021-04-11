@@ -1,8 +1,7 @@
 # VSCode-Bedrock-Development-Extension
 
-An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, creation of files, and development tools to help
-develop Minecraft Bedrock content. It's recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft
-Education Edition.
+An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, creation of files, and development tools to help develop Minecraft Bedrock content.
+It's recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft Education Edition.
 
 ![overview](documentation/resources/overview.gif)
 
@@ -112,8 +111,8 @@ This plugin provides support for `.lang` files. The following features are provi
 
 ### Molang
 
-This plugin provides automatic highlighting for Molang code in JSON files and .molang files. Officially .molang files are not supported by Minecraft,
-but they're useful for development.
+This plugin provides automatic highlighting for Molang code in JSON files and .molang files. Officially .molang files are not supported by Minecraft, but they're useful for
+development.
 
 ---
 
@@ -131,13 +130,17 @@ A complete list can be found [here](documentation/Commands.md). These commands p
 
 ## Extension Settings
 
-| Settings                        | Description                                                                                                                                          |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Use Education Content**       | Adds Education Edition content such as items, blocks, entities and commands into code suggestions and debugging. Requires a restart for full effect. |
-| **Use Diagnostics Languages**   | Turn the diagnostics for language files on or off. Requires a restart for full effect.                                                               |
-| **Use Diagnostics Mcfunctions** | Turn the diagnostics for mcfunctions files on or off. Requires a restart for full effect.                                                            |
+| Settings                           | Description                                                                                                                                          |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Use Education Content**          | Adds Education Edition content such as items, blocks, entities and commands into code suggestions and debugging. Requires a restart for full effect. |
+| **Use Diagnostics Languages**      | Turn the diagnostics for language files on or off. Requires a restart for full effect.                                                               |
+| **Use Diagnostics Mcfunctions**    | Turn the diagnostics for mcfunctions files on or off. Requires a restart for full effect.                                                            |
+| **Use Diagnostics Json**           | Turn on or off the diagnostics for json files                                                                                                        |
+| **Use Diagnostics For Objectives** | Turn on or off the diagnostics for scoreboard objectives                                                                                             |
+| **Use Diagnostics For Tags**       | Turn on or off the diagnostics for tags                                                                                                              |
 
 ---
+
 ## Licenses
 
 All thrid party code and libraries this plugin uses are listed [**here**](./LICENSES/Licenses.md)!
