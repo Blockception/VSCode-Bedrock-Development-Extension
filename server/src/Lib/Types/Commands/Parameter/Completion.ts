@@ -53,6 +53,7 @@ import {
 } from "../../General/include";
 import { ItemComponents, RawText } from "../../Minecraft/Json/include";
 import { Particle } from "../../Minecraft/Resource/include";
+import { CloneMode } from "../Enumerators/include";
 import { Command } from "../include";
 import { CameraShake, OldBlockMode, Operation } from "../Modes/include";
 import { MCCommandParameterType } from "./include";
@@ -90,8 +91,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.cameraShakeType:
       return CameraShake.ProvideCompletion(Context);
     case MCCommandParameterType.cloneMode:
-      //TODO
-      return;
+      return CloneMode.ProvideCompletion(Context);
     case MCCommandParameterType.command:
       return Command.ProvideCompletion(Context.receiver);
     case MCCommandParameterType.coordinate:
