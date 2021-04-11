@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 
-export * from "./Clone";
+export * from "./CloneMode";
 export * from "./Completion";
 export * from "./Diagnose";

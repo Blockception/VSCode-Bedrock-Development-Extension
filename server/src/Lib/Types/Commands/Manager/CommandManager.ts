@@ -41,8 +41,29 @@ import { MCCommand } from "../Command/MCCommand";
 import { MCCommandParameterType } from "../Parameter/include";
 import { BlockStates } from "../../General/include";
 import { OldBlockModeModes } from "../Modes/OldBlockMode/OldBlockMode";
+import { IsXpLevel } from "../../General/Xp/Functions";
+import { TeleportRulesMode } from "../Modes/TeleportRulesMode/TeleportRulesMode";
+import { StructureAnimationMode } from "../Modes/StructureAnimationMode/StructureAnimationMode";
+import { RotationMode } from "../Modes/RotationMode/RotationMode";
+import { SaveMode } from "../Modes/SaveMode/RideRulesMode";
+import { SlotTypeModes } from "../../General/Slot type/Slot type";
+import { RideRulesMode } from "../Modes/RideRulesMode/RideRulesMode";
+import { ReplaceMode } from "../Modes/ReplaceMode/ReplaceMode";
+import { OperationModes } from "../Modes/OperationMode/Operation";
+import { LocateFeatureMode } from "../Modes/LocateFeature/LocateFeature";
+import { MaskMode } from "../Modes/MaskMode/MaskMode";
+import { MirrorMode } from "../Modes/MirrorMode/MirrorMode";
+import { MusicRepeatMode } from "../Modes/MusicRepeatMode/MusicRepeatMode";
+import { CameraShakeModes } from "../Modes/CameraShakeMode/CameraShake";
 import { IsMode } from "../Modes/include";
+import { CloneMode } from "../Modes/CloneMode/CloneMode";
+import { DifficultyMode } from "../Modes/Difficulty/Difficulty";
+import { FillMode } from "../Modes/FillMode/FillMode";
+import { GameMode } from "../Modes/Gamemode/Gamemode";
 
+/**
+ *
+ */
 export class CommandManager {
   Subset: Map<string, CommandInfo[]>;
 
@@ -50,6 +71,10 @@ export class CommandManager {
     this.Subset = new Map<string, CommandInfo[]>();
   }
 
+  /**
+   *
+   * @param com
+   */
   add(com: MCCommand): void {
     let Info = new CommandInfo(com);
     let Storage = this.Subset.get(com.name);
@@ -61,6 +86,11 @@ export class CommandManager {
     }
   }
 
+  /**
+   *
+   * @param com
+   * @returns
+   */
   get(com: string): CommandInfo[] {
     let Storage = this.Subset.get(com);
 
@@ -71,10 +101,20 @@ export class CommandManager {
     return Storage;
   }
 
+  /**
+   *
+   * @param com
+   * @returns
+   */
   has(com: string): boolean {
     return this.Subset.has(com);
   }
 
+  /**
+   *
+   * @param com
+   * @returns
+   */
   getBestMatches(com: CommandIntr): CommandInfo[] {
     let Storage = this.Subset.get(com.GetCommandKeyword());
     let Out: CommandInfo[] = [];
@@ -93,6 +133,12 @@ export class CommandManager {
   }
 }
 
+/**
+ *
+ * @param com
+ * @param pattern
+ * @returns
+ */
 export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
   let Limit = pattern.parameters.length;
 
@@ -115,36 +161,16 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
 
     switch (patPar.Type) {
       case MCCommandParameterType.block:
-      case MCCommandParameterType.cameraShakeType:
-      case MCCommandParameterType.cloneMode:
-      case MCCommandParameterType.difficulty:
       case MCCommandParameterType.entity:
       case MCCommandParameterType.event:
-      case MCCommandParameterType.fillMode:
       case MCCommandParameterType.function:
-      case MCCommandParameterType.gamemode:
       case MCCommandParameterType.item:
-      case MCCommandParameterType.locateFeature:
-      case MCCommandParameterType.maskMode:
-      case MCCommandParameterType.mirror:
-      case MCCommandParameterType.musicRepeatMode:
       case MCCommandParameterType.objective:
-      case MCCommandParameterType.operation:
       case MCCommandParameterType.particle:
-      case MCCommandParameterType.replaceMode:
-      case MCCommandParameterType.rideRules:
-      case MCCommandParameterType.rotation:
-      case MCCommandParameterType.saveMode:
-      case MCCommandParameterType.slotID:
-      case MCCommandParameterType.slotType:
       case MCCommandParameterType.sound:
       case MCCommandParameterType.string:
-      case MCCommandParameterType.structureAnimationMode:
       case MCCommandParameterType.tag:
-      case MCCommandParameterType.target:
-      case MCCommandParameterType.teleportRules:
       case MCCommandParameterType.unknown:
-      case MCCommandParameterType.xp:
         //TODO program matches types for these
         continue;
 
@@ -156,6 +182,10 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         if (!BlockStates.BlockStates.IsStates(comText)) return false;
         break;
 
+      case MCCommandParameterType.cameraShakeType:
+        if (!IsMode(CameraShakeModes, comText)) return false;
+        break;
+
       case MCCommandParameterType.command:
         if (!Manager.Data.Commands.has(comText)) return false;
         break;
@@ -164,12 +194,32 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         if (!IsCoordinate(comText)) return false;
         break;
 
+      case MCCommandParameterType.cloneMode:
+        if (!IsMode(CloneMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.difficulty:
+        if (!IsMode(DifficultyMode, comText)) return false;
+        break;
+
       case MCCommandParameterType.effect:
         if (comText === "clear") return false;
         break;
 
+      case MCCommandParameterType.fillMode:
+        if (!IsMode(FillMode, comText)) return false;
+        break;
+
       case MCCommandParameterType.float:
         if (!IsFloat(comText)) return false;
+        break;
+
+      case MCCommandParameterType.gamemode:
+        if (!IsMode(GameMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.locateFeature:
+        if (!IsMode(LocateFeatureMode, comText)) return false;
         break;
 
       case MCCommandParameterType.integer:
@@ -185,16 +235,68 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         if (comText != patPar.Text) return false;
         break;
 
+      case MCCommandParameterType.maskMode:
+        if (!IsMode(MaskMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.mirror:
+        if (!IsMode(MirrorMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.musicRepeatMode:
+        if (!IsMode(MusicRepeatMode, comText)) return false;
+        break;
+
       case MCCommandParameterType.oldBlockMode:
         if (!IsMode(OldBlockModeModes, comText)) return false;
+        break;
+
+      case MCCommandParameterType.operation:
+        if (!IsMode(OperationModes, comText)) return false;
+        break;
+
+      case MCCommandParameterType.replaceMode:
+        if (!IsMode(ReplaceMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.rideRules:
+        if (!IsMode(RideRulesMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.rotation:
+        if (!IsMode(RotationMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.saveMode:
+        if (!IsMode(SaveMode, comText)) return false;
         break;
 
       case MCCommandParameterType.selector:
         if (!IsSelector(comText, patPar.Options)) return false;
         break;
 
+      case MCCommandParameterType.slotType:
+        if (!IsMode(SlotTypeModes, comText)) return false;
+        break;
+
+      case MCCommandParameterType.slotID:
+        if (!IsInteger(comText)) return false;
+        break;
+
+      case MCCommandParameterType.structureAnimationMode:
+        if (!IsMode(StructureAnimationMode, comText)) return false;
+        break;
+
+      case MCCommandParameterType.teleportRules:
+        if (!IsMode(TeleportRulesMode, comText)) return false;
+        break;
+
       case MCCommandParameterType.tickingarea:
         if (!IsTickingArea(comText)) return false;
+        break;
+
+      case MCCommandParameterType.xp:
+        if (!IsXpLevel(comText)) return false;
         break;
     }
   }

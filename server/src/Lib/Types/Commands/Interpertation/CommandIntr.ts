@@ -58,6 +58,14 @@ export class CommandIntr {
     this.Parameters = [];
   }
 
+  /**
+   *
+   * @param line
+   * @param cursor
+   * @param uri
+   * @param startPos
+   * @returns
+   */
   static parse(line: string, cursor: Position, uri: string, startPos: Position | undefined = undefined): CommandIntr {
     let Out = new CommandIntr();
 
@@ -94,6 +102,12 @@ export class CommandIntr {
     return Out;
   }
 
+  /**
+   *
+   * @param start
+   * @param end
+   * @returns
+   */
   slice(start?: number | undefined, end?: number | undefined): CommandIntr {
     let Out = new CommandIntr();
     Out.Line = this.Line;
@@ -136,6 +150,12 @@ export class CommandIntr {
   }
 }
 
+/**
+ *
+ * @param command
+ * @param character
+ * @returns
+ */
 export function IsInSubCommand(command: CommandIntr, character: number): CommandIntr | undefined {
   //execute command hasn't been completed yet
   if (command.Parameters.length < 6) return undefined;
@@ -162,6 +182,11 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
   return undefined;
 }
 
+/**
+ *
+ * @param command
+ * @returns
+ */
 export function GetSubCommand(command: CommandIntr): CommandIntr | undefined {
   let Matches = command.GetCommandData();
 

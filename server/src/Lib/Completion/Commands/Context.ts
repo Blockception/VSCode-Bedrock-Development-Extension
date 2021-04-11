@@ -32,12 +32,13 @@ import { Position } from "vscode-languageserver-textdocument";
 import { CommandInfo } from "../../Types/Commands/Info/include";
 import { CommandIntr } from "../../Types/Commands/Interpertation/CommandIntr";
 import { MCCommandParameter } from "../../Types/Commands/Parameter/Parameter";
+import { BaseCommandContext } from "../../Types/General/Context/Context";
 import { CompletionBuilder } from "../include";
 
 /**
  *
  */
-export interface CommandCompletionContext {
+export interface CommandCompletionContext extends BaseCommandContext {
   Parameter: MCCommandParameter;
   ParameterIndex: number;
   Command: CommandIntr;

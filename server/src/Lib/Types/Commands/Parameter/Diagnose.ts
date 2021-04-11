@@ -6,6 +6,7 @@ import {
   Coordinate,
   Effect,
   Entity,
+  Event,
   Float,
   Functions,
   Gamemode,
@@ -28,8 +29,23 @@ import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { Command } from "../include";
 import { LocationWord } from "bc-vscode-words";
 import { Particle } from "../../Minecraft/Resource/include";
-import { DiagnoseMode, OldBlockMode, Operation } from "../Modes/include";
-import { OldBlockModeModes } from "../Modes/OldBlockMode/OldBlockMode";
+import {
+  CameraShakeMode,
+  CloneMode,
+  FillMode,
+  LocateFeature,
+  MaskMode,
+  MirrorMode,
+  MusicRepeatMode,
+  OldBlockMode,
+  OperationMode,
+  ReplaceMode,
+  RideRulesMode,
+  RotationMode,
+  SaveMode,
+  StructureAnimationMode,
+  TeleportRulesMode,
+} from "../Modes/include";
 
 /**Diagnoses the single parameter
  * @param pattern
@@ -59,20 +75,16 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return Block.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.blockStates:
-      BlockStates.ProvideDiagnose(data, builder);
-      //TODO
-      return;
+      return BlockStates.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.boolean:
       return Boolean.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.cameraShakeType:
-      //TODO
-      return;
+      return CameraShakeMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.cloneMode:
-      //TODO
-      return;
+      return CloneMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.command:
       return Command.DiagnoseCommandParameter(data, builder);
@@ -87,11 +99,10 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return Entity.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.event:
-      return; //TODO
+      return Event.ProvideDiagnose(data, builder); //TODO provide entity ID
 
     case MCCommandParameterType.fillMode:
-      //TODO
-      return;
+      return FillMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.float:
       return Float.ProvideDiagnose(data, builder);
@@ -117,48 +128,40 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return Keyword.ProvideDiagnose(pattern, data, builder);
 
     case MCCommandParameterType.locateFeature:
-      //TODO
-      return;
+      return LocateFeature.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.maskMode:
-      //TODO
-      return;
+      return MaskMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.mirror:
-      //TODO
-      return;
+      return MirrorMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.musicRepeatMode:
-      //TODO
-      return;
+      return MusicRepeatMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.oldBlockMode:
-      return OldBlockMode.Diagnose(data, Com, builder);
+      return OldBlockMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.objective:
       return Objectives.ProvideDiagnose(data, validation, builder);
 
     case MCCommandParameterType.operation:
-      return Operation.ProvideDiagnose(data, Com, builder);
+      return OperationMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.particle:
       return Particle.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.replaceMode:
-      //TODO
-      return;
+      return ReplaceMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.rideRules:
-      //TODO
-      return;
+      return RideRulesMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.rotation:
-      //TODO
-      return;
+      return RotationMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.saveMode:
-      //TODO
-      return;
+      return SaveMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.selector:
       return Selector.ProvideDiagnose(pattern, data, builder, validation);
@@ -176,22 +179,18 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return String.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.structureAnimationMode:
-      //TODO
-      return;
+      return StructureAnimationMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.tag:
       return Tag.ProvideDiagnose(data, validation, builder);
 
-    case MCCommandParameterType.target:
-      //TODO
-      return;
     case MCCommandParameterType.teleportRules:
+      return TeleportRulesMode.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.tickingarea:
       return Tickingarea.ProvideDiagnose(data, builder);
 
     case MCCommandParameterType.unknown:
-      //TODO
       return;
 
     case MCCommandParameterType.xp:

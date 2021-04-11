@@ -30,92 +30,94 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 //The type of command parameter
 export enum MCCommandParameterType {
-  //Marks that the parameter is a block
+  //An animation key
+  animation,
+  //Block identifiers
   block,
-  //Marks that the parameter is a block states
+  //Block states
   blockStates,
-  //Marks that the parameter is a boolean value
+  //Booleans
   boolean,
-  //Marks that the parameter is a camera shake mode
+  //Camera Shake mode
   cameraShakeType,
-  //Marks that the parameter is a clone mode
+  //Clone mode
   cloneMode,
-  //Marks that the parameter is the start of a command
+  //Command start
   command,
-  //Marks that the parameter is a coordinate
+  //Coordinate
   coordinate,
-  //TODO
+  //Difficulty mode
   difficulty,
-  //Marks that the parameter is an effect
+  //Effect identifiers
   effect,
-  //Marks that the parameter is an entity
+  //Entity identifiers
   entity,
-  //Marks that the parameter is an event
+  //Event in behaviours
   event,
+  //The fill mode
   fillMode,
-  //Marks that the parameter is a function
+  //Functions paths
   function,
-  //Marks that the parameter is a float
+  //Float numbers
   float,
-  //Marks that the parameter is a gamemode
+  //Game mode
   gamemode,
-  //Marks that the parameter is an integer
+  //Integer numbers
   integer,
-  //Marks that the parameter is an item
+  //Item identifiers
   item,
-  //Marks that the parameter is an json structure for items
+  //Json item format
   jsonItem,
-  //Marks that the parameter is an json structure for text
+  //Json raw text
   jsonRawText,
-  //Marks that the parameter is a specified word
+  //Keyword
   keyword,
-  //Marks that the parameter is a locate feature
+  //Locates feature mode
   locateFeature,
-  //TODO
+  //Mask mode
   maskMode,
-  //TODO
+  //Mirror mode
   mirror,
-  //TODO
+  //Music repeat mode
   musicRepeatMode,
-  //Marks that the parameter is a scoreboard objective
+  //Objective identifiers
   objective,
+  //Old Block mode
   oldBlockMode,
-  //Marks that the parameter is a scoreboard operation
+  //Operation mode
   operation,
-  //Marks that the parameter is a particle
+  //Particle iodentifier
   particle,
-  //Marks that the parameter is a replace mode
+  //Replace mode
   replaceMode,
-  //Marks that the parameter is a ride rules mode
+  //Ride Rules
   rideRules,
-  //Marks that the parameter is a rotation mode
+  //Ride Fill Mode
+  ridefillMode,
+  //Rotation Mode
   rotation,
-  //Marks that the parameter is a selector
+  //Save Mode
   saveMode,
-  //Marks that the parameter is a selector
+  //Selectors
   selector,
-  //Marks that the parameter is a player selector
+  //Slot type
   slotType,
-  //Marks that the parameter is a slot ID
+  //Slot ID
   slotID,
-  //Marks that the parameter is a sound
+  //Sound identifier
   sound,
-  //Marks that the parameter is a string
+  //Strings
   string,
-  //TODO
+  //Structre animation  mode
   structureAnimationMode,
-  //Marks that the parameter is a target
-  target,
-  //Marks that the parameter is a tag
+  //Tag identifiers
   tag,
-  //TODO
+  //Teleport rules
   teleportRules,
-  //Marks that the parameter is a ticking area
+  //Ticking area identifiers
   tickingarea,
-  //Marks that the parameter is of an unknown type
+  //Unknown
   unknown,
-  //Marks that the parameter is an xp value
+  //XP
   xp,
 }
-
-//TODO add function that wraps a parameter around a pointer to Completion/Diagnostics/Is

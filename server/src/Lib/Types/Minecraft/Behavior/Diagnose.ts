@@ -4,7 +4,7 @@ import { Entities, Functions } from "./include";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { DataType, DetectBehaviorType } from "../Format/include";
 
-export function Diagnose(context: DiagnoseContext): void {
+export function ProvideDiagnose(context: DiagnoseContext): void {
   context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
 }
 
@@ -19,7 +19,7 @@ export function DiagnoseJson(doc: TextDocument): void {
 
   switch (type) {
     case DataType.behaviour_entity:
-      Entities.Diagnose(doc);
+      Entities.ProvideDiagnose(doc);
 
     default:
       return;

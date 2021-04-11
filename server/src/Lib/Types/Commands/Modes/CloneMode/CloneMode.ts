@@ -1,7 +1,7 @@
 import { ModeCollection } from "../Interface";
 
-export const CameraShakeModes: ModeCollection = {
-  Name: "Clone mode",
+export const CloneMode: ModeCollection = {
+  Name: "Clone Mode",
   Modes: [
     { Name: "force", Description: "Forces the clone even if the source and destination regions overlap." },
     {

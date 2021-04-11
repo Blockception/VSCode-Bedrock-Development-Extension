@@ -44,6 +44,7 @@
                   "title": "Type",
                   "type": "string",
                   "enum": [
+                    "animation",
                     "block",
                     "boolean",
                     "blockStates",

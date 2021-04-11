@@ -25,8 +25,8 @@ export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
       return;
     }
 
-    World.Diagnose(context);
-    Behavior.Diagnose(context);
+    World.ProvideDiagnose(context);
+    Behavior.ProvideDiagnose(context);
 
     Console.Log("Diagnosing done");
   });
