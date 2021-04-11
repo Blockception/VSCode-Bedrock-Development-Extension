@@ -799,7 +799,7 @@
         { "Text": "start_riding", "Type": "keyword", "Required": true },
         { "Text": "ride", "Type": "selector", "Required": true },
         { "Text": "teleport", "Type": "teleportRules", "Required": false },
-        { "Text": "fill mode", "Type": "fillMode", "Required": false }
+        { "Text": "fill mode", "Type": "ridefillMode", "Required": false }
       ]
     },
     {
