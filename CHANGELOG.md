@@ -1,5 +1,7 @@
 # Changelog 
 ## Plugin 
+- Updated readme
+- Updated to version 1.7.17
 - Updated
 - Refactor
 - Refactor commands
@@ -37,9 +39,7 @@
 - Added glowsquid
 - Updated to 1.7.15
 - Fixed inclusion of behaviour schema files
-- Updated schemas,
-- Updated
-- Updated to 1.7.13. 
+- Updated schemas,. 
 ## Schemas 
 - Minecraft is throwing errors
 - Added new damage sources
