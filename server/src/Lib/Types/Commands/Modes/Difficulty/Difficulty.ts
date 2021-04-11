@@ -27,12 +27,25 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { LocationWord } from "bc-vscode-words";
-import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
-import { IsDifficulty } from "./Functions";
+import { ModeCollection } from "../Interface";
 
-export function ProvideDiagnotics(word: LocationWord, builder: DiagnosticsBuilder): void {
-  if (IsDifficulty(word.text)) return;
+export const DifficultyMode: ModeCollection = {
+  Name: "Difficulty Mode",
+  Modes: [
+    { Name: "1", Description: "Easy mode, mobs will attack in this mode. but at a minimum." },
+    { Name: "e", Description: "Easy mode, mobs will attack in this mode. but at a minimum." },
+    { Name: "easy", Description: "Easy mode, mobs will attack in this mode. but at a minimum." },
 
-  builder.AddWord(word, "invalid difficulty: " + word.text);
-}
+    { Name: "2", Description: "The default difficulty mode for minecraft, mobs will attack." },
+    { Name: "n", Description: "The default difficulty mode for minecraft, mobs will attack." },
+    { Name: "normal", Description: "The default difficulty mode for minecraft, mobs will attack." },
+
+    { Name: "3", Description: "The most difficult mode for minecraft, mobs will attack somewhat harder." },
+    { Name: "h", Description: "The most difficult mode for minecraft, mobs will attack somewhat harder." },
+    { Name: "hard", Description: "The most difficult mode for minecraft, mobs will attack somewhat harder." },
+
+    { Name: "0", Description: "The relaxed mode, no mobs with attacking behaviour can be spawned" },
+    { Name: "p", Description: "The relaxed mode, no mobs with attacking behaviour can be spawned" },
+    { Name: "peacefull", Description: "The relaxed mode, no mobs with attacking behaviour can be spawned" },
+  ],
+};

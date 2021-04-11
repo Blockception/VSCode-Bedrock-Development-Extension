@@ -1,6 +1,5 @@
 /*	Auto generated	*/
 
+export * from "./Difficulty";
 export * from "./Completion";
-export * from "./Constants";
-export * from "./Diagnostics";
-export * from "./Functions";
+export * from "./Diagnose";

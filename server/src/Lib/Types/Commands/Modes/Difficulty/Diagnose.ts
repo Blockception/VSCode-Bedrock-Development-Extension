@@ -27,26 +27,15 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
-import { Difficulty } from "./Constants";
+import { LocationWord } from "bc-vscode-words";
+import { CommandIntr } from "../../Interpertation/include";
+import { DiagnoseMode } from "../Diagnose";
+import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
+import { DifficultyMode } from "./Difficulty";
 
-export function IsDifficulty(value: string): boolean {
-  if (value === "") return false;
+export function Diagnose(Word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
+  DiagnoseMode(Word, DifficultyMode, builder);
+  let Index = Command.Parameters.indexOf(Word);
 
-  switch (value) {
-    case Difficulty.easy.value:
-    case Difficulty.easy.long:
-    case Difficulty.easy.short:
-    case Difficulty.normal.value:
-    case Difficulty.normal.long:
-    case Difficulty.normal.short:
-    case Difficulty.hard.value:
-    case Difficulty.hard.long:
-    case Difficulty.hard.short:
-    case Difficulty.peacefull.value:
-    case Difficulty.peacefull.long:
-    case Difficulty.peacefull.short:
-      return true;
-  }
-
-  return false;
+  if (Index < 0) return;
 }
