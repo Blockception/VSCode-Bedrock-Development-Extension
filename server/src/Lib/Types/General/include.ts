@@ -2,6 +2,7 @@
 export * as Block from "./Block/include";
 export * as BlockStates from "./BlockStates/include";
 export * as Boolean from "./Boolean/include";
+export * as Context from "./Context/include";
 export * as Coordinate from "./Coordinate/include";
 export * as Effect from "./Effect/include";
 export * as Entity from "./Entity/include";
