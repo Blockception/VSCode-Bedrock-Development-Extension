@@ -1,6 +1,36 @@
 # Changelog 
 ## Plugin 
 - Updated
+- Refactor
+- Refactor commands
+- Added Save mode
+- Added ride rules mode
+- Updated ride file mode
+- Added Teleport rules mode
+- Added Ride file mode
+- Added replace mode
+- Added music mode
+- Added structure mode
+- Added rotation mode
+- Added mirrormode
+- Updated
+- Removed notice for code, as its get down compiled to js and webpacked. License still needs to be included as a text file
+- Added Maskmode
+- Added Filemode
+- Locate feature
+- Refactor Gamemode
+- Refactor difficulty
+- Refactor of gamemode
+- Added difficulty
+- Moved Gamemode
+- Updated
+- Updated
+- Renamed operations
+- Added Camera Shake
+- Added clone mode
+- Added modulus operation
+- Updated to 1.7.16
+- Updated
 - Added Diagnostics for movements in entitieszz
 - Updated
 - Updated schemas
@@ -9,35 +39,45 @@
 - Fixed inclusion of behaviour schema files
 - Updated schemas,
 - Updated
-- Updated to 1.7.13
-- Updated
-- Settup different settings
-- Adding automatic filling of language filling
-- Merge branch 'master' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Updated to 1.7.12
-- auto: Generated typescript includes
-- Added missing items to language file
-- Updated to 1.7.11
-- Updated model detection
-- Updated to 1.7.10. 
+- Updated to 1.7.13. 
 ## Schemas 
-- auto: Generated Json Schemas
-- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
 - Minecraft is throwing errors
-- auto: Generated Json Schemas
-- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
 - Added new damage sources
-- auto: Generated Json Schemas
 - Increased height range for Fogs following the new docs 1.16.220
-- auto: Generated Json Schemas
 - Fixing
-- auto: Generated Json Schemas
-- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
 - Adding format version regex
-- auto: Generated Json Schemas
 - Updating
-- auto: Generated Json Schemas
-- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
 - Updated
-- auto: Generated Json Schemas
-- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
+- Updated descrption/titles
+- Updated
+- Refactor
+- Update compress-json-schemas.yml
+- Update compress-json-schemas.yml
+- Updated animation bones
+- Updated animations bones needing atleast 1 bone specificaiton
+- Added Is_hurt_color to 1.10.0 render controllers
+- Updated
+- compressed
+- Updated script
+- Added tasks
+- Update compress-json-schemas.yml
+- Update compress-json-schemas.yml
+- Updated
+- Update compress-json-schemas.yml
+- Update compress-json-schemas.yml
+- Update compress-json-schemas.yml
+- Update compress-json-schemas.yml
+- Regeneration test
+- Update compress-json-schemas.yml
+- Update compress-json-schemas.yml
+- Create compress-json-schemas.yml
+- Updated
+- Updated contents
+- Fixied property values
+- Updated blocks
+- Updated block property regonication
+- Added uv_anim
+- Fixing references for fog json validation
+- Added fatal to damage_sources
+- Updated
+- Tweaked animation controller 1.10.0
