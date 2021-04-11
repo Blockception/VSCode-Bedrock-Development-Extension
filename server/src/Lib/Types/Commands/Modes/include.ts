@@ -7,6 +7,7 @@ export * as Gamemode from "./Gamemode/include";
 export * as LocateFeature from "./LocateFeature/include";
 export * as MaskMode from "./MaskMode/include";
 export * as MirrorMode from "./MirrorMode/include";
+export * as MusicRepeatMode from "./MusicRepeatMode/include";
 export * as OldBlockMode from "./OldBlockMode/include";
 export * as OperationMode from "./OperationMode/include";
 export * as RotationMode from "./RotationMode/include";
