@@ -54,7 +54,7 @@ import {
 import { ItemComponents, RawText } from "../../Minecraft/Json/include";
 import { Particle } from "../../Minecraft/Resource/include";
 import { Command } from "../include";
-import { OldBlockMode, Operation } from "../Modes/include";
+import { CameraShake, OldBlockMode, Operation } from "../Modes/include";
 import { MCCommandParameterType } from "./include";
 
 function toCompletion(Context: CommandCompletionContext): void {
@@ -88,8 +88,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     case MCCommandParameterType.boolean:
       return Boolean.ProvideCompletion(Context);
     case MCCommandParameterType.cameraShakeType:
-      //TODO
-      return;
+      return CameraShake.ProvideCompletion(Context);
     case MCCommandParameterType.cloneMode:
       //TODO
       return;
