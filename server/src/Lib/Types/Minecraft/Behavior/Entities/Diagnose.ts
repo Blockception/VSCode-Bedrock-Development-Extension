@@ -60,6 +60,8 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
     return;
   }
 
+  if (Entity["minecraft:entity"].description.identifier === "minecraft:player") return;
+
   if (Entity["minecraft:entity"].description.animations) {
     for (let id in Entity["minecraft:entity"].description.animations) {
       let animation = Entity["minecraft:entity"].description.animations[id];
