@@ -4,7 +4,7 @@ import { ValidationData } from "../../../Validation/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { Manager } from "../../../Manager/include";
 
-export function ProvideDiagnose(data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnostic(data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder): void {
   if (!Manager.Settings.Diagnostics.Tags) return;
 
   const text = data.text;

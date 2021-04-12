@@ -1,7 +1,7 @@
 import { LocationWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 
-export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilder): void {
   let text = data.text;
 
   if (text.startsWith("[") && text.endsWith("]")) {

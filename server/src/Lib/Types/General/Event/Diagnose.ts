@@ -2,7 +2,7 @@ import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../Database/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 
-export function ProvideDiagnose(event: LocationWord, builder: DiagnosticsBuilder, EntityID: string | undefined = undefined): void {
+export function ProvideDiagnostic(event: LocationWord, builder: DiagnosticsBuilder, EntityID: string | undefined = undefined): void {
   let eventData = event.text;
 
   if (EntityID) {

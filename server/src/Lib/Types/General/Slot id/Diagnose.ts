@@ -5,12 +5,12 @@ import { SlotTypeMode, SlotTypeModes } from "../Slot type/Slot type";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { Integer } from "../include";
 
-export function ProvideDiagnose(word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnostic(word: LocationWord, Command: CommandIntr, builder: DiagnosticsBuilder): void {
   let Index = Command.Parameters.indexOf(word);
 
   if (Index < 0) return;
 
-  Integer.ProvideDiagnose(word, builder);
+  Integer.ProvideDiagnostic(word, builder);
 
   const SlotType = Command.Parameters[Index - 1].text;
   const SlotID = Number.parseInt(word.text);

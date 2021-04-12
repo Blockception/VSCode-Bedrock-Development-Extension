@@ -2,7 +2,7 @@ import { LocationWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { Integer } from "../include";
 
-export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilder): void {
   //TODO
 
   let text = data.text;
@@ -13,5 +13,5 @@ export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder)
 
   data = new LocationWord(text, data.location.uri, data.location.range);
 
-  Integer.ProvideDiagnose(data, builder);
+  Integer.ProvideDiagnostic(data, builder);
 }

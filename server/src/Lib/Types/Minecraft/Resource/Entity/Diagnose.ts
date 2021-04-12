@@ -4,7 +4,7 @@ import { Database } from "../../../../Database/Database";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
 import { Entity, render_controller_ref } from "../Entity/Entity";
 
-export function ProvideDiagnose(doc: TextDocument): void {
+export function ProvideDiagnostic(doc: TextDocument): void {
   let Builder = new DiagnosticsBuilder(doc);
   let JDoc = new JsonDocument(doc);
 

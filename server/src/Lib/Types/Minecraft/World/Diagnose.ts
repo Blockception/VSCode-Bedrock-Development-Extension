@@ -1,3 +1,3 @@
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
 
-export function ProvideDiagnose(context: DiagnoseContext): void {}
+export function ProvideDiagnostic(context: DiagnoseContext): void {}

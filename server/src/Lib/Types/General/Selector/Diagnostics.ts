@@ -16,7 +16,7 @@ import { DiagnosticSeverity } from "vscode-languageserver";
  * @param receiver
  * @param validation
  */
-export function ProvideDiagnose(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, validation: ValidationData): void {
+export function ProvideDiagnostic(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, validation: ValidationData): void {
   let text = data.text;
 
   if (pattern.Options?.acceptedValues?.includes(data.text)) return;

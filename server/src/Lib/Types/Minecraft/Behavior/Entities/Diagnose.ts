@@ -9,7 +9,7 @@ import { Entity } from "./Entity";
  *
  * @param doc
  */
-export function ProvideDiagnose(doc: TextDocument): void {
+export function ProvideDiagnostic(doc: TextDocument): void {
   let Builder = new DiagnosticsBuilder(doc);
   let JDoc = new JsonDocument(doc);
 

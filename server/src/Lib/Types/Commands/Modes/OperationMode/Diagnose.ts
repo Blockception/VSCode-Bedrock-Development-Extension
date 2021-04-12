@@ -4,6 +4,6 @@ import { DiagnoseMode } from "../Diagnose";
 import { OperationModes } from "./Operation";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
 
-export function ProvideDiagnose(Word: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnostic(Word: LocationWord, builder: DiagnosticsBuilder): void {
   DiagnoseMode(Word, OperationModes, builder);
 }

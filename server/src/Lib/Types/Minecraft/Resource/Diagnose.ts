@@ -3,7 +3,7 @@ import { DiagnoseContext } from "../../../Diagnostics/Types/include";
 import { DataType, DetectResourceType } from "../Format/include";
 import { Entity } from "./include";
 
-export function ProvideDiagnose(context: DiagnoseContext): void {}
+export function ProvideDiagnostic(context: DiagnoseContext): void {}
 
 export function DiagnoseJson(doc: TextDocument): void {
   const uri = decodeURI(doc.uri);
@@ -11,7 +11,7 @@ export function DiagnoseJson(doc: TextDocument): void {
 
   switch (type) {
     case DataType.resource_entity:
-      Entity.ProvideDiagnose(doc);
+      Entity.ProvideDiagnostic(doc);
 
     default:
       return;

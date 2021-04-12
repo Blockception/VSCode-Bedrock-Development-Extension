@@ -72,52 +72,52 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
 
   switch (pattern.Type) {
     case MCCommandParameterType.block:
-      return Block.ProvideDiagnose(data, builder);
+      return Block.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.blockStates:
-      return BlockStates.ProvideDiagnose(data, builder);
+      return BlockStates.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.boolean:
-      return Boolean.ProvideDiagnose(data, builder);
+      return Boolean.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.cameraShakeType:
-      return CameraShakeMode.ProvideDiagnose(data, builder);
+      return CameraShakeMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.cloneMode:
-      return CloneMode.ProvideDiagnose(data, builder);
+      return CloneMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.command:
       return Command.DiagnoseCommandParameter(data, builder);
 
     case MCCommandParameterType.coordinate:
-      return Coordinate.ProvideDiagnose(data, builder);
+      return Coordinate.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.effect:
-      return Effect.ProvideDiagnose(data, builder);
+      return Effect.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.entity:
-      return Entity.ProvideDiagnose(data, builder);
+      return Entity.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.event:
-      return Event.ProvideDiagnose(data, builder); //TODO provide entity ID
+      return Event.ProvideDiagnostic(data, builder); //TODO provide entity ID
 
     case MCCommandParameterType.fillMode:
-      return FillMode.ProvideDiagnose(data, builder);
+      return FillMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.float:
-      return Float.ProvideDiagnose(data, builder);
+      return Float.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.function:
-      return Functions.ProvideDiagnose(data, builder);
+      return Functions.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.gamemode:
-      return Gamemode.ProvideDiagnose(data, builder);
+      return Gamemode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.integer:
-      return Integer.ProvideDiagnose(data, builder);
+      return Integer.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.item:
-      return Item.ProvideDiagnose(data, builder);
+      return Item.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.jsonItem:
     case MCCommandParameterType.jsonRawText:
@@ -125,76 +125,76 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return;
 
     case MCCommandParameterType.keyword:
-      return Keyword.ProvideDiagnose(pattern, data, builder);
+      return Keyword.ProvideDiagnostic(pattern, data, builder);
 
     case MCCommandParameterType.locateFeature:
-      return LocateFeature.ProvideDiagnose(data, builder);
+      return LocateFeature.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.maskMode:
-      return MaskMode.ProvideDiagnose(data, builder);
+      return MaskMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.mirror:
-      return MirrorMode.ProvideDiagnose(data, builder);
+      return MirrorMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.musicRepeatMode:
-      return MusicRepeatMode.ProvideDiagnose(data, builder);
+      return MusicRepeatMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.oldBlockMode:
-      return OldBlockMode.ProvideDiagnose(data, builder);
+      return OldBlockMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.objective:
-      return Objectives.ProvideDiagnose(data, validation, builder);
+      return Objectives.ProvideDiagnostic(data, validation, builder);
 
     case MCCommandParameterType.operation:
-      return OperationMode.ProvideDiagnose(data, builder);
+      return OperationMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.particle:
-      return Particle.ProvideDiagnose(data, builder);
+      return Particle.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.replaceMode:
-      return ReplaceMode.ProvideDiagnose(data, builder);
+      return ReplaceMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.rideRules:
-      return RideRulesMode.ProvideDiagnose(data, builder);
+      return RideRulesMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.rotation:
-      return RotationMode.ProvideDiagnose(data, builder);
+      return RotationMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.saveMode:
-      return SaveMode.ProvideDiagnose(data, builder);
+      return SaveMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.selector:
-      return Selector.ProvideDiagnose(pattern, data, builder, validation);
+      return Selector.ProvideDiagnostic(pattern, data, builder, validation);
 
     case MCCommandParameterType.slotID:
-      return Slot_id.ProvideDiagnose(data, Com, builder);
+      return Slot_id.ProvideDiagnostic(data, Com, builder);
 
     case MCCommandParameterType.slotType:
-      return Slot_type.ProvideDiagnose(data, builder);
+      return Slot_type.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.sound:
-      return Sound.ProvideDiagnose(data, builder);
+      return Sound.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.string:
-      return String.ProvideDiagnose(data, builder);
+      return String.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.structureAnimationMode:
-      return StructureAnimationMode.ProvideDiagnose(data, builder);
+      return StructureAnimationMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.tag:
-      return Tag.ProvideDiagnose(data, validation, builder);
+      return Tag.ProvideDiagnostic(data, validation, builder);
 
     case MCCommandParameterType.teleportRules:
-      return TeleportRulesMode.ProvideDiagnose(data, builder);
+      return TeleportRulesMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.tickingarea:
-      return Tickingarea.ProvideDiagnose(data, builder);
+      return Tickingarea.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.unknown:
       return;
 
     case MCCommandParameterType.xp:
-      Xp.ProvideDiagnose(data, builder);
+      Xp.ProvideDiagnostic(data, builder);
       return;
   }
 }

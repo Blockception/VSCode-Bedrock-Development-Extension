@@ -2,7 +2,7 @@ import { LocationWord } from "bc-vscode-words";
 import { Database } from "../../../Database/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 
-export function ProvideDiagnose(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
   if (Database.Data.General.TickingAreas.HasID(text)) return;

@@ -3,6 +3,6 @@ import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { DiagnoseMode } from "../../Commands/Modes/Diagnose";
 import { SlotTypeModes } from "./Slot type";
 
-export function ProvideDiagnose(word: LocationWord, builder: DiagnosticsBuilder): void {
+export function ProvideDiagnostic(word: LocationWord, builder: DiagnosticsBuilder): void {
   DiagnoseMode(word, SlotTypeModes, builder);
 }
