@@ -1,6 +1,7 @@
 /*	Auto generated	*/
 export * as Behavior from "./Behavior/include";
 export * as Format from "./Format/include";
+export * as General from "./General/include";
 export * as Interfaces from "./Interfaces/include";
 export * as Json from "./Json/include";
 export * as Logs from "./Logs/include";
