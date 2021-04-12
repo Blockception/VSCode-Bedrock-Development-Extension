@@ -23,6 +23,7 @@ export function Diagnostics(doc: TextDocument): void {
       break;
   }
 
+  //If its a json file
   let type = DetectGeneralDataType(doc.uri);
 
   switch (type) {
