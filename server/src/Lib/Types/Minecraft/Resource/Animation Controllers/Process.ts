@@ -3,8 +3,10 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { JsonDocument } from "../../../../Code/Json/include";
 import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
+import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
 import { EmptyTypes } from "../../../General/include";
 import { AnimationController } from "./Animation Controller";
+import { ProvideDiagnostic } from "../../General/Animation Controllers/Diagnose";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -27,4 +29,7 @@ export function Process(doc: TextDocument): void {
 
     Database.Data.Resourcepack.AnimationControllers.Set(new DataReference(Name, Location));
   }
+
+  let Builder = new DiagnosticsBuilder(doc);
+  ProvideDiagnostic(Format, Builder);
 }

@@ -6,6 +6,7 @@ export interface State {
   on_exit?: string[];
   transitions?: Transition[];
   animations?: Animation[];
+  blend_transition?: number;
 }
 
 export interface Controller {

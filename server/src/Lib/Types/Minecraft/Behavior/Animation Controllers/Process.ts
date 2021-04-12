@@ -5,6 +5,8 @@ import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
 import { EmptyTypes } from "../../../General/Empty";
 import { AnimationController } from "./include";
+import { ProvideDiagnostic } from "../../General/Animation Controllers/Diagnose";
+import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -27,4 +29,7 @@ export function Process(doc: TextDocument): void {
 
     Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
   }
+
+  let Builder = new DiagnosticsBuilder(doc);
+  ProvideDiagnostic(Format, Builder);
 }
