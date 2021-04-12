@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Updated to 1.7.19
 - Updated
 - Bugfixing animation controller diagnostics
 - Fixed
@@ -38,8 +39,7 @@
 - Updated
 - Renamed operations
 - Added Camera Shake
-- Added clone mode
-- Added modulus operation. 
+- Added clone mode. 
 ## Schemas 
 - Minecraft is throwing errors
 - Added new damage sources
