@@ -29,7 +29,4 @@ export function Process(doc: TextDocument): void {
 
     Database.Data.Behaviourpack.AnimationControllers.Set(new DataReference(Name, Location));
   }
-
-  let Builder = new DiagnosticsBuilder(doc);
-  ProvideDiagnostic(Format, Builder);
 }

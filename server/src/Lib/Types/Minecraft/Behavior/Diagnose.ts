@@ -1,6 +1,6 @@
-import { Code } from "../../../include";
+import { Code, Data } from "../../../include";
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
-import { Entities, Functions } from "./include";
+import { Entities, Functions, Animation_Controllers } from "./include";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { DataType, DetectBehaviorType } from "../Format/include";
 
@@ -18,8 +18,11 @@ export function DiagnoseJson(doc: TextDocument): void {
   let type = DetectBehaviorType(uri);
 
   switch (type) {
+    case DataType.behaviour_animation_controller:
+      return Animation_Controllers.ProvideDiagnostic(doc);
+
     case DataType.behaviour_entity:
-      Entities.ProvideDiagnostic(doc);
+      return Entities.ProvideDiagnostic(doc);
 
     default:
       return;

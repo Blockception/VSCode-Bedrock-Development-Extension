@@ -15,8 +15,8 @@ export function ProvideDiagnostic(Data: AnimationController, Builder: Diagnostic
     if (controller.states) {
       const States = Object.getOwnPropertyNames(controller.states);
 
-      for (const StateKey in States) {
-        let State = controller.states[StateKey];
+      for (var I = 0; I < States.length; I++) {
+        let State = controller.states[States[I]];
 
         if (State.transitions) CheckTransition(contKey, State.transitions, States, Builder);
       }
@@ -25,8 +25,10 @@ export function ProvideDiagnostic(Data: AnimationController, Builder: Diagnostic
 }
 
 function CheckTransition(controller: string, Transitions: Transition[], States: string[], Builder: DiagnosticsBuilder): void {
-  for (const Trans in Transitions) {
+  for (var I = 0; I < Transitions.length; I++) {
+    const Trans = Transitions[I];
     let State: string;
+
     if (typeof Trans === "string") {
       State = Trans;
     } else {
