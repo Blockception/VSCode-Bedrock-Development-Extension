@@ -7,12 +7,14 @@
   "repository": {
     "keywords": {
       "patterns": [
-        { "name": "entity.name.type", "match": "query" },
-        { "name": "entity.name.type", "match": "variable" },
+        { "name": "entity.name.type", "match": "(query|q)" },
+        { "name": "entity.name.type", "match": "(variable|v)" },
         { "name": "entity.name.type", "match": "[Mm]ath" },
+        { "name": "entity.name.type", "match": "([Tt]emp|t)" },
         { "name": "entity.name.function", "match": "(?<=query\\.)\\w*" },
         { "name": "entity.name.function", "match": "(?<=variable\\.)\\w*" },
-        { "name": "entity.name.function", "match": "(?<=[Mm]ath\\.)\\w*" }
+        { "name": "entity.name.function", "match": "(?<=[Mm]ath\\.)\\w*" },
+        { "name": "entity.name.function", "match": "(?<=[Tt]emp\\.)\\w*" }
       ]
     },
     "operators": {

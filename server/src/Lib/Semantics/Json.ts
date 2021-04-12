@@ -91,9 +91,15 @@ function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
         Builder.AddWord(Word, SemanticTokensEnum.interface, SemanticModifiersEnum.readonly);
         break;
 
+      case "q":
+      case "v":
+      case "t":
+      case "c":
+      case "context":
       case "math":
       case "query":
       case "variable":
+      case "temp":
         Builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
         break;
 

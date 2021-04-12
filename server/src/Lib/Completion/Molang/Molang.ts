@@ -21,18 +21,22 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
   let Word = GetPreviousWord(line, cursor);
 
   switch (Word.toLowerCase()) {
+    case "q":
     case "query":
       return Convert(Manager.Data.Molang.Query, receiver);
 
+    case "m":
     case "math":
       return Convert(Manager.Data.Molang.Math, receiver);
 
     case "geometry":
       return CreateGeometries(Database.Data.Resourcepack.Models, receiver);
 
+    case "v":
     case "variable":
       return OnCompletionMolangVariable(doc, receiver);
 
+    case "t":
     case "texture":
     case "temp":
   }

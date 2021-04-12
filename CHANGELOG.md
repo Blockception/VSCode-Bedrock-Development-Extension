@@ -1,6 +1,13 @@
 # Changelog 
 ## Plugin 
 - Updated
+- Bugfixing animation controller diagnostics
+- Fixed
+- Adding animation controllers diagnostics
+- Renamed
+- Removed Notice
+- Updated to 1.7.17
+- Updated
 - Updated licenes
 - Updated readme
 - Updated to version 1.7.17
@@ -32,14 +39,7 @@
 - Renamed operations
 - Added Camera Shake
 - Added clone mode
-- Added modulus operation
-- Updated to 1.7.16
-- Updated
-- Added Diagnostics for movements in entitieszz
-- Updated
-- Updated schemas
-- Added glowsquid
-- Updated to 1.7.15. 
+- Added modulus operation. 
 ## Schemas 
 - Minecraft is throwing errors
 - Added new damage sources
