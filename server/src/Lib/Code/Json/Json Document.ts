@@ -22,7 +22,7 @@ export class JsonDocument {
 
   /**Casts the contents of the document to the specified interface, if any errors is occured during that process. that error is returned */
   public CastToError<T>(): { value: T | undefined | null; error: any } {
-    let object = this.CastToError();
+    let object = this.GetObjectError();
 
     if (object.error) {
       return { value: undefined, error: object.error };
