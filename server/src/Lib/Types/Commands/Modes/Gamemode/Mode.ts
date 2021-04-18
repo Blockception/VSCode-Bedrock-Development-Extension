@@ -1,4 +1,4 @@
-import { ModeCollection } from "../../Commands/Modes/include";
+import { ModeCollection } from "../include";
 
 export const GameMode: ModeCollection = {
   Name: "gamemodes",

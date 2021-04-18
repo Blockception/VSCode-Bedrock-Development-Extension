@@ -2,4 +2,4 @@
 
 export * from "./Completion";
 export * from "./Diagnose";
-export * from "./Gamemode";
+export * from "./Mode";

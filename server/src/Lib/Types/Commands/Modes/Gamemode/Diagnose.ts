@@ -1,9 +1,8 @@
 import { LocationWord } from "bc-vscode-words";
-import { CommandIntr } from "../../Interpertation/include";
-import { DiagnoseMode } from "../Diagnose";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
-import { GameMode } from "./Gamemode";
+import { DiagnoseMode } from "../Diagnose";
+import { GameMode } from "./Mode";
 
-export function ProvideDiagnostic(Word: LocationWord, builder: DiagnosticsBuilder): void {
-  DiagnoseMode(Word, GameMode, builder);
+export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilder): void {
+  DiagnoseMode(data, GameMode, builder);
 }

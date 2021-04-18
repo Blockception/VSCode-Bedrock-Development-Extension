@@ -11,7 +11,7 @@ export * as FakeEntity from "./FakeEntity/include";
 export * as Family from "./Family/include";
 export * as Float from "./Float/include";
 export * as Functions from "./Functions/include";
-export * as Gamemode from "./Gamemode/include";
+export * as Gamemode from "../Commands/Modes/Gamemode/include";
 export * as Integer from "./Integer/include";
 export * as Item from "./Item/include";
 export * as Json from "./Json/include";
