@@ -1,5 +1,12 @@
 # Changelog 
 ## Plugin 
+- Fixing gamemode move
+- Updated schemas
+- Updated
+- Updated
+- Updated
+- Updated
+- Fixing molang detection
 - Updated to 1.7.20
 - Updated to 1.7.19
 - Updated
@@ -32,15 +39,12 @@
 - Added Filemode
 - Locate feature
 - Refactor Gamemode
-- Refactor difficulty
-- Refactor of gamemode
-- Added difficulty
-- Moved Gamemode
-- Updated
-- Updated
-- Renamed operations
-- Added Camera Shake. 
+- Refactor difficulty. 
 ## Schemas 
+- Filled in descriptions
+- Updated descriptions
+- Updated
+- Adding command regex patterns
 - Minecraft is throwing errors
 - Added new damage sources
 - Increased height range for Fogs following the new docs 1.16.220
@@ -77,7 +81,3 @@
 - Updated blocks
 - Updated block property regonication
 - Added uv_anim
-- Fixing references for fog json validation
-- Added fatal to damage_sources
-- Updated
-- Tweaked animation controller 1.10.0
