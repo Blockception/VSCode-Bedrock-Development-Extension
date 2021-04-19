@@ -30,7 +30,7 @@ import { IsMode } from "../Modes/include";
 import { CloneMode } from "../Modes/CloneMode/CloneMode";
 import { DifficultyMode } from "../Modes/Difficulty/Difficulty";
 import { FillMode } from "../Modes/FillMode/FillMode";
-import { GameMode } from "../Modes/Gamemode/Gamemode";
+import { GameMode } from "../Modes/Gamemode/include";
 
 /**
  *
