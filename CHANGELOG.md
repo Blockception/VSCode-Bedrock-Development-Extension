@@ -1,5 +1,7 @@
 # Changelog 
 ## Plugin 
+- Fixing
+- Updated to 1.7.22
 - Fixing gamemode move
 - Updated schemas
 - Updated
@@ -37,10 +39,9 @@
 - Removed notice for code, as its get down compiled to js and webpacked. License still needs to be included as a text file
 - Added Maskmode
 - Added Filemode
-- Locate feature
-- Refactor Gamemode
-- Refactor difficulty. 
+- Locate feature. 
 ## Schemas 
+- Updated animations for BP
 - Filled in descriptions
 - Updated descriptions
 - Updated
@@ -80,4 +81,3 @@
 - Fixied property values
 - Updated blocks
 - Updated block property regonication
-- Added uv_anim
