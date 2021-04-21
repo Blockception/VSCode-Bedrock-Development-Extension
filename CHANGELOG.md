@@ -1,5 +1,7 @@
 # Changelog 
 ## Plugin 
+- Updating parsing and processing of files
+- Updated to 1.7.23
 - Fixing
 - Updated to 1.7.22
 - Fixing gamemode move
@@ -37,9 +39,7 @@
 - Added mirrormode
 - Updated
 - Removed notice for code, as its get down compiled to js and webpacked. License still needs to be included as a text file
-- Added Maskmode
-- Added Filemode
-- Locate feature. 
+- Added Maskmode. 
 ## Schemas 
 - Updated animations for BP
 - Filled in descriptions
