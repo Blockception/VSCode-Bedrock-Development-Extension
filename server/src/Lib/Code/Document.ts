@@ -6,6 +6,7 @@ import { GetFilepath, UniformUrl } from "./Url";
 import { fileURLToPath } from "url";
 import { Languages } from "../Constants";
 import { Console } from "../Console/Console";
+import { GetFilename } from "./File";
 
 /**
  * Returns an usable document interaction from the given data.
@@ -94,7 +95,11 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
     const element = uris[index];
     let doc = GetDocument(element);
 
-    if (doc) callback(doc);
+    try {
+      if (doc) callback(doc);
+    } catch (err) {
+      Console.Error(GetFilename(doc.uri) + " | " + JSON.stringify(err));
+    }
   }
 }
 

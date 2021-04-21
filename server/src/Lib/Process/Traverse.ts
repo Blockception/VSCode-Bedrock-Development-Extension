@@ -14,11 +14,15 @@ export function Traverse(): void {
 export function TraverseProject(Project: ProjectData | undefined): void {
   if (!Project) return;
 
-  Console.Log("Processing behavior packs");
-  Project.BehaviourPackFolders.forEach(Behavior.ProcessBehaviourPack);
+  try {
+    Console.Log("Processing behavior packs");
+    Project.BehaviourPackFolders.forEach(Behavior.ProcessBehaviourPack);
 
-  Console.Log("Processing resource packs");
-  Project.ResourcePackFolders.forEach(Resource.ProcessResourcePack);
+    Console.Log("Processing resource packs");
+    Project.ResourcePackFolders.forEach(Resource.ProcessResourcePack);
+  } catch (err) {
+    Console.Error(JSON.stringify(err));
+  }
 
   Manager.State.TraversingProject = false;
   Manager.State.DataGathered = true;

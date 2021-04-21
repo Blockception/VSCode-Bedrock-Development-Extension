@@ -11,7 +11,7 @@ export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
   if (Type === DataType.unknown) return;
 
-  Console.Log("    Processing behavior pack file: " + GetFilename(doc.uri));
+  //Console.Log("    Processing behavior pack file: " + GetFilename(doc.uri));
   ValidateFolder(doc);
 
   switch (Type) {

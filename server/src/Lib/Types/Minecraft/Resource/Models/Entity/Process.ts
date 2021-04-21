@@ -10,23 +10,28 @@ export function Process(doc: TextDocument): void {
   let Data = JDoc.CastTo<ModelEntity>();
 
   if (Data) {
-    if (Data.format_version === "1.8.0") {
+    if (Data.format_version === "1.8.0" || Data.format_version === "1.10.0") {
       let keys = Object.keys(Data);
 
       for (let k in keys) {
         if (k !== "format_version") {
-          let range = JDoc.RangeOf(k) ?? Range.create(0, 0, 0, 0);
-
-          Database.Data.Resourcepack.Models.Set(new DataReference(k, Location.create(JDoc.doc.uri, range)));
+          Add(k, JDoc);
         }
       }
-    } else {
-      for (let Geo of Data["minecraft:geometry"]) {
-        let id = Geo.description.identifier;
-        let range = JDoc.RangeOf(id) ?? Range.create(0, 0, 0, 0);
+    } else if (Data["minecraft:geometry"]) {
+      let goes = Data["minecraft:geometry"];
 
-        Database.Data.Resourcepack.Models.Set(new DataReference(id, Location.create(JDoc.doc.uri, range)));
+      for (var I = 0; I < goes.length; I++) {
+        let Info = goes[I];
+
+        Add(Info.description.identifier, JDoc);
       }
     }
   }
+}
+
+function Add(identifier: string, JDoc: JsonDocument): void {
+  let range = JDoc.RangeOf(identifier) ?? Range.create(0, 0, 0, 0);
+
+  Database.Data.Resourcepack.Models.Set(new DataReference(identifier, Location.create(JDoc.doc.uri, range)));
 }

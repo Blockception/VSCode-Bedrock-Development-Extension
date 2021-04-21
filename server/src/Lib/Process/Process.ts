@@ -6,11 +6,20 @@ import { Languages } from "../Constants";
 import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
 import { Diagnostics } from "../Diagnostics/OnRequest";
+import { Console } from "../Console/include";
+import { GetFilename } from "../Code/include";
 
 //Process the given document
 export function Process(document: TextDocument): void {
   //Console.Log("Processing: " + GetFilename(document.uri) + " | " + document.languageId);
+  try {
+    InternalProcess(document);
+  } catch (err) {
+    Console.Error(GetFilename(document.uri) + " | " + JSON.stringify(err));
+  }
+}
 
+function InternalProcess(document: TextDocument): void {
   switch (document.languageId) {
     case Languages.McFunctionIdentifier:
       Behavior.Functions.Process(document);

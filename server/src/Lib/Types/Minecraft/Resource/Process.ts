@@ -1,5 +1,4 @@
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilename } from "../../../Code/File";
 import { GetDocuments } from "../../../Code/include";
 import { Console } from "../../../Console/Console";
 import { Code } from "../../../include";
@@ -14,7 +13,7 @@ export function Process(doc: TextDocument): void {
     return;
   }
 
-  Console.Log("    Processing resource pack file: " + GetFilename(doc.uri));
+  //Console.Log("    Processing resource pack file: " + GetFilename(doc.uri));
 
   switch (Type) {
     case DataType.resource_animation:
@@ -22,6 +21,9 @@ export function Process(doc: TextDocument): void {
 
     case DataType.resource_animation_controller:
       return Resource.Animation_Controllers.Process(doc);
+
+    case DataType.resource_entity:
+      return Resource.Entity.Process(doc);
 
     case DataType.resource_entity_model:
       return Resource.Models.Entity.Process(doc);
