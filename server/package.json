@@ -1,7 +1,7 @@
 {
   "name": "blockception-minecraft-server",
   "description": "The language server for minecraft",
-  "version": "1.7.24",
+  "version": "1.7.25",
   "private": true,
   "author": {
     "name": "Blockception Ltd",

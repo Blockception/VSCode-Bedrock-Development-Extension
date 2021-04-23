@@ -1,5 +1,9 @@
 # Changelog 
 ## Plugin 
+- Updated
+- Updated schemas
+- Updated
+- Updated dependencies
 - Updating parsing and processing of files
 - Updated to 1.7.23
 - Fixing
@@ -35,12 +39,14 @@
 - Added replace mode
 - Added music mode
 - Added structure mode
-- Added rotation mode
-- Added mirrormode
-- Updated
-- Removed notice for code, as its get down compiled to js and webpacked. License still needs to be included as a text file
-- Added Maskmode. 
+- Added rotation mode. 
 ## Schemas 
+- Updated
+- Updated
+- Updated animations with descriptions
+- Updated animations
+- Updated bind to actor
+- Added documentation for spawnrules
 - Updated animations for BP
 - Filled in descriptions
 - Updated descriptions
@@ -75,9 +81,3 @@
 - Regeneration test
 - Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
-- Create compress-json-schemas.yml
-- Updated
-- Updated contents
-- Fixied property values
-- Updated blocks
-- Updated block property regonication
