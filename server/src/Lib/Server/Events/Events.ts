@@ -11,6 +11,7 @@ import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
 import { OnConfigurationChanged } from "../include";
+import { OnDidCreateFilesAsync } from "./include";
 
 /**
  * Setup the server events
@@ -61,4 +62,8 @@ export function setEvents() {
   // This handler provides semantic Tokens
   Connection.languages.semanticTokens.on(OnProvideSemanticRequestAsync);
   Connection.languages.semanticTokens.onRange(OnProvideRangeSemanticRequestAsync);
+
+  // Workspace event
+  Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
+  Connection.workspace.onDidDeleteFiles(OnDidDeleteFilesAsync);
 }

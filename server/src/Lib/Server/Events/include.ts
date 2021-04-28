@@ -3,4 +3,4 @@
 export * from "./Documents";
 export * from "./Dynamic";
 export * from "./Events";
-export * from "./Workspace";
+export * from "./Workspace/OnWorkspaceFolderChange";
