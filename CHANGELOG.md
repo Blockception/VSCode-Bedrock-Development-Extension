@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Fixing schemas
 - Updated schemas
 - Update Create typescript includes.yml
 - Updated events
@@ -38,9 +39,9 @@
 - Refactor commands
 - Added Save mode
 - Added ride rules mode
-- Updated ride file mode
-- Added Teleport rules mode. 
+- Updated ride file mode. 
 ## Schemas 
+- Updated animations
 - Fixing timeline regex valedation
 - Updated
 - Updated
@@ -80,4 +81,3 @@
 - Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
 - Regeneration test
-- Update compress-json-schemas.yml
