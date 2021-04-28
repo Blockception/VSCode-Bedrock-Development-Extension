@@ -1,5 +1,5 @@
 import { OnCommandRequestAsync } from "../../Commands/OnRequest";
-import { OnCompletionRequestAsync, OnCompletionResolveRequestAsync } from "../../Completion/OnRequest";
+import { OnCompletionRequestAsync } from "../../Completion/OnRequest";
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../Definition/OnRequest";
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../Format/OnRequest";
 import { OnHoverRequestAsync } from "../../Hover/OnRequest";
@@ -10,6 +10,8 @@ import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../
 import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
+import { OnConfigurationChanged } from "../Settings";
+import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync } from "./Workspace/include";
 
 /**
  * Setup the server events
