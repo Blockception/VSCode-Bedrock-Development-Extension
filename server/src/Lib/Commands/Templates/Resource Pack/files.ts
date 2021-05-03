@@ -67,7 +67,7 @@ export function create_model_file(ID: string, Context: Context, Builder: Templat
   if (!(ID.startsWith("geometry.") || ID.startsWith("Geometry."))) ID = "geometry." + ID;
 
   let safeID = SafeIDNoNamespace(ID).replace("geometry.", "");
-  let uri = path.join(Context.ResourcePack, "models/entities", safeID + ".geo.json");
+  let uri = path.join(Context.ResourcePack, "models/entity", safeID + ".geo.json");
   Builder.CreateFile(uri, Templates.Resource_Pack.create_model(ID));
 }
 
