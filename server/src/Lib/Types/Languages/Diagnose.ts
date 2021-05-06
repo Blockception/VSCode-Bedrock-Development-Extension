@@ -2,12 +2,17 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/include";
 import { DiagnosticsBuilder } from "../../Diagnostics/Builder";
 import { getLine } from "../../Code/include";
+import * as fs from "fs";
 
+/**
+ *
+ * @param doc
+ * @returns
+ */
 export function provideLanguageDiagnostics(doc: TextDocument) {
   if (!Manager.Settings.Diagnostics.Lang) return;
 
   let builder = new DiagnosticsBuilder(doc);
-
   let Keys = new Array<string>(doc.lineCount);
 
   for (let I = 0; I < doc.lineCount; I++) {
@@ -18,6 +23,14 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
   builder.SendDiagnostics();
 }
 
+/**
+ *
+ * @param line
+ * @param index
+ * @param Keys
+ * @param builder
+ * @returns
+ */
 export function Diagnoseline(line: string, index: number, Keys: string[], builder: DiagnosticsBuilder): void {
   let CommentIndex = line.indexOf("#");
   if (CommentIndex >= 0) {
