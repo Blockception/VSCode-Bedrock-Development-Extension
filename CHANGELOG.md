@@ -1,6 +1,8 @@
 # Changelog 
 ## Plugin 
 - Updated
+- Added entity settings
+- Updated
 - Updated
 - Updated
 - Fixing schemas
@@ -37,10 +39,9 @@
 - Updated licenes
 - Updated readme
 - Updated to version 1.7.17
-- Updated
-- Refactor
-- Refactor commands. 
+- Updated. 
 ## Schemas 
+- Updates settings
 - Updated
 - Updated comments
 - Updated animations
@@ -78,6 +79,5 @@
 - Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
 - Updated
-- Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
