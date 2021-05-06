@@ -1,5 +1,7 @@
-# Changelog 
-## Plugin 
+# Changelog
+
+## Plugin
+
 - Added comments
 - Updated
 - Added entity settings
@@ -39,8 +41,10 @@
 - Updated
 - Updated licenes
 - Updated readme
-- Updated to version 1.7.17. 
-## Schemas 
+- Updated to version 1.7.17.
+
+## Schemas
+
 - Fixing should_update_bones_and_effects_offscreen not accepting boolean values
 - Updates settings
 - Updated
