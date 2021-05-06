@@ -617,10 +617,15 @@
       {
         "fileMatch": [
           "behavior_packs/*/entities/*.json",
+          "behavior_packs/*/entities/**/*.json",
           "*behavior*pack*/entities/*.json",
+          "*behavior*pack*/entities/**/*.json",
           "*Behavior*Pack*/entities/*.json",
+          "*Behavior*Pack*/entities/**/*.json",
           "*BP*/entities/*.json",
+          "*BP*/entities/**/*.json",
           "*bp*/entities/*.json",
+          "*bp*/entities/**/*.json",
           "!*loot_tables*"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/entities/entities.json"
