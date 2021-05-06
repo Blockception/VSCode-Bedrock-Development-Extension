@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Added comments
 - Updated
 - Added entity settings
 - Updated
@@ -38,9 +39,9 @@
 - Updated
 - Updated licenes
 - Updated readme
-- Updated to version 1.7.17
-- Updated. 
+- Updated to version 1.7.17. 
 ## Schemas 
+- Fixing should_update_bones_and_effects_offscreen not accepting boolean values
 - Updates settings
 - Updated
 - Updated comments
@@ -79,5 +80,4 @@
 - Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
 - Updated
-- Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
