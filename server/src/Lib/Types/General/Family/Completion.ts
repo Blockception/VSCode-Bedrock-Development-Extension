@@ -1,4 +1,3 @@
-import { isUndefined } from "node:util";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Commands/include";
 import { Database } from "../../../Database/include";
