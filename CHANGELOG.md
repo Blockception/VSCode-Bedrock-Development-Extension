@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Removed
 - Updated schemas
 - Removed
 - Fixing dependencies
@@ -38,9 +39,9 @@
 - Fixed
 - Adding animation controllers diagnostics
 - Renamed
-- Removed Notice
-- Updated to 1.7.17. 
+- Removed Notice. 
 ## Schemas 
+- Fixed formatversion
 - Updated titles
 - Updated title
 - Fixing should_update_bones_and_effects_offscreen not accepting boolean values
@@ -79,5 +80,4 @@
 - compressed
 - Updated script
 - Added tasks
-- Update compress-json-schemas.yml
 - Update compress-json-schemas.yml
