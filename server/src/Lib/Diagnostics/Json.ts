@@ -4,6 +4,7 @@ import { Database } from "../Database/include";
 import { EmptyTypes } from "../Types/General/include";
 
 export function InvalidJson(doc: TextDocument, error: any): void {
+  //TODO Throw Empty or Nothing
   let Message = "Invalid json";
   let R = EmptyTypes.EmptyRange();
   let Errors: Diagnostic[] = [];
@@ -20,10 +21,6 @@ export function InvalidJson(doc: TextDocument, error: any): void {
       Errors.push({ message: Message, range: R, severity: DiagnosticSeverity.Error });
     }
   }
-
-  Database.Diagnotics.SetErrors(doc.uri, Errors);
 }
 
-export function ValidJson(doc: TextDocument): void {
-  Database.Diagnotics.RemoveFile(doc.uri);
-}
+export function ValidJson(doc: TextDocument): void {}

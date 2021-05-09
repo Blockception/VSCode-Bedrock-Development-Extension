@@ -9,28 +9,28 @@ import { Console } from "../Console/Console";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
 import { Manifest } from "../Types/Minecraft/Manifest/Manifest";
 
-export interface ProjectData {
+export interface ProjectFiles {
   WorldFolders: string[];
   ResourcePackFolders: string[];
   BehaviourPackFolders: string[];
   Workspaces: string[];
 }
 
-export function GetProjectData(): Promise<ProjectData | undefined> {
+export async function GetProjectFiles(): Promise<ProjectFiles | undefined> {
   let WS = Manager.Connection.workspace.getWorkspaceFolders();
 
   return WS.then(
-    (x) => new Promise<ProjectData | undefined>((resolve, reject) => resolve(CheckStructure(x)))
+    (x) => new Promise<ProjectFiles | undefined>((resolve, reject) => resolve(CheckStructure(x)))
   );
 }
 
-function CheckStructure(folders: WorkspaceFolder[] | null): ProjectData | undefined {
+function CheckStructure(folders: WorkspaceFolder[] | null): ProjectFiles | undefined {
   Console.Log("discovering workspace layout");
   let dirs: string[] = [];
 
   if (folders == null) return undefined;
 
-  let PD: ProjectData = {
+  let PD: ProjectFiles = {
     BehaviourPackFolders: [],
     ResourcePackFolders: [],
     WorldFolders: [],

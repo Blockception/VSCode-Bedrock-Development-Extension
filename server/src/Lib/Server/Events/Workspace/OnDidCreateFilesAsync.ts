@@ -1,5 +1,5 @@
 import { CreateFilesParams, FileCreate } from "vscode-languageserver";
-import { GetDocument } from "../../../Code/Document";
+import { GetDocument } from "../../../Types/Document/Document";
 import { Process } from "../../../Process/Process";
 
 //Files created

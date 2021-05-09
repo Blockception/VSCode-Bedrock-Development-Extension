@@ -2,7 +2,7 @@
 export * as Json from "./Json/include";
 export * from "./Array";
 export * from "./Character";
-export * from "./Document";
+export * from "../Types/Document/Document";
 export * from "./Equal";
 export * from "./File";
 export * from "./ProjectData";

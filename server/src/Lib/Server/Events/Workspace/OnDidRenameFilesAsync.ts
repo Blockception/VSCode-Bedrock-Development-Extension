@@ -1,5 +1,5 @@
 import { FileRename, RenameFilesParams, RenameParams } from "vscode-languageserver";
-import { GetDocument } from "../../../Code/Document";
+import { GetDocument } from "../../../Types/Document/Document";
 import { GetFilepath, UniformUrl } from "../../../Code/Url";
 import { Database } from "../../../Database/Database";
 import { Process } from "../../../Process/Process";

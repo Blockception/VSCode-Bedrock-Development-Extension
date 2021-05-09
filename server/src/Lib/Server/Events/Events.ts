@@ -11,7 +11,7 @@ import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
 import { OnConfigurationChanged } from "../Settings";
-import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync } from "./Workspace/include";
+import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
 
 /**
  * Setup the server events
@@ -67,4 +67,5 @@ export function setEvents() {
   Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
   Connection.workspace.onDidDeleteFiles(OnDidDeleteFilesAsync);
   Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
+  Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
 }

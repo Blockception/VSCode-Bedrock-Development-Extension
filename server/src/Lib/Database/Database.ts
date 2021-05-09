@@ -1,6 +1,7 @@
 import { CollectedData } from "./Types/CollectedData";
 import { DiagnosticCollector } from "./Types/DiagnoticsCollector";
 import { MinecraftProgramData } from "./Types/MinecraftProgramData";
+import { WorkspaceData } from "./Types/WorkspaceData";
 
 export class Database {
   /**
@@ -16,5 +17,5 @@ export class Database {
   /**
    *
    */
-  static Diagnotics = new DiagnosticCollector();
+  static WorkspaceData: WorkspaceData = new WorkspaceData();
 }
