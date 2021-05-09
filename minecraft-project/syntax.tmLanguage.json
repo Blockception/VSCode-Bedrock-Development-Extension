@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Minecraft Project",
+  "scopeName": "source.bc.minecraft.project",
+  "patterns": [{ "include": "#keywords" }, { "include": "#operators" }, { "include": "#constants" }],
+  "repository": {
+    "keywords": {
+      "patterns": [{ "name": "entity.name.type", "match": "^[a-z\\_\\.]+" }]
+    },
+    "operators": {
+      "patterns": [
+        { "name": "constant.character", "match": "[|!<>=?*;\\/\\-+:&]" },
+        { "name": "keyword.operator", "match": "[.,(){}\\[\\]\\=]" }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        { "name": "constant.numeric", "match": "\\b-\\d+\\b" },
+        { "name": "constant.numeric", "match": "\\b\\d+\\b" },
+        { "name": "keyword.control", "match": "(?<==)!" },
+        { "name": "keyword.control", "match": "\\.\\." },
+        { "name": "constant.character", "match": "\\b[Tt]rue\\b" },
+        { "name": "constant.character", "match": "\\b[Ff]alse\\b" },
+        { "name": "string.jade", "match": "\\b(?<=function )[a-z0-9/_]+\\b" },
+        { "name": "string.quoted.double.minecraft", "match": "'[^']*'" }
+      ]
+    }
+  }
+}

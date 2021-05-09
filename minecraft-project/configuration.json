@@ -1,0 +1,16 @@
+{
+  "comments": {
+    "lineComment": "##"
+  },
+  "surroundingPairs": [
+    ["\"", "\""],
+    ["'", "'"]
+  ],
+  "wordPattern": "\b.+\b",
+  "folding": {
+    "markers": {
+      "start": "^\\#[ \t]*region",
+      "end": "^\\#[ \t]*endregion"
+    }
+  }
+}
