@@ -1,12 +1,15 @@
 import * as fs from "fs";
 import * as fg from "fast-glob";
-import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
-import { Manager } from "../Manager/Manager";
-import { GetFilepath, UniformUrl } from "./Url";
+import * as vscode from "vscode-languageserver-textdocument";
+import { Manager } from "../../Manager/Manager";
+import { GetFilepath, UniformUrl } from "../../Code/Url";
 import { fileURLToPath } from "url";
-import { Languages } from "../Constants";
-import { Console } from "../Console/Console";
-import { GetFilename } from "./File";
+import { Languages } from "../../Constants";
+import { Console } from "../../Console/Console";
+import { GetFilename } from "../../Code/File";
+import { TextDocument } from "./TextDocument";
+import { Database } from "../../Database/include";
+import { ProjectData } from "../Project/Project";
 
 /**
  * Returns an usable document interaction from the given data.
@@ -15,7 +18,7 @@ import { GetFilename } from "./File";
  * @param Content The possible content of the document or interface to use
  * @param languageID The Language ID associated to the documentated.
  */
-export function GetDocument(uri: string, Content: string | TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
+export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
   let Old = uri;
   uri = GetFilepath(UniformUrl(uri));
 
@@ -126,20 +129,28 @@ export class CachedDoc implements TextDocument {
   readonly version: number;
   readonly lineCount: number;
 
-  getText(range?: Range): string {
+  getText(range?: vscode.Range): string {
     return this.doc.getText(range);
   }
 
-  positionAt(offset: number): Position {
+  positionAt(offset: number): vscode.Position {
     return this.doc.positionAt(offset);
   }
 
-  offsetAt(position: Position): number {
+  offsetAt(position: vscode.Position): number {
     return this.doc.offsetAt(position);
   }
 
-  constructor(doc: TextDocument) {
-    this.doc = doc;
+  getLine(lineIndex: number): string {
+    return this.doc.getLine(lineIndex);
+  }
+
+  getConfiguration(): ProjectData {
+    return this.doc.getConfiguration();
+  }
+
+  constructor(doc: vscode.TextDocument) {
+    this.doc = TextDocument.wrap(doc);
     this.uri = GetFilepath(UniformUrl(doc.uri));
     this.languageId = doc.languageId;
     this.lineCount = doc.lineCount;
