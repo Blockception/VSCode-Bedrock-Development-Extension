@@ -1,10 +1,10 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { Commands } from "../../Constants";
 import { TemplateBuilder } from "./Builder";
-import { Context, GetContext, GetContextAsync } from "./Context";
+import { Context, GetContextAsync } from "./Context";
 import { Templates } from "../include";
 import { Console } from "../../Console/Console";
-import { GetProjectData } from "../../Code/include";
+import { GetProjectFiles } from "../../Code/include";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
@@ -148,7 +148,7 @@ function Function(params: ExecuteCommandParams, callback: (Context: Context, Bui
 }
 
 function CreateAll(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void) {
-  GetProjectData().then((data) => {
+  GetProjectFiles().then((data) => {
     if (!data) return;
 
     let Builder = new TemplateBuilder();

@@ -1,16 +1,16 @@
 import { MCProject } from "bc-minecraft-project";
-import { resourceUsage } from "process";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { Manager } from "../../Manager/include";
 import { ServerSettings } from "../../Server/Settings";
 import { Definitions, ProjectData } from "../../Types/Project/Project";
 
 export class WorkspaceConfiguration implements ProjectData {
+  folder: string;
   defintions: Definitions;
   settings: ServerSettings;
   ignores: string[];
 
-  constructor() {
+  constructor(folder: string) {
+    this.folder = folder;
     this.defintions = Definitions.createEmpty();
     this.ignores = [];
     this.settings = ServerSettings.clonedSettings();
@@ -48,15 +48,15 @@ export class WorkspaceData {
       if (out) return out;
     }
 
-    return createNew();
+    return createNew("NONE");
   }
 
   /**
    *
    * @param Folders
    */
-  Add(Folders: WorkspaceFolder[]): Promise<void[]> {
-    let Out: Promise<void>[] = [];
+  Add(Folders: WorkspaceFolder[]): Promise<WorkspaceConfiguration[]> {
+    let Out: Promise<WorkspaceConfiguration>[] = [];
 
     for (let I = 0; I < Folders.length; I++) {
       Out.push(AddAsync(Folders[I], this));
@@ -74,8 +74,8 @@ export class WorkspaceData {
   }
 }
 
-function createNew(): WorkspaceConfiguration {
-  return new WorkspaceConfiguration();
+function createNew(folder: string): WorkspaceConfiguration {
+  return new WorkspaceConfiguration(folder);
 }
 
 /**
@@ -84,14 +84,14 @@ function createNew(): WorkspaceConfiguration {
  * @param Data
  * @returns
  */
-async function AddAsync(Workspace: WorkspaceFolder, Data: WorkspaceData): Promise<void> {
+async function AddAsync(Workspace: WorkspaceFolder, Data: WorkspaceData): Promise<WorkspaceConfiguration> {
   return new Promise((resolve, reject) => {
     try {
-      Add(Workspace, Data);
-      resolve();
+      let out = Add(Workspace, Data);
+      resolve(out);
     } catch (err) {}
 
-    reject();
+    reject(createNew(Workspace.uri));
   });
 }
 
@@ -100,10 +100,11 @@ async function AddAsync(Workspace: WorkspaceFolder, Data: WorkspaceData): Promis
  * @param Workspace
  * @param Data
  */
-function Add(Workspace: WorkspaceFolder, receiver: WorkspaceData): void {
-  let Config = new WorkspaceConfiguration();
+function Add(Workspace: WorkspaceFolder, receiver: WorkspaceData): WorkspaceConfiguration {
+  let Config = new WorkspaceConfiguration(Workspace.uri);
   let Project = MCProject.loadSync(Workspace.uri);
 
   ProjectData.SetProject(Config, Project);
   receiver.Set(Workspace, Config);
+  return Config;
 }
