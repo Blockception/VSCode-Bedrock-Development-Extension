@@ -90,6 +90,12 @@
             "default": false,
             "description": "Requires restart: Turns on or off the education content"
           },
+          "BC-MC.Diagnostics.Enable": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Requires restart: Turns on or off the diagnostics in general"
+          },
           "BC-MC.Diagnostics.Lang": {
             "scope": "resource",
             "type": "boolean",
@@ -384,7 +390,7 @@
       {
         "language": "bc-minecraft-mcfunction",
         "scopeName": "source.bc.minecraft.mcfunction",
-        "path": "./minecraft-mcfunctions/syntaxes/minecraft-mcfunction.tmLanguage.json",
+        "path": "./minecraft-mcfunctions/syntax.tmLanguage.json",
         "embeddedLanguages": {
           "meta.embedded.block.json": "json"
         }
@@ -392,34 +398,41 @@
       {
         "language": "bc-minecraft-language",
         "scopeName": "source.bc.minecraft.language",
-        "path": "./minecraft-language-files/syntaxes/minecraft-language-files.tmLanguage.json"
+        "path": "./minecraft-language-files/syntax.tmLanguage.json"
       },
       {
         "language": "bc-minecraft-molang",
-        "path": "./minecraft-molang/syntaxes/minecraft-molang.tmLanguage.json",
+        "path": "./minecraft-molang/syntax.tmLanguage.json",
         "scopeName": "source.bc.minecraft.molang"
+      },
+      {
+        "language": "bc-minecraft-project",
+        "path": "./minecraft-project/syntax.tmLanguage.json",
+        "scopeName": "source.bc.minecraft.project"
       }
     ],
     "languages": [
       {
         "id": "bc-minecraft-language",
         "aliases": [
-          "Minecraft Language"
+          "Minecraft Language",
+          "mclang"
         ],
         "extensions": [
           ".lang"
         ],
-        "configuration": "./minecraft-language-files/minecraft-language-files-configuration.json"
+        "configuration": "./minecraft-language-files/configuration.json"
       },
       {
         "id": "bc-minecraft-mcfunction",
         "aliases": [
-          "Minecraft Mcfunction"
+          "Minecraft Mcfunction",
+          "mcfunction"
         ],
         "extensions": [
           ".mcfunction"
         ],
-        "configuration": "./minecraft-mcfunctions/minecraft-mcfunction-language-configuration.json",
+        "configuration": "./minecraft-mcfunctions/configuration.json",
         "filenamePatterns": [
           "[a-z0-9_]*\\.mcfunction"
         ]
@@ -427,12 +440,31 @@
       {
         "id": "bc-minecraft-molang",
         "aliases": [
-          "Minecraft molang"
+          "Minecraft molang",
+          "molang"
         ],
         "extensions": [
           ".molang"
         ],
-        "configuration": "./minecraft-molang/minecraft-molang-configuration.json"
+        "configuration": "./minecraft-molang/configuration.json"
+      },
+      {
+        "id": "bc-minecraft-project",
+        "aliases": [
+          "Minecraft Project",
+          "mcproject"
+        ],
+        "extensions": [
+          ".mcdefinitions",
+          ".mcattributes",
+          ".mcignores"
+        ],
+        "filenames": [
+          ".mcdefinitions",
+          ".mcattributes",
+          ".mcignores"
+        ],
+        "configuration": "./minecraft-project/configuration.json"
       }
     ],
     "jsonValidation": [
@@ -521,7 +553,12 @@
           "*resource*pack*/items/*.json",
           "*Resource*Pack*/items/*.json",
           "*RP*/items/*.json",
-          "*rp*/items/*.json"
+          "*rp*/items/*.json",
+          "resource_packs/*/items/**/*.json",
+          "*resource*pack*/items/**/*.json",
+          "*Resource*Pack*/items/**/*.json",
+          "*RP*/items/**/*.json",
+          "*rp*/items/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/items/items.json"
       },
@@ -600,6 +637,11 @@
           "*Behavior*Pack*/loot_tables/*.json",
           "*BP*/loot_tables/*.json",
           "*bp*/loot_tables/*.json",
+          "behavior_packs/*/loot_tables/**/*.json",
+          "*behavior*pack*/loot_tables/**/*.json",
+          "*Behavior*Pack*/loot_tables/**/*.json",
+          "*BP*/loot_tables/**/*.json",
+          "*bp*/loot_tables/**/*.json",
           "*.loot.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/loot_tables/loot_tables.json"
@@ -610,7 +652,12 @@
           "*behavior*pack*/blocks/*.json",
           "*Behavior*Pack*/blocks/*.json",
           "*BP*/blocks/*.json",
-          "*bp*/blocks/*.json"
+          "*bp*/blocks/*.json",
+          "behavior_packs/*/blocks/**/*.json",
+          "*behavior*pack*/blocks/**/*.json",
+          "*Behavior*Pack*/blocks/**/*.json",
+          "*BP*/blocks/**/*.json",
+          "*bp*/blocks/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/blocks/blocks.json"
       },
