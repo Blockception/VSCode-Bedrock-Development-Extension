@@ -2,6 +2,7 @@ export namespace Languages {
   export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
   export const McOtherIdentifier: string = "bc-minecraft-Other";
   export const McLanguageIdentifier: string = "bc-minecraft-language";
+  export const McProjectIdentifier: string = "bc-minecraft-project";
   export const JsonIdentifier: string = "json";
   export const JsonCIdentifier: string = "jsonc";
 }
