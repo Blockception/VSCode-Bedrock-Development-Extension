@@ -1,7 +1,7 @@
-import { CompletionList, CompletionItemKind } from "vscode-languageserver";
+import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../../Completion/Builder";
 import { Gamemode } from "../../../Commands/Modes/include";
-import { Entity, Family, Float, Integer, Tag } from "../../include";
+import { Entity, Family, Float, Integer, Names, Tag } from "../../include";
 
 //Doesnt do scores and doesnt need to
 export function provideSelectorAttributeValueCompletion(receiver: CompletionBuilder, attribute: string, forEntities: boolean, type: string | undefined = undefined): void {
@@ -36,7 +36,7 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionBuil
       return;
 
     case "name":
-      receiver.Add('""', "The start of a string name", CompletionItemKind.Constant);
+      Names.ProvideCompletion(receiver);
       return;
 
     case "rx":

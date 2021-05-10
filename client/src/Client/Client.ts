@@ -34,6 +34,7 @@ export function SetupClient(context: vscode.ExtensionContext) {
       { scheme: "file", language: Languages.McLanguageIdentifier },
       { scheme: "file", language: Languages.JsonIdentifier },
       { scheme: "file", language: Languages.JsonCIdentifier },
+      { scheme: "file", language: Languages.McProjectIdentifier },
     ],
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace

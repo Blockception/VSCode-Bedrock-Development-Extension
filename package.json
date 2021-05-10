@@ -460,11 +460,6 @@
           ".mcdefinitions",
           ".mcattributes",
           ".mcignore"
-        ],
-        "filenames": [
-          ".mcdefinitions",
-          ".mcattributes",
-          ".mcignore"
         ]
       }
     ],

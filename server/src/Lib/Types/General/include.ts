@@ -17,6 +17,7 @@ export * as Json from "./Json/include";
 export * as Keyword from "./Keyword/include";
 export * as Object_Base from "./Object Base/include";
 export * as Objectives from "./Objectives/include";
+export * as Names from "./Names/include";
 export * as Range from "./Range/include";
 export * as Script from "./Script/include";
 export * as Selector from "./Selector/include";

@@ -1,13 +1,16 @@
 import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { DataCollector } from "../Database/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { Item } from "../Types/General/include";
 import { Documentable, Identifiable, Locatable } from "../Types/Minecraft/Interfaces/include";
 
 export class CompletionBuilder {
   public items: CompletionItem[];
   public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
+  public doc: TextDocument;
 
-  constructor() {
+  constructor(doc: TextDocument) {
+    this.doc = doc;
     this.items = [];
     this.OnNewItem = undefined;
   }

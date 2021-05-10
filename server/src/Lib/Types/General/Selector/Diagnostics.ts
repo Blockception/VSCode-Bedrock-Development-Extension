@@ -8,6 +8,9 @@ import { IScoreParameter, Selector } from "./Selector";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { DiagnosticSeverity } from "vscode-languageserver";
 import { DiagnosticCodes } from "../../../Constants";
+import { Names } from "../include";
+
+const attributes = ["c", "dx", "dy", "dz", "family", "lm", "l", "m", "name", "rm", "r", "scores", "type", "tag", "x", "y", "z", "rx", "rxm", "ry", "rym"];
 
 /**
  *
@@ -73,6 +76,8 @@ function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyP
     builder.Add("Selector has both box and sphere definitions", selector.Range).code = DiagnosticCodes.Selector.Area.Both;
   }
 
+  Name(selector, builder);
+
   Coordinate("x", selector, builder);
   Coordinate("y", selector, builder);
   Coordinate("z", selector, builder);
@@ -91,7 +96,7 @@ function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyP
 
   //Family attribute is allowed multiple tests
   OnlyPositiveOrMultipleNegatives("m", selector, builder);
-  OnlyPositiveOrMultipleNegatives("name", selector, builder);
+
   OnlyPositiveOrMultipleNegatives("type", selector, builder);
 
   AllPositivesAndNegatives("family", selector, builder);
@@ -101,32 +106,8 @@ function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyP
   for (let index = 0; index < selector.Parameters.length; index++) {
     const element = selector.Parameters[index];
 
-    switch (element.Name.text) {
-      case "c":
-      case "dx":
-      case "dy":
-      case "dz":
-      case "family":
-      case "lm":
-      case "l":
-      case "m":
-      case "name":
-      case "rm":
-      case "r":
-      case "scores":
-      case "type":
-      case "tag":
-      case "x":
-      case "y":
-      case "z":
-      case "rx":
-      case "rxm":
-      case "ry":
-      case "rym":
-        continue;
-
-      default:
-        builder.AddWord(element.Name, "Illegal selector attribute " + element.Name.text);
+    if (!attributes.includes(element.Name.text)) {
+      builder.AddWord(element.Name, "Illegal selector attribute " + element.Name.text);
     }
   }
 }
@@ -252,6 +233,20 @@ function IsBox(selector: Selector): boolean {
   if (selector.contains("dz")) return true;
 
   return false;
+}
+
+function Name(selector: Selector, builder: DiagnosticsBuilder): void {
+  var Parameters = selector.get("name");
+
+  if (!Array.isArray(Parameters)) {
+    Parameters = [Parameters];
+  }
+
+  for (let I = 0; I < Parameters.length; ++I) {
+    Names.ProvideDiagnostic(Parameters[I].Value, builder);
+  }
+
+  OnlyPositiveAndMultipleNegatives("name", selector, builder);
 }
 
 /**

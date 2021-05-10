@@ -20,8 +20,8 @@ export async function OnCompletionResolveRequestAsync(params: CompletionItem): P
 
 //Processes request
 function OnCompletionRequest(params: CompletionParams): CompletionList {
-  let Builder = new CompletionBuilder();
   let Doc = GetDocument(params.textDocument.uri);
+  let Builder = new CompletionBuilder(Doc);
   let Pos = params.position;
 
   switch (Doc.languageId) {
