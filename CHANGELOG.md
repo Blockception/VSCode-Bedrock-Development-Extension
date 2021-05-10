@@ -1,46 +1,47 @@
 # Changelog 
 ## Plugin 
+- Fixing compile errors
+- Fixing #51, numbers are not supported as blend values
+- Fixing #49 isues, nested items are not
+- Updated
+- Updated documentation
+- Updated documentation
+- Updated
+- Updated
+- Updated
+- Stopping documentents from being processed if ignored
+- Refactor
+- Fixing project handling data
+- Refactor
+- Refactoring
+- Updated packages
+- Updated references
+- Fixing compile issues
+- Updated ProjectData to ProjectFiles
+- Updated TextDocument references
+- Moved to new folder
+- Renamed projectdata to projectfiles
+- Updated references
+- Added diagnosticsCodes
+- Added diagnostics codes
+- Refactoring
+- Updated project code
+- Moved
+- Updated constants
+- Added MCAttributes documentation
+- File not needed
+- Added commands and languages
+- Added project configuration and syntax
+- Refactored language names
+- Updated version to 2.0.0
+- Removed old validation
+- Updated markdown settings
 - Removed
 - Updated schemas
 - Removed
-- Fixing dependencies
-- Updated
-- Added comments
-- Updated
-- Added entity settings
-- Updated
-- Updated
-- Updated
-- Fixing schemas
-- Updated schemas
-- Update Create typescript includes.yml
-- Updated events
-- Updated
-- Updating
-- Updated
-- Updated schemas
-- Updated
-- Updated dependencies
-- Updating parsing and processing of files
-- Updated to 1.7.23
-- Fixing
-- Updated to 1.7.22
-- Fixing gamemode move
-- Updated schemas
-- Updated
-- Updated
-- Updated
-- Updated
-- Fixing molang detection
-- Updated to 1.7.20
-- Updated to 1.7.19
-- Updated
-- Bugfixing animation controller diagnostics
-- Fixed
-- Adding animation controllers diagnostics
-- Renamed
-- Removed Notice. 
+- Fixing dependencies. 
 ## Schemas 
+- Added blend_weights for animations and animation_controllers
 - Fixed formatversion
 - Updated titles
 - Updated title
@@ -80,4 +81,3 @@
 - compressed
 - Updated script
 - Added tasks
-- Update compress-json-schemas.yml
