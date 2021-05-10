@@ -1,5 +1,6 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
+import { URI } from "vscode-uri";
 import { ServerSettings } from "../../Server/Settings";
 import { Definitions, ProjectData } from "../../Types/Project/Project";
 
@@ -29,10 +30,11 @@ export class WorkspaceData {
    * @param uri
    */
   GetForDoc(docUri: string): WorkspaceConfiguration {
+    var docUri = URI.parse(docUri).fsPath;
     var found = undefined;
 
     //Find most matching data
-    for (var key in this.Data) {
+    for (var [key, data] of this.Data) {
       if (docUri.includes(key)) {
         if (found) {
           if (found.length < key.length) found = key;
@@ -65,8 +67,12 @@ export class WorkspaceData {
     return Promise.all(Out);
   }
 
-  Set(Folder: WorkspaceFolder, Data: WorkspaceConfiguration): void {
-    this.Data.set(Folder.uri, Data);
+  Set(Folder: WorkspaceFolder | string, Data: WorkspaceConfiguration): void {
+    if (typeof Folder === "string") {
+      this.Data.set(Folder, Data);
+    } else {
+      this.Data.set(Folder.uri, Data);
+    }
   }
 
   Remove(Folder: WorkspaceFolder): boolean {
@@ -101,10 +107,11 @@ async function AddAsync(Workspace: WorkspaceFolder, Data: WorkspaceData): Promis
  * @param Data
  */
 function Add(Workspace: WorkspaceFolder, receiver: WorkspaceData): WorkspaceConfiguration {
-  let Config = new WorkspaceConfiguration(Workspace.uri);
-  let Project = MCProject.loadSync(Workspace.uri);
+  let uri = URI.parse(Workspace.uri).fsPath;
+  let Config = new WorkspaceConfiguration(uri);
+  let Project = MCProject.loadSync(uri);
 
   ProjectData.SetProject(Config, Project);
-  receiver.Set(Workspace, Config);
+  receiver.Set(uri, Config);
   return Config;
 }

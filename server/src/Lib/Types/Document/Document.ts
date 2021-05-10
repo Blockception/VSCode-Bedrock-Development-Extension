@@ -1,5 +1,4 @@
 import * as fs from "fs";
-import * as fg from "fast-glob";
 import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
 import { GetFilepath, UniformUrl } from "../../Code/Url";
@@ -10,6 +9,7 @@ import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
 import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
+import { Glob } from "../../Glob/Glob";
 
 /**
  * Returns an usable document interaction from the given data.
@@ -110,7 +110,7 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
   }
 }
 
-export function GetDocuments(folder: string, pattern: string | string[]): string[] {
+export function GetDocuments(folder: string, pattern: string | string[], ignores: string[] | undefined = undefined): string[] {
   let temp: string[] = [];
 
   if (Array.isArray(pattern)) {
@@ -122,7 +122,7 @@ export function GetDocuments(folder: string, pattern: string | string[]): string
     temp.push(folder + pattern);
   }
 
-  return fg.sync(temp, { absolute: true, onlyFiles: true });
+  return Glob.GetFiles(temp, ignores);
 }
 
 export class CachedDoc implements TextDocument {

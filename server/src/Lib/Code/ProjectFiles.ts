@@ -1,4 +1,3 @@
-import * as fg from "fast-glob";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { JsonDocument } from "../Types/Document/Json Document";
@@ -10,6 +9,7 @@ import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Forma
 import { Manifest } from "../Types/Minecraft/Manifest/Manifest";
 import { Database } from "../Database/include";
 import { WorkspaceConfiguration } from "../Database/Types/WorkspaceData";
+import { Glob } from "../Glob/Glob";
 
 /**
  *
@@ -107,7 +107,7 @@ export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles):
     dirs[I] = dir + "**/manifest.json";
   }
 
-  const entries = fg.sync(dirs, { absolute: true, onlyFiles: true, ignore: Ws.ignores });
+  const entries = Glob.GetFiles(dirs, Ws.ignores);
   Process(entries, PF);
 }
 

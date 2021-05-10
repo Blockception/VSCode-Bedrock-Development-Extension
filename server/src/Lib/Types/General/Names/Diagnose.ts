@@ -5,7 +5,12 @@ import { DiagnosticCodes } from "../../../Constants";
 export function ProvideDiagnostic(data: LocationWord | OffsetWord | RangedWord, builder: DiagnosticsBuilder): void {
   let conf = builder.doc.getConfiguration();
 
-  if (conf.defintions.name.excluded.includes(data.text)) {
+  let text = data.text;
+
+  if (text.startsWith('"')) text = text.substring(1, text.length);
+  if (text.endsWith('"')) text = text.substring(0, text.length - 1);
+
+  if (conf.defintions.name.excluded.includes(text)) {
     builder.AddWord(data, "Name as been marked through exclusion rules").code = DiagnosticCodes.Name.Excluded;
   }
 }
