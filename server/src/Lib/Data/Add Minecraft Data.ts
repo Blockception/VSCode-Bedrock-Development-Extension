@@ -18,6 +18,7 @@ export function AddMinecraftData() {
   data.vanilla.sounds.forEach((sound) => Data.General.Sounds.Update(AddSound(sound)));
   data.vanilla.effects.forEach((effect) => Data.General.Effects.Update(AddEffect(effect)));
 
+  //TODO redo
   if (Manager.Settings.Education.Enable) {
     data.edu.blocks.forEach((block) => Data.General.Blocks.Update(AddEduBlock(block)));
     data.edu.entities.forEach((entity) => Data.General.Entities.Update(AddEduEntity(entity)));

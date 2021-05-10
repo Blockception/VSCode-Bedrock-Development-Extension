@@ -1,6 +1,5 @@
 import { provideLanguageDiagnostics } from "../Types/Languages/Diagnose";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Manager } from "../Manager/Manager";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export function ProcessLanguageFile(document: TextDocument): void {
   //Process language file

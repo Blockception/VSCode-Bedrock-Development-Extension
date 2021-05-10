@@ -1,9 +1,9 @@
-import { GetProjectData, ProjectData } from "../../Code/ProjectData";
+import { GetProjectFiles, ProjectFiles } from "../../Code/include";
 import { FindBedrockInstallationFolder } from "../../Format/Install Location";
 
 export class MinecraftProgramData {
   private BedrockInstallLocation: string | undefined;
-  private ProjectData: ProjectData | undefined;
+  private ProjectFiles: ProjectFiles | undefined;
 
   constructor() {}
 
@@ -20,20 +20,20 @@ export class MinecraftProgramData {
    *
    * @param callback
    */
-  public GetProjecData(callback: ((data: ProjectData) => void) | undefined = undefined): ProjectData | undefined {
-    this.LoadProjectData(callback);
+  public GetProjecData(callback: ((data: ProjectFiles) => void) | undefined = undefined): ProjectFiles | undefined {
+    this.LoadProjectFiles(callback);
 
-    return this.ProjectData;
+    return this.ProjectFiles;
   }
 
   /**
    * Loads project data
    * @param callback
    */
-  public LoadProjectData(callback: ((data: ProjectData) => void) | undefined): void {
-    GetProjectData().then((x) => {
+  public LoadProjectFiles(callback: ((data: ProjectFiles) => void) | undefined): void {
+    GetProjectFiles().then((x) => {
       if (x) {
-        this.ProjectData = x;
+        this.ProjectFiles = x;
 
         if (callback) {
           callback(x);

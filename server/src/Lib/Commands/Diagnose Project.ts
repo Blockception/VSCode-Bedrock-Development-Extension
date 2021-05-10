@@ -4,17 +4,13 @@ import { Database } from "../Database/include";
 import { DiagnoseContext } from "../Diagnostics/Types/Context";
 import { Manager } from "../Manager/Manager";
 import { Behavior, World } from "../Types/Minecraft/include";
-import { GetValidationData } from "../Validation/include";
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
   Console.Log("Starting on diagnosing project");
 
   Database.MinecraftProgramData.GetProjecData((data) => {
-    let Validation = GetValidationData(data.Workspaces);
-
     let context: DiagnoseContext = {
       projectStructure: data,
-      data: Validation,
     };
 
     if (Manager.State.TraversingProject || !Manager.State.DataGathered) {

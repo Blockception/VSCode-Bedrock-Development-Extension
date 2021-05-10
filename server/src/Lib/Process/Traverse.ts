@@ -1,4 +1,4 @@
-import { ProjectData } from "../Code/ProjectData";
+import { ProjectFiles } from "../Code/include";
 import { Console } from "../Console/Console";
 import { Database } from "../Database/include";
 import { Manager } from "../Manager/Manager";
@@ -11,7 +11,7 @@ export function Traverse(): void {
   Database.MinecraftProgramData.GetProjecData(TraverseProject);
 }
 
-export function TraverseProject(Project: ProjectData | undefined): void {
+export function TraverseProject(Project: ProjectFiles | undefined): void {
   if (!Project) return;
 
   try {
