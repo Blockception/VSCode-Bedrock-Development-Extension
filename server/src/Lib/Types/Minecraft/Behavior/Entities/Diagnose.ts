@@ -1,9 +1,9 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { DiagnosticSeverity, Range } from "vscode-languageserver-types";
-import { JsonDocument } from "../../../../Code/Json/Json Document";
+import { JsonDocument } from "../../../Document/Json Document";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
 import { Database } from "../../../../include";
 import { Entity } from "./Entity";
+import { TextDocument } from "../../../Document/TextDocument";
 
 /**
  *

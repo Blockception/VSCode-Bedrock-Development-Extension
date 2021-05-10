@@ -11,7 +11,9 @@ import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
 import { OnConfigurationChanged } from "../Settings";
-import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync } from "./Workspace/include";
+import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
+import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
+import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 
 /**
  * Setup the server events
@@ -28,6 +30,10 @@ export function setEvents() {
 
   // This handler provides commands
   Connection.onExecuteCommand(OnCommandRequestAsync);
+
+  // This handler provides code actions
+  Connection.onCodeAction(OnCodeActionAsync);
+  Connection.onCodeActionResolve(OnCodeActionResolveAsync);
 
   // This handler provides completion items.
   Connection.onCompletion(OnCompletionRequestAsync);
@@ -63,8 +69,11 @@ export function setEvents() {
   Connection.languages.semanticTokens.on(OnProvideSemanticRequestAsync);
   Connection.languages.semanticTokens.onRange(OnProvideRangeSemanticRequestAsync);
 
-  // Workspace event
-  Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
-  Connection.workspace.onDidDeleteFiles(OnDidDeleteFilesAsync);
-  Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
+  if (Manager.Capabiltities.hasWorkspaceFolderCapability) {
+    // Workspace event
+    Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
+    Connection.workspace.onDidDeleteFiles(OnDidDeleteFilesAsync);
+    Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
+    Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
+  }
 }

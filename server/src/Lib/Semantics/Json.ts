@@ -1,8 +1,9 @@
 import { OffsetWord } from "bc-vscode-words";
-import { Range, TextDocument } from "vscode-languageserver-textdocument";
+import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
 import { IsMolang } from "../Molang/Functions";
 import { CreateMolangWords } from "../Molang/Words";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { IsFloat } from "../Types/General/Float/include";
 import { IsSelector } from "../Types/General/Selector/include";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";

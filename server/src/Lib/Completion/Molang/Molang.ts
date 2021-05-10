@@ -1,10 +1,11 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
+
 import { Database, DataCollector } from "../../Database/include";
 import { DataReference } from "../../Database/Types/include";
 import { Molang } from "../../include";
 import { Manager } from "../../Manager/Manager";
 import { GetPreviousWord, MolangFunctionDataItem } from "../../Molang/include";
+import { TextDocument } from "../../Types/Document/TextDocument";
 import { Kinds } from "../../Types/General/include";
 import { CompletionBuilder } from "../Builder";
 import { OnCompletionMolangVariable } from "./Variables";

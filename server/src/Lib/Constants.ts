@@ -2,6 +2,7 @@ export namespace Languages {
   export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
   export const McOtherIdentifier: string = "bc-minecraft-Other";
   export const McLanguageIdentifier: string = "bc-minecraft-language";
+  export const McProjectIdentifier: string = "bc-minecraft-project";
   export const JsonIdentifier: string = "json";
   export const JsonCIdentifier: string = "jsonc";
 }
@@ -130,5 +131,47 @@ export namespace Commands {
 
   export namespace Errors {
     export const OpenLastest = "bc.errors.open_lastest";
+  }
+
+  export namespace MCProject {
+    export const Create: string = "bc.mcproject.create";
+  }
+}
+
+export namespace DiagnosticCodes {
+  export namespace Block {
+    export const Missing = "block.missing";
+  }
+
+  export namespace FakePlayer {
+    export const Missing = "fakeplayer.missing";
+  }
+
+  export namespace Family {
+    export const Missing = "family.missing";
+    export const Excluded = "family.excluded";
+  }
+
+  export namespace Name {
+    export const Missing = "name.missing";
+    export const Excluded = "name.excluded";
+  }
+
+  export namespace Objective {
+    export const Missing = "objective.missing";
+    export const Excluded = "objective.excluded";
+  }
+
+  export namespace Selector {
+    export const Typed = "selector.typed";
+
+    export namespace Area {
+      export const Both = "selector.area.both";
+    }
+  }
+
+  export namespace Tag {
+    export const Missing = "tag.missing";
+    export const Excluded = "tag.excluded";
   }
 }

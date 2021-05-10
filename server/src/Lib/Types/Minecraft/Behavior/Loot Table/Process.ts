@@ -1,6 +1,6 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
+import { TextDocument } from "../../../Document/TextDocument";
 import { EmptyTypes } from "../../../General/Empty";
 
 export function Process(doc: TextDocument): void {

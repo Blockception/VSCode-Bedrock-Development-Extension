@@ -1,4 +1,4 @@
-import { ProjectData } from "../../Code/include";
+import { ProjectFiles } from "../../Code/ProjectFiles";
 import { Database } from "../../Database/include";
 import { Manager } from "../../Manager/Manager";
 
@@ -24,7 +24,7 @@ export function GetContextAsync<T>(data: T, callback: (c: Context, data: T) => v
   });
 }
 
-function Convert(Data: ProjectData): Context | undefined {
+function Convert(Data: ProjectFiles): Context | undefined {
   let Base: string | undefined;
 
   //Some assembly required
@@ -73,7 +73,6 @@ function Convert(Data: ProjectData): Context | undefined {
   if (BP === undefined) {
     BP = Base + "behavior_packs/missing_BP/";
   }
-
   if (RP === undefined) {
     RP = Base + "resource_packs/missing_RP/";
   }

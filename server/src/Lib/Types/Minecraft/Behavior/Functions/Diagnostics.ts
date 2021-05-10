@@ -1,27 +1,19 @@
 import { Position, Range } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../../Code/include";
-import { Database } from "../../../../Database/include";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
 import { Manager } from "../../../../Manager/Manager";
-import { ValidationData, GetValidationData } from "../../../../Validation/include";
 import { DiagnoseCommand } from "../../../Commands/Command/include";
 import { CommandIntr, GetSubCommand } from "../../../Commands/Interpertation/include";
+import { TextDocument } from "../../../Document/TextDocument";
 
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
-  if (!Manager.Settings.Diagnostics.Mcfunctions) return;
 
-  let Data = Database.MinecraftProgramData.GetProjecData();
-  let validation: ValidationData | undefined;
+  let set = doc.getConfiguration().settings;
+  if (!set.Diagnostics.Enable) return;
+  if (!set.Diagnostics.Mcfunctions) return;
 
-  if (Data) {
-    validation = GetValidationData(Data.Workspaces);
-  } else {
-    validation = ValidationData.createEmpty();
-  }
-
-  DiagnoseMcFunction(doc, validation);
+  DiagnoseMcFunction(doc);
 }
 
 /**
@@ -29,7 +21,7 @@ export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
  * @param doc
  * @param validation
  */
-export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData) {
+export function DiagnoseMcFunction(doc: TextDocument) {
   let Builder = new DiagnosticsBuilder(doc);
 
   if (doc.lineCount == 0) {
@@ -41,7 +33,7 @@ export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData
   for (let index = 0; index < doc.lineCount; index++) {
     try {
       line = getLine(doc, index);
-      DiagnoseLine(line, Position.create(index, 0), undefined, validation, Builder);
+      DiagnoseLine(line, Position.create(index, 0), undefined, Builder);
     } catch (error) {
       if (error.message) Builder.Add(error.message, Range.create(index, 0, line.length, index));
     }
@@ -57,7 +49,7 @@ export function DiagnoseMcFunction(doc: TextDocument, validation: ValidationData
  * @param validation
  * @param receiver
  */
-export function DiagnoseLine(line: string, StartPos: Position | undefined, Cursor: Position | undefined, validation: ValidationData, builder: DiagnosticsBuilder): void {
+export function DiagnoseLine(line: string, StartPos: Position | undefined, Cursor: Position | undefined, builder: DiagnosticsBuilder): void {
   line = line.trim();
 
   if (line === "" || line === "\r\n") return;
@@ -78,11 +70,11 @@ export function DiagnoseLine(line: string, StartPos: Position | undefined, Curso
 
   if (Command.Parameters.length === 0) return;
 
-  DiagnoseCommand(Command, line, validation, builder);
+  DiagnoseCommand(Command, line, builder);
 
   let Sub = GetSubCommand(Command);
   while (Sub) {
-    DiagnoseCommand(Sub, line, validation, builder);
+    DiagnoseCommand(Sub, line, builder);
     Sub = GetSubCommand(Sub);
   }
 }

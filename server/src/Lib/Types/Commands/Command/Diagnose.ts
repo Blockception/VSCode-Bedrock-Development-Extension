@@ -1,7 +1,6 @@
 import { LocationWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { Manager } from "../../../Manager/Manager";
-import { ValidationData } from "../../../Validation/include";
 import { CommandIntr } from "../Interpertation/include";
 import { DiagnoseParameter } from "../Parameter/include";
 
@@ -9,10 +8,9 @@ import { DiagnoseParameter } from "../Parameter/include";
  *
  * @param Command
  * @param line
- * @param validation
  * @param receiver
  */
-export function DiagnoseCommand(Command: CommandIntr, line: string, validation: ValidationData, builder: DiagnosticsBuilder): void {
+export function DiagnoseCommand(Command: CommandIntr, line: string, builder: DiagnosticsBuilder): void {
   let Matches = Command.GetCommandData();
 
   if (Matches.length === 0) {
@@ -28,7 +26,7 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, validation: 
   }
 
   for (let I = 0; I < max; I++) {
-    DiagnoseParameter(Data.Command.parameters[I], Command.Parameters[I], validation, builder, Command);
+    DiagnoseParameter(Data.Command.parameters[I], Command.Parameters[I], builder, Command);
   }
 }
 

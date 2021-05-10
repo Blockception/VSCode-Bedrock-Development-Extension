@@ -1,8 +1,8 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../Code/include";
 import { CommandIntr, GetSubCommand } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
 import { CreateRangeTokensWord } from "./Functions";
 import { CreateSelectorTokens } from "./include";

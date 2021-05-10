@@ -1,6 +1,7 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { TextDocument, Position } from "vscode-languageserver-textdocument";
+import { Position } from "vscode-languageserver-textdocument";
 import { getLine } from "../Code/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
 
 export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
@@ -14,7 +15,7 @@ export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver:
     return;
   }
 
-  const line = getLine(doc, pos.line);
+  const line = doc.getLine(pos.line);
 
   //in comment
   if (isIn("#", cursor, line)) {

@@ -1,6 +1,7 @@
 import { LocationWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
+import { TextDocument } from "../../Types/Document/TextDocument";
+
 import { IsMolang } from "../include";
 
 export class DataCollector {
@@ -23,6 +24,11 @@ export class DataCollector {
 }
 
 export namespace DataCollector {
+  /**
+   *
+   * @param doc
+   * @returns
+   */
   export function Parse(doc: TextDocument): DataCollector {
     let index = 0;
     let text = doc.getText();

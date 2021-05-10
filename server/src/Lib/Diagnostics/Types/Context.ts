@@ -1,7 +1,5 @@
-import { ProjectData } from "../../Code/include";
-import { ValidationData } from "../../Validation/include";
+import { ProjectFiles } from "../../Code/include";
 
 export interface DiagnoseContext {
-  projectStructure: ProjectData;
-  data: ValidationData;
+  projectStructure: ProjectFiles;
 }

@@ -1,11 +1,12 @@
 import { Location } from "vscode-languageserver";
-import { TextDocument, Position } from "vscode-languageserver-textdocument";
-import { Json } from "../Code/include";
+import { Position } from "vscode-languageserver-textdocument";
 import { Database } from "../Database/include";
+import { GetCurrentElement } from "../Types/Document/Json Functions";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export function OnJsonDefinition(doc: TextDocument, pos: Position): Location[] | undefined {
   const Text = doc.getText();
-  let ElementRange = Json.GetCurrentElement(Text, doc.offsetAt(pos));
+  let ElementRange = GetCurrentElement(Text, doc.offsetAt(pos));
 
   if (!ElementRange) return undefined;
 
@@ -16,7 +17,6 @@ export function OnJsonDefinition(doc: TextDocument, pos: Position): Location[] |
   }
 
   let Out: Location[] = [];
-
   let Index = Text.indexOf(ElementText);
   const uri = doc.uri;
 

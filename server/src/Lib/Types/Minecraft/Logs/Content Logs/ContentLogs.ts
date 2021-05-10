@@ -1,24 +1,25 @@
 import { existsSync } from "fs";
 import { Diagnostic } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { GetFilename } from "../../../../Code/File";
-import { GetProjectData, ProjectData } from "../../../../Code/include";
+import { GetProjectFiles, ProjectFiles } from "../../../../Code/include";
 import { DocumentReader } from "../../../../Code/Reader";
 import { UniformUrl } from "../../../../Code/Url";
 import { Console } from "../../../../Console/Console";
 import { Manager } from "../../../../Manager/Manager";
+import { TextDocument } from "../../../Document/TextDocument";
 import { GeneralDataType } from "../../Format/General Data Type";
 import { ContentError, CreateErrors } from "./Errors";
 import { GetHeader, ContentLogHeader, CreateDiagnostics } from "./Header";
 
 export function ProcessContentLog(doc: TextDocument): void {
-  let PD = GetProjectData();
+  let PD = GetProjectFiles();
+
   PD.then((PD) => {
     if (PD) PrivateProcessContentLog(PD, doc);
   });
 }
 
-function PrivateProcessContentLog(PD: ProjectData, doc: TextDocument): void {
+function PrivateProcessContentLog(PD: ProjectFiles, doc: TextDocument): void {
   Console.Log("Reading content log: " + GetFilename(doc.uri));
   let Lines: ContentLogHeader[] = [];
 
@@ -53,7 +54,7 @@ function PrivateProcessContentLog(PD: ProjectData, doc: TextDocument): void {
   }
 }
 
-function FindFile(PD: ProjectData, Err: ContentError): string {
+function FindFile(PD: ProjectFiles, Err: ContentError): string {
   let F: string | undefined;
 
   switch (Err.Type) {
@@ -97,7 +98,7 @@ function FindFile(PD: ProjectData, Err: ContentError): string {
   return "File not found in workspace!!!";
 }
 
-function DiagFilepath(PD: ProjectData, filepath: string): string {
+function DiagFilepath(PD: ProjectFiles, filepath: string): string {
   PD.WorldFolders.forEach((ws) => {
     filepath = filepath.replace(ws, "");
   });

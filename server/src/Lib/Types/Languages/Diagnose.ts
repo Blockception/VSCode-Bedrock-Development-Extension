@@ -1,8 +1,7 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/include";
 import { DiagnosticsBuilder } from "../../Diagnostics/Builder";
 import { getLine } from "../../Code/include";
-import * as fs from "fs";
+import { TextDocument } from "../Document/TextDocument";
 
 /**
  *
@@ -10,7 +9,11 @@ import * as fs from "fs";
  * @returns
  */
 export function provideLanguageDiagnostics(doc: TextDocument) {
-  if (!Manager.Settings.Diagnostics.Lang) return;
+  var conf = doc.getConfiguration();
+  var set = conf.settings;
+
+  if (!set.Diagnostics.Enable) return;
+  if (!set.Diagnostics.Lang) return;
 
   let builder = new DiagnosticsBuilder(doc);
   let Keys = new Array<string>(doc.lineCount);

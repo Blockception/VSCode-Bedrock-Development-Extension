@@ -1,12 +1,15 @@
 import * as fs from "fs";
-import * as fg from "fast-glob";
-import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
-import { Manager } from "../Manager/Manager";
-import { GetFilepath, UniformUrl } from "./Url";
+import * as vscode from "vscode-languageserver-textdocument";
+import { Manager } from "../../Manager/Manager";
+import { GetFilepath, UniformUrl } from "../../Code/Url";
 import { fileURLToPath } from "url";
-import { Languages } from "../Constants";
-import { Console } from "../Console/Console";
-import { GetFilename } from "./File";
+import { Languages } from "../../Constants";
+import { Console } from "../../Console/Console";
+import { GetFilename } from "../../Code/File";
+import { TextDocument } from "./TextDocument";
+import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
+import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
+import { Glob } from "../../Glob/Glob";
 
 /**
  * Returns an usable document interaction from the given data.
@@ -15,7 +18,7 @@ import { GetFilename } from "./File";
  * @param Content The possible content of the document or interface to use
  * @param languageID The Language ID associated to the documentated.
  */
-export function GetDocument(uri: string, Content: string | TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
+export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
   let Old = uri;
   uri = GetFilepath(UniformUrl(uri));
 
@@ -82,6 +85,10 @@ export function IdentifyDoc(uri: string): string {
   if (uri.endsWith(".lang")) return Languages.McLanguageIdentifier;
   if (uri.endsWith(".json")) return Languages.JsonIdentifier;
 
+  if (uri.endsWith(MCAttributes.filename)) return Languages.McProjectIdentifier;
+  if (uri.endsWith(MCIgnore.filename)) return Languages.McProjectIdentifier;
+  if (uri.endsWith(MCDefinition.filename)) return Languages.McProjectIdentifier;
+
   return Languages.McOtherIdentifier;
 }
 
@@ -103,7 +110,7 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
   }
 }
 
-export function GetDocuments(folder: string, pattern: string | string[]): string[] {
+export function GetDocuments(folder: string, pattern: string | string[], ignores: string[] | undefined = undefined): string[] {
   let temp: string[] = [];
 
   if (Array.isArray(pattern)) {
@@ -115,7 +122,7 @@ export function GetDocuments(folder: string, pattern: string | string[]): string
     temp.push(folder + pattern);
   }
 
-  return fg.sync(temp, { absolute: true, onlyFiles: true });
+  return Glob.GetFiles(temp, ignores);
 }
 
 export class CachedDoc implements TextDocument {
@@ -126,20 +133,28 @@ export class CachedDoc implements TextDocument {
   readonly version: number;
   readonly lineCount: number;
 
-  getText(range?: Range): string {
+  getText(range?: vscode.Range): string {
     return this.doc.getText(range);
   }
 
-  positionAt(offset: number): Position {
+  positionAt(offset: number): vscode.Position {
     return this.doc.positionAt(offset);
   }
 
-  offsetAt(position: Position): number {
+  offsetAt(position: vscode.Position): number {
     return this.doc.offsetAt(position);
   }
 
-  constructor(doc: TextDocument) {
-    this.doc = doc;
+  getLine(lineIndex: number): string {
+    return this.doc.getLine(lineIndex);
+  }
+
+  getConfiguration(): WorkspaceConfiguration {
+    return this.doc.getConfiguration();
+  }
+
+  constructor(doc: vscode.TextDocument) {
+    this.doc = TextDocument.wrap(doc);
     this.uri = GetFilepath(UniformUrl(doc.uri));
     this.languageId = doc.languageId;
     this.lineCount = doc.lineCount;

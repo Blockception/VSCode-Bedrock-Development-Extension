@@ -1,8 +1,7 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetFilename } from "../../../Code/File";
 import { GetDocuments } from "../../../Code/include";
 import { Console } from "../../../Console/Console";
 import { Code } from "../../../include";
+import { TextDocument } from "../../Document/TextDocument";
 import { DataType } from "../Format/Data Type";
 import { DetectDataType } from "../Format/Detection";
 import * as behaviour from "./include";

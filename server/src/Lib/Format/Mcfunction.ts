@@ -1,7 +1,7 @@
 import { DocumentFormattingParams, DocumentRangeFormattingParams, TextEdit } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../Code/include";
 import { Replace, TrimEndFromLine, TrimStartFromLine } from "../Code/TextEdit";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export function formatMcfunction(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
@@ -38,5 +38,6 @@ function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
     Replace(Line, "^+", "^", index, Out);
     Replace(Line, "^0", "^", index, Out);
     Replace(Line, "~~~", "~ ~ ~", index, Out);
+    Replace(Line, " ##", " \t##", index, Out);
   }
 }

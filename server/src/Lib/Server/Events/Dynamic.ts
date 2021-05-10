@@ -1,6 +1,7 @@
 import {
+  CodeActionKind,
+  CodeActionRegistrationOptions,
   DidChangeConfigurationNotification,
-  DidChangeConfigurationRegistrationOptions,
   DocumentFormattingRegistrationOptions,
   DocumentFormattingRequest,
   SemanticTokensRegistrationOptions,

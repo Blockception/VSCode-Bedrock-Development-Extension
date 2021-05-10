@@ -1,7 +1,7 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
 import { MolangFunctionDataItem } from "../../Molang/include";
+import { TextDocument } from "../../Types/Document/TextDocument";
 import { DataType, DetectDataType } from "../../Types/Minecraft/Format/include";
 import { CompletionBuilder } from "../Builder";
 

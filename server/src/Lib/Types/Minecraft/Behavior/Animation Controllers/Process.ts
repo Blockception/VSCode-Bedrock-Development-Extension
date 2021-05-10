@@ -1,12 +1,10 @@
 import { Location } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { JsonDocument } from "../../../../Code/Json/include";
 import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
+import { JsonDocument } from "../../../Document/Json Document";
+import { TextDocument } from "../../../Document/TextDocument";
 import { EmptyTypes } from "../../../General/Empty";
 import { AnimationController } from "./include";
-import { ProvideDiagnostic } from "../../General/Animation Controllers/Diagnose";
-import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
 
 /**
  * Processes the text document as a behaviour entity definition file

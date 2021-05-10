@@ -1,6 +1,7 @@
 import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
-import { TextDocument, TextEdit } from "vscode-languageserver-textdocument";
-import { getLine, TrimStartFromLine, TrimEndFromLine } from "../Code/include";
+import { TextEdit } from "vscode-languageserver-textdocument";
+import { TrimStartFromLine, TrimEndFromLine } from "../Code/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export function formatLangauge(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
@@ -26,8 +27,7 @@ export function formatLangaugeRange(doc: TextDocument, params: DocumentRangeForm
 
 //formatts the specified line
 function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
-  let Line = getLine(document, index);
+  let Line = document.getLine(index);
 
   TrimStartFromLine(Line, index, Out, [" ", "\t"]);
-  TrimEndFromLine(Line, index, Out, ["#"]);
 }

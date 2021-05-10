@@ -1,8 +1,8 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../Code/include";
 import { Console } from "../../Console/Console";
 import { Database } from "../../Database/Database";
 import { CommandIntr } from "../../Types/Commands/Interpertation/include";
+import { TextDocument } from "../../Types/Document/TextDocument";
 import { FakeEntity } from "../../Types/General/FakeEntity/include";
 import { Objective } from "../../Types/General/Objectives/include";
 import { IsFakePlayer } from "../../Types/General/Selector/include";

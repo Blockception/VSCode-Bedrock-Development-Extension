@@ -1,7 +1,7 @@
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
-import { IsEqual } from "../Code/Equal";
 import { GetDocument } from "../Code/include";
 import { Languages } from "../Constants";
+import { OnCompletionMCProject } from "../Types/MCProject/Completion";
 import { CompletionBuilder } from "./Builder";
 import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
@@ -20,8 +20,8 @@ export async function OnCompletionResolveRequestAsync(params: CompletionItem): P
 
 //Processes request
 function OnCompletionRequest(params: CompletionParams): CompletionList {
-  let Builder = new CompletionBuilder();
   let Doc = GetDocument(params.textDocument.uri);
+  let Builder = new CompletionBuilder(Doc);
   let Pos = params.position;
 
   switch (Doc.languageId) {
@@ -31,6 +31,10 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
 
     case Languages.McFunctionIdentifier:
       OnCompletionMcFunction(Doc, Pos, Builder);
+      break;
+
+    case Languages.McProjectIdentifier:
+      OnCompletionMCProject(Doc, Pos, Builder);
       break;
 
     case Languages.JsonCIdentifier:

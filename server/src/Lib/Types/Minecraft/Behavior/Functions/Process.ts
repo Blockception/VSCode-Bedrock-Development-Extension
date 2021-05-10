@@ -1,4 +1,3 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../../Code/include";
 import { ProcessCommand } from "../../../Commands/Process";
 import { Languages } from "../../../../Constants";
@@ -6,6 +5,7 @@ import { Database } from "../../../../Database/include";
 import { McFunction } from "../../../General/Functions/include";
 import { ProvideMcfunctionDiagnostics } from "./Diagnostics";
 import { GetComment } from "./Function";
+import { TextDocument } from "../../../Document/TextDocument";
 
 export function Process(document: TextDocument): void {
   Database.Data.DeleteFile(document.uri);

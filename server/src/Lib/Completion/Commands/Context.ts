@@ -3,6 +3,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import { CommandInfo } from "../../Types/Commands/Info/include";
 import { CommandIntr } from "../../Types/Commands/Interpertation/CommandIntr";
 import { MCCommandParameter } from "../../Types/Commands/Parameter/Parameter";
+import { TextDocument } from "../../Types/Document/TextDocument";
 import { BaseCommandContext } from "../../Types/General/Context/Context";
 import { CompletionBuilder } from "../include";
 
@@ -17,6 +18,7 @@ export interface CommandCompletionContext extends BaseCommandContext {
   Pos: Position;
   receiver: CompletionBuilder;
   Current: LocationWord | undefined;
+  doc: TextDocument;
 }
 
 /**
@@ -53,7 +55,8 @@ export namespace CommandCompletionContext {
     Command: CommandIntr,
     Pos: Position,
     receiver: CompletionBuilder,
-    Current: LocationWord | undefined = undefined
+    Current: LocationWord | undefined = undefined,
+    doc: TextDocument
   ): CommandCompletionContext {
     let BestMatch = Command.GetCommandData()[0];
 
@@ -65,6 +68,7 @@ export namespace CommandCompletionContext {
       Pos: Pos,
       receiver: receiver,
       Current: Current,
+      doc: doc,
     };
   }
 }

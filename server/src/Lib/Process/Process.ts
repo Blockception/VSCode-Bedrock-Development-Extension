@@ -1,6 +1,5 @@
 import * as Json from "./Json";
 import * as Language from "./Language";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { Behavior } from "../Types/Minecraft/include";
 import { Languages } from "../Constants";
 import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
@@ -8,6 +7,7 @@ import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Forma
 import { Diagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Console/include";
 import { GetFilename } from "../Code/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 //Process the given document
 export function Process(document: TextDocument): void {

@@ -1,14 +1,15 @@
 import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
-import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { Position } from "vscode-languageserver-textdocument";
 import { getLine } from "../../../../Code/include";
 import { CommandInfo } from "../../../Commands/Info/include";
 import { CommandIntr, IsInSubCommand } from "../../../Commands/Interpertation/include";
 import { MCCommand } from "../../../Commands/Command/include";
 import { MCCommandParameterType } from "../../../Commands/Parameter/include";
 import { RawText } from "../../Json/include";
+import { TextDocument } from "../../../Document/TextDocument";
 
 export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
-  const Line = getLine(doc, pos.line);
+  const Line = doc.getLine(pos.line);
   return ProvideMcfunctionCommandSignature(Line, { character: 0, line: pos.line }, pos, doc);
 }
 

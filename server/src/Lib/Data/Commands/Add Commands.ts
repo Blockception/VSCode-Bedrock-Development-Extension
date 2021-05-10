@@ -53,6 +53,7 @@ export function AddCommands(): void {
     Manager.Data.Commands.add(Command);
   });
 
+  //TODO redo education storage
   if (Manager.Settings.Education.Enable)
     data.edu.forEach((com) => {
       let Command = Convert(com);

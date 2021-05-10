@@ -1,9 +1,9 @@
 import { Location, Position } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { JsonDocument } from "../../../../Code/Json/include";
 import { Database } from "../../../../Database/include";
 import { DataReference } from "../../../../Database/Types/include";
 import { Molang } from "../../../../include";
+import { JsonDocument } from "../../../Document/Json Document";
+import { TextDocument } from "../../../Document/TextDocument";
 import { EmptyTypes } from "../../../General/Empty";
 import { Animation, SingleAnimation } from "./Animation";
 

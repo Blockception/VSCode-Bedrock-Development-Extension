@@ -1,4 +1,4 @@
-import { JsonDocument } from "../../../Code/Json/include";
+import { JsonDocument } from "../../Document/Json Document";
 import { GeneralDataType } from "../Format/General Data Type";
 
 export interface Manifest {

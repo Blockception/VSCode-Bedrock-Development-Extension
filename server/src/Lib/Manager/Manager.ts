@@ -1,10 +1,10 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { ServerSettings } from "../Server/Settings";
 import { ExtensionState } from "./Extension State";
 import { ExtensionData } from "./Extension Data";
 import { ExtensionCapabiltities } from "./Extension Capabilties";
 import { Connection } from "vscode-languageserver/lib/common/server";
 import { Diagnostic } from "vscode-languageserver";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export class Manager {
   /**
@@ -36,6 +36,7 @@ export namespace Manager {
       Manager.Connection.sendDiagnostics({
         diagnostics: Diagnostics,
         uri: doc.uri,
+        version: doc.version,
       });
     }
   }

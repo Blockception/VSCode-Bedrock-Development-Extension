@@ -1,8 +1,9 @@
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetDocument } from "../../Code/Document";
+
+import { GetDocument } from "../../Types/Document/Document";
 import { Database } from "../../Database/Database";
 import { Manager } from "../../Manager/include";
+import { TextDocument } from "../../Types/Document/TextDocument";
 
 export function AddAllItems(params: ExecuteCommandParams): any {
   let args = params.arguments;

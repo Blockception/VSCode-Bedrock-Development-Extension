@@ -1,8 +1,5 @@
-import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { DiagnosticsBuilder } from "../Diagnostics/Builder";
-import { Manager } from "../Manager/include";
-import { EmptyTypes } from "../Types/General/Empty";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export function ValidateBehaviourFolder(doc: TextDocument): void {
   const SubFolder = GetSubFolder(doc.uri);

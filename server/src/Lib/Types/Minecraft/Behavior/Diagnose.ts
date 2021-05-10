@@ -1,15 +1,15 @@
-import { Code, Data } from "../../../include";
+import { Code } from "../../../include";
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
 import { Entities, Functions, Animation_Controllers } from "./include";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { DataType, DetectBehaviorType } from "../Format/include";
+import { TextDocument } from "../../Document/TextDocument";
 
 export function ProvideDiagnostic(context: DiagnoseContext): void {
-  context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP, context));
+  context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP));
 }
 
-export function DiagnoseFolder(uri: string, context: DiagnoseContext): void {
-  Code.ForEachDocument(Code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => Functions.DiagnoseMcFunction(D, context.data));
+export function DiagnoseFolder(uri: string): void {
+  Code.ForEachDocument(Code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => Functions.DiagnoseMcFunction(D));
   Code.ForEachDocument(Code.GetDocuments(uri, ["**/*.json"]), (D) => DiagnoseJson(D));
 }
 

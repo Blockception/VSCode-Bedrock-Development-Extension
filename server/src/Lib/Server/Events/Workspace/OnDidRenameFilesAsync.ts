@@ -1,5 +1,5 @@
 import { FileRename, RenameFilesParams, RenameParams } from "vscode-languageserver";
-import { GetDocument } from "../../../Code/Document";
+import { GetDocument } from "../../../Types/Document/Document";
 import { GetFilepath, UniformUrl } from "../../../Code/Url";
 import { Database } from "../../../Database/Database";
 import { Process } from "../../../Process/Process";
@@ -15,7 +15,6 @@ export async function OnDidRenameFilesAsync(params: RenameFilesParams): Promise<
 
 function OnDidRenameFiles(params: RenameFilesParams): Promise<void>[] {
   let files = params.files;
-
   let Promises: Promise<void>[] = [];
 
   for (let I = 0; I < files.length; I++) {

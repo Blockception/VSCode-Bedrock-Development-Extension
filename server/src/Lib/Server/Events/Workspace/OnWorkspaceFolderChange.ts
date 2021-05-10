@@ -15,20 +15,17 @@ function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
   let removed = params.removed;
 
   for (let index = 0; index < removed.length; index++) {
-    let uri = removed[index].uri;
+    let ws = removed[index];
+    let uri = ws.uri;
     uri = UniformUrl(uri);
 
-    Console.Log("Deleting data from workspace: " + removed[index].name);
+    Console.Log("Deleting data from workspace: " + ws.name);
     Database.Data.DeleteFolder(uri);
+    Database.WorkspaceData.Remove(ws);
   }
 
-  let added = params.added;
-
-  for (let index = 0; index < added.length; index++) {
-    const element = added[index];
-
-    Console.Log("Processing data from added workspace: " + element.name);
-  }
-
-  Traverse();
+  //Call to process workspaces
+  Database.WorkspaceData.Add(params.added).then(() => {
+    Traverse();
+  });
 }

@@ -1,21 +1,26 @@
 import { LocationWord } from "bc-vscode-words";
+import { DiagnosticCodes } from "../../../Constants";
 import { Database } from "../../../Database/include";
-import { ValidationData } from "../../../Validation/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { Manager } from "../../../Manager/include";
 
-export function ProvideDiagnostic(data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder): void {
-  if (!Manager.Settings.Diagnostics.Tags) return;
+export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilder): void {
+  var conf = builder.doc.getConfiguration();
+  var set = conf.settings;
+
+  if (!set.Diagnostics.Enable) return;
+  if (!set.Diagnostics.Tags) return;
 
   const text = data.text;
 
   //Check rules first
-  if (validation.tags?.valid?.includes(text)) {
+  let tags = conf.defintions.tag;
+  if (tags.defined.includes(text)) {
     return;
   }
 
-  if (validation.tags?.invalid?.includes(text)) {
-    builder.AddWord(data, 'Tag has been blacklisted through rules: "' + text + '"');
+  if (tags.excluded.includes(text)) {
+    builder.AddWord(data, 'Tag has been excluded through rules: "' + text + '"').code = DiagnosticCodes.Tag.Excluded;
 
     return;
   }
@@ -24,5 +29,5 @@ export function ProvideDiagnostic(data: LocationWord, validation: ValidationData
     return;
   }
 
-  builder.AddWord(data, 'The tag: "' + text + '" never seems to get added to any type of entity');
+  builder.AddWord(data, 'The tag: "' + text + '" never seems to get added to any type of entity').code = DiagnosticCodes.Tag.Missing;
 }

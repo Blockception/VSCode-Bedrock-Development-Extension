@@ -1,13 +1,28 @@
 import { Range } from "vscode-languageserver";
-import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { Position } from "vscode-languageserver-textdocument";
 import { Console } from "../../Console/Console";
 import * as JSONC from "comment-json";
-import * as Code from "../include";
+import * as Code from "../../Code/include";
+import { TextDocument } from "./TextDocument";
 
+/**
+ *
+ */
 export class JsonDocument {
+  /**
+   *
+   */
   public doc: TextDocument;
+
+  /**
+   *
+   */
   private object: any | undefined;
 
+  /**
+   *
+   * @param doc
+   */
   constructor(doc: TextDocument) {
     this.object = undefined;
     this.doc = doc;
@@ -87,6 +102,11 @@ export class JsonDocument {
     return FindRangeReg(this.doc, RegX);
   }
 
+  /**
+   *
+   * @param Value
+   * @returns
+   */
   public RangeOf(Value: string): Range | undefined {
     let Text = this.doc.getText();
 
@@ -107,12 +127,22 @@ export class JsonDocument {
     return FindRangeReg(this.doc, RegX);
   }
 
+  /**
+   *
+   * @param Name
+   * @returns
+   */
   public GetStartOfObject(Name: string): Position | undefined {
     let RegX = new RegExp('"' + Name + '"s*:', "m");
 
     return FindLocationReg(this.doc, RegX);
   }
 
+  /**
+   *
+   * @param value
+   * @returns
+   */
   public GetPositionOf(value: string): Position | undefined {
     let text = this.doc.getText();
     let index = text.indexOf(value);
@@ -179,6 +209,9 @@ function FindLocationReg(doc: TextDocument, search: RegExp): Position | undefine
   return undefined;
 }
 
+/**
+ *
+ */
 export namespace JsonDocument {
   export function GetDocument(uri: string): JsonDocument {
     let temp = Code.GetDocument(uri);

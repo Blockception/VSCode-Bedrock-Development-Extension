@@ -38,7 +38,10 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       SelectorBase.Completion.NearestPlayer
     );
 
-    if (Manager.Settings.Education.Enable) {
+    let set = Context.doc.getConfiguration().settings;
+
+    if (!set.Diagnostics.Enable) return;
+    if (set.Education.Enable) {
       receiver.items.push(SelectorBase.Completion.MyAgent, SelectorBase.Completion.SomethingEdu);
     }
 

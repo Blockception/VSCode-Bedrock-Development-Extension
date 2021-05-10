@@ -10,7 +10,7 @@
 `Blockception: Run diagnose on project`
 
 This command causes the plugin to traverse the entire project and look for errors and problems. currently only mcfunctions are processed, but entities, particles and items are to
-be included in the future + many more. The diagnoses also uses [validation rules](./validation/Validation.md)
+be included in the future + many more.
 
 ## Cheat Sheets
 
@@ -35,6 +35,7 @@ resource pack to exist.
 | `Create all language files`                         | Creates for all known worlds, resourcepacks, and behaviourpacks `texts` folders   |
 | `Create all manifests`                              | Creates for all known worlds, resourcepacks, and behaviourpacks `texts` manifests |
 | `Open lastest errors`                               | Tries to look for the lastest content log produced by minecraft and opens it      |
+| `Create MCProject files`                            | Creates minecraft project related files to the workspaces                         |
 | **Behavior pack**                                   |                                                                                   |
 | `Behavior Pack: Create animation controllers file`  | Creates an animation controller for the behavior pack                             |
 | `Behavior Pack: Create animations file`             | Creates an animations for the behavior pack                                       |
