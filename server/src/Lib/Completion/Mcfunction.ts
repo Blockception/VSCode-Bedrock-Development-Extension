@@ -1,5 +1,4 @@
 import { Position } from "vscode-languageserver-textdocument";
-import { getLine } from "../Code/include";
 import { Command, Parameter } from "../Types/Commands/include";
 import { CommandIntr, IsInSubCommand } from "../Types/Commands/Interpertation/include";
 import { TextDocument } from "../Types/Document/TextDocument";
@@ -30,7 +29,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
     command = Subcommand;
   }
 
-  ProvideCompletion(pos, receiver, command);
+  ProvideCompletion(pos, receiver, command, doc);
 }
 
 /**
@@ -48,7 +47,7 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
   pos.character -= posB.character;
 
   let command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
-  ProvideCompletion(pos, receiver, command);
+  ProvideCompletion(pos, receiver, command, doc);
 }
 
 /**
@@ -58,7 +57,7 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
  * @param command
  * @returns
  */
-export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, command: CommandIntr): void {
+export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, command: CommandIntr, doc: TextDocument): void {
   if (command == undefined || command.Parameters.length == 0 || pos.character < 3) {
     Command.ProvideCompletion(receiver);
     return;
@@ -80,7 +79,7 @@ export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, co
 
     if (Match.Command.parameters.length > ParameterIndex) {
       let parameter = Match.Command.parameters[ParameterIndex];
-      let Context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current);
+      let Context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current, doc);
 
       Parameter.ProvideCompletion(Context);
     }

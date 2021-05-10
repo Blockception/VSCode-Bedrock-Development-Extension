@@ -1,6 +1,7 @@
 import { LocationWord } from "bc-vscode-words";
-import { Position, Range, TextDocument } from "vscode-languageserver-textdocument";
+import { Position, Range } from "vscode-languageserver-textdocument";
 import { ProcessCommand } from "../Types/Commands/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { DataCollector } from "./Files/Data Collector";
 
 export function Process(text: string, Start: Position, doc: TextDocument) {

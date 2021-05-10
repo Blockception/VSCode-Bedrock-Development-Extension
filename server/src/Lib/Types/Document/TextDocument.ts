@@ -1,7 +1,7 @@
 import * as vscode from "vscode-languageserver-textdocument";
 import * as code from "../../Code/include";
 import { Database } from "../../Database/Database";
-import { ProjectData } from "../Project/Project";
+import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
 
 export interface TextDocument extends vscode.TextDocument {
   /**Returns the text at the given text line
@@ -12,7 +12,7 @@ export interface TextDocument extends vscode.TextDocument {
   /**
    *
    */
-  getConfiguration(): ProjectData;
+  getConfiguration(): WorkspaceConfiguration;
 }
 
 export namespace TextDocument {
@@ -29,7 +29,7 @@ export namespace TextDocument {
       return code.getLine(out, lineIndex);
     };
 
-    out.getConfiguration = function getConfiguration(): ProjectData {
+    out.getConfiguration = function getConfiguration(): WorkspaceConfiguration {
       if (out.__projectcache) return out.__projectcache;
 
       let item = Database.WorkspaceData.GetForDoc(out.uri);
@@ -47,5 +47,5 @@ export namespace TextDocument {
 
 interface InternalTextDocument extends TextDocument {
   /**A hidden field that helps with storing the cache */
-  __projectcache: ProjectData | null | undefined;
+  __projectcache: WorkspaceConfiguration | null | undefined;
 }
