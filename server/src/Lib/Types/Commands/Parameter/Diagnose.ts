@@ -1,4 +1,3 @@
-import { ValidationData } from "../../../Validation/include";
 import {
   Block,
   BlockStates,
@@ -53,7 +52,7 @@ import {
  * @param validation
  * @param builder
  */
-export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, validation: ValidationData, builder: DiagnosticsBuilder, Com: CommandIntr): void {
+export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, Com: CommandIntr): void {
   if (pattern === undefined || data === undefined) return;
 
   if (pattern.Options) {
@@ -143,7 +142,7 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return OldBlockMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.objective:
-      return Objectives.ProvideDiagnostic(data, validation, builder);
+      return Objectives.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.operation:
       return OperationMode.ProvideDiagnostic(data, builder);
@@ -164,7 +163,7 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return SaveMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.selector:
-      return Selector.ProvideDiagnostic(pattern, data, builder, validation);
+      return Selector.ProvideDiagnostic(pattern, data, builder);
 
     case MCCommandParameterType.slotID:
       return Slot_id.ProvideDiagnostic(data, Com, builder);
@@ -182,7 +181,7 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return StructureAnimationMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.tag:
-      return Tag.ProvideDiagnostic(data, validation, builder);
+      return Tag.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.teleportRules:
       return TeleportRulesMode.ProvideDiagnostic(data, builder);

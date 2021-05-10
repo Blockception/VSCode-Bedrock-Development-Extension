@@ -1,12 +1,13 @@
 import { Location } from "vscode-languageserver";
-import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { Position } from "vscode-languageserver-textdocument";
 import { getLine } from "../Code/include";
 import { CommandIntr, GetSubCommand, IsInSubCommand } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { SearchDefinition } from "./Search";
 
 export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Location[] | undefined {
-  let Line = getLine(doc, pos.line);
+  let Line = doc.getLine(pos.line);
 
   if (Line === "") return undefined;
 

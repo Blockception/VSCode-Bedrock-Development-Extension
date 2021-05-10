@@ -1,13 +1,13 @@
 import { Location, ReferenceParams } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Json } from "../Code/include";
 import { Database } from "../Database/include";
+import { GetCurrentElement } from "../Types/Document/Json Functions";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export function ProvideJsonReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
   let pos = params.position;
 
   const Text = doc.getText();
-  let ElementRange = Json.GetCurrentElement(Text, doc.offsetAt(pos));
+  let ElementRange = GetCurrentElement(Text, doc.offsetAt(pos));
 
   if (!ElementRange) return undefined;
 

@@ -1,13 +1,13 @@
 import { LocationWord, RangedWord } from "bc-vscode-words";
 import { Database } from "../../../Database/include";
 import { IsRangeInteger, IsRangeNumber } from "../Range/Range";
-import { ValidationData } from "../../../Validation/include";
 import { MCCommandParameter } from "../../Commands/Parameter/include";
 import { IsFloat } from "../Float/include";
 import { IsInteger } from "../Integer/include";
 import { IScoreParameter, Selector } from "./Selector";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 import { DiagnosticSeverity } from "vscode-languageserver";
+import { DiagnosticCodes } from "../../../Constants";
 
 /**
  *
@@ -16,19 +16,19 @@ import { DiagnosticSeverity } from "vscode-languageserver";
  * @param receiver
  * @param validation
  */
-export function ProvideDiagnostic(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, validation: ValidationData): void {
+export function ProvideDiagnostic(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder): void {
   let text = data.text;
 
   if (pattern.Options?.acceptedValues?.includes(data.text)) return;
 
   if (text.startsWith("@")) {
     let selector = Selector.Parse(data);
-    DiagnoseSelector(selector, builder, pattern.Options?.playerOnly ?? false, validation);
+    DiagnoseSelector(selector, builder, pattern.Options?.playerOnly ?? false);
   } else {
     if (pattern.Options?.allowFakePlayers) {
       DiagnoseFakePlayer(data, builder);
     } else {
-      builder.AddWord(data, "Fake players for this parameter are not allowed");
+      builder.AddWord(data, "Fake players for this parameter are not allowed").code = "fakeplayer.excluded";
     }
   }
 }
@@ -46,7 +46,7 @@ function DiagnoseFakePlayer(data: LocationWord, builder: DiagnosticsBuilder): vo
     return;
   }
 
-  builder.AddWord(data, 'Fake player: "' + fakePlayer + '" has not been assigned a value.');
+  builder.AddWord(data, 'Fake player: "' + fakePlayer + '" has not been assigned a value.').code = DiagnosticCodes.FakePlayer.Missing;
 }
 
 /**
@@ -56,21 +56,21 @@ function DiagnoseFakePlayer(data: LocationWord, builder: DiagnosticsBuilder): vo
  * @param onlyPlayer
  * @param validation
  */
-function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyPlayer: boolean, validation: ValidationData): void {
+function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyPlayer: boolean): void {
   var HasType = selector.contains("type");
 
   if (onlyPlayer) {
     if (HasType) {
-      builder.Add("Selector has type definitions but this parameter should only be for players", selector.Range);
+      builder.Add("Selector has type definitions but this parameter should only be for players", selector.Range).code = DiagnosticCodes.Selector.Typed;
     } else {
       if (selector.Type == Selector.AllEntitiesType) {
-        builder.Add("Selector is for all entities but this parameter should only be for players", selector.Range);
+        builder.Add("Selector is for all entities but this parameter should only be for players", selector.Range).code = DiagnosticCodes.Selector.Typed;
       }
     }
   }
 
   if (IsBox(selector) && IsSphere(selector)) {
-    builder.Add("Selector has both box and sphere definitions", selector.Range);
+    builder.Add("Selector has both box and sphere definitions", selector.Range).code = DiagnosticCodes.Selector.Area.Both;
   }
 
   Coordinate("x", selector, builder);
@@ -96,7 +96,7 @@ function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyP
 
   AllPositivesAndNegatives("family", selector, builder);
   AllPositivesAndNegatives("tag", selector, builder);
-  ScoresCheck(selector, builder, validation);
+  ScoresCheck(selector, builder);
 
   for (let index = 0; index < selector.Parameters.length; index++) {
     const element = selector.Parameters[index];
@@ -333,7 +333,7 @@ function Range(name: string, selector: Selector, builder: DiagnosticsBuilder) {
  * @param receiver
  * @param validation
  */
-function ScoresCheck(selector: Selector, builder: DiagnosticsBuilder, validation: ValidationData): void {
+function ScoresCheck(selector: Selector, builder: DiagnosticsBuilder): void {
   let Parameter = selector.get("scores");
 
   if (Array.isArray(Parameter)) {
@@ -366,13 +366,14 @@ function ScoresCheck(selector: Selector, builder: DiagnosticsBuilder, validation
       builder.AddWord(Value, `Not a valid range or integer: ${Score.Name}=${Score.Value}`);
     }
 
-    if (validation.objectives?.valid?.includes(Score.Name.text)) {
+    let objectives = builder.doc.getConfiguration().defintions.objective;
+    if (objectives.defined.includes(Score.Name.text)) {
       continue;
-    } else if (validation.objectives?.invalid?.includes(Score.Name.text)) {
-      builder.AddWord(Score.Name, `Score: ${Score.Name} has been marked as invalid`);
+    } else if (objectives.excluded.includes(Score.Name.text)) {
+      builder.AddWord(Score.Name, `Score: ${Score.Name} has been marked as invalid`).code = DiagnosticCodes.Objective.Excluded;
     } else {
       if (!Database.Data.General.Objectives.HasID(Score.Name.text)) {
-        builder.AddWord(Score.Name, `No valid definition of ${Score.Name.text} has been found.`);
+        builder.AddWord(Score.Name, `No valid definition of ${Score.Name.text} has been found.`).code = DiagnosticCodes.Objective.Missing;
       }
     }
   }

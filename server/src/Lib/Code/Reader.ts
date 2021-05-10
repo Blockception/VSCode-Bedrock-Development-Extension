@@ -1,5 +1,5 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../Types/Document/Document";
+import { TextDocument } from "../Types/Document/TextDocument";
 
 export class DocumentReader {
   public doc: TextDocument;

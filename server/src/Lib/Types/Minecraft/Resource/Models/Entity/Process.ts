@@ -1,9 +1,9 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { Location, Range } from "vscode-languageserver-types";
-import { JsonDocument } from "../../../../../Code/Json/Json Document";
+import { JsonDocument } from "../../../../Document/Json Document";
 import { Database } from "../../../../../Database/Database";
 import { DataReference } from "../../../../../Database/Types/Reference";
 import { ModelEntity } from "./ModelEntity";
+import { TextDocument } from "../../../../Document/TextDocument";
 
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);

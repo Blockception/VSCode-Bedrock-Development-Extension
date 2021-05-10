@@ -1,7 +1,7 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { JsonDocument } from "../../../../Code/Json/include";
 import { Database } from "../../../../Database/Database";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
+import { JsonDocument } from "../../../Document/Json Document";
+import { TextDocument } from "../../../Document/TextDocument";
 import { Entity, render_controller_ref } from "../Entity/Entity";
 
 export function ProvideDiagnostic(doc: TextDocument): void {

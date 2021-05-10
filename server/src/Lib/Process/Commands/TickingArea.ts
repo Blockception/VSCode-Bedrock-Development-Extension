@@ -1,5 +1,5 @@
 import { Location } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
+
 import { Console } from "../../Console/Console";
 import { Database } from "../../Database/include";
 import { Manager } from "../../Manager/include";

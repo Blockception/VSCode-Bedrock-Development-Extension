@@ -1,7 +1,7 @@
 import { Location } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { JsonDocument } from "../../../../Code/Json/include";
 import { Database } from "../../../../Database/include";
+import { JsonDocument } from "../../../Document/Json Document";
+import { TextDocument } from "../../../Document/TextDocument";
 import { Sound } from "../../../General/include";
 
 /**

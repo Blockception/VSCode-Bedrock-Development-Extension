@@ -1,9 +1,8 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { getLine } from "../../Code/include";
 import { Console } from "../../Console/Console";
 import { Database } from "../../Database/Database";
-import { Manager } from "../../Manager/include";
 import { CommandIntr } from "../../Types/Commands/Interpertation/include";
+import { TextDocument } from "../../Types/Document/TextDocument";
 import { Tag } from "../../Types/General/Tag/Tag";
 import { GetComment } from "../../Types/Minecraft/Behavior/Functions/include";
 

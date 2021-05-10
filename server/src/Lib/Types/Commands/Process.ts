@@ -1,8 +1,8 @@
 import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { ProcessScoreboardCommand, ProcessTickingAreaCommand } from "../../Process/Commands/include";
 import { ProcessTagCommand } from "../../Process/Commands/Tag";
+import { TextDocument } from "../Document/TextDocument";
 import { CommandIntr, GetSubCommand } from "./Interpertation/include";
 
 export function ProcessCommand(Line: string, Start: Position, document: TextDocument): void {

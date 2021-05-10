@@ -1,7 +1,8 @@
 import { LocationWord, OffsetWord, PositionCalculator, RangedWord } from "bc-vscode-words";
 import { Diagnostic, DiagnosticSeverity } from "vscode-languageserver";
-import { Range, TextDocument } from "vscode-languageserver-textdocument";
+import { Range } from "vscode-languageserver-textdocument";
 import { Manager } from "../Manager/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { EmptyTypes } from "../Types/General/Empty";
 
 /** A builder that helps with providing diagnostics */
@@ -10,17 +11,30 @@ export class DiagnosticsBuilder {
   public doc: TextDocument;
   public Items: Diagnostic[];
 
+  /**
+   *
+   * @param doc
+   */
   constructor(doc: TextDocument) {
     this.doc = doc;
     this.calculator = PositionCalculator.Wrap(doc);
     this.Items = [];
   }
 
+  /**
+   *
+   */
   public SendDiagnostics() {
     Manager.Diagnostic.SendDiagnostics(this.doc, this.Items);
   }
 
-  public AddWord(Word: OffsetWord | RangedWord | LocationWord, message: string, serverity: DiagnosticSeverity = DiagnosticSeverity.Error) {
+  /**
+   *
+   * @param Word
+   * @param message
+   * @param serverity
+   */
+  public AddWord(Word: OffsetWord | RangedWord | LocationWord, message: string, serverity: DiagnosticSeverity = DiagnosticSeverity.Error): Diagnostic {
     let range: Range;
 
     if (OffsetWord.is(Word)) {
@@ -31,26 +45,53 @@ export class DiagnosticsBuilder {
       range = Word.location.range;
     }
 
-    this.Items.push({
+    return this.Push({
       message: message,
       severity: serverity,
       range: range,
     });
   }
 
-  public Add(message: string, range: Range | undefined = undefined, serverity: DiagnosticSeverity = DiagnosticSeverity.Error) {
+  /**
+   *
+   * @param message
+   * @param range
+   * @param serverity
+   * @returns
+   */
+  public Add(message: string, range: Range | undefined = undefined, serverity: DiagnosticSeverity = DiagnosticSeverity.Error): Diagnostic {
     if (range === undefined) {
       range = EmptyTypes.EmptyRange();
     }
 
-    this.Items.push({
+    return this.Push({
       message: message,
       severity: serverity,
       range: range,
     });
   }
 
-  public AddAt(message: string, line: number, startindex: number, endindex: number, serverity: DiagnosticSeverity = DiagnosticSeverity.Error) {
-    this.Add(message, { start: { character: startindex, line: line }, end: { character: endindex, line: line } }, serverity);
+  /**
+   *
+   * @param message
+   * @param line
+   * @param startindex
+   * @param endindex
+   * @param serverity
+   * @returns
+   */
+  public AddAt(message: string, line: number, startindex: number, endindex: number, serverity: DiagnosticSeverity = DiagnosticSeverity.Error): Diagnostic {
+    return this.Add(message, { start: { character: startindex, line: line }, end: { character: endindex, line: line } }, serverity);
+  }
+
+  /**
+   *
+   * @param Item
+   * @returns
+   */
+  public Push(Item: Diagnostic): Diagnostic {
+    this.Items.push(Item);
+
+    return Item;
   }
 }

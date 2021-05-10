@@ -1,6 +1,5 @@
 import { Diagnostic, DiagnosticSeverity, Range } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { Database } from "../Database/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { EmptyTypes } from "../Types/General/include";
 
 export function InvalidJson(doc: TextDocument, error: any): void {

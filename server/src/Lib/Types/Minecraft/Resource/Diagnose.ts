@@ -1,5 +1,5 @@
-import { TextDocument } from "vscode-languageserver-textdocument";
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
+import { TextDocument } from "../../Document/TextDocument";
 import { DataType, DetectResourceType } from "../Format/include";
 import { Animation_Controllers, Entity } from "./include";
 

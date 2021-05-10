@@ -1,7 +1,7 @@
 import { Diagnostic } from "vscode-languageserver";
-import { TextDocument } from "vscode-languageserver-textdocument";
-import { JsonDocument } from "../../../Code/Json/include";
 import { Manager } from "../../../Manager/Manager";
+import { JsonDocument } from "../../Document/Json Document";
+import { TextDocument } from "../../Document/TextDocument";
 import { Manifest } from "./Manifest";
 
 export function ProvideManifestDiagnostics(doc: TextDocument): void {

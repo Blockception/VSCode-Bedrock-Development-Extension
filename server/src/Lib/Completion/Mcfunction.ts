@@ -1,13 +1,21 @@
-import { Position, TextDocument } from "vscode-languageserver-textdocument";
+import { Position } from "vscode-languageserver-textdocument";
 import { getLine } from "../Code/include";
 import { Command, Parameter } from "../Types/Commands/include";
 import { CommandIntr, IsInSubCommand } from "../Types/Commands/Interpertation/include";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
 import { CommandCompletionContext } from "./Commands/Context";
 
+/**
+ *
+ * @param doc
+ * @param pos
+ * @param receiver
+ * @returns
+ */
 export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
   const LineIndex = pos.line;
-  const Line = getLine(doc, LineIndex);
+  const Line = doc.getLine(LineIndex);
 
   let CommentIndex = Line.indexOf("#");
 
@@ -16,7 +24,6 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
   }
 
   let command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
-
   let Subcommand = IsInSubCommand(command, pos.character);
 
   if (Subcommand) {
@@ -26,6 +33,14 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
   ProvideCompletion(pos, receiver, command);
 }
 
+/**
+ *
+ * @param text
+ * @param cursor
+ * @param offset
+ * @param doc
+ * @param receiver
+ */
 export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionBuilder): void {
   let pos = doc.positionAt(cursor);
   let posB = doc.positionAt(offset);
@@ -36,6 +51,13 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
   ProvideCompletion(pos, receiver, command);
 }
 
+/**
+ *
+ * @param pos
+ * @param receiver
+ * @param command
+ * @returns
+ */
 export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, command: CommandIntr): void {
   if (command == undefined || command.Parameters.length == 0 || pos.character < 3) {
     Command.ProvideCompletion(receiver);
