@@ -1,7 +1,7 @@
 import * as fg from "fast-glob";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
-import { JsonDocument } from "./Json/Json Document";
+import { JsonDocument } from "../Types/Document/Json Document";
 import { Manager } from "../Manager/Manager";
 import { DupeCheckAdd } from "./Array";
 import { GetParent } from "./File";
@@ -11,21 +11,48 @@ import { Manifest } from "../Types/Minecraft/Manifest/Manifest";
 import { Database } from "../Database/include";
 import { WorkspaceConfiguration } from "../Database/Types/WorkspaceData";
 
+/**
+ *
+ */
 export interface ProjectFiles {
+  /**
+   *
+   */
   WorldFolders: string[];
+
+  /**
+   *
+   */
   ResourcePackFolders: string[];
+
+  /**
+   *
+   */
   BehaviourPackFolders: string[];
+
+  /**
+   *
+   */
   Workspaces: string[];
 }
 
+/**
+ *
+ * @returns
+ */
 export async function GetProjectFiles(): Promise<ProjectFiles> {
   let WS = Manager.Connection.workspace.getWorkspaceFolders();
 
   return WS.then((x) => Traverse(x));
 }
 
+/**
+ *
+ * @param folders
+ * @returns
+ */
 async function Traverse(folders: WorkspaceFolder[] | null): Promise<ProjectFiles> {
-  let PD: ProjectFiles = {
+  let PF: ProjectFiles = {
     BehaviourPackFolders: [],
     ResourcePackFolders: [],
     WorldFolders: [],
@@ -33,28 +60,43 @@ async function Traverse(folders: WorkspaceFolder[] | null): Promise<ProjectFiles
   };
 
   if (folders === null) {
-    return Promise.resolve(PD);
+    return Promise.resolve(PF);
   }
 
   return Database.WorkspaceData.Add(folders).then((ws) => {
-    CheckStructure(ws, PD);
-    return PD;
+    CheckStructure(ws, PF);
+    return PF;
   });
 }
 
-function CheckStructure(folders: WorkspaceConfiguration[] | null, PD: ProjectFiles) {
+/**
+ *
+ * @param folders
+ * @param PD
+ * @returns
+ */
+function CheckStructure(folders: WorkspaceConfiguration[] | null, PF: ProjectFiles): void {
   Console.Log("discovering workspace layout");
 
   if (folders == null) return undefined;
 
+  for (let I = 0; I < folders.length; I++) {
+    GetWorkspaceFiles(folders[I], PF);
+  }
+}
+
+/**
+ *
+ * @param folder
+ * @param PF
+ */
+export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles): void {
   let dirs: string[] = [];
 
-  for (let I = 0; I < folders.length; I++) {
-    const uri = folders[I].folder;
-    let Path = URI.parse(uri).fsPath;
-    PD.Workspaces.push(uri);
-    dirs.push(Path);
-  }
+  const uri = Ws.folder;
+  let Path = URI.parse(Ws.folder).fsPath;
+  PF.Workspaces.push(uri);
+  dirs.push(Path);
 
   for (let I = 0; I < dirs.length; I++) {
     let dir = dirs[I];
@@ -65,24 +107,32 @@ function CheckStructure(folders: WorkspaceConfiguration[] | null, PD: ProjectFil
     dirs[I] = dir + "**/manifest.json";
   }
 
-  const entries = fg.sync(dirs, { absolute: true, onlyFiles: true });
+  const entries = fg.sync(dirs, { absolute: true, onlyFiles: true, ignore: Ws.ignores });
+  Process(entries, PF);
+}
 
-  for (let J = 0; J < entries.length; J++) {
-    let item = entries[J];
+/**
+ *
+ * @param files
+ * @param PF
+ */
+function Process(files: string[], PF: ProjectFiles): void {
+  for (let J = 0; J < files.length; J++) {
+    const item = files[J];
     let parent = GetParent(item);
     let Type = DetectGeneralDataType(item);
 
     switch (Type) {
       case GeneralDataType.behaviour_pack:
-        DupeCheckAdd(PD.BehaviourPackFolders, parent);
+        DupeCheckAdd(PF.BehaviourPackFolders, parent);
         continue;
 
       case GeneralDataType.resource_pack:
-        DupeCheckAdd(PD.ResourcePackFolders, parent);
+        DupeCheckAdd(PF.ResourcePackFolders, parent);
         continue;
 
       case GeneralDataType.world:
-        DupeCheckAdd(PD.WorldFolders, parent);
+        DupeCheckAdd(PF.WorldFolders, parent);
         break;
 
       default:
@@ -95,19 +145,17 @@ function CheckStructure(folders: WorkspaceConfiguration[] | null, PD: ProjectFil
 
         switch (Type) {
           case GeneralDataType.behaviour_pack:
-            DupeCheckAdd(PD.BehaviourPackFolders, parent);
+            DupeCheckAdd(PF.BehaviourPackFolders, parent);
             continue;
 
           case GeneralDataType.resource_pack:
-            DupeCheckAdd(PD.ResourcePackFolders, parent);
+            DupeCheckAdd(PF.ResourcePackFolders, parent);
             continue;
 
           case GeneralDataType.world:
-            DupeCheckAdd(PD.WorldFolders, parent);
+            DupeCheckAdd(PF.WorldFolders, parent);
             break;
         }
     }
   }
-
-  return PD;
 }
