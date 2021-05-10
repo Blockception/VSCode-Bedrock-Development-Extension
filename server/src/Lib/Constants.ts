@@ -133,3 +133,37 @@ export namespace Commands {
     export const OpenLastest = "bc.errors.open_lastest";
   }
 }
+
+export namespace DiagnosticCodes {
+  export namespace FakePlayer {
+    export const Missing = "fakeplayer.missing";
+  }
+
+  export namespace Family {
+    export const Missing = "family.missing";
+    export const Excluded = "family.excluded";
+  }
+
+  export namespace Name {
+    export const Missing = "name.missing";
+    export const Excluded = "name.excluded";
+  }
+
+  export namespace Objective {
+    export const Missing = "objective.missing";
+    export const Excluded = "objective.excluded";
+  }
+
+  export namespace Selector {
+    export const Typed = "selector.typed";
+
+    export namespace Area {
+      export const Both = "selector.area.both";
+    }
+  }
+
+  export namespace Tag {
+    export const Missing = "tag.missing";
+    export const Excluded = "tag.excluded";
+  }
+}
