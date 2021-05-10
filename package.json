@@ -684,7 +684,12 @@
           "*behavior*pack*/items/*.json",
           "*Behavior*Pack*/items/*.json",
           "*BP*/items/*.json",
-          "*bp*/items/*.json"
+          "*bp*/items/*.json",
+          "behavior_packs/*/items/**/*.json",
+          "*behavior*pack*/items/**/*.json",
+          "*Behavior*Pack*/items/**/*.json",
+          "*BP*/items/**/*.json",
+          "*bp*/items/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/items/items.json"
       },
