@@ -8,8 +8,7 @@ import { Languages } from "../../Constants";
 import { Console } from "../../Console/Console";
 import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
-import { Database } from "../../Database/include";
-import { ProjectData } from "../Project/Project";
+import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
 
 /**
  * Returns an usable document interaction from the given data.
@@ -145,7 +144,7 @@ export class CachedDoc implements TextDocument {
     return this.doc.getLine(lineIndex);
   }
 
-  getConfiguration(): ProjectData {
+  getConfiguration(): WorkspaceConfiguration {
     return this.doc.getConfiguration();
   }
 
