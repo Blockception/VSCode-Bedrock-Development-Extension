@@ -1,6 +1,7 @@
 /*	Auto generated	*/
 export * as Code from "./Code/include";
 export * as CodeAction from "./CodeAction/include";
+export * as CodeLens from "./CodeLens/include";
 export * as Commands from "./Commands/include";
 export * as Completion from "./Completion/include";
 export * as Console from "./Console/include";
