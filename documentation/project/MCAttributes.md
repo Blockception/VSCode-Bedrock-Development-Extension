@@ -1,6 +1,6 @@
 # Mcattributes
 
-This file stores any of the settings/attribtues related to the project. If none attributes are specified, the plugin will fall back onto plugin settings
+This file stores any of the settings/attribtues related to the project. If none attributes are specified, the plugin will fall back onto plugin settings.
 
 **Example**
 
