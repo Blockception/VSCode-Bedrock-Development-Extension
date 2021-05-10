@@ -1,7 +1,7 @@
 /*	Auto generated	*/
+
 export * from "./Array";
 export * from "./Character";
-export * from "../Types/Document/Document";
 export * from "./Equal";
 export * from "./File";
 export * from "./ProjectFiles";

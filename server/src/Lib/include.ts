@@ -1,5 +1,6 @@
 /*	Auto generated	*/
 export * as Code from "./Code/include";
+export * as CodeAction from "./CodeAction/include";
 export * as Commands from "./Commands/include";
 export * as Completion from "./Completion/include";
 export * as Console from "./Console/include";
@@ -8,6 +9,7 @@ export * as Database from "./Database/include";
 export * as Definition from "./Definition/include";
 export * as Diagnostics from "./Diagnostics/include";
 export * as Format from "./Format/include";
+export * as Glob from "./Glob/include";
 export * as Hover from "./Hover/include";
 export * as Manager from "./Manager/include";
 export * as Molang from "./Molang/include";

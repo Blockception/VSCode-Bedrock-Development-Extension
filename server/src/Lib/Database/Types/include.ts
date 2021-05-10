@@ -8,3 +8,4 @@ export * from "./GeneralData";
 export * from "./MinecraftProgramData";
 export * from "./Reference";
 export * from "./Resourcepack";
+export * from "./WorkspaceData";
