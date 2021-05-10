@@ -18,6 +18,7 @@ It's recommended you use the Dark+ theme for the best color highlighting. This p
 - [VSCode-Bedrock-Development-Extension](#vscode-bedrock-development-extension)
   - [Content](#content)
   - [Features](#features)
+    - [Minecraft project files](#minecraft-project-files)
     - [Mcfunction](#mcfunction)
     - [JSON](#json)
       - [Molang](#molang)
@@ -30,6 +31,14 @@ It's recommended you use the Dark+ theme for the best color highlighting. This p
   - [Licenses](#licenses)
 
 ## Features
+
+### Minecraft project files
+
+Can read the following minecraft project files
+
+- [`.mcattributes`](./documentation/project/MCAttributes.md)
+- [`.defintions`](./documentation/project/MCDefintions.md)
+- [`.mcignore`](./documentation/project/MCIgnore.md)
 
 ### Mcfunction
 
