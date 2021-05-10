@@ -42,9 +42,9 @@ export namespace ProjectData {
   export function SetProject(receiver: ProjectData, project: MC.MCProject) {
     //Definitions
     Transfer(receiver.defintions.family, project.definitions["family"]);
-    Transfer(receiver.defintions.family, project.definitions["tag"]);
-    Transfer(receiver.defintions.family, project.definitions["name"]);
-    Transfer(receiver.defintions.family, project.definitions["objectives"]);
+    Transfer(receiver.defintions.tag, project.definitions["tag"]);
+    Transfer(receiver.defintions.name, project.definitions["name"]);
+    Transfer(receiver.defintions.objective, project.definitions["objectives"]);
 
     //Ignores
     receiver.ignores.push(...project.ignores.patterns);
@@ -52,15 +52,15 @@ export namespace ProjectData {
     //Attributes
     let attributes = project.attributes;
     //Education edition
-    receiver.settings.Education.Enable = ToBoolean(attributes["education.enable"], false);
+    receiver.settings.Education.Enable = ToBoolean(attributes["education.enable"], receiver.settings.Education.Enable);
     //Diagnostics
     let Diag = receiver.settings.Diagnostics;
-    Diag.Enable = ToBoolean(attributes["diagnostic.enable"], false);
-    Diag.Json = ToBoolean(attributes["diagnostic.json"], false);
-    Diag.Lang = ToBoolean(attributes["diagnostic.lang"], false);
-    Diag.Mcfunctions = ToBoolean(attributes["diagnostic.mcfunction"], false);
-    Diag.Objectives = ToBoolean(attributes["diagnostic.objective"], false);
-    Diag.Tags = ToBoolean(attributes["diagnostic.tag"], false);
+    Diag.Enable = ToBoolean(attributes["diagnostic.enable"], Diag.Enable);
+    Diag.Json = ToBoolean(attributes["diagnostic.json"], Diag.Json);
+    Diag.Lang = ToBoolean(attributes["diagnostic.lang"], Diag.Lang);
+    Diag.Mcfunctions = ToBoolean(attributes["diagnostic.mcfunction"], Diag.Mcfunctions);
+    Diag.Objectives = ToBoolean(attributes["diagnostic.objective"], Diag.Objectives);
+    Diag.Tags = ToBoolean(attributes["diagnostic.tag"], Diag.Tags);
   }
 
   /**
