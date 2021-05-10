@@ -132,6 +132,10 @@ export namespace Commands {
   export namespace Errors {
     export const OpenLastest = "bc.errors.open_lastest";
   }
+
+  export namespace MCProject {
+    export const Create: string = "bc.mcproject.create";
+  }
 }
 
 export namespace DiagnosticCodes {

@@ -4,6 +4,7 @@ import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { McImportErrorsCommand } from "./Import Errors";
 import { AddAllItems } from "./Language/AddAll";
+import { CreateMCProject } from "./MCProjects";
 import { Create } from "./Templates/Create";
 
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
@@ -23,6 +24,9 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
 
       case Commands.AddLanguageFile:
         return AddAllItems(params);
+
+      case Commands.MCProject.Create:
+        return CreateMCProject();
 
       default:
         if (params.command.startsWith(Commands.Create.Base)) {

@@ -13,6 +13,7 @@ import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } fro
 import { OnConfigurationChanged } from "../Settings";
 import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
 import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
+import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 
 /**
  * Setup the server events
@@ -29,6 +30,10 @@ export function setEvents() {
 
   // This handler provides commands
   Connection.onExecuteCommand(OnCommandRequestAsync);
+
+  // This handler provides code actions
+  Connection.onCodeAction(OnCodeActionAsync);
+  Connection.onCodeActionResolve(OnCodeActionResolveAsync);
 
   // This handler provides completion items.
   Connection.onCompletion(OnCompletionRequestAsync);

@@ -1,4 +1,4 @@
-import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
+import { CodeActionKind, InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
 import { Commands } from "../Constants";
 import { Console } from "../Console/Console";
@@ -24,6 +24,12 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       executeCommandProvider: {
         commands: [Commands.DiagnoseProject, Commands.ImportErrors],
         workDoneProgress: true,
+      },
+
+      // Code Actions
+      codeActionProvider: {
+        codeActionKinds: [CodeActionKind.QuickFix],
+        resolveProvider: false,
       },
 
       // Tell the client that this server supports go to defintitions

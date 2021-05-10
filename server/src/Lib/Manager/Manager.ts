@@ -36,6 +36,7 @@ export namespace Manager {
       Manager.Connection.sendDiagnostics({
         diagnostics: Diagnostics,
         uri: doc.uri,
+        version: doc.version,
       });
     }
   }
