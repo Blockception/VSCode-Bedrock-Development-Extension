@@ -1,5 +1,4 @@
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
-import { Diagnostics } from "../include";
 import { CodeActionBuilder } from "./Builder";
 import { TagCodeAction } from "./Types/Tag";
 
