@@ -132,6 +132,11 @@
     ],
     "commands": [
       {
+        "title": "Create MCProject files",
+        "command": "bc.mcproject.create",
+        "category": "Blockception"
+      },
+      {
         "title": "Open lastest errors",
         "command": "bc.errors.open_lastest",
         "category": "Blockception"

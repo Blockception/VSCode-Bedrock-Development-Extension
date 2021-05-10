@@ -12,6 +12,7 @@ import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
 import { OnConfigurationChanged } from "../Settings";
 import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
+import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
 
 /**
  * Setup the server events

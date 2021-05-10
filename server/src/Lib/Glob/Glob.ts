@@ -10,6 +10,10 @@ export namespace Glob {
     return source.filter((x) => !pm.isMatch(x, ignores, opt));
   }
 
+  export function IsMatch(source: string, patterns: string[]): boolean {
+    return pm.isMatch(source, patterns, opt);
+  }
+
   export function GetFiles(source: string | string[], ignores: string[] | undefined = undefined): string[] {
     let entries = FastGlob.sync(source, { onlyFiles: true, absolute: true });
 
