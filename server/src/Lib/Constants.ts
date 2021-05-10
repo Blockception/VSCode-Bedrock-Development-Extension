@@ -139,6 +139,10 @@ export namespace Commands {
 }
 
 export namespace DiagnosticCodes {
+  export namespace Block {
+    export const Missing = "block.missing";
+  }
+
   export namespace FakePlayer {
     export const Missing = "fakeplayer.missing";
   }
