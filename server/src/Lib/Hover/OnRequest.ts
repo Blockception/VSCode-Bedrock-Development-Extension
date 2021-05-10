@@ -1,6 +1,6 @@
 import { Hover, HoverParams } from "vscode-languageserver";
-import { GetDocument } from "../Code/include";
 import { Languages } from "../Constants";
+import { GetDocument } from "../Types/Document/include";
 import { provideHoverMcFunction } from "./Mcfunction";
 
 export function OnHoverRequestAsync(params: HoverParams): Promise<Hover | undefined> {

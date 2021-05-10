@@ -1,6 +1,5 @@
 import { CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { getLine } from "../Code/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
 

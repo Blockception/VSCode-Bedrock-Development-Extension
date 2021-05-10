@@ -1,5 +1,4 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
-import { getLine } from "../Code/include";
 import { CommandIntr, GetSubCommand } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
@@ -19,7 +18,7 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
   }
 
   for (let I = startindex; I < endindex; I++) {
-    let line = getLine(doc, I);
+    let line = doc.getLine(I);
 
     let CommentIndex = line.indexOf("#");
 

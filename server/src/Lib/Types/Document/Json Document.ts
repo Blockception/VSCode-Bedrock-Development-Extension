@@ -2,7 +2,7 @@ import { Range } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { Console } from "../../Console/Console";
 import * as JSONC from "comment-json";
-import * as Code from "../../Code/include";
+import * as Code from "./Document";
 import { TextDocument } from "./TextDocument";
 
 /**

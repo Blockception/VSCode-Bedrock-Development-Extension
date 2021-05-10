@@ -1,6 +1,5 @@
-import { GetDocuments } from "../../../Code/include";
 import { Console } from "../../../Console/Console";
-import { Code } from "../../../include";
+import { ForEachDocument, GetDocuments } from "../../Document/include";
 import { TextDocument } from "../../Document/TextDocument";
 import { DataType } from "../Format/Data Type";
 import { DetectDataType } from "../Format/Detection";
@@ -42,5 +41,5 @@ export function Process(doc: TextDocument): void {
 export function ProcessResourcePack(Folder: string): void {
   Console.Log("Processing resource pack: " + Folder);
 
-  Code.ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
+  ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
 }

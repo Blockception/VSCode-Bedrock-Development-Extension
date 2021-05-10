@@ -1,9 +1,8 @@
 import { Position, SignatureHelp } from "vscode-languageserver";
-import { getLine } from "../Code/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 
 export function ProvideLanguageSignature(doc: TextDocument, pos: Position): SignatureHelp {
-  const Line = getLine(doc, pos.line);
+  const Line = doc.getLine(pos.line);
 
   let index = Line.indexOf("=");
   let parameter = 0;

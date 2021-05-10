@@ -1,9 +1,9 @@
 import { TextDocumentChangeEvent } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { GetDocument } from "../../Code/include";
 import { Console } from "../../Console/include";
 import { Glob } from "../../Glob/Glob";
 import { Process } from "../../Process/Process";
+import { GetDocument } from "../../Types/Document/include";
 
 export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
   return new Promise((resolve, reject) => {

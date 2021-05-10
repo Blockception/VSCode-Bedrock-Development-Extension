@@ -1,4 +1,3 @@
-import { getLine } from "../../../../Code/include";
 import { ProcessCommand } from "../../../Commands/Process";
 import { Languages } from "../../../../Constants";
 import { Database } from "../../../../Database/include";
@@ -18,7 +17,7 @@ export function Process(document: TextDocument): void {
 
 function ProcessContent(document: TextDocument): void {
   for (let Index = 0; Index < document.lineCount; Index++) {
-    const Line = getLine(document, Index);
+    const Line = document.getLine(Index);
 
     ProcessCommand(Line, { character: 0, line: Index }, document);
   }
@@ -40,7 +39,7 @@ function ProcessContent(document: TextDocument): void {
     Mcfunction.Location.uri = uri;
 
     //Get first comment as documentation
-    const FirstLine = getLine(document, 0);
+    const FirstLine = document.getLine(0);
     const Comment = GetComment(FirstLine).trim();
 
     if (Comment === "") {

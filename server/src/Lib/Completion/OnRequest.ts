@@ -1,6 +1,6 @@
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
-import { GetDocument } from "../Code/include";
 import { Languages } from "../Constants";
+import { GetDocument } from "../Types/Document/include";
 import { OnCompletionMCProject } from "../Types/MCProject/Completion";
 import { CompletionBuilder } from "./Builder";
 import { OnCompletionJson } from "./Json";

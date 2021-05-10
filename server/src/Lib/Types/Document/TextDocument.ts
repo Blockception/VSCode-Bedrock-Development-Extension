@@ -1,5 +1,5 @@
 import * as vscode from "vscode-languageserver-textdocument";
-import * as code from "../../Code/include";
+import * as code from "./Document";
 import { Database } from "../../Database/Database";
 import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
 

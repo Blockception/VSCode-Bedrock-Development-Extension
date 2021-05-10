@@ -1,6 +1,6 @@
 import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
-import { GetDocument } from "../Code/include";
 import { Languages } from "../Constants";
+import { GetDocument } from "../Types/Document/include";
 import { OnJsonDefinition } from "./Json";
 import { OnMcfunctionDefinition } from "./Mcfunction";
 

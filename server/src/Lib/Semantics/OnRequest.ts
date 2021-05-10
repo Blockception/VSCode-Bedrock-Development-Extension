@@ -1,8 +1,9 @@
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
-import { GetDocument, GetFilename } from "../Code/include";
+import { GetFilename } from "../Code/include";
 import { Console } from "../Console/Console";
 import { Languages } from "../Constants";
+import { GetDocument } from "../Types/Document/include";
 import { ProvideJsonSemanticTokens } from "./Json";
 import { ProvideMcfunctionSemanticTokens } from "./Mcfunctions";
 

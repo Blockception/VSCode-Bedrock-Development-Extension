@@ -1,6 +1,5 @@
-import { GetDocuments } from "../../../Code/include";
 import { Console } from "../../../Console/Console";
-import { Code } from "../../../include";
+import { ForEachDocument, GetDocuments } from "../../Document/include";
 import { TextDocument } from "../../Document/TextDocument";
 import { DataType } from "../Format/Data Type";
 import { DetectDataType } from "../Format/Detection";
@@ -43,7 +42,7 @@ export function Process(doc: TextDocument): void {
  */
 export function ProcessBehaviourPack(Folder: string): void {
   Console.Log("Processing behaviour pack: " + Folder);
-  Code.ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
+  ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
 }
 
 export function ValidateFolder(doc: TextDocument): void {

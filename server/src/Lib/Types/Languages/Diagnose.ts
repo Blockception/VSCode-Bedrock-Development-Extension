@@ -1,6 +1,4 @@
-import { Manager } from "../../Manager/include";
 import { DiagnosticsBuilder } from "../../Diagnostics/Builder";
-import { getLine } from "../../Code/include";
 import { TextDocument } from "../Document/TextDocument";
 
 /**
@@ -19,7 +17,7 @@ export function provideLanguageDiagnostics(doc: TextDocument) {
   let Keys = new Array<string>(doc.lineCount);
 
   for (let I = 0; I < doc.lineCount; I++) {
-    let line = getLine(doc, I).trim();
+    let line = doc.getLine(I).trim();
     Diagnoseline(line, I, Keys, builder);
   }
 

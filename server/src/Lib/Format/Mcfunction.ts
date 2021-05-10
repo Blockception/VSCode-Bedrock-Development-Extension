@@ -1,5 +1,4 @@
 import { DocumentFormattingParams, DocumentRangeFormattingParams, TextEdit } from "vscode-languageserver";
-import { getLine } from "../Code/include";
 import { Replace, TrimEndFromLine, TrimStartFromLine } from "../Code/TextEdit";
 import { TextDocument } from "../Types/Document/TextDocument";
 
@@ -27,7 +26,7 @@ export function formatMcfunctionRange(doc: TextDocument, params: DocumentRangeFo
 
 //formatts the specified line
 function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
-  let Line = getLine(document, index);
+  let Line = document.getLine(index);
 
   if (Line.length > 2) {
     TrimStartFromLine(Line, index, Out, ["/", " ", "\t"]);

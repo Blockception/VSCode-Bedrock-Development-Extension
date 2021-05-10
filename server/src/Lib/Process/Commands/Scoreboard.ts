@@ -1,4 +1,3 @@
-import { getLine } from "../../Code/include";
 import { Console } from "../../Console/Console";
 import { Database } from "../../Database/Database";
 import { CommandIntr } from "../../Types/Commands/Interpertation/include";
@@ -13,7 +12,7 @@ export function ProcessScoreboardCommand(Com: CommandIntr, doc: TextDocument): v
     return;
   }
 
-  let Comment = GetComment(getLine(doc, Com.Line));
+  let Comment = GetComment(doc.getLine(Com.Line));
   let Mode = Com.Parameters[1];
 
   switch (Mode.text) {

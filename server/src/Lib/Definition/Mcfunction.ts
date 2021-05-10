@@ -1,6 +1,5 @@
 import { Location } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { getLine } from "../Code/include";
 import { CommandIntr, GetSubCommand, IsInSubCommand } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";

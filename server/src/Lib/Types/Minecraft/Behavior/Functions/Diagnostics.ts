@@ -1,5 +1,4 @@
 import { Position, Range } from "vscode-languageserver";
-import { getLine } from "../../../../Code/include";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/Builder";
 import { Manager } from "../../../../Manager/Manager";
 import { DiagnoseCommand } from "../../../Commands/Command/include";
@@ -32,7 +31,7 @@ export function DiagnoseMcFunction(doc: TextDocument) {
 
   for (let index = 0; index < doc.lineCount; index++) {
     try {
-      line = getLine(doc, index);
+      line = doc.getLine(index);
       DiagnoseLine(line, Position.create(index, 0), undefined, Builder);
     } catch (error) {
       if (error.message) Builder.Add(error.message, Range.create(index, 0, line.length, index));

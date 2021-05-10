@@ -1,4 +1,3 @@
-import { getLine } from "../../Code/include";
 import { Console } from "../../Console/Console";
 import { Database } from "../../Database/Database";
 import { CommandIntr } from "../../Types/Commands/Interpertation/include";
@@ -16,7 +15,7 @@ export function ProcessTagCommand(Com: CommandIntr, doc: TextDocument): void {
   Data.Identifier = tag.text;
   Data.Location = tag.location;
 
-  let Comment = GetComment(getLine(doc, Com.Line));
+  let Comment = GetComment(doc.getLine(Com.Line));
 
   if (Comment !== "") {
     Data.Documentation.value = Comment;

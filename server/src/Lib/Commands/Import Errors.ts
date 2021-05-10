@@ -1,7 +1,7 @@
 import { readdirSync } from "fs";
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { GetDocument } from "../Code/include";
 import { Database } from "../Database/Database";
+import { GetDocument } from "../Types/Document/include";
 import { ProcessContentLog } from "../Types/Minecraft/Logs/Content Logs/include";
 
 /**

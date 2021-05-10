@@ -1,12 +1,11 @@
 import { ReferenceParams, Location } from "vscode-languageserver";
-import { getLine } from "../Code/include";
 import { SearchDefinition } from "../Definition/Search";
 import { CommandIntr } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 
 export function ProvideMcfunctionsReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
-  const Line = getLine(doc, params.position.line);
+  const Line = doc.getLine(params.position.line);
   let com = CommandIntr.parse(Line, params.position, doc.uri);
 
   let data = com.GetCommandData();

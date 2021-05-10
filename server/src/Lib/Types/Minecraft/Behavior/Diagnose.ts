@@ -1,16 +1,16 @@
-import { Code } from "../../../include";
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
 import { Entities, Functions, Animation_Controllers } from "./include";
 import { DataType, DetectBehaviorType } from "../Format/include";
 import { TextDocument } from "../../Document/TextDocument";
+import { ForEachDocument, GetDocuments } from "../../Document/include";
 
 export function ProvideDiagnostic(context: DiagnoseContext): void {
   context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP));
 }
 
 export function DiagnoseFolder(uri: string): void {
-  Code.ForEachDocument(Code.GetDocuments(uri, ["**/*.mcfunction"]), (D) => Functions.DiagnoseMcFunction(D));
-  Code.ForEachDocument(Code.GetDocuments(uri, ["**/*.json"]), (D) => DiagnoseJson(D));
+  ForEachDocument(GetDocuments(uri, ["**/*.mcfunction"]), (D) => Functions.DiagnoseMcFunction(D));
+  ForEachDocument(GetDocuments(uri, ["**/*.json"]), (D) => DiagnoseJson(D));
 }
 
 export function DiagnoseJson(doc: TextDocument): void {

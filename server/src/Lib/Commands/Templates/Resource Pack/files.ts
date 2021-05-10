@@ -4,7 +4,7 @@ import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { Context } from "../Context";
 import { uuid } from "uuidv4";
-import { GetDocuments } from "../../../Code/include";
+import { GetDocuments } from "../../../Types/Document/include";
 
 export function create_animation_controller_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
   let safeID = SafeIDNoNamespace(ID);
