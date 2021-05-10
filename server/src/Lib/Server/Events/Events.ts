@@ -63,9 +63,11 @@ export function setEvents() {
   Connection.languages.semanticTokens.on(OnProvideSemanticRequestAsync);
   Connection.languages.semanticTokens.onRange(OnProvideRangeSemanticRequestAsync);
 
-  // Workspace event
-  Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
-  Connection.workspace.onDidDeleteFiles(OnDidDeleteFilesAsync);
-  Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
-  Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
+  if (Manager.Capabiltities.hasWorkspaceFolderCapability) {
+    // Workspace event
+    Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
+    Connection.workspace.onDidDeleteFiles(OnDidDeleteFilesAsync);
+    Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
+    Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
+  }
 }

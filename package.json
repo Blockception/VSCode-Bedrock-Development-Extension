@@ -6,6 +6,7 @@
     "onLanguage:bc-minecraft-mcfunction",
     "onLanguage:json",
     "onLanguage:jsonc",
+    "onLanguage:bc-minecraft-project",
     "onCommand:bc-cheat-sheet-molang",
     "onCommand:bc-cheat-sheet-behavior-filters",
     "onCommand:bc.errors.open_lastest"
@@ -414,17 +415,18 @@
     "languages": [
       {
         "id": "bc-minecraft-language",
+        "configuration": "./minecraft-language-files/configuration.json",
         "aliases": [
           "Minecraft Language",
           "mclang"
         ],
         "extensions": [
           ".lang"
-        ],
-        "configuration": "./minecraft-language-files/configuration.json"
+        ]
       },
       {
         "id": "bc-minecraft-mcfunction",
+        "configuration": "./minecraft-mcfunctions/configuration.json",
         "aliases": [
           "Minecraft Mcfunction",
           "mcfunction"
@@ -432,24 +434,24 @@
         "extensions": [
           ".mcfunction"
         ],
-        "configuration": "./minecraft-mcfunctions/configuration.json",
         "filenamePatterns": [
           "[a-z0-9_]*\\.mcfunction"
         ]
       },
       {
         "id": "bc-minecraft-molang",
+        "configuration": "./minecraft-molang/configuration.json",
         "aliases": [
           "Minecraft molang",
           "molang"
         ],
         "extensions": [
           ".molang"
-        ],
-        "configuration": "./minecraft-molang/configuration.json"
+        ]
       },
       {
         "id": "bc-minecraft-project",
+        "configuration": "./minecraft-project/configuration.json",
         "aliases": [
           "Minecraft Project",
           "mcproject"
@@ -457,14 +459,13 @@
         "extensions": [
           ".mcdefinitions",
           ".mcattributes",
-          ".mcignores"
+          ".mcignore"
         ],
         "filenames": [
           ".mcdefinitions",
           ".mcattributes",
-          ".mcignores"
-        ],
-        "configuration": "./minecraft-project/configuration.json"
+          ".mcignore"
+        ]
       }
     ],
     "jsonValidation": [

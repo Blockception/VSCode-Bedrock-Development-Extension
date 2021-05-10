@@ -87,6 +87,12 @@ export function onInitialize(params: InitializeParams): InitializeResult {
     result.capabilities.workspace = {
       workspaceFolders: {
         supported: true,
+        changeNotifications: true,
+      },
+      fileOperations: {
+        didCreate: { filters: [] },
+        didDelete: { filters: [] },
+        didRename: { filters: [] },
       },
     };
   }

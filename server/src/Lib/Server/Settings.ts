@@ -28,6 +28,7 @@ export namespace ServerSettings {
       if (temp.Education && temp.Diagnostics) {
         if (typeof temp.Education.Enable !== "boolean") return false;
 
+        if (typeof temp.Diagnostics.Enable !== "boolean") return false;
         if (typeof temp.Diagnostics.Lang !== "boolean") return false;
         if (typeof temp.Diagnostics.Json !== "boolean") return false;
         if (typeof temp.Diagnostics.Mcfunctions !== "boolean") return false;

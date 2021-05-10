@@ -15,7 +15,6 @@ export async function OnDidRenameFilesAsync(params: RenameFilesParams): Promise<
 
 function OnDidRenameFiles(params: RenameFilesParams): Promise<void>[] {
   let files = params.files;
-
   let Promises: Promise<void>[] = [];
 
   for (let I = 0; I < files.length; I++) {

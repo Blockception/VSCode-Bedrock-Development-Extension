@@ -1,6 +1,5 @@
 import {
   DidChangeConfigurationNotification,
-  DidChangeConfigurationRegistrationOptions,
   DocumentFormattingRegistrationOptions,
   DocumentFormattingRequest,
   SemanticTokensRegistrationOptions,
