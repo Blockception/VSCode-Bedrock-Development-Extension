@@ -8,10 +8,11 @@ import { Objective } from "../../Types/General/Objectives/include";
 import { Sound } from "../../Types/General/Sound/Sound";
 import { Tag } from "../../Types/General/Tag/Tag";
 import { Tickingarea } from "../../Types/General/Tickingarea/include";
+import { Identifiable, Locatable } from "../../Types/Minecraft/Interfaces/include";
 import { DataCollector } from "../DataCollector";
 import { CollectorBase } from "./CollectorBase";
 
-export class GeneralData extends CollectorBase {
+export class GeneralData extends CollectorBase<Identifiable & Locatable> {
   /**A storage of all collected blocks*/
   public Blocks: DataCollector<Block> = new DataCollector<Block>();
 

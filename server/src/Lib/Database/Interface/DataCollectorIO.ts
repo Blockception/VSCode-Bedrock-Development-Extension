@@ -1,4 +1,4 @@
-export interface DataCollectorIO {
+export interface DataCollectorIO<T> {
   /**
    * Removes any data from the associated file
    * @param uri The filepath uri used
@@ -15,10 +15,17 @@ export interface DataCollectorIO {
    * Clear all data;
    */
   Clear(): void;
+
+  /**
+   *
+   * @param uri
+   * @param call
+   */
+  ForEachFile(uri: string, call: (item: T) => void): void;
 }
 
 export namespace DataCollectorIO {
-  export function is(value: any): value is DataCollectorIO {
+  export function is<T>(value: any): value is DataCollectorIO<T> {
     if (value.DeleteFile && value.DeleteFolder && value.Clear) {
       return true;
     }

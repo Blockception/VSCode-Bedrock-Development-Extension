@@ -32,6 +32,11 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         resolveProvider: false,
       },
 
+      codeLensProvider: {
+        resolveProvider: false,
+        workDoneProgress: false,
+      },
+
       // Tell the client that this server supports go to defintitions
       definitionProvider: true,
       typeDefinitionProvider: true,

@@ -1,7 +1,7 @@
 import { DataCollectorIO } from "../Interface/DataCollectorIO";
 import { ReferenceFinder } from "../Interface/ReferenceFinder";
 
-export class CollectorBase implements DataCollectorIO, ReferenceFinder {
+export class CollectorBase<T> implements DataCollectorIO<T>, ReferenceFinder {
   FindReference(query: string, receiver: any[]): void {
     for (let [key, property] of Object.entries(this)) {
       if (ReferenceFinder.is(property)) {
@@ -15,7 +15,7 @@ export class CollectorBase implements DataCollectorIO, ReferenceFinder {
    */
   public Clear(): void {
     for (let [key, property] of Object.entries(this)) {
-      if (DataCollectorIO.is(property)) {
+      if (DataCollectorIO.is<T>(property)) {
         property.Clear();
       }
     }
@@ -26,7 +26,7 @@ export class CollectorBase implements DataCollectorIO, ReferenceFinder {
    */
   public DeleteFile(uri: string): void {
     for (let [key, property] of Object.entries(this)) {
-      if (DataCollectorIO.is(property)) {
+      if (DataCollectorIO.is<T>(property)) {
         property.DeleteFile(uri);
       }
     }
@@ -37,8 +37,16 @@ export class CollectorBase implements DataCollectorIO, ReferenceFinder {
    */
   public DeleteFolder(uri: string): void {
     for (let [key, property] of Object.entries(this)) {
-      if (DataCollectorIO.is(property)) {
+      if (DataCollectorIO.is<T>(property)) {
         property.DeleteFile(uri);
+      }
+    }
+  }
+
+  ForEachFile(uri: string, call: (item: T) => void): void {
+    for (let [key, property] of Object.entries(this)) {
+      if (DataCollectorIO.is<T>(property)) {
+        property.ForEachFile(uri, call);
       }
     }
   }

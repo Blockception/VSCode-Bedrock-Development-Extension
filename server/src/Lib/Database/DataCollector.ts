@@ -3,7 +3,7 @@ import { Identifiable, Locatable } from "../Types/Minecraft/Interfaces/include";
 import { DataCollectorIO } from "./Interface/DataCollectorIO";
 import { ReferenceFinder } from "./Interface/ReferenceFinder";
 
-export class DataCollector<T extends Identifiable & Locatable> implements DataCollectorIO, ReferenceFinder {
+export class DataCollector<T extends Identifiable & Locatable> implements DataCollectorIO<T>, ReferenceFinder {
   /**
    * Stores identifier, value
    */
@@ -148,6 +148,19 @@ export class DataCollector<T extends Identifiable & Locatable> implements DataCo
     for (let [key, value] of this.data) {
       if (value && value.Identifier.includes(query)) {
         receiver.push(value.Location);
+      }
+    }
+  }
+
+  /**
+   *
+   * @param uri
+   * @param call
+   */
+  public ForEachFile(uri: string, call: (item: T) => void): void {
+    for (let [key, value] of this.data) {
+      if (value && value.Location.uri === uri) {
+        call(value);
       }
     }
   }

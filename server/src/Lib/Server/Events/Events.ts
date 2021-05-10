@@ -14,6 +14,7 @@ import { OnConfigurationChanged } from "../Settings";
 import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
 import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
+import { OnCodeLensRequestAsync } from "../../CodeLens/OnRequest";
 
 /**
  * Setup the server events
@@ -34,6 +35,9 @@ export function setEvents() {
   // This handler provides code actions
   Connection.onCodeAction(OnCodeActionAsync);
   Connection.onCodeActionResolve(OnCodeActionResolveAsync);
+
+  // This handler provides code lens
+  Connection.onCodeLens(OnCodeLensRequestAsync);
 
   // This handler provides completion items.
   Connection.onCompletion(OnCompletionRequestAsync);

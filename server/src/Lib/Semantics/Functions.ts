@@ -35,7 +35,7 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
     var First = value.substring(0, Range);
     var Second = value.substring(Range + 2);
 
-    Builder.AddAt(Line, start + Range, 2, SemanticTokensEnum.operator);
+    //Builder.AddAt(Line, start + Range, 1, SemanticTokensEnum.operator);
 
     if (First && First !== "") {
       Builder.AddAt(Line, start + value.indexOf(First), First.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);

@@ -18,7 +18,7 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
   }
 
   for (let I = startindex; I < endindex; I++) {
-    let line = doc.getLine(I);
+    const line = doc.getLine(I);
 
     let CommentIndex = line.indexOf("#");
 

@@ -1,8 +1,10 @@
+import { Identifiable } from "../../Types/Minecraft/Interfaces/Identifiable";
+import { Locatable } from "../../Types/Minecraft/Interfaces/Locatable";
 import { DataCollector } from "../DataCollector";
 import { CollectorBase } from "./CollectorBase";
 import { DataReference } from "./Reference";
 
-export class Resourcepack extends CollectorBase {
+export class Resourcepack extends CollectorBase<Identifiable & Locatable> {
   public AnimationControllers: DataCollector<DataReference>;
   public Animations: DataCollector<DataReference>;
   public Entities: DataCollector<DataReference>;

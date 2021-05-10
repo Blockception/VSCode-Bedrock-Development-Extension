@@ -35,7 +35,7 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
 
   //Console.Log(params.textDocument.uri);
 
-  let doc = GetDocument(uri);
+  const doc = GetDocument(uri);
   Console.Log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
 
   let range: Range | undefined = undefined;
