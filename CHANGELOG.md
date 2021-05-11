@@ -1,5 +1,7 @@
 # Changelog 
 ## Plugin 
+- Fixing command: bc.mcproject.create
+- Udpated
 - Fixing compile errors
 - Fixing #51, numbers are not supported as blend values
 - Fixing #49 isues, nested items are not
@@ -37,9 +39,7 @@
 - Removed old validation
 - Updated markdown settings
 - Removed
-- Updated schemas
-- Removed
-- Fixing dependencies. 
+- Updated schemas. 
 ## Schemas 
 - Added blend_weights for animations and animation_controllers
 - Fixed formatversion
