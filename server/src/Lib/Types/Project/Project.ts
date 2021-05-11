@@ -44,7 +44,7 @@ export namespace ProjectData {
     Transfer(receiver.defintions.family, project.definitions["family"]);
     Transfer(receiver.defintions.tag, project.definitions["tag"]);
     Transfer(receiver.defintions.name, project.definitions["name"]);
-    Transfer(receiver.defintions.objective, project.definitions["objectives"]);
+    Transfer(receiver.defintions.objective, project.definitions["objective"]);
 
     //Ignores
     receiver.ignores.push(...project.ignores.patterns);
