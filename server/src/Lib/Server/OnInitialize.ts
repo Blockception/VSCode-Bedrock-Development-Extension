@@ -22,7 +22,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: [Commands.DiagnoseProject, Commands.ImportErrors],
+        commands: [Commands.DiagnoseProject, Commands.ImportErrors, Commands.MCProject.Create],
         workDoneProgress: true,
       },
 

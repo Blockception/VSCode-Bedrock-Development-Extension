@@ -9,7 +9,11 @@
     "onLanguage:bc-minecraft-project",
     "onCommand:bc-cheat-sheet-molang",
     "onCommand:bc-cheat-sheet-behavior-filters",
-    "onCommand:bc.errors.open_lastest"
+    "onCommand:bc.errors.open_lastest",
+    "onCommand:bc.mcproject.create",
+    "workspaceContains:**/.mcattributes",
+    "workspaceContains:**/.mcdefinitions",
+    "workspaceContains:**/.mcignore"
   ],
   "author": {
     "name": "Blockception Ltd",
@@ -134,7 +138,8 @@
       {
         "title": "Create MCProject files",
         "command": "bc.mcproject.create",
-        "category": "Blockception"
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       },
       {
         "title": "Open lastest errors",
