@@ -1,5 +1,7 @@
-# Changelog 
-## Plugin 
+# Changelog
+
+## Plugin
+
 - Fixing command: bc.mcproject.create
 - Udpated
 - Fixing compile errors
@@ -39,8 +41,10 @@
 - Removed old validation
 - Updated markdown settings
 - Removed
-- Updated schemas. 
-## Schemas 
+- Updated schemas.
+
+## Schemas
+
 - Added blend_weights for animations and animation_controllers
 - Fixed formatversion
 - Updated titles
