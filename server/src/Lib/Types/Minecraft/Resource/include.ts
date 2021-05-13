@@ -8,4 +8,5 @@ export * as Render_Controllers from "./Render Controllers/include";
 export * as Sounds_Definitions from "./Sounds Definitions/include";
 export * from "./Completion";
 export * from "./Diagnose";
+export * from "./Functions";
 export * from "./Process";
