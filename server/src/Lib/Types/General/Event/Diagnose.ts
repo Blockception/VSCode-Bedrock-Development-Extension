@@ -23,5 +23,5 @@ export function ProvideDiagnostic(event: LocationWord, builder: DiagnosticsBuild
     }
   });
 
-  if (!Found) builder.AddWord(event, `Cannot find event: '${eventData}'`);
+  if (!Found) builder.AddWord(event, `Cannot find event: '${eventData}'`).code = "event.missing";
 }

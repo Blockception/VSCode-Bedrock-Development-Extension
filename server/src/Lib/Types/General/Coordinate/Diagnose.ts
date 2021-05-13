@@ -7,5 +7,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (IsCoordinate(text)) return;
 
-  builder.AddWord(data, "Invalid coordinate");
+  builder.AddWord(data, "Invalid coordinate").code = "coordinate.invalid";
 }

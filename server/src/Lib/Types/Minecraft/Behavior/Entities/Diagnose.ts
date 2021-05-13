@@ -27,7 +27,7 @@ export function ProvideDiagnostic(doc: TextDocument): void {
 function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
   let Entity = JDoc.CastTo<Entity>();
   if (Entity === undefined || Entity === null) {
-    Builder.Add("Cannot parse entity", undefined, DiagnosticSeverity.Warning);
+    Builder.Add("Cannot parse entity", undefined, DiagnosticSeverity.Warning).code = "entity.invalid";
     return;
   }
 
@@ -59,7 +59,7 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
  */
 function DiagnoseAnimOrController(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
   if (!(Database.Database.Data.Behaviourpack.Animations.HasID(id) || Database.Database.Data.Behaviourpack.AnimationControllers.HasID(id))) {
-    Builder.Add("Cannot find animation or controller: " + id, JDoc.RangeOf(id));
+    Builder.Add("Cannot find animation or controller: " + id, JDoc.RangeOf(id)).code = "ac.missing";
   }
 }
 
@@ -77,7 +77,7 @@ function DiagnoseComponentGroups(groups: string | string[] | undefined, entity: 
       if (data) continue;
     }
 
-    Builder.Add("Cannot find componentgroup: " + group, JDoc.RangeOf(group));
+    Builder.Add("Cannot find componentgroup: " + group, JDoc.RangeOf(group)).code = "entity.compgroup.missing";
   }
 }
 
@@ -94,14 +94,18 @@ function DiagnoseMovement(entity: Entity, Builder: DiagnosticsBuilder): void {
         `${entity["minecraft:entity"].description.identifier}: Has part of movement but no specific movement component was found such as: 'minecraft:movement.basic'`,
         undefined,
         DiagnosticSeverity.Error
-      );
+      ).code = "entity.movement";
     if (hasNavigation == 0)
       Builder.Add(
         `${entity["minecraft:entity"].description.identifier}: Has part of movement but no specific navigation component was found such as: 'minecraft:navigation.generic'`,
         undefined,
         DiagnosticSeverity.Error
-      );
+      ).code = "entity.movement";
     if (hasBaseMovement == 0)
-      Builder.Add(`${entity["minecraft:entity"].description.identifier}: Has part of movement but not the required: 'minecraft:movement'`, undefined, DiagnosticSeverity.Error);
+      Builder.Add(
+        `${entity["minecraft:entity"].description.identifier}: Has part of movement but not the required: 'minecraft:movement'`,
+        undefined,
+        DiagnosticSeverity.Error
+      ).code = "entity.movement";
   }
 }

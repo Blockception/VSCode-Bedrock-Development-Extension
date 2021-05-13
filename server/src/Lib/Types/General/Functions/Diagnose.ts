@@ -7,5 +7,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (Database.Data.General.Functions.HasID(text)) return;
 
-  builder.AddWord(data, "No known function found with the path: " + text);
+  builder.AddWord(data, "No known function found with the path: " + text).code = "mcfunction.missing";
 }

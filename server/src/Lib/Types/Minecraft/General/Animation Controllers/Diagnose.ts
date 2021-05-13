@@ -6,6 +6,11 @@ import * as RP from "../../Resource/include";
 
 export type AnimationController = BP.Animation_Controllers.AnimationController | RP.Animation_Controllers.AnimationController;
 
+/**
+ *
+ * @param Data
+ * @param Builder
+ */
 export function ProvideDiagnostic(Data: AnimationController, Builder: DiagnosticsBuilder): void {
   const controllers = Data.animation_controllers;
 
@@ -24,6 +29,13 @@ export function ProvideDiagnostic(Data: AnimationController, Builder: Diagnostic
   }
 }
 
+/**
+ *
+ * @param controller
+ * @param Transitions
+ * @param States
+ * @param Builder
+ */
 function CheckTransition(controller: string, Transitions: Transition[], States: string[], Builder: DiagnosticsBuilder): void {
   for (var I = 0; I < Transitions.length; I++) {
     const Trans = Transitions[I];
@@ -42,7 +54,7 @@ function CheckTransition(controller: string, Transitions: Transition[], States: 
         end: Builder.doc.positionAt(P + controller.length),
       };
 
-      Builder.Add("Cannot find state: " + State, R);
+      Builder.Add("Cannot find state: " + State, R).code = "ac.state.missing";
     }
   }
 }

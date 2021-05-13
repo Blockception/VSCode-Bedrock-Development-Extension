@@ -7,5 +7,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (Database.Data.General.Items.HasID(text)) return;
 
-  builder.AddWord(data, 'No known item found with the id: "' + text + '"');
+  builder.AddWord(data, 'No known item found with the id: "' + text + '"').code = "item.missing";
 }

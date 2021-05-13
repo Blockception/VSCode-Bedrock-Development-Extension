@@ -26,6 +26,6 @@ export function ProvideDiagnostic(word: LocationWord, Command: CommandIntr, buil
 
 function ErrorCheck(builder: DiagnosticsBuilder, word: LocationWord, slotType: string, value: number, min: number, max: number): void {
   if (value < min && value > max) {
-    builder.AddWord(word, `Slot id '${value}' for '${slotType}' needs to be between, including: ${min} and ${max}`);
+    builder.AddWord(word, `Slot id '${value}' for '${slotType}' needs to be between, including: ${min} and ${max}`).code = "slotid.range";
   }
 }

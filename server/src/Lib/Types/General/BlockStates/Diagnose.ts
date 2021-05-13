@@ -6,6 +6,6 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (text.startsWith("[") && text.endsWith("]")) {
   } else {
-    builder.AddWord(data, "block states need to start and end with []");
+    builder.AddWord(data, "block states need to start and end with []").code = "block.states.syntax";
   }
 }

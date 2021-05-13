@@ -14,7 +14,7 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, builder: Dia
   let Matches = Command.GetCommandData();
 
   if (Matches.length === 0) {
-    builder.Add('Unknown command syntax: "' + line + '"', Command.Parameters[0]?.location.range);
+    builder.Add('Unknown command syntax: "' + line + '"', Command.Parameters[0]?.location.range).code = "mcfunction.syntax.unknown";
     return;
   }
 
@@ -40,5 +40,5 @@ export function DiagnoseCommandParameter(data: LocationWord, builder: Diagnostic
 
   if (Manager.Data.Commands.has(text)) return;
 
-  builder.AddWord(data, 'No command found with text: "' + text + '"');
+  builder.AddWord(data, 'No command found with text: "' + text + '"').code = "mcfunction.command.unknown";
 }

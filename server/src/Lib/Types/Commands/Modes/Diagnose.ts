@@ -15,5 +15,5 @@ export function DiagnoseMode(Word: LocationWord, Mode: ModeCollection, builder: 
     }
   }
 
-  builder.AddWord(Word, `Unknown mode type: ${Text} for mode type: '${Mode.Name}'`);
+  builder.AddWord(Word, `Unknown mode type: ${Text} for mode type: '${Mode.Name}'`).code = `${Mode.Name.toLowerCase()}.invalid`;
 }

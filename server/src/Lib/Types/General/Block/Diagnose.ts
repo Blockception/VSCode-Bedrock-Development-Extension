@@ -1,5 +1,4 @@
 import { LocationWord } from "bc-vscode-words";
-import { DiagnosticCodes } from "../../../Constants";
 import { Database } from "../../../Database/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 
@@ -8,5 +7,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (Database.Data.General.Blocks.HasID(text)) return;
 
-  builder.AddWord(data, 'No known block found with the id: "' + text + '"').code = DiagnosticCodes.Block.Missing;
+  builder.AddWord(data, 'No known block found with the id: "' + text + '"').code = "block.missing";
 }

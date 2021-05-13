@@ -1,8 +1,11 @@
+import path from "path";
 import { Database } from "../../../../Database/Database";
 import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
+import { Glob } from "../../../../Glob/Glob";
 import { JsonDocument } from "../../../Document/Json Document";
 import { TextDocument } from "../../../Document/TextDocument";
 import { Entity, render_controller_ref } from "../Entity/Entity";
+import { GetResourcePack } from "../Functions";
 
 export function ProvideDiagnostic(doc: TextDocument): void {
   let Builder = new DiagnosticsBuilder(doc);
@@ -42,9 +45,11 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
   }
 
   if (description.textures) {
+    const RP = GetResourcePack(JDoc.doc.uri, "entity");
+
     for (let texture in description.textures) {
       let data = description.textures[texture];
-      DiagnoseTexture(data, JDoc, Builder);
+      DiagnoseTexture(data, RP, JDoc, Builder);
     }
   }
 }
@@ -53,18 +58,23 @@ function DiagnoseAnimOrController(id: string, JDoc: JsonDocument, Builder: Diagn
   const Resource = Database.Data.Resourcepack;
 
   if (!(Resource.Animations.HasID(id) || Resource.AnimationControllers.HasID(id))) {
-    Builder.Add("Cannot find animation or controller: " + id, JDoc.RangeOf(id));
+    //No code assignment
+    Builder.Add("Cannot find animation or controller: " + id, JDoc.RangeOf(id)).code = "anim.missing";
   }
 }
 
 function DiagnoseGeo(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
   if (!Database.Data.Resourcepack.Models.HasID(id)) {
-    Builder.Add("Cannot find model: " + id, JDoc.RangeOf(id));
+    Builder.Add("Cannot find model: " + id, JDoc.RangeOf(id)).code = "geo.missing";
   }
 }
 
-function DiagnoseTexture(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
-  //TODO add texture code detection
+function DiagnoseTexture(id: string, RPFolder: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
+  const filepath = path.join(RPFolder, id).replace(/\\/gi, "/");
+
+  if (Glob.GetFiles(filepath + "*").length > 0) return;
+
+  Builder.Add("Cannot find texture: " + id, JDoc.RangeOf('"' + id + '"')).source = "texture.missing";
 }
 
 function DiagnoseRenderController(id: render_controller_ref, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
@@ -73,6 +83,6 @@ function DiagnoseRenderController(id: render_controller_ref, JDoc: JsonDocument,
   }
 
   if (!Database.Data.Resourcepack.RenderControllers.HasID(id)) {
-    Builder.Add("Cannot find resource controller: " + id, JDoc.RangeOf(id));
+    Builder.Add("Cannot find resource controller: " + id, JDoc.RangeOf(id)).code = "rc.missing";
   }
 }

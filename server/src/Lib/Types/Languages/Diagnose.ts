@@ -36,12 +36,12 @@ export function Diagnoseline(line: string, index: number, Keys: string[], builde
   let CommentIndex = line.indexOf("#");
   if (CommentIndex >= 0) {
     if (line.substring(CommentIndex, CommentIndex + 2) !== "##") {
-      builder.AddAt("A comment is always ##", index, CommentIndex, CommentIndex + 1);
+      builder.AddAt("A comment is always ##", index, CommentIndex, CommentIndex + 1).code = "comment.invalid";
     }
 
     if (CommentIndex > 0) {
       if (line.charAt(CommentIndex - 1) !== "\t") {
-        builder.AddAt("Before a comment but be a tab", index, CommentIndex - 1, CommentIndex);
+        builder.AddAt("Before a comment but be a tab", index, CommentIndex - 1, CommentIndex).code = "line.format";
       }
     }
 
@@ -50,7 +50,7 @@ export function Diagnoseline(line: string, index: number, Keys: string[], builde
 
   if (line === "" || line === "\r" || line === "\r\n" || line == "") {
     if (CommentIndex > 0) {
-      builder.AddAt("A line cannot be with an identented comment", index, 0, CommentIndex);
+      builder.AddAt("A line cannot be with an identented comment", index, 0, CommentIndex).code = "line.format";
     }
 
     return;
@@ -59,20 +59,20 @@ export function Diagnoseline(line: string, index: number, Keys: string[], builde
   let Index = line.indexOf("=");
 
   if (Index < 0) {
-    builder.AddAt("A translation item needs a '=' to seperate key and value", index, 0, line.length);
+    builder.AddAt("A translation item needs a '=' to seperate key and value", index, 0, line.length).code = "line.invalid";
   } else {
     const Key = line.substring(0, Index);
     const KeyIndex = Keys.indexOf(Key);
 
     if (KeyIndex >= 0 && KeyIndex != index) {
-      builder.AddAt("Duplicate key found at: " + KeyIndex, index, 0, Key.length);
-      builder.AddAt("Duplicate key found at: " + index, KeyIndex, 0, Key.length);
+      builder.AddAt("Duplicate key found at: " + KeyIndex, index, 0, Key.length).code = "line.duplicate";
+      builder.AddAt("Duplicate key found at: " + index, KeyIndex, 0, Key.length).code = "line.duplicate";
     }
 
     Keys[index] = Key;
   }
 
   if (Index >= line.length) {
-    builder.AddAt("A value must be atleast lenght of 1 or more", index, 0, line.length);
+    builder.AddAt("A value must be atleast lenght of 1 or more", index, 0, line.length).code = "line.invalid";
   }
 }

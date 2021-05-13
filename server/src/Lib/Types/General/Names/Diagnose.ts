@@ -1,6 +1,5 @@
 import { LocationWord, OffsetWord, RangedWord } from "bc-vscode-words";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
-import { DiagnosticCodes } from "../../../Constants";
 
 export function ProvideDiagnostic(data: LocationWord | OffsetWord | RangedWord, builder: DiagnosticsBuilder): void {
   let conf = builder.doc.getConfiguration();
@@ -11,6 +10,6 @@ export function ProvideDiagnostic(data: LocationWord | OffsetWord | RangedWord, 
   if (text.endsWith('"')) text = text.substring(0, text.length - 1);
 
   if (conf.defintions.name.excluded.includes(text)) {
-    builder.AddWord(data, "Name as been marked through exclusion rules").code = DiagnosticCodes.Name.Excluded;
+    builder.AddWord(data, "Name as been marked through exclusion rules").code = "name.banned";
   }
 }

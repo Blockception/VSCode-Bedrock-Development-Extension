@@ -8,5 +8,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
   if (Database.Data.General.Entities.HasID(text)) return;
   if (Database.Data.General.Entities.HasID("minecraft:" + text)) return;
 
-  builder.AddWord(data, 'No known entity found with the id: "' + text + '"');
+  builder.AddWord(data, 'No known entity found with the id: "' + text + '"').code = "entity.missing";
 }

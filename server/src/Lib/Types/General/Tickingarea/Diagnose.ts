@@ -7,5 +7,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (Database.Data.General.TickingAreas.HasID(text)) return;
 
-  builder.AddWord(data, 'No tickingarea has been defined with the name: "' + text + '"');
+  builder.AddWord(data, 'No tickingarea has been defined with the name: "' + text + '"').code = "tickingarea.missing";
 }

@@ -7,5 +7,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (IsInteger(text)) return;
 
-  builder.AddWord(data, "Invalid integer");
+  builder.AddWord(data, "Invalid integer").code = "integer.invalid";
 }

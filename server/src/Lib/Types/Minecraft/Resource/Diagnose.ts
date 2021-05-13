@@ -1,7 +1,7 @@
 import { DiagnoseContext } from "../../../Diagnostics/Types/include";
 import { TextDocument } from "../../Document/TextDocument";
 import { DataType, DetectResourceType } from "../Format/include";
-import { Animation_Controllers, Entity } from "./include";
+import { Animation_Controllers, Entity, Sounds_Definitions } from "./include";
 
 export function ProvideDiagnostic(context: DiagnoseContext): void {}
 
@@ -14,7 +14,10 @@ export function DiagnoseJson(doc: TextDocument): void {
       return Animation_Controllers.ProvideDiagnostic(doc);
 
     case DataType.resource_entity:
-      Entity.ProvideDiagnostic(doc);
+      return Entity.ProvideDiagnostic(doc);
+
+    case DataType.resource_sounds_definitions:
+      return Sounds_Definitions.ProvideDiagnostic(doc);
 
     default:
       return;

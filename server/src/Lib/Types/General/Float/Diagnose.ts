@@ -7,5 +7,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (IsFloat(text)) return;
 
-  builder.AddWord(data, "Invalid float");
+  builder.AddWord(data, "Invalid float").code = "float.invalid";
 }

@@ -6,5 +6,5 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   if (text === "false" || text === "true") return;
 
-  builder.AddWord(data, 'Invalid boolean found: "' + text + '", must be: true or false');
+  builder.AddWord(data, 'Invalid boolean found: "' + text + '", must be: true or false').code = "bool.invalid";
 }

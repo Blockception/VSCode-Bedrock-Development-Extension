@@ -24,7 +24,7 @@ export function DiagnoseMcFunction(doc: TextDocument) {
   let Builder = new DiagnosticsBuilder(doc);
 
   if (doc.lineCount == 0) {
-    Builder.Add("Empty mcfunction found, minecraft will not lot this function");
+    Builder.Add("Empty mcfunction found, minecraft will not load this function").code = "mcfunction.empty";
   }
 
   let line: string = "";
@@ -34,7 +34,7 @@ export function DiagnoseMcFunction(doc: TextDocument) {
       line = doc.getLine(index);
       DiagnoseLine(line, Position.create(index, 0), undefined, Builder);
     } catch (error) {
-      if (error.message) Builder.Add(error.message, Range.create(index, 0, line.length, index));
+      if (error.message) Builder.Add(error.message, Range.create(index, 0, line.length, index)).code = "mcfunction.line.error";
     }
   }
 

@@ -1,5 +1,4 @@
 import { LocationWord } from "bc-vscode-words";
-import { DiagnosticCodes } from "../../../Constants";
 import { Database } from "../../../Database/include";
 import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 
@@ -16,12 +15,12 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
 
   //Excluded
   if (val.defintions.objective.excluded.includes(text)) {
-    builder.AddWord(data, 'Objective has been excluded through rules: "' + text + '"').code = DiagnosticCodes.Objective.Excluded;
+    builder.AddWord(data, 'Objective has been excluded through rules: "' + text + '"').code = "objective.excluded";
     return;
   }
 
   //Does database has a reference?
   if (Database.Data.General.Objectives.HasID(text)) return;
 
-  builder.AddWord(data, 'No objective has been created: "' + text + '"').code = DiagnosticCodes.Objective.Missing;
+  builder.AddWord(data, 'No objective has been created: "' + text + '"').code = "objective.missing";
 }
