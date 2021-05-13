@@ -1,13 +1,21 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
+import { GetProjectFiles, ProjectFiles } from "../../Code/ProjectFiles";
 import { ServerSettings } from "../../Server/Settings";
 import { Definitions, ProjectData } from "../../Types/Project/Project";
 
+/**
+ *
+ */
 export class WorkspaceConfiguration implements ProjectData {
+  /***/
   folder: string;
+  /***/
   defintions: Definitions;
+  /***/
   settings: ServerSettings;
+  /***/
   ignores: string[];
 
   constructor(folder: string) {
@@ -18,6 +26,9 @@ export class WorkspaceConfiguration implements ProjectData {
   }
 }
 
+/**
+ *
+ */
 export class WorkspaceData {
   private Data: Map<string, WorkspaceConfiguration>;
 
@@ -67,6 +78,11 @@ export class WorkspaceData {
     return Promise.all(Out);
   }
 
+  /**
+   *
+   * @param Folder
+   * @param Data
+   */
   Set(Folder: WorkspaceFolder | string, Data: WorkspaceConfiguration): void {
     if (typeof Folder === "string") {
       this.Data.set(Folder, Data);
@@ -75,8 +91,17 @@ export class WorkspaceData {
     }
   }
 
+  /**
+   *
+   * @param Folder
+   * @returns
+   */
   Remove(Folder: WorkspaceFolder): boolean {
     return this.Data.delete(Folder.uri);
+  }
+
+  async Update(): Promise<ProjectFiles> {
+    return GetProjectFiles();
   }
 }
 

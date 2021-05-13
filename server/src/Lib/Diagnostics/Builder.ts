@@ -10,6 +10,7 @@ export class DiagnosticsBuilder {
   private calculator: PositionCalculator;
   public doc: TextDocument;
   public Items: Diagnostic[];
+  private source: string;
 
   /**
    *
@@ -19,6 +20,7 @@ export class DiagnosticsBuilder {
     this.doc = doc;
     this.calculator = PositionCalculator.Wrap(doc);
     this.Items = [];
+    this.source = getSource(doc.languageId);
   }
 
   /**
@@ -45,11 +47,7 @@ export class DiagnosticsBuilder {
       range = Word.location.range;
     }
 
-    return this.Push({
-      message: message,
-      severity: serverity,
-      range: range,
-    });
+    return this.Push({ message: message, severity: serverity, range: range });
   }
 
   /**
@@ -64,11 +62,7 @@ export class DiagnosticsBuilder {
       range = EmptyTypes.EmptyRange();
     }
 
-    return this.Push({
-      message: message,
-      severity: serverity,
-      range: range,
-    });
+    return this.Push({ message: message, severity: serverity, range: range });
   }
 
   /**
@@ -92,6 +86,16 @@ export class DiagnosticsBuilder {
   public Push(Item: Diagnostic): Diagnostic {
     this.Items.push(Item);
 
+    if (!Item.source) Item.source = this.source;
+
     return Item;
   }
+}
+
+function getSource(id: string): string {
+  const index = id.indexOf("-");
+
+  if (index >= 0) return id.substring(index + 1, id.length);
+
+  return id;
 }
