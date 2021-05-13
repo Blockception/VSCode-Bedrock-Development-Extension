@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Tag";
+export * from "./Definition";
