@@ -84,8 +84,10 @@ export namespace Manifest {
   }
 
   export function DetectType(m: Manifest): GeneralDataType {
+    if (!m.modules) return GeneralDataType.unknown;
+
     for (let I = 0; I < m.modules.length; I++) {
-      let mod = m.modules[I];
+      const mod = m.modules[I];
 
       switch (mod.type) {
         case ManifestModule.TypeData:
