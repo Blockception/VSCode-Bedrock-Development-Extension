@@ -1,25 +1,40 @@
+/** */
 export namespace Languages {
+  /** */
   export const McFunctionIdentifier: string = "bc-mcfunction";
+  /** */
   export const McOtherIdentifier: string = "bc-minecraft-Other";
+  /** */
   export const McLanguageIdentifier: string = "bc-minecraft-language";
+  /** */
   export const McProjectIdentifier: string = "bc-minecraft-project";
+  /** */
   export const JsonIdentifier: string = "json";
+  /** */
   export const JsonCIdentifier: string = "jsonc";
 }
 
+/** */
 export namespace Identification {
+  /** */
   export const SettingsConfigurationIdentifier: string = "BC-MC";
 }
 
+/** */
 export namespace Commands {
+  /** */
   export const ImportErrors: string = "bc.minecraft.errors.import";
+  /** */
   export const DiagnoseProject: string = "bc.minecraft.diagnose.project";
+  /** */
   export const AddLanguageFile: string = "bc.minecraft.language.add";
 
+  /** */
   export namespace Files {
     export const Append = "bc-files-append";
   }
 
+  /** */
   export namespace CheatSheet {
     export const Molang: string = "bc-cheat-sheet-molang";
     export const BehaviorFilters: string = "bc-cheat-sheet-behavior-filters";
@@ -136,7 +151,15 @@ export namespace Commands {
     }
   }
 
+  /** */
+  export namespace MCProject {
+    /** */
+    export const Create: string = "bc.mcproject.create";
+  }
+
+  /** */
   export namespace Errors {
+    /** */
     export const OpenLastest = "bc.errors.open_lastest";
   }
 }
