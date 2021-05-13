@@ -3,6 +3,7 @@ import { Database } from "../../../../Database/include";
 import { JsonDocument } from "../../../Document/Json Document";
 import { TextDocument } from "../../../Document/TextDocument";
 import { Sound } from "../../../General/include";
+import { SoundDefinitions } from "./SoundDefinitions";
 
 /**
  * Processes the text document as a behaviour entity definition file
@@ -10,11 +11,11 @@ import { Sound } from "../../../General/include";
  */
 export function Process(doc: TextDocument): void {
   let JDoc = new JsonDocument(doc);
-  let Format = JDoc.GetObject();
+  let Format = JDoc.CastTo<SoundDefinitions>();
 
-  if (Format == undefined) return;
+  if (Format == undefined || !Format.format_version) return;
 
-  let sound_def = Format["sound_definitions"];
+  let sound_def = Format.sound_definitions;
   const uri = doc.uri;
   let names: string[];
 
