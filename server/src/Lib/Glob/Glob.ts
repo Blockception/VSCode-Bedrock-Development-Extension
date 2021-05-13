@@ -1,5 +1,6 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
+import { URI } from "vscode-uri";
 
 export namespace Glob {
   const opt: pm.PicomatchOptions = {
@@ -18,6 +19,6 @@ export namespace Glob {
     let entries = FastGlob.sync(source, { onlyFiles: true, absolute: true });
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
-    return entries;
+    return entries.map((item) => URI.file(item).toString());
   }
 }

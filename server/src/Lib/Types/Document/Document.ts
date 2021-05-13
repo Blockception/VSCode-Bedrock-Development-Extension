@@ -1,13 +1,11 @@
 import * as fs from "fs";
 import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
-import { GetFilepath, UniformUrl } from "../../Code/Url";
 import { fileURLToPath } from "url";
 import { Languages } from "../../Constants";
 import { Console } from "../../Console/Console";
 import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
-import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
 
@@ -19,44 +17,25 @@ import { Glob } from "../../Glob/Glob";
  * @param languageID The Language ID associated to the documentated.
  */
 export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
-  let Old = uri;
-  uri = GetFilepath(UniformUrl(uri));
+  const Old = uri;
 
   if (languageID === "") {
     languageID = IdentifyDoc(uri);
   }
 
-  if (Content == undefined) {
+  if (typeof Content === "undefined") {
     let doc = Manager.Data.Documents.get(Old);
 
-    /*if (doc == undefined){
-      doc = Manager.Documents.get(uri);
-    }*/
+    //Cached document
+    if (doc) return TextDocument.wrap(doc);
 
-    if (doc) {
-      //Cached document
-      return new CachedDoc(doc);
+    let content = GetDocumentContent(uri);
+    if (content) {
+      return TextDocument.create(uri, languageID, 1, content);
     }
 
-    let Out: TextDocument | undefined;
-
-    //Reading file
-    let path = fileURLToPath(uri);
-
-    try {
-      if (fs.existsSync(path)) {
-        Content = fs.readFileSync(path, "utf8");
-        Out = TextDocument.create(uri, languageID, 1, Content);
-      }
-    } catch (err) {
-      Console.Error(JSON.stringify(path));
-    }
-
-    if (Out === undefined) {
-      Out = TextDocument.create(uri, languageID, 0, "");
-    }
-
-    return Out;
+    //We have tried all methods of retrieving data so far
+    return TextDocument.create(uri, languageID, 0, "");
   }
   //Content is provided
   else if (typeof Content === "string") {
@@ -65,9 +44,15 @@ export function GetDocument(uri: string, Content: string | vscode.TextDocument |
   }
 
   //The interface is provided
-  return new CachedDoc(Content);
+  return TextDocument.wrap(Content);
 }
 
+/**
+ *
+ * @param doc
+ * @param lineIndex
+ * @returns
+ */
 export function getLine(doc: TextDocument, lineIndex: number): string {
   return doc.getText({
     start: { line: lineIndex, character: 0 },
@@ -110,8 +95,17 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
   }
 }
 
+/**
+ *
+ * @param folder
+ * @param pattern
+ * @param ignores
+ * @returns
+ */
 export function GetDocuments(folder: string, pattern: string | string[], ignores: string[] | undefined = undefined): string[] {
   let temp: string[] = [];
+
+  folder = folder.replace(/\\/gi, "/");
 
   if (Array.isArray(pattern)) {
     for (let index = 0; index < pattern.length; index++) {
@@ -125,39 +119,25 @@ export function GetDocuments(folder: string, pattern: string | string[], ignores
   return Glob.GetFiles(temp, ignores);
 }
 
-export class CachedDoc implements TextDocument {
-  private doc: TextDocument;
+/**
+ *
+ * @param uri
+ * @returns
+ */
+export function GetDocumentContent(uri: string): string | undefined {
+  //Reading file
+  let path = fileURLToPath(uri);
 
-  readonly uri: string;
-  readonly languageId: string;
-  readonly version: number;
-  readonly lineCount: number;
+  if (fs.existsSync(path)) {
+    let content: string | undefined;
+    try {
+      content = fs.readFileSync(path, "utf8");
+    } catch (err) {
+      Console.Error("couldn't read: " + path + "\n\tError thrown" + JSON.stringify(err));
+    }
 
-  getText(range?: vscode.Range): string {
-    return this.doc.getText(range);
+    return content;
   }
 
-  positionAt(offset: number): vscode.Position {
-    return this.doc.positionAt(offset);
-  }
-
-  offsetAt(position: vscode.Position): number {
-    return this.doc.offsetAt(position);
-  }
-
-  getLine(lineIndex: number): string {
-    return this.doc.getLine(lineIndex);
-  }
-
-  getConfiguration(): WorkspaceConfiguration {
-    return this.doc.getConfiguration();
-  }
-
-  constructor(doc: vscode.TextDocument) {
-    this.doc = TextDocument.wrap(doc);
-    this.uri = GetFilepath(UniformUrl(doc.uri));
-    this.languageId = doc.languageId;
-    this.lineCount = doc.lineCount;
-    this.version = doc.version;
-  }
+  return undefined;
 }

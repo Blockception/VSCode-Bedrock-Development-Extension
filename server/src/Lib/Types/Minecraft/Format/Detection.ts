@@ -1,3 +1,4 @@
+import { URI } from "vscode-uri";
 import { GetFilename } from "../../../Code/include";
 import { DataType } from "./Data Type";
 import { GeneralDataType } from "./General Data Type";
@@ -7,7 +8,7 @@ import { GeneralDataType } from "./General Data Type";
  * @param uri
  */
 export function DetectDataType(uri: string): DataType {
-  uri = decodeURI(uri);
+  uri = URI.parse(uri).fsPath;
 
   if (uri.includes("\\behavior_packs\\")) {
     return DetectBehaviorType(uri);
@@ -35,7 +36,7 @@ export function DetectDataType(uri: string): DataType {
  * @param uri
  */
 export function DetectGeneralDataType(uri: string): GeneralDataType {
-  uri = decodeURI(uri);
+  uri = URI.parse(uri).fsPath;
 
   if (uri.includes("behavior_packs") || uri.includes("Behavior_Pack") || uri.includes("behavior pack") || uri.includes("Behavior Pack")) {
     return GeneralDataType.behaviour_pack;
