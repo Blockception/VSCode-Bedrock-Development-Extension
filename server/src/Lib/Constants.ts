@@ -16,6 +16,10 @@ export namespace Commands {
   export const DiagnoseProject: string = "bc.minecraft.diagnose.project";
   export const AddLanguageFile: string = "bc.minecraft.language.add";
 
+  export namespace Files {
+    export const Append = "bc-files-append";
+  }
+
   export namespace CheatSheet {
     export const Molang: string = "bc-cheat-sheet-molang";
     export const BehaviorFilters: string = "bc-cheat-sheet-behavior-filters";
@@ -35,6 +39,9 @@ export namespace Commands {
       export const Manifests: string = Base + "manifest-all";
     }
 
+    /**
+     *
+     */
     export namespace Project {
       const PPBase = Base + "project-";
 
@@ -131,39 +138,5 @@ export namespace Commands {
 
   export namespace Errors {
     export const OpenLastest = "bc.errors.open_lastest";
-  }
-}
-
-export namespace DiagnosticCodes {
-  export namespace FakePlayer {
-    export const Missing = "fakeplayer.missing";
-  }
-
-  export namespace Family {
-    export const Missing = "family.missing";
-    export const Excluded = "family.excluded";
-  }
-
-  export namespace Name {
-    export const Missing = "name.missing";
-    export const Excluded = "name.excluded";
-  }
-
-  export namespace Objective {
-    export const Missing = "objective.missing";
-    export const Excluded = "objective.excluded";
-  }
-
-  export namespace Selector {
-    export const Typed = "selector.typed";
-
-    export namespace Area {
-      export const Both = "selector.area.both";
-    }
-  }
-
-  export namespace Tag {
-    export const Missing = "tag.missing";
-    export const Excluded = "tag.excluded";
   }
 }
