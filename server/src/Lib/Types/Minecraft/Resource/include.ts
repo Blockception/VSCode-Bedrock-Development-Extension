@@ -6,5 +6,6 @@ export * as Models from "./Models/include";
 export * as Particle from "./Particle/include";
 export * as Render_Controllers from "./Render Controllers/include";
 export * as Sounds_Definitions from "./Sounds Definitions/include";
+export * from "./Completion";
 export * from "./Diagnose";
 export * from "./Process";
