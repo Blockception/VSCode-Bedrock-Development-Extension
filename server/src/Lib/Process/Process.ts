@@ -8,6 +8,7 @@ import { Diagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Console/include";
 import { GetFilename } from "../Code/include";
 import { TextDocument } from "../Types/Document/TextDocument";
+import { Database } from "../Database/include";
 
 //Process the given document
 export function Process(document: TextDocument): void {
@@ -28,6 +29,10 @@ function InternalProcess(document: TextDocument): void {
     case Languages.McLanguageIdentifier:
       Language.ProcessLanguageFile(document);
       break;
+
+    case Languages.McProjectIdentifier:
+      Database.WorkspaceData.Update();
+      return;
 
     case Languages.McOtherIdentifier:
       break;

@@ -42,6 +42,7 @@ export function Process(doc: TextDocument): void {
  */
 export function ProcessBehaviourPack(Folder: string): void {
   Console.Log("Processing behaviour pack: " + Folder);
+
   ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
 }
 
