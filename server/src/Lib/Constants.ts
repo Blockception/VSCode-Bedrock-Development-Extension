@@ -1,5 +1,5 @@
 export namespace Languages {
-  export const McFunctionIdentifier: string = "bc-minecraft-mcfunction";
+  export const McFunctionIdentifier: string = "bc-mcfunction";
   export const McOtherIdentifier: string = "bc-minecraft-Other";
   export const McLanguageIdentifier: string = "bc-minecraft-language";
   export const McProjectIdentifier: string = "bc-minecraft-project";
@@ -132,17 +132,9 @@ export namespace Commands {
   export namespace Errors {
     export const OpenLastest = "bc.errors.open_lastest";
   }
-
-  export namespace MCProject {
-    export const Create: string = "bc.mcproject.create";
-  }
 }
 
 export namespace DiagnosticCodes {
-  export namespace Block {
-    export const Missing = "block.missing";
-  }
-
   export namespace FakePlayer {
     export const Missing = "fakeplayer.missing";
   }
