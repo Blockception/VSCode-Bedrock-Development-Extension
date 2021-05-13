@@ -1,6 +1,6 @@
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "./Builder";
-import { TagCodeAction } from "./Types/Tag";
+import { Definition } from "./Types/Definition";
 
 export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Command | CodeAction)[] | undefined | null> {
   return new Promise<(Command | CodeAction)[] | undefined | null>((resolve, reject) => {
@@ -27,6 +27,20 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
 
   if (typeof code === "number") {
   } else {
-    if (code.startsWith("tag")) TagCodeAction(builder, diag);
+    const index = code.indexOf(".");
+
+    const select = index > -1 ? code.substring(0, index) : code;
+
+    switch (select) {
+      case "tag":
+      case "family":
+      case "name":
+      case "objective":
+        Definition(builder, diag, select);
+        break;
+
+      default:
+        break;
+    }
   }
 }
