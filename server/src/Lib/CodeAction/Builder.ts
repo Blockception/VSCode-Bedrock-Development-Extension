@@ -9,9 +9,11 @@ export class CodeActionBuilder {
     this.out = [];
   }
 
-  Push(item: Command | CodeAction | undefined) {
+  Push(item: Command | CodeAction | undefined): Command | CodeAction | undefined {
     if (item) {
       this.out.push(item);
     }
+
+    return item;
   }
 }
