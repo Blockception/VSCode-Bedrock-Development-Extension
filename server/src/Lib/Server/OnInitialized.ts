@@ -27,5 +27,7 @@ function onInitialized(params: InitializedParams): void {
   AddCommands();
   AddMinecraftData();
 
+  //For debug purposes use the timeout version
   Traverse();
+  //setTimeout(Traverse, 5000);
 }

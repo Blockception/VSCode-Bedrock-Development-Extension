@@ -22,15 +22,12 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: [Commands.DiagnoseProject, Commands.ImportErrors, Commands.MCProject.Create],
+        commands: [Commands.DiagnoseProject, Commands.ImportErrors, Commands.MCProject.Create, Commands.Files.Append],
         workDoneProgress: true,
       },
 
       // Code Actions
-      codeActionProvider: {
-        codeActionKinds: [CodeActionKind.QuickFix],
-        resolveProvider: false,
-      },
+      codeActionProvider: true,
 
       codeLensProvider: {
         resolveProvider: false,
