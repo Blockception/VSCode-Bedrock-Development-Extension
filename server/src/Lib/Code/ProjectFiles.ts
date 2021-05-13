@@ -36,9 +36,8 @@ export interface ProjectFiles {
   Workspaces: string[];
 }
 
-/**
- *
- * @returns
+/**Retrieves workspaces and then updated the @see Database.WorkspaceData
+ * @returns A promise with project related files
  */
 export async function GetProjectFiles(): Promise<ProjectFiles> {
   let WS = Manager.Connection.workspace.getWorkspaceFolders();
@@ -119,8 +118,8 @@ export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles):
 function Process(files: string[], PF: ProjectFiles): void {
   for (let J = 0; J < files.length; J++) {
     const item = files[J];
-    let parent = GetParent(item);
-    let Type = DetectGeneralDataType(item);
+    const parent = URI.parse(GetParent(item)).fsPath;
+    const Type = DetectGeneralDataType(item);
 
     switch (Type) {
       case GeneralDataType.behaviour_pack:
@@ -141,9 +140,9 @@ function Process(files: string[], PF: ProjectFiles): void {
 
         if (!manifest) break;
 
-        Type = Manifest.DetectType(manifest);
+        const SubType = Manifest.DetectType(manifest);
 
-        switch (Type) {
+        switch (SubType) {
           case GeneralDataType.behaviour_pack:
             DupeCheckAdd(PF.BehaviourPackFolders, parent);
             continue;
