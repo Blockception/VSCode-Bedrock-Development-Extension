@@ -1,6 +1,11 @@
 import { DiagnosticsBuilder } from "../Diagnostics/Builder";
 import { TextDocument } from "../Types/Document/TextDocument";
 
+/**
+ *
+ * @param doc
+ * @returns
+ */
 export function ValidateBehaviourFolder(doc: TextDocument): void {
   const SubFolder = GetSubFolder(doc.uri);
 
@@ -30,6 +35,11 @@ export function ValidateBehaviourFolder(doc: TextDocument): void {
   }
 }
 
+/**
+ *
+ * @param doc
+ * @returns
+ */
 export function ValidateResourceFolder(doc: TextDocument): void {
   const SubFolder = GetSubFolder(doc.uri);
 
@@ -59,6 +69,11 @@ export function ValidateResourceFolder(doc: TextDocument): void {
   }
 }
 
+/**
+ *
+ * @param uri
+ * @returns
+ */
 function GetSubFolder(uri: string): string | undefined {
   let match = uri.match(/((rp|bp|RP|BP)\\|(behavior_packs|resource_packs)\\[^\\]+\\)/);
 
@@ -78,6 +93,11 @@ function GetSubFolder(uri: string): string | undefined {
   return undefined;
 }
 
+/**
+ *
+ * @param doc
+ * @param SubFolder
+ */
 function IllegalFolder(doc: TextDocument, SubFolder: string): void {
   let builder: DiagnosticsBuilder = new DiagnosticsBuilder(doc);
   builder.Add(`Illegal folder found in behaviour pack: "${SubFolder}"`);
