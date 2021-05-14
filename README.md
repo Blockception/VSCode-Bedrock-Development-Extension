@@ -1,7 +1,8 @@
 # VSCode-Bedrock-Development-Extension
 
-An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, creation of files, and development tools to help develop Minecraft Bedrock content.
-It's recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft Education Edition.
+An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, code-actions, creation of files, and development tools to help develop Minecraft
+Bedrock content. For files such as `.mcfunction`, `.json` and `.lang`. It's recommended you use the Dark+ theme for the best color highlighting. This extension also supports
+Minecraft Education Edition.
 
 ![overview](documentation/resources/overview.gif)
 
@@ -46,6 +47,7 @@ This plugin provides support for the `.mcfunction` files. The following features
 
 - [Code completion](documentation/completion/Mcfunctions.md).
 - Code formatting.
+- Code action.
 - Diagnostics.
 - Go to definition.
 - Regions.
