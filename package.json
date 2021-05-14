@@ -1,5 +1,12 @@
 {
+  "description": "An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, code-actions, creation of files, and development tools to help develop Minecraft Bedrock content",
+  "displayName": "Blockception's Minecraft Bedrock Development",
+  "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+  "icon": "resources/logo.png",
+  "license": "BSD-3-Clause",
   "main": "./client/out/extension.js",
+  "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
+  "publisher": "BlockceptionLtd",
   "version": "2.0.5",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
@@ -19,8 +26,6 @@
     "name": "Blockception Ltd",
     "url": "https://www.blockception.com/"
   },
-  "displayName": "Blockception's Minecraft Bedrock Development",
-  "description": "An extension that provides code completion, validations, formatters, diagnostics, and development tools to help develop Minecraft bedrock content. Recommended you use the Dark+ theme for the best color highlighting. This package also supports Minecraft education.",
   "categories": [
     "Language Packs",
     "Programming Languages",
@@ -28,61 +33,6 @@
     "Other",
     "Formatters",
     "Debuggers"
-  ],
-  "scripts": {
-    "vscode:prepublish": "npm run webpack",
-    "compile": "npm run clean && tsc -b",
-    "compile:client": "tsc -b ./client/tsconfig.json",
-    "compile:server": "tsc -b ./server/tsconfig.json",
-    "watch": "tsc -b -w",
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-    "test": "sh ./scripts/e2e.sh",
-    "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
-    "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
-    "test-compile": "tsc -p ./",
-    "lint": "npm run lint:client && npm run lint:server",
-    "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
-    "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
-    "clean": "rimraf client/out && rimraf server/out"
-  },
-  "dependencies": {
-    "fast-glob": "^3.2.5",
-    "vsce": "^1.85.0"
-  },
-  "devDependencies": {
-    "@types/mocha": "^7.0.2",
-    "@types/node": "^12.20.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "eslint": "^6.4.0",
-    "mocha": "^8.3.0",
-    "ts-loader": "^8.0.17",
-    "typescript": "^3.9.9",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0"
-  },
-  "engines": {
-    "vscode": "^1.41.0"
-  },
-  "extensionKind": [
-    "workspace"
-  ],
-  "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-  "icon": "resources/logo.png",
-  "license": "BSD-3-Clause",
-  "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
-  "publisher": "BlockceptionLtd",
-  "maintainers": [
-    {
-      "name": "Blockception Ltd",
-      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
-    }
-  ],
-  "repository": {
-    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-    "type": "git"
-  },
-  "files": [
-    "*.html"
   ],
   "contributes": {
     "configuration": [
@@ -752,5 +702,55 @@
         }
       }
     ]
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.5",
+    "vsce": "^1.85.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^12.20.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^6.4.0",
+    "mocha": "^8.3.0",
+    "ts-loader": "^8.0.17",
+    "typescript": "^3.9.9",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  },
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "files": [
+    "*.html"
+  ],
+  "maintainers": [
+    {
+      "name": "Blockception Ltd",
+      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+    "type": "git"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run webpack",
+    "compile": "npm run clean && tsc -b",
+    "compile:client": "tsc -b ./client/tsconfig.json",
+    "compile:server": "tsc -b ./server/tsconfig.json",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "test": "sh ./scripts/e2e.sh",
+    "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
+    "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
+    "test-compile": "tsc -p ./",
+    "lint": "npm run lint:client && npm run lint:server",
+    "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
+    "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
+    "clean": "rimraf client/out && rimraf server/out"
   }
 }
