@@ -1,5 +1,25 @@
 # Changelog 
 ## Plugin 
+- Refactor
+- Refactor json completion
+- Added Code Actions
+- Refactor
+- Added comments
+- Refactor
+- Added type definitions codes
+- Updated CodeActionBuilder
+- Updated Uri handling
+- For future references
+- Updated
+- Updated uri handling
+- fixing manifest handling
+- Refactor codes
+- updated RP
+- updated RP entity
+- Updated sound defintions
+- Updated
+- Updated constsants
+- Added diagnostics code
 - Fixing command: bc.mcproject.create
 - Udpated
 - Fixing compile errors
@@ -19,28 +39,12 @@
 - Updated packages
 - Updated references
 - Fixing compile issues
-- Updated ProjectData to ProjectFiles
-- Updated TextDocument references
-- Moved to new folder
-- Renamed projectdata to projectfiles
-- Updated references
-- Added diagnosticsCodes
-- Added diagnostics codes
-- Refactoring
-- Updated project code
-- Moved
-- Updated constants
-- Added MCAttributes documentation
-- File not needed
-- Added commands and languages
-- Added project configuration and syntax
-- Refactored language names
-- Updated version to 2.0.0
-- Removed old validation
-- Updated markdown settings
-- Removed
-- Updated schemas. 
+- Updated ProjectData to ProjectFiles. 
 ## Schemas 
+- Formatted
+- Updated items
+- Added on_fire to render controller 1.10.0
+- Allow string array for minecraft:spell_effects remove_effect.
 - Added blend_weights for animations and animation_controllers
 - Fixed formatversion
 - Updated titles
@@ -77,7 +81,3 @@
 - Updated animation bones
 - Updated animations bones needing atleast 1 bone specificaiton
 - Added Is_hurt_color to 1.10.0 render controllers
-- Updated
-- compressed
-- Updated script
-- Added tasks
