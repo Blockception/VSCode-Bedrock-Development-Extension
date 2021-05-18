@@ -16,6 +16,10 @@
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "type": "git"
   },
+  "scripts": {
+    "compile": "tsc -b",
+    "test": "mocha -r ts-node/register '**/*.test.ts'"
+  },
   "dependencies": {
     "bc-minecraft-project": "^1.0.0",
     "bc-vscode-words": "^1.0.10",
@@ -27,8 +31,13 @@
     "vscode-uri": "^2.1.2"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.18",
+    "@types/mocha": "^8.2.2",
     "@types/picomatch": "^2.2.4",
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0",
     "ts-loader": "^8.0.17",
+    "ts-node": "^9.1.1",
     "webpack": "^5.24.0",
     "webpack-cli": "^4.5.0"
   }

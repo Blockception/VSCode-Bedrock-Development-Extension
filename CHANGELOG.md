@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Removed "~~~" formatting
 - Fixed processing of mcfunctions
 - Updated pattersn to fix #54
 - Updated
@@ -38,8 +39,7 @@
 - Updated
 - Updated
 - Stopping documentents from being processed if ignored
-- Refactor
-- Fixing project handling data. 
+- Refactor. 
 ## Schemas 
 - Updated pattersn to fix #54
 - Update README.md

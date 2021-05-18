@@ -3,7 +3,7 @@ export namespace Languages {
   /** */
   export const McFunctionIdentifier: string = "bc-mcfunction";
   /** */
-  export const McOtherIdentifier: string = "bc-minecraft-Other";
+  export const McOtherIdentifier: string = "bc-minecraft-other";
   /** */
   export const McLanguageIdentifier: string = "bc-minecraft-language";
   /** */

@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2019",
+    "esModuleInterop": true,
     "lib": ["ES2019"],
-    "outDir": "out",
-    "rootDir": "src",
-    "sourceMap": true,
-    "resolveJsonModule": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "outDir": "out",
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2019"
   },
+  "exclude": ["node_modules", ".vscode-test", "*.test.ts"],
   "include": ["src"],
-  "exclude": ["node_modules", ".vscode-test"]
+  "references": []
 }

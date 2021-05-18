@@ -794,7 +794,7 @@
     "compile:server": "tsc -b ./server/tsconfig.json",
     "watch": "tsc -b -w",
     "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-    "test": "sh ./scripts/e2e.sh",
+    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
     "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
     "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
     "test-compile": "tsc -p ./",

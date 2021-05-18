@@ -14,6 +14,7 @@ function OpenLastestError(args: any): void {
     //if start folder doesnt exist
     if (!APPDATA) {
       window.showErrorMessage("Couldn't find the AppData folder");
+      return;
     }
 
     if (APPDATA.endsWith("Roaming")) {
@@ -39,7 +40,7 @@ function OpenLastestError(args: any): void {
 function FindLastestLog(folder: string): void {
   let LogFolder = path.join(folder, "LocalState", "logs");
   let Lastest: string = "";
-  let LastestTime: number;
+  let LastestTime: number = 0;
 
   let Childern = readdirSync(LogFolder);
 

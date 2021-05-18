@@ -104,8 +104,8 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
   );
 }
 
-function OnCompleteID(value: string, command: string): Promise<any> {
-  if (value === undefined) return new Promise<void>(undefined);
+function OnCompleteID(value: string | undefined, command: string): Promise<any> {
+  if (value === undefined) return Promise.resolve();
 
   let Options: ExecuteCommandParams = {
     command: command,

@@ -8,7 +8,10 @@ export function Activate(context: ExtensionContext): void {
 }
 
 function AddAll(args: any): any {
-  let Current = window.activeTextEditor.document.uri.path;
+  const ed = window.activeTextEditor;
+
+  if (!ed) return;
+  let Current = ed.document.uri.path;
   let Params: ExecuteCommandParams = {
     command: Commands.AddLanguageFile,
     arguments: [Current],
