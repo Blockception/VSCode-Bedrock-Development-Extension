@@ -1,13 +1,14 @@
 {
-  "name": "blockception-minecraft-client",
   "description": "The client side of a language server for minecraft",
-  "version": "2.0.5",
+  "license": "BSD-3-Clause",
+  "name": "blockception-minecraft-client",
   "private": true,
+  "publisher": "BlockceptionLtd",
+  "version": "2.0.6",
   "author": {
     "name": "Blockception Ltd",
     "url": "https://www.blockception.com/"
   },
-  "publisher": "BlockceptionLtd",
   "repository": {
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
     "type": "git"
@@ -15,7 +16,6 @@
   "engines": {
     "vscode": "^1.83.0"
   },
-  "license": "BSD-3-Clause",
   "dependencies": {
     "vscode-languageclient": "^7.0.0"
   },

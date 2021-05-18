@@ -1,5 +1,10 @@
 # Changelog 
 ## Plugin 
+- Updated pattersn to fix #54
+- Updated
+- Sorted
+- Updated
+- Updated to 2.0.5
 - Refactor
 - Refactor json completion
 - Added Code Actions
@@ -34,13 +39,15 @@
 - Stopping documentents from being processed if ignored
 - Refactor
 - Fixing project handling data
-- Refactor
-- Refactoring
-- Updated packages
-- Updated references
-- Fixing compile issues
-- Updated ProjectData to ProjectFiles. 
+- Refactor. 
 ## Schemas 
+- Updated pattersn to fix #54
+- Update README.md
+- Added
+- Added notes
+- Updated readme
+- Updated
+- Updated Manifest
 - Formatted
 - Updated items
 - Added on_fire to render controller 1.10.0
@@ -74,10 +81,3 @@
 - Updating
 - Updated
 - Updated descrption/titles
-- Updated
-- Refactor
-- Update compress-json-schemas.yml
-- Update compress-json-schemas.yml
-- Updated animation bones
-- Updated animations bones needing atleast 1 bone specificaiton
-- Added Is_hurt_color to 1.10.0 render controllers
