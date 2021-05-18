@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Fixed processing of mcfunctions
 - Updated pattersn to fix #54
 - Updated
 - Sorted
@@ -38,8 +39,7 @@
 - Updated
 - Stopping documentents from being processed if ignored
 - Refactor
-- Fixing project handling data
-- Refactor. 
+- Fixing project handling data. 
 ## Schemas 
 - Updated pattersn to fix #54
 - Update README.md
