@@ -12,6 +12,9 @@ import { Identifiable, Locatable } from "../../Types/Minecraft/Interfaces/includ
 import { DataCollector } from "../DataCollector";
 import { CollectorBase } from "./CollectorBase";
 
+/**
+ *
+ */
 export class GeneralData extends CollectorBase<Identifiable & Locatable> {
   /**A storage of all collected blocks*/
   public Blocks: DataCollector<Block> = new DataCollector<Block>();
