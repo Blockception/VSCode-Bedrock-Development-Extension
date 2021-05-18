@@ -6,5 +6,4 @@ export * from "./Files";
 export * from "./Import Errors";
 export * from "./MCProjects";
 export * from "./OnRequest";
-export * from "./Words.test";
 export * from "./Words";
