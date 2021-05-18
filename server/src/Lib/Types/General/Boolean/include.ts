@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 
-export * from "./Boolean";
+export * from "./Function";
 export * from "./Completion";
 export * from "./Diagnose";

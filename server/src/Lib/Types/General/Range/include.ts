@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Range";
+export * from "./Functions";

@@ -1,3 +1,8 @@
+/**
+ *
+ * @param text
+ * @returns
+ */
 export function IsInteger(text: string): boolean {
   let match = text.match(/^[\-\d]*$/);
 

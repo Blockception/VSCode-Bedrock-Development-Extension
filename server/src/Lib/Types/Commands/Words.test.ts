@@ -1,6 +1,6 @@
 import { LocationWord } from "bc-vscode-words";
 import { expect } from "chai";
-import { CreateMinecraftCommandWords } from "./include";
+import { CreateMinecraftCommandWords } from "./Words";
 
 describe("Commands Words", () => {
   it("checking relative coordiantes", () => {

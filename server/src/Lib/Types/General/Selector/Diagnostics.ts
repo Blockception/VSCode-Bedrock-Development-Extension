@@ -1,6 +1,6 @@
 import { LocationWord, RangedWord } from "bc-vscode-words";
 import { Database } from "../../../Database/include";
-import { IsRangeInteger, IsRangeNumber } from "../Range/Range";
+import { IsRangeInteger, IsRangeNumber } from "../Range/Functions";
 import { MCCommandParameter } from "../../Commands/Parameter/include";
 import { IsFloat } from "../Float/include";
 import { IsInteger } from "../Integer/include";

@@ -1,10 +1,10 @@
 import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver-textdocument";
 import { Range } from "../../../Code/Range";
-import { CreateMinecraftCommandWords } from "../../../Commands/Words";
 import { Manager } from "../../../Manager/Manager";
 import { CommandInfo } from "../Info/CommandInfo";
 import { MCCommandParameterType } from "../Parameter/include";
+import { CreateMinecraftCommandWords } from "../Words";
 
 /**
  *A class that helps interpeting written commands

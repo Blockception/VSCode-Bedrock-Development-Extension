@@ -1,9 +1,9 @@
 import { Manager } from "../../../Manager/Manager";
-import { IsBoolean } from "../../General/Boolean/Boolean";
+import { IsBoolean } from "../../General/Boolean/Function";
 import { IsCoordinate } from "../../General/Coordinate/include";
 import { IsFloat } from "../../General/Float/include";
 import { IsInteger } from "../../General/Integer/include";
-import { IsJson } from "../../General/Json/Json";
+import { IsJson } from "../../General/Json/Functions";
 import { IsSelector } from "../../General/Selector/include";
 import { IsTickingArea } from "../../General/Tickingarea/include";
 import { CommandInfo } from "../Info/CommandInfo";
