@@ -36,7 +36,6 @@ function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
     Replace(Line, "~0", "~", index, Out);
     Replace(Line, "^+", "^", index, Out);
     Replace(Line, "^0", "^", index, Out);
-    Replace(Line, "~~~", "~ ~ ~", index, Out);
     Replace(Line, " ##", " \t##", index, Out);
   }
 }
