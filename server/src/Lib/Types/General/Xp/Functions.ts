@@ -1,3 +1,8 @@
+/**
+ *
+ * @param text
+ * @returns
+ */
 export function IsXpLevel(text: string): boolean {
   let match = text.match(/^([\-\d]*|[\-\d]*[Ll])$/);
 

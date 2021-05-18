@@ -4,14 +4,14 @@ import { TextDocument } from "../Types/Document/TextDocument";
 export function ProvideLanguageSignature(doc: TextDocument, pos: Position): SignatureHelp {
   const Line = doc.getLine(pos.line);
 
-  let index = Line.indexOf("=");
+  const index = Line.indexOf("=");
   let parameter = 0;
 
   if (index > 0 && index < pos.character) {
     parameter = 1;
   }
 
-  let Out: SignatureHelp = {
+  const Out: SignatureHelp = {
     activeParameter: parameter,
     activeSignature: 0,
     signatures: [
