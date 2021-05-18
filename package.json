@@ -425,11 +425,7 @@
     ],
     "jsonValidation": [
       {
-        "fileMatch": "**/minecraft-validation.json",
-        "url": "./minecraft-schemas/minecraft-validation.json"
-      },
-      {
-        "fileMatch": "*/skin_pack/skins.json",
+        "fileMatch": "skin_pack/skins.json",
         "url": "./minecraft-bedrock-schemas/skinpacks/skins.json"
       },
       {
@@ -457,7 +453,12 @@
           "*resource*pack*/animation_controllers/*.json",
           "*Resource*Pack*/animation_controllers/*.json",
           "*RP*/animation_controllers/*.json",
-          "*rp*/animation_controllers/*.json"
+          "*rp*/animation_controllers/*.json",
+          "resource_packs/*/animation_controllers/**/*.json",
+          "*resource*pack*/animation_controllers/**/*.json",
+          "*Resource*Pack*/animation_controllers/**/*.json",
+          "*RP*/animation_controllers/**/*.json",
+          "*rp*/animation_controllers/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/animation_controllers/animation_controller.json"
       },
@@ -467,12 +468,20 @@
           "*resource*pack*/animations/*.json",
           "*Resource*Pack*/animations/*.json",
           "*RP*/animations/*.json",
-          "*rp*/animations/*.json"
+          "*rp*/animations/*.json",
+          "resource_packs/*/animations/**/*.json",
+          "*resource*pack*/animations/**/*.json",
+          "*Resource*Pack*/animations/**/*.json",
+          "*RP*/animations/**/*.json",
+          "*rp*/animations/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/animations/actor_animation.json"
       },
       {
-        "fileMatch": "attachables/*.json",
+        "fileMatch": [
+          "attachables/*.json",
+          "attachables/**/*.json"
+        ],
         "url": "./minecraft-bedrock-schemas/resource/attachables/attachables.json"
       },
       {
@@ -484,11 +493,18 @@
         "url": "./minecraft-bedrock-schemas/resource/blocks.json"
       },
       {
-        "fileMatch": "entity/*entity.json",
+        "fileMatch": [
+          "entity/*.json",
+          "entity/**/*.json",
+          "!models/entity"
+        ],
         "url": "./minecraft-bedrock-schemas/resource/entity/entity.json"
       },
       {
-        "fileMatch": "fogs/*.json",
+        "fileMatch": [
+          "fogs/*.json",
+          "fogs/**/*.json"
+        ],
         "url": "./minecraft-bedrock-schemas/resource/fog/fog.json"
       },
       {
@@ -520,13 +536,17 @@
       },
       {
         "fileMatch": [
+          "models/entity/*.json",
+          "models/entity/**/*.json",
           "*.geo.json",
           "*.geometry.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/models/entity/model_entity.json"
       },
       {
-        "fileMatch": "*.material",
+        "fileMatch": [
+          "materials/*.material"
+        ],
         "url": "./minecraft-bedrock-schemas/resource/materials/materials.json"
       },
       {
@@ -536,12 +556,16 @@
       {
         "fileMatch": [
           "particles/*.json",
+          "particles/**/*.json",
           "*.particle.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/particles/particles.json"
       },
       {
-        "fileMatch": "render_controllers/*.json",
+        "fileMatch": [
+          "render_controllers/*.json",
+          "render_controllers/**/*.json"
+        ],
         "url": "./minecraft-bedrock-schemas/resource/render_controllers/render_controllers.json"
       },
       {
@@ -562,7 +586,12 @@
           "*behavior*pack*/animation_controllers/*.json",
           "*Behavior*Pack*/animation_controllers/*.json",
           "*BP*/animation_controllers/*.json",
-          "*bp*/animation_controllers/*.json"
+          "*bp*/animation_controllers/*.json",
+          "behavior_packs/*/animation_controllers/**/*.json",
+          "*behavior*pack*/animation_controllers/**/*.json",
+          "*Behavior*Pack*/animation_controllers/**/*.json",
+          "*BP*/animation_controllers/**/*.json",
+          "*bp*/animation_controllers/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/animation_controllers/animation_controller.json"
       },
@@ -572,7 +601,12 @@
           "*behavior*pack*/animations/*.json",
           "*Behavior*Pack*/animations/*.json",
           "*BP*/animations/*.json",
-          "*bp*/animations/*.json"
+          "*bp*/animations/*.json",
+          "behavior_packs/*/animations/**/*.json",
+          "*behavior*pack*/animations/**/*.json",
+          "*Behavior*Pack*/animations/**/*.json",
+          "*BP*/animations/**/*.json",
+          "*bp*/animations/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/animations/animations.json"
       },
@@ -582,7 +616,12 @@
           "*behavior*pack*/biomes/*.json",
           "*Behavior*Pack*/biomes/*.json",
           "*BP*/biomes/*.json",
-          "*bp*/biomes/*.json"
+          "*bp*/biomes/*.json",
+          "behavior_packs/*/biomes/**/*.json",
+          "*behavior*pack*/biomes/**/*.json",
+          "*Behavior*Pack*/biomes/**/*.json",
+          "*BP*/biomes/**/*.json",
+          "*bp*/biomes/**/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/biomes/biomes.json"
       },
@@ -620,14 +659,14 @@
       {
         "fileMatch": [
           "behavior_packs/*/entities/*.json",
-          "behavior_packs/*/entities/**/*.json",
           "*behavior*pack*/entities/*.json",
-          "*behavior*pack*/entities/**/*.json",
           "*Behavior*Pack*/entities/*.json",
-          "*Behavior*Pack*/entities/**/*.json",
           "*BP*/entities/*.json",
-          "*BP*/entities/**/*.json",
           "*bp*/entities/*.json",
+          "behavior_packs/*/entities/**/*.json",
+          "*behavior*pack*/entities/**/*.json",
+          "*Behavior*Pack*/entities/**/*.json",
+          "*BP*/entities/**/*.json",
           "*bp*/entities/**/*.json",
           "!*loot_tables*"
         ],
@@ -649,11 +688,17 @@
         "url": "./minecraft-bedrock-schemas/behavior/items/items.json"
       },
       {
-        "fileMatch": "recipes/*.json",
+        "fileMatch": [
+          "recipes/*.json",
+          "recipes/**/*.json"
+        ],
         "url": "./minecraft-bedrock-schemas/behavior/recipes/recipes.json"
       },
       {
-        "fileMatch": "spawn_rules/*.json",
+        "fileMatch": [
+          "spawn_rules/*.json",
+          "spawn_rules/**/*.json"
+        ],
         "url": "./minecraft-bedrock-schemas/behavior/spawn_rules/spawn_rules.json"
       },
       {
@@ -663,6 +708,11 @@
           "*Behavior*Pack*/trading/*.json",
           "*BP*/trading/*.json",
           "*bp*/trading/*.json",
+          "behavior_packs/*/trading/**/*.json",
+          "*behavior*pack*/trading/**/*.json",
+          "*Behavior*Pack*/trading/**/*.json",
+          "*BP*/trading/**/*.json",
+          "*bp*/trading/**/*.json",
           "*.trade.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/trading/trading.json"
