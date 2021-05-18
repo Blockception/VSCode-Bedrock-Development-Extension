@@ -23,7 +23,7 @@ function ProcessContent(document: TextDocument): void {
   }
 
   const uri = document.uri;
-  let Index = uri.indexOf("\\functions\\");
+  const Index = uri.indexOf("/functions/");
 
   if (Index > -1) {
     let Identifier = uri.slice(Index + 11, uri.length);
