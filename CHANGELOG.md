@@ -1,5 +1,13 @@
 # Changelog 
 ## Plugin 
+- Updated
+- Updated
+- Updated
+- Added more unit tests
+- Added unit tests
+- Fixing
+- Delete Create typescript includes.yml
+- Adding unittests
 - Removed "~~~" formatting
 - Fixed processing of mcfunctions
 - Updated pattersn to fix #54
@@ -31,16 +39,9 @@
 - Udpated
 - Fixing compile errors
 - Fixing #51, numbers are not supported as blend values
-- Fixing #49 isues, nested items are not
-- Updated
-- Updated documentation
-- Updated documentation
-- Updated
-- Updated
-- Updated
-- Stopping documentents from being processed if ignored
-- Refactor. 
+- Fixing #49 isues, nested items are not. 
 ## Schemas 
+- Fixing references
 - Updated pattersn to fix #54
 - Update README.md
 - Added
@@ -80,4 +81,3 @@
 - Adding format version regex
 - Updating
 - Updated
-- Updated descrption/titles
