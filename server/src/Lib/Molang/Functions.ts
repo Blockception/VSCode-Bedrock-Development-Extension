@@ -1,5 +1,10 @@
 import { Character } from "../Code/include";
 
+/**
+ *
+ * @param text
+ * @returns
+ */
 export function IsMolang(text: string): boolean {
   if (text.startsWith("@s")) return true;
 
@@ -19,6 +24,12 @@ export function IsMolang(text: string): boolean {
   return false;
 }
 
+/**
+ *
+ * @param text
+ * @param cursor
+ * @returns
+ */
 export function GetPreviousWord(text: string, cursor: number): string {
   let endIndex = cursor;
 

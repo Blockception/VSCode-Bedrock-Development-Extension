@@ -6,6 +6,12 @@ import { TextDocument } from "../Types/Document/TextDocument";
 import { Identifiable, Locatable, Documentable } from "../Types/Minecraft/Interfaces/include";
 import { RawText } from "../Types/Minecraft/Json/include";
 
+/**
+ *
+ * @param params
+ * @param doc
+ * @returns
+ */
 export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): Hover | undefined {
   const pos = params.position;
   const LineIndex = pos.line;
@@ -48,6 +54,13 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
   return undefined;
 }
 
+/**
+ *
+ * @param parameter
+ * @param range
+ * @param Text
+ * @returns
+ */
 function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: string): Hover | undefined {
   let title = parameter.Text;
   let doc: string = "";

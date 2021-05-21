@@ -1,11 +1,14 @@
 import { Location } from "vscode-languageserver";
-
 import { Console } from "../../Console/Console";
 import { Database } from "../../Database/include";
-import { Manager } from "../../Manager/include";
 import { CommandIntr } from "../../Types/Commands/Interpertation/include";
 import { Tickingarea } from "../../Types/General/Tickingarea/include";
 
+/**
+ *
+ * @param Command
+ * @returns
+ */
 export function ProcessTickingAreaCommand(Command: CommandIntr): void {
   //tickingarea add
   if (Command.Parameters[1]?.text !== "add") return;
@@ -18,6 +21,11 @@ export function ProcessTickingAreaCommand(Command: CommandIntr): void {
   }
 }
 
+/**
+ *
+ * @param Command
+ * @returns
+ */
 function ProcessCircleCommand(Command: CommandIntr): void {
   //Tickingarea add circle <x> <y> <z> <r> [name]
   const Parameters = Command.Parameters;
@@ -46,6 +54,11 @@ function ProcessCircleCommand(Command: CommandIntr): void {
   Create(Location, Name, 'The circular tickingarea: "' + Name + '"; ' + Area);
 }
 
+/**
+ *
+ * @param Command
+ * @returns
+ */
 function ProcessBoxCommand(Command: CommandIntr): void {
   //Tickingarea add <x> <y> <z> <x> <y> <z> [name]
   const Parameters = Command.Parameters;
@@ -75,6 +88,12 @@ function ProcessBoxCommand(Command: CommandIntr): void {
   Create(Location, Name, 'The box tickingarea: "' + Name + '"; ' + Area);
 }
 
+/**
+ *
+ * @param Loc
+ * @param Name
+ * @param Doc
+ */
 function Create(Loc: Location, Name: string, Doc: string): void {
   let Ta = new Tickingarea();
   Ta.Location = Loc;

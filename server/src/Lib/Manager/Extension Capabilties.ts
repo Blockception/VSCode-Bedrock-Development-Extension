@@ -1,11 +1,30 @@
 import { ClientCapabilities } from "vscode-languageserver";
 
+/**
+ *
+ */
 export class ExtensionCapabiltities {
-  public hasConfigurationCapability: boolean = false;
+  /**
+   * 
+   */
+  public hasConfigurationCapability: boolean = false;\
+  /**
+   * 
+   */
   public hasWorkspaceFolderCapability: boolean = false;
+  /**
+   * 
+   */
   public hasDiagnosticRelatedInformationCapability: boolean = false;
+  /**
+   * 
+   */
   public TraversedWorkspaces: boolean = false;
 
+  /**
+   * 
+   * @param capabilities 
+   */
   public Parse(capabilities: ClientCapabilities): void {
     // Does the client support the `workspace/configuration` request?
     // If not, we fall back using global settings.

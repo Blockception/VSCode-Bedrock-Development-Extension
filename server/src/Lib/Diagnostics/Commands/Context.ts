@@ -9,11 +9,29 @@ import { DiagnosticsBuilder } from "../include";
  *
  */
 export interface CommandDiagnoseContext extends BaseCommandContext {
+  /**
+   *
+   */
   Parameter: MCCommandParameter;
+  /**
+   *
+   */
   ParameterIndex: number;
+  /**
+   *
+   */
   Command: CommandIntr;
+  /**
+   *
+   */
   BestMatch: CommandInfo;
+  /**
+   *
+   */
   receiver: DiagnosticsBuilder;
+  /**
+   *
+   */
   Current: LocationWord | undefined;
 }
 

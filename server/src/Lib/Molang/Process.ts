@@ -4,6 +4,12 @@ import { ProcessCommand } from "../Types/Commands/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { DataCollector } from "./Files/Data Collector";
 
+/**
+ *
+ * @param text
+ * @param Start
+ * @param doc
+ */
 export function Process(text: string, Start: Position, doc: TextDocument) {
   if (text.startsWith("/")) {
     let command = text.substring(1);
@@ -15,6 +21,13 @@ export function Process(text: string, Start: Position, doc: TextDocument) {
   }
 }
 
+/**
+ *
+ * @param text
+ * @param range
+ * @param doc
+ * @param receiver
+ */
 export function ProcessInto(text: string, range: Range, doc: TextDocument, receiver: DataCollector) {
   if (text.startsWith("/")) {
     range.start.character += 1;

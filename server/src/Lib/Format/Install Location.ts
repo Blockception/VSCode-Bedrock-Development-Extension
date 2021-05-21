@@ -1,5 +1,9 @@
-import { fstat, readdirSync } from "fs";
+import { readdirSync } from "fs";
 
+/**
+ *
+ * @returns
+ */
 export function FindBedrockInstallationFolder(): string {
   switch (process.platform) {
     case "win32":
@@ -9,6 +13,10 @@ export function FindBedrockInstallationFolder(): string {
   return "";
 }
 
+/**
+ *
+ * @returns
+ */
 function FindBedrockWinsInstallationFolder(): string {
   let AppDataLocal = process.env.LOCALAPPDATA;
 

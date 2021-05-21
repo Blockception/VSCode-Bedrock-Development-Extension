@@ -7,6 +7,12 @@ import { Objective } from "../../Types/General/Objectives/include";
 import { IsFakePlayer } from "../../Types/General/Selector/include";
 import { GetComment } from "../../Types/Minecraft/Behavior/Functions/include";
 
+/**
+ *
+ * @param Com
+ * @param doc
+ * @returns
+ */
 export function ProcessScoreboardCommand(Com: CommandIntr, doc: TextDocument): void {
   if (Com.Parameters.length < 3) {
     return;
@@ -24,6 +30,12 @@ export function ProcessScoreboardCommand(Com: CommandIntr, doc: TextDocument): v
   }
 }
 
+/**
+ *
+ * @param Com
+ * @param Comment
+ * @returns
+ */
 function CheckObjective(Com: CommandIntr, Comment: string): void {
   let ObjectiveMode = Com.Parameters[2];
 

@@ -5,18 +5,33 @@ import { GetDocument } from "../Types/Document/include";
 import { formatLangauge, formatLangaugeRange } from "./Language";
 import { formatMcfunction, formatMcfunctionRange } from "./Mcfunction";
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): Promise<TextEdit[] | undefined> {
   return new Promise<TextEdit[] | undefined>((resolve, reject) => {
     resolve(OnDocumentFormatRequest(params));
   });
 }
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattingParams): Promise<TextEdit[] | undefined> {
   return new Promise<TextEdit[] | undefined>((resolve, reject) => {
     resolve(OnDocumentRangeFormatRequest(params));
   });
 }
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] | undefined {
   let doc = GetDocument(params.textDocument.uri);
 
@@ -35,6 +50,11 @@ function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] |
   return undefined;
 }
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] {
   let doc = GetDocument(params.textDocument.uri);
 

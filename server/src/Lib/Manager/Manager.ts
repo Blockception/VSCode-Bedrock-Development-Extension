@@ -6,6 +6,9 @@ import { Connection } from "vscode-languageserver/lib/common/server";
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocument } from "../Types/Document/TextDocument";
 
+/**
+ *
+ */
 export class Manager {
   /**
    * The different state the manager can posssibly have or be in
@@ -27,7 +30,13 @@ export class Manager {
   static Settings: ServerSettings = ServerSettings.createDefaulSettings();
 }
 
+/**
+ *
+ */
 export namespace Manager {
+  /**
+   *
+   */
   export namespace Diagnostic {
     /**
      * Sends the diagnostics to the client

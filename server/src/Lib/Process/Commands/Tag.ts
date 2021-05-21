@@ -5,6 +5,12 @@ import { TextDocument } from "../../Types/Document/TextDocument";
 import { Tag } from "../../Types/General/Tag/Tag";
 import { GetComment } from "../../Types/Minecraft/Behavior/Functions/include";
 
+/**
+ *
+ * @param Com
+ * @param doc
+ * @returns
+ */
 export function ProcessTagCommand(Com: CommandIntr, doc: TextDocument): void {
   //tag <selector> add <tag>
   if (Com.Parameters[2]?.text !== "add") return;

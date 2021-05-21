@@ -1,3 +1,6 @@
+/**
+ *
+ */
 export class ExtensionState {
   /**
    * True if a thread is currently gathering data

@@ -2,6 +2,12 @@ import { DocumentFormattingParams, DocumentRangeFormattingParams, TextEdit } fro
 import { Replace, TrimEndFromLine, TrimStartFromLine } from "../Code/TextEdit";
 import { TextDocument } from "../Types/Document/TextDocument";
 
+/**
+ *
+ * @param doc
+ * @param params
+ * @returns
+ */
 export function formatMcfunction(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
 
@@ -12,6 +18,12 @@ export function formatMcfunction(doc: TextDocument, params: DocumentFormattingPa
   return Out;
 }
 
+/**
+ *
+ * @param doc
+ * @param params
+ * @returns
+ */
 export function formatMcfunctionRange(doc: TextDocument, params: DocumentRangeFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
   let StartIndex = params.range.start.line;
@@ -24,7 +36,12 @@ export function formatMcfunctionRange(doc: TextDocument, params: DocumentRangeFo
   return Out;
 }
 
-//formatts the specified line
+/**
+ * formatts the specified line
+ * @param index
+ * @param document
+ * @param Out
+ */
 function formatline(index: number, document: TextDocument, Out: TextEdit[]) {
   let Line = document.getLine(index);
 

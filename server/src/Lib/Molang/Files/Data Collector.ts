@@ -1,15 +1,23 @@
 import { LocationWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver";
 import { TextDocument } from "../../Types/Document/TextDocument";
-
 import { IsMolang } from "../include";
 
+/**
+ *
+ */
 export class DataCollector {
-  //
+  /**
+   *
+   */
   Molang: LocationWord[];
-  //
+  /**
+   *
+   */
   Events: LocationWord[];
-  //
+  /**
+   *
+   */
   Command: LocationWord[];
 
   constructor() {
@@ -18,11 +26,18 @@ export class DataCollector {
     this.Command = [];
   }
 
+  /**
+   *
+   * @returns
+   */
   IsProperty(): boolean {
     return this.Events.length === 0 && this.Command.length === 0 && this.Molang.length === 0;
   }
 }
 
+/**
+ *
+ */
 export namespace DataCollector {
   /**
    *
@@ -64,6 +79,12 @@ export namespace DataCollector {
   }
 }
 
+/**
+ *
+ * @param text
+ * @param startIndex
+ * @returns
+ */
 function findNext(text: string, startIndex: number): number {
   while (startIndex > -1) {
     let startindex = text.indexOf('"', startIndex);
