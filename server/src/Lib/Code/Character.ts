@@ -3,8 +3,8 @@ export namespace Character {
   const Character_z = "z".charCodeAt(0);
   const Character_A = "A".charCodeAt(0);
   const Character_Z = "Z".charCodeAt(0);
-  const Character_0 = "A".charCodeAt(0);
-  const Character_9 = "Z".charCodeAt(0);
+  const Character_0 = "0".charCodeAt(0);
+  const Character_9 = "9".charCodeAt(0);
 
   export function IsLetter(char: string): boolean {
     var code = char.charCodeAt(0);

@@ -11,7 +11,7 @@ describe("File", () => {
   it("GetFilename", () => {
     let Fname = GetFilename(Fullpath);
 
-    expect(Fname).to.equal(Filename);
+    expect(Fname).to.equal("I am a filepath");
   });
 
   it("getExtension", () => {
@@ -23,6 +23,6 @@ describe("File", () => {
   it("GetParent", () => {
     let P = GetParent(Fullpath);
 
-    expect(P).to.equal(Parent);
+    expect(P).to.equal(Parent + "\\");
   });
 });
