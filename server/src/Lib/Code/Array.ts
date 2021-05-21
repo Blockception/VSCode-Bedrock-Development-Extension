@@ -1,3 +1,8 @@
+/**
+ *
+ * @param items
+ * @returns
+ */
 export function removeDuplicate<T>(items: T[]): T[] {
   let Length = items.length;
   let Out: T[] = [];
@@ -13,6 +18,11 @@ export function removeDuplicate<T>(items: T[]): T[] {
   return Out;
 }
 
+/**
+ *
+ * @param items
+ * @param item
+ */
 export function DupeCheckAdd<T>(items: T[], item: T): void {
   if (!items.includes(item)) items.push(item);
 }

@@ -10,7 +10,6 @@ export namespace Character {
     var code = char.charCodeAt(0);
 
     if (code >= Character_a && code <= Character_z) return true;
-
     if (code >= Character_A && code <= Character_Z) return true;
 
     return false;
