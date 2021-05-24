@@ -1,6 +1,9 @@
 # Changelog 
 ## Plugin 
 - Updated
+- Added comments
+- Added tests
+- Updated
 - Updated
 - Updated
 - Added more unit tests
@@ -36,11 +39,9 @@
 - Updated constsants
 - Added diagnostics code
 - Fixing command: bc.mcproject.create
-- Udpated
-- Fixing compile errors
-- Fixing #51, numbers are not supported as blend values
-- Fixing #49 isues, nested items are not. 
+- Udpated. 
 ## Schemas 
+- Scripts | Initialize needs a minimum of 1 item
 - Fixing references
 - Updated pattersn to fix #54
 - Update README.md
@@ -80,4 +81,3 @@
 - Fixing
 - Adding format version regex
 - Updating
-- Updated
