@@ -619,7 +619,7 @@
       "parameters": [
         { "Text": "msg", "Type": "keyword", "Required": true },
         { "Text": "selector", "Type": "selector", "Required": true },
-        { "Text": "message", "Type": "keyword", "Required": true }
+        { "Text": "message", "Type": "unknown", "Required": true }
       ],
       "name": "msg",
       "documentation": { "value": "TODO description", "kind": "markdown" }
@@ -1317,7 +1317,7 @@
       "parameters": [
         { "Text": "tell", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
-        { "Text": "message", "Type": "keyword", "Required": true }
+        { "Text": "message", "Type": "unknown", "Required": true }
       ],
       "name": "tell",
       "documentation": { "value": "Sends a private message to one or more players", "kind": "markdown" }
@@ -1517,7 +1517,7 @@
         { "Text": "title", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "title", "Type": "keyword", "Required": true },
-        { "Text": "titleText", "Type": "string", "Required": true }
+        { "Text": "titleText", "Type": "unknown", "Required": true }
       ],
       "name": "title",
       "documentation": { "value": "Sets the title", "kind": "markdown" }
@@ -1527,7 +1527,7 @@
         { "Text": "title", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "subtitle", "Type": "keyword", "Required": true },
-        { "Text": "titleText", "Type": "string", "Required": true }
+        { "Text": "titleText", "Type": "unknown", "Required": true }
       ],
       "name": "title",
       "documentation": { "value": "Sets the sub titles", "kind": "markdown" }
@@ -1537,7 +1537,7 @@
         { "Text": "title", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
         { "Text": "actionbar", "Type": "keyword", "Required": true },
-        { "Text": "titleText", "Type": "string", "Required": true }
+        { "Text": "titleText", "Type": "unknown", "Required": true }
       ],
       "name": "title",
       "documentation": { "value": "Sets the action bar", "kind": "markdown" }
