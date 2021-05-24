@@ -1,6 +1,7 @@
 # Changelog 
 ## Plugin 
 - Updated
+- Updated
 - Added comments
 - Added tests
 - Updated
@@ -38,8 +39,7 @@
 - Updated
 - Updated constsants
 - Added diagnostics code
-- Fixing command: bc.mcproject.create
-- Udpated. 
+- Fixing command: bc.mcproject.create. 
 ## Schemas 
 - Scripts | Initialize needs a minimum of 1 item
 - Fixing references
