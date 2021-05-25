@@ -1,5 +1,10 @@
 # Changelog 
 ## Plugin 
+- Updated detection types
+- Fixing diagnostics for textures in entities
+- Updated
+- Updated
+- Updated
 - Updated
 - Updated
 - Added comments
@@ -34,12 +39,7 @@
 - fixing manifest handling
 - Refactor codes
 - updated RP
-- updated RP entity
-- Updated sound defintions
-- Updated
-- Updated constsants
-- Added diagnostics code
-- Fixing command: bc.mcproject.create. 
+- updated RP entity. 
 ## Schemas 
 - Scripts | Initialize needs a minimum of 1 item
 - Fixing references
