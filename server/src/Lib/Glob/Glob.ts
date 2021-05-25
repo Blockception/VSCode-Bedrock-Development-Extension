@@ -1,6 +1,8 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
+import { URL } from "url";
 import { URI } from "vscode-uri";
+import { GetResourcePack } from "../Types/Minecraft/Resource/Functions";
 
 /**
  *
@@ -38,5 +40,27 @@ export namespace Glob {
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
     return entries.map((item) => URI.file(item).toString());
+  }
+
+  /**Ensures the source is glob friendly
+   * @param source
+   */
+  export function EnsureSource(source: string | string[]): string | string[] {
+    if (typeof source == "string") {
+      return InternalEnsureSource(source);
+    }
+
+    return source.map(InternalEnsureSource);
+  }
+
+  function InternalEnsureSource(source: string): string {
+    source = decodeURI(source);
+    source = source.replace(/%3A/gi, ":");
+    source = source.replace(/\\/gi, "/");
+
+    if (source.startsWith("file:///")) source = source.substring(8);
+    else if (source.startsWith("file://")) source = source.substring(7);
+
+    return source;
   }
 }

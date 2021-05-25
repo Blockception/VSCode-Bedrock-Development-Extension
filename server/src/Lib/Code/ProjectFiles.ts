@@ -90,12 +90,10 @@ function CheckStructure(folders: WorkspaceConfiguration[] | null, PF: ProjectFil
  * @param PF
  */
 export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles): void {
-  let dirs: string[] = [];
+  PF.Workspaces.push(Ws.folder);
 
-  const uri = Ws.folder;
-  let Path = URI.parse(Ws.folder).fsPath;
-  PF.Workspaces.push(uri);
-  dirs.push(Path);
+  const dir = Glob.EnsureSource(Ws.folder);
+  let dirs: string[] = typeof dir === "string" ? [dir] : dir;
 
   for (let I = 0; I < dirs.length; I++) {
     let dir = dirs[I];

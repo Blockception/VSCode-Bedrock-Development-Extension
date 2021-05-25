@@ -1,9 +1,11 @@
+type Primitive = string | number | boolean;
+
 /**
  *
  * @param items
  * @returns
  */
-export function removeDuplicate<T>(items: T[]): T[] {
+export function removeDuplicate<T extends Primitive>(items: T[]): T[] {
   let Length = items.length;
   let Out: T[] = [];
 
@@ -23,6 +25,6 @@ export function removeDuplicate<T>(items: T[]): T[] {
  * @param items
  * @param item
  */
-export function DupeCheckAdd<T>(items: T[], item: T): void {
+export function DupeCheckAdd<T extends Primitive>(items: T[], item: T): void {
   if (!items.includes(item)) items.push(item);
 }

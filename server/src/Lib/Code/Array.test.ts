@@ -31,19 +31,6 @@ describe("Array Functions", () => {
     expect(Items.length).to.equal(2);
   });
 
-  it("removeDuplicate object", () => {
-    var Items: testobject[] = [
-      { name: "string 1", mark: true },
-      { name: "string 1", mark: false },
-      { name: "string 2", mark: true },
-      { name: "string 2", mark: true },
-    ];
-
-    Items = removeDuplicate<testobject>(Items);
-
-    expect(Items.length).to.equal(3);
-  });
-
   it("DupeCheckAdd string", () => {
     var Items: string[] = [];
     DupeCheckAdd(Items, "string 1");
@@ -73,16 +60,5 @@ describe("Array Functions", () => {
     DupeCheckAdd(Items, false);
 
     expect(Items.length).to.equal(2);
-  });
-
-  it("DupeCheckAdd object", () => {
-    var Items: testobject[] = [];
-
-    DupeCheckAdd(Items, { name: "string 1", mark: true });
-    DupeCheckAdd(Items, { name: "string 1", mark: false });
-    DupeCheckAdd(Items, { name: "string 2", mark: true });
-    DupeCheckAdd(Items, { name: "string 2", mark: true });
-
-    expect(Items.length).to.equal(3);
   });
 });

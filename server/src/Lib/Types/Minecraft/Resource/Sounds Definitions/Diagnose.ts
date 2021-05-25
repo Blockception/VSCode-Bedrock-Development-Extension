@@ -25,27 +25,31 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
   if (!sound_def) return;
 
   const RP = GetResourcePack(uri, "sounds");
+  const source = [path.join(RP, "sounds", "**/*.ogg"), path.join(RP, "sounds", "*.ogg")];
+  const Files = Glob.GetFiles(Glob.EnsureSource(source));
+
   for (let Key in sound_def) {
-    Traverse(sound_def[Key], RP, JDoc, Builder);
+    Traverse(sound_def[Key], Files, JDoc, Builder);
   }
 }
 
-function Traverse(SD: SoundDefinition | undefined, RP: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
+function Traverse(SD: SoundDefinition | undefined, Files: string[], JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
   if (!SD) return;
 
-  SD.sounds?.forEach((data) => Check(data, RP, JDoc, Builder));
+  SD.sounds?.forEach((data) => Check(data, Files, JDoc, Builder));
 }
 
-function Check(data: string | Sound, RP: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
+function Check(data: string | Sound, Files: string[], JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
   if (typeof data === "object") {
     if (!data.name) return;
 
     data = data.name;
   }
 
-  const filepath = path.join(RP, data).replace(/\\/gi, "/");
-
-  if (Glob.GetFiles(filepath + "*").length > 0) return;
+  for (let I = 0; I < Files.length; I++) {
+    //If collected files contains specific file then stop
+    if (Files[I].includes(data)) return;
+  }
 
   Builder.Add("Sound does not exist: " + data, JDoc.RangeOf('"' + data + '"')).code = "sound.missing";
 }
