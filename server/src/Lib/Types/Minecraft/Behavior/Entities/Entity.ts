@@ -1,3 +1,6 @@
+import { Animation } from "../../../General/Animation/Animation";
+import { Script } from "../../../General/Script/Script";
+
 export interface EntityEvent {
   run_command?: string;
   add?: { component_groups?: string[] };
@@ -40,10 +43,8 @@ export interface Entity {
       is_spawnable?: boolean;
       is_summonable?: boolean;
       is_experimental?: boolean;
-      animations?: { [key: string]: string };
-      scripts?: {
-        animate?: string | object[];
-      };
+      animations?: Animation;
+      scripts?: Script;
     };
     component_groups?: {
       [component_group: string]: ComponentContainer;

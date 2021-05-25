@@ -50,12 +50,11 @@ export class DiagnosticsBuilder {
     return this.Push({ message: message, severity: serverity, range: range });
   }
 
-  /**
-   *
-   * @param message
-   * @param range
-   * @param serverity
-   * @returns
+  /** Adds a new error to the list
+   * @param message The message of the problem
+   * @param range The range of the problem
+   * @param serverity The serverity of the reported problem, defaults to DiagnosticSeverity.Error
+   * @returns The diagnostic problem
    */
   public Add(message: string, range: Range | undefined = undefined, serverity: DiagnosticSeverity = DiagnosticSeverity.Error): Diagnostic {
     if (range === undefined) {
@@ -71,7 +70,7 @@ export class DiagnosticsBuilder {
    * @param line
    * @param startindex
    * @param endindex
-   * @param serverity
+   * @param serverity The serverity of the reported problem, defaults to DiagnosticSeverity.Error
    * @returns
    */
   public AddAt(message: string, line: number, startindex: number, endindex: number, serverity: DiagnosticSeverity = DiagnosticSeverity.Error): Diagnostic {

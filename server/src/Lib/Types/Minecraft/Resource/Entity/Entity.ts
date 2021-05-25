@@ -1,3 +1,4 @@
+import { Script } from "../../../General/Script/include";
 import { FormatVersion } from "../../Interfaces/FormatVersion";
 
 export type render_controller_ref = string | { [render_controller: string]: string };
@@ -10,6 +11,7 @@ export interface Entity extends FormatVersion {
       geometry?: { [geo: string]: string };
       render_controllers?: render_controller_ref[];
       textures?: { [geo: string]: string };
+      script?: Script;
     };
   };
 }

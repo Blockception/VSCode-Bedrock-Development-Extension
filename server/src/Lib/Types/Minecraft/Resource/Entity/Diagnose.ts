@@ -4,6 +4,7 @@ import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
 import { Glob } from "../../../../Glob/Glob";
 import { JsonDocument } from "../../../Document/Json Document";
 import { TextDocument } from "../../../Document/TextDocument";
+import { Script } from "../../../General/include";
 import { Entity, render_controller_ref } from "../Entity/Entity";
 import { GetResourcePack } from "../Functions";
 
@@ -17,11 +18,11 @@ export function ProvideDiagnostic(doc: TextDocument): void {
 }
 
 function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
-  const Entity = JDoc.CastTo<Entity>();
+  const entity = JDoc.CastTo<Entity>();
 
-  if (Entity === null || Entity === undefined) return;
+  if (entity === null || entity === undefined || !Entity.is(Entity)) return;
 
-  const description = Entity["minecraft:client_entity"].description;
+  const description = entity["minecraft:client_entity"].description;
 
   if (description.animations) {
     for (let animation in description.animations) {
@@ -54,6 +55,8 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
       DiagnoseTexture(data, Files, JDoc, Builder);
     }
   }
+
+  Script.ProvideDiagnostic(description.script, description.animations, JDoc, Builder);
 }
 
 function DiagnoseAnimOrController(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
