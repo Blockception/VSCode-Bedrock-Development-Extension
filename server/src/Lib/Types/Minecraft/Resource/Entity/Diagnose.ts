@@ -46,10 +46,11 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
 
   if (description.textures) {
     const RP = GetResourcePack(JDoc.doc.uri, "entity");
+    const Files = Glob.GetFiles(Glob.EnsureSource(path.join(RP, "textures", "*")));
 
     for (let texture in description.textures) {
       let data = description.textures[texture];
-      DiagnoseTexture(data, RP, JDoc, Builder);
+      DiagnoseTexture(data, Files, JDoc, Builder);
     }
   }
 }
@@ -69,10 +70,10 @@ function DiagnoseGeo(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder
   }
 }
 
-function DiagnoseTexture(id: string, RPFolder: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
-  const filepath = path.join(RPFolder, id).replace(/\\/gi, "/");
-
-  if (Glob.GetFiles(filepath + "*").length > 0) return;
+function DiagnoseTexture(id: string, Files: string[], JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
+  for (let I = 0; I < Files.length; I++) {
+    if (Files[I].includes(id)) return;
+  }
 
   Builder.Add("Cannot find texture: " + id, JDoc.RangeOf('"' + id + '"')).source = "texture.missing";
 }
