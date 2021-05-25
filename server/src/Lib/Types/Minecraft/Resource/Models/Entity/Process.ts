@@ -11,15 +11,15 @@ export function Process(doc: TextDocument): void {
 
   if (Data) {
     if (Data.format_version === "1.8.0" || Data.format_version === "1.10.0") {
-      let keys = Object.keys(Data);
+      const keys = Object.keys(Data);
 
-      for (let k in keys) {
+      for (let k of keys) {
         if (k !== "format_version") {
           Add(k, JDoc);
         }
       }
     } else if (Data["minecraft:geometry"]) {
-      let goes = Data["minecraft:geometry"];
+      const goes = Data["minecraft:geometry"];
 
       for (var I = 0; I < goes.length; I++) {
         let Info = goes[I];
@@ -31,7 +31,7 @@ export function Process(doc: TextDocument): void {
 }
 
 function Add(identifier: string, JDoc: JsonDocument): void {
-  let range = JDoc.RangeOf(identifier) ?? Range.create(0, 0, 0, 0);
+  const range = JDoc.RangeOf(identifier) ?? Range.create(0, 0, 0, 0);
 
   Database.Data.Resourcepack.Models.Set(new DataReference(identifier, Location.create(JDoc.doc.uri, range)));
 }
