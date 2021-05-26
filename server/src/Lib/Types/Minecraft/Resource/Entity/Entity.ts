@@ -11,7 +11,7 @@ export interface Entity extends FormatVersion {
       geometry?: { [geo: string]: string };
       render_controllers?: render_controller_ref[];
       textures?: { [geo: string]: string };
-      script?: Script;
+      scripts?: Script;
     };
   };
 }

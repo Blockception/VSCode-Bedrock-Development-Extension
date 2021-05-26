@@ -10,7 +10,7 @@ import { GetResourcePack } from "../Functions";
 
 export function ProvideDiagnostic(doc: TextDocument): void {
   let Builder = new DiagnosticsBuilder(doc);
-  let JDoc = new JsonDocument(doc);
+  const JDoc = new JsonDocument(doc);
 
   InternalDiagnose(JDoc, Builder);
 
@@ -20,27 +20,27 @@ export function ProvideDiagnostic(doc: TextDocument): void {
 function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
   const entity = JDoc.CastTo<Entity>();
 
-  if (entity === null || entity === undefined || !Entity.is(Entity)) return;
+  if (entity === null || entity === undefined || !Entity.is(entity)) return;
 
   const description = entity["minecraft:client_entity"].description;
 
   if (description.animations) {
     for (let animation in description.animations) {
-      let data = description.animations[animation];
+      const data = description.animations[animation];
       DiagnoseAnimOrController(data, JDoc, Builder);
     }
   }
 
   if (description.geometry) {
     for (let geo in description.geometry) {
-      let data = description.geometry[geo];
+      const data = description.geometry[geo];
       DiagnoseGeo(data, JDoc, Builder);
     }
   }
 
   if (description.render_controllers) {
     for (let rc in description.render_controllers) {
-      let data = description.render_controllers[rc];
+      const data = description.render_controllers[rc];
       DiagnoseRenderController(data, JDoc, Builder);
     }
   }
@@ -51,12 +51,12 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
     const Files = Glob.GetFiles(Glob.EnsureSource(source));
 
     for (let texture in description.textures) {
-      let data = description.textures[texture];
+      const data = description.textures[texture];
       DiagnoseTexture(data, Files, JDoc, Builder);
     }
   }
 
-  Script.ProvideDiagnostic(description.script, description.animations, JDoc, Builder);
+  Script.ProvideDiagnostic(description.scripts, description.animations, JDoc, Builder);
 }
 
 function DiagnoseAnimOrController(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {

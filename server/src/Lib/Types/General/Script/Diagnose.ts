@@ -9,11 +9,12 @@ export function ProvideDiagnostic(script: Script | undefined, Animations: Animat
   if (script.animate) {
     for (let anim of script.animate) {
       if (typeof anim !== "string") {
-        anim = anim[0];
+        const keys = Object.getOwnPropertyNames(anim);
+        anim = keys[0];
       }
 
       if (!Animation.hasID(Animations, anim)) {
-        const range = JDOC.RangeOf(anim);
+        const range = JDOC.RangeOf('"' + anim + '"');
 
         builder.Add(`Missing animation definition: ${anim}`, range).code = "script.animation.missing";
       }

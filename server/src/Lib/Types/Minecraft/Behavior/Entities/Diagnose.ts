@@ -13,7 +13,7 @@ import { Minecraft } from "../../../include";
  */
 export function ProvideDiagnostic(doc: TextDocument): void {
   let Builder = new DiagnosticsBuilder(doc);
-  let JDoc = new JsonDocument(doc);
+  const JDoc = new JsonDocument(doc);
 
   InternalDiagnose(JDoc, Builder);
 
@@ -94,6 +94,7 @@ function DiagnoseMovement(entity: Entity, Builder: DiagnosticsBuilder): void {
 
   const hasBaseMovement = Entity.HasComponentName(entity, "minecraft:movement") ? 1 : 0;
   const Count = hasMovement + hasNavigation + hasBaseMovement;
+  const description = entity["minecraft:entity"].description;
 
   if (Count > 0 && Count != 3) {
     if (hasMovement == 0)
