@@ -1,19 +1,19 @@
 import { Templates } from "../../../Data/include";
-import { SafeID, SafeIDNoNamespace } from "../../../Data/Templates/Function";
+import { SafeIDNoNamespace } from "../../../Data/Templates/Function";
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { Context } from "../Context";
 import { uuid } from "uuidv4";
 
 export function create_animation_controller_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "animation_controllers", safeID + ".controller.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "animation_controllers", safeID + ".controller.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_animation_controller(ID));
 }
 
 export function create_animation_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "animations", safeID + ".animation.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "animations", safeID + ".animation.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_animation(ID));
 }
 
@@ -50,13 +50,13 @@ export function create_manifest_file(Context: Context, Builder: TemplateBuilder)
 
 export function create_recipe_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
   let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "recipes", safeID + ".json");
+  let uri = path.join(Context.BehaviorPack, "recipes", safeID + ".recipe.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_recipe(ID));
 }
 
 export function create_spawn_rule_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
   let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "spawn_rules", safeID + ".json");
+  let uri = path.join(Context.BehaviorPack, "spawn_rules", safeID + ".spawn.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_spawn_rule(ID));
 }
 
