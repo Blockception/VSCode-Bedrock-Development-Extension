@@ -496,6 +496,7 @@
         "fileMatch": [
           "entity/*.json",
           "entity/**/*.json",
+          "*.entity.rp.json",
           "!models/entity"
         ],
         "url": "./minecraft-bedrock-schemas/resource/entity/entity.json"
@@ -530,7 +531,8 @@
           "*resource*pack*/items/**/*.json",
           "*Resource*Pack*/items/**/*.json",
           "*RP*/items/**/*.json",
-          "*rp*/items/**/*.json"
+          "*rp*/items/**/*.json",
+          "*.item.rp.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/items/items.json"
       },
@@ -564,7 +566,8 @@
       {
         "fileMatch": [
           "render_controllers/*.json",
-          "render_controllers/**/*.json"
+          "render_controllers/**/*.json",
+          "*.render.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/render_controllers/render_controllers.json"
       },
@@ -668,6 +671,7 @@
           "*Behavior*Pack*/entities/**/*.json",
           "*BP*/entities/**/*.json",
           "*bp*/entities/**/*.json",
+          "*.entity.bp.json",
           "!*loot_tables*"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/entities/entities.json"
@@ -683,21 +687,24 @@
           "*behavior*pack*/items/**/*.json",
           "*Behavior*Pack*/items/**/*.json",
           "*BP*/items/**/*.json",
-          "*bp*/items/**/*.json"
+          "*bp*/items/**/*.json",
+          "*.item.bp.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/items/items.json"
       },
       {
         "fileMatch": [
           "recipes/*.json",
-          "recipes/**/*.json"
+          "recipes/**/*.json",
+          "*.recipe.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/recipes/recipes.json"
       },
       {
         "fileMatch": [
           "spawn_rules/*.json",
-          "spawn_rules/**/*.json"
+          "spawn_rules/**/*.json",
+          "*.spawn.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/spawn_rules/spawn_rules.json"
       },
