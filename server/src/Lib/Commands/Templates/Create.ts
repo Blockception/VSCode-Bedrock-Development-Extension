@@ -11,7 +11,7 @@ const CreationCommands: CommandManager = Initialize();
 
 /**Executes the given creation command */
 export function Create(params: ExecuteCommandParams): void {
-  let Data = CreationCommands[params.command];
+  const Data = CreationCommands[params.command];
 
   if (Data) {
     Data(params);
@@ -85,7 +85,7 @@ function Initialize(): CommandManager {
 
 function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, Context: Context, Builder: TemplateBuilder) => void): void {
   GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
-    let IDs = params.arguments;
+    const IDs = params.arguments;
     if (!IDs) return;
     if (!Context) return;
 

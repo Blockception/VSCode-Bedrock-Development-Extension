@@ -40,7 +40,7 @@ export interface ProjectFiles {
  * @returns A promise with project related files
  */
 export async function GetProjectFiles(): Promise<ProjectFiles> {
-  let WS = Manager.Connection.workspace.getWorkspaceFolders();
+  const WS = Manager.Connection.workspace.getWorkspaceFolders();
 
   return WS.then((x) => Traverse(x));
 }
@@ -134,7 +134,7 @@ function Process(files: string[], PF: ProjectFiles): void {
 
       default:
         let JDoc = JsonDocument.GetDocument(item);
-        let manifest = JDoc.CastTo<Manifest>();
+        const manifest = JDoc.CastTo<Manifest>();
 
         if (!manifest) break;
 

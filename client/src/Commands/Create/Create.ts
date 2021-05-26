@@ -89,7 +89,7 @@ function Create(context: ExtensionContext, command: string, title: string) {
 function CreateID(context: ExtensionContext, command: string, title: string, IDRegex: IDExample) {
   context.subscriptions.push(
     commands.registerCommand(command, (arg: any[]) => {
-      let Options: InputBoxOptions = {
+      const Options: InputBoxOptions = {
         validateInput(value): string | undefined {
           return ValidIdentifier(value, IDRegex);
         },
@@ -107,7 +107,7 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
 function OnCompleteID(value: string | undefined, command: string): Promise<any> {
   if (value === undefined) return Promise.resolve();
 
-  let Options: ExecuteCommandParams = {
+  const Options: ExecuteCommandParams = {
     command: command,
     arguments: [value],
   };
@@ -116,7 +116,7 @@ function OnCompleteID(value: string | undefined, command: string): Promise<any> 
 }
 
 function OnComplete(command: string): Promise<any> {
-  let Options: ExecuteCommandParams = {
+  const Options: ExecuteCommandParams = {
     command: command,
     arguments: [],
   };

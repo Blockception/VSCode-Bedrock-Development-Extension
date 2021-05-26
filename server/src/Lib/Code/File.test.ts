@@ -9,19 +9,19 @@ const Fullpath = path.join(Parent, Filename);
 
 describe("File", () => {
   it("GetFilename", () => {
-    let Fname = GetFilename(Fullpath);
+    const Fname = GetFilename(Fullpath);
 
     expect(Fname).to.equal("I am a filepath");
   });
 
   it("getExtension", () => {
-    let Ext = getExtension(Fullpath);
+    const Ext = getExtension(Fullpath);
 
     expect(Ext).to.equal(Extention);
   });
 
   it("GetParent", () => {
-    let P = GetParent(Fullpath);
+    const P = GetParent(Fullpath);
 
     expect(P).to.equal(Parent + "\\");
   });

@@ -11,8 +11,8 @@ function AddAll(args: any): any {
   const ed = window.activeTextEditor;
 
   if (!ed) return;
-  let Current = ed.document.uri.path;
-  let Params: ExecuteCommandParams = {
+  const Current = ed.document.uri.path;
+  const Params: ExecuteCommandParams = {
     command: Commands.AddLanguageFile,
     arguments: [Current],
   };

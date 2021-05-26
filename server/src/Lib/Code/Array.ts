@@ -6,11 +6,11 @@ type Primitive = string | number | boolean;
  * @returns
  */
 export function removeDuplicate<T extends Primitive>(items: T[]): T[] {
-  let Length = items.length;
+  const Length = items.length;
   let Out: T[] = [];
 
   for (let I = 0; I < Length; I++) {
-    let Current = items[I];
+    const Current = items[I];
 
     if (!Out.includes(Current)) {
       Out.push(Current);

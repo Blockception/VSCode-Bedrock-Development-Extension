@@ -12,13 +12,13 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
   const value = doc.getText(diag.range);
   const uri = URI.file(path.join(doc.getConfiguration().folder, MCDefinition.filename)).toString();
 
-  let Command: Command = {
+  const Command: Command = {
     title: `Add ${value} as ${type} to MCDefintions`,
     command: Commands.Files.Append,
     arguments: [uri, `${type}=${value}`],
   };
 
-  let action: CodeAction = {
+  const action: CodeAction = {
     title: Command.title,
     command: Command,
     diagnostics: [diag],

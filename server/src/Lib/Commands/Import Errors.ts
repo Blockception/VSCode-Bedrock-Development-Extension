@@ -15,9 +15,9 @@ export function McImportErrorsCommand(params: ExecuteCommandParams): void {
     return;
   }
   Folder += "LocalState\\logs\\";
-  let LogFile = GetLastestLogFile(Folder);
+  const LogFile = GetLastestLogFile(Folder);
 
-  let Doc = GetDocument(LogFile);
+  const Doc = GetDocument(LogFile);
   ProcessContentLog(Doc);
 }
 

@@ -16,7 +16,7 @@ export function GetFilename(filepath: string): string {
 }
 
 export function getExtension(filepath: string): string {
-  let index = filepath.lastIndexOf(".");
+  const index = filepath.lastIndexOf(".");
 
   if (index < 0) return "";
 

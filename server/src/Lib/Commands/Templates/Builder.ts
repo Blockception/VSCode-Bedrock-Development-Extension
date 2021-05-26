@@ -28,9 +28,7 @@ export class TemplateBuilder {
 
   /**Sends the edits to the client*/
   Send() {
-    let Edit: WorkspaceEdit = {
-      documentChanges: this.receiver,
-    };
+    const Edit: WorkspaceEdit = { documentChanges: this.receiver };
 
     Manager.Connection.workspace.applyEdit(Edit).then(Response);
   }
@@ -42,8 +40,8 @@ export class TemplateBuilder {
       uri = uri.substring(6);
     }
 
-    let Obj = URI.file(uri);
-    let path = Obj.fsPath;
+    const Obj = URI.file(uri);
+    const path = Obj.fsPath;
 
     if (fs.existsSync(path)) {
       Console.Log("creation of file skipped because it already exists: " + path);
@@ -52,12 +50,12 @@ export class TemplateBuilder {
 
     uri = Obj.toString();
 
-    let Content: TextEdit = {
+    const Content: TextEdit = {
       newText: content,
       range: EmptyTypes.EmptyRange(),
     };
 
-    let Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
+    const Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
     this.receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
   }
 }

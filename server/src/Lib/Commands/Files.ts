@@ -13,7 +13,7 @@ export namespace Files {
 
     const doc = GetDocument(uri);
 
-    let edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
+    const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
 
     Manager.Connection.workspace.applyEdit({
       edit: {

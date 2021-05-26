@@ -10,7 +10,7 @@ export interface Context {
 }
 
 export function GetContext(): Context | undefined {
-  let Data = Database.MinecraftProgramData.GetProjecData();
+  const Data = Database.MinecraftProgramData.GetProjecData();
   if (Data === undefined) return undefined;
 
   return Convert(Data);
@@ -18,7 +18,7 @@ export function GetContext(): Context | undefined {
 
 export function GetContextAsync<T>(data: T, callback: (c: Context, data: T) => void): void {
   Database.MinecraftProgramData.GetProjecData((projectData) => {
-    let Context = Convert(projectData);
+    const Context = Convert(projectData);
 
     if (Context) callback(Context, data);
   });
@@ -77,7 +77,7 @@ function Convert(Data: ProjectFiles): Context | undefined {
     RP = Base + "resource_packs/missing_RP/";
   }
 
-  let Context: Context = { BehaviorPack: BP, ResourcePack: RP, WorldFolder: WP, WorkFolder: Base };
+  const Context: Context = { BehaviorPack: BP, ResourcePack: RP, WorldFolder: WP, WorkFolder: Base };
 
   return Context;
 }

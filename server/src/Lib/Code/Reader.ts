@@ -11,7 +11,7 @@ export class DocumentReader {
   }
 
   ReadLine(): string {
-    let Line = getLine(this.doc, this.index);
+    const Line = getLine(this.doc, this.index);
     this.index++;
 
     return Line;

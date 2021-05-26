@@ -27,7 +27,7 @@ function OpenLastestError(args: any): void {
     for (let I = 0; I < Childern.length; I++) {
       const Child = Childern[I];
       if (Child.includes("Microsoft.MinecraftUWP")) {
-        let folder = path.join(APPDATA, Child);
+        const folder = path.join(APPDATA, Child);
         FindLastestLog(folder);
       }
     }
@@ -38,7 +38,7 @@ function OpenLastestError(args: any): void {
 }
 
 function FindLastestLog(folder: string): void {
-  let LogFolder = path.join(folder, "LocalState", "logs");
+  const LogFolder = path.join(folder, "LocalState", "logs");
   let Lastest: string = "";
   let LastestTime: number = 0;
 
@@ -59,7 +59,7 @@ function FindLastestLog(folder: string): void {
   }
 
   if (Lastest !== "") {
-    let uri = Uri.file(Lastest);
+    const uri = Uri.file(Lastest);
 
     window.showTextDocument(uri).then((ed) => {
       languages.setTextDocumentLanguage(ed.document, "log");
