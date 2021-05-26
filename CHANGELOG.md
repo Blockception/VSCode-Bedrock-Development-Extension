@@ -1,5 +1,12 @@
 # Changelog 
 ## Plugin 
+- Updated
+- Updated documentation to reflect new json validation schemas
+- let -> const
+- Updated postfixes for file in generation
+- Updated json file validation to support Bedrock-OSS style guide
+- Added Script diagnostics
+- Added Script Diagnostics
 - Updated detection types
 - Fixing diagnostics for textures in entities
 - Updated
@@ -32,15 +39,12 @@
 - Refactor
 - Added type definitions codes
 - Updated CodeActionBuilder
-- Updated Uri handling
-- For future references
-- Updated
-- Updated uri handling
-- fixing manifest handling
-- Refactor codes
-- updated RP
-- updated RP entity. 
+- Updated Uri handling. 
 ## Schemas 
+- Updated to reflect plugin
+- Updated titles
+- Updated
+- Fixing
 - Scripts | Initialize needs a minimum of 1 item
 - Fixing references
 - Updated pattersn to fix #54
@@ -77,7 +81,3 @@
 - Adding command regex patterns
 - Minecraft is throwing errors
 - Added new damage sources
-- Increased height range for Fogs following the new docs 1.16.220
-- Fixing
-- Adding format version regex
-- Updating
