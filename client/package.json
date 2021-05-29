@@ -28,6 +28,7 @@
     "@types/mocha": "^8.2.2",
     "@types/vscode": "1.52.0",
     "chai": "^4.3.4",
+    "json-loader": "^0.5.7",
     "mocha": "^8.4.0",
     "ts-loader": "^8.0.13",
     "ts-node": "^9.1.1",

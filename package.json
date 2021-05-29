@@ -769,6 +769,7 @@
     "@types/node": "^12.20.0",
     "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
+    "json-loader": "^0.5.7",
     "mocha": "^8.3.0",
     "ts-loader": "^8.0.17",
     "typescript": "^3.9.9",

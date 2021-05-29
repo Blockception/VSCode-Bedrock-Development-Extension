@@ -1,6 +1,7 @@
 # Changelog 
 ## Plugin 
 - Updated
+- Updated
 - Updated documentation to reflect new json validation schemas
 - let -> const
 - Updated postfixes for file in generation
@@ -38,8 +39,7 @@
 - Added comments
 - Refactor
 - Added type definitions codes
-- Updated CodeActionBuilder
-- Updated Uri handling. 
+- Updated CodeActionBuilder. 
 ## Schemas 
 - Updated to reflect plugin
 - Updated titles

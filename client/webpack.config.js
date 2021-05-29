@@ -46,6 +46,7 @@ const config = {
         exclude: /node_modules/,
         use: [{ loader: "ts-loader" }],
       },
+      { test: /\.json$/, exclude: /node_modules/, loader: "json-loader", type: "javascript/auto" },
     ],
   },
 };

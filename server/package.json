@@ -35,6 +35,7 @@
     "@types/mocha": "^8.2.2",
     "@types/picomatch": "^2.2.4",
     "chai": "^4.3.4",
+    "json-loader": "^0.5.7",
     "mocha": "^8.4.0",
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
