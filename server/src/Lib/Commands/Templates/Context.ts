@@ -28,7 +28,7 @@ function Convert(Data: ProjectFiles): Context | undefined {
   let Base: string | undefined;
 
   //Some assembly required
-  if (Data.ResourcePackFolders.length === 0 || Data.BehaviourPackFolders.length === 0) {
+  if (Data.ResourcePackFolders.length === 0 || Data.BehaviorPackFolders.length === 0) {
     if (Data.WorldFolders.length > 0) {
       Base = Data.WorldFolders[0];
     } else if (Data.Workspaces.length > 0) {
@@ -45,8 +45,8 @@ function Convert(Data: ProjectFiles): Context | undefined {
   if (Data.WorldFolders.length > 0) {
     WP = Data.WorldFolders[0];
   }
-  if (Data.BehaviourPackFolders.length > 0) {
-    BP = Data.BehaviourPackFolders[0];
+  if (Data.BehaviorPackFolders.length > 0) {
+    BP = Data.BehaviorPackFolders[0];
   }
   if (Data.ResourcePackFolders.length > 0) {
     RP = Data.ResourcePackFolders[0];

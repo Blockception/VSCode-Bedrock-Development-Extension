@@ -2,17 +2,17 @@
  *
  */
 export enum DataType {
-  behaviour_animation_controller,
-  behaviour_animation,
-  behaviour_block,
-  behaviour_entity,
-  behaviour_function,
-  behaviour_item,
-  behaviour_loot_table,
-  behaviour_manifest,
-  behaviour_script,
-  behaviour_spawn_rules,
-  behaviour_trade,
+  behavior_animation_controller,
+  behavior_animation,
+  behavior_block,
+  behavior_entity,
+  behavior_function,
+  behavior_item,
+  behavior_loot_table,
+  behavior_manifest,
+  behavior_script,
+  behavior_spawn_rules,
+  behavior_trade,
 
   resource_animation_controller,
   resource_animation,

@@ -153,7 +153,7 @@ function CreateAll(params: ExecuteCommandParams, callback: (Folder: string, Buil
 
     let Builder = new TemplateBuilder();
 
-    data.BehaviourPackFolders.forEach((Folder) => callback(Folder, Builder));
+    data.BehaviorPackFolders.forEach((Folder) => callback(Folder, Builder));
     data.ResourcePackFolders.forEach((Folder) => callback(Folder, Builder));
     data.WorldFolders.forEach((Folder) => callback(Folder, Builder));
 

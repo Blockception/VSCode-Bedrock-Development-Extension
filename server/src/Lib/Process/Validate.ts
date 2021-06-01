@@ -6,7 +6,7 @@ import { TextDocument } from "../Types/Document/TextDocument";
  * @param doc
  * @returns
  */
-export function ValidateBehaviourFolder(doc: TextDocument): void {
+export function ValidateBehaviorFolder(doc: TextDocument): void {
   const SubFolder = GetSubFolder(doc.uri);
 
   if (!SubFolder) return;
@@ -100,5 +100,5 @@ function GetSubFolder(uri: string): string | undefined {
  */
 function IllegalFolder(doc: TextDocument, SubFolder: string): void {
   let builder: DiagnosticsBuilder = new DiagnosticsBuilder(doc);
-  builder.Add(`Illegal folder found in behaviour pack: "${SubFolder}"`);
+  builder.Add(`Illegal folder found in behavior pack: "${SubFolder}"`);
 }

@@ -2,7 +2,7 @@
  *
  */
 export enum GeneralDataType {
-  behaviour_pack,
+  behavior_pack,
   resource_pack,
   world,
   skin_pack,

@@ -15,7 +15,7 @@ export function ProcessJson(doc: TextDocument): void {
     case GeneralDataType.unknown:
       return;
 
-    case GeneralDataType.behaviour_pack:
+    case GeneralDataType.behavior_pack:
       Behavior.Process(doc);
       break;
 

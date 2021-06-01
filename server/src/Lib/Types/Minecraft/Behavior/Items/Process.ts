@@ -8,7 +8,7 @@ import { Item } from "../../../General/Item/Item";
 import { IsProperlyDefined, ItemImport } from "./Item Import";
 
 /**
- * Processes the text document as a behaviour item definition file
+ * Processes the text document as a behavior item definition file
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {
@@ -26,7 +26,7 @@ export function Process(doc: TextDocument): void {
     item.Location = Location.create(doc.uri, EmptyTypes.EmptyRange());
     item.Documentation.value = "The custom item definition of: " + ID;
 
-    Database.Data.Behaviourpack.Items.Set(new DataReference(item.Identifier, item.Location));
+    Database.Data.Behaviorpack.Items.Set(new DataReference(item.Identifier, item.Location));
     Database.Data.General.Items.Set(item);
   }
 }

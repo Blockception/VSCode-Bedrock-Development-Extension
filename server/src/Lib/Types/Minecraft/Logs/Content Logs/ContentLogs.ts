@@ -58,8 +58,8 @@ function FindFile(PD: ProjectFiles, Err: ContentError): string {
   let F: string | undefined;
 
   switch (Err.Type) {
-    case GeneralDataType.behaviour_pack:
-      F = Check(PD.BehaviourPackFolders, Err.Filepath);
+    case GeneralDataType.behavior_pack:
+      F = Check(PD.BehaviorPackFolders, Err.Filepath);
       if (F) {
         return F;
       }
@@ -80,7 +80,7 @@ function FindFile(PD: ProjectFiles, Err: ContentError): string {
       break;
   }
 
-  F = Check(PD.BehaviourPackFolders, Err.Filepath);
+  F = Check(PD.BehaviorPackFolders, Err.Filepath);
   if (F) {
     return F;
   }

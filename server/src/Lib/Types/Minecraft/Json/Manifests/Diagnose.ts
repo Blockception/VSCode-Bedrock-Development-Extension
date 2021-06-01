@@ -8,7 +8,7 @@ export function DiagnoseManifest(data: DiagnoseContext): void {
 
   const ps = data.projectStructure;
 
-  ps.BehaviourPackFolders.forEach((f) => Get(f, Behaviorpacks));
+  ps.BehaviorPackFolders.forEach((f) => Get(f, Behaviorpacks));
   ps.ResourcePackFolders.forEach((f) => Get(f, Resourcepacks));
   ps.WorldFolders.forEach((f) => Get(f, Worldpacks));
 }

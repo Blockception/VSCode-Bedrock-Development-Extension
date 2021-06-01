@@ -8,7 +8,7 @@ import { EmptyTypes } from "../../../General/Empty";
 import { Animation, SingleAnimation } from "./Animation";
 
 /**
- * Processes the text document as a behaviour entity definition file
+ * Processes the text document as a behavior entity definition file
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {
@@ -26,7 +26,7 @@ export function Process(doc: TextDocument): void {
       range: Range ?? EmptyTypes.EmptyRange(),
     };
 
-    Database.Data.Behaviourpack.Animations.Set(new DataReference(Name, Location));
+    Database.Data.Behaviorpack.Animations.Set(new DataReference(Name, Location));
     let Animation = Format.animations[Name];
 
     /*if (Animation) {

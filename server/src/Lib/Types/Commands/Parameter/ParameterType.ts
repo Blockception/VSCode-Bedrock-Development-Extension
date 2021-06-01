@@ -22,7 +22,7 @@ export enum MCCommandParameterType {
   effect,
   //Entity identifiers
   entity,
-  //Event in behaviours
+  //Event in behaviors
   event,
   //The fill mode
   fillMode,

@@ -15,8 +15,8 @@ export const DifficultyMode: ModeCollection = {
     { Name: "h", Description: "The most difficult mode for minecraft, mobs will attack somewhat harder." },
     { Name: "hard", Description: "The most difficult mode for minecraft, mobs will attack somewhat harder." },
 
-    { Name: "0", Description: "The relaxed mode, no mobs with attacking behaviour can be spawned" },
-    { Name: "p", Description: "The relaxed mode, no mobs with attacking behaviour can be spawned" },
-    { Name: "peacefull", Description: "The relaxed mode, no mobs with attacking behaviour can be spawned" },
+    { Name: "0", Description: "The relaxed mode, no mobs with attacking behavior can be spawned" },
+    { Name: "p", Description: "The relaxed mode, no mobs with attacking behavior can be spawned" },
+    { Name: "peacefull", Description: "The relaxed mode, no mobs with attacking behavior can be spawned" },
   ],
 };

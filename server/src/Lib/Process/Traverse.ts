@@ -16,7 +16,7 @@ export function TraverseProject(Project: ProjectFiles | undefined): void {
 
   try {
     Console.Log("Processing behavior packs");
-    Project.BehaviourPackFolders.forEach(Behavior.ProcessBehaviourPack);
+    Project.BehaviorPackFolders.forEach(Behavior.ProcessBehaviorPack);
 
     Console.Log("Processing resource packs");
     Project.ResourcePackFolders.forEach(Resource.ProcessResourcePack);

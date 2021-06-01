@@ -9,7 +9,7 @@ import { General } from "../../../include";
 import { Block } from "./Blocks";
 
 /**
- * Processes the text document as a behaviour entity definition file
+ * Processes the text document as a behavior entity definition file
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {
@@ -25,7 +25,7 @@ export function Process(doc: TextDocument): void {
     range: Range ?? EmptyTypes.EmptyRange(),
   };
 
-  Database.Data.Behaviourpack.Blocks.Set(new DataReference(Name, Location));
+  Database.Data.Behaviorpack.Blocks.Set(new DataReference(Name, Location));
 
   let B = new General.Block.Block();
   B.Location = Location;

@@ -5,7 +5,7 @@ import { TextDocument } from "../../Document/TextDocument";
 import { ForEachDocument, GetDocuments } from "../../Document/include";
 
 export function ProvideDiagnostic(context: DiagnoseContext): void {
-  context.projectStructure.BehaviourPackFolders.forEach((BP) => DiagnoseFolder(BP));
+  context.projectStructure.BehaviorPackFolders.forEach((BP) => DiagnoseFolder(BP));
 }
 
 export function DiagnoseFolder(uri: string): void {
@@ -18,10 +18,10 @@ export function DiagnoseJson(doc: TextDocument): void {
   let type = DetectBehaviorType(uri);
 
   switch (type) {
-    case DataType.behaviour_animation_controller:
+    case DataType.behavior_animation_controller:
       return Animation_Controllers.ProvideDiagnostic(doc);
 
-    case DataType.behaviour_entity:
+    case DataType.behavior_entity:
       return Entities.ProvideDiagnostic(doc);
 
     default:

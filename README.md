@@ -93,12 +93,12 @@ For behavior packs, have the files in a folder with the letter `BP` or `bp` in t
   - Sound definitions
   - Sounds
   - Terrain textures
-- [**Behaviour packs**](./documentation/Json%20Validation.md#behaviour-packs)
+- [**Behavior packs**](./documentation/Json%20Validation.md#behavior-packs)
   - Animation controllers
   - Animations
   - Blocks
-  - Entity behaviours
-  - Item behaviours
+  - Entity behaviors
+  - Item behaviors
   - Loot tables
   - Recipes
   - Spawn rules

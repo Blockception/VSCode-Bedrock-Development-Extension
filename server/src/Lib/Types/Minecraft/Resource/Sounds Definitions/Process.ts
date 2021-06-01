@@ -6,7 +6,7 @@ import { Sound } from "../../../General/include";
 import { SoundDefinitions } from "./SoundDefinitions";
 
 /**
- * Processes the text document as a behaviour entity definition file
+ * Processes the text document as a behavior entity definition file
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {

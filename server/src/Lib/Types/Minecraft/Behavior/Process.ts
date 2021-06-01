@@ -3,7 +3,7 @@ import { ForEachDocument, GetDocuments } from "../../Document/include";
 import { TextDocument } from "../../Document/TextDocument";
 import { DataType } from "../Format/Data Type";
 import { DetectDataType } from "../Format/Detection";
-import * as behaviour from "./include";
+import * as behavior from "./include";
 
 export function Process(doc: TextDocument): void {
   let Type = DetectDataType(doc.uri);
@@ -13,35 +13,35 @@ export function Process(doc: TextDocument): void {
   ValidateFolder(doc);
 
   switch (Type) {
-    case DataType.behaviour_animation:
-      return behaviour.Animations.Process(doc);
+    case DataType.behavior_animation:
+      return behavior.Animations.Process(doc);
 
-    case DataType.behaviour_animation_controller:
-      return behaviour.Animation_Controllers.Process(doc);
+    case DataType.behavior_animation_controller:
+      return behavior.Animation_Controllers.Process(doc);
 
-    case DataType.behaviour_block:
-      return behaviour.Blocks.Process(doc);
+    case DataType.behavior_block:
+      return behavior.Blocks.Process(doc);
 
-    case DataType.behaviour_entity:
-      return behaviour.Entities.Process(doc);
+    case DataType.behavior_entity:
+      return behavior.Entities.Process(doc);
 
-    case DataType.behaviour_function:
-      return behaviour.Functions.Process(doc);
+    case DataType.behavior_function:
+      return behavior.Functions.Process(doc);
 
-    case DataType.behaviour_item:
-      return behaviour.Items.Process(doc);
+    case DataType.behavior_item:
+      return behavior.Items.Process(doc);
 
-    case DataType.behaviour_loot_table:
-      return behaviour.Loot_Table.Process(doc);
+    case DataType.behavior_loot_table:
+      return behavior.Loot_Table.Process(doc);
   }
 }
 
 /**
- * Process the given folder as if it was a behaviour pack
+ * Process the given folder as if it was a behavior pack
  * @param Folder
  */
-export function ProcessBehaviourPack(Folder: string): void {
-  Console.Log("Processing behaviour pack: " + Folder);
+export function ProcessBehaviorPack(Folder: string): void {
+  Console.Log("Processing behavior pack: " + Folder);
 
   ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
 }

@@ -10,7 +10,7 @@ import { type_family } from "./Components/minecraft.type_family";
 import { ComponentContainer } from "./include";
 
 /**
- * Processes the text document as a behaviour entity definition file
+ * Processes the text document as a behavior entity definition file
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {
@@ -49,7 +49,7 @@ export function Process(doc: TextDocument): void {
 
     RetrieveFamilies(mce.components, entity);
 
-    Database.Data.Behaviourpack.Entities.Set(new DataReference(entity.Identifier, entity.Location));
+    Database.Data.Behaviorpack.Entities.Set(new DataReference(entity.Identifier, entity.Location));
     Database.Data.General.Entities.Set(entity);
   }
 }

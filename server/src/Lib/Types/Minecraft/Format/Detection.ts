@@ -35,7 +35,7 @@ export function DetectDataType(uri: string): DataType {
  */
 export function DetectGeneralDataType(uri: string): GeneralDataType {
   if (uri.includes("behavior_packs") || uri.includes("Behavior_Pack") || uri.includes("behavior pack") || uri.includes("Behavior Pack")) {
-    return GeneralDataType.behaviour_pack;
+    return GeneralDataType.behavior_pack;
   }
 
   if (uri.includes("resource_packs") || uri.includes("Resource_Pack") || uri.includes("resource pack") || uri.includes("Resource Pack")) {
@@ -43,7 +43,7 @@ export function DetectGeneralDataType(uri: string): GeneralDataType {
   }
 
   let Match = uri.match(/\/.*(BP|bp).*\//);
-  if (Match) return GeneralDataType.behaviour_pack;
+  if (Match) return GeneralDataType.behavior_pack;
 
   Match = uri.match(/\/.*(RP|rp).*\//);
   if (Match) return GeneralDataType.resource_pack;
@@ -55,26 +55,26 @@ export function DetectGeneralDataType(uri: string): GeneralDataType {
 }
 
 /**
- * Detects behaviour pack resource, already assumed the path belongs to a behaviour pack
+ * Detects behavior pack resource, already assumed the path belongs to a behavior pack
  * @param uri the decoded uri
  */
 export function DetectBehaviorType(uri: string): DataType {
-  if (uri.endsWith(".mcfunction")) return DataType.behaviour_function;
+  if (uri.endsWith(".mcfunction")) return DataType.behavior_function;
 
   //Folders
-  if (uri.includes("/loot_tables/")) return DataType.behaviour_loot_table;
-  if (uri.includes("/animation_controllers/")) return DataType.behaviour_animation_controller;
-  if (uri.includes("/animations/")) return DataType.behaviour_animation;
-  if (uri.includes("/blocks/")) return DataType.behaviour_block;
-  if (uri.includes("/entities/")) return DataType.behaviour_entity;
-  if (uri.includes("/functions/")) return DataType.behaviour_function;
-  if (uri.includes("/items/")) return DataType.behaviour_item;
-  if (uri.includes("/scripts/")) return DataType.behaviour_script;
-  if (uri.includes("/spawn_rules/")) return DataType.behaviour_spawn_rules;
-  if (uri.includes("/trading/")) return DataType.behaviour_trade;
+  if (uri.includes("/loot_tables/")) return DataType.behavior_loot_table;
+  if (uri.includes("/animation_controllers/")) return DataType.behavior_animation_controller;
+  if (uri.includes("/animations/")) return DataType.behavior_animation;
+  if (uri.includes("/blocks/")) return DataType.behavior_block;
+  if (uri.includes("/entities/")) return DataType.behavior_entity;
+  if (uri.includes("/functions/")) return DataType.behavior_function;
+  if (uri.includes("/items/")) return DataType.behavior_item;
+  if (uri.includes("/scripts/")) return DataType.behavior_script;
+  if (uri.includes("/spawn_rules/")) return DataType.behavior_spawn_rules;
+  if (uri.includes("/trading/")) return DataType.behavior_trade;
 
   //Files
-  if (uri.includes("manifest.json")) return DataType.behaviour_manifest;
+  if (uri.includes("manifest.json")) return DataType.behavior_manifest;
 
   return DataType.unknown;
 }

@@ -12,9 +12,9 @@ export function OnCompletionMolangVariable(doc: TextDocument, receiver: Completi
     case DataType.resource_particle:
       return Convert(Manager.Data.Molang.Particles.variable, receiver);
 
-    case DataType.behaviour_animation:
-    case DataType.behaviour_animation_controller:
-    case DataType.behaviour_entity:
+    case DataType.behavior_animation:
+    case DataType.behavior_animation_controller:
+    case DataType.behavior_entity:
     case DataType.resource_animation:
     case DataType.resource_animation_controller:
     case DataType.resource_entity:

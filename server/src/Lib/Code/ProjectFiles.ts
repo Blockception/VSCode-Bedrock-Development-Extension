@@ -28,7 +28,7 @@ export interface ProjectFiles {
   /**
    *
    */
-  BehaviourPackFolders: string[];
+  BehaviorPackFolders: string[];
 
   /**
    *
@@ -52,7 +52,7 @@ export async function GetProjectFiles(): Promise<ProjectFiles> {
  */
 async function Traverse(folders: WorkspaceFolder[] | null): Promise<ProjectFiles> {
   let PF: ProjectFiles = {
-    BehaviourPackFolders: [],
+    BehaviorPackFolders: [],
     ResourcePackFolders: [],
     WorldFolders: [],
     Workspaces: [],
@@ -120,8 +120,8 @@ function Process(files: string[], PF: ProjectFiles): void {
     const Type = DetectGeneralDataType(item);
 
     switch (Type) {
-      case GeneralDataType.behaviour_pack:
-        DupeCheckAdd(PF.BehaviourPackFolders, parent);
+      case GeneralDataType.behavior_pack:
+        DupeCheckAdd(PF.BehaviorPackFolders, parent);
         continue;
 
       case GeneralDataType.resource_pack:
@@ -141,8 +141,8 @@ function Process(files: string[], PF: ProjectFiles): void {
         const SubType = Manifest.DetectType(manifest);
 
         switch (SubType) {
-          case GeneralDataType.behaviour_pack:
-            DupeCheckAdd(PF.BehaviourPackFolders, parent);
+          case GeneralDataType.behavior_pack:
+            DupeCheckAdd(PF.BehaviorPackFolders, parent);
             continue;
 
           case GeneralDataType.resource_pack:

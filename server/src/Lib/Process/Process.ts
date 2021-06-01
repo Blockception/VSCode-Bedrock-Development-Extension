@@ -2,7 +2,7 @@ import * as Json from "./Json";
 import * as Language from "./Language";
 import { Behavior } from "../Types/Minecraft/include";
 import { Languages } from "../Constants";
-import { ValidateBehaviourFolder, ValidateResourceFolder } from "./Validate";
+import { ValidateBehaviorFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
 import { Diagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Console/include";
@@ -50,8 +50,8 @@ function InternalProcess(document: TextDocument): void {
     case GeneralDataType.unknown:
       break;
 
-    case GeneralDataType.behaviour_pack:
-      ValidateBehaviourFolder(document);
+    case GeneralDataType.behavior_pack:
+      ValidateBehaviorFolder(document);
       break;
 
     case GeneralDataType.resource_pack:

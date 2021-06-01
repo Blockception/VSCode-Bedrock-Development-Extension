@@ -18,6 +18,6 @@ export function Process(doc: TextDocument): void {
   if (identifier !== "") {
     let loc = EmptyTypes.EmptyLocation();
     loc.uri = doc.uri;
-    Database.Data.Behaviourpack.LootTables.Set(new DataReference(identifier, loc));
+    Database.Data.Behaviorpack.LootTables.Set(new DataReference(identifier, loc));
   }
 }

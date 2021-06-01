@@ -6,7 +6,7 @@ import { GeneralData } from "./GeneralData";
 import { Resourcepack } from "./Resourcepack";
 
 export class CollectedData extends CollectorBase<Identifiable & Locatable> {
-  public Behaviourpack: Behaviorpack = new Behaviorpack();
+  public Behaviorpack: Behaviorpack = new Behaviorpack();
 
   public Resourcepack: Resourcepack = new Resourcepack();
 

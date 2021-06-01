@@ -30,7 +30,7 @@ export function Diagnostics(doc: TextDocument): void {
   let type = DetectGeneralDataType(doc.uri);
 
   switch (type) {
-    case GeneralDataType.behaviour_pack:
+    case GeneralDataType.behavior_pack:
       return Behavior.DiagnoseJson(doc);
 
     case GeneralDataType.resource_pack:

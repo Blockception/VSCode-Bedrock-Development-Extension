@@ -59,7 +59,7 @@ export namespace Manifest {
     return false;
   }
 
-  export function IsBehaviourManifest(m: Manifest): boolean {
+  export function IsBehaviorManifest(m: Manifest): boolean {
     let modules = m.modules;
 
     for (let index = 0; index < modules.length; index++) {
@@ -91,7 +91,7 @@ export namespace Manifest {
 
       switch (mod.type) {
         case ManifestModule.TypeData:
-          return GeneralDataType.behaviour_pack;
+          return GeneralDataType.behavior_pack;
 
         case ManifestModule.TypeResource:
           return GeneralDataType.resource_pack;

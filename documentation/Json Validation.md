@@ -1,7 +1,9 @@
 # Json Validation
 
-Json validation is applied to a specific filename or when it is placed in the appropriate folder. If \* is present in the When is it applied, then it means that any amount of random character can be placed there. Version specific json validation is automatically applied. All elements should have received a description and title. If none are present.
-Then that version hasn't been supported yet. You can request one as an issue. If a json validation is missing, then post an issue. And one will be made in the future unless a good reason why not has been given.
+Json validation is applied to a specific filename or when it is placed in the appropriate folder. If \* is present in the When is it applied, then it means that any amount of
+random character can be placed there. Version specific json validation is automatically applied. All elements should have received a description and title. If none are present.
+Then that version hasn't been supported yet. You can request one as an issue. If a json validation is missing, then post an issue. And one will be made in the future unless a good
+reason why not has been given.
 
 - [Json Validation](#json-validation)
   - [General](#general)
@@ -67,8 +69,8 @@ For best results, name your folder with the letters BP/bp in them. If the behavi
 | Animations            | Must be inside an identifiable resource pack. Must be located in the folder: `animations` or sub-folder thereof.                                                                                |
 | Biomes                | Must be inside an identifiable resource pack. Must be located in the folder: `biomes` or sub-folder thereof.                                                                                    |
 | Blocks                | Must be inside an identifiable resource pack. Must be located in the folder: `blocks` or sub-folder thereof.                                                                                    |
-| Entity behaviours     | Must be inside an identifiable resource pack. Must be located in the folder: `entities` or sub-folder thereof. Or the filename endswith: `.entity.bp.json`                                      |
-| Item behaviours       | Must be inside an identifiable resource pack. Must be located in the folder: `items` or sub-folder thereof. Or the filename endswith: `.item.bp.json`                                           |
+| Entity behaviors      | Must be inside an identifiable resource pack. Must be located in the folder: `entities` or sub-folder thereof. Or the filename endswith: `.entity.bp.json`                                      |
+| Item behaviors        | Must be inside an identifiable resource pack. Must be located in the folder: `items` or sub-folder thereof. Or the filename endswith: `.item.bp.json`                                           |
 | Loot tables           | Must be inside an identifiable resource pack. Must be located in the folder: `loot_tables` or sub-folder thereof.                                                                               |
 | Recipes               | Must be located in the folder: `recipes` or sub-folder thereof. Or the filename endswith: `.recipe.json`                                                                                        |
 | Spawn rules           | Must be located in the folder: `spawn_rules` or sub-folder thereof. Or the filename endswith: `.spawn.json`                                                                                     |
