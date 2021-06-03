@@ -1,10 +1,10 @@
 # Behavior filters
 
 - [Behavior filters](#behavior-filters)
-	- [Structure](#structure)
-	- [Test Types](#test-types)
-	- [Subject](#subject)
-	- [Operator](#operator)
+  - [Structure](#structure)
+  - [Test Types](#test-types)
+  - [Subject](#subject)
+  - [Operator](#operator)
 
 ## Structure
 
