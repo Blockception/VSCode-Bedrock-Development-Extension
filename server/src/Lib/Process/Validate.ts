@@ -28,6 +28,7 @@ export function ValidateBehaviorFolder(doc: TextDocument): void {
     case "structures":
     case "trading":
     case "texts":
+    case "volumes":
       return;
 
     default:

@@ -48,19 +48,6 @@ export function GetDocument(uri: string, Content: string | vscode.TextDocument |
 }
 
 /**
- *
- * @param doc
- * @param lineIndex
- * @returns
- */
-export function getLine(doc: TextDocument, lineIndex: number): string {
-  return doc.getText({
-    start: { line: lineIndex, character: 0 },
-    end: { line: lineIndex, character: Number.MAX_VALUE },
-  });
-}
-
-/**
  * Returns the language ID based upon the uri
  *
  * @param uri The documents uri

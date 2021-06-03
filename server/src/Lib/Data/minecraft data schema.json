@@ -4,51 +4,44 @@
   "type": "object",
   "title": "Minecraft data Schema",
   "additionalProperties": false,
-  "definitions": {
-    "minecraft_data": {
-      "properties": {
-        "blocks": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string"
-          }
-        },
-        "items": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string"
-          }
-        },
-        "entities": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string"
-          }
-        },
-        "sounds": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string"
-          }
-        }
+  "properties": {
+    "$scheme": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "effects": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "items": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "entities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "sounds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
       }
     }
-  },
-  "properties": {
-    "vanilla": {
-      "title": "Vanilla",
-      "description": "Vanilla minecraft data",
-      "$ref": "#/definitions/minecraft_data"
-    },
-    "edu": {
-      "title": "Education",
-      "description": "Mminecraft education data",
-      "$ref": "#/definitions/minecraft_data"
-    },
-    "$schema": true
   }
 }

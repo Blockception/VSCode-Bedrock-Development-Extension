@@ -1,8 +1,6 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
-import { URL } from "url";
 import { URI } from "vscode-uri";
-import { GetResourcePack } from "../Types/Minecraft/Resource/Functions";
 
 /**
  *

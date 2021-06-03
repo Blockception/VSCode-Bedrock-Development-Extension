@@ -6,24 +6,26 @@ import { EmptyTypes } from "../Types/General/Empty";
 import { Entity } from "../Types/General/Entity/Entity";
 import { Item } from "../Types/General/Item/Item";
 import { Sound } from "../Types/General/Sound/Sound";
-import * as data from "./minecraft data.json";
+
+import * as edu from "./edu.json";
+import * as vanilla from "./vanilla.json";
 
 export function AddMinecraftData() {
   let Data = Database.Data;
 
   //Import data from the json file
-  data.vanilla.blocks.forEach((block) => Data.General.Blocks.Update(AddBlock(block)));
-  data.vanilla.entities.forEach((entity) => Data.General.Entities.Update(AddEntity(entity)));
-  data.vanilla.items.forEach((item) => Data.General.Items.Update(AddItem(item)));
-  data.vanilla.sounds.forEach((sound) => Data.General.Sounds.Update(AddSound(sound)));
-  data.vanilla.effects.forEach((effect) => Data.General.Effects.Update(AddEffect(effect)));
+  vanilla.blocks.forEach((block) => Data.General.Blocks.Update(AddBlock(block)));
+  vanilla.entities.forEach((entity) => Data.General.Entities.Update(AddEntity(entity)));
+  vanilla.items.forEach((item) => Data.General.Items.Update(AddItem(item)));
+  vanilla.sounds.forEach((sound) => Data.General.Sounds.Update(AddSound(sound)));
+  vanilla.effects.forEach((effect) => Data.General.Effects.Update(AddEffect(effect)));
 
   //TODO redo
   if (Manager.Settings.Education.Enable) {
-    data.edu.blocks.forEach((block) => Data.General.Blocks.Update(AddEduBlock(block)));
-    data.edu.entities.forEach((entity) => Data.General.Entities.Update(AddEduEntity(entity)));
-    data.edu.items.forEach((item) => Data.General.Items.Update(AddEduItem(item)));
-    data.edu.sounds.forEach((sound) => Data.General.Sounds.Update(AddEduSound(sound)));
+    edu.blocks.forEach((block) => Data.General.Blocks.Update(AddEduBlock(block)));
+    edu.entities.forEach((entity) => Data.General.Entities.Update(AddEduEntity(entity)));
+    edu.items.forEach((item) => Data.General.Items.Update(AddEduItem(item)));
+    edu.sounds.forEach((sound) => Data.General.Sounds.Update(AddEduSound(sound)));
   }
 }
 

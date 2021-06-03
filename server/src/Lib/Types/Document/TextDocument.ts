@@ -1,5 +1,4 @@
 import * as vscode from "vscode-languageserver-textdocument";
-import * as code from "./Document";
 import { Database } from "../../Database/Database";
 import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
 
@@ -26,7 +25,7 @@ export namespace TextDocument {
     out.__projectcache = null;
 
     out.getLine = function getLine(lineIndex: number): string {
-      return code.getLine(out, lineIndex);
+      return out.getText({ start: { line: lineIndex, character: 0 }, end: { line: lineIndex, character: Number.MAX_VALUE } });
     };
 
     out.getConfiguration = function getConfiguration(): WorkspaceConfiguration {

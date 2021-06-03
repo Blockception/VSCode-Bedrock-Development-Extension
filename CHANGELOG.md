@@ -1,5 +1,7 @@
 # Changelog 
 ## Plugin 
+- behaviour -> behavior
+- Adding json resolving
 - Updated
 - Updated
 - Updated documentation to reflect new json validation schemas
@@ -37,10 +39,10 @@
 - Added Code Actions
 - Refactor
 - Added comments
-- Refactor
-- Added type definitions codes
-- Updated CodeActionBuilder. 
+- Refactor. 
 ## Schemas 
+- Update README.md
+- Update README.md
 - Updated to reflect plugin
 - Updated titles
 - Updated
@@ -79,5 +81,3 @@
 - Updated descriptions
 - Updated
 - Adding command regex patterns
-- Minecraft is throwing errors
-- Added new damage sources

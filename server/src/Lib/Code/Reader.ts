@@ -1,4 +1,3 @@
-import { getLine } from "../Types/Document/Document";
 import { TextDocument } from "../Types/Document/TextDocument";
 
 export class DocumentReader {
@@ -11,7 +10,7 @@ export class DocumentReader {
   }
 
   ReadLine(): string {
-    const Line = getLine(this.doc, this.index);
+    const Line = this.doc.getLine(this.index);
     this.index++;
 
     return Line;
