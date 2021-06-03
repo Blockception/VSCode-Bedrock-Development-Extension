@@ -2,7 +2,7 @@ import { MCDefinition } from "bc-minecraft-project";
 import path from "path";
 import { CodeAction, Command, Diagnostic } from "vscode-languageserver";
 import { URI } from "vscode-uri";
-import { Commands } from "../../../../../shared/Constants";
+import { Commands } from "../..//Constants";
 import { GetDocument } from "../../Types/Document/include";
 import { CodeActionBuilder } from "../Builder";
 

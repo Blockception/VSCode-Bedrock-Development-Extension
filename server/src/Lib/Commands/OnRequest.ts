@@ -1,6 +1,6 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
 import { Console } from "../Console/Console";
-import { Commands } from "../../../../shared/Constants";
+import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { Files } from "./Files";
 import { McImportErrorsCommand } from "./Import Errors";

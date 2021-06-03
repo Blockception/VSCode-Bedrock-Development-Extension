@@ -1,7 +1,7 @@
 import { commands, ExtensionContext, InputBoxOptions, window } from "vscode";
 import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
-import { Commands } from "../../../../shared/Constants";
 import { Console } from "../../Console/Console";
+import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
 
 interface IDExample {

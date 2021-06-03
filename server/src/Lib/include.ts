@@ -21,4 +21,4 @@ export * as Server from "./Server/include";
 export * as Signatures from "./Signatures/include";
 export * as Symbols from "./Symbols/include";
 export * as Types from "./Types/include";
-export * from "../../../shared/Constants";
+export * from "./Constants";

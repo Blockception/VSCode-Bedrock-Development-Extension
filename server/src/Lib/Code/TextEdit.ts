@@ -13,8 +13,8 @@ export function Replace(line: string, oldText: string, newText: string, lineInde
 
 //Loop through starting character to filters out empty characters and slashes
 export function TrimStartFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]) {
-  let Text = line;
-  let LineIndex = index;
+  const Text = line;
+  const LineIndex = index;
   let startindex = 0;
   let Loop = true;
 
@@ -36,8 +36,8 @@ export function TrimStartFromLine(line: string, index: number, Collector: TextEd
 }
 
 export function TrimEndFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]): void {
-  let Text = line;
-  let LineIndex = index;
+  const Text = line;
+  const LineIndex = index;
   let startindex = Text.length - 1;
   let endindex = Text.length;
   startindex = endindex;

@@ -1,6 +1,6 @@
 import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
 import { TextEdit } from "vscode-languageserver-textdocument";
-import { Languages } from "../../../../shared/Constants";
+import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
 import { formatLangauge, formatLangaugeRange } from "./Language";
 import { formatMcfunction, formatMcfunctionRange } from "./Mcfunction";

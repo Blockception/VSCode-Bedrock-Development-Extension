@@ -1,5 +1,5 @@
 import { Hover, HoverParams } from "vscode-languageserver";
-import { Languages } from "../../../../shared/Constants";
+import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
 import { provideHoverMcFunction } from "./Mcfunction";
 

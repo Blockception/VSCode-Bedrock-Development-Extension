@@ -31,10 +31,10 @@ function GetLastestLogFile(dir: string): string {
   let LastestData = -1;
 
   for (let I = 0; I < Files.length; I++) {
-    let F = Files[I];
+    const F = Files[I];
 
     if (F.includes("ContentLog")) {
-      let Value = ParseFilename(F);
+      const Value = ParseFilename(F);
 
       if (Value > LastestData) {
         LastestFilename = dir + F;

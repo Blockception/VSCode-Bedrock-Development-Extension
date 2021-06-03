@@ -44,7 +44,7 @@ function InternalProcess(document: TextDocument): void {
   }
 
   //Validate folder
-  let Type = DetectGeneralDataType(document.uri);
+  const Type = DetectGeneralDataType(document.uri);
 
   switch (Type) {
     case GeneralDataType.unknown:
