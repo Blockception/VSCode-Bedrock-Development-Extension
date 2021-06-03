@@ -19,6 +19,7 @@ export function ValidateBehaviorFolder(doc: TextDocument): void {
     case "documentation":
     case "entities":
     case "feature_rules":
+    case "features":
     case "functions":
     case "loot_tables":
     case "items":
