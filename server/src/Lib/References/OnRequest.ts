@@ -1,5 +1,5 @@
 import { ReferenceParams, Location } from "vscode-languageserver";
-import { Languages } from "../Constants";
+import { Languages } from "../../../../shared/Constants";
 import { GetDocument } from "../Types/Document/include";
 import { ProvideJsonReferences } from "./Json";
 import { ProvideMcfunctionsReferences } from "./Mcfunction";

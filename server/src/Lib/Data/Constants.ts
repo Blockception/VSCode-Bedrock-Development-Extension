@@ -94,6 +94,8 @@ export namespace Commands {
       export const Spawn_Rule: string = BPBase + "spawn_rule";
       /**The command to create trading files */
       export const Trading: string = BPBase + "trading";
+      /**The command to create volume files */
+      export const Volume: string = BPBase + "volume";
     }
 
     /**The namespace that stores all resourcepack creation commands */

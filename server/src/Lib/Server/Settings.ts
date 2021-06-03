@@ -1,5 +1,5 @@
 import { DidChangeConfigurationParams } from "vscode-languageserver/node";
-import { Identification } from "../Constants";
+import { Identification } from "../../../../shared/Constants";
 import { Database } from "../Database/Database";
 import { Manager } from "../Manager/Manager";
 

@@ -1,7 +1,7 @@
 import * as Json from "./Json";
 import * as Language from "./Language";
 import { Behavior } from "../Types/Minecraft/include";
-import { Languages } from "../Constants";
+import { Languages } from "../../../../shared/Constants";
 import { ValidateBehaviorFolder, ValidateResourceFolder } from "./Validate";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
 import { Diagnostics } from "../Diagnostics/OnRequest";

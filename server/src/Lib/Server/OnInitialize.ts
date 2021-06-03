@@ -1,6 +1,6 @@
 import { CodeActionKind, InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
-import { Commands } from "../Constants";
+import { Commands } from "../../../../shared/Constants";
 import { Console } from "../Console/Console";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {

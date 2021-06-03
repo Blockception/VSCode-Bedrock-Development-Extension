@@ -1,5 +1,5 @@
 import { ProcessCommand } from "../../../Commands/Process";
-import { Languages } from "../../../../Constants";
+import { Languages } from "../../../../../../../shared/Constants";
 import { Database } from "../../../../Database/include";
 import { McFunction } from "../../../General/Functions/include";
 import { ProvideMcfunctionDiagnostics } from "./Diagnostics";

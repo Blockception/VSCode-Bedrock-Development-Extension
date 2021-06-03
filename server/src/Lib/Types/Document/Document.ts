@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
 import { fileURLToPath } from "url";
-import { Languages } from "../../Constants";
+import { Languages } from "../../../../../shared/Constants";
 import { Console } from "../../Console/Console";
 import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";

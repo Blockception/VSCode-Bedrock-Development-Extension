@@ -1,5 +1,5 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
-import { Commands } from "../../Constants";
+import { Commands } from "../../../../../shared/Constants";
 import { TemplateBuilder } from "./Builder";
 import { Context, GetContextAsync } from "./Context";
 import { Templates } from "../include";

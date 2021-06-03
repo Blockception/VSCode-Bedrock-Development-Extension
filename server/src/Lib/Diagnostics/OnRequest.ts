@@ -1,4 +1,4 @@
-import { Languages } from "../Constants";
+import { Languages } from "../../../../shared/Constants";
 import { ProvideMcfunctionDiagnostics } from "../Types/Minecraft/Behavior/Functions/include";
 import { provideLanguageDiagnostics } from "../Types/Languages/Diagnose";
 import { Manager } from "../Manager/Manager";
