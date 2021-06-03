@@ -13,8 +13,6 @@ import { URI } from "vscode-uri";
 import { Manager } from "../../Manager/Manager";
 import * as fs from "fs";
 import { EmptyTypes } from "../../Types/General/include";
-import { normalize } from "path";
-import { GetFilepath, UniformUrl } from "../../Code/Url";
 import { Console } from "../../Console/Console";
 
 export class TemplateBuilder {

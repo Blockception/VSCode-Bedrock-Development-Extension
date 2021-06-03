@@ -65,3 +65,9 @@ export function create_trading_file(ID: string, Context: Context, Builder: Templ
   let uri = path.join(Context.BehaviorPack, "trading", safeID + ".trades.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_trading(ID));
 }
+
+export function create_volume_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
+  let safeID = SafeIDNoNamespace(ID);
+  let uri = path.join(Context.BehaviorPack, "volumes", safeID + ".volume.json");
+  Builder.CreateFile(uri, Templates.Behavior_Pack.create_volume(ID));
+}

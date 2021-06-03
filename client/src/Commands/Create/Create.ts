@@ -1,7 +1,7 @@
 import { commands, ExtensionContext, InputBoxOptions, window } from "vscode";
 import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
+import { Commands } from "../../../../shared/Constants";
 import { Console } from "../../Console/Console";
-import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
 
 interface IDExample {
@@ -23,6 +23,7 @@ const RecipeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:
 const RenderControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "" };
 const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
 const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
+const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
 
 const ProjectID: IDExample = { ID: /^[A-Z]+$/, example: "EP" };
 
@@ -51,6 +52,7 @@ export function Activate(context: ExtensionContext): void {
   CreateID(context, Commands.Create.Behaviorpack.Recipe, "Create recipe", RecipeID);
   CreateID(context, Commands.Create.Behaviorpack.Spawn_Rule, "Create spawn rule", SpawnRuleID);
   CreateID(context, Commands.Create.Behaviorpack.Trading, "Create trading", TradingID);
+  CreateID(context, Commands.Create.Behaviorpack.Volume, "Create volume", VolumeID);
 
   //Resource pack
   CreateID(context, Commands.Create.Resourcepack.Animation_Controller, "Create animation controllers files", AnimationControllerID);

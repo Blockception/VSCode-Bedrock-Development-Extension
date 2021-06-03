@@ -54,6 +54,7 @@ function Initialize(): CommandManager {
   Out[Commands.Create.Behaviorpack.Recipe] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_recipe_file);
   Out[Commands.Create.Behaviorpack.Spawn_Rule] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_spawn_rule_file);
   Out[Commands.Create.Behaviorpack.Trading] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_trading_file);
+  Out[Commands.Create.Behaviorpack.Volume] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_volume_file);
 
   //Resource pack
   Out[Commands.Create.Resourcepack.Animation_Controller] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_animation_controller_file);

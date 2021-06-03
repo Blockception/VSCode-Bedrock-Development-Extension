@@ -203,3 +203,27 @@ const trading: string = `{
     }
   ]
 }`;
+
+/**The template for the behaviorpack trading*/
+export function create_volume(ID: string): string {
+  return volume.replace("%ID%", ID);
+}
+const volume: string = `{
+  "format_version": "1.17.0",
+  "minecraft:volume": {
+    "description": {
+      "identifier": "%ID%"
+    },
+    "components": {
+      "minecraft:bounds": {
+        "min": [-50, 0, -50],
+        "max": [50, 256, 50]
+      },
+      "minecraft:fog": {
+        "fog_identifier": "minecraft:fog_savanna",
+        "priority": 1
+      }
+    }
+  }
+}
+`;
