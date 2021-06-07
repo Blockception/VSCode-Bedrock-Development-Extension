@@ -8,7 +8,7 @@ import { CreateSelectorTokens } from "./include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
 export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
-  let Builder = new McfunctionSemanticTokensBuilder(doc);
+  const Builder = new McfunctionSemanticTokensBuilder(doc);
   let startindex = 0;
   let endindex = doc.lineCount;
 
@@ -20,14 +20,14 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
   for (let I = startindex; I < endindex; I++) {
     const line = doc.getLine(I);
 
-    let CommentIndex = line.indexOf("#");
+    const CommentIndex = line.indexOf("#");
 
     if (CommentIndex >= 0) {
       Builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
     }
 
-    let P = Position.create(I, 0);
-    let Command = CommandIntr.parse(line, P, Builder.doc.uri, P);
+    const P = Position.create(I, 0);
+    const Command = CommandIntr.parse(line, P, Builder.doc.uri, P);
     CreateTokens(Command, Builder);
   }
 
@@ -40,16 +40,16 @@ export function McfunctionLineTokens(line: string, cursor: number, offset: numbe
     offset++;
   }
 
-  let Command = CommandIntr.parse(line, Builder.PositionAt(cursor), Builder.doc.uri, Builder.PositionAt(offset));
+  const Command = CommandIntr.parse(line, Builder.PositionAt(cursor), Builder.doc.uri, Builder.PositionAt(offset));
   CreateTokens(Command, Builder);
 }
 
 function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBuilder): void {
   if (Command.Parameters.length == 0) return;
 
-  let First = Command.Parameters[0];
+  const First = Command.Parameters[0];
   Builder.AddWord(First, SemanticTokensEnum.class);
-  let Matches = Command.GetCommandData();
+  const Matches = Command.GetCommandData();
   let Match;
 
   if (Matches.length == 0) return;
@@ -82,11 +82,11 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
       case MCCommandParameterType.particle:
       case MCCommandParameterType.sound:
       case MCCommandParameterType.tickingarea:
-        let Index = Word.text.indexOf(":");
+        const Index = Word.text.indexOf(":");
 
         if (Index >= 0) {
-          let Line = Word.location.range.start.line;
-          let char = Word.location.range.start.character;
+          const Line = Word.location.range.start.line;
+          const char = Word.location.range.start.character;
 
           Builder.AddAt(Line, char, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
           Builder.AddAt(Line, char + Index + 1, Word.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
