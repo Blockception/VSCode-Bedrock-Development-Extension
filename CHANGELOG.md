@@ -1,5 +1,13 @@
 # Changelog 
 ## Plugin 
+- Fixing
+- Updated
+- Updated
+- Added volume creation
+- Restored
+- Moved Constants
+- Updated molang to 1.7.0
+- Updated
 - behaviour -> behavior
 - Adding json resolving
 - Updated
@@ -31,53 +39,45 @@
 - Fixed processing of mcfunctions
 - Updated pattersn to fix #54
 - Updated
-- Sorted
-- Updated
-- Updated to 2.0.5
-- Refactor
-- Refactor json completion
-- Added Code Actions
-- Refactor
-- Added comments
-- Refactor. 
+- Sorted. 
 ## Schemas 
-- Update README.md
-- Update README.md
-- Updated to reflect plugin
-- Updated titles
+- Added features rules
+- Adding the start of features
+- Added volumes
+- Updated
 - Updated
 - Fixing
-- Scripts | Initialize needs a minimum of 1 item
-- Fixing references
-- Updated pattersn to fix #54
-- Update README.md
+- Updated biomes client
+- Added spawnrules 1.17.0
+- Added spawn rules 1.17.0
+- Updated BP Item, minecraft:seed
+- Updated
+- Fixed
+- Updated components references
+- Updated entity damages
+- Updated with new comments
+- Updated genetics
+- Added behavior:ram_attack
+- Added minecraft:behavior.play_dead
+- Added on_kill for melee_attack
+- Added BP Entity: minecraft:behavior.melee_attack
+- Updated navigation
+- Updated nagivation components with a new way to define blocks_to_avoid
+- Added new components
 - Added
-- Added notes
-- Updated readme
+- Added transform_to_item to behavior components
+- Last fix????
 - Updated
-- Updated Manifest
-- Formatted
-- Updated items
-- Added on_fire to render controller 1.10.0
-- Allow string array for minecraft:spell_effects remove_effect.
-- Added blend_weights for animations and animation_controllers
-- Fixed formatversion
-- Updated titles
-- Updated title
-- Fixing should_update_bones_and_effects_offscreen not accepting boolean values
-- Updates settings
+- Fixing filter references
+- Update compress-json-schemas.yml
 - Updated
-- Updated comments
-- Updated animations
-- Fixing timeline regex valedation
-- Updated
-- Updated
-- Updated animations with descriptions
-- Updated animations
-- Updated bind to actor
-- Added documentation for spawnrules
-- Updated animations for BP
-- Filled in descriptions
-- Updated descriptions
-- Updated
-- Adding command regex patterns
+- Fixing block identifier reference
+- Fixing
+- Updated filter refernences
+- Fixing block identifiers
+- Updated filters
+- Updated filter reference
+- Removed old filters
+- Added universal filters
+- added minecraft:mountain_parameters to biomes
+- Update README.md

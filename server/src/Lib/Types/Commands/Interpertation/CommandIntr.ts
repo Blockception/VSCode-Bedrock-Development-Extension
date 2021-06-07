@@ -6,27 +6,67 @@ import { CommandInfo } from "../Info/CommandInfo";
 import { MCCommandParameterType } from "../Parameter/include";
 import { CreateMinecraftCommandWords } from "../Words";
 
-/**
- *A class that helps interpeting written commands
- */
+/**A class that helps interpeting written commands.*/
 export class CommandIntr {
-  /**
-   * The parameters of the command
-   */
+  /**The parameters of the command.*/
   public Parameters: LocationWord[];
-  /**
-   * The line the command is comming from
-   */
+  /**The line the command is comming from.*/
   public Line: number;
-  /**
-   * The index of parameter, that the cursor is in.
-   */
+
+  /**The index of parameter, that the cursor is in.*/
   public CursorParamater: number;
 
   constructor() {
     this.Line = 0;
     this.CursorParamater = 0;
     this.Parameters = [];
+  }
+
+  /**
+   *
+   * @param start
+   * @param end
+   * @returns
+   */
+  slice(start?: number | undefined, end?: number | undefined): CommandIntr {
+    let Out = new CommandIntr();
+    Out.Line = this.Line;
+    Out.Parameters = this.Parameters.slice(start, end);
+    Out.CursorParamater = this.CursorParamater - (start ?? 0);
+
+    return Out;
+  }
+
+  /**
+   *
+   * @returns
+   */
+  GetCommandKeyword(): string {
+    if (this.Parameters.length <= 0) return "";
+
+    return this.Parameters[0].text;
+  }
+
+  /**Gets all the command data that is the possible best match data*/
+  GetCommandData(): CommandInfo[] {
+    return Manager.Data.Commands.getBestMatches(this);
+  }
+
+  /**Gets the current word*/
+  GetCurrent(): LocationWord | undefined {
+    if (this.CursorParamater >= 0 && this.CursorParamater < this.Parameters.length) return this.Parameters[this.CursorParamater];
+
+    return undefined;
+  }
+
+  /**
+   *
+   * @returns
+   */
+  IsEmpty(): Boolean {
+    if (this.Parameters.length <= 0) return true;
+
+    return false;
   }
 
   /**
@@ -44,7 +84,11 @@ export class CommandIntr {
       startPos = { character: 0, line: 0 };
     }
 
-    line = line.trim();
+    //Record start offset from trimming
+    const oldlength = line.length;
+    line = line.trimStart();
+    startPos.character += oldlength - line.length;
+    line = line.trimEnd();
 
     let Words = LocationWord.Text.Parse(line, uri, CreateMinecraftCommandWords, startPos);
     let char = cursor.character;
@@ -71,53 +115,6 @@ export class CommandIntr {
     }
 
     return Out;
-  }
-
-  /**
-   *
-   * @param start
-   * @param end
-   * @returns
-   */
-  slice(start?: number | undefined, end?: number | undefined): CommandIntr {
-    let Out = new CommandIntr();
-    Out.Line = this.Line;
-    Out.Parameters = this.Parameters.slice(start, end);
-    Out.CursorParamater = this.CursorParamater - (start ?? 0);
-
-    return Out;
-  }
-
-  GetCommandKeyword(): string {
-    if (this.Parameters.length <= 0) return "";
-
-    return this.Parameters[0].text;
-  }
-
-  /**
-   *Gets all the command data that is the possible best match data
-   */
-  GetCommandData(): CommandInfo[] {
-    return Manager.Data.Commands.getBestMatches(this);
-  }
-
-  /**
-   *Gets the current word
-   */
-  GetCurrent(): LocationWord | undefined {
-    if (this.CursorParamater >= 0 && this.CursorParamater < this.Parameters.length) return this.Parameters[this.CursorParamater];
-
-    return undefined;
-  }
-
-  /**
-   *
-   * @returns
-   */
-  IsEmpty(): Boolean {
-    if (this.Parameters.length <= 0) return true;
-
-    return false;
   }
 }
 
