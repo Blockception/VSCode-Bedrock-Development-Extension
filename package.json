@@ -509,7 +509,8 @@
           "entity/*.json",
           "entity/**/*.json",
           "*.entity.rp.json",
-          "!models/entity"
+          "!models/entity/**/*.json",
+          "!models/entity/*.json"
         ],
         "url": "./minecraft-bedrock-schemas/resource/entity/entity.json"
       },

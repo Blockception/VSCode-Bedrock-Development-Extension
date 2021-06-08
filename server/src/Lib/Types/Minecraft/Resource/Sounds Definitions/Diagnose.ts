@@ -15,17 +15,17 @@ export function ProvideDiagnostic(doc: TextDocument): void {
 }
 
 function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
-  let Format = JDoc.CastTo<SoundDefinitions>();
+  const Format = JDoc.CastTo<SoundDefinitions>();
 
   if (Format == undefined || !Format.format_version) return;
 
-  let sound_def = Format.sound_definitions;
+  const sound_def = Format.sound_definitions;
   const uri = JDoc.doc.uri;
 
   if (!sound_def) return;
 
   const RP = GetResourcePack(uri, "sounds");
-  const source = [path.join(RP, "sounds", "**/*.ogg"), path.join(RP, "sounds", "*.ogg")];
+  const source = [path.join(RP, "sounds", "*"), path.join(RP, "sounds", "**/*")];
   const Files = Glob.GetFiles(Glob.EnsureSource(source));
 
   for (let Key in sound_def) {

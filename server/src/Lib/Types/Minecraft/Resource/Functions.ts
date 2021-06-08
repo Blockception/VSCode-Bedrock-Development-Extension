@@ -10,5 +10,7 @@ export function GetResourcePack(uri: string, subfolder: string): string {
   if (path.startsWith("file:///")) path = path.substring(8);
   else if (path.startsWith("file://")) path = path.substring(7);
 
+  path = path.replace("%3A", ":");
+
   return path;
 }
