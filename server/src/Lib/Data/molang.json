@@ -30,7 +30,6 @@
     { "documentation": "Natural logarithm of value", "function": "ln(value)" },
     { "documentation": "Return highest value of A or B", "function": "max(A, B)" },
     { "documentation": "Return lowest value of A or B", "function": "min(A, B)" },
-    { "documentation": "Minimize angle magnitude (in degrees) into the range [-180, 180]", "function": "min_angle(value)" },
     { "documentation": "Return the remainder of value / denominator", "function": "mod(value, denominator)" },
     { "documentation": "Returns the float representation of the constant pi.", "function": "pi" },
     { "documentation": "Elevates `base` to the `exponent`'th power", "function": "pow(base, exponent)" },
@@ -59,7 +58,6 @@
     ]
   },
   "query": [
-    { "documentation": "Returns the elapsed ticks since the mob started dying.", "function": "death_ticks" },
     { "documentation": "Gets specified axis of the specified bone orientation pivot", "function": "get_default_bone_pivot" },
     { "documentation": "Returns 1.0 if the entity is in contact with any water (water, rain, splash water bottle), else it returns 0.0", "function": "is_in_contact_with_water" },
     { "documentation": "Returns 1.0 if the entity is playing dead, else it returns 0.0", "function": "is_playing_dead" },
@@ -277,7 +275,6 @@
       "function": "item_slot_to_bone_name"
     },
     { "documentation": "Returns the ratio between the previous and next key frames", "function": "key_frame_lerp_time" },
-    { "documentation": "Returns 1.0 if we render the entity's bottom, else it returns 0.0", "function": "show_bottom" },
     {
       "documentation": "Returns the time in *seconds* of the last frame. If an argument is passed, it is assumed to be the number of frames in the past that you wish to query. `query.last_frame_time` (or the equivalent `query.last_frame_time(0)`) will return the frame time of the frame before the current one. `query.last_frame_time(1)` will return the frame time of two frames ago. Currently we store the history of the last 30 frames, although note that this may change in the future. Passing an index more than the available data will return the oldest frame stored.",
       "function": "last_frame_time"
