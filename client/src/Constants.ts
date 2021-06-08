@@ -28,6 +28,8 @@ export namespace Commands {
   export const DiagnoseProject: string = "bc.minecraft.diagnose.project";
   /** */
   export const AddLanguageFile: string = "bc.minecraft.language.add";
+  /** */
+  export const ScanProjects: string = "bc.minecraft.project.scan";
 
   /** */
   export namespace Files {

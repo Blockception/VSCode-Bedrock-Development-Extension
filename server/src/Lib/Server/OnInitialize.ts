@@ -1,4 +1,4 @@
-import { CodeActionKind, InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
+import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
 import { Commands } from "../Constants";
 import { Console } from "../Console/Console";
@@ -22,7 +22,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: [Commands.DiagnoseProject, Commands.ImportErrors, Commands.MCProject.Create, Commands.Files.Append],
+        commands: [Commands.DiagnoseProject, Commands.ImportErrors, Commands.MCProject.Create, Commands.Files.Append, Commands.ScanProjects],
         workDoneProgress: true,
       },
 

@@ -5,6 +5,7 @@ import { Manager } from "../Manager/Manager";
 import { Behavior, Resource } from "../Types/Minecraft/include";
 
 export function Traverse(): void {
+  Console.Log("Traversing starting...");
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 
@@ -26,5 +27,5 @@ export function TraverseProject(Project: ProjectFiles | undefined): void {
 
   Manager.State.TraversingProject = false;
   Manager.State.DataGathered = true;
-  Console.Log("traversing complete");
+  Console.Log("Traversing complete");
 }
