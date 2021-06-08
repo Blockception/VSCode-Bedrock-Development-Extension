@@ -15,7 +15,8 @@
   },
   "scripts": {
     "compile": "tsc -b",
-    "test": "mocha -r ts-node/register '**/*.test.ts'"
+    "test": "mocha -r ts-node/register '**/*.test.ts'",
+    "update": "npm update && npm audit fix"
   },
   "engines": {
     "vscode": "^1.83.0"

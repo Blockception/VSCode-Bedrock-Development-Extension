@@ -18,7 +18,8 @@
   },
   "scripts": {
     "compile": "tsc -b",
-    "test": "mocha -r ts-node/register '**/*.test.ts'"
+    "test": "mocha -r ts-node/register '**/*.test.ts'",
+    "update": "npm update && npm audit fix"
   },
   "dependencies": {
     "bc-minecraft-project": "^1.0.0",
