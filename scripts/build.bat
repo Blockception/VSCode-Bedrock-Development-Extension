@@ -1,4 +1,6 @@
 git submodule foreach git pull
+npm install -g vsce
+
 echo # Changelog > CHANGELOG.md
 echo ## Plugin >> CHANGELOG.md
 git log -n 40 --grep=auto:* --invert-grep --no-merges --pretty=format:"- %%s" >> CHANGELOG.md
@@ -10,5 +12,4 @@ git log -n 40 --grep=auto:* --invert-grep --no-merges --pretty=format:"- %%s" >>
 
 cd ..
 
-vsce package
-pause(5)
+vsce package -m "auto: Building New Version" --no-yarn patch
