@@ -72,7 +72,7 @@ export function IdentifyDoc(uri: string): string {
 export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void) {
   for (let index = 0; index < uris.length; index++) {
     const element = uris[index];
-    let doc = GetDocument(element);
+    const doc = GetDocument(element);
 
     try {
       if (doc) callback(doc);

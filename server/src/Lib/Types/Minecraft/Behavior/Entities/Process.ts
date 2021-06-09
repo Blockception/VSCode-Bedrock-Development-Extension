@@ -14,13 +14,13 @@ import { ComponentContainer } from "./include";
  * @param doc The document to parse
  */
 export function Process(doc: TextDocument): void {
-  let JDoc = new JsonDocument(doc);
-  let Format = JDoc.CastTo<Behavior.Entities.Entity>();
+  const JDoc = new JsonDocument(doc);
+  const Format = JDoc.CastTo<Behavior.Entities.Entity>();
 
   let entity: Entity | undefined;
 
   if (Behavior.Entities.Entity.is(Format)) {
-    let mce = Format["minecraft:entity"];
+    const mce = Format["minecraft:entity"];
     entity = new Entity();
 
     const ID = mce.description.identifier;
@@ -30,12 +30,12 @@ export function Process(doc: TextDocument): void {
     entity.Documentation.value = "The custom entity definition of: " + ID;
 
     if (mce.events) {
-      let EventsNames = Object.getOwnPropertyNames(mce.events);
+      const EventsNames = Object.getOwnPropertyNames(mce.events);
       entity.Events = EventsNames;
     }
 
     if (mce.component_groups) {
-      let Groups = Object.getOwnPropertyNames(mce.component_groups);
+      const Groups = Object.getOwnPropertyNames(mce.component_groups);
       entity.ComponentGroups = Groups;
 
       for (let index = 0; index < Groups.length; index++) {

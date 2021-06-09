@@ -56,6 +56,6 @@ export function create_language_files(PackFolder: string, Builder: TemplateBuild
 }
 
 function PrivateCreate(BaseFolder: string, Builder: TemplateBuilder, Name: string, Content: string): void {
-  let uri = path.join(BaseFolder, Name);
+  const uri = path.join(BaseFolder, Name);
   Builder.CreateFile(uri, Content);
 }

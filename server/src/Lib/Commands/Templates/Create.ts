@@ -21,7 +21,7 @@ export function Create(params: ExecuteCommandParams): void {
 }
 
 function Initialize(): CommandManager {
-  let Out: CommandManager = {};
+  const Out: CommandManager = {};
 
   //General
   Out[Commands.Create.General.Entity] = (params: ExecuteCommandParams) => {
@@ -90,7 +90,7 @@ function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, Con
     if (!IDs) return;
     if (!Context) return;
 
-    let Builder = new TemplateBuilder();
+    const Builder = new TemplateBuilder();
 
     for (let I = 0; I < IDs.length; I++) {
       callback(IDs[I], Context, Builder);
@@ -104,7 +104,7 @@ function FunctionBP(params: ExecuteCommandParams, callback: (Folder: string, Bui
   GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
     if (!Context) return;
 
-    let Builder = new TemplateBuilder();
+    const Builder = new TemplateBuilder();
 
     callback(Context.BehaviorPack, Builder);
 
@@ -116,7 +116,7 @@ function FunctionRP(params: ExecuteCommandParams, callback: (Folder: string, Bui
   GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
     if (!Context) return;
 
-    let Builder = new TemplateBuilder();
+    const Builder = new TemplateBuilder();
 
     callback(Context.ResourcePack, Builder);
 
@@ -128,7 +128,7 @@ function FunctionWP(params: ExecuteCommandParams, callback: (Folder: string, Bui
   GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
     if (!Context) return;
 
-    let Builder = new TemplateBuilder();
+    const Builder = new TemplateBuilder();
 
     callback(Context.ResourcePack, Builder);
 
@@ -140,7 +140,7 @@ function Function(params: ExecuteCommandParams, callback: (Context: Context, Bui
   GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
     if (!Context) return;
 
-    let Builder = new TemplateBuilder();
+    const Builder = new TemplateBuilder();
 
     callback(Context, Builder);
 
@@ -152,7 +152,7 @@ function CreateAll(params: ExecuteCommandParams, callback: (Folder: string, Buil
   GetProjectFiles().then((data) => {
     if (!data) return;
 
-    let Builder = new TemplateBuilder();
+    const Builder = new TemplateBuilder();
 
     data.BehaviorPackFolders.forEach((Folder) => callback(Folder, Builder));
     data.ResourcePackFolders.forEach((Folder) => callback(Folder, Builder));

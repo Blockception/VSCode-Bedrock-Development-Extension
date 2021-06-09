@@ -1,6 +1,8 @@
+import { SafeIDNoNamespace } from "../Function";
+
 /**The template for the behaviorpack animation_controller*/
 export function create_animation_controller(ID: string): string {
-  return animation_controller.replace("%ID%", ID);
+  return animation_controller.replace(/%ID%/gi, ID);
 }
 const animation_controller: string = `{
 	"format_version" : "1.10.0",
@@ -29,7 +31,7 @@ const animation_controller: string = `{
 
 /**The template for the behaviorpack animation*/
 export function create_animation(ID: string): string {
-  return animation.replace("%ID%", ID);
+  return animation.replace(/%ID%/gi, ID);
 }
 const animation: string = `{
   "format_version": "1.8.0",
@@ -47,7 +49,7 @@ const animation: string = `{
 
 /**The template for the behaviorpack block*/
 export function create_block(ID: string): string {
-  return block.replace("%ID%", ID);
+  return block.replace(/%ID%/gi, ID);
 }
 const block: string = `{
   "format_version": "1.16.0",
@@ -63,7 +65,9 @@ const block: string = `{
 
 /**The template for the behaviorpack entity*/
 export function create_entity(ID: string): string {
-  return entity.replace("%ID%", ID);
+  const SafeID = SafeIDNoNamespace(ID);
+
+  return entity.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
 }
 const entity: string = `{
   "format_version": "1.16.0",
@@ -76,6 +80,7 @@ const entity: string = `{
     "component_groups": {
     },
     "components": {
+      "minecraft:type_family": { "family": ["%SafeID%"] }
       "minecraft:health": { "value": 10, "max": 10 },
       "minecraft:behavior.look_at_player": { "probability": 1.0, "target_distance": 16 }
     },
@@ -86,7 +91,7 @@ const entity: string = `{
 
 /**The template for the behaviorpack item*/
 export function create_item(ID: string): string {
-  return item.replace("%ID%", ID);
+  return item.replace(/%ID%/gi, ID);
 }
 const item: string = `{
   "format_version": "1.10.0",
@@ -143,7 +148,7 @@ const manifest: string = `{
 
 /**The template for the behaviorpack recipe*/
 export function create_recipe(ID: string): string {
-  return recipe.replace("%ID%", ID);
+  return recipe.replace(/%ID%/gi, ID);
 }
 const recipe: string = `{
   "format_version": "1.12",
@@ -160,7 +165,7 @@ const recipe: string = `{
 
 /**The template for the behaviorpack spawn_rule*/
 export function create_spawn_rule(ID: string): string {
-  return spawn_rule.replace("%ID%", ID);
+  return spawn_rule.replace(/%ID%/gi, ID);
 }
 const spawn_rule: string = `{
 	"format_version": "1.8.0",
@@ -179,7 +184,7 @@ const spawn_rule: string = `{
 
 /**The template for the behaviorpack trading*/
 export function create_trading(ID: string): string {
-  return trading.replace("%ID%", ID);
+  return trading.replace(/%ID%/gi, ID);
 }
 const trading: string = `{
   "tiers": [
@@ -206,7 +211,7 @@ const trading: string = `{
 
 /**The template for the behaviorpack trading*/
 export function create_volume(ID: string): string {
-  return volume.replace("%ID%", ID);
+  return volume.replace(/%ID%/gi, ID);
 }
 const volume: string = `{
   "format_version": "1.17.0",

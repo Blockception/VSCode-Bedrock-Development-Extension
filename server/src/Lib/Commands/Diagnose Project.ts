@@ -9,7 +9,7 @@ export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
   Console.Log("Starting on diagnosing project");
 
   Database.MinecraftProgramData.GetProjecData((data) => {
-    let context: DiagnoseContext = {
+    const context: DiagnoseContext = {
       projectStructure: data,
     };
 

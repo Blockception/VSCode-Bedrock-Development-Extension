@@ -1,5 +1,5 @@
 export function GenerateSafeID(ID: string): string {
-  let Index = ID.indexOf(":");
+  const Index = ID.indexOf(":");
 
   if (Index > -1) {
     ID = ID.substring(Index + 1);

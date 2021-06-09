@@ -18,56 +18,56 @@ export function create_animation_file(ID: string, Context: Context, Builder: Tem
 }
 
 export function create_block_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "blocks", safeID + ".block.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "blocks", safeID + ".block.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_block(ID));
 }
 
 export function create_entity_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "entities", safeID + ".entity.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "entities", safeID + ".entity.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_entity(ID));
 }
 
 export function create_item_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "items", safeID + ".item.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "items", safeID + ".item.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_item(ID));
 }
 
 export function create_loot_table_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "loot_tables", safeID + ".loot.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "loot_tables", safeID + ".loot.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_loot_table());
 }
 
 export function create_manifest_file(Context: Context, Builder: TemplateBuilder): void {
-  let uri = path.join(Context.BehaviorPack, "manifest.json");
-  let UUID1 = uuid();
-  let UUID2 = uuid();
+  const uri = path.join(Context.BehaviorPack, "manifest.json");
+  const UUID1 = uuid();
+  const UUID2 = uuid();
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_manifest(UUID1, UUID2));
 }
 
 export function create_recipe_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "recipes", safeID + ".recipe.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "recipes", safeID + ".recipe.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_recipe(ID));
 }
 
 export function create_spawn_rule_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "spawn_rules", safeID + ".spawn.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "spawn_rules", safeID + ".spawn.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_spawn_rule(ID));
 }
 
 export function create_trading_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "trading", safeID + ".trades.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "trading", safeID + ".trades.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_trading(ID));
 }
 
 export function create_volume_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  let safeID = SafeIDNoNamespace(ID);
-  let uri = path.join(Context.BehaviorPack, "volumes", safeID + ".volume.json");
+  const safeID = SafeIDNoNamespace(ID);
+  const uri = path.join(Context.BehaviorPack, "volumes", safeID + ".volume.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_volume(ID));
 }

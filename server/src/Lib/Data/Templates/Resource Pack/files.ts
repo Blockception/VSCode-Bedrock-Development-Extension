@@ -1,4 +1,4 @@
-import { SafeID } from "../Function";
+import { SafeID, SafeIDNoNamespace } from "../Function";
 
 /**The template for the resourcepack animation controller*/
 export function create_animation_controller(ID: string): string {
@@ -90,7 +90,9 @@ const biomes_client: string = `{
 
 /**The template for the entity resourcepack definition */
 export function create_entity(ID: string): string {
-  return entity.replace(/%ID%/gi, ID);
+  const SafeID = SafeIDNoNamespace(ID);
+
+  return entity.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
 }
 const entity: string = `{
   "format_version": "1.10.0",
@@ -99,12 +101,12 @@ const entity: string = `{
       "identifier": "%ID%",
       "min_engine_version": "1.8.0",
       "materials": { "default": "entity", "alpha": "entity_alphatest" },
-      "textures": { "default": "textures/entity/zombie/zombie" },
+      "textures": { "default": "textures/entity/%SafeID%/%SafeID%" },
       "render_controllers": ["controller.render.default"],
-      "geometry": { "default": "geometry.zombie" },
+      "geometry": { "default": "geometry.%SafeID%" },
       "animations": {
-        "default_pose": "animation.example.default_pose",
-        "controller.pose": "controller.animation.example.pose"
+        "default_pose": "animation.%SafeID%.default_pose",
+        "controller.pose": "controller.animation.%SafeID%.pose"
       },
       "scripts": {
         "initialize": [

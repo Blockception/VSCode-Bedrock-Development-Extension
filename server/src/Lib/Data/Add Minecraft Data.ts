@@ -11,7 +11,7 @@ import * as edu from "./edu.json";
 import * as vanilla from "./vanilla.json";
 
 export function AddMinecraftData() {
-  let Data = Database.Data;
+  const Data = Database.Data;
 
   //Import data from the json file
   vanilla.blocks.forEach((block) => Data.General.Blocks.Update(AddBlock(block)));

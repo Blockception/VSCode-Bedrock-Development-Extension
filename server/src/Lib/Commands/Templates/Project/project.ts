@@ -10,9 +10,9 @@ import * as path from "path";
  * @param Builder
  */
 export function create_world_project(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  var Folder = path.join(Context.WorkFolder, "world");
+  const Folder = path.join(Context.WorkFolder, "world");
 
-  var NewContext: Context = {
+  const NewContext: Context = {
     WorkFolder: Context.WorkFolder,
     BehaviorPack: path.join(Folder, "behavior_packs", ID + "-BP"),
     ResourcePack: path.join(Folder, "resource_packs", ID + "-RP"),
@@ -32,9 +32,9 @@ export function create_world_project(ID: string, Context: Context, Builder: Temp
  * @param Builder
  */
 export function create_behaviorpack(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  var Folder = path.join(Context.WorkFolder, ID + "-BP");
+  const Folder = path.join(Context.WorkFolder, ID + "-BP");
 
-  var NewContext: Context = {
+  const NewContext: Context = {
     WorkFolder: Context.WorkFolder,
     BehaviorPack: Folder,
     ResourcePack: Folder,
@@ -51,9 +51,9 @@ export function create_behaviorpack(ID: string, Context: Context, Builder: Templ
  * @param Builder
  */
 export function create_resourcepack(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  var Folder = path.join(Context.WorkFolder, ID + "-RP");
+  const Folder = path.join(Context.WorkFolder, ID + "-RP");
 
-  var NewContext: Context = {
+  const NewContext: Context = {
     WorkFolder: Context.WorkFolder,
     BehaviorPack: Folder,
     ResourcePack: Folder,

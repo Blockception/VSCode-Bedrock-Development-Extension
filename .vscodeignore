@@ -46,3 +46,4 @@ minecraft-bedrock-schemas/**
 !minecraft-bedrock-schemas/language
 !minecraft-bedrock-schemas/resource
 !minecraft-bedrock-schemas/skinpacks
+NOTE.md
