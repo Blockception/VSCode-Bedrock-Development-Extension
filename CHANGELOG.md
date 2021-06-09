@@ -1,5 +1,14 @@
 # Changelog 
 ## Plugin 
+- Updated Schemas
+- Updated
+- Updated
+- Updated
+- Added a rescan command
+- Updated
+- fixed
+- Fixing trimming and offset for semantic tokens
+- Added features & feature_rules to validation
 - Fixing
 - Updated
 - Updated
@@ -30,54 +39,45 @@
 - Updated
 - Updated
 - Updated
-- Added more unit tests
-- Added unit tests
-- Fixing
-- Delete Create typescript includes.yml
-- Adding unittests
-- Removed "~~~" formatting
-- Fixed processing of mcfunctions
-- Updated pattersn to fix #54
-- Updated
-- Sorted. 
+- Added more unit tests. 
 ## Schemas 
-- Added features rules
-- Adding the start of features
-- Added volumes
 - Updated
 - Updated
-- Fixing
-- Updated biomes client
-- Added spawnrules 1.17.0
-- Added spawn rules 1.17.0
-- Updated BP Item, minecraft:seed
+- updating todo titles
+- Polished and examples
+- UNDOCUMENTATED description
+- UNDOCUMENTATED description, or needs to be filled in
 - Updated
+- Fixing entities
+- Fixing features schemas
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated
+- formatted
+- '. -> `.
+- Updated
+- Updated
+- Added notes
+- Added more features
+- Updated
+- Replaced
 - Fixed
-- Updated components references
-- Updated entity damages
-- Updated with new comments
-- Updated genetics
-- Added behavior:ram_attack
-- Added minecraft:behavior.play_dead
-- Added on_kill for melee_attack
-- Added BP Entity: minecraft:behavior.melee_attack
-- Updated navigation
-- Updated nagivation components with a new way to define blocks_to_avoid
-- Added new components
-- Added
-- Added transform_to_item to behavior components
-- Last fix????
 - Updated
-- Fixing filter references
-- Update compress-json-schemas.yml
+- Added enum to placement_pass
 - Updated
-- Fixing block identifier reference
-- Fixing
-- Updated filter refernences
-- Fixing block identifiers
-- Updated filters
-- Updated filter reference
-- Removed old filters
-- Added universal filters
-- added minecraft:mountain_parameters to biomes
-- Update README.md
+- Updated
+- formatted
+- Added features
+- formatted
+- Update format-json-files.yml
+- Update format-json-files.yml
+- Rename Format json files.yml to format-json-files.yml
+- Create Format json files.yml
+- Moved to test
+- Updated encoding
+- Added more examples thanks to @crovono
+- Fixed 1.17 -> 1.13
