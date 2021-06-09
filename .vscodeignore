@@ -36,12 +36,18 @@ log.txt
 tsconfig.json
 webpack.config.js
 
-!documentation/cheat-sheet/*.html
-!documentation/cheat-sheet/**/*.html
+!documentation/cheat-sheet
+!documentation/cheat-sheet/*html
+
 
 minecraft-bedrock-schemas/*
 !minecraft-bedrock-schemas/behavior
+!minecraft-bedrock-schemas/behavior/*json
 !minecraft-bedrock-schemas/general
+!minecraft-bedrock-schemas/general/*json
 !minecraft-bedrock-schemas/language
+!minecraft-bedrock-schemas/language/*json
 !minecraft-bedrock-schemas/resource
+!minecraft-bedrock-schemas/resource/*json
 !minecraft-bedrock-schemas/skinpacks
+!minecraft-bedrock-schemas/skinpacks/*json
