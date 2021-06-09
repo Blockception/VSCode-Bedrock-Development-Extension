@@ -1,5 +1,4 @@
 git submodule foreach git pull
-npm install -g vsce
 
 echo # Changelog > CHANGELOG.md
 echo ## Plugin >> CHANGELOG.md

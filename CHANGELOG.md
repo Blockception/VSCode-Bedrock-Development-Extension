@@ -1,5 +1,8 @@
 # Changelog 
 ## Plugin 
+- Updated script
+- 2.1.0
+- Updated code
 - Updated Schemas
 - Updated
 - Updated
@@ -36,10 +39,7 @@
 - Updated
 - Added comments
 - Added tests
-- Updated
-- Updated
-- Updated
-- Added more unit tests. 
+- Updated. 
 ## Schemas 
 - Updated
 - Updated
