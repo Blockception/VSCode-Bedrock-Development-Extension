@@ -39,7 +39,7 @@ webpack.config.js
 !documentation/cheat-sheet/*.html
 !documentation/cheat-sheet/**/*.html
 
-/minecraft-bedrock-schemas
+minecraft-bedrock-schemas/*
 !minecraft-bedrock-schemas/behavior
 !minecraft-bedrock-schemas/general
 !minecraft-bedrock-schemas/language
