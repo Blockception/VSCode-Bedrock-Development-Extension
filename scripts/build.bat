@@ -14,4 +14,5 @@ cd ..
 git add .
 git commit -m "auto: Generated Changelog"
 
+
 vsce package -m "auto: Building New Version" --no-yarn patch

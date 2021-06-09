@@ -3,7 +3,7 @@ client/src/**
 server/node_modules/**
 server/src/**
 
-scripts/*
+scripts/**
 node_modules
 node_modules/**
 LICENSES
@@ -18,7 +18,7 @@ LICENSES/**
 *.vsix
 .gitattributes
 .github
-.github/
+.github/**
 .gitignore
 .vscode
 .vscode/**
@@ -27,11 +27,11 @@ CONTRIBUTING.md
 Debugging.md
 
 contributing.md
-documentation/
+documentation/**
 
-source schemas/
-src/
-tools/
+source schemas/**
+src/**
+tools/**
 log.txt
 tsconfig.json
 webpack.config.js
@@ -39,10 +39,10 @@ webpack.config.js
 !documentation/cheat-sheet/*.html
 !documentation/cheat-sheet/**/*.html
 
-minecraft-bedrock-schemas/
-minecraft-bedrock-schemas/**
-!minecraft-bedrock-schemas/behavior
-!minecraft-bedrock-schemas/general
-!minecraft-bedrock-schemas/language
-!minecraft-bedrock-schemas/resource
-!minecraft-bedrock-schemas/skinpacks
+!minecraft-bedrock-schemas/behavior/
+!minecraft-bedrock-schemas/general/
+!minecraft-bedrock-schemas/language/
+!minecraft-bedrock-schemas/resource/
+!minecraft-bedrock-schemas/skinpacks/
+minecraft-bedrock-schemas/*
+minecraft-bedrock-schemas/**/*
