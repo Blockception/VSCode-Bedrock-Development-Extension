@@ -11,4 +11,7 @@ git log -n 40 --grep=auto:* --invert-grep --no-merges --pretty=format:"- %%s" >>
 
 cd ..
 
+git add .
+git commit -m "auto: Generated Changelog"
+
 vsce package -m "auto: Building New Version" --no-yarn patch
