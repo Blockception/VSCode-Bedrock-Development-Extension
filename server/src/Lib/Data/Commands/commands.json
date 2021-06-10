@@ -155,7 +155,7 @@
       "parameters": [
         { "Text": "enchant", "Type": "keyword", "Required": true },
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
-        { "Text": "id", "Type": "keyword", "Required": true },
+        { "Text": "id", "Type": "string", "Required": true },
         { "Text": "level", "Type": "keyword", "Required": false }
       ],
       "name": "enchant",
