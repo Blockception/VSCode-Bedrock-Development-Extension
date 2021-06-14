@@ -80,7 +80,7 @@ const entity: string = `{
     "component_groups": {
     },
     "components": {
-      "minecraft:type_family": { "family": ["%SafeID%"] }
+      "minecraft:type_family": { "family": ["%SafeID%"] },
       "minecraft:health": { "value": 10, "max": 10 },
       "minecraft:behavior.look_at_player": { "probability": 1.0, "target_distance": 16 }
     },
