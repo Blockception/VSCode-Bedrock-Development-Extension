@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Fixing block schemas
 - Updated
 - Fixed
 - Updated
@@ -38,9 +39,10 @@
 - Fixing diagnostics for textures in entities
 - Updated
 - Updated
-- Updated
 - Updated. 
 ## Schemas 
+- Updated
+- Updated description
 - Updated
 - Updated
 - updating todo titles
@@ -79,5 +81,3 @@
 - Create Format json files.yml
 - Moved to test
 - Updated encoding
-- Added more examples thanks to @crovono
-- Fixed 1.17 -> 1.13
