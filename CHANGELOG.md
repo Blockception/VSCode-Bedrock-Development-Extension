@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Updated
 - Fixed
 - Updated
 - Updated
@@ -35,7 +36,6 @@
 - Added Script Diagnostics
 - Updated detection types
 - Fixing diagnostics for textures in entities
-- Updated
 - Updated
 - Updated
 - Updated
