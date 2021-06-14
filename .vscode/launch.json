@@ -21,6 +21,15 @@
       "port": 6009,
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/server/out/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Server tests",
+      "program": "${workspaceFolder}/server/node_modules/mocha/bin/_mocha",
+      "args": ["${workspaceRoot}/server/src/**/*.test.ts"],
+      "cwd": "${workspaceRoot}/server",
+      "internalConsoleOptions": "openOnSessionStart"
     }
   ],
   "compounds": [
