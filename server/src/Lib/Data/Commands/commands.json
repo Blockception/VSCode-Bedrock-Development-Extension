@@ -2151,7 +2151,21 @@
     {
       "name": "immutableworld",
       "documentation": { "value": "Sets the immutable state of the world", "kind": "markdown" },
-      "parameters": [{ "Text": "immutableworld", "Type": "boolean", "Required": false }]
+      "parameters": [
+        { "Text": "immutableworld", "Type": "keyword", "Required": false },
+        { "Text": "immutableworld", "Type": "boolean", "Required": false }
+      ]
+    },
+    {
+      "name": "dialogue",
+      "documentation": { "value": "Sets the immutable state of the world", "kind": "markdown" },
+      "parameters": [
+        { "Text": "dialogue", "Type": "keyword", "Required": true },
+        { "Text": "open", "Type": "keyword", "Required": true },
+        { "Text": "talking entity", "Type": "selector", "Required": true },
+        { "Text": "player receiver", "Type": "selector", "Required": true, "Options": { "playerOnly": true, "allowFakePlayers": false } },
+        { "Text": "dialogue id", "Type": "string", "Required": true }
+      ]
     }
   ]
 }
