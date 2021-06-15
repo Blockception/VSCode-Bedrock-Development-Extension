@@ -19,12 +19,12 @@ const attributes = ["c", "dx", "dy", "dz", "family", "lm", "l", "m", "name", "rm
  * @param validation
  */
 export function ProvideDiagnostic(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder): void {
-  let text = data.text;
+  const text = data.text;
 
   if (pattern.Options?.acceptedValues?.includes(data.text)) return;
 
   if (text.startsWith("@")) {
-    let selector = Selector.Parse(data);
+    const selector = Selector.Parse(data);
     DiagnoseSelector(selector, builder, pattern.Options?.playerOnly ?? false);
   } else {
     if (pattern.Options?.allowFakePlayers) {
@@ -41,7 +41,7 @@ export function ProvideDiagnostic(pattern: MCCommandParameter, data: LocationWor
  * @param receiver
  */
 function DiagnoseFakePlayer(data: LocationWord, builder: DiagnosticsBuilder): void {
-  let fakePlayer = data.text;
+  const fakePlayer = data.text;
 
   //Has fake player
   if (Database.Data.General.FakeEntities.HasID(fakePlayer)) {
@@ -59,13 +59,13 @@ function DiagnoseFakePlayer(data: LocationWord, builder: DiagnosticsBuilder): vo
  * @param validation
  */
 function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyPlayer: boolean): void {
-  var HasType = selector.contains("type");
+  const HasType = selector.contains("type");
 
   if (onlyPlayer) {
     if (HasType) {
       builder.Add("Selector has type definitions but this parameter should only be for players", selector.Range).code = "selector.mistyped";
     } else {
-      if (selector.Type == Selector.AllEntitiesType) {
+      if (selector.Type == "@e") {
         builder.Add("Selector is for all entities but this parameter should only be for players", selector.Range).code = "selector.mistyped";
       }
     }
@@ -132,7 +132,7 @@ function NoDuplicates(name: string, selector: Selector, builder: DiagnosticsBuil
  * @param receiver
  */
 function OnlyPositiveOrMultipleNegatives(name: string, selector: Selector, builder: DiagnosticsBuilder): void {
-  var Parameters = selector.get(name);
+  const Parameters = selector.get(name);
 
   if (Array.isArray(Parameters)) {
     if (Parameters.length <= 1) return;

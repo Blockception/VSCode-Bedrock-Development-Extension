@@ -41,12 +41,6 @@ export class Selector {
 }
 
 export namespace Selector {
-  export const AllPlayersType = "a";
-  export const AllEntitiesType = "e";
-  export const NearestPlayerType = "p";
-  export const ExecutingEntityType = "s";
-  export const RandomType = "r";
-
   export function Parse(text: LocationWord): Selector {
     let Out = new Selector(text.text.substring(1, 2), text.location.range);
 
