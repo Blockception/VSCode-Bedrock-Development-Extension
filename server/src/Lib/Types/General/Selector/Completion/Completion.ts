@@ -6,13 +6,12 @@ import { provideSelectorScoreCompletion } from "./Scores";
 import { SelectorBase } from "./BaseMode";
 import { FakeEntity } from "../../include";
 import { CommandCompletionContext } from "../../../../Completion/Commands/Context";
-import { Manager } from "../../../../Manager/include";
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
-  let selector = Context.Current;
-  let pos = Context.Pos.character;
-  let Options = Context.Parameter.Options;
+  const receiver = Context.receiver;
+  const selector = Context.Current;
+  const pos = Context.Pos.character;
+  const Options = Context.Parameter.Options;
 
   const playerOnly = Options?.playerOnly ?? false;
   const wildcard = Options?.wildcard ?? false;
@@ -38,11 +37,13 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       SelectorBase.Completion.NearestPlayer
     );
 
-    let set = Context.doc.getConfiguration().settings;
+    const set = Context.doc.getConfiguration().settings;
 
     if (!set.Diagnostics.Enable) return;
     if (set.Education.Enable) {
-      receiver.items.push(SelectorBase.Completion.MyAgent, SelectorBase.Completion.SomethingEdu);
+      receiver.items.push(SelectorBase.Completion.MyAgent, SelectorBase.Completion.SomethingEdu, SelectorBase.Completion.Initiator);
+    } else if (Context.doc.uri.includes("/dialogue/")) {
+      receiver.items.push(SelectorBase.Completion.Initiator);
     }
 
     if (!playerOnly) {
