@@ -16,6 +16,7 @@ export function ValidateBehaviorFolder(doc: TextDocument): void {
     case "animations":
     case "blocks":
     case "biomes":
+    case "dialogue":
     case "documentation":
     case "entities":
     case "feature_rules":
