@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Removed
 - Added dialogue support
 - Refactor selectors
 - Added dialogue command
@@ -38,9 +39,9 @@
 - Updated documentation to reflect new json validation schemas
 - let -> const
 - Updated postfixes for file in generation
-- Updated json file validation to support Bedrock-OSS style guide
-- Added Script diagnostics. 
+- Updated json file validation to support Bedrock-OSS style guide. 
 ## Schemas 
+- Fixing is_stackable
 - Update format-json-files.yml
 - Added dialogue schemas
 - Updated
@@ -80,4 +81,3 @@
 - Update format-json-files.yml
 - Update format-json-files.yml
 - Rename Format json files.yml to format-json-files.yml
-- Create Format json files.yml
