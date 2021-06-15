@@ -1,5 +1,11 @@
 # Changelog 
 ## Plugin 
+- Added dialogue support
+- Refactor selectors
+- Added dialogue command
+- Added @Initiator to code
+- Added Dialogue folder to BP
+- Added the @Initiatior selector
 - Fixing block schemas
 - Updated
 - Fixed
@@ -33,14 +39,10 @@
 - let -> const
 - Updated postfixes for file in generation
 - Updated json file validation to support Bedrock-OSS style guide
-- Added Script diagnostics
-- Added Script Diagnostics
-- Updated detection types
-- Fixing diagnostics for textures in entities
-- Updated
-- Updated
-- Updated. 
+- Added Script diagnostics. 
 ## Schemas 
+- Update format-json-files.yml
+- Added dialogue schemas
 - Updated
 - Updated description
 - Updated
@@ -79,5 +81,3 @@
 - Update format-json-files.yml
 - Rename Format json files.yml to format-json-files.yml
 - Create Format json files.yml
-- Moved to test
-- Updated encoding
