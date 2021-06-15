@@ -15,6 +15,7 @@ LICENSES/**
 **/tsconfig.json
 **/webpack.config.js
 *.git*
+*.code-workspace
 *.vsix
 .gitattributes
 .github
@@ -28,6 +29,7 @@ Debugging.md
 
 contributing.md
 documentation/**
+minecraft colours.json
 
 source schemas/**
 src/**
