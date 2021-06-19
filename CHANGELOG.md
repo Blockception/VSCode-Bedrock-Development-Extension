@@ -1,5 +1,7 @@
 # Changelog 
 ## Plugin 
+- Updated schemas
+- Updated Edu support
 - Removed
 - Added dialogue support
 - Refactor selectors
@@ -37,10 +39,16 @@
 - Updated
 - Updated
 - Updated documentation to reflect new json validation schemas
-- let -> const
-- Updated postfixes for file in generation
-- Updated json file validation to support Bedrock-OSS style guide. 
+- let -> const. 
 ## Schemas 
+- Updated
+- Updated
+- Updated Comments
+- Updated filters
+- Updating filters
+- Updated
+- Replaced undocumented
+- Updated descriptions
 - Fixing is_stackable
 - Update format-json-files.yml
 - Added dialogue schemas
@@ -73,11 +81,3 @@
 - Fixed
 - Updated
 - Added enum to placement_pass
-- Updated
-- Updated
-- formatted
-- Added features
-- formatted
-- Update format-json-files.yml
-- Update format-json-files.yml
-- Rename Format json files.yml to format-json-files.yml
