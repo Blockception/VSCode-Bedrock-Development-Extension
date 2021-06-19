@@ -11,14 +11,14 @@ import { DiagnoseParameter } from "../Parameter/include";
  * @param receiver
  */
 export function DiagnoseCommand(Command: CommandIntr, line: string, builder: DiagnosticsBuilder): void {
-  let Matches = Command.GetCommandData();
+  const Matches = Command.GetCommandData(builder.doc.getConfiguration().settings.Education.Enable);
 
   if (Matches.length === 0) {
     builder.Add('Unknown command syntax: "' + line + '"', Command.Parameters[0]?.location.range).code = "mcfunction.syntax.unknown";
     return;
   }
 
-  let Data = Matches[0];
+  const Data = Matches[0];
   let max = Data.Command.parameters.length;
 
   if (Command.Parameters.length < max) {
@@ -35,10 +35,17 @@ export function DiagnoseCommand(Command: CommandIntr, line: string, builder: Dia
  * @param data
  * @param receiver
  */
-export function DiagnoseCommandParameter(data: LocationWord, builder: DiagnosticsBuilder): void {
+export function DiagnoseCommandParameter(data: LocationWord, builder: DiagnosticsBuilder, edu: boolean): void {
   const text = data.text;
 
-  if (Manager.Data.Commands.has(text)) return;
+  if (Manager.Data.Vanilla.Commands.has(text)) return;
+
+  if (Manager.Data.Edu.Commands.has(text)) {
+    if (edu) return;
+
+    builder.AddWord(data, 'Education commmand found, but education is turned off: "' + text + '"').code = "mcfunction.command.edu.invalid";
+    return;
+  }
 
   builder.AddWord(data, 'No command found with text: "' + text + '"').code = "mcfunction.command.unknown";
 }

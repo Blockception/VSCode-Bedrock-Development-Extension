@@ -6,11 +6,14 @@ import { DataType, DetectDataType } from "../../Types/Minecraft/Format/include";
 import { CompletionBuilder } from "../Builder";
 
 export function OnCompletionMolangVariable(doc: TextDocument, receiver: CompletionBuilder): void {
-  let Type = DetectDataType(doc.uri);
+  const Type = DetectDataType(doc.uri);
+  const edu = doc.getConfiguration().settings.Education.Enable;
 
   switch (Type) {
     case DataType.resource_particle:
-      return Convert(Manager.Data.Molang.Particles.variable, receiver);
+      Convert(Manager.Data.Vanilla.Molang.Particles.variable, receiver);
+      if (edu) Convert(Manager.Data.Edu.Molang.Particles.variable, receiver);
+      return;
 
     case DataType.behavior_animation:
     case DataType.behavior_animation_controller:
@@ -18,7 +21,9 @@ export function OnCompletionMolangVariable(doc: TextDocument, receiver: Completi
     case DataType.resource_animation:
     case DataType.resource_animation_controller:
     case DataType.resource_entity:
-      return Convert(Manager.Data.Molang.Entities.variable, receiver);
+      Convert(Manager.Data.Vanilla.Molang.Entities.variable, receiver);
+      if (edu) Convert(Manager.Data.Edu.Molang.Entities.variable, receiver);
+      return;
   }
 }
 

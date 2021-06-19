@@ -16,33 +16,33 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
   const pos = params.position;
   const LineIndex = pos.line;
   const Line = doc.getLine(LineIndex);
+  const Edu = doc.getConfiguration().settings.Education.Enable;
 
   let Command: CommandIntr = CommandIntr.parse(Line, params.position, doc.uri);
-
-  let Sub = GetSubCommand(Command);
+  let Sub = GetSubCommand(Command, Edu);
 
   while (Sub) {
     if (Sub && Sub.Parameters[0].location.range.start.character <= pos.character) {
       Command = Sub;
-      Sub = GetSubCommand(Command);
+      Sub = GetSubCommand(Command, Edu);
     } else {
       Sub = undefined;
     }
   }
 
-  let Data = Command.GetCommandData();
+  const Data = Command.GetCommandData(Edu);
 
   if (Data.length >= 1) {
-    let Info = Data[0];
-    let parameters = Info.Command.parameters;
-    let Index = Command.CursorParamater;
+    const Info = Data[0];
+    const parameters = Info.Command.parameters;
+    const Index = Command.CursorParamater;
 
     if (parameters.length > Index) {
-      let p = parameters[Index];
-      let T = Command.Parameters[Index];
+      const p = parameters[Index];
+      const T = Command.Parameters[Index];
 
       if (T) {
-        let r = T.location.range;
+        const r = T.location.range;
 
         if (Index == 0) {
           return { contents: Info.Command.documentation, range: r };
@@ -62,7 +62,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
  * @returns
  */
 function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: string): Hover | undefined {
-  let title = parameter.Text;
+  const title = parameter.Text;
   let doc: string = "";
 
   switch (parameter.Type) {
@@ -174,7 +174,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
 }
 
 function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: DataCollector<T>): Hover | undefined {
-  let Item = Collection.GetFromID(query);
+  const Item = Collection.GetFromID(query);
 
   if (!Item) return undefined;
 

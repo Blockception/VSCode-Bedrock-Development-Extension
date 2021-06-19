@@ -53,6 +53,8 @@ import {
  * @param builder
  */
 export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWord, builder: DiagnosticsBuilder, Com: CommandIntr): void {
+  const edu = builder.doc.getConfiguration().settings.Education.Enable;
+
   if (pattern === undefined || data === undefined) return;
 
   if (pattern.Options) {
@@ -86,7 +88,7 @@ export function DiagnoseParameter(pattern: MCCommandParameter, data: LocationWor
       return CloneMode.ProvideDiagnostic(data, builder);
 
     case MCCommandParameterType.command:
-      return Command.DiagnoseCommandParameter(data, builder);
+      return Command.DiagnoseCommandParameter(data, builder, edu);
 
     case MCCommandParameterType.coordinate:
       return Coordinate.ProvideDiagnostic(data, builder);

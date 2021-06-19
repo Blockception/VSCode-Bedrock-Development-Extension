@@ -23,9 +23,9 @@ export function ProvideMcfunctionCommandSignature(Line: string, Start: Position,
     command = SubCommand;
   }
 
-  let Matches = command.GetCommandData();
+  const Matches = command.GetCommandData(doc.getConfiguration().settings.Education.Enable);
 
-  let Out: SignatureHelp = {
+  const Out: SignatureHelp = {
     signatures: ConverToSignatures(Matches),
     activeParameter: command.CursorParamater,
     activeSignature: 0,
@@ -60,9 +60,9 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
     parameters: [],
   };
 
-  let parameters = Command.parameters;
+  const parameters = Command.parameters;
   for (let I = 0; I < parameters.length; I++) {
-    let parameter = parameters[I];
+    const parameter = parameters[I];
     let p: ParameterInformation;
 
     if (parameter.Required) {
@@ -91,8 +91,8 @@ function CreateParameter(label: string, kind: MCCommandParameterType): Parameter
       return RawText.provideParameterInformation();
   }
 
-  let documentation = label;
-  let Temp: ParameterInformation = { label: label, documentation: { kind: "markdown", value: documentation } };
+  const documentation = label;
+  const Temp: ParameterInformation = { label: label, documentation: { kind: "markdown", value: documentation } };
 
   return Temp;
 }

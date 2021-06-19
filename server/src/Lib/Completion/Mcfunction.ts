@@ -16,14 +16,14 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
   const LineIndex = pos.line;
   const Line = doc.getLine(LineIndex);
 
-  let CommentIndex = Line.indexOf("#");
+  const CommentIndex = Line.indexOf("#");
 
   if (CommentIndex >= 0) {
     if (pos.character > CommentIndex) return;
   }
 
   let command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
-  let Subcommand = IsInSubCommand(command, pos.character);
+  const Subcommand = IsInSubCommand(command, pos.character);
 
   if (Subcommand) {
     command = Subcommand;
@@ -41,12 +41,12 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
  * @param receiver
  */
 export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionBuilder): void {
-  let pos = doc.positionAt(cursor);
-  let posB = doc.positionAt(offset);
+  const pos = doc.positionAt(cursor);
+  const posB = doc.positionAt(offset);
 
   pos.character -= posB.character;
 
-  let command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
+  const command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
   ProvideCompletion(pos, receiver, command, doc);
 }
 
@@ -63,7 +63,7 @@ export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, co
     return;
   }
 
-  let Matches = command.GetCommandData();
+  const Matches = command.GetCommandData(doc.getConfiguration().settings.Education.Enable);
 
   if (Matches.length === 0) {
     if (pos.character < 10) Command.ProvideCompletion(receiver);
@@ -71,15 +71,15 @@ export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, co
     return;
   }
 
-  let ParameterIndex = command.CursorParamater;
-  let Current = command.GetCurrent();
+  const ParameterIndex = command.CursorParamater;
+  const Current = command.GetCurrent();
 
   for (let I = 0; I < Matches.length; I++) {
-    let Match = Matches[I];
+    const Match = Matches[I];
 
     if (Match.Command.parameters.length > ParameterIndex) {
-      let parameter = Match.Command.parameters[ParameterIndex];
-      let Context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current, doc);
+      const parameter = Match.Command.parameters[ParameterIndex];
+      const Context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current, doc);
 
       Parameter.ProvideCompletion(Context);
     }

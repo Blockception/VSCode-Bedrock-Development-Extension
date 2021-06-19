@@ -48,8 +48,16 @@ export class CommandIntr {
   }
 
   /**Gets all the command data that is the possible best match data*/
-  GetCommandData(): CommandInfo[] {
-    return Manager.Data.Commands.getBestMatches(this);
+  GetCommandData(edu: boolean): CommandInfo[] {
+    const Out: CommandInfo[] = [];
+
+    Manager.Data.Vanilla.Commands.getBestMatchesOnto(this, edu, Out);
+
+    if (edu) {
+      Manager.Data.Edu.Commands.getBestMatchesOnto(this, edu, Out);
+    }
+
+    return Out;
   }
 
   /**Gets the current word*/
@@ -155,15 +163,15 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
  * @param command
  * @returns
  */
-export function GetSubCommand(command: CommandIntr): CommandIntr | undefined {
-  let Matches = command.GetCommandData();
+export function GetSubCommand(command: CommandIntr, edu: boolean): CommandIntr | undefined {
+  const Matches = command.GetCommandData(edu);
 
   if (Matches.length === 0) {
     return;
   }
 
-  let Item = Matches[0];
-  let index = Item.Command.getIndexOfType(MCCommandParameterType.command);
+  const Item = Matches[0];
+  const index = Item.Command.getIndexOfType(MCCommandParameterType.command);
 
   if (index > -1 && index < command.Parameters.length) {
     return command.slice(index);

@@ -31,6 +31,7 @@ import { CloneMode } from "../Modes/CloneMode/CloneMode";
 import { DifficultyMode } from "../Modes/Difficulty/Difficulty";
 import { FillMode } from "../Modes/FillMode/FillMode";
 import { GameMode } from "../Modes/Gamemode/include";
+import { IsCommand } from "../Command/Function";
 
 /**
  *
@@ -86,21 +87,31 @@ export class CommandManager {
    * @param com
    * @returns
    */
-  getBestMatches(com: CommandIntr): CommandInfo[] {
-    let Storage = this.Subset.get(com.GetCommandKeyword());
-    let Out: CommandInfo[] = [];
+  getBestMatches(com: CommandIntr, edu: boolean): CommandInfo[] {
+    const Out: CommandInfo[] = [];
 
-    if (Storage == undefined) {
-      return Out;
-    }
-
-    if (Storage.length == 1) return Storage;
-
-    for (let I = 0; I < Storage.length; I++) {
-      if (isMatch(com, Storage[I].Command)) Out.push(Storage[I]);
-    }
+    this.getBestMatchesOnto(com, edu, Out);
 
     return Out;
+  }
+
+  /**
+   *
+   * @param com
+   * @returns
+   */
+  getBestMatchesOnto(com: CommandIntr, edu: boolean, receiver: CommandInfo[]): void {
+    const Storage = this.Subset.get(com.GetCommandKeyword());
+
+    if (Storage == undefined) {
+      return;
+    }
+
+    if (Storage.length == 1) return;
+
+    for (let I = 0; I < Storage.length; I++) {
+      if (isMatch(com, Storage[I].Command, edu)) receiver.push(Storage[I]);
+    }
   }
 }
 
@@ -110,7 +121,7 @@ export class CommandManager {
  * @param pattern
  * @returns
  */
-export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
+export function isMatch(com: CommandIntr, pattern: MCCommand, edu: boolean): boolean {
   let Limit = pattern.parameters.length;
 
   if (Limit > com.Parameters.length) {
@@ -118,9 +129,9 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
   }
 
   for (let I = 0; I < Limit; I++) {
-    let comPar = com.Parameters[I];
-    let comText = comPar.text;
-    let patPar = pattern.parameters[I];
+    const comPar = com.Parameters[I];
+    const comText = comPar.text;
+    const patPar = pattern.parameters[I];
 
     if (patPar.Options) {
       if (patPar.Options.acceptedValues) {
@@ -158,7 +169,7 @@ export function isMatch(com: CommandIntr, pattern: MCCommand): boolean {
         break;
 
       case MCCommandParameterType.command:
-        if (!Manager.Data.Commands.has(comText)) return false;
+        if (IsCommand(comText, edu)) return false;
         break;
 
       case MCCommandParameterType.coordinate:

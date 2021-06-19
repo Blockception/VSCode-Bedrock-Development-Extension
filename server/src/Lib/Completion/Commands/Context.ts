@@ -58,7 +58,7 @@ export namespace CommandCompletionContext {
     Current: LocationWord | undefined = undefined,
     doc: TextDocument
   ): CommandCompletionContext {
-    let BestMatch = Command.GetCommandData()[0];
+    const BestMatch = Command.GetCommandData(doc.getConfiguration().settings.Education.Enable)[0];
 
     return {
       Parameter: Parameter,

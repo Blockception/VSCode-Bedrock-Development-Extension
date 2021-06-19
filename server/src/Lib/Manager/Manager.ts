@@ -1,6 +1,6 @@
 import { ServerSettings } from "../Server/Settings";
 import { ExtensionState } from "./Extension State";
-import { ExtensionData } from "./Extension Data";
+import { MCData } from "./Extension Data";
 import { ExtensionCapabiltities } from "./Extension Capabilties";
 import { Connection } from "vscode-languageserver/lib/common/server";
 import { Diagnostic } from "vscode-languageserver";
@@ -18,7 +18,7 @@ export class Manager {
   /**
    * The data that the extension can have
    */
-  static Data: ExtensionData = new ExtensionData();
+  static Data: MCData = new MCData();
 
   /**
    * The possible capabiltities of the server

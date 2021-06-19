@@ -19,7 +19,6 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
 
   for (let I = startindex; I < endindex; I++) {
     const line = doc.getLine(I);
-
     const CommentIndex = line.indexOf("#");
 
     if (CommentIndex >= 0) {
@@ -47,9 +46,11 @@ export function McfunctionLineTokens(line: string, cursor: number, offset: numbe
 function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBuilder): void {
   if (Command.Parameters.length == 0) return;
 
+  const Edu = Builder.doc.getConfiguration().settings.Education.Enable;
+
   const First = Command.Parameters[0];
   Builder.AddWord(First, SemanticTokensEnum.class);
-  const Matches = Command.GetCommandData();
+  const Matches = Command.GetCommandData(Edu);
   let Match;
 
   if (Matches.length == 0) return;
@@ -60,12 +61,12 @@ function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBui
   if (Match.Command.parameters.length < Max) Max = Match.Command.parameters.length;
 
   for (let I = 1; I < Max; I++) {
-    let Data = Match.Command.parameters[I];
-    let Word = Command.Parameters[I];
+    const Data = Match.Command.parameters[I];
+    const Word = Command.Parameters[I];
 
     switch (Data.Type) {
       case MCCommandParameterType.command:
-        let Sub = GetSubCommand(Command);
+        let Sub = GetSubCommand(Command, Edu);
         if (Sub) {
           CreateTokens(Sub, Builder);
         }

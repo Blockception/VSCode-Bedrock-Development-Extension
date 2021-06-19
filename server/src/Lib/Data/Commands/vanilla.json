@@ -1,6 +1,6 @@
 {
   "$schema": "./commands schema.json",
-  "vanilla": [
+  "commands": [
     {
       "name": "alwaysday",
       "documentation": { "value": "Locks and unlocks the day-night cycle.", "kind": "markdown" },
@@ -2092,80 +2092,6 @@
       ],
       "name": "xp",
       "documentation": { "value": "Adds or removes player experience", "kind": "markdown" }
-    }
-  ],
-  "edu": [
-    {
-      "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability.", "kind": "markdown" },
-      "parameters": [{ "Text": "ability", "Type": "keyword", "Required": true }]
-    },
-    {
-      "name": "ability",
-      "documentation": { "value": "Returns a list of abillities assigned to the specified player", "kind": "markdown" },
-      "parameters": [
-        { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } }
-      ]
-    },
-    {
-      "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability to fly", "kind": "markdown" },
-      "parameters": [
-        { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
-        { "Text": "mayfly", "Type": "keyword", "Required": true },
-        { "Text": "value", "Type": "boolean", "Required": false }
-      ]
-    },
-    {
-      "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability to speak", "kind": "markdown" },
-      "parameters": [
-        { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
-        { "Text": "mute", "Type": "keyword", "Required": true },
-        { "Text": "value", "Type": "boolean", "Required": false }
-      ]
-    },
-    {
-      "name": "ability",
-      "documentation": { "value": "Grants or revokes a player ability to build", "kind": "markdown" },
-      "parameters": [
-        { "Text": "ability", "Type": "keyword", "Required": true },
-        { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } },
-        { "Text": "worldbuilder", "Type": "keyword", "Required": true },
-        { "Text": "value", "Type": "boolean", "Required": false }
-      ]
-    },
-    {
-      "name": "classroommode",
-      "documentation": { "value": "??", "kind": "plaintext" },
-      "parameters": [{ "Text": "classroommode", "Type": "keyword", "Required": true }]
-    },
-    {
-      "name": "code",
-      "documentation": { "value": "??", "kind": "plaintext" },
-      "parameters": [{ "Text": "code", "Type": "keyword", "Required": true }]
-    },
-    {
-      "name": "immutableworld",
-      "documentation": { "value": "Sets the immutable state of the world", "kind": "markdown" },
-      "parameters": [
-        { "Text": "immutableworld", "Type": "keyword", "Required": false },
-        { "Text": "immutableworld", "Type": "boolean", "Required": false }
-      ]
-    },
-    {
-      "name": "dialogue",
-      "documentation": { "value": "Sets the immutable state of the world", "kind": "markdown" },
-      "parameters": [
-        { "Text": "dialogue", "Type": "keyword", "Required": true },
-        { "Text": "open", "Type": "keyword", "Required": true },
-        { "Text": "talking entity", "Type": "selector", "Required": true },
-        { "Text": "player receiver", "Type": "selector", "Required": true, "Options": { "playerOnly": true, "allowFakePlayers": false } },
-        { "Text": "dialogue id", "Type": "string", "Required": true }
-      ]
     }
   ]
 }

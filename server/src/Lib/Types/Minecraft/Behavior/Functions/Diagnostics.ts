@@ -8,7 +8,7 @@ import { TextDocument } from "../../../Document/TextDocument";
 export function ProvideMcfunctionDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
 
-  let set = doc.getConfiguration().settings;
+  const set = doc.getConfiguration().settings;
   if (!set.Diagnostics.Enable) return;
   if (!set.Diagnostics.Mcfunctions) return;
 
@@ -70,10 +70,11 @@ export function DiagnoseLine(line: string, StartPos: Position | undefined, Curso
   if (Command.Parameters.length === 0) return;
 
   DiagnoseCommand(Command, line, builder);
+  const Edu = builder.doc.getConfiguration().settings.Education.Enable;
 
-  let Sub = GetSubCommand(Command);
+  let Sub = GetSubCommand(Command, Edu);
   while (Sub) {
     DiagnoseCommand(Sub, line, builder);
-    Sub = GetSubCommand(Sub);
+    Sub = GetSubCommand(Sub, Edu);
   }
 }

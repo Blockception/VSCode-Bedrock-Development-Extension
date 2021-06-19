@@ -26,7 +26,7 @@ export function ProcessCommand(Line: string, Start: Position, document: TextDocu
         break;
     }
 
-    Command = GetSubCommand(Command);
+    Command = GetSubCommand(Command, document.getConfiguration().settings.Education.Enable);
   }
 }
 

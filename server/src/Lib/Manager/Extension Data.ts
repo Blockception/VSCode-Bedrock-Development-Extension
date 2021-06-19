@@ -3,6 +3,23 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { MolangData } from "../Molang/MolangData";
 import { CommandManager } from "../Types/Commands/Manager/include";
 
+export class MCData {
+  /**
+   *
+   */
+  public Vanilla = new ExtensionData();
+
+  /**
+   *
+   */
+  public Edu = new ExtensionData();
+
+  /**
+   * The document manager that has possible cached documents, use GetDocument!
+   */
+  public Documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
+}
+
 /**
  *
  */
@@ -16,9 +33,4 @@ export class ExtensionData {
    * The molang data manager that stores all default molang values
    */
   public Molang: MolangData = new MolangData();
-
-  /**
-   * The document manager that has possible cached documents, use GetDocument!
-   */
-  public Documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
 }

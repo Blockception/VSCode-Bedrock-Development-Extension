@@ -16,7 +16,7 @@ describe("CommandIntr", () => {
     expect(comm.Parameters[6].text).to.equal("@a[tag=target]");
     expect(comm.Parameters[7].text).to.equal("@s");
 
-    expect(comm.GetCommandData().length).be.greaterThanOrEqual(0);
+    expect(comm.GetCommandData(false).length).be.greaterThanOrEqual(0);
   });
 
   it("parse 2 - condesed ~ coordiantes", () => {
@@ -36,7 +36,7 @@ describe("CommandIntr", () => {
 
     expect(comm.Parameters.length).to.equal(4);
 
-    expect(comm.GetCommandData().length).to.equal(0);
+    expect(comm.GetCommandData(false).length).to.equal(0);
   });
 
   it("parse 5 - offset", () => {
@@ -49,7 +49,7 @@ describe("CommandIntr", () => {
   it("subcommand 1", () => {
     const comm = CommandIntr.parse("execute @s[scores={foo=1..}] ~ ~ ~ tp @a[tag=target] @s", { character: 0, line: 0 }, "");
 
-    const sub = GetSubCommand(comm);
+    const sub = GetSubCommand(comm, false);
 
     if (sub) {
       expect(sub.Parameters.length).to.equal(3);

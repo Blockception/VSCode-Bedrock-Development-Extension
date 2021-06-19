@@ -1,5 +1,4 @@
 import { CompletionItemKind } from "vscode-languageserver";
-
 import { Database, DataCollector } from "../../Database/include";
 import { DataReference } from "../../Database/Types/include";
 import { Molang } from "../../include";
@@ -19,19 +18,25 @@ export function OnCompletionEntityEvents(receiver: CompletionBuilder): void {
 }
 
 export function OnCompletionMolang(line: string, cursor: number, doc: TextDocument, receiver: CompletionBuilder): void {
-  let Word = GetPreviousWord(line, cursor);
+  const Word = GetPreviousWord(line, cursor);
+  const Edu = doc.getConfiguration().settings.Education.Enable;
 
   switch (Word.toLowerCase()) {
     case "q":
     case "query":
-      return Convert(Manager.Data.Molang.Query, receiver);
+      Convert(Manager.Data.Vanilla.Molang.Query, receiver);
+      if (Edu) Convert(Manager.Data.Edu.Molang.Query, receiver);
+      return;
 
     case "m":
     case "math":
-      return Convert(Manager.Data.Molang.Math, receiver);
+      Convert(Manager.Data.Vanilla.Molang.Math, receiver);
+      if (Edu) Convert(Manager.Data.Edu.Molang.Math, receiver);
+      return;
 
     case "geometry":
-      return CreateGeometries(Database.Data.Resourcepack.Models, receiver);
+      CreateGeometries(Database.Data.Resourcepack.Models, receiver);
+      return;
 
     case "v":
     case "variable":
@@ -51,8 +56,13 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
     receiver.Add("temp", "", CompletionItemKind.Variable);
     receiver.Add("this", "", CompletionItemKind.Struct);
 
-    ConvertPrefixed(Manager.Data.Molang.Query, receiver, "query.");
-    ConvertPrefixed(Manager.Data.Molang.Math, receiver, "math.");
+    ConvertPrefixed(Manager.Data.Vanilla.Molang.Query, receiver, "query.");
+    ConvertPrefixed(Manager.Data.Vanilla.Molang.Math, receiver, "math.");
+
+    if (Edu) {
+      ConvertPrefixed(Manager.Data.Edu.Molang.Query, receiver, "query.");
+      ConvertPrefixed(Manager.Data.Edu.Molang.Math, receiver, "math.");
+    }
   }
 }
 
