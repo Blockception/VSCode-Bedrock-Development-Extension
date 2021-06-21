@@ -43,7 +43,7 @@
     },
     {
       "name": "clearspawnpoint",
-      "documentation": { "value": "Removes the spawnpoint from the player", "kind": "markdown" },
+      "documentation": { "value": "Removes the spawnpoint from the player.", "kind": "markdown" },
       "parameters": [{ "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }]
     },
     {
@@ -163,7 +163,7 @@
     },
     {
       "name": "event",
-      "documentation": { "value": "Triggers an event for the specified objects", "kind": "markdown" },
+      "documentation": { "value": "Triggers an event for the specified objects.", "kind": "markdown" },
       "parameters": [
         { "Text": "event", "Type": "keyword", "Required": true },
         { "Text": "entity", "Type": "keyword", "Required": true },
@@ -589,7 +589,7 @@
         { "Text": "selector", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
       ],
       "name": "kick",
-      "documentation": { "value": "Kicks the specified players", "kind": "markdown" }
+      "documentation": { "value": "Kicks the specified players.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -613,7 +613,7 @@
         { "Text": "message", "Type": "keyword", "Required": true }
       ],
       "name": "me",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Displays a message about the sender.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -622,12 +622,12 @@
         { "Text": "message", "Type": "unknown", "Required": true }
       ],
       "name": "msg",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "An alias of `/tell` and `/w`. Displays a private message to other players.", "kind": "markdown" }
     },
 
     {
       "name": "music",
-      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "documentation": { "value": "Allows you to control playing music tracks.", "kind": "markdown" },
       "parameters": [
         { "Text": "music", "Type": "keyword", "Required": true },
         { "Text": "queue", "Type": "keyword", "Required": true },
@@ -640,7 +640,7 @@
 
     {
       "name": "music",
-      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "documentation": { "value": "Allows you to control playing music tracks.", "kind": "markdown" },
       "parameters": [
         { "Text": "music", "Type": "keyword", "Required": true },
         { "Text": "play", "Type": "keyword", "Required": true },
@@ -652,7 +652,7 @@
     },
     {
       "name": "music",
-      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "documentation": { "value": "Allows you to control playing music tracks.", "kind": "markdown" },
       "parameters": [
         { "Text": "music", "Type": "keyword", "Required": true },
         { "Text": "stop", "Type": "keyword", "Required": true },
@@ -661,7 +661,7 @@
     },
     {
       "name": "music",
-      "documentation": { "value": "Allows you to control playing music tracks", "kind": "markdown" },
+      "documentation": { "value": "Allows you to control playing music tracks.", "kind": "markdown" },
       "parameters": [
         { "Text": "music", "Type": "keyword", "Required": true },
         { "Text": "volume", "Type": "keyword", "Required": true },
@@ -675,7 +675,7 @@
         { "Text": "player", "Type": "selector", "Required": true, "Options": { "playerOnly": true } }
       ],
       "name": "op",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Grants operator status to a player.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -686,7 +686,7 @@
         { "Text": "position z", "Type": "coordinate", "Required": true }
       ],
       "name": "particle",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Creates particles.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -701,7 +701,7 @@
         { "Text": "minimumVolume", "Type": "float", "Required": false }
       ],
       "name": "playsound",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Plays a sound.", "kind": "markdown" }
     },
 
     {
@@ -735,7 +735,7 @@
         { "Text": "components", "Type": "keyword", "Required": false }
       ],
       "name": "replaceitem",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Replaces items in inventories.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -753,7 +753,7 @@
         { "Text": "components", "Type": "keyword", "Required": false }
       ],
       "name": "replaceitem",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Replaces items in inventories.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -768,7 +768,7 @@
         { "Text": "components", "Type": "jsonItem", "Required": false }
       ],
       "name": "replaceitem",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Replaces items in inventories.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -784,7 +784,7 @@
         { "Text": "components", "Type": "jsonItem", "Required": false }
       ],
       "name": "replaceitem",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Replaces items in inventories.", "kind": "markdown" }
     },
 
     {
@@ -864,7 +864,7 @@
         { "Text": "message", "Type": "unknown", "Required": true }
       ],
       "name": "say",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Displays a message to multiple players.", "kind": "markdown" }
     },
 
     {
@@ -930,7 +930,7 @@
         { "Text": "display name", "Type": "string", "Required": false }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Add a new objective to the scoreboard.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -939,7 +939,7 @@
         { "Text": "list", "Type": "keyword", "Required": true }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Display a list of objectives.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -949,7 +949,7 @@
         { "Text": "name", "Type": "objective", "Required": true }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Removes the given objective from chat.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -961,7 +961,7 @@
         { "Text": "ascending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the objective on the list.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -973,7 +973,7 @@
         { "Text": "descending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the objective on the list.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -985,7 +985,7 @@
         { "Text": "ascending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the objective on the sidebar.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -997,7 +997,7 @@
         { "Text": "descending", "Type": "keyword", "Required": false }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the objective on the sidebar.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1008,7 +1008,7 @@
         { "Text": "objective", "Type": "objective", "Required": false }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the objective under the name.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1020,7 +1020,7 @@
         { "Text": "count", "Type": "integer", "Required": true }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Adds the given value onto the specified entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1030,7 +1030,7 @@
         { "Text": "entity", "Type": "selector", "Required": false, "Options": { "allowFakePlayers": true } }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "List values of the given entity and their scores.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1044,7 +1044,7 @@
         { "Text": "objective", "Type": "objective", "Required": true }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Executes a scoreboard operation between two entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1057,7 +1057,7 @@
         { "Text": "max", "Type": "integer", "Required": true }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Generates a random value onto the given entity.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1069,7 +1069,7 @@
         { "Text": "count", "Type": "integer", "Required": true }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Substract a value from the given entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1080,7 +1080,7 @@
         { "Text": "objective", "Type": "objective", "Required": false }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Removes the scores from the given entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1092,7 +1092,7 @@
         { "Text": "score", "Type": "integer", "Required": true }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the scores of the entities to a specific value.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1105,7 +1105,7 @@
         { "Text": "max", "Type": "integer", "Required": true, "Options": { "wildcard": true } }
       ],
       "name": "scoreboard",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "A test statement on wheter or not the entity has the specified value/range.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1118,7 +1118,7 @@
         { "Text": "old block mode", "Type": "oldBlockMode", "Required": false }
       ],
       "name": "setblock",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Places the specified block.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1131,7 +1131,7 @@
         { "Text": "old block mode", "Type": "oldBlockMode", "Required": false }
       ],
       "name": "setblock",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Places the specified block.", "kind": "markdown" }
     },
 
     {
@@ -1142,7 +1142,7 @@
         { "Text": "spawn z", "Type": "coordinate", "Required": false }
       ],
       "name": "setworldspawn",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the worldspawn.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1153,7 +1153,7 @@
         { "Text": "spawn z", "Type": "coordinate", "Required": false }
       ],
       "name": "spawnpoint",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sets the spawnpoint of the given entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1165,7 +1165,7 @@
         { "Text": "victim", "Type": "selector", "Required": true }
       ],
       "name": "spreadplayers",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Spreads the players around.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1174,12 +1174,12 @@
         { "Text": "sound", "Type": "sound", "Required": false }
       ],
       "name": "stopsound",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Stops all playing sounds on the given players.", "kind": "markdown" }
     },
 
     {
       "name": "structure",
-      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "documentation": { "value": "Saves the given area into a structure.", "kind": "markdown" },
       "parameters": [
         { "Text": "structure", "Type": "keyword", "Required": true },
         { "Text": "save", "Type": "keyword", "Required": true },
@@ -1195,7 +1195,7 @@
     },
     {
       "name": "structure",
-      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "documentation": { "value": "Saves the given area into a structure.", "kind": "markdown" },
       "parameters": [
         { "Text": "structure", "Type": "keyword", "Required": true },
         { "Text": "save", "Type": "keyword", "Required": true },
@@ -1213,7 +1213,7 @@
     },
     {
       "name": "structure",
-      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "documentation": { "value": "Loads a structure to the world.", "kind": "markdown" },
       "parameters": [
         { "Text": "structure", "Type": "keyword", "Required": true },
         { "Text": "load", "Type": "keyword", "Required": true },
@@ -1231,7 +1231,7 @@
     },
     {
       "name": "structure",
-      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "documentation": { "value": "Loads a structure to the world.", "kind": "markdown" },
       "parameters": [
         { "Text": "structure", "Type": "keyword", "Required": true },
         { "Text": "load", "Type": "keyword", "Required": true },
@@ -1251,7 +1251,7 @@
     },
     {
       "name": "structure",
-      "documentation": { "value": "TODO description", "kind": "markdown" },
+      "documentation": { "value": "Removes the structure from the contents.", "kind": "markdown" },
       "parameters": [
         { "Text": "structure", "Type": "keyword", "Required": true },
         { "Text": "delete", "Type": "keyword", "Required": true },
@@ -1270,7 +1270,7 @@
         { "Text": "name", "Type": "string", "Required": false }
       ],
       "name": "summon",
-      "documentation": { "value": "Summons an entity", "kind": "markdown" }
+      "documentation": { "value": "Summons an entity.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1282,7 +1282,7 @@
         { "Text": "spawnPos z", "Type": "coordinate", "Required": false }
       ],
       "name": "summon",
-      "documentation": { "value": "Summons an entity", "kind": "markdown" }
+      "documentation": { "value": "Summons an entity.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1292,7 +1292,7 @@
         { "Text": "name", "Type": "tag", "Required": true }
       ],
       "name": "tag",
-      "documentation": { "value": "Manages tags stored in entities", "kind": "markdown" }
+      "documentation": { "value": "Manages tags stored in entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1301,7 +1301,7 @@
         { "Text": "list", "Type": "keyword", "Required": true }
       ],
       "name": "tag",
-      "documentation": { "value": "Manages tags stored in entities", "kind": "markdown" }
+      "documentation": { "value": "Manages tags stored in entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1311,7 +1311,7 @@
         { "Text": "name", "Type": "tag", "Required": true }
       ],
       "name": "tag",
-      "documentation": { "value": "Manages tags stored in entities", "kind": "markdown" }
+      "documentation": { "value": "Manages tags stored in entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1320,7 +1320,7 @@
         { "Text": "message", "Type": "unknown", "Required": true }
       ],
       "name": "tell",
-      "documentation": { "value": "Sends a private message to one or more players", "kind": "markdown" }
+      "documentation": { "value": "Sends a private message to one or more players.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1337,7 +1337,7 @@
         { "Text": "victim", "Type": "selector", "Required": true }
       ],
       "name": "testfor",
-      "documentation": { "value": "Counts entities (players, mobs, items, etc.) matching specified conditions", "kind": "markdown" }
+      "documentation": { "value": "Counts entities (players, mobs, items, etc.) matching specified conditions.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1349,7 +1349,7 @@
         { "Text": "data value", "Type": "integer", "Required": false }
       ],
       "name": "testforblock",
-      "documentation": { "value": "tests whether a certain block is a specific location", "kind": "markdown" }
+      "documentation": { "value": "tests whether a certain block is a specific location.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1365,7 +1365,7 @@
         { "Text": "destination z", "Type": "coordinate", "Required": true }
       ],
       "name": "testforblocks",
-      "documentation": { "value": "Tests whether the blocks in two regions match", "kind": "markdown" }
+      "documentation": { "value": "Tests whether the blocks in two regions match.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1382,7 +1382,7 @@
         { "Text": "all", "Type": "keyword", "Required": true }
       ],
       "name": "testforblocks",
-      "documentation": { "value": "Tests whether the blocks in two regions match", "kind": "markdown" }
+      "documentation": { "value": "Tests whether the blocks in two regions match.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1399,7 +1399,7 @@
         { "Text": "masked", "Type": "keyword", "Required": true }
       ],
       "name": "testforblocks",
-      "documentation": { "value": "Tests whether the blocks in two regions match", "kind": "markdown" }
+      "documentation": { "value": "Tests whether the blocks in two regions match.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1414,7 +1414,7 @@
         { "Text": "name", "Type": "tickingarea", "Required": false }
       ],
       "name": "tickingarea",
-      "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+      "documentation": { "value": "Add, remove, or list ticking areas.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1428,7 +1428,7 @@
         { "Text": "name", "Type": "tickingarea", "Required": false }
       ],
       "name": "tickingarea",
-      "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+      "documentation": { "value": "Add, remove, or list ticking areas.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1437,7 +1437,7 @@
         { "Text": "all-dimensions", "Type": "keyword", "Required": false }
       ],
       "name": "tickingarea",
-      "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+      "documentation": { "value": "Add, remove, or list ticking areas.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1448,7 +1448,7 @@
         { "Text": "z", "Type": "coordinate", "Required": true }
       ],
       "name": "tickingarea",
-      "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+      "documentation": { "value": "Add, remove, or list ticking areas.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1457,7 +1457,7 @@
         { "Text": "name", "Type": "tickingarea", "Required": true }
       ],
       "name": "tickingarea",
-      "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+      "documentation": { "value": "Add, remove, or list ticking areas.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1465,7 +1465,7 @@
         { "Text": "remove_all", "Type": "keyword", "Required": true }
       ],
       "name": "tickingarea",
-      "documentation": { "value": "Add, remove, or list ticking areas", "kind": "markdown" }
+      "documentation": { "value": "Add, remove, or list ticking areas.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1474,7 +1474,7 @@
         { "Text": "amount", "Type": "integer", "Required": true }
       ],
       "name": "time",
-      "documentation": { "value": "Add to the world's game time", "kind": "markdown" }
+      "documentation": { "value": "Add to the world's game time.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1483,7 +1483,7 @@
         { "Text": "daytime", "Type": "keyword", "Required": true }
       ],
       "name": "time",
-      "documentation": { "value": "Changes or queries the world's game time", "kind": "markdown" }
+      "documentation": { "value": "Changes or queries the world's game time.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1492,7 +1492,7 @@
         { "Text": "gametime", "Type": "integer", "Required": true }
       ],
       "name": "time",
-      "documentation": { "value": "Queries the world's game time", "kind": "markdown" }
+      "documentation": { "value": "Queries the world's game time.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1501,7 +1501,7 @@
         { "Text": "day", "Type": "keyword", "Required": true }
       ],
       "name": "time",
-      "documentation": { "value": "Changes or queries the world's game time", "kind": "markdown" }
+      "documentation": { "value": "Changes or queries the world's game time.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1510,7 +1510,7 @@
         { "Text": "amount", "Type": "integer", "Required": true }
       ],
       "name": "time",
-      "documentation": { "value": "Sets the world's game time", "kind": "markdown" }
+      "documentation": { "value": "Sets the world's game time.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1520,7 +1520,7 @@
         { "Text": "titleText", "Type": "unknown", "Required": true }
       ],
       "name": "title",
-      "documentation": { "value": "Sets the title", "kind": "markdown" }
+      "documentation": { "value": "Sets the title.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1530,7 +1530,7 @@
         { "Text": "titleText", "Type": "unknown", "Required": true }
       ],
       "name": "title",
-      "documentation": { "value": "Sets the sub titles", "kind": "markdown" }
+      "documentation": { "value": "Sets the sub titles.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1540,7 +1540,7 @@
         { "Text": "titleText", "Type": "unknown", "Required": true }
       ],
       "name": "title",
-      "documentation": { "value": "Sets the action bar", "kind": "markdown" }
+      "documentation": { "value": "Sets the action bar.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1549,7 +1549,7 @@
         { "Text": "clear", "Type": "keyword", "Required": true }
       ],
       "name": "title",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Clears the title & subtitle from the given players", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1558,7 +1558,7 @@
         { "Text": "reset", "Type": "keyword", "Required": true }
       ],
       "name": "title",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Clears the title & subtitle from the given players", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1570,7 +1570,7 @@
         { "Text": "fade out", "Type": "integer", "Required": true }
       ],
       "name": "title",
-      "documentation": { "value": "Set the timings", "kind": "markdown" }
+      "documentation": { "value": "Set the title timings.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1580,7 +1580,7 @@
         { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
       ],
       "name": "titleraw",
-      "documentation": { "value": "Sets the title", "kind": "markdown" }
+      "documentation": { "value": "Sets the title.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1590,7 +1590,7 @@
         { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
       ],
       "name": "titleraw",
-      "documentation": { "value": "Sets the sub titles", "kind": "markdown" }
+      "documentation": { "value": "Sets the sub titles.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1600,7 +1600,7 @@
         { "Text": "json raw text", "Type": "jsonRawText", "Required": true }
       ],
       "name": "titleraw",
-      "documentation": { "value": "Sets the action bar", "kind": "markdown" }
+      "documentation": { "value": "Sets the action bar.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1609,7 +1609,7 @@
         { "Text": "clear", "Type": "keyword", "Required": true }
       ],
       "name": "titleraw",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Clears the title & subtitle from the given players", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1618,7 +1618,7 @@
         { "Text": "reset", "Type": "keyword", "Required": true }
       ],
       "name": "titleraw",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Clears the title & subtitle from the given players", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1630,12 +1630,12 @@
         { "Text": "fade out", "Type": "integer", "Required": true }
       ],
       "name": "titleraw",
-      "documentation": { "value": "Set the timings", "kind": "markdown" }
+      "documentation": { "value": "Set the timings.", "kind": "markdown" }
     },
     {
       "parameters": [{ "Text": "toggledownfall", "Type": "keyword", "Required": true }],
       "name": "toggledownfall",
-      "documentation": { "value": "Toggles the weather", "kind": "markdown" }
+      "documentation": { "value": "Toggles the weather.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1644,7 +1644,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the executing entity to the destination entity.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1655,7 +1655,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the executing entity to the location.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1665,7 +1665,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination entity.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1677,7 +1677,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the specified location.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1688,7 +1688,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the executing entity to the destination with rotation.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1701,7 +1701,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the executing entity to the destination with rotation.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1714,7 +1714,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with rotation.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1728,7 +1728,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with rotation.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1739,7 +1739,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the executing entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1752,7 +1752,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the executing entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1764,7 +1764,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1778,7 +1778,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1791,7 +1791,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the executing entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1806,7 +1806,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1820,7 +1820,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1836,7 +1836,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "tp",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with facing.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1845,7 +1845,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1856,7 +1856,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1866,7 +1866,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1878,7 +1878,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1889,7 +1889,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1902,7 +1902,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1915,7 +1915,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Teleport the entity to the destination with rotation.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1929,7 +1929,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1940,7 +1940,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1953,7 +1953,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1965,7 +1965,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1979,7 +1979,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -1992,7 +1992,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2007,7 +2007,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2021,7 +2021,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2037,7 +2037,7 @@
         { "Text": "check for blocks", "Type": "boolean", "Required": false }
       ],
       "name": "teleport",
-      "documentation": { "value": "Teleport Entities", "kind": "markdown" }
+      "documentation": { "value": "Teleport Entities.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2046,7 +2046,7 @@
         { "Text": "message", "Type": "keyword", "Required": true }
       ],
       "name": "w",
-      "documentation": { "value": "TODO description", "kind": "markdown" }
+      "documentation": { "value": "Sends a message to the receiver.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2055,7 +2055,7 @@
         { "Text": "duration", "Type": "integer", "Required": false }
       ],
       "name": "weather",
-      "documentation": { "value": "Sets the weather", "kind": "markdown" }
+      "documentation": { "value": "Sets the weather.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2064,7 +2064,7 @@
         { "Text": "duration", "Type": "integer", "Required": false }
       ],
       "name": "weather",
-      "documentation": { "value": "Sets the weather", "kind": "markdown" }
+      "documentation": { "value": "Sets the weather.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2073,7 +2073,7 @@
         { "Text": "duration", "Type": "integer", "Required": false }
       ],
       "name": "weather",
-      "documentation": { "value": "Sets the weather", "kind": "markdown" }
+      "documentation": { "value": "Sets the weather.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2082,7 +2082,7 @@
         { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
       ],
       "name": "xp",
-      "documentation": { "value": "Adds or removes player experience", "kind": "markdown" }
+      "documentation": { "value": "Adds or removes player experience.", "kind": "markdown" }
     },
     {
       "parameters": [
@@ -2091,7 +2091,7 @@
         { "Text": "player", "Type": "selector", "Required": false, "Options": { "playerOnly": true } }
       ],
       "name": "xp",
-      "documentation": { "value": "Adds or removes player experience", "kind": "markdown" }
+      "documentation": { "value": "Adds or removes player experience.", "kind": "markdown" }
     }
   ]
 }
