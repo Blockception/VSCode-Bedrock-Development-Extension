@@ -46,7 +46,7 @@
     },
     {
       "name": "classroommode",
-      "documentation": { "value": "??", "kind": "plaintext" },
+      "documentation": { "value": "Launches and connects the world to the Classroom mode", "kind": "plaintext" },
       "parameters": [{ "Text": "classroommode", "Type": "keyword", "Required": true }]
     },
     {
