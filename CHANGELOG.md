@@ -1,5 +1,7 @@
 # Changelog 
 ## Plugin 
+- Updated comments
+- Updated comments
 - Fixing
 - Fixing
 - Updated schemas
@@ -37,9 +39,7 @@
 - Updated molang to 1.7.0
 - Updated
 - behaviour -> behavior
-- Adding json resolving
-- Updated
-- Updated. 
+- Adding json resolving. 
 ## Schemas 
 - Fixed
 - Added timeline examples names
