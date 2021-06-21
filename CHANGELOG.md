@@ -1,6 +1,7 @@
 # Changelog 
 ## Plugin 
 - Fixing
+- Fixing
 - Updated schemas
 - Updated Edu support
 - Removed
@@ -38,8 +39,7 @@
 - behaviour -> behavior
 - Adding json resolving
 - Updated
-- Updated
-- Updated documentation to reflect new json validation schemas. 
+- Updated. 
 ## Schemas 
 - Fixed
 - Added timeline examples names
