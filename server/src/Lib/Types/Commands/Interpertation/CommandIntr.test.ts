@@ -1,7 +1,10 @@
 import { expect } from "chai";
+import { AddCommands } from "../../../Data/Commands/Add Commands";
 import { CommandIntr, GetSubCommand } from "./CommandIntr";
 
 describe("CommandIntr", () => {
+  AddCommands();
+
   it("parse 1 - simple test", () => {
     const comm = CommandIntr.parse("execute @s[scores={foo=1..}] ~ ~ ~ tp @a[tag=target] @s", { character: 0, line: 0 }, "");
 

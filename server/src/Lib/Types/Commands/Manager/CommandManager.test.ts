@@ -1,9 +1,12 @@
 import { expect } from "chai";
+import { AddCommands } from "../../../Data/Commands/Add Commands";
 import { Manager } from "../../../Manager/include";
 import { CommandIntr } from "../Interpertation/CommandIntr";
 import { isMatch } from "./CommandManager";
 
 describe("Command Manager", () => {
+  AddCommands();
+
   it("GetCommandData", () => {
     const comm = CommandIntr.parse("playanimation @e left", { character: 0, line: 0 }, "");
 

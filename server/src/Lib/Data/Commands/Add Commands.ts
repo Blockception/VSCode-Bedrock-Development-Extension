@@ -3,7 +3,7 @@ import { Manager } from "../../Manager/Manager";
 import { MCCommand } from "../../Types/Commands/Command/include";
 import { ParameterOptions, MCCommandParameterType, MCCommandParameter } from "../../Types/Commands/Parameter/include";
 import * as vanilla from "./vanilla.json";
-import * as edu from "./vanilla.json";
+import * as edu from "./edu.json";
 
 interface Command {
   parameters: {
