@@ -107,7 +107,10 @@ export class CommandManager {
       return;
     }
 
-    if (Storage.length == 1) return;
+    if (Storage.length == 1) {
+      receiver.push(Storage[0]);
+      return;
+    }
 
     for (let I = 0; I < Storage.length; I++) {
       if (isMatch(com, Storage[I].Command, edu)) receiver.push(Storage[I]);
@@ -169,7 +172,7 @@ export function isMatch(com: CommandIntr, pattern: MCCommand, edu: boolean): boo
         break;
 
       case MCCommandParameterType.command:
-        if (IsCommand(comText, edu)) return false;
+        if (!IsCommand(comText, edu)) return false;
         break;
 
       case MCCommandParameterType.coordinate:

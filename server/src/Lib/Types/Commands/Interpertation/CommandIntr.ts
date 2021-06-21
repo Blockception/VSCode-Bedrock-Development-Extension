@@ -166,15 +166,13 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
 export function GetSubCommand(command: CommandIntr, edu: boolean): CommandIntr | undefined {
   const Matches = command.GetCommandData(edu);
 
-  if (Matches.length === 0) {
-    return;
-  }
+  for (var I = 0; I < Matches.length; I++) {
+    const Item = Matches[I];
+    const index = Item.Command.getIndexOfType(MCCommandParameterType.command);
 
-  const Item = Matches[0];
-  const index = Item.Command.getIndexOfType(MCCommandParameterType.command);
-
-  if (index > -1 && index < command.Parameters.length) {
-    return command.slice(index);
+    if (index > -1 && index < command.Parameters.length) {
+      return command.slice(index);
+    }
   }
 
   return undefined;

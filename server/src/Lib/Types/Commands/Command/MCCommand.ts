@@ -2,6 +2,9 @@ import { MCCommandParameter } from "../Parameter/Parameter";
 import { MarkupContent } from "vscode-languageserver";
 import { MCCommandParameterType } from "../Parameter/include";
 
+/**
+ *
+ */
 export class MCCommand {
   public name: string;
   public parameters: MCCommandParameter[];
@@ -13,6 +16,10 @@ export class MCCommand {
     this.documentation = { kind: "markdown", value: "" };
   }
 
+  /**
+   *
+   * @param item
+   */
   add(item: MCCommandParameter[]) {
     if (this.parameters.length == 0) {
       this.name = item[0].Text;
@@ -22,6 +29,11 @@ export class MCCommand {
     }
   }
 
+  /**
+   *
+   * @param value
+   * @returns
+   */
   includes(value: string | MCCommandParameterType): boolean {
     if (typeof value === "string") {
       for (let I = 0; I < this.parameters.length; I++) {
@@ -36,6 +48,11 @@ export class MCCommand {
     return false;
   }
 
+  /**
+   *
+   * @param type
+   * @returns
+   */
   getIndexOfType(type: MCCommandParameterType): number {
     for (let I = 0; I < this.parameters.length; I++) {
       if (this.parameters[I].Type === type) return I;
@@ -44,6 +61,12 @@ export class MCCommand {
     return -1;
   }
 
+  /**
+   *
+   * @param type
+   * @param startindex
+   * @returns
+   */
   getIndexOfTypeReverse(type: MCCommandParameterType, startindex: number = -1): number {
     if (startindex < 0 || startindex >= this.parameters.length) startindex = this.parameters.length - 1;
 
