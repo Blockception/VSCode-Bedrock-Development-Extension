@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Fixing
 - Updated schemas
 - Updated Edu support
 - Removed
@@ -38,9 +39,10 @@
 - Adding json resolving
 - Updated
 - Updated
-- Updated documentation to reflect new json validation schemas
-- let -> const. 
+- Updated documentation to reflect new json validation schemas. 
 ## Schemas 
+- Fixed
+- Added timeline examples names
 - Updated
 - Updated
 - Updated Comments
@@ -79,5 +81,3 @@
 - Updated
 - Replaced
 - Fixed
-- Updated
-- Added enum to placement_pass
