@@ -73,7 +73,7 @@ export function Diagnoseline(line: string, index: number, Keys: string[], builde
     builder.AddAt("A translation item needs a '=' to seperate key and value", index, 0, line.length).code = "line.invalid";
   } else {
     const Key = line.substring(0, Index);
-    const KeyIndex = Keys.indexOf(Key);
+    const KeyIndex = Keys.indexOf(Key.toLowerCase());
 
     //If the key is found in the existing list of keys, then produce an error
     if (KeyIndex >= 0 && KeyIndex != index) {
@@ -81,7 +81,7 @@ export function Diagnoseline(line: string, index: number, Keys: string[], builde
       builder.AddAt("Duplicate key found at: " + index, KeyIndex, 0, Key.length).code = "line.duplicate";
     }
 
-    Keys[index] = Key;
+    Keys[index] = Key.toLowerCase();
   }
 
   //The value needs to be something
