@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Updated Schemas
 - Updated comments
 - Updated comments
 - Fixing
@@ -38,9 +39,9 @@
 - Moved Constants
 - Updated molang to 1.7.0
 - Updated
-- behaviour -> behavior
-- Adding json resolving. 
+- behaviour -> behavior. 
 ## Schemas 
+- Updated block components
 - Fixed
 - Added timeline examples names
 - Updated
@@ -80,4 +81,3 @@
 - Added more features
 - Updated
 - Replaced
-- Fixed
