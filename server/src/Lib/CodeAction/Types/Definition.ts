@@ -6,6 +6,12 @@ import { Commands } from "../..//Constants";
 import { GetDocument } from "../../Types/Document/include";
 import { CodeActionBuilder } from "../Builder";
 
+/**
+ *
+ * @param builder
+ * @param diag
+ * @param type
+ */
 export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: string): void {
   const doc = GetDocument(builder.params.textDocument.uri);
 

@@ -9,12 +9,22 @@ import { CreateMCProject } from "./MCProjects";
 import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
   return new Promise<any>((resolve, reject) => {
     resolve(OnCommandRequest(params));
   });
 }
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 function OnCommandRequest(params: ExecuteCommandParams): any {
   try {
     switch (params.command) {

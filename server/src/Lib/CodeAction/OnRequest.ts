@@ -2,18 +2,33 @@ import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-langua
 import { CodeActionBuilder } from "./Builder";
 import { Definition } from "./Types/Definition";
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Command | CodeAction)[] | undefined | null> {
   return new Promise<(Command | CodeAction)[] | undefined | null>((resolve, reject) => {
     resolve(OnCodeAction(params));
   });
 }
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 export async function OnCodeActionResolveAsync(params: CodeAction): Promise<CodeAction> {
   return new Promise<CodeAction>((resolve, reject) => {
     resolve(params);
   });
 }
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 export function OnCodeAction(params: CodeActionParams): (Command | CodeAction)[] {
   let builder = new CodeActionBuilder(params);
 
@@ -22,6 +37,11 @@ export function OnCodeAction(params: CodeActionParams): (Command | CodeAction)[]
   return builder.out;
 }
 
+/**
+ *
+ * @param builder
+ * @param diag
+ */
 function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
   var code = diag.code ?? "";
 

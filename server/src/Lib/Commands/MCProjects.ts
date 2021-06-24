@@ -5,10 +5,18 @@ import { URI } from "vscode-uri";
 import { Manager } from "../Manager/include";
 import { TemplateBuilder } from "./Templates/include";
 
+/**
+ *
+ */
 export function CreateMCProject() {
   Manager.Connection.workspace.getWorkspaceFolders().then(processWorkspace);
 }
 
+/**
+ *
+ * @param ws
+ * @returns
+ */
 function processWorkspace(ws: WorkspaceFolder[] | null): void {
   if (ws === null) return;
 
