@@ -1,5 +1,6 @@
 # Changelog 
 ## Plugin 
+- Updated
 - Updated Schemas
 - Updated comments
 - Updated comments
@@ -38,9 +39,11 @@
 - Restored
 - Moved Constants
 - Updated molang to 1.7.0
-- Updated
-- behaviour -> behavior. 
+- Updated. 
 ## Schemas 
+- Updated titles
+- Updated lookat
+- Updated
 - Updated block components
 - Fixed
 - Added timeline examples names
@@ -78,6 +81,3 @@
 - Updated
 - Updated
 - Added notes
-- Added more features
-- Updated
-- Replaced
