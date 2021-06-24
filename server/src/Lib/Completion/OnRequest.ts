@@ -7,22 +7,33 @@ import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
 
-//Handle request
+/**Handle request
+ * @param params
+ * @returns
+ */
 export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[]> {
   return new Promise((resolve, reject) => {
     resolve(OnCompletionRequest(params).items);
   });
 }
 
+/**
+ *
+ * @param params
+ * @returns
+ */
 export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem> {
   return new Promise<CompletionItem>((resolve, reject) => resolve(params));
 }
 
-//Processes request
+/**Processes request
+ * @param params
+ * @returns
+ */
 function OnCompletionRequest(params: CompletionParams): CompletionList {
-  let Doc = GetDocument(params.textDocument.uri);
-  let Builder = new CompletionBuilder(Doc);
-  let Pos = params.position;
+  const Doc = GetDocument(params.textDocument.uri);
+  const Builder = new CompletionBuilder(Doc);
+  const Pos = params.position;
 
   switch (Doc.languageId) {
     case Languages.McLanguageIdentifier:
@@ -43,18 +54,18 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
       break;
   }
 
-  let List: CompletionList = { isIncomplete: false, items: [] };
+  const List: CompletionList = { isIncomplete: false, items: [] };
   List.items = removeDuplicate(Builder.items);
 
   return List;
 }
 
 function removeDuplicate(items: CompletionItem[]): CompletionItem[] {
-  let Length = items.length;
-  let Out: CompletionItem[] = [];
+  const Length = items.length;
+  const Out: CompletionItem[] = [];
 
   for (let I = 0; I < Length; I++) {
-    let Current = items[I];
+    const Current = items[I];
 
     if (!hasItem(Out, Current)) {
       Out.push(Current);
@@ -65,7 +76,7 @@ function removeDuplicate(items: CompletionItem[]): CompletionItem[] {
 }
 
 function hasItem(items: CompletionItem[], item: CompletionItem): boolean {
-  let label = item.label;
+  const label = item.label;
 
   for (let I = 0; I < items.length; I++) {
     if (label == items[I].label) return true;
