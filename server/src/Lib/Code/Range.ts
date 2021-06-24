@@ -1,7 +1,18 @@
 import { Location } from "vscode-languageserver";
 import * as vs from "vscode-languageserver-textdocument";
 
+export interface Range extends vs.Range {}
+
+/**
+ *
+ */
 export namespace Range {
+  /**
+   *
+   * @param range
+   * @param position
+   * @returns
+   */
   export function Within(range: vs.Range | Location, position: vs.Position | number): boolean {
     if (Location.is(range)) {
       range = range.range;

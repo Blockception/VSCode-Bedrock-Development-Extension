@@ -1,3 +1,8 @@
+/**
+ *
+ * @param filepath
+ * @returns
+ */
 export function GetFilename(filepath: string): string {
   filepath = filepath.replace(/\\/g, "//");
   let index = filepath.lastIndexOf("/");
@@ -15,6 +20,11 @@ export function GetFilename(filepath: string): string {
   return filepath.trim();
 }
 
+/**
+ *
+ * @param filepath
+ * @returns
+ */
 export function getExtension(filepath: string): string {
   const index = filepath.lastIndexOf(".");
 
@@ -22,6 +32,11 @@ export function getExtension(filepath: string): string {
 
   return filepath.substring(index, filepath.length).trim();
 }
+/**
+ *
+ * @param uri
+ * @returns
+ */
 
 export function GetParent(uri: string): string {
   let Index = uri.lastIndexOf("\\");

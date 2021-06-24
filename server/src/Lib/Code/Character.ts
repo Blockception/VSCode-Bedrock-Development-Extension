@@ -1,3 +1,4 @@
+/** */
 export namespace Character {
   const Character_a = "a".charCodeAt(0);
   const Character_z = "z".charCodeAt(0);
@@ -6,6 +7,7 @@ export namespace Character {
   const Character_0 = "0".charCodeAt(0);
   const Character_9 = "9".charCodeAt(0);
 
+  /** */
   export function IsLetter(char: string): boolean {
     var code = char.charCodeAt(0);
 
@@ -15,6 +17,7 @@ export namespace Character {
     return false;
   }
 
+  /** */
   export function IsNumber(char: string): boolean {
     var code = char.charCodeAt(0);
 

@@ -37,8 +37,7 @@ export interface ProjectFiles {
 }
 
 /**Retrieves workspaces and then updated the @see Database.WorkspaceData
- * @returns A promise with project related files
- */
+ * @returns A promise with project related files*/
 export async function GetProjectFiles(): Promise<ProjectFiles> {
   const WS = Manager.Connection.workspace.getWorkspaceFolders();
 
