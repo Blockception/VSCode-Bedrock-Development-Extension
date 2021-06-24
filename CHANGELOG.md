@@ -1,9 +1,9 @@
 # Changelog
 ## Plugin
-\t
+.
 - [Changelog](#changelog)
-\t- [Plugin](#plugin)
-\t- [Schemas](#schemas)
+  - [Plugin](#plugin)
+  - [Schemas](#schemas)
 - Updated
 - Updated
 - Updated
@@ -43,9 +43,9 @@
 - Fixing
 - Updated
 - Updated
-- Added volume creation\t
+- Added volume creation.
 ## Schemas
-\t
+.
 - Updated titles
 - Updated lookat
 - Updated
