@@ -1,5 +1,10 @@
 import { URI } from "vscode-uri";
 
+/**
+ *
+ * @param Uri
+ * @returns
+ */
 export function UniformUrl(Uri: string): string {
   let Out: string;
 
@@ -16,6 +21,11 @@ export function UniformUrl(Uri: string): string {
   return Out;
 }
 
+/**
+ *
+ * @param Uri
+ * @returns
+ */
 export function GetFilepath(Uri: string): string {
   let uri = URI.file(decodeURI(Uri)).fsPath;
 

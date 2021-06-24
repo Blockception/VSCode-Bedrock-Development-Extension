@@ -1,7 +1,7 @@
-import { Location } from "vscode-languageserver";
+import * as vsp from "vscode-languageserver";
 import * as vs from "vscode-languageserver-textdocument";
 
-export interface Range extends vs.Range {}
+export interface Range extends vs.Range, vsp.Range {}
 
 /**
  *
@@ -13,8 +13,8 @@ export namespace Range {
    * @param position
    * @returns
    */
-  export function Within(range: vs.Range | Location, position: vs.Position | number): boolean {
-    if (Location.is(range)) {
+  export function Within(range: vs.Range | vsp.Location, position: vs.Position | number): boolean {
+    if (vsp.Location.is(range)) {
       range = range.range;
     }
 

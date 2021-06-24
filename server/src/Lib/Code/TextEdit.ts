@@ -1,5 +1,13 @@
 import { Range, TextEdit } from "vscode-languageserver";
 
+/**
+ *
+ * @param line
+ * @param oldText
+ * @param newText
+ * @param lineIndex
+ * @param receiver
+ */
 export function Replace(line: string, oldText: string, newText: string, lineIndex: number, receiver: TextEdit[]) {
   let Index = line.indexOf(oldText);
 
@@ -11,7 +19,11 @@ export function Replace(line: string, oldText: string, newText: string, lineInde
   }
 }
 
-//Loop through starting character to filters out empty characters and slashes
+/**Loop through starting character to filters out empty characters and slashes
+ * @param line
+ * @param index
+ * @param Collector
+ * @param ToRemove*/
 export function TrimStartFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]) {
   const Text = line;
   const LineIndex = index;
@@ -35,6 +47,12 @@ export function TrimStartFromLine(line: string, index: number, Collector: TextEd
   }
 }
 
+/**
+ *
+ * @param line
+ * @param index
+ * @param Collector
+ * @param ToRemove*/
 export function TrimEndFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]): void {
   const Text = line;
   const LineIndex = index;
