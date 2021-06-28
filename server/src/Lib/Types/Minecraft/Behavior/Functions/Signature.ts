@@ -17,7 +17,7 @@ export function ProvideMcfunctionCommandSignature(Line: string, Start: Position,
 
   if (command.IsEmpty()) return undefined;
 
-  let SubCommand = IsInSubCommand(command, cursor.character);
+  const SubCommand = IsInSubCommand(command, cursor.character);
 
   if (SubCommand != undefined) {
     command = SubCommand;
@@ -35,7 +35,7 @@ export function ProvideMcfunctionCommandSignature(Line: string, Start: Position,
 }
 
 function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
-  let Out: SignatureInformation[] = [];
+  const Out: SignatureInformation[] = [];
 
   for (let I = 0; I < Commands.length; I++) {
     let Current = Commands[I];
