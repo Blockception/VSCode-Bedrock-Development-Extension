@@ -13,13 +13,13 @@ import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 import { McfunctionLineTokens } from "./Mcfunctions";
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
-  var Type = DetectGeneralDataType(doc.uri);
+  const Type = DetectGeneralDataType(doc.uri);
 
   //Not related to minecraft
   if (Type == GeneralDataType.unknown) return { data: [] };
 
-  let Builder = new JsonSemanticTokensBuilder(doc);
-  let text = doc.getText(range);
+  const Builder = new JsonSemanticTokensBuilder(doc);
+  const text = doc.getText(range);
   let offset = 0;
 
   if (range) {

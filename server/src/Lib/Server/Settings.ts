@@ -64,7 +64,7 @@ export namespace ServerSettings {
   }
 
   export function createDefaulSettings(): ServerSettings {
-    let Out: ServerSettings = {
+    const Out: ServerSettings = {
       Education: {
         Enable: true,
       },
