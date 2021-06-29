@@ -3,7 +3,7 @@ import { SafeIDNoNamespace } from "../../../Data/Templates/Function";
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { Context } from "../Context";
-import { uuid } from "uuidv4";
+const { v4: uuid } = require("uuid");
 
 export function create_animation_controller_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
   const safeID = SafeIDNoNamespace(ID);
@@ -43,6 +43,7 @@ export function create_loot_table_file(ID: string, Context: Context, Builder: Te
 
 export function create_manifest_file(Context: Context, Builder: TemplateBuilder): void {
   const uri = path.join(Context.BehaviorPack, "manifest.json");
+
   const UUID1 = uuid();
   const UUID2 = uuid();
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_manifest(UUID1, UUID2));

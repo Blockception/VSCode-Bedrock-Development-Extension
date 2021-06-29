@@ -3,8 +3,9 @@ import { SafeIDNoNamespace } from "../../../Data/Templates/Function";
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { Context } from "../Context";
-import { uuid } from "uuidv4";
 import { GetDocuments } from "../../../Types/Document/include";
+
+const { v4: uuid } = require("uuid");
 
 export function create_animation_controller_file(ID: string, Context: Context, Builder: TemplateBuilder): void {
   const safeID = SafeIDNoNamespace(ID);
@@ -107,12 +108,16 @@ export function create_terrain_texture_file(Context: Context, Builder: TemplateB
 export function create_texture_list_file(Context: Context, Builder: TemplateBuilder): void {
   const uri = path.join(Context.ResourcePack, "textures", "texture_list.json");
 
-  let Textures = GetDocuments(Context.ResourcePack + "textures/", ["**/*.png", "**/*.tga"]);
+  const Textures = GetDocuments(Context.ResourcePack + "textures/", ["**/*.png", "**/*.tga"]);
 
   for (let I = 0; I < Textures.length; I++) {
-    var Texture = Textures[I];
-    Texture = Texture.replace(Context.ResourcePack, "");
-    let Index = Texture.lastIndexOf(".");
+    let Texture = Textures[I];
+
+    let Index = Texture.indexOf("/textures/");
+
+    if (Index > -1) Texture = Texture.substring(Index + 1, Texture.length);
+
+    Index = Texture.lastIndexOf(".");
 
     if (Index > -1) {
       Texture = Texture.substring(0, Index);

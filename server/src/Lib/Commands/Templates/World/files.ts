@@ -1,4 +1,4 @@
-import { uuid } from "uuidv4";
+const { v4: uuid } = require("uuid");
 import * as path from "path";
 import { Templates } from "../../../Data/include";
 import { TemplateBuilder } from "../Builder";
