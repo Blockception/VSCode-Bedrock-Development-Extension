@@ -1,2 +1,83 @@
 # Changelog
 ## Plugin
+- Updated
+- Updated UUID gen
+- Updated
+- Updated
+- Updated Scripts
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated Schemas
+- Updated comments
+- Updated comments
+- Fixing
+- Fixing
+- Updated schemas
+- Updated Edu support
+- Removed
+- Added dialogue support
+- Refactor selectors
+- Added dialogue command
+- Added @Initiator to code
+- Added Dialogue folder to BP
+- Added the @Initiatior selector
+- Fixing block schemas
+- Updated
+- Fixed
+- Updated
+- Updated
+- Updated script
+- 2.1.0
+- Updated code
+- Updated Schemas
+- Updated
+- Updated
+- Updated
+- Added a rescan command
+- Updated
+- fixed
+- Fixing trimming and offset for semantic tokens. 
+## Schemas
+- Updated titles
+- Updated lookat
+- Updated
+- Updated block components
+- Fixed
+- Added timeline examples names
+- Updated
+- Updated
+- Updated Comments
+- Updated filters
+- Updating filters
+- Updated
+- Replaced undocumented
+- Updated descriptions
+- Fixing is_stackable
+- Update format-json-files.yml
+- Added dialogue schemas
+- Updated
+- Updated description
+- Updated
+- Updated
+- updating todo titles
+- Polished and examples
+- UNDOCUMENTATED description
+- UNDOCUMENTATED description, or needs to be filled in
+- Updated
+- Fixing entities
+- Fixing features schemas
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated
+- formatted
+- '. -> `.
+- Updated
+- Updated
+- Added notes
