@@ -2,7 +2,9 @@ import { GetProjectFiles, ProjectFiles } from "../../Code/include";
 import { FindBedrockInstallationFolder } from "../../Format/Install Location";
 
 export class MinecraftProgramData {
+  /** */
   private BedrockInstallLocation: string | undefined;
+  /** */
   private ProjectFiles: ProjectFiles | undefined;
 
   constructor() {}

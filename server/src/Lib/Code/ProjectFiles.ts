@@ -83,6 +83,8 @@ function CheckStructure(folders: WorkspaceConfiguration[] | null, PF: ProjectFil
   for (let I = 0; I < folders.length; I++) {
     GetWorkspaceFiles(folders[I], PF);
   }
+
+  Console.Log("workspace layout discovered");
 }
 
 /**
@@ -106,6 +108,9 @@ export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles):
   }
 
   const entries = Glob.GetFiles(dirs, Ws.ignores);
+
+  Console.Log(`Found ${entries.length} manifests`);
+
   Process(entries, PF);
 }
 
@@ -134,7 +139,7 @@ function Process(files: string[], PF: ProjectFiles): void {
         break;
 
       default:
-        let JDoc = JsonDocument.GetDocument(item);
+        const JDoc = JsonDocument.GetDocument(item);
         const manifest = JDoc.CastTo<Manifest>();
 
         if (!manifest) break;
