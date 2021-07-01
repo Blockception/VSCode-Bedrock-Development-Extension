@@ -1,6 +1,9 @@
 # Changelog
 ## Plugin
 - Updated
+- Fixing
+- 2.1.28
+- Updated
 - Updated
 - Fixing
 - Updated
@@ -36,10 +39,7 @@
 - Fixing block schemas
 - Updated
 - Fixed
-- Updated
-- Updated
-- Updated script
-- 2.1.0. 
+- Updated. 
 ## Schemas
 - Updated Tiltes
 - Updated
