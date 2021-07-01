@@ -1,6 +1,9 @@
 # Changelog
 ## Plugin
 - Updated
+- Updated packages
+- Updated behavior detection
+- Updated
 - Updated UUID gen
 - Updated
 - Updated
@@ -36,11 +39,21 @@
 - Updated
 - Updated
 - Updated
-- Added a rescan command
-- Updated
-- fixed
-- Fixing trimming and offset for semantic tokens. 
+- Added a rescan command. 
 ## Schemas
+- Updated Tiltes
+- Updated
+- Updated
+- Updated
+- fixed json
+- Updated Comments
+- Updated comments
+- Updated titles
+- Updated
+- Updated Components
+- Updated behaviours
+- Updated UNDOCUMENTED
+- Updating
 - Updated titles
 - Updated lookat
 - Updated
@@ -68,16 +81,3 @@
 - UNDOCUMENTATED description, or needs to be filled in
 - Updated
 - Fixing entities
-- Fixing features schemas
-- Updated
-- Updated
-- Updated
-- Updated
-- Updated
-- Updated
-- Updated
-- formatted
-- '. -> `.
-- Updated
-- Updated
-- Added notes
