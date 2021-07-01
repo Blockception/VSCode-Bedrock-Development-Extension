@@ -25,10 +25,10 @@ export namespace Range {
     } else {
       //Position check
       if (range.start.line > position.line) return false;
-      if (range.start.character > position.character) return false;
+      if (range.start.line == position.line && range.start.character > position.character) return false;
 
       if (range.end.line < position.line) return false;
-      if (range.end.character < position.character) return false;
+      if (range.end.line == position.line && range.end.character < position.character) return false;
     }
 
     return true;
