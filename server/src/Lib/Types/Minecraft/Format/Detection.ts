@@ -66,12 +66,20 @@ export function DetectBehaviorType(uri: string): DataType {
   if (uri.includes("/animation_controllers/")) return DataType.behavior_animation_controller;
   if (uri.includes("/animations/")) return DataType.behavior_animation;
   if (uri.includes("/blocks/")) return DataType.behavior_block;
+  if (uri.includes("/biomes/")) return DataType.behavior_biome;
+  if (uri.includes("/dialogue/")) return DataType.behavior_dialogue;
   if (uri.includes("/entities/")) return DataType.behavior_entity;
+  if (uri.includes("/feature_rules/")) return DataType.behavior_feature_rule;
+  if (uri.includes("/features/")) return DataType.behavior_feature;
+  if (uri.includes("/recipes/")) return DataType.behavior_recipe;
   if (uri.includes("/functions/")) return DataType.behavior_function;
   if (uri.includes("/items/")) return DataType.behavior_item;
   if (uri.includes("/scripts/")) return DataType.behavior_script;
+  if (uri.includes("/structures/")) return DataType.behavior_structure;
   if (uri.includes("/spawn_rules/")) return DataType.behavior_spawn_rules;
   if (uri.includes("/trading/")) return DataType.behavior_trade;
+  if (uri.includes("/texts/")) return DataType.behavior_text;
+  if (uri.includes("/volumes/")) return DataType.behavior_volume;
 
   //Files
   if (uri.includes("manifest.json")) return DataType.behavior_manifest;

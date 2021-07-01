@@ -24,12 +24,12 @@ export function GetDocument(uri: string, Content: string | vscode.TextDocument |
   }
 
   if (typeof Content === "undefined") {
-    let doc = Manager.Data.Documents.get(Old);
+    const doc = Manager.Data.Documents.get(Old);
 
     //Cached document
     if (doc) return TextDocument.wrap(doc);
 
-    let content = GetDocumentContent(uri);
+    const content = GetDocumentContent(uri);
     if (content) {
       return TextDocument.create(uri, languageID, 1, content);
     }
