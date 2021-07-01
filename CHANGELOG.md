@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- 2.1.26
 - Updated
 - Updated packages
 - Updated behavior detection
@@ -38,8 +39,7 @@
 - Updated Schemas
 - Updated
 - Updated
-- Updated
-- Added a rescan command. 
+- Updated. 
 ## Schemas
 - Updated Tiltes
 - Updated
