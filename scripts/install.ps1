@@ -1,3 +1,15 @@
 npm install
-npm install -g
+npm update
 npm install -g vsce
+
+cd client
+npm install
+npm update
+
+cd ..
+cd server
+
+npm install
+npm update
+
+cd ..
