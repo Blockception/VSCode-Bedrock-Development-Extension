@@ -16,7 +16,7 @@ cd ..
 git add .
 git commit -m "auto: Generated Changelog"
 
-npm version patch
+call npm version patch
 
 git add .
 git commit -m "auto: Building New Version"

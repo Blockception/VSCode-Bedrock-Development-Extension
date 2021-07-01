@@ -1,5 +1,10 @@
 # Changelog
 ## Plugin
+- Updated
+- Updated
+- Fixing
+- Updated
+- 2.1.27
 - 2.1.26
 - Updated
 - Updated packages
@@ -34,12 +39,7 @@
 - Updated
 - Updated
 - Updated script
-- 2.1.0
-- Updated code
-- Updated Schemas
-- Updated
-- Updated
-- Updated. 
+- 2.1.0. 
 ## Schemas
 - Updated Tiltes
 - Updated
