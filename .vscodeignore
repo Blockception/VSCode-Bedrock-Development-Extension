@@ -26,6 +26,12 @@ LICENSES/**
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 Debugging.md
+NOTE.md
+
+**/CODE_OF_CONDUCT.md
+**/CONTRIBUTING.md
+**/Debugging.md
+**/NOTE.md
 
 contributing.mdp
 documentation/**
