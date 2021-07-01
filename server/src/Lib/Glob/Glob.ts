@@ -1,7 +1,7 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
 import { URI } from "vscode-uri";
-import { UniformUrl } from "../Code/Url";
+import { UniformFolder, UniformUrl } from "../Code/Url";
 
 /**
  *
@@ -39,6 +39,8 @@ export namespace Glob {
    * @returns
    */
   export function GetFiles(source: string | string[], ignores: string[] | undefined = undefined, cwd: string | undefined = undefined): string[] {
+    if (cwd) cwd = UniformFolder(cwd);
+
     let entries = FastGlob.sync(source, { onlyFiles: true, absolute: true, cwd: cwd });
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);

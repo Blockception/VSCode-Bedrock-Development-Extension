@@ -1,19 +1,12 @@
+import { UniformFolder } from "../../../Code/Url";
+
 export function GetResourcePack(uri: string, subfolder: string): string {
-  uri = uri.replace(/\\/gi, "/");
-  uri = decodeURI(uri);
+  uri = UniformFolder(uri);
 
-  let index = uri.indexOf("/" + subfolder + "/");
-  var path;
+  const index = uri.indexOf("/" + subfolder + "/");
 
-  if (index < 0) path = uri;
-  else path = uri.substring(0, index);
+  if (index < 0) uri = uri;
+  else uri = uri.substring(0, index);
 
-  if (path.startsWith("file:///")) path = path.substring(8);
-  else if (path.startsWith("file://")) path = path.substring(7);
-
-  path = path.replace("%3A", ":");
-
-  if (!path.endsWith("/")) path += "/";
-
-  return path;
+  return uri;
 }

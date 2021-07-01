@@ -1,3 +1,4 @@
+import { UniformFolder } from "../../../Code/Url";
 import { Console } from "../../../Console/Console";
 import { ForEachDocument, GetDocuments } from "../../Document/include";
 import { TextDocument } from "../../Document/TextDocument";
@@ -39,7 +40,7 @@ export function Process(doc: TextDocument): void {
 }
 
 export function ProcessResourcePack(Folder: string): void {
-  Console.Log("Processing resource pack: " + Folder);
+  Console.Log("Processing resource pack: " + UniformFolder(Folder));
 
   ForEachDocument(GetDocuments(Folder, "**/*.json"), Process);
 }

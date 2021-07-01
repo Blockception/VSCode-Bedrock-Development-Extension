@@ -16,9 +16,7 @@ export function ProvideCompletion(doc: TextDocument, cursor: number, receiver: C
   if (!data.includes("sounds/")) return;
 
   const RP = GetResourcePack(doc.uri, "sounds");
-  const filepath = path.join(RP, "sounds").replace(/\\/gi, "/");
-
-  const files = Glob.GetFiles([filepath + "/**/*.ogg", filepath + "/*.ogg", filepath + "/**/*.fsb", filepath + "/*.fsb"], doc.getConfiguration().ignores);
+  const files = Glob.GetFiles(["sounds/**/*.ogg", "sounds/*.ogg", "sounds/**/*.fsb", "sounds/*.fsb"], doc.getConfiguration().ignores, RP);
 
   files.forEach((filepath) => {
     const index = filepath.indexOf("sounds");

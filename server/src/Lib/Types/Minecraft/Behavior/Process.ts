@@ -1,3 +1,4 @@
+import { UniformFolder } from "../../../Code/Url";
 import { Console } from "../../../Console/Console";
 import { ForEachDocument, GetDocuments } from "../../Document/include";
 import { TextDocument } from "../../Document/TextDocument";
@@ -41,7 +42,7 @@ export function Process(doc: TextDocument): void {
  * @param Folder
  */
 export function ProcessBehaviorPack(Folder: string): void {
-  Console.Log("Processing behavior pack: " + Folder);
+  Console.Log("Processing behavior pack: " + UniformFolder(Folder));
 
   ForEachDocument(GetDocuments(Folder, ["**/*.json", "**/*.mcfunction"]), Process);
 }

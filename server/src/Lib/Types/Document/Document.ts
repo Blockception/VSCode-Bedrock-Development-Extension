@@ -90,20 +90,7 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
  * @returns
  */
 export function GetDocuments(folder: string, pattern: string | string[], ignores: string[] | undefined = undefined): string[] {
-  let temp: string[] = [];
-
-  folder = folder.replace(/\\/gi, "/");
-
-  if (Array.isArray(pattern)) {
-    for (let index = 0; index < pattern.length; index++) {
-      const element = pattern[index];
-      temp.push(folder + element);
-    }
-  } else {
-    temp.push(folder + pattern);
-  }
-
-  return Glob.GetFiles(temp, ignores);
+  return Glob.GetFiles(pattern, ignores, folder);
 }
 
 /**

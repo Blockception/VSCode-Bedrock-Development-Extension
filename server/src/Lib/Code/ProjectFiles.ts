@@ -10,6 +10,7 @@ import { Manifest } from "../Types/Minecraft/Manifest/Manifest";
 import { Database } from "../Database/include";
 import { WorkspaceConfiguration } from "../Database/Types/WorkspaceData";
 import { Glob } from "../Glob/Glob";
+import { UniformFolder } from "./Url";
 
 /**
  *
@@ -93,12 +94,9 @@ function CheckStructure(folders: WorkspaceConfiguration[] | null, PF: ProjectFil
  * @param PF
  */
 export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles): void {
-  let dir = Glob.EnsureSource(Ws.folder);
-  if (!dir.endsWith("/")) dir += "/";
+  PF.Workspaces.push(Ws.folder);
 
-  PF.Workspaces.push(dir);
-
-  const entries = Glob.GetFiles("**/manifest.json", Ws.ignores, dir);
+  const entries = Glob.GetFiles("**/manifest.json", Ws.ignores, Ws.folder);
 
   Console.Log(`Found ${entries.length} manifests`);
 

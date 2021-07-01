@@ -33,3 +33,16 @@ export function GetFilepath(Uri: string): string {
 
   return uri;
 }
+
+export function UniformFolder(folder: string): string {
+  folder = folder.replace(/\\/gi, "/");
+  folder = decodeURI(folder);
+
+  if (folder.startsWith("file:///")) folder = folder.substring(8);
+  else if (folder.startsWith("file://")) folder = folder.substring(7);
+
+  folder = folder.replace("%3A", ":");
+
+  if (!folder.endsWith("/")) folder += "/";
+  return folder;
+}

@@ -16,9 +16,7 @@ export function ProvideCompletion(doc: TextDocument, cursor: number, receiver: C
   if (!data.includes("textures/")) return;
 
   const RP = GetResourcePack(doc.uri, "entity");
-  const filepath = path.join(RP, "textures").replace(/\\/gi, "/");
-
-  const files = Glob.GetFiles([filepath + "/**/*.png", filepath + "/*.png", filepath + "/**/*.tga", filepath + "/*.tga"], doc.getConfiguration().ignores);
+  const files = Glob.GetFiles(["textures/**/*.png", "textures/*.png", "textures/**/*.tga", "textures/*.tga"], doc.getConfiguration().ignores, RP);
 
   files.forEach((filepath) => {
     const index = filepath.indexOf("textures");
