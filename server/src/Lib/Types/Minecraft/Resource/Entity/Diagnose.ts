@@ -47,10 +47,10 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
 
   if (description.textures) {
     const RP = GetResourcePack(JDoc.doc.uri, "entity");
-    const source = [path.join(RP, "textures", "*"), path.join(RP, "textures", "**/*")];
-    const Files = Glob.GetFiles(Glob.EnsureSource(source));
+    const source = ["textures/*", "textures/**/*"];
+    const Files = Glob.GetFiles(source, undefined, RP);
 
-    for (let texture in description.textures) {
+    for (const texture in description.textures) {
       const data = description.textures[texture];
       DiagnoseTexture(data, Files, JDoc, Builder);
     }

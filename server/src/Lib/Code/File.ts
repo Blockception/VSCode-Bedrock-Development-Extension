@@ -39,13 +39,13 @@ export function getExtension(filepath: string): string {
  */
 
 export function GetParent(uri: string): string {
-  let Index = uri.lastIndexOf("\\");
+  let Index = uri.lastIndexOf("/");
 
   if (Index > -1) {
     return uri.slice(0, Index + 1);
   }
 
-  Index = uri.lastIndexOf("/");
+  Index = uri.lastIndexOf("\\");
 
   if (Index > -1) {
     return uri.slice(0, Index + 1);

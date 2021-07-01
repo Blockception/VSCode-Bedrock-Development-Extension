@@ -70,7 +70,7 @@ async function Traverse(folders: WorkspaceFolder[] | null): Promise<ProjectFiles
 }
 
 /**
- *
+ *=
  * @param folders
  * @param PD
  * @returns
@@ -93,21 +93,12 @@ function CheckStructure(folders: WorkspaceConfiguration[] | null, PF: ProjectFil
  * @param PF
  */
 export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles): void {
-  PF.Workspaces.push(Ws.folder);
+  let dir = Glob.EnsureSource(Ws.folder);
+  if (!dir.endsWith("/")) dir += "/";
 
-  const dir = Glob.EnsureSource(Ws.folder);
-  let dirs: string[] = typeof dir === "string" ? [dir] : dir;
+  PF.Workspaces.push(dir);
 
-  for (let I = 0; I < dirs.length; I++) {
-    let dir = dirs[I];
-
-    if (!dir.endsWith("\\")) dir += "\\";
-
-    dir = dir.replace(/\\/g, "/");
-    dirs[I] = dir + "**/manifest.json";
-  }
-
-  const entries = Glob.GetFiles(dirs, Ws.ignores);
+  const entries = Glob.GetFiles("**/manifest.json", Ws.ignores, dir);
 
   Console.Log(`Found ${entries.length} manifests`);
 
@@ -122,7 +113,7 @@ export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles):
 function Process(files: string[], PF: ProjectFiles): void {
   for (let J = 0; J < files.length; J++) {
     const item = files[J];
-    const parent = URI.parse(GetParent(item)).fsPath;
+    const parent = GetParent(item);
     const Type = DetectGeneralDataType(item);
 
     switch (Type) {

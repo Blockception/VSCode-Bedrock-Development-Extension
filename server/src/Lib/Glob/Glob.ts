@@ -1,6 +1,7 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
 import { URI } from "vscode-uri";
+import { UniformUrl } from "../Code/Url";
 
 /**
  *
@@ -32,23 +33,33 @@ export namespace Glob {
 
   /**
    *
+   * @param source
+   * @param ignores
+   * @param cwd The working directory
+   * @returns
    */
-  export function GetFiles(source: string | string[], ignores: string[] | undefined = undefined): string[] {
-    let entries = FastGlob.sync(source, { onlyFiles: true, absolute: true });
+  export function GetFiles(source: string | string[], ignores: string[] | undefined = undefined, cwd: string | undefined = undefined): string[] {
+    let entries = FastGlob.sync(source, { onlyFiles: true, absolute: true, cwd: cwd });
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
-    return entries.map((item) => URI.file(item).toString());
+
+    return entries.map(UniformUrl);
   }
 
   /**Ensures the source is glob friendly
-   * @param source
-   */
-  export function EnsureSource(source: string | string[]): string | string[] {
+   * @param source*/
+  export function EnsureSources(source: string | string[]): string | string[] {
     if (typeof source == "string") {
       return InternalEnsureSource(source);
     }
 
     return source.map(InternalEnsureSource);
+  }
+
+  /**Ensures the source is glob friendly
+   * @param source*/
+  export function EnsureSource(source: string): string {
+    return InternalEnsureSource(source);
   }
 
   function InternalEnsureSource(source: string): string {

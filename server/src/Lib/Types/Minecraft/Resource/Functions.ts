@@ -1,5 +1,6 @@
 export function GetResourcePack(uri: string, subfolder: string): string {
   uri = uri.replace(/\\/gi, "/");
+  uri = decodeURI(uri);
 
   let index = uri.indexOf("/" + subfolder + "/");
   var path;
@@ -11,6 +12,8 @@ export function GetResourcePack(uri: string, subfolder: string): string {
   else if (path.startsWith("file://")) path = path.substring(7);
 
   path = path.replace("%3A", ":");
+
+  if (!path.endsWith("/")) path += "/";
 
   return path;
 }
