@@ -25,7 +25,7 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
   if (!sound_def) return;
 
   const RP = GetResourcePack(uri, "sounds");
-  const source = ["sounds/*", "sounds**/*"];
+  const source = ["sounds/*", "sounds/**/*"];
   const Files = Glob.GetFiles(source, undefined, RP);
 
   for (let Key in sound_def) {
