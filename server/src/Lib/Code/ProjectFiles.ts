@@ -10,7 +10,6 @@ import { Manifest } from "../Types/Minecraft/Manifest/Manifest";
 import { Database } from "../Database/include";
 import { WorkspaceConfiguration } from "../Database/Types/WorkspaceData";
 import { Glob } from "../Glob/Glob";
-import { UniformFolder } from "./Url";
 
 /**
  *

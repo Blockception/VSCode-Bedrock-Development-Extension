@@ -873,7 +873,7 @@
     "type": "git"
   },
   "scripts": {
-    "vscode:prepublish": "npm run webpack",
+    "vscode:prepublish": "npm run test && npm run webpack",
     "compile": "npm run clean && tsc -b",
     "compile:client": "tsc -b ./client/tsconfig.json",
     "compile:server": "tsc -b ./server/tsconfig.json",
