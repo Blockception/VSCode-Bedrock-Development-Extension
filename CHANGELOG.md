@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- 2.1.29
 - Updated
 - Fixing
 - 2.1.28
@@ -38,9 +39,25 @@
 - Added the @Initiatior selector
 - Fixing block schemas
 - Updated
-- Fixed
-- Updated. 
+- Fixed. 
 ## Schemas
+- Updated comments
+- Updated
+- Updated
+- Updated
+- Updating
+- Updated
+- Fixed
+- Updated references
+- Updated
+- Updated entities
+- Updated
+- Updated
+- Added comments
+- Updated
+- Updated components documentation
+- Updated comments
+- Updated documentation with the microsoft documentation
 - Updated Tiltes
 - Updated
 - Updated
@@ -64,20 +81,3 @@
 - Updated
 - Updated Comments
 - Updated filters
-- Updating filters
-- Updated
-- Replaced undocumented
-- Updated descriptions
-- Fixing is_stackable
-- Update format-json-files.yml
-- Added dialogue schemas
-- Updated
-- Updated description
-- Updated
-- Updated
-- updating todo titles
-- Polished and examples
-- UNDOCUMENTATED description
-- UNDOCUMENTATED description, or needs to be filled in
-- Updated
-- Fixing entities
