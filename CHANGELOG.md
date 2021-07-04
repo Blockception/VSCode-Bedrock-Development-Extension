@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- Updated
+- 2.1.30
 - 2.1.29
 - Updated
 - Fixing
@@ -36,11 +39,13 @@
 - Added dialogue command
 - Added @Initiator to code
 - Added Dialogue folder to BP
-- Added the @Initiatior selector
-- Fixing block schemas
-- Updated
-- Fixed. 
+- Added the @Initiatior selector. 
 ## Schemas
+- Updated
+- Formatted text
+- Updated
+- Updatedf
+- Updated spawn rules comments
 - Updated comments
 - Updated
 - Updated
@@ -76,8 +81,3 @@
 - Updated
 - Updated block components
 - Fixed
-- Added timeline examples names
-- Updated
-- Updated
-- Updated Comments
-- Updated filters
