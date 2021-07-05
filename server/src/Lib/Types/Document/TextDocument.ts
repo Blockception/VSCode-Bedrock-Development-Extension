@@ -1,8 +1,9 @@
 import * as vscode from "vscode-languageserver-textdocument";
+import * as mcbe from "bc-minecraft-bedrock-project";
 import { Database } from "../../Database/Database";
 import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
 
-export interface TextDocument extends vscode.TextDocument {
+export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument {
   /**Returns the text at the given text line
    * @param lineIndex The index of the line to retrieve
    */

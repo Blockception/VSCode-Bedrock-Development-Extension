@@ -1,52 +1,42 @@
 import { ServerSettings } from "../Server/Settings";
-import { ExtensionState } from "./Extension State";
-import { MCData } from "./Extension Data";
-import { ExtensionCapabiltities } from "./Extension Capabilties";
+import { ExtensionState } from "./State";
+import { ExtensionCapabiltities } from "./Capabilties";
 import { Connection } from "vscode-languageserver/lib/common/server";
 import { Diagnostic } from "vscode-languageserver";
-import { TextDocument } from "../Types/Document/TextDocument";
+import { TextDocuments } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 
 /**
  *
  */
 export class Manager {
-  /**
-   * The different state the manager can posssibly have or be in
-   */
-  static State: ExtensionState = new ExtensionState();
+  /**The different state the manager can posssibly have or be in*/
+  public static State: ExtensionState = new ExtensionState();
 
-  /**
-   * The data that the extension can have
-   */
-  static Data: MCData = new MCData();
+  /**The document manager that has possible cached documents, use GetDocument!*/
+  public static Documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
 
-  /**
-   * The possible capabiltities of the server
-   */
-  static Capabiltities = new ExtensionCapabiltities();
+  /**The possible capabiltities of the server*/
+  public static Capabiltities = new ExtensionCapabiltities();
 
-  //Server stuff
-  static Connection: Connection;
-  static Settings: ServerSettings = ServerSettings.createDefaulSettings();
+  /**Server stuff*/
+  public static Connection: Connection;
+
+  /** */
+  public static Settings: ServerSettings = ServerSettings.createDefaulSettings();
+
+  /** */
+  public static Diagnoser: Diagnoser;
 }
 
-/**
- *
- */
+/***/
 export namespace Manager {
-  /**
-   *
-   */
+  /***/
   export namespace Diagnostic {
-    /**
-     * Sends the diagnostics to the client
-     */
+    /**Sends the diagnostics to the client*/
     export function SendDiagnostics(doc: TextDocument, Diagnostics: Diagnostic[]): void {
-      Manager.Connection.sendDiagnostics({
-        diagnostics: Diagnostics,
-        uri: doc.uri,
-        version: doc.version,
-      });
+      Manager.Connection.sendDiagnostics({ diagnostics: Diagnostics, uri: doc.uri, version: doc.version });
     }
   }
 }

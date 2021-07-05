@@ -1,7 +1,6 @@
-import { InitializedParams, ExecuteCommandRequest } from "vscode-languageserver";
+import { InitializedParams } from "vscode-languageserver";
 import { Console } from "../Console/Console";
-import { AddCommands } from "../Data/Commands/include";
-import { AddMinecraftData } from "../Data/include";
+import { CreateDiagnoser } from "../Diagnostics/Diagnoser";
 import { Manager } from "../Manager/Manager";
 import { Traverse } from "../Process/include";
 import { SetDynamicEvents } from "./Events/Dynamic";
@@ -17,15 +16,14 @@ export async function onInitializedAsync(params: InitializedParams): Promise<voi
 function onInitialized(params: InitializedParams): void {
   Console.Log("Initialized minecraft server");
 
+  //Setup the diagnoser
+  Manager.Diagnoser = CreateDiagnoser();
+
   //Update the settings of the language server
   UpdateSettings();
 
   //Registers any follow ups
   SetDynamicEvents();
-
-  //setup commands
-  AddCommands();
-  AddMinecraftData();
 
   //For debug purposes use the timeout version
   Traverse();

@@ -9,8 +9,7 @@ import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
 
-/**
- * Returns an usable document interaction from the given data.
+/**Returns an usable document interaction from the given data.
  *
  * @param uri The url to the document to retrieve.
  * @param Content The possible content of the document or interface to use
@@ -24,12 +23,13 @@ export function GetDocument(uri: string, Content: string | vscode.TextDocument |
   }
 
   if (typeof Content === "undefined") {
-    const doc = Manager.Data.Documents.get(Old);
+    const doc = Manager.Documents.get(Old);
 
     //Cached document
     if (doc) return TextDocument.wrap(doc);
 
     const content = GetDocumentContent(uri);
+
     if (content) {
       return TextDocument.create(uri, languageID, 1, content);
     }

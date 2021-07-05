@@ -1,11 +1,14 @@
 /** */
 export namespace Character {
-  const Character_a = "a".charCodeAt(0);
-  const Character_z = "z".charCodeAt(0);
-  const Character_A = "A".charCodeAt(0);
-  const Character_Z = "Z".charCodeAt(0);
-  const Character_0 = "0".charCodeAt(0);
-  const Character_9 = "9".charCodeAt(0);
+  export const Character_a = "a".charCodeAt(0);
+  export const Character_z = "z".charCodeAt(0);
+  export const Character_A = "A".charCodeAt(0);
+  export const Character_Z = "Z".charCodeAt(0);
+  export const Character_0 = "0".charCodeAt(0);
+  export const Character_9 = "9".charCodeAt(0);
+
+  export const Character_underscore = "_".charCodeAt(0);
+  export const Character_dash = "-".charCodeAt(0);
 
   /** */
   export function IsLetter(char: string): boolean {
