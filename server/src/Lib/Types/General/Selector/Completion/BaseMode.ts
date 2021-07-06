@@ -21,7 +21,7 @@ export namespace SelectorBase {
     export const Random: CompletionItem = { label: "@r", kind: Kinds.Completion.Selector, documentation: "Targets random players, or if specified, random types" };
     export const NearestPlayer: CompletionItem = { label: "@p", kind: Kinds.Completion.Selector, documentation: "Targets the nearest player" };
     export const MyAgent: CompletionItem = { label: "@c", kind: Kinds.Completion.Selector, documentation: "Targets the executing players agent" };
-    export const SomethingEdu: CompletionItem = { label: "@v", kind: Kinds.Completion.Selector, documentation: "???" };
+    export const SomethingEdu: CompletionItem = { label: "@v", kind: Kinds.Completion.Selector, documentation: "Targets all the agents" };
     export const Initiator: CompletionItem = { label: "@initiator", kind: Kinds.Completion.Selector, documentation: "Target the initiating entity" };
   }
 }
