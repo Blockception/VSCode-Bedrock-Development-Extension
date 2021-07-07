@@ -1,6 +1,8 @@
 import { DiagnosticsBuilder } from "../Diagnostics/Builder";
 import { TextDocument } from "../Types/Document/TextDocument";
 
+//TODO move over this to the diagnoser project
+
 /**
  *
  * @param doc
