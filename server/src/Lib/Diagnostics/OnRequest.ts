@@ -10,30 +10,22 @@ import { TextDocument } from "../Types/Document/TextDocument";
 export function Diagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
 
-  let config = doc.getConfiguration();
+  const config = doc.getConfiguration();
   if (!config.settings.Diagnostics.Enable) return;
 
   switch (doc.languageId) {
+    default:
+      return;
+
     case Languages.McLanguageIdentifier:
-      return provideLanguageDiagnostics(doc);
-
     case Languages.McFunctionIdentifier:
-      return ProvideMcfunctionDiagnostics(doc);
-
+      break;
     case Languages.JsonIdentifier:
     case Languages.JsonCIdentifier:
       if (!config.settings.Diagnostics.Json) return;
       break;
   }
 
-  //If its a json file
-  let type = DetectGeneralDataType(doc.uri);
-
-  switch (type) {
-    case GeneralDataType.behavior_pack:
-      return Behavior.DiagnoseJson(doc);
-
-    case GeneralDataType.resource_pack:
-      return Resource.DiagnoseJson(doc);
-  }
+  //Pass document to diagnoser
+  Manager.Diagnoser.Process(doc);
 }

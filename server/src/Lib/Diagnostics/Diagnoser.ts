@@ -11,6 +11,8 @@ import * as vscode from "vscode-languageserver";
 import { GetDocument } from "../Types/Document/include";
 import { Character } from "../Code/Character";
 
+/**Creates a new bedrock diagnoser
+ * @returns A diagnoser*/
 export function CreateDiagnoser(): Diagnoser {
   //create diagnoser
   const out = new Diagnoser(CreateContext());
@@ -18,6 +20,8 @@ export function CreateDiagnoser(): Diagnoser {
   return out;
 }
 
+/**Creates the content for the diagnoser
+ * @returns*/
 function CreateContext(): DiagnoserContext {
   //create context
   const context: DiagnoserContext = {
@@ -30,6 +34,10 @@ function CreateContext(): DiagnoserContext {
   return context;
 }
 
+/**gets a document diagnoser
+ * @param doc The document to make a diagnoser for
+ * @param project The project context
+ * @returns*/
 function getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnosticsBuilder | undefined {
   if (Glob.Glob.IsMatch(doc.uri, project.ignores.patterns)) {
     Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
