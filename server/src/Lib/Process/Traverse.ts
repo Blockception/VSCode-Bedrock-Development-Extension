@@ -1,15 +1,22 @@
-import { ProjectFiles } from "../Code/include";
+import { GetProjectFiles, ProjectFiles } from "../Code/include";
 import { Console } from "../Console/Console";
-import { Database } from "../Database/include";
 import { Manager } from "../Manager/Manager";
 import { Behavior, Resource } from "../Types/Minecraft/include";
 
-export function Traverse(): void {
+export function Traverse(): Promise<ProjectFiles> {
   Console.Log("Traversing starting...");
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 
-  Database.MinecraftProgramData.GetProjecData(TraverseProject);
+  const p = GetProjectFiles();
+  p.then(TraverseProject);
+  p.catch((err) => {
+    Console.Error(`error traversing: ${JSON.stringify(err)}`);
+    Manager.State.TraversingProject = false;
+    Manager.State.DataGathered = true;
+  });
+
+  return p;
 }
 
 export function TraverseProject(Project: ProjectFiles | undefined): void {

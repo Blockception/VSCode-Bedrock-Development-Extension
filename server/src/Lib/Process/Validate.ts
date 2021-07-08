@@ -104,6 +104,6 @@ function GetSubFolder(uri: string): string | undefined {
  * @param SubFolder
  */
 function IllegalFolder(doc: TextDocument, SubFolder: string): void {
-  let builder: DiagnosticsBuilder = new DiagnosticsBuilder(doc);
+  const builder: DiagnosticsBuilder = new DiagnosticsBuilder(doc);
   builder.Add(`Illegal folder found in pack: "${SubFolder}"`);
 }
