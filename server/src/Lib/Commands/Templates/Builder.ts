@@ -14,6 +14,7 @@ import { Manager } from "../../Manager/Manager";
 import * as fs from "fs";
 import { EmptyTypes } from "../../Types/General/include";
 import { Console } from "../../Console/Console";
+import { GetFilepath, UniformUrl } from "../../Code/include";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -32,26 +33,22 @@ export class TemplateBuilder {
   }
 
   CreateFile(uri: string, content: string): void {
-    uri = uri.replace(/\\/g, "/");
-    uri = uri.replace("%3A", ":");
-    if (uri.startsWith("file:/")) {
-      uri = uri.substring(6);
-    }
+    uri = UniformUrl(uri);
 
-    const Obj = URI.file(uri);
-    const path = Obj.fsPath;
+    const path = GetFilepath(uri);
+    const url = URI.file(path);
 
     if (fs.existsSync(path)) {
       Console.Log("creation of file skipped because it already exists: " + path);
       return;
     }
 
-    uri = Obj.toString();
-
     const Content: TextEdit = {
       newText: content,
       range: EmptyTypes.EmptyRange(),
     };
+
+    uri = url.toString();
 
     const Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
     this.receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
@@ -61,7 +58,7 @@ export class TemplateBuilder {
 function Response(response: ApplyWorkspaceEditResponse): void {
   if (response.applied) return;
 
-  Console.Log("Workspace edit failed:");
-  Console.Log(`Item index: ${response.failedChange}`);
-  Console.Log(`Item reason: ${response.failureReason}`);
+  Console.Error("Workspace edit failed:");
+  if (response.failedChange) Console.Error(`Item index: ${response.failedChange}`);
+  if (response.failureReason) Console.Error(`Item reason: ${response.failureReason}`);
 }

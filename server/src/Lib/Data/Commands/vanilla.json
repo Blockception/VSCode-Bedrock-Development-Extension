@@ -605,7 +605,7 @@
         { "Text": "feature", "Type": "locateFeature", "Required": true }
       ],
       "name": "locate",
-      "documentation": { "value": "Displays the coordiantes for the closest structure of a given type.", "kind": "markdown" }
+      "documentation": { "value": "Displays the coordinates for the closest structure of a given type.", "kind": "markdown" }
     },
     {
       "parameters": [
