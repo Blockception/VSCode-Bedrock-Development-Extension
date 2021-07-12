@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Updated
+- Updated schemas
+- 2.1.31
 - Updated schemas
 - Updated
 - 2.1.30
@@ -36,11 +39,12 @@
 - Removed
 - Added dialogue support
 - Refactor selectors
-- Added dialogue command
-- Added @Initiator to code
-- Added Dialogue folder to BP
-- Added the @Initiatior selector. 
+- Added dialogue command. 
 ## Schemas
+- Updated
+- fixing on_damage
+- Updated
+- Updated
 - Updated
 - Formatted text
 - Updated
@@ -77,7 +81,3 @@
 - Updated UNDOCUMENTED
 - Updating
 - Updated titles
-- Updated lookat
-- Updated
-- Updated block components
-- Fixed
