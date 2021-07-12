@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Fixing vscode uri problems
+- 2.1.33
 - Revert "Updated"
 - 2.1.32
 - Updated
@@ -37,9 +39,7 @@
 - Fixing
 - Fixing
 - Updated schemas
-- Updated Edu support
-- Removed
-- Added dialogue support. 
+- Updated Edu support. 
 ## Schemas
 - Updated
 - fixing on_damage
