@@ -16,7 +16,7 @@ import { IsXpLevel } from "../../General/Xp/Functions";
 import { TeleportRulesMode } from "../Modes/TeleportRulesMode/TeleportRulesMode";
 import { StructureAnimationMode } from "../Modes/StructureAnimationMode/StructureAnimationMode";
 import { RotationMode } from "../Modes/RotationMode/RotationMode";
-import { SaveMode } from "../Modes/SaveMode/RideRulesMode";
+import { SaveMode } from "../Modes/SaveMode/SaveMode";
 import { SlotTypeModes } from "../../General/Slot type/Slot type";
 import { RideRulesMode } from "../Modes/RideRulesMode/RideRulesMode";
 import { ReplaceMode } from "../Modes/ReplaceMode/ReplaceMode";

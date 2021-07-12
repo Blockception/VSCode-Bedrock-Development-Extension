@@ -31,12 +31,8 @@ export class Selector {
     return Out;
   }
 
-  get(parameter: string): IParameter[] | IParameter {
-    let Out = this.Parameters.filter((x) => x.Name.text === parameter);
-
-    if (Out.length == 1) return Out[0];
-
-    return Out;
+  get(parameter: string): IParameter[] {
+    return this.Parameters.filter((x) => x.Name.text === parameter);
   }
 }
 
