@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Revert "Updated"
+- 2.1.32
 - Updated
 - Updated schemas
 - 2.1.31
@@ -37,9 +39,7 @@
 - Updated schemas
 - Updated Edu support
 - Removed
-- Added dialogue support
-- Refactor selectors
-- Added dialogue command. 
+- Added dialogue support. 
 ## Schemas
 - Updated
 - fixing on_damage
