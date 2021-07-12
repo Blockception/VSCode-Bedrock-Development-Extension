@@ -136,7 +136,7 @@ export function IsInSubCommand(command: CommandIntr, character: number): Command
   //execute command hasn't been completed yet
   if (command.Parameters.length < 6) return undefined;
 
-  const Keyword = command.GetCommandKeyword();
+  let Keyword = command.GetCommandKeyword();
 
   if (Keyword == "execute") {
     if (command.Parameters[5].text === "detect") {

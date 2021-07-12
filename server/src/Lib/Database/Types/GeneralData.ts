@@ -25,7 +25,7 @@ export class GeneralData extends CollectorBase<Identifiable & Locatable> {
   /** A storage of all collected entities*/
   public Functions: DataCollector<McFunction> = new DataCollector<McFunction>();
 
-  /** A storage of all collected effects*/
+  /** A storage of all collected entities*/
   public Effects: DataCollector<Effect> = new DataCollector<Effect>();
 
   /** A storage of all collected entities*/
