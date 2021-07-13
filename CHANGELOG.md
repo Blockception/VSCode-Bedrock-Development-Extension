@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Updated dialogue command
+- Updated schemas with new dialogue
+- 2.1.34
 - Fixing vscode uri problems
 - 2.1.33
 - Revert "Updated"
@@ -36,11 +39,10 @@
 - Updated Schemas
 - Updated comments
 - Updated comments
-- Fixing
-- Fixing
-- Updated schemas
-- Updated Edu support. 
+- Fixing. 
 ## Schemas
+- Updated dialogue schema to fit microsoft documentation
+- Fixing
 - Updated
 - fixing on_damage
 - Updated
@@ -79,5 +81,3 @@
 - Updated Components
 - Updated behaviours
 - Updated UNDOCUMENTED
-- Updating
-- Updated titles
