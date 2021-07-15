@@ -9,11 +9,11 @@ describe("Minecraft Format", () => {
     testFormat(DetectDataType, DataType.resource_animation_controller, "F:/Temp/Redstone/resource_packs/Example-RP/animation_controllers/sheep.walk.controller.json");
     testFormat(DetectDataType, DataType.resource_animation_controller, "F:/Temp/Redstone/resource_pack/animation_controllers/sheep.walk.controller.json");
 
-    testFormat(DetectDataType, DataType.resource_animation_controller, "F:/Temp/Redstone/behavior_packs/Example-bp/functions/Action.mcfunction");
-    testFormat(DetectDataType, DataType.resource_animation_controller, "F:/Temp/Redstone/behavior_pack/functions/Action.mcfunction");
+    testFormat(DetectDataType, DataType.behavior_function, "F:/Temp/Redstone/behavior_packs/Example-bp/functions/Action.mcfunction");
+    testFormat(DetectDataType, DataType.behavior_function, "F:/Temp/Redstone/behavior_pack/functions/Action.mcfunction");
 
-    testFormat(DetectDataType, DataType.resource_animation_controller, "file:///f:/Temp/Redstone/behavior_packs/Example-bp/functions/Action.mcfunction");
-    testFormat(DetectDataType, DataType.resource_animation_controller, "file:///f:/Temp/Redstone/behavior_pack/functions/Action.mcfunction");
+    testFormat(DetectDataType, DataType.behavior_function, "file:///f:/Temp/Redstone/behavior_packs/Example-bp/functions/Action.mcfunction");
+    testFormat(DetectDataType, DataType.behavior_function, "file:///f:/Temp/Redstone/behavior_pack/functions/Action.mcfunction");
 
     testFormat(DetectDataType, DataType.world_manifest, "F:/Temp/Redstone/manifest.json");
   });
@@ -36,5 +36,5 @@ function testFormat<T>(callbackfn: (uri: string) => T, expected: T, uri: string)
   const formatted = UniformUrl(uri);
 
   const value = callbackfn(uri);
-  expect(value).to.equal(expected);
+  expect(value).to.equal(expected, `url: ${uri}`);
 }
