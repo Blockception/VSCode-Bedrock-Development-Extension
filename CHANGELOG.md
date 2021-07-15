@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- 2.1.37
 - Updated
 - 2.1.36
 - Fixed
@@ -36,7 +37,6 @@
 - Updated
 - Updated
 - Updated Scripts
-- Updated
 - Updated
 - Updated
 - Updated. 
