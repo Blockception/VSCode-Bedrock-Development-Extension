@@ -8,48 +8,41 @@ import { GeneralDataType } from "./General Data Type";
  * @param uri
  */
 export function DetectDataType(uri: string): DataType {
-  if (uri.includes("/behavior_packs/")) {
-    return DetectBehaviorType(uri);
+  if (uri.includes("/behavior_packs/")) return DetectBehaviorType(uri);
+  if (uri.includes("/resource_packs/")) return DetectResourceType(uri);
+
+  const type = DetectGeneralDataType(uri);
+
+  switch (type) {
+    case GeneralDataType.behavior_pack:
+      return DetectBehaviorType(uri);
+
+    case GeneralDataType.resource_pack:
+      return DetectResourceType(uri);
   }
-
-  if (uri.includes("/resource_packs/")) {
-    return DetectResourceType(uri);
-  }
-
-  let Match = uri.match(/\/.*(BP|bp).*\//);
-
-  if (Match) return DetectBehaviorType(uri);
-
-  Match = uri.match(/\/.*(RP|rp).*\//);
-
-  if (Match) return DetectResourceType(uri);
 
   if (uri.includes("manifest.json")) return DataType.world_manifest;
 
   return DataType.unknown;
 }
 
+/** */
+export const BehaviorPackMatch: RegExp = /\/.*(behav(ior|iour)([ _-]|)pack|behav(ior|iour)|bp).*\//i;
+/** */
+export const ResourcePackMatch: RegExp = /\/.*(resource([ _-]|)pack|resource|rp).*\//i;
+/** */
+export const WorldMatch: RegExp = /\/.*(world([ _-]|)template|world|wp|db).*\//i;
+/** */
+export const SkinPack: RegExp = /\/.*(skin([ _-]|)pack).*\//i;
+
 /**
  *
  * @param uri
  */
 export function DetectGeneralDataType(uri: string): GeneralDataType {
-  if (uri.includes("behavior_packs") || uri.includes("Behavior_Pack") || uri.includes("behavior pack") || uri.includes("Behavior Pack")) {
-    return GeneralDataType.behavior_pack;
-  }
-
-  if (uri.includes("resource_packs") || uri.includes("Resource_Pack") || uri.includes("resource pack") || uri.includes("Resource Pack")) {
-    return GeneralDataType.resource_pack;
-  }
-
-  let Match = uri.match(/\/.*(BP|bp).*\//);
-  if (Match) return GeneralDataType.behavior_pack;
-
-  Match = uri.match(/\/.*(RP|rp).*\//);
-  if (Match) return GeneralDataType.resource_pack;
-
-  Match = uri.match(/\/.*(WP|wp).*\//);
-  if (Match) return GeneralDataType.world;
+  if (BehaviorPackMatch.test(uri)) return GeneralDataType.behavior_pack;
+  if (ResourcePackMatch.test(uri)) return GeneralDataType.resource_pack;
+  if (WorldMatch.test(uri)) return GeneralDataType.world;
 
   return GeneralDataType.unknown;
 }
