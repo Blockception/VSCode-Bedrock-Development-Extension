@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Fixed
+- Updated
+- 2.1.35
 - Updated dialogue command
 - Updated schemas with new dialogue
 - 2.1.34
@@ -36,10 +39,7 @@
 - Updated
 - Updated
 - Updated
-- Updated Schemas
-- Updated comments
-- Updated comments
-- Fixing. 
+- Updated Schemas. 
 ## Schemas
 - Updated dialogue schema to fit microsoft documentation
 - Fixing
