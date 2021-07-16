@@ -4,12 +4,13 @@ import { GetDocument } from "../../Types/Document/Document";
 import { Database } from "../../Database/Database";
 import { Manager } from "../../Manager/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
+import { UniformUrl } from "../../Code/Url";
 
 export function AddAllItems(params: ExecuteCommandParams): any {
   let args = params.arguments;
 
   if (args) {
-    const uri = args[0];
+    const uri = UniformUrl(args[0]);
 
     if (uri !== "") {
       const doc = GetDocument(uri);

@@ -1,4 +1,6 @@
+import * as fs from "fs";
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
+import { GetFilepath } from "../Code/Url";
 import { Manager } from "../Manager/include";
 import { GetDocument } from "../Types/Document/include";
 
@@ -12,13 +14,17 @@ export namespace Files {
     if (!(uri && line)) return;
 
     const doc = GetDocument(uri);
-
     const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
 
-    Manager.Connection.workspace.applyEdit({
-      edit: {
-        documentChanges: [TextDocumentEdit.create({ uri: doc.uri, version: doc.version }, [edit])],
-      },
-    });
+    const path = GetFilepath(doc.uri);
+
+    if (!fs.existsSync(path)) {
+      fs.writeFileSync(path, line);
+    } else {
+      Manager.Connection.workspace.applyEdit({
+        label: "Add mcdefintions",
+        edit: { documentChanges: [TextDocumentEdit.create(doc, [edit])] },
+      });
+    }
   }
 }
