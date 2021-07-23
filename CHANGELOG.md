@@ -1,5 +1,9 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- Updated
+- Updated
+- 2.1.39
 - 2.1.38
 - 2.1.37
 - Updated
@@ -35,12 +39,10 @@
 - Updated behavior detection
 - Updated
 - Updated UUID gen
-- Updated
-- Updated
-- Updated Scripts
-- Updated
 - Updated. 
 ## Schemas
+- Fixing
+- Updated
 - Updated dialogue schema to fit microsoft documentation
 - Fixing
 - Updated
@@ -79,5 +81,3 @@
 - Updated titles
 - Updated
 - Updated Components
-- Updated behaviours
-- Updated UNDOCUMENTED
