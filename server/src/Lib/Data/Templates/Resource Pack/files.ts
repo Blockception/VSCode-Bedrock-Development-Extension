@@ -5,26 +5,26 @@ export function create_animation_controller(ID: string): string {
   return animation_controller.replace(/%ID%/gi, ID);
 }
 const animation_controller: string = `{
-	"format_version" : "1.10.0",
-	"animation_controllers" : {
-		"controller.animation.%ID%.example" : {
-			"initial_state" : "default",
-			"states" : {
-				"default" : {
-					"animations" : [ "default_animation" ],
-					"transitions" : [
-						{ "state_1" : "query.is_baby" }
-					]
-				},
-				"state_1" : {
-					"animations" : [ "state_animation" ],
-					"transitions" : [
-						{ "default" : "!query.is_baby" }
-					]
-				}
-			}
-		}
-	}
+  "format_version" : "1.10.0",
+  "animation_controllers" : {
+    "controller.animation.%ID%.example" : {
+      "initial_state" : "default",
+      "states" : {
+        "default" : {
+          "animations" : [ "default_animation" ],
+          "transitions" : [
+            { "state_1" : "query.is_baby" }
+          ]
+        },
+        "state_1" : {
+          "animations" : [ "state_animation" ],
+          "transitions" : [
+            { "default" : "!query.is_baby" }
+          ]
+        }
+      }
+    }
+  }
 }`;
 
 /**The template for the resourcepack animation*/
@@ -36,9 +36,9 @@ const animation: string = `{
   "animations": {
     "animation.%SafeID%.example": {
       "animation_length": 5,
-			"bones": {}
-		}
-	}
+      "bones": {}
+    }
+  }
 }`;
 
 /**The template for the resourcepack attachable*/
@@ -95,7 +95,7 @@ export function create_entity(ID: string): string {
   return entity.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
 }
 const entity: string = `{
-  "format_version": "1.10.0",
+  "format_version": "1.17.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "%ID%",

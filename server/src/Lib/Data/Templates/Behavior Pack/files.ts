@@ -5,28 +5,28 @@ export function create_animation_controller(ID: string): string {
   return animation_controller.replace(/%ID%/gi, ID);
 }
 const animation_controller: string = `{
-	"format_version" : "1.10.0",
-	"animation_controllers" : {
-		"controller.animation.%ID%" : {
-			"initial_state" : "default",
-			"states" : {
-				"default" : {
-					"animations" : [ "default_animation" ],
-					"transitions" : [
-						{ "state_1" : "query.is_baby" }
-					]
-				},
-				"state_1" : {
-					"animations" : [ "state_animation" ],
-					"on_entry": ["@s example:foo"],
-					"on_exit": ["/tp @s ~ ~2 ~"],
-					"transitions" : [
-						{ "default" : "!query.is_baby" }
-					]
-				}
-			}
-		}
-	}
+  "format_version" : "1.10.0",
+  "animation_controllers" : {
+    "controller.animation.%ID%" : {
+      "initial_state" : "default",
+      "states" : {
+        "default" : {
+          "animations" : [ "default_animation" ],
+          "transitions" : [
+            { "state_1" : "query.is_baby" }
+          ]
+        },
+        "state_1" : {
+          "animations" : [ "state_animation" ],
+          "on_entry": ["@s example:foo"],
+          "on_exit": ["/tp @s ~ ~2 ~"],
+          "transitions" : [
+            { "default" : "!query.is_baby" }
+          ]
+        }
+      }
+    }
+  }
 }`;
 
 /**The template for the behaviorpack animation*/
@@ -52,7 +52,7 @@ export function create_block(ID: string): string {
   return block.replace(/%ID%/gi, ID);
 }
 const block: string = `{
-  "format_version": "1.16.0",
+  "format_version": "1.17.0",
   "minecraft:block": {
     "description": {
       "identifier": "%ID%",
@@ -70,7 +70,7 @@ export function create_entity(ID: string): string {
   return entity.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
 }
 const entity: string = `{
-  "format_version": "1.16.0",
+  "format_version": "1.17.0",
   "minecraft:entity": {
     "description": {
       "identifier": "%ID%",
@@ -82,7 +82,9 @@ const entity: string = `{
     "components": {
       "minecraft:type_family": { "family": ["%SafeID%"] },
       "minecraft:health": { "value": 10, "max": 10 },
-      "minecraft:behavior.look_at_player": { "probability": 1.0, "target_distance": 16 }
+      "minecraft:damage_sensor": {
+        "triggers": { "cause": "all", "deals_damage": false }
+      }
     },
     "events": {
     }
@@ -151,13 +153,13 @@ export function create_recipe(ID: string): string {
   return recipe.replace(/%ID%/gi, ID);
 }
 const recipe: string = `{
-  "format_version": "1.12",
+  "format_version": "1.17.0",
   "minecraft:<type>": {
     "description": {
-    	"identifier": "%ID%"
+      "identifier": "%ID%"
     },
 
-		"result": {
+    "result": {
       "item": "minecraft:brewing_stand"
     }
   }
@@ -168,18 +170,18 @@ export function create_spawn_rule(ID: string): string {
   return spawn_rule.replace(/%ID%/gi, ID);
 }
 const spawn_rule: string = `{
-	"format_version": "1.8.0",
-	"minecraft:spawn_rules": {
-		"description": {
-			"identifier": "%ID%",
-			"population_control": "animal"
-		},
-		"conditions": [
-			{
-				
-			}
-		]
-	}
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "%ID%",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        
+      }
+    ]
+  }
 }`;
 
 /**The template for the behaviorpack trading*/
