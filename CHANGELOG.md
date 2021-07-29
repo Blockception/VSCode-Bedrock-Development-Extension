@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Updating template
+- 2.1.40
 - Updated schemas
 - Updated
 - Updated
@@ -37,8 +39,6 @@
 - Updated
 - Updated packages
 - Updated behavior detection
-- Updated
-- Updated UUID gen
 - Updated. 
 ## Schemas
 - Fixing
