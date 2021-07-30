@@ -1144,6 +1144,15 @@
       "name": "setworldspawn",
       "documentation": { "value": "Sets the worldspawn.", "kind": "markdown" }
     },
+
+    {
+      "name": "setmaxplayers",
+      "documentation": { "value": "Sets the maximum number of players for this game session", "kind": "markdown" },
+      "parameters": [
+        { "Text": "setmaxplayers", "Type": "keyword", "Required": true },
+        { "Text": "maximum players", "Type": "integer", "Required": true, "Options": { "minimum": 1 } }
+      ]
+    },
     {
       "parameters": [
         { "Text": "spawnpoint", "Type": "keyword", "Required": true },
