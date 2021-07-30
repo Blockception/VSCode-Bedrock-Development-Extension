@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Added setmaxplayers
+- 2.1.41
 - Updating template
 - 2.1.40
 - Updated schemas
@@ -37,9 +39,7 @@
 - 2.1.27
 - 2.1.26
 - Updated
-- Updated packages
-- Updated behavior detection
-- Updated. 
+- Updated packages. 
 ## Schemas
 - Fixing
 - Updated
