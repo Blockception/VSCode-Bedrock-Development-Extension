@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- tripWire -> tripwrite
+- 2.1.42
 - Added setmaxplayers
 - 2.1.41
 - Updating template
@@ -37,9 +39,7 @@
 - Fixing
 - Updated
 - 2.1.27
-- 2.1.26
-- Updated
-- Updated packages. 
+- 2.1.26. 
 ## Schemas
 - Fixing
 - Updated
