@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Moved dialogue command
+- Updated
+- 2.1.43
 - tripWire -> tripwrite
 - 2.1.42
 - Added setmaxplayers
@@ -36,11 +39,9 @@
 - 2.1.28
 - Updated
 - Updated
-- Fixing
-- Updated
-- 2.1.27
-- 2.1.26. 
+- Fixing. 
 ## Schemas
+- Fixing
 - Fixing
 - Updated
 - Updated dialogue schema to fit microsoft documentation
@@ -80,4 +81,3 @@
 - Updated comments
 - Updated titles
 - Updated
-- Updated Components
