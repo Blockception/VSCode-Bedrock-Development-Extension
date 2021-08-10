@@ -97,28 +97,6 @@
         { "Text": "immutableworld", "Type": "keyword", "Required": true },
         { "Text": "immutableworld", "Type": "boolean", "Required": false }
       ]
-    },
-    {
-      "name": "dialogue",
-      "documentation": { "value": "Forces to open an NPC dialogue box to the targeted player(s)", "kind": "markdown" },
-      "parameters": [
-        { "Text": "dialogue", "Type": "keyword", "Required": true },
-        { "Text": "open", "Type": "keyword", "Required": true },
-        { "Text": "npc", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": false, "playerOnly": false } },
-        { "Text": "player receiver", "Type": "selector", "Required": true, "Options": { "playerOnly": true, "allowFakePlayers": false } },
-        { "Text": "scene name", "Type": "string", "Required": false }
-      ]
-    },
-    {
-      "name": "dialogue",
-      "documentation": { "value": "Direct an NPC to use the dialogue provided in a specifically designated scene file", "kind": "markdown" },
-      "parameters": [
-        { "Text": "dialogue", "Type": "keyword", "Required": true },
-        { "Text": "change", "Type": "keyword", "Required": true },
-        { "Text": "npc", "Type": "selector", "Required": true, "Options": { "allowFakePlayers": false, "playerOnly": false } },
-        { "Text": "scene name", "Type": "string", "Required": true },
-        { "Text": "player receiver", "Type": "selector", "Required": false, "Options": { "playerOnly": true, "allowFakePlayers": false } }
-      ]
     }
   ]
 }
