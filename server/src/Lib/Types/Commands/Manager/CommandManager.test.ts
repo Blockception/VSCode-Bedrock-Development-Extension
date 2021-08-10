@@ -16,10 +16,10 @@ describe("Command Manager", () => {
   });
 
   it("Edu test", () => {
-    const comm = CommandIntr.parse("dialogue open", { character: 0, line: 0 }, "");
+    const comm = CommandIntr.parse("ability @a", { character: 0, line: 0 }, "");
     let matches = comm.GetCommandData(true);
 
-    expect(matches.length).greaterThanOrEqual(1);
+    expect(matches.length).greaterThanOrEqual(4);
 
     matches = comm.GetCommandData(false);
 

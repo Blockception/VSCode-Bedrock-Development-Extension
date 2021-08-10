@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- 2.1.44
 - Moved dialogue command
 - Updated
 - 2.1.43
@@ -38,8 +39,7 @@
 - Fixing
 - 2.1.28
 - Updated
-- Updated
-- Fixing. 
+- Updated. 
 ## Schemas
 - Fixing
 - Fixing
