@@ -4,5 +4,5 @@ import { Kinds } from "../../../General/Kinds";
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
-  receiver.AddFromRange(Database.Data.Resourcepack.Particles, Kinds.Completion.Particle);
+  receiver.AddFromRange(Database.ProjectData.Resourcepack.Particles, Kinds.Completion.Particle);
 }

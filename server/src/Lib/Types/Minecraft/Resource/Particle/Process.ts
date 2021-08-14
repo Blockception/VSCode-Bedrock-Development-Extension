@@ -17,6 +17,6 @@ export function Process(doc: TextDocument): void {
       uri: doc.uri,
     };
 
-    Database.Data.Resourcepack.Particles.Set(new DataReference(Identifier, Location));
+    Database.ProjectData.Resourcepack.Particles.Set(new DataReference(Identifier, Location));
   }
 }

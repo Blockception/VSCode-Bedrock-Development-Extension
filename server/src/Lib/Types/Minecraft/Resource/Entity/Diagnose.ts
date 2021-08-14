@@ -60,7 +60,7 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
 }
 
 function DiagnoseAnimOrController(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
-  const Resource = Database.Data.Resourcepack;
+  const Resource = Database.ProjectData.Resourcepack;
 
   if (!(Resource.Animations.HasID(id) || Resource.AnimationControllers.HasID(id))) {
     //No code assignment
@@ -69,7 +69,7 @@ function DiagnoseAnimOrController(id: string, JDoc: JsonDocument, Builder: Diagn
 }
 
 function DiagnoseGeo(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
-  if (!Database.Data.Resourcepack.Models.HasID(id)) {
+  if (!Database.ProjectData.Resourcepack.Models.HasID(id)) {
     Builder.Add("Cannot find model: " + id, JDoc.RangeOf(id)).code = "geo.missing";
   }
 }
@@ -87,7 +87,7 @@ function DiagnoseRenderController(id: render_controller_ref, JDoc: JsonDocument,
     id = Object.keys(id)[0];
   }
 
-  if (!Database.Data.Resourcepack.RenderControllers.HasID(id)) {
+  if (!Database.ProjectData.Resourcepack.RenderControllers.HasID(id)) {
     Builder.Add("Cannot find resource controller: " + id, JDoc.RangeOf(id)).code = "rc.missing";
   }
 }

@@ -34,7 +34,7 @@ export function OnJsonDefinition(doc: TextDocument, pos: Position): Location[] |
     Index = Text.indexOf(ElementText, Index + ElementText.length);
   }
 
-  Database.Data.FindReference(ElementText, Out);
+  Database.ProjectData.FindReference(ElementText, Out);
 
   return Out;
 }

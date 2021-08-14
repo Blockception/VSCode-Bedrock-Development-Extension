@@ -3,5 +3,5 @@ import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
-  Context.receiver.AddFromRange(Database.Data.General.Blocks, Kinds.Completion.Block);
+  Context.receiver.AddFromRange(Database.ProjectData.General.Blocks, Kinds.Completion.Block);
 }

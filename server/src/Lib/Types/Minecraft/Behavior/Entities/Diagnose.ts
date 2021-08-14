@@ -65,7 +65,7 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
  * @param Builder
  */
 function DiagnoseAnimOrController(id: string, JDoc: JsonDocument, Builder: DiagnosticsBuilder): void {
-  if (!(Database.Database.Data.Behaviorpack.Animations.HasID(id) || Database.Database.Data.Behaviorpack.AnimationControllers.HasID(id))) {
+  if (!(Database.ProjectDatabase.Data.Behaviorpack.Animations.HasID(id) || Database.ProjectDatabase.Data.Behaviorpack.AnimationControllers.HasID(id))) {
     Builder.Add("Cannot find animation or controller: " + id, JDoc.RangeOf(id)).code = "ac.missing";
   }
 }

@@ -63,7 +63,7 @@ function CheckObjective(Com: CommandIntr, Comment: string): void {
     }
 
     Console.Info(`Found objective: ${obj.Identifier}`);
-    Database.Data.General.Objectives.Set(obj);
+    Database.ProjectData.General.Objectives.Set(obj);
   }
 }
 
@@ -84,7 +84,7 @@ function CheckPlayer(Com: CommandIntr, Comment: string): void {
       }
 
       Console.Info(`Found fake player: ${FE.Identifier}`);
-      Database.Data.General.FakeEntities.Set(FE);
+      Database.ProjectData.General.FakeEntities.Set(FE);
     }
   }
 }

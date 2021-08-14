@@ -1,29 +1,34 @@
 import { ExecuteCommandParams, MessageType, ShowMessageNotification } from "vscode-languageserver";
+import { GetProjectFiles, ProjectFiles } from "../Code/include";
 import { Console } from "../Console/Console";
 import { Database } from "../Database/include";
 import { DiagnoseContext } from "../Diagnostics/Types/Context";
 import { Manager } from "../Manager/Manager";
-import { Behavior, World } from "../Types/Minecraft/include";
+import { Behavior, Resource, World } from "../Types/Minecraft/include";
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
   Console.Log("Starting on diagnosing project");
 
-  Database.MinecraftProgramData.GetProjecData((data) => {
-    const context: DiagnoseContext = {
-      projectStructure: data,
-    };
+  GetProjectFiles().then(Process);
+}
 
-    if (Manager.State.TraversingProject || !Manager.State.DataGathered) {
-      Manager.Connection.sendNotification(ShowMessageNotification.type, {
-        message: "Extension is traversing the project. please wait a couple more seconds.",
-        type: MessageType.Info,
-      });
-      return;
-    }
+function Process(data: ProjectFiles): void {
+  const context: DiagnoseContext = {
+    projectStructure: data,
+  };
 
-    World.ProvideDiagnostic(context);
-    Behavior.ProvideDiagnostic(context);
+  if (Manager.State.TraversingProject || !Manager.State.DataGathered) {
+    Manager.Connection.sendNotification(ShowMessageNotification.type, {
+      message: "Extension is traversing the project. please wait a couple more seconds.",
+      type: MessageType.Info,
+    });
 
-    Console.Log("Diagnosing done");
-  });
+    return;
+  }
+
+  World.ProvideDiagnostic(context);
+  Behavior.ProvideDiagnostic(context);
+  Resource.ProvideDiagnostic(context);
+
+  Console.Log("Diagnosing done");
 }

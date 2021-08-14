@@ -9,7 +9,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   let data = Context.doc.getConfiguration();
   data.defintions.tag.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, CompletionItemKind.Value));
 
-  receiver.AddFromRange(Database.Data.General.Tag, Kinds.Completion.Tag);
+  receiver.AddFromRange(Database.ProjectData.General.Tag, Kinds.Completion.Tag);
 }
 
 export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder): void {
@@ -17,7 +17,7 @@ export function ProvideCompletionTest(Context: CommandCompletionContext | Comple
   data.defintions.tag.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, CompletionItemKind.Value));
   let receiver = CommandCompletionContext.is(Context) ? Context.receiver : Context;
 
-  Database.Data.General.Tag.ForEach((tag) => {
+  Database.ProjectData.General.Tag.ForEach((tag) => {
     receiver.Add(tag.Identifier, `Tests for the tag: '${tag.Identifier}'`, Kinds.Completion.Tag);
     receiver.Add("!" + tag.Identifier, `Tests not for the tag: '${tag.Identifier}'`, Kinds.Completion.Tag);
   });

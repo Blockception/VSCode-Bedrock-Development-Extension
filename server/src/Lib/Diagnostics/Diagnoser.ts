@@ -25,7 +25,7 @@ export function CreateDiagnoser(): Diagnoser {
 function CreateContext(): DiagnoserContext {
   //create context
   const context: DiagnoserContext = {
-    cache: Database.Database.ProjectData,
+    cache: Database.ProjectDatabase.ProjectData,
     getDiagnoser: getDiagnoser,
     getDocument: getDocument,
     getFiles: getFiles,

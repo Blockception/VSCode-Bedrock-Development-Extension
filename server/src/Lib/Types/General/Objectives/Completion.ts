@@ -8,7 +8,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
   let data = Context.doc.getConfiguration();
 
-  receiver.AddFromRange(Database.Data.General.Objectives, Kinds.Completion.Objectives);
+  receiver.AddFromRange(Database.ProjectData.General.Objectives, Kinds.Completion.Objectives);
   data.defintions.objective.defined.forEach((objective) => receiver.Add(objective, "The defined objective: " + objective, CompletionItemKind.Value));
 }
 
@@ -22,7 +22,7 @@ export function ProvideCompletionPost(Context: CommandCompletionContext | Comple
     receiver = Context.receiver;
   } else receiver = Context;
 
-  Database.Data.General.Objectives.ForEach((objective) => {
+  Database.ProjectData.General.Objectives.ForEach((objective) => {
     let Name = objective.Identifier;
 
     receiver.Add(Name, objective.Documentation, Kinds.Completion.Objectives, Name + additionalText);

@@ -25,6 +25,6 @@ export function Process(doc: TextDocument): void {
       range: Range ?? EmptyTypes.EmptyRange(),
     };
 
-    Database.Data.Resourcepack.Animations.Set(new DataReference(Name, Location));
+    Database.ProjectData.Resourcepack.Animations.Set(new DataReference(Name, Location));
   }
 }

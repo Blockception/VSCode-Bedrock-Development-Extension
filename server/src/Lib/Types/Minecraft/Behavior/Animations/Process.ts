@@ -26,7 +26,7 @@ export function Process(doc: TextDocument): void {
       range: Range ?? EmptyTypes.EmptyRange(),
     };
 
-    Database.Data.Behaviorpack.Animations.Set(new DataReference(Name, Location));
+    Database.ProjectData.Behaviorpack.Animations.Set(new DataReference(Name, Location));
     let Animation = Format.animations[Name];
 
     /*if (Animation) {

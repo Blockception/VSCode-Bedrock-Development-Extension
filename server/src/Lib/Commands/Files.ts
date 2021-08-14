@@ -1,5 +1,5 @@
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { Manager } from "../Manager/include";
+import { Manager } from "../Manager/Manager";
 import { GetDocument } from "../Types/Document/include";
 
 export namespace Files {
@@ -12,7 +12,6 @@ export namespace Files {
     if (!(uri && line)) return;
 
     const doc = GetDocument(uri);
-
     const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
 
     Manager.Connection.workspace.applyEdit({

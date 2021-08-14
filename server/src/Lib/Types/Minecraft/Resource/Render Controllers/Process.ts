@@ -26,6 +26,6 @@ export function Process(doc: TextDocument): void {
       range: Range ?? EmptyTypes.EmptyRange(),
     };
 
-    Database.Data.Resourcepack.RenderControllers.Set(new DataReference(Name, Location));
+    Database.ProjectData.Resourcepack.RenderControllers.Set(new DataReference(Name, Location));
   }
 }

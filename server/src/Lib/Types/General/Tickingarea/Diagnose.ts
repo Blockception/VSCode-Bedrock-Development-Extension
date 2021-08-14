@@ -5,7 +5,7 @@ import { DiagnosticsBuilder } from "../../../Diagnostics/Builder";
 export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilder): void {
   const text = data.text;
 
-  if (Database.Data.General.TickingAreas.HasID(text)) return;
+  if (Database.ProjectData.General.TickingAreas.HasID(text)) return;
 
   builder.AddWord(data, 'No tickingarea has been defined with the name: "' + text + '"').code = "tickingarea.missing";
 }

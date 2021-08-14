@@ -26,7 +26,7 @@ export function Process(doc: TextDocument): void {
     item.Location = Location.create(doc.uri, EmptyTypes.EmptyRange());
     item.Documentation.value = "The custom item definition of: " + ID;
 
-    Database.Data.Behaviorpack.Items.Set(new DataReference(item.Identifier, item.Location));
-    Database.Data.General.Items.Set(item);
+    Database.ProjectData.Behaviorpack.Items.Set(new DataReference(item.Identifier, item.Location));
+    Database.ProjectData.General.Items.Set(item);
   }
 }

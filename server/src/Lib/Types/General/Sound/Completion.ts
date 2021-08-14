@@ -5,5 +5,5 @@ import { Kinds } from "../Kinds";
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
 
-  receiver.AddFromRange(Database.Data.General.Sounds, Kinds.Completion.Sound);
+  receiver.AddFromRange(Database.ProjectData.General.Sounds, Kinds.Completion.Sound);
 }

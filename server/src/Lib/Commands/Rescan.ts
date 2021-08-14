@@ -7,7 +7,7 @@ import { Traverse } from "../Process/Traverse";
  */
 export function ReScanProject() {
   Console.Log("Cleaing database");
-  Database.Data.Clear();
+  Database.ProjectData.Clear();
 
   Traverse();
 }

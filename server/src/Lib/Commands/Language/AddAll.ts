@@ -17,18 +17,20 @@ export function AddAllItems(params: ExecuteCommandParams): any {
       if (doc) {
         let builder = new TextEditBuilder(doc);
 
-        Database.Data.Behaviorpack.Entities.ForEach((entity) => {
+        Database.ProjectData.BehaviorPacks.Entities.ForEach((entity) => {
           const id = Safe(entity.Identifier);
 
           builder.Add("entity." + entity.Identifier + ".name", id, "Entity: " + entity.Identifier);
           builder.Add("item.spawn_egg.entity." + entity.Identifier + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.Identifier);
         });
-        Database.Data.Behaviorpack.Items.ForEach((data) => {
+
+        Database.ProjectData.Behaviorpack.Items.ForEach((data) => {
           const id = Safe(data.Identifier);
 
           builder.Add("item." + data.Identifier + ".name", id, "Item: " + data.Identifier);
         });
-        Database.Data.Behaviorpack.Blocks.ForEach((data) => {
+
+        Database.ProjectData.Behaviorpack.Blocks.ForEach((data) => {
           const id = Safe(data.Identifier);
 
           builder.Add("tile." + data.Identifier + ".name", id, "Block: " + data.Identifier);

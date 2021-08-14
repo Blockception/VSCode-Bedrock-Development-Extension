@@ -1,5 +1,4 @@
 import { ProjectData } from "bc-minecraft-bedrock-project";
-import { MinecraftProgramData } from "./Types/MinecraftProgramData";
 import { WorkspaceData } from "./Types/WorkspaceData";
 
 /** */

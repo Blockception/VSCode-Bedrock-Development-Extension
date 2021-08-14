@@ -20,7 +20,7 @@ function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
     uri = UniformUrl(uri);
 
     Console.Log("Deleting data from workspace: " + ws.name);
-    Database.Data.DeleteFolder(uri);
+    Database.ProjectData.DeleteFolder(uri);
     Database.WorkspaceData.Remove(ws);
   }
 

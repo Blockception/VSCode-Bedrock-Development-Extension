@@ -6,7 +6,7 @@ export function ProvideDiagnostic(event: LocationWord, builder: DiagnosticsBuild
   let eventData = event.text;
 
   if (EntityID) {
-    let Entity = Database.Data.General.Entities.GetFromID(EntityID);
+    let Entity = Database.ProjectData.General.Entities.GetFromID(EntityID);
 
     if (Entity) {
       if (!Entity.Events.includes(eventData)) {
@@ -17,7 +17,7 @@ export function ProvideDiagnostic(event: LocationWord, builder: DiagnosticsBuild
 
   let Found = false;
 
-  Database.Data.General.Entities.ForEach((entity) => {
+  Database.ProjectData.General.Entities.ForEach((entity) => {
     if (!Found && entity.Events.includes(eventData)) {
       Found = true;
     }

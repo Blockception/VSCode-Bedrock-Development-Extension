@@ -49,8 +49,8 @@ export function Process(doc: TextDocument): void {
 
     RetrieveFamilies(mce.components, entity);
 
-    Database.Data.Behaviorpack.Entities.Set(new DataReference(entity.Identifier, entity.Location));
-    Database.Data.General.Entities.Set(entity);
+    Database.ProjectData.Behaviorpack.Entities.Set(new DataReference(entity.Identifier, entity.Location));
+    Database.ProjectData.General.Entities.Set(entity);
   }
 }
 

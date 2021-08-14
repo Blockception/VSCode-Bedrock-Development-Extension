@@ -38,6 +38,6 @@ export function Process(doc: TextDocument): void {
     let s = new Sound.Sound();
     s.Identifier = name;
     s.Location = Location.create(uri, position);
-    Database.Data.General.Sounds.Set(s);
+    Database.ProjectData.General.Sounds.Set(s);
   });
 }

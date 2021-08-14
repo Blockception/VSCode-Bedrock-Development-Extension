@@ -30,5 +30,5 @@ export function ProcessTagCommand(Com: CommandIntr, doc: TextDocument): void {
   }
 
   Console.Info("Found tag: " + tag.text);
-  Database.Data.General.Tag.Set(Data);
+  Database.ProjectData.General.Tag.Set(Data);
 }

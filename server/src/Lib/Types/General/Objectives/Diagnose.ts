@@ -20,7 +20,7 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
   }
 
   //Does database has a reference?
-  if (Database.Data.General.Objectives.HasID(text)) return;
+  if (Database.ProjectData.General.Objectives.HasID(text)) return;
 
   builder.AddWord(data, 'No objective has been created: "' + text + '"').code = "objective.missing";
 }

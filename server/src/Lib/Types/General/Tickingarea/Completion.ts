@@ -5,5 +5,5 @@ import { Kinds } from "../Kinds";
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
 
-  receiver.AddFromRange(Database.Data.General.TickingAreas, Kinds.Completion.Tickingarea);
+  receiver.AddFromRange(Database.ProjectData.General.TickingAreas, Kinds.Completion.Tickingarea);
 }

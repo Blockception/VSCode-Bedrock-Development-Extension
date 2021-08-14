@@ -10,7 +10,7 @@ import { CompletionBuilder } from "../Builder";
 import { OnCompletionMolangVariable } from "./Variables";
 
 export function OnCompletionEntityEvents(receiver: CompletionBuilder): void {
-  Database.Data.General.Entities.ForEach((x) => {
+  Database.ProjectData.General.Entities.ForEach((x) => {
     x.Events.forEach((event) => {
       receiver.Add(event, `The ${x.Identifier} event: ${event}`, Kinds.Completion.Event);
     });
@@ -35,7 +35,7 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
       return;
 
     case "geometry":
-      CreateGeometries(Database.Data.Resourcepack.Models, receiver);
+      CreateGeometries(Database.ProjectData.Resourcepack.Models, receiver);
       return;
 
     case "v":

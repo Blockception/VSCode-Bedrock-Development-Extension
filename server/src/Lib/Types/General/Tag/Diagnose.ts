@@ -23,7 +23,7 @@ export function ProvideDiagnostic(data: LocationWord, builder: DiagnosticsBuilde
     return;
   }
 
-  if (Database.Data.General.Tag.HasID(text)) {
+  if (Database.ProjectData.General.Tag.HasID(text)) {
     return;
   }
 

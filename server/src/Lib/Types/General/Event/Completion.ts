@@ -10,7 +10,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
 
   if (Index >= 0) {
     let EntityID = Context.Command.Parameters[Index].text;
-    let Entity = Database.Data.General.Entities.GetFromID(EntityID);
+    let Entity = Database.ProjectData.General.Entities.GetFromID(EntityID);
 
     if (Entity) {
       Convert(Entity, Context.receiver);
@@ -18,7 +18,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
     }
   }
 
-  Database.Data.General.Entities.ForEach((entity) => Convert(entity, Context.receiver));
+  Database.ProjectData.General.Entities.ForEach((entity) => Convert(entity, Context.receiver));
 }
 
 function Convert(Entity: Entity, builder: CompletionBuilder): void {

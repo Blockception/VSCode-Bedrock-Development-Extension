@@ -1,4 +1,4 @@
-import { ProjectFiles } from "../../Code/ProjectFiles";
+import { ProjectFiles } from "../../Project/ProjectFiles";
 import { Database } from "../../Database/include";
 import { Manager } from "../../Manager/Manager";
 
@@ -10,14 +10,14 @@ export interface Context {
 }
 
 export function GetContext(): Context | undefined {
-  const Data = Database.MinecraftProgramData.GetProjecData();
+  const Data = /*TODO now a promise*/ GetProjectFiles();
   if (Data === undefined) return undefined;
 
   return Convert(Data);
 }
 
 export function GetContextAsync<T>(data: T, callback: (c: Context, data: T) => void): void {
-  Database.MinecraftProgramData.GetProjecData((projectData) => {
+  /*TODO now a promise*/ GetProjectFiles((projectData) => {
     const Context = Convert(projectData);
 
     if (Context) callback(Context, data);

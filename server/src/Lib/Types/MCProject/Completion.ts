@@ -55,13 +55,13 @@ function ProvideDefinitions(doc: TextDocument, pos: Position, builder: Completio
         return;
 
       case "objective":
-        return Database.Database.Data.General.Objectives.ForEach((tag) => Add(builder, tag));
+        return Database.ProjectDatabase.Data.General.Objectives.ForEach((tag) => Add(builder, tag));
 
       case "tag":
-        return Database.Database.Data.General.Tag.ForEach((tag) => Add(builder, tag));
+        return Database.ProjectDatabase.Data.General.Tag.ForEach((tag) => Add(builder, tag));
 
       case "family":
-        return Database.Database.Data.General.Entities.ForEach((entity) => entity.Families.forEach((family) => Add(builder, family)));
+        return Database.ProjectDatabase.Data.General.Entities.ForEach((entity) => entity.Families.forEach((family) => Add(builder, family)));
     }
 
     return;

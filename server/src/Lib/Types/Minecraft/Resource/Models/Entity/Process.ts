@@ -33,5 +33,5 @@ export function Process(doc: TextDocument): void {
 function Add(identifier: string, JDoc: JsonDocument): void {
   const range = JDoc.RangeOf(identifier) ?? Range.create(0, 0, 0, 0);
 
-  Database.Data.Resourcepack.Models.Set(new DataReference(identifier, Location.create(JDoc.doc.uri, range)));
+  Database.ProjectData.Resourcepack.Models.Set(new DataReference(identifier, Location.create(JDoc.doc.uri, range)));
 }

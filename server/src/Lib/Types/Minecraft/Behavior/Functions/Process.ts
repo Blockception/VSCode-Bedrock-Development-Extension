@@ -7,7 +7,7 @@ import { GetComment } from "./Function";
 import { TextDocument } from "../../../Document/TextDocument";
 
 export function Process(document: TextDocument): void {
-  Database.Data.DeleteFile(document.uri);
+  Database.ProjectData.DeleteFile(document.uri);
 
   if (document.languageId !== Languages.McFunctionIdentifier) return;
 
@@ -48,6 +48,6 @@ function ProcessContent(document: TextDocument): void {
       Mcfunction.Documentation.value = Comment;
     }
 
-    Database.Data.General.Functions.Set(Mcfunction);
+    Database.ProjectData.General.Functions.Set(Mcfunction);
   }
 }

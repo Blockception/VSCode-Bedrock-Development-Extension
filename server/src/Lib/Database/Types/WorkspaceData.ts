@@ -1,7 +1,7 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
-import { GetProjectFiles, ProjectFiles } from "../../Code/ProjectFiles";
+import { GetProjectFiles, ProjectFiles } from "../../Project/ProjectFiles";
 import { ServerSettings } from "../../Server/Settings";
 import { Definitions, ProjectData } from "../../Types/Project/Project";
 

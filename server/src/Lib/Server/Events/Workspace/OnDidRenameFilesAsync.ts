@@ -28,7 +28,7 @@ async function OnDidRenameFile(Item: FileRename): Promise<void> {
   return new Promise((resolve, reject) => {
     //Delete old data
     const uri = GetFilepath(UniformUrl(Item.oldUri));
-    Database.Data.DeleteFile(uri);
+    Database.ProjectData.DeleteFile(uri);
 
     //Update new one
     const Doc = GetDocument(Item.newUri);

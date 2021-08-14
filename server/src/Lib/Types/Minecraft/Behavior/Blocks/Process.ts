@@ -25,11 +25,11 @@ export function Process(doc: TextDocument): void {
     range: Range ?? EmptyTypes.EmptyRange(),
   };
 
-  Database.Data.Behaviorpack.Blocks.Set(new DataReference(Name, Location));
+  Database.ProjectData.Behaviorpack.Blocks.Set(new DataReference(Name, Location));
 
   let B = new General.Block.Block();
   B.Location = Location;
   B.Identifier = Name;
   B.Documentation.value = "The custom block: `" + Name + "`";
-  Database.Data.General.Blocks.Set(B);
+  Database.ProjectData.General.Blocks.Set(B);
 }

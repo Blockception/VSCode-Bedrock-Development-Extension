@@ -6,7 +6,7 @@ import { Kinds } from "../Kinds";
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
 
-  receiver.AddFromRange(Database.Data.General.Entities, Kinds.Completion.Entity);
+  receiver.AddFromRange(Database.ProjectData.General.Entities, Kinds.Completion.Entity);
 }
 
 export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder): void {
@@ -14,7 +14,7 @@ export function ProvideCompletionTest(Context: CommandCompletionContext | Comple
   if (CommandCompletionContext.is(Context)) receiver = Context.receiver;
   else receiver = Context;
 
-  Database.Data.General.Entities.ForEach((entity) => {
+  Database.ProjectData.General.Entities.ForEach((entity) => {
     let Name = entity.Identifier;
 
     receiver.Add(Name, "test for the entity: " + Name, Kinds.Completion.Entity);

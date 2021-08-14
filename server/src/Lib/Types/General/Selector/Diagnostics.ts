@@ -44,7 +44,7 @@ function DiagnoseFakePlayer(data: LocationWord, builder: DiagnosticsBuilder): vo
   const fakePlayer = data.text;
 
   //Has fake player
-  if (Database.Data.General.FakeEntities.HasID(fakePlayer)) {
+  if (Database.ProjectData.General.FakeEntities.HasID(fakePlayer)) {
     return;
   }
 
@@ -368,7 +368,7 @@ function ScoresCheck(selector: Selector, builder: DiagnosticsBuilder): void {
     } else if (objectives.excluded.includes(Score.Name.text)) {
       builder.AddWord(Score.Name, `Score: ${Score.Name} has been marked as invalid`).code = "objective.excluded";
     } else {
-      if (!Database.Data.General.Objectives.HasID(Score.Name.text)) {
+      if (!Database.ProjectData.General.Objectives.HasID(Score.Name.text)) {
         builder.AddWord(Score.Name, `No valid definition of ${Score.Name.text} has been found.`).code = "objective.missing";
       }
     }

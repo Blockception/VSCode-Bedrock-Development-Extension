@@ -101,5 +101,5 @@ function Create(Loc: Location, Name: string, Doc: string): void {
   Ta.Documentation.value = Doc;
 
   Console.Info("Found ticking area: " + Name);
-  Database.Data.General.TickingAreas.Set(Ta);
+  Database.ProjectData.General.TickingAreas.Set(Ta);
 }

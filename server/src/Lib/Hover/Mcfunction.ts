@@ -67,7 +67,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
 
   switch (parameter.Type) {
     case MCCommandParameterType.block:
-      return GetDocumentation(Text, range, Database.Data.General.Blocks);
+      return GetDocumentation(Text, range, Database.ProjectData.General.Blocks);
 
     case MCCommandParameterType.boolean:
       doc = "A boolean value (true or false)";
@@ -86,7 +86,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       break;
 
     case MCCommandParameterType.entity:
-      return GetDocumentation(Text, range, Database.Data.General.Entities);
+      return GetDocumentation(Text, range, Database.ProjectData.General.Entities);
 
     case MCCommandParameterType.event:
       doc = "A event";
@@ -97,7 +97,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       break;
 
     case MCCommandParameterType.function:
-      return GetDocumentation(Text, range, Database.Data.General.Functions);
+      return GetDocumentation(Text, range, Database.ProjectData.General.Functions);
 
     case MCCommandParameterType.gamemode:
       doc = "A minecraft gamemode";
@@ -123,14 +123,14 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       break;
 
     case MCCommandParameterType.objective:
-      return GetDocumentation(Text, range, Database.Data.General.Objectives);
+      return GetDocumentation(Text, range, Database.ProjectData.General.Objectives);
 
     case MCCommandParameterType.operation:
       doc = "A scoreboard math operation";
       break;
 
     case MCCommandParameterType.particle:
-      return GetDocumentation(Text, range, Database.Data.Resourcepack.Particles);
+      return GetDocumentation(Text, range, Database.ProjectData.Resourcepack.Particles);
 
     case MCCommandParameterType.replaceMode:
       doc = "A replace mode";
@@ -149,17 +149,17 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       break;
 
     case MCCommandParameterType.sound:
-      return GetDocumentation(Text, range, Database.Data.General.Sounds);
+      return GetDocumentation(Text, range, Database.ProjectData.General.Sounds);
 
     case MCCommandParameterType.string:
       doc = "A string";
       break;
 
     case MCCommandParameterType.tag:
-      return GetDocumentation(Text, range, Database.Data.General.Tag);
+      return GetDocumentation(Text, range, Database.ProjectData.General.Tag);
 
     case MCCommandParameterType.tickingarea:
-      return GetDocumentation(Text, range, Database.Data.General.TickingAreas);
+      return GetDocumentation(Text, range, Database.ProjectData.General.TickingAreas);
 
     case MCCommandParameterType.unknown:
       doc = "no idea, I quit";

@@ -14,13 +14,13 @@ export function ProvideCompletion(Context: CommandCompletionContext, type: strin
   });
 
   if (type) {
-    let entity = Database.Data.General.Entities.GetFromID(type);
+    let entity = Database.ProjectData.General.Entities.GetFromID(type);
 
     if (entity) {
       ConvertEntity(entity, receiver);
     }
   } else {
-    Database.Data.General.Entities.ForEach((entity) => ConvertEntity(entity, receiver));
+    Database.ProjectData.General.Entities.ForEach((entity) => ConvertEntity(entity, receiver));
   }
 }
 
@@ -36,13 +36,13 @@ export function ProvideCompletionTest(Context: CommandCompletionContext | Comple
   else receiver = Context;
 
   if (type) {
-    let entity = Database.Data.General.Entities.GetFromID(type);
+    let entity = Database.ProjectData.General.Entities.GetFromID(type);
 
     if (entity) {
       ConvertTestEntity(entity, receiver);
     }
   } else {
-    Database.Data.General.Entities.ForEach((entity) => ConvertTestEntity(entity, receiver));
+    Database.ProjectData.General.Entities.ForEach((entity) => ConvertTestEntity(entity, receiver));
   }
 }
 

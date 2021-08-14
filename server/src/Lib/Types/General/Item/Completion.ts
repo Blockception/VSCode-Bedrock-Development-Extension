@@ -4,5 +4,5 @@ import { Database } from "../../../Database/include";
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
   let receiver = Context.receiver;
-  receiver.AddFromRange(Database.Data.General.Items, CompletionItemKind.Struct);
+  receiver.AddFromRange(Database.ProjectData.General.Items, CompletionItemKind.Struct);
 }
