@@ -23,6 +23,6 @@ describe("File", () => {
   it("GetParent", () => {
     const P = GetParent(Fullpath);
 
-    expect(P).to.equal(Parent + "\\");
+    expect(P).to.equal(Parent + path.sep);
   });
 });
