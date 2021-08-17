@@ -1,10 +1,5 @@
 import { Languages } from "../Constants";
-import { ProvideMcfunctionDiagnostics } from "../Types/Minecraft/Behavior/Functions/include";
-import { provideLanguageDiagnostics } from "../Types/Languages/Diagnose";
 import { Manager } from "../Manager/Manager";
-import { DetectGeneralDataType } from "../Types/Minecraft/Format/Detection";
-import { GeneralDataType } from "../Types/Minecraft/Format/General Data Type";
-import { Behavior, Resource } from "../Types/Minecraft/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 
 export function Diagnostics(doc: TextDocument): void {
@@ -27,5 +22,5 @@ export function Diagnostics(doc: TextDocument): void {
   }
 
   //Pass document to diagnoser
-  Manager.Diagnoser.Process(doc);
+  Manager.Diagnoser?.Process(doc);
 }

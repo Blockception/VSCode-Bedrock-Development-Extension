@@ -1,5 +1,4 @@
 import { Diagnoser, DiagnoserContext, DiagnosticsBuilderContent, DiagnosticSeverity, InternalDiagnosticsBuilder } from "bc-minecraft-bedrock-diagnoser";
-import { JsonPath, Position, TextDocument } from "bc-minecraft-bedrock-project";
 import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { Diagnostic } from "vscode-languageserver";
 import { Database, Glob } from "../include";
@@ -8,14 +7,16 @@ import * as vstd from "vscode-languageserver-textdocument";
 import { Console } from "../Console/Console";
 import { Range } from "../Code/Range";
 import * as vscode from "vscode-languageserver";
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument, TextDocument } from "../Types/Document/include";
 import { Character } from "../Code/Character";
+import { Types } from "bc-minecraft-bedrock-types";
 
 /**Creates a new bedrock diagnoser
  * @returns A diagnoser*/
 export function CreateDiagnoser(): Diagnoser {
   //create diagnoser
-  const out = new Diagnoser(CreateContext());
+  const context = CreateContext();
+  const out = new Diagnoser(context);
 
   return out;
 }
@@ -25,7 +26,7 @@ export function CreateDiagnoser(): Diagnoser {
 function CreateContext(): DiagnoserContext {
   //create context
   const context: DiagnoserContext = {
-    cache: Database.ProjectDatabase.ProjectData,
+    cache: Database.Database.ProjectData,
     getDiagnoser: getDiagnoser,
     getDocument: getDocument,
     getFiles: getFiles,
@@ -81,11 +82,19 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
     this.context = context;
   }
 
+  /**A signal from the diagnoser API that this diagnoser is done*/
   done(): void {
     Manager.Diagnostic.SendDiagnostics(this.doc, this.Items);
   }
 
-  Add(position: string | number | Position, message: string, severity: DiagnosticSeverity, code: string | number): void {
+  /**
+   *
+   * @param position
+   * @param message
+   * @param severity
+   * @param code
+   */
+  Add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
     const Error: Diagnostic = {
       message: message,
       code: code,
@@ -98,6 +107,11 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
   }
 }
 
+/**
+ *
+ * @param severity
+ * @returns
+ */
 function GetSeverity(severity: DiagnosticSeverity): vscode.DiagnosticSeverity {
   switch (severity) {
     case DiagnosticSeverity.info:
@@ -115,26 +129,25 @@ function GetSeverity(severity: DiagnosticSeverity): vscode.DiagnosticSeverity {
   }
 }
 
-function GetRange(position: JsonPath | number | Position, doc: vstd.TextDocument): Range {
-  if (typeof position === "string") {
-    const index = position.lastIndexOf("/");
-    const length = index > -1 ? position.length - index : position.length;
-
-    position = JsonPath.resolve(doc, position);
-
-    const s = doc.positionAt(position);
-    return {
-      start: s,
-      end: Position.create(s.line, s.character + length),
-    };
+/**
+ *
+ * @param position
+ * @param doc
+ * @returns
+ */
+function GetRange(position: Types.DocumentLocation, doc: vstd.TextDocument): Range {
+  if (Types.JsonPath.is(position)) {
+    return resolveJsonPath(position, doc);
   }
 
-  let Start: Position;
-  let End: Position | undefined = undefined;
+  let Start: Types.Position;
+  let End: Types.Position | undefined = undefined;
 
-  if (Position.is(position)) {
+  //If document location is already a position, then grab the offset to start at
+  if (Types.Position.is(position)) {
     Start = position;
     position = doc.offsetAt(position);
+    //If document location is already an offset, then grab the start position
   } else {
     Start = doc.positionAt(position);
   }
@@ -142,25 +155,35 @@ function GetRange(position: JsonPath | number | Position, doc: vstd.TextDocument
   const text = doc.getText();
 
   for (let I = position + 1; I < text.length; I++) {
-    const c = text[I];
+    const c = text.charCodeAt(I);
 
-    if (Character.IsLetter(c) || Character.IsNumber(c)) {
-      continue;
-    }
+    //If character is a letter or number then keep going until we find something else
+    if (Character.IsLetterCode(c) || Character.IsNumberCode(c)) continue;
 
-    const value = c.charCodeAt(0);
+    //Dashes and underscore are to be respected
+    if (c === Character.Character_dash || c === Character.Character_underscore) continue;
 
-    if (value === Character.Character_dash || value === Character.Character_underscore) {
-      continue;
-    }
-
+    //Something has been found that is not considered a "word"
     End = doc.positionAt(I);
     break;
   }
 
+  //If end is still undefined then make atleast one character big
   if (!End) {
     End = { character: Start.character + 1, line: Start.line };
   }
 
   return { start: Start, end: End };
+}
+
+function resolveJsonPath(position: string, doc: vstd.TextDocument): Range {
+  const index = position.lastIndexOf("/");
+  const length = index > -1 ? position.length - index : position.length;
+
+  const offset = Types.JsonPath.resolve(doc, position);
+
+  const start = doc.positionAt(offset);
+  const end = doc.positionAt(offset + position.length);
+
+  return { start: start, end: end };
 }
