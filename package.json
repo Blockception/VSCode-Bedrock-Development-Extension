@@ -838,7 +838,7 @@
     ]
   },
   "dependencies": {
-    "fast-glob": "^3.2.5",
+    "fast-glob": "^3.2.7",
     "vsce": "^1.95.0"
   },
   "devDependencies": {
