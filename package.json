@@ -185,6 +185,12 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Behavior Pack: Create dialogue file",
+        "command": "bc-create-behavior_pack-dialogue",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "Behavior Pack: Create item file",
         "command": "bc-create-behavior_pack-item",
         "category": "Blockception",
