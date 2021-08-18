@@ -22,7 +22,7 @@
     "update": "npm update && npm audit fix"
   },
   "dependencies": {
-    "bc-minecraft-project": "^1.0.0",
+    "bc-minecraft-project": "^1.0.3",
     "bc-vscode-words": "^1.0.10",
     "comment-json": "^4.1.0",
     "fast-glob": "^3.2.5",
