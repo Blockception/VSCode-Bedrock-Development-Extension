@@ -6,7 +6,7 @@ const { v4: uuid } = require("uuid");
 
 describe("Data", () => {
   describe("Templates", () => {
-    describe("Behavior Pack", () => {
+    describe("Resource Pack", () => {
       //Test functions
       it("create animation controller", () => IDTest(create_animation_controller));
       it("create attachable", () => IDTest(create_attachable));

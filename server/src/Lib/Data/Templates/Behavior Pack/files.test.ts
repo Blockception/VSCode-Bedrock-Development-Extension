@@ -23,13 +23,11 @@ describe("Data", () => {
       it("create animation", () => IDTest(create_animation));
       it("create block", () => IDTest(create_block));
       it("create entity", () => SafeIdNoTest(create_entity));
-      it("create dialogue", () => SafeIdNoTest(create_dialogue));
       it("create item", () => IDTest(create_item));
 
       it("create manifest", () => IDUUID(create_manifest));
       it("create recipe", () => IDTest(create_recipe));
       it("create spawn rule", () => IDTest(create_spawn_rule));
-      it("create trading", () => IDTest(create_trading));
       it("create volume", () => IDTest(create_volume));
     });
   });
