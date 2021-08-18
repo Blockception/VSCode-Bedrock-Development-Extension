@@ -47,6 +47,7 @@ function Initialize(): CommandManager {
   Out[Commands.Create.Behaviorpack.Animation] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_animation_file);
   Out[Commands.Create.Behaviorpack.Block] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_block_file);
   Out[Commands.Create.Behaviorpack.Entity] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_entity_file);
+  Out[Commands.Create.Behaviorpack.Dialogue] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_dialogue_file);
   Out[Commands.Create.Behaviorpack.Item] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_item_file);
   Out[Commands.Create.Behaviorpack.Languages] = (params: ExecuteCommandParams) => FunctionBP(params, Templates.Language.create_language_files);
   Out[Commands.Create.Behaviorpack.Loot_Table] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_loot_table_file);

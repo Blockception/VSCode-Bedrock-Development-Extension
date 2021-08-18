@@ -82,6 +82,8 @@ export namespace Commands {
       export const Block: string = BPBase + "block";
       /**The command to create entities files */
       export const Entity: string = BPBase + "entity";
+      /**The command to create entities files */
+      export const Dialogue: string = BPBase + "dialogue";
       /**The command to create item files */
       export const Item: string = BPBase + "item";
       /**The command to create language files */

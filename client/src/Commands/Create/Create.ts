@@ -13,6 +13,7 @@ const AnimationControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example:
 const AnimationID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
 const AttachableID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:attachable" };
 const EntityID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:entity" };
+const DialogueID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "dialogue" };
 const BlockID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:block" };
 const ItemID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
 const FogID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
@@ -45,6 +46,7 @@ export function Activate(context: ExtensionContext): void {
   CreateID(context, Commands.Create.Behaviorpack.Animation, "Create animation", AnimationID);
   CreateID(context, Commands.Create.Behaviorpack.Block, "Create block", BlockID);
   CreateID(context, Commands.Create.Behaviorpack.Entity, "Create entity", EntityID);
+  CreateID(context, Commands.Create.Behaviorpack.Dialogue, "Create dialogue", DialogueID);
   CreateID(context, Commands.Create.Behaviorpack.Item, "Create item", ItemID);
   Create(context, Commands.Create.Behaviorpack.Languages, "Create language files");
   CreateID(context, Commands.Create.Behaviorpack.Loot_Table, "Create loot table", LootTableID);

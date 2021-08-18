@@ -91,6 +91,26 @@ const entity: string = `{
   }
 }`;
 
+/**The template for the behaviorpack entity*/
+export function create_dialogue(ID: string): string {
+  const SafeID = SafeIDNoNamespace(ID);
+
+  return dialogue.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
+}
+const dialogue: string = `{
+  "format_version": "1.14.0",
+  "minecraft:npc_dialogue": {
+    "scenes": [
+      {
+        "scene_tag": "%SafeID%",
+        "npc_name": { "rawtext": [{ "translate": "dialogue.%SafeID%.name" }] },
+        "text": { "rawtext": [{ "translate": "dialogue.%SafeID%.body", "with": ["\n"] }] },
+        "buttons": []
+      }
+    ]
+  }
+}`;
+
 /**The template for the behaviorpack item*/
 export function create_item(ID: string): string {
   return item.replace(/%ID%/gi, ID);
