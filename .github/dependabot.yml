@@ -9,13 +9,25 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    assignees:
+    - "DaanV2"
+    reviewers:
+    - "DaanV2"
       
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/client" # Location of package manifests
     schedule:
       interval: "weekly"
+    assignees:
+    - "DaanV2"
+    reviewers:
+    - "DaanV2"
       
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/server" # Location of package manifests
     schedule:
       interval: "weekly"
+    assignees:
+    - "DaanV2"
+    reviewers:
+    - "DaanV2"
