@@ -1,5 +1,23 @@
 # Changelog
 ## Plugin
+- Updated dependieces following RP by dependabot
+- build(deps-dev): bump mocha from 8.4.0 to 9.0.3 in /client
+- Update dependabot.yml
+- build(deps-dev): bump ts-node from 9.1.1 to 10.2.0 in /server
+- build(deps-dev): bump @types/mocha from 8.2.2 to 9.0.0 in /client
+- Update dependabot.yml
+- Create dependabot.yml
+- Added step names
+- Update and rename npm-test-ubuntu.yml to npm-test.yml
+- Update and rename npm-test.yml to npm-test-ubuntu.yml
+- Fixed GeFilepath for platform specifics
+- Added debug messages
+- Updating GetFilepath test
+- Updated readme
+- Fixes
+- Updated
+- Create npm-test.yml
+- 2.1.47
 - Updated
 - 2.1.46
 - 2.1.45
@@ -21,26 +39,9 @@
 - 2.1.37
 - Updated
 - 2.1.36
-- Fixed
-- Updated
-- 2.1.35
-- Updated dialogue command
-- Updated schemas with new dialogue
-- 2.1.34
-- Fixing vscode uri problems
-- 2.1.33
-- Revert "Updated"
-- 2.1.32
-- Updated
-- Updated schemas
-- 2.1.31
-- Updated schemas
-- Updated
-- 2.1.30
-- 2.1.29
-- Updated
-- Fixing. 
+- Fixed. 
 ## Schemas
+- Added
 - UPdated
 - Fixing
 - Fixing
@@ -80,4 +81,3 @@
 - fixed json
 - Updated Comments
 - Updated comments
-- Updated titles
