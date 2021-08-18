@@ -2,7 +2,7 @@ import { WorkspaceFoldersChangeEvent } from "vscode-languageserver";
 import { UniformUrl } from "../../../Code/Url";
 import { Console } from "../../../Console/Console";
 import { Database } from "../../../Database/Database";
-import { Traverse } from "../../../Process/Traverse";
+import { Traverse } from "../../../Process/Traverse/Traverse";
 
 export async function OnWorkspaceFolderChangeAsync(params: WorkspaceFoldersChangeEvent): Promise<void> {
   return new Promise<void>((resolve, reject) => {
@@ -20,7 +20,7 @@ function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
     uri = UniformUrl(uri);
 
     Console.Log("Deleting data from workspace: " + ws.name);
-    Database.ProjectData.DeleteFolder(uri);
+    Database.ProjectData.;
     Database.WorkspaceData.Remove(ws);
   }
 

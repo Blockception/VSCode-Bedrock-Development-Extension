@@ -12,64 +12,6 @@ import { WorkspaceConfiguration } from "../Database/Types/WorkspaceData";
 import { Glob } from "../Glob/Glob";
 
 /**
- *
- */
-export interface ProjectFiles {
-  /**
-   *
-   */
-  WorldFolders: string[];
-
-  /**
-   *
-   */
-  ResourcePackFolders: string[];
-
-  /**
-   *
-   */
-  BehaviorPackFolders: string[];
-
-  /**
-   *
-   */
-  Workspaces: string[];
-}
-
-/**Retrieves workspaces and then updated the @see Database.WorkspaceData
- * @returns A promise with project related files*/
-export async function GetProjectFiles(): Promise<ProjectFiles> {
-  const WS = Manager.Connection.workspace.getWorkspaceFolders();
-
-  WS.catch((item) => Console.Error(`No workspaces folders received: ${JSON.stringify(item)}`));
-
-  return WS.then((x) => Traverse(x));
-}
-
-/**
- *
- * @param folders
- * @returns
- */
-async function Traverse(folders: WorkspaceFolder[] | null): Promise<ProjectFiles> {
-  let PF: ProjectFiles = {
-    BehaviorPackFolders: [],
-    ResourcePackFolders: [],
-    WorldFolders: [],
-    Workspaces: [],
-  };
-
-  if (folders === null) {
-    return Promise.resolve(PF);
-  }
-
-  return Database.WorkspaceData.Add(folders).then((ws) => {
-    CheckStructure(ws, PF);
-    return PF;
-  });
-}
-
-/**
  *=
  * @param folders
  * @param PD

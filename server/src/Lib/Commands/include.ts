@@ -3,6 +3,5 @@ export * as Language from "./Language/include";
 export * as Templates from "./Templates/include";
 export * from "./Diagnose Project";
 export * from "./Files";
-export * from "./Import Errors";
-export * from "./MCProjects";
+export * from "../Project/MCProjects";
 export * from "./OnRequest";

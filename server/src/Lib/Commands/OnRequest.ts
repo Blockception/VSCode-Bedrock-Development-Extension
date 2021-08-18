@@ -5,7 +5,7 @@ import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { Files } from "./Files";
 import { McImportErrorsCommand } from "./Import Errors";
 import { AddAllItems } from "./Language/AddAll";
-import { CreateMCProject } from "./MCProjects";
+import { CreateMCProject } from "../Project/MCProjects";
 import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 

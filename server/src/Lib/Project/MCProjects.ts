@@ -3,7 +3,7 @@ import path from "path";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { Manager } from "../Manager/include";
-import { TemplateBuilder } from "./Templates/include";
+import { TemplateBuilder } from "../Commands/Templates/include";
 
 /**
  *
