@@ -12,3 +12,6 @@ client/server
 
 minecraft-bedrock-schemas/**/*.json
 !minecraft-bedrock-schemas/compress specification.json
+
+minecraft-bedrock-schemas/src
+minecraft-bedrock-schemas/test
