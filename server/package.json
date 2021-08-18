@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.18",
-    "@types/mocha": "^8.2.2",
+    "@types/mocha": "^9.0.0",
     "@types/picomatch": "^2.2.4",
     "chai": "^4.3.4",
     "json-loader": "^0.5.7",
