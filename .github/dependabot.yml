@@ -7,6 +7,7 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
+    open-pull-requests-limit: 20
     schedule:
       interval: "weekly"
     assignees:
@@ -16,6 +17,7 @@ updates:
         
   - package-ecosystem: "gitsubmodule" # See documentation for possible values
     directory: "/" # Location of package manifests
+    open-pull-requests-limit: 20
     schedule:
       interval: "weekly"
     assignees:
@@ -25,6 +27,7 @@ updates:
       
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/client" # Location of package manifests
+    open-pull-requests-limit: 20
     schedule:
       interval: "weekly"
     assignees:
@@ -34,6 +37,7 @@ updates:
       
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/server" # Location of package manifests
+    open-pull-requests-limit: 20
     schedule:
       interval: "weekly"
     assignees:
