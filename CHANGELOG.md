@@ -1,5 +1,36 @@
 # Changelog
 ## Plugin
+- Updated
+- Update dependabot.yml
+- Update npm-test.yml
+- Updated packages
+- Delete npm-test-client.yml
+- Update and rename npm-test-server.yml to npm-test.yml
+- Update npm-test-server.yml
+- Update npm-test-client.yml
+- Update and rename npm-test.yml to npm-test-server.yml
+- Update npm-test.yml
+- Create npm-test-client.yml
+- build(deps-dev): bump mocha from 9.0.3 to 9.1.0
+- build(deps-dev): bump webpack from 5.50.0 to 5.51.1 in /server
+- build(deps-dev): bump webpack from 5.50.0 to 5.51.1
+- build(deps-dev): bump webpack from 5.50.0 to 5.51.1 in /client
+- build(deps-dev): bump mocha from 9.0.3 to 9.1.0 in /client
+- build(deps-dev): bump mocha from 9.0.3 to 9.1.0 in /server
+- build(deps): bump minecraft-bedrock-schemas from `02bb934` to `da081c7`
+- build(deps): bump bc-minecraft-project from 1.0.3 to 1.0.4 in /server
+- build(deps-dev): bump @types/node from 16.6.1 to 16.7.1
+- Updated
+- Updated
+- build(deps-dev): bump ts-node from 10.2.0 to 10.2.1 in /server
+- build(deps-dev): bump ts-node from 10.2.0 to 10.2.1 in /client
+- build(deps): bump minecraft-bedrock-schemas from `ef848e5` to `3f2b44e`
+- Update dependabot.yml
+- Updated schemas
+- Fixing tests
+- Added create command
+- Added create command
+- 2.1.48
 - Updated dependieces following RP by dependabot
 - build(deps-dev): bump mocha from 8.4.0 to 9.0.3 in /client
 - Update dependabot.yml
@@ -8,39 +39,32 @@
 - Update dependabot.yml
 - Create dependabot.yml
 - Added step names
-- Update and rename npm-test-ubuntu.yml to npm-test.yml
-- Update and rename npm-test.yml to npm-test-ubuntu.yml
-- Fixed GeFilepath for platform specifics
-- Added debug messages
-- Updating GetFilepath test
-- Updated readme
-- Fixes
-- Updated
-- Create npm-test.yml
-- 2.1.47
-- Updated
-- 2.1.46
-- 2.1.45
-- 2.1.44
-- Moved dialogue command
-- Updated
-- 2.1.43
-- tripWire -> tripwrite
-- 2.1.42
-- Added setmaxplayers
-- 2.1.41
-- Updating template
-- 2.1.40
-- Updated schemas
-- Updated
-- Updated
-- 2.1.39
-- 2.1.38
-- 2.1.37
-- Updated
-- 2.1.36
-- Fixed. 
+- Update and rename npm-test-ubuntu.yml to npm-test.yml. 
 ## Schemas
+- Update npm-test.yml
+- Update npm-test.yml
+- Added blocks 1.17
+- Added more test files
+- Updated
+- Updated spawn rules
+- Updated
+- Fixing dependencies
+- Updated
+- Updated
+- Update npm-test.yml
+- Updated
+- Update README.md
+- Update npm-test.yml
+- Update compress-json-schemas.yml
+- Create npm-test.yml
+- Added schemas count check
+- Added
+- Updated
+- Added unit tests
+- Restructure
+- Updated git settings
+- New testing folder
+- Updated
 - Added
 - UPdated
 - Fixing
@@ -57,27 +81,3 @@
 - Updated
 - Updatedf
 - Updated spawn rules comments
-- Updated comments
-- Updated
-- Updated
-- Updated
-- Updating
-- Updated
-- Fixed
-- Updated references
-- Updated
-- Updated entities
-- Updated
-- Updated
-- Added comments
-- Updated
-- Updated components documentation
-- Updated comments
-- Updated documentation with the microsoft documentation
-- Updated Tiltes
-- Updated
-- Updated
-- Updated
-- fixed json
-- Updated Comments
-- Updated comments
