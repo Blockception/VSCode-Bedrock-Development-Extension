@@ -26,10 +26,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
+      - run: cd ${{ github.workspace }}/client
       - name: Build
-        run: |
-          cd ${{ github.workspace }}/client
-          npm ci
+        run: npm ci
       - name: Test
         run: npm test
 
