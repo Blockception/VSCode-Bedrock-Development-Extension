@@ -13,11 +13,12 @@ on:
 
 jobs:      
   test:
-    name: Test and ${{ matrix.os }}
+    name: Test and ${{ matrix.os }} - ${{ matrix.package }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
+        package: [client, server]
         
     steps:
       - name: Checkout
@@ -26,8 +27,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: cd ${{ github.workspace }}/server
       - name: Build
         run: npm ci
+        working-directory: ./${{ matrix.package }}
       - name: Test
         run: npm test
+        working-directory: ./${{ matrix.package }}
