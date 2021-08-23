@@ -1,6 +1,9 @@
 # Changelog
 ## Plugin
+- 2.1.49
 - Updated
+- build(deps-dev): bump @typescript-eslint/parser from 4.29.2 to 4.29.3
+- build(deps): bump minecraft-bedrock-schemas from `da081c7` to `8ca0bdd`
 - Update dependabot.yml
 - Update npm-test.yml
 - Updated packages
@@ -36,10 +39,7 @@
 - Update dependabot.yml
 - build(deps-dev): bump ts-node from 9.1.1 to 10.2.0 in /server
 - build(deps-dev): bump @types/mocha from 8.2.2 to 9.0.0 in /client
-- Update dependabot.yml
-- Create dependabot.yml
-- Added step names
-- Update and rename npm-test-ubuntu.yml to npm-test.yml. 
+- Update dependabot.yml. 
 ## Schemas
 - Update npm-test.yml
 - Update npm-test.yml
