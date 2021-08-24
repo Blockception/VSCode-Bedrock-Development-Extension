@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Fixing code for deeper manifest searches
+- 2.1.50
 - 2.1.49
 - Updated
 - build(deps-dev): bump @typescript-eslint/parser from 4.29.2 to 4.29.3
@@ -37,9 +39,7 @@
 - Updated dependieces following RP by dependabot
 - build(deps-dev): bump mocha from 8.4.0 to 9.0.3 in /client
 - Update dependabot.yml
-- build(deps-dev): bump ts-node from 9.1.1 to 10.2.0 in /server
-- build(deps-dev): bump @types/mocha from 8.2.2 to 9.0.0 in /client
-- Update dependabot.yml. 
+- build(deps-dev): bump ts-node from 9.1.1 to 10.2.0 in /server. 
 ## Schemas
 - Update npm-test.yml
 - Update npm-test.yml
