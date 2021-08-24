@@ -95,7 +95,7 @@ function CheckStructure(folders: WorkspaceConfiguration[] | null, PF: ProjectFil
 export function GetWorkspaceFiles(Ws: WorkspaceConfiguration, PF: ProjectFiles): void {
   PF.Workspaces.push(Ws.folder);
 
-  const entries = Glob.GetFiles("**/manifest.json", Ws.ignores, Ws.folder);
+  const entries = Glob.GetFiles("**/manifest.json", Ws.ignores, Ws.folder, true);
 
   Console.Log(`Found ${entries.length} manifests`);
 
