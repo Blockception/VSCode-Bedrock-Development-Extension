@@ -104,7 +104,7 @@ const dialogue: string = `{
       {
         "scene_tag": "%SafeID%",
         "npc_name": { "rawtext": [{ "translate": "dialogue.%SafeID%.name" }] },
-        "text": { "rawtext": [{ "translate": "dialogue.%SafeID%.body", "with": ["\n"] }] },
+        "text": { "rawtext": [{ "translate": "dialogue.%SafeID%.body", "with": ["\\n"] }] },
         "buttons": []
       }
     ]
