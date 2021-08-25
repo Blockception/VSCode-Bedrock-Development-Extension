@@ -6,6 +6,11 @@ import { Manager } from "../../Manager/Manager";
 import { GetPreviousWord, MolangFunctionDataItem } from "../../Molang/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { Kinds } from "../../Types/General/include";
+import { DetectDataType, DetectGeneralDataType, DetectResourceType } from "../../Types/Minecraft/Format/Detection";
+import { GeneralDataType } from "../../Types/Minecraft/Format/General Data Type";
+import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
+import { Identifiable } from "../../Types/Minecraft/Interfaces/Identifiable";
+import { Locatable } from "../../Types/Minecraft/Interfaces/Locatable";
 import { CompletionBuilder } from "../Builder";
 import { OnCompletionMolangVariable } from "./Variables";
 
@@ -22,6 +27,12 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
   const Edu = doc.getConfiguration().settings.Education.Enable;
 
   switch (Word.toLowerCase()) {
+    case "animation":
+      return AnimationsCompletion(receiver, doc);
+
+    case "controller":
+      return ControllersCompletion(receiver, doc);
+
     case "q":
     case "query":
       Convert(Manager.Data.Vanilla.Molang.Query, receiver);
@@ -91,4 +102,49 @@ function ConvertPrefixed(data: MolangFunctionDataItem[], receiver: CompletionBui
 
     receiver.Add(prefix + Item.function, Item.documentation, CompletionItemKind.Function);
   }
+}
+
+function AnimationsCompletion(receiver: CompletionBuilder, doc: TextDocument): void {
+  const type = DetectGeneralDataType(doc.uri);
+
+  switch (type) {
+    case GeneralDataType.behavior_pack:
+      return AddFromDataCollector(Database.Data.Behaviorpack.Animations, receiver, "BP animation");
+
+    case GeneralDataType.resource_pack:
+      return AddFromDataCollector(Database.Data.Resourcepack.Animations, receiver, "RP animation");
+  }
+}
+
+function ControllersCompletion(receiver: CompletionBuilder, doc: TextDocument): void {
+  const type = DetectGeneralDataType(doc.uri);
+
+  switch (type) {
+    case GeneralDataType.behavior_pack:
+      return AddFromDataCollector(Database.Data.Behaviorpack.AnimationControllers, receiver, "BP animation controller");
+
+    case GeneralDataType.resource_pack:
+      AddFromDataCollector(Database.Data.Resourcepack.AnimationControllers, receiver, "RP animation controller");
+
+      if (doc.uri.includes("render_controllers")) AddFromDataCollector(Database.Data.Resourcepack.RenderControllers, receiver, "render controller");
+      return;
+  }
+}
+
+function AddFromDataCollector<T extends Identifiable & Locatable>(collection: DataCollector<T>, receiver: CompletionBuilder, type: string) {
+  collection.ForEach((item) => {
+    const id = IDRemoveFirst(item.Identifier);
+
+    const documentation = Documentable.is(item) ? item.Documentation.value : `The ${type}: ${item.Identifier}, from: ${item.Location}`;
+
+    receiver.Add(id, documentation, CompletionItemKind.Method);
+  });
+}
+
+function IDRemoveFirst(id: string): string {
+  const index = id.indexOf(".");
+
+  if (index > -1) return id.substring(index + 1);
+
+  return id;
 }
