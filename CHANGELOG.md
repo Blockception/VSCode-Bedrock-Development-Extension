@@ -1,5 +1,9 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- Added render, animations (controllers) completion support
+- Fixing dialogue template
+- 2.1.51
 - Fixing code for deeper manifest searches
 - 2.1.50
 - 2.1.49
@@ -35,12 +39,10 @@
 - Fixing tests
 - Added create command
 - Added create command
-- 2.1.48
-- Updated dependieces following RP by dependabot
-- build(deps-dev): bump mocha from 8.4.0 to 9.0.3 in /client
-- Update dependabot.yml
-- build(deps-dev): bump ts-node from 9.1.1 to 10.2.0 in /server. 
+- 2.1.48. 
 ## Schemas
+- Updated
+- Fixing events
 - Update npm-test.yml
 - Update npm-test.yml
 - Added blocks 1.17
@@ -79,5 +81,3 @@
 - Updated
 - Formatted text
 - Updated
-- Updatedf
-- Updated spawn rules comments
