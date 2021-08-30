@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Updated dependencies
+- 2.1.52
 - Updated schemas
 - Added render, animations (controllers) completion support
 - Fixing dialogue template
@@ -37,9 +39,7 @@
 - Update dependabot.yml
 - Updated schemas
 - Fixing tests
-- Added create command
-- Added create command
-- 2.1.48. 
+- Added create command. 
 ## Schemas
 - Updated
 - Fixing events
