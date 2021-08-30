@@ -1,6 +1,12 @@
 # Changelog
 ## Plugin
 - Updated dependencies
+- build(deps-dev): bump mocha from 9.1.0 to 9.1.1
+- build(deps-dev): bump typescript from 4.3.5 to 4.4.2
+- build(deps-dev): bump @types/node from 16.7.1 to 16.7.7
+- Fixing mocha build error
+- 2.1.53
+- Updated dependencies
 - 2.1.52
 - Updated schemas
 - Added render, animations (controllers) completion support
@@ -33,13 +39,7 @@
 - build(deps-dev): bump @types/node from 16.6.1 to 16.7.1
 - Updated
 - Updated
-- build(deps-dev): bump ts-node from 10.2.0 to 10.2.1 in /server
-- build(deps-dev): bump ts-node from 10.2.0 to 10.2.1 in /client
-- build(deps): bump minecraft-bedrock-schemas from `ef848e5` to `3f2b44e`
-- Update dependabot.yml
-- Updated schemas
-- Fixing tests
-- Added create command. 
+- build(deps-dev): bump ts-node from 10.2.0 to 10.2.1 in /server. 
 ## Schemas
 - Updated
 - Fixing events
