@@ -845,7 +845,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.2.7",
-    "vsce": "^1.96.2"
+    "vsce": "^1.97.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.21",
