@@ -1,5 +1,19 @@
 # Changelog
 ## Plugin
+- Adding or improving .molang support #113
+- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /client
+- Update dependabot.yml
+- build(deps-dev): bump @types/vscode from 1.59.0 to 1.60.0 in /client
+- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /client
+- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /server
+- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /server
+- build(deps): bump minecraft-bedrock-schemas from `7e8c935` to `ef3247a`
+- build(deps-dev): bump @typescript-eslint/parser from 4.29.3 to 4.30.0
+- build(deps-dev): bump webpack from 5.51.1 to 5.52.0
+- build(deps): bump vsce from 1.96.2 to 1.97.0
+- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10
+- Updated schemas
+- 2.1.54
 - Updated dependencies
 - build(deps-dev): bump mocha from 9.1.0 to 9.1.1
 - build(deps-dev): bump typescript from 4.3.5 to 4.4.2
@@ -25,22 +39,11 @@
 - Update and rename npm-test-server.yml to npm-test.yml
 - Update npm-test-server.yml
 - Update npm-test-client.yml
-- Update and rename npm-test.yml to npm-test-server.yml
-- Update npm-test.yml
-- Create npm-test-client.yml
-- build(deps-dev): bump mocha from 9.0.3 to 9.1.0
-- build(deps-dev): bump webpack from 5.50.0 to 5.51.1 in /server
-- build(deps-dev): bump webpack from 5.50.0 to 5.51.1
-- build(deps-dev): bump webpack from 5.50.0 to 5.51.1 in /client
-- build(deps-dev): bump mocha from 9.0.3 to 9.1.0 in /client
-- build(deps-dev): bump mocha from 9.0.3 to 9.1.0 in /server
-- build(deps): bump minecraft-bedrock-schemas from `02bb934` to `da081c7`
-- build(deps): bump bc-minecraft-project from 1.0.3 to 1.0.4 in /server
-- build(deps-dev): bump @types/node from 16.6.1 to 16.7.1
-- Updated
-- Updated
-- build(deps-dev): bump ts-node from 10.2.0 to 10.2.1 in /server. 
+- Update and rename npm-test.yml to npm-test-server.yml. 
 ## Schemas
+- Updated
+- Updated
+- Updated
 - Updated
 - Fixing events
 - Update npm-test.yml
@@ -77,7 +80,4 @@
 - Updated
 - fixing on_damage
 - Updated
-- Updated
-- Updated
-- Formatted text
 - Updated
