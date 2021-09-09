@@ -1,8 +1,7 @@
-import { InitializedParams, ExecuteCommandRequest } from "vscode-languageserver";
+import { InitializedParams } from "vscode-languageserver";
 import { Console } from "../Console/Console";
 import { AddCommands } from "../Data/Commands/include";
 import { AddMinecraftData } from "../Data/include";
-import { Manager } from "../Manager/Manager";
 import { Traverse } from "../Process/include";
 import { SetDynamicEvents } from "./Events/Dynamic";
 import { UpdateSettings } from "./Settings";

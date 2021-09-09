@@ -14,6 +14,7 @@
     "onLanguage:json",
     "onLanguage:jsonc",
     "onLanguage:bc-minecraft-project",
+    "onLanguage:bc-minecraft-molang",
     "onCommand:bc-cheat-sheet-molang",
     "onCommand:bc-cheat-sheet-behavior-filters",
     "onCommand:bc.errors.open_lastest",
@@ -34,6 +35,62 @@
     "Formatters",
     "Debuggers"
   ],
+  "dependencies": {
+    "fast-glob": "^3.2.7",
+    "vsce": "^1.97.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.7.10",
+    "@typescript-eslint/parser": "^4.30.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "json-loader": "^0.5.7",
+    "mocha": "^9.1.1",
+    "ts-loader": "^9.2.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "files": [
+    "*.html"
+  ],
+  "maintainers": [
+    {
+      "name": "Blockception Ltd",
+      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+    "type": "git"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run test && npm run webpack",
+    "compile": "npm run clean && tsc -b",
+    "compile:client": "tsc -b ./client/tsconfig.json",
+    "compile:server": "tsc -b ./server/tsconfig.json",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
+    "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
+    "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
+    "test-compile": "tsc -p ./",
+    "lint": "npm run lint:client && npm run lint:server",
+    "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
+    "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
+    "clean": "rimraf client/out && rimraf server/out",
+    "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
+    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd .."
+  },
   "contributes": {
     "configuration": [
       {
@@ -420,7 +477,7 @@
         "id": "bc-minecraft-molang",
         "configuration": "./minecraft-molang/configuration.json",
         "aliases": [
-          "Minecraft molang",
+          "Minecraft Molang",
           "molang"
         ],
         "extensions": [
@@ -842,61 +899,5 @@
         }
       }
     ]
-  },
-  "dependencies": {
-    "fast-glob": "^3.2.7",
-    "vsce": "^1.97.0"
-  },
-  "devDependencies": {
-    "@types/chai": "^4.2.21",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "^16.7.10",
-    "@typescript-eslint/parser": "^4.30.0",
-    "chai": "^4.3.4",
-    "eslint": "^7.32.0",
-    "json-loader": "^0.5.7",
-    "mocha": "^9.1.1",
-    "ts-loader": "^9.2.5",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.4.2",
-    "webpack": "^5.52.0",
-    "webpack-cli": "^4.8.0"
-  },
-  "engines": {
-    "vscode": "^1.41.0"
-  },
-  "extensionKind": [
-    "workspace"
-  ],
-  "files": [
-    "*.html"
-  ],
-  "maintainers": [
-    {
-      "name": "Blockception Ltd",
-      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
-    }
-  ],
-  "repository": {
-    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-    "type": "git"
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run test && npm run webpack",
-    "compile": "npm run clean && tsc -b",
-    "compile:client": "tsc -b ./client/tsconfig.json",
-    "compile:server": "tsc -b ./server/tsconfig.json",
-    "watch": "tsc -b -w",
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
-    "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
-    "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
-    "test-compile": "tsc -p ./",
-    "lint": "npm run lint:client && npm run lint:server",
-    "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
-    "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
-    "clean": "rimraf client/out && rimraf server/out",
-    "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
-    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd .."
   }
 }

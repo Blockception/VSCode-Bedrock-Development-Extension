@@ -20,8 +20,10 @@ export function ProvideJsonSignature(doc: TextDocument, cursor: Position): Signa
       return ProvideMcfunctionCommandSignature(property, doc.positionAt(Range.start), cursor, doc);
     } else if (property.startsWith("@s")) {
       //On event
+      //TODO add molang support
     } else {
       //On other molang
+      //TODO add molang support
     }
   }
 

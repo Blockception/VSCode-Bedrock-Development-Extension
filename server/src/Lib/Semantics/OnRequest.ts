@@ -6,6 +6,7 @@ import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
 import { ProvideJsonSemanticTokens } from "./Json";
 import { ProvideMcfunctionSemanticTokens } from "./Mcfunctions";
+import { ProvideMolangSemanticTokens } from "./Molang";
 
 export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
   return new Promise<SemanticTokens>((resolve, reject) => {
@@ -51,6 +52,9 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
 
     case Languages.McFunctionIdentifier:
       return ProvideMcfunctionSemanticTokens(doc, range);
+
+    case Languages.McMolangIdentifier:
+      return ProvideMolangSemanticTokens(doc, range);
 
     case Languages.McOtherIdentifier:
     case Languages.McLanguageIdentifier:

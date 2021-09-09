@@ -9,6 +9,8 @@ export namespace Languages {
   /** */
   export const McProjectIdentifier: string = "bc-minecraft-project";
   /** */
+  export const McMolangIdentifier: string = "bc-minecraft-molang";
+  /** */
   export const JsonIdentifier: string = "json";
   /** */
   export const JsonCIdentifier: string = "jsonc";

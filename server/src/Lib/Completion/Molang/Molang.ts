@@ -1,4 +1,7 @@
-import { CompletionItemKind } from "vscode-languageserver";
+import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from "constants";
+import { CompletionItemKind, TextEdit } from "vscode-languageserver";
+import { Position } from "vscode-languageserver-textdocument";
+import { Languages } from "../../Constants";
 import { Database, DataCollector } from "../../Database/include";
 import { DataReference } from "../../Database/Types/include";
 import { Molang } from "../../include";
@@ -6,7 +9,7 @@ import { Manager } from "../../Manager/Manager";
 import { GetPreviousWord, MolangFunctionDataItem } from "../../Molang/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { Kinds } from "../../Types/General/include";
-import { DetectDataType, DetectGeneralDataType, DetectResourceType } from "../../Types/Minecraft/Format/Detection";
+import { DetectGeneralDataType } from "../../Types/Minecraft/Format/Detection";
 import { GeneralDataType } from "../../Types/Minecraft/Format/General Data Type";
 import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
 import { Identifiable } from "../../Types/Minecraft/Interfaces/Identifiable";
@@ -22,6 +25,26 @@ export function OnCompletionEntityEvents(receiver: CompletionBuilder): void {
   });
 }
 
+/**
+ *
+ * @param doc
+ * @param pos
+ * @param receiver
+ * @returns
+ */
+export function OnCompletionMolangRequest(doc: TextDocument, pos: Position, receiver: CompletionBuilder) {
+  const line = doc.getLine(pos.line);
+  return OnCompletionMolang(line, pos.character, doc, receiver);
+}
+
+/**
+ *
+ * @param line
+ * @param cursor
+ * @param doc
+ * @param receiver
+ * @returns
+ */
 export function OnCompletionMolang(line: string, cursor: number, doc: TextDocument, receiver: CompletionBuilder): void {
   const Word = GetPreviousWord(line, cursor);
   const Edu = doc.getConfiguration().settings.Education.Enable;
@@ -56,9 +79,10 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
     case "t":
     case "texture":
     case "temp":
+      break;
   }
 
-  if (Molang.IsMolang(line)) {
+  if (Molang.IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
     receiver.Add("query", "", CompletionItemKind.Class);
     receiver.Add("variable", "", CompletionItemKind.Variable);
     receiver.Add("math", "", CompletionItemKind.Class);
@@ -90,7 +114,7 @@ function CreateGeometries(Models: DataCollector<DataReference>, receiver: Comple
 
 function Convert(data: MolangFunctionDataItem[], receiver: CompletionBuilder): void {
   for (let I = 0; I < data.length; I++) {
-    let Item = data[I];
+    const Item = data[I];
 
     receiver.Add(Item.function, Item.documentation, CompletionItemKind.Function);
   }
