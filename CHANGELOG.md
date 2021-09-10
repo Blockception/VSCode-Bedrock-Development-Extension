@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Added event diagnostics
+- Updated packages
+- 2.1.55
 - Adding or improving .molang support #113
 - build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /client
 - Update dependabot.yml
@@ -36,10 +39,7 @@
 - Update npm-test.yml
 - Updated packages
 - Delete npm-test-client.yml
-- Update and rename npm-test-server.yml to npm-test.yml
-- Update npm-test-server.yml
-- Update npm-test-client.yml
-- Update and rename npm-test.yml to npm-test-server.yml. 
+- Update and rename npm-test-server.yml to npm-test.yml. 
 ## Schemas
 - Updated
 - Updated
