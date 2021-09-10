@@ -1,11 +1,11 @@
-import { DiagnosticSeverity, Range } from "vscode-languageserver-types";
+import { DiagnosticSeverity } from "vscode-languageserver-types";
 import { JsonDocument } from "../../../Document/Json Document";
-import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
 import { Database } from "../../../../include";
 import { Entity } from "./Entity";
 import { TextDocument } from "../../../Document/TextDocument";
 import { Script } from "../../../General/include";
-import { Minecraft } from "../../../include";
+import { DiagnosticsBuilder } from "../../../../Diagnostics/include";
+import { DiagnoseEvent } from "../Events/Diagnose";
 
 /**
  *
@@ -38,15 +38,15 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
   if (description.identifier === "minecraft:player") return;
 
   if (description.animations) {
-    for (let id in description.animations) {
-      let animation = description.animations[id];
+    for (const id in description.animations) {
+      const animation = description.animations[id];
       DiagnoseAnimOrController(animation, JDoc, Builder);
     }
   }
 
   const events = entity["minecraft:entity"].events;
   if (events) {
-    for (let id in events) {
+    for (const id in events) {
       const event = events[id];
 
       if (event.add) DiagnoseComponentGroups(event.add.component_groups, entity, JDoc, Builder);
@@ -55,6 +55,11 @@ function InternalDiagnose(JDoc: JsonDocument, Builder: DiagnosticsBuilder): void
   }
 
   DiagnoseMovement(entity, Builder);
+
+  const eventNames = Object.getOwnPropertyNames(events);
+
+  DiagnoseEvent(entity["minecraft:entity"].component_groups, eventNames, Builder);
+  DiagnoseEvent(entity["minecraft:entity"].components, eventNames, Builder);
 
   Script.ProvideDiagnostic(description.scripts, description.animations, JDoc, Builder);
 }
@@ -79,7 +84,7 @@ function DiagnoseComponentGroups(groups: string | string[] | undefined, entity: 
 
   for (var group of groups) {
     if (entity["minecraft:entity"].component_groups) {
-      let data = entity["minecraft:entity"].component_groups[group];
+      const data = entity["minecraft:entity"].component_groups[group];
 
       if (data) continue;
     }
