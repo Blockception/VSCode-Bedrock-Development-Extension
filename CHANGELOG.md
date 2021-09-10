@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- 2.1.56
 - Added event diagnostics
 - Updated packages
 - 2.1.55
@@ -38,8 +39,7 @@
 - Update dependabot.yml
 - Update npm-test.yml
 - Updated packages
-- Delete npm-test-client.yml
-- Update and rename npm-test-server.yml to npm-test.yml. 
+- Delete npm-test-client.yml. 
 ## Schemas
 - Updated
 - Updated

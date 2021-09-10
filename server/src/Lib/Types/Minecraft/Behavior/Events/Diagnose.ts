@@ -7,14 +7,18 @@ export function DiagnoseEvent(any: any | undefined, events: string[], Builder: D
 
   for (const prop in any) {
     //Found an event property
+    const value = any[prop];
     if (prop === "event") {
-      const value = any[prop];
       if (typeof value === "string") {
         if (!events.includes(value)) {
           const offset = Builder.doc.getText().indexOf(value);
-          Builder.AddWord(new OffsetWord(value, offset), "Couldn't find event: " + value, DiagnosticSeverity.Error);
+          Builder.AddWord(new OffsetWord(value, offset), "Couldn't find event: " + value, DiagnosticSeverity.Error).code = "event.missing";
         }
       }
+    }
+
+    if (typeof value === "object") {
+      DiagnoseEvent(value, events, Builder);
     }
   }
 }
