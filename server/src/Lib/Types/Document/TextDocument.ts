@@ -41,7 +41,7 @@ export namespace TextDocument {
     };
 
     out.getConfiguration = function getConfiguration(): MCProject {
-      return out.getPack()?.context ?? Database.WorkspaceData.GetForDoc(out.uri);
+      return out.getPack()?.context ?? Database.WorkspaceData.GetProject(out.uri);
     };
 
     return out;

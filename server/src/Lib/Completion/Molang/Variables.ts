@@ -7,7 +7,7 @@ import { CompletionBuilder } from "../Builder";
 
 export function OnCompletionMolangVariable(doc: TextDocument, receiver: CompletionBuilder): void {
   const Type = DetectDataType(doc.uri);
-  const edu = doc.getConfiguration().settings.Education.Enable;
+  const edu = doc.getConfiguration();
 
   switch (Type) {
     case DataType.resource_particle:

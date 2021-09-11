@@ -2,8 +2,8 @@ import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import path from "path";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { URI } from "vscode-uri";
-import { Manager } from "../Manager/include";
 import { TemplateBuilder } from "../Commands/Templates/include";
+import { Manager } from "../Manager/Manager";
 
 /**
  *
