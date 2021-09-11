@@ -1,4 +1,5 @@
 /*	Auto generated	*/
+export * as Animation from "./Animation/include";
 export * as Block from "./Block/include";
 export * as BlockStates from "./BlockStates/include";
 export * as Boolean from "./Boolean/include";

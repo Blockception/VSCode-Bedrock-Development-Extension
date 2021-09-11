@@ -6,3 +6,5 @@ export * as Manager from "./Manager/include";
 export * as Modes from "./Modes/include";
 export * as Parameter from "./Parameter/include";
 export * from "./Process";
+export * from "./Words.test";
+export * from "./Words";
