@@ -78,7 +78,7 @@ function CheckOrAdd(value: Identifiable & Locatable, query: string, valuekind: S
   if (Queryable.is(value)) {
     if (value.MatchQuery(query)) ConvertItem(value, valuekind, receiver);
   } else {
-    if (value.Identifier.includes(query)) {
+    if (value.id.includes(query)) {
       ConvertItem(value, valuekind, receiver);
     }
   }
@@ -100,5 +100,5 @@ export function ConvertStorage<T extends Identifiable & Locatable>(Data: DataCol
 }
 
 export function ConvertItem<T extends Identifiable & Locatable>(value: T, valuekind: SymbolKind, receiver: SymbolInformation[]): void {
-  receiver.push(SymbolInformation.create(value.Identifier, valuekind, value.Location.range, value.Location.uri));
+  receiver.push(SymbolInformation.create(value.id, valuekind, value.Location.range, value.Location.uri));
 }

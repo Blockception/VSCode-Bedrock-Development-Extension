@@ -23,6 +23,6 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
 
 function Convert(Entity: Entity, builder: CompletionBuilder): void {
   Entity.Events.forEach((event) => {
-    builder.Add(event, `The entity: ${Entity.Identifier} event: ${event}`, CompletionItemKind.Event);
+    builder.Add(event, `The entity: ${Entity.id} event: ${event}`, CompletionItemKind.Event);
   });
 }

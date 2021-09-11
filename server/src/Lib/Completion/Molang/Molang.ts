@@ -20,7 +20,7 @@ import { OnCompletionMolangVariable } from "./Variables";
 export function OnCompletionEntityEvents(receiver: CompletionBuilder): void {
   Database.ProjectData.General.Entities.ForEach((x) => {
     x.Events.forEach((event) => {
-      receiver.Add(event, `The ${x.Identifier} event: ${event}`, Kinds.Completion.Event);
+      receiver.Add(event, `The ${x.id} event: ${event}`, Kinds.Completion.Event);
     });
   });
 }
@@ -103,12 +103,12 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
 
 function CreateGeometries(Models: DataCollector<DataReference>, receiver: CompletionBuilder): void {
   Models.ForEach((model) => {
-    let data = model.Identifier;
+    let data = model.id;
     let index = data.indexOf(".");
 
     if (index > -1) data = data.substring(index + 1);
 
-    receiver.Add(data, "The geometry of: " + model.Identifier, CompletionItemKind.Property);
+    receiver.Add(data, "The geometry of: " + model.id, CompletionItemKind.Property);
   });
 }
 
@@ -157,9 +157,9 @@ function ControllersCompletion(receiver: CompletionBuilder, doc: TextDocument): 
 
 function AddFromDataCollector<T extends Identifiable & Locatable>(collection: DataCollector<T>, receiver: CompletionBuilder, type: string) {
   collection.ForEach((item) => {
-    const id = IDRemoveFirst(item.Identifier);
+    const id = IDRemoveFirst(item.id);
 
-    const documentation = Documentable.is(item) ? item.Documentation.value : `The ${type}: ${item.Identifier}, from: ${item.Location}`;
+    const documentation = Documentable.is(item) ? item.Documentation.value : `The ${type}: ${item.id}, from: ${item.Location}`;
 
     receiver.Add(id, documentation, CompletionItemKind.Method);
   });

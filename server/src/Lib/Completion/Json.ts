@@ -1,21 +1,20 @@
+import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
 import { GetCurrentString } from "../Types/Document/Json Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
-import { Resource } from "../Types/Minecraft/include";
 import { CompletionBuilder } from "./Builder";
 import { OnCompletionMcFunctionLine } from "./Mcfunction";
 import { OnCompletionEntityEvents, OnCompletionMolang } from "./Molang/Molang";
 
 export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: CompletionBuilder): void {
-  let type = DetectGeneralDataType(doc.uri);
+  const type = PackType.detect(doc.uri);
 
-  if (type == GeneralDataType.unknown) return;
+  if (type == PackType.unknown) return;
 
   OnCompletionJsonMolang(doc, cursor, receiver);
 
   switch (type) {
-    case GeneralDataType.resource_pack:
+    case PackType.resource_pack:
       return Resource.ProvideCompletion(doc, cursor, receiver);
 
     default:

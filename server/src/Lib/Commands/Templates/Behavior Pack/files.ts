@@ -1,5 +1,3 @@
-import { Templates } from "../../../Data/include";
-import { SafeIDNoNamespace } from "../../../Data/Templates/Function";
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { Context } from "../Context";

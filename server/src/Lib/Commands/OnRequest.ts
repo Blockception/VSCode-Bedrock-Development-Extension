@@ -3,7 +3,6 @@ import { Console } from "../Console/Console";
 import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { Files } from "./Files";
-import { McImportErrorsCommand } from "./Import Errors";
 import { AddAllItems } from "./Language/AddAll";
 import { CreateMCProject } from "../Project/MCProjects";
 import { ReScanProject } from "./Rescan";
@@ -30,9 +29,6 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
     switch (params.command) {
       case Commands.Files.Append:
         return Files.Append(params);
-
-      case Commands.ImportErrors:
-        return McImportErrorsCommand(params);
 
       case Commands.DiagnoseProject:
         return DiagnoseProjectCommand(params);

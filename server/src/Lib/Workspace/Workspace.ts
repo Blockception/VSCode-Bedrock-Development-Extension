@@ -65,8 +65,9 @@ export namespace Workspace {
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
     const project = MCProject.loadSync(folder.uri);
-    const manifests = MinecraftFormat.GetManifests(folder.uri, project.ignores.patterns);
+    Database.WorkspaceData.Set(folder, project);
 
+    const manifests = MinecraftFormat.GetManifests(folder.uri, project.ignores.patterns);
     const packs = Database.ProjectData.addPack(manifests, project);
 
     //Process each pack

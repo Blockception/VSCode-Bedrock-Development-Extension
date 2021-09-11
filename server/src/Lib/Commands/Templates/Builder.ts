@@ -12,9 +12,9 @@ import {
 import { URI } from "vscode-uri";
 import { Manager } from "../../Manager/Manager";
 import * as fs from "fs";
-import { EmptyTypes } from "../../Types/General/include";
 import { Console } from "../../Console/Console";
 import { GetFilepath, UniformUrl } from "../../Code/include";
+import { Range } from "vscode-languageserver-types";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -45,7 +45,7 @@ export class TemplateBuilder {
 
     const Content: TextEdit = {
       newText: content,
-      range: EmptyTypes.EmptyRange(),
+      range: Range.create(0, 0, 0, 0),
     };
 
     uri = url.toString();

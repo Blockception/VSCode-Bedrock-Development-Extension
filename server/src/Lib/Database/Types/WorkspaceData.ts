@@ -15,7 +15,7 @@ export class WorkspaceData {
    *
    * @param uri
    */
-  GetForDoc(docUri: string): MCProject {
+  GetProject(docUri: string): MCProject {
     //Find most matching data
     for (var [key, data] of this.Data) {
       if (docUri.includes(key)) {
@@ -27,6 +27,21 @@ export class WorkspaceData {
     }
 
     return MCProject.createEmpty();
+  }
+
+  /**
+   *
+   * @param uri
+   */
+  GetFolder(docUri: string): string | undefined {
+    //Find most matching data
+    for (var [key, data] of this.Data) {
+      if (docUri.includes(key)) {
+        return key;
+      }
+    }
+
+    return undefined;
   }
 
   /**

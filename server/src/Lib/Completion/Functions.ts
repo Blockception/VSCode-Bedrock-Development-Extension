@@ -1,28 +1,20 @@
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
-import { DataCollector } from "../Database/DataCollector";
-import { Identifiable, Documentable, Locatable } from "../Types/Minecraft/Interfaces/include";
 
 export namespace Completion {
   export function CreateCompletion(value: Identifiable, valuekind: CompletionItemKind): CompletionItem {
-    if (Documentable.is(value)) {
+    if (Documentated.is(value) && value.documentation) {
       return {
-        label: value.Identifier,
-        documentation: value.Documentation,
-        kind: valuekind,
-      };
-    } else {
-      return {
-        label: value.Identifier,
-        documentation: { kind: "markdown", value: "The custom definition of: " + value.Identifier },
+        label: value.id,
+        documentation: value.documentation,
         kind: valuekind,
       };
     }
-  }
 
-  export function Convert<T extends Identifiable & Locatable>(value: DataCollector<T>, valuekind: CompletionItemKind, receiver: CompletionItem[]): void {
-    value.ForEach((data) => {
-      let Item = CreateCompletion(data, valuekind);
-      receiver.push(Item);
-    });
+    return {
+      label: value.id,
+      documentation: { kind: "markdown", value: "The custom definition of: " + value.id },
+      kind: valuekind,
+    };
   }
 }

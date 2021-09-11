@@ -13,6 +13,11 @@ export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument {
    *
    */
   getConfiguration(): MCProject;
+
+  /**
+   *
+   */
+  getPack(): mcbe.Pack | undefined;
 }
 
 export namespace TextDocument {
@@ -22,17 +27,21 @@ export namespace TextDocument {
    * @returns
    */
   export function wrap(doc: vscode.TextDocument): TextDocument {
-    let out = doc as InternalTextDocument;
-    out.__projectcache = null;
+    const out = doc as InternalTextDocument;
+    out.__pack = null;
 
     out.getLine = function getLine(lineIndex: number): string {
       return out.getText({ start: { line: lineIndex, character: 0 }, end: { line: lineIndex, character: Number.MAX_VALUE } });
     };
 
-    out.getConfiguration = function getConfiguration(): MCProject {
-      if (out.__projectcache) return out.__projectcache;
+    out.getPack = function getPack(): mcbe.Pack | undefined {
+      if (out.__pack) return out.__pack;
 
-      return (out.__projectcache = Database.WorkspaceData.GetForDoc(out.uri));
+      return (out.__pack = Database.ProjectData.get(out.uri));
+    };
+
+    out.getConfiguration = function getConfiguration(): MCProject {
+      return out.getPack()?.context ?? Database.WorkspaceData.GetForDoc(out.uri);
     };
 
     return out;
@@ -45,5 +54,5 @@ export namespace TextDocument {
 
 interface InternalTextDocument extends TextDocument {
   /**A hidden field that helps with storing the cache */
-  __projectcache: MCProject | null | undefined;
+  __pack: mcbe.Pack | null | undefined;
 }

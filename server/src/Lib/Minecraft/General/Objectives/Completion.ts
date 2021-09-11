@@ -23,7 +23,7 @@ export function ProvideCompletionPost(Context: CommandCompletionContext | Comple
   } else receiver = Context;
 
   Database.ProjectData.General.Objectives.ForEach((objective) => {
-    let Name = objective.Identifier;
+    let Name = objective.id;
 
     receiver.Add(Name, objective.Documentation, Kinds.Completion.Objectives, Name + additionalText);
   });

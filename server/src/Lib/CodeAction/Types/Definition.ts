@@ -3,6 +3,8 @@ import path from "path";
 import { CodeAction, Command, Diagnostic } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { Commands } from "../..//Constants";
+import { Console } from "../../Console/include";
+import { Database } from "../../Database/Database";
 import { GetDocument } from "../../Types/Document/include";
 import { CodeActionBuilder } from "../Builder";
 
@@ -16,7 +18,14 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
   const doc = GetDocument(builder.params.textDocument.uri);
 
   const value = doc.getText(diag.range);
-  const uri = URI.file(path.join(doc.getConfiguration().folder, MCDefinition.filename)).toString();
+  const ws = Database.WorkspaceData.GetFolder(doc.uri);
+
+  if (!ws) {
+    Console.Error(`Couldn't find workspace for: ${doc.uri}`);
+    return;
+  }
+
+  const uri = URI.file(path.join(ws, MCDefinition.filename)).toString();
 
   const Command: Command = {
     title: `Add ${value} as ${type} to MCDefintions`,

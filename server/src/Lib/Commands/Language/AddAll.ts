@@ -1,11 +1,6 @@
-import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-
-import { GetDocument } from "../../Types/Document/Document";
-import { Database } from "../../Database/Database";
-import { Manager } from "../../Manager/include";
-import { TextDocument } from "../../Types/Document/TextDocument";
 import { UniformUrl } from "../../Code/Url";
 
+/**TODO
 export function AddAllItems(params: ExecuteCommandParams): any {
   let args = params.arguments;
 
@@ -19,22 +14,22 @@ export function AddAllItems(params: ExecuteCommandParams): any {
         let builder = new TextEditBuilder(doc);
 
         Database.ProjectData.BehaviorPacks.Entities.ForEach((entity) => {
-          const id = Safe(entity.Identifier);
+          const id = Safe(entity.id);
 
-          builder.Add("entity." + entity.Identifier + ".name", id, "Entity: " + entity.Identifier);
-          builder.Add("item.spawn_egg.entity." + entity.Identifier + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.Identifier);
+          builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
+          builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
         });
 
         Database.ProjectData.Behaviorpack.Items.ForEach((data) => {
-          const id = Safe(data.Identifier);
+          const id = Safe(data.id);
 
-          builder.Add("item." + data.Identifier + ".name", id, "Item: " + data.Identifier);
+          builder.Add("item." + data.id + ".name", id, "Item: " + data.id);
         });
 
         Database.ProjectData.Behaviorpack.Blocks.ForEach((data) => {
-          const id = Safe(data.Identifier);
+          const id = Safe(data.id);
 
-          builder.Add("tile." + data.Identifier + ".name", id, "Block: " + data.Identifier);
+          builder.Add("tile." + data.id + ".name", id, "Block: " + data.id);
         });
 
         const edit = TextEdit.insert(doc.positionAt(builder.textdoc.length), builder.out);
@@ -80,3 +75,4 @@ class TextEditBuilder {
     this.out += Temp + "\n";
   }
 }
+**/

@@ -1,8 +1,6 @@
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
 import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
-import { DataCollector } from "../Database/include";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { Item } from "../Types/General/include";
-import { Documentable, Identifiable, Locatable } from "../Types/Minecraft/Interfaces/include";
 
 export class CompletionBuilder {
   public items: CompletionItem[];
@@ -46,16 +44,12 @@ export class CompletionBuilder {
   }
 
   AddFrom(value: Identifiable, valuekind: CompletionItemKind): void {
-    if (Documentable.is(value)) {
-      this.Add(value.Identifier, value.Documentation, valuekind);
-    } else {
-      this.Add(value.Identifier, "The custom definition of: " + value.Identifier, valuekind);
-    }
-  }
+    if (Documentated.is(value)) {
+      const doc = value.documentation;
 
-  AddFromRange<T extends Identifiable & Locatable>(value: DataCollector<T>, valuekind: CompletionItemKind): void {
-    value.ForEach((data) => {
-      this.AddFrom(data, valuekind);
-    });
+      if (doc) this.Add(value.id, doc, valuekind);
+    }
+
+    this.Add(value.id, "The custom definition of: " + value.id, valuekind);
   }
 }

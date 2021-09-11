@@ -82,7 +82,7 @@ function Add(builder: CompletionBuilder, value: (Identifiable & Documentable) | 
     label = value;
     documentation = { kind: "plaintext", value: "" };
   } else {
-    label = value.Identifier;
+    label = value.id;
     documentation = value.Documentation;
   }
 

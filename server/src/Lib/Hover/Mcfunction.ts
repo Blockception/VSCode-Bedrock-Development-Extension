@@ -185,7 +185,7 @@ function GetDocumentation<T extends Identifiable & Locatable>(query: string, ran
     };
   } else {
     return {
-      contents: Item.Identifier + "\n" + Item.Location.uri,
+      contents: Item.id + "\n" + Item.Location.uri,
       range: range,
     };
   }

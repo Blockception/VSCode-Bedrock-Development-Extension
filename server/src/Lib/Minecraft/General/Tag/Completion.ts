@@ -18,7 +18,7 @@ export function ProvideCompletionTest(Context: CommandCompletionContext | Comple
   let receiver = CommandCompletionContext.is(Context) ? Context.receiver : Context;
 
   Database.ProjectData.General.Tag.ForEach((tag) => {
-    receiver.Add(tag.Identifier, `Tests for the tag: '${tag.Identifier}'`, Kinds.Completion.Tag);
-    receiver.Add("!" + tag.Identifier, `Tests not for the tag: '${tag.Identifier}'`, Kinds.Completion.Tag);
+    receiver.Add(tag.id, `Tests for the tag: '${tag.id}'`, Kinds.Completion.Tag);
+    receiver.Add("!" + tag.id, `Tests not for the tag: '${tag.id}'`, Kinds.Completion.Tag);
   });
 }

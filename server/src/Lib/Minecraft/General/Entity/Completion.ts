@@ -15,7 +15,7 @@ export function ProvideCompletionTest(Context: CommandCompletionContext | Comple
   else receiver = Context;
 
   Database.ProjectData.General.Entities.ForEach((entity) => {
-    let Name = entity.Identifier;
+    let Name = entity.id;
 
     receiver.Add(Name, "test for the entity: " + Name, Kinds.Completion.Entity);
     receiver.Add("!" + Name, "test not for the entity: " + Name, Kinds.Completion.Entity);

@@ -4,7 +4,6 @@ import { TemplateBuilder } from "./Builder";
 import { Context, GetContextAsync } from "./Context";
 import { Templates } from "../include";
 import { Console } from "../../Console/Console";
-import { GetProjectFiles } from "../../Code/include";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
