@@ -39,6 +39,7 @@
     "@types/chai": "^4.2.21",
     "@types/mocha": "^8.2.3",
     "@types/picomatch": "^2.2.6",
+    "@types/vscode": "^1.60.0",
     "chai": "^4.3.4",
     "json-loader": "^0.5.7",
     "mocha": "^8.4.0",
