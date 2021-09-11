@@ -1,7 +1,7 @@
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
-import { OnCompletionMCProject } from "../Types/MCProject/Completion";
+import { OnCompletionMCProject } from "../Minecraft/MCProject/Completion";
 import { CompletionBuilder } from "./Builder";
 import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";

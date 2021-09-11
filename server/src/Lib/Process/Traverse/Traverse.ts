@@ -1,10 +1,10 @@
-import { WorkspaceFolder } from "vscode-languageserver";
+import { Pack } from "bc-minecraft-bedrock-project";
 import { Console } from "../../Console/Console";
 import { Manager } from "../../Manager/Manager";
 import { GetWorkspaces } from "../../Manager/Workspace";
 import { TraverseWorkspaces } from "./Workspace";
 
-export async function Traverse(): Promise<WorkspaceFolder[]> {
+export async function Traverse(): Promise<Pack[]> {
   Console.Log("Traversing starting...");
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;

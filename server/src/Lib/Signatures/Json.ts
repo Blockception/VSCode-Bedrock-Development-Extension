@@ -3,7 +3,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import { IsMolang } from "../Molang/include";
 import { GetCurrentString } from "../Types/Document/Json Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { ProvideMcfunctionCommandSignature } from "../Types/Minecraft/Behavior/Functions/include";
+import { ProvideMcfunctionCommandSignature } from "../Minecraft/BehaviorPack/Functions/include";
 
 export function ProvideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
   let text = doc.getText();

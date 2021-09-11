@@ -1,7 +1,7 @@
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
-import { ProvideMcfunctionSignature } from "../Types/Minecraft/Behavior/Functions/include";
+import { ProvideMcfunctionSignature } from "../Minecraft/BehaviorPack/Functions/include";
 import { ProvideJsonSignature } from "./Json";
 import { ProvideLanguageSignature } from "./Language";
 
