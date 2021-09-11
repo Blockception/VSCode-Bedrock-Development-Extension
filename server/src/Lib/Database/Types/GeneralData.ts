@@ -1,4 +1,4 @@
-import { Block } from "../../Types/General/Block/Block";
+import { Block } from "../../Minecraft/General/Block/Block";
 import { Effect } from "../../Types/General/Effect/Effect";
 import { Entity } from "../../Types/General/Entity/Entity";
 import { FakeEntity } from "../../Types/General/FakeEntity/include";

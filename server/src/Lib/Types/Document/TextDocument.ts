@@ -1,7 +1,7 @@
 import * as vscode from "vscode-languageserver-textdocument";
 import * as mcbe from "bc-minecraft-bedrock-project";
 import { Database } from "../../Database/Database";
-import { WorkspaceConfiguration } from "../../Database/Types/WorkspaceData";
+import { MCProject } from "bc-minecraft-project";
 
 export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument {
   /**Returns the text at the given text line
@@ -12,7 +12,7 @@ export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument {
   /**
    *
    */
-  getConfiguration(): WorkspaceConfiguration;
+  getConfiguration(): MCProject;
 }
 
 export namespace TextDocument {
@@ -29,12 +29,10 @@ export namespace TextDocument {
       return out.getText({ start: { line: lineIndex, character: 0 }, end: { line: lineIndex, character: Number.MAX_VALUE } });
     };
 
-    out.getConfiguration = function getConfiguration(): WorkspaceConfiguration {
+    out.getConfiguration = function getConfiguration(): MCProject {
       if (out.__projectcache) return out.__projectcache;
 
-      let item = Database.WorkspaceData.GetForDoc(out.uri);
-      out.__projectcache = item;
-      return item;
+      return (out.__projectcache = Database.WorkspaceData.GetForDoc(out.uri));
     };
 
     return out;
@@ -47,5 +45,5 @@ export namespace TextDocument {
 
 interface InternalTextDocument extends TextDocument {
   /**A hidden field that helps with storing the cache */
-  __projectcache: WorkspaceConfiguration | null | undefined;
+  __projectcache: MCProject | null | undefined;
 }

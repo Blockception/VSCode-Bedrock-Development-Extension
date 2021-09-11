@@ -3,7 +3,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import { CommandInfo } from "../../../Types/Commands/Info/include";
 import { CommandIntr, IsInSubCommand } from "../../../Types/Commands/Interpertation/include";
 import { MCCommand } from "../../../Types/Commands/Command/include";
-import { MCCommandParameterType } from "../../../Types/Commands/Parameter/include";
+import { MCCommandParameterType } from "../../Commands/Parameter/include";
 import { RawText } from "../../../Types/Minecraft/Json/include";
 import { TextDocument } from "../../../Types/Document/TextDocument";
 

@@ -1,7 +1,7 @@
 import { Location } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { CommandIntr, GetSubCommand, IsInSubCommand } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
+import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { SearchDefinition } from "./Search";
 

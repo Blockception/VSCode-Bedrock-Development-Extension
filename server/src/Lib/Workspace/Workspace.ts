@@ -6,6 +6,7 @@ import { Console } from "../Console/Console";
 import { Database } from "../Database/include";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
+import { Document } from "../Types/include";
 
 /**
  *

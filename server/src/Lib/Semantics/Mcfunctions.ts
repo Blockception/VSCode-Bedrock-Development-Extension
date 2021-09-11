@@ -1,6 +1,6 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
 import { CommandIntr, GetSubCommand } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
+import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
 import { CreateRangeTokensWord } from "./Functions";

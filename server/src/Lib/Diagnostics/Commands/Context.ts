@@ -1,7 +1,7 @@
 import { LocationWord } from "bc-vscode-words";
 import { CommandInfo } from "../../Types/Commands/Info/include";
 import { CommandIntr } from "../../Types/Commands/Interpertation/include";
-import { MCCommandParameter } from "../../Types/Commands/Parameter/include";
+import { MCCommandParameter } from "../../Minecraft/Commands/Parameter/include";
 import { BaseCommandContext } from "../../Types/General/Context/Context";
 import { DiagnosticsBuilder } from "../include";
 

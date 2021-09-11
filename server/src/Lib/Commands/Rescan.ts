@@ -1,5 +1,5 @@
 import { Database } from "../Database/include";
-import { Traverse } from "../Process/Traverse/Traverse";
+import { Traverse } from "../Process/Traverse";
 
 /**
  *

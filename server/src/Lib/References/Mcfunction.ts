@@ -1,7 +1,7 @@
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { SearchDefinition } from "../Definition/Search";
 import { CommandIntr } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
+import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 
 export function ProvideMcfunctionsReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {

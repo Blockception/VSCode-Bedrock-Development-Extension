@@ -2,7 +2,7 @@ import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver-textdocument";
 import { CommandInfo } from "../../Types/Commands/Info/include";
 import { CommandIntr } from "../../Types/Commands/Interpertation/CommandIntr";
-import { MCCommandParameter } from "../../Types/Commands/Parameter/Parameter";
+import { MCCommandParameter } from "../../Minecraft/Commands/Parameter/Parameter";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { BaseCommandContext } from "../../Types/General/Context/Context";
 import { CompletionBuilder } from "../include";

@@ -1,7 +1,7 @@
 import { Location } from "vscode-languageserver";
 import { Database } from "../Database/Database";
 import { DataCollector } from "../Database/DataCollector";
-import { MCCommandParameterType } from "../Types/Commands/Parameter/include";
+import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { Identifiable, Locatable } from "../Types/Minecraft/Interfaces/include";
 
 export function SearchDefinition(text: string, type: MCCommandParameterType[]): Location[] {
