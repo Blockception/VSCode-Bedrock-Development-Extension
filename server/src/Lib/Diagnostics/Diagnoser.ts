@@ -26,13 +26,21 @@ export function CreateDiagnoser(): Diagnoser {
 function CreateContext(): DiagnoserContext {
   //create context
   const context: DiagnoserContext = {
-    cache: Database.Database.ProjectData,
+    getCache: getCache,
     getDiagnoser: getDiagnoser,
     getDocument: getDocument,
     getFiles: getFiles,
   };
 
   return context;
+}
+
+/**
+ *
+ * @returns
+ */
+function getCache() {
+  return Database.Database.ProjectData;
 }
 
 /**gets a document diagnoser

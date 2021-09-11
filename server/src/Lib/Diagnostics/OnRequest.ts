@@ -1,4 +1,5 @@
 import { Languages } from "../Constants";
+import { Database } from "../include";
 import { Manager } from "../Manager/Manager";
 import { TextDocument } from "../Types/Document/TextDocument";
 
@@ -15,12 +16,12 @@ export function Diagnostics(doc: TextDocument): void {
     case Languages.McLanguageIdentifier:
     case Languages.McFunctionIdentifier:
       break;
+
     case Languages.JsonIdentifier:
     case Languages.JsonCIdentifier:
       if (!config.settings.Diagnostics.Json) return;
       break;
   }
 
-  //Pass document to diagnoser
-  Manager.Diagnoser?.Process(doc);
+  Database.Database.Diagnoser.Process(doc);
 }

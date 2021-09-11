@@ -25,9 +25,6 @@ export class Manager {
 
   /** */
   public static Settings: ServerSettings = ServerSettings.createDefaulSettings();
-
-  /** */
-  public static Diagnoser: Diagnoser;
 }
 
 /***/

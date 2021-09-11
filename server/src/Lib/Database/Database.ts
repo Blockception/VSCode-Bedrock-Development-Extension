@@ -1,6 +1,7 @@
+import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Console } from "../Console/Console";
-import { Data } from "../include";
+import { CreateDiagnoser } from "../Diagnostics/Diagnoser";
 import { WorkspaceData } from "./Types/WorkspaceData";
 
 /** */
@@ -11,6 +12,9 @@ export class Database {
   /** */
   static WorkspaceData: WorkspaceData = new WorkspaceData();
 
+  /** */
+  static Diagnoser: Diagnoser = CreateDiagnoser();
+
   /**
    *
    */
@@ -18,5 +22,6 @@ export class Database {
     Console.Info("Reseting database");
     Database.ProjectData = new ProjectData();
     Database.WorkspaceData = new WorkspaceData();
+    Database.Diagnoser = CreateDiagnoser();
   }
 }
