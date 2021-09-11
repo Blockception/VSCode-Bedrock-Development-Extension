@@ -31,7 +31,7 @@ async function OnDidCreateFile(Item: FileCreate): Promise<void> {
 
     let conf = Doc.getConfiguration();
 
-    if (conf.ignores.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores)) {
+    if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores.patterns)) {
       Process(Doc);
     } else {
       Console.Log(`Ignored: ` + Doc.uri);

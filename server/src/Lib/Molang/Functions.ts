@@ -26,8 +26,8 @@ export function IsMolang(text: string): boolean {
 
 /**
  *
- * @param text
- * @param cursor
+ * @param text The text to retrieve the word from
+ * @param cursor The cursor offset in the text
  * @returns
  */
 export function GetPreviousWord(text: string, cursor: number): string {

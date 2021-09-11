@@ -18,7 +18,7 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
   const doc = GetDocument(builder.params.textDocument.uri);
 
   const value = doc.getText(diag.range);
-  const ws = Database.WorkspaceData.GetFolder(doc.uri);
+  const ws = Database.WorkspaceData.getFolder(doc.uri);
 
   if (!ws) {
     Console.Error(`Couldn't find workspace for: ${doc.uri}`);

@@ -1,7 +1,6 @@
 import { GetFilename } from "../Code/include";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from "vscode-languageserver";
 import { UniformUrl } from "../Code/Url";
-import { ConvertAllFile, ConvertQueried } from "./Conversion";
 
 /**
  * The request to provide document symbols, asynchorious
@@ -45,7 +44,8 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
     name: GetFilename(uri),
   });
 
-  ConvertAllFile(uri, Out);
+  //TODO redo
+  //ConvertAllFile(uri, Out);
 
   return Out;
 }
@@ -59,7 +59,8 @@ function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformat
   let Query = params.query;
   let Out: SymbolInformation[] = [];
 
-  ConvertQueried("", Out, Query);
+  //TODO redo
+  //ConvertQueried("", Out, Query);
 
   return Out;
 }

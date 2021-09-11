@@ -1,6 +1,8 @@
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { Context } from "../Context";
+import { SafeIDNoNamespace } from "../../../Data/Templates/include";
+import { Templates } from "../../../Data/include";
 const { v4: uuid } = require("uuid");
 
 /**

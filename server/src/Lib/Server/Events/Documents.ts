@@ -11,7 +11,7 @@ export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDoc
 
     let conf = doc.getConfiguration();
 
-    if (conf.ignores.length == 0 || !Glob.IsMatch(doc.uri, conf.ignores)) {
+    if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(doc.uri, conf.ignores.patterns)) {
       Process(doc);
     } else {
       Console.Log(`Ignored: ` + doc.uri);

@@ -1,4 +1,5 @@
-import { Location, ReferenceParams } from "vscode-languageserver";
+import { Locatable } from "bc-minecraft-bedrock-types/lib/src/Types/Locatable";
+import { Location, Range, ReferenceParams } from "vscode-languageserver";
 import { Database } from "../Database/include";
 import { GetCurrentElement } from "../Types/Document/Json Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
@@ -31,7 +32,12 @@ export function ProvideJsonReferences(params: ReferenceParams, doc: TextDocument
     Index = Text.indexOf(ElementText, Index + ElementText.length);
   }
 
-  Database.ProjectData.FindReference(ElementText, Out);
+  Database.FindReference(ElementText, (x) => {
+    if (Locatable.is(x)) {
+      //TODO proper conversion from location to range, somewhere some code exists
+      Out.push(Location.create(x.location.uri, Range.create(0, 0, 0, 0)));
+    }
+  });
 
   return Out;
 }

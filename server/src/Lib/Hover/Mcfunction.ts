@@ -16,7 +16,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
   const pos = params.position;
   const LineIndex = pos.line;
   const Line = doc.getLine(LineIndex);
-  const Edu = doc.getConfiguration().settings.Education.Enable;
+  const Edu = IsEducationEnabled(doc);
 
   let Command: Command = Command.parse(Line, params.position, doc.uri);
   let Sub = GetSubCommand(Command, Edu);

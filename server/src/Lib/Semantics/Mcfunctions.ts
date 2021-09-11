@@ -1,11 +1,10 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
-import { Command, GetSubCommand } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
-import { CreateRangeTokensWord } from "./Functions";
 import { CreateSelectorTokens } from "./include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
+import { Command } from "bc-minecraft-bedrock-command";
+import { IsEducationEnabled } from "../Project/Attributes";
 
 export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Builder = new McfunctionSemanticTokensBuilder(doc);
@@ -26,8 +25,8 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
     }
 
     const P = Position.create(I, 0);
-    const Command = Command.parse(line, P, Builder.doc.uri, P);
-    CreateTokens(Command, Builder);
+    const command = Command.parse(line, doc.offsetAt(P));
+    CreateTokens(command, Builder);
   }
 
   return Builder.Build();
@@ -39,30 +38,30 @@ export function McfunctionLineTokens(line: string, cursor: number, offset: numbe
     offset++;
   }
 
-  const Command = Command.parse(line, Builder.PositionAt(cursor), Builder.doc.uri, Builder.PositionAt(offset));
-  CreateTokens(Command, Builder);
+  const command = Command.parse(line, offset);
+  CreateTokens(command, Builder);
 }
 
-function CreateTokens(Command: Command, Builder: McfunctionSemanticTokensBuilder): void {
-  if (Command.Parameters.length == 0) return;
+function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder): void {
+  if (command.parameters.length == 0) return;
 
-  const Edu = Builder.doc.getConfiguration().settings.Education.Enable;
+  const Edu = IsEducationEnabled(Builder.doc.getConfiguration());
 
-  const First = Command.Parameters[0];
+  const First = command.parameters[0];
   Builder.AddWord(First, SemanticTokensEnum.class);
-  const Matches = Command.GetCommandData(Edu);
+  const Matches = command.GetCommandData(Edu);
   let Match;
 
   if (Matches.length == 0) return;
 
   Match = Matches[0];
 
-  let Max = Command.Parameters.length;
+  let Max = command.parameters.length;
   if (Match.Command.parameters.length < Max) Max = Match.Command.parameters.length;
 
   for (let I = 1; I < Max; I++) {
     const Data = Match.Command.parameters[I];
-    const Word = Command.Parameters[I];
+    const Word = command.parameters[I];
 
     switch (Data.Type) {
       case MCCommandParameterType.command:

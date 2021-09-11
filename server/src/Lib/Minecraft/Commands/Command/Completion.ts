@@ -8,7 +8,7 @@ import { CommandInfo } from "../../Types/Commands/Info/include";
  * @param receiver
  */
 export function ProvideCompletion(receiver: CompletionBuilder): void {
-  const edu = receiver.doc.getConfiguration().settings.Education.Enable;
+  const edu = receiver.IsEducationEnabled(doc);
 
   GetCompletion(Manager.Data.Vanilla.Commands.Subset, receiver);
   if (edu) GetCompletion(Manager.Data.Edu.Commands.Subset, receiver);

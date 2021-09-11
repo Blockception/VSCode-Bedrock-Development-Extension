@@ -13,12 +13,12 @@ export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Locati
   let Command: Command | undefined = Command.parse(Line, pos, doc.uri);
 
   while (IsInSubCommand(Command, pos.character)) {
-    Command = GetSubCommand(Command, doc.getConfiguration().settings.Education.Enable);
+    Command = GetSubCommand(Command, IsEducationEnabled(doc));
 
     if (Command === undefined) return;
   }
 
-  const Data = Command.GetCommandData(doc.getConfiguration().settings.Education.Enable);
+  const Data = Command.GetCommandData(IsEducationEnabled(doc));
   if (Data.length == 0) return undefined;
 
   const PIndex = Command.CursorParamater;

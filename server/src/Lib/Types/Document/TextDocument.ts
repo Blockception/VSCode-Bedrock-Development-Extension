@@ -3,6 +3,9 @@ import * as mcbe from "bc-minecraft-bedrock-project";
 import { Database } from "../../Database/Database";
 import { MCProject } from "bc-minecraft-project";
 
+/**
+ *
+ */
 export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument {
   /**Returns the text at the given text line
    * @param lineIndex The index of the line to retrieve
@@ -41,7 +44,7 @@ export namespace TextDocument {
     };
 
     out.getConfiguration = function getConfiguration(): MCProject {
-      return out.getPack()?.context ?? Database.WorkspaceData.GetProject(out.uri);
+      return out.getPack()?.context ?? Database.WorkspaceData.getProject(out.uri);
     };
 
     return out;

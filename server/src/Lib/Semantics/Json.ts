@@ -1,9 +1,9 @@
+import { PackType } from "bc-minecraft-bedrock-project";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
 import { IsMolang } from "../Molang/Functions";
 import { CreateMolangWords } from "../Molang/Words";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
 import { JsonSemanticTokensBuilder } from "./Builders/JsonSemanticTokensBuilder";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
 import { SemanticTokensEnum } from "./Legend";
@@ -11,10 +11,10 @@ import { McfunctionLineTokens } from "./Mcfunctions";
 import { ConvertWords } from "./Molang";
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
-  const Type = DetectGeneralDataType(doc.uri);
+  const Type = PackType.detect(doc.uri);
 
   //Not related to minecraft
-  if (Type == GeneralDataType.unknown) return { data: [] };
+  if (Type == PackType.unknown) return { data: [] };
 
   const Builder = new JsonSemanticTokensBuilder(doc);
   const text = doc.getText(range);

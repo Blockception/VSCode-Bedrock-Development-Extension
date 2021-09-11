@@ -24,10 +24,10 @@ export class CollectorBase<T> implements DataCollectorIO<T>, ReferenceFinder {
   /**
    * Clears any data in this collection that comes from a given file
    */
-  public DeleteFile(uri: string): void {
+  public.deleteFile(uri: string): void {
     for (let [key, property] of Object.entries(this)) {
       if (DataCollectorIO.is<T>(property)) {
-        property.DeleteFile(uri);
+        property.deleteFile(uri);
       }
     }
   }
@@ -38,7 +38,7 @@ export class CollectorBase<T> implements DataCollectorIO<T>, ReferenceFinder {
   public DeleteFolder(uri: string): void {
     for (let [key, property] of Object.entries(this)) {
       if (DataCollectorIO.is<T>(property)) {
-        property.DeleteFile(uri);
+        property.deleteFile(uri);
       }
     }
   }

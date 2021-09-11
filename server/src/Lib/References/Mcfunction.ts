@@ -1,33 +1,36 @@
-import { ReferenceParams, Location } from "vscode-languageserver";
+import { ReferenceParams, Location, Position } from "vscode-languageserver";
 import { SearchDefinition } from "../Definition/Search";
-import { Command } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
+import { IsEducationEnabled } from "../Project/Attributes";
+import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 
 export function ProvideMcfunctionsReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
-  const Line = doc.getLine(params.position.line);
-  const com = Command.parse(Line, params.position, doc.uri);
+  //Gets start of line
+  const startP = Position.create(params.position.line, 0);
+  const Line = doc.getLine(startP.line);
 
-  const data = com.GetCommandData(doc.getConfiguration().settings.Education.Enable);
+  const offset = doc.offsetAt(params.position);
+  const com = Command.parse(Line, offset);
 
-  if (data.length == 0) {
-    return undefined;
-  }
+  const data = com.getCommandData(IsEducationEnabled(doc.getConfiguration()));
 
-  const Types: MCCommandParameterType[] = [];
-  const Current = com.GetCurrent();
+  if (data.length == 0) return undefined;
 
-  if (Current == undefined) return;
+  const cursor = doc.offsetAt(params.position);
+  const Index = com.findCursorIndex(cursor);
 
-  const Index = com.CursorParamater;
-  const Text = Current.text;
+  if (Index < 0) return;
+
+  const parameter = com.parameters[Index];
+  const Text = parameter.text;
+  const Types: ParameterType[] = [];
 
   for (let I = 0; I < data.length; I++) {
     const Pattern = data[I];
-    const Parameters = Pattern.Command.parameters;
+    const Parameters = Pattern.parameters;
 
     if (Parameters.length >= Index) {
-      Types.push(Parameters[Index].Type);
+      Types.push(Parameters[Index].type);
     }
   }
 

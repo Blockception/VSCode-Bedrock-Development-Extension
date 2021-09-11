@@ -1,24 +1,23 @@
-import { LocationWord } from "bc-vscode-words";
-import { IParameter, IScoreParameter, Selector } from "../Types/General/Selector/include";
+import { Selector, SelectorAttribute } from "bc-minecraft-bedrock-types/lib/src/Minecraft/include";
+import { OffsetWord } from "bc-vscode-words";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
 import { CreateRangeTokens } from "./Functions";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
-export function CreateSelectorTokens(Word: LocationWord, Builder: McfunctionSemanticTokensBuilder): void {
-  if (Word.text.startsWith("@")) {
-    let sel = Selector.Parse(Word);
+export function CreateSelectorTokens(word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
+  if (word.text.startsWith("@")) {
+    const sel = Selector.parse(word.text, word.offset);
 
-    let Start = Word.location.range.start;
+    Builder.Add(word.offset, word.offset + 2, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
 
-    Builder.AddAt(Start.line, Start.character, 2, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
-
-    ProcessParameters(sel.Parameters, Builder);
+    ProcessParameters(sel.attributes, Builder);
+    ProcessScoreParameters(sel.scores, Builder);
   } else {
-    Builder.AddWord(Word, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
+    Builder.AddWord(word, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
   }
 }
 
-function ProcessParameters(Parameters: IParameter[], Builder: McfunctionSemanticTokensBuilder): void {
+function ProcessParameters(Parameters: SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
   for (let I = 0; I < Parameters.length; I++) {
     let parameter = Parameters[I];
 
@@ -26,25 +25,19 @@ function ProcessParameters(Parameters: IParameter[], Builder: McfunctionSemantic
   }
 }
 
-function ProcessScoreParameters(Parameters: IParameter[], Builder: McfunctionSemanticTokensBuilder): void {
+function ProcessScoreParameters(Parameters: SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
   for (let I = 0; I < Parameters.length; I++) {
     let parameter = Parameters[I];
-
-    CreateTokens(parameter, Builder);
   }
 }
 
-function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: McfunctionSemanticTokensBuilder): void {
+function CreateTokens(Parameter: SelectorAttribute, Builder: McfunctionSemanticTokensBuilder): void {
   //process header
-  let Name = Parameter.Name;
-  let Value = Parameter.Value;
+  const Name = new OffsetWord(Parameter.name, Parameter.offset);
+  const Value = new OffsetWord(Parameter.value, Name.offset + Name.text.length + 1);
 
-  Builder.AddWord(Name, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
-
-  if (IScoreParameter.is(Parameter)) {
-    ProcessScoreParameters(Parameter.Scores, Builder);
-    return;
-  }
+  //property name
+  Builder.Add(Parameter.offset, Parameter.offset + Parameter.name.length, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
 
   switch (Name.text) {
     case "name":
@@ -59,11 +52,10 @@ function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: Mcfuncti
       let Index = Value.text.indexOf(":");
 
       if (Index >= 0) {
-        let LineIndex = Value.range.start.line;
-        let ValueStart = Value.range.start.character;
+        Index += Value.offset;
 
-        Builder.AddAt(LineIndex, ValueStart, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.readonly);
-        Builder.AddAt(LineIndex, ValueStart + Index + 1, Value.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
+        Builder.Add(Value.offset, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.readonly);
+        Builder.Add(Index + 1, Value.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
       } else {
         Builder.AddWord(Value, SemanticTokensEnum.type, SemanticModifiersEnum.readonly);
       }
@@ -71,7 +63,6 @@ function CreateTokens(Parameter: IParameter | IScoreParameter, Builder: Mcfuncti
 
     default:
       CreateRangeTokens(Value, Builder);
-
       break;
   }
 }

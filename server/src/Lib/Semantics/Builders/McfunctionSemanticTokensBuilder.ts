@@ -1,4 +1,4 @@
-import { LocationWord, RangedWord } from "bc-vscode-words";
+import { LocationWord, OffsetWord, RangedWord } from "bc-vscode-words";
 import { SemanticTokens, SemanticTokensBuilder } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { TextDocument } from "../../Types/Document/TextDocument";
@@ -35,11 +35,19 @@ export class McfunctionSemanticTokensBuilder {
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 
-  AddWord(word: LocationWord | RangedWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-    const p: Position = RangedWord.is(word) ? word.range.start : word.location.range.start;
+  AddWord(word: LocationWord | RangedWord | OffsetWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
+    let P: Position;
+
+    if (OffsetWord.is(word)) {
+      P = this.doc.positionAt(word.offset);
+    } else if (RangedWord.is(word)) {
+      P = word.range.start;
+    } else {
+      P = word.location.range.start;
+    }
 
     const length = word.text.length;
-    this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+    this.Builder.push(P.line, P.character, length, tokenType, tokenModifier);
   }
 
   AddAt(line: number, char: number, length: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {

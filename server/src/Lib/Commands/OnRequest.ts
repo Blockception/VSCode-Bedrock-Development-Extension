@@ -3,7 +3,6 @@ import { Console } from "../Console/Console";
 import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { Files } from "./Files";
-import { AddAllItems } from "./Language/AddAll";
 import { CreateMCProject } from "../Project/MCProjects";
 import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
@@ -33,8 +32,8 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
       case Commands.DiagnoseProject:
         return DiagnoseProjectCommand(params);
 
-      case Commands.AddLanguageFile:
-        return AddAllItems(params);
+      //case Commands.AddLanguageFile:
+      //return AddAllItems(params);
 
       case Commands.MCProject.Create:
         return CreateMCProject();

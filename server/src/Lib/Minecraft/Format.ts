@@ -40,4 +40,13 @@ export namespace MinecraftFormat {
   export function GetPackFiles(folder: string, ignores: string[]): string[] {
     return Glob.GetFiles(["**/*.json", "*.json", "*.mcfunction"], ignores, folder);
   }
+
+  /**
+   *
+   * @param folder
+   * @param ignores
+   */
+  export function GetAudioFiles(folder: string, ignores: string[]) {
+    return Glob.GetFiles(["sounds/**/*.ogg", "sounds/*.ogg", "sounds/**/*.fsb", "sounds/*.fsb"], ignores, folder);
+  }
 }

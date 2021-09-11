@@ -25,7 +25,7 @@ export function ProvideMcfunctionCommandSignature(Line: string, Start: Position,
     command = SubCommand;
   }
 
-  const Matches = command.GetCommandData(doc.getConfiguration().settings.Education.Enable);
+  const Matches = command.GetCommandData(IsEducationEnabled(doc));
 
   const Out: SignatureHelp = {
     signatures: ConverToSignatures(Matches),

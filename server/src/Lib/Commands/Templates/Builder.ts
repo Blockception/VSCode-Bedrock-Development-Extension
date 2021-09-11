@@ -2,7 +2,7 @@ import {
   TextDocumentEdit,
   CreateFile,
   RenameFile,
-  DeleteFile,
+ .deleteFile,
   WorkspaceEdit,
   ApplyWorkspaceEditResponse,
   CreateFileOptions,
@@ -17,7 +17,7 @@ import { GetFilepath, UniformUrl } from "../../Code/include";
 import { Range } from "vscode-languageserver-types";
 
 export class TemplateBuilder {
-  private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
+  private receiver: (TextDocumentEdit | CreateFile | RenameFile |.deleteFile)[];
   public CreateOptions: CreateFileOptions;
 
   constructor() {

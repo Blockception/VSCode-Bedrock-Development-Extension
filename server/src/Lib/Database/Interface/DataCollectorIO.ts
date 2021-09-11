@@ -3,7 +3,7 @@ export interface DataCollectorIO<T> {
    * Removes any data from the associated file
    * @param uri The filepath uri used
    */
-  DeleteFile(uri: string): void;
+ .deleteFile(uri: string): void;
 
   /**
    * Delete all files with given folder
@@ -26,7 +26,7 @@ export interface DataCollectorIO<T> {
 
 export namespace DataCollectorIO {
   export function is<T>(value: any): value is DataCollectorIO<T> {
-    if (value.DeleteFile && value.DeleteFolder && value.Clear) {
+    if (value.deleteFile && value.DeleteFolder && value.Clear) {
       return true;
     }
 

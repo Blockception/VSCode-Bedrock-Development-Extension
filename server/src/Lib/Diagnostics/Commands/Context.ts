@@ -70,7 +70,7 @@ export namespace CommandDiagnoseContext {
     receiver: DiagnosticsBuilder,
     Current: LocationWord | undefined = undefined
   ): CommandDiagnoseContext {
-    const BestMatch = Command.GetCommandData(receiver.doc.getConfiguration().settings.Education.Enable)[0];
+    const BestMatch = Command.GetCommandData(receiver.IsEducationEnabled(doc))[0];
 
     return {
       Parameter: Parameter,

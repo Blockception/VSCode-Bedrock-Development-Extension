@@ -9,8 +9,8 @@ import { Manager } from "../../Manager/Manager";
 import { GetPreviousWord, MolangFunctionDataItem } from "../../Molang/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { Kinds } from "../../Types/General/include";
-import { DetectGeneralDataType } from "../../Types/Minecraft/Format/Detection";
-import { GeneralDataType } from "../../Types/Minecraft/Format/General Data Type";
+import { PackType.detect } from "../../Types/Minecraft/Format/Detection";
+import { PackType } from "../../Types/Minecraft/Format/General Data Type";
 import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
 import { Identifiable } from "../../Types/Minecraft/Interfaces/Identifiable";
 import { Locatable } from "../../Types/Minecraft/Interfaces/Locatable";
@@ -47,7 +47,7 @@ export function OnCompletionMolangRequest(doc: TextDocument, pos: Position, rece
  */
 export function OnCompletionMolang(line: string, cursor: number, doc: TextDocument, receiver: CompletionBuilder): void {
   const Word = GetPreviousWord(line, cursor);
-  const Edu = doc.getConfiguration().settings.Education.Enable;
+  const Edu = IsEducationEnabled(doc);
 
   switch (Word.toLowerCase()) {
     case "animation":
@@ -129,25 +129,25 @@ function ConvertPrefixed(data: MolangFunctionDataItem[], receiver: CompletionBui
 }
 
 function AnimationsCompletion(receiver: CompletionBuilder, doc: TextDocument): void {
-  const type = DetectGeneralDataType(doc.uri);
+  const type = PackType.detect(doc.uri);
 
   switch (type) {
-    case GeneralDataType.behavior_pack:
+    case PackType.behavior_pack:
       return AddFromDataCollector(Database.Data.Behaviorpack.Animations, receiver, "BP animation");
 
-    case GeneralDataType.resource_pack:
+    case PackType.resource_pack:
       return AddFromDataCollector(Database.Data.Resourcepack.Animations, receiver, "RP animation");
   }
 }
 
 function ControllersCompletion(receiver: CompletionBuilder, doc: TextDocument): void {
-  const type = DetectGeneralDataType(doc.uri);
+  const type = PackType.detect(doc.uri);
 
   switch (type) {
-    case GeneralDataType.behavior_pack:
+    case PackType.behavior_pack:
       return AddFromDataCollector(Database.Data.Behaviorpack.AnimationControllers, receiver, "BP animation controller");
 
-    case GeneralDataType.resource_pack:
+    case PackType.resource_pack:
       AddFromDataCollector(Database.Data.Resourcepack.AnimationControllers, receiver, "RP animation controller");
 
       if (doc.uri.includes("render_controllers")) AddFromDataCollector(Database.Data.Resourcepack.RenderControllers, receiver, "render controller");

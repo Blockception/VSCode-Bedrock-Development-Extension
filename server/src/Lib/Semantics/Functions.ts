@@ -1,26 +1,18 @@
-import { LocationWord, RangedWord } from "bc-vscode-words";
+import { OffsetWord } from "bc-vscode-words";
 import { McfunctionSemanticTokensBuilder } from "./Builders/include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
-export function CreateRangeTokensWord(Word: LocationWord | RangedWord, Builder: McfunctionSemanticTokensBuilder): void {
-  if (!RangedWord.is(Word)) {
-    Word = new RangedWord(Word.text, Word.location.range);
-  }
-
-  CreateRangeTokens(Word, Builder);
-}
-
-export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticTokensBuilder): void {
+export function CreateRangeTokens(Word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
   let value = Word.text;
-  let start = Word.range.start.character;
+  let start = Word.offset;
 
   if (value.startsWith("~-") || value.startsWith("~+") || value.startsWith("^-") || value.startsWith("^+")) {
-    Builder.AddAt(Word.range.start.line, start, 2, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
+    Builder.AddAt(Word.offset, start, 2, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(2);
     start += 2;
   } else if (value.startsWith("~") || value.startsWith("^") || value.startsWith("-") || value.startsWith("+") || value.startsWith("+") || value.startsWith("!")) {
-    Builder.AddAt(Word.range.start.line, start, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
+    Builder.AddAt(Word.offset, start, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(1);
     start++;
@@ -29,7 +21,7 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
   if (value === "") return;
 
   let Range = value.indexOf("..");
-  let Line = Word.range.start.line;
+  let Line = Word.offset;
 
   if (Range >= 0) {
     var First = value.substring(0, Range);

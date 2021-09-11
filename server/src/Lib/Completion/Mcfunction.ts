@@ -59,7 +59,7 @@ export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, co
     return;
   }
 
-  const Matches = command.GetCommandData(doc.getConfiguration().settings.Education.Enable);
+  const Matches = command.GetCommandData(IsEducationEnabled(doc));
 
   if (Matches.length === 0) {
     if (pos.character < 10) Command.ProvideCompletion(receiver);

@@ -11,7 +11,7 @@ import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
 import { OnConfigurationChanged } from "../Settings";
-import { OnDidCreateFilesAsync, OnDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
+import { OnDidCreateFilesAsync, OnDi.deleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
 import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync } from "../../CodeLens/OnRequest";
@@ -76,7 +76,7 @@ export function setEvents() {
   if (Manager.Capabiltities.hasWorkspaceFolderCapability) {
     // Workspace event
     Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
-    Connection.workspace.onDidDeleteFiles(OnDidDeleteFilesAsync);
+    Connection.workspace.onDi.deleteFiles(OnDi.deleteFilesAsync);
     Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
     Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
   }
