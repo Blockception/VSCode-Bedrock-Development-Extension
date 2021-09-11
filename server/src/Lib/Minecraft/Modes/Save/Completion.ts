@@ -1,8 +1,12 @@
+import { Modes } from "bc-minecraft-bedrock-types";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { CommandCompletionContext } from "../../../Completion/Commands/Context";
 import { ProvideModeCompletion } from "../Completion";
-import { MirrorMode } from "./MirrorMode";
 
+/**
+ *
+ * @param Context
+ */
 export function ProvideCompletion(Context: CommandCompletionContext): void {
-  ProvideModeCompletion(MirrorMode, Context.receiver, CompletionItemKind.Operator);
+  ProvideModeCompletion(Modes.Save, Context.receiver, CompletionItemKind.Operator);
 }

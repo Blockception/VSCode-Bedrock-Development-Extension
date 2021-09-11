@@ -1,12 +1,16 @@
-import { CompletionBuilder } from "../../../Completion/Builder";
+import { Modes } from "bc-minecraft-bedrock-types";
+import { CompletionItemKind } from "vscode-languageserver-types";
 import { CommandCompletionContext } from "../../../Completion/Commands/Context";
+import { CompletionBuilder } from "../../../Completion/include";
+import { Kinds } from "../../General/include";
 import { ProvideModeCompletion, ProvideModeTestCompletion } from "../Completion";
-import { Kinds } from "../../../Types/General/Kinds";
-import { GameMode } from "./Mode";
 
+/**
+ *
+ * @param Context
+ */
 export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
-  ProvideModeCompletion(GameMode, receiver, Kinds.Completion.Gamemode);
+  ProvideModeCompletion(Modes.Gamemode, Context.receiver, CompletionItemKind.Operator);
 }
 
 export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder): void {
@@ -14,5 +18,5 @@ export function ProvideCompletionTest(Context: CommandCompletionContext | Comple
   if (CommandCompletionContext.is(Context)) receiver = Context.receiver;
   else receiver = Context;
 
-  ProvideModeTestCompletion(GameMode, receiver, Kinds.Completion.Gamemode);
+  ProvideModeTestCompletion(Modes.Gamemode, receiver, Kinds.Completion.Gamemode);
 }
