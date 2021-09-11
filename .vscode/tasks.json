@@ -32,18 +32,6 @@
       "command": "./scripts/build.bat",
       "group": "build",
       "problemMatcher": "$tsc"
-    },
-    {
-      "type": "shell",
-      "label": "install project extension",
-      "command": "Powershell.exe -executionpolicy remotesigned -File ./scripts/install.ps1",
-      "problemMatcher": "$tsc"
-    },
-    {
-      "type": "shell",
-      "label": "update project extension",
-      "command": "Powershell.exe -executionpolicy remotesigned -File ./scripts/update.ps1",
-      "problemMatcher": "$tsc"
     }
   ]
 }

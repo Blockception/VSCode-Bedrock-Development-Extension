@@ -1,6 +1,6 @@
 import { CompletionItem } from "vscode-languageserver";
 import { ModeCollection } from "../../../Commands/Modes/Interface";
-import { Kinds } from "../../include";
+import { Kinds } from "../../Kinds";
 
 export const SelectorBaseMode: ModeCollection = {
   Name: "selector base mode",
