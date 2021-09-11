@@ -30,7 +30,7 @@ export namespace Workspace {
    */
   export function RemoveWorkspace(uri: string): void {
     Console.Info("deleting workspace data: " + uri);
-    Database.WorkspaceData.Remove(uri);
+    Database.WorkspaceData.remove(uri);
 
     const PD = Database.ProjectData;
 
@@ -64,8 +64,7 @@ export namespace Workspace {
    * @param folder
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
-    const project = MCProject.loadSync(folder.uri);
-    Database.WorkspaceData.Set(folder, project);
+    const project = Database.WorkspaceData.set(folder, project);
 
     const manifests = MinecraftFormat.GetManifests(folder.uri, project.ignores.patterns);
     const packs = Database.ProjectData.addPack(manifests, project);

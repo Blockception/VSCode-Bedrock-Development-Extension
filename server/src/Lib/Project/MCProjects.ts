@@ -1,15 +1,13 @@
-import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import path from "path";
+import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { URI } from "vscode-uri";
-import { TemplateBuilder } from "../Commands/Templates/include";
-import { Manager } from "../Manager/Manager";
+import { Overlay } from "../Server/Settings";
+import { Workspace } from "../Workspace/Workspace";
 
 /**
  *
  */
 export function CreateMCProject() {
-  Manager.Connection.workspace.getWorkspaceFolders().then(processWorkspace);
+  Workspace.GetWorkSpaces().then(processWorkspace);
 }
 
 /**
@@ -20,15 +18,38 @@ export function CreateMCProject() {
 function processWorkspace(ws: WorkspaceFolder[] | null): void {
   if (ws === null) return;
 
-  const builder = new TemplateBuilder();
-
   for (let I = 0; I < ws.length; I++) {
-    const folder = URI.parse(ws[I].uri).fsPath;
+    const folder = ws[I].uri;
+    const p = GetProject(folder);
 
-    builder.CreateFile(path.join(folder, MCAttributes.filename), "");
-    builder.CreateFile(path.join(folder, MCDefinition.filename), "");
-    builder.CreateFile(path.join(folder, MCIgnore.filename), "");
+    MCProject.saveSync(folder, p);
   }
+}
 
-  builder.Send();
+/**
+ *
+ * @param folder
+ * @returns
+ */
+export function GetProject(folder: string): MCProject {
+  return Overlay(MCProject.loadSync(folder));
+}
+
+/**
+ *
+ * @param folder
+ * @returns
+ */
+export async function GetProjectAsync(folder: string): Promise<MCProject> {
+  return MCProject.load(folder).then((project) => {
+    return Overlay(project);
+  });
+}
+
+/**
+ *
+ * @returns
+ */
+export function GetProjectEmpty(): MCProject {
+  return Overlay(MCProject.createEmpty());
 }

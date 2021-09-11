@@ -27,7 +27,7 @@ export function SetupServer() {
   connection.onShutdown(onShutdownAsync);
 
   //Initialize server
-  Manager.Data.Documents.listen(connection);
+  Manager.Documents.listen(connection);
 
   // Listen on the connection
   connection.listen();

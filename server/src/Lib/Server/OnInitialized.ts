@@ -16,9 +16,6 @@ export async function onInitializedAsync(params: InitializedParams): Promise<voi
 function onInitialized(params: InitializedParams): void {
   Console.Log("Initialized minecraft server");
 
-  //Setup the diagnoser
-  Manager.Diagnoser = CreateDiagnoser();
-
   //Update the settings of the language server
   UpdateSettings();
 

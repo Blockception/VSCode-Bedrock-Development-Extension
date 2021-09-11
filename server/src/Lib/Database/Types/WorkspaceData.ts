@@ -15,7 +15,7 @@ export class WorkspaceData {
    *
    * @param uri
    */
-  GetProject(docUri: string): MCProject {
+  getProject(docUri: string): MCProject {
     //Find most matching data
     for (var [key, data] of this.Data) {
       if (docUri.includes(key)) {
@@ -33,7 +33,7 @@ export class WorkspaceData {
    *
    * @param uri
    */
-  GetFolder(docUri: string): string | undefined {
+  getFolder(docUri: string): string | undefined {
     //Find most matching data
     for (var [key, data] of this.Data) {
       if (docUri.includes(key)) {
@@ -49,7 +49,7 @@ export class WorkspaceData {
    * @param Folder
    * @param Data
    */
-  Set(Folder: WorkspaceFolder | string, Data: MCProject): void {
+  set(Folder: WorkspaceFolder | string, Data: MCProject): void {
     if (typeof Folder === "string") {
       this.Data.set(Folder, Data);
     } else {
@@ -62,9 +62,18 @@ export class WorkspaceData {
    * @param Folder
    * @returns
    */
-  Remove(Folder: WorkspaceFolder | string): boolean {
+  remove(Folder: WorkspaceFolder | string): boolean {
     if (typeof Folder === "string") return this.Data.delete(Folder);
 
     return this.Data.delete(Folder.uri);
+  }
+
+  /**
+   *
+   * @param callbackfn
+   * @param thisArg
+   */
+  forEach(callbackfn: (value: MCProject, key: string, map: Map<string, MCProject>) => void, thisArg?: any): void {
+    this.Data.forEach(callbackfn);
   }
 }
