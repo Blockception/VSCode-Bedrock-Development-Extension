@@ -22,6 +22,7 @@
     "update": "npm update && npm audit fix"
   },
   "dependencies": {
+    "bc-minecraft-bedrock-command": "^1.0.16",
     "bc-minecraft-bedrock-diagnoser": "^0.0.7",
     "bc-minecraft-bedrock-project": "^1.1.13",
     "bc-minecraft-bedrock-types": "^1.1.9",

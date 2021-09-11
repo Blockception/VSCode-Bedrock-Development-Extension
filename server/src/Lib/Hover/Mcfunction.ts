@@ -1,6 +1,6 @@
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { Database, DataCollector } from "../Database/include";
-import { CommandIntr, GetSubCommand } from "../Types/Commands/Interpertation/include";
+import { Command, GetSubCommand } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameter, MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { Identifiable, Locatable, Documentable } from "../Types/Minecraft/Interfaces/include";
@@ -18,7 +18,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
   const Line = doc.getLine(LineIndex);
   const Edu = doc.getConfiguration().settings.Education.Enable;
 
-  let Command: CommandIntr = CommandIntr.parse(Line, params.position, doc.uri);
+  let Command: Command = Command.parse(Line, params.position, doc.uri);
   let Sub = GetSubCommand(Command, Edu);
 
   while (Sub) {

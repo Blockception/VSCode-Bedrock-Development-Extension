@@ -1,9 +1,8 @@
 import { Position } from "vscode-languageserver-textdocument";
-import { Command, Parameter } from "../Types/Commands/include";
-import { CommandIntr, IsInSubCommand } from "../Types/Commands/Interpertation/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
 import { CommandCompletionContext } from "./Commands/Context";
+import { Command } from "bc-minecraft-bedrock-command";
 
 /**
  *
@@ -22,8 +21,10 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
     if (pos.character > CommentIndex) return;
   }
 
-  let command: CommandIntr = CommandIntr.parse(Line, pos, doc.uri);
-  const Subcommand = IsInSubCommand(command, pos.character);
+  const offset = doc.offsetAt({ character: 0, line: pos.line });
+
+  let command = Command.parse(Line, offset);
+  const Subcommand = command.isInSubCommand(doc.offsetAt(pos));
 
   if (Subcommand) {
     command = Subcommand;
@@ -41,12 +42,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
  * @param receiver
  */
 export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionBuilder): void {
-  const pos = doc.positionAt(cursor);
-  const posB = doc.positionAt(offset);
-
-  pos.character -= posB.character;
-
-  const command: CommandIntr = CommandIntr.parse(text, pos, doc.uri);
+  const command: Command = Command.parse(text, offset);
   ProvideCompletion(pos, receiver, command, doc);
 }
 
@@ -57,7 +53,7 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
  * @param command
  * @returns
  */
-export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, command: CommandIntr, doc: TextDocument): void {
+export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, command: Command, doc: TextDocument): void {
   if (command == undefined || command.Parameters.length == 0 || pos.character < 3) {
     Command.ProvideCompletion(receiver);
     return;

@@ -1,5 +1,5 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
-import { CommandIntr, GetSubCommand } from "../Types/Commands/Interpertation/include";
+import { Command, GetSubCommand } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
@@ -26,7 +26,7 @@ export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range
     }
 
     const P = Position.create(I, 0);
-    const Command = CommandIntr.parse(line, P, Builder.doc.uri, P);
+    const Command = Command.parse(line, P, Builder.doc.uri, P);
     CreateTokens(Command, Builder);
   }
 
@@ -39,11 +39,11 @@ export function McfunctionLineTokens(line: string, cursor: number, offset: numbe
     offset++;
   }
 
-  const Command = CommandIntr.parse(line, Builder.PositionAt(cursor), Builder.doc.uri, Builder.PositionAt(offset));
+  const Command = Command.parse(line, Builder.PositionAt(cursor), Builder.doc.uri, Builder.PositionAt(offset));
   CreateTokens(Command, Builder);
 }
 
-function CreateTokens(Command: CommandIntr, Builder: McfunctionSemanticTokensBuilder): void {
+function CreateTokens(Command: Command, Builder: McfunctionSemanticTokensBuilder): void {
   if (Command.Parameters.length == 0) return;
 
   const Edu = Builder.doc.getConfiguration().settings.Education.Enable;

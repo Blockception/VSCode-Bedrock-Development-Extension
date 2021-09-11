@@ -1,6 +1,6 @@
 import { Location } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { CommandIntr, GetSubCommand, IsInSubCommand } from "../Types/Commands/Interpertation/include";
+import { Command, GetSubCommand, IsInSubCommand } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { SearchDefinition } from "./Search";
@@ -10,7 +10,7 @@ export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Locati
 
   if (Line === "") return undefined;
 
-  let Command: CommandIntr | undefined = CommandIntr.parse(Line, pos, doc.uri);
+  let Command: Command | undefined = Command.parse(Line, pos, doc.uri);
 
   while (IsInSubCommand(Command, pos.character)) {
     Command = GetSubCommand(Command, doc.getConfiguration().settings.Education.Enable);

@@ -1,6 +1,6 @@
 import { LocationWord } from "bc-vscode-words";
 import { CommandInfo } from "../../Types/Commands/Info/include";
-import { CommandIntr } from "../../Types/Commands/Interpertation/include";
+import { Command } from "../../Types/Commands/Interpertation/include";
 import { MCCommandParameter } from "../../Minecraft/Commands/Parameter/include";
 import { BaseCommandContext } from "../../Types/General/Context/Context";
 import { DiagnosticsBuilder } from "../include";
@@ -20,7 +20,7 @@ export interface CommandDiagnoseContext extends BaseCommandContext {
   /**
    *
    */
-  Command: CommandIntr;
+  Command: Command;
   /**
    *
    */
@@ -66,7 +66,7 @@ export namespace CommandDiagnoseContext {
   export function create(
     Parameter: MCCommandParameter,
     ParameterIndex: number,
-    Command: CommandIntr,
+    Command: Command,
     receiver: DiagnosticsBuilder,
     Current: LocationWord | undefined = undefined
   ): CommandDiagnoseContext {

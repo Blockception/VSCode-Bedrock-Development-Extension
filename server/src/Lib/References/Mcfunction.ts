@@ -1,12 +1,12 @@
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { SearchDefinition } from "../Definition/Search";
-import { CommandIntr } from "../Types/Commands/Interpertation/include";
+import { Command } from "../Types/Commands/Interpertation/include";
 import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 
 export function ProvideMcfunctionsReferences(params: ReferenceParams, doc: TextDocument): Location[] | undefined {
   const Line = doc.getLine(params.position.line);
-  const com = CommandIntr.parse(Line, params.position, doc.uri);
+  const com = Command.parse(Line, params.position, doc.uri);
 
   const data = com.GetCommandData(doc.getConfiguration().settings.Education.Enable);
 

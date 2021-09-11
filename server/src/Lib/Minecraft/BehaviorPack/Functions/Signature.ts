@@ -1,7 +1,7 @@
 import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { CommandInfo } from "../../../Types/Commands/Info/include";
-import { CommandIntr, IsInSubCommand } from "../../../Types/Commands/Interpertation/include";
+import { Command, IsInSubCommand } from "../../../Types/Commands/Interpertation/include";
 import { MCCommand } from "../../../Types/Commands/Command/include";
 import { MCCommandParameterType } from "../../Commands/Parameter/include";
 import { RawText } from "../../../Types/Minecraft/Json/include";
@@ -15,7 +15,7 @@ export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): Si
 }
 
 export function ProvideMcfunctionCommandSignature(Line: string, Start: Position, cursor: Position, doc: TextDocument): SignatureHelp | undefined {
-  let command: CommandIntr = CommandIntr.parse(Line, cursor, doc.uri, Start);
+  let command: Command = Command.parse(Line, cursor, doc.uri, Start);
 
   if (command.IsEmpty()) return undefined;
 

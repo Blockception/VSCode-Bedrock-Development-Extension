@@ -1,7 +1,7 @@
 import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver-textdocument";
 import { CommandInfo } from "../../Types/Commands/Info/include";
-import { CommandIntr } from "../../Types/Commands/Interpertation/CommandIntr";
+import { Command } from "../../Types/Commands/Interpertation/Command";
 import { MCCommandParameter } from "../../Minecraft/Commands/Parameter/Parameter";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { BaseCommandContext } from "../../Types/General/Context/Context";
@@ -13,7 +13,7 @@ import { CompletionBuilder } from "../include";
 export interface CommandCompletionContext extends BaseCommandContext {
   Parameter: MCCommandParameter;
   ParameterIndex: number;
-  Command: CommandIntr;
+  Command: Command;
   BestMatch: CommandInfo;
   Pos: Position;
   receiver: CompletionBuilder;
@@ -52,7 +52,7 @@ export namespace CommandCompletionContext {
   export function create(
     Parameter: MCCommandParameter,
     ParameterIndex: number,
-    Command: CommandIntr,
+    Command: Command,
     Pos: Position,
     receiver: CompletionBuilder,
     Current: LocationWord | undefined = undefined,
