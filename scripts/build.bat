@@ -21,4 +21,5 @@ call npm version patch
 git add .
 git commit -m "auto: Building New Version"
 
-vsce package 
+call npm install -g vsce
+npx vsce package 

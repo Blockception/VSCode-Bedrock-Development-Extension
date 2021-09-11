@@ -36,12 +36,19 @@ export namespace Glob {
    * @param source
    * @param ignores
    * @param cwd The working directory
+   * @param baseNameMatch
    * @returns
    */
-  export function GetFiles(source: string | string[], ignores: string[] | undefined = undefined, cwd: string | undefined = undefined): string[] {
+  export function GetFiles(
+    source: string | string[],
+    ignores: string[] | undefined = undefined,
+    cwd: string | undefined = undefined,
+    baseNameMatch: boolean | undefined = undefined
+  ): string[] {
     if (cwd) cwd = UniformFolder(cwd);
 
-    let entries = FastGlob.sync(source, { onlyFiles: true, absolute: true, cwd: cwd });
+    const options: FastGlob.Options = { onlyFiles: true, absolute: true, cwd: cwd, baseNameMatch: baseNameMatch };
+    let entries = FastGlob.sync(source, options);
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
 

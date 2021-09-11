@@ -6,6 +6,7 @@ import { CompletionBuilder } from "./Builder";
 import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
+import { OnCompletionMolangRequest } from "./Molang/include";
 
 /**Handle request
  * @param params
@@ -46,6 +47,10 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
 
     case Languages.McProjectIdentifier:
       OnCompletionMCProject(Doc, Pos, Builder);
+      break;
+
+    case Languages.McMolangIdentifier:
+      OnCompletionMolangRequest(Doc, Pos, Builder);
       break;
 
     case Languages.JsonCIdentifier:

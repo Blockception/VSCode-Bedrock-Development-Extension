@@ -71,10 +71,6 @@ function DiagnoseSelector(selector: Selector, builder: DiagnosticsBuilder, onlyP
     }
   }
 
-  if (IsBox(selector) && IsSphere(selector)) {
-    builder.Add("Selector has both box and sphere definitions", selector.Range).code = "selector.area.both";
-  }
-
   Name(selector, builder);
 
   Coordinate("x", selector, builder);

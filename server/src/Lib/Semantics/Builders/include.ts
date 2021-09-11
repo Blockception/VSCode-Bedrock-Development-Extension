@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./JsonSemanticTokensBuilder";
+export * from "./MolangSemanticTokensBuilder";
 export * from "./McfunctionSemanticTokensBuilder";

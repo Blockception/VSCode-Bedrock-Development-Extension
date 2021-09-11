@@ -22,13 +22,13 @@ describe("CommandIntr", () => {
     expect(comm.GetCommandData(false).length).be.greaterThanOrEqual(0);
   });
 
-  it("parse 2 - condesed ~ coordiantes", () => {
+  it("parse 2 - condesed ~ coordinates", () => {
     const comm = CommandIntr.parse("execute @s ~~~ tp @a @s", { character: 0, line: 0 }, "");
 
     expect(comm.Parameters.length).to.equal(8);
   });
 
-  it("parse 3 - condesed ^ coordiantes", () => {
+  it("parse 3 - condesed ^ coordinates", () => {
     const comm = CommandIntr.parse("execute @s ^^^ tp @a @s", { character: 0, line: 0 }, "");
 
     expect(comm.Parameters.length).to.equal(8);

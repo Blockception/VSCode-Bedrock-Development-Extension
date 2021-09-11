@@ -12,7 +12,7 @@ import { Manager } from "../../Manager/Manager";
 import { SemanticModifiers, SemanticTokens } from "../../Semantics/Legend";
 
 export function SetDynamicEvents() {
-  let client = Manager.Connection.client;
+  const client = Manager.Connection.client;
 
   if (Manager.Capabiltities.hasConfigurationCapability) {
     // Register for all configuration changes.
@@ -28,7 +28,14 @@ export function SetDynamicEvents() {
 
   // Tell the client that this server supports semantic tokens
   const registrationOptions: SemanticTokensRegistrationOptions = {
-    documentSelector: [Languages.JsonCIdentifier, Languages.JsonIdentifier, Languages.McFunctionIdentifier, Languages.McLanguageIdentifier, Languages.McOtherIdentifier],
+    documentSelector: [
+      Languages.JsonCIdentifier,
+      Languages.JsonIdentifier,
+      Languages.McFunctionIdentifier,
+      Languages.McLanguageIdentifier,
+      Languages.McOtherIdentifier,
+      Languages.McMolangIdentifier,
+    ],
     legend: {
       tokenModifiers: SemanticModifiers,
       tokenTypes: SemanticTokens,

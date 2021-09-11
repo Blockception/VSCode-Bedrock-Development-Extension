@@ -4,7 +4,7 @@
  * @returns
  */
 export function GetFilename(filepath: string): string {
-  filepath = filepath.replace(/\\/g, "//");
+  filepath = filepath.replace(/\\/g, "/");
   let index = filepath.lastIndexOf("/");
 
   if (index > -1) {
@@ -32,6 +32,7 @@ export function getExtension(filepath: string): string {
 
   return filepath.substring(index, filepath.length).trim();
 }
+
 /**
  *
  * @param uri

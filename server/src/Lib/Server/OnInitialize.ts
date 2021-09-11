@@ -97,6 +97,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         supported: true,
         changeNotifications: true,
       },
+      //Todo fill in filters
       fileOperations: {
         didCreate: { filters: [] },
         didDelete: { filters: [] },

@@ -1,83 +1,83 @@
 # Changelog
 ## Plugin
-- Updated schemas
-- Updated
-- 2.1.30
-- 2.1.29
-- Updated
-- Fixing
-- 2.1.28
-- Updated
-- Updated
-- Fixing
-- Updated
-- 2.1.27
-- 2.1.26
-- Updated
+- 2.1.56
+- Added event diagnostics
 - Updated packages
-- Updated behavior detection
-- Updated
-- Updated UUID gen
-- Updated
-- Updated
-- Updated Scripts
-- Updated
-- Updated
-- Updated
-- Updated
-- Updated
-- Updated Schemas
-- Updated comments
-- Updated comments
-- Fixing
-- Fixing
+- 2.1.55
+- Adding or improving .molang support #113
+- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /client
+- Update dependabot.yml
+- build(deps-dev): bump @types/vscode from 1.59.0 to 1.60.0 in /client
+- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /client
+- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /server
+- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /server
+- build(deps): bump minecraft-bedrock-schemas from `7e8c935` to `ef3247a`
+- build(deps-dev): bump @typescript-eslint/parser from 4.29.3 to 4.30.0
+- build(deps-dev): bump webpack from 5.51.1 to 5.52.0
+- build(deps): bump vsce from 1.96.2 to 1.97.0
+- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10
 - Updated schemas
-- Updated Edu support
-- Removed
-- Added dialogue support
-- Refactor selectors
-- Added dialogue command
-- Added @Initiator to code
-- Added Dialogue folder to BP
-- Added the @Initiatior selector. 
+- 2.1.54
+- Updated dependencies
+- build(deps-dev): bump mocha from 9.1.0 to 9.1.1
+- build(deps-dev): bump typescript from 4.3.5 to 4.4.2
+- build(deps-dev): bump @types/node from 16.7.1 to 16.7.7
+- Fixing mocha build error
+- 2.1.53
+- Updated dependencies
+- 2.1.52
+- Updated schemas
+- Added render, animations (controllers) completion support
+- Fixing dialogue template
+- 2.1.51
+- Fixing code for deeper manifest searches
+- 2.1.50
+- 2.1.49
+- Updated
+- build(deps-dev): bump @typescript-eslint/parser from 4.29.2 to 4.29.3
+- build(deps): bump minecraft-bedrock-schemas from `da081c7` to `8ca0bdd`
+- Update dependabot.yml
+- Update npm-test.yml
+- Updated packages
+- Delete npm-test-client.yml. 
 ## Schemas
 - Updated
-- Formatted text
-- Updated
-- Updatedf
-- Updated spawn rules comments
-- Updated comments
 - Updated
 - Updated
 - Updated
-- Updating
+- Fixing events
+- Update npm-test.yml
+- Update npm-test.yml
+- Added blocks 1.17
+- Added more test files
 - Updated
-- Fixed
-- Updated references
+- Updated spawn rules
 - Updated
-- Updated entities
-- Updated
-- Updated
-- Added comments
-- Updated
-- Updated components documentation
-- Updated comments
-- Updated documentation with the microsoft documentation
-- Updated Tiltes
+- Fixing dependencies
 - Updated
 - Updated
+- Update npm-test.yml
 - Updated
-- fixed json
-- Updated Comments
-- Updated comments
-- Updated titles
+- Update README.md
+- Update npm-test.yml
+- Update compress-json-schemas.yml
+- Create npm-test.yml
+- Added schemas count check
+- Added
 - Updated
-- Updated Components
-- Updated behaviours
-- Updated UNDOCUMENTED
-- Updating
-- Updated titles
-- Updated lookat
+- Added unit tests
+- Restructure
+- Updated git settings
+- New testing folder
 - Updated
-- Updated block components
-- Fixed
+- Added
+- UPdated
+- Fixing
+- Fixing
+- Updated
+- Updated dialogue schema to fit microsoft documentation
+- Fixing
+- Updated
+- fixing on_damage
+- Updated
+- Updated

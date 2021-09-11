@@ -56,6 +56,7 @@ export function IdentifyDoc(uri: string): string {
   if (uri.endsWith(".mcfunction")) return Languages.McFunctionIdentifier;
   if (uri.endsWith(".lang")) return Languages.McLanguageIdentifier;
   if (uri.endsWith(".json")) return Languages.JsonIdentifier;
+  if (uri.endsWith(".molang")) return Languages.McMolangIdentifier;
 
   if (uri.endsWith(MCAttributes.filename)) return Languages.McProjectIdentifier;
   if (uri.endsWith(MCIgnore.filename)) return Languages.McProjectIdentifier;

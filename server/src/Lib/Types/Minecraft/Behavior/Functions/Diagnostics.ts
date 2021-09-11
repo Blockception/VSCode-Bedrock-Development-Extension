@@ -34,7 +34,7 @@ export function DiagnoseMcFunction(doc: TextDocument) {
       line = doc.getLine(index);
       DiagnoseLine(line, Position.create(index, 0), undefined, Builder);
     } catch (error) {
-      if (error.message) Builder.Add(error.message, Range.create(index, 0, line.length, index)).code = "mcfunction.line.error";
+      if (error instanceof Error) Builder.Add(error.message, Range.create(index, 0, line.length, index)).code = "mcfunction.line.error";
     }
   }
 

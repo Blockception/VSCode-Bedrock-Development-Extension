@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { CreateMinecraftCommandWords } from "./Words";
 
 describe("Commands Words", () => {
-  it("relative coordiantes", () => {
+  it("relative coordinates", () => {
     var command = "execute @s ~~~ say hi";
 
     let Words = LocationWord.Text.Parse(command, "", CreateMinecraftCommandWords);
@@ -18,7 +18,7 @@ describe("Commands Words", () => {
     expect(Words[6].text).to.equal("hi");
   });
 
-  it("local coordiantes", () => {
+  it("local coordinates", () => {
     var command = "execute @s ^^^ say hi";
 
     let Words = LocationWord.Text.Parse(command, "", CreateMinecraftCommandWords);

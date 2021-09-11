@@ -1,16 +1,14 @@
-import { OffsetWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
 import { IsMolang } from "../Molang/Functions";
 import { CreateMolangWords } from "../Molang/Words";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { IsFloat } from "../Types/General/Float/include";
-import { IsSelector } from "../Types/General/Selector/include";
 import { DetectGeneralDataType, GeneralDataType } from "../Types/Minecraft/Format/include";
 import { JsonSemanticTokensBuilder } from "./Builders/JsonSemanticTokensBuilder";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
+import { SemanticTokensEnum } from "./Legend";
 import { McfunctionLineTokens } from "./Mcfunctions";
+import { ConvertWords } from "./Molang";
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Type = DetectGeneralDataType(doc.uri);
@@ -65,107 +63,6 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
       }
     }
   }
-}
-
-/**
- *
- * @param Words
- * @param Builder
- */
-function ConvertWords(Words: OffsetWord[], Builder: JsonSemanticTokensBuilder) {
-  for (let I = 0; I < Words.length; I++) {
-    let Word = Words[I];
-
-    let text = Word.text;
-
-    if ((text.startsWith("'") && text.endsWith("'")) || (text.startsWith('"') && text.endsWith('"'))) {
-      Builder.AddWord(Word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
-
-      continue;
-    }
-
-    switch (text.toLowerCase()) {
-      case "array":
-      case "geometry":
-      case "material":
-      case "texture":
-        Builder.AddWord(Word, SemanticTokensEnum.interface, SemanticModifiersEnum.readonly);
-        break;
-
-      case "q":
-      case "v":
-      case "t":
-      case "c":
-      case "context":
-      case "math":
-      case "query":
-      case "variable":
-      case "temp":
-        Builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
-        break;
-
-      case "this":
-        Builder.AddWord(Word, SemanticTokensEnum.keyword, SemanticModifiersEnum.readonly);
-        break;
-
-      case "(":
-      case "[":
-      case "{":
-      case "}":
-      case "]":
-      case ")":
-      case "==":
-      case "!=":
-      case "&&":
-      case "||":
-      case "|=":
-      case ">=":
-      case "<=":
-      case ">":
-      case "!":
-      case "<":
-      case "?":
-      case ":":
-      case ";":
-      case "+":
-      case "-":
-      case "/":
-      case "*":
-        Builder.AddWord(Word, SemanticTokensEnum.operator);
-        break;
-
-      default:
-        ConvertWordsDefault(Words, I, Builder);
-    }
-  }
-}
-
-/**
- *
- * @param Words
- * @param Index
- * @param Builder
- */
-function ConvertWordsDefault(Words: OffsetWord[], Index: number, Builder: JsonSemanticTokensBuilder): void {
-  let Word = Words[Index];
-  let text = Word.text;
-
-  if (IsFloat(text)) {
-    Builder.AddWord(Word, SemanticTokensEnum.number);
-    return;
-  }
-
-  if (IsSelector(text, undefined)) {
-    Builder.AddWord(Word, SemanticTokensEnum.variable);
-    return;
-  }
-
-  if (Words[Index + 1]?.text === ":") {
-    Builder.AddWord(Word, SemanticTokensEnum.namespace);
-    return;
-  }
-
-  Builder.AddWord(Word, SemanticTokensEnum.method);
 }
 
 function findNext(text: string, startIndex: number): number {

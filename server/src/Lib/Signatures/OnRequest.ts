@@ -23,6 +23,10 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
     case Languages.McLanguageIdentifier:
       return ProvideLanguageSignature(doc, pos);
 
+    case Languages.McMolangIdentifier:
+      //TODO add molang support
+      return undefined;
+
     case Languages.McOtherIdentifier:
       return undefined;
 

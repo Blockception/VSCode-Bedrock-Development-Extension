@@ -28,15 +28,17 @@ export class JsonSemanticTokensBuilder {
    * @param tokenType
    * @param tokenModifier
    */
-  Add(startindex: number, endindex: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
-    let p = this.doc.positionAt(startindex);
-    let length = endindex - startindex;
+  Add(startindex: number, endindex: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
+    const p = this.doc.positionAt(startindex);
+    const length = endindex - startindex;
+
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 
-  AddWord(word: OffsetWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration) {
-    let p = this.doc.positionAt(word.offset);
-    let length = word.text.length;
+  AddWord(word: OffsetWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
+    const p = this.doc.positionAt(word.offset);
+    const length = word.text.length;
+
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 }
