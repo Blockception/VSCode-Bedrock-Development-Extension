@@ -34,6 +34,59 @@
     "Formatters",
     "Debuggers"
   ],
+  "dependencies": {
+    "fast-glob": "^3.2.5",
+    "vsce": "^1.95.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^12.20.24",
+    "@typescript-eslint/parser": "^2.34.0",
+    "eslint": "^6.8.0",
+    "json-loader": "^0.5.7",
+    "mocha": "^8.4.0",
+    "ts-loader": "^8.3.0",
+    "typescript": "^3.9.10",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "files": [
+    "*.html"
+  ],
+  "maintainers": [
+    {
+      "name": "Blockception Ltd",
+      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+    "type": "git"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run test && npm run webpack",
+    "compile": "npm run clean && tsc -b",
+    "compile:client": "tsc -b ./client/tsconfig.json",
+    "compile:server": "tsc -b ./server/tsconfig.json",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
+    "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
+    "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
+    "test-compile": "tsc -p ./",
+    "lint": "npm run lint:client && npm run lint:server",
+    "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
+    "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
+    "clean": "rimraf client/out && rimraf server/out",
+    "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
+    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd .."
+  },
   "contributes": {
     "configuration": [
       {
@@ -836,58 +889,5 @@
         }
       }
     ]
-  },
-  "dependencies": {
-    "fast-glob": "^3.2.5",
-    "vsce": "^1.95.0"
-  },
-  "devDependencies": {
-    "@types/mocha": "^7.0.2",
-    "@types/node": "^12.20.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "eslint": "^6.4.0",
-    "json-loader": "^0.5.7",
-    "mocha": "^8.3.0",
-    "ts-loader": "^8.0.17",
-    "typescript": "^3.9.9",
-    "webpack": "^5.21.2",
-    "webpack-cli": "^4.5.0"
-  },
-  "engines": {
-    "vscode": "^1.41.0"
-  },
-  "extensionKind": [
-    "workspace"
-  ],
-  "files": [
-    "*.html"
-  ],
-  "maintainers": [
-    {
-      "name": "Blockception Ltd",
-      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
-    }
-  ],
-  "repository": {
-    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-    "type": "git"
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run test && npm run webpack",
-    "compile": "npm run clean && tsc -b",
-    "compile:client": "tsc -b ./client/tsconfig.json",
-    "compile:server": "tsc -b ./server/tsconfig.json",
-    "watch": "tsc -b -w",
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
-    "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
-    "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
-    "test-compile": "tsc -p ./",
-    "lint": "npm run lint:client && npm run lint:server",
-    "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
-    "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
-    "clean": "rimraf client/out && rimraf server/out",
-    "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
-    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd .."
   }
 }

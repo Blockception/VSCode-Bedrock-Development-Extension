@@ -23,10 +23,10 @@
   },
   "dependencies": {
     "bc-minecraft-bedrock-diagnoser": "^0.0.7",
-    "bc-minecraft-bedrock-project": "^1.1.6",
-    "bc-minecraft-bedrock-types": "^1.1.5",
-    "bc-minecraft-project": "^1.0.2",
-    "bc-vscode-words": "^1.3.0",
+    "bc-minecraft-bedrock-project": "^1.1.13",
+    "bc-minecraft-bedrock-types": "^1.1.9",
+    "bc-minecraft-project": "^1.0.5",
+    "bc-vscode-words": "^1.3.2",
     "comment-json": "^4.1.1",
     "fast-glob": "^3.2.7",
     "uuid": "^8.3.2",
@@ -43,7 +43,7 @@
     "mocha": "^8.4.0",
     "ts-loader": "^8.3.0",
     "ts-node": "^9.1.1",
-    "webpack": "^5.50.0",
+    "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
   }
 }
