@@ -1,13 +1,14 @@
 import { Modes } from "bc-minecraft-bedrock-types";
+import { SlotTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SlotType";
 import { CommandCompletionContext } from "../../../Completion/Commands/include";
 import { Integer } from "../include";
 
-export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let Command = Context.Command;
-  let word = Context.Current;
+export function ProvideCompletion(context: CommandCompletionContext): void {
+  const command = context.command;
+  const word = context.current;
 
   if (!word) return;
-  let Index = command.parameters.indexOf(word.text);
+  const Index = command.parameters.findIndex((p) => p.text === word.text);
 
   if (Index < 0) return;
 
@@ -16,9 +17,9 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
 
   if (Mode && Modes.SlotType.isValue(Mode.name)) {
     if (Mode.range) {
-      Integer.ProvideCreateCompletion(Context.receiver, Mode.range.min, Mode.range.max);
+      Integer.ProvideCreateCompletion(context.receiver, Mode.range.min, Mode.range.max);
     } else {
-      Integer.ProvideCreateCompletion(Context.receiver, 0, 9);
+      Integer.ProvideCreateCompletion(context.receiver, 0, 9);
     }
   }
 }

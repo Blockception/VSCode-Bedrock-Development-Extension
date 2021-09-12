@@ -27,6 +27,7 @@
     "bc-minecraft-bedrock-diagnoser": "^0.0.7",
     "bc-minecraft-bedrock-project": "^1.2.1",
     "bc-minecraft-bedrock-types": "^1.1.9",
+    "bc-minecraft-bedrock-vanilla-data": "^1.3.5",
     "bc-minecraft-project": "^1.0.5",
     "bc-vscode-words": "^1.3.2",
     "comment-json": "^4.1.1",

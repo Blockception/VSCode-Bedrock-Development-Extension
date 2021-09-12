@@ -16,12 +16,12 @@ export namespace Workspace {
    *
    * @returns
    */
-  export async function GetWorkSpaces(): Promise<WorkspaceFolder[] | null> {
+  export async function GetWorkSpaces(): Promise<WorkspaceFolder[]> {
     const WS = Manager.Connection.workspace.getWorkspaceFolders();
 
     WS.catch((item) => Console.Error(`No workspaces folders received: ${JSON.stringify(item)}`));
 
-    return WS;
+    return WS.then((ws) => (ws === null ? [] : ws));
   }
 
   /**

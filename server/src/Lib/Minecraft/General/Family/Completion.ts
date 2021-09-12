@@ -1,54 +1,54 @@
-import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Commands/include";
-import { Database } from "../../../Database/include";
-import { Entity } from "../include";
-import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(Context: CommandCompletionContext, type: string | undefined = undefined): void {
-  let data = Context.doc.getConfiguration();
-  let receiver = Context.receiver;
+export function ProvideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
+  //TODO redo
+  /*let data = context.doc.getConfiguration();
+  let receiver = context.receiver;
 
-  data.defintions.family.defined.forEach((family) => {
+  data.definitions.family.defined.forEach((family) => {
     receiver.Add(family, "The defined family: " + family, CompletionItemKind.Value);
   });
 
   if (type) {
-    let entity = Database.ProjectData.General.Entities.GetFromID(type);
+    let entity = Database.ProjectData.BehaviorPacks.entities.GetFromID(type);
 
     if (entity) {
       ConvertEntity(entity, receiver);
     }
   } else {
-    Database.ProjectData.General.Entities.ForEach((entity) => ConvertEntity(entity, receiver));
-  }
+    Database.ProjectData.BehaviorPacks.entities.forEach((entity) => ConvertEntity(entity, receiver));
+  }*/
 }
 
+/*
 function ConvertEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   entity.Families.forEach((family) => {
     receiver.Add(family, "The entity family: " + family, Kinds.Completion.Family);
   });
 }
+*/
 
-export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder, type: string | undefined = undefined): void {
-  let receiver: CompletionBuilder;
-  if (CommandCompletionContext.is(Context)) receiver = Context.receiver;
-  else receiver = Context;
+export function ProvideCompletionTest(context: CommandCompletionContext | CompletionBuilder, type: string | undefined = undefined): void {
+  //TODO redo
+  /*let receiver: CompletionBuilder;
+  if (CommandCompletionContext.is(context)) receiver = context.receiver;
+  else receiver = context;
 
   if (type) {
-    let entity = Database.ProjectData.General.Entities.GetFromID(type);
+    let entity = Database.ProjectData.BehaviorPacks.entities.GetFromID(type);
 
     if (entity) {
       ConvertTestEntity(entity, receiver);
     }
   } else {
-    Database.ProjectData.General.Entities.ForEach((entity) => ConvertTestEntity(entity, receiver));
-  }
+    Database.ProjectData.BehaviorPacks.entities.forEach((entity) => ConvertTestEntity(entity, receiver));
+  }*/
 }
-
+/*
 function ConvertTestEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
   entity.Families.forEach((family) => {
     receiver.Add(family, "test for the Family: " + family, Kinds.Completion.Family);
     receiver.Add("!" + family, "test not for the Family: " + family, Kinds.Completion.Family);
   });
-}
+}*/

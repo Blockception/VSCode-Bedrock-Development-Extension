@@ -2,8 +2,8 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Commands/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(Context: CommandCompletionContext | CompletionBuilder): void {
-  let receiver = CommandCompletionContext.is(Context) ? Context.receiver : Context;
+export function ProvideCompletion(context: CommandCompletionContext | CompletionBuilder): void {
+  let receiver = CommandCompletionContext.is(context) ? context.receiver : context;
 
   //False
   receiver.Add("false", "The boolean value for false", Kinds.Completion.Boolean);

@@ -1,8 +1,11 @@
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CommandCompletionContext } from "../../../Completion/Commands/include";
-import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
-  receiver.AddFromRange(Database.ProjectData.General.Effects, Kinds.Completion.Effect);
+export function ProvideCompletion(context: CommandCompletionContext): void {
+  const receiver = context.receiver;
+
+  MinecraftData.General.Effects.forEach((effect) => {
+    receiver.Add(effect, `The vanilla minecraft effect: '${effect}'`, Kinds.Completion.Effect);
+  });
 }

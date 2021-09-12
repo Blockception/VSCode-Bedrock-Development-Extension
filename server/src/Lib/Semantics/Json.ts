@@ -18,13 +18,7 @@ export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | und
 
   const Builder = new JsonSemanticTokensBuilder(doc);
   const text = doc.getText(range);
-  let offset = 0;
-
-  if (range) {
-    offset = doc.offsetAt(range.start);
-  } else {
-    offset = 0;
-  }
+  const offset = range ? doc.offsetAt(range.start) : 0;
 
   CreateTokens(text, offset, Builder);
 
@@ -58,7 +52,7 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
         startindex++;
         McfunctionLineTokens(property, 0, offset + startindex, McfunctionSemanticTokensBuilder.FromJson(Builder));
       } else {
-        let Words = CreateMolangWords(property, offset + startindex);
+        const Words = CreateMolangWords(property, offset + startindex);
         ConvertWords(Words, Builder);
       }
     }

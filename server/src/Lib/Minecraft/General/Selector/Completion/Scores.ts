@@ -1,11 +1,11 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { LocationWord } from "bc-vscode-words";
-import { IsEditingValue } from "../Functions";
+import { OffsetWord } from "bc-vscode-words";
 import { CompletionBuilder } from "../../../../Completion/Builder";
 import { Objectives } from "../../include";
+import { Offset } from "../../../../Code/Offset";
 
-export function provideSelectorScoreCompletion(receiver: CompletionBuilder, selector: LocationWord, pos: number): void {
-  if (IsEditingValue(selector, pos)) {
+export function provideSelectorScoreCompletion(receiver: CompletionBuilder, selector: OffsetWord, pos: number): void {
+  if (Offset.IsWithin(selector, pos)) {
     receiver.Add("0", "test for the exact value of 0", CompletionItemKind.Value);
     receiver.Add("!0", "test for the exact value of everything but 0", CompletionItemKind.Value);
     receiver.Add("0..", "test for the everything equal to 0 or higher", CompletionItemKind.Value);

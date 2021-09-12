@@ -1,10 +1,10 @@
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Commands/Context";
+import { CommandCompletionContext } from "../../../Completion/Commands/context";
 
-export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
-  let Options = Context.Parameter.Options;
+export function ProvideCompletion(context: CommandCompletionContext): void {
+  const receiver = context.receiver;
+  const Options = context.parameter.options;
 
   const minimum = Options?.minimum ?? 0;
   const maximum = Options?.maximum ?? 10;

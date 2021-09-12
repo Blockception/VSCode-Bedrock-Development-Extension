@@ -1,8 +1,8 @@
 import { CommandCompletionContext } from "../../../Completion/Commands/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
+export function ProvideCompletion(context: CommandCompletionContext): void {
+  let receiver = context.receiver;
   const Kind = Kinds.Completion.Coordinate;
 
   receiver.Add("~", "Relative coordinate", Kind).preselect = true;

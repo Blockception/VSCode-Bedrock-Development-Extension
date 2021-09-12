@@ -1,9 +1,9 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
-import { CreateSelectorTokens } from "./include";
+import { CreateRangeTokensWord, CreateSelectorTokens } from "./include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
-import { Command } from "bc-minecraft-bedrock-command";
+import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { IsEducationEnabled } from "../Project/Attributes";
 
 export function ProvideMcfunctionSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
@@ -57,15 +57,15 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
   Match = Matches[0];
 
   let Max = command.parameters.length;
-  if (Match.command.parameters.length < Max) Max = Match.command.parameters.length;
+  if (Match.parameters.length < Max) Max = Match.parameters.length;
 
   for (let I = 1; I < Max; I++) {
-    const Data = Match.command.parameters[I];
+    const Data = Match.parameters[I];
     const Word = command.parameters[I];
 
-    switch (Data.Type) {
+    switch (Data.type) {
       case ParameterType.command:
-        let Sub = GetSubCommand(Command, Edu);
+        let Sub = command.getSubCommand(Edu);
         if (Sub) {
           CreateTokens(Sub, Builder);
         }
@@ -82,14 +82,15 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
       case ParameterType.particle:
       case ParameterType.sound:
       case ParameterType.tickingarea:
-        const Index = Word.text.indexOf(":");
+        let Index = Word.text.indexOf(":");
 
         if (Index >= 0) {
-          const Line = Word.location.range.start.line;
-          const char = Word.location.range.start.character;
+          Index += Word.offset;
 
-          Builder.AddAt(Line, char, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
-          Builder.AddAt(Line, char + Index + 1, Word.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
+          //namespace
+          Builder.Add(Word.offset, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
+          //Value
+          Builder.Add(Index + 1, Index + Word.text.length, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
         } else {
           Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
         }

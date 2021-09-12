@@ -29,7 +29,7 @@ export function SearchDefinition(text: string, type: ParameterType[]): Location[
     return Out;
   }
 
-  //foreach dataset
+  //forEach dataset
   SearchDefinitionIn(text, type, Out);
 
   return Out;

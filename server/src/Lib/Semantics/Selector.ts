@@ -1,7 +1,7 @@
 import { Selector, SelectorAttribute } from "bc-minecraft-bedrock-types/lib/src/Minecraft/include";
 import { OffsetWord } from "bc-vscode-words";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
-import { CreateRangeTokens } from "./Functions";
+import { CreateRangeTokensWord } from "./Functions";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
 export function CreateSelectorTokens(word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
@@ -62,7 +62,7 @@ function CreateTokens(Parameter: SelectorAttribute, Builder: McfunctionSemanticT
       break;
 
     default:
-      CreateRangeTokens(Value, Builder);
+      CreateRangeTokensWord(Value, Builder);
       break;
   }
 }

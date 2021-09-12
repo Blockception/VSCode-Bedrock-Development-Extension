@@ -1,6 +1,6 @@
 import { Manager } from "../../Manager/Manager";
 
-export interface Context {
+export interface context {
   BehaviorPack: string;
   ResourcePack: string;
   WorldFolder: string;
@@ -8,22 +8,22 @@ export interface Context {
 } /*GetProjectFiles();
 
 /*TODO redo
-export function GetContext(): Context | undefined {
+export function GetContext(): context | undefined {
   const Data = /*TODO now a promise/*
   if (Data === undefined) return undefined;
 
   return Convert(Data);
 }
 
-export function GetContextAsync<T>(data: T, callback: (c: Context, data: T) => void): void {
+export function GetContextAsync<T>(data: T, callback: (c: context, data: T) => void): void {
   /*TODO now a promise*/ /*GetProjectFiles((projectData) => {
-    const Context = Convert(projectData);
+    const context = Convert(projectData);
 
-    if (Context) callback(Context, data);
+    if (context) callback(context, data);
   });
 }
 
-function Convert(Data: ProjectFiles): Context | undefined {
+function Convert(Data: ProjectFiles): context | undefined {
   let Base: string | undefined;
 
   //Some assembly required
@@ -76,8 +76,8 @@ function Convert(Data: ProjectFiles): Context | undefined {
     RP = Base + "resource_packs/missing_RP/";
   }
 
-  const Context: Context = { BehaviorPack: BP, ResourcePack: RP, WorldFolder: WP, WorkFolder: Base };
+  const context: context = { BehaviorPack: BP, ResourcePack: RP, WorldFolder: WP, WorkFolder: Base };
 
-  return Context;
+  return context;
 }
 */

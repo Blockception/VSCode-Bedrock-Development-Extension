@@ -5,6 +5,6 @@ export * as Project from "./Project/include";
 export * as Resource_Pack from "./Resource Pack/include";
 export * as World from "./World/include";
 export * from "./Builder";
-export * from "./Context";
+export * from "./context";
 export * from "./Create";
 export * from "./Functions";

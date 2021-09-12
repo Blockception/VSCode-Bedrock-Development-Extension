@@ -1,7 +1,7 @@
 import { Position } from "vscode-languageserver-textdocument";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
-import { CommandCompletionContext } from "./Commands/Context";
+import { CommandCompletionContext } from "./Commands/context";
 import { Command } from "bc-minecraft-bedrock-command";
 import { Commands } from "../Minecraft/include";
 import { IsEducationEnabled } from "../Project/include";
@@ -78,9 +78,9 @@ export function ProvideCompletion(pos: number, receiver: CompletionBuilder, comm
 
     if (Match.parameters.length > ParameterIndex) {
       const parameter = Match.parameters[ParameterIndex];
-      const Context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current, doc);
+      const context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current, doc);
 
-      Parameter.ProvideCompletion(Context);
+      Parameter.ProvideCompletion(context);
     }
   }
 }

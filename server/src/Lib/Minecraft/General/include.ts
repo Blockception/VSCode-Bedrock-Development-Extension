@@ -5,7 +5,7 @@ export * as Boolean from "./Boolean/include";
 export * as Coordinate from "./Coordinate/include";
 export * as Effect from "./Effect/include";
 export * as Entity from "./Entity/include";
-export * as Event from "./Event/include";
+export * as Event from "./EntityEvent/include";
 export * as FakeEntity from "./FakeEntity/include";
 export * as Family from "./Family/include";
 export * as Float from "./Float/include";

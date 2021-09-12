@@ -86,16 +86,16 @@ function Initialize(): CommandManager {
 }
 
 /*
-function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, Context: Context, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
+function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, context: context, Builder: TemplateBuilder) => void): void {
+  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
     const IDs = params.arguments;
     if (!IDs) return;
-    if (!Context) return;
+    if (!context) return;
 
     const Builder = new TemplateBuilder();
 
     for (let I = 0; I < IDs.length; I++) {
-      callback(IDs[I], Context, Builder);
+      callback(IDs[I], context, Builder);
     }
 
     Builder.Send();
@@ -103,48 +103,48 @@ function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, Con
 }
 
 function FunctionBP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
-    if (!Context) return;
+  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+    if (!context) return;
 
     const Builder = new TemplateBuilder();
 
-    callback(Context.BehaviorPack, Builder);
+    callback(context.BehaviorPack, Builder);
 
     Builder.Send();
   });
 }
 
 function FunctionRP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
-    if (!Context) return;
+  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+    if (!context) return;
 
     const Builder = new TemplateBuilder();
 
-    callback(Context.ResourcePack, Builder);
+    callback(context.ResourcePack, Builder);
 
     Builder.Send();
   });
 }
 
 function FunctionWP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
-    if (!Context) return;
+  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+    if (!context) return;
 
     const Builder = new TemplateBuilder();
 
-    callback(Context.ResourcePack, Builder);
+    callback(context.ResourcePack, Builder);
 
     Builder.Send();
   });
 }
 
-function Function(params: ExecuteCommandParams, callback: (Context: Context, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
-    if (!Context) return;
+function Function(params: ExecuteCommandParams, callback: (context: context, Builder: TemplateBuilder) => void): void {
+  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+    if (!context) return;
 
     const Builder = new TemplateBuilder();
 
-    callback(Context, Builder);
+    callback(context, Builder);
 
     Builder.Send();
   });
