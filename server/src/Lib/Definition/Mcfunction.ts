@@ -1,12 +1,11 @@
-import { Location } from "vscode-languageserver";
+import { Location, Position } from "vscode-languageserver";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { SearchDefinition } from "./Search";
 import { IsEducationEnabled } from "../Project/include";
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { Position } from "vscode";
 
 export function OnMcfunctionDefinitionDoc(doc: TextDocument, cursor: Position): Location[] | undefined {
-  const LineP = new Position(cursor.line, 0);
+  const LineP = Position.create(cursor.line, 0);
   const Line = doc.getLine(cursor.line);
   const coffset = doc.offsetAt(cursor);
   const offset = doc.offsetAt(LineP);

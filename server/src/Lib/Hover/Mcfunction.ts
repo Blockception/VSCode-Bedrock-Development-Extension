@@ -1,7 +1,7 @@
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { Database, DataCollector } from "../Database/include";
 import { Command, GetSubCommand } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameter, ParameterType } from "../Minecraft/Commands/Parameter/include";
+import { ParameterInfo, ParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { Identifiable, Locatable, Documentable } from "../Types/Minecraft/Interfaces/include";
 import { RawText } from "../Types/Minecraft/Json/include";
@@ -61,7 +61,7 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
  * @param Text
  * @returns
  */
-function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: string): Hover | undefined {
+function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): Hover | undefined {
   const title = parameter.Text;
   let doc: string = "";
 

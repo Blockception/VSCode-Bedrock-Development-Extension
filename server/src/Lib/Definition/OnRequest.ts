@@ -2,7 +2,7 @@ import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languag
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
 import { OnJsonDefinition } from "./Json";
-import { OnMcfunctionDefinition } from "./Mcfunction";
+import { OnMcfunctionDefinition, OnMcfunctionDefinitionDoc } from "./Mcfunction";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {
   return new Promise<Location[] | undefined>((resolve, reject) => {
@@ -17,12 +17,12 @@ export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Prom
 }
 
 function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
-  let doc = GetDocument(params.textDocument.uri);
-  let pos = params.position;
+  const doc = GetDocument(params.textDocument.uri);
+  const pos = params.position;
 
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:
-      return OnMcfunctionDefinition(doc, pos);
+      return OnMcfunctionDefinitionDoc(doc, pos);
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
