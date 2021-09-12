@@ -1,25 +1,22 @@
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from "constants";
-import { CompletionItemKind, TextEdit } from "vscode-languageserver";
+import { PackType, ResourcePack } from "bc-minecraft-bedrock-project";
+import { Model } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/ResourcePack/Model";
+import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
+import { CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { Languages } from "../../Constants";
-import { Database, DataCollector } from "../../Database/include";
-import { DataReference } from "../../Database/Types/include";
+import { Database } from "../../Database/include";
 import { Molang } from "../../include";
 import { Manager } from "../../Manager/Manager";
-import { GetPreviousWord, MolangFunctionDataItem } from "../../Molang/include";
+import { Kinds } from "../../Minecraft/General/include";
+import { GetPreviousWord } from "../../Molang/include";
+import { IsEducationEnabled } from "../../Project/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
-import { Kinds } from "../../Types/General/include";
-import { PackType.detect } from "../../Types/Minecraft/Format/Detection";
-import { PackType } from "../../Types/Minecraft/Format/General Data Type";
-import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
-import { Identifiable } from "../../Types/Minecraft/Interfaces/Identifiable";
-import { Locatable } from "../../Types/Minecraft/Interfaces/Locatable";
-import { CompletionBuilder } from "../Builder";
+import { CompletionBuilder, IDataSet } from "../Builder";
 import { OnCompletionMolangVariable } from "./Variables";
 
 export function OnCompletionEntityEvents(receiver: CompletionBuilder): void {
-  Database.ProjectData.General.Entities.ForEach((x) => {
-    x.Events.forEach((event) => {
+  Database.ProjectData.BehaviorPacks.entities.forEach((x) => {
+    x.events.forEach((event) => {
       receiver.Add(event, `The ${x.id} event: ${event}`, Kinds.Completion.Event);
     });
   });
@@ -58,18 +55,22 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
 
     case "q":
     case "query":
-      Convert(Manager.Data.Vanilla.Molang.Query, receiver);
-      if (Edu) Convert(Manager.Data.Edu.Molang.Query, receiver);
+      //TODO redo
+
+      //Convert(Manager.Data.Vanilla.Molang.Query, receiver);
+      //if (Edu) Convert(Manager.Data.Edu.Molang.Query, receiver);
       return;
 
     case "m":
     case "math":
-      Convert(Manager.Data.Vanilla.Molang.Math, receiver);
-      if (Edu) Convert(Manager.Data.Edu.Molang.Math, receiver);
+      //TODO redo
+
+      //Convert(Manager.Data.Vanilla.Molang.Math, receiver);
+      //if (Edu) Convert(Manager.Data.Edu.Molang.Math, receiver);
       return;
 
     case "geometry":
-      CreateGeometries(Database.ProjectData.Resourcepack.Models, receiver);
+      CreateGeometries(Database.ProjectData.ResourcePacks.models, receiver);
       return;
 
     case "v":
@@ -91,18 +92,20 @@ export function OnCompletionMolang(line: string, cursor: number, doc: TextDocume
     receiver.Add("temp", "", CompletionItemKind.Variable);
     receiver.Add("this", "", CompletionItemKind.Struct);
 
-    ConvertPrefixed(Manager.Data.Vanilla.Molang.Query, receiver, "query.");
-    ConvertPrefixed(Manager.Data.Vanilla.Molang.Math, receiver, "math.");
+    //TODO redo
+    //ConvertPrefixed(Manager.Data.Vanilla.Molang.Query, receiver, "query.");
+    //ConvertPrefixed(Manager.Data.Vanilla.Molang.Math, receiver, "math.");
 
     if (Edu) {
-      ConvertPrefixed(Manager.Data.Edu.Molang.Query, receiver, "query.");
-      ConvertPrefixed(Manager.Data.Edu.Molang.Math, receiver, "math.");
+      //TODO redo
+      //ConvertPrefixed(Manager.Data.Edu.Molang.Query, receiver, "query.");
+      //ConvertPrefixed(Manager.Data.Edu.Molang.Math, receiver, "math.");
     }
   }
 }
 
-function CreateGeometries(Models: DataCollector<DataReference>, receiver: CompletionBuilder): void {
-  Models.ForEach((model) => {
+function CreateGeometries(Models: IDataSet<ResourcePack.Model.Model>, receiver: CompletionBuilder): void {
+  Models.forEach((model) => {
     let data = model.id;
     let index = data.indexOf(".");
 
@@ -112,6 +115,8 @@ function CreateGeometries(Models: DataCollector<DataReference>, receiver: Comple
   });
 }
 
+//TODO redo
+/*
 function Convert(data: MolangFunctionDataItem[], receiver: CompletionBuilder): void {
   for (let I = 0; I < data.length; I++) {
     const Item = data[I];
@@ -126,17 +131,17 @@ function ConvertPrefixed(data: MolangFunctionDataItem[], receiver: CompletionBui
 
     receiver.Add(prefix + Item.function, Item.documentation, CompletionItemKind.Function);
   }
-}
+}*/
 
 function AnimationsCompletion(receiver: CompletionBuilder, doc: TextDocument): void {
   const type = PackType.detect(doc.uri);
 
   switch (type) {
     case PackType.behavior_pack:
-      return AddFromDataCollector(Database.Data.Behaviorpack.Animations, receiver, "BP animation");
+      return AddFromDataCollector(Database.ProjectData.BehaviorPacks.animations, receiver, "BP animation");
 
     case PackType.resource_pack:
-      return AddFromDataCollector(Database.Data.Resourcepack.Animations, receiver, "RP animation");
+      return AddFromDataCollector(Database.ProjectData.ResourcePacks.animations, receiver, "RP animation");
   }
 }
 
@@ -145,21 +150,21 @@ function ControllersCompletion(receiver: CompletionBuilder, doc: TextDocument): 
 
   switch (type) {
     case PackType.behavior_pack:
-      return AddFromDataCollector(Database.Data.Behaviorpack.AnimationControllers, receiver, "BP animation controller");
+      return AddFromDataCollector(Database.ProjectData.BehaviorPacks.animation_controllers, receiver, "BP animation controller");
 
     case PackType.resource_pack:
-      AddFromDataCollector(Database.Data.Resourcepack.AnimationControllers, receiver, "RP animation controller");
+      AddFromDataCollector(Database.ProjectData.ResourcePacks.animation_controllers, receiver, "RP animation controller");
 
-      if (doc.uri.includes("render_controllers")) AddFromDataCollector(Database.Data.Resourcepack.RenderControllers, receiver, "render controller");
+      if (doc.uri.includes("render_controllers")) AddFromDataCollector(Database.ProjectData.ResourcePacks.render_controllers, receiver, "render controller");
       return;
   }
 }
 
-function AddFromDataCollector<T extends Identifiable & Locatable>(collection: DataCollector<T>, receiver: CompletionBuilder, type: string) {
-  collection.ForEach((item) => {
+function AddFromDataCollector<T extends Identifiable & Locatable>(collection: IDataSet<T>, receiver: CompletionBuilder, type: string) {
+  collection.forEach((item) => {
     const id = IDRemoveFirst(item.id);
 
-    const documentation = Documentable.is(item) ? item.Documentation.value : `The ${type}: ${item.id}, from: ${item.Location}`;
+    const documentation = (Documentated.is(item) ? item.documentation : undefined) ?? `The ${type}: ${item.id}, from: ${item.location.uri}`;
 
     receiver.Add(id, documentation, CompletionItemKind.Method);
   });

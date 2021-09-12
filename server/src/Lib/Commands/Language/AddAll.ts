@@ -20,13 +20,13 @@ export function AddAllItems(params: ExecuteCommandParams): any {
           builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
         });
 
-        Database.ProjectData.Behaviorpack.Items.ForEach((data) => {
+        Database.ProjectData.BehaviorPacks.Items.ForEach((data) => {
           const id = Safe(data.id);
 
           builder.Add("item." + data.id + ".name", id, "Item: " + data.id);
         });
 
-        Database.ProjectData.Behaviorpack.Blocks.ForEach((data) => {
+        Database.ProjectData.BehaviorPacks.Blocks.ForEach((data) => {
           const id = Safe(data.id);
 
           builder.Add("tile." + data.id + ".name", id, "Block: " + data.id);

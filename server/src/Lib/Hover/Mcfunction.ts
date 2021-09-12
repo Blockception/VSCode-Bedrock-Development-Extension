@@ -130,7 +130,7 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
       break;
 
     case MCCommandParameterType.particle:
-      return GetDocumentation(Text, range, Database.ProjectData.Resourcepack.Particles);
+      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.Particles);
 
     case MCCommandParameterType.replaceMode:
       doc = "A replace mode";

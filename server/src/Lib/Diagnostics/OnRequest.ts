@@ -23,5 +23,5 @@ export function Diagnostics(doc: TextDocument): void {
       break;
   }
 
-  Database.Database.Diagnoser.Process(doc);
+  Database.ProjectDatabase.Diagnoser.Process(doc);
 }

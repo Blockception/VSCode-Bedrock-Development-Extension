@@ -40,7 +40,7 @@ function CreateContext(): DiagnoserContext {
  * @returns
  */
 function getCache() {
-  return Database.Database.ProjectData;
+  return Database.ProjectDatabase.ProjectData;
 }
 
 /**gets a document diagnoser
