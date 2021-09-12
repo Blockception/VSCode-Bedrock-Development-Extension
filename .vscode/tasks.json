@@ -17,6 +17,14 @@
       "script": "compile",
       "isBackground": false,
       "group": "build",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "isBackground": false,
+      "group": "build",
       "presentation": { "reveal": "silent", "panel": "dedicated" },
       "problemMatcher": ["$tsc"]
     },
