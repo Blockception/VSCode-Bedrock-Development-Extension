@@ -1,7 +1,7 @@
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { Database, DataCollector } from "../Database/include";
 import { Command, GetSubCommand } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameter, MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
+import { MCCommandParameter, ParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { Identifiable, Locatable, Documentable } from "../Types/Minecraft/Interfaces/include";
 import { RawText } from "../Types/Minecraft/Json/include";
@@ -30,16 +30,16 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
     }
   }
 
-  const Data = Command.GetCommandData(Edu);
+  const Data = command.getCommandData(Edu);
 
   if (Data.length >= 1) {
     const Info = Data[0];
-    const parameters = Info.Command.parameters;
+    const parameters = Info.command.parameters;
     const Index = Command.CursorParamater;
 
     if (parameters.length > Index) {
       const p = parameters[Index];
-      const T = Command.Parameters[Index];
+      const T = command.parameters[Index];
 
       if (T) {
         const r = T.location.range;
@@ -66,106 +66,106 @@ function GetHoverContent(parameter: MCCommandParameter, range: Range, Text: stri
   let doc: string = "";
 
   switch (parameter.Type) {
-    case MCCommandParameterType.block:
+    case ParameterType.block:
       return GetDocumentation(Text, range, Database.ProjectData.General.Blocks);
 
-    case MCCommandParameterType.boolean:
+    case ParameterType.boolean:
       doc = "A boolean value (true or false)";
       break;
 
-    case MCCommandParameterType.command:
+    case ParameterType.command:
       doc = "A sub command to execute";
       break;
 
-    case MCCommandParameterType.coordinate:
+    case ParameterType.coordinate:
       doc = "A coordinate";
       break;
 
-    case MCCommandParameterType.effect:
+    case ParameterType.effect:
       doc = "A effect identifier";
       break;
 
-    case MCCommandParameterType.entity:
+    case ParameterType.entity:
       return GetDocumentation(Text, range, Database.ProjectData.General.Entities);
 
-    case MCCommandParameterType.event:
+    case ParameterType.event:
       doc = "A event";
       break;
 
-    case MCCommandParameterType.float:
+    case ParameterType.float:
       doc = "A float number";
       break;
 
-    case MCCommandParameterType.function:
+    case ParameterType.function:
       return GetDocumentation(Text, range, Database.ProjectData.General.Functions);
 
-    case MCCommandParameterType.gamemode:
+    case ParameterType.gamemode:
       doc = "A minecraft gamemode";
       break;
 
-    case MCCommandParameterType.integer:
+    case ParameterType.integer:
       doc = "An integer number";
       break;
 
-    case MCCommandParameterType.item:
+    case ParameterType.item:
       doc = "An item identifier";
       break;
 
-    case MCCommandParameterType.jsonItem:
+    case ParameterType.jsonItem:
       doc = "The json schema for items";
       break;
 
-    case MCCommandParameterType.jsonRawText:
+    case ParameterType.jsonRawText:
       return RawText.provideHover(range);
 
-    case MCCommandParameterType.locateFeature:
+    case ParameterType.locateFeature:
       doc = "A locate feature";
       break;
 
-    case MCCommandParameterType.objective:
+    case ParameterType.objective:
       return GetDocumentation(Text, range, Database.ProjectData.General.Objectives);
 
-    case MCCommandParameterType.operation:
+    case ParameterType.operation:
       doc = "A scoreboard math operation";
       break;
 
-    case MCCommandParameterType.particle:
+    case ParameterType.particle:
       return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.Particles);
 
-    case MCCommandParameterType.replaceMode:
+    case ParameterType.replaceMode:
       doc = "A replace mode";
       break;
 
-    case MCCommandParameterType.selector:
+    case ParameterType.selector:
       doc = "A selector that target all players, entities or fake players";
       break;
 
-    case MCCommandParameterType.slotID:
+    case ParameterType.slotID:
       doc = "A slot id";
       break;
 
-    case MCCommandParameterType.slotType:
+    case ParameterType.slotType:
       doc = "A slot type";
       break;
 
-    case MCCommandParameterType.sound:
+    case ParameterType.sound:
       return GetDocumentation(Text, range, Database.ProjectData.General.Sounds);
 
-    case MCCommandParameterType.string:
+    case ParameterType.string:
       doc = "A string";
       break;
 
-    case MCCommandParameterType.tag:
+    case ParameterType.tag:
       return GetDocumentation(Text, range, Database.ProjectData.General.Tag);
 
-    case MCCommandParameterType.tickingarea:
+    case ParameterType.tickingarea:
       return GetDocumentation(Text, range, Database.ProjectData.General.TickingAreas);
 
-    case MCCommandParameterType.unknown:
+    case ParameterType.unknown:
       doc = "no idea, I quit";
       break;
 
-    case MCCommandParameterType.xp:
+    case ParameterType.xp:
       doc = "A xp number";
       break;
   }

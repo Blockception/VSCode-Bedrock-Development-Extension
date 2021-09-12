@@ -1,7 +1,5 @@
 import { Command, Parameter } from "bc-minecraft-bedrock-command";
 import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
-import { LocationWord } from "bc-vscode-words";
-import { Position } from "vscode-languageserver-textdocument";
 import { IsEducationEnabled } from "../../Project/Attributes";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { CompletionBuilder } from "../include";
@@ -9,14 +7,22 @@ import { CompletionBuilder } from "../include";
 /**
  *
  */
-export interface CommandCompletionContext extends BaseCommandContext {
-  Parameter: ParameterInfo;
-  ParameterIndex: number;
-  Command: Command;
-  BestMatch: CommandInfo;
-  Pos: Position;
+export interface CommandCompletionContext {
+  /** */
+  parameter: ParameterInfo;
+  /** */
+  parameterIndex: number;
+  /** */
+  command: Command;
+  /** */
+  bestMatch: CommandInfo;
+  /** */
+  cursor: number;
+  /** */
   receiver: CompletionBuilder;
-  Current: LocationWord | undefined;
+  /** */
+  current: Parameter | undefined;
+  /** */
   doc: TextDocument;
 }
 
@@ -33,7 +39,7 @@ export namespace CommandCompletionContext {
     if (value) {
       let temp = value as CommandCompletionContext;
 
-      if (temp.Parameter && temp.Command && temp.Pos && temp.receiver) return true;
+      if (temp.parameter && temp.command && temp.cursor && temp.receiver) return true;
     }
 
     return false;
@@ -43,30 +49,30 @@ export namespace CommandCompletionContext {
    *
    * @param Parameter
    * @param Command
-   * @param pos
+   * @param cursor
    * @param receiver
    * @param Current
    * @returns
    */
   export function create(
-    Parameter: Parameter,
-    ParameterIndex: number,
-    Command: Command,
-    Pos: Position,
+    parameter: ParameterInfo,
+    parameterIndex: number,
+    command: Command,
+    cursor: number,
     receiver: CompletionBuilder,
-    Current: LocationWord | undefined = undefined,
+    current: Parameter | undefined = undefined,
     doc: TextDocument
   ): CommandCompletionContext {
-    const BestMatch = Command.getCommandData(IsEducationEnabled(doc))[0];
+    const BestMatch = command.getCommandData(IsEducationEnabled(doc))[0];
 
     return {
-      Parameter: Parameter,
-      ParameterIndex: ParameterIndex,
-      Command: Command,
-      BestMatch: BestMatch,
-      Pos: Pos,
+      parameter: parameter,
+      parameterIndex: parameterIndex,
+      command: command,
+      bestMatch: BestMatch,
+      cursor: cursor,
       receiver: receiver,
-      Current: Current,
+      current: current,
       doc: doc,
     };
   }

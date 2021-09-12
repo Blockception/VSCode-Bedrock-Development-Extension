@@ -23,7 +23,7 @@ export function ProvideMcfunctionCommandSignature(Line: string, StartOffset: num
     command = SubCommand;
   }
 
-  const Matches = command.GetCommandData();
+  const Matches = command.getCommandData();
 
   const Out: SignatureHelp = {
     signatures: ConverToSignatures(Matches),
@@ -60,13 +60,13 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
     parameters: [],
   };
 
-  const parameters = Command.parameters;
+  const parameters = command.parameters;
   for (let I = 0; I < parameters.length; I++) {
     const parameter = parameters[I];
     let p: ParameterInformation;
 
     if (parameter.Required) {
-      if (parameter.Type === MCCommandParameterType.keyword) {
+      if (parameter.Type === ParameterType.keyword) {
         p = CreateParameter(parameter.Text, parameter.Type);
       } else {
         p = CreateParameter("<" + parameter.Text + ">", parameter.Type);
@@ -85,9 +85,9 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
   return Sign;
 }
 
-function CreateParameter(label: string, kind: MCCommandParameterType): ParameterInformation {
+function CreateParameter(label: string, kind: ParameterType): ParameterInformation {
   switch (kind) {
-    case MCCommandParameterType.jsonRawText:
+    case ParameterType.jsonRawText:
       return RawText.provideParameterInformation();
   }
 

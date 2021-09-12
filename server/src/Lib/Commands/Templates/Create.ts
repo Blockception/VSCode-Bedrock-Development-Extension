@@ -1,7 +1,6 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { Commands } from "../../Constants";
 import { TemplateBuilder } from "./Builder";
-import { Context, GetContextAsync } from "./Context";
 import { Templates } from "../include";
 import { Console } from "../../Console/Console";
 
@@ -22,6 +21,7 @@ export function Create(params: ExecuteCommandParams): void {
 function Initialize(): CommandManager {
   const Out: CommandManager = {};
 
+  /*
   //General
   Out[Commands.Create.General.Entity] = (params: ExecuteCommandParams) => {
     FunctionWithID(params, Templates.Behavior_Pack.create_entity_file);
@@ -30,6 +30,7 @@ function Initialize(): CommandManager {
   /*Out[Commands.Create.General.Languages] = (params: ExecuteCommandParams) => {
     CreateAll(params, Templates.Language.create_language_files);
   };*/
+  /*
   Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams) => {
     Function(params, Templates.Behavior_Pack.create_manifest_file);
     Function(params, Templates.Resource_Pack.create_manifest_file);
@@ -80,10 +81,11 @@ function Initialize(): CommandManager {
   //World
   Out[Commands.Create.World.Languages] = (params: ExecuteCommandParams) => FunctionWP(params, Templates.Language.create_language_files);
   Out[Commands.Create.World.Manifests] = (params: ExecuteCommandParams) => Function(params, Templates.World.create_manifest_file);
-
+  */
   return Out;
 }
 
+/*
 function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, Context: Context, Builder: TemplateBuilder) => void): void {
   GetContextAsync<ExecuteCommandParams>(params, (Context: Context, params: ExecuteCommandParams) => {
     const IDs = params.arguments;

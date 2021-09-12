@@ -11,8 +11,7 @@ import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
 import { OnConfigurationChanged } from "../Settings";
-import { OnDidCreateFilesAsync, OnDi.deleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
-import { Documentable } from "../../Types/Minecraft/Interfaces/Documentable";
+import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync } from "../../CodeLens/OnRequest";
 
@@ -20,8 +19,8 @@ import { OnCodeLensRequestAsync } from "../../CodeLens/OnRequest";
  * Setup the server events
  */
 export function setEvents() {
-  let Documents = Manager.Data.Documents;
-  let Connection = Manager.Connection;
+  const Documents = Manager.Documents;
+  const Connection = Manager.Connection;
 
   //Provides diagnostics and such
   Documents.onDidOpen(OndDocumentChangedAsync);
@@ -76,7 +75,7 @@ export function setEvents() {
   if (Manager.Capabiltities.hasWorkspaceFolderCapability) {
     // Workspace event
     Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
-    Connection.workspace.onDi.deleteFiles(OnDi.deleteFilesAsync);
+    Connection.workspace.onDidDeleteFiles(onDidDeleteFilesAsync);
     Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
     Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
   }

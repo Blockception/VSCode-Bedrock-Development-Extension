@@ -1,29 +1,38 @@
 import { Location } from "vscode-languageserver";
-import { Position } from "vscode-languageserver-textdocument";
-import { Command, GetSubCommand, IsInSubCommand } from "../Types/Commands/Interpertation/include";
-import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { SearchDefinition } from "./Search";
+import { IsEducationEnabled } from "../Project/include";
+import { Command, ParameterType } from "bc-minecraft-bedrock-command";
+import { Position } from "vscode";
 
-export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Location[] | undefined {
-  const Line = doc.getLine(pos.line);
+export function OnMcfunctionDefinitionDoc(doc: TextDocument, cursor: Position): Location[] | undefined {
+  const LineP = new Position(cursor.line, 0);
+  const Line = doc.getLine(cursor.line);
+  const coffset = doc.offsetAt(cursor);
+  const offset = doc.offsetAt(LineP);
 
   if (Line === "") return undefined;
 
-  let Command: Command | undefined = Command.parse(Line, pos, doc.uri);
+  return OnMcfunctionDefinition(Line, offset, coffset, IsEducationEnabled(doc));
+}
 
-  while (IsInSubCommand(Command, pos.character)) {
-    Command = GetSubCommand(Command, IsEducationEnabled(doc));
+export function OnMcfunctionDefinition(line: string, offset: number, cursor: number, edu: boolean = false): Location[] | undefined {
+  if (line === "") return undefined;
 
-    if (Command === undefined) return;
+  let command = Command.parse(line, offset);
+
+  let out = command.isInSubCommand(cursor, edu);
+  while (out) {
+    command = out;
+    out = command.isInSubCommand(cursor, edu);
   }
 
-  const Data = Command.GetCommandData(IsEducationEnabled(doc));
+  const Data = command.getCommandData(edu);
   if (Data.length == 0) return undefined;
 
-  const PIndex = Command.CursorParamater;
-  const Types: MCCommandParameterType[] = [];
-  const Current = Command.GetCurrent();
+  const PIndex = command.findCursorIndex(cursor);
+  const Types: ParameterType[] = [];
+  const Current = command.parameters[PIndex];
 
   if (Current == undefined) return;
 
@@ -31,13 +40,13 @@ export function OnMcfunctionDefinition(doc: TextDocument, pos: Position): Locati
 
   for (let index = 0; index < Data.length; index++) {
     const pattern = Data[index];
-    const parameters = pattern.Command.parameters;
+    const parameters = pattern.parameters;
 
     if (parameters.length > PIndex) {
-      const par = pattern.Command.parameters[PIndex];
+      const par = pattern.parameters[PIndex];
 
-      if (!Types.includes(par.Type)) {
-        Types.push(par.Type);
+      if (!Types.includes(par.type)) {
+        Types.push(par.type);
       }
     }
   }

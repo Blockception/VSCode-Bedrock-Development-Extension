@@ -3,6 +3,9 @@ import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
 import { CommandCompletionContext } from "./Commands/Context";
 import { Command } from "bc-minecraft-bedrock-command";
+import { Commands } from "../Minecraft/include";
+import { IsEducationEnabled } from "../Project/include";
+import { Parameter } from "../Minecraft/Commands/include";
 
 /**
  *
@@ -30,7 +33,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
     command = Subcommand;
   }
 
-  ProvideCompletion(pos, receiver, command, doc);
+  ProvideCompletion(doc.offsetAt(pos), receiver, command, doc);
 }
 
 /**
@@ -43,7 +46,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
  */
 export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionBuilder): void {
   const command: Command = Command.parse(text, offset);
-  ProvideCompletion(pos, receiver, command, doc);
+  ProvideCompletion(cursor, receiver, command, doc);
 }
 
 /**
@@ -53,28 +56,28 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
  * @param command
  * @returns
  */
-export function ProvideCompletion(pos: Position, receiver: CompletionBuilder, command: Command, doc: TextDocument): void {
-  if (command == undefined || command.Parameters.length == 0 || pos.character < 3) {
-    Command.ProvideCompletion(receiver);
+export function ProvideCompletion(pos: number, receiver: CompletionBuilder, command: Command, doc: TextDocument): void {
+  if (command == undefined || command.parameters.length == 0 || pos < command.parameters[0].offset + 3) {
+    Commands.Command.ProvideCompletion(receiver);
     return;
   }
 
-  const Matches = command.GetCommandData(IsEducationEnabled(doc));
+  const Matches = command.getCommandData(IsEducationEnabled(doc));
 
   if (Matches.length === 0) {
-    if (pos.character < 10) Command.ProvideCompletion(receiver);
+    if (pos < 10) Commands.Command.ProvideCompletion(receiver);
 
     return;
   }
 
-  const ParameterIndex = command.CursorParamater;
-  const Current = command.GetCurrent();
+  const ParameterIndex = command.parameters.findIndex((p) => p.offset <= pos && p.offset + p.text.length >= pos);
+  const Current = command.parameters[ParameterIndex];
 
   for (let I = 0; I < Matches.length; I++) {
     const Match = Matches[I];
 
-    if (Match.Command.parameters.length > ParameterIndex) {
-      const parameter = Match.Command.parameters[ParameterIndex];
+    if (Match.parameters.length > ParameterIndex) {
+      const parameter = Match.parameters[ParameterIndex];
       const Context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current, doc);
 
       Parameter.ProvideCompletion(Context);

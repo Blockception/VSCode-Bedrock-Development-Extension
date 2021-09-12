@@ -49,7 +49,7 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
 
   const First = command.parameters[0];
   Builder.AddWord(First, SemanticTokensEnum.class);
-  const Matches = command.GetCommandData(Edu);
+  const Matches = command.getCommandData(Edu);
   let Match;
 
   if (Matches.length == 0) return;
@@ -57,31 +57,31 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
   Match = Matches[0];
 
   let Max = command.parameters.length;
-  if (Match.Command.parameters.length < Max) Max = Match.Command.parameters.length;
+  if (Match.command.parameters.length < Max) Max = Match.command.parameters.length;
 
   for (let I = 1; I < Max; I++) {
-    const Data = Match.Command.parameters[I];
+    const Data = Match.command.parameters[I];
     const Word = command.parameters[I];
 
     switch (Data.Type) {
-      case MCCommandParameterType.command:
+      case ParameterType.command:
         let Sub = GetSubCommand(Command, Edu);
         if (Sub) {
           CreateTokens(Sub, Builder);
         }
         return;
 
-      case MCCommandParameterType.boolean:
+      case ParameterType.boolean:
         Builder.AddWord(Word, SemanticTokensEnum.keyword);
         break;
 
       //Values
-      case MCCommandParameterType.block:
-      case MCCommandParameterType.entity:
-      case MCCommandParameterType.item:
-      case MCCommandParameterType.particle:
-      case MCCommandParameterType.sound:
-      case MCCommandParameterType.tickingarea:
+      case ParameterType.block:
+      case ParameterType.entity:
+      case ParameterType.item:
+      case ParameterType.particle:
+      case ParameterType.sound:
+      case ParameterType.tickingarea:
         const Index = Word.text.indexOf(":");
 
         if (Index >= 0) {
@@ -96,67 +96,67 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
 
         break;
 
-      case MCCommandParameterType.coordinate:
-      case MCCommandParameterType.float:
-      case MCCommandParameterType.integer:
-      case MCCommandParameterType.xp:
+      case ParameterType.coordinate:
+      case ParameterType.float:
+      case ParameterType.integer:
+      case ParameterType.xp:
         CreateRangeTokensWord(Word, Builder);
 
         break;
 
-      case MCCommandParameterType.keyword:
+      case ParameterType.keyword:
         Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.defaultLibrary);
         break;
 
-      case MCCommandParameterType.function:
-      case MCCommandParameterType.string:
+      case ParameterType.function:
+      case ParameterType.string:
         Builder.AddWord(Word, SemanticTokensEnum.string);
         break;
 
-      case MCCommandParameterType.objective:
+      case ParameterType.objective:
         Builder.AddWord(Word, SemanticTokensEnum.variable);
         break;
 
-      case MCCommandParameterType.tag:
+      case ParameterType.tag:
         Builder.AddWord(Word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
         break;
 
-      case MCCommandParameterType.operation:
+      case ParameterType.operation:
         Builder.AddWord(Word, SemanticTokensEnum.operator);
         break;
 
       //Modes
-      case MCCommandParameterType.cameraShakeType:
-      case MCCommandParameterType.cloneMode:
-      case MCCommandParameterType.difficulty:
-      case MCCommandParameterType.effect:
-      case MCCommandParameterType.event:
-      case MCCommandParameterType.fillMode:
-      case MCCommandParameterType.gamemode:
-      case MCCommandParameterType.locateFeature:
-      case MCCommandParameterType.maskMode:
-      case MCCommandParameterType.mirror:
-      case MCCommandParameterType.musicRepeatMode:
-      case MCCommandParameterType.replaceMode:
-      case MCCommandParameterType.rideRules:
-      case MCCommandParameterType.rotation:
-      case MCCommandParameterType.saveMode:
-      case MCCommandParameterType.slotType:
-      case MCCommandParameterType.slotID:
-      case MCCommandParameterType.structureAnimationMode:
-      case MCCommandParameterType.teleportRules:
-      case MCCommandParameterType.oldBlockMode:
+      case ParameterType.cameraShakeType:
+      case ParameterType.cloneMode:
+      case ParameterType.difficulty:
+      case ParameterType.effect:
+      case ParameterType.event:
+      case ParameterType.fillMode:
+      case ParameterType.gamemode:
+      case ParameterType.locateFeature:
+      case ParameterType.maskMode:
+      case ParameterType.mirror:
+      case ParameterType.musicRepeatMode:
+      case ParameterType.replaceMode:
+      case ParameterType.rideRules:
+      case ParameterType.rotation:
+      case ParameterType.saveMode:
+      case ParameterType.slotType:
+      case ParameterType.slotID:
+      case ParameterType.structureAnimationMode:
+      case ParameterType.teleportRules:
+      case ParameterType.oldBlockMode:
         Builder.AddWord(Word, SemanticTokensEnum.enumMember);
         break;
 
       //json
-      case MCCommandParameterType.blockStates:
-      case MCCommandParameterType.jsonItem:
-      case MCCommandParameterType.jsonRawText:
+      case ParameterType.blockStates:
+      case ParameterType.jsonItem:
+      case ParameterType.jsonRawText:
         break;
 
       //
-      case MCCommandParameterType.selector:
+      case ParameterType.selector:
         CreateSelectorTokens(Word, Builder);
         break;
 

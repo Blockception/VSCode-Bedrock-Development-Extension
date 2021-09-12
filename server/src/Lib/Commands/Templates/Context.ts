@@ -5,17 +5,18 @@ export interface Context {
   ResourcePack: string;
   WorldFolder: string;
   WorkFolder: string;
-}
+} /*GetProjectFiles();
 
+/*TODO redo
 export function GetContext(): Context | undefined {
-  const Data = /*TODO now a promise*/ GetProjectFiles();
+  const Data = /*TODO now a promise/*
   if (Data === undefined) return undefined;
 
   return Convert(Data);
 }
 
 export function GetContextAsync<T>(data: T, callback: (c: Context, data: T) => void): void {
-  /*TODO now a promise*/ GetProjectFiles((projectData) => {
+  /*TODO now a promise*/ /*GetProjectFiles((projectData) => {
     const Context = Convert(projectData);
 
     if (Context) callback(Context, data);
@@ -79,3 +80,4 @@ function Convert(Data: ProjectFiles): Context | undefined {
 
   return Context;
 }
+*/

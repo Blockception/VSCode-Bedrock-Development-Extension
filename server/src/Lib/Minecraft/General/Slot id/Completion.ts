@@ -7,11 +7,11 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   let word = Context.Current;
 
   if (!word) return;
-  let Index = Command.parameters.indexOf(word.text);
+  let Index = command.parameters.indexOf(word.text);
 
   if (Index < 0) return;
 
-  const SlotType = Command.parameters[Index - 1].text;
+  const SlotType = command.parameters[Index - 1].text;
   let Mode = <SlotTypeMode>Modes.SlotType.get(SlotType);
 
   if (Mode && Modes.SlotType.isValue(Mode.name)) {
