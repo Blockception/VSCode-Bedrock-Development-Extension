@@ -1,6 +1,5 @@
 import { Location } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { Database } from "../Database/include";
 import { GetCurrentElement } from "../Types/Document/Json Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
 
@@ -34,7 +33,8 @@ export function OnJsonDefinition(doc: TextDocument, pos: Position): Location[] |
     Index = Text.indexOf(ElementText, Index + ElementText.length);
   }
 
-  Database.ProjectData.FindReference(ElementText, Out);
+  //TODO Redo
+  //Database.FindReference(ElementText, Out);
 
   return Out;
 }

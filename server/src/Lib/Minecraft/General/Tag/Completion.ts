@@ -5,11 +5,12 @@ import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let receiver = Context.receiver;
-  let data = Context.doc.getConfiguration();
-  data.defintions.tag.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, CompletionItemKind.Value));
+  const receiver = Context.receiver;
+  const data = Context.doc.getConfiguration();
 
-  receiver.AddFromRange(Database.ProjectData.General.Tag, Kinds.Completion.Tag);
+  data.definitions["tag"]?.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, CompletionItemKind.Value));
+
+  receiver.AddFromRange(Database.ProjectData.General.tags, Kinds.Completion.Tag);
 }
 
 export function ProvideCompletionTest(Context: CommandCompletionContext | CompletionBuilder): void {

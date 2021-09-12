@@ -1,50 +1,6 @@
+import { ParameterType } from "bc-minecraft-bedrock-command/lib/src/Lib/Types/include";
 import { CompletionItemKind } from "vscode-languageserver";
 import { CommandCompletionContext } from "../../../Completion/Commands/Context";
-import {
-  Block,
-  BlockStates,
-  Boolean,
-  Coordinate,
-  Effect,
-  Entity,
-  Event,
-  Float,
-  Functions,
-  Integer,
-  Item,
-  Objectives,
-  Selector,
-  Slot_id,
-  Slot_type,
-  Sound,
-  Tag,
-  Tickingarea,
-  Xp,
-} from "../../../Types/General/include";
-import { ItemComponents, RawText } from "../../Minecraft/Json/include";
-import { Particle } from "../../Minecraft/Resource/include";
-import { Command } from "../../../Types/Commands/include";
-import {
-  CameraShakeMode,
-  CloneMode,
-  Difficulty,
-  FillMode,
-  Gamemode,
-  LocateFeature,
-  MaskMode,
-  MirrorMode,
-  MusicRepeatMode,
-  OldBlockMode,
-  OperationMode,
-  ReplaceMode,
-  RideFillMode,
-  RideRulesMode,
-  RotationMode,
-  SaveMode,
-  StructureAnimationMode,
-  TeleportRulesMode,
-} from "../../../Minecraft/Modes/include";
-import { MCCommandParameterType } from "./include";
 
 function toCompletion(Context: CommandCompletionContext): void {
   let Parameter = Context.Parameter;
@@ -55,153 +11,153 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
   let Parameter = Context.Parameter;
 
   //Check default option
-  if (Parameter.Options) {
+  if (Parameter.options) {
     //Accepted values
-    if (Parameter.Options.acceptedValues) {
-      Parameter.Options.acceptedValues.forEach((value) => {
+    if (Parameter.options.acceptedValues) {
+      Parameter.options.acceptedValues.forEach((value) => {
         Context.receiver.Add(value, "accepted values", CompletionItemKind.Text);
       });
     }
 
     //Wildcard
-    if (Parameter.Options.wildcard) {
+    if (Parameter.options.wildcard) {
       Context.receiver.Add("*", "wild card", CompletionItemKind.Constant);
     }
   }
 
-  switch (Parameter.Type) {
-    case MCCommandParameterType.block:
+  switch (Parameter.type) {
+    case ParameterType.block:
       return Block.ProvideCompletion(Context);
 
-    case MCCommandParameterType.blockStates:
+    case ParameterType.blockStates:
       return BlockStates.ProvideCompletion(Context);
 
-    case MCCommandParameterType.boolean:
+    case ParameterType.boolean:
       return Boolean.ProvideCompletion(Context);
 
-    case MCCommandParameterType.cameraShakeType:
+    case ParameterType.cameraShakeType:
       return CameraShakeMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.cloneMode:
+    case ParameterType.cloneMode:
       return CloneMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.command:
+    case ParameterType.command:
       return Command.ProvideCompletion(Context.receiver);
 
-    case MCCommandParameterType.coordinate:
+    case ParameterType.coordinate:
       return Coordinate.ProvideCompletion(Context);
 
-    case MCCommandParameterType.difficulty:
+    case ParameterType.difficulty:
       return Difficulty.ProvideCompletion(Context);
 
-    case MCCommandParameterType.effect:
+    case ParameterType.effect:
       return Effect.ProvideCompletion(Context);
 
-    case MCCommandParameterType.entity:
+    case ParameterType.entity:
       return Entity.ProvideCompletion(Context);
 
-    case MCCommandParameterType.event:
+    case ParameterType.event:
       return Event.ProvideCompletion(Context);
 
-    case MCCommandParameterType.float:
+    case ParameterType.float:
       return Float.ProvideCompletion(Context);
 
-    case MCCommandParameterType.fillMode:
+    case ParameterType.fillMode:
       return FillMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.function:
+    case ParameterType.function:
       return Functions.ProvideCompletion(Context);
 
-    case MCCommandParameterType.gamemode:
+    case ParameterType.gamemode:
       return Gamemode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.integer:
+    case ParameterType.integer:
       return Integer.ProvideCompletion(Context);
 
-    case MCCommandParameterType.item:
+    case ParameterType.item:
       return Item.ProvideCompletion(Context);
 
-    case MCCommandParameterType.jsonItem:
+    case ParameterType.jsonItem:
       return ItemComponents.ProvideCompletion(Context.receiver);
 
-    case MCCommandParameterType.jsonRawText:
+    case ParameterType.jsonRawText:
       return RawText.ProvideCompletion(Context.receiver);
 
-    case MCCommandParameterType.keyword:
+    case ParameterType.keyword:
       return toCompletion(Context);
 
-    case MCCommandParameterType.locateFeature:
+    case ParameterType.locateFeature:
       return LocateFeature.ProvideCompletion(Context);
 
-    case MCCommandParameterType.maskMode:
+    case ParameterType.maskMode:
       return MaskMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.mirror:
+    case ParameterType.mirror:
       return MirrorMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.musicRepeatMode:
+    case ParameterType.musicRepeatMode:
       return MusicRepeatMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.oldBlockMode:
+    case ParameterType.oldBlockMode:
       return OldBlockMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.objective:
+    case ParameterType.objective:
       return Objectives.ProvideCompletion(Context);
 
-    case MCCommandParameterType.operation:
+    case ParameterType.operation:
       return OperationMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.particle:
+    case ParameterType.particle:
       return Particle.ProvideCompletion(Context);
 
-    case MCCommandParameterType.replaceMode:
+    case ParameterType.replaceMode:
       return ReplaceMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.rideRules:
+    case ParameterType.rideRules:
       return RideRulesMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.ridefillMode:
+    case ParameterType.ridefillMode:
       return RideFillMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.rotation:
+    case ParameterType.rotation:
       return RotationMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.saveMode:
+    case ParameterType.saveMode:
       return SaveMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.selector:
+    case ParameterType.selector:
       return Selector.Completion.ProvideCompletion(Context);
 
-    case MCCommandParameterType.slotID:
+    case ParameterType.slotID:
       return Slot_id.ProvideCompletion(Context);
 
-    case MCCommandParameterType.slotType:
+    case ParameterType.slotType:
       return Slot_type.ProvideCompletion(Context);
 
-    case MCCommandParameterType.sound:
+    case ParameterType.sound:
       return Sound.ProvideCompletion(Context);
 
-    case MCCommandParameterType.string:
+    case ParameterType.string:
       Context.receiver.Add('""', "The start of a string", CompletionItemKind.Constant);
       return;
 
-    case MCCommandParameterType.structureAnimationMode:
+    case ParameterType.structureAnimationMode:
       return StructureAnimationMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.tag:
+    case ParameterType.tag:
       return Tag.ProvideCompletion(Context);
 
-    case MCCommandParameterType.teleportRules:
+    case ParameterType.teleportRules:
       return TeleportRulesMode.ProvideCompletion(Context);
 
-    case MCCommandParameterType.tickingarea:
+    case ParameterType.tickingarea:
       return Tickingarea.ProvideCompletion(Context);
 
-    case MCCommandParameterType.xp:
+    case ParameterType.xp:
       return Xp.ProvideCompletion(Context);
 
     default:
-    case MCCommandParameterType.unknown:
+    case ParameterType.unknown:
       return;
   }
 }

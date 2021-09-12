@@ -1,5 +1,6 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
+import { ResourcePack } from "../Minecraft/include";
 import { GetCurrentString } from "../Types/Document/Json Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
@@ -15,7 +16,7 @@ export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: Co
 
   switch (type) {
     case PackType.resource_pack:
-      return Resource.ProvideCompletion(doc, cursor, receiver);
+      return ResourcePack.ProvideCompletion(doc, receiver);
 
     default:
       break;

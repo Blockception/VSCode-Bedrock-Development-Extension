@@ -1,24 +1,22 @@
+import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Location } from "vscode-languageserver";
 import { Database } from "../Database/Database";
-import { DataCollector } from "../Database/DataCollector";
-import { MCCommandParameterType } from "../Minecraft/Commands/Parameter/include";
-import { Identifiable, Locatable } from "../Types/Minecraft/Interfaces/include";
 
-export function SearchDefinition(text: string, type: MCCommandParameterType[]): Location[] {
+export function SearchDefinition(text: string, type: ParameterType[]): Location[] {
   let Out: Location[] = [];
 
   //prune types
   type.filter((t) => {
     switch (t) {
-      case MCCommandParameterType.block:
-      case MCCommandParameterType.entity:
-      case MCCommandParameterType.function:
-      case MCCommandParameterType.item:
-      case MCCommandParameterType.objective:
-      case MCCommandParameterType.selector:
-      case MCCommandParameterType.sound:
-      case MCCommandParameterType.tag:
-      case MCCommandParameterType.tickingarea:
+      case ParameterType.block:
+      case ParameterType.entity:
+      case ParameterType.function:
+      case ParameterType.item:
+      case ParameterType.objective:
+      case ParameterType.selector:
+      case ParameterType.sound:
+      case ParameterType.tag:
+      case ParameterType.tickingarea:
         //keep
         return true;
 
@@ -37,49 +35,54 @@ export function SearchDefinition(text: string, type: MCCommandParameterType[]): 
   return Out;
 }
 
-export function SearchDefinitionIn(text: string, type: MCCommandParameterType[], receiver: Location[]) {
-  let Data = Database.ProjectData.General;
+export function SearchDefinitionIn(text: string, type: ParameterType[], receiver: Location[]) {
+  const Data = Database.ProjectData.General;
+
   for (let I = 0; I < type.length; I++) {
-    switch (type[I]) {
-      case MCCommandParameterType.block:
+    switch (
+      type[I]
+      /*case ParameterType.block:
         SearchInCollection(text, Data.Blocks, receiver);
         break;
 
-      case MCCommandParameterType.entity:
+      case ParameterType.entity:
         SearchInCollection(text, Data.Entities, receiver);
         break;
 
-      case MCCommandParameterType.function:
+      case ParameterType.function:
         SearchInCollection(text, Data.Functions, receiver);
         break;
 
-      case MCCommandParameterType.item:
+      case ParameterType.item:
         SearchInCollection(text, Data.Items, receiver);
         break;
 
-      case MCCommandParameterType.objective:
+      case ParameterType.objective:
         SearchInCollection(text, Data.Objectives, receiver);
         break;
 
-      case MCCommandParameterType.selector:
+      case ParameterType.selector:
         SearchInCollection(text, Data.FakeEntities, receiver);
         break;
 
-      case MCCommandParameterType.sound:
+      case ParameterType.sound:
         SearchInCollection(text, Data.Sounds, receiver);
         break;
 
-      case MCCommandParameterType.tag:
+      case ParameterType.tag:
         SearchInCollection(text, Data.Tag, receiver);
         break;
 
-      case MCCommandParameterType.tickingarea:
+      case ParameterType.tickingarea:
         SearchInCollection(text, Data.TickingAreas, receiver);
-        break;
+        break;*/
+    ) {
     }
   }
 }
 
+/**
 function SearchInCollection<T extends Identifiable & Locatable>(text: string, collection: DataCollector<T>, receiver: Location[]): void {
   collection.ForEachID(text, (f) => receiver.push(f.Location));
 }
+ */

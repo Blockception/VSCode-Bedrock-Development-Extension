@@ -1,17 +1,16 @@
+import { Command, Parameter } from "bc-minecraft-bedrock-command";
+import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
 import { LocationWord } from "bc-vscode-words";
 import { Position } from "vscode-languageserver-textdocument";
-import { CommandInfo } from "../../Types/Commands/Info/include";
-import { Command } from "../../Types/Commands/Interpertation/Command";
-import { MCCommandParameter } from "../../Minecraft/Commands/Parameter/Parameter";
+import { IsEducationEnabled } from "../../Project/Attributes";
 import { TextDocument } from "../../Types/Document/TextDocument";
-import { BaseCommandContext } from "../../Types/General/Context/Context";
 import { CompletionBuilder } from "../include";
 
 /**
  *
  */
 export interface CommandCompletionContext extends BaseCommandContext {
-  Parameter: MCCommandParameter;
+  Parameter: ParameterInfo;
   ParameterIndex: number;
   Command: Command;
   BestMatch: CommandInfo;
@@ -50,7 +49,7 @@ export namespace CommandCompletionContext {
    * @returns
    */
   export function create(
-    Parameter: MCCommandParameter,
+    Parameter: Parameter,
     ParameterIndex: number,
     Command: Command,
     Pos: Position,
@@ -58,7 +57,7 @@ export namespace CommandCompletionContext {
     Current: LocationWord | undefined = undefined,
     doc: TextDocument
   ): CommandCompletionContext {
-    const BestMatch = Command.GetCommandData(IsEducationEnabled(doc))[0];
+    const BestMatch = Command.getCommandData(IsEducationEnabled(doc))[0];
 
     return {
       Parameter: Parameter,

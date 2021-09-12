@@ -1,5 +1,5 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { CompletionBuilder } from "../../../../Completion/Builder";
+import { CompletionBuilder } from "../../../Completion/include";
 import {
   cRawTextComponent,
   cRawTextExample,

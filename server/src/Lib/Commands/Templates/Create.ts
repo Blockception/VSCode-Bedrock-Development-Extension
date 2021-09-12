@@ -27,9 +27,9 @@ function Initialize(): CommandManager {
     FunctionWithID(params, Templates.Behavior_Pack.create_entity_file);
     FunctionWithID(params, Templates.Resource_Pack.create_entity_file);
   };
-  Out[Commands.Create.General.Languages] = (params: ExecuteCommandParams) => {
+  /*Out[Commands.Create.General.Languages] = (params: ExecuteCommandParams) => {
     CreateAll(params, Templates.Language.create_language_files);
-  };
+  };*/
   Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams) => {
     Function(params, Templates.Behavior_Pack.create_manifest_file);
     Function(params, Templates.Resource_Pack.create_manifest_file);
@@ -148,6 +148,9 @@ function Function(params: ExecuteCommandParams, callback: (Context: Context, Bui
   });
 }
 
+//TODO redo
+
+/**
 function CreateAll(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void) {
   GetProjectFiles().then((data) => {
     if (!data) return;
@@ -161,3 +164,4 @@ function CreateAll(params: ExecuteCommandParams, callback: (Folder: string, Buil
     Builder.Send();
   });
 }
+ */

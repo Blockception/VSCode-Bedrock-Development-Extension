@@ -2,6 +2,9 @@ import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/T
 import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { TextDocument } from "../Types/Document/TextDocument";
 
+/**
+ *
+ */
 export class CompletionBuilder {
   public items: CompletionItem[];
   public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
@@ -52,4 +55,26 @@ export class CompletionBuilder {
 
     this.Add(value.id, "The custom definition of: " + value.id, valuekind);
   }
+
+  //TODO add object that possiblies implements Documentated, uses that or generates its from a callback function
+  AddFromRange<T extends Identifiable>(data: IDataSet<T>, generatefn: (item: T) => string | undefined, kind: CompletionItemKind = CompletionItemKind.Class): void {
+    data.forEach((item) => {
+      const temp = <Documentated>item;
+
+      if (!temp.documentation) {
+        temp.documentation = generatefn(item);
+      }
+
+      if (!temp.documentation) {
+        temp.documentation = `The ${item.id}`;
+      }
+
+      this.Add(item.id, temp.documentation ?? "", kind);
+    });
+  }
+}
+
+export interface IDataSet<T extends Identifiable> {
+  get(id: string): T | undefined;
+  forEach(callbackfn: (value: T) => void, thisArg?: any): void;
 }

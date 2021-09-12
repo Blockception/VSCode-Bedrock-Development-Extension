@@ -1,13 +1,13 @@
+import { Documentated } from "bc-minecraft-bedrock-types/lib/src/Types/Documentated";
+import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import path from "path";
 import { Position } from "vscode-languageserver-textdocument";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { CompletionBuilder } from "../../Completion/Builder";
-import { Database } from "../../include";
+import { Database } from "../../Database/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
-import { Boolean } from "../../Types/General/include";
-import { Documentable } from "../Minecraft/Interfaces/Documentable";
-import { Identifiable } from "../Minecraft/Interfaces/Identifiable";
+import { Boolean } from "../General/include";
 
 export function OnCompletionMCProject(doc: TextDocument, pos: Position, builder: CompletionBuilder) {
   const filename = path.basename(doc.uri);
@@ -55,13 +55,13 @@ function ProvideDefinitions(doc: TextDocument, pos: Position, builder: Completio
         return;
 
       case "objective":
-        return Database.ProjectDatabase.Data.General.Objectives.ForEach((tag) => Add(builder, tag));
+        return Database.ProjectData.General.objectives.forEach((tag) => Add(builder, tag));
 
       case "tag":
-        return Database.ProjectDatabase.Data.General.Tag.ForEach((tag) => Add(builder, tag));
+        return Database.ProjectData.General.tags.forEach((tag) => Add(builder, tag));
 
       case "family":
-        return Database.ProjectDatabase.Data.General.Entities.ForEach((entity) => entity.Families.forEach((family) => Add(builder, family)));
+      //TODO return Database.ProjectData.BehaviorPacks.entities.forEach((entity) => entity.families.forEach((family) => Add(builder, family)));
     }
 
     return;
@@ -74,16 +74,16 @@ function ProvideDefinitions(doc: TextDocument, pos: Position, builder: Completio
   builder.Add("objective", "Include or excluded a objective definition", CompletionItemKind.Property, "objective=");
 }
 
-function Add(builder: CompletionBuilder, value: (Identifiable & Documentable) | string) {
+function Add(builder: CompletionBuilder, value: (Identifiable & Documentated) | string) {
   let label: string;
-  let documentation: MarkupContent;
+  let documentation: MarkupContent = { kind: "markdown", value: "" };
 
   if (typeof value === "string") {
     label = value;
-    documentation = { kind: "plaintext", value: "" };
+    documentation.value = value;
   } else {
     label = value.id;
-    documentation = value.Documentation;
+    documentation.value = value.documentation ?? "";
   }
 
   builder.Add(label, documentation, CompletionItemKind.Value).sortText = label;

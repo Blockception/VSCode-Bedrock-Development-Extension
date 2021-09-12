@@ -1,31 +1,29 @@
+import { Command } from "bc-minecraft-bedrock-command";
 import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { CommandInfo } from "../../../Types/Commands/Info/include";
-import { Command, IsInSubCommand } from "../../../Types/Commands/Interpertation/include";
-import { MCCommand } from "../../../Types/Commands/Command/include";
-import { MCCommandParameterType } from "../../Commands/Parameter/include";
-import { RawText } from "../../../Types/Minecraft/Json/include";
+import { IsEducationEnabled } from "../../../Project/include";
 import { TextDocument } from "../../../Types/Document/TextDocument";
 
 //TODO Refactor for the new ProjectData?
 
 export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
   const Line = doc.getLine(pos.line);
-  return ProvideMcfunctionCommandSignature(Line, { character: 0, line: pos.line }, pos, doc);
+  return ProvideMcfunctionCommandSignature(Line, doc.offsetAt({ character: 0, line: pos.line }), doc.offsetAt(pos), doc);
 }
 
-export function ProvideMcfunctionCommandSignature(Line: string, Start: Position, cursor: Position, doc: TextDocument): SignatureHelp | undefined {
-  let command: Command = Command.parse(Line, cursor, doc.uri, Start);
+export function ProvideMcfunctionCommandSignature(Line: string, StartOffset: number, cursorOffset: number, doc: TextDocument): SignatureHelp | undefined {
+  let command: Command = Command.parse(Line, StartOffset);
 
-  if (command.IsEmpty()) return undefined;
+  if (command.isEmpty()) return undefined;
 
-  const SubCommand = IsInSubCommand(command, cursor.character);
+  const edu = IsEducationEnabled(doc);
+  const SubCommand = command.isInSubCommand(cursorOffset, edu);
 
   if (SubCommand != undefined) {
     command = SubCommand;
   }
 
-  const Matches = command.GetCommandData(IsEducationEnabled(doc));
+  const Matches = command.GetCommandData();
 
   const Out: SignatureHelp = {
     signatures: ConverToSignatures(Matches),
