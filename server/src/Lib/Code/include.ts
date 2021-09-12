@@ -4,6 +4,7 @@ export * from "./Array";
 export * from "./Character";
 export * from "./Equal";
 export * from "./File";
+export * from "./Offset";
 export * from "./Range";
 export * from "./Reader";
 export * from "./TextEdit";

@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./context";
+export * from "./Context";
