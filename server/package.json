@@ -19,7 +19,8 @@
   "scripts": {
     "compile": "tsc -b",
     "test": "mocha -r ts-node/register '**/*.test.ts'",
-    "update": "npm update && npm audit fix"
+    "update": "npm update && npm audit fix",
+    "lint": "eslint . --ext .ts"
   },
   "dependencies": {
     "bc-minecraft-bedrock-command": "^1.0.16",
@@ -40,7 +41,10 @@
     "@types/mocha": "^8.2.3",
     "@types/picomatch": "^2.2.6",
     "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
     "chai": "^4.3.4",
+    "eslint": "^7.32.0",
     "json-loader": "^0.5.7",
     "mocha": "^8.4.0",
     "ts-loader": "^8.3.0",
