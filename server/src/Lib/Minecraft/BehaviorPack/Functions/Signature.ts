@@ -1,8 +1,11 @@
-import { Command } from "bc-minecraft-bedrock-command";
+import { Command, ParameterType } from "bc-minecraft-bedrock-command";
+import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/include";
 import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { IsEducationEnabled } from "../../../Project/include";
+import { SignatureCarrier } from "../../../Signatures/Carrier";
 import { TextDocument } from "../../../Types/Document/TextDocument";
+import { RawText } from "../../Json/include";
 
 //TODO Refactor for the new ProjectData?
 
@@ -12,6 +15,7 @@ export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): Si
 }
 
 export function ProvideMcfunctionCommandSignature(Line: string, StartOffset: number, cursorOffset: number, doc: TextDocument): SignatureHelp | undefined {
+  /*
   let command: Command = Command.parse(Line, StartOffset);
 
   if (command.isEmpty()) return undefined;
@@ -31,32 +35,20 @@ export function ProvideMcfunctionCommandSignature(Line: string, StartOffset: num
     activeSignature: 0,
   };
 
-  return Out;
+
+  return Out;  */
+  return undefined;
 }
 
 function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
-  const Out: SignatureInformation[] = [];
-
-  for (let I = 0; I < Commands.length; I++) {
-    let Current = Commands[I];
-    let Signature = Current.Signature;
-
-    if (Signature == undefined) {
-      Signature = ConverToSignature(Current.Command);
-      Current.Signature = Signature;
-    }
-
-    Out.push(Signature);
-  }
-
-  return Out;
+  return Commands.map((item) => SignatureCarrier.get(item, ConverToSignature));
 }
 
 //Converts the given MCCommand into a signature
-function ConverToSignature(Command: MCCommand): SignatureInformation {
+function ConverToSignature(command: CommandInfo): SignatureInformation {
   let Sign: SignatureInformation = {
     label: "",
-    documentation: Command.documentation,
+    documentation: command.documentation,
     parameters: [],
   };
 
@@ -65,14 +57,14 @@ function ConverToSignature(Command: MCCommand): SignatureInformation {
     const parameter = parameters[I];
     let p: ParameterInformation;
 
-    if (parameter.Required) {
-      if (parameter.Type === ParameterType.keyword) {
-        p = CreateParameter(parameter.Text, parameter.Type);
+    if (parameter.required) {
+      if (parameter.type === ParameterType.keyword) {
+        p = CreateParameter(parameter.text, parameter.type);
       } else {
-        p = CreateParameter("<" + parameter.Text + ">", parameter.Type);
+        p = CreateParameter("<" + parameter.text + ">", parameter.type);
       }
     } else {
-      p = CreateParameter("[" + parameter.Text + "]", parameter.Type);
+      p = CreateParameter("[" + parameter.text + "]", parameter.type);
     }
 
     Sign.label += p.label + " ";

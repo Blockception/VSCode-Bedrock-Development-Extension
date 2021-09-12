@@ -1,10 +1,13 @@
+import { Command, ParameterType } from "bc-minecraft-bedrock-command";
+import { ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
+import { Documentation } from "bc-minecraft-bedrock-project";
+import { IDataSet } from "bc-minecraft-bedrock-project/lib/src/Lib/Types/DataSet/IDataSet";
+import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
 import { HoverParams, Hover, Range } from "vscode-languageserver";
-import { Database, DataCollector } from "../Database/include";
-import { Command, GetSubCommand } from "../Types/Commands/Interpertation/include";
-import { ParameterInfo, ParameterType } from "../Minecraft/Commands/Parameter/include";
+import { Database } from "../Database/include";
+import { RawText } from "../Minecraft/Json/include";
+import { IsEducationEnabled } from "../Project/include";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { Identifiable, Locatable, Documentable } from "../Types/Minecraft/Interfaces/include";
-import { RawText } from "../Types/Minecraft/Json/include";
 
 /**
  *
@@ -13,12 +16,13 @@ import { RawText } from "../Types/Minecraft/Json/include";
  * @returns
  */
 export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): Hover | undefined {
-  const pos = params.position;
+  //TODO redo
+  /*const pos = params.position;
   const LineIndex = pos.line;
   const Line = doc.getLine(LineIndex);
   const Edu = IsEducationEnabled(doc);
 
-  let Command: Command = Command.parse(Line, params.position, doc.uri);
+  let command: Command = Command.parse(Line, params.position);
   let Sub = GetSubCommand(Command, Edu);
 
   while (Sub) {
@@ -45,11 +49,11 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
         const r = T.location.range;
 
         if (Index == 0) {
-          return { contents: Info.Command.documentation, range: r };
+          return { contents: Info.documentation, range: r };
         } else return GetHoverContent(p, r, T.text);
       }
     }
-  }
+  }*/
 
   return undefined;
 }
@@ -62,12 +66,12 @@ export function provideHoverMcFunction(params: HoverParams, doc: TextDocument): 
  * @returns
  */
 function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): Hover | undefined {
-  const title = parameter.Text;
+  const title = parameter.text;
   let doc: string = "";
 
-  switch (parameter.Type) {
+  switch (parameter.type) {
     case ParameterType.block:
-      return GetDocumentation(Text, range, Database.ProjectData.General.Blocks);
+      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.blocks);
 
     case ParameterType.boolean:
       doc = "A boolean value (true or false)";
@@ -86,7 +90,7 @@ function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): 
       break;
 
     case ParameterType.entity:
-      return GetDocumentation(Text, range, Database.ProjectData.General.Entities);
+      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.entities);
 
     case ParameterType.event:
       doc = "A event";
@@ -97,7 +101,7 @@ function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): 
       break;
 
     case ParameterType.function:
-      return GetDocumentation(Text, range, Database.ProjectData.General.Functions);
+      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.functions);
 
     case ParameterType.gamemode:
       doc = "A minecraft gamemode";
@@ -123,14 +127,14 @@ function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): 
       break;
 
     case ParameterType.objective:
-      return GetDocumentation(Text, range, Database.ProjectData.General.Objectives);
+      return GetDocumentation(Text, range, Database.ProjectData.General.objectives);
 
     case ParameterType.operation:
       doc = "A scoreboard math operation";
       break;
 
     case ParameterType.particle:
-      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.Particles);
+      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.particles);
 
     case ParameterType.replaceMode:
       doc = "A replace mode";
@@ -149,17 +153,17 @@ function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): 
       break;
 
     case ParameterType.sound:
-      return GetDocumentation(Text, range, Database.ProjectData.General.Sounds);
+      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.sounds);
 
     case ParameterType.string:
       doc = "A string";
       break;
 
     case ParameterType.tag:
-      return GetDocumentation(Text, range, Database.ProjectData.General.Tag);
+      return GetDocumentation(Text, range, Database.ProjectData.General.tags);
 
     case ParameterType.tickingarea:
-      return GetDocumentation(Text, range, Database.ProjectData.General.TickingAreas);
+      return GetDocumentation(Text, range, Database.ProjectData.General.tickingAreas);
 
     case ParameterType.unknown:
       doc = "no idea, I quit";
@@ -173,20 +177,22 @@ function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): 
   return { contents: [title, doc], range: range };
 }
 
-function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: DataCollector<T>): Hover | undefined {
-  const Item = Collection.GetFromID(query);
+function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: IDataSet<T>): Hover | undefined {
+  let out = undefined;
 
-  if (!Item) return undefined;
+  Collection.forEach((item) => {
+    if (Documentated.is(item) && item.documentation) {
+      out = {
+        contents: item.documentation,
+        range: range,
+      };
+    } else {
+      out = {
+        contents: item.id + "\n" + item.location.uri,
+        range: range,
+      };
+    }
+  });
 
-  if (Documentable.is(Item)) {
-    return {
-      contents: Item.Documentation,
-      range: range,
-    };
-  } else {
-    return {
-      contents: Item.id + "\n" + Item.Location.uri,
-      range: range,
-    };
-  }
+  return out;
 }

@@ -1,14 +1,38 @@
 import { ParameterType } from "bc-minecraft-bedrock-command/lib/src/Lib/Types/include";
 import { CompletionItemKind } from "vscode-languageserver";
 import { CommandCompletionContext } from "../../../Completion/Commands/Context";
+import {
+  Block,
+  BlockStates,
+  Boolean,
+  Coordinate,
+  Effect,
+  Entity,
+  Event,
+  Float,
+  Functions,
+  Integer,
+  Item,
+  Objectives,
+  Selector,
+  Slot_id,
+  Slot_type,
+  Sound,
+  Tag,
+  Tickingarea,
+  Xp,
+} from "../../General/include";
+import { Modes } from "../../include";
+import { ItemComponents, RawText } from "../../Json/include";
+import { Command } from "../include";
 
 function toCompletion(Context: CommandCompletionContext): void {
-  let Parameter = Context.Parameter;
-  Context.receiver.Add(Parameter.Text, "keyword", CompletionItemKind.Keyword);
+  let Parameter = Context.parameter;
+  Context.receiver.Add(Parameter.text, "keyword", CompletionItemKind.Keyword);
 }
 
 export function ProvideCompletion(Context: CommandCompletionContext): void {
-  let Parameter = Context.Parameter;
+  let Parameter = Context.parameter;
 
   //Check default option
   if (Parameter.options) {
@@ -36,10 +60,10 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       return Boolean.ProvideCompletion(Context);
 
     case ParameterType.cameraShakeType:
-      return CameraShakeMode.ProvideCompletion(Context);
+      return Modes.CameraShake.ProvideCompletion(Context);
 
     case ParameterType.cloneMode:
-      return CloneMode.ProvideCompletion(Context);
+      return Modes.Clone.ProvideCompletion(Context);
 
     case ParameterType.command:
       return Command.ProvideCompletion(Context.receiver);
@@ -48,7 +72,7 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       return Coordinate.ProvideCompletion(Context);
 
     case ParameterType.difficulty:
-      return Difficulty.ProvideCompletion(Context);
+      return Modes.Difficulty.ProvideCompletion(Context);
 
     case ParameterType.effect:
       return Effect.ProvideCompletion(Context);
@@ -63,13 +87,13 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       return Float.ProvideCompletion(Context);
 
     case ParameterType.fillMode:
-      return FillMode.ProvideCompletion(Context);
+      return Modes.Fill.ProvideCompletion(Context);
 
     case ParameterType.function:
       return Functions.ProvideCompletion(Context);
 
     case ParameterType.gamemode:
-      return Gamemode.ProvideCompletion(Context);
+      return Modes.Gamemode.ProvideCompletion(Context);
 
     case ParameterType.integer:
       return Integer.ProvideCompletion(Context);
@@ -87,43 +111,44 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       return toCompletion(Context);
 
     case ParameterType.locateFeature:
-      return LocateFeature.ProvideCompletion(Context);
+      return Modes.LocateFeature.ProvideCompletion(Context);
 
     case ParameterType.maskMode:
-      return MaskMode.ProvideCompletion(Context);
+      return Modes.Mask.ProvideCompletion(Context);
 
     case ParameterType.mirror:
-      return MirrorMode.ProvideCompletion(Context);
+      return Modes.Mirror.ProvideCompletion(Context);
 
     case ParameterType.musicRepeatMode:
-      return MusicRepeatMode.ProvideCompletion(Context);
+      return Modes.MusicRepeat.ProvideCompletion(Context);
 
     case ParameterType.oldBlockMode:
-      return OldBlockMode.ProvideCompletion(Context);
+      return Modes.OldBlock.ProvideCompletion(Context);
 
     case ParameterType.objective:
       return Objectives.ProvideCompletion(Context);
 
     case ParameterType.operation:
-      return OperationMode.ProvideCompletion(Context);
+      return Modes.Operation.ProvideCompletion(Context);
 
     case ParameterType.particle:
-      return Particle.ProvideCompletion(Context);
+      //TODO redo
+      return undefined /*Particle.ProvideCompletion(Context)*/;
 
     case ParameterType.replaceMode:
-      return ReplaceMode.ProvideCompletion(Context);
+      return Modes.Replace.ProvideCompletion(Context);
 
     case ParameterType.rideRules:
-      return RideRulesMode.ProvideCompletion(Context);
+      return Modes.RideRules.ProvideCompletion(Context);
 
     case ParameterType.ridefillMode:
-      return RideFillMode.ProvideCompletion(Context);
+      return Modes.RideFill.ProvideCompletion(Context);
 
     case ParameterType.rotation:
-      return RotationMode.ProvideCompletion(Context);
+      return Modes.Rotation.ProvideCompletion(Context);
 
     case ParameterType.saveMode:
-      return SaveMode.ProvideCompletion(Context);
+      return Modes.Save.ProvideCompletion(Context);
 
     case ParameterType.selector:
       return Selector.Completion.ProvideCompletion(Context);
@@ -142,13 +167,13 @@ export function ProvideCompletion(Context: CommandCompletionContext): void {
       return;
 
     case ParameterType.structureAnimationMode:
-      return StructureAnimationMode.ProvideCompletion(Context);
+      return Modes.StructureAnimation.ProvideCompletion(Context);
 
     case ParameterType.tag:
       return Tag.ProvideCompletion(Context);
 
     case ParameterType.teleportRules:
-      return TeleportRulesMode.ProvideCompletion(Context);
+      return Modes.TeleportRules.ProvideCompletion(Context);
 
     case ParameterType.tickingarea:
       return Tickingarea.ProvideCompletion(Context);

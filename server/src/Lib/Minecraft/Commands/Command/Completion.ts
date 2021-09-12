@@ -1,22 +1,24 @@
+import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/include";
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../Completion/include";
-import { Manager } from "../../../Manager/Manager";
-import { CommandInfo } from "../../Types/Commands/Info/include";
+import { IsEducationEnabled } from "../../../Project/include";
 
 /**
  *
  * @param receiver
  */
 export function ProvideCompletion(receiver: CompletionBuilder): void {
-  const edu = receiver.IsEducationEnabled(doc);
+  const edu = IsEducationEnabled(receiver.doc);
 
-  GetCompletion(Manager.Data.Vanilla.Commands.Subset, receiver);
-  if (edu) GetCompletion(Manager.Data.Edu.Commands.Subset, receiver);
+  //TODO redo
+
+  /**GetCompletion(Manager.Data.Vanilla.Commands.Subset, receiver);
+  if (edu) GetCompletion(Manager.Data.Edu.Commands.Subset, receiver);**/
 }
 
 /**
  *
- * @param Data
+ * @param Datas
  * @param receiver
  */
 function GetCompletion(Data: Map<string, CommandInfo[]>, receiver: CompletionBuilder) {
@@ -26,10 +28,10 @@ function GetCompletion(Data: Map<string, CommandInfo[]>, receiver: CompletionBui
     const Limit = value.length;
 
     if (Limit > 7) {
-      documentation += "\n- " + value[0].Command.documentation.value;
+      documentation += "\n- " + value[0].documentation;
     } else {
       for (let I = 0; I < Limit; I++) {
-        const Line = "\n- " + value[I].Command.documentation.value;
+        const Line = "\n- " + value[I].documentation;
 
         if (!documentation.includes(Line)) documentation += Line;
       }
