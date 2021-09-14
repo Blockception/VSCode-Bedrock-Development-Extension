@@ -8,7 +8,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetManifests(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["manifest.json"], ignores, folder, true);
+    return Glob.GetFiles(["manifest.json", "**/manifest.json"], ignores, folder, true);
   }
 
   /**

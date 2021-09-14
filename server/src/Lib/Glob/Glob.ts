@@ -1,7 +1,7 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
 import { URI } from "vscode-uri";
-import { UniformFolder, UniformUrl } from "../Code/Url";
+import { GetFilepath, UniformFolder, UniformUrl } from "../Code/Url";
 
 /**
  *
@@ -45,14 +45,14 @@ export namespace Glob {
     cwd: string | undefined = undefined,
     baseNameMatch: boolean | undefined = undefined
   ): string[] {
-    if (cwd) cwd = UniformFolder(cwd);
+    if (cwd) cwd = cwd.replace(/\\/gi, "/");
 
     const options: FastGlob.Options = { onlyFiles: true, absolute: true, cwd: cwd, baseNameMatch: baseNameMatch };
     let entries = FastGlob.sync(source, options);
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
 
-    return entries.map(UniformUrl);
+    return entries.map(GetFilepath);
   }
 
   /**Ensures the source is glob friendly

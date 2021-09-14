@@ -4,7 +4,7 @@ import { Manager } from "../Manager/Manager";
 import { Workspace } from "../Workspace/Workspace";
 
 export async function Traverse(): Promise<Pack[]> {
-  Console.Log("Traversing starting...");
+  Console.Info("Traversing starting...");
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 
@@ -13,7 +13,11 @@ export async function Traverse(): Promise<Pack[]> {
   out.finally(() => {
     Manager.State.TraversingProject = false;
     Manager.State.DataGathered = true;
-    Console.Log("Traversing complete");
+    Console.Info("Traversing complete");
+  });
+
+  out.catch((err) => {
+    Console.Error(JSON.stringify(err));
   });
 
   return out;

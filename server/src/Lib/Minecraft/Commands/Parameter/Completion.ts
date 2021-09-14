@@ -8,7 +8,7 @@ import {
   Coordinate,
   Effect,
   Entity,
-  Event,
+  EntityEvent,
   Float,
   Functions,
   Integer,
@@ -81,7 +81,7 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
       return Entity.ProvideCompletion(context);
 
     case ParameterType.event:
-      return Event.ProvideCompletion(context);
+      return EntityEvent.ProvideCompletion(context);
 
     case ParameterType.float:
       return Float.ProvideCompletion(context);

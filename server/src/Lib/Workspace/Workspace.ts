@@ -2,6 +2,7 @@ import { BehaviorPack, Pack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import path from "path";
 import { WorkspaceFolder } from "vscode-languageserver";
+import { GetFilepath, UniformFolder } from "../Code/Url";
 import { Console } from "../Console/Console";
 import { Database } from "../Database/include";
 import { Manager } from "../Manager/Manager";
@@ -21,7 +22,18 @@ export namespace Workspace {
 
     WS.catch((item) => Console.Error(`No workspaces folders received: ${JSON.stringify(item)}`));
 
-    return WS.then((ws) => (ws === null ? [] : ws));
+    return WS.then((ws) => {
+      if (ws == null) {
+        ws = [];
+      } else {
+        ws = ws.map((item) => {
+          item.uri = UniformFolder(item.uri);
+          return item;
+        });
+      }
+
+      return ws;
+    });
   }
 
   /**
@@ -65,6 +77,8 @@ export namespace Workspace {
    * @returns
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
+    Console.Info("Traversing workspace: " + folder.uri);
+
     const project = MCProject.loadSync(folder.uri);
     Database.WorkspaceData.set(folder, project);
 
@@ -73,6 +87,7 @@ export namespace Workspace {
 
     //Process each pack
     packs.forEach(ProcessPack);
+
     return packs;
   }
 
