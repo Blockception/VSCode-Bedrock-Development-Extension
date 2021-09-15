@@ -1,5 +1,20 @@
 # Changelog
 ## Plugin
+- Updated tasks
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Create generate-includes.yml
+- Removed tests from include
+- Delete generate-includes.yml
+- Updated
+- Update npm-test.yml
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Rename main.yml to generate-includes.yml
+- Create main.yml
+- 2.1.57
 - 2.1.56
 - Added event diagnostics
 - Updated packages
@@ -24,23 +39,10 @@
 - build(deps-dev): bump @types/node from 16.7.1 to 16.7.7
 - Fixing mocha build error
 - 2.1.53
-- Updated dependencies
-- 2.1.52
-- Updated schemas
-- Added render, animations (controllers) completion support
-- Fixing dialogue template
-- 2.1.51
-- Fixing code for deeper manifest searches
-- 2.1.50
-- 2.1.49
-- Updated
-- build(deps-dev): bump @typescript-eslint/parser from 4.29.2 to 4.29.3
-- build(deps): bump minecraft-bedrock-schemas from `da081c7` to `8ca0bdd`
-- Update dependabot.yml
-- Update npm-test.yml
-- Updated packages
-- Delete npm-test-client.yml. 
+- Updated dependencies. 
 ## Schemas
+- Updating on_equip / on_unequip #6
+- Updated
 - Updated
 - Updated
 - Updated
@@ -79,5 +81,3 @@
 - Fixing
 - Updated
 - fixing on_damage
-- Updated
-- Updated
