@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- 2.1.58
 - Updated tasks
 - Update generate-includes.yml
 - Update generate-includes.yml
@@ -37,10 +39,9 @@
 - build(deps-dev): bump mocha from 9.1.0 to 9.1.1
 - build(deps-dev): bump typescript from 4.3.5 to 4.4.2
 - build(deps-dev): bump @types/node from 16.7.1 to 16.7.7
-- Fixing mocha build error
-- 2.1.53
-- Updated dependencies. 
+- Fixing mocha build error. 
 ## Schemas
+- Changed references
 - Updating on_equip / on_unequip #6
 - Updated
 - Updated
@@ -80,4 +81,3 @@
 - Updated dialogue schema to fit microsoft documentation
 - Fixing
 - Updated
-- fixing on_damage
