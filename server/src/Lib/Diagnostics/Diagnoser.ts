@@ -15,15 +15,15 @@ import { Types } from "bc-minecraft-bedrock-types";
  * @returns A diagnoser*/
 export function CreateDiagnoser(): Diagnoser {
   //create diagnoser
-  const context = CreateContext();
-  const out = new Diagnoser(context);
+  const tcontext = CreateContext();
+  const out = new Diagnoser(tcontext);
 
   return out;
 }
 
 /**Creates the content for the diagnoser
  * @returns*/
-function CreateContext(): DiagnoserContext {
+export function CreateContext(): DiagnoserContext {
   //create context
   const context: DiagnoserContext = {
     getCache: getCache,
