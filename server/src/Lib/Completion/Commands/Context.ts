@@ -1,5 +1,6 @@
 import { Command, Parameter } from "bc-minecraft-bedrock-command";
 import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
+import { SimpleContext } from "../../Code/SimpleContext";
 import { IsEducationEnabled } from "../../Project/Attributes";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { CompletionBuilder } from "../include";
@@ -7,7 +8,7 @@ import { CompletionBuilder } from "../include";
 /**
  *
  */
-export interface CommandCompletionContext {
+export interface CommandCompletionContext extends SimpleContext<CompletionBuilder> {
   /** */
   parameter: ParameterInfo;
   /** */

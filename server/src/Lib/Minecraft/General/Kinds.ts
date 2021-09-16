@@ -25,6 +25,9 @@ export namespace Kinds {
   }
 
   export namespace Completion {
+    export const AnimationControllers: CompletionItemKind = CompletionItemKind.Class;
+    export const Animation: CompletionItemKind = CompletionItemKind.Function;
+
     export const Block: CompletionItemKind = CompletionItemKind.Property;
     export const Boolean: CompletionItemKind = CompletionItemKind.Constant;
     export const Coordinate: CompletionItemKind = CompletionItemKind.Constant;
