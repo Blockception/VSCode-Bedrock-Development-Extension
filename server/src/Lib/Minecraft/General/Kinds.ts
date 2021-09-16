@@ -41,11 +41,14 @@ export namespace Kinds {
     export const Gamemode: CompletionItemKind = CompletionItemKind.Constant;
     export const Integer: CompletionItemKind = CompletionItemKind.Constant;
     export const Item: CompletionItemKind = CompletionItemKind.Property;
+    export const LootTable: CompletionItemKind = CompletionItemKind.File;
     export const Objectives: CompletionItemKind = CompletionItemKind.Variable;
     export const Particle: CompletionItemKind = CompletionItemKind.Property;
     export const Selector: CompletionItemKind = CompletionItemKind.TypeParameter;
     export const Sound: CompletionItemKind = CompletionItemKind.Property;
+    export const Structure: CompletionItemKind = CompletionItemKind.Module;
     export const Tag: CompletionItemKind = CompletionItemKind.Property;
+    export const Trading: CompletionItemKind = CompletionItemKind.File;
     export const Tickingarea: CompletionItemKind = CompletionItemKind.Module;
     export const Xp: CompletionItemKind = CompletionItemKind.Constant;
   }

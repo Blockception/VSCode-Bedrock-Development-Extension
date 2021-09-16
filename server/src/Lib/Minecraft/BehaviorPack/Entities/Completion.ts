@@ -44,7 +44,7 @@ export function ProvideFamilyCompletion(context: SimpleContext<CompletionBuilder
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
 
-    context.receiver.GenerateStr(entity.families, generateDoc, Kinds.Completion.Event);
+    context.receiver.GenerateStr(entity.families, generateDoc, Kinds.Completion.Family);
   });
 
   //Vanilla data

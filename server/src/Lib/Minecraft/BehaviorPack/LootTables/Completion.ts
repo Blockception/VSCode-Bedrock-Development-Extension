@@ -7,13 +7,15 @@ import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const generateDoc = (item: Identifiable) => `The block definition: ${item.id}`;
+  const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.BehaviorPacks.blocks, generateDoc, Kinds.Completion.Block);
+  context.receiver.Generate(Database.ProjectData.BehaviorPacks.loot_tables, generateDoc, Kinds.Completion.LootTable);
+
+  const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.BehaviorPack.blocks, generateDoc, Kinds.Completion.Block);
+  context.receiver.GenerateStr(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc, Kinds.Completion.LootTable);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.Generate(MinecraftData.edu.BehaviorPack.blocks, generateDoc, Kinds.Completion.Block);
+  if (IsEducationEnabled(context.doc)) context.receiver.GenerateStr(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc, Kinds.Completion.LootTable);
 }
