@@ -46,35 +46,80 @@ export class CompletionBuilder {
     return item;
   }
 
-  AddFrom(value: Identifiable, valuekind: CompletionItemKind): void {
-    if (Documentated.is(value)) {
-      const doc = value.documentation;
+  /**
+   *
+   * @param item
+   * @param generatefn
+   * @param kind
+   * @returns
+   */
+  GenerateItem<T extends Identifiable>(item: T, generatefn: (item: T) => string, kind: CompletionItemKind = CompletionItemKind.Keyword): CompletionItem {
+    const docet = <Documentated>item;
+    let doc = docet.documentation;
 
-      if (doc) this.Add(value.id, doc, valuekind);
+    if (!doc) {
+      doc = generatefn(item);
+      docet.documentation = doc;
     }
 
-    this.Add(value.id, "The custom definition of: " + value.id, valuekind);
+    return this.Add(item.id, doc, kind);
   }
 
-  //TODO add object that possiblies implements Documentated, uses that or generates its from a callback function
-  AddFromRange<T extends Identifiable>(data: IDataSet<T>, generatefn: (item: T) => string | undefined, kind: CompletionItemKind = CompletionItemKind.Class): void {
-    data.forEach((item) => {
-      const temp = <Documentated>item;
+  /**
+   *
+   * @param dataset
+   * @param generatefn
+   * @param kind
+   * @param query
+   * @returns
+   */
+  Generate<T extends Identifiable>(
+    dataset: IForEach<T>,
+    generatefn: (item: T) => string,
+    kind: CompletionItemKind = CompletionItemKind.Keyword,
+    query: string | undefined = undefined
+  ): CompletionItem[] {
+    const out: CompletionItem[] = [];
 
-      if (!temp.documentation) {
-        temp.documentation = generatefn(item);
-      }
+    if (query) {
+      dataset.forEach((item) => {
+        if (item.id.includes(query)) out.push(this.GenerateItem(item, generatefn, kind));
+      });
+    } else {
+      dataset.forEach((item) => out.push(this.GenerateItem(item, generatefn, kind)));
+    }
 
-      if (!temp.documentation) {
-        temp.documentation = `The ${item.id}`;
-      }
+    return out;
+  }
 
-      this.Add(item.id, temp.documentation ?? "", kind);
-    });
+  /**
+   *
+   * @param dataset
+   * @param generatefn
+   * @param kind
+   * @param query
+   * @returns
+   */
+  GenerateStr(
+    dataset: IForEach<string>,
+    generatefn: (item: string) => string,
+    kind: CompletionItemKind = CompletionItemKind.Keyword,
+    query: string | undefined = undefined
+  ): CompletionItem[] {
+    const out: CompletionItem[] = [];
+
+    if (query) {
+      dataset.forEach((item) => {
+        if (item.includes(query)) out.push(this.Add(item, generatefn(item), kind));
+      });
+    } else {
+      dataset.forEach((item) => out.push(this.Add(item, generatefn(item), kind)));
+    }
+
+    return out;
   }
 }
 
-export interface IDataSet<T extends Identifiable> {
-  get(id: string): T | undefined;
+interface IForEach<T> {
   forEach(callbackfn: (value: T) => void, thisArg?: any): void;
 }
