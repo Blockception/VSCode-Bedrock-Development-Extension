@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/chai": "^4.2.21",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.7.10",
+    "@types/node": "^16.9.3",
     "@types/picomatch": "^2.2.6",
     "@types/vscode": "^1.60.0",
     "chai": "^4.3.4",
