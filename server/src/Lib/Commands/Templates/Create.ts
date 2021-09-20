@@ -2,6 +2,7 @@ import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { Commands } from "../../Constants";
 import { TemplateBuilder } from "./Builder";
 import { Templates } from "../include";
+import { Console } from "../../Manager/Console";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
@@ -13,7 +14,7 @@ export function Create(params: ExecuteCommandParams): void {
   if (Data) {
     Data(params);
   } else {
-    console.error("Unknown creation command: " + params.command);
+    Console.Error("Unknown creation command: " + params.command);
   }
 }
 

@@ -10,6 +10,7 @@ import { Character } from "../Code/Character";
 import { Types } from "bc-minecraft-bedrock-types";
 import { Database } from "../Database/include";
 import { Glob } from "../Glob/include";
+import { Console } from "../Manager/Console";
 
 /**Creates a new bedrock diagnoser
  * @returns A diagnoser*/
@@ -49,7 +50,7 @@ function getCache() {
  * @returns*/
 function getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnosticsBuilder | undefined {
   if (Glob.IsMatch(doc.uri, project.ignores.patterns)) {
-    console.info("Skipping diagnostics on document, because its ignored: " + doc.uri);
+    Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
     return undefined;
   }
 

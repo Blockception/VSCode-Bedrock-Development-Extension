@@ -14,6 +14,7 @@ import { Manager } from "../../Manager/Manager";
 import * as fs from "fs";
 import { GetFilepath, UniformUrl } from "../../Code/include";
 import { Range } from "vscode-languageserver-types";
+import { Console } from "../../Manager/Console";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -38,7 +39,7 @@ export class TemplateBuilder {
     const url = URI.file(path);
 
     if (fs.existsSync(path)) {
-      console.log("creation of file skipped because it already exists: " + path);
+      Console.Log("creation of file skipped because it already exists: " + path);
       return;
     }
 
@@ -57,7 +58,7 @@ export class TemplateBuilder {
 function Response(response: ApplyWorkspaceEditResponse): void {
   if (response.applied) return;
 
-  console.error("Workspace edit failed:");
-  if (response.failedChange) console.error(`Item index: ${response.failedChange}`);
-  if (response.failureReason) console.error(`Item reason: ${response.failureReason}`);
+  Console.Error("Workspace edit failed:");
+  if (response.failedChange) Console.Error(`Item index: ${response.failedChange}`);
+  if (response.failureReason) Console.Error(`Item reason: ${response.failureReason}`);
 }

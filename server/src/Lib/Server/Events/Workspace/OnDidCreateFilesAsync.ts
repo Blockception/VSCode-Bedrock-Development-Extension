@@ -2,6 +2,7 @@ import { CreateFilesParams, FileCreate } from "vscode-languageserver";
 import { GetDocument } from "../../../Types/Document/Document";
 import { Process } from "../../../Process/Process";
 import { Glob } from "../../../Glob/Glob";
+import { Console } from "../../../Manager/Console";
 
 //Files created
 export async function OnDidCreateFilesAsync(params: CreateFilesParams): Promise<void> {
@@ -34,7 +35,7 @@ async function OnDidCreateFile(Item: FileCreate): Promise<void> {
       if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores.patterns)) {
         Process(Doc);
       } else {
-        console.log(`Ignored: ` + Doc.uri);
+        Console.Log(`Ignored: ` + Doc.uri);
       }
     }
 

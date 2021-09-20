@@ -1,10 +1,11 @@
 import { Pack } from "bc-minecraft-bedrock-project";
 import { HandleError } from "../Code/Error";
+import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { Workspace } from "../Workspace/Workspace";
 
 export async function Traverse(): Promise<Pack[]> {
-  console.info("Traversing starting...");
+  Console.Info("Traversing starting...");
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 
@@ -13,7 +14,7 @@ export async function Traverse(): Promise<Pack[]> {
   out.finally(() => {
     Manager.State.TraversingProject = false;
     Manager.State.DataGathered = true;
-    console.info("Traversing complete");
+    Console.Info("Traversing complete");
   });
 
   out.catch((err) => {

@@ -5,6 +5,7 @@ import { WorkspaceFolder } from "vscode-languageserver";
 import { HandleError } from "../Code/Error";
 import { UniformFolder } from "../Code/Url";
 import { Database } from "../Database/include";
+import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
 import { Document } from "../Types/include";
@@ -21,7 +22,7 @@ export namespace Workspace {
     const WS = Manager.Connection.workspace.getWorkspaceFolders();
 
     WS.catch((err) => {
-      console.error(`No workspaces folders received`);
+      Console.Error(`No workspaces folders received`);
       HandleError(err);
     });
 
@@ -44,7 +45,7 @@ export namespace Workspace {
    * @param uri
    */
   export function RemoveWorkspace(uri: string): void {
-    console.info("deleting workspace data: " + uri);
+    Console.Info("deleting workspace data: " + uri);
     Database.WorkspaceData.remove(uri);
 
     const PD = Database.ProjectData;
@@ -80,7 +81,7 @@ export namespace Workspace {
    * @returns
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
-    console.info("Traversing workspace: " + folder.uri);
+    Console.Info("Traversing workspace: " + folder.uri);
 
     const project = MCProject.loadSync(folder.uri);
     Database.WorkspaceData.set(folder, project);
@@ -99,7 +100,7 @@ export namespace Workspace {
    * @param pack
    */
   export function ProcessPack(pack: Pack): void {
-    console.info(`Processing pack: ${path.dirname(pack.folder)}`);
+    Console.Info(`Processing pack: ${path.dirname(pack.folder)}`);
 
     const ignores = pack.context.ignores.patterns;
     const folder = pack.folder;

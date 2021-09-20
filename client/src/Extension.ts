@@ -8,7 +8,7 @@ import { Activate } from "./Commands/Activate";
 
 import { Manager } from "./Manager/Manager";
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: vscode.ExtensionContext): void {
   Activate(context);
   SetupClient(context);
 }

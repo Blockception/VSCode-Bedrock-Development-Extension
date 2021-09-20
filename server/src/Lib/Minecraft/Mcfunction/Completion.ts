@@ -72,7 +72,6 @@ export function ProvideCompletionCommand(context: SimpleContext<CompletionBuilde
   }
 
   let ParameterIndex: number = command.findCursorIndex(pos);
-  if (ParameterIndex < 0) ParameterIndex = 0;
 
   const Current = command.parameters[ParameterIndex];
 

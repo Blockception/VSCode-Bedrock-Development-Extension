@@ -1,3 +1,4 @@
+import { Console } from "../Manager/Console";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { GetFilename } from "./File";
 
@@ -14,7 +15,7 @@ export function HandleError(error: any, doc: TextDocument | string | undefined =
     msg = GetFilename(typeof doc === "object" ? doc.uri : doc) + " | " + msg;
   }
 
-  console.error(msg);
+  Console.Error(msg);
 }
 
 interface errormsg {

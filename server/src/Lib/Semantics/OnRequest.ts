@@ -7,6 +7,7 @@ import { GetDocument } from "../Types/Document/include";
 import { ProvideJsonSemanticTokens } from "./Json";
 import { ProvideMolangSemanticTokens } from "./Molang";
 import { Mcfunction } from "../Minecraft/include";
+import { Console } from "../Manager/Console";
 
 export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
   return new Promise<SemanticTokens>((resolve, reject) => {
@@ -34,12 +35,12 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
   let uri = params.textDocument.uri;
   if (!uri.startsWith("file://")) return { data: [] };
 
-  //console.log(params.textDocument.uri);
+  //Console.Log(params.textDocument.uri);
 
   const doc = GetDocument(uri);
   if (!doc) return { data: [] };
 
-  console.log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
+  Console.Log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
 
   let range: Range | undefined = undefined;
 

@@ -1,6 +1,7 @@
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
 import { Commands } from "../Constants";
+import { Console } from "../Manager/Console";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {
@@ -9,7 +10,7 @@ export async function onInitializeAsync(params: InitializeParams): Promise<Initi
 }
 
 export function onInitialize(params: InitializeParams): InitializeResult {
-  console.log("Initializing minecraft server");
+  Console.Log("Initializing minecraft server");
 
   //process capabilities of the client
   let capabilities = params.capabilities;
