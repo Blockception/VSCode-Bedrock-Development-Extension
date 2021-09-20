@@ -5,6 +5,9 @@ import { TextDocument } from "../../Types/Document/TextDocument";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../include";
 import { JsonSemanticTokensBuilder } from "./JsonSemanticTokensBuilder";
 
+/**
+ *
+ */
 export class McfunctionSemanticTokensBuilder {
   public Builder: SemanticTokensBuilder;
   public doc: TextDocument;
@@ -14,10 +17,19 @@ export class McfunctionSemanticTokensBuilder {
     this.Builder = new SemanticTokensBuilder();
   }
 
+  /**
+   *
+   * @returns
+   */
   Build(): SemanticTokens {
     return this.Builder.build();
   }
 
+  /**
+   *
+   * @param offset
+   * @returns
+   */
   PositionAt(offset: number): Position {
     return this.doc.positionAt(offset);
   }

@@ -4,7 +4,7 @@ import { HandleError } from "../Code/Error";
 import { GetFilename } from "../Code/include";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
-import { ProvideJsonSemanticTokens } from "./Json";
+import { ProvideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
 import { ProvideMolangSemanticTokens } from "./Molang";
 import { Mcfunction } from "../Minecraft/include";
 import { Console } from "../Manager/Console";
@@ -70,7 +70,7 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
 function IsSemanticTokensRangeParams(value: SemanticTokensRangeParams | SemanticTokensParams): value is SemanticTokensRangeParams {
   let temp: any = value;
 
-  if (temp.range) if (Range.is(temp.range)) return true;
+  if (temp.range && Range.is(temp.range)) return true;
 
   return false;
 }

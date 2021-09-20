@@ -1,8 +1,8 @@
 import { Selector, SelectorAttribute } from "bc-minecraft-bedrock-types/lib/src/Minecraft/include";
 import { OffsetWord } from "bc-vscode-words";
-import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
-import { CreateRangeTokensWord } from "./Functions";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
+import { McfunctionSemanticTokensBuilder } from "../../../Semantics/Builders/McfunctionSemanticTokensBuilder";
+import { CreateNamespaced, CreateRangeTokensWord } from "../../../Semantics/Functions";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../../../Semantics/Legend";
 
 export function CreateSelectorTokens(word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
   if (word.text.startsWith("@")) {
@@ -28,6 +28,10 @@ function ProcessParameters(Parameters: SelectorAttribute[], Builder: McfunctionS
 function ProcessScoreParameters(Parameters: SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
   for (let I = 0; I < Parameters.length; I++) {
     let parameter = Parameters[I];
+
+    const Name = new OffsetWord(parameter.name, parameter.offset);
+    const Value = new OffsetWord(parameter.value, Name.offset + Name.text.length + 1);
+    CreateRangeTokensWord(Value, Builder);
   }
 }
 
@@ -37,6 +41,7 @@ function CreateTokens(Parameter: SelectorAttribute, Builder: McfunctionSemanticT
   const Value = new OffsetWord(Parameter.value, Name.offset + Name.text.length + 1);
 
   //property name
+  Builder.AddWord(Name, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
   Builder.Add(Parameter.offset, Parameter.offset + Parameter.name.length, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
 
   switch (Name.text) {
@@ -49,16 +54,7 @@ function CreateTokens(Parameter: SelectorAttribute, Builder: McfunctionSemanticT
       break;
 
     case "type":
-      let Index = Value.text.indexOf(":");
-
-      if (Index >= 0) {
-        Index += Value.offset;
-
-        Builder.Add(Value.offset, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.readonly);
-        Builder.Add(Index + 1, Value.text.length - (Index + 1), SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
-      } else {
-        Builder.AddWord(Value, SemanticTokensEnum.type, SemanticModifiersEnum.readonly);
-      }
+      CreateNamespaced(Value, Builder);
       break;
 
     default:

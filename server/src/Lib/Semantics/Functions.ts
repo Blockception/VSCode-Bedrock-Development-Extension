@@ -1,6 +1,5 @@
 import { LocationWord, OffsetWord, RangedWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-types";
-import { World } from "../Data/Templates/include";
 import { McfunctionSemanticTokensBuilder } from "./Builders/include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
@@ -50,5 +49,20 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
     }
   } else {
     Builder.AddAt(Line, start, value.length, SemanticTokensEnum.number);
+  }
+}
+
+export function CreateNamespaced(Word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
+  let Index = Word.text.indexOf(":");
+
+  if (Index >= 0) {
+    Index += Word.offset;
+
+    //namespace
+    Builder.Add(Word.offset, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
+    //Value
+    Builder.Add(Index + 1, Word.offset + Word.text.length, SemanticTokensEnum.class, SemanticModifiersEnum.static);
+  } else {
+    Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
   }
 }

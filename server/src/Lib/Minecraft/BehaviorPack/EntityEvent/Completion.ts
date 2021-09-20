@@ -5,6 +5,7 @@ import { Database } from "../../../Database/include";
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { Kinds } from "../../General/Kinds";
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 
 /**
  *
@@ -28,6 +29,9 @@ export function ProvideCompletion(context: CommandCompletionContext | SimpleCont
   }
 
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => Convert(entity, context.receiver));
+
+  const generateDoc = (item: string) => `The vanilla entity event: ${item}`;
+  context.receiver.GenerateStr(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
 }
 
 /**

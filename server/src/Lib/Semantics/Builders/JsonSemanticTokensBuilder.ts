@@ -13,10 +13,19 @@ export class JsonSemanticTokensBuilder {
     this.Builder = new SemanticTokensBuilder();
   }
 
+  /**
+   *
+   * @returns
+   */
   Build(): SemanticTokens {
     return this.Builder.build();
   }
 
+  /**
+   *
+   * @param offset
+   * @returns
+   */
   PositionAt(offset: number): Position {
     return this.doc.positionAt(offset);
   }

@@ -4,6 +4,11 @@ import { Position } from "vscode-languageserver-textdocument";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../include";
 
+//TODO refactor add base class
+
+/**
+ *
+ */
 export class MolangSemanticTokensBuilder {
   public Builder: SemanticTokensBuilder;
   public doc: TextDocument;
@@ -29,14 +34,20 @@ export class MolangSemanticTokensBuilder {
    * @param tokenModifier
    */
   Add(startindex: number, endindex: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-    let p = this.doc.positionAt(startindex);
-    let length = endindex - startindex;
+    const p = this.doc.positionAt(startindex);
+    const length = endindex - startindex;
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 
+  /**
+   *
+   * @param word
+   * @param tokenType
+   * @param tokenModifier
+   */
   AddWord(word: OffsetWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-    let p = this.doc.positionAt(word.offset);
-    let length = word.text.length;
+    const p = this.doc.positionAt(word.offset);
+    const length = word.text.length;
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
   }
 }

@@ -19,7 +19,7 @@ export function ProvideCreateCompletion(context: CommandCompletionContext | Comp
   const steps = diff / 10;
 
   for (let I = minimum; I < maximum; I += steps) {
-    let text = I.toPrecision();
+    let text = I.toPrecision(3);
     receiver.Add(text, "The float number: " + text, CompletionItemKind.Constant);
   }
 }

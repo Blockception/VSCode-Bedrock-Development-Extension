@@ -1,14 +1,14 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
-import { IsMolang } from "../Minecraft/Molang/Functions";
-import { CreateMolangWords } from "../Minecraft/Molang/Words";
-import { TextDocument } from "../Types/Document/TextDocument";
-import { JsonSemanticTokensBuilder } from "./Builders/JsonSemanticTokensBuilder";
-import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
-import { SemanticTokensEnum } from "./Legend";
-import { McfunctionLineTokens } from "../Minecraft/Mcfunction/Semantics";
-import { ConvertWords } from "./Molang";
+import { IsMolang } from "../Molang/Functions";
+import { CreateMolangWords } from "../Molang/Words";
+import { TextDocument } from "../../Types/Document/TextDocument";
+import { JsonSemanticTokensBuilder } from "../../Semantics/Builders/JsonSemanticTokensBuilder";
+import { McfunctionSemanticTokensBuilder } from "../../Semantics/Builders/McfunctionSemanticTokensBuilder";
+import { SemanticTokensEnum } from "../../Semantics/Legend";
+import { McfunctionLineTokens } from "../Mcfunction/Semantics";
+import { ConvertWords } from "../../Semantics/Molang";
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Type = PackType.detect(doc.uri);

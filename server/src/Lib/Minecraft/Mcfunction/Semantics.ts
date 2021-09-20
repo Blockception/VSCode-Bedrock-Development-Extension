@@ -1,10 +1,11 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { McfunctionSemanticTokensBuilder } from "../../Semantics/Builders/McfunctionSemanticTokensBuilder";
-import { CreateRangeTokensWord, CreateSelectorTokens } from "../../Semantics/include";
+import { CreateNamespaced, CreateRangeTokensWord } from "../../Semantics/include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Semantics/Legend";
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { IsEducationEnabled } from "../../Project/Attributes";
+import { CreateSelectorTokens } from "../General/Selector/Semantics";
 
 export function ProvideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Builder = new McfunctionSemanticTokensBuilder(doc);
@@ -82,19 +83,7 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
       case ParameterType.particle:
       case ParameterType.sound:
       case ParameterType.tickingarea:
-        let Index = Word.text.indexOf(":");
-
-        if (Index >= 0) {
-          Index += Word.offset;
-
-          //namespace
-          Builder.Add(Word.offset, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
-          //Value
-          Builder.Add(Index + 1, Index + Word.text.length, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
-        } else {
-          Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
-        }
-
+        CreateNamespaced(Word, Builder);
         break;
 
       case ParameterType.coordinate:
