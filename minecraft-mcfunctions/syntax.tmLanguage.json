@@ -19,6 +19,7 @@
     "selectors": {
       "patterns": [
         { "name": "markup.bold", "match": "(@[cvasrep]\\b)" },
+        { "name": "markup.bold", "match": "(@initiator\\b)" },
         { "name": "entity.name.variable", "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
         { "name": "entity.name.variable", "match": "\\b[a-z0-9]+(?=\\=)" },
         { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+" },
@@ -127,6 +128,7 @@
         { "name": "entity.name.function.objectives", "match": "\\bobjectives\\b" },
         { "name": "entity.name.function.on_area_loaded", "match": "\\bon_area_loaded\\b" },
         { "name": "entity.name.function.operation", "match": "\\boperation\\b" },
+        { "name": "entity.name.function.open", "match": "\\bopen\\b" },
         { "name": "entity.name.function.players", "match": "\\bplayers\\b" },
         { "name": "entity.name.function.pop", "match": "\\bpop\\b" },
         { "name": "entity.name.function.push", "match": "\\bpush\\b" },
@@ -187,6 +189,7 @@
         { "name": "entity.name.type.class.clone", "match": "\\bclone\\b" },
         { "name": "entity.name.type.class.connect", "match": "\\bconnect\\b" },
         { "name": "entity.name.type.class.daylock", "match": "\\bdaylock\\b" },
+        { "name": "entity.name.type.class.dialogue", "match": "\\bdialogue\\b" },
         { "name": "entity.name.type.class.deop", "match": "\\bdeop\\b" },
         { "name": "entity.name.type.class.difficulty", "match": "\\bdifficulty\\b" },
         { "name": "entity.name.type.class.effect", "match": "\\beffect\\b" },
