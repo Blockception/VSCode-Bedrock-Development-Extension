@@ -1,9 +1,7 @@
 /*	Auto generated	*/
-export * as BlockStates from "../BehaviorPack/BlockStates/include";
 export * as Boolean from "./Boolean/include";
 export * as Coordinate from "./Coordinate/include";
 export * as Effect from "./Effect/include";
-export * as EntityEvent from "../BehaviorPack/EntityEvent/include";
 export * as FakeEntity from "./FakeEntity/include";
 export * as Float from "./Float/include";
 export * as Functions from "./Functions/include";
