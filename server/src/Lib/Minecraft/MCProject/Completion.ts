@@ -4,28 +4,36 @@ import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import path from "path";
 import { Position } from "vscode-languageserver-textdocument";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
+import { SimpleContext } from "../../Code/include";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { Database } from "../../Database/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { Boolean } from "../General/include";
 
-export function OnCompletionMCProject(doc: TextDocument, pos: Position, builder: CompletionBuilder) {
-  const filename = path.basename(doc.uri);
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {
+  const filename = path.basename(context.doc.uri);
 
   switch (filename) {
     case MCAttributes.filename:
-      ProvideAttributes(doc, pos, builder);
+      ProvideAttributes(context, pos);
       break;
     case MCDefinition.filename:
-      ProvideDefinitions(doc, pos, builder);
+      ProvideDefinitions(context, pos);
       break;
     case MCIgnore.filename:
       break;
   }
 }
 
-function ProvideAttributes(doc: TextDocument, pos: Position, builder: CompletionBuilder) {
-  const line = doc.getLine(pos.line);
+/**
+ *
+ * @param context
+ * @param pos
+ * @returns
+ */
+function ProvideAttributes(context: SimpleContext<CompletionBuilder>, pos: Position) {
+  const builder = context.receiver;
+  const line = context.doc.getLine(pos.line);
 
   const index = line.indexOf("=");
   if (index > -1 && index < pos.character) {
@@ -43,8 +51,14 @@ function ProvideAttributes(doc: TextDocument, pos: Position, builder: Completion
   builder.Add("diagnostic.tag", "Disable or enable diagnostics for tags in this project", CompletionItemKind.Property, "diagnostic.tag=");
 }
 
-function ProvideDefinitions(doc: TextDocument, pos: Position, builder: CompletionBuilder): void {
-  const line = doc.getLine(pos.line);
+/**
+ *
+ * @param context
+ * @param pos
+ * @returns
+ */
+function ProvideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+  const line = context.doc.getLine(pos.line);
 
   const index = line.indexOf("=");
   if (index > -1 && index < pos.character) {
@@ -55,18 +69,19 @@ function ProvideDefinitions(doc: TextDocument, pos: Position, builder: Completio
         return;
 
       case "objective":
-        return Database.ProjectData.General.objectives.forEach((tag) => Add(builder, tag));
+        return Database.ProjectData.General.objectives.forEach((tag) => Add(context, tag));
 
       case "tag":
-        return Database.ProjectData.General.tags.forEach((tag) => Add(builder, tag));
+        return Database.ProjectData.General.tags.forEach((tag) => Add(context, tag));
 
       case "family":
-      //TODO return Database.ProjectData.BehaviorPacks.entities.forEach((entity) => entity.families.forEach((family) => Add(builder, family)));
+        return Database.ProjectData.BehaviorPacks.entities.forEach((entity) => entity.families.forEach((family) => Add(context, family)));
     }
 
     return;
   }
 
+  const builder = context.receiver;
   builder.Add("## ", "Comment", CompletionItemKind.Snippet);
   builder.Add("tag", "Include or excluded a tag definition", CompletionItemKind.Property, "tag=");
   builder.Add("family", "Include or excluded a family definition", CompletionItemKind.Property, "family=");
@@ -74,7 +89,7 @@ function ProvideDefinitions(doc: TextDocument, pos: Position, builder: Completio
   builder.Add("objective", "Include or excluded a objective definition", CompletionItemKind.Property, "objective=");
 }
 
-function Add(builder: CompletionBuilder, value: (Identifiable & Documentated) | string) {
+function Add(context: SimpleContext<CompletionBuilder>, value: (Identifiable & Documentated) | string) {
   let label: string;
   let documentation: MarkupContent = { kind: "markdown", value: "" };
 
@@ -86,6 +101,6 @@ function Add(builder: CompletionBuilder, value: (Identifiable & Documentated) | 
     documentation.value = value.documentation ?? "";
   }
 
-  builder.Add(label, documentation, CompletionItemKind.Value).sortText = label;
-  builder.Add("!" + label, documentation, CompletionItemKind.Value).sortText = label + "2";
+  context.receiver.Add(label, documentation, CompletionItemKind.Value).sortText = label;
+  context.receiver.Add("!" + label, documentation, CompletionItemKind.Value).sortText = label + "2";
 }

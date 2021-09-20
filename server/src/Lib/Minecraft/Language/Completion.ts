@@ -1,9 +1,10 @@
 import { CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { TextDocument } from "../Types/Document/TextDocument";
-import { CompletionBuilder } from "./Builder";
+import { CompletionBuilder } from "../../Completion/Builder";
+import { SimpleContext } from "../../Code/SimpleContext";
 
-export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+  const receiver = context.receiver;
   const cursor = pos.character;
 
   if (cursor <= 0) {
@@ -14,7 +15,7 @@ export function OnCompletionLanguage(doc: TextDocument, pos: Position, receiver:
     return;
   }
 
-  const line = doc.getLine(pos.line);
+  const line = context.doc.getLine(pos.line);
 
   //in comment
   if (isIn("#", cursor, line)) {

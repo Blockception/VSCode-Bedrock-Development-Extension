@@ -1,6 +1,5 @@
 import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
 import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
-import { TextDocument } from "../Types/Document/TextDocument";
 
 /**
  *
@@ -8,10 +7,8 @@ import { TextDocument } from "../Types/Document/TextDocument";
 export class CompletionBuilder {
   public items: CompletionItem[];
   public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
-  public doc: TextDocument;
 
-  constructor(doc: TextDocument) {
-    this.doc = doc;
+  constructor() {
     this.items = [];
     this.OnNewItem = undefined;
   }

@@ -1,11 +1,11 @@
 import { Position } from "vscode-languageserver-textdocument";
-import { TextDocument } from "../Types/Document/TextDocument";
-import { CompletionBuilder } from "./Builder";
-import { CommandCompletionContext } from "./Context";
+import { CompletionBuilder } from "../../Completion/Builder";
+import { CommandCompletionContext } from "../../Completion/Context";
 import { Command } from "bc-minecraft-bedrock-command";
-import { Commands } from "../Minecraft/include";
-import { IsEducationEnabled } from "../Project/include";
-import { Parameter } from "../Minecraft/Commands/include";
+import { Commands } from "../include";
+import { IsEducationEnabled } from "../../Project/include";
+import { Parameter } from "../Commands/include";
+import { SimpleContext } from "../../Code/include";
 
 /**
  *
@@ -14,7 +14,8 @@ import { Parameter } from "../Minecraft/Commands/include";
  * @param receiver
  * @returns
  */
-export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+  const doc = context.doc;
   const LineIndex = pos.line;
   const Line = doc.getLine(LineIndex);
 
@@ -33,7 +34,7 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
     command = Subcommand;
   }
 
-  ProvideCompletion(doc.offsetAt(pos), receiver, command, doc);
+  ProvideCompletionCommand(context, doc.offsetAt(pos), command);
 }
 
 /**
@@ -44,9 +45,9 @@ export function OnCompletionMcFunction(doc: TextDocument, pos: Position, receive
  * @param doc
  * @param receiver
  */
-export function OnCompletionMcFunctionLine(text: string, cursor: number, offset: number, doc: TextDocument, receiver: CompletionBuilder): void {
+export function ProvideCompletionLine(context: SimpleContext<CompletionBuilder>, text: string, cursor: number, offset: number): void {
   const command: Command = Command.parse(text, offset);
-  ProvideCompletion(cursor, receiver, command, doc);
+  ProvideCompletionCommand(context, cursor, command);
 }
 
 /**
@@ -56,16 +57,16 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
  * @param command
  * @returns
  */
-export function ProvideCompletion(pos: number, receiver: CompletionBuilder, command: Command, doc: TextDocument): void {
+export function ProvideCompletionCommand(context: SimpleContext<CompletionBuilder>, pos: number, command: Command): void {
   if (command == undefined || command.parameters.length == 0 || pos < command.parameters[0].offset + 3) {
-    Commands.Command.ProvideCompletion({ receiver: receiver, doc: doc });
+    Commands.Command.ProvideCompletion(context);
     return;
   }
 
-  const Matches = command.getCommandData(IsEducationEnabled(doc));
+  const Matches = command.getCommandData(IsEducationEnabled(context.doc));
 
   if (Matches.length === 0) {
-    if (pos < 10) Commands.Command.ProvideCompletion({ receiver: receiver, doc: doc });
+    if (pos < 10) Commands.Command.ProvideCompletion(context);
 
     return;
   }
@@ -78,9 +79,9 @@ export function ProvideCompletion(pos: number, receiver: CompletionBuilder, comm
 
     if (Match.parameters.length > ParameterIndex) {
       const parameter = Match.parameters[ParameterIndex];
-      const context = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, receiver, Current, doc);
+      const ncontext = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, context.receiver, Current, context.doc);
 
-      Parameter.ProvideCompletion(context);
+      Parameter.ProvideCompletion(ncontext);
     }
   }
 }

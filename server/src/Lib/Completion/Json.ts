@@ -1,28 +1,29 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
-import { BehaviorPack, Molang, ResourcePack } from "../Minecraft/include";
+import { SimpleContext } from "../Code/SimpleContext";
+import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "../Minecraft/include";
 import { GetCurrentString } from "../Types/Document/Json Functions";
-import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
-import { OnCompletionMcFunctionLine } from "./Mcfunction";
 
-export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: CompletionBuilder): void {
-  const type = PackType.detect(doc.uri);
+export function OnCompletionJson(context: SimpleContext<CompletionBuilder>, cursor: number): void {
+  const type = PackType.detect(context.doc.uri);
 
   if (type == PackType.unknown) return;
 
-  OnCompletionJsonMolang(doc, cursor, receiver);
+  OnCompletionJsonMolang(context, cursor);
 
   switch (type) {
     case PackType.resource_pack:
-      return ResourcePack.ProvideCompletion(doc, receiver);
+      return ResourcePack.ProvideCompletion(context);
 
     default:
       break;
   }
 }
 
-function OnCompletionJsonMolang(doc: TextDocument, cursor: number, receiver: CompletionBuilder) {
+function OnCompletionJsonMolang(context: SimpleContext<CompletionBuilder>, cursor: number) {
+  const doc = context.doc;
+  const receiver = context.receiver;
   const text = doc.getText();
   const range = GetCurrentString(text, cursor);
 
@@ -49,10 +50,11 @@ function OnCompletionJsonMolang(doc: TextDocument, cursor: number, receiver: Com
 
   //Find all events
   if (data.startsWith("@s")) {
-    BehaviorPack.EntityEvent.ProvideCompletion(receiver);
+    BehaviorPack.EntityEvent.ProvideCompletion(context);
+    //Is it a command instead
   } else if (data.startsWith("/")) {
-    let temp = data.substring(1);
-    OnCompletionMcFunctionLine(temp, cursor, range.start + 1, doc, receiver);
+    Mcfunction.ProvideCompletionLine(context, data.substring(1), cursor, range.start + 1);
+    //Its probally molang
   } else {
     Molang.ProvideCompletion(data, cursor - range.start, { doc: doc, receiver: receiver });
   }

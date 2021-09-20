@@ -1,10 +1,12 @@
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
-import { Offset } from "../../../../Code/include";
+import { Offset, SimpleContext } from "../../../../Code/include";
 import { CompletionBuilder } from "../../../../Completion/include";
 import { General } from "../../../include";
 
-export function ProvideCompletion(receiver: CompletionBuilder, selector: OffsetWord, pos: number): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {
+  const receiver = context.receiver;
+
   if (Offset.IsWithin(selector, pos)) {
     receiver.Add("0", "test for the exact value of 0", CompletionItemKind.Value);
     receiver.Add("!0", "test for the exact value of everything but 0", CompletionItemKind.Value);
