@@ -1,7 +1,7 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
 import { URI } from "vscode-uri";
-import { GetFilepath, UniformFolder, UniformUrl } from "../Code/Url";
+import { GetFilepath, GetVscodeFilepath, UniformFolder, UniformUrl } from "../Code/Url";
 
 /**
  *
@@ -52,7 +52,7 @@ export namespace Glob {
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
 
-    return entries.map(GetFilepath);
+    return entries.map(GetVscodeFilepath);
   }
 
   /**Ensures the source is glob friendly

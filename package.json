@@ -148,6 +148,12 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Store project data",
+        "command": "bc.minecraft.project.store",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "Create MCProject files",
         "command": "bc.mcproject.create",
         "category": "Blockception",

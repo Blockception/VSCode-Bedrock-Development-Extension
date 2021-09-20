@@ -4,6 +4,9 @@
   "plugins": ["@typescript-eslint"],
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
   "rules": {
-    "camelcase": "error"
+    "camelcase": "error",
+    "no-restricted-modules": "off",
+    "allowDeclarations": true,
+    "allowDefinitionFiles": true
   }
 }

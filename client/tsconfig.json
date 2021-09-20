@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
     "esModuleInterop": true,
     "lib": ["ES2019"],
     "module": "commonjs",
@@ -13,7 +14,12 @@
     "rootDir": "src",
     "sourceMap": true,
     "strict": true,
-    "target": "es2019"
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "es2019",
+    "types": ["node", "mocha"]
   },
   "exclude": ["node_modules", ".vscode-test", "*.test.ts"],
   "include": ["src"],

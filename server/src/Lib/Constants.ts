@@ -32,6 +32,9 @@ export namespace Commands {
   export const ScanProjects: string = "bc.minecraft.project.scan";
 
   /** */
+  export const StoreProject: string = "bc.minecraft.project.store";
+
+  /** */
   export namespace Files {
     export const Append = "bc-files-append";
   }
