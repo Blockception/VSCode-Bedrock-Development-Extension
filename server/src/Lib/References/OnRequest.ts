@@ -11,7 +11,8 @@ export async function OnReferencesRequestAsync(params: ReferenceParams): Promise
 }
 
 function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {
-  let doc = GetDocument(params.textDocument.uri);
+  const doc = GetDocument(params.textDocument.uri);
+  if (!doc) return undefined;
 
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:

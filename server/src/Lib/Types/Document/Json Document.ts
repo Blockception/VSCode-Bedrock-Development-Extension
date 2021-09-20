@@ -3,6 +3,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import * as JSONC from "comment-json";
 import * as Code from "./Document";
 import { TextDocument } from "./TextDocument";
+import { HandleError } from "../../Code/Error";
 
 /**
  *
@@ -61,8 +62,7 @@ export class JsonDocument {
         this.object = object;
         //ValidJson(this.doc);
       } catch (error) {
-        console.error("Invalid Json: " + this.doc.uri + "\n + " + error);
-        //InvalidJson(this.doc, error);
+        HandleError(error, this.doc);
       }
     }
 
@@ -81,9 +81,7 @@ export class JsonDocument {
 
         //ValidJson(this.doc);
       } catch (error) {
-        console.error("Invalid Json: " + this.doc.uri + "\n + " + error);
-        //InvalidJson(this.doc, error);
-        err = error;
+        HandleError(error, this.doc);
       }
     }
 
@@ -212,9 +210,16 @@ function FindLocationReg(doc: TextDocument, search: RegExp): Position | undefine
  *
  */
 export namespace JsonDocument {
-  export function GetDocument(uri: string): JsonDocument {
-    let temp = Code.GetDocument(uri);
+  /**
+   *
+   * @param uri
+   * @returns
+   */
+  export function GetDocument(uri: string): JsonDocument | undefined {
+    const temp = Code.GetDocument(uri);
 
-    return new JsonDocument(temp);
+    if (temp) return new JsonDocument(temp);
+
+    return undefined;
   }
 }

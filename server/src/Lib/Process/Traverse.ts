@@ -1,4 +1,5 @@
 import { Pack } from "bc-minecraft-bedrock-project";
+import { HandleError } from "../Code/Error";
 import { Manager } from "../Manager/Manager";
 import { Workspace } from "../Workspace/Workspace";
 
@@ -16,7 +17,7 @@ export async function Traverse(): Promise<Pack[]> {
   });
 
   out.catch((err) => {
-    console.error(JSON.stringify(err));
+    HandleError(err);
   });
 
   return out;

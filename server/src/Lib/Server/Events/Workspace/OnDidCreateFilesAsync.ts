@@ -28,12 +28,14 @@ async function OnDidCreateFile(Item: FileCreate): Promise<void> {
   return new Promise((resolve, reject) => {
     const Doc = GetDocument(Item.uri);
 
-    let conf = Doc.getConfiguration();
+    if (Doc) {
+      let conf = Doc.getConfiguration();
 
-    if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores.patterns)) {
-      Process(Doc);
-    } else {
-      console.log(`Ignored: ` + Doc.uri);
+      if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores.patterns)) {
+        Process(Doc);
+      } else {
+        console.log(`Ignored: ` + Doc.uri);
+      }
     }
 
     resolve();

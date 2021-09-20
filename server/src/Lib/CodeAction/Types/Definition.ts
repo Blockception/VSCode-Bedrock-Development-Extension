@@ -15,6 +15,7 @@ import { CodeActionBuilder } from "../Builder";
  */
 export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: string): void {
   const doc = GetDocument(builder.params.textDocument.uri);
+  if (!doc) return;
 
   const value = doc.getText(diag.range);
   const ws = Database.WorkspaceData.getFolder(doc.uri);

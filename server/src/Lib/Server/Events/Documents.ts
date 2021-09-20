@@ -8,13 +8,16 @@ export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDoc
   return new Promise((resolve, reject) => {
     const doc = GetDocument(e.document.uri, e.document, e.document.languageId);
 
-    let conf = doc.getConfiguration();
+    if (doc) {
+      const conf = doc.getConfiguration();
 
-    if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(doc.uri, conf.ignores.patterns)) {
-      Process(doc);
-    } else {
-      console.log(`Ignored: ` + doc.uri);
+      if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(doc.uri, conf.ignores.patterns)) {
+        Process(doc);
+      } else {
+        console.log(`Ignored: ` + doc.uri);
+      }
     }
+
     resolve();
   });
 }

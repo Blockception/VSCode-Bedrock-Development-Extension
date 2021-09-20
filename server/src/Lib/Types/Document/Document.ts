@@ -7,14 +7,15 @@ import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
 import { GetFilepath } from "../../Code/include";
+import { HandleError } from "../../Code/Error";
 
 /**Returns an usable document interaction from the given data.
- *
  * @param uri The url to the document to retrieve.
  * @param Content The possible content of the document or interface to use
  * @param languageID The Language ID associated to the documentated.
+ * @returns Returns a textdocument or undefined if something went wrong
  */
-export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
+export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument | undefined {
   const Old = uri;
 
   if (languageID === "") {
@@ -34,7 +35,7 @@ export function GetDocument(uri: string, Content: string | vscode.TextDocument |
     }
 
     //We have tried all methods of retrieving data so far
-    return TextDocument.create(uri, languageID, 0, "");
+    return undefined;
   }
   //Content is provided
   else if (typeof Content === "string") {
@@ -76,8 +77,8 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
 
     try {
       if (doc) callback(doc);
-    } catch (err) {
-      console.error(GetFilename(doc.uri) + " | " + JSON.stringify(err));
+    } catch (error) {
+      HandleError(error, element);
     }
   }
 }
@@ -106,8 +107,8 @@ export function GetDocumentContent(uri: string): string | undefined {
     let content: string | undefined;
     try {
       content = fs.readFileSync(path, "utf8");
-    } catch (err) {
-      console.error("couldn't read: " + path + "\n\tError thrown" + JSON.stringify(err));
+    } catch (error) {
+      HandleError(error, uri);
     }
 
     return content;

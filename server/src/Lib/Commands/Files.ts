@@ -14,6 +14,8 @@ export namespace Files {
     if (!(uri && line)) return;
 
     const doc = GetDocument(uri);
+    if (!doc) return;
+
     const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
 
     const path = GetFilepath(doc.uri);

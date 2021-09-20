@@ -32,7 +32,8 @@ async function OnDidRenameFile(Item: FileRename): Promise<void> {
 
     //Update new one
     const Doc = GetDocument(Item.newUri);
-    Process(Doc);
+    if (Doc) Process(Doc);
+
     resolve();
   });
 }

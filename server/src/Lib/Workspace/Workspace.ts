@@ -2,6 +2,7 @@ import { BehaviorPack, Pack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import path from "path";
 import { WorkspaceFolder } from "vscode-languageserver";
+import { HandleError } from "../Code/Error";
 import { UniformFolder } from "../Code/Url";
 import { Database } from "../Database/include";
 import { Manager } from "../Manager/Manager";
@@ -19,7 +20,10 @@ export namespace Workspace {
   export async function GetWorkSpaces(): Promise<WorkspaceFolder[]> {
     const WS = Manager.Connection.workspace.getWorkspaceFolders();
 
-    WS.catch((item) => console.error(`No workspaces folders received: ${JSON.stringify(item)}`));
+    WS.catch((err) => {
+      console.error(`No workspaces folders received`);
+      HandleError(err);
+    });
 
     return WS.then((ws) => {
       if (ws == null) {
@@ -109,6 +113,6 @@ export namespace Workspace {
       files = MinecraftFormat.GetPackFiles(folder, ignores);
     }
 
-    Document.ForEachDocument(files, pack.process);
+    Document.ForEachDocument(files, (doc) => pack.process(doc));
   }
 }

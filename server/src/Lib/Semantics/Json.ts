@@ -7,7 +7,7 @@ import { TextDocument } from "../Types/Document/TextDocument";
 import { JsonSemanticTokensBuilder } from "./Builders/JsonSemanticTokensBuilder";
 import { McfunctionSemanticTokensBuilder } from "./Builders/McfunctionSemanticTokensBuilder";
 import { SemanticTokensEnum } from "./Legend";
-import { McfunctionLineTokens } from "./Mcfunctions";
+import { McfunctionLineTokens } from "../Minecraft/Mcfunction/Semantics";
 import { ConvertWords } from "./Molang";
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {

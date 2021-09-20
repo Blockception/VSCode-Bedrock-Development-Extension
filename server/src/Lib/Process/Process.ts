@@ -1,8 +1,7 @@
-import { GetFilename } from "../Code/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { Database } from "../Database/include";
 import { Manager } from "../Manager/Manager";
-import { DH_NOT_SUITABLE_GENERATOR } from "constants";
+import { HandleError } from "../Code/Error";
 
 //Process the given document
 export function Process(document: TextDocument): void {
@@ -13,7 +12,7 @@ export function Process(document: TextDocument): void {
     if (Manager.State.TraversingProject == false && Manager.State.DataGathered) {
       Database.Diagnoser.Process(document);
     }
-  } catch (err) {
-    console.error(GetFilename(document.uri) + " | " + JSON.stringify(err));
+  } catch (error) {
+    HandleError(error, document);
   }
 }

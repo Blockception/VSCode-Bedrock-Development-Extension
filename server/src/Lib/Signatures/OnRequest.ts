@@ -14,6 +14,7 @@ export async function OnSignatureRequestAsync(params: SignatureHelpParams): Prom
 function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
   const pos = params.position;
   const doc = GetDocument(params.textDocument.uri);
+  if (!doc) return undefined;
 
   //Switch per language type
   switch (doc.languageId) {

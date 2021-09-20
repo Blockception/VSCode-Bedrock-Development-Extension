@@ -5,6 +5,7 @@ import { Files } from "./Files";
 import { CreateMCProject } from "../Project/MCProjects";
 import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
+import { HandleError } from "../Code/Error";
 
 /**
  *
@@ -46,8 +47,7 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
         }
     }
   } catch (error) {
-    const data = JSON.stringify(error);
-    console.error(data);
+    HandleError(error);
   }
 
   return undefined;

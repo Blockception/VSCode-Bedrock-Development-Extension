@@ -9,9 +9,9 @@ import { SimpleContext } from "../Code/SimpleContext";
  * @param params
  * @returns
  */
-export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[]> {
+export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[] | CompletionList | undefined> {
   return new Promise((resolve, reject) => {
-    resolve(OnCompletionRequest(params).items);
+    resolve(OnCompletionRequest(params));
   });
 }
 
@@ -20,7 +20,7 @@ export async function OnCompletionRequestAsync(params: CompletionParams): Promis
  * @param params
  * @returns
  */
-export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem> {
+export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem | undefined> {
   return new Promise<CompletionItem>((resolve, reject) => resolve(params));
 }
 
@@ -28,8 +28,10 @@ export async function OnCompletionResolveRequestAsync(params: CompletionItem): P
  * @param params
  * @returns
  */
-function OnCompletionRequest(params: CompletionParams): CompletionList {
+function OnCompletionRequest(params: CompletionParams): CompletionList | undefined {
   const doc = GetDocument(params.textDocument.uri);
+  if (!doc) return undefined;
+
   const builder = new CompletionBuilder();
   const pos = params.position;
   const context = SimpleContext.create(doc, builder);
