@@ -1,8 +1,10 @@
 import { CompletionItemKind } from "vscode-languageserver";
+import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from "./Constants";
 
-export function ProvideCompletion(receiver: CompletionBuilder): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  const receiver = context.receiver;
   receiver.Add("Json Item Components Example", Example, CompletionItemKind.Snippet, Example);
   receiver.Add("Can destroy component", CanDestroyComponent, CompletionItemKind.Snippet, CanDestroyComponent);
   receiver.Add("Can place on component", CanPlaceOnComponent, CompletionItemKind.Snippet, CanPlaceOnComponent);
