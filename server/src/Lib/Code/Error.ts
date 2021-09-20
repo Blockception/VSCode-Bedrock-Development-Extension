@@ -14,7 +14,7 @@ export function HandleError(error: any, doc: TextDocument | string | undefined =
     msg = GetFilename(typeof doc === "object" ? doc.uri : doc) + " | " + msg;
   }
 
-  console.error;
+  console.error(msg);
 }
 
 interface errormsg {

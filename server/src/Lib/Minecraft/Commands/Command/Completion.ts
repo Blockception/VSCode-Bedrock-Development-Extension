@@ -1,7 +1,6 @@
 import { Data } from "bc-minecraft-bedrock-command";
 import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/include";
 import { Map } from "bc-minecraft-bedrock-project";
-import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/include";
 import { IsEducationEnabled } from "../../../Project/include";
@@ -28,5 +27,6 @@ function GetCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
     const CInfo = Data[I];
 
     receiver.Add(CInfo.name, CInfo.documentation, Kinds.Completion.Command);
+    break;
   }
 }

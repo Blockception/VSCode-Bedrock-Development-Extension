@@ -71,7 +71,9 @@ export function ProvideCompletionCommand(context: SimpleContext<CompletionBuilde
     return;
   }
 
-  const ParameterIndex = command.parameters.findIndex((p) => p.offset <= pos && p.offset + p.text.length >= pos);
+  let ParameterIndex: number = command.findCursorIndex(pos);
+  if (ParameterIndex < 0) ParameterIndex = 0;
+
   const Current = command.parameters[ParameterIndex];
 
   for (let I = 0; I < Matches.length; I++) {

@@ -5,9 +5,19 @@ import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-langua
  *
  */
 export class CompletionBuilder {
+  /**
+   *
+   */
   public items: CompletionItem[];
+
+  /**
+   *
+   */
   public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
 
+  /**
+   *
+   */
   constructor() {
     this.items = [];
     this.OnNewItem = undefined;
