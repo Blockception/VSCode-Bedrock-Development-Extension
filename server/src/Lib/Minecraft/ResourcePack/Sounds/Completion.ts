@@ -6,11 +6,22 @@ import { MinecraftFormat } from "../../include";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../../General/Kinds";
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { IsEducationEnabled } from "../../../Project/Attributes";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.sounds, generateDoc, Kinds.Completion.RenderController);
+  context.receiver.Generate(Database.ProjectData.ResourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
+
+  //Generate for vanilla data
+  const generateV = (item: string) => `The vanilla sound: ${item}`;
+
+  //Vanilla data
+  context.receiver.GenerateStr(MinecraftData.vanilla.ResourcePack.sounds, generateV, Kinds.Completion.Sound);
+
+  //Education data
+  if (IsEducationEnabled(context.doc)) context.receiver.GenerateStr(MinecraftData.edu.ResourcePack.sounds, generateV, Kinds.Completion.Sound);
 }
 
 /**Looks for all the sound files in the given pack and returns them as completion text

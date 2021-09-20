@@ -18,6 +18,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   if (IsEducationEnabled(context.doc)) context.receiver.Generate(MinecraftData.edu.BehaviorPack.entities, generateDoc, Kinds.Completion.Entity);
 }
 
+//TODO move to entity Event
 export function ProvideEventCompletion(context: SimpleContext<CompletionBuilder>): void {
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity event definition: ${item} from: ${entity.id}`;
@@ -40,6 +41,7 @@ export function ProvideEventCompletion(context: SimpleContext<CompletionBuilder>
     });
 }
 
+//TODO move to family
 export function ProvideFamilyCompletion(context: SimpleContext<CompletionBuilder>): void {
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
