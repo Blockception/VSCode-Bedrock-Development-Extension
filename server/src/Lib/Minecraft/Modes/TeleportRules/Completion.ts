@@ -8,5 +8,5 @@ import { ProvideModeCompletion } from "../Completion";
  * @param context
  */
 export function ProvideCompletion(context: CommandCompletionContext): void {
-  ProvideModeCompletion(Modes.TeleportRules, context.receiver, CompletionItemKind.Operator);
+  ProvideModeCompletion(Modes.TeleportRules, context, CompletionItemKind.Operator);
 }

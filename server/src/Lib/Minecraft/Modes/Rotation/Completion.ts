@@ -1,12 +1,13 @@
 import { Modes } from "bc-minecraft-bedrock-types";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { SimpleContext } from "../../../Code/SimpleContext";
+import { CompletionBuilder } from "../../../Completion/Builder";
 import { ProvideModeCompletion } from "../Completion";
 
 /**
  *
  * @param context
  */
-export function ProvideCompletion(context: CommandCompletionContext): void {
-  ProvideModeCompletion(Modes.Rotation, context.receiver, CompletionItemKind.Operator);
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  ProvideModeCompletion(Modes.Rotation, context, CompletionItemKind.Operator);
 }

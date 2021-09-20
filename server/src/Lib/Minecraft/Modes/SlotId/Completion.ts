@@ -1,6 +1,6 @@
 import { Modes } from "bc-minecraft-bedrock-types";
 import { SlotTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SlotType";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { CommandCompletionContext } from "../../../Completion/Context";
 import { General } from "../../include";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {

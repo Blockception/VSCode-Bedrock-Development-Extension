@@ -1,5 +1,6 @@
 import { ModeCollection } from "bc-minecraft-bedrock-types/lib/src/Modes/ModeCollection";
 import { CompletionItemKind } from "vscode-languageserver";
+import { SimpleContext } from "../../Code/include";
 import { CompletionBuilder } from "../../Completion/Builder";
 
 /**
@@ -8,12 +9,12 @@ import { CompletionBuilder } from "../../Completion/Builder";
  * @param receiver
  * @param kind
  */
-export function ProvideModeCompletion(Mode: ModeCollection, receiver: CompletionBuilder, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
+export function ProvideModeCompletion(Mode: ModeCollection, context: SimpleContext<CompletionBuilder>, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
   const Modes = Mode.modes;
   for (let I = 0; I < Modes.length; I++) {
     const Element = Modes[I];
 
-    receiver.Add(Element.name, Element.documentation, kind);
+    context.receiver.Add(Element.name, Element.documentation, kind);
   }
 }
 
@@ -23,12 +24,12 @@ export function ProvideModeCompletion(Mode: ModeCollection, receiver: Completion
  * @param receiver
  * @param kind
  */
-export function ProvideModeTestCompletion(Mode: ModeCollection, receiver: CompletionBuilder, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
+export function ProvideModeTestCompletion(Mode: ModeCollection, context: SimpleContext<CompletionBuilder>, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
   const Modes = Mode.modes;
   for (let I = 0; I < Modes.length; I++) {
     let Element = Modes[I];
 
-    receiver.Add(Element.name, Element.documentation, kind);
-    receiver.Add("!" + Element.name, Element.documentation, kind);
+    context.receiver.Add(Element.name, Element.documentation, kind);
+    context.receiver.Add("!" + Element.name, Element.documentation, kind);
   }
 }

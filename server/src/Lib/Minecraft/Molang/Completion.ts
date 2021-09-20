@@ -15,7 +15,7 @@ import { GetPreviousWord, IsMolang, Variables } from "./include";
  * @param receiver
  * @returns
  */
-export function OnCompletionMolang(line: string, cursor: number, context: SimpleContext<CompletionBuilder>): void {
+export function ProvideCompletion(line: string, cursor: number, context: SimpleContext<CompletionBuilder>): void {
   const Word = GetPreviousWord(line, cursor).toLowerCase();
   const Edu = IsEducationEnabled(context.doc);
 
@@ -88,6 +88,12 @@ export function OnCompletionMolang(line: string, cursor: number, context: Simple
 
 type functioncall = (context: SimpleContext<CompletionBuilder>) => void;
 
+/**
+ *
+ * @param RP
+ * @param BP
+ * @param context
+ */
 function PrefixedData(RP: functioncall, BP: functioncall, context: SimpleContext<CompletionBuilder>): void {
   const type = PackType.detect(context.doc.uri);
 
@@ -114,6 +120,11 @@ function PrefixedData(RP: functioncall, BP: functioncall, context: SimpleContext
   context.receiver.OnNewItem = old_OnNewItem;
 }
 
+/**
+ *
+ * @param id
+ * @returns
+ */
 function IDRemoveFirst(id: string): string {
   const index = id.indexOf(".");
 

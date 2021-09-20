@@ -4,5 +4,5 @@ import { CommandCompletionContext } from "../../../Completion/Context";
 import { ProvideModeCompletion } from "../Completion";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
-  ProvideModeCompletion(Modes.StructureAnimation, context.receiver, CompletionItemKind.Operator);
+  ProvideModeCompletion(Modes.StructureAnimation, context, CompletionItemKind.Operator);
 }

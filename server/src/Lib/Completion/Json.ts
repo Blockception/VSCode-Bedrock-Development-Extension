@@ -1,10 +1,9 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
-import { ResourcePack } from "../Minecraft/include";
+import { BehaviorPack, Molang, ResourcePack } from "../Minecraft/include";
 import { GetCurrentString } from "../Types/Document/Json Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
-import { Molang } from "./include";
 import { OnCompletionMcFunctionLine } from "./Mcfunction";
 
 export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: CompletionBuilder): void {
@@ -30,6 +29,7 @@ function OnCompletionJsonMolang(doc: TextDocument, cursor: number, receiver: Com
   //If start has not been found or not a property
   if (range == undefined) return;
 
+  //Prepare data to be fixed for json
   const data = text.substring(range.start, range.end);
   const insertIndex = cursor - range.start;
   const first = '"' + data.substring(0, insertIndex);
@@ -49,13 +49,12 @@ function OnCompletionJsonMolang(doc: TextDocument, cursor: number, receiver: Com
 
   //Find all events
   if (data.startsWith("@s")) {
-    Molang.OnCompletionEntityEvents(receiver);
+    BehaviorPack.EntityEvent.ProvideCompletion(receiver);
   } else if (data.startsWith("/")) {
     let temp = data.substring(1);
     OnCompletionMcFunctionLine(temp, cursor, range.start + 1, doc, receiver);
   } else {
-    Molang;
-    OnCompletionMolang(data, cursor - range.start, doc, receiver);
+    Molang.ProvideCompletion(data, cursor - range.start, { doc: doc, receiver: receiver });
   }
 
   receiver.OnNewItem = Function;
