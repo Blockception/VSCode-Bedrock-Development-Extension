@@ -121,6 +121,13 @@ export function UniformFolder(folder: string): string {
 export function UniformFs(uri: string): string {
   uri = uri.replace("%3A", ":");
   uri = path.normalize(uri);
+
+  if (path.sep === "\\") {
+    uri = uri.replace(/\//gi, path.sep);
+  } else {
+    uri = uri.replace(/\\/gi, path.sep);
+  }
+
   const temp = URI.parse(uri, false);
   uri = temp.fsPath;
 
