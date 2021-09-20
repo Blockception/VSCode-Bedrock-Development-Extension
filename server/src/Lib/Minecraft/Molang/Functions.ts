@@ -1,4 +1,7 @@
-import { Character } from "../Code/include";
+import { Character } from "../../Code/include";
+
+const MolangRegexp = /(([Qq]uery|[Mm]ath|[Vv]ariable|[Tt]exture|[tT]emp|[Gg]eometry|[Mm]aterial|[Aa]rray|\bc|\bq|\bv|\bt)\.[A-Za-z_]+|->|\bthis\b)/;
+const MolangCommandRegexp = /^\/[a-z]+ /;
 
 /**
  *
@@ -9,19 +12,13 @@ export function IsMolang(text: string): boolean {
   if (text.startsWith("@s")) return true;
 
   if (text.startsWith("/")) {
-    let matches = text.match(/^\/[a-z]+ /);
-
-    if (matches) return true;
+    if (MolangCommandRegexp.test(text)) return true;
 
     return false;
   }
 
   //general test
-  let matches = text.match(/(([Qq]uery|[Mm]ath|[Vv]ariable|[Tt]exture|[tT]emp|[Gg]eometry|[Mm]aterial|[Aa]rray|\bc|\bq|\bv|\bt)\.[A-Za-z_]+|->|\bthis\b)/);
-
-  if (matches) return true;
-
-  return false;
+  return MolangRegexp.test(text);
 }
 
 /**

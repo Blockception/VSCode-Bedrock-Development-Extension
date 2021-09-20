@@ -58,14 +58,14 @@ export function OnCompletionMcFunctionLine(text: string, cursor: number, offset:
  */
 export function ProvideCompletion(pos: number, receiver: CompletionBuilder, command: Command, doc: TextDocument): void {
   if (command == undefined || command.parameters.length == 0 || pos < command.parameters[0].offset + 3) {
-    Commands.Command.ProvideCompletion(receiver);
+    Commands.Command.ProvideCompletion({ receiver: receiver, doc: doc });
     return;
   }
 
   const Matches = command.getCommandData(IsEducationEnabled(doc));
 
   if (Matches.length === 0) {
-    if (pos < 10) Commands.Command.ProvideCompletion(receiver);
+    if (pos < 10) Commands.Command.ProvideCompletion({ receiver: receiver, doc: doc });
 
     return;
   }

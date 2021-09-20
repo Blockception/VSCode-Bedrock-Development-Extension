@@ -1,7 +1,7 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
-import { IsMolang } from "../Molang/Functions";
+import { IsMolang } from "../Minecraft/Molang/Functions";
 import { CreateMolangWords } from "../Molang/Words";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { JsonSemanticTokensBuilder } from "./Builders/JsonSemanticTokensBuilder";
