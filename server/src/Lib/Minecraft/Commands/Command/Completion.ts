@@ -1,5 +1,6 @@
 import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/include";
 import { CompletionItemKind } from "vscode-languageserver";
+import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/include";
 import { IsEducationEnabled } from "../../../Project/include";
 
@@ -7,8 +8,8 @@ import { IsEducationEnabled } from "../../../Project/include";
  *
  * @param receiver
  */
-export function ProvideCompletion(receiver: CompletionBuilder): void {
-  const edu = IsEducationEnabled(receiver.doc);
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  const edu = IsEducationEnabled(context.doc);
 
   //TODO redo
 

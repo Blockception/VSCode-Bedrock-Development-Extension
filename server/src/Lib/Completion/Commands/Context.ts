@@ -20,11 +20,7 @@ export interface CommandCompletionContext extends SimpleContext<CompletionBuilde
   /** */
   cursor: number;
   /** */
-  receiver: CompletionBuilder;
-  /** */
   current: Parameter | undefined;
-  /** */
-  doc: TextDocument;
 }
 
 /**

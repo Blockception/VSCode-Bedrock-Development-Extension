@@ -1,35 +1,75 @@
 import { ParameterType } from "bc-minecraft-bedrock-command/lib/src/Lib/Types/include";
 import { CompletionItemKind } from "vscode-languageserver";
+import { SimpleContext } from "../../../Code/SimpleContext";
+import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Commands/context";
-import {
-  Block,
-  BlockStates,
-  Boolean,
-  Coordinate,
-  Effect,
-  Entity,
-  EntityEvent,
-  Float,
-  Functions,
-  Integer,
-  Item,
-  Objectives,
-  Selector,
-  Slot_id,
-  Slot_type,
-  Sound,
-  Tag,
-  Tickingarea,
-  Xp,
-} from "../../General/include";
-import { Modes } from "../../include";
-import { ItemComponents, RawText } from "../../Json/include";
-import { Command } from "../include";
+import { BehaviorPack, Commands, General, Json, Modes, ResourcePack } from "../../include";
 
 function toCompletion(context: CommandCompletionContext): void {
   let Parameter = context.parameter;
   context.receiver.Add(Parameter.text, "keyword", CompletionItemKind.Keyword);
 }
+
+type functioncall = ((context: SimpleContext<CompletionBuilder>) => void) | ((context: CommandCompletionContext) => void);
+
+const DataMap: { [index: number]: functioncall } = {
+  //BehaviorPacks
+  [ParameterType.block]: BehaviorPack.Block.ProvideCompletion,
+  [ParameterType.blockStates]: BehaviorPack.BlockStates.ProvideCompletion,
+  [ParameterType.entity]: BehaviorPack.Entities.ProvideCompletion,
+  [ParameterType.event]: BehaviorPack.EntityEvent.ProvideCompletion,
+
+  //ResourcePacks
+  [ParameterType.animation]: ResourcePack.Animations.ProvideCompletion,
+
+  //General
+  [ParameterType.boolean]: General.Boolean.ProvideCompletion,
+
+  //Json
+
+  //Modes
+  [ParameterType.cameraShakeType]: Modes.CameraShake.ProvideCompletion,
+  [ParameterType.cloneMode]: Modes.Clone.ProvideCompletion,
+  [ParameterType.replaceMode]: Modes.Replace.ProvideCompletion,
+  [ParameterType.rideRules]: Modes.RideRules.ProvideCompletion,
+  [ParameterType.ridefillMode]: Modes.RideFill.ProvideCompletion,
+  [ParameterType.rotation]: Modes.Rotation.ProvideCompletion,
+  [ParameterType.saveMode]: Modes.Save.ProvideCompletion,
+  [ParameterType.slotType]: Modes.SlotType.ProvideCompletion,
+  [ParameterType.slotID]: Modes.SlotId.ProvideCompletion,
+
+  //Commands
+  [ParameterType.command]: Commands.Command.ProvideCompletion,
+  [ParameterType.coordinate]: General.Coordinate.ProvideCompletion,
+  [ParameterType.difficulty]: Modes.Difficulty.ProvideCompletion,
+  [ParameterType.effect]: General.Effect.ProvideCompletion,
+  [ParameterType.fillMode]: Modes.Fill.ProvideCompletion,
+  [ParameterType.function]: BehaviorPack.Functions.ProvideCompletion,
+  [ParameterType.float]: General.Float.ProvideCompletion,
+  [ParameterType.gamemode]: Modes.Gamemode.ProvideCompletion,
+  [ParameterType.integer]: General.Integer.ProvideCompletion,
+  [ParameterType.item]: BehaviorPack.Items.ProvideCompletion,
+  [ParameterType.jsonItem]: Json.ItemComponents.ProvideCompletion,
+  [ParameterType.jsonRawText]: Json.RawText.ProvideCompletion,
+  [ParameterType.keyword]: toCompletion,
+  [ParameterType.locateFeature]: Modes.LocateFeature.ProvideCompletion,
+  [ParameterType.maskMode]: Modes.Mask.ProvideCompletion,
+  [ParameterType.mirror]: Modes.Mirror.ProvideCompletion,
+  [ParameterType.musicRepeatMode]: Modes.MusicRepeat.ProvideCompletion,
+  [ParameterType.objective]: General.Objectives.ProvideCompletion,
+  [ParameterType.oldBlockMode]: Modes.OldBlock.ProvideCompletion,
+  [ParameterType.operation]: Modes.Operation.ProvideCompletion,
+  [ParameterType.particle]: ResourcePack.Particles.ProvideCompletion,
+  [ParameterType.selector]: General.Selector.Completion.ProvideCompletion,
+  [ParameterType.sound]: ResourcePack.Sounds.ProvideCompletion,
+  [ParameterType.string]: General.String.ProvideCompletion,
+  [ParameterType.structureAnimationMode]: Modes.StructureAnimation.ProvideCompletion,
+  [ParameterType.tag]: General.Tag.ProvideCompletion,
+  [ParameterType.teleportRules]: Modes.TeleportRules.ProvideCompletion,
+  [ParameterType.tickingarea]: General.Tickingarea.ProvideCompletion,
+  [ParameterType.unknown]: (context: SimpleContext<CompletionBuilder>) => {},
+  [ParameterType.xp]: General.Xp.ProvideCompletion,
+};
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
   let Parameter = context.parameter;
@@ -49,140 +89,6 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     }
   }
 
-  switch (Parameter.type) {
-    case ParameterType.block:
-      return Block.ProvideCompletion(context);
-
-    case ParameterType.blockStates:
-      return BlockStates.ProvideCompletion(context);
-
-    case ParameterType.boolean:
-      return Boolean.ProvideCompletion(context);
-
-    case ParameterType.cameraShakeType:
-      return Modes.CameraShake.ProvideCompletion(context);
-
-    case ParameterType.cloneMode:
-      return Modes.Clone.ProvideCompletion(context);
-
-    case ParameterType.command:
-      return Command.ProvideCompletion(context.receiver);
-
-    case ParameterType.coordinate:
-      return Coordinate.ProvideCompletion(context);
-
-    case ParameterType.difficulty:
-      return Modes.Difficulty.ProvideCompletion(context);
-
-    case ParameterType.effect:
-      return Effect.ProvideCompletion(context);
-
-    case ParameterType.entity:
-      return Entity.ProvideCompletion(context);
-
-    case ParameterType.event:
-      return EntityEvent.ProvideCompletion(context);
-
-    case ParameterType.float:
-      return Float.ProvideCompletion(context);
-
-    case ParameterType.fillMode:
-      return Modes.Fill.ProvideCompletion(context);
-
-    case ParameterType.function:
-      return Functions.ProvideCompletion(context);
-
-    case ParameterType.gamemode:
-      return Modes.Gamemode.ProvideCompletion(context);
-
-    case ParameterType.integer:
-      return Integer.ProvideCompletion(context);
-
-    case ParameterType.item:
-      return Item.ProvideCompletion(context);
-
-    case ParameterType.jsonItem:
-      return ItemComponents.ProvideCompletion(context.receiver);
-
-    case ParameterType.jsonRawText:
-      return RawText.ProvideCompletion(context.receiver);
-
-    case ParameterType.keyword:
-      return toCompletion(context);
-
-    case ParameterType.locateFeature:
-      return Modes.LocateFeature.ProvideCompletion(context);
-
-    case ParameterType.maskMode:
-      return Modes.Mask.ProvideCompletion(context);
-
-    case ParameterType.mirror:
-      return Modes.Mirror.ProvideCompletion(context);
-
-    case ParameterType.musicRepeatMode:
-      return Modes.MusicRepeat.ProvideCompletion(context);
-
-    case ParameterType.oldBlockMode:
-      return Modes.OldBlock.ProvideCompletion(context);
-
-    case ParameterType.objective:
-      return Objectives.ProvideCompletion(context);
-
-    case ParameterType.operation:
-      return Modes.Operation.ProvideCompletion(context);
-
-    case ParameterType.particle:
-      //TODO redo
-      return undefined /*Particle.ProvideCompletion(context)*/;
-
-    case ParameterType.replaceMode:
-      return Modes.Replace.ProvideCompletion(context);
-
-    case ParameterType.rideRules:
-      return Modes.RideRules.ProvideCompletion(context);
-
-    case ParameterType.ridefillMode:
-      return Modes.RideFill.ProvideCompletion(context);
-
-    case ParameterType.rotation:
-      return Modes.Rotation.ProvideCompletion(context);
-
-    case ParameterType.saveMode:
-      return Modes.Save.ProvideCompletion(context);
-
-    case ParameterType.selector:
-      return Selector.Completion.ProvideCompletion(context);
-
-    case ParameterType.slotID:
-      return Slot_id.ProvideCompletion(context);
-
-    case ParameterType.slotType:
-      return Slot_type.ProvideCompletion(context);
-
-    case ParameterType.sound:
-      return Sound.ProvideCompletion(context);
-
-    case ParameterType.string:
-      context.receiver.Add('""', "The start of a string", CompletionItemKind.Constant);
-      return;
-
-    case ParameterType.structureAnimationMode:
-      return Modes.StructureAnimation.ProvideCompletion(context);
-
-    case ParameterType.tag:
-      return Tag.ProvideCompletion(context);
-
-    case ParameterType.teleportRules:
-      return Modes.TeleportRules.ProvideCompletion(context);
-
-    case ParameterType.tickingarea:
-      return Tickingarea.ProvideCompletion(context);
-
-    case ParameterType.xp:
-      return Xp.ProvideCompletion(context);
-
-    default:
-    case ParameterType.unknown:
-      return;
-  }
+  const call = DataMap[context.parameter.type];
+  if (call) call(context);
 }

@@ -15,6 +15,8 @@ export * as RideFill from "./RideFill/include";
 export * as RideRules from "./RideRules/include";
 export * as Rotation from "./Rotation/include";
 export * as Save from "./Save/include";
+export * as SlotType from "./SlotType/include";
+export * as SlotId from "./SlotId/include";
 export * as StructureAnimation from "./StructureAnimation/include";
 export * as TeleportRules from "./TeleportRules/include";
 export * from "./Completion";
