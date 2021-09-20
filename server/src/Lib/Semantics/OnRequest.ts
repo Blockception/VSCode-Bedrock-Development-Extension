@@ -5,7 +5,7 @@ import { GetFilename } from "../Code/include";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
 import { ProvideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
-import { ProvideMolangSemanticTokens } from "./Molang";
+import { ProvideMolangSemanticTokens } from "../Minecraft/Molang/Semantics";
 import { Mcfunction } from "../Minecraft/include";
 import { Console } from "../Manager/Console";
 

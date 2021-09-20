@@ -3,6 +3,11 @@ import { Range } from "vscode-languageserver-types";
 import { McfunctionSemanticTokensBuilder } from "./Builders/include";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
+/**
+ *
+ * @param Word
+ * @param Builder
+ */
 export function CreateRangeTokensWord(Word: LocationWord | RangedWord | OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
   if (OffsetWord.is(Word)) {
     Word = new RangedWord(Word.text, Range.create(Builder.doc.positionAt(Word.offset), Builder.doc.positionAt(Word.offset + Word.text.length)));
@@ -13,6 +18,12 @@ export function CreateRangeTokensWord(Word: LocationWord | RangedWord | OffsetWo
   CreateRangeTokens(Word, Builder);
 }
 
+/**
+ *
+ * @param Word
+ * @param Builder
+ * @returns
+ */
 export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticTokensBuilder): void {
   let value = Word.text;
   let start = Word.range.start.character;
@@ -52,6 +63,11 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
   }
 }
 
+/**
+ *
+ * @param Word
+ * @param Builder
+ */
 export function CreateNamespaced(Word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
   let Index = Word.text.indexOf(":");
 
@@ -61,7 +77,7 @@ export function CreateNamespaced(Word: OffsetWord, Builder: McfunctionSemanticTo
     //namespace
     Builder.Add(Word.offset, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
     //Value
-    Builder.Add(Index + 1, Word.offset + Word.text.length, SemanticTokensEnum.class, SemanticModifiersEnum.static);
+    Builder.Add(Index + 1, Word.offset + Word.text.length, SemanticTokensEnum.method, SemanticModifiersEnum.static);
   } else {
     Builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
   }

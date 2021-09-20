@@ -3,11 +3,11 @@ import { Selector } from "bc-minecraft-bedrock-types/lib/src/Minecraft/Selector"
 import { OffsetWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
-import { CreateMolangWords } from "../Minecraft/Molang/Words";
-import { TextDocument } from "../Types/Document/TextDocument";
-import { JsonSemanticTokensBuilder } from "./Builders/JsonSemanticTokensBuilder";
-import { MolangSemanticTokensBuilder } from "./Builders/MolangSemanticTokensBuilder";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
+import { CreateMolangWords } from "./Words";
+import { TextDocument } from "../../Types/Document/TextDocument";
+import { JsonSemanticTokensBuilder } from "../../Semantics/Builders/JsonSemanticTokensBuilder";
+import { MolangSemanticTokensBuilder } from "../../Semantics/Builders/MolangSemanticTokensBuilder";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Semantics/Legend";
 
 /**
  *

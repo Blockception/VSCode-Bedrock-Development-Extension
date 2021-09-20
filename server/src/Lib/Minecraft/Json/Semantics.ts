@@ -8,7 +8,7 @@ import { JsonSemanticTokensBuilder } from "../../Semantics/Builders/JsonSemantic
 import { McfunctionSemanticTokensBuilder } from "../../Semantics/Builders/McfunctionSemanticTokensBuilder";
 import { SemanticTokensEnum } from "../../Semantics/Legend";
 import { McfunctionLineTokens } from "../Mcfunction/Semantics";
-import { ConvertWords } from "../../Semantics/Molang";
+import { ConvertWords } from "../Molang/Semantics";
 
 export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Type = PackType.detect(doc.uri);
