@@ -1,8 +1,11 @@
+import { Data } from "bc-minecraft-bedrock-command";
 import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/include";
+import { Map } from "bc-minecraft-bedrock-project";
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/include";
 import { IsEducationEnabled } from "../../../Project/include";
+import { Kinds } from "../../General/Kinds";
 
 /**
  *
@@ -11,10 +14,8 @@ import { IsEducationEnabled } from "../../../Project/include";
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const edu = IsEducationEnabled(context.doc);
 
-  //TODO redo
-
-  /**GetCompletion(Manager.Data.Vanilla.Commands.Subset, receiver);
-  if (edu) GetCompletion(Manager.Data.Edu.Commands.Subset, receiver);**/
+  Map.forEach(Data.Vanilla, (data) => GetCompletion(data, context.receiver));
+  if (edu) Map.forEach(Data.Edu, (data) => GetCompletion(data, context.receiver));
 }
 
 /**
@@ -22,22 +23,10 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
  * @param Datas
  * @param receiver
  */
-function GetCompletion(Data: Map<string, CommandInfo[]>, receiver: CompletionBuilder) {
-  for (let [key, value] of Data) {
-    let documentation: string = "The command: " + key;
+function GetCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
+  for (var I = 0; I < Data.length; I++) {
+    const CInfo = Data[I];
 
-    const Limit = value.length;
-
-    if (Limit > 7) {
-      documentation += "\n- " + value[0].documentation;
-    } else {
-      for (let I = 0; I < Limit; I++) {
-        const Line = "\n- " + value[I].documentation;
-
-        if (!documentation.includes(Line)) documentation += Line;
-      }
-    }
-
-    receiver.Add(key, documentation, CompletionItemKind.Class);
+    receiver.Add(CInfo.name, CInfo.documentation, Kinds.Completion.Command);
   }
 }

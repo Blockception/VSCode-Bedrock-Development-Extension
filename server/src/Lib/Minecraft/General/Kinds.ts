@@ -74,6 +74,7 @@ export namespace Kinds {
     //Types
     export const Boolean: CompletionItemKind = CompletionItemKind.Constant;
     export const Coordinate: CompletionItemKind = CompletionItemKind.Constant;
+    export const Command: CompletionItemKind = CompletionItemKind.Class;
     export const Float: CompletionItemKind = CompletionItemKind.Constant;
     export const Integer: CompletionItemKind = CompletionItemKind.Constant;
     export const Selector: CompletionItemKind = CompletionItemKind.TypeParameter;
