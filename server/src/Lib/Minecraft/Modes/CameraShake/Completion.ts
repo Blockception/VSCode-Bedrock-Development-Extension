@@ -9,5 +9,5 @@ import { ProvideModeCompletion } from "../Completion";
  * @param context
  */
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  ProvideModeCompletion(Modes.CameraShake, context.receiver, CompletionItemKind.Operator);
+  ProvideModeCompletion(Modes.CameraShake, context, CompletionItemKind.Operator);
 }

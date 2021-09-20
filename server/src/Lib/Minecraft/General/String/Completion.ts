@@ -1,8 +1,7 @@
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { SimpleContext } from "../../../Code/SimpleContext";
+import { CompletionBuilder } from "../../../Completion/Builder";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
-  let receiver = context.receiver;
-
-  receiver.Add('"', "The start of the string", CompletionItemKind.Constant);
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  context.receiver.Add('"', "The start of the string", CompletionItemKind.Constant);
 }

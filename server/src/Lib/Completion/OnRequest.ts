@@ -6,7 +6,7 @@ import { CompletionBuilder } from "./Builder";
 import { OnCompletionJson } from "./Json";
 import { OnCompletionLanguage } from "./Language";
 import { OnCompletionMcFunction } from "./Mcfunction";
-import { OnCompletionMolangRequest } from "./Molang/include";
+import { Molang } from "../Minecraft/include";
 
 /**Handle request
  * @param params
@@ -50,7 +50,7 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
       break;
 
     case Languages.McMolangIdentifier:
-      OnCompletionMolangRequest(Doc, Pos, Builder);
+      Molang.ProvideDocCompletion(Doc, Pos, Builder);
       break;
 
     case Languages.JsonCIdentifier:

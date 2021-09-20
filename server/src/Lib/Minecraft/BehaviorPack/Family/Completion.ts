@@ -1,5 +1,5 @@
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { CommandCompletionContext } from "../../../Completion/Context";
 
 export function ProvideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
   //TODO redo

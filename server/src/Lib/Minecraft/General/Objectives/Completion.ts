@@ -1,10 +1,10 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
-import { GetFilename } from "../../../Code/include";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { GetFilename, SimpleContext } from "../../../Code/include";
+import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
 
   const generateDoc = (item: GeneralInfo | string) => {

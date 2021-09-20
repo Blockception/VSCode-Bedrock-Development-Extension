@@ -1,11 +1,19 @@
 import { PackType } from "bc-minecraft-bedrock-project";
-import { CompletionItemKind } from "vscode";
+import { CompletionItemKind, Position } from "vscode-languageserver-types";
 import { SimpleContext } from "../../Code/SimpleContext";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { Languages } from "../../Constants";
 import { IsEducationEnabled } from "../../Project/include";
+import { TextDocument } from "../../Types/Document/include";
 import { BehaviorPack, ResourcePack } from "../include";
 import { GetPreviousWord, IsMolang, Variables } from "./include";
+
+export function ProvideDocCompletion(doc: TextDocument, pos: Position, receiver: CompletionBuilder): void {
+  const line = doc.getLine(pos.line);
+  const cursor = doc.offsetAt(pos);
+
+  return ProvideCompletion(line, cursor, SimpleContext.create(doc, receiver));
+}
 
 /**
  *

@@ -34,7 +34,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, att
       return;
 
     case "m":
-      Modes.Gamemode.ProvideCompletionTest(receiver);
+      Modes.Gamemode.ProvideCompletionTest(context);
       return;
 
     case "name":

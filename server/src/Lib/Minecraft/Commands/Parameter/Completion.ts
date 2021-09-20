@@ -61,7 +61,7 @@ const DataMap: { [index: number]: functioncall } = {
   [ParameterType.command]: Commands.Command.ProvideCompletion,
   [ParameterType.effect]: General.Effect.ProvideCompletion,
   [ParameterType.objective]: General.Objectives.ProvideCompletion,
-  [ParameterType.selector]: General.Selector.Completion.ProvideCompletion,
+  [ParameterType.selector]: General.Selector.ProvideCompletion,
   [ParameterType.string]: General.String.ProvideCompletion,
   [ParameterType.tag]: General.Tag.ProvideCompletion,
   [ParameterType.tickingarea]: General.Tickingarea.ProvideCompletion,

@@ -1,8 +1,9 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { SimpleContext } from "../../../Code/SimpleContext";
+import { CompletionBuilder } from "../../../Completion/Builder";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
-  let receiver = context.receiver;
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  const receiver = context.receiver;
 
   receiver.Add("1L", "Add 1 level of xp", CompletionItemKind.Value);
   receiver.Add("-1L", "Remove 1 level of xp", CompletionItemKind.Value);

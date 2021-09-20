@@ -1,5 +1,5 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { CommandCompletionContext } from "../../../Completion/Context";
 import { CompletionBuilder } from "../../../Completion/include";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {

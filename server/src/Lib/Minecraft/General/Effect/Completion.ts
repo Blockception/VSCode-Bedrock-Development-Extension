@@ -1,5 +1,5 @@
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { CommandCompletionContext } from "../../../Completion/Context";
 import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {

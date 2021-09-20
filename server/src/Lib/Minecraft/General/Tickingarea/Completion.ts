@@ -1,7 +1,11 @@
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
+import { SimpleContext } from "../../../Code/include";
+import { CompletionBuilder } from "../../../Completion/include";
+import { Database } from "../../../Database/include";
+import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
-  let receiver = context.receiver;
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  const generateDoc = (item: GeneralInfo) => `The tickingarea: ${item.id}\nLocation: ${item.location.uri}`;
 
-  //TODO receiver.AddFromRange(Database.ProjectData.General.TickingAreas, Kinds.Completion.Tickingarea);
+  context.receiver.Generate(Database.ProjectData.General.tickingAreas, generateDoc, Kinds.Completion.Tickingarea);
 }
