@@ -1,5 +1,4 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { Console } from "../Console/Console";
 import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { Files } from "./Files";
@@ -48,7 +47,7 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
     }
   } catch (error) {
     const data = JSON.stringify(error);
-    Console.Error(data);
+    console.error(data);
   }
 
   return undefined;

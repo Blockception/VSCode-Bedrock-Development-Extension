@@ -1,6 +1,6 @@
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { Database } from "../../../include";
+import { Database } from "../../../Database/include";
 import { GetCurrentString } from "../../../Types/Document/include";
 import { ProvideSoundFileCompletion } from "../Sounds/Completion";
 
@@ -17,5 +17,5 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, cur
 
   ProvideSoundFileCompletion(context);
 
-  Database.Database.ProjectData.ResourcePacks;
+  Database.ProjectData.ResourcePacks;
 }

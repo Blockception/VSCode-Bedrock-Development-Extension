@@ -1,6 +1,5 @@
 import { Range } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { Console } from "../../Console/Console";
 import * as JSONC from "comment-json";
 import * as Code from "./Document";
 import { TextDocument } from "./TextDocument";
@@ -62,7 +61,7 @@ export class JsonDocument {
         this.object = object;
         //ValidJson(this.doc);
       } catch (error) {
-        Console.Error("Invalid Json: " + this.doc.uri + "\n + " + error);
+        console.error("Invalid Json: " + this.doc.uri + "\n + " + error);
         //InvalidJson(this.doc, error);
       }
     }
@@ -82,7 +81,7 @@ export class JsonDocument {
 
         //ValidJson(this.doc);
       } catch (error) {
-        Console.Error("Invalid Json: " + this.doc.uri + "\n + " + error);
+        console.error("Invalid Json: " + this.doc.uri + "\n + " + error);
         //InvalidJson(this.doc, error);
         err = error;
       }

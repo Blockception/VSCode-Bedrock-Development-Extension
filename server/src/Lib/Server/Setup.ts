@@ -1,5 +1,4 @@
 import { createConnection, ProposedFeatures } from "vscode-languageserver/node";
-import { Console } from "../Console/Console";
 import { Manager } from "../Manager/Manager";
 import { setEvents } from "./Events/Events";
 import { onInitializeAsync } from "./OnInitialize";
@@ -13,7 +12,7 @@ export function SetupServer() {
   let connection = createConnection(ProposedFeatures.all);
   Manager.Connection = connection;
 
-  Console.Log("starting minecraft server");
+  console.log("starting minecraft server");
 
   setEvents();
 

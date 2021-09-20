@@ -2,8 +2,7 @@ import { BehaviorPack, Pack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import path from "path";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { GetFilepath, UniformFolder } from "../Code/Url";
-import { Console } from "../Console/Console";
+import { UniformFolder } from "../Code/Url";
 import { Database } from "../Database/include";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
@@ -20,7 +19,7 @@ export namespace Workspace {
   export async function GetWorkSpaces(): Promise<WorkspaceFolder[]> {
     const WS = Manager.Connection.workspace.getWorkspaceFolders();
 
-    WS.catch((item) => Console.Error(`No workspaces folders received: ${JSON.stringify(item)}`));
+    WS.catch((item) => console.error(`No workspaces folders received: ${JSON.stringify(item)}`));
 
     return WS.then((ws) => {
       if (ws == null) {
@@ -41,7 +40,7 @@ export namespace Workspace {
    * @param uri
    */
   export function RemoveWorkspace(uri: string): void {
-    Console.Info("deleting workspace data: " + uri);
+    console.info("deleting workspace data: " + uri);
     Database.WorkspaceData.remove(uri);
 
     const PD = Database.ProjectData;
@@ -77,7 +76,7 @@ export namespace Workspace {
    * @returns
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
-    Console.Info("Traversing workspace: " + folder.uri);
+    console.info("Traversing workspace: " + folder.uri);
 
     const project = MCProject.loadSync(folder.uri);
     Database.WorkspaceData.set(folder, project);
@@ -96,7 +95,7 @@ export namespace Workspace {
    * @param pack
    */
   export function ProcessPack(pack: Pack): void {
-    Console.Info(`Processing pack: ${path.dirname(pack.folder)}`);
+    console.info(`Processing pack: ${path.dirname(pack.folder)}`);
 
     const ignores = pack.context.ignores.patterns;
     const folder = pack.folder;

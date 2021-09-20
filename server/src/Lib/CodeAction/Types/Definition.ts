@@ -3,7 +3,6 @@ import path from "path";
 import { CodeAction, Command, Diagnostic } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { Commands } from "../..//Constants";
-import { Console } from "../../Console/include";
 import { Database } from "../../Database/Database";
 import { GetDocument } from "../../Types/Document/include";
 import { CodeActionBuilder } from "../Builder";
@@ -21,7 +20,7 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
   const ws = Database.WorkspaceData.getFolder(doc.uri);
 
   if (!ws) {
-    Console.Error(`Couldn't find workspace for: ${doc.uri}`);
+    console.error(`Couldn't find workspace for: ${doc.uri}`);
     return;
   }
 

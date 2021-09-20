@@ -1,6 +1,5 @@
 import { TextDocumentChangeEvent } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Console } from "../../Console/include";
 import { Glob } from "../../Glob/Glob";
 import { Process } from "../../Process/Process";
 import { GetDocument } from "../../Types/Document/include";
@@ -14,7 +13,7 @@ export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDoc
     if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(doc.uri, conf.ignores.patterns)) {
       Process(doc);
     } else {
-      Console.Log(`Ignored: ` + doc.uri);
+      console.log(`Ignored: ` + doc.uri);
     }
     resolve();
   });

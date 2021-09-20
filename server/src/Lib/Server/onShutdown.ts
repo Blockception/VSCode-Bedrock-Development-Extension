@@ -1,5 +1,3 @@
-import { Console } from "../Console/Console";
-
 /**
  * The code to run when the server is shutting down
  */
@@ -13,5 +11,5 @@ export async function onShutdownAsync(): Promise<void> {
  * The code to run when the server is shutting down
  */
 function onShutdown(): void {
-  Console.Log("shutting down minecraft server");
+  console.log("shutting down minecraft server");
 }

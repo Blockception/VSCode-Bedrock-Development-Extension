@@ -1,5 +1,4 @@
 import { InitializedParams } from "vscode-languageserver";
-import { Console } from "../Console/Console";
 import { CreateDiagnoser } from "../Diagnostics/Diagnoser";
 import { Manager } from "../Manager/Manager";
 import { Traverse } from "../Process/Traverse";
@@ -14,7 +13,7 @@ export async function onInitializedAsync(params: InitializedParams): Promise<voi
 }
 
 function onInitialized(params: InitializedParams): void {
-  Console.Log("Initialized minecraft server");
+  console.log("Initialized minecraft server");
 
   //Update the settings of the language server
   UpdateSettings();

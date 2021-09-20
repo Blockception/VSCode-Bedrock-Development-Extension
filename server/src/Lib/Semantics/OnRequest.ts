@@ -1,7 +1,6 @@
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
 import { GetFilename } from "../Code/include";
-import { Console } from "../Console/Console";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
 import { ProvideJsonSemanticTokens } from "./Json";
@@ -13,7 +12,7 @@ export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Pro
     try {
       resolve(OnProvideSemanticRequest(params));
     } catch (err) {
-      Console.Error(JSON.stringify(err));
+      console.error(JSON.stringify(err));
       resolve({ data: [] });
     }
   });
@@ -24,7 +23,7 @@ export function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangePa
     try {
       resolve(OnProvideSemanticRequest(params));
     } catch (err) {
-      Console.Error(JSON.stringify(err));
+      console.error(JSON.stringify(err));
       resolve({ data: [] });
     }
   });
@@ -34,10 +33,10 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
   let uri = params.textDocument.uri;
   if (!uri.startsWith("file://")) return { data: [] };
 
-  //Console.Log(params.textDocument.uri);
+  //console.log(params.textDocument.uri);
 
   const doc = GetDocument(uri);
-  Console.Log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
+  console.log("Semantic tokens: " + GetFilename(doc.uri) + " | " + doc.languageId);
 
   let range: Range | undefined = undefined;
 

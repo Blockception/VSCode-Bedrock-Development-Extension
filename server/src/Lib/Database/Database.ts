@@ -1,7 +1,6 @@
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
-import { Console } from "../Console/Console";
 import { CreateContext, CreateDiagnoser } from "../Diagnostics/Diagnoser";
 import { WorkspaceData } from "./Types/WorkspaceData";
 
@@ -20,7 +19,7 @@ export class Database {
    *
    */
   static Clear(): void {
-    Console.Info("Reseting database");
+    console.info("Reseting database");
     Database.WorkspaceData = new WorkspaceData();
     Database.Diagnoser = CreateDiagnoser();
     Database.ProjectData = new ProjectData(CreateContext());

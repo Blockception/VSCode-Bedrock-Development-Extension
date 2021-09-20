@@ -1,15 +1,15 @@
 import { Diagnoser, DiagnoserContext, DiagnosticsBuilderContent, DiagnosticSeverity, InternalDiagnosticsBuilder } from "bc-minecraft-bedrock-diagnoser";
 import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { Diagnostic } from "vscode-languageserver";
-import { Database, Glob } from "../include";
 import { Manager } from "../Manager/Manager";
 import * as vstd from "vscode-languageserver-textdocument";
-import { Console } from "../Console/Console";
 import { Range } from "../Code/Range";
 import * as vscode from "vscode-languageserver";
 import { GetDocument, TextDocument } from "../Types/Document/include";
 import { Character } from "../Code/Character";
 import { Types } from "bc-minecraft-bedrock-types";
+import { Database } from "../Database/include";
+import { Glob } from "../Glob/include";
 
 /**Creates a new bedrock diagnoser
  * @returns A diagnoser*/
@@ -40,7 +40,7 @@ export function CreateContext(): DiagnoserContext {
  * @returns
  */
 function getCache() {
-  return Database.Database.ProjectData;
+  return Database.ProjectData;
 }
 
 /**gets a document diagnoser
@@ -48,8 +48,8 @@ function getCache() {
  * @param project The project context
  * @returns*/
 function getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnosticsBuilder | undefined {
-  if (Glob.Glob.IsMatch(doc.uri, project.ignores.patterns)) {
-    Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
+  if (Glob.IsMatch(doc.uri, project.ignores.patterns)) {
+    console.info("Skipping diagnostics on document, because its ignored: " + doc.uri);
     return undefined;
   }
 
@@ -72,7 +72,7 @@ function getDocument(uri: string): TextDocument | undefined {
  * @returns
  */
 function getFiles(folder: string, ignores: MCIgnore): string[] {
-  return Glob.Glob.GetFiles("**.*", ignores.patterns, folder);
+  return Glob.GetFiles("**.*", ignores.patterns, folder);
 }
 
 /**Make sure the given text document is from <vstd.TextDocument>*/

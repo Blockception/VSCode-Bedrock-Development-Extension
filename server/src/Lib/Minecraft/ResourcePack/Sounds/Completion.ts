@@ -2,12 +2,12 @@ import path from "path";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { MinecraftFormat } from "../../include";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../../General/Kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { IsEducationEnabled } from "../../../Project/Attributes";
+import { MinecraftFormat } from "../../Format";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;

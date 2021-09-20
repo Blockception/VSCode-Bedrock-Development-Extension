@@ -3,7 +3,6 @@ import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
 import { fileURLToPath } from "url";
 import { Languages } from "../../Constants";
-import { Console } from "../../Console/Console";
 import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
@@ -78,7 +77,7 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
     try {
       if (doc) callback(doc);
     } catch (err) {
-      Console.Error(GetFilename(doc.uri) + " | " + JSON.stringify(err));
+      console.error(GetFilename(doc.uri) + " | " + JSON.stringify(err));
     }
   }
 }
@@ -108,7 +107,7 @@ export function GetDocumentContent(uri: string): string | undefined {
     try {
       content = fs.readFileSync(path, "utf8");
     } catch (err) {
-      Console.Error("couldn't read: " + path + "\n\tError thrown" + JSON.stringify(err));
+      console.error("couldn't read: " + path + "\n\tError thrown" + JSON.stringify(err));
     }
 
     return content;
