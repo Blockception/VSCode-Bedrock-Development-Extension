@@ -1,16 +1,10 @@
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../../Completion/Builder";
-import { Gamemode } from "../../../../Minecraft/Modes/include";
 import { BehaviorPack, General, Modes } from "../../../include";
 
 //Doesnt do scores and doesnt need to
-export function provideSelectorAttributeValueCompletion(
-  context: SimpleContext<CompletionBuilder>,
-  attribute: string,
-  forEntities: boolean,
-  type: string | undefined = undefined
-): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, attribute: string, forEntities: boolean, type: string | undefined = undefined): void {
   const receiver = context.receiver;
 
   switch (attribute) {
