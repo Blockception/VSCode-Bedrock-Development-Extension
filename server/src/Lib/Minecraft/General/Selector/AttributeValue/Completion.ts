@@ -38,7 +38,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, att
       return;
 
     case "name":
-      General.Names.ProvideCompletion(receiver);
+      General.Names.ProvideCompletion(context);
       return;
 
     case "rx":
@@ -49,7 +49,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, att
       return;
 
     case "tag":
-      General.Tag.ProvideCompletionTest(receiver);
+      General.Tag.ProvideCompletionTest(context);
       return;
 
     case "type":
