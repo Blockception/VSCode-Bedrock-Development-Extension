@@ -1,10 +1,16 @@
-import { CompletionItemKind } from "vscode-languageserver";
+import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext | CompletionBuilder): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
-  const receiver = CommandCompletionContext.is(context) ? context.receiver : context;
+  const receiver = context.receiver;
 
-  data.definitions["name"]?.defined.forEach((name) => receiver.Add(name, "The defined name: " + name, CompletionItemKind.Value));
+  const names = data.definitions.name?.defined;
+
+  if (names) {
+    const generateDoc = (item: string) => "The defined name: " + item;
+
+    receiver.GenerateStr(names, generateDoc, Kinds.Completion.Entity);
+  }
 }

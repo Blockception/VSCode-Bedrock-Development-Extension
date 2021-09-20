@@ -2,8 +2,7 @@ import { CompletionParams, CompletionList, CompletionItem } from "vscode-languag
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
 import { CompletionBuilder } from "./Builder";
-import { OnCompletionJson } from "./Json";
-import { Language, Mcfunction, MCProject, Molang } from "../Minecraft/include";
+import { Json, Language, Mcfunction, MCProject, Molang } from "../Minecraft/include";
 import { SimpleContext } from "../Code/SimpleContext";
 
 /**Handle request
@@ -54,7 +53,7 @@ function OnCompletionRequest(params: CompletionParams): CompletionList {
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      OnCompletionJson(context, pos);
+      Json.ProvideCompletionDocument(context, pos);
       break;
   }
 

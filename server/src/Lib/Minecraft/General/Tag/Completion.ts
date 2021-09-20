@@ -1,12 +1,12 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
 import { CompletionItemKind } from "vscode-languageserver";
-import { GetFilename } from "../../../Code/include";
+import { GetFilename, SimpleContext } from "../../../Code/include";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { CompletionBuilder } from "../../../Completion/include";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
 
   receiver.Generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
@@ -27,12 +27,14 @@ function generateDocumentation(tag: GeneralInfo | string): string {
   return `The tag: ${tag.id}\nLocation: ${filename}`;
 }
 
-export function ProvideCompletionTest(context: CommandCompletionContext | CompletionBuilder): void {
+export function ProvideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
-  const receiver = CommandCompletionContext.is(context) ? context.receiver : context;
+  const receiver = context.receiver;
 
+  //Add defined tags to the context
   data.definitions?.tag.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));
 
+  //Add the tags to the list
   Database.ProjectData.General.tags.forEach((tag) => {
     receiver.Add(tag.id, `Tests for the tag: '${tag.id}'`, Kinds.Completion.Tag);
     receiver.Add("!" + tag.id, `Tests not for the tag: '${tag.id}'`, Kinds.Completion.Tag);

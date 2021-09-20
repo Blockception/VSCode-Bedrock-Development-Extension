@@ -1,15 +1,16 @@
 import { PackType } from "bc-minecraft-bedrock-project";
-import { CompletionItem, InsertReplaceEdit, Range } from "vscode-languageserver";
-import { SimpleContext } from "../Code/SimpleContext";
-import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "../Minecraft/include";
-import { GetCurrentString } from "../Types/Document/Json Functions";
-import { CompletionBuilder } from "./Builder";
+import { CompletionItem, InsertReplaceEdit, Position, Range } from "vscode-languageserver";
+import { SimpleContext } from "../../Code/SimpleContext";
+import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "../include";
+import { GetCurrentString } from "../../Types/Document/Json Functions";
+import { CompletionBuilder } from "../../Completion/Builder";
 
-export function OnCompletionJson(context: SimpleContext<CompletionBuilder>, cursor: number): void {
+export function ProvideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const type = PackType.detect(context.doc.uri);
 
   if (type == PackType.unknown) return;
 
+  const cursor = context.doc.offsetAt(cursorPos);
   OnCompletionJsonMolang(context, cursor);
 
   switch (type) {
