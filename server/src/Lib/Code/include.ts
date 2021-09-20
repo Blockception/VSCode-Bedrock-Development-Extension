@@ -3,6 +3,7 @@
 export * from "./Array";
 export * from "./Character";
 export * from "./Equal";
+export * from "./Error";
 export * from "./File";
 export * from "./Offset";
 export * from "./Range";
