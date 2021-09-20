@@ -5,10 +5,10 @@ import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
-  context.receiver.AddFromRange(Database.ProjectData.General.fakeEntities, generateDocumentation, Kinds.Completion.FakeEntity);
-}
+  const generateDoc = (fakeEntities: GeneralInfo) => {
+    const filename = GetFilename(fakeEntities.location.uri);
+    return `The dummy entity: ${fakeEntities.id}\nLocation: ${filename}`;
+  };
 
-function generateDocumentation(fakeEntities: GeneralInfo): string | undefined {
-  const filename = GetFilename(fakeEntities.location.uri);
-  return `The dummy entity: ${fakeEntities.id}\nLocation: ${filename}`;
+  context.receiver.Generate(Database.ProjectData.General.fakeEntities, generateDoc, Kinds.Completion.FakeEntity);
 }

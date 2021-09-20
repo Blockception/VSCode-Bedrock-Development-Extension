@@ -2,7 +2,7 @@ import { ParameterType } from "bc-minecraft-bedrock-command/lib/src/Lib/Types/in
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Commands/context";
+import { CommandCompletionContext } from "../../../Completion/Context";
 import { BehaviorPack, Commands, General, Json, Modes, ResourcePack } from "../../include";
 
 function toCompletion(context: CommandCompletionContext): void {

@@ -14,7 +14,6 @@ export * as Glob from "./Glob/include";
 export * as Hover from "./Hover/include";
 export * as Manager from "./Manager/include";
 export * as Minecraft from "./Minecraft/include";
-export * as Molang from "./Molang/include";
 export * as Process from "./Process/include";
 export * as Project from "./Project/include";
 export * as References from "./References/include";

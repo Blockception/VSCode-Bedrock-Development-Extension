@@ -1,30 +1,37 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
 import { CompletionItemKind } from "vscode-languageserver";
 import { GetFilename } from "../../../Code/include";
-import { CommandCompletionContext } from "../../../Completion/Commands/context";
+import { CommandCompletionContext } from "../../../Completion/Context";
 import { CompletionBuilder } from "../../../Completion/include";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
+
+  receiver.Generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
+
   const data = context.doc.getConfiguration();
+  const defined = data.definitions?.tag.defined;
 
-  data.definitions["tag"]?.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, CompletionItemKind.Value));
-
-  receiver.AddFromRange(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
+  if (defined) receiver.GenerateStr(defined, generateDocumentation, Kinds.Completion.Tag);
 }
 
-function generateDocumentation(fakeEntities: GeneralInfo): string | undefined {
-  const filename = GetFilename(fakeEntities.location.uri);
+function generateDocumentation(tag: GeneralInfo | string): string {
+  if (typeof tag === "string") {
+    return `The tag: ${tag}`;
+  }
 
-  return `The dummy entity: ${fakeEntities.id}\nLocation: ${filename}`;
+  const filename = GetFilename(tag.location.uri);
+
+  return `The tag: ${tag.id}\nLocation: ${filename}`;
 }
 
 export function ProvideCompletionTest(context: CommandCompletionContext | CompletionBuilder): void {
-  let data = context.doc.getConfiguration();
-  data.definitions.tag.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, CompletionItemKind.Value));
-  let receiver = CommandCompletionContext.is(context) ? context.receiver : context;
+  const data = context.doc.getConfiguration();
+  const receiver = CommandCompletionContext.is(context) ? context.receiver : context;
+
+  data.definitions?.tag.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));
 
   Database.ProjectData.General.tags.forEach((tag) => {
     receiver.Add(tag.id, `Tests for the tag: '${tag.id}'`, Kinds.Completion.Tag);

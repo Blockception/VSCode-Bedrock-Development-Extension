@@ -1,15 +1,11 @@
 import { PackType } from "bc-minecraft-bedrock-project";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionItemKind } from "vscode";
 import { SimpleContext } from "../../Code/SimpleContext";
 import { CompletionBuilder } from "../../Completion/Builder";
-import { OnCompletionMolangVariable } from "../../Completion/Molang/Variables";
 import { Languages } from "../../Constants";
-import { Database } from "../../include";
-import { GetPreviousWord, IsMolang } from "../../Molang/include";
 import { IsEducationEnabled } from "../../Project/include";
-import { TextDocument } from "../../Types/Document/include";
 import { BehaviorPack, ResourcePack } from "../include";
+import { GetPreviousWord, IsMolang, Variables } from "./include";
 
 /**
  *
@@ -58,7 +54,7 @@ export function OnCompletionMolang(line: string, cursor: number, context: Simple
 
     case "v":
     case "variable":
-      return OnCompletionMolangVariable(doc, receiver);
+      return Variables.ProvideCompletion(context);
 
     case "t":
     case "texture":

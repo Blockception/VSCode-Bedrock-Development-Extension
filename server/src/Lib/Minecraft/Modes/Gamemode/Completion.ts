@@ -1,6 +1,6 @@
 import { Modes } from "bc-minecraft-bedrock-types";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { CommandCompletionContext } from "../../../Completion/Commands/context";
+import { CommandCompletionContext } from "../../../Completion/Context";
 import { CompletionBuilder } from "../../../Completion/include";
 import { Kinds } from "../../General/include";
 import { ProvideModeCompletion, ProvideModeTestCompletion } from "../Completion";

@@ -1,15 +1,11 @@
-import { Sound } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/ResourcePack/include";
-import { CommandCompletionContext } from "../../../Completion/Commands/include";
+import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
+import { SimpleContext } from "../../../Code/SimpleContext";
+import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
-  let receiver = context.receiver;
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  const GenerateDoc = (item: Identifiable) => `The custom sound definition: '${item.id}'`;
 
-  //TODO
-  receiver.AddFromRange<Sound.Sound>(Database.ProjectData.ResourcePacks.sounds, GenerateSound, Kinds.Completion.Sound);
-}
-
-function GenerateSound(item: Sound.Sound): string {
-  return `The custom sound definition: '${item.id}'`;
+  context.receiver.Generate(Database.ProjectData.ResourcePacks.sounds, GenerateDoc, Kinds.Completion.Sound);
 }

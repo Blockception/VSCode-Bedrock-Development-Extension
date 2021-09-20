@@ -3,7 +3,7 @@ import { Selector } from "bc-minecraft-bedrock-types/lib/src/Minecraft/Selector"
 import { OffsetWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
-import { CreateMolangWords } from "../Molang/Words";
+import { CreateMolangWords } from "../Minecraft/Molang/Words";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { JsonSemanticTokensBuilder } from "./Builders/JsonSemanticTokensBuilder";
 import { MolangSemanticTokensBuilder } from "./Builders/MolangSemanticTokensBuilder";

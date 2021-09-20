@@ -1,10 +1,18 @@
 import { CompletionItemKind } from "vscode-languageserver";
+import { SimpleContext } from "../../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../../Completion/Builder";
 import { Gamemode } from "../../../../Minecraft/Modes/include";
-import { Entity, Family, Float, Integer, Names, Tag } from "../../include";
+import { BehaviorPack, General, Modes } from "../../../include";
 
 //Doesnt do scores and doesnt need to
-export function provideSelectorAttributeValueCompletion(receiver: CompletionBuilder, attribute: string, forEntities: boolean, type: string | undefined = undefined): void {
+export function provideSelectorAttributeValueCompletion(
+  context: SimpleContext<CompletionBuilder>,
+  attribute: string,
+  forEntities: boolean,
+  type: string | undefined = undefined
+): void {
+  const receiver = context.receiver;
+
   switch (attribute) {
     case "c":
       receiver.Add("1", "Limits the amount of target to 1", CompletionItemKind.Constant);
@@ -21,38 +29,38 @@ export function provideSelectorAttributeValueCompletion(receiver: CompletionBuil
       return;
 
     case "family":
-      Family.ProvideCompletionTest(receiver, type);
+      BehaviorPack.Family.ProvideCompletionTest(receiver, type);
       return;
 
     case "r":
     case "rm":
     case "lm":
     case "l":
-      Integer.ProvideCreateCompletion(receiver, 0, 100);
+      General.Integer.ProvideCreateCompletion(receiver, 0, 100);
       return;
 
     case "m":
-      Gamemode.ProvideCompletionTest(receiver);
+      Modes.Gamemode.ProvideCompletionTest(receiver);
       return;
 
     case "name":
-      Names.ProvideCompletion(receiver);
+      General.Names.ProvideCompletion(receiver);
       return;
 
     case "rx":
     case "rxm":
     case "ry":
     case "rym":
-      Float.ProvideCreateCompletion(receiver, -180, 180);
+      General.Float.ProvideCreateCompletion(receiver, -180, 180);
       return;
 
     case "tag":
-      Tag.ProvideCompletionTest(receiver);
+      General.Tag.ProvideCompletionTest(receiver);
       return;
 
     case "type":
       if (forEntities) {
-        Entity.ProvideCompletionTest(receiver);
+        BehaviorPack.Entities.ProvideCompletion(context);
       }
       return;
 

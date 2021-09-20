@@ -1,5 +1,7 @@
 import { OffsetWord } from "bc-vscode-words";
 
+const MolangWordsRegexp = /(['"][^'"]+['"]|[A-Za-z_]+|[\/\.!+\-\*\&\[\]\{\}\(\)><=:;?\|]+|@[a-z]|[0-9\.]+)/gi;
+
 /**
  *
  * @param text
@@ -7,5 +9,5 @@ import { OffsetWord } from "bc-vscode-words";
  * @returns
  */
 export function CreateMolangWords(text: string, offset: number): OffsetWord[] {
-  return OffsetWord.Parse(text, /(['"][^'"]+['"]|[A-Za-z_]+|[\/\.!+\-\*\&\[\]\{\}\(\)><=:;?\|]+|@[a-z]|[0-9\.]+)/gi, offset);
+  return OffsetWord.Parse(text, MolangWordsRegexp, offset);
 }

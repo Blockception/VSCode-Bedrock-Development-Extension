@@ -3,7 +3,7 @@ import { provideSelectorAttributeValueCompletion } from "./Attribute Value";
 import { provideSelectorAttributeCompletion } from "./Attributes";
 import { provideSelectorScoreCompletion } from "./Scores";
 import { FakeEntity } from "../../include";
-import { CommandCompletionContext } from "../../../../Completion/Commands/context";
+import { CommandCompletionContext } from "../../../../Completion/Context";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
   /**

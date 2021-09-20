@@ -4,8 +4,8 @@ import { ResourcePack } from "../Minecraft/include";
 import { GetCurrentString } from "../Types/Document/Json Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
+import { Molang } from "./include";
 import { OnCompletionMcFunctionLine } from "./Mcfunction";
-import { OnCompletionEntityEvents, OnCompletionMolang } from "./Molang/Molang";
 
 export function OnCompletionJson(doc: TextDocument, cursor: number, receiver: CompletionBuilder): void {
   const type = PackType.detect(doc.uri);
@@ -49,11 +49,12 @@ function OnCompletionJsonMolang(doc: TextDocument, cursor: number, receiver: Com
 
   //Find all events
   if (data.startsWith("@s")) {
-    OnCompletionEntityEvents(receiver);
+    Molang.OnCompletionEntityEvents(receiver);
   } else if (data.startsWith("/")) {
     let temp = data.substring(1);
     OnCompletionMcFunctionLine(temp, cursor, range.start + 1, doc, receiver);
   } else {
+    Molang;
     OnCompletionMolang(data, cursor - range.start, doc, receiver);
   }
 

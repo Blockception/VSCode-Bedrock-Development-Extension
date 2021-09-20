@@ -1,7 +1,7 @@
 import { Position } from "vscode-languageserver-textdocument";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./Builder";
-import { CommandCompletionContext } from "./Commands/context";
+import { CommandCompletionContext } from "./Context";
 import { Command } from "bc-minecraft-bedrock-command";
 import { Commands } from "../Minecraft/include";
 import { IsEducationEnabled } from "../Project/include";
