@@ -3,7 +3,14 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
-import { BehaviorPack, Commands, General, Json, Modes, ResourcePack } from "../../include";
+
+/**These are here to stop circular dependency */
+import * as Commands from "../../Commands/include";
+import * as General from "../../General/include";
+import * as Json from "../../Json/include";
+import * as Modes from "../../Modes/include";
+import * as ResourcePack from "../../ResourcePack/include";
+import * as BehaviorPack from "../../BehaviorPack/include";
 
 function toCompletion(context: CommandCompletionContext): void {
   context.receiver.Add(context.parameter.text, "The keyword: " + context.parameter.text, CompletionItemKind.Keyword);

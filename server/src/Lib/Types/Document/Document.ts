@@ -1,12 +1,12 @@
 import * as fs from "fs";
 import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
-import { fileURLToPath } from "url";
 import { Languages } from "../../Constants";
 import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
+import { GetFilepath } from "../../Code/include";
 
 /**Returns an usable document interaction from the given data.
  *
@@ -100,7 +100,7 @@ export function GetDocuments(folder: string, pattern: string | string[], ignores
  */
 export function GetDocumentContent(uri: string): string | undefined {
   //Reading file
-  let path = fileURLToPath(uri);
+  const path = GetFilepath(uri);
 
   if (fs.existsSync(path)) {
     let content: string | undefined;
