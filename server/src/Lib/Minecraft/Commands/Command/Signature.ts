@@ -18,7 +18,7 @@ export function ProvideSignature(Line: string, StartOffset: number, cursorOffset
     command = SubCommand;
   }
 
-  const Matches = command.getCommandData();
+  const Matches = command.getBestMatch();
 
   const Out: SignatureHelp = {
     signatures: ConverToSignatures(Matches),
