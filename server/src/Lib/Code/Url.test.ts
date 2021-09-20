@@ -24,29 +24,33 @@ describe("Url", () => {
   });
 
   describe("FS", () => {
+    function normalize(p: string): string {
+      return path.normalize(p).replace(/\//gi, path.sep);
+    }
+
     it("UniformUrl", () => {
       //expect(UniformUrl("file://f:\\temp folder\\something.json")).to.equal(path.normalize("f:/temp folder/something.json"), "1");
-      expect(UniformUrl("file://f:\\temp folder\\something.json")).to.equal(path.normalize("f:/temp folder/something.json"), "2");
-      expect(UniformUrl("file://f:/temp%20folder/something.json")).to.equal(path.normalize("f:/temp folder/something.json"), "3");
-      expect(UniformUrl("file://f:/temp%20folder/something.json")).to.equal(path.normalize("f:/temp folder/something.json"), "4");
-      expect(UniformUrl("file://f:/temp folder/something.json")).to.equal(path.normalize("f:/temp folder/something.json"), "5");
-      expect(UniformUrl("file://f:\\temp folder\\something.json")).to.equal(path.normalize("f:/temp folder/something.json"), "6");
+      expect(UniformUrl("file://f:\\temp folder\\something.json")).to.equal(normalize("f:/temp folder/something.json"), "2");
+      expect(UniformUrl("file://f:/temp%20folder/something.json")).to.equal(normalize("f:/temp folder/something.json"), "3");
+      expect(UniformUrl("file://f:/temp%20folder/something.json")).to.equal(normalize("f:/temp folder/something.json"), "4");
+      expect(UniformUrl("file://f:/temp folder/something.json")).to.equal(normalize("f:/temp folder/something.json"), "5");
+      expect(UniformUrl("file://f:\\temp folder\\something.json")).to.equal(normalize("f:/temp folder/something.json"), "6");
     });
 
     it("Uniform Folder", () => {
       expect(UniformFolder("file:///f%3A/Projects/Blockception/Redstone%20Projects/Project-City-Maker2")).to.equal(
-        path.normalize("f:/Projects/Blockception/Redstone Projects/Project-City-Maker2")
+        normalize("f:/Projects/Blockception/Redstone Projects/Project-City-Maker2")
       );
     });
 
     it("Uri To Filepath", () => {
-      expect(GetFilepath("file:///f%3A/temp%20folder/something.json")).to.equal(path.normalize("f:/temp folder/something.json"));
-      expect(GetFilepath("f%3A/temp%20folder/something.json")).to.equal(path.normalize("f:/temp folder/something.json"));
+      expect(GetFilepath("file:///f%3A/temp%20folder/something.json")).to.equal(normalize("f:/temp folder/something.json"));
+      expect(GetFilepath("f%3A/temp%20folder/something.json")).to.equal(normalize("f:/temp folder/something.json"));
     });
 
     it("Uri To Filepath2", () => {
-      expect(GetFilepath("file:///f%3A/temp%20folder/something.json")).to.equal(path.normalize("f:/temp folder/something.json"));
-      expect(GetFilepath("f%3A/temp%20folder/something.json")).to.equal(path.normalize("f:/temp folder/something.json"));
+      expect(GetFilepath("file:///f%3A/temp%20folder/something.json")).to.equal(normalize("f:/temp folder/something.json"));
+      expect(GetFilepath("f%3A/temp%20folder/something.json")).to.equal(normalize("f:/temp folder/something.json"));
     });
   });
 });
