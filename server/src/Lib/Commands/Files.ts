@@ -1,10 +1,18 @@
 import * as fs from "fs";
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { GetFilepath } from "../Code/Url";
+import { Fs } from "../Code/Url";
 import { Manager } from "../Manager/Manager";
 import { GetDocument } from "../Types/Document/include";
 
+/**
+ *
+ */
 export namespace Files {
+  /**
+   *
+   * @param params
+   * @returns
+   */
   export function Append(params: ExecuteCommandParams): void {
     if (!params.arguments || params.arguments.length < 2) return;
 
@@ -18,7 +26,7 @@ export namespace Files {
 
     const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
 
-    const path = GetFilepath(doc.uri);
+    const path = Fs.GetFilepath(doc.uri);
 
     if (!fs.existsSync(path)) {
       fs.writeFileSync(path, line);

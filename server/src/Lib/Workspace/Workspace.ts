@@ -1,9 +1,8 @@
 import { BehaviorPack, Pack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
-import path from "path";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { HandleError } from "../Code/Error";
-import { UniformFolder } from "../Code/Url";
+import { Fs } from "../Code/Url";
 import { Database } from "../Database/include";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
@@ -29,11 +28,6 @@ export namespace Workspace {
     return WS.then((ws) => {
       if (ws == null) {
         ws = [];
-      } else {
-        ws = ws.map((item) => {
-          item.uri = UniformFolder(item.uri);
-          return item;
-        });
       }
 
       return ws;
@@ -81,9 +75,10 @@ export namespace Workspace {
    * @returns
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
-    Console.Info("Traversing workspace: " + folder.uri);
+    const folderpath = Fs.UniformFolder(folder.uri);
+    Console.Info("Traversing workspace: " + folderpath);
 
-    const project = MCProject.loadSync(folder.uri);
+    const project = MCProject.loadSync(folderpath);
     Database.WorkspaceData.set(folder, project);
 
     const manifests = MinecraftFormat.GetManifests(folder.uri, project.ignores.patterns);
@@ -100,7 +95,7 @@ export namespace Workspace {
    * @param pack
    */
   export function ProcessPack(pack: Pack): void {
-    Console.Info(`Processing pack: ${path.dirname(pack.folder)}`);
+    Console.Info(`Processing pack: ${pack.folder}`);
 
     const ignores = pack.context.ignores.patterns;
     const folder = pack.folder;

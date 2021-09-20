@@ -6,8 +6,8 @@ import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
-import { GetFilepath } from "../../Code/include";
 import { HandleError } from "../../Code/Error";
+import { Fs, Vscode } from "../../Code/Url";
 
 /**Returns an usable document interaction from the given data.
  * @param uri The url to the document to retrieve.
@@ -17,6 +17,7 @@ import { HandleError } from "../../Code/Error";
  */
 export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument | undefined {
   const Old = uri;
+  uri = Vscode.UniformUrl(uri);
 
   if (languageID === "") {
     languageID = IdentifyDoc(uri);
@@ -101,7 +102,7 @@ export function GetDocuments(folder: string, pattern: string | string[], ignores
  */
 export function GetDocumentContent(uri: string): string | undefined {
   //Reading file
-  const path = GetFilepath(uri);
+  const path = Fs.GetFilepath(uri);
 
   if (fs.existsSync(path)) {
     let content: string | undefined;

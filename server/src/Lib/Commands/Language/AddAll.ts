@@ -1,4 +1,4 @@
-import { UniformUrl } from "../../Code/Url";
+import { Vscode } from "../../Code/Url";
 
 /**TODO
 export function AddAllItems(params: ExecuteCommandParams): any {

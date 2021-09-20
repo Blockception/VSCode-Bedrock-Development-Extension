@@ -1,5 +1,5 @@
 import { DeleteFilesParams, FileDelete } from "vscode-languageserver";
-import { GetFilepath, UniformUrl } from "../../../Code/include";
+import { Vscode } from "../../../Code/include";
 import { Database } from "../../../Database/Database";
 
 //Files created
@@ -25,7 +25,7 @@ function onDidDeleteFiles(params: DeleteFilesParams): Promise<void>[] {
 
 async function onDidDeleteFile(Item: FileDelete): Promise<void> {
   return new Promise((resolve, reject) => {
-    const uri = GetFilepath(UniformUrl(Item.uri));
+    const uri = Vscode.GetFilepath(Item.uri);
     Database.ProjectData.deleteFile(uri);
     resolve();
   });
