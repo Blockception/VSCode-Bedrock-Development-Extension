@@ -2,6 +2,6 @@
 
 export * from "./Builder";
 export * from "./Context";
-export * from "../Minecraft/Json/Completion";
-export * from "../Minecraft/Mcfunction/Completion";
+export * from "./Functions";
+export * from "./Json";
 export * from "./OnRequest";
