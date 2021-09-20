@@ -18,7 +18,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetBehaviorPackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["**/*.json", "*.json", "*.mcfunction"], ignores, folder);
+    return Glob.GetFiles(["**/*.json", "*.json", "*.mcfunction", "**/*.mcfunction"], ignores, folder);
   }
 
   /**
