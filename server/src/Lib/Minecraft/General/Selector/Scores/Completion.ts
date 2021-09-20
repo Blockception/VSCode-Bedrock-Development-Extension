@@ -1,8 +1,8 @@
-import { CompletionItemKind } from "vscode-languageserver";
 import { OffsetWord } from "bc-vscode-words";
-import { CompletionBuilder } from "../../../../Completion/Builder";
-import { Objectives } from "../../include";
-import { Offset } from "../../../../Code/Offset";
+import { CompletionItemKind } from "vscode-languageserver";
+import { Offset } from "../../../../Code/include";
+import { CompletionBuilder } from "../../../../Completion/include";
+import { General } from "../../../include";
 
 export function provideSelectorScoreCompletion(receiver: CompletionBuilder, selector: OffsetWord, pos: number): void {
   if (Offset.IsWithin(selector, pos)) {
@@ -13,6 +13,15 @@ export function provideSelectorScoreCompletion(receiver: CompletionBuilder, sele
     receiver.Add("0..10", "test for the everything equal to 0 or 10 and everything in between", CompletionItemKind.Value);
     receiver.Add("!0..10", "test for the everything not equal to 0 or 10 and everything in between", CompletionItemKind.Value);
   } else {
-    Objectives.ProvideCompletionPost(receiver, "=");
+    const old_event = receiver.OnNewItem;
+
+    receiver.OnNewItem = (item) => {
+      item.insertText = item.label += "=";
+
+      if (old_event) old_event(item);
+    };
+
+    General.Objectives.ProvideCompletion(context);
+    receiver.OnNewItem = old_event;
   }
 }
