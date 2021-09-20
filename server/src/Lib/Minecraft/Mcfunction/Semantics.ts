@@ -49,7 +49,7 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
 
   const First = command.parameters[0];
   Builder.AddWord(First, SemanticTokensEnum.class);
-  const Matches = command.getCommandData(Edu);
+  const Matches = command.getBestMatch(Edu);
   let Match;
 
   if (Matches.length == 0) return;

@@ -1,21 +1,12 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/include";
-import { SignatureHelp, SignatureInformation, ParameterInformation } from "vscode-languageserver";
-import { Position } from "vscode-languageserver-textdocument";
-import { IsEducationEnabled } from "../../../Project/include";
+import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
+import { ParameterInformation, SignatureHelp, SignatureInformation } from "vscode-languageserver";
+import { IsEducationEnabled } from "../../../Project/Attributes";
 import { SignatureCarrier } from "../../../Signatures/Carrier";
 import { TextDocument } from "../../../Types/Document/TextDocument";
 import { RawText } from "../../Json/include";
 
-//TODO Refactor for the new ProjectData?
-
-export function ProvideMcfunctionSignature(doc: TextDocument, pos: Position): SignatureHelp | undefined {
-  const Line = doc.getLine(pos.line);
-  return ProvideMcfunctionCommandSignature(Line, doc.offsetAt({ character: 0, line: pos.line }), doc.offsetAt(pos), doc);
-}
-
-export function ProvideMcfunctionCommandSignature(Line: string, StartOffset: number, cursorOffset: number, doc: TextDocument): SignatureHelp | undefined {
-  /*
+export function ProvideSignature(Line: string, StartOffset: number, cursorOffset: number, doc: TextDocument): SignatureHelp | undefined {
   let command: Command = Command.parse(Line, StartOffset);
 
   if (command.isEmpty()) return undefined;
@@ -31,13 +22,11 @@ export function ProvideMcfunctionCommandSignature(Line: string, StartOffset: num
 
   const Out: SignatureHelp = {
     signatures: ConverToSignatures(Matches),
-    activeParameter: command.CursorParamater,
+    activeParameter: command.findCursorIndex(cursorOffset),
     activeSignature: 0,
   };
 
-
-  return Out;  */
-  return undefined;
+  return Out;
 }
 
 function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
