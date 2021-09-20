@@ -11,4 +11,5 @@ export * as Particles from "./Particles/include";
 export * as RenderControllers from "./RenderControllers/include";
 export * as Sounds from "./Sounds/include";
 export * as Sounds_Definitions from "./Sounds Definitions/include";
+export * as Textures from "./Textures/include";
 export * from "./Completion";
