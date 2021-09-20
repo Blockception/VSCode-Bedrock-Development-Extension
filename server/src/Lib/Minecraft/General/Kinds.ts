@@ -43,7 +43,10 @@ export namespace Kinds {
     export const Item: CompletionItemKind = CompletionItemKind.Property;
     export const LootTable: CompletionItemKind = CompletionItemKind.File;
     export const Objectives: CompletionItemKind = CompletionItemKind.Variable;
+    export const Materials: CompletionItemKind = CompletionItemKind.Module;
+    export const Models: CompletionItemKind = CompletionItemKind.File;
     export const Particle: CompletionItemKind = CompletionItemKind.Property;
+    export const RenderController: CompletionItemKind = CompletionItemKind.Class;
     export const Selector: CompletionItemKind = CompletionItemKind.TypeParameter;
     export const Sound: CompletionItemKind = CompletionItemKind.Property;
     export const Structure: CompletionItemKind = CompletionItemKind.Module;

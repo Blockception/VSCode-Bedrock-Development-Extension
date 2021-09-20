@@ -1,16 +1,21 @@
+import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { GetCurrentString, TextDocument } from "../../../Types/Document/include";
+import { Database } from "../../../include";
+import { GetCurrentString } from "../../../Types/Document/include";
 import { ProvideSoundFileCompletion } from "../Sounds/Completion";
 
-export function ProvideCompletion(doc: TextDocument, cursor: number, receiver: CompletionBuilder): void {
-  const text = doc.getText();
+export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, cursor: number): void {
+  const text = context.doc.getText();
   const range = GetCurrentString(text, cursor);
 
   if (!range) return;
 
   const data = text.substring(range.start, range.end);
 
+  //TODO redo this
   if (!data.includes("sounds/")) return;
 
-  ProvideSoundFileCompletion(doc, receiver);
+  ProvideSoundFileCompletion(context);
+
+  Database.Database.ProjectData.ResourcePacks;
 }
