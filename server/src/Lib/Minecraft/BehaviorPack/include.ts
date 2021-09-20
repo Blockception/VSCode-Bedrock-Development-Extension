@@ -1,6 +1,5 @@
 /*	Auto generated	*/
 export * as AnimationControllers from "./AnimationControllers/include";
-export * as Animations from "./Animations/include";
 export * as Block from "./Block/include";
 export * as BlockStates from "./BlockStates/include";
 export * as Entities from "./Entities/include";
