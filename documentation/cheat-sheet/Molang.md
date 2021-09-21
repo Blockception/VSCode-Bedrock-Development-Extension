@@ -3,9 +3,9 @@
 Read the full wiki page here: [Full Wiki Page](https://minecraft.gamepedia.com/Bedrock_Edition_MoLang_documentation)
 
 - [Molang](#molang)
-	- [Math](#math)
-	- [Queries](#queries)
-	- [Variables](#variables)
+  - [Math](#math)
+  - [Queries](#queries)
+  - [Variables](#variables)
 
 ## Math
 
