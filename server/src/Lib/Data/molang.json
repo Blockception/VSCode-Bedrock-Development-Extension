@@ -30,6 +30,7 @@
     { "documentation": "Natural logarithm of value", "function": "ln(value)" },
     { "documentation": "Return highest value of A or B", "function": "max(A, B)" },
     { "documentation": "Return lowest value of A or B", "function": "min(A, B)" },
+    { "documentation": "Minimize angle magnitude (in degrees) into the range [-180, 180]", "function": "min_angle(value)" },
     { "documentation": "Return the remainder of value / denominator", "function": "mod(value, denominator)" },
     { "documentation": "Returns the float representation of the constant pi.", "function": "pi" },
     { "documentation": "Elevates `base` to the `exponent`'th power", "function": "pow(base, exponent)" },
@@ -101,6 +102,12 @@
     { "documentation": "Returns 1.0 if the entity can power jump, else it returns 0.0", "function": "can_power_jump" },
     { "documentation": "Returns 1.0 if the entity can swim, else it returns 0.0", "function": "can_swim" },
     { "documentation": "Returns 1.0 if the entity can walk, else it returns 0.0", "function": "can_walk" },
+    {
+      "documentation": "Returns the axis aligned bounding box of a bone as a struct with members '.min', '.max', along with '.x', '.y', and '.z' values for each.",
+      "function": "bone_aabb"
+    },
+    { "documentation": "Returns the initial (from the .geo) pivot of a bone as a struct with members '.x', '.y', and '.z'.", "function": "bone_origin" },
+    { "documentation": "Returns the initial (from the .geo) rotation of a bone as a struct with members '.x', '.y', and '.z' in degrees.", "function": "bone_rotation" },
     { "documentation": "returns value between 0.0 and 1.0 with 0.0 meaning cape is fully down and 1.0 is cape is fully up", "function": "cape_flap_amount" },
     {
       "documentation": "DEPRECATED (please use query.block_face instead) Returns the block face for this (only valid for on_placed_by_player trigger) (Down=0.0, Up=1.0, North=2.0, South=3.0, West=4.0, East=5.0, Undefined=6.0).",
@@ -123,6 +130,7 @@
     { "documentation": "Returns the squish value for the current entity, or 0.0 if this doesn't make sense", "function": "current_squish_value" },
     { "documentation": "Returns the day of the current level.", "function": "day" },
     { "documentation": "debug log a value to the output debug window for builds that have one", "function": "debug_output" },
+    { "documentation": "Returns the elapsed ticks since the mob started dying.", "function": "death_ticks" },
     { "documentation": "Returns the time in seconds since the previous frame", "function": "delta_time" },
     { "documentation": "Returns the distance of the root of this actor or particle emitter from the camera", "function": "distance_from_camera" },
     { "documentation": "Returns the total number of active emitters of the callee's particle effect type", "function": "effect_emitter_count" },
@@ -143,6 +151,10 @@
     { "documentation": "returns the X eye rotation of the entity if it makes sense, else it returns 0.0", "function": "eye_target_x_rotation" },
     { "documentation": "returns the Y eye rotation of the entity if it makes sense, else it returns 0.0", "function": "eye_target_y_rotation" },
     { "documentation": "Returns the ratio (from 0 to 1) of how much between AI ticks this frame is being rendered", "function": "frame_alpha" },
+    {
+      "documentation": "Returns 1.0 if the entity is attacking from range (i.e. minecraft:behavior.ranged_attack), else it returns 0.0",
+      "function": "facing_target_to_range_attack"
+    },
     { "documentation": "Returns the integer id of an actor by its string name", "function": "get_actor_info_id" },
     { "documentation": "Returns the current texture of the item", "function": "get_animation_frame" },
     {
@@ -276,7 +288,7 @@
     },
     { "documentation": "Returns the ratio between the previous and next key frames", "function": "key_frame_lerp_time" },
     {
-      "documentation": "Returns the time in *seconds* of the last frame. If an argument is passed, it is assumed to be the number of frames in the past that you wish to query. `query.last_frame_time` (or the equivalent `query.last_frame_time(0)`) will return the frame time of the frame before the current one. `query.last_frame_time(1)` will return the frame time of two frames ago. Currently we store the history of the last 30 frames, although note that this may change in the future. Passing an index more than the available data will return the oldest frame stored.",
+      "documentation": "Returns the time in *seconds* of the last frame.  If an argument is passed, it is assumed to be the number of frames in the past that you wish to query.  'query.last_frame_time' (or the equivalent 'query.last_frame_time(0)') will return the frame time of the frame before the current one.  'query.last_frame_time(1)' will return the frame time of two frames ago.  Currently we store the history of the last 30 frames, although note that this may change in the future.  Passing an index more than the available data will return the oldest frame stored.",
       "function": "last_frame_time"
     },
     { "documentation": "Returns 1.0 if the entity was last hit by the player, else it returns 0.0. If called by the client always returns 0.0", "function": "last_hit_by_player" },
@@ -284,7 +296,7 @@
     { "documentation": "returns the limited life span of an entity, or 0.0 if it lives forever", "function": "life_span" },
     { "documentation": "Returns the time in seconds since the current animation started, else 0.0 if not called within an animation", "function": "life_time" },
     {
-      "documentation": "Takes an array of distances and returns the zero - based index of which range the actor is in based on distance from the camera.For example, `query.lod_index(10, 20, 30)` will return 0, 1, or 2 based on whether the mob is less than 10, 20, or 30 units away from the camera, or it will return 3 if it is greater than 30.",
+      "documentation": "Takes an array of distances and returns the zero - based index of which range the actor is in based on distance from the camera.For example, 'query.lod_index(10, 20, 30)' will return 0, 1, or 2 based on whether the mob is less than 10, 20, or 30 units away from the camera, or it will return 3 if it is greater than 30.",
       "function": "lod_index"
     },
     { "documentation": "debug log a value to the content log", "function": "log" },
@@ -295,11 +307,11 @@
     { "documentation": "Returns the maximum health of the entity, or 0.0 if it doesn't make sense to call on this entity.", "function": "max_health" },
     { "documentation": "Returns the maximum trade tier of the entity if it makes sense, else it returns 0.0", "function": "max_trade_tier" },
     {
-      "documentation": "Returns the time in *seconds* of the most expensive frame over the last 'n' frames. If an argument is passed, it is assumed to be the number of frames in the past that you wish to query. `query.maximum_frame_time` (or the equivalent `query.maximum_frame_time(0)`) will return the frame time of the frame before the current one. `query.maximum_frame_time(1)` will return the maximum frame time of the previous two frames. Currently we store the history of the last 30 frames, although note that this may change in the future. Asking for more frames will result in only sampling the number of frames stored.",
+      "documentation": "Returns the time in *seconds* of the most expensive frame over the last 'n' frames.  If an argument is passed, it is assumed to be the number of frames in the past that you wish to query.  'query.maximum_frame_time' (or the equivalent 'query.maximum_frame_time(0)') will return the frame time of the frame before the current one.  'query.maximum_frame_time(1)' will return the maximum frame time of the previous two frames.  Currently we store the history of the last 30 frames, although note that this may change in the future.  Asking for more frames will result in only sampling the number of frames stored.",
       "function": "maximum_frame_time"
     },
     {
-      "documentation": "Returns the time in *seconds* of the least expensive frame over the last 'n' frames. If an argument is passed, it is assumed to be the number of frames in the past that you wish to query. `query.minimum_frame_time` (or the equivalent `query.minimum_frame_time(0)`) will return the frame time of the frame before the current one. `query.minimum_frame_time(1)` will return the minimum frame time of the previous two frames. Currently we store the history of the last 30 frames, although note that this may change in the future. Asking for more frames will result in only sampling the number of frames stored.",
+      "documentation": "Returns the time in *seconds* of the least expensive frame over the last 'n' frames.  If an argument is passed, it is assumed to be the number of frames in the past that you wish to query.  'query.minimum_frame_time' (or the equivalent 'query.minimum_frame_time(0)') will return the frame time of the frame before the current one.  'query.minimum_frame_time(1)' will return the minimum frame time of the previous two frames.  Currently we store the history of the last 30 frames, although note that this may change in the future.  Asking for more frames will result in only sampling the number of frames stored.",
       "function": "minimum_frame_time"
     },
     { "documentation": "Returns the scale of the current entity", "function": "model_scale" },
@@ -345,6 +357,7 @@
     { "documentation": "Returns the entity's skin ID", "function": "skin_id" },
     { "documentation": "returns the rotation of the bed the player is sleeping on.", "function": "sleep_rotation" },
     { "documentation": "Returns the sneeze counter of the entity", "function": "sneeze_counter" },
+    { "documentation": "Returns 1.0 if we render the entity's bottom, else it returns 0.0", "function": "show_bottom" },
     { "documentation": "Returns the entity spell colour if it makes sense, else it returns 0.0", "function": "spellcolor" },
     { "documentation": "Returns the scale of how standing up the entity is", "function": "standing_scale" },
     { "documentation": "returns the structural integrity for the actor, otherwise returns 0", "function": "structural_integrity" },
