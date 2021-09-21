@@ -11,7 +11,7 @@ export function DiagnoseEvent(any: any | undefined, events: string[], Builder: D
     if (prop === "event") {
       const target = any["target"];
 
-      if (target === "self" && typeof value === "string") {
+      if ((target === "self" || target === undefined) && typeof value === "string") {
         if (!events.includes(value)) {
           const offset = Builder.doc.getText().indexOf(value);
           Builder.AddWord(new OffsetWord(value, offset), "Couldn't find event: " + value, DiagnosticSeverity.Error).code = "event.missing";
