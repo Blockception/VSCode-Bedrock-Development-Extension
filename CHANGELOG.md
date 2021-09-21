@@ -1,6 +1,23 @@
 # Changelog
 ## Plugin
 - Updated schemas
+- Updated
+- Improved event diagnostics
+- Updated
+- Updated cheatsheets
+- Updated molang data
+- Updated for 1.17.30
+- Updated dependencies
+- build(deps-dev): bump webpack from 5.52.1 to 5.53.0 in /server
+- build(deps-dev): bump webpack from 5.52.1 to 5.53.0
+- build(deps-dev): bump @types/node from 16.9.1 to 16.9.4 in /client
+- build(deps-dev): bump @types/node from 16.9.1 to 16.9.3 in /server
+- build(deps-dev): bump @typescript-eslint/parser from 4.31.0 to 4.31.1
+- Update generate-includes.yml
+- build(deps-dev): bump webpack from 5.52.1 to 5.53.0 in /client
+- build(deps-dev): bump @types/node from 16.9.1 to 16.9.3
+- 2.1.59
+- Updated schemas
 - 2.1.58
 - Updated tasks
 - Update generate-includes.yml
@@ -22,25 +39,19 @@
 - Updated packages
 - 2.1.55
 - Adding or improving .molang support #113
-- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /client
-- Update dependabot.yml
-- build(deps-dev): bump @types/vscode from 1.59.0 to 1.60.0 in /client
-- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /client
-- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /server
-- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /server
-- build(deps): bump minecraft-bedrock-schemas from `7e8c935` to `ef3247a`
-- build(deps-dev): bump @typescript-eslint/parser from 4.29.3 to 4.30.0
-- build(deps-dev): bump webpack from 5.51.1 to 5.52.0
-- build(deps): bump vsce from 1.96.2 to 1.97.0
-- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10
-- Updated schemas
-- 2.1.54
-- Updated dependencies
-- build(deps-dev): bump mocha from 9.1.0 to 9.1.1
-- build(deps-dev): bump typescript from 4.3.5 to 4.4.2
-- build(deps-dev): bump @types/node from 16.7.1 to 16.7.7
-- Fixing mocha build error. 
+- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /client. 
 ## Schemas
+- Updated
+- Updated volumes
+- Updated item components
+- Updating to documentation
+- Removed scaffolding
+- Updated
+- Updated pickup
+- Updating knockback
+- Added more version support
+- Added block climber
+- Added block_climber
 - Changed references
 - Updating on_equip / on_unequip #6
 - Updated
@@ -70,14 +81,3 @@
 - Updated
 - Added unit tests
 - Restructure
-- Updated git settings
-- New testing folder
-- Updated
-- Added
-- UPdated
-- Fixing
-- Fixing
-- Updated
-- Updated dialogue schema to fit microsoft documentation
-- Fixing
-- Updated
