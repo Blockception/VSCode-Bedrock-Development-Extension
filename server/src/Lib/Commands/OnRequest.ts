@@ -6,6 +6,7 @@ import { CreateMCProject } from "../Project/MCProjects";
 import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 import { HandleError } from "../Code/Error";
+import { StoreProject } from "./StoreProject";
 
 /**
  *
@@ -40,6 +41,9 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
 
       case Commands.ScanProjects:
         return ReScanProject();
+
+      case Commands.StoreProject:
+        return StoreProject();
 
       default:
         if (params.command.startsWith(Commands.Create.Base)) {
