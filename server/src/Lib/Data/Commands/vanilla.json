@@ -703,9 +703,9 @@
       "parameters": [
         { "Text": "particle", "Type": "keyword", "Required": true },
         { "Text": "effect", "Type": "particle", "Required": true },
-        { "Text": "position x", "Type": "coordinate", "Required": true },
-        { "Text": "position y", "Type": "coordinate", "Required": true },
-        { "Text": "position z", "Type": "coordinate", "Required": true }
+        { "Text": "position x", "Type": "coordinate", "Required": false },
+        { "Text": "position y", "Type": "coordinate", "Required": false },
+        { "Text": "position z", "Type": "coordinate", "Required": false }
       ],
       "name": "particle",
       "documentation": { "value": "Creates particles.", "kind": "markdown" }
