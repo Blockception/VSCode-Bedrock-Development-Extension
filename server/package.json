@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "bc-minecraft-bedrock-command": "^1.0.21",
-    "bc-minecraft-bedrock-diagnoser": "^0.1.10",
+    "bc-minecraft-bedrock-diagnoser": "^0.1.11",
     "bc-minecraft-bedrock-project": "^1.7.5",
     "bc-minecraft-bedrock-types": "^1.1.9",
     "bc-minecraft-bedrock-vanilla-data": "^1.4.0",
@@ -38,7 +38,7 @@
     "vscode-uri": "^3.0.2"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.21",
+    "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
     "@types/picomatch": "^2.2.6",

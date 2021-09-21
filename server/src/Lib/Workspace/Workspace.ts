@@ -1,4 +1,4 @@
-import { BehaviorPack, Pack, ResourcePack } from "bc-minecraft-bedrock-project";
+import { Pack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { HandleError } from "../Code/Error";
@@ -7,7 +7,7 @@ import { Database } from "../Database/include";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
-import { Document } from "../Types/include";
+import { ProcessPack } from "../Process/Pack";
 
 /**
  *
@@ -88,27 +88,5 @@ export namespace Workspace {
     packs.forEach(ProcessPack);
 
     return packs;
-  }
-
-  /**
-   *
-   * @param pack
-   */
-  export function ProcessPack(pack: Pack): void {
-    Console.Info(`Processing pack: ${pack.folder}`);
-
-    const ignores = pack.context.ignores.patterns;
-    const folder = pack.folder;
-    let files: string[];
-
-    if (BehaviorPack.BehaviorPack.is(pack)) {
-      files = MinecraftFormat.GetBehaviorPackFiles(folder, ignores);
-    } else if (ResourcePack.ResourcePack.is(pack)) {
-      files = MinecraftFormat.GetResourcePackFiles(folder, ignores);
-    } else {
-      files = MinecraftFormat.GetPackFiles(folder, ignores);
-    }
-
-    Document.ForEachDocument(files, (doc) => pack.process(doc));
   }
 }

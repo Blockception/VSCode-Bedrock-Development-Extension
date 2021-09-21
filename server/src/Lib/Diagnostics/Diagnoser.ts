@@ -84,6 +84,7 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
   public project: MCProject;
 
   constructor(doc: vstd.TextDocument, project: MCProject, context: DiagnosticsBuilderContent) {
+    Console.Log("\tDiagnoser created for: " + doc.uri);
     this.doc = doc;
     this.Items = [];
 
@@ -93,6 +94,7 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
 
   /**A signal from the diagnoser API that this diagnoser is done*/
   done(): void {
+    Console.Log(`\tDiagnoser marked done: [${this.Items.length}] ` + this.doc.uri);
     Manager.Diagnostic.SendDiagnostics(this.doc, this.Items);
   }
 
