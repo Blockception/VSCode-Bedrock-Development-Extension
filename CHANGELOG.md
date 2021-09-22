@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Updated dependencies
+- Updated readme
+- 2.1.60
 - Updated schemas
 - Updated
 - Improved event diagnostics
@@ -36,10 +39,7 @@
 - 2.1.57
 - 2.1.56
 - Added event diagnostics
-- Updated packages
-- 2.1.55
-- Adding or improving .molang support #113
-- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /client. 
+- Updated packages. 
 ## Schemas
 - Updated
 - Updated volumes
