@@ -36,12 +36,13 @@
     "Debuggers"
   ],
   "engines": {
-    "vscode": "^1.41.0"
+    "vscode": "^1.60.0"
   },
   "extensionKind": [
     "workspace"
   ],
   "devDependencies": {
+    "json-loader": "^0.5.7",
     "ts-loader": "^9.2.6",
     "vsce": "^1.99.0",
     "webpack": "^5.53.0",
