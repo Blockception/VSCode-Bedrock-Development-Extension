@@ -42,7 +42,8 @@
     "workspace"
   ],
   "devDependencies": {
-    "vsce": "^1.99.0"
+    "vsce": "^1.99.0",
+    "webpack": "^5.53.0"
   },
   "files": [
     "*.html"

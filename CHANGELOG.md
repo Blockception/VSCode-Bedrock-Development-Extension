@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- 2.1.61
 - Updated dependencies
 - Updated readme
 - 2.1.60
@@ -38,8 +39,7 @@
 - Create main.yml
 - 2.1.57
 - 2.1.56
-- Added event diagnostics
-- Updated packages. 
+- Added event diagnostics. 
 ## Schemas
 - Updated
 - Updated volumes
