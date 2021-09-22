@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- 2.1.62
 - 2.1.61
 - Updated dependencies
 - Updated readme
@@ -38,8 +39,7 @@
 - Rename main.yml to generate-includes.yml
 - Create main.yml
 - 2.1.57
-- 2.1.56
-- Added event diagnostics. 
+- 2.1.56. 
 ## Schemas
 - Updated
 - Updated volumes
