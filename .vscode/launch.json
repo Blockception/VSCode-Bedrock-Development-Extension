@@ -7,7 +7,7 @@
       "request": "launch",
       "name": "Launch Client",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"],
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/client/out/**/*.js"],
       "preLaunchTask": "npm: watch"
