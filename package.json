@@ -36,7 +36,7 @@
     "Debuggers"
   ],
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.61.0"
   },
   "extensionKind": [
     "workspace"
@@ -77,7 +77,9 @@
     "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
     "clean": "rimraf client/out && rimraf server/out",
     "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
-    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd .."
+    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
+    "postversion": "git push && git push --tags",
+    "version": "git add -A src"
   },
   "contributes": {
     "configuration": [
