@@ -9,6 +9,7 @@
         "kind": "build",
         "isDefault": true
       },
+      "label": "npm watch 'vscode-plugin'",
       "presentation": { "reveal": "silent", "panel": "dedicated" },
       "problemMatcher": ["$tsc-watch"]
     },
@@ -20,15 +21,17 @@
         "kind": "build",
         "isDefault": true
       },
+      "label": "npm lint 'vscode-plugin'",
       "presentation": { "reveal": "silent", "panel": "dedicated" },
       "problemMatcher": ["$eslint-stylish", "$eslint-compact"]
     },
     {
       "type": "npm",
-      "script": "compile",
+      "script": "build",
       "isBackground": false,
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "label": "npm build 'vscode-plugin'",
+      "presentation": { "reveal": "silent", "panel": "dedicated" },
       "problemMatcher": ["$tsc"]
     },
     {
@@ -36,7 +39,7 @@
       "script": "test",
       "isBackground": false,
       "group": "build",
-      "presentation": { "reveal": "silent", "panel": "dedicated" },
+      "label": "npm test 'vscode-plugin'",
       "problemMatcher": ["$tsc"]
     },
     {
