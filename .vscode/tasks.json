@@ -27,7 +27,7 @@
     },
     {
       "type": "npm",
-      "script": "build",
+      "script": "compile",
       "isBackground": false,
       "group": "build",
       "label": "npm build 'vscode-plugin'",

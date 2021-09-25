@@ -1,12 +1,10 @@
-import { Command, ParameterType } from "bc-minecraft-bedrock-command";
+import { ParameterType } from "bc-minecraft-bedrock-command";
 import { ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
-import { Documentation } from "bc-minecraft-bedrock-project";
 import { IDataSet } from "bc-minecraft-bedrock-project/lib/src/Lib/Types/DataSet/IDataSet";
 import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { Database } from "../Database/include";
 import { RawText } from "../Minecraft/Json/include";
-import { IsEducationEnabled } from "../Project/include";
 import { TextDocument } from "../Types/Document/TextDocument";
 
 /**
