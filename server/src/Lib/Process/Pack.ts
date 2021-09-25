@@ -1,5 +1,6 @@
-import { Pack, BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
+import { Pack } from "bc-minecraft-bedrock-project";
 import { Fs } from "../Code/Url";
+import { Database } from "../Database/include";
 import { Console } from "../Manager/Console";
 import { MinecraftFormat } from "../Minecraft/Format";
 import { Document } from "../Types/include";
@@ -11,5 +12,7 @@ import { Document } from "../Types/include";
 export function ProcessPack(pack: Pack): void {
   Console.Info(`Processing pack: ${Fs.UniformFolder(pack.folder)}`);
 
-  Document.ForEachDocument(MinecraftFormat.GetPackFiles(pack), (doc) => pack.process(doc));
+  Document.ForEachDocument(MinecraftFormat.GetPackFiles(pack), (doc) => {
+    Database.ProjectData.process(doc);
+  });
 }
