@@ -63,7 +63,7 @@ export function ProvideCompletionCommand(context: SimpleContext<CompletionBuilde
     return;
   }
 
-  const Matches = command.getCommandData(IsEducationEnabled(context.doc));
+  const Matches = command.getBestMatch(IsEducationEnabled(context.doc));
 
   if (Matches.length === 0) {
     if (pos < 10) Commands.Command.ProvideCompletion(context);

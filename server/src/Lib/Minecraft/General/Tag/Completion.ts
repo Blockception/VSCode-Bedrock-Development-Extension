@@ -1,7 +1,5 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
-import { CompletionItemKind } from "vscode-languageserver";
 import { GetFilename, SimpleContext } from "../../../Code/include";
-import { CommandCompletionContext } from "../../../Completion/Context";
 import { CompletionBuilder } from "../../../Completion/include";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../Kinds";
@@ -12,7 +10,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   receiver.Generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
 
   const data = context.doc.getConfiguration();
-  const defined = data.definitions?.tag.defined;
+  const defined = data.definitions.tag?.defined;
 
   if (defined) receiver.GenerateStr(defined, generateDocumentation, Kinds.Completion.Tag);
 }
@@ -32,7 +30,7 @@ export function ProvideCompletionTest(context: SimpleContext<CompletionBuilder>)
   const receiver = context.receiver;
 
   //Add defined tags to the context
-  data.definitions?.tag.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));
+  data.definitions.tag?.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));
 
   //Add the tags to the list
   Database.ProjectData.General.tags.forEach((tag) => {
