@@ -1,9 +1,10 @@
+import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
+import { Types } from "bc-minecraft-bedrock-types";
 import { CreateContext, CreateDiagnoser } from "../Diagnostics/Diagnoser";
 import { Console } from "../Manager/Console";
-import { WorkspaceData } from "./Types/WorkspaceData";
+import { WorkspaceData } from "./WorkspaceData";
 
 /** */
 export class Database {
@@ -27,6 +28,8 @@ export class Database {
   }
 }
 
+type BaseObject = Types.Identifiable & Types.Documentated & Types.Locatable;
+
 /**
  *
  */
@@ -36,7 +39,73 @@ export namespace Database {
    * @param id
    * @param callbackfn
    */
-  export function FindReference(id: string, callbackfn: (id: Identifiable) => void) {
-    //TODO search the database for anything that matches the ID
+  export function FindReference(id: string): BaseObject | undefined {
+    return Database.ProjectData.find((item) => item.id === id);
+  }
+
+  /**
+   *
+   * @param id
+   * @param callbackfn
+   */
+  export function FindReferences(id: string, Types: ParameterType[]): BaseObject[] {
+    let out: BaseObject[] = [];
+    const AddIfIDMatch = (item: BaseObject) => {
+      if (item.id === id) out.push(item);
+    };
+
+    for (let I = 0; I < Types.length; I++) {
+      const T = Types[I];
+
+      switch (T) {
+        case ParameterType.animation:
+          Database.ProjectData.ResourcePacks.entities.forEach(entity=>{
+            entity.animations.defined.forEach(anim=>{
+              if (anim === id) out.push(entity);
+            })
+          });
+          break;
+        case ParameterType.block:
+          Database.ProjectData.BehaviorPacks.blocks.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.entity:
+          Database.ProjectData.BehaviorPacks.entities.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.event:
+          Database.ProjectData.BehaviorPacks.entities.forEach(entity=>{
+            entity.events.forEach(event=>{
+              if (event === id) out.push(entity);
+            })
+          });
+          break;
+        case ParameterType.function:
+          Database.ProjectData.BehaviorPacks.functions.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.item:
+          Database.ProjectData.BehaviorPacks.items.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.objective:
+          Database.ProjectData.General.objectives.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.particle:
+          Database.ProjectData.ResourcePacks.particles.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.sound:
+          Database.ProjectData.ResourcePacks.sounds.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.structure:
+          Database.ProjectData.BehaviorPacks.structures.forEach(AddIfIDMatch);
+          Database.ProjectData.General.structures.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.tag:
+          Database.ProjectData.General.tags.forEach(AddIfIDMatch);
+          break;
+        case ParameterType.tickingarea:
+          Database.ProjectData.General.tickingAreas.forEach(AddIfIDMatch);
+          break;
+      }
+    }
+
+    return out;
   }
 }
