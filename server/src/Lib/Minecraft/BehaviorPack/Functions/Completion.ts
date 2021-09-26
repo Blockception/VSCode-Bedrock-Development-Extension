@@ -5,7 +5,10 @@ import { Database } from "../../../Database/include";
 import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const generateDoc = (item: Identifiable) => `The mcfunction: ${item.id}`;
+  const generateDoc = (item: Identifiable) => `The mcfunction: ${item.id}}`;
 
+  //Project data
   context.receiver.Generate(Database.ProjectData.BehaviorPacks.functions, generateDoc, Kinds.Completion.Functions);
+
+  //No vanilla data 
 }

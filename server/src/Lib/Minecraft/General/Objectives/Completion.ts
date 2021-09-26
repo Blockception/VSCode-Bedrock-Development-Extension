@@ -17,10 +17,11 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
     return `The objective: ${item.id}\nLocation: ${filename}`;
   };
 
+  //From project data
   receiver.Generate(Database.ProjectData.General.objectives, generateDoc, Kinds.Completion.Objectives);
 
   const data = context.doc.getConfiguration();
-  const defined = data.definitions.objective?.defined;
 
-  if (defined) receiver.GenerateStr(defined, generateDoc, Kinds.Completion.Objectives);
+  //From definitions
+  receiver.GenerateStr(data.definitions.objective.defined, generateDoc, Kinds.Completion.Objectives);
 }

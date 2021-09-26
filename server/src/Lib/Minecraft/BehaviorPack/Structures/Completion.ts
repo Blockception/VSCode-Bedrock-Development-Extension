@@ -8,4 +8,6 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const generateDoc = (item: Identifiable) => `The mcstructure: ${item.id}`;
 
   context.receiver.Generate(Database.ProjectData.BehaviorPacks.structures, generateDoc, Kinds.Completion.Structure);
+
+  //No vanilla data
 }

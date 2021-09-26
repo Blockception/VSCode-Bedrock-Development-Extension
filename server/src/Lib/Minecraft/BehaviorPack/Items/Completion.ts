@@ -9,6 +9,7 @@ import { Kinds } from "../../General/Kinds";
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The item definition: ${item.id}`;
 
+  //Project data
   context.receiver.Generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
 
   //Vanilla data

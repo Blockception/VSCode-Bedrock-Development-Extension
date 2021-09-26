@@ -1,33 +1,19 @@
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
+import { Database } from "../../../Database/include";
+import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
-  //TODO redo
-  /*let data = context.doc.getConfiguration();
-  let receiver = context.receiver;
+  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+    const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
 
-  data.definitions.family.defined.forEach((family) => {
-    receiver.Add(family, "The defined family: " + family, CompletionItemKind.Value);
+    context.receiver.GenerateStr(entity.families, generateDoc, Kinds.Completion.Family);
   });
 
-  if (type) {
-    let entity = Database.ProjectData.BehaviorPacks.entities.GetFromID(type);
-
-    if (entity) {
-      ConvertEntity(entity, receiver);
-    }
-  } else {
-    Database.ProjectData.BehaviorPacks.entities.forEach((entity) => ConvertEntity(entity, receiver));
-  }*/
+  //Vanilla data
+  context.receiver.GenerateStr(MinecraftData.General.Entities.families, (item) => `The vanilla entity family: ${item}`, Kinds.Completion.Family);
 }
-
-/*
-function ConvertEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
-  entity.Families.forEach((family) => {
-    receiver.Add(family, "The entity family: " + family, Kinds.Completion.Family);
-  });
-}
-*/
 
 export function ProvideCompletionTest(context: CommandCompletionContext | CompletionBuilder, type: string | undefined = undefined): void {
   //TODO redo

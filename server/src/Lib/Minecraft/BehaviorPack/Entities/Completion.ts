@@ -18,37 +18,3 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   if (IsEducationEnabled(context.doc)) context.receiver.Generate(MinecraftData.edu.BehaviorPack.entities, generateDoc, Kinds.Completion.Entity);
 }
 
-//TODO move to entity Event
-export function ProvideEventCompletion(context: SimpleContext<CompletionBuilder>): void {
-  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
-    const generateDoc = (item: string) => `The entity event definition: ${item} from: ${entity.id}`;
-
-    context.receiver.GenerateStr(entity.events, generateDoc, Kinds.Completion.Event);
-  });
-
-  MinecraftData.vanilla.BehaviorPack.entities.forEach((entity) => {
-    const generateDoc = (item: string) => `The vanilla entity event definition: ${item} from: ${entity.id}`;
-
-    context.receiver.GenerateStr(entity.events, generateDoc, Kinds.Completion.Event);
-  });
-
-  //Education data
-  if (IsEducationEnabled(context.doc))
-    MinecraftData.edu.BehaviorPack.entities.forEach((entity) => {
-      const generateDoc = (item: string) => `The vanilla entity event definition: ${item} from: ${entity.id}`;
-
-      context.receiver.GenerateStr(entity.events, generateDoc, Kinds.Completion.Event);
-    });
-}
-
-//TODO move to family
-export function ProvideFamilyCompletion(context: SimpleContext<CompletionBuilder>): void {
-  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
-    const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
-
-    context.receiver.GenerateStr(entity.families, generateDoc, Kinds.Completion.Family);
-  });
-
-  //Vanilla data
-  //TODO add vanilla family support
-}

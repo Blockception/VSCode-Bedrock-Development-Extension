@@ -1,11 +1,19 @@
+import { Modes } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from 'bc-vscode-words';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { CompletionBuilder } from '../../../Completion/Builder';
 import { CommandCompletionContext } from "../../../Completion/Context";
+import { IsEducationEnabled } from '../../../Project/Attributes';
+import { FakeEntity } from '../include';
+import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SelectorType";
+import { Attributes, AttributeValue, Scores } from './include';
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
-  /**
   const receiver = context.receiver;
   const selector = context.current;
   const pos = context.cursor;
   const Options = context.parameter.options;
+  const edu = IsEducationEnabled(context.doc);
 
   const playerOnly = Options?.playerOnly ?? false;
   const wildcard = Options?.wildcard ?? false;
@@ -23,28 +31,19 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     }
 
     //Defaults
-    receiver.items.push(
-      SelectorBase.Completion.AllPlayer,
-      SelectorBase.Completion.Executing,
-      SelectorBase.Completion.Executing,
-      SelectorBase.Completion.Random,
-      SelectorBase.Completion.NearestPlayer
-    );
-
-    const set = context.doc.getConfiguration().settings;
-
-    if (!set.Diagnostics.Enable) return;
-    if (set.Education.Enable) {
-      receiver.items.push(SelectorBase.Completion.MyAgent, SelectorBase.Completion.SomethingEdu, SelectorBase.Completion.Initiator);
-    } else if (context.doc.uri.includes("/dialogue/")) {
-      receiver.items.push(SelectorBase.Completion.Initiator);
-    }
+    FromType(receiver, InternalSelectorTypeMode.AllPlayers);
+    FromType(receiver, InternalSelectorTypeMode.Nearest);
+    FromType(receiver, InternalSelectorTypeMode.Random);
 
     if (!playerOnly) {
-      receiver.items.push(SelectorBase.Completion.AllEntities);
+      FromType(receiver, InternalSelectorTypeMode.AllEntities);
     }
-    if (fakePlayer) {
-      FakeEntity.ProvideCompletion(context);
+
+    if (context.doc.uri.includes("/dialogue/")) FromType(receiver, InternalSelectorTypeMode.Initiator);
+
+    if (edu) {
+      FromType(receiver, InternalSelectorTypeMode.Agents);
+      FromType(receiver, InternalSelectorTypeMode.AllAgents);
     }
 
     return;
@@ -52,15 +51,112 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
 
   //Not in selector
   if (InScore(selector, pos)) {
-    provideSelectorScoreCompletion(receiver, selector, pos);
+    Scores.ProvideCompletion(context, selector, pos);
     return;
   }
 
   if (IsEditingValue(selector, pos)) {
-    let Attribute = GetCurrentAttribute(selector, pos);
-    provideSelectorAttributeValueCompletion(receiver, Attribute, !playerOnly);
+    const Attribute = GetCurrentAttribute(selector, pos);
+    AttributeValue.ProvideCompletion(context, Attribute, !playerOnly);
   } else {
-    provideSelectorAttributeCompletion(receiver, !playerOnly);
+    Attributes.ProvideCompletion(context, !playerOnly);
   }
-  */
+}
+
+/**
+ * 
+ * @param receiver 
+ * @param item 
+ */
+function FromType(receiver : CompletionBuilder, item : any) : void {
+  receiver.Add(item.name, item.documentation, CompletionItemKind.TypeParameter);
+}
+
+/**
+ * 
+ * @param selector 
+ * @param pos 
+ * @returns 
+ */
+export function InSelector(selector: OffsetWord, pos: number): boolean {
+  if (selector.offset + 2 >= pos && selector.offset + selector.text.length <= pos) return true;
+
+  return false;
+}
+
+/**
+ * 
+ * @param selector 
+ * @param pos 
+ * @returns 
+ */
+export function InScore(selector: OffsetWord, pos: number): boolean {
+  let Index = selector.text.indexOf("scores");
+
+  if (Index < 0) return false;
+
+  //scores={}
+  if (pos < Index + 8) {
+    return false;
+  }
+
+  Index = selector.text.indexOf("}") + selector.offset;
+
+  if (Index < 0) return true;
+
+  return pos <= Index;
+}
+
+/**
+ * 
+ * @param selector 
+ * @param pos 
+ * @returns 
+ */
+export function GetCurrentAttribute(selector: OffsetWord, pos: number): string {
+  let StartIndex = pos - selector.offset;
+
+  while (StartIndex > 2) {
+    let C = selector.text.charAt(StartIndex);
+
+    if (C === ",") {
+      break;
+    }
+
+    StartIndex--;
+  }
+
+  StartIndex++;
+  let EndIndex = selector.text.indexOf("=", StartIndex);
+
+  if (EndIndex < 0) EndIndex = selector.text.length;
+
+  return selector.text.slice(StartIndex, EndIndex).trim();
+}
+
+/**
+ * 
+ * @param text 
+ * @returns 
+ */
+export function IsFakePlayer(text: string): boolean {
+  return !text.startsWith("@") && text !== "*";
+}
+
+/**
+ * 
+ * @param selector 
+ * @param pos 
+ * @returns 
+ */
+export function IsEditingValue(selector: OffsetWord, pos: number): boolean {
+  let diff = pos - selector.offset;
+
+  if (diff > 0) {
+    if (selector.text.charAt(diff - 1) === "=") {
+      return true;
+    }
+  }
+
+  return false;
 }

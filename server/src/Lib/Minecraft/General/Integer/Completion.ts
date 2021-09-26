@@ -16,7 +16,9 @@ export function ProvideCreateCompletion(receiver: CompletionBuilder, minimum: nu
   let diff = maximum - minimum;
   let steps = diff > 10 ? diff / 10 : 1;
 
+  if (steps < 1) steps = 1;
+
   for (let I = minimum; I < maximum; I += steps) {
-    receiver.Add(I.toPrecision(), "The integer number: " + I.toString(), CompletionItemKind.Constant);
+    receiver.Add(I.toString(), "The integer number: " + I.toString(), CompletionItemKind.Constant);
   }
 }

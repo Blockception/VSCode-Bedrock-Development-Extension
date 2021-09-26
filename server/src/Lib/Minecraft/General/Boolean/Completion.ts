@@ -8,6 +8,6 @@ export function ProvideCompletion(context: CommandCompletionContext | Completion
   //False
   receiver.Add("false", "The boolean value for false", Kinds.Completion.Boolean);
 
-  //true
+  //True
   receiver.Add("true", "The boolean value for true", Kinds.Completion.Boolean);
 }
