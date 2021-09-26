@@ -69,7 +69,14 @@ export function CreateRangeTokens(Word: RangedWord, Builder: McfunctionSemanticT
  * @param Builder
  */
 export function CreateNamespaced(Word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
-  let Index = Word.text.indexOf(":");
+  const text = Word.text;
+  
+  if(text.startsWith('"') || text.endsWith('"')) {
+    Builder.AddWord(Word, SemanticTokensEnum.string, SemanticModifiersEnum.static);
+    return;
+  }
+
+  let Index = text.indexOf(":");
 
   if (Index >= 0) {
     Index += Word.offset;
