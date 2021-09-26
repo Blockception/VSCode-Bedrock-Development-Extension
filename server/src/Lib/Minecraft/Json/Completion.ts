@@ -2,7 +2,7 @@ import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItem, InsertReplaceEdit, Position, Range } from "vscode-languageserver";
 import { SimpleContext } from "../../Code/SimpleContext";
 import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "../include";
-import { GetCurrentString } from "../../Types/Document/Json Functions";
+import { GetCurrentString } from "./Functions";
 import { CompletionBuilder } from "../../Completion/Builder";
 
 export function ProvideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {

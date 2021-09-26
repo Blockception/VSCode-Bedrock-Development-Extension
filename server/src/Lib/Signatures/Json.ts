@@ -1,6 +1,6 @@
 import { SignatureHelp } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { GetCurrentString } from "../Types/Document/Json Functions";
+import { GetCurrentString } from "../Minecraft/Json/Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { Commands, Mcfunction, Molang } from "../Minecraft/include";
 

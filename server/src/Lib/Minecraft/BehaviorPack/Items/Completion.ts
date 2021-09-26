@@ -8,13 +8,24 @@ import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The item definition: ${item.id}`;
+  const receiver = context.receiver;
 
   //Project data
-  context.receiver.Generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
+  receiver.Generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
+
+  //spawn_eggs
+  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+    receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+  });
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+  receiver.Generate(MinecraftData.vanilla.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+
+  //spawn_eggs
+  MinecraftData.vanilla.BehaviorPack.entities.forEach((entity) => {
+    receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+  });
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+  if (IsEducationEnabled(context.doc)) receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
 }
