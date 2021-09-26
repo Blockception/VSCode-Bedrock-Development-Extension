@@ -19,7 +19,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetBehaviorPackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["**/*.json", "*.json", "*.mcfunction", "**/*.mcfunction"], ignores, folder);
+    return Glob.GetFiles(["**/*.json", "*.json", "*.mcfunction", "**/*.mcfunction", "**/*.lang", "*.lang"], ignores, folder);
   }
 
   /**
@@ -29,7 +29,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetResourcePackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["**/*.json", "*.json"], ignores, folder);
+    return Glob.GetFiles(["**/*.json", "*.json", "**/*.lang", "*.lang"], ignores, folder);
   }
 
   /**
@@ -61,5 +61,23 @@ export namespace MinecraftFormat {
    */
   export function GetAudioFiles(folder: string, ignores: string[]) {
     return Glob.GetFiles(["sounds/**/*.ogg", "sounds/*.ogg", "sounds/**/*.fsb", "sounds/*.fsb"], ignores, folder);
+  }
+
+  /**
+   *
+   * @param folder
+   * @param ignores
+   */
+  export function GetTextureFiles(folder: string, ignores: string[]) {
+    return Glob.GetFiles(["textures/**/*.png", "textures/*.png", "textures/**/*.tga", "textures/*.tga"], ignores, folder);
+  }
+
+  /**
+   *
+   * @param folder
+   * @param ignores
+   */
+  export function GetStructureFiles(folder: string, ignores: string[]) {
+    return Glob.GetFiles(["**/*.mcstructure", "*.mcstructure"], ignores, folder);
   }
 }
