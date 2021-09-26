@@ -136,6 +136,7 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
       case ParameterType.structureAnimationMode:
       case ParameterType.teleportRules:
       case ParameterType.oldBlockMode:
+      case ParameterType.time:
         Builder.AddWord(Word, SemanticTokensEnum.enumMember);
         break;
 
