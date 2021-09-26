@@ -19,4 +19,5 @@ export * as SlotId from "./SlotId/include";
 export * as SlotType from "./SlotType/include";
 export * as StructureAnimation from "./StructureAnimation/include";
 export * as TeleportRules from "./TeleportRules/include";
+export * as Time from "./Time/include";
 export * from "./Completion";
