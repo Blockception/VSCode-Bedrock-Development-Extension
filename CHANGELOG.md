@@ -1,46 +1,59 @@
 # Changelog
 ## Plugin
-- Updated schemas
-- 2.1.58
-- Updated tasks
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Create generate-includes.yml
-- Removed tests from include
-- Delete generate-includes.yml
-- Updated
-- Update npm-test.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Rename main.yml to generate-includes.yml
-- Create main.yml
-- 2.1.57
-- 2.1.56
-- Added event diagnostics
-- Updated packages
-- 2.1.55
-- Adding or improving .molang support #113
-- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /client
-- Update dependabot.yml
-- build(deps-dev): bump @types/vscode from 1.59.0 to 1.60.0 in /client
-- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /client
-- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10 in /server
-- build(deps-dev): bump webpack from 5.51.1 to 5.52.0 in /server
-- build(deps): bump minecraft-bedrock-schemas from `7e8c935` to `ef3247a`
-- build(deps-dev): bump @typescript-eslint/parser from 4.29.3 to 4.30.0
-- build(deps-dev): bump webpack from 5.51.1 to 5.52.0
-- build(deps): bump vsce from 1.96.2 to 1.97.0
-- build(deps-dev): bump @types/node from 16.7.7 to 16.7.10
-- Updated schemas
-- 2.1.54
 - Updated dependencies
-- build(deps-dev): bump mocha from 9.1.0 to 9.1.1
-- build(deps-dev): bump typescript from 4.3.5 to 4.4.2
-- build(deps-dev): bump @types/node from 16.7.1 to 16.7.7
-- Fixing mocha build error. 
+- Updated hover
+- Refactor
+- Fixing
+- Updated
+- Added molang
+- Added spawn_egg completion
+- Added references providers
+- Refactor
+- Added database look ups
+- Moved json functions
+- Refactoring
+- Added support for strings
+- Added mcstructure files processing for bps
+- Added completion for time mode
+- Added time mode to semantics
+- Updated more file types collecting
+- Refactoring completion
+- Updated dependencies
+- 3.0.2
+- Updated dependencies
+- Updated to 3.0.1
+- 3.0.1
+- Fixing completion bugs
+- Scopes are weird
+- Bug fixing
+- Making minecraft ignore node_modules
+- Updated
+- Updated tasks
+- Updated tasks
+- Updated workspace
+- Adding ignores for test data
+- Updated dependencies
+- Updated
+- Cleaned
+- Removed diagnoatics messages
+- Updated
+- Updated
+- Refactoring
+- Updated. 
 ## Schemas
+- Updated tasks
+- Adding ignores for test data
+- Updated
+- Updated volumes
+- Updated item components
+- Updating to documentation
+- Removed scaffolding
+- Updated
+- Updated pickup
+- Updating knockback
+- Added more version support
+- Added block climber
+- Added block_climber
 - Changed references
 - Updating on_equip / on_unequip #6
 - Updated
@@ -67,17 +80,4 @@
 - Create npm-test.yml
 - Added schemas count check
 - Added
-- Updated
-- Added unit tests
-- Restructure
-- Updated git settings
-- New testing folder
-- Updated
-- Added
-- UPdated
-- Fixing
-- Fixing
-- Updated
-- Updated dialogue schema to fit microsoft documentation
-- Fixing
 - Updated
