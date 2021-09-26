@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-mcfunction",
@@ -23,7 +23,10 @@
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore"
   ],
-  "author": { "name": "Blockception Ltd", "url": "https://www.blockception.com/"},
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
   "categories": [
     "Language Packs",
     "Programming Languages",
@@ -51,9 +54,15 @@
     "webpack": "^5.54.0",
     "webpack-cli": "^4.8.0"
   },
-  "engines": { "vscode": "^1.41.0" },
-  "extensionKind": [ "workspace" ],
-  "files": [ "*.html" ],
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "files": [
+    "*.html"
+  ],
   "maintainers": [
     {
       "name": "Blockception Ltd",
