@@ -157,19 +157,6 @@ function OnlyPositiveAndMultipleNegatives(name: string, selector: Selector, buil
   var Parameters = selector.get(name);
 
   if (Array.isArray(Parameters)) {
-    if (Parameters.length <= 1) return;
-
-    var Negatives = 0;
-
-    for (let index = 0; index < Parameters.length; index++) {
-      const element = Parameters[index];
-
-      if (element.Value.text.startsWith("!")) Negatives++;
-    }
-
-    if (Negatives != Parameters.length - 1) {
-      builder.Add('Parameter: "' + name + '" can only have 1 positive test or/and multiple negatives test', selector.Range).code = `selector.${name}.testp&n`;
-    }
   }
 }
 
@@ -220,18 +207,6 @@ function Coordinate(name: string, selector: Selector, builder: DiagnosticsBuilde
     builder.AddWord(Parameter.Value, 'Parameter: "' + name + '" cannot be a local coordinate, only relative or absolute').code = "selector.coordinate.invalid";
 }
 
-/**
- *
- * @param selector
- */
-function IsBox(selector: Selector): boolean {
-  if (selector.contains("dx")) return true;
-  if (selector.contains("dy")) return true;
-  if (selector.contains("dz")) return true;
-
-  return false;
-}
-
 function Name(selector: Selector, builder: DiagnosticsBuilder): void {
   var Parameters = selector.get("name");
 
@@ -244,17 +219,6 @@ function Name(selector: Selector, builder: DiagnosticsBuilder): void {
   }
 
   OnlyPositiveAndMultipleNegatives("name", selector, builder);
-}
-
-/**
- *
- * @param selector
- */
-function IsSphere(selector: Selector): boolean {
-  if (selector.contains("r")) return true;
-  if (selector.contains("rm")) return true;
-
-  return false;
 }
 
 /**
