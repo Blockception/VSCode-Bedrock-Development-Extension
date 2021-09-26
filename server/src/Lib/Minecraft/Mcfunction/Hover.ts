@@ -30,7 +30,7 @@ export function ProvideHover(params: HoverParams, doc: TextDocument): Hover | un
     Sub = Sub.isInSubCommand(cursor, Edu);
   }
 
-  const Data = command.getCommandData(Edu);
+  const Data = command.getBestMatch(Edu);
 
   if (Data.length >= 1) {
     const Info = Data[0];
