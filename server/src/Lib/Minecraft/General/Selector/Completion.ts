@@ -8,6 +8,11 @@ import { FakeEntity } from '../include';
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SelectorType";
 import { Attributes, AttributeValue, Scores } from './include';
 
+/**
+ * 
+ * @param context 
+ * @returns 
+ */
 export function ProvideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
   const selector = context.current;
@@ -16,8 +21,8 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
   const edu = IsEducationEnabled(context.doc);
 
   const playerOnly = Options?.playerOnly ?? false;
-  const wildcard = Options?.wildcard ?? false;
-  const fakePlayer = Options?.allowFakePlayers ?? false;
+
+  if (Options?.wildcard) receiver.Add("*", "Wildcard, aimed at all players / entities, or possible stored in memory", CompletionItemKind.Constant);
 
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     //In selector
@@ -34,6 +39,7 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     FromType(receiver, InternalSelectorTypeMode.AllPlayers);
     FromType(receiver, InternalSelectorTypeMode.Nearest);
     FromType(receiver, InternalSelectorTypeMode.Random);
+    FromType(receiver, InternalSelectorTypeMode.Self);
 
     if (!playerOnly) {
       FromType(receiver, InternalSelectorTypeMode.AllEntities);
@@ -45,6 +51,8 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
       FromType(receiver, InternalSelectorTypeMode.Agents);
       FromType(receiver, InternalSelectorTypeMode.AllAgents);
     }
+
+    if (Options?.allowFakePlayers) FakeEntity.ProvideCompletion(context);
 
     return;
   }
@@ -150,7 +158,7 @@ export function IsFakePlayer(text: string): boolean {
  * @returns 
  */
 export function IsEditingValue(selector: OffsetWord, pos: number): boolean {
-  let diff = pos - selector.offset;
+  const diff = pos - selector.offset;
 
   if (diff > 0) {
     if (selector.text.charAt(diff - 1) === "=") {

@@ -3,5 +3,5 @@ import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  context.receiver.Add('"', "The start of the string", CompletionItemKind.Constant);
+  context.receiver.Add('"', "The start of the string", CompletionItemKind.Constant).insertText='""';
 }

@@ -229,6 +229,7 @@
         { "name": "entity.name.type.class.spawnpoint", "match": "\\bspawnpoint\\b" },
         { "name": "entity.name.type.class.spreadplayers", "match": "\\bspreadplayers\\b" },
         { "name": "entity.name.type.class.stopsound", "match": "\\bstopsound\\b" },
+        { "name": "entity.name.type.class.structure", "match": "\\bstructure\\b" },
         { "name": "entity.name.type.class.summon", "match": "\\bsummon\\b" },
         { "name": "entity.name.type.class.tag", "match": "\\btag\\b" },
         { "name": "entity.name.type.class.teleport", "match": "\\bteleport\\b" },

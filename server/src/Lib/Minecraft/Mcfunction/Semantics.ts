@@ -83,6 +83,7 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
       case ParameterType.particle:
       case ParameterType.sound:
       case ParameterType.tickingarea:
+      case ParameterType.structure:
         CreateNamespaced(Word, Builder);
         break;
 
