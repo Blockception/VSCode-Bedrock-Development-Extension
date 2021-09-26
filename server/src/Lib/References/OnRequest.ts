@@ -1,8 +1,7 @@
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { Languages } from "../Constants";
+import { Json, Mcfunction } from '../Minecraft/include';
 import { GetDocument } from "../Types/Document/include";
-import { ProvideJsonReferences } from "./Json";
-import { ProvideMcfunctionsReferences } from "./Mcfunction";
 
 export async function OnReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {
   return new Promise<Location[] | undefined>((resolve, reject) => {
@@ -16,14 +15,14 @@ function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {
 
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:
-      return ProvideMcfunctionsReferences(params, doc);
+      return Mcfunction.ProvideReferences(params, doc);
 
     case Languages.McOtherIdentifier:
       return;
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      return ProvideJsonReferences(params, doc);
+      return Json.ProvideReferences(doc, params);
   }
 
   return undefined;

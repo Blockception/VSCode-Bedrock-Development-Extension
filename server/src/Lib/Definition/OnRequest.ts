@@ -1,8 +1,7 @@
 import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
+import { Json, Mcfunction } from '../Minecraft/include';
 import { GetDocument } from "../Types/Document/include";
-import { OnJsonDefinition } from "./Json";
-import { OnMcfunctionDefinition, OnMcfunctionDefinitionDoc } from "./Mcfunction";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {
   return new Promise<Location[] | undefined>((resolve, reject) => {
@@ -20,15 +19,13 @@ function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 
-  const pos = params.position;
-
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:
-      return OnMcfunctionDefinitionDoc(doc, pos);
+      return Mcfunction.ProvideReferences(params, doc);
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      return OnJsonDefinition(doc, pos);
+      return Json.ProvideReferences(doc, params);
 
     case Languages.McOtherIdentifier:
       break;

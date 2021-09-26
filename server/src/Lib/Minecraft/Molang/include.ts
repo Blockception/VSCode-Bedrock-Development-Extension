@@ -4,3 +4,4 @@ export * from "./Completion";
 export * from "./Functions";
 export * from "./Semantics";
 export * from "./Words";
+export * from "./References";
