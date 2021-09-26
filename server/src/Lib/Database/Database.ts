@@ -59,10 +59,10 @@ export namespace Database {
 
       switch (T) {
         case ParameterType.animation:
-          Database.ProjectData.ResourcePacks.entities.forEach(entity=>{
-            entity.animations.defined.forEach(anim=>{
+          Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
+            entity.animations.defined.forEach((anim) => {
               if (anim === id) out.push(entity);
-            })
+            });
           });
           break;
         case ParameterType.block:
@@ -72,10 +72,17 @@ export namespace Database {
           Database.ProjectData.BehaviorPacks.entities.forEach(AddIfIDMatch);
           break;
         case ParameterType.event:
-          Database.ProjectData.BehaviorPacks.entities.forEach(entity=>{
-            entity.events.forEach(event=>{
+          Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+            entity.events.forEach((event) => {
               if (event === id) out.push(entity);
-            })
+            });
+          });
+          break;
+        case ParameterType.event:
+          Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+            entity.families.forEach((family) => {
+              if (family === id) out.push(entity);
+            });
           });
           break;
         case ParameterType.function:
