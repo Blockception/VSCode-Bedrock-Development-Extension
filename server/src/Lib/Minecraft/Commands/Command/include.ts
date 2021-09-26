@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 
 export * from "./Completion";
-export * from "./Signature";
 export * from "./References";
+export * from "./Signature";

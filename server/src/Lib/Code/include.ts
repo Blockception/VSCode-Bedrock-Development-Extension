@@ -8,6 +8,7 @@ export * from "./File";
 export * from "./Offset";
 export * from "./Range";
 export * from "./Reader";
+export * from "./References";
 export * from "./SimpleContext";
 export * from "./TextEdit";
 export * from "./Url";
