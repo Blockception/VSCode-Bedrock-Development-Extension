@@ -13,7 +13,7 @@ export function ProvideReferences(value : OffsetWord, params: DefinitionParams, 
 
 	const com = Command.parse(Line, offset);
 
-  const data = com.getCommandData(IsEducationEnabled(doc.getConfiguration()));
+  const data = com.getBestMatch(IsEducationEnabled(doc));
 
   if (data.length == 0) return undefined;
 
@@ -30,7 +30,7 @@ export function ProvideReferences(value : OffsetWord, params: DefinitionParams, 
     const Pattern = data[I];
     const Parameters = Pattern.parameters;
 
-    if (Parameters.length >= Index) {
+    if (Parameters.length > Index) {
       Types.push(Parameters[Index].type);
     }
   }
