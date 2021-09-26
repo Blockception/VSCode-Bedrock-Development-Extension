@@ -1,7 +1,7 @@
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/include";
-import { GetCurrentString } from "../../../Types/Document/include";
+import { GetCurrentString } from '../../Json/Functions';
 import { ProvideSoundFileCompletion } from "../Sounds/Completion";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, cursor: number): void {
