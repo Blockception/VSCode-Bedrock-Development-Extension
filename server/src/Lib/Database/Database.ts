@@ -48,7 +48,17 @@ export namespace Database {
    * @param id
    * @param callbackfn
    */
-  export function FindReferences(id: string, Types: ParameterType[]): BaseObject[] {
+  export function FindReferences(id: string, Types: ParameterType[] | undefined = undefined): BaseObject[] {
+    if (Types) return internalTypeSearch(id, Types);
+
+    return internalSearchAll(id);
+  }
+
+  function internalSearchAll(id : string) : BaseObject[] {
+    return [];
+  }
+
+  function internalTypeSearch(id: string, Types: ParameterType[]) : BaseObject[] {
     let out: BaseObject[] = [];
     const AddIfIDMatch = (item: BaseObject) => {
       if (item.id === id) out.push(item);

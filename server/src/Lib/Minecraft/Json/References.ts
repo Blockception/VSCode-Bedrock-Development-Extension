@@ -36,6 +36,10 @@ export function ProvideReferences(doc: TextDocument, params: DefinitionParams | 
   }
   else {
     ReferencesInDocument(value, doc, Out);
+
+    const out = Database.Database.FindReference(value.text);
+
+    if (out) { Out.push(...References.ConvertLocation([out]))}
   }
 
   return Out;
