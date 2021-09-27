@@ -12,7 +12,7 @@ on:
 
 jobs:      
   test:
-    name: Test and ${{ matrix.os }}
+    name: test ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -29,9 +29,5 @@ jobs:
           
       - name: Build
         run: npm ci
-        
-      - run: xvfb-run -a npm test
-        if: runner.os == 'Linux'
-        
+                
       - run: npm test
-        if: runner.os != 'Linux'
