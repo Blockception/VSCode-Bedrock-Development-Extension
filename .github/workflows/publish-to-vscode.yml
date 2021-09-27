@@ -29,9 +29,11 @@ jobs:
         run: npx vsce package
         env:
           VSCE_PAT: ${{ secrets.vsce }}
-      - run: npx vsce publish --packagePath $(find . -iname *.vsix)
-        env:
-          VSCE_PAT: ${{ secrets.vsce }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.target }}
+          path: "*.vsix"
           
   build:
     strategy:    
