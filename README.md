@@ -69,42 +69,7 @@ Automatic JSON validation is applied if the files follow a given pattern for nam
 For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or in the world folder: `resource_packs`.  
 For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or in the world folder: `behavior_packs`.
 
-- [**General**](./documentation/Json%20Validation.md#general)
-  - Manifests
-  - Languages
-  - Language names
-- [**World**](./documentation/Json%20Validation.md#world)
-  - world_behavior_packs
-  - world_resource_packs
-- [**Resource packs**](./documentation/Json%20Validation.md#resource-packs)
-  - Animation controllers
-  - Animations
-  - Attachables
-  - Biomes
-  - Blocks
-  - Entities
-  - Entity models
-  - Flipbook textures
-  - Item textures
-  - Materials
-  - Music definitions
-  - Particles
-  - Render controllers
-  - Sound definitions
-  - Sounds
-  - Terrain textures
-- [**Behavior packs**](./documentation/Json%20Validation.md#behavior-packs)
-  - Animation controllers
-  - Animations
-  - Blocks
-  - Entity behaviors
-  - Item behaviors
-  - Loot tables
-  - Recipes
-  - Spawn rules
-  - Trading
-- [**Skin packs**](./documentation/Json%20Validation.md#skinpacks)
-  - Skins.json
+[Full list of json validation](https://github.com/Blockception/VSCode-Bedrock-Development-Extension/blob/main/documentation/Json%20Validation.md)
 
 ---
 
@@ -135,7 +100,7 @@ Cheat Sheets has been added for easy lookup.
 
 ## Commands
 
-A complete list can be found [here](documentation/Commands.md). These commands provide things such as cheat sheets, diagnostics, and creation of files
+A complete list can be found [here](documentation/Commands.md). These commands provide things such as cheat sheets, diagnostics, and generations of files.
 
 ---
 

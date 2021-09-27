@@ -39,6 +39,9 @@
     "fast-glob": "^3.2.7",
     "vsce": "^1.100.0"
   },
+  "extensionKind": [
+    "workspace"
+  ],
   "devDependencies": {
     "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
@@ -54,19 +57,13 @@
     "webpack": "^5.54.0",
     "webpack-cli": "^4.8.0"
   },
-  "engines": {
-    "vscode": "^1.41.0"
-  },
-  "extensionKind": [
-    "workspace"
-  ],
   "files": [
     "*.html"
   ],
   "maintainers": [
     {
       "name": "Blockception Ltd",
-      "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension"
+      "url": "https://github.com/Blockception"
     }
   ],
   "repository": {
@@ -86,7 +83,9 @@
     "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
     "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
     "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
-    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd .."
+    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
+    "postversion": "git push && git push --tags",
+    "version": "git add -A src"
   },
   "contributes": {
     "configuration": [

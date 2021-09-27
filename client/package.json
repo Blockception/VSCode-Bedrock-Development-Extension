@@ -19,7 +19,7 @@
     "update": "npm update && npm audit fix"
   },
   "engines": {
-    "vscode": "^1.83.0"
+    "vscode": "^1.61.0"
   },
   "dependencies": {
     "vscode-languageclient": "^7.0.0"
