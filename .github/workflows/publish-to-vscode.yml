@@ -1,14 +1,13 @@
 # This is a basic workflow to help you get started with Actions
-
 name: publish-to-vscode
 
 # Controls when the workflow will run
 on:
+  # Also trigger on page_build, as well as release created events
   page_build:
   release:
-    types: # This configuration does not affect the page_build event above
-      - created
-
+    types: [published, created]
+    
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
