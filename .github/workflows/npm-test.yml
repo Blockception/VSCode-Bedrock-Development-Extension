@@ -21,6 +21,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
+      - name: Start xvfb
+        if: startsWith(matrix.os, 'ubuntu')
+        run: /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+        
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
