@@ -35,6 +35,9 @@
     "Formatters",
     "Debuggers"
   ],
+  "engines": {
+    "vscode": "^1.61.0"
+  },
   "dependencies": {
     "fast-glob": "^3.2.7",
     "vsce": "^1.100.0"
