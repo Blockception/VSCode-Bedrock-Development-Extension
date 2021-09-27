@@ -75,7 +75,9 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run test && npm run webpack",
-    "compile": "tsc -b",
+    "compile": "npm run clean && npm run lint:client && npm run lint:server && tsc -b",
+    "compile:client": "tsc -b ./client/tsconfig.json",
+    "compile:server": "tsc -b ./server/tsconfig.json",
     "watch": "tsc -b -w",
     "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "test": "cd client && npm run test && cd ../server && npm run test && cd ..",

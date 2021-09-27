@@ -15,6 +15,7 @@
   },
   "scripts": {
     "compile": "tsc -b",
+    "pretest": "npm run compile",
     "test": "mocha -r ts-node/register '**/*.test.ts'",
     "update": "npm update && npm audit fix"
   },

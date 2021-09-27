@@ -18,6 +18,7 @@
   },
   "scripts": {
     "compile": "tsc -b",
+    "pretest": "npm run compile",
     "test": "mocha --require ts-node/register '**/*.test.ts'",
     "update": "npm update && npm audit fix",
     "lint": "eslint . --ext .ts"
