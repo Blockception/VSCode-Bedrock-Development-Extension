@@ -1,6 +1,6 @@
 import { Templates } from "../../include";
 import { TemplateBuilder } from "../Builder";
-import { context } from "../context";
+import { context } from "../Context";
 import * as path from "path";
 
 /**

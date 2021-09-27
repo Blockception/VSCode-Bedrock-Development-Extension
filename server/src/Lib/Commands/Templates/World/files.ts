@@ -3,7 +3,7 @@ const { v4: uuid } = require("uuid");
 import * as path from "path";
 import { Templates } from "../../../Data/include";
 import { TemplateBuilder } from "../Builder";
-import { context } from "../context";
+import { context } from "../Context";
 
 export function create_manifest_file(context: context, Builder: TemplateBuilder): void {
   const uri = path.join(context.WorldFolder, "manifest.json");

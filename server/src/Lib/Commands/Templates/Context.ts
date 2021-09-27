@@ -1,5 +1,3 @@
-import { Manager } from "../../Manager/Manager";
-
 export interface context {
   BehaviorPack: string;
   ResourcePack: string;

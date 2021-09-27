@@ -2,7 +2,7 @@ import { Templates } from "../../../Data/include";
 import { SafeIDNoNamespace } from "../../../Data/Templates/Function";
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
-import { context } from "../context";
+import { context } from "../Context";
 import { GetDocuments } from "../../../Types/Document/include";
 
 const { v4: uuid } = require("uuid");
