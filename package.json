@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-mcfunction",
@@ -88,7 +88,7 @@
     "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
     "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
     "postversion": "git push && git push --tags",
-    "version": "git add -A src"
+    "version": "git add -A ."
   },
   "contributes": {
     "configuration": [
