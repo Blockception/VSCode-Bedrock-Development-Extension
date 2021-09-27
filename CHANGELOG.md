@@ -1,5 +1,12 @@
 # Changelog
 ## Plugin
+- Modified
+- Update publish-to-vscode.yml
+- Update publish-to-vscode.yml
+- Update publish-to-vscode.yml
+- Fixing
+- Update publish-to-vscode.yml
+- 3.0.13
 - MORE CASE SENSTIVE
 - CASE SENSTIVE
 - Updated
@@ -32,14 +39,7 @@
 - Added
 - Update npm-test.yml
 - Update npm-test.yml
-- Update npm-test.yml
-- Update npm-test.yml
-- Update npm-test.yml
-- Update npm-test.yml
-- Updated package-locks
-- Updated schemas
-- Updated diagnostics source
-- Updated. 
+- Update npm-test.yml. 
 ## Schemas
 - Added tick.json validation
 - Updated typescript config
