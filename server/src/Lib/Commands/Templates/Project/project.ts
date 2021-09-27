@@ -1,19 +1,19 @@
 import { Templates } from "../../include";
 import { TemplateBuilder } from "../Builder";
-import { Context } from "../Context";
+import { context } from "../context";
 import * as path from "path";
 
 /**
  *
  * @param ID
- * @param Context
+ * @param context
  * @param Builder
  */
-export function create_world_project(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  const Folder = path.join(Context.WorkFolder, "world");
+export function create_world_project(ID: string, context: context, Builder: TemplateBuilder): void {
+  const Folder = path.join(context.WorkFolder, "world");
 
-  const NewContext: Context = {
-    WorkFolder: Context.WorkFolder,
+  const NewContext: context = {
+    WorkFolder: context.WorkFolder,
     BehaviorPack: path.join(Folder, "behavior_packs", ID + "-BP"),
     ResourcePack: path.join(Folder, "resource_packs", ID + "-RP"),
     WorldFolder: Folder,
@@ -28,17 +28,17 @@ export function create_world_project(ID: string, Context: Context, Builder: Temp
 /**
  *
  * @param ID
- * @param Context
+ * @param context
  * @param Builder
  */
-export function create_behaviorpack(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  const Folder = path.join(Context.WorkFolder, ID + "-BP");
+export function create_behaviorpack(ID: string, context: context, Builder: TemplateBuilder): void {
+  const Folder = path.join(context.WorkFolder, ID + "-BP");
 
-  const NewContext: Context = {
-    WorkFolder: Context.WorkFolder,
+  const NewContext: context = {
+    WorkFolder: context.WorkFolder,
     BehaviorPack: Folder,
     ResourcePack: Folder,
-    WorldFolder: Context.WorldFolder,
+    WorldFolder: context.WorldFolder,
   };
 
   Templates.Behavior_Pack.create_manifest_file(NewContext, Builder);
@@ -47,17 +47,17 @@ export function create_behaviorpack(ID: string, Context: Context, Builder: Templ
 /**
  *
  * @param ID
- * @param Context
+ * @param context
  * @param Builder
  */
-export function create_resourcepack(ID: string, Context: Context, Builder: TemplateBuilder): void {
-  const Folder = path.join(Context.WorkFolder, ID + "-RP");
+export function create_resourcepack(ID: string, context: context, Builder: TemplateBuilder): void {
+  const Folder = path.join(context.WorkFolder, ID + "-RP");
 
-  const NewContext: Context = {
-    WorkFolder: Context.WorkFolder,
+  const NewContext: context = {
+    WorkFolder: context.WorkFolder,
     BehaviorPack: Folder,
     ResourcePack: Folder,
-    WorldFolder: Context.WorldFolder,
+    WorldFolder: context.WorldFolder,
   };
 
   Templates.Resource_Pack.create_manifest_file(NewContext, Builder);

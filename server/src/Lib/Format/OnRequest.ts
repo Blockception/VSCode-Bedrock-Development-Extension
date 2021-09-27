@@ -33,7 +33,8 @@ export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattin
  * @returns
  */
 function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] | undefined {
-  let doc = GetDocument(params.textDocument.uri);
+  const doc = GetDocument(params.textDocument.uri);
+  if (!doc) return undefined;
 
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:
@@ -55,8 +56,9 @@ function OnDocumentFormatRequest(params: DocumentFormattingParams): TextEdit[] |
  * @param params
  * @returns
  */
-function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] {
-  let doc = GetDocument(params.textDocument.uri);
+function OnDocumentRangeFormatRequest(params: DocumentRangeFormattingParams): TextEdit[] | undefined {
+  const doc = GetDocument(params.textDocument.uri);
+  if (!doc) return undefined;
 
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:

@@ -1,31 +1,28 @@
-import { ProjectFiles } from "../Code/include";
-import { Console } from "../Console/Console";
-import { Database } from "../Database/include";
+import { Pack } from "bc-minecraft-bedrock-project";
+import { HandleError } from "../Code/Error";
+import { ProvidePackDiagnostics } from "../Diagnostics/OnRequest";
+import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
-import { Behavior, Resource } from "../Types/Minecraft/include";
+import { Workspace } from "../Workspace/Workspace";
 
-export function Traverse(): void {
-  Console.Log("Traversing starting...");
+export async function Traverse(): Promise<Pack[]> {
+  Console.Info("Traversing starting...");
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 
-  Database.MinecraftProgramData.GetProjecData(TraverseProject);
-}
+  const out = Workspace.GetWorkSpaces().then(Workspace.TraverseWorkspaces);
 
-export function TraverseProject(Project: ProjectFiles | undefined): void {
-  if (!Project) return;
+  out.finally(() => {
+    Manager.State.TraversingProject = false;
+    Manager.State.DataGathered = true;
+    Console.Info("Traversing complete");
+  });
 
-  try {
-    Console.Log("Processing behavior packs");
-    Project.BehaviorPackFolders.forEach(Behavior.ProcessBehaviorPack);
+  out.catch((err) => {
+    HandleError(err);
+  });
 
-    Console.Log("Processing resource packs");
-    Project.ResourcePackFolders.forEach(Resource.ProcessResourcePack);
-  } catch (err) {
-    Console.Error(JSON.stringify(err));
-  }
+  out.then((packs) => packs.forEach(ProvidePackDiagnostics));
 
-  Manager.State.TraversingProject = false;
-  Manager.State.DataGathered = true;
-  Console.Log("Traversing complete");
+  return out;
 }

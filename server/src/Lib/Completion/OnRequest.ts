@@ -1,20 +1,17 @@
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/include";
-import { OnCompletionMCProject } from "../Types/MCProject/Completion";
 import { CompletionBuilder } from "./Builder";
-import { OnCompletionJson } from "./Json";
-import { OnCompletionLanguage } from "./Language";
-import { OnCompletionMcFunction } from "./Mcfunction";
-import { OnCompletionMolangRequest } from "./Molang/include";
+import { Json, Language, Mcfunction, MCProject, Molang } from "../Minecraft/include";
+import { SimpleContext } from "../Code/SimpleContext";
 
 /**Handle request
  * @param params
  * @returns
  */
-export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[]> {
+export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[] | CompletionList | undefined> {
   return new Promise((resolve, reject) => {
-    resolve(OnCompletionRequest(params).items);
+    resolve(OnCompletionRequest(params));
   });
 }
 
@@ -23,7 +20,7 @@ export async function OnCompletionRequestAsync(params: CompletionParams): Promis
  * @param params
  * @returns
  */
-export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem> {
+export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem | undefined> {
   return new Promise<CompletionItem>((resolve, reject) => resolve(params));
 }
 
@@ -31,36 +28,39 @@ export async function OnCompletionResolveRequestAsync(params: CompletionItem): P
  * @param params
  * @returns
  */
-function OnCompletionRequest(params: CompletionParams): CompletionList {
-  const Doc = GetDocument(params.textDocument.uri);
-  const Builder = new CompletionBuilder(Doc);
-  const Pos = params.position;
+function OnCompletionRequest(params: CompletionParams): CompletionList | undefined {
+  const doc = GetDocument(params.textDocument.uri);
+  if (!doc) return undefined;
 
-  switch (Doc.languageId) {
+  const builder = new CompletionBuilder();
+  const pos = params.position;
+  const context = SimpleContext.create(doc, builder);
+
+  switch (doc.languageId) {
     case Languages.McLanguageIdentifier:
-      OnCompletionLanguage(Doc, Pos, Builder);
+      Language.ProvideCompletion(context, pos);
       break;
 
     case Languages.McFunctionIdentifier:
-      OnCompletionMcFunction(Doc, Pos, Builder);
+      Mcfunction.ProvideCompletion(context, pos);
       break;
 
     case Languages.McProjectIdentifier:
-      OnCompletionMCProject(Doc, Pos, Builder);
+      MCProject.ProvideCompletion(context, pos);
       break;
 
     case Languages.McMolangIdentifier:
-      OnCompletionMolangRequest(Doc, Pos, Builder);
+      Molang.ProvideDocCompletion(context, pos);
       break;
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      OnCompletionJson(Doc, Doc.offsetAt(Pos), Builder);
+      Json.ProvideCompletionDocument(context, pos);
       break;
   }
 
   const List: CompletionList = { isIncomplete: false, items: [] };
-  List.items = removeDuplicate(Builder.items);
+  List.items = removeDuplicate(builder.items);
 
   return List;
 }

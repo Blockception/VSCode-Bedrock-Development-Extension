@@ -22,7 +22,7 @@ function OpenLastestError(args: any): void {
     }
 
     APPDATA = path.join(APPDATA, "Local", "Packages");
-    let Childern = readdirSync(APPDATA);
+    const Childern = readdirSync(APPDATA);
 
     for (let I = 0; I < Childern.length; I++) {
       const Child = Childern[I];
@@ -32,24 +32,23 @@ function OpenLastestError(args: any): void {
       }
     }
   } catch (error) {
-    window.showErrorMessage("error occured during finding the logs");
-    console.log(JSON.stringify(error));
+    HandleError(error);
   }
 }
 
 function FindLastestLog(folder: string): void {
   const LogFolder = path.join(folder, "LocalState", "logs");
-  let Lastest: string = "";
-  let LastestTime: number = 0;
+  let Lastest = "";
+  let LastestTime = 0;
 
-  let Childern = readdirSync(LogFolder);
+  const Childern = readdirSync(LogFolder);
 
   for (let I = 0; I < Childern.length; I++) {
     const Child = Childern[I];
 
     if (Child.startsWith("ContentLog_") && Child.endsWith(".txt")) {
-      let filepath = path.join(LogFolder, Child);
-      let stat = statSync(filepath);
+      const filepath = path.join(LogFolder, Child);
+      const stat = statSync(filepath);
 
       if (Lastest === "" || stat.mtimeMs > LastestTime) {
         Lastest = filepath;
@@ -67,4 +66,7 @@ function FindLastestLog(folder: string): void {
   } else {
     window.showInformationMessage("Couldn't find content logs");
   }
+}
+function HandleError(error: unknown) {
+  throw new Error("Function not implemented.");
 }

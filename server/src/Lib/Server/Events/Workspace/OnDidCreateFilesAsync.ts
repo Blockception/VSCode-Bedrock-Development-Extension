@@ -2,7 +2,7 @@ import { CreateFilesParams, FileCreate } from "vscode-languageserver";
 import { GetDocument } from "../../../Types/Document/Document";
 import { Process } from "../../../Process/Process";
 import { Glob } from "../../../Glob/Glob";
-import { Console } from "../../../Console/include";
+import { Console } from "../../../Manager/Console";
 
 //Files created
 export async function OnDidCreateFilesAsync(params: CreateFilesParams): Promise<void> {
@@ -29,12 +29,14 @@ async function OnDidCreateFile(Item: FileCreate): Promise<void> {
   return new Promise((resolve, reject) => {
     const Doc = GetDocument(Item.uri);
 
-    let conf = Doc.getConfiguration();
+    if (Doc) {
+      let conf = Doc.getConfiguration();
 
-    if (conf.ignores.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores)) {
-      Process(Doc);
-    } else {
-      Console.Log(`Ignored: ` + Doc.uri);
+      if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores.patterns)) {
+        Process(Doc);
+      } else {
+        Console.Log(`Ignored: ` + Doc.uri);
+      }
     }
 
     resolve();

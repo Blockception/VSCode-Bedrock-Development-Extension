@@ -1,4 +1,4 @@
-import { Console } from "../Console/Console";
+import { Console } from "../Manager/Console";
 
 /**
  * The code to run when the server is shutting down

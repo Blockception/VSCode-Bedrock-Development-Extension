@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "2.1.64",
+  "version": "3.0.3",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-mcfunction",
@@ -35,17 +35,26 @@
     "Formatters",
     "Debuggers"
   ],
-  "engines": {
-    "vscode": "^1.61.0"
+  "dependencies": {
+    "fast-glob": "^3.2.7",
+    "vsce": "^1.100.0"
   },
   "extensionKind": [
     "workspace"
   ],
   "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.10.1",
+    "@typescript-eslint/parser": "^4.31.2",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
     "json-loader": "^0.5.7",
+    "mocha": "^9.1.2",
     "ts-loader": "^9.2.6",
-    "vsce": "^1.99.0",
-    "webpack": "^5.53.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3",
+    "webpack": "^5.54.0",
     "webpack-cli": "^4.8.0"
   },
   "files": [
@@ -63,19 +72,16 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run test && npm run webpack",
-    "compile": "npm run clean && tsc -b",
-    "compile:client": "tsc -b ./client/tsconfig.json",
-    "compile:server": "tsc -b ./server/tsconfig.json",
+    "compile": "tsc -b",
     "watch": "tsc -b -w",
     "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
-    "webpack": "npm run clean && webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
-    "webpack:dev": "npm run clean && webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
+    "webpack": "webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
+    "webpack:dev": "webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
     "test-compile": "tsc -p ./",
     "lint": "npm run lint:client && npm run lint:server",
     "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
     "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
-    "clean": "rimraf client/out && rimraf server/out",
     "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
     "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
     "postversion": "git push && git push --tags",
@@ -135,6 +141,12 @@
       {
         "title": "(Re) Scan the minecraft project",
         "command": "bc.minecraft.project.scan",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Store project data",
+        "command": "bc.minecraft.project.store",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
@@ -709,6 +721,10 @@
           "*.diag.json"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/dialogue/dialogue.json"
+      },
+      {
+        "fileMatch": ["functions/tick.json"],
+        "url": "./minecraft-bedrock-schemas/behavior/functions/tick.json"
       },
       {
         "fileMatch": [

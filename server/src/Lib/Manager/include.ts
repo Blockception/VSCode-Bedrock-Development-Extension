@@ -1,6 +1,6 @@
 /*	Auto generated	*/
 
-export * from "./Extension Capabilties";
-export * from "./Extension Data";
-export * from "./Extension State";
+export * from "./Capabilties";
+export * from "./Console";
 export * from "./Manager";
+export * from "./State";

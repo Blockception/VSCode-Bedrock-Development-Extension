@@ -1,13 +1,12 @@
-import { Console } from "../Console/include";
 import { Database } from "../Database/include";
+import { Console } from "../Manager/Console";
 import { Traverse } from "../Process/Traverse";
 
 /**
  *
  */
 export function ReScanProject() {
-  Console.Log("Cleaing database");
-  Database.Data.Clear();
-
-  Traverse();
+  Console.Info("Rescanning of project initiated");
+  Database.Clear();
+  return Traverse();
 }

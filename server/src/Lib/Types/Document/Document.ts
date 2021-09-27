@@ -1,41 +1,42 @@
 import * as fs from "fs";
 import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
-import { fileURLToPath } from "url";
 import { Languages } from "../../Constants";
-import { Console } from "../../Console/Console";
 import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
+import { HandleError } from "../../Code/Error";
+import { Fs, Vscode } from "../../Code/Url";
 
-/**
- * Returns an usable document interaction from the given data.
- *
+/**Returns an usable document interaction from the given data.
  * @param uri The url to the document to retrieve.
  * @param Content The possible content of the document or interface to use
  * @param languageID The Language ID associated to the documentated.
+ * @returns Returns a textdocument or undefined if something went wrong
  */
-export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument {
+export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument | undefined {
   const Old = uri;
+  uri = Vscode.UniformUrl(uri);
 
   if (languageID === "") {
     languageID = IdentifyDoc(uri);
   }
 
   if (typeof Content === "undefined") {
-    const doc = Manager.Data.Documents.get(Old);
+    const doc = Manager.Documents.get(Old);
 
     //Cached document
     if (doc) return TextDocument.wrap(doc);
 
     const content = GetDocumentContent(uri);
+
     if (content) {
       return TextDocument.create(uri, languageID, 1, content);
     }
 
     //We have tried all methods of retrieving data so far
-    return TextDocument.create(uri, languageID, 0, "");
+    return undefined;
   }
   //Content is provided
   else if (typeof Content === "string") {
@@ -77,8 +78,8 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
 
     try {
       if (doc) callback(doc);
-    } catch (err) {
-      Console.Error(GetFilename(doc.uri) + " | " + JSON.stringify(err));
+    } catch (error) {
+      HandleError(error, element);
     }
   }
 }
@@ -101,14 +102,14 @@ export function GetDocuments(folder: string, pattern: string | string[], ignores
  */
 export function GetDocumentContent(uri: string): string | undefined {
   //Reading file
-  let path = fileURLToPath(uri);
+  const path = Fs.GetFilepath(uri);
 
   if (fs.existsSync(path)) {
     let content: string | undefined;
     try {
       content = fs.readFileSync(path, "utf8");
-    } catch (err) {
-      Console.Error("couldn't read: " + path + "\n\tError thrown" + JSON.stringify(err));
+    } catch (error) {
+      HandleError(error, uri);
     }
 
     return content;

@@ -1,11 +1,6 @@
-import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
+import { Vscode } from "../../Code/Url";
 
-import { GetDocument } from "../../Types/Document/Document";
-import { Database } from "../../Database/Database";
-import { Manager } from "../../Manager/include";
-import { TextDocument } from "../../Types/Document/TextDocument";
-import { UniformUrl } from "../../Code/Url";
-
+/**TODO
 export function AddAllItems(params: ExecuteCommandParams): any {
   let args = params.arguments;
 
@@ -18,21 +13,23 @@ export function AddAllItems(params: ExecuteCommandParams): any {
       if (doc) {
         let builder = new TextEditBuilder(doc);
 
-        Database.Data.Behaviorpack.Entities.ForEach((entity) => {
-          const id = Safe(entity.Identifier);
+        Database.ProjectData.BehaviorPacks.Entities.forEach((entity) => {
+          const id = Safe(entity.id);
 
-          builder.Add("entity." + entity.Identifier + ".name", id, "Entity: " + entity.Identifier);
-          builder.Add("item.spawn_egg.entity." + entity.Identifier + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.Identifier);
+          builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
+          builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
         });
-        Database.Data.Behaviorpack.Items.ForEach((data) => {
-          const id = Safe(data.Identifier);
 
-          builder.Add("item." + data.Identifier + ".name", id, "Item: " + data.Identifier);
+        Database.ProjectData.BehaviorPacks.Items.forEach((data) => {
+          const id = Safe(data.id);
+
+          builder.Add("item." + data.id + ".name", id, "Item: " + data.id);
         });
-        Database.Data.Behaviorpack.Blocks.ForEach((data) => {
-          const id = Safe(data.Identifier);
 
-          builder.Add("tile." + data.Identifier + ".name", id, "Block: " + data.Identifier);
+        Database.ProjectData.BehaviorPacks.Blocks.forEach((data) => {
+          const id = Safe(data.id);
+
+          builder.Add("tile." + data.id + ".name", id, "Block: " + data.id);
         });
 
         const edit = TextEdit.insert(doc.positionAt(builder.textdoc.length), builder.out);
@@ -78,3 +75,4 @@ class TextEditBuilder {
     this.out += Temp + "\n";
   }
 }
+**/
