@@ -109,7 +109,7 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
       code: code,
       severity: GetSeverity(severity),
       range: GetRange(position, this.doc),
-      source: "bcmc",
+      source: "mc",
     };
 
     this.Items.push(Error);
