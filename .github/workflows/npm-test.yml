@@ -17,7 +17,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        package: [client, server]
         
     steps:
       - name: Checkout
@@ -28,7 +27,5 @@ jobs:
           node-version: 14
       - name: Build
         run: npm ci
-        working-directory: ./${{ matrix.package }}
       - name: Test
         run: npm test
-        working-directory: ./${{ matrix.package }}
