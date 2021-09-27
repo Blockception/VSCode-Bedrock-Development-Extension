@@ -1,45 +1,45 @@
 # Changelog
 ## Plugin
+- MORE CASE SENSTIVE
+- CASE SENSTIVE
+- Updated
+- Updated
+- Updated
+- Updated
+- Update publish-to-vscode.yml
+- Update publish-to-vscode.yml
+- Update publish-to-vscode.yml
+- Update npm-test.yml
+- Update npm-test.yml
+- 3.0.12
+- 3.0.11
+- Update publish-to-vscode.yml
+- Update publish-to-vscode.yml
+- 3.0.10
+- 3.0.9
+- Update publish-to-vscode.yml
+- 3.0.8
+- Updated
+- Updated
+- Update npm-test.yml
+- Updated
+- Updated
+- 3.0.7
+- Updated
+- Create publish-to-vscode.yml
+- Create tagged-release.yml
+- Update npm-test.yml
+- Added
+- Update npm-test.yml
+- Update npm-test.yml
+- Update npm-test.yml
+- Update npm-test.yml
+- Update npm-test.yml
+- Update npm-test.yml
 - Updated package-locks
 - Updated schemas
 - Updated diagnostics source
-- Updated
-- Updated
-- Updated
-- Added tick.json validation
-- 3.0.3
-- Updated dependencies
-- Updated hover
-- Refactor
-- Fixing
-- Updated
-- Added molang
-- Added spawn_egg completion
-- Added references providers
-- Refactor
-- Added database look ups
-- Moved json functions
-- Refactoring
-- Added support for strings
-- Added mcstructure files processing for bps
-- Added completion for time mode
-- Added time mode to semantics
-- Updated more file types collecting
-- Refactoring completion
-- Cleaned
-- Updated dependencies
-- 3.0.2
-- Updated dependencies
-- Updated to 3.0.1
-- 3.0.1
-- Fixing completion bugs
-- Scopes are weird
-- Bug fixing
-- Making minecraft ignore node_modules
-- Updated
-- Updated tasks
-- Updated tasks
-- Updated workspace. 
+- Updated. 
 ## Schemas
 - Added tick.json validation
 - Updated typescript config
