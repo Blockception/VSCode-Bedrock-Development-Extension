@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-mcfunction",
@@ -723,7 +723,9 @@
         "url": "./minecraft-bedrock-schemas/behavior/dialogue/dialogue.json"
       },
       {
-        "fileMatch": ["functions/tick.json"],
+        "fileMatch": [
+          "functions/tick.json"
+        ],
         "url": "./minecraft-bedrock-schemas/behavior/functions/tick.json"
       },
       {
