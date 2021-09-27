@@ -1,16 +1,24 @@
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
 import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
-import { DataCollector } from "../Database/include";
-import { TextDocument } from "../Types/Document/TextDocument";
-import { Item } from "../Types/General/include";
-import { Documentable, Identifiable, Locatable } from "../Types/Minecraft/Interfaces/include";
 
+/**
+ *
+ */
 export class CompletionBuilder {
+  /**
+   *
+   */
   public items: CompletionItem[];
-  public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
-  public doc: TextDocument;
 
-  constructor(doc: TextDocument) {
-    this.doc = doc;
+  /**
+   *
+   */
+  public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
+
+  /**
+   *
+   */
+  constructor() {
     this.items = [];
     this.OnNewItem = undefined;
   }
@@ -45,17 +53,80 @@ export class CompletionBuilder {
     return item;
   }
 
-  AddFrom(value: Identifiable, valuekind: CompletionItemKind): void {
-    if (Documentable.is(value)) {
-      this.Add(value.Identifier, value.Documentation, valuekind);
-    } else {
-      this.Add(value.Identifier, "The custom definition of: " + value.Identifier, valuekind);
+  /**
+   *
+   * @param item
+   * @param generatefn
+   * @param kind
+   * @returns
+   */
+  GenerateItem<T extends Identifiable>(item: T, generatefn: (item: T) => string, kind: CompletionItemKind = CompletionItemKind.Keyword): CompletionItem {
+    const docet = <Documentated>item;
+    let doc = docet.documentation;
+
+    if (!doc) {
+      doc = generatefn(item);
+      docet.documentation = doc;
     }
+
+    return this.Add(item.id, doc, kind);
   }
 
-  AddFromRange<T extends Identifiable & Locatable>(value: DataCollector<T>, valuekind: CompletionItemKind): void {
-    value.ForEach((data) => {
-      this.AddFrom(data, valuekind);
-    });
+  /**
+   *
+   * @param dataset
+   * @param generatefn
+   * @param kind
+   * @param query
+   * @returns
+   */
+  Generate<T extends Identifiable>(
+    dataset: IForEach<T>,
+    generatefn: (item: T) => string,
+    kind: CompletionItemKind = CompletionItemKind.Keyword,
+    query: string | undefined = undefined
+  ): CompletionItem[] {
+    const out: CompletionItem[] = [];
+
+    if (query) {
+      dataset.forEach((item) => {
+        if (item.id.includes(query)) out.push(this.GenerateItem(item, generatefn, kind));
+      });
+    } else {
+      dataset.forEach((item) => out.push(this.GenerateItem(item, generatefn, kind)));
+    }
+
+    return out;
   }
+
+  /**
+   *
+   * @param dataset
+   * @param generatefn
+   * @param kind
+   * @param query
+   * @returns
+   */
+  GenerateStr(
+    dataset: IForEach<string>,
+    generatefn: (item: string) => string,
+    kind: CompletionItemKind = CompletionItemKind.Keyword,
+    query: string | undefined = undefined
+  ): CompletionItem[] {
+    const out: CompletionItem[] = [];
+
+    if (query) {
+      dataset.forEach((item) => {
+        if (item.includes(query)) out.push(this.Add(item, generatefn(item), kind));
+      });
+    } else {
+      dataset.forEach((item) => out.push(this.Add(item, generatefn(item), kind)));
+    }
+
+    return out;
+  }
+}
+
+interface IForEach<T> {
+  forEach(callbackfn: (value: T) => void, thisArg?: any): void;
 }

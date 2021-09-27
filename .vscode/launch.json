@@ -10,7 +10,7 @@
       "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"],
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/client/out/**/*.js"],
-      "preLaunchTask": "npm: watch"
+      "preLaunchTask": "npm watch 'vscode-plugin'"
     },
     {
       "type": "node",

@@ -7,9 +7,6 @@
   "settings": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "[bc-minecraft-language]": {
-      "breadcrumbs.showVariables": true
-    },
 
     "editor.formatOnSave": true,
     "prettier.tabWidth": 2,

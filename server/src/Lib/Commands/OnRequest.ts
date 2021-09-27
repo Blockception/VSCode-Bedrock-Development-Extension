@@ -1,13 +1,12 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { Console } from "../Console/Console";
 import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { Files } from "./Files";
-import { McImportErrorsCommand } from "./Import Errors";
-import { AddAllItems } from "./Language/AddAll";
-import { CreateMCProject } from "./MCProjects";
+import { CreateMCProject } from "../Project/MCProjects";
 import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
+import { HandleError } from "../Code/Error";
+import { StoreProject } from "./StoreProject";
 
 /**
  *
@@ -31,14 +30,11 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
       case Commands.Files.Append:
         return Files.Append(params);
 
-      case Commands.ImportErrors:
-        return McImportErrorsCommand(params);
-
       case Commands.DiagnoseProject:
         return DiagnoseProjectCommand(params);
 
-      case Commands.AddLanguageFile:
-        return AddAllItems(params);
+      //case Commands.AddLanguageFile:
+      //return AddAllItems(params);
 
       case Commands.MCProject.Create:
         return CreateMCProject();
@@ -46,14 +42,16 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
       case Commands.ScanProjects:
         return ReScanProject();
 
+      case Commands.StoreProject:
+        return StoreProject();
+
       default:
         if (params.command.startsWith(Commands.Create.Base)) {
           return Create(params);
         }
     }
   } catch (error) {
-    const data = JSON.stringify(error);
-    Console.Error(data);
+    HandleError(error);
   }
 
   return undefined;

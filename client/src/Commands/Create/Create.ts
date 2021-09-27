@@ -1,6 +1,5 @@
 import { commands, ExtensionContext, InputBoxOptions, window } from "vscode";
 import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
-import { Console } from "../../Console/Console";
 import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
 
@@ -29,7 +28,7 @@ const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.fo
 const ProjectID: IDExample = { ID: /^[A-Z]+$/, example: "EP" };
 
 export function Activate(context: ExtensionContext): void {
-  Console.Log("registering create commands");
+  console.log("registering create commands");
 
   //General
   CreateID(context, Commands.Create.General.Entity, "Create Entity", EntityID);

@@ -26,4 +26,29 @@ describe("Character", () => {
     expect(Character.IsNumber("$"), "$").to.false;
     expect(Character.IsNumber("%"), "%").to.false;
   });
+
+  it("IsLetter Code", () => {
+    expect(Character.IsLetterCode("a".charCodeAt(0)), "a").to.true;
+    expect(Character.IsLetterCode("A".charCodeAt(0)), "A").to.true;
+    expect(Character.IsLetterCode("z".charCodeAt(0)), "z").to.true;
+    expect(Character.IsLetterCode("Z".charCodeAt(0)), "Z").to.true;
+
+    expect(Character.IsLetterCode("0".charCodeAt(0)), "0").to.false;
+    expect(Character.IsLetterCode("5".charCodeAt(0)), "5").to.false;
+    expect(Character.IsLetterCode("$".charCodeAt(0)), "$").to.false;
+    expect(Character.IsLetterCode("%".charCodeAt(0)), "%").to.false;
+  });
+
+  it("IsNumber Code", () => {
+    expect(Character.IsNumberCode("0".charCodeAt(0)), "0").to.true;
+    expect(Character.IsNumberCode("5".charCodeAt(0)), "5").to.true;
+
+    expect(Character.IsNumberCode("a".charCodeAt(0)), "a").to.false;
+    expect(Character.IsNumberCode("A".charCodeAt(0)), "A").to.false;
+    expect(Character.IsNumberCode("z".charCodeAt(0)), "z").to.false;
+    expect(Character.IsNumberCode("Z".charCodeAt(0)), "Z").to.false;
+
+    expect(Character.IsNumberCode("$".charCodeAt(0)), "$").to.false;
+    expect(Character.IsNumberCode("%".charCodeAt(0)), "%").to.false;
+  });
 });

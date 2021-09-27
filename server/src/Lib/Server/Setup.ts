@@ -1,5 +1,5 @@
 import { createConnection, ProposedFeatures } from "vscode-languageserver/node";
-import { Console } from "../Console/Console";
+import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { setEvents } from "./Events/Events";
 import { onInitializeAsync } from "./OnInitialize";
@@ -27,7 +27,7 @@ export function SetupServer() {
   connection.onShutdown(onShutdownAsync);
 
   //Initialize server
-  Manager.Data.Documents.listen(connection);
+  Manager.Documents.listen(connection);
 
   // Listen on the connection
   connection.listen();

@@ -3,10 +3,9 @@ import { Languages } from "../Constants";
 import * as path from "path";
 import * as vscode from "vscode";
 import { Manager } from "../Manager/Manager";
-import { Console } from "../Console/Console";
 
 export function SetupClient(context: vscode.ExtensionContext) {
-  Console.Log("starting minecraft language client");
+  console.log("starting minecraft language client");
 
   // The server is implemented in node
   const serverModule = context.asAbsolutePath(path.join("server", "out", "server.js"));

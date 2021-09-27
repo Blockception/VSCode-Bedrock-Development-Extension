@@ -1,11 +1,15 @@
-export function GenerateSafeID(ID: string): string {
-  const Index = ID.indexOf(":");
+export function SafeID(ID: string, replace: string = "_"): string {
+  ID = ID.replace(/[:]/gi, replace);
 
-  if (Index > -1) {
-    ID = ID.substring(Index + 1);
-  }
+  return ID;
+}
 
-  ID = ID.replace(/:/gi, ".");
+export function SafeIDNoNamespace(ID: string, replace: string = "_"): string {
+  let Index = ID.indexOf(":");
+
+  if (Index > 0) ID = ID.substring(Index + 1);
+
+  ID = ID.replace(/[:]/gi, replace);
 
   return ID;
 }

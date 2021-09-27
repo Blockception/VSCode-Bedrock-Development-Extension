@@ -1,3 +1,4 @@
+import { MCProject } from "bc-minecraft-project";
 import { DidChangeConfigurationParams } from "vscode-languageserver/node";
 import { Identification } from "../Constants";
 import { Database } from "../Database/Database";
@@ -23,7 +24,7 @@ export interface ServerSettings {
 export namespace ServerSettings {
   export function is(value: any): value is ServerSettings {
     if (value) {
-      let temp = <ServerSettings>value;
+      const temp = <ServerSettings>value;
 
       if (temp.Education && temp.Diagnostics) {
         if (typeof temp.Education.Enable !== "boolean") return false;
@@ -107,14 +108,30 @@ function UpdateSettingsThen(data: any): void {
   //If settings is nothing then skip it.
   if (data === undefined || data === null) return;
 
-  let Casted = <ServerSettings>data;
+  const Casted = <ServerSettings>data;
 
   if (ServerSettings.is(Casted)) {
     Manager.Settings = Casted;
-  }
 
-  //Process managers
-  Manager.Connection.workspace.getWorkspaceFolders().then((folders) => {
-    if (folders) Database.WorkspaceData.Add(folders);
-  });
+    //Update existing settings
+    Database.WorkspaceData.forEach((value) => Overlay(value));
+  }
+}
+
+export function Overlay(project: MCProject): MCProject {
+  const settings = Manager.Settings;
+
+  OverLaySetIf(project, "education.enable", `${settings.Education.Enable}`);
+  OverLaySetIf(project, "diagnostic.enable", `${settings.Diagnostics.Enable}`);
+  OverLaySetIf(project, "diagnostic.lang", `${settings.Diagnostics.Lang}`);
+  OverLaySetIf(project, "diagnostic.json", `${settings.Diagnostics.Json}`);
+  OverLaySetIf(project, "diagnostic.mcfunction", `${settings.Diagnostics.Mcfunctions}`);
+  OverLaySetIf(project, "diagnostic.objectives", `${settings.Diagnostics.Objectives}`);
+  OverLaySetIf(project, "diagnostic.tags", `${settings.Diagnostics.Tags}`);
+
+  return project;
+}
+
+function OverLaySetIf(project: MCProject, key: string, value: string) {
+  if (project.attributes[key] === undefined) project.attributes[key] = value;
 }

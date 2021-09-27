@@ -25,13 +25,14 @@ export namespace Identification {
 /** */
 export namespace Commands {
   /** */
-  export const ImportErrors: string = "bc.minecraft.errors.import";
-  /** */
   export const DiagnoseProject: string = "bc.minecraft.diagnose.project";
   /** */
-  export const AddLanguageFile: string = "bc.minecraft.language.add";
+  //export const AddLanguageFile: string = "bc.minecraft.language.add";
   /** */
   export const ScanProjects: string = "bc.minecraft.project.scan";
+
+  /** */
+  export const StoreProject: string = "bc.minecraft.project.store";
 
   /** */
   export namespace Files {

@@ -1,8 +1,8 @@
 import { InitializedParams } from "vscode-languageserver";
-import { Console } from "../Console/Console";
-import { AddCommands } from "../Data/Commands/include";
-import { AddMinecraftData } from "../Data/include";
-import { Traverse } from "../Process/include";
+import { CreateDiagnoser } from "../Diagnostics/Diagnoser";
+import { Console } from "../Manager/Console";
+import { Manager } from "../Manager/Manager";
+import { Traverse } from "../Process/Traverse";
 import { SetDynamicEvents } from "./Events/Dynamic";
 import { UpdateSettings } from "./Settings";
 
@@ -21,10 +21,6 @@ function onInitialized(params: InitializedParams): void {
 
   //Registers any follow ups
   SetDynamicEvents();
-
-  //setup commands
-  AddCommands();
-  AddMinecraftData();
 
   //For debug purposes use the timeout version
   Traverse();

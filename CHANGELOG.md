@@ -1,48 +1,46 @@
 # Changelog
 ## Plugin
-- Updated schemas
-- Cleaned
-- Updated
-- Added
 - Updated dependencies
-- 2.1.64
-- 2.1.63
-- 2.1.62
-- 2.1.61
-- Updated dependencies
-- Updated readme
-- 2.1.60
-- Updated schemas
+- Updated hover
+- Refactor
+- Fixing
 - Updated
-- Improved event diagnostics
-- Updated
-- Updated cheatsheets
-- Updated molang data
-- Updated for 1.17.30
+- Added molang
+- Added spawn_egg completion
+- Added references providers
+- Refactor
+- Added database look ups
+- Moved json functions
+- Refactoring
+- Added support for strings
+- Added mcstructure files processing for bps
+- Added completion for time mode
+- Added time mode to semantics
+- Updated more file types collecting
+- Refactoring completion
 - Updated dependencies
-- build(deps-dev): bump webpack from 5.52.1 to 5.53.0 in /server
-- build(deps-dev): bump webpack from 5.52.1 to 5.53.0
-- build(deps-dev): bump @types/node from 16.9.1 to 16.9.4 in /client
-- build(deps-dev): bump @types/node from 16.9.1 to 16.9.3 in /server
-- build(deps-dev): bump @typescript-eslint/parser from 4.31.0 to 4.31.1
-- Update generate-includes.yml
-- build(deps-dev): bump webpack from 5.52.1 to 5.53.0 in /client
-- build(deps-dev): bump @types/node from 16.9.1 to 16.9.3
-- 2.1.59
-- Updated schemas
-- 2.1.58
+- 3.0.2
+- Updated dependencies
+- Updated to 3.0.1
+- 3.0.1
+- Fixing completion bugs
+- Scopes are weird
+- Bug fixing
+- Making minecraft ignore node_modules
+- Updated
 - Updated tasks
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Create generate-includes.yml
-- Removed tests from include
-- Delete generate-includes.yml
+- Updated tasks
+- Updated workspace
+- Adding ignores for test data
+- Updated dependencies
 - Updated
-- Update npm-test.yml. 
+- Cleaned
+- Removed diagnoatics messages
+- Updated
+- Updated
+- Refactoring
+- Updated. 
 ## Schemas
-- Added tick.json validation
-- Updated typescript config
 - Updated tasks
 - Adding ignores for test data
 - Updated
@@ -81,3 +79,5 @@
 - Update compress-json-schemas.yml
 - Create npm-test.yml
 - Added schemas count check
+- Added
+- Updated

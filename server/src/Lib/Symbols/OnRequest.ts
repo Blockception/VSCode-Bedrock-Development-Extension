@@ -1,7 +1,5 @@
-import { GetFilename } from "../Code/include";
+import { GetFilename, Vscode } from "../Code/include";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from "vscode-languageserver";
-import { UniformUrl } from "../Code/Url";
-import { ConvertAllFile, ConvertQueried } from "./Conversion";
 
 /**
  * The request to provide document symbols, asynchorious
@@ -33,7 +31,7 @@ export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParam
 function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] | undefined {
   //TODO language and other files included
   let uri = params.textDocument.uri;
-  uri = UniformUrl(uri);
+  uri = Vscode.UniformUrl(uri);
 
   if (uri.endsWith(".json")) return undefined;
 
@@ -45,7 +43,8 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
     name: GetFilename(uri),
   });
 
-  ConvertAllFile(uri, Out);
+  //TODO redo
+  //ConvertAllFile(uri, Out);
 
   return Out;
 }
@@ -59,7 +58,8 @@ function OnWorkspaceSymbolRequest(params: WorkspaceSymbolParams): SymbolInformat
   let Query = params.query;
   let Out: SymbolInformation[] = [];
 
-  ConvertQueried("", Out, Query);
+  //TODO redo
+  //ConvertQueried("", Out, Query);
 
   return Out;
 }
