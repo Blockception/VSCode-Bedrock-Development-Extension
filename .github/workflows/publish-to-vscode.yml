@@ -20,18 +20,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14.x
-
       - run: npm install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Test
       - run: npm run test
       - name: Build 
-        shell: pwsh
-      - run: npx vsce package
+        run: npx vsce package
         env:
           VSCE_PAT: ${{ secrets.vsce }}
-
       - run: npx vsce publish --packagePath $(find . -iname *.vsix)
         env:
           VSCE_PAT: ${{ secrets.vsce }}
@@ -90,7 +87,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           npm_config_arch: ${{ matrix.npm_config_arch }}
           
-      - run: npm run test
+      - name: Test
+        run: npm run test
       - name: Build "${{ matrix.platform }}-${{ matrix.arch }}"
         shell: pwsh
         run: echo "target=${{ matrix.platform }}-${{ matrix.arch }}" >> $env:GITHUB_ENV
