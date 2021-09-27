@@ -103,7 +103,8 @@ jobs:
           name: ${{ env.target }}
           path: "*.vsix"
           
-  publish:
+  publish:  
+    if: always()
     runs-on: ubuntu-latest
     needs: [build, universal]
     steps:
