@@ -96,6 +96,16 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.vsce }}
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.target }}
+          path: "*.vsix"
+          
+  publish:
+    runs-on: ubuntu-latest
+    needs: [build, universal]
+    steps:
+      - uses: actions/download-artifact@v2
       - run: npx vsce publish --packagePath $(find . -iname *.vsix)
         env:
-          VSCE_PAT: ${{ secrets.vsce }}
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
