@@ -6,9 +6,7 @@ server/src/**
 client/out/**
 server/out/**
 !client/out/extension.js
-!client/out/extension.js.map
 !server/out/server.js
-!server/out/server.js.map
 
 scripts/**
 node_modules
