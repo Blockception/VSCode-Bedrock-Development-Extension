@@ -23,7 +23,7 @@ const config = {
 
   target: "node", // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
 
-  entry: "./client/src/extension.ts", // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
+  entry: path.resolve(__dirname, "./client/src/extension.ts"), // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
   output: {
     // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
     path: path.resolve(__dirname, "out"),
@@ -41,11 +41,7 @@ const config = {
   },
   module: {
     rules: [
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: [{ loader: "ts-loader" }],
-      },
+      { test: /\.ts$/, exclude: /node_modules/, use: [{ loader: "ts-loader" }] },
       { test: /\.json$/, exclude: /node_modules/, loader: "json-loader", type: "javascript/auto" },
     ],
   },

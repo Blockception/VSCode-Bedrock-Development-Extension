@@ -73,8 +73,8 @@
     "type": "git"
   },
   "scripts": {
-    "vscode:prepublish": "npm run test && npm run webpack",
-    "compile": "npm run clean && npm run lint:client && npm run lint:server && tsc -b",
+    "vscode:prepublish": "npm run compile && npm run webpack",
+    "compile": "npm run compile:client && npm run compile:server && tsc -b",
     "compile:client": "tsc -b ./client/tsconfig.json",
     "compile:server": "tsc -b ./server/tsconfig.json",
     "watch": "tsc -b -w",
