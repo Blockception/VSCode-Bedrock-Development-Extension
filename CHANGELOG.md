@@ -1,5 +1,13 @@
 # Changelog
 ## Plugin
+- Updated package-locks
+- Updated schemas
+- Updated diagnostics source
+- Updated
+- Updated
+- Updated
+- Added tick.json validation
+- 3.0.3
 - Updated dependencies
 - Updated hover
 - Refactor
@@ -18,6 +26,7 @@
 - Added time mode to semantics
 - Updated more file types collecting
 - Refactoring completion
+- Cleaned
 - Updated dependencies
 - 3.0.2
 - Updated dependencies
@@ -30,17 +39,10 @@
 - Updated
 - Updated tasks
 - Updated tasks
-- Updated workspace
-- Adding ignores for test data
-- Updated dependencies
-- Updated
-- Cleaned
-- Removed diagnoatics messages
-- Updated
-- Updated
-- Refactoring
-- Updated. 
+- Updated workspace. 
 ## Schemas
+- Added tick.json validation
+- Updated typescript config
 - Updated tasks
 - Adding ignores for test data
 - Updated
@@ -79,5 +81,3 @@
 - Update compress-json-schemas.yml
 - Create npm-test.yml
 - Added schemas count check
-- Added
-- Updated
