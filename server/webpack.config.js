@@ -5,6 +5,7 @@
 const path = require("path");
 
 /**@type {import('webpack').Configuration}*/
+console.log("webpack: " + __dirname);
 const config = {
   optimization: {
     mergeDuplicateChunks: true,
