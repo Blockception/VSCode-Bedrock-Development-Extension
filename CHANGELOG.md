@@ -1,5 +1,11 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- Cleaned
+- Updated
+- Added
+- Updated dependencies
+- 2.1.64
 - 2.1.63
 - 2.1.62
 - 2.1.61
@@ -33,14 +39,12 @@
 - Removed tests from include
 - Delete generate-includes.yml
 - Updated
-- Update npm-test.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Rename main.yml to generate-includes.yml
-- Create main.yml
-- 2.1.57. 
+- Update npm-test.yml. 
 ## Schemas
+- Added tick.json validation
+- Updated typescript config
+- Updated tasks
+- Adding ignores for test data
 - Updated
 - Updated volumes
 - Updated item components
@@ -77,7 +81,3 @@
 - Update compress-json-schemas.yml
 - Create npm-test.yml
 - Added schemas count check
-- Added
-- Updated
-- Added unit tests
-- Restructure
