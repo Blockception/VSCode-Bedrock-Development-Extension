@@ -115,4 +115,4 @@ jobs:
       - uses: actions/download-artifact@v2
       - run: npx vsce publish --packagePath $(find . -iname *.vsix)
         env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+          VSCE_PAT: ${{ secrets.vsce }}
