@@ -6,7 +6,7 @@ on:
   # Also trigger on page_build, as well as release created events
   page_build:
   release:
-    types: [published, created, edited]
+    types: [published, created]
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
