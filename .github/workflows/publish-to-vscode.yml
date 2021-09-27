@@ -2,12 +2,7 @@
 name: publish-to-vscode
 
 # Controls when the workflow will run
-on:
-  # Also trigger on page_build, as well as release created events
-  page_build:
-  release:
-    types: [published, created]
-    
+on:    
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
