@@ -1,4 +1,6 @@
 *.vsix
+*.tsbuildinfo
+
 ~\$*
 node_modules/
 out/
