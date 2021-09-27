@@ -724,6 +724,10 @@
         "url": "./minecraft-bedrock-schemas/behavior/dialogue/dialogue.json"
       },
       {
+        "fileMatch": ["functions/tick.json"],
+        "url": "./minecraft-bedrock-schemas/behavior/functions/tick.json"
+      },
+      {
         "fileMatch": [
           "behavior_packs/*/loot_tables/*.json",
           "*behavior*pack*/loot_tables/*.json",
