@@ -86,6 +86,7 @@ jobs:
           
       - name: Build "${{ matrix.platform }}-${{ matrix.arch }}"
         run: npm ci
+      - run: npm install
                 
       - name: Test
         run: npm test
