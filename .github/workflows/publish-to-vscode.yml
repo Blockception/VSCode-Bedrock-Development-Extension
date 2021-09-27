@@ -4,7 +4,7 @@ name: publish-to-vscode
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  page_build:
   release:
     types: # This configuration does not affect the page_build event above
       - created
