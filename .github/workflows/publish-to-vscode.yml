@@ -24,7 +24,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Test
-      - run: npm run test
+        run: npm run test
       - name: Build 
         run: npx vsce package
         env:
