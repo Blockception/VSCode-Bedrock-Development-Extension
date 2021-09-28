@@ -130,7 +130,7 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
     if (typeof code === "number") {
       Error.codeDescription = { href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/codes/main.md#${code}` };
     } else {
-      Error.codeDescription = { href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, "/")}, '/')}.md` };
+      Error.codeDescription = { href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, "/")}.md` };
     }
 
     this.Items.push(Error);
