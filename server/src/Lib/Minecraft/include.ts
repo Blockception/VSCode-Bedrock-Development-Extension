@@ -9,5 +9,5 @@ export * as Mcfunction from "./Mcfunction/include";
 export * as Modes from "./Modes/include";
 export * as Molang from "./Molang/include";
 export * as ResourcePack from "./ResourcePack/include";
-export * from "./Format";
 export * from "./CodeAction";
+export * from "./Format";
