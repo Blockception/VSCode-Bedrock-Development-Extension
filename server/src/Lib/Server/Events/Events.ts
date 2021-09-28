@@ -26,8 +26,6 @@ export function setEvents() {
   Documents.onDidOpen(OndDocumentChangedAsync);
   Documents.onDidSave(OndDocumentChangedAsync);
 
-  //Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
-
   // This handler provides commands
   Connection.onExecuteCommand(OnCommandRequestAsync);
 
