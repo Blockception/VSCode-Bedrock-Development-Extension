@@ -172,7 +172,7 @@
         "enablement": "ext:is_active"
       },
       {
-        "title": "Add all from project to language file",
+        "title": "Add all from pack to language file",
         "category": "Blockception",
         "command": "bc.minecraft.language.add",
         "enablement": "editorLangId==bc-minecraft-language"
