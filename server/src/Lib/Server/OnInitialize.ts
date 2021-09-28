@@ -22,7 +22,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: [Commands.DiagnoseProject /*, Commands.ImportErrors*/, Commands.MCProject.Create, Commands.Files.Append, Commands.ScanProjects, Commands.StoreProject],
+        commands: [Commands.DiagnoseProject, Commands.MCProject.Create, Commands.Files.Append, Commands.ScanProjects, Commands.StoreProject],
         workDoneProgress: true,
       },
 
@@ -62,22 +62,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         retriggerCharacters: [" ", "\t"],
         workDoneProgress: true,
       },
-
-      /*semanticTokensProvider: {
-        documentSelector: [
-          Constants.JsonCIdentifier,
-          Constants.JsonIdentifier,
-          Constants.McFunctionIdentifier,
-          Constants.McLanguageIdentifier,
-          Constants.McOtherIdentifier,
-        ],
-        legend: {
-          tokenModifiers: SemanticModifiers,
-          tokenTypes: SemanticTokens,
-        },
-        range: true,
-        full: true,
-      },*/
 
       workspace: {
         workspaceFolders: {

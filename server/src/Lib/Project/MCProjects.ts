@@ -53,3 +53,7 @@ export async function GetProjectAsync(folder: string): Promise<MCProject> {
 export function GetProjectEmpty(): MCProject {
   return Overlay(MCProject.createEmpty());
 }
+
+export function UpdateProjectInfo() : Promise<void> {
+  return Workspace.GetWorkSpaces().then(processWorkspace);
+}

@@ -1,6 +1,4 @@
 import {
-  CodeActionKind,
-  CodeActionRegistrationOptions,
   DidChangeConfigurationNotification,
   DocumentFormattingRegistrationOptions,
   DocumentFormattingRequest,
@@ -21,7 +19,10 @@ export function SetDynamicEvents() {
 
   // Tell the client that this server supports code formatting.
   const Formatoptions: DocumentFormattingRegistrationOptions = {
-    documentSelector: [Languages.McFunctionIdentifier, Languages.McLanguageIdentifier],
+    documentSelector: [
+      { scheme: "file", language: Languages.McFunctionIdentifier },
+      { scheme: "file", language: Languages.McLanguageIdentifier },
+    ],
   };
 
   client.register(DocumentFormattingRequest.type, Formatoptions);
@@ -29,19 +30,19 @@ export function SetDynamicEvents() {
   // Tell the client that this server supports semantic tokens
   const registrationOptions: SemanticTokensRegistrationOptions = {
     documentSelector: [
-      Languages.JsonCIdentifier,
-      Languages.JsonIdentifier,
-      Languages.McFunctionIdentifier,
-      Languages.McLanguageIdentifier,
-      Languages.McOtherIdentifier,
-      Languages.McMolangIdentifier,
+      { scheme: "file", language: Languages.JsonCIdentifier },
+      { scheme: "file", language: Languages.JsonIdentifier },
+      { scheme: "file", language: Languages.McFunctionIdentifier },
+      { scheme: "file", language: Languages.McLanguageIdentifier },
+      { scheme: "file", language: Languages.McOtherIdentifier },
+      { scheme: "file", language: Languages.McMolangIdentifier },
     ],
     legend: {
       tokenModifiers: SemanticModifiers,
       tokenTypes: SemanticTokens,
     },
     range: true,
-    full: true,
+    full: true
   };
   client.register(SemanticTokensRegistrationType.type, registrationOptions);
 }
