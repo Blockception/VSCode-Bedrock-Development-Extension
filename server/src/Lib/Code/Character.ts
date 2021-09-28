@@ -9,6 +9,8 @@ export namespace Character {
 
   export const Character_underscore: number = "_".charCodeAt(0);
   export const Character_dash: number = "-".charCodeAt(0);
+  export const Character_forwardslash: number = "/".charCodeAt(0);
+  export const Character_column: number = ":".charCodeAt(0);
 
   /** */
   export function IsLetter(char: string): boolean {
