@@ -1,6 +1,6 @@
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
-import { Minecraft } from '../include';
-import { BehaviorPack } from "../Minecraft/include";
+import { Minecraft } from "../include";
+import { BehaviorPack, ResourcePack } from "../Minecraft/include";
 import { CodeActionBuilder } from "./Builder";
 
 /**
@@ -47,11 +47,15 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
   if (typeof code === "number") {
   } else {
     const index = code.indexOf(".");
-    const maincode = index > -1 ? code.slice(0, index) : code ;
+    const maincode = index > -1 ? code.slice(0, index) : code;
 
     switch (maincode) {
       case "behaviorpack":
         return BehaviorPack.OnCodeAction(builder, diag);
+
+      case "resourcepack":
+        return ResourcePack.OnCodeAction(builder, diag);
+
       case "minecraft":
         return Minecraft.OnCodeAction(builder, diag);
     }

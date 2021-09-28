@@ -1,6 +1,6 @@
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../CodeAction/Builder";
-import { General } from "./include";
+import { BehaviorPack, General, ResourcePack } from "./include";
 
 /**
  *
@@ -17,10 +17,27 @@ export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
   const subcode = index > -1 ? code.slice(10, index) : code.slice(10);
 
   switch (subcode) {
+    case "animation":
+      BehaviorPack.Animations.OnCodeAction(builder, diag);
+      return ResourcePack.Animations.OnCodeAction(builder, diag);
+
+    case "animation_controller":
+      BehaviorPack.AnimationControllers.OnCodeAction(builder, diag);
+      return ResourcePack.AnimationControllers.OnCodeAction(builder, diag);
+
+    case "anim_or_controller":
+      BehaviorPack.Animations.OnCodeAction(builder, diag);
+      BehaviorPack.AnimationControllers.OnCodeAction(builder, diag);
+      ResourcePack.Animations.OnCodeAction(builder, diag);
+      return ResourcePack.AnimationControllers.OnCodeAction(builder, diag);
+
     case "fakeentity":
       return General.FakeEntity.OnCodeAction(builder, diag);
+      
+    case "family":
+      return BehaviorPack.Family.OnCodeAction(builder, diag);
 
-    case "name": 
+    case "name":
       return General.Names.OnCodeAction(builder, diag);
 
     case "objective":

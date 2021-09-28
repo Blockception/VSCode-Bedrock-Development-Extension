@@ -5,11 +5,9 @@ import { Commands } from '../../../Constants';
 
 export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
   switch (diag.code) {
-    case "minecraft.entity.missing":
-    case "behaviorpack.entity.missing":
+    case "resourcepack.render_controller.missing":
       const id = builder.getText(diag.range);
-      builder.Command(`Create rp & bp entity: '${id}'`, Commands.Create.General.Entity, [id]);
-      builder.Command(`Create bp entity: '${id}'`, Commands.Create.Behaviorpack.Entity, [id]);
-      return Definition(builder, diag, "entity");
+      builder.Command(`Create rp render_controller: '${id}'`, Commands.Create.Resourcepack.Render_Controller, [id]);
+      return;
   }
 }
