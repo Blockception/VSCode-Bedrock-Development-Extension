@@ -11,5 +11,5 @@ export * as Items from "./Items/include";
 export * as LootTables from "./LootTables/include";
 export * as Structures from "./Structures/include";
 export * as Trading from "./Trading/include";
-export * from "./Completion";
 export * from "./CodeAction";
+export * from "./Completion";
