@@ -28,7 +28,7 @@ export class Database {
   }
 }
 
-type BaseObject = Types.Identifiable & Types.Documentated & Types.Locatable;
+type BaseObject = Types.BaseObject;
 
 /**
  *
