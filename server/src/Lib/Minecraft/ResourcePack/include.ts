@@ -12,6 +12,5 @@ export * as RenderControllers from "./RenderControllers/include";
 export * as Sounds from "./Sounds/include";
 export * as SoundsDefinitions from "./SoundsDefinitions/include";
 export * as Textures from "./Textures/include";
-
-export * from "./Completion";
 export * from "./CodeAction";
+export * from "./Completion";
