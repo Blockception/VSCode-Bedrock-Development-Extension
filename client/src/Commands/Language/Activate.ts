@@ -4,11 +4,11 @@ import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
 
 export function Activate(context: ExtensionContext): void {
-  //context.subscriptions.push(commands.registerCommand(Commands.AddLanguageFile, AddAll));
+  context.subscriptions.push(commands.registerCommand(Commands.AddLanguageFile, AddAll));
 }
 
 function AddAll(args: any): any {
-  /*const ed = window.activeTextEditor;
+  const ed = window.activeTextEditor;
 
   if (!ed) return;
   const Current = ed.document.uri.path;
@@ -17,5 +17,5 @@ function AddAll(args: any): any {
     arguments: [Current],
   };
 
-  return Manager.Client.sendRequest(ExecuteCommandRequest.type, Params);*/
+  return Manager.Client.sendRequest(ExecuteCommandRequest.type, Params);
 }
