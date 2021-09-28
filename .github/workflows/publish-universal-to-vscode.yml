@@ -33,7 +33,7 @@ jobs:
           path: "*.vsix"
           
   publish:  
-    if: succes()
+    if: ${{ success() }}
     runs-on: ubuntu-latest
     needs: [universal]
     steps:
