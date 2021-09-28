@@ -1,6 +1,7 @@
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
+import { Minecraft } from '../include';
+import { BehaviorPack } from "../Minecraft/include";
 import { CodeActionBuilder } from "./Builder";
-import { Definition } from "./Types/Definition";
 
 /**
  *
@@ -30,10 +31,8 @@ export async function OnCodeActionResolveAsync(params: CodeAction): Promise<Code
  * @returns
  */
 export function OnCodeAction(params: CodeActionParams): (Command | CodeAction)[] {
-  let builder = new CodeActionBuilder(params);
-
+  const builder = new CodeActionBuilder(params);
   params.context.diagnostics.forEach((d) => FindAction(builder, d));
-
   return builder.out;
 }
 
@@ -48,19 +47,13 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
   if (typeof code === "number") {
   } else {
     const index = code.indexOf(".");
+    const maincode = index > -1 ? code.slice(0, index) : code ;
 
-    const select = index > -1 ? code.substring(0, index) : code;
-
-    switch (select) {
-      case "tag":
-      case "family":
-      case "name":
-      case "objective":
-        Definition(builder, diag, select);
-        break;
-
-      default:
-        break;
+    switch (maincode) {
+      case "behaviorpack":
+        return BehaviorPack.OnCodeAction(builder, diag);
+      case "minecraft":
+        return Minecraft.OnCodeAction(builder, diag);
     }
   }
 }
