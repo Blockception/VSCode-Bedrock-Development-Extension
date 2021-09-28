@@ -84,7 +84,7 @@ export function Activate(context: ExtensionContext): void {
 function Create(context: ExtensionContext, command: string, title: string) {
   context.subscriptions.push(
     commands.registerCommand(command, (arg: any[]) => {
-      OnComplete(command);
+      OnComplete(command, arg);
     })
   );
 }
@@ -102,7 +102,16 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
         placeHolder: IDRegex.example,
       };
 
-      window.showInputBox(Options).then((value) => OnCompleteID(value, command));
+      if (arg.length > 0) {
+        if (typeof arg === "string") return OnCompleteID(arg, command); 
+
+        if (Array.isArray(arg)) {
+          const id = arg[0];
+          if (typeof id === "string") return OnCompleteID(id, command);
+        }
+      }
+
+      return window.showInputBox(Options).then((value) => OnCompleteID(value, command));
     })
   );
 }
@@ -112,16 +121,20 @@ function OnCompleteID(value: string | undefined, command: string): Promise<any> 
 
   const Options: ExecuteCommandParams = {
     command: command,
-    arguments: [value],
+    arguments: [value, window.activeTextEditor?.document.uri.toString()],
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
 }
 
-function OnComplete(command: string): Promise<any> {
+function OnComplete(command: string, arg: any[]): Promise<any> {
+  if (!arg) arg = [];
+  
+  arg.push(window.activeTextEditor?.document.uri.toString());
+
   const Options: ExecuteCommandParams = {
     command: command,
-    arguments: [],
+    arguments: arg,
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
