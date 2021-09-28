@@ -15,6 +15,8 @@ const config = {
     removeEmptyChunks: true,
     concatenateModules: true,
     usedExports: true,
+    moduleIds:'size',
+    chunkIds:'size'
   },
   performance: {
     hints: "warning",
