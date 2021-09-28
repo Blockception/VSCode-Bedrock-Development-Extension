@@ -35,7 +35,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
 
   if (uri.endsWith(".json")) return undefined;
 
-  let Out: SymbolInformation[] = [];
+  const Out: SymbolInformation[] = [];
 
   Out.push({
     kind: SymbolKind.Class,
