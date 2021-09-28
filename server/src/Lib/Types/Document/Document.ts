@@ -14,7 +14,11 @@ import { Fs, Vscode } from "../../Code/Url";
  * @param languageID The Language ID associated to the documentated.
  * @returns Returns a textdocument or undefined if something went wrong
  */
-export function GetDocument(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = ""): TextDocument | undefined {
+export function GetDocument(
+  uri: string,
+  Content: string | vscode.TextDocument | undefined = undefined,
+  languageID: string = ""
+): TextDocument | undefined {
   const Old = uri;
   uri = Vscode.UniformUrl(uri);
 
@@ -53,8 +57,18 @@ export function GetDocument(uri: string, Content: string | vscode.TextDocument |
  * @param languageID The Language ID associated to the documentated.
  * @returns Returns a textdocument or undefined if something went wrong
  */
-export function GetDocumnetAsync(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = "") : Promise<TextDocument | undefined> {
-
+export function GetDocumnetAsync(
+  uri: string,
+  Content: string | vscode.TextDocument | undefined = undefined,
+  languageID: string = ""
+): Promise<TextDocument | undefined> {
+  return new Promise<TextDocument | undefined>((resolve, reject) => {
+    try {
+      resolve(GetDocument(uri, Content, languageID));
+    } catch (err) {
+      reject(err);
+    }
+  });
 }
 
 /**
@@ -80,7 +94,8 @@ export function IdentifyDoc(uri: string): string {
  * @param uris
  * @param callback
  */
-export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void) {
+export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void): void {
+
   for (let index = 0; index < uris.length; index++) {
     const element = uris[index];
     const doc = GetDocument(element);
