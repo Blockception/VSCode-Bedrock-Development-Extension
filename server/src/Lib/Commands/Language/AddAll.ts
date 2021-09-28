@@ -1,48 +1,69 @@
+import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
+import { WorldPack } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/World/WorldPack";
+import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { Vscode } from "../../Code/Url";
+import { Manager } from "../../Manager/Manager";
+import { GetDocument, TextDocument } from "../../Types/Document/include";
 
-/**TODO
 export function AddAllItems(params: ExecuteCommandParams): any {
-  let args = params.arguments;
+  const args = params.arguments;
 
   if (args) {
-    const uri = UniformUrl(args[0]);
+    const uri = Vscode.UniformUrl(args[0]);
 
     if (uri !== "") {
       const doc = GetDocument(uri);
 
       if (doc) {
-        let builder = new TextEditBuilder(doc);
+        const pack = doc.getPack();
+        if (!pack) return;
 
-        Database.ProjectData.BehaviorPacks.Entities.forEach((entity) => {
-          const id = Safe(entity.id);
-
-          builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
-          builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
-        });
-
-        Database.ProjectData.BehaviorPacks.Items.forEach((data) => {
-          const id = Safe(data.id);
-
-          builder.Add("item." + data.id + ".name", id, "Item: " + data.id);
-        });
-
-        Database.ProjectData.BehaviorPacks.Blocks.forEach((data) => {
-          const id = Safe(data.id);
-
-          builder.Add("tile." + data.id + ".name", id, "Block: " + data.id);
-        });
+        const builder = new TextEditBuilder(doc);
+        if (BehaviorPack.BehaviorPack.is(pack)) {
+          generate_bp(pack, builder);
+        } else if (ResourcePack.ResourcePack.is(pack)) {
+          generate_rp(pack, builder);
+        } else if (WorldPack.is(pack)) {
+          generate_wp(pack, builder);
+        }
 
         const edit = TextEdit.insert(doc.positionAt(builder.textdoc.length), builder.out);
 
-        Manager.Connection.workspace.applyEdit({
-          edit: { documentChanges: [TextDocumentEdit.create({ uri: doc.uri, version: doc.version }, [edit])] },
-        });
+        if (builder.out.length > 0)
+          Manager.Connection.workspace.applyEdit({
+            edit: { documentChanges: [TextDocumentEdit.create({ uri: doc.uri, version: doc.version }, [edit])] },
+          });
       }
     }
   }
 
   return undefined;
 }
+
+function generate_bp(pack: BehaviorPack.BehaviorPack, builder: TextEditBuilder) {
+  pack.entities.forEach((entity) => {
+    const id = Safe(entity.id);
+
+    builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
+    builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
+  });
+
+  pack.blocks.forEach((data) => builder.Add("tile." + data.id + ".name", Safe(data.id), "Block: " + data.id));
+  pack.items.forEach((item) => builder.Add("item." + item.id + ".name", Safe(item.id), "Item: " + item.id));
+}
+
+function generate_rp(pack: ResourcePack.ResourcePack, builder: TextEditBuilder) {
+  pack.entities.forEach((entity) => {
+    const id = Safe(entity.id);
+
+    builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
+    builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
+  });
+
+  pack.blocks.forEach((data) => builder.Add("tile." + data.id + ".name", Safe(data.id), "Block: " + data.id));
+}
+
+function generate_wp(pack: WorldPack, builder: TextEditBuilder) {}
 
 function Safe(id: string): string {
   const index = id.indexOf(":");
@@ -75,4 +96,3 @@ class TextEditBuilder {
     this.out += Temp + "\n";
   }
 }
-**/

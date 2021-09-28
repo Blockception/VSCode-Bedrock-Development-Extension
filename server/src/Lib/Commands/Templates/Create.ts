@@ -1,14 +1,17 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
-import { Commands } from "../../Constants";
 import { TemplateBuilder } from "./Builder";
-import { Templates } from "../include";
 import { Console } from "../../Manager/Console";
+import { GetContextCall, context } from './include';
+import { Commands } from '../../Constants';
+import { Templates } from '../include';
+import { Database } from '../../Database/include';
+import { Pack } from 'bc-minecraft-bedrock-project';
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
 
 /**Executes the given creation command */
-export function Create(params: ExecuteCommandParams): void {
+export function Create(params: ExecuteCommandParams): void {  
   const Data = CreationCommands[params.command];
 
   if (Data) {
@@ -21,16 +24,14 @@ export function Create(params: ExecuteCommandParams): void {
 function Initialize(): CommandManager {
   const Out: CommandManager = {};
 
-  /*
   //General
   Out[Commands.Create.General.Entity] = (params: ExecuteCommandParams) => {
     FunctionWithID(params, Templates.Behavior_Pack.create_entity_file);
     FunctionWithID(params, Templates.Resource_Pack.create_entity_file);
   };
-  /*Out[Commands.Create.General.Languages] = (params: ExecuteCommandParams) => {
+  Out[Commands.Create.General.Languages] = (params: ExecuteCommandParams) => {
     CreateAll(params, Templates.Language.create_language_files);
-  };*/
-  /*
+  };
   Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams) => {
     Function(params, Templates.Behavior_Pack.create_manifest_file);
     Function(params, Templates.Resource_Pack.create_manifest_file);
@@ -81,13 +82,17 @@ function Initialize(): CommandManager {
   //World
   Out[Commands.Create.World.Languages] = (params: ExecuteCommandParams) => FunctionWP(params, Templates.Language.create_language_files);
   Out[Commands.Create.World.Manifests] = (params: ExecuteCommandParams) => Function(params, Templates.World.create_manifest_file);
-  */
+
   return Out;
 }
 
-/*
+/**
+ * 
+ * @param params 
+ * @param callback 
+ */
 function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, context: context, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
     const IDs = params.arguments;
     if (!IDs) return;
     if (!context) return;
@@ -102,44 +107,64 @@ function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, con
   });
 }
 
+/**
+ * 
+ * @param params 
+ * @param callback 
+ */
 function FunctionBP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
     if (!context) return;
 
     const Builder = new TemplateBuilder();
 
-    callback(context.BehaviorPack, Builder);
+    callback(context.BehaviorPack(), Builder);
 
     Builder.Send();
   });
 }
 
+/**
+ * 
+ * @param params 
+ * @param callback 
+ */
 function FunctionRP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
     if (!context) return;
 
     const Builder = new TemplateBuilder();
 
-    callback(context.ResourcePack, Builder);
+    callback(context.ResourcePack(), Builder);
 
     Builder.Send();
   });
 }
 
+/**
+ * 
+ * @param params 
+ * @param callback 
+ */
 function FunctionWP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
     if (!context) return;
 
     const Builder = new TemplateBuilder();
 
-    callback(context.ResourcePack, Builder);
+    callback(context.ResourcePack(), Builder);
 
     Builder.Send();
   });
 }
 
+/**
+ * 
+ * @param params 
+ * @param callback 
+ */
 function Function(params: ExecuteCommandParams, callback: (context: context, Builder: TemplateBuilder) => void): void {
-  GetContextAsync<ExecuteCommandParams>(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context, params) => {
     if (!context) return;
 
     const Builder = new TemplateBuilder();
@@ -150,20 +175,12 @@ function Function(params: ExecuteCommandParams, callback: (context: context, Bui
   });
 }
 
-//TODO redo
+function CreateAll(params: ExecuteCommandParams, callback: (Folder: Pack, Builder: TemplateBuilder) => void) {
+  const Builder = new TemplateBuilder();
 
-/**
-function CreateAll(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void) {
-  GetProjectFiles().then((data) => {
-    if (!data) return;
+  Database.ProjectData.BehaviorPacks.packs.forEach((pack) => callback(pack, Builder));
+  Database.ProjectData.ResourcePacks.packs.forEach((pack) => callback(pack, Builder));
+  Database.ProjectData.Worlds.packs.forEach((pack) => callback(pack, Builder));
 
-    const Builder = new TemplateBuilder();
-
-    data.BehaviorPackFolders.forEach((Folder) => callback(Folder, Builder));
-    data.ResourcePackFolders.forEach((Folder) => callback(Folder, Builder));
-    data.WorldFolders.forEach((Folder) => callback(Folder, Builder));
-
-    Builder.Send();
-  });
+  Builder.Send();
 }
- */

@@ -10,13 +10,13 @@ import * as path from "path";
  * @param Builder
  */
 export function create_world_project(ID: string, context: context, Builder: TemplateBuilder): void {
-  const Folder = path.join(context.WorkFolder, "world");
+  const Folder = path.join(context.WorkSpace(), "world");
 
   const NewContext: context = {
-    WorkFolder: context.WorkFolder,
-    BehaviorPack: path.join(Folder, "behavior_packs", ID + "-BP"),
-    ResourcePack: path.join(Folder, "resource_packs", ID + "-RP"),
-    WorldFolder: Folder,
+    WorkSpace: () => context.WorkSpace(),
+    BehaviorPack: () => path.join(Folder, "behavior_packs", ID + "-BP"),
+    ResourcePack: () => path.join(Folder, "resource_packs", ID + "-RP"),
+    WorldFolder: () => Folder,
   };
 
   //create world manifest
@@ -32,12 +32,12 @@ export function create_world_project(ID: string, context: context, Builder: Temp
  * @param Builder
  */
 export function create_behaviorpack(ID: string, context: context, Builder: TemplateBuilder): void {
-  const Folder = path.join(context.WorkFolder, ID + "-BP");
+  const Folder = path.join(context.WorkSpace(), ID + "-BP");
 
   const NewContext: context = {
-    WorkFolder: context.WorkFolder,
-    BehaviorPack: Folder,
-    ResourcePack: Folder,
+    WorkSpace: () => context.WorkSpace(),
+    BehaviorPack: () => Folder,
+    ResourcePack: () => Folder,
     WorldFolder: context.WorldFolder,
   };
 
@@ -51,13 +51,13 @@ export function create_behaviorpack(ID: string, context: context, Builder: Templ
  * @param Builder
  */
 export function create_resourcepack(ID: string, context: context, Builder: TemplateBuilder): void {
-  const Folder = path.join(context.WorkFolder, ID + "-RP");
+  const Folder = path.join(context.WorkSpace(), ID + "-RP");
 
   const NewContext: context = {
-    WorkFolder: context.WorkFolder,
-    BehaviorPack: Folder,
-    ResourcePack: Folder,
-    WorldFolder: context.WorldFolder,
+    WorkSpace: context.WorkSpace,
+    BehaviorPack: () => Folder,
+    ResourcePack: () => Folder,
+    WorldFolder:context.WorldFolder,
   };
 
   Templates.Resource_Pack.create_manifest_file(NewContext, Builder);

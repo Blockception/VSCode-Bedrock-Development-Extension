@@ -27,6 +27,8 @@ export class TemplateBuilder {
 
   /**Sends the edits to the client*/
   Send() {
+    if (this.receiver.length <= 0) return;
+
     const Edit: WorkspaceEdit = { documentChanges: this.receiver };
 
     Manager.Connection.workspace.applyEdit(Edit).then(Response);
@@ -54,6 +56,13 @@ export class TemplateBuilder {
 
 function Response(response: ApplyWorkspaceEditResponse): void {
   if (response.applied) return;
+
+  const keys = Object.getOwnPropertyNames(response);
+
+  if (keys.length === 1)  {
+    Console.Info("Workspace edit was not applied, possibly of already existing data");
+    return;
+  }
 
   Console.Error("Workspace edit failed:");
   if (response.failedChange) Console.Error(`Item index: ${response.failedChange}`);

@@ -1,81 +1,78 @@
+import { ExecuteCommandParams } from "vscode-languageserver";
+import { Database } from "../../Database/include";
+import { Manager } from '../../Manager/include';
+
 export interface context {
-  BehaviorPack: string;
-  ResourcePack: string;
-  WorldFolder: string;
-  WorkFolder: string;
-} /*GetProjectFiles();
-
-/*TODO redo
-export function GetContext(): context | undefined {
-  const Data = /*TODO now a promise/*
-  if (Data === undefined) return undefined;
-
-  return Convert(Data);
+  BehaviorPack(): string;
+  ResourcePack(): string;
+  WorkSpace(): string;
+  WorldFolder() : string;
 }
 
-export function GetContextAsync<T>(data: T, callback: (c: context, data: T) => void): void {
-  /*TODO now a promise*/ /*GetProjectFiles((projectData) => {
-    const context = Convert(projectData);
+export function GetContext(params: ExecuteCommandParams): context {
+  const args = params.arguments;
 
-    if (context) callback(context, data);
-  });
+  if (args) {
+    return new _internalContext(args[args.length - 1]);
+  }
+
+  return new _internalContext(undefined);
 }
 
-function Convert(Data: ProjectFiles): context | undefined {
-  let Base: string | undefined;
+export function GetContextCall(data: ExecuteCommandParams, callback: (c: context, data: ExecuteCommandParams) => void): void {
+  const c = GetContext(data);
+  callback(c, data);
+}
 
-  //Some assembly required
-  if (Data.ResourcePackFolders.length === 0 || Data.BehaviorPackFolders.length === 0) {
-    if (Data.WorldFolders.length > 0) {
-      Base = Data.WorldFolders[0];
-    } else if (Data.Workspaces.length > 0) {
-      Base = decodeURI(Data.Workspaces[0]);
-    }
-  } else if (Data.Workspaces.length > 0) {
-    Base = decodeURI(Data.Workspaces[0]);
-  }
+class _internalContext implements context {
+  private __path: string | undefined;
+  private ws : string | undefined;
+  private bp : string | undefined;
+  private rp : string | undefined;
+  private wl : string | undefined;
 
-  let WP: string | undefined;
-  let BP: string | undefined;
-  let RP: string | undefined;
+  constructor(path: string | undefined) {
+    if ((this.__path = path)) {
+      this.ws = Database.WorkspaceData.getFolder(path);
 
-  if (Data.WorldFolders.length > 0) {
-    WP = Data.WorldFolders[0];
-  }
-  if (Data.BehaviorPackFolders.length > 0) {
-    BP = Data.BehaviorPackFolders[0];
-  }
-  if (Data.ResourcePackFolders.length > 0) {
-    RP = Data.ResourcePackFolders[0];
-  }
-
-  if (Base === undefined) {
-    if (BP === undefined || RP === undefined || WP === undefined) {
-      Manager.Connection.window.showErrorMessage("Cannot get context on either: workspace, behavior pack, resourcepack or world");
-
-      return undefined;
+      this.bp = Database.ProjectData.BehaviorPacks.get(path)?.folder;
+      this.rp = Database.ProjectData.ResourcePacks.get(path)?.folder;
     }
 
-    Base = "";
+    if (!this.ws) this.ws = Database.WorkspaceData.getFirst();
+    if (!this.bp) this.bp = Database.ProjectData.BehaviorPacks.packs[0]?.folder;
+    if (!this.rp) this.rp = Database.ProjectData.ResourcePacks.packs[0]?.folder;
   }
 
-  if (!Base.endsWith("/")) {
-    Base += "/";
+  BehaviorPack(): string {
+    if (this.bp) return this.bp;
+
+    const message = "This action requires behaviorpack with manifest to be present and findable for the plugin!";
+    Manager.Connection.window.showErrorMessage(message);
+    throw new Error(message);
   }
 
-  if (WP === undefined) {
-    WP = Base;
+  ResourcePack(): string {
+    if (this.rp) return this.rp;
+
+    const message = "This action requires resourcepack with manifest to be present and findable for the plugin!";
+    Manager.Connection.window.showErrorMessage(message);
+    throw new Error(message);
   }
 
-  if (BP === undefined) {
-    BP = Base + "behavior_packs/missing_BP/";
-  }
-  if (RP === undefined) {
-    RP = Base + "resource_packs/missing_RP/";
+  WorkSpace(): string {
+    if (this.ws) return this.ws;
+
+    const message = "This action requires a workspace to be opened!";
+    Manager.Connection.window.showErrorMessage(message);
+    throw new Error(message);
   }
 
-  const context: context = { BehaviorPack: BP, ResourcePack: RP, WorldFolder: WP, WorkFolder: Base };
+  WorldFolder(): string {
+    if (this.wl) return this.wl;
 
-  return context;
+    const message = "This action requires world with manifest to be present and findable for the plugin!";
+    Manager.Connection.window.showErrorMessage(message);
+    throw new Error(message);
+  }
 }
-*/

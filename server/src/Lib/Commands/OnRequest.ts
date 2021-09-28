@@ -7,6 +7,7 @@ import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 import { HandleError } from "../Code/Error";
 import { StoreProject } from "./StoreProject";
+import { AddAllItems } from './Language/include';
 
 /**
  *
@@ -25,34 +26,40 @@ export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any
  * @returns
  */
 function OnCommandRequest(params: ExecuteCommandParams): any {
+  let out = undefined;
   try {
-    switch (params.command) {
-      case Commands.Files.Append:
-        return Files.Append(params);
-
-      case Commands.DiagnoseProject:
-        return DiagnoseProjectCommand(params);
-
-      //case Commands.AddLanguageFile:
-      //return AddAllItems(params);
-
-      case Commands.MCProject.Create:
-        return CreateMCProject();
-
-      case Commands.ScanProjects:
-        return ReScanProject();
-
-      case Commands.StoreProject:
-        return StoreProject();
-
-      default:
-        if (params.command.startsWith(Commands.Create.Base)) {
-          return Create(params);
-        }
-    }
+    out = InternalCommandRequest(params);
   } catch (error) {
     HandleError(error);
   }
 
-  return undefined;
+  return out;
+}
+
+
+function InternalCommandRequest(params: ExecuteCommandParams) : any {
+  switch (params.command) {
+    case Commands.Files.Append:
+      return Files.Append(params);
+
+    case Commands.DiagnoseProject:
+      return DiagnoseProjectCommand(params);
+
+    case Commands.AddLanguageFile:
+      return AddAllItems(params);
+
+    case Commands.MCProject.Create:
+      return CreateMCProject();
+
+    case Commands.ScanProjects:
+      return ReScanProject();
+
+    case Commands.StoreProject:
+      return StoreProject();
+
+    default:
+      if (params.command.startsWith(Commands.Create.Base)) {
+        return Create(params);
+      }
+  }
 }

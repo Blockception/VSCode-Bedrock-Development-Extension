@@ -1,5 +1,7 @@
 import * as fs from "fs";
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
+import { TextDocument } from "vscode-languageserver-textdocument";
+import { URI } from "vscode-uri";
 import { Fs } from "../Code/Url";
 import { Manager } from "../Manager/Manager";
 import { GetDocument } from "../Types/Document/include";
@@ -21,11 +23,9 @@ export namespace Files {
 
     if (!(uri && line)) return;
 
-    const doc = GetDocument(uri);
-    if (!doc) return;
+    const doc = GetDocument(uri) ?? TextDocument.create(uri, "opther", 0, "");
 
     const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
-
     const path = Fs.GetFilepath(doc.uri);
 
     if (!fs.existsSync(path)) {
@@ -33,7 +33,7 @@ export namespace Files {
     } else {
       Manager.Connection.workspace.applyEdit({
         label: "Add mcdefintions",
-        edit: { documentChanges: [TextDocumentEdit.create(doc, [edit])] },
+        edit: { documentChanges: [TextDocumentEdit.create({ uri: URI.file(path).toString(), version: doc.version }, [edit])] },
       });
     }
   }

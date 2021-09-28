@@ -1,5 +1,6 @@
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
+import { Pack } from 'bc-minecraft-bedrock-project';
 
 const LanguageNames: string[] = [
   "en_US",
@@ -45,8 +46,8 @@ pack.description=The text that describes this example pack`;
  * @param PackFolder
  * @param Builder
  */
-export function create_language_files(PackFolder: string, Builder: TemplateBuilder): void {
-  const BaseFolder = path.join(PackFolder, "texts");
+export function create_language_files(Pack: Pack | string, Builder: TemplateBuilder): void {
+  const BaseFolder = path.join(typeof Pack === "string" ? Pack : Pack.folder, "texts");
 
   PrivateCreate(BaseFolder, Builder, "languages.json", JSON.stringify(LanguageNames));
 
