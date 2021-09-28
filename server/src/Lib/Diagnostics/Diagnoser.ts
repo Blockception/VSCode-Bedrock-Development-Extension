@@ -1,4 +1,10 @@
-import { Diagnoser, DiagnoserContext, DiagnosticsBuilderContent, DiagnosticSeverity, InternalDiagnosticsBuilder } from "bc-minecraft-bedrock-diagnoser";
+import {
+  Diagnoser,
+  DiagnoserContext,
+  DiagnosticsBuilderContent,
+  DiagnosticSeverity,
+  InternalDiagnosticsBuilder,
+} from "bc-minecraft-bedrock-diagnoser";
 import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { Diagnostic } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
@@ -11,7 +17,8 @@ import { Types } from "bc-minecraft-bedrock-types";
 import { Database } from "../Database/include";
 import { Glob } from "../Glob/include";
 import { Console } from "../Manager/Console";
-import path from 'path';
+import path from "path";
+import { Languages } from "../Constants";
 
 /**Creates a new bedrock diagnoser
  * @returns A diagnoser*/
@@ -110,7 +117,7 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
    */
   Add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
     //Was diagnostics code disabled
-    if(this.project.attributes["diagnostic.disable." + code] === "false") return;
+    if (this.project.attributes["diagnostic.disable." + code] === "false") return;
 
     const Error: Diagnostic = {
       message: message,
@@ -119,6 +126,12 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
       range: GetRange(position, this.doc),
       source: "mc",
     };
+
+    if (typeof code === "number") {
+      Error.codeDescription = { href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/codes/main.md#${code}` };
+    } else {
+      Error.codeDescription = { href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, "/")}, '/')}.md` };
+    }
 
     this.Items.push(Error);
   }
@@ -165,6 +178,11 @@ function GetRange(position: Types.DocumentLocation, doc: vstd.TextDocument): Ran
     Start = position;
     position = doc.offsetAt(position);
     //If document location is already an offset, then grab the start position
+  } else if (Types.OffsetWord.is(position)) {
+    Start = doc.positionAt(position.offset);
+    End = doc.positionAt(position.text.length + position.offset);
+
+    return { start: Start, end: End };
   } else {
     Start = doc.positionAt(position);
   }
@@ -178,7 +196,13 @@ function GetRange(position: Types.DocumentLocation, doc: vstd.TextDocument): Ran
     if (Character.IsLetterCode(c) || Character.IsNumberCode(c)) continue;
 
     //Dashes and underscore are to be respected
-    if (c === Character.Character_dash || c === Character.Character_underscore) continue;
+    switch (c) {
+      case Character.Character_dash:
+      case Character.Character_underscore:
+      case Character.Character_forwardslash:
+      case Character.Character_column:
+        continue;
+    }
 
     //Something has been found that is not considered a "word"
     End = doc.positionAt(I);
