@@ -2,7 +2,6 @@ import * as fs from "fs";
 import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
 import { Languages } from "../../Constants";
-import { GetFilename } from "../../Code/File";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
@@ -46,6 +45,16 @@ export function GetDocument(uri: string, Content: string | vscode.TextDocument |
 
   //The interface is provided
   return TextDocument.wrap(Content);
+}
+
+/**Returns an usable document interaction from the given data.
+ * @param uri The url to the document to retrieve.
+ * @param Content The possible content of the document or interface to use
+ * @param languageID The Language ID associated to the documentated.
+ * @returns Returns a textdocument or undefined if something went wrong
+ */
+export function GetDocumnetAsync(uri: string, Content: string | vscode.TextDocument | undefined = undefined, languageID: string = "") : Promise<TextDocument | undefined> {
+
 }
 
 /**
