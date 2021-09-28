@@ -11,6 +11,7 @@ import { Types } from "bc-minecraft-bedrock-types";
 import { Database } from "../Database/include";
 import { Glob } from "../Glob/include";
 import { Console } from "../Manager/Console";
+import path from 'path';
 
 /**Creates a new bedrock diagnoser
  * @returns A diagnoser*/
@@ -53,6 +54,10 @@ function getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnostic
     Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
     return undefined;
   }
+
+  //Check if project disabled diagnostics
+  if (project.attributes["diagnostic.enable"] === "false") return undefined;
+  if (project.attributes["diagnostic" + path.extname(doc.uri)] === "false") return undefined;
 
   return new _InternalDiagnoser(<vstd.TextDocument>doc, project, CreateContext());
 }
@@ -104,6 +109,9 @@ class _InternalDiagnoser implements InternalDiagnosticsBuilder {
    * @param code
    */
   Add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
+    //Was diagnostics code disabled
+    if(this.project.attributes["diagnostic.disable." + code] === "false") return;
+
     const Error: Diagnostic = {
       message: message,
       code: code,
