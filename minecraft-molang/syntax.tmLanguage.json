@@ -11,6 +11,7 @@
         { "name": "entity.name.type", "match": "(variable|v)\\." },
         { "name": "entity.name.type", "match": "[Mm]ath\\." },
         { "name": "entity.name.type", "match": "([Tt]emp|t)\\." },
+        { "name": "entity.name.type", "match": "([Cc]ontext|c)\\." },
         { "name": "entity.name.function", "match": "(?<=query\\.)\\w*" },
         { "name": "entity.name.function", "match": "(?<=variable\\.)\\w*" },
         { "name": "entity.name.function", "match": "(?<=[Mm]ath\\.)\\w*" },

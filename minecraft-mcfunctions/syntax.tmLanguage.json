@@ -51,6 +51,7 @@
         { "name": "invalid", "match": "§c" },
         { "name": "constant.regexp", "match": "§d" },
         { "name": "entity.name.selector", "match": "§e" },
+        { "name": "entity.name.selector", "match": "§g" },
         { "name": "constant.rgb-value", "match": "§f" }
       ]
     },

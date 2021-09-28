@@ -41,6 +41,7 @@
         { "name": "invalid", "match": "§c[^§]*" },
         { "name": "constant.regexp", "match": "§d[^§]*" },
         { "name": "keyword.operator.or.regexp", "match": "§e[^§]*" },
+        { "name": "keyword.operator.or.regexp", "match": "§g[^§]*" },
         { "name": "constant.rgb-value", "match": "§f[^§]*" }
       ]
     },
