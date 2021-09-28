@@ -3,13 +3,13 @@ import path from "path";
 import { CodeAction, Command, Diagnostic } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { Commands } from "../..//Constants";
+import { Vscode } from '../../Code/Url';
 import { Database } from "../../Database/Database";
 import { Console } from "../../Manager/Console";
 import { GetDocument } from "../../Types/Document/include";
 import { CodeActionBuilder } from "../Builder";
 
-/**
- *
+/**Adds a given type and value to the definition
  * @param builder
  * @param diag
  * @param type
@@ -26,7 +26,7 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
     return;
   }
 
-  const uri = URI.file(path.join(ws, MCDefinition.filename)).toString();
+  const uri = Vscode.GetFilepath(path.join(ws, MCDefinition.filename))
 
   const Command: Command = {
     title: `Add ${value} as ${type} to MCDefintions`,
