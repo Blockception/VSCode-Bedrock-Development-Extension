@@ -29,14 +29,26 @@ export class WorkspaceData {
     return MCProject.createEmpty();
   }
 
-  /**
-   *
-   * @param uri
-   */
+  /**Gets the workspace folder that corresponds to the given document
+   * @param uri The document uri to compare*/
   getFolder(docUri: string): string | undefined {
     //Find most matching data
     for (var [key, data] of this.Data) {
       if (docUri.includes(key)) {
+        return key;
+      }
+    }
+
+    return undefined;
+  }
+
+  /**
+   * 
+   * @returns 
+   */
+  getFirst(): string | undefined {
+    for (var [key, data] of this.Data) {
+      if (data) {
         return key;
       }
     }
