@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "bc-minecraft-bedrock-command": "^1.2.10",
-    "bc-minecraft-bedrock-diagnoser": "^1.0.18",
-    "bc-minecraft-bedrock-project": "^1.7.33",
+    "bc-minecraft-bedrock-diagnoser": "^1.0.21",
+    "bc-minecraft-bedrock-project": "^1.7.34",
     "bc-minecraft-bedrock-types": "^1.2.10",
     "bc-minecraft-bedrock-vanilla-data": "^1.5.7",
     "bc-minecraft-molang": "^1.0.18",
