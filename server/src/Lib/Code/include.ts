@@ -2,6 +2,7 @@
 
 export * from "./Array";
 export * from "./Character";
+export * from "./DocumentLocation";
 export * from "./Equal";
 export * from "./Error";
 export * from "./File";
