@@ -13,7 +13,7 @@ import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } fro
 import { OnConfigurationChanged } from "../Settings";
 import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
-import { OnCodeLensRequestAsync } from "../../CodeLens/OnRequest";
+import { OnCodeLensRequestAsync, OnCodeLensResolveRequestAsync } from "../../CodeLens/OnRequest";
 
 /**
  * Setup the server events
@@ -35,6 +35,7 @@ export function setEvents() {
 
   // This handler provides code lens
   Connection.onCodeLens(OnCodeLensRequestAsync);
+  Connection.onCodeLensResolve(OnCodeLensResolveRequestAsync)
 
   // This handler provides completion items.
   Connection.onCompletion(OnCompletionRequestAsync);

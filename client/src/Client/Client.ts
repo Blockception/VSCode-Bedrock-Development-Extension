@@ -3,6 +3,7 @@ import { Languages } from "../Constants";
 import * as path from "path";
 import * as vscode from "vscode";
 import { Manager } from "../Manager/Manager";
+import { resolveCodeLens } from './Middleware';
 
 export function SetupClient(context: vscode.ExtensionContext) {
   console.log("starting minecraft language client");
@@ -40,6 +41,9 @@ export function SetupClient(context: vscode.ExtensionContext) {
       // Notify the server about file changes to '.clientrc files contained in the workspace
       fileEvents: vscode.workspace.createFileSystemWatcher("**/.clientrc"),
     },
+    middleware: {
+      resolveCodeLens:resolveCodeLens,
+    }
   };
 
   // Create the language client and start the client.

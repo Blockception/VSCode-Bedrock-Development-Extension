@@ -28,9 +28,8 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Code Actions
       codeActionProvider: true,
-
       codeLensProvider: {
-        resolveProvider: false,
+        resolveProvider: true,
         workDoneProgress: false,
       },
 

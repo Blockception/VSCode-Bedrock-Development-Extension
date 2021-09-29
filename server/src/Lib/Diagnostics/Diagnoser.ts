@@ -9,16 +9,14 @@ import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { Diagnostic } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
 import * as vstd from "vscode-languageserver-textdocument";
-import { Range } from "../Code/Range";
 import * as vscode from "vscode-languageserver";
 import { GetDocument, TextDocument } from "../Types/Document/include";
-import { Character } from "../Code/Character";
 import { Types } from "bc-minecraft-bedrock-types";
 import { Database } from "../Database/include";
 import { Glob } from "../Glob/include";
 import { Console } from "../Manager/Console";
 import path from "path";
-import { Languages } from "../Constants";
+import { GetRange } from '../Code/DocumentLocation';
 
 /**Creates a new bedrock diagnoser
  * @returns A diagnoser*/
@@ -159,72 +157,4 @@ function GetSeverity(severity: DiagnosticSeverity): vscode.DiagnosticSeverity {
   }
 }
 
-/**
- *
- * @param position
- * @param doc
- * @returns
- */
-function GetRange(position: Types.DocumentLocation, doc: vstd.TextDocument): Range {
-  if (Types.JsonPath.is(position)) {
-    return resolveJsonPath(position, doc);
-  }
 
-  let Start: Types.Position;
-  let End: Types.Position | undefined = undefined;
-
-  //If document location is already a position, then grab the offset to start at
-  if (Types.Position.is(position)) {
-    Start = position;
-    position = doc.offsetAt(position);
-    //If document location is already an offset, then grab the start position
-  } else if (Types.OffsetWord.is(position)) {
-    Start = doc.positionAt(position.offset);
-    End = doc.positionAt(position.text.length + position.offset);
-
-    return { start: Start, end: End };
-  } else {
-    Start = doc.positionAt(position);
-  }
-
-  const text = doc.getText();
-
-  for (let I = position + 1; I < text.length; I++) {
-    const c = text.charCodeAt(I);
-
-    //If character is a letter or number then keep going until we find something else
-    if (Character.IsLetterCode(c) || Character.IsNumberCode(c)) continue;
-
-    //Dashes and underscore are to be respected
-    switch (c) {
-      case Character.Character_dash:
-      case Character.Character_underscore:
-      case Character.Character_forwardslash:
-      case Character.Character_column:
-        continue;
-    }
-
-    //Something has been found that is not considered a "word"
-    End = doc.positionAt(I);
-    break;
-  }
-
-  //If end is still undefined then make atleast one character big
-  if (!End) {
-    End = { character: Start.character + 1, line: Start.line };
-  }
-
-  return { start: Start, end: End };
-}
-
-function resolveJsonPath(position: string, doc: vstd.TextDocument): Range {
-  const index = position.lastIndexOf("/");
-  const length = index > -1 ? position.length - index : position.length;
-
-  const offset = Types.JsonPath.resolve(doc, position);
-
-  const start = doc.positionAt(offset);
-  const end = doc.positionAt(offset + position.length);
-
-  return { start: start, end: end };
-}
