@@ -5,16 +5,16 @@ import { Fs, Vscode } from "../src/Lib/Code/Url";
 
 describe("URL", () => {
   describe("Fs", () => {
-    describe("folders", () => {
-      const folders = [Fs.UniformFolder(path.join(__dirname, "files")), Fs.UniformFolder(Vscode.UniformFolder(path.join(__dirname, "files")))];
+    it("folders", () => {
+      const folders = [Fs.UniformFolder(path.resolve(__dirname, "files")), Fs.UniformFolder(Vscode.UniformFolder(path.resolve(__dirname, "files")))];
 
       folders.forEach((f) => it(f, () => CheckFolder(f, true)));
     });
 
-    describe("files", () => {
+    it("files", () => {
       const files = [
-        Fs.UniformFolder(path.join(__dirname, "files", "example.entity.json")),
-        Fs.UniformFolder(Vscode.UniformFolder(path.join(__dirname, "files", "example.entity.json"))),
+        Fs.UniformFolder(path.resolve(__dirname, "files", "example.entity.json")),
+        Fs.UniformFolder(Vscode.UniformFolder(path.resolve(__dirname, "files", "example.entity.json"))),
       ];
 
       files.forEach((f) => it(f, () => CheckFile(f, true)));
