@@ -26,7 +26,7 @@ export class WorkspaceData {
       }
     }
 
-    return MCProject.createEmpty();
+    return 
   }
 
   /**Gets the workspace folder that corresponds to the given document
