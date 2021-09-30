@@ -4,6 +4,10 @@ import { Fs, Vscode } from "./Url";
 
 describe("Url", () => {
   describe("Vscode", () => {
+    it("UniformFolder", ()=>{
+      expect(Vscode.UniformFolder("f:/temp folder")).to.equal("f:/temp folder");
+    })
+
     it("UniformUrl", () => {
       expect(Vscode.UniformUrl("f:/temp folder/something.json")).to.equal("file:///f%3A/temp%20folder/something.json");
       expect(Vscode.UniformUrl("f:\\temp folder\\something.json")).to.equal("file:///f%3A/temp%20folder/something.json");
@@ -39,6 +43,10 @@ describe("Url", () => {
 
     it("Uniform Folder", () => {
       expect(Fs.UniformFolder("file:///f%3A/Projects/Blockception/Redstone%20Projects/Project-City-Maker2")).to.equal(
+        normalize("f:/Projects/Blockception/Redstone Projects/Project-City-Maker2")
+      );
+
+      expect(Fs.UniformFolder("f:/Projects/Blockception/Redstone%20Projects/Project-City-Maker2")).to.equal(
         normalize("f:/Projects/Blockception/Redstone Projects/Project-City-Maker2")
       );
     });

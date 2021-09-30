@@ -107,6 +107,10 @@ export namespace Fs {
     uri = uri.replace("%3A", ":");
     uri = path.normalize(uri);
 
+    if (!uri.startsWith("file:")) {
+      uri = "file://" + uri;
+    }
+
     if (path.sep === "\\") {
       uri = uri.replace(/\//gi, path.sep);
     } else {
