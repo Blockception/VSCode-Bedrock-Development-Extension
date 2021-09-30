@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.2.7",
-    "vsce": "^1.100.0"
+    "vsce": "^1.100.1"
   },
   "extensionKind": [
     "workspace"
