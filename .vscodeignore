@@ -2,6 +2,7 @@ client/node_modules/**
 client/src/**
 server/node_modules/**
 server/src/**
+server/test/**
 
 client/out/**
 server/out/**
