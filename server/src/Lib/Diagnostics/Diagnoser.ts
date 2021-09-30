@@ -16,7 +16,7 @@ import { Database } from "../Database/include";
 import { Glob } from "../Glob/include";
 import { Console } from "../Manager/Console";
 import path from "path";
-import { GetRange } from '../Code/DocumentLocation';
+import { GetRange } from "../Code/DocumentLocation";
 
 /**Creates a new bedrock diagnoser
  * @returns A diagnoser*/
@@ -156,5 +156,3 @@ function GetSeverity(severity: DiagnosticSeverity): vscode.DiagnosticSeverity {
       return vscode.DiagnosticSeverity.Error;
   }
 }
-
-

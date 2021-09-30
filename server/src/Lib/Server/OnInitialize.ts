@@ -13,7 +13,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
   Console.Log("Initializing minecraft server");
 
   //process capabilities of the client
-  let capabilities = params.capabilities;
+  const capabilities = params.capabilities;
   Manager.Capabiltities.Parse(capabilities);
 
   const result: InitializeResult = {
@@ -82,9 +82,9 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       },
       //Todo fill in filters
       fileOperations: {
-        didCreate: { filters: [] },
-        didDelete: { filters: [] },
-        didRename: { filters: [] },
+        didCreate: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
+        didDelete: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
+        didRename: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
       },
     };
   }

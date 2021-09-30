@@ -24,7 +24,7 @@ export function setEvents() {
 
   //Provides diagnostics and such
   Documents.onDidOpen(OndDocumentChangedAsync);
-  Documents.onDidSave(OndDocumentChangedAsync);
+  Documents.onDidSave(OndDocumentChangedAsync); 
 
   // This handler provides commands
   Connection.onExecuteCommand(OnCommandRequestAsync);
