@@ -9,7 +9,7 @@ updates:
     directory: "/" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     assignees:
     - "DaanV2"
     reviewers:
@@ -19,7 +19,7 @@ updates:
     directory: "/" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     assignees:
     - "DaanV2"
     reviewers:
@@ -29,7 +29,7 @@ updates:
     directory: "/client" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     assignees:
     - "DaanV2"
     reviewers:
@@ -39,7 +39,7 @@ updates:
     directory: "/server" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     assignees:
     - "DaanV2"
     reviewers:
