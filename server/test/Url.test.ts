@@ -24,6 +24,7 @@ describe("URL", () => {
 
 function CheckFolder(folder: string, result: boolean) {
   if (result) {
+    console.log("checking folder exists: " + folder);
     expect(fs.existsSync(folder), folder).to.be.true;
     expect(fs.lstatSync(folder).isFile).to.be.false;
   } else {
@@ -33,6 +34,7 @@ function CheckFolder(folder: string, result: boolean) {
 
 function CheckFile(file: string, result: boolean) {
   if (result) {
+    console.log("checking file exists: " + file);
     expect(fs.existsSync(file), file).to.be.true;
     expect(fs.lstatSync(file).isFile).to.be.true;
   } else {
