@@ -26,7 +26,7 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
     return;
   }
 
-  const uri = Vscode.GetFilepath(path.join(ws, MCDefinition.filename))
+  const uri = Vscode.FromFs(path.join(ws, MCDefinition.filename))
 
   const Command: Command = {
     title: `Add ${value} as ${type} to MCDefintions`,

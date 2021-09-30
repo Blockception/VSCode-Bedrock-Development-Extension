@@ -13,7 +13,7 @@ export function StoreProject() {
 }
 
 function Store(value: WorkspaceFolder[]) {
-  const folder = Fs.UniformFolder(value[0].uri);
+  const folder = Fs.FromVscode(value[0].uri);
 
   const outputfolder = path.join(folder, ".minecraft");
 

@@ -1,14 +1,15 @@
 import { expect } from "chai";
 import * as fs from "fs";
 import path from "path";
+import { URI } from 'vscode-uri';
 import { Fs, Vscode } from "../src/Lib/Code/Url";
 
 describe("URL", () => {
   describe("Fs", () => {
     describe("folders", () => {
       const folders = [
-        Fs.UniformFolder(path.resolve(__dirname, "files")), 
-        Fs.UniformFolder(Vscode.UniformFolder(path.resolve(__dirname, "files")))
+        path.resolve(__dirname, "files"), 
+        Fs.FromVscode(Vscode.FromFs(path.resolve(__dirname, "files")))
       ];
 
       for (let I = 0; I < folders.length; I++) {
@@ -19,8 +20,9 @@ describe("URL", () => {
 
     describe("files", () => {
       const files = [
-        Fs.UniformFolder(path.resolve(__dirname, "files", "example.entity.json")),
-        Fs.UniformFolder(Vscode.UniformFolder(path.resolve(__dirname, "files", "example.entity.json"))),
+        path.resolve(__dirname, "files", "example.entity.json"),
+        Fs.FromVscode(Vscode.FromFs(path.resolve(__dirname, "files", "example.entity.json"))),
+        Fs.FromVscode(URI.file(path.resolve(__dirname, "files", "example.entity.json")).path)
       ];
 
       for (let I = 0; I < files.length; I++) {

@@ -75,7 +75,7 @@ export namespace Workspace {
    * @returns
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
-    const folderpath = Fs.UniformFolder(folder.uri);
+    const folderpath = Fs.FromVscode(folder.uri);
     Console.Info("Traversing workspace: " + folderpath);
 
     const project = MCProject.loadSync(folderpath);

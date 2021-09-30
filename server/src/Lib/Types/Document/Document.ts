@@ -20,7 +20,7 @@ export function GetDocument(
   languageID: string = ""
 ): TextDocument | undefined {
   const Old = uri;
-  uri = Vscode.UniformUrl(uri);
+  uri = Vscode.FromFs(uri);
 
   if (languageID === "") {
     languageID = IdentifyDoc(uri);
@@ -126,7 +126,7 @@ export function GetDocuments(folder: string, pattern: string | string[], ignores
  */
 export function GetDocumentContent(uri: string): string | undefined {
   //Reading file
-  const path = Fs.GetFilepath(uri);
+  const path = Fs.FromVscode(uri);
 
   if (fs.existsSync(path)) {
     let content: string | undefined;

@@ -35,9 +35,7 @@ export class TemplateBuilder {
   }
 
   CreateFile(uri: string, content: string): void {
-    uri = Vscode.UniformUrl(uri);
-
-    const path = Fs.GetFilepath(uri);
+    const path = Fs.FromVscode(uri);
 
     if (fs.existsSync(path)) {
       Console.Log("creation of file skipped because it already exists: " + path);

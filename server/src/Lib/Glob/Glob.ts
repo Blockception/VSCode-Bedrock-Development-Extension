@@ -51,7 +51,7 @@ export namespace Glob {
 
     if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
 
-    return entries.map(Vscode.GetFilepath);
+    return entries.map(Vscode.FromFs);
   }
 
   /**
@@ -59,7 +59,7 @@ export namespace Glob {
    * @param folder
    */
   export function FolderPath(folder: string): string {
-    return Fs.UniformFolder(folder).replace(/\\/gi, "/");
+    return Fs.FromVscode(folder).replace(/\\/gi, "/");
   }
 
   /**Ensures the source is glob friendly

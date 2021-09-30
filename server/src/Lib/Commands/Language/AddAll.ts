@@ -9,7 +9,7 @@ export function AddAllItems(params: ExecuteCommandParams): any {
   const args = params.arguments;
 
   if (args) {
-    const uri = Vscode.UniformUrl(args[0]);
+    const uri = args[0];
 
     if (uri !== "") {
       const doc = GetDocument(uri);

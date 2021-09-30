@@ -25,7 +25,7 @@ function onDidDeleteFiles(params: DeleteFilesParams): Promise<void>[] {
 
 async function onDidDeleteFile(Item: FileDelete): Promise<void> {
   return new Promise((resolve, reject) => {
-    const uri = Vscode.GetFilepath(Item.uri);
+    const uri = Item.uri;
     Database.ProjectData.deleteFile(uri);
     resolve();
   });

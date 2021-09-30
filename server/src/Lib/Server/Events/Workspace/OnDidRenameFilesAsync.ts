@@ -27,7 +27,7 @@ function OnDidRenameFiles(params: RenameFilesParams): Promise<void>[] {
 async function OnDidRenameFile(Item: FileRename): Promise<void> {
   return new Promise((resolve, reject) => {
     //Delete old data
-    const uri = Vscode.GetFilepath(Item.oldUri);
+    const uri = Vscode.FromFs(Item.oldUri);
     Database.ProjectData.deleteFile(uri);
 
     //Update new one

@@ -31,7 +31,7 @@ export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParam
 function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] | undefined {
   //TODO language and other files included
   let uri = params.textDocument.uri;
-  uri = Vscode.UniformUrl(uri);
+  uri = Vscode.FromFs(uri);
 
   if (uri.endsWith(".json")) return undefined;
 

@@ -26,7 +26,7 @@ export namespace Files {
     const doc = GetDocument(uri) ?? TextDocument.create(uri, "opther", 0, "");
 
     const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
-    const path = Fs.GetFilepath(doc.uri);
+    const path = Fs.FromVscode(doc.uri);
 
     if (!fs.existsSync(path)) {
       fs.writeFileSync(path, line);

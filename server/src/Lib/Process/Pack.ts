@@ -11,7 +11,7 @@ import { Document } from "../Types/include";
  * @param pack
  */
 export function ProcessPack(pack: Pack): void {
-  Console.Info(`Processing pack: ${Fs.UniformFolder(pack.folder)}`);
+  Console.Info(`Processing pack: ${Fs.FromVscode(pack.folder)}`);
 
   const P = Document.ForEachDocument(MinecraftFormat.GetPackFiles(pack), (doc) => {
     Database.ProjectData.process(doc);

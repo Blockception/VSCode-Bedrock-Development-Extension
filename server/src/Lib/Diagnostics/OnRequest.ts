@@ -15,7 +15,7 @@ export function ProvideDiagnostics(doc: TextDocument): void {
 }
 
 export function ProvidePackDiagnostics(pack: Pack): void {
-  Console.Info("diagnosing: " + Fs.GetFilepath(pack.folder));
+  Console.Info("diagnosing: " + Fs.FromVscode(pack.folder));
 
   ForEachDocument(MinecraftFormat.GetPackFiles(pack), ProvideDiagnostics);
 }

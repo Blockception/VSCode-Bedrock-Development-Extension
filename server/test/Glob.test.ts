@@ -9,7 +9,7 @@ import { MinecraftFormat } from "../src/Lib/Minecraft/Format";
 describe("Glob", () => {
   describe("Direct", () => {
     it("Json", () => {
-      const folder = Vscode.UniformFolder(path.resolve(__dirname, "files"));
+      const folder = Vscode.FromFs(path.resolve(__dirname, "files"));
       const cwd = Glob.FolderPath(folder);
 
       const options: FastGlob.Options = { onlyFiles: true, absolute: true, cwd: cwd, baseNameMatch: undefined };
@@ -21,28 +21,28 @@ describe("Glob", () => {
 
   describe("GetFiles", () => {
     it("Json", () => {
-      const folder = Vscode.GetFilepath(path.resolve(__dirname, "files"));
+      const folder = Vscode.FromFs(path.resolve(__dirname, "files"));
       const files = Glob.GetFiles("**/*.json", [], folder);
 
       expect(files.length, folder).to.be.greaterThan(0);
     });
 
     it("Json2", () => {
-      const folder = Vscode.GetFilepath(path.resolve(__dirname, "files"));
+      const folder = Vscode.FromFs(path.resolve(__dirname, "files"));
       const files = Glob.GetFiles(["**/*.json", "*.json"], [], folder);
 
       expect(files.length, folder).to.be.greaterThan(0);
     });
 
     it("Mcfunction", () => {
-      const folder = Vscode.GetFilepath(path.resolve(__dirname, "files"));
+      const folder = Vscode.FromFs(path.resolve(__dirname, "files"));
       const files = Glob.GetFiles("**/*.mcfunction", [], folder);
 
       expect(files.length, folder).to.be.greaterThan(0);
     });
 
     it("Mcfunction2", () => {
-      const folder = Vscode.GetFilepath(path.resolve(__dirname, "files"));
+      const folder = Vscode.FromFs(path.resolve(__dirname, "files"));
       const files = Glob.GetFiles(["*.mcfunction", "**/*.mcfunction"], [], folder);
 
       expect(files.length, folder).to.be.greaterThan(0);
@@ -50,7 +50,7 @@ describe("Glob", () => {
   });
 
   it("GetBehaviorPackFiles", () => {
-    const folder = Vscode.GetFilepath(path.resolve(__dirname, "files"));
+    const folder = Vscode.FromFs(path.resolve(__dirname, "files"));
     const files = MinecraftFormat.GetBehaviorPackFiles(folder, []);
 
     expect(files.length, folder).to.be.greaterThan(0);
