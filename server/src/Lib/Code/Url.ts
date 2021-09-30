@@ -1,26 +1,27 @@
 import path from "path";
 import { URI } from "vscode-uri";
 
-
 //Format that vscode sends:
 //file:///f%3A/folder/behavior_packs/temp-bp/blocks/example.block.json
 
 export namespace Vscode {
   /**
-   * 
-   * @param path 
-   * @returns 
+   *
+   * @param path
+   * @returns
    */
-  export function FromFs(path : string) : string {
+  export function FromFs(path: string): string {
+    if (isVscode(path)) return path;
+
     return URI.file(path).toString();
   }
 
   /**
-   * 
-   * @param uri 
-   * @returns 
+   *
+   * @param uri
+   * @returns
    */
-  export function isVscode(uri : string) : boolean {
+  export function isVscode(uri: string): boolean {
     if (uri.startsWith("file:///")) return true;
     if (uri.startsWith("file:\\\\\\")) return true;
 
@@ -30,10 +31,10 @@ export namespace Vscode {
 
 export namespace Fs {
   /**From something like file:///
-   * @param uri 
-   * @returns 
+   * @param uri
+   * @returns
    */
-  export function FromVscode(uri : string) : string {
+  export function FromVscode(uri: string): string {
     return URI.parse(uri, false).fsPath;
   }
 }

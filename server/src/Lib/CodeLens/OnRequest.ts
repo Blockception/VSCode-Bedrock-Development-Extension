@@ -58,11 +58,11 @@ export function OnCodeLensRequest(params: CodeLensParams): CodeLens[] | null | u
     forEach(pack.trading, doc, builder);
   }
 
-  forEach(Database.ProjectData.General.fakeEntities, doc, builder);
-  forEach(Database.ProjectData.General.objectives, doc, builder);
-  forEach(Database.ProjectData.General.structures, doc, builder);
-  forEach(Database.ProjectData.General.tags, doc, builder);
-  forEach(Database.ProjectData.General.tickingAreas, doc, builder);
+  forEachG(Database.ProjectData.General.fakeEntities, doc, builder);
+  forEachG(Database.ProjectData.General.objectives, doc, builder);
+  forEachG(Database.ProjectData.General.structures, doc, builder);
+  forEachG(Database.ProjectData.General.tags, doc, builder);
+  forEachG(Database.ProjectData.General.tickingAreas, doc, builder);
 
   return builder.out;
 }
@@ -109,6 +109,21 @@ function forEach<T extends Types.BaseObject>(data: DataSet<T>, doc: TextDocument
     if (item.location.uri === doc.uri) return;
 
     const reg = new RegExp(`\\b${item.id}\\b`);
+    const amount = reg.exec(text);
+
+    if (amount === null) return;
+
+    builder.Push({ range: GetRange(amount.index, doc), data: item });
+  });
+}
+
+function forEachG<T extends Types.BaseObject>(data: DataSet<T>, doc: TextDocument, builder: CodeLensBuilder) {
+  const text = doc.getText();
+
+  data.forEach((item) => {
+    if (item.location.uri === doc.uri) return;
+
+    const reg = new RegExp(`\\b([ =]${item.id}|${item.id}=|)\\b`);
     const amount = reg.exec(text);
 
     if (amount === null) return;
