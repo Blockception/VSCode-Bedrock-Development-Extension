@@ -123,7 +123,7 @@ function forEachG<T extends Types.BaseObject>(data: DataSet<T>, doc: TextDocumen
   data.forEach((item) => {
     if (item.location.uri === doc.uri) return;
 
-    const reg = new RegExp(`\\b([ =]${item.id}|${item.id}=|)\\b`);
+    const reg = new RegExp(`\\b([ =]${item.id}|${item.id}=)\\b`);
     const amount = reg.exec(text);
 
     if (amount === null) return;
