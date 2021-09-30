@@ -1,5 +1,6 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
+import { GetProjectEmpty } from '../Project/include';
 
 /**
  *
@@ -26,7 +27,7 @@ export class WorkspaceData {
       }
     }
 
-    return 
+    return GetProjectEmpty()
   }
 
   /**Gets the workspace folder that corresponds to the given document
