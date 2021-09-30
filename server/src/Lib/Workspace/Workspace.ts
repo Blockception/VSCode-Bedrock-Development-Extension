@@ -1,5 +1,4 @@
 import { Pack } from "bc-minecraft-bedrock-project";
-import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { HandleError } from "../Code/Error";
 import { Fs } from "../Code/Url";
@@ -8,6 +7,7 @@ import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
 import { ProcessPack } from "../Process/Pack";
+import { GetProject } from '../Project/MCProjects';
 
 /**
  *
@@ -78,7 +78,7 @@ export namespace Workspace {
     const folderpath = Fs.FromVscode(folder.uri);
     Console.Info("Traversing workspace: " + folderpath);
 
-    const project = MCProject.loadSync(folderpath);
+    const project = GetProject(folderpath);
     Database.WorkspaceData.set(folder, project);
 
     const manifests = MinecraftFormat.GetManifests(folder.uri, project.ignores.patterns);
