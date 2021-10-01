@@ -1,6 +1,11 @@
-import { SimpleContext } from "../../Code/SimpleContext";
-import { CompletionBuilder } from "../../Completion/Builder";
+import { JsonCompletionContext } from "../../Completion/include";
+import { Sound } from "../General/include";
+import { Textures } from "./include";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>) {
-  //TODO sounds, and textures check
+export function ProvideCompletion(context: JsonCompletionContext) {
+  //Prepare data to be fixed for json
+  const data = context.currentText;
+
+  if (data.startsWith("textures")) Textures.ProvideCompletion(context);
+  if (data.startsWith("sounds")) Sound.ProvideCompletion(context);
 }
