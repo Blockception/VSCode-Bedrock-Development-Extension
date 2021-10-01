@@ -11,9 +11,17 @@ export namespace Vscode {
    * @returns
    */
   export function FromFs(path: string): string {
-    if (isVscode(path)) return path;
+    if (isVscode(path)) {
+      return path.replace(/\\/gi, "//");
+    }
 
     return URI.file(path).toString();
+  }
+
+  export function join(path: string, combine: string): string {
+    if (path.endsWith("/")) return path + combine;
+
+    return path + "/" + combine;
   }
 
   /**

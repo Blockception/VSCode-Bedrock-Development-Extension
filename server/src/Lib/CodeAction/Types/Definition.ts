@@ -3,7 +3,7 @@ import path from "path";
 import { CodeAction, Command, Diagnostic } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { Commands } from "../..//Constants";
-import { Vscode } from '../../Code/Url';
+import { Vscode } from "../../Code/Url";
 import { Database } from "../../Database/Database";
 import { Console } from "../../Manager/Console";
 import { GetDocument } from "../../Types/Document/include";
@@ -26,7 +26,7 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
     return;
   }
 
-  const uri = Vscode.FromFs(path.join(ws, MCDefinition.filename))
+  const uri = Vscode.join(ws, MCDefinition.filename);
 
   const Command: Command = {
     title: `Add ${value} as ${type} to MCDefintions`,

@@ -23,7 +23,7 @@ export namespace Files {
 
     if (!(uri && line)) return;
 
-    const doc = GetDocument(uri) ?? TextDocument.create(uri, "opther", 0, "");
+    const doc = GetDocument(uri) ?? TextDocument.create(uri, "other", 0, "");
 
     const edit = TextEdit.insert(doc.positionAt(doc.getText().length), "\n" + line);
     const path = Fs.FromVscode(doc.uri);
