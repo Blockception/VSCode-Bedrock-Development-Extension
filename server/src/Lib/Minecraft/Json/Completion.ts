@@ -4,44 +4,31 @@ import { SimpleContext } from "../../Code/SimpleContext";
 import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "../include";
 import { GetCurrentString } from "./Functions";
 import { CompletionBuilder } from "../../Completion/Builder";
+import { JsonCompletionContext } from "../../Completion/include";
 
 export function ProvideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
-  const type = PackType.detect(context.doc.uri);
+  const c = <JsonCompletionContext>context;
+  c.cursor = context.doc.offsetAt(cursorPos);
 
-  if (type == PackType.unknown) return;
-
-  const cursor = context.doc.offsetAt(cursorPos);
-  OnCompletionJsonMolang(context, cursor);
-
-  switch (type) {
-    case PackType.resource_pack:
-      return ResourcePack.ProvideCompletion(context);
-
-    default:
-      break;
-  }
-}
-
-function OnCompletionJsonMolang(context: SimpleContext<CompletionBuilder>, cursor: number) {
-  const doc = context.doc;
-  const receiver = context.receiver;
-  const text = doc.getText();
-  const range = GetCurrentString(text, cursor);
+  const text = c.doc.getText();
+  const range = GetCurrentString(text, c.cursor);
 
   //If start has not been found or not a property
   if (range == undefined) return;
+  c.range = range;
 
   //Prepare data to be fixed for json
-  const data = text.substring(range.start, range.end);
-  const insertIndex = cursor - range.start;
-  const first = '"' + data.substring(0, insertIndex);
-  const second = data.substring(insertIndex) + '"';
-  const P = doc.positionAt(cursor);
+  c.currentText = text.substring(c.range.start, c.range.end);
+
+  const insertIndex = c.cursor - range.start;
+  const first = '"' + c.currentText.substring(0, insertIndex);
+  const second = c.currentText.substring(insertIndex) + '"';
+  const P = c.doc.positionAt(c.cursor);
   const R = Range.create(P, P);
 
   //Have each new item pass through a new function
-  var Function = receiver.OnNewItem;
-  receiver.OnNewItem = (NewItem: CompletionItem) => {
+  var Function = c.receiver.OnNewItem;
+  c.receiver.OnNewItem = (NewItem: CompletionItem) => {
     //Update the filtering text
     NewItem.filterText = first + NewItem.label + second;
     NewItem.textEdit = InsertReplaceEdit.create(NewItem.label, R, R);
@@ -49,16 +36,35 @@ function OnCompletionJsonMolang(context: SimpleContext<CompletionBuilder>, curso
     if (Function) Function(NewItem);
   };
 
-  //Find all events
-  if (data.startsWith("@s")) {
-    BehaviorPack.EntityEvent.ProvideCompletion(context);
-    //Is it a command instead
-  } else if (data.startsWith("/")) {
-    Mcfunction.ProvideCompletionLine(context, data.substring(1), cursor, range.start + 1);
-    //Its probally molang
-  } else {
-    Molang.ProvideCompletion(data, cursor - range.start, { doc: doc, receiver: receiver });
+  const type = PackType.detect(context.doc.uri);
+  if (type == PackType.unknown) return;
+
+  OnCompletionJsonMolang(c);
+
+  switch (type) {
+    case PackType.behavior_pack:
+      return BehaviorPack.ProvideCompletion(c);
+
+    case PackType.resource_pack:
+      return ResourcePack.ProvideCompletion(c);
+
+    default:
+      break;
   }
 
-  receiver.OnNewItem = Function;
+  //Restore old function
+  c.receiver.OnNewItem = Function;
+}
+
+function OnCompletionJsonMolang(context: JsonCompletionContext) {
+  //Find all events
+  if (context.currentText.startsWith("@s")) {
+    BehaviorPack.EntityEvent.ProvideCompletion(context);
+    //Is it a command instead
+  } else if (context.currentText.startsWith("/")) {
+    Mcfunction.ProvideCompletionLine(context, context.currentText.substring(1), context.cursor, context.range.start + 1);
+    //Its probally molang
+  } else {
+    Molang.ProvideCompletion(context.currentText, context.cursor - context.range.start, context);
+  }
 }
