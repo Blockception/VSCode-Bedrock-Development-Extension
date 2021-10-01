@@ -1,6 +1,7 @@
 import { Command, Parameter } from "bc-minecraft-bedrock-command";
 import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
 import { SimpleContext } from "../Code/SimpleContext";
+import { TextRange } from "../Minecraft/Json/Functions";
 import { IsEducationEnabled } from "../Project/Attributes";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { CompletionBuilder } from "./include";
@@ -21,6 +22,12 @@ export interface CommandCompletionContext extends SimpleContext<CompletionBuilde
   cursor: number;
   /** */
   current: Parameter | undefined;
+}
+
+export interface JsonCompletionContext extends SimpleContext<CompletionBuilder> {
+  cursor: number;
+  range: TextRange;
+  currentText: string;
 }
 
 /**
