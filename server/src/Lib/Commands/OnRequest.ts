@@ -7,7 +7,7 @@ import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 import { HandleError } from "../Code/Error";
 import { StoreProject } from "./StoreProject";
-import { AddAllItems } from './Language/include';
+import { AddAllItems } from "./Language/include";
 
 /**
  *
@@ -36,8 +36,7 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
   return out;
 }
 
-
-function InternalCommandRequest(params: ExecuteCommandParams) : any {
+function InternalCommandRequest(params: ExecuteCommandParams): any {
   switch (params.command) {
     case Commands.Files.Append:
       return Files.Append(params);

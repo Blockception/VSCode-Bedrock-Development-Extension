@@ -9,12 +9,11 @@ import {
   TextEdit,
   OptionalVersionedTextDocumentIdentifier,
 } from "vscode-languageserver";
-import { URI } from "vscode-uri";
 import { Manager } from "../../Manager/Manager";
 import * as fs from "fs";
 import { Range } from "vscode-languageserver-types";
 import { Console } from "../../Manager/Console";
-import { Fs, Vscode } from "../../Code/Url";
+import { Fs } from "../../Code/Url";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -35,10 +34,14 @@ export class TemplateBuilder {
   }
 
   CreateFile(uri: string, content: string): void {
+    if (uri.startsWith("file:\\")) {
+      uri = uri.replace(/\\/gi, "/");
+    }
+
     const path = Fs.FromVscode(uri);
 
     if (fs.existsSync(path)) {
-      Console.Log("creation of file skipped because it already exists: " + path);
+      Console.Info("creation of file skipped because it already exists: " + path);
       return;
     }
 
@@ -47,6 +50,7 @@ export class TemplateBuilder {
       range: Range.create(0, 0, 0, 0),
     };
 
+    Console.Info("Creating: " + path);
     const Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
     this.receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
   }
@@ -57,7 +61,7 @@ function Response(response: ApplyWorkspaceEditResponse): void {
 
   const keys = Object.getOwnPropertyNames(response);
 
-  if (keys.length === 1)  {
+  if (keys.length === 1) {
     Console.Info("Workspace edit was not applied, possibly of already existing data");
     return;
   }

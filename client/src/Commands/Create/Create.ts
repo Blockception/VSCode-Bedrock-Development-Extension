@@ -102,8 +102,10 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
         placeHolder: IDRegex.example,
       };
 
+      if (!arg) arg = [];
+
       if (arg.length > 0) {
-        if (typeof arg === "string") return OnCompleteID(arg, command); 
+        if (typeof arg === "string") return OnCompleteID(arg, command);
 
         if (Array.isArray(arg)) {
           const id = arg[0];
@@ -129,7 +131,7 @@ function OnCompleteID(value: string | undefined, command: string): Promise<any> 
 
 function OnComplete(command: string, arg: any[]): Promise<any> {
   if (!arg) arg = [];
-  
+
   arg.push(window.activeTextEditor?.document.uri.toString());
 
   const Options: ExecuteCommandParams = {

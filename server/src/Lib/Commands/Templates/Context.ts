@@ -1,12 +1,12 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
 import { Database } from "../../Database/include";
-import { Manager } from '../../Manager/include';
+import { Manager } from "../../Manager/include";
 
 export interface context {
   BehaviorPack(): string;
   ResourcePack(): string;
   WorkSpace(): string;
-  WorldFolder() : string;
+  WorldFolder(): string;
 }
 
 export function GetContext(params: ExecuteCommandParams): context {
@@ -26,10 +26,10 @@ export function GetContextCall(data: ExecuteCommandParams, callback: (c: context
 
 class _internalContext implements context {
   private __path: string | undefined;
-  private ws : string | undefined;
-  private bp : string | undefined;
-  private rp : string | undefined;
-  private wl : string | undefined;
+  private ws: string | undefined;
+  private bp: string | undefined;
+  private rp: string | undefined;
+  private wl: string | undefined;
 
   constructor(path: string | undefined) {
     if ((this.__path = path)) {
@@ -42,6 +42,7 @@ class _internalContext implements context {
     if (!this.ws) this.ws = Database.WorkspaceData.getFirst();
     if (!this.bp) this.bp = Database.ProjectData.BehaviorPacks.packs[0]?.folder;
     if (!this.rp) this.rp = Database.ProjectData.ResourcePacks.packs[0]?.folder;
+    if (!this.wl) this.wl = Database.ProjectData.Worlds.packs[0]?.folder;
   }
 
   BehaviorPack(): string {

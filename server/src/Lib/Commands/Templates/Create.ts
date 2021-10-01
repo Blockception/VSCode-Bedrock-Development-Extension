@@ -1,17 +1,17 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { TemplateBuilder } from "./Builder";
 import { Console } from "../../Manager/Console";
-import { GetContextCall, context } from './include';
-import { Commands } from '../../Constants';
-import { Templates } from '../include';
-import { Database } from '../../Database/include';
-import { Pack } from 'bc-minecraft-bedrock-project';
+import { GetContextCall, context } from "./include";
+import { Commands } from "../../Constants";
+import { Templates } from "../include";
+import { Database } from "../../Database/include";
+import { Pack } from "bc-minecraft-bedrock-project";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();
 
 /**Executes the given creation command */
-export function Create(params: ExecuteCommandParams): void {  
+export function Create(params: ExecuteCommandParams): void {
   const Data = CreationCommands[params.command];
 
   if (Data) {
@@ -87,9 +87,9 @@ function Initialize(): CommandManager {
 }
 
 /**
- * 
- * @param params 
- * @param callback 
+ *
+ * @param params
+ * @param callback
  */
 function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, context: context, Builder: TemplateBuilder) => void): void {
   GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
@@ -99,7 +99,8 @@ function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, con
 
     const Builder = new TemplateBuilder();
 
-    for (let I = 0; I < IDs.length; I++) {
+    //Last is reserved for the document
+    for (let I = 0; I < IDs.length - 1; I++) {
       callback(IDs[I], context, Builder);
     }
 
@@ -108,9 +109,9 @@ function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, con
 }
 
 /**
- * 
- * @param params 
- * @param callback 
+ *
+ * @param params
+ * @param callback
  */
 function FunctionBP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
   GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
@@ -125,9 +126,9 @@ function FunctionBP(params: ExecuteCommandParams, callback: (Folder: string, Bui
 }
 
 /**
- * 
- * @param params 
- * @param callback 
+ *
+ * @param params
+ * @param callback
  */
 function FunctionRP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
   GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
@@ -142,9 +143,9 @@ function FunctionRP(params: ExecuteCommandParams, callback: (Folder: string, Bui
 }
 
 /**
- * 
- * @param params 
- * @param callback 
+ *
+ * @param params
+ * @param callback
  */
 function FunctionWP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
   GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
@@ -159,9 +160,9 @@ function FunctionWP(params: ExecuteCommandParams, callback: (Folder: string, Bui
 }
 
 /**
- * 
- * @param params 
- * @param callback 
+ *
+ * @param params
+ * @param callback
  */
 function Function(params: ExecuteCommandParams, callback: (context: context, Builder: TemplateBuilder) => void): void {
   GetContextCall(params, (context, params) => {
