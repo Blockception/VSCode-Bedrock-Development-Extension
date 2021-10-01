@@ -10,23 +10,23 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const packType = PackType.detect(context.doc.uri);
   const data = GetDataSet(context.doc.uri);
 
-  data?.Variables.forEach((item) => Generate(item, context.receiver));
+  data?.Temps.forEach((item) => Generate(item, context.receiver));
 
   switch (packType) {
     case PackType.behavior_pack:
       return;
 
     case PackType.resource_pack:
-      Database.ProjectData.ResourcePacks.entities.forEach((entity) => GenerateDU(entity.molang.variables, context.receiver, entity.id));
+      Database.ProjectData.ResourcePacks.entities.forEach((entity) => GenerateDU(entity.molang.temps, context.receiver, entity.id));
   }
 }
 
 function Generate(data: MolangData.Data, builder: CompletionBuilder, kinds: CompletionItemKind = CompletionItemKind.Variable): void {
-  builder.Add(data.id, data.documentation ?? `The molang variable: ${data.id}`, kinds);
+  builder.Add(data.id, data.documentation ?? `The molang temp variable: ${data.id}`, kinds);
 }
 
 function GenerateDU(data: Defined<string>, builder: CompletionBuilder, ownerid: string, kinds: CompletionItemKind = CompletionItemKind.Variable): void {
   data.defined.forEach((item) => {
-    builder.Add(item, `The molang variable: ${item}\nDeclared by '${ownerid}'`, kinds);
+    builder.Add(item, `The molang temp variable: ${item}\nDeclared by '${ownerid}'`, kinds);
   });
 }

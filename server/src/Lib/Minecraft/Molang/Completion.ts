@@ -5,7 +5,11 @@ import { CompletionBuilder } from "../../Completion/Builder";
 import { Languages } from "../../Constants";
 import { IsEducationEnabled } from "../../Project/include";
 import { BehaviorPack, ResourcePack } from "../include";
-import { GetPreviousWord, IsMolang, Variables } from "./include";
+import { GetPreviousWord, IsMolang } from "./include";
+import * as Query from "./Query/Completion";
+import * as Math from "./Math/Completion";
+import * as Temps from "./Temps/Completion";
+import * as Variables from "./Variables/Completion";
 
 export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const doc = context.doc;
@@ -25,7 +29,6 @@ export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, 
  */
 export function ProvideCompletion(line: string, cursor: number, context: SimpleContext<CompletionBuilder>): void {
   const Word = GetPreviousWord(line, cursor).toLowerCase();
-  const Edu = IsEducationEnabled(context.doc);
 
   switch (Word) {
     case "animation":
@@ -43,19 +46,11 @@ export function ProvideCompletion(line: string, cursor: number, context: SimpleC
 
     case "q":
     case "query":
-      //TODO redo
-
-      //Convert(Manager.Data.Vanilla.Molang.Query, receiver);
-      //if (Edu) Convert(Manager.Data.Edu.Molang.Query, receiver);
-      return;
+      return Query.ProvideCompletion(context);
 
     case "m":
     case "math":
-      //TODO redo
-
-      //Convert(Manager.Data.Vanilla.Molang.Math, receiver);
-      //if (Edu) Convert(Manager.Data.Edu.Molang.Math, receiver);
-      return;
+      return Math.ProvideCompletion(context);
 
     case "geometry":
       return ResourcePack.Models.ProvideCompletion(context);
@@ -66,8 +61,10 @@ export function ProvideCompletion(line: string, cursor: number, context: SimpleC
 
     case "t":
     case "texture":
+      return ResourcePack.Textures.ProvideCompletion(context);
+
     case "temp":
-      break;
+      return Temps.ProvideCompletion(context);
   }
 
   const doc = context.doc;
@@ -82,15 +79,8 @@ export function ProvideCompletion(line: string, cursor: number, context: SimpleC
     receiver.Add("temp", "", CompletionItemKind.Variable);
     receiver.Add("this", "", CompletionItemKind.Struct);
 
-    //TODO redo
-    //ConvertPrefixed(Manager.Data.Vanilla.Molang.Query, receiver, "query.");
-    //ConvertPrefixed(Manager.Data.Vanilla.Molang.Math, receiver, "math.");
-
-    if (Edu) {
-      //TODO redo
-      //ConvertPrefixed(Manager.Data.Edu.Molang.Query, receiver, "query.");
-      //ConvertPrefixed(Manager.Data.Edu.Molang.Math, receiver, "math.");
-    }
+    Query.ProvideCompletion(context);
+    Math.ProvideCompletion(context);
   }
 }
 
