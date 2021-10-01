@@ -3,13 +3,14 @@ import { CompletionItemKind, Position } from "vscode-languageserver-types";
 import { SimpleContext } from "../../Code/SimpleContext";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { Languages } from "../../Constants";
-import { IsEducationEnabled } from "../../Project/include";
 import { BehaviorPack, ResourcePack } from "../include";
 import { GetPreviousWord, IsMolang } from "./include";
 import * as Query from "./Query/Completion";
 import * as Math from "./Math/Completion";
 import * as Temps from "./Temps/Completion";
 import * as Variables from "./Variables/Completion";
+import * as Geometry from "./Geometry/Completion";
+import * as Texture from "./Texture/Completion";
 
 export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const doc = context.doc;
@@ -53,7 +54,7 @@ export function ProvideCompletion(line: string, cursor: number, context: SimpleC
       return Math.ProvideCompletion(context);
 
     case "geometry":
-      return ResourcePack.Models.ProvideCompletion(context);
+      return Geometry.ProvideCompletion(context);
 
     case "v":
     case "variable":
@@ -61,7 +62,7 @@ export function ProvideCompletion(line: string, cursor: number, context: SimpleC
 
     case "t":
     case "texture":
-      return ResourcePack.Textures.ProvideCompletion(context);
+      return Texture.ProvideCompletion(context);
 
     case "temp":
       return Temps.ProvideCompletion(context);
