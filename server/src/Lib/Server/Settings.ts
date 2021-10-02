@@ -8,16 +8,30 @@ import { Manager } from "../Manager/Manager";
  *
  */
 export interface ServerSettings {
+  /** */
   Education: {
+    /** */
     Enable: boolean;
   };
+  /** */
   Diagnostics: {
+    /** */
     Enable: boolean;
+    /** */
     Lang: boolean;
+    /** */
     Json: boolean;
+    /** */
     Mcfunctions: boolean;
+    /** */
     Objectives: boolean;
+    /** */
     Tags: boolean;
+  };
+  /** */
+  Plugin: {
+    /** */
+    CodeLens: boolean;
   };
 }
 
@@ -26,7 +40,7 @@ export namespace ServerSettings {
     if (value) {
       const temp = <ServerSettings>value;
 
-      if (temp.Education && temp.Diagnostics) {
+      if (temp.Education && temp.Diagnostics && temp.Plugin) {
         if (typeof temp.Education.Enable !== "boolean") return false;
 
         if (typeof temp.Diagnostics.Enable !== "boolean") return false;
@@ -35,6 +49,8 @@ export namespace ServerSettings {
         if (typeof temp.Diagnostics.Mcfunctions !== "boolean") return false;
         if (typeof temp.Diagnostics.Objectives !== "boolean") return false;
         if (typeof temp.Diagnostics.Tags !== "boolean") return false;
+
+        if (typeof temp.Plugin.CodeLens !== "boolean") return false;
 
         return true;
       }
@@ -61,6 +77,9 @@ export namespace ServerSettings {
         Objectives: value.Diagnostics.Objectives,
         Tags: value.Diagnostics.Tags,
       },
+      Plugin: {
+        CodeLens: value.Plugin.CodeLens,
+      },
     };
   }
 
@@ -76,6 +95,9 @@ export namespace ServerSettings {
         Mcfunctions: true,
         Objectives: true,
         Tags: true,
+      },
+      Plugin: {
+        CodeLens: true,
       },
     };
 

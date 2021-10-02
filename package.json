@@ -96,6 +96,12 @@
       {
         "title": "Minecraft bedrock language configuration",
         "properties": {
+          "BC-MC.Plugin.CodeLens": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": false,
+            "description": "Turns on or off the code lens"
+          },
           "BC-MC.Education.Enable": {
             "scope": "resource",
             "type": "boolean",

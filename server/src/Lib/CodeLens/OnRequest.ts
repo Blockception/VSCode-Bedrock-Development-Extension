@@ -3,6 +3,7 @@ import { Types } from "bc-minecraft-bedrock-types";
 import { CodeLens, CodeLensParams } from "vscode-languageserver";
 import { GetPosition, GetRange } from "../Code/DocumentLocation";
 import { Database } from "../Database/include";
+import { Manager } from '../Manager/include';
 import { GetDocument, TextDocument } from "../Types/Document/include";
 import { CodeLensBuilder } from "./Builder";
 
@@ -23,6 +24,9 @@ export async function OnCodeLensRequestAsync(params: CodeLensParams): Promise<Co
  * @returns
  */
 export function OnCodeLensRequest(params: CodeLensParams): CodeLens[] | null | undefined {
+  //If code lens is disabled
+  if (!Manager.Settings.Plugin.CodeLens) return undefined;
+
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 

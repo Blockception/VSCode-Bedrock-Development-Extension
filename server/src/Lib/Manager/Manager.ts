@@ -5,7 +5,6 @@ import { Connection } from "vscode-languageserver/lib/common/server";
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocuments } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 
 /**
  *
