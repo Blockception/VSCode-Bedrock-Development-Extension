@@ -1,7 +1,7 @@
 
 import { Hover, HoverParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
-import { Mcfunction } from '../Minecraft/include';
+import { Json, Mcfunction, Molang } from '../Minecraft/include';
 import { GetDocument } from "../Types/Document/include";
 
 /**
@@ -28,6 +28,11 @@ export function OnHoverRequest(params: HoverParams): Hover | undefined {
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
+      return Json.ProvideHover(doc, params);
+    
+    case Languages.McMolangIdentifier:
+      return Molang.ProvideHover(doc, params);
+
     case Languages.McOtherIdentifier:
       //TODO provide hover for json
       break;
