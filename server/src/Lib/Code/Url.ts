@@ -1,4 +1,3 @@
-import path from "path";
 import { URI } from "vscode-uri";
 
 //Format that vscode sends:
