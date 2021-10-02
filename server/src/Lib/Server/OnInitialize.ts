@@ -62,10 +62,16 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         workDoneProgress: true,
       },
 
+      //Workspace settings
       workspace: {
         workspaceFolders: {
           changeNotifications: true,
           supported: true,
+        },
+        fileOperations: {
+          didCreate: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
+          didDelete: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
+          didRename: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
         },
       },
     },
@@ -73,21 +79,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       name: "BC-minecraft-language-server",
     },
   };
-
-  if (Manager.Capabiltities.hasWorkspaceFolderCapability) {
-    result.capabilities.workspace = {
-      workspaceFolders: {
-        supported: true,
-        changeNotifications: true,
-      },
-      //Todo fill in filters
-      fileOperations: {
-        didCreate: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
-        didDelete: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
-        didRename: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
-      },
-    };
-  }
 
   return result;
 }

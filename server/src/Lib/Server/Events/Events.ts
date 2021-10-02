@@ -65,6 +65,7 @@ export function setEvents() {
   // This handler provides signatures
   Connection.onSignatureHelp(OnSignatureRequestAsync);
 
+  //Settings changed
   Connection.onDidChangeConfiguration(OnConfigurationChanged);
 
   // This handler provides semantic Tokens
