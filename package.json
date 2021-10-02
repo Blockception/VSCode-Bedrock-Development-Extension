@@ -99,7 +99,7 @@
           "BC-MC.Plugin.CodeLens": {
             "scope": "resource",
             "type": "boolean",
-            "default": false,
+            "default": true,
             "description": "Turns on or off the code lens"
           },
           "BC-MC.Education.Enable": {
