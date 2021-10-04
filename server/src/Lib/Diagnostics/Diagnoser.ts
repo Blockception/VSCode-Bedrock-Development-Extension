@@ -83,7 +83,7 @@ function getDocument(uri: string): TextDocument | undefined {
  * @returns
  */
 function getFiles(folder: string, ignores: MCIgnore): string[] {
-  return Glob.GetFiles("**.*", ignores.patterns, folder);
+  return Glob.GetFiles(["**.*","**/*.*"], ignores.patterns, folder);
 }
 
 /**Make sure the given text document is from <vstd.TextDocument>*/
