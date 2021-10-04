@@ -1,7 +1,5 @@
-import { MCDefinition } from "bc-minecraft-project";
-import path from "path";
-import { CodeAction, Command, Diagnostic } from "vscode-languageserver";
-import { URI } from "vscode-uri";
+import { MCAttributes, MCDefinition } from "bc-minecraft-project";
+import { CodeAction, CodeActionKind, Command, Diagnostic } from "vscode-languageserver";
 import { Commands } from "../..//Constants";
 import { Vscode } from "../../Code/Url";
 import { Database } from "../../Database/Database";
@@ -38,7 +36,44 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
     title: Command.title,
     command: Command,
     diagnostics: [diag],
-    kind: "quickfix",
+    kind: CodeActionKind.QuickFix,
+  };
+
+  builder.Push(action);
+}
+
+/**Adds a given type and value to the definition
+ * @param builder
+ * @param diag
+ * @param type
+ */
+export function Attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
+  const doc = GetDocument(builder.params.textDocument.uri);
+  if (!doc) return;
+
+  const ws = Database.WorkspaceData.getFolder(doc.uri);
+  const key = diag.code ?? "";
+
+  if (typeof key === "undefined") return;
+
+  if (!ws) {
+    Console.Error(`Couldn't find workspace for: ${doc.uri}`);
+    return;
+  }
+
+  const uri = Vscode.join(ws, MCAttributes.filename);
+
+  const Command: Command = {
+    title: `Disable diagnostic code in project: ${key}`,
+    command: Commands.Files.Append,
+    arguments: [uri, `diagnostic.disable.${key}=false`],
+  };
+
+  const action: CodeAction = {
+    title: Command.title,
+    command: Command,
+    diagnostics: [diag],
+    kind: CodeActionKind.QuickFix,
   };
 
   builder.Push(action);
