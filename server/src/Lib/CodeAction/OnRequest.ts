@@ -52,16 +52,16 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
 
     switch (maincode) {
       case "behaviorpack":
-        Attributes(builder, diag);
-        return BehaviorPack.OnCodeAction(builder, diag);
+        BehaviorPack.OnCodeAction(builder, diag);
+        return Attributes(builder, diag);
 
       case "resourcepack":
-        Attributes(builder, diag);
-        return ResourcePack.OnCodeAction(builder, diag);
+        ResourcePack.OnCodeAction(builder, diag);
+        return Attributes(builder, diag);
 
       case "minecraft":
-        Attributes(builder, diag);
-        return Minecraft.OnCodeAction(builder, diag);
+        Minecraft.OnCodeAction(builder, diag);
+        return Attributes(builder, diag);
     }
   }
 }
