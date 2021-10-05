@@ -24,12 +24,12 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-command": "^1.2.11",
+    "bc-minecraft-bedrock-command": "^1.2.12",
     "bc-minecraft-bedrock-diagnoser": "^1.0.24",
     "bc-minecraft-bedrock-project": "^1.7.42",
     "bc-minecraft-bedrock-types": "^1.2.11",
     "bc-minecraft-bedrock-vanilla-data": "^1.5.9",
-    "bc-minecraft-molang": "^1.1.1",
+    "bc-minecraft-molang": "^1.1.2",
     "bc-minecraft-project": "^1.0.12",
     "bc-vscode-words": "^1.3.9",
     "comment-json": "^4.1.1",
