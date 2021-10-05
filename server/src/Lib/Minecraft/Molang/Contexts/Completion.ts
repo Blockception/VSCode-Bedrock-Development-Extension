@@ -10,7 +10,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const packType = PackType.detect(context.doc.uri);
   const data = GetDataSet(context.doc.uri);
 
-  data?.Contents.forEach((item) => Generate(item, context.receiver));
+  data?.Contexts.forEach((item) => Generate(item, context.receiver));
 }
 
 function Generate(data: MolangData.Data, builder: CompletionBuilder, kinds: CompletionItemKind = CompletionItemKind.Struct): void {

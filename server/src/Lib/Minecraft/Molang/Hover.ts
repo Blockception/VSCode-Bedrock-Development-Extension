@@ -63,7 +63,7 @@ export function ProvideHoverSpecific(main: string, sub: string | undefined = und
 
     case "c":
     case "context":
-      if (sub) return findGen(sub, range, MolangData.Entities.Contents);
+      if (sub) return findGen(sub, range, MolangData.Entities.Contexts);
       return { contents: "Molang context", range: range };
 
     case "m":

@@ -20,21 +20,27 @@ export function GetRPDataSet(uri: string): typeof MolangData.Blocks | undefined 
   const RpType = ResourcePack.FileType.detect(uri);
 
   switch (RpType) {
-    case ResourcePack.FileType.block:
-      return MolangData.Blocks;
-
     case ResourcePack.FileType.animation:
+      return MolangData.Animations;
+
     case ResourcePack.FileType.animation_controller:
-    case ResourcePack.FileType.render_controller:
-    case ResourcePack.FileType.entity:
-      return MolangData.Entities;
+      return MolangData.AnimationsControllers;
 
     case ResourcePack.FileType.attachable:
     case ResourcePack.FileType.item:
       return MolangData.Items;
 
+    case ResourcePack.FileType.block:
+      return MolangData.Blocks;
+
+      case ResourcePack.FileType.entity:
+        return MolangData.Entities;
+
+    case ResourcePack.FileType.render_controller:
+      return MolangData.RenderControllers;
+
     case ResourcePack.FileType.particle:
-      return MolangData.Particle;
+      return MolangData.Particles;
   }
 
   return undefined;
