@@ -1,46 +1,56 @@
 # Changelog
 ## Plugin
-- Modified
-- Update publish-to-vscode.yml
-- Update publish-to-vscode.yml
-- Update publish-to-vscode.yml
-- Fixing
-- Update publish-to-vscode.yml
-- 3.0.13
-- MORE CASE SENSTIVE
-- CASE SENSTIVE
-- Updated
-- Updated
-- Updated
-- Updated
-- Update publish-to-vscode.yml
-- Update publish-to-vscode.yml
-- Update publish-to-vscode.yml
-- Update npm-test.yml
-- Update npm-test.yml
-- 3.0.12
-- 3.0.11
-- Update publish-to-vscode.yml
-- Update publish-to-vscode.yml
-- 3.0.10
-- 3.0.9
-- Update publish-to-vscode.yml
-- 3.0.8
-- Updated
-- Updated
-- Update npm-test.yml
-- Updated
-- Updated
-- 3.0.7
-- Updated
-- Create publish-to-vscode.yml
-- Create tagged-release.yml
-- Update npm-test.yml
+- 3.1.14
+- UPdated
+- 3.1.13
+- build(deps-dev): bump webpack from 5.55.1 to 5.56.1
+- 3.1.12
+- Supplying subdirectories files to diagnosers
+- Changed order
+- Updated code actions
+- 3.1.11
+- Updated schemas
+- Added Json5 and JsonC support #8
+- 3.1.10
+- Fixing hovers tests
+- 3.1.9
+- Fix Codelens settings
+- Updating code
 - Added
-- Update npm-test.yml
-- Update npm-test.yml
-- Update npm-test.yml. 
+- Refactor
+- Added code lens option in config #144
+- Update generate-includes.yml
+- 3.1.8
+- Fixing add to definition
+- 3.1.7
+- Updating completion
+- 3.1.6
+- Refactor json completion
+- Added loot tables and trading tables
+- Refactor json completion
+- Added completion for textures and sounds
+- 3.1.5
+- Refactoring molang completion providers
+- 3.1.4
+- Updated
+- 3.1.3
+- Updated
+- 3.1.2
+- Updated
+- 3.1.1
+- Possible fix for #134
+- Updated. 
 ## Schemas
+- Added
+- Added test
+- Added power to loot tables functions #9
+- Fixing paths
+- Updated
+- Updated
+- Updated
+- Updated
+- Updated dialogue
+- Made format string an enumerator of accepted engines versions
 - Added tick.json validation
 - Updated typescript config
 - Updated tasks
@@ -71,13 +81,3 @@
 - Updated
 - Updated spawn rules
 - Updated
-- Fixing dependencies
-- Updated
-- Updated
-- Update npm-test.yml
-- Updated
-- Update README.md
-- Update npm-test.yml
-- Update compress-json-schemas.yml
-- Create npm-test.yml
-- Added schemas count check

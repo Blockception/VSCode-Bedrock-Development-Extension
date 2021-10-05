@@ -15,11 +15,3 @@ cd ..
 
 git add .
 git commit -m "auto: Generated Changelog"
-
-call npm version patch
-
-git add .
-git commit -m "auto: Building New Version"
-
-call npm install -g vsce
-npx vsce package 
