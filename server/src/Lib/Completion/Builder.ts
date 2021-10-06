@@ -87,6 +87,7 @@ export class CompletionBuilder {
     query: string | undefined = undefined
   ): CompletionItem[] {
     const out: CompletionItem[] = [];
+    if (dataset === undefined) return out;
 
     if (query) {
       dataset.forEach((item) => {
@@ -114,6 +115,7 @@ export class CompletionBuilder {
     query: string | undefined = undefined
   ): CompletionItem[] {
     const out: CompletionItem[] = [];
+    if (dataset === undefined) return out;
 
     if (query) {
       dataset.forEach((item) => {
