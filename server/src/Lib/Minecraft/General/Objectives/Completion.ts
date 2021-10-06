@@ -23,5 +23,5 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const data = context.doc.getConfiguration();
 
   //From definitions
-  receiver.GenerateStr(data.definitions.objective.defined, generateDoc, Kinds.Completion.Objectives);
+  receiver.GenerateStr(data.definitions.objective?.defined, generateDoc, Kinds.Completion.Objectives);
 }

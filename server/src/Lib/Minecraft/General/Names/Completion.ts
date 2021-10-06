@@ -6,11 +6,8 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const data = context.doc.getConfiguration();
   const receiver = context.receiver;
 
-  const names = data.definitions.name?.defined;
+  //From definitions
+  const generateDoc = (item: string) => "The defined name: " + item;
 
-  if (names) {
-    const generateDoc = (item: string) => "The defined name: " + item;
-
-    receiver.GenerateStr(names, generateDoc, Kinds.Completion.Entity);
-  }
+  receiver.GenerateStr(data.definitions.name?.defined, generateDoc, Kinds.Completion.Objectives);
 }

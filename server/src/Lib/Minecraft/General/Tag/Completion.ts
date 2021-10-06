@@ -10,9 +10,8 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   receiver.Generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
 
   const data = context.doc.getConfiguration();
-  const defined = data.definitions.tag?.defined;
 
-  if (defined) receiver.GenerateStr(defined, generateDocumentation, Kinds.Completion.Tag);
+  receiver.GenerateStr(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
 }
 
 function generateDocumentation(tag: GeneralInfo | string): string {
