@@ -1,66 +1,81 @@
 # Changelog
 ## Plugin
-- 3.1.14
-- UPdated
-- 3.1.13
+- Fixing completion
+- Fixing compiler issues
 - build(deps-dev): bump webpack from 5.55.1 to 5.56.1
-- 3.1.12
 - Supplying subdirectories files to diagnosers
 - Changed order
 - Updated code actions
-- 3.1.11
 - Updated schemas
 - Added Json5 and JsonC support #8
-- 3.1.10
 - Fixing hovers tests
-- 3.1.9
 - Fix Codelens settings
 - Updating code
-- Added
-- Refactor
 - Added code lens option in config #144
 - Update generate-includes.yml
-- 3.1.8
 - Fixing add to definition
-- 3.1.7
 - Updating completion
-- 3.1.6
 - Refactor json completion
 - Added loot tables and trading tables
 - Refactor json completion
 - Added completion for textures and sounds
-- 3.1.5
-- Refactoring molang completion providers
-- 3.1.4
-- Updated
-- 3.1.3
-- Updated
-- 3.1.2
-- Updated
-- 3.1.1
-- Possible fix for #134
-- Updated. 
+- Refactoring molang completion providers. 
+## Diagnotics
+- Updated workspace settings
+- Refactor for new molang package
+- Controllers now get handed entity molang data
+- Added diagnostics for sounds and textures
+- Refactor
+- Added events support for the future
+- Create dependabot.yml
+- Fixed
+- fix test
+- Updated diagnoser
+- Restructure of molang diagnostics and general animation controllers
+- Updated path checking
+- Updated repo settings
+- Making an exception for molang math
+- Fixing selector diagnostics
+- Fixed entity check
+- Added family diagnostics
+- updated Error Code
+- Updated error code
+- Added more indepth selector diagnostics. 
+## ProjectData
+- Fixing tests
+- Updated getFiles context
+- Added commands
+- Added todos for events
+- Create dependabot.yml
+- Updating structures and fake players
+- Refactor
+- Added a general state
+- Addings worlds
+- Removed unused vanilla-data
+- Fixing render controllers on entity
+- Updated entity RP processing
+- Fixing render controller parsing
+- Updated typescript config
+- Updated dependencies
+- Refactoring
+- Added ignores for minecraft
+- Removed attach all launch
+- Added text.UnQuote
+- Updated dependencies. 
 ## Schemas
-- Added
 - Added test
 - Added power to loot tables functions #9
 - Fixing paths
-- Updated
-- Updated
-- Updated
-- Updated
 - Updated dialogue
 - Made format string an enumerator of accepted engines versions
 - Added tick.json validation
 - Updated typescript config
 - Updated tasks
 - Adding ignores for test data
-- Updated
 - Updated volumes
 - Updated item components
 - Updating to documentation
 - Removed scaffolding
-- Updated
 - Updated pickup
 - Updating knockback
 - Added more version support
@@ -68,16 +83,3 @@
 - Added block_climber
 - Changed references
 - Updating on_equip / on_unequip #6
-- Updated
-- Updated
-- Updated
-- Updated
-- Updated
-- Fixing events
-- Update npm-test.yml
-- Update npm-test.yml
-- Added blocks 1.17
-- Added more test files
-- Updated
-- Updated spawn rules
-- Updated
