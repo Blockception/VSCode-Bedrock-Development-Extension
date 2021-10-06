@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Fixing the completion builder
+- Updated changelog
 - Fixing completion
 - Fixing compiler issues
 - build(deps-dev): bump webpack from 5.55.1 to 5.56.1
@@ -17,9 +19,7 @@
 - Updating completion
 - Refactor json completion
 - Added loot tables and trading tables
-- Refactor json completion
-- Added completion for textures and sounds
-- Refactoring molang completion providers. 
+- Refactor json completion. 
 ## Diagnotics
 - Updated workspace settings
 - Refactor for new molang package
@@ -63,6 +63,7 @@
 - Added text.UnQuote
 - Updated dependencies. 
 ## Schemas
+- Minecraft is no erroring on what should have been an boolean
 - Added test
 - Added power to loot tables functions #9
 - Fixing paths
@@ -82,4 +83,3 @@
 - Added block climber
 - Added block_climber
 - Changed references
-- Updating on_equip / on_unequip #6
