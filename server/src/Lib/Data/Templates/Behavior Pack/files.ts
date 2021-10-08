@@ -1,13 +1,7 @@
-import { SafeIDNoNamespace } from "../Function";
-
-/**The template for the behaviorpack animation_controller*/
-export function create_animation_controller(ID: string): string {
-  return animation_controller.replace(/%ID%/gi, ID);
-}
-const animation_controller: string = `{
+export const animation_controller: string = `{
   "format_version" : "1.10.0",
   "animation_controllers" : {
-    "controller.animation.%ID%" : {
+    "controller.animation.\${{id}}" : {
       "initial_state" : "default",
       "states" : {
         "default" : {
@@ -29,14 +23,10 @@ const animation_controller: string = `{
   }
 }`;
 
-/**The template for the behaviorpack animation*/
-export function create_animation(ID: string): string {
-  return animation.replace(/%ID%/gi, ID);
-}
-const animation: string = `{
+export const animation: string = `{
   "format_version": "1.8.0",
   "animations": {
-    "animation.%ID%": {
+    "animation.\${{id}}": {
       "loop": false,
       "timeline": {
         "0.0": [],
@@ -47,15 +37,11 @@ const animation: string = `{
   }
 }`;
 
-/**The template for the behaviorpack block*/
-export function create_block(ID: string): string {
-  return block.replace(/%ID%/gi, ID);
-}
-const block: string = `{
+export const block: string = `{
   "format_version": "1.17.0",
   "minecraft:block": {
     "description": {
-      "identifier": "%ID%",
+      "identifier": "\${{id}}",
       "register_to_creative_menu": true
     },
     "components": {
@@ -63,24 +49,18 @@ const block: string = `{
   }
 }`;
 
-/**The template for the behaviorpack entity*/
-export function create_entity(ID: string): string {
-  const SafeID = SafeIDNoNamespace(ID);
-
-  return entity.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
-}
-const entity: string = `{
+export const entity: string = `{
   "format_version": "1.17.0",
   "minecraft:entity": {
     "description": {
-      "identifier": "%ID%",
+      "identifier": "\${{id}}",
       "is_spawnable": true,
       "is_summonable": true
     },
     "component_groups": {
     },
     "components": {
-      "minecraft:type_family": { "family": ["%SafeID%"] },
+      "minecraft:type_family": { "family": ["\${{safeid}}"] },
       "minecraft:health": { "value": 10, "max": 10 },
       "minecraft:damage_sensor": {
         "triggers": { "cause": "all", "deals_damage": false }
@@ -91,46 +71,32 @@ const entity: string = `{
   }
 }`;
 
-/**The template for the behaviorpack entity*/
-export function create_dialogue(ID: string): string {
-  const SafeID = SafeIDNoNamespace(ID);
-
-  return dialogue.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
-}
-const dialogue: string = `{
+export const dialogue: string = `{
   "format_version": "1.14.0",
   "minecraft:npc_dialogue": {
     "scenes": [
       {
-        "scene_tag": "%SafeID%",
-        "npc_name": { "rawtext": [{ "translate": "dialogue.%SafeID%.name" }] },
-        "text": { "rawtext": [{ "translate": "dialogue.%SafeID%.body", "with": ["\\n"] }] },
+        "scene_tag": "\${{safeid}}",
+        "npc_name": { "rawtext": [{ "translate": "dialogue.\${{safeid}}.name" }] },
+        "text": { "rawtext": [{ "translate": "dialogue.\${{safeid}}.body", "with": ["\\n"] }] },
         "buttons": []
       }
     ]
   }
 }`;
 
-/**The template for the behaviorpack item*/
-export function create_item(ID: string): string {
-  return item.replace(/%ID%/gi, ID);
-}
-const item: string = `{
+export const item: string = `{
   "format_version": "1.10.0",
   "minecraft:item": {
     "description": {
-      "identifier": "%ID%"
+      "identifier": "\${{id}}"
     },
     "components": {
     }
   }
 }`;
 
-/**The template for the behaviorpack loot_table*/
-export function create_loot_table(): string {
-  return loot_table;
-}
-const loot_table: string = `{
+export const loot_table: string = `{
   "pools": [
     {
       "rolls": 1,
@@ -145,16 +111,12 @@ const loot_table: string = `{
   ]
 }`;
 
-/**The template for the behaviorpack manifest*/
-export function create_manifest(UUID1: string, UUID2: string): string {
-  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2);
-}
-const manifest: string = `{
+export const manifest: string = `{
   "format_version": 2,
   "header": {
     "description": "Example vanilla behavior pack",
     "name": "Vanilla Behavior Pack",
-    "uuid": "%UUID1%",
+    "uuid": "\${{uuid}}",
     "version": [1, 0, 0],
     "min_engine_version": [1, 16, 200]
   },
@@ -162,21 +124,17 @@ const manifest: string = `{
     {
       "description": "Example vanilla behavior pack",
       "type": "data",
-      "uuid": "%UUID2%",
+      "uuid": "\${{uuid}}",
       "version": [1, 0, 0]
     }
   ]
 }`;
 
-/**The template for the behaviorpack recipe*/
-export function create_recipe(ID: string): string {
-  return recipe.replace(/%ID%/gi, ID);
-}
-const recipe: string = `{
+export const recipe: string = `{
   "format_version": "1.17.0",
   "minecraft:<type>": {
     "description": {
-      "identifier": "%ID%"
+      "identifier": "\${{id}}"
     },
 
     "result": {
@@ -185,15 +143,11 @@ const recipe: string = `{
   }
 }`;
 
-/**The template for the behaviorpack spawn_rule*/
-export function create_spawn_rule(ID: string): string {
-  return spawn_rule.replace(/%ID%/gi, ID);
-}
-const spawn_rule: string = `{
+export const spawn_rule: string = `{
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "%ID%",
+      "identifier": "\${{id}}",
       "population_control": "animal"
     },
     "conditions": [
@@ -204,11 +158,7 @@ const spawn_rule: string = `{
   }
 }`;
 
-/**The template for the behaviorpack trading*/
-export function create_trading(ID: string): string {
-  return trading.replace(/%ID%/gi, ID);
-}
-const trading: string = `{
+export const trading: string = `{
   "tiers": [
     {
       "trades": [
@@ -231,15 +181,11 @@ const trading: string = `{
   ]
 }`;
 
-/**The template for the behaviorpack trading*/
-export function create_volume(ID: string): string {
-  return volume.replace(/%ID%/gi, ID);
-}
-const volume: string = `{
+export const volume: string = `{
   "format_version": "1.17.0",
   "minecraft:volume": {
     "description": {
-      "identifier": "%ID%"
+      "identifier": "\${{id}}"
     },
     "components": {
       "minecraft:bounds": {

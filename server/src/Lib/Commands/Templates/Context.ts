@@ -2,14 +2,14 @@ import { ExecuteCommandParams } from "vscode-languageserver";
 import { Database } from "../../Database/include";
 import { Manager } from "../../Manager/include";
 
-export interface context {
+export interface Context {
   BehaviorPack(): string;
   ResourcePack(): string;
   WorkSpace(): string;
   WorldFolder(): string;
 }
 
-export function GetContext(params: ExecuteCommandParams): context {
+export function GetContext(params: ExecuteCommandParams): Context {
   const args = params.arguments;
 
   if (args) {
@@ -19,12 +19,12 @@ export function GetContext(params: ExecuteCommandParams): context {
   return new _internalContext(undefined);
 }
 
-export function GetContextCall(data: ExecuteCommandParams, callback: (c: context, data: ExecuteCommandParams) => void): void {
+export function GetContextCall(data: ExecuteCommandParams, callback: (c: Context, data: ExecuteCommandParams) => void): void {
   const c = GetContext(data);
   callback(c, data);
 }
 
-class _internalContext implements context {
+class _internalContext implements Context {
   private __path: string | undefined;
   private ws: string | undefined;
   private bp: string | undefined;

@@ -1,89 +1,296 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { TemplateBuilder } from "./Builder";
-import { Console } from "../../Manager/Console";
-import { GetContextCall, context } from "./include";
+import { GetContextCall, Context } from "./include";
 import { Commands } from "../../Constants";
-import { Templates } from "../include";
 import { Database } from "../../Database/include";
 import { Pack } from "bc-minecraft-bedrock-project";
-
-type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
-const CreationCommands: CommandManager = Initialize();
+import { GetContext } from "./Context";
+import { Fs } from "../../Code/Url";
+import path from "path";
+import { readFileSync } from "fs";
+import { Templates } from "../../Data/include";
+import { TemplateProcessor } from './Processor';
 
 /**Executes the given creation command */
 export function Create(params: ExecuteCommandParams): void {
-  const Data = CreationCommands[params.command];
+  const command = params.command;
+  const context = GetContext(params);
 
-  if (Data) {
-    Data(params);
-  } else {
-    Console.Error("Unknown creation command: " + params.command);
+  //Check if custom template
+  const fallback = templateData[command];
+  const Builder = new TemplateBuilder();
+
+  if (fallback) {
+    const filepath = getFilepath(command, context, fallback);
+    const content = getContent(command, context, fallback);
+
+    const data = (params.arguments ? params.arguments[0] : undefined);
+    const processor = new TemplateProcessor(data);
+
+    //TODO behaviourpaclk / resourcepack / world?//??? root folder
+
+    Builder.CreateFile(processor.process(filepath), processor.process(content));
+    Builder.Send();
+    return;
+  }
+
+  switch (command) {
+    case Commands.Create.Behaviorpack.Languages:
+      //TODO
+      break;
+
+    case Commands.Create.General.Entity:
+      /* = (params: ExecuteCommandParams) => {
+      FunctionWithID(params, Templates.Behavior_Pack.create_entity_file);
+      FunctionWithID(params, Templates.Resource_Pack.create_entity_file);
+    };*/
+      //TODO
+      break;
+
+    case Commands.Create.General.Languages:
+      //TODO
+      //CreateAll(params, Templates.Language.create_language_files);
+      break;
+
+    case Commands.Create.General.Manifests:
+      //TODO
+      /* = (params: ExecuteCommandParams) => {
+        Function(params, Templates.Behavior_Pack.create_manifest_file);
+        Function(params, Templates.Resource_Pack.create_manifest_file);
+        Function(params, Templates.World.create_manifest_file);
+      };*/
+
+    case Commands.Create.Project.WorldProject] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Project.create_world_project);
+    case Commands.Create.Project.Resourcepack] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Project.create_resourcepack);
+    case Commands.Create.Project.Behaviorpack] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Project.create_behaviorpack);
+      Commands.Create.Resourcepack.Languages;
+
+      [Commands.Create.Resourcepack.Texture_List]: {
+        Template: Templates.Resource_Pack.animation_controller,
+        Filename: "${{safeid}}.controller.json",
+        Folder: "animation_controllers",
+      },
+
+      Out[Commands.Create.World.Languages] = (params: ExecuteCommandParams) => FunctionWP(params, Templates.Language.create_language_files);
+      Out[Commands.Create.World.Manifests] = (params: ExecuteCommandParams) => Function(params, Templates.World.create_manifest_file);
   }
 }
 
-function Initialize(): CommandManager {
-  const Out: CommandManager = {};
+/**
+ *
+ * @param command
+ * @param context
+ * @param fallback
+ */
+function getFilepath(command: string, context: Context, fallback: ItemFunction) {
+  const lookup = command.replace("bc-create-", "").replace(/-/gi, ".") + ".filename";
 
-  //General
-  Out[Commands.Create.General.Entity] = (params: ExecuteCommandParams) => {
-    FunctionWithID(params, Templates.Behavior_Pack.create_entity_file);
-    FunctionWithID(params, Templates.Resource_Pack.create_entity_file);
-  };
-  Out[Commands.Create.General.Languages] = (params: ExecuteCommandParams) => {
-    CreateAll(params, Templates.Language.create_language_files);
-  };
-  Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams) => {
-    Function(params, Templates.Behavior_Pack.create_manifest_file);
-    Function(params, Templates.Resource_Pack.create_manifest_file);
-    Function(params, Templates.World.create_manifest_file);
-  };
+  const ws = context.WorkSpace();
+  const data = Database.WorkspaceData.getProject(ws);
+  const reference = data.attributes[lookup];
 
-  //Project
-  Out[Commands.Create.Project.WorldProject] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Project.create_world_project);
-  Out[Commands.Create.Project.Resourcepack] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Project.create_resourcepack);
-  Out[Commands.Create.Project.Behaviorpack] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Project.create_behaviorpack);
+  if (typeof reference === "string") {
+    return reference;
+  }
 
-  //Behavior pack
-  Out[Commands.Create.Behaviorpack.Animation_Controller] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_animation_controller_file);
-  Out[Commands.Create.Behaviorpack.Animation] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_animation_file);
-  Out[Commands.Create.Behaviorpack.Block] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_block_file);
-  Out[Commands.Create.Behaviorpack.Entity] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_entity_file);
-  Out[Commands.Create.Behaviorpack.Dialogue] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_dialogue_file);
-  Out[Commands.Create.Behaviorpack.Item] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_item_file);
-  Out[Commands.Create.Behaviorpack.Languages] = (params: ExecuteCommandParams) => FunctionBP(params, Templates.Language.create_language_files);
-  Out[Commands.Create.Behaviorpack.Loot_Table] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_loot_table_file);
-  Out[Commands.Create.Behaviorpack.Manifests] = (params: ExecuteCommandParams) => Function(params, Templates.Behavior_Pack.create_manifest_file);
-  Out[Commands.Create.Behaviorpack.Recipe] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_recipe_file);
-  Out[Commands.Create.Behaviorpack.Spawn_Rule] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_spawn_rule_file);
-  Out[Commands.Create.Behaviorpack.Trading] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_trading_file);
-  Out[Commands.Create.Behaviorpack.Volume] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Behavior_Pack.create_volume_file);
+  if (fallback) return fallback.Filename;
 
-  //Resource pack
-  Out[Commands.Create.Resourcepack.Animation_Controller] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_animation_controller_file);
-  Out[Commands.Create.Resourcepack.Animation] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_animation_file);
-  Out[Commands.Create.Resourcepack.Attachable] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_attachable_file);
-  Out[Commands.Create.Resourcepack.Biomes_Client] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_biomes_client_file);
-  Out[Commands.Create.Resourcepack.Blocks] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_blocks_file);
-  Out[Commands.Create.Resourcepack.Entity] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_entity_file);
-  Out[Commands.Create.Resourcepack.Flipbook_Textures] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_flipbook_textures_file);
-  Out[Commands.Create.Resourcepack.Fog] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_fog);
-  Out[Commands.Create.Resourcepack.Languages] = (params: ExecuteCommandParams) => FunctionRP(params, Templates.Language.create_language_files);
-  Out[Commands.Create.Resourcepack.Item_Texture] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_item_texture_file);
-  Out[Commands.Create.Resourcepack.Manifests] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_manifest_file);
-  Out[Commands.Create.Resourcepack.Model] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_model_file);
-  Out[Commands.Create.Resourcepack.Music_Definitions] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_music_definitions_File);
-  Out[Commands.Create.Resourcepack.Particle] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_particle_File);
-  Out[Commands.Create.Resourcepack.Render_Controller] = (params: ExecuteCommandParams) => FunctionWithID(params, Templates.Resource_Pack.create_render_controller_File);
-  Out[Commands.Create.Resourcepack.Sounds] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_sounds_File);
-  Out[Commands.Create.Resourcepack.Sound_Definitions] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_sound_definitions_File);
-  Out[Commands.Create.Resourcepack.Terrain_Texture] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_terrain_texture_file);
-  Out[Commands.Create.Resourcepack.Texture_List] = (params: ExecuteCommandParams) => Function(params, Templates.Resource_Pack.create_texture_list_file);
+  throw new Error("Cannot find filename data for requrest: " + command);
+}
+
+/**
+ *
+ * @param command
+ * @param context
+ * @param fallback
+ * @returns
+ */
+function getContent(command: string, context: Context, fallback: ItemFunction | undefined): string {
+  const lookup = command.replace("bc-create-", "").replace(/-/gi, ".") + ".template";
+
+  const ws = context.WorkSpace();
+  const data = Database.WorkspaceData.getProject(ws);
+  const reference = data.attributes[lookup];
+
+  if (typeof reference === "string") {
+    const filepath = path.resolve(Fs.FromVscode(ws), reference);
+
+    return readFileSync(filepath).toString();
+  }
+
+  if (fallback) return fallback.Template;
+
+  throw new Error("Cannot find template data for requrest: " + command);
+}
+
+//
+interface ItemFunction {
+  readonly Template: string;
+  readonly Filename: string;
+  readonly Folder: string;
+}
+
+//Data
+const templateData: { [key: string]: ItemFunction } = {
+  //Behavior
+  [Commands.Create.Behaviorpack.Animation_Controller]: {
+    Template: Templates.Behavior_Pack.animation_controller,
+    Filename: "${{safeid}}.controller.json",
+    Folder: "animation_controllers",
+  },
+  [Commands.Create.Behaviorpack.Animation]: {
+    Template: Templates.Behavior_Pack.animation,
+    Filename: "${{safeid}}.animation.json",
+    Folder: "animations",
+  },
+  [Commands.Create.Behaviorpack.Block]: {
+    Template: Templates.Behavior_Pack.block,
+    Filename: "${{safeid}}.block.json",
+    Folder: "blocks",
+  },
+  [Commands.Create.Behaviorpack.Entity]: {
+    Template: Templates.Behavior_Pack.entity,
+    Filename: "${{safeid}}.block.json",
+    Folder: "entities",
+  },
+  [Commands.Create.Behaviorpack.Dialogue]: {
+    Template: Templates.Behavior_Pack.dialogue,
+    Filename: "${{safeid}}.dialogue.json",
+    Folder: "dialogue",
+  },
+  [Commands.Create.Behaviorpack.Item]: {
+    Template: Templates.Behavior_Pack.item,
+    Filename: "${{safeid}}.item.json",
+    Folder: "items",
+  },
+  [Commands.Create.Behaviorpack.Loot_Table]: {
+    Template: Templates.Behavior_Pack.loot_table,
+    Filename: "${{safeid}}.loot.json",
+    Folder: "loot_tables",
+  },
+  [Commands.Create.Behaviorpack.Manifests]: {
+    Template: Templates.Behavior_Pack.manifest,
+    Filename: "manifest.json",
+    Folder: "",
+  },
+  [Commands.Create.Behaviorpack.Recipe]: {
+    Template: Templates.Behavior_Pack.recipe,
+    Filename: "${{safeid}}.recipe.json",
+    Folder: "recipes",
+  },
+  [Commands.Create.Behaviorpack.Spawn_Rule]: {
+    Template: Templates.Behavior_Pack.spawn_rule,
+    Filename: "${{safeid}}.spawn.json",
+    Folder: "spawn_rules",
+  },
+  [Commands.Create.Behaviorpack.Trading]: {
+    Template: Templates.Behavior_Pack.trading,
+    Filename: "${{safeid}}.trades.json",
+    Folder: "trading",
+  },
+  [Commands.Create.Behaviorpack.Volume]: {
+    Template: Templates.Behavior_Pack.volume,
+    Filename: "${{safeid}}.volume.json",
+    Folder: "volumes",
+  },
+
+  //ResourcePack
+  [Commands.Create.Resourcepack.Animation_Controller]: {
+    Template: Templates.Resource_Pack.animation_controller,
+    Filename: "${{safeid}}.controller.json",
+    Folder: "animation_controllers",
+  },
+  [Commands.Create.Resourcepack.Animation]: {
+    Template: Templates.Resource_Pack.animation,
+    Filename: "${{safeid}}.animation.json",
+    Folder: "animations",
+  },
+  [Commands.Create.Resourcepack.Attachable]: {
+    Template: Templates.Resource_Pack.attachable,
+    Filename: "${{safeid}}.json",
+    Folder: "attachables",
+  },
+  [Commands.Create.Resourcepack.Biomes_Client]: {
+    Template: Templates.Resource_Pack.biomes_client,
+    Filename: "biomes_client.json",
+    Folder: "",
+  },
+  [Commands.Create.Resourcepack.Blocks]: {
+    Template: Templates.Resource_Pack.blocks,
+    Filename: "blocks.json",
+    Folder: "",
+  },
+  [Commands.Create.Resourcepack.Entity]: {
+    Template: Templates.Resource_Pack.entity,
+    Filename: "${{safeid}}.entity.json",
+    Folder: "entity",
+  },
+  [Commands.Create.Resourcepack.Flipbook_Textures]: {
+    Template: Templates.Resource_Pack.flipbook_textures,
+    Filename: "flipbook_textures.json",
+    Folder: "textures",
+  },
+  [Commands.Create.Resourcepack.Fog]: {
+    Template: Templates.Resource_Pack.fog,
+    Filename: "${{safeid}}.fog.json",
+    Folder: "fogs",
+  },
+  [Commands.Create.Resourcepack.Item_Texture]: {
+    Template: Templates.Resource_Pack.item_texture,
+    Filename: "item_texture.json",
+    Folder: "textures",
+  },
+  [Commands.Create.Resourcepack.Manifests]: {
+    Template: Templates.Resource_Pack.manifest,
+    Filename: "manifest.json",
+    Folder: "",
+  },
+  [Commands.Create.Resourcepack.Model]: {
+    Template: Templates.Resource_Pack.model,
+    Filename: "${{safeid}}.geo.json",
+    Folder: "models/entity",
+  },
+  [Commands.Create.Resourcepack.Music_Definitions]: {
+    Template: Templates.Resource_Pack.music_definitions,
+    Filename: "music_definitions.json",
+    Folder: "sounds",
+  },
+  [Commands.Create.Resourcepack.Particle]: {
+    Template: Templates.Resource_Pack.particle,
+    Filename: "${{safeid}}.particle.json",
+    Folder: "particles",
+  },
+  [Commands.Create.Resourcepack.Render_Controller]: {
+    Template: Templates.Resource_Pack.render_controller,
+    Filename: "${{safeid}}.render.json",
+    Folder: "render_controllers",
+  },
+  [Commands.Create.Resourcepack.Sounds]: {
+    Template: Templates.Resource_Pack.sounds,
+    Filename: "sounds.json",
+    Folder: "",
+  },
+  [Commands.Create.Resourcepack.Sound_Definitions]: {
+    Template: Templates.Resource_Pack.sound_definitions,
+    Filename: "sound_definitions.json",
+    Folder: "sounds",
+  },
+  [Commands.Create.Resourcepack.Terrain_Texture]: {
+    Template: Templates.Resource_Pack.terrain_texture,
+    Filename: "texture_list.json",
+    Folder: "textures",
+  },
 
   //World
-  Out[Commands.Create.World.Languages] = (params: ExecuteCommandParams) => FunctionWP(params, Templates.Language.create_language_files);
-  Out[Commands.Create.World.Manifests] = (params: ExecuteCommandParams) => Function(params, Templates.World.create_manifest_file);
+  [Commands.Create.World.Manifests] : {
+    Template: Templates.World.manifest,
+    Filename: "manifest.json",
+    Folder: "",
+  }
+};
 
-  return Out;
+const templateFunctions: {[key : string] : (builder : TemplateBuilder, processor : TemplateProcessor) => void} = {
+
 }
 
 /**
@@ -91,8 +298,8 @@ function Initialize(): CommandManager {
  * @param params
  * @param callback
  */
-function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, context: context, Builder: TemplateBuilder) => void): void {
-  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
+function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, context: Context, Builder: TemplateBuilder) => void): void {
+  GetContextCall(params, (context: Context, params: ExecuteCommandParams) => {
     const IDs = params.arguments;
     if (!IDs) return;
     if (!context) return;
@@ -114,7 +321,7 @@ function FunctionWithID(params: ExecuteCommandParams, callback: (ID: string, con
  * @param callback
  */
 function FunctionBP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context: Context, params: ExecuteCommandParams) => {
     if (!context) return;
 
     const Builder = new TemplateBuilder();
@@ -131,7 +338,7 @@ function FunctionBP(params: ExecuteCommandParams, callback: (Folder: string, Bui
  * @param callback
  */
 function FunctionRP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context: Context, params: ExecuteCommandParams) => {
     if (!context) return;
 
     const Builder = new TemplateBuilder();
@@ -148,7 +355,7 @@ function FunctionRP(params: ExecuteCommandParams, callback: (Folder: string, Bui
  * @param callback
  */
 function FunctionWP(params: ExecuteCommandParams, callback: (Folder: string, Builder: TemplateBuilder) => void): void {
-  GetContextCall(params, (context: context, params: ExecuteCommandParams) => {
+  GetContextCall(params, (context: Context, params: ExecuteCommandParams) => {
     if (!context) return;
 
     const Builder = new TemplateBuilder();
@@ -164,7 +371,7 @@ function FunctionWP(params: ExecuteCommandParams, callback: (Folder: string, Bui
  * @param params
  * @param callback
  */
-function Function(params: ExecuteCommandParams, callback: (context: context, Builder: TemplateBuilder) => void): void {
+function Function(params: ExecuteCommandParams, callback: (context: Context, Builder: TemplateBuilder) => void): void {
   GetContextCall(params, (context, params) => {
     if (!context) return;
 

@@ -123,7 +123,7 @@ function OnCompleteID(value: string | undefined, command: string): Promise<any> 
 
   const Options: ExecuteCommandParams = {
     command: command,
-    arguments: [value, window.activeTextEditor?.document.uri.toString()],
+    arguments: [{ id: value }, window.activeTextEditor?.document.uri.toString()],
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);
