@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- Updated schemas
+- Updated changelog
 - Updated vscode ignore
 - Create increase-version.yml
 - Fixing the completion builder
@@ -16,10 +19,7 @@
 - Fix Codelens settings
 - Updating code
 - Added code lens option in config #144
-- Update generate-includes.yml
-- Fixing add to definition
-- Updating completion
-- Refactor json completion. 
+- Update generate-includes.yml. 
 ## Diagnotics
 - Update tagged-release.yml
 - Update tagged-release.yml
@@ -63,23 +63,23 @@
 - Added ignores for minecraft
 - Removed attach all launch. 
 ## Schemas
-- Minecraft is no erroring on what should have been an boolean
-- Added test
-- Added power to loot tables functions #9
-- Fixing paths
-- Updated dialogue
-- Made format string an enumerator of accepted engines versions
-- Added tick.json validation
-- Updated typescript config
-- Updated tasks
-- Adding ignores for test data
-- Updated volumes
-- Updated item components
-- Updating to documentation
-- Removed scaffolding
-- Updated pickup
-- Updating knockback
-- Added more version support
-- Added block climber
-- Added block_climber
-- Changed references
+- Added examples
+- Fixing json errors
+- formatted
+- Fixing dialogue
+- Update compress-json-schemas.yml
+- Removed minecraft.
+- Removed minecraft.behavior
+- Fixing dialogue
+- Update compress-json-schemas.yml
+- Stripped format versions
+- Updated components
+- Moved
+- Flatenned
+- Flattened 1.17.0
+- Flattened 1.16.100
+- Flattened 1.16.0
+- Flattened 1.14
+- Flattened 1.13.0
+- Flattened 1.17
+- Flattened 1.11.0
