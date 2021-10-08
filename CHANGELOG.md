@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Updated vscode ignore
+- Create increase-version.yml
 - Fixing the completion builder
 - Updated changelog
 - Fixing completion
@@ -17,10 +19,10 @@
 - Update generate-includes.yml
 - Fixing add to definition
 - Updating completion
-- Refactor json completion
-- Added loot tables and trading tables
 - Refactor json completion. 
 ## Diagnotics
+- Update tagged-release.yml
+- Update tagged-release.yml
 - Updated workspace settings
 - Refactor for new molang package
 - Controllers now get handed entity molang data
@@ -38,10 +40,10 @@
 - Fixing selector diagnostics
 - Fixed entity check
 - Added family diagnostics
-- updated Error Code
-- Updated error code
-- Added more indepth selector diagnostics. 
+- updated Error Code. 
 ## ProjectData
+- Better error handling output
+- Refactor json casting code for better error output
 - Fixing tests
 - Updated getFiles context
 - Added commands
@@ -59,9 +61,7 @@
 - Updated dependencies
 - Refactoring
 - Added ignores for minecraft
-- Removed attach all launch
-- Added text.UnQuote
-- Updated dependencies. 
+- Removed attach all launch. 
 ## Schemas
 - Minecraft is no erroring on what should have been an boolean
 - Added test
