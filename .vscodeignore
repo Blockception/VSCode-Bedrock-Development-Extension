@@ -66,3 +66,7 @@ minecraft-bedrock-schemas/**/*
 !minecraft-bedrock-schemas/resource/*json
 !minecraft-bedrock-schemas/skinpacks
 !minecraft-bedrock-schemas/skinpacks/*json
+
+.eslintignore
+.eslintrc
+.mocharc.json
