@@ -1,26 +1,31 @@
 # Changelog
 ## Plugin
-- Updated schemas
-- Updated schemas
-- Updated changelog
-- Updated vscode ignore
-- Create increase-version.yml
-- Fixing the completion builder
-- Updated changelog
-- Fixing completion
-- Fixing compiler issues
-- build(deps-dev): bump webpack from 5.55.1 to 5.56.1
-- Supplying subdirectories files to diagnosers
-- Changed order
-- Updated code actions
-- Updated schemas
-- Added Json5 and JsonC support #8
-- Fixing hovers tests
-- Fix Codelens settings
-- Updating code
-- Added code lens option in config #144
-- Update generate-includes.yml. 
+- Removed cheat sheets
+- build(deps-dev): bump webpack from 5.58.1 to 5.58.2
+- Removed cheat sheets
+- build(deps-dev): bump ts-node from 10.2.1 to 10.3.0
+- build(deps-dev): bump @types/node from 16.10.3 to 16.10.5
+- build(deps-dev): bump typescript from 4.4.3 to 4.4.4
+- Removed eslint
+- build(deps): bump minecraft-bedrock-schemas from `0700208` to `3f4c171`
+- Update dependabot.yml
+- Rewriting tests
+- build(deps-dev): bump eslint from 7.32.0 to 8.0.0
+- build(deps-dev): bump webpack from 5.56.1 to 5.58.1
+- build(deps-dev): bump webpack from 5.58.0 to 5.58.1 in /server
+- build(deps-dev): bump webpack from 5.58.0 to 5.58.1 in /client
+- build(deps): bump bc-minecraft-bedrock-project in /server
+- build(deps-dev): bump eslint from 7.32.0 to 8.0.0 in /server
+- build(deps-dev): bump eslint from 7.32.0 to 8.0.0 in /client
+- build(deps): bump bc-vscode-words from 1.3.9 to 1.3.10 in /server
+- build(deps): bump minecraft-bedrock-schemas from `3ff0307` to `199c848`
+- build(deps-dev): bump @types/node from 16.10.2 to 16.10.3. 
 ## Diagnotics
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.13 to 1.2.14
+- Update dependabot.yml
+- Fixing [Object object] rertuend
+- build(deps-dev): bump ts-node from 10.2.1 to 10.3.0
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.44 to 1.7.45
 - Update tagged-release.yml
 - Update tagged-release.yml
 - Updated workspace settings
@@ -35,13 +40,11 @@
 - Updated diagnoser
 - Restructure of molang diagnostics and general animation controllers
 - Updated path checking
-- Updated repo settings
-- Making an exception for molang math
-- Fixing selector diagnostics
-- Fixed entity check
-- Added family diagnostics
-- updated Error Code. 
+- Updated repo settings. 
 ## ProjectData
+- Bump bc-minecraft-bedrock-command from 1.2.13 to 1.2.14
+- Update dependabot.yml
+- Fixing error message for json loading
 - Better error handling output
 - Refactor json casting code for better error output
 - Fixing tests
@@ -58,28 +61,25 @@
 - Updated entity RP processing
 - Fixing render controller parsing
 - Updated typescript config
-- Updated dependencies
-- Refactoring
-- Added ignores for minecraft
-- Removed attach all launch. 
+- Updated dependencies. 
 ## Schemas
-- Added examples
-- Fixing json errors
-- formatted
-- Fixing dialogue
+- Updated examples for events
+- UPdated example for minecraft:health
+- Updated schemas
+- Added more examples
 - Update compress-json-schemas.yml
-- Removed minecraft.
-- Removed minecraft.behavior
-- Fixing dialogue
 - Update compress-json-schemas.yml
-- Stripped format versions
-- Updated components
-- Moved
-- Flatenned
-- Flattened 1.17.0
-- Flattened 1.16.100
-- Flattened 1.16.0
-- Flattened 1.14
-- Flattened 1.13.0
-- Flattened 1.17
-- Flattened 1.11.0
+- Update compress-json-schemas.yml
+- Fixing references
+- Added examples for filters
+- Added base examples
+- Added base examples
+- Updated skins
+- Flattened animation controllers RP
+- Flattenede animation controllers
+- Adding examples
+- Fixing manifest to support gametests
+- Updating and fixing
+- Updated rawtext with examples
+- Small refactor of information
+- Updated entity damage list
