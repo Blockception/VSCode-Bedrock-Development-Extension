@@ -184,16 +184,6 @@
         "enablement": "editorLangId==bc-minecraft-language"
       },
       {
-        "title": "Cheat sheet: Molang",
-        "command": "bc-cheat-sheet-molang",
-        "category": "Blockception"
-      },
-      {
-        "title": "Cheat sheet: Behavior Filters",
-        "command": "bc-cheat-sheet-behavior-filters",
-        "category": "Blockception"
-      },
-      {
         "title": "Create BP-RP entities files",
         "command": "bc-create-entity",
         "category": "Blockception",
