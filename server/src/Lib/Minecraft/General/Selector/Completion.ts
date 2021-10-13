@@ -1,17 +1,17 @@
-import { Modes } from 'bc-minecraft-bedrock-types';
-import { OffsetWord } from 'bc-vscode-words';
-import { CompletionItemKind } from 'vscode-languageserver';
-import { CompletionBuilder } from '../../../Completion/Builder';
+import { Modes } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "bc-vscode-words";
+import { CompletionItemKind } from "vscode-languageserver";
+import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
-import { IsEducationEnabled } from '../../../Project/Attributes';
-import { FakeEntity } from '../include';
+import { IsEducationEnabled } from "../../../Project/Attributes";
+import { FakeEntity } from "../include";
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SelectorType";
-import { Attributes, AttributeValue, Scores } from './include';
+import { Attributes, AttributeValue, Scores } from "./include";
 
 /**
- * 
- * @param context 
- * @returns 
+ *
+ * @param context
+ * @returns
  */
 export function ProvideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
@@ -72,31 +72,32 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
 }
 
 /**
- * 
- * @param receiver 
- * @param item 
+ *
+ * @param receiver
+ * @param item
  */
-function FromType(receiver : CompletionBuilder, item : any) : void {
+function FromType(receiver: CompletionBuilder, item: any): void {
   receiver.Add(item.name, item.documentation, CompletionItemKind.TypeParameter);
 }
 
 /**
- * 
- * @param selector 
- * @param pos 
- * @returns 
+ *
+ * @param selector
+ * @param pos
+ * @returns
  */
 export function InSelector(selector: OffsetWord, pos: number): boolean {
-  if (selector.offset + 2 >= pos && selector.offset + selector.text.length <= pos) return true;
+  if (pos < selector.offset + 2) return false;
+  if (pos > selector.offset + selector.text.length) return false;
 
-  return false;
+  return true;
 }
 
 /**
- * 
- * @param selector 
- * @param pos 
- * @returns 
+ *
+ * @param selector
+ * @param pos
+ * @returns
  */
 export function InScore(selector: OffsetWord, pos: number): boolean {
   let Index = selector.text.indexOf("scores");
@@ -116,10 +117,10 @@ export function InScore(selector: OffsetWord, pos: number): boolean {
 }
 
 /**
- * 
- * @param selector 
- * @param pos 
- * @returns 
+ *
+ * @param selector
+ * @param pos
+ * @returns
  */
 export function GetCurrentAttribute(selector: OffsetWord, pos: number): string {
   let StartIndex = pos - selector.offset;
@@ -143,19 +144,19 @@ export function GetCurrentAttribute(selector: OffsetWord, pos: number): string {
 }
 
 /**
- * 
- * @param text 
- * @returns 
+ *
+ * @param text
+ * @returns
  */
 export function IsFakePlayer(text: string): boolean {
   return !text.startsWith("@") && text !== "*";
 }
 
 /**
- * 
- * @param selector 
- * @param pos 
- * @returns 
+ *
+ * @param selector
+ * @param pos
+ * @returns
  */
 export function IsEditingValue(selector: OffsetWord, pos: number): boolean {
   const diff = pos - selector.offset;
