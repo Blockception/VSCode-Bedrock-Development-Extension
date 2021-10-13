@@ -39,12 +39,6 @@ export namespace Commands {
     export const Append = "bc-files-append";
   }
 
-  /** */
-  export namespace CheatSheet {
-    export const Molang: string = "bc-cheat-sheet-molang";
-    export const BehaviorFilters: string = "bc-cheat-sheet-behavior-filters";
-  }
-
   /**The namespace that stores all creation commands */
   export namespace Create {
     export const Base = "bc-create-";
