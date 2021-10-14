@@ -22,7 +22,10 @@ export async function Traverse(): Promise<Pack[]> {
     HandleError(err);
   });
 
-  out.then((packs) => packs.forEach(ProvidePackDiagnostics));
+  out.then((packs) => {
+    packs.forEach(ProvidePackDiagnostics);
+    Console.Info("Diagnostics completed");
+  });
 
   return out;
 }
