@@ -8,12 +8,18 @@ import { GetDocuments } from "../../../Types/Document/include";
 const { v4: uuid } = require("uuid");
 
 export function create_animation_controller_file(ID: string, context: context, Builder: TemplateBuilder): void {
+  ID = ID.replace("controller.", "");
+  ID = ID.replace("animation.", "");
+
   const safeID = SafeIDNoNamespace(ID);
   const uri = path.join(context.ResourcePack(), "animation_controllers", safeID + ".controller.json");
+
   Builder.CreateFile(uri, Templates.Resource_Pack.create_animation_controller(ID));
 }
 
 export function create_animation_file(ID: string, context: context, Builder: TemplateBuilder): void {
+  ID = ID.replace("animation.", "");
+
   const safeID = SafeIDNoNamespace(ID);
   const uri = path.join(context.ResourcePack(), "animations", safeID + ".animation.json");
   Builder.CreateFile(uri, Templates.Resource_Pack.create_animation(ID));
@@ -85,6 +91,9 @@ export function create_particle_File(ID: string, context: context, Builder: Temp
 }
 
 export function create_render_controller_File(ID: string, context: context, Builder: TemplateBuilder): void {
+  ID = ID.replace("controller.", "");
+  ID = ID.replace("render.", "");
+
   const safeID = SafeIDNoNamespace(ID);
   const uri = path.join(context.ResourcePack(), "render_controllers", safeID + ".render.json");
   Builder.CreateFile(uri, Templates.Resource_Pack.create_render_controller(ID));

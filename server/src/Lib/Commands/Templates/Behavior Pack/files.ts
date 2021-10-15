@@ -12,6 +12,9 @@ const { v4: uuid } = require("uuid");
  * @param Builder
  */
 export function create_animation_controller_file(ID: string, context: context, Builder: TemplateBuilder): void {
+  ID = ID.replace("controller.", "");
+  ID = ID.replace("animation.", "");
+
   const safeID = SafeIDNoNamespace(ID);
   const uri = path.join(context.BehaviorPack(), "animation_controllers", safeID + ".controller.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_animation_controller(ID));
@@ -24,6 +27,8 @@ export function create_animation_controller_file(ID: string, context: context, B
  * @param Builder
  */
 export function create_animation_file(ID: string, context: context, Builder: TemplateBuilder): void {
+  ID = ID.replace("animation.", "");
+
   const safeID = SafeIDNoNamespace(ID);
   const uri = path.join(context.BehaviorPack(), "animations", safeID + ".animation.json");
   Builder.CreateFile(uri, Templates.Behavior_Pack.create_animation(ID));
