@@ -19,11 +19,11 @@ best color highlighting.
 - [VSCode-Bedrock-Development-Extension](#vscode-bedrock-development-extension)
   - [Content](#content)
   - [Features](#features)
-    - [Minecraft project files](#minecraft-project-files)
-    - [Mcfunction](#mcfunction)
     - [JSON](#json)
       - [Molang](#molang)
       - [Validation](#validation)
+    - [Minecraft project files](#minecraft-project-files)
+    - [Mcfunction](#mcfunction)
     - [Language files](#language-files)
     - [Molang](#molang-1)
   - [Cheat Sheets](#cheat-sheets)
@@ -33,12 +33,30 @@ best color highlighting.
 
 ## Features
 
+### JSON
+
+This plugin provides, validations, completions, hovers and others for json, and jsonc schemas
+
+#### Molang
+
+This plugin provides automatic highlighting for Molang code in JSON files.
+
+#### Validation
+
+Automatic JSON validation is applied if the files follow a given pattern for naming or proper file structure.  
+For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or in the world folder: `resource_packs`.  
+For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or in the world folder: `behavior_packs`.
+
+[Full list of json validation](https://github.com/Blockception/VSCode-Bedrock-Development-Extension/blob/main/documentation/Json%20Validation.md)
+
+---
+
 ### Minecraft project files
 
 Can read the following minecraft project files
 
 - [`.mcattributes`](./documentation/project/MCAttributes.md)
-- [`.defintions`](./documentation/project/MCDefintions.md)
+- [`.mcdefintions`](./documentation/project/MCDefintions.md)
 - [`.mcignore`](./documentation/project/MCIgnore.md)
 
 ### Mcfunction
@@ -54,22 +72,6 @@ This plugin provides support for the `.mcfunction` files. The following features
 - Symbols.
 - Syntax highlighting.
 - [Validation files for diagnosing](documentation/Commands.md).
-
----
-
-### JSON
-
-#### Molang
-
-This plugin provides automatic highlighting for Molang code in JSON files.
-
-#### Validation
-
-Automatic JSON validation is applied if the files follow a given pattern for naming or proper file structure.  
-For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or in the world folder: `resource_packs`.  
-For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or in the world folder: `behavior_packs`.
-
-[Full list of json validation](https://github.com/Blockception/VSCode-Bedrock-Development-Extension/blob/main/documentation/Json%20Validation.md)
 
 ---
 
