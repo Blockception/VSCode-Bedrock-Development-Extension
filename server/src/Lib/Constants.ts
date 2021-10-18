@@ -1,3 +1,6 @@
+//max 32
+export const ToolIdentification = "blockception-minecraft-bedrock";
+
 /** */
 export namespace Languages {
   /** */

@@ -17,11 +17,13 @@
     "type": "git"
   },
   "scripts": {
-    "compile": "tsc -b",
+    "compile": "npm run save_version && tsc -b",
     "pretest": "npm run compile",
     "test": "mocha --require ts-node/register '**/*.test.ts'",
     "update": "npm update && npm audit fix",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "postversion": "npm run save_version",
+    "save_version": "echo export const Version = \"%npm_package_version%\" > ./src/Lib/Version.ts"
   },
   "dependencies": {
     "bc-minecraft-bedrock-command": "^1.2.14",
