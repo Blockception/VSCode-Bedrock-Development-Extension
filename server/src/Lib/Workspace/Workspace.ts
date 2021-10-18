@@ -6,8 +6,9 @@ import { Database } from "../Database/include";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
+import { AddBlockception } from "../Minecraft/General/Manifests.ts/Functions";
 import { ProcessPack } from "../Process/Pack";
-import { GetProject } from '../Project/MCProjects';
+import { GetProject } from "../Project/MCProjects";
 
 /**
  *
@@ -87,7 +88,9 @@ export namespace Workspace {
     //Process each pack
     packs.forEach(ProcessPack);
 
-    
+    setTimeout(() => {
+      manifests.forEach(AddBlockception);
+    }, 0);
 
     return packs;
   }
