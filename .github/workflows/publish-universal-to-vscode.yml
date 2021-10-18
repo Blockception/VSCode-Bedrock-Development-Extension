@@ -8,6 +8,11 @@ on:
   push:
     tags:
       - "v*"
+  workflow_run:
+    workflows: ["increase version"]
+    branches: [main]
+    types: 
+      - completed
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
