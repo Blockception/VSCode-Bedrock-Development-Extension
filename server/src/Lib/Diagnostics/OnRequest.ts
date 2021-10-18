@@ -6,6 +6,7 @@ import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
 import { ForEachDocument } from "../Types/Document/include";
 import { TextDocument } from "../Types/Document/TextDocument";
+import { ProgressBar } from '../Types/Progress/ProgressBar';
 
 export function ProvideDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
@@ -14,8 +15,8 @@ export function ProvideDiagnostics(doc: TextDocument): void {
   Database.Diagnoser.Process(doc);
 }
 
-export function ProvidePackDiagnostics(pack: Pack): void {
+export function ProvidePackDiagnostics(pack: Pack, reporter? : ProgressBar): void {
   Console.Info("diagnosing: " + Fs.FromVscode(pack.folder));
 
-  ForEachDocument(MinecraftFormat.GetPackFiles(pack), ProvideDiagnostics);
+  ForEachDocument(MinecraftFormat.GetPackFiles(pack), ProvideDiagnostics, reporter);
 }

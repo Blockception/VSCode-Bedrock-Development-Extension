@@ -1,8 +1,10 @@
 import { Pack } from "bc-minecraft-bedrock-project";
+import { ResourceOperationKind } from "vscode-languageserver-protocol";
 import { HandleError } from "../Code/Error";
 import { ProvidePackDiagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
+import { ProgressBar } from "../Types/Progress/ProgressBar";
 import { Workspace } from "../Workspace/Workspace";
 
 export async function Traverse(): Promise<Pack[]> {
@@ -10,6 +12,14 @@ export async function Traverse(): Promise<Pack[]> {
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 
+  const reporter = ProgressBar.create("Minecraft: Traverse & Diagnose", 0, 1);
+
+  return reporter.then(TraverseProcess);
+}
+
+async function TraverseProcess(reporter: ProgressBar): Promise<Pack[]> {
+  const start_time = Date.now();
+  reporter.sendMessage("Traversing");
   const out = Workspace.GetWorkSpaces().then(Workspace.TraverseWorkspaces);
 
   out.finally(() => {
@@ -20,11 +30,28 @@ export async function Traverse(): Promise<Pack[]> {
 
   out.catch((err) => {
     HandleError(err);
+    reporter.done();
   });
 
   out.then((packs) => {
-    packs.forEach(ProvidePackDiagnostics);
+    reporter.setMaximum(packs.length * 2);
+    reporter.setValue(packs.length);
+
+    reporter.sendMessage("Diagnosing");
+
+    for (let I = 0; I < packs.length; I++) {
+      ProvidePackDiagnostics(packs[I], reporter);
+
+      reporter.addValue(1);
+      reporter.sendProgress();
+    }
+
     Console.Info("Diagnostics completed");
+    reporter.done();
+
+    const end_time = Date.now();
+    const span = new Date(end_time - start_time);
+    Console.Info(`Took: ${span.getMinutes()}:${span.getSeconds()}:${span.getMilliseconds()} for ${reporter.getMaximum()} items`);
   });
 
   return out;
