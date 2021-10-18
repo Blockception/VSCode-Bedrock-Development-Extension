@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "3.1.27",
+  "version": "3.1.28",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-mcfunction",
@@ -501,10 +501,22 @@
       }
     ],
     "jsonValidation": [
-      { "fileMatch": "skin_pack/skins.{json,jsonc,json5}", "url": "./minecraft-bedrock-schemas/skinpacks/skins.json" },
-      { "fileMatch": "language_names.{json,jsonc,json5}", "url": "./minecraft-bedrock-schemas/language/language_names.json" },
-      { "fileMatch": "languages.{json,jsonc,json5}", "url": "./minecraft-bedrock-schemas/language/languages.json" },
-      { "fileMatch": "manifest.{json,jsonc,json5}", "url": "./minecraft-bedrock-schemas/general/manifest.json" },
+      {
+        "fileMatch": "skin_pack/skins.{json,jsonc,json5}",
+        "url": "./minecraft-bedrock-schemas/skinpacks/skins.json"
+      },
+      {
+        "fileMatch": "language_names.{json,jsonc,json5}",
+        "url": "./minecraft-bedrock-schemas/language/language_names.json"
+      },
+      {
+        "fileMatch": "languages.{json,jsonc,json5}",
+        "url": "./minecraft-bedrock-schemas/language/languages.json"
+      },
+      {
+        "fileMatch": "manifest.{json,jsonc,json5}",
+        "url": "./minecraft-bedrock-schemas/general/manifest.json"
+      },
       {
         "fileMatch": [
           "world_behavior_packs.{json,jsonc,json5}",
@@ -864,19 +876,35 @@
     "semanticTokenScopes": [
       {
         "language": "bc-mcfunction",
-        "scopes": { "regexp": [ "string.regexp" ] }
+        "scopes": {
+          "regexp": [
+            "string.regexp"
+          ]
+        }
       },
       {
         "language": "bc-minecraft-molang",
-        "scopes": { "regexp": [ "string.regexp" ] }
+        "scopes": {
+          "regexp": [
+            "string.regexp"
+          ]
+        }
       },
       {
         "language": "json",
-        "scopes": { "regexp": [ "string.regexp" ] }
+        "scopes": {
+          "regexp": [
+            "string.regexp"
+          ]
+        }
       },
       {
         "language": "jsonc",
-        "scopes": { "regexp": [ "string.regexp" ] }
+        "scopes": {
+          "regexp": [
+            "string.regexp"
+          ]
+        }
       }
     ]
   }
