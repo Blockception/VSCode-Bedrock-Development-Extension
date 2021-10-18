@@ -87,6 +87,8 @@ export namespace Workspace {
     //Process each pack
     packs.forEach(ProcessPack);
 
+    
+
     return packs;
   }
 }
