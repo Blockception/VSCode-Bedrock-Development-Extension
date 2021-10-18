@@ -1,26 +1,37 @@
 # Changelog
 ## Plugin
-- Removed cheat sheets
-- build(deps-dev): bump webpack from 5.58.1 to 5.58.2
-- Removed cheat sheets
-- build(deps-dev): bump ts-node from 10.2.1 to 10.3.0
-- build(deps-dev): bump @types/node from 16.10.3 to 16.10.5
-- build(deps-dev): bump typescript from 4.4.3 to 4.4.4
-- Removed eslint
-- build(deps): bump minecraft-bedrock-schemas from `0700208` to `3f4c171`
+- Refactoring diagnoser to use caching mechanicms
+- Added progressbar to traversing and diagnostics
+- Reformatted
+- Adding data cache
+- Updated foreach with a reporting features
+- Added progressbar interaction
+- Added completion text
+- formatted
+- Removed cheat-sheets from readme
+- Updated readme
+- build(deps-dev): bump @types/node from 16.10.9 to 16.11.0
+- build(deps-dev): bump mocha from 9.1.2 to 9.1.3
+- Updated schemas
+- updated schemas
+- Updated schemas
+- Updated schemas
+- fixing ids for animations and controllers
 - Update dependabot.yml
-- Rewriting tests
-- build(deps-dev): bump eslint from 7.32.0 to 8.0.0
-- build(deps-dev): bump webpack from 5.56.1 to 5.58.1
-- build(deps-dev): bump webpack from 5.58.0 to 5.58.1 in /server
-- build(deps-dev): bump webpack from 5.58.0 to 5.58.1 in /client
-- build(deps): bump bc-minecraft-bedrock-project in /server
-- build(deps-dev): bump eslint from 7.32.0 to 8.0.0 in /server
-- build(deps-dev): bump eslint from 7.32.0 to 8.0.0 in /client
-- build(deps): bump bc-vscode-words from 1.3.9 to 1.3.10 in /server
-- build(deps): bump minecraft-bedrock-schemas from `3ff0307` to `199c848`
-- build(deps-dev): bump @types/node from 16.10.2 to 16.10.3. 
+- build(deps-dev): bump @types/node from 16.10.5 to 16.10.9 in /client
+- build(deps): bump minecraft-bedrock-schemas from `3f4c171` to `d31ee56`. 
 ## Diagnotics
+- Added float postive diagnostics
+- Removing minecraft:movement dependencies
+- Fixing radius type check
+- Updating texture atlas checking code
+- Fixing TextureAtlas diagnostics
+- Added objective length limit
+- build(deps-dev): bump @types/node from 16.10.9 to 16.11.0
+- build(deps): bump bc-minecraft-bedrock-vanilla-data from 1.5.9 to 1.5.10
+- build(deps-dev): bump @types/node from 16.10.5 to 16.10.7
+- Updating selector diagnostics
+- Added positive only integer check
 - build(deps): bump bc-minecraft-bedrock-command from 1.2.13 to 1.2.14
 - Update dependabot.yml
 - Fixing [Object object] rertuend
@@ -29,18 +40,7 @@
 - Update tagged-release.yml
 - Update tagged-release.yml
 - Updated workspace settings
-- Refactor for new molang package
-- Controllers now get handed entity molang data
-- Added diagnostics for sounds and textures
-- Refactor
-- Added events support for the future
-- Create dependabot.yml
-- Fixed
-- fix test
-- Updated diagnoser
-- Restructure of molang diagnostics and general animation controllers
-- Updated path checking
-- Updated repo settings. 
+- Refactor for new molang package. 
 ## ProjectData
 - Bump bc-minecraft-bedrock-command from 1.2.13 to 1.2.14
 - Update dependabot.yml
@@ -63,6 +63,8 @@
 - Updated typescript config
 - Updated dependencies. 
 ## Schemas
+- Updated manifest authors
+- Removed undocementated
 - Updated examples for events
 - UPdated example for minecraft:health
 - Updated schemas
@@ -81,5 +83,3 @@
 - Fixing manifest to support gametests
 - Updating and fixing
 - Updated rawtext with examples
-- Small refactor of information
-- Updated entity damage list
