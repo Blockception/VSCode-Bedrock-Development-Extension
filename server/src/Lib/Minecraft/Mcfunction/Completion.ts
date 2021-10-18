@@ -6,6 +6,7 @@ import { Commands } from "../include";
 import { IsEducationEnabled } from "../../Project/include";
 import { Parameter } from "../Commands/include";
 import { SimpleContext } from "../../Code/include";
+import { CompletionItemKind } from 'vscode-languageserver-types';
 
 /**
  *
@@ -23,6 +24,10 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos
 
   if (CommentIndex >= 0) {
     if (pos.character > CommentIndex) return;
+  }
+
+  if (LineIndex === 0 && pos.character < 3) {
+    context.receiver.Add("# <mcfunction_documentation_here>", "mcfunction documentation", CompletionItemKind.Snippet);
   }
 
   const offset = doc.offsetAt({ character: 0, line: pos.line });
