@@ -5,7 +5,7 @@ export * as Effect from "./Effect/include";
 export * as FakeEntity from "./FakeEntity/include";
 export * as Float from "./Float/include";
 export * as Integer from "./Integer/include";
-export * as Manifest from "./Manifests/include";
+export * as Manifests from "./Manifests/include";
 export * as Names from "./Names/include";
 export * as Objectives from "./Objectives/include";
 export * as Selector from "./Selector/include";
