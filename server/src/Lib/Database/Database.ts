@@ -2,20 +2,20 @@ import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { CreateContext, CreateDiagnoser } from "../Diagnostics/Diagnoser";
+import { DiagnoserUtillity } from "../Diagnostics/Diagnoser";
 import { Console } from "../Manager/Console";
 import { WorkspaceData } from "./WorkspaceData";
 
 /** */
 export class Database {
   /** */
-  static ProjectData: ProjectData = new ProjectData(CreateContext());
+  static ProjectData: ProjectData = new ProjectData(DiagnoserUtillity.CreateContext());
 
   /** */
   static WorkspaceData: WorkspaceData = new WorkspaceData();
 
   /** */
-  static Diagnoser: Diagnoser = CreateDiagnoser();
+  static Diagnoser: Diagnoser = DiagnoserUtillity.CreateDiagnoser();
 
   /**
    *
@@ -23,8 +23,10 @@ export class Database {
   static Clear(): void {
     Console.Info("Reseting database");
     Database.WorkspaceData = new WorkspaceData();
-    Database.Diagnoser = CreateDiagnoser();
-    Database.ProjectData = new ProjectData(CreateContext());
+    Database.Diagnoser = DiagnoserUtillity.CreateDiagnoser();
+    Database.ProjectData = new ProjectData(DiagnoserUtillity.CreateContext());
+    DiagnoserUtillity.CachedPatternFiles.clear();
+    DiagnoserUtillity.CachedDocuments.clear();
   }
 }
 
@@ -54,11 +56,11 @@ export namespace Database {
     return internalSearchAll(id);
   }
 
-  function internalSearchAll(id : string) : BaseObject[] {
+  function internalSearchAll(id: string): BaseObject[] {
     return [];
   }
 
-  function internalTypeSearch(id: string, Types: ParameterType[]) : BaseObject[] {
+  function internalTypeSearch(id: string, Types: ParameterType[]): BaseObject[] {
     let out: BaseObject[] = [];
     const AddIfIDMatch = (item: BaseObject) => {
       if (item.id === id) out.push(item);
