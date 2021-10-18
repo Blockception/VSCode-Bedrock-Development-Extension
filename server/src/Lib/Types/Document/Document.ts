@@ -7,6 +7,7 @@ import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Glob } from "../../Glob/Glob";
 import { HandleError } from "../../Code/Error";
 import { Fs, Vscode } from "../../Code/Url";
+import { ProgressBar } from "../Progress/ProgressBar";
 
 /**Returns an usable document interaction from the given data.
  * @param uri The url to the document to retrieve.
@@ -94,7 +95,10 @@ export function IdentifyDoc(uri: string): string {
  * @param uris
  * @param callback
  */
-export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void): void {
+export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void, reporter?: ProgressBar): void {
+  if (reporter) {
+    reporter.addMaximum(uris.length);
+  }
 
   for (let index = 0; index < uris.length; index++) {
     const element = uris[index];
@@ -104,6 +108,11 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
       if (doc) callback(doc);
     } catch (error) {
       HandleError(error, element);
+    }
+
+    if (reporter) {
+      reporter.addValue();
+      reporter.sendProgress();
     }
   }
 }
