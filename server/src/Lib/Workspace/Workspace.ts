@@ -88,10 +88,6 @@ export namespace Workspace {
     //Process each pack
     packs.forEach(ProcessPack);
 
-    setTimeout(() => {
-      manifests.forEach(AddBlockception);
-    }, 0);
-
     return packs;
   }
 }
