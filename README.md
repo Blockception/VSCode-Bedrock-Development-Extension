@@ -1,6 +1,6 @@
 # VSCode-Bedrock-Development-Extension
 
-An extension that provides support for files such as: `.mcfunction`, `.json` and `.lang`. Features include: completion, validations, formatters, diagnostics, cheat-sheets,
+An extension that provides support for files such as: `.mcfunction`, `.json` and `.lang`. Features include: completion, validations, formatters, diagnostics,
 code-actions, generation of files, and development tools to help develop Minecraft Bedrock Addons or Minecraft Education Edition. It's recommended you use the Dark+ theme for the
 best color highlighting.
 
@@ -26,7 +26,6 @@ best color highlighting.
     - [Mcfunction](#mcfunction)
     - [Language files](#language-files)
     - [Molang](#molang-1)
-  - [Cheat Sheets](#cheat-sheets)
   - [Commands](#commands)
   - [Extension Settings](#extension-settings)
   - [Licenses](#licenses)
@@ -91,12 +90,6 @@ This plugin provides support for `.lang` files. The following features are provi
 
 This plugin provides automatic highlighting for Molang code in JSON files and .molang files. Officially .molang files are not supported by Minecraft, but they're useful for
 development.
-
----
-
-## Cheat Sheets
-
-Cheat Sheets has been added for easy lookup.
 
 ---
 
