@@ -13,15 +13,20 @@ import { Manager } from "../../Manager/Manager";
 import * as fs from "fs";
 import { Range } from "vscode-languageserver-types";
 import { Console } from "../../Manager/Console";
-import { Fs } from "../../Code/Url";
+import { Fs, Vscode } from "../../Code/Url";
+import { Pack } from "bc-minecraft-bedrock-project";
+import { Database } from "../../include";
+import { AddBlockceptionToPack } from "../../Minecraft/General/Manifests.ts/Functions";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
   public CreateOptions: CreateFileOptions;
+  public updatePacks: Pack[];
 
   constructor() {
     this.receiver = [];
     this.CreateOptions = { ignoreIfExists: true, overwrite: false };
+    this.updatePacks = [];
   }
 
   /**Sends the edits to the client*/
@@ -29,16 +34,19 @@ export class TemplateBuilder {
     if (this.receiver.length <= 0) return;
 
     const Edit: WorkspaceEdit = { documentChanges: this.receiver };
-
     Manager.Connection.workspace.applyEdit(Edit).then(Response);
+
+    this.updatePacks.forEach(AddBlockceptionToPack);
   }
 
   CreateFile(uri: string, content: string): void {
-    if (uri.startsWith("file:\\")) {
-      uri = uri.replace(/\\/gi, "/");
-    }
+    if (uri.startsWith("file:\\")) uri = uri.replace(/\\/gi, "/");
 
     const path = Fs.FromVscode(uri);
+    uri = Vscode.FromFs(path);
+
+    const pack = Database.Database.ProjectData.get(uri);
+    if (pack) this.updatePacks.push(pack);
 
     if (fs.existsSync(path)) {
       Console.Info("creation of file skipped because it already exists: " + path);

@@ -1,3 +1,5 @@
+import { ToolIdentification } from "../../../Constants";
+import { Version } from "../../../Version";
 import { SafeIDNoNamespace } from "../Function";
 
 /**The template for the behaviorpack animation_controller*/
@@ -147,7 +149,11 @@ const loot_table: string = `{
 
 /**The template for the behaviorpack manifest*/
 export function create_manifest(UUID1: string, UUID2: string): string {
-  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2);
+  return manifest
+    .replace(/%UUID1%/gi, UUID1)
+    .replace(/%UUID2%/gi, UUID2)
+    .replace(/%TOOL%/gi, ToolIdentification)
+    .replace(/%Version%/gi, Version);
 }
 const manifest: string = `{
   "format_version": 2,
@@ -165,7 +171,14 @@ const manifest: string = `{
       "uuid": "%UUID2%",
       "version": [1, 0, 0]
     }
-  ]
+  ],
+  "metadata": {
+    "generated_with": {
+      "%TOOL%": [
+        "%Version%"
+      ]
+    }
+  }
 }`;
 
 /**The template for the behaviorpack recipe*/

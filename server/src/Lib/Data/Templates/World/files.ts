@@ -1,6 +1,9 @@
+import { ToolIdentification } from '../../../Constants';
+import { Version } from '../../../Version';
+
 /**The template for the world manifest*/
 export function create_manifest(UUID1: string, UUID2: string): string {
-  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2);
+  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2).replace(/%TOOL%/gi, ToolIdentification).replace(/%Version%/gi, Version)
 }
 const manifest: string = `{
    "format_version": 2,
@@ -19,5 +22,12 @@ const manifest: string = `{
        "version": [1, 0, 0]
      }
    ],
-   "metadata": { "authors": ["Example author"] }
+   "metadata": { 
+     "authors": ["Example author"],
+     "generated_with": {
+       "%TOOL%": [
+         "%Version%"
+       ]
+     }
+   }
 }`;
