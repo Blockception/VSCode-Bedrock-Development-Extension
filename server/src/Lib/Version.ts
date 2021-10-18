@@ -1,1 +1,1 @@
-export const Version = "3.2.0" 
+export const Version = %npm_package_version%
