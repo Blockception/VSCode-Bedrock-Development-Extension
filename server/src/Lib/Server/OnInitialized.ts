@@ -1,7 +1,5 @@
 import { InitializedParams } from "vscode-languageserver";
-import { CreateDiagnoser } from "../Diagnostics/Diagnoser";
 import { Console } from "../Manager/Console";
-import { Manager } from "../Manager/Manager";
 import { Traverse } from "../Process/Traverse";
 import { SetDynamicEvents } from "./Events/Dynamic";
 import { UpdateSettings } from "./Settings";
