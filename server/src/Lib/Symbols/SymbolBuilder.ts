@@ -8,17 +8,30 @@ export class SymbolBuilder {
   public query: string | undefined;
   public items: SymbolInformation[];
   public kind: SymbolKind;
+  public containerName: string | undefined;
   private range: Range;
 
   constructor(query: string | undefined = undefined) {
     if (query === "") query = undefined;
+
     this.query = query;
     this.items = [];
     this.kind = SymbolKind.Object;
     this.range = Range.create(0, 0, 0, 0);
+    this.containerName = undefined;
   }
 
-  push(item: Types.BaseObject): SymbolInformation | undefined {
+  push(item: SymbolInformation): number {
+    return this.items.push(item);
+  }
+
+  new(name: string, kind?: SymbolKind, range?: Range, uri?: string, containerName?: string): SymbolInformation {
+    const item = SymbolInformation.create(name, kind ?? this.kind, range ?? this.range, uri, containerName ?? this.containerName);
+    this.items.push(item);
+    return item;
+  }
+
+  add(item: Types.BaseObject): SymbolInformation | undefined {
     if (this.query) {
       if (!item.id.includes(this.query)) return undefined;
     }
@@ -29,7 +42,7 @@ export class SymbolBuilder {
       range = Range.create(p, p);
     }
 
-    const sym = SymbolInformation.create(item.id, this.kind, range, item.location.uri);
+    const sym = SymbolInformation.create(item.id, this.kind, range, item.location.uri, this.containerName);
     this.items.push(sym);
     return sym;
   }
@@ -37,6 +50,6 @@ export class SymbolBuilder {
   generate<T extends Types.BaseObject>(data: forEachCarrier<T>, kind: SymbolKind): void {
     this.kind = kind;
 
-    data.forEach(this.push, this);
+    data.forEach(this.add, this);
   }
 }
