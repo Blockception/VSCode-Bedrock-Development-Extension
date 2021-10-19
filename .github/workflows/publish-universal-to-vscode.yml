@@ -5,11 +5,9 @@ name: publish-universal-to-vscode
 on:   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  workflow_run:
-    workflows: ["tagged-release"]
-    branches: [main]
-    types: 
-      - completed
+  push:
+    tags:
+      - "v*"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
