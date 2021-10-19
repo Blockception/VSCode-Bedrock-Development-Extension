@@ -25,6 +25,22 @@ export function GetFilename(filepath: string): string {
  * @param filepath
  * @returns
  */
+export function GetDirectory(filepath: string): string {
+  filepath = filepath.replace(/\\/g, "/");
+  let index = filepath.lastIndexOf("/");
+
+  if (index > -1) {
+    filepath = filepath.substring(index + 1, filepath.length);
+  }
+
+  return filepath.trim();
+}
+
+/**
+ *
+ * @param filepath
+ * @returns
+ */
 export function getExtension(filepath: string): string {
   const index = filepath.lastIndexOf(".");
 
