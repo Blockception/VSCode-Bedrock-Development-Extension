@@ -9,7 +9,7 @@ on:
     tags:
       - "v*"
   workflow_run:
-    workflows: ["increase version"]
+    workflows: ["check-auto-patch"]
     branches: [main]
     types: 
       - completed
