@@ -7,10 +7,12 @@ import { SetupClient } from "./Client/Client";
 import { Activate } from "./Commands/Activate";
 
 import { Manager } from "./Manager/Manager";
+import { RegisterTasks } from './Tasks/Tasks';
 
 export function activate(context: vscode.ExtensionContext): void {
   Activate(context);
   SetupClient(context);
+  RegisterTasks(context);
 }
 
 //shutdown server
