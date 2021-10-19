@@ -23,8 +23,6 @@
     "vscode": "^1.59.0"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-project": "^1.7.47",
-    "picomatch": "^2.3.0",
     "vscode-languageclient": "^7.0.0"
   },
   "devDependencies": {
