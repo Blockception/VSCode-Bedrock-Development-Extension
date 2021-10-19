@@ -21,8 +21,8 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
   c.currentText = text.substring(c.range.start, c.range.end);
 
   const insertIndex = c.cursor - range.start;
-  const first = '"' + c.currentText.substring(0, insertIndex);
-  const second = c.currentText.substring(insertIndex) + '"';
+  const first = c.currentText.substring(0, insertIndex);
+  const second = c.currentText.substring(insertIndex);
   const P = c.doc.positionAt(c.cursor);
   const R = Range.create(P, P);
 
@@ -30,7 +30,17 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
   var Function = c.receiver.OnNewItem;
   c.receiver.OnNewItem = (NewItem: CompletionItem) => {
     //Update the filtering text
-    NewItem.filterText = first + NewItem.label + second;
+
+    let old = NewItem.label;
+    let text = old;
+    if (first !== "") old = old.replace(first, "");
+    if (second !== "") old = old.replace(second, "");
+
+    if (first !== "" && !text.startsWith(first)) text = first + text;
+    if (second !== "" && !text.endsWith(second)) text = text + second;
+
+    NewItem.label = old;
+    NewItem.filterText = '"' + text + '"';
     NewItem.textEdit = InsertReplaceEdit.create(NewItem.label, R, R);
 
     if (Function) Function(NewItem);

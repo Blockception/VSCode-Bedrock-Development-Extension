@@ -5,6 +5,7 @@ import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/include";
 import { Kinds } from "../../General/Kinds";
+import { Models } from "../../ResourcePack/include";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const packType = PackType.detect(context.doc.uri);
@@ -28,10 +29,7 @@ export function ProvideResourcepackCompletion(context: SimpleContext<CompletionB
     case ResourcePack.FileType.entity:
     case ResourcePack.FileType.attachable:
       //Using model geometries
-      const gen = (item: ResourcePack.Model.Model) => `The geomtry: ${item}\nDeclared in: ${item.location.uri}`;
-      receiver.Generate(Database.ProjectData.ResourcePacks.models, gen, kind);
-
-      receiver.GenerateStr(Vanilla.ResourcePack.Models, (item) => `The vanilla geometry: ${item}`, kind);
+      Models.ProvideCompletion(context);
       break;
 
     default:
