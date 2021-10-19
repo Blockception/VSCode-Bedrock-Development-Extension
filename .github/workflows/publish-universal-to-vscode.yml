@@ -5,11 +5,8 @@ name: publish-universal-to-vscode
 on:   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  push:
-    tags:
-      - "v*"
   workflow_run:
-    workflows: ["check-auto-patch"]
+    workflows: ["tagged-release"]
     branches: [main]
     types: 
       - completed
