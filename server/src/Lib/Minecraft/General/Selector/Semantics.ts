@@ -19,7 +19,7 @@ export function CreateSelectorTokens(word: OffsetWord, Builder: McfunctionSemant
 
 function ProcessParameters(Parameters: SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
   for (let I = 0; I < Parameters.length; I++) {
-    let parameter = Parameters[I];
+    const parameter = Parameters[I];
 
     CreateTokens(parameter, Builder);
   }
@@ -43,6 +43,8 @@ function CreateTokens(Parameter: SelectorAttribute, Builder: McfunctionSemanticT
   //property name
   Builder.AddWord(Name, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
   Builder.Add(Parameter.offset, Parameter.offset + Parameter.name.length, SemanticTokensEnum.parameter, SemanticModifiersEnum.readonly);
+
+  if (Value.text === "") return;
 
   switch (Name.text) {
     case "name":

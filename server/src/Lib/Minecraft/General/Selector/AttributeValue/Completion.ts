@@ -1,10 +1,9 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { SimpleContext } from "../../../../Code/SimpleContext";
-import { CompletionBuilder } from "../../../../Completion/Builder";
+import { CommandCompletionContext } from '../../../../Completion/Context';
 import { BehaviorPack, General, Modes } from "../../../include";
 
 //Doesnt do scores and doesnt need to
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, attribute: string, forEntities: boolean, type: string | undefined = undefined): void {
+export function ProvideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
   const receiver = context.receiver;
 
   switch (attribute) {
@@ -23,7 +22,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, att
       return;
 
     case "family":
-      BehaviorPack.Family.ProvideCompletionTest(receiver, type);
+      BehaviorPack.Family.ProvideCompletionTest(context);
       return;
 
     case "r":

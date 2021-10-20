@@ -17,12 +17,11 @@
     "type": "git"
   },
   "scripts": {
-    "compile": "npm run save_version && tsc -b",
-    "pretest": "npm run compile",
-    "test": "mocha --require ts-node/register '**/*.test.ts'",
+    "pretest": "npm run compil",
+    "test": "mocha --require tse-node/register '**/*.test.ts'",
     "update": "npm update && npm audit fix",
     "lint": "eslint . --ext .ts",
-    "postversion": "npm run save_version",
+    "postversion": "npm run save_version && git add . && git commit -m \"auto: version update\"",
     "save_version": "echo export const Version = \"%npm_package_version%\" > ./src/Lib/Version.ts"
   },
   "dependencies": {

@@ -1,7 +1,10 @@
+import { Entity } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack/include";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/include";
+import { IsEducationEnabled } from "../../../Project/Attributes";
+import { Command } from "../../Commands/include";
 import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
@@ -15,26 +18,33 @@ export function ProvideCompletion(context: CommandCompletionContext, type: strin
   context.receiver.GenerateStr(MinecraftData.General.Entities.families, (item) => `The vanilla entity family: ${item}`, Kinds.Completion.Family);
 }
 
-export function ProvideCompletionTest(context: CommandCompletionContext | CompletionBuilder, type: string | undefined = undefined): void {
-  //TODO redo
-  /*let receiver: CompletionBuilder;
-  if (CommandCompletionContext.is(context)) receiver = context.receiver;
-  else receiver = context;
+export function ProvideCompletionTest(context: CommandCompletionContext): void {
+  const receiver = context.receiver;
 
-  if (type) {
-    let entity = Database.ProjectData.BehaviorPacks.entities.GetFromID(type);
+  const types = Command.GetPossibleEntityTypes(context.command, context.parameterIndex);
+  const edu = IsEducationEnabled(context.doc);
 
-    if (entity) {
-      ConvertTestEntity(entity, receiver);
-    }
-  } else {
+  if (types.length === 0) {
     Database.ProjectData.BehaviorPacks.entities.forEach((entity) => ConvertTestEntity(entity, receiver));
-  }*/
+
+    MinecraftData.General.Entities.families.forEach((family) => {
+      receiver.Add(family, `Test for the vanilla family: ${family}`, Kinds.Completion.Family);
+      receiver.Add("!" + family, `Test not for the vanilla family: ${family}`, Kinds.Completion.Family);
+    });
+  } else {
+    types.forEach((type) => {
+      const entity = Database.ProjectData.BehaviorPacks.entities.get(type);
+      if (entity) ConvertTestEntity(entity, receiver);
+
+      const vanilla_entity = MinecraftData.ResourcePack.getEntity(type, edu);
+      if (vanilla_entity) ConvertTestEntity(vanilla_entity, receiver);
+    });
+  }
 }
-/*
-function ConvertTestEntity(entity: Entity.Entity, receiver: CompletionBuilder) {
-  entity.Families.forEach((family) => {
-    receiver.Add(family, "test for the Family: " + family, Kinds.Completion.Family);
-    receiver.Add("!" + family, "test not for the Family: " + family, Kinds.Completion.Family);
+
+function ConvertTestEntity(entity: { families?: string[]; id: string }, receiver: CompletionBuilder) {
+  entity.families?.forEach((family) => {
+    receiver.Add(family, `Test for the family: ${family}\n\dForm ${entity.id}`, Kinds.Completion.Family);
+    receiver.Add("!" + family, `Test not for the family: ${family}\n\dForm ${entity.id}`, Kinds.Completion.Family);
   });
-}*/
+}
