@@ -17,8 +17,8 @@
     "type": "git"
   },
   "scripts": {
-    "pretest": "npm run compil",
-    "test": "mocha --require tse-node/register '**/*.test.ts'",
+    "compile": "tsc -b",
+    "test": "mocha -r ts-node/register '**/*.test.ts'",
     "update": "npm update && npm audit fix",
     "lint": "eslint . --ext .ts",
     "postversion": "npm run save_version && git add . && git commit -m \"auto: version update\"",
