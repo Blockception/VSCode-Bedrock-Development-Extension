@@ -21,12 +21,10 @@ import { AddBlockceptionToPack } from "../../Minecraft/General/Manifests/Functio
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
   public CreateOptions: CreateFileOptions;
-  public updatePacks: Pack[];
 
   constructor() {
     this.receiver = [];
     this.CreateOptions = { ignoreIfExists: true, overwrite: false };
-    this.updatePacks = [];
   }
 
   /**Sends the edits to the client*/
@@ -35,8 +33,6 @@ export class TemplateBuilder {
 
     const Edit: WorkspaceEdit = { documentChanges: this.receiver };
     Manager.Connection.workspace.applyEdit(Edit).then(Response);
-
-    this.updatePacks.forEach(AddBlockceptionToPack);
   }
 
   CreateFile(uri: string, content: string): void {
@@ -44,9 +40,6 @@ export class TemplateBuilder {
 
     const path = Fs.FromVscode(uri);
     uri = Vscode.FromFs(path);
-
-    const pack = Database.Database.ProjectData.get(uri);
-    if (pack) this.updatePacks.push(pack);
 
     if (fs.existsSync(path)) {
       Console.Info("creation of file skipped because it already exists: " + path);
