@@ -31,7 +31,9 @@ jobs:
         with:
           # The folder path to start at
           folder: ${{ github.workspace }}/client/src
-          excludes: "*.test.ts"
+          excludes: |
+            "*.test.ts"
+            "include.ts"
 
       - name: server includes
         # You may pin to the exact commit or the version.
@@ -39,8 +41,10 @@ jobs:
         uses: DaanV2/Typescript-Action-Create-Includes@v1.5.0
         with:
           # The folder path to start at
-          folder: ${{ github.workspace }}/server/src/Lib/Minecraft
-          excludes: "*.test.ts"
+          folder: ${{ github.workspace }}/server/src/Lib
+          excludes: |
+            "*.test.ts"
+            "include.ts"
 
       - name: commit changes
         continue-on-error: true
