@@ -2,8 +2,13 @@ import { CompletionParams, CompletionList, CompletionItem } from "vscode-languag
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/Document";
 import { CompletionBuilder } from "./Builder";
-import { Json, Language, Mcfunction, MCProject, Molang } from "../Minecraft/include";
 import { SimpleContext } from "../Code/SimpleContext";
+
+import * as Json from "../Minecraft/Json/include";
+import * as Language from "../Minecraft/Language/include";
+import * as Mcfunction from "../Minecraft/Mcfunction/include";
+import * as MCProject from "../Minecraft/MCProject/include";
+import * as Molang from "../Minecraft/Molang/include";
 
 /**Handle request
  * @param params
