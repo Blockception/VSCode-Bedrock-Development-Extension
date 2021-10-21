@@ -27,10 +27,11 @@ jobs:
       - name: client includes
         # You may pin to the exact commit or the version.
         # uses: DaanV2/Typescript-Action-Create-Includes@69207e9b1ccf3f50b4d04849abcaa63157be9209
-        uses: DaanV2/Typescript-Action-Create-Includes@v1.5.0
+        uses: DaanV2/Typescript-Action-Create-Includes@latest
         with:
           # The folder path to start at
           folder: ${{ github.workspace }}/client/src
+          export_sub_include: false
           excludes: |
             *.test.ts
             include.ts
@@ -38,10 +39,11 @@ jobs:
       - name: server includes
         # You may pin to the exact commit or the version.
         # uses: DaanV2/Typescript-Action-Create-Includes@69207e9b1ccf3f50b4d04849abcaa63157be9209
-        uses: DaanV2/Typescript-Action-Create-Includes@v1.5.0
+        uses: DaanV2/Typescript-Action-Create-Includes@latest
         with:
           # The folder path to start at
           folder: ${{ github.workspace }}/server/src/Lib
+          export_sub_include: false
           excludes: |
             *.test.ts
             include.ts
