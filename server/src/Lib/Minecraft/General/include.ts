@@ -14,4 +14,5 @@ export * as String from "./String/include";
 export * as Tag from "./Tag/include";
 export * as Tickingarea from "./Tickingarea/include";
 export * as Xp from "./Xp/include";
+export * from "./CodeAction";
 export * from "./Kinds";
