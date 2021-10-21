@@ -1,9 +1,11 @@
-import { CommandData } from "bc-minecraft-bedrock-command";
-import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/include";
+import { CommandData } from 'bc-minecraft-bedrock-command';
+
+//TODO this line can be improved, new package is coming, update somewhere in futureu
+import { CommandInfo } from 'bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo';
 import { Map } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/include";
-import { CompletionBuilder } from "../../../Completion/include";
-import { IsEducationEnabled } from '../../../Project/Attributes';
+import { CompletionBuilder } from "../../../Completion/Builder";
+import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
 
 /**

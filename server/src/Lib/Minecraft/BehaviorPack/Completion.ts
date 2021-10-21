@@ -1,4 +1,4 @@
-import { JsonCompletionContext } from "../../Completion/include";
+import { JsonCompletionContext } from "../../Completion/Context";
 
 import * as LootTables from "./LootTables/include";
 import * as Trading from "./Trading/include";

@@ -1,4 +1,5 @@
 import { Pack } from "bc-minecraft-bedrock-project";
+import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { HandleError } from "../Code/Error";
 import { Fs } from "../Code/Url";
@@ -13,6 +14,21 @@ import { GetProject } from "../Project/MCProjects";
  *
  */
 export namespace Workspace {
+  /**
+   *
+   */
+  export function CreateMCProject(): Promise<void> {
+    return Workspace.GetWorkSpaces().then(processWorkspace);
+  }
+
+  /**
+   *
+   * @returns
+   */
+  export function UpdateProjectInfo(): Promise<void> {
+    return Workspace.GetWorkSpaces().then(processWorkspace);
+  }
+
   /**
    *
    * @returns
@@ -88,5 +104,21 @@ export namespace Workspace {
     packs.forEach(ProcessPack);
 
     return packs;
+  }
+}
+
+/**
+ *
+ * @param ws
+ * @returns
+ */
+function processWorkspace(ws: WorkspaceFolder[] | null): void {
+  if (ws === null) return;
+
+  for (let I = 0; I < ws.length; I++) {
+    const folder = ws[I].uri;
+    const p = GetProject(folder);
+
+    MCProject.saveSync(folder, p);
   }
 }

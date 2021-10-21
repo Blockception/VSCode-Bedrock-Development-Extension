@@ -35,4 +35,12 @@ export namespace Manager {
       Manager.Connection.sendDiagnostics({ diagnostics: Diagnostics, uri: doc.uri, version: doc.version });
     }
   }
+
+  /**
+   *
+   * @returns
+   */
+  export function clonedSettings(): ServerSettings {
+    return ServerSettings.clone(Manager.Settings);
+  }
 }

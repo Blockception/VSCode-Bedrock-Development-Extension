@@ -3,7 +3,7 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { IsEducationEnabled } from "../../../Project/Attributes";
-import { FakeEntity } from "../include";
+import * as FakeEntity from "../FakeEntity/include";
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SelectorType";
 
 import * as AttributeValue from "./AttributeValue/include";

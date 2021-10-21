@@ -1,9 +1,3 @@
-import { MCProject } from "bc-minecraft-project";
-import { DidChangeConfigurationParams } from "vscode-languageserver/node";
-import { Identification } from "../../Constants";
-import { Database } from "../../Database/Database";
-import { Manager } from "../../Manager/Manager";
-
 /**
  *
  */
@@ -102,13 +96,5 @@ export namespace ServerSettings {
     };
 
     return Out;
-  }
-
-  /**
-   *
-   * @returns
-   */
-  export function clonedSettings(): ServerSettings {
-    return clone(Manager.Settings);
   }
 }

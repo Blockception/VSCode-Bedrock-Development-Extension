@@ -2,12 +2,12 @@ import { ExecuteCommandParams } from "vscode-languageserver";
 import { Commands } from "../Constants";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { Files } from "./Files";
-import { CreateMCProject } from "../Project/MCProjects";
 import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 import { HandleError } from "../Code/Error";
 import { StoreProject } from "./StoreProject";
 import { AddAllItems } from "./Language/include";
+import { Workspace } from '../Workspace/Workspace';
 
 /**
  *
@@ -48,7 +48,7 @@ function InternalCommandRequest(params: ExecuteCommandParams): any {
       return AddAllItems(params);
 
     case Commands.MCProject.Create:
-      return CreateMCProject();
+      return Workspace.CreateMCProject();
 
     case Commands.ScanProjects:
       return ReScanProject();

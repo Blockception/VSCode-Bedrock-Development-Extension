@@ -4,7 +4,7 @@ import { SimpleContext } from "../../Code/SimpleContext";
 import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "../include";
 import { GetCurrentString } from "./Functions";
 import { CompletionBuilder } from "../../Completion/Builder";
-import { JsonCompletionContext } from "../../Completion/include";
+import { JsonCompletionContext } from "../../Completion/Context";
 
 export function ProvideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const c = <JsonCompletionContext>context;

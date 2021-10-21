@@ -1,8 +1,7 @@
 import { Console } from "../Manager/Console";
-import { TextDocument } from "../Types/Document/TextDocument";
 import { GetFilename } from "./File";
 
-export function HandleError(error: any, doc: TextDocument | string | undefined = undefined): void {
+export function HandleError(error: any, doc: { uri: string } | string | undefined = undefined): void {
   let msg: string;
 
   if (errormsg.is(error)) {

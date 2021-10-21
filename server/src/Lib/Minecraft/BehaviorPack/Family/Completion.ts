@@ -3,7 +3,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";
-import { Command } from "../../Commands/include";
+import * as Command from "../../Commands/Command/Functions";
 import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {

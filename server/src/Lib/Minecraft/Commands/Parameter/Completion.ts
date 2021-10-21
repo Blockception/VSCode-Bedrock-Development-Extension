@@ -1,11 +1,11 @@
-import { ParameterType } from "bc-minecraft-bedrock-command/lib/src/Lib/Types/include";
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
+import { ParameterType } from 'bc-minecraft-bedrock-command';
 
 /**These are here to stop circular dependency */
-import * as Commands from "../../Commands/include";
+import * as Command from "../../Commands/Command/include";
 import * as General from "../../General/include";
 import * as Json from "../../Json/include";
 import * as Modes from "../../Modes/include";
@@ -84,7 +84,7 @@ const DataMap: { [index: number]: functioncall } = {
   [ParameterType.teleportRules]: Modes.TeleportRules.ProvideCompletion,
   [ParameterType.time]: Modes.Time.ProvideCompletion,
   //Commands
-  [ParameterType.command]: Commands.Command.ProvideCompletion,
+  [ParameterType.command]: Command.ProvideCompletion,
   [ParameterType.effect]: General.Effect.ProvideCompletion,
   [ParameterType.objective]: General.Objectives.ProvideCompletion,
   [ParameterType.selector]: General.Selector.ProvideCompletion,

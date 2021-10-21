@@ -1,30 +1,10 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
-import { Workspace } from "../Workspace/Workspace";
 
-/**
- *
- */
-export function CreateMCProject(): Promise<void> {
-  return Workspace.GetWorkSpaces().then(processWorkspace);
-}
 
-/**
- *
- * @param ws
- * @returns
- */
-function processWorkspace(ws: WorkspaceFolder[] | null): void {
-  if (ws === null) return;
 
-  for (let I = 0; I < ws.length; I++) {
-    const folder = ws[I].uri;
-    const p = GetProject(folder);
 
-    MCProject.saveSync(folder, p);
-  }
-}
 
 /**
  *
@@ -54,13 +34,6 @@ export function GetProjectEmpty(): MCProject {
   return Overlay(MCProject.createEmpty());
 }
 
-/**
- *
- * @returns
- */
-export function UpdateProjectInfo(): Promise<void> {
-  return Workspace.GetWorkSpaces().then(processWorkspace);
-}
 
 export function Overlay(project: MCProject): MCProject {
   const settings = Manager.Settings;

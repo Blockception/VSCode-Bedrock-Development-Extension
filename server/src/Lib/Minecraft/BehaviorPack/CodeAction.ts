@@ -1,17 +1,17 @@
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../CodeAction/Builder";
-import * as AnimationControllers from "./AnimationControllers/include";
-import * as Animations from "./Animations/include";
-import * as Block from "./Block/include";
-import * as BlockStates from "./BlockStates/include";
-import * as Entities from "./Entities/include";
-import * as EntityEvent from "./EntityEvent/include";
-import * as Family from "./Family/include";
-import * as Functions from "./Functions/include";
-import * as Items from "./Items/include";
-import * as LootTables from "./LootTables/include";
-import * as Structures from "./Structures/include";
-import * as Trading from "./Trading/include";
+import * as AnimationControllers from "./AnimationControllers/CodeAction";
+import * as Animations from "./Animations/CodeAction";
+import * as Block from "./Block/CodeAction";
+//import * as BlockStates from "./BlockStates/CodeAction";
+import * as Entities from "./Entities/CodeAction";
+//import * as EntityEvent from "./EntityEvent/CodeAction";
+import * as Family from "./Family/CodeAction";
+import * as Functions from "./Functions/CodeAction";
+import * as Items from "./Items/CodeAction";
+import * as LootTables from "./LootTables/CodeAction";
+import * as Structures from "./Structures/CodeAction";
+import * as Trading from "./Trading/CodeAction";
 
 /**
  *
@@ -37,8 +37,14 @@ export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
       AnimationControllers.OnCodeAction(builder, diag);
       return Animations.OnCodeAction(builder, diag);
 
+    case "block":
+      return Block.OnCodeAction(builder, diag);
+
     case "entity":
       return Entities.OnCodeAction(builder, diag);
+
+    case "family":
+      return Family.OnCodeAction(builder, diag);
 
     case "mcfunction":
     case "function":

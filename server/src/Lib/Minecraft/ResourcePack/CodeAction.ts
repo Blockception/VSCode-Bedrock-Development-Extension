@@ -1,15 +1,15 @@
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../CodeAction/Builder";
 
-import * as AnimationControllers from "./AnimationControllers/include";
-import * as Animations from "./Animations/include";
-import * as Attachables from "./Attachables/include";
-import * as Blocks from "./Blocks/include";
-import * as Entities from "./Entities/include";
-import * as Fogs from "./Fogs/include";
-import * as Materials from "./Materials/include";
-import * as Particles from "./Particles/include";
-import * as RenderControllers from "./RenderControllers/include";
+import * as AnimationControllers from "./AnimationControllers/CodeAction";
+import * as Animations from "./Animations/CodeAction";
+import * as Attachables from "./Attachables/CodeAction";
+import * as Blocks from "./Blocks/CodeAction";
+import * as Entities from "./Entities/CodeAction";
+import * as Fogs from "./Fogs/CodeAction";
+import * as Materials from "./Materials/CodeAction";
+import * as Particles from "./Particles/CodeAction";
+import * as RenderControllers from "./RenderControllers/CodeAction";
 
 /**
  *
