@@ -61,7 +61,7 @@ jobs:
           path: "*.vsix"
           
   publish:  
-    if: ${{ needs.test.result == success && needs.universal.result == success }}
+    if: ${{ needs.test.result == 'success' && needs.universal.result == 'success' }}
     runs-on: ubuntu-latest
     needs: [universal, test]
     steps:
