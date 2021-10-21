@@ -47,6 +47,15 @@ jobs:
           excludes: |
             *.test.ts
             include.ts
+      - uses: DaanV2/Typescript-Action-Create-Includes@latest
+        with:
+          # The folder path to start at
+          folder: ${{ github.workspace }}/server/src/Lib/Minecraft
+          export_sub_include: true
+          excludes: |
+            *.test.ts
+            include.ts
+
 
       - name: commit changes
         continue-on-error: true
