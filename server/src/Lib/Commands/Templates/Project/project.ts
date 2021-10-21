@@ -1,7 +1,10 @@
-import { Templates } from "../../include";
 import { TemplateBuilder } from "../Builder";
 import { context } from "../Context";
 import * as path from "path";
+
+import * as BehaviorPack from "../BehaviorPack/include";
+import * as ResourcePack from "../ResourcePack/include";
+import * as World from "../World/include";
 
 /**
  *
@@ -20,9 +23,9 @@ export function create_world_project(ID: string, context: context, Builder: Temp
   };
 
   //create world manifest
-  Templates.World.create_manifest_file(NewContext, Builder);
-  Templates.Behavior_Pack.create_manifest_file(NewContext, Builder);
-  Templates.Resource_Pack.create_manifest_file(NewContext, Builder);
+  World.create_manifest_file(NewContext, Builder);
+  BehaviorPack.create_manifest_file(NewContext, Builder);
+  ResourcePack.create_manifest_file(NewContext, Builder);
 }
 
 /**
@@ -41,7 +44,7 @@ export function create_behaviorpack(ID: string, context: context, Builder: Templ
     WorldFolder: context.WorldFolder,
   };
 
-  Templates.Behavior_Pack.create_manifest_file(NewContext, Builder);
+  BehaviorPack.create_manifest_file(NewContext, Builder);
 }
 
 /**
@@ -60,5 +63,5 @@ export function create_resourcepack(ID: string, context: context, Builder: Templ
     WorldFolder: context.WorldFolder,
   };
 
-  Templates.Resource_Pack.create_manifest_file(NewContext, Builder);
+  ResourcePack.create_manifest_file(NewContext, Builder);
 }

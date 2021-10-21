@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { Command, Parameter } from "./include";
 
-describe("Commands", () => {
+describe("include", () => {
   it("Sanity", () => {
     expect(Parameter).to.not.be.undefined;
     expect(Parameter.ProvideCompletion).to.not.be.undefined;

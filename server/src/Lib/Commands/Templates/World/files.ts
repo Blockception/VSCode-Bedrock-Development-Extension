@@ -1,7 +1,8 @@
 const { v4: uuid } = require("uuid");
 
+import * as World from "../../../Data/Templates//World/include";
+
 import * as path from "path";
-import { World } from '../../../Data/Templates/include';
 import { TemplateBuilder } from "../Builder";
 import { context } from "../Context";
 
