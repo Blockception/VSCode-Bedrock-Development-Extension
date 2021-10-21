@@ -1,3 +1,23 @@
 /*	Auto generated	*/
-
+export * as CameraShake from "./CameraShake/include";
+export * as Clone from "./Clone/include";
+export * as Difficulty from "./Difficulty/include";
+export * as Fill from "./Fill/include";
+export * as Gamemode from "./Gamemode/include";
+export * as LocateFeature from "./LocateFeature/include";
+export * as Mask from "./Mask/include";
+export * as Mirror from "./Mirror/include";
+export * as MusicRepeat from "./MusicRepeat/include";
+export * as OldBlock from "./OldBlock/include";
+export * as Operation from "./Operation/include";
+export * as Replace from "./Replace/include";
+export * as RideFill from "./RideFill/include";
+export * as RideRules from "./RideRules/include";
+export * as Rotation from "./Rotation/include";
+export * as Save from "./Save/include";
+export * as SlotId from "./SlotId/include";
+export * as SlotType from "./SlotType/include";
+export * as StructureAnimation from "./StructureAnimation/include";
+export * as TeleportRules from "./TeleportRules/include";
+export * as Time from "./Time/include";
 export * from "./Completion";
