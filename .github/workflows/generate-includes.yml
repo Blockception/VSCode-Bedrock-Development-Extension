@@ -39,7 +39,7 @@ jobs:
         uses: DaanV2/Typescript-Action-Create-Includes@v1.5.0
         with:
           # The folder path to start at
-          folder: ${{ github.workspace }}/server/src/Lib
+          folder: ${{ github.workspace }}/server/src/Lib/Minecraft
           excludes: "*.test.ts"
 
       - name: commit changes
