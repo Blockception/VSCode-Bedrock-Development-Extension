@@ -3,7 +3,7 @@ import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
-import { IsEducationEnabled } from "../../../Project/include";
+import { IsEducationEnabled } from '../../../Project/Attributes';
 import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {

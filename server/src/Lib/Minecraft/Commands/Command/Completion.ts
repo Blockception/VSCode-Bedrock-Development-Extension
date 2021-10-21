@@ -3,7 +3,7 @@ import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/inclu
 import { Map } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/include";
-import { IsEducationEnabled } from "../../../Project/include";
+import { IsEducationEnabled } from '../../../Project/Attributes';
 import { Kinds } from "../../General/Kinds";
 
 /**

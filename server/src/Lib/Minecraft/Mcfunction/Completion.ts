@@ -3,10 +3,10 @@ import { CompletionBuilder } from "../../Completion/Builder";
 import { CommandCompletionContext } from "../../Completion/Context";
 import { Command } from "bc-minecraft-bedrock-command";
 import { Commands } from "../include";
-import { IsEducationEnabled } from "../../Project/include";
 import { Parameter } from "../Commands/include";
-import { SimpleContext } from "../../Code/include";
 import { CompletionItemKind } from 'vscode-languageserver-types';
+import { SimpleContext } from '../../Code/SimpleContext';
+import { IsEducationEnabled } from '../../Project/Attributes';
 
 /**
  *

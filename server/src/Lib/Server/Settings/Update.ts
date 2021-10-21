@@ -1,0 +1,33 @@
+import { DidChangeConfigurationParams } from 'vscode-languageserver';
+import { Identification } from '../../Constants';
+import { Database } from '../../Database/Database';
+import { Manager } from '../../Manager/Manager';
+import { Overlay } from '../../Project/MCProjects';
+import { ServerSettings } from './Settings';
+
+export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {
+  UpdateSettings();
+}
+
+export function UpdateSettings(): void {
+  let Settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
+
+  //If settings is nothing then skip it.
+  if (Settings === undefined || Settings === null) return;
+
+  Settings.then(UpdateSettingsThen);
+}
+
+function UpdateSettingsThen(data: any): void {
+  //If settings is nothing then skip it.
+  if (data === undefined || data === null) return;
+
+  const Casted = <ServerSettings>data;
+
+  if (ServerSettings.is(Casted)) {
+    Manager.Settings = Casted;
+
+    //Update existing settings
+    Database.WorkspaceData.forEach((value) => Overlay(value));
+  }
+}

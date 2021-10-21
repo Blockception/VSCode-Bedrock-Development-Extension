@@ -10,10 +10,10 @@ import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../
 import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/include";
-import { OnConfigurationChanged } from "../Settings";
 import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/include";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync, OnCodeLensResolveRequestAsync } from "../../CodeLens/OnRequest";
+import { OnConfigurationChanged } from '../Settings/Update';
 
 /**
  * Setup the server events

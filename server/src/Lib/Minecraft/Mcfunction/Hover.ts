@@ -5,8 +5,8 @@ import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-type
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { Database } from "../../Database/Database";
 import { RawText } from "../Json/include";
-import { IsEducationEnabled } from "../../Project/include";
 import { TextDocument } from "../../Types/Document/TextDocument";
+import { IsEducationEnabled } from '../../Project/Attributes';
 
 /**
  *

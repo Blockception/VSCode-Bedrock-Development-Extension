@@ -1,8 +1,8 @@
 import { MCProject } from "bc-minecraft-project";
 import { DidChangeConfigurationParams } from "vscode-languageserver/node";
-import { Identification } from "../Constants";
-import { Database } from "../Database/Database";
-import { Manager } from "../Manager/Manager";
+import { Identification } from "../../Constants";
+import { Database } from "../../Database/Database";
+import { Manager } from "../../Manager/Manager";
 
 /**
  *
@@ -111,49 +111,4 @@ export namespace ServerSettings {
   export function clonedSettings(): ServerSettings {
     return clone(Manager.Settings);
   }
-}
-
-export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {
-  UpdateSettings();
-}
-
-export function UpdateSettings(): void {
-  let Settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
-
-  //If settings is nothing then skip it.
-  if (Settings === undefined || Settings === null) return;
-
-  Settings.then(UpdateSettingsThen);
-}
-
-function UpdateSettingsThen(data: any): void {
-  //If settings is nothing then skip it.
-  if (data === undefined || data === null) return;
-
-  const Casted = <ServerSettings>data;
-
-  if (ServerSettings.is(Casted)) {
-    Manager.Settings = Casted;
-
-    //Update existing settings
-    Database.WorkspaceData.forEach((value) => Overlay(value));
-  }
-}
-
-export function Overlay(project: MCProject): MCProject {
-  const settings = Manager.Settings;
-
-  OverLaySetIf(project, "education.enable", `${settings.Education.Enable}`);
-  OverLaySetIf(project, "diagnostic.enable", `${settings.Diagnostics.Enable}`);
-  OverLaySetIf(project, "diagnostic.lang", `${settings.Diagnostics.Lang}`);
-  OverLaySetIf(project, "diagnostic.json", `${settings.Diagnostics.Json}`);
-  OverLaySetIf(project, "diagnostic.mcfunction", `${settings.Diagnostics.Mcfunctions}`);
-  OverLaySetIf(project, "diagnostic.objectives", `${settings.Diagnostics.Objectives}`);
-  OverLaySetIf(project, "diagnostic.tags", `${settings.Diagnostics.Tags}`);
-
-  return project;
-}
-
-function OverLaySetIf(project: MCProject, key: string, value: string) {
-  if (project.attributes[key] === undefined) project.attributes[key] = value;
 }

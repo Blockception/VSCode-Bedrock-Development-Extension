@@ -1,12 +1,12 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { Overlay } from "../Server/Settings";
+import { Manager } from "../Manager/Manager";
 import { Workspace } from "../Workspace/Workspace";
 
 /**
  *
  */
-export function CreateMCProject() : Promise<void> {
+export function CreateMCProject(): Promise<void> {
   return Workspace.GetWorkSpaces().then(processWorkspace);
 }
 
@@ -55,9 +55,27 @@ export function GetProjectEmpty(): MCProject {
 }
 
 /**
- * 
- * @returns 
+ *
+ * @returns
  */
 export function UpdateProjectInfo(): Promise<void> {
   return Workspace.GetWorkSpaces().then(processWorkspace);
+}
+
+export function Overlay(project: MCProject): MCProject {
+  const settings = Manager.Settings;
+
+  OverLaySetIf(project, "education.enable", `${settings.Education.Enable}`);
+  OverLaySetIf(project, "diagnostic.enable", `${settings.Diagnostics.Enable}`);
+  OverLaySetIf(project, "diagnostic.lang", `${settings.Diagnostics.Lang}`);
+  OverLaySetIf(project, "diagnostic.json", `${settings.Diagnostics.Json}`);
+  OverLaySetIf(project, "diagnostic.mcfunction", `${settings.Diagnostics.Mcfunctions}`);
+  OverLaySetIf(project, "diagnostic.objectives", `${settings.Diagnostics.Objectives}`);
+  OverLaySetIf(project, "diagnostic.tags", `${settings.Diagnostics.Tags}`);
+
+  return project;
+}
+
+function OverLaySetIf(project: MCProject, key: string, value: string) {
+  if (project.attributes[key] === undefined) project.attributes[key] = value;
 }

@@ -1,4 +1,3 @@
-import { Modes } from "bc-minecraft-bedrock-types";
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../Completion/Builder";
@@ -6,7 +5,10 @@ import { CommandCompletionContext } from "../../../Completion/Context";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { FakeEntity } from "../include";
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SelectorType";
-import { Attributes, AttributeValue, Scores } from "./include";
+
+import * as AttributeValue from "./AttributeValue/include";
+import * as Attributes from "./Attributes/include";
+import * as Scores from "./Scores/include";
 
 /**
  *

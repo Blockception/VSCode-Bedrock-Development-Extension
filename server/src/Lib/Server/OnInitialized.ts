@@ -2,7 +2,7 @@ import { InitializedParams } from "vscode-languageserver";
 import { Console } from "../Manager/Console";
 import { Traverse } from "../Process/Traverse";
 import { SetDynamicEvents } from "./Events/Dynamic";
-import { UpdateSettings } from "./Settings";
+import { UpdateSettings } from './Settings/Update';
 
 export async function onInitializedAsync(params: InitializedParams): Promise<void> {
   return new Promise<void>((resolve, reject) => {

@@ -1,5 +1,5 @@
 import { DidChangeConfigurationParams } from "vscode-languageserver";
-import { UpdateSettings } from "./Settings";
+import { UpdateSettings } from './Settings/Update';
 
 export async function onDidChangeConfigurationAsync(params: DidChangeConfigurationParams): Promise<void> {
   return new Promise<void>((resolve, reject) => {
