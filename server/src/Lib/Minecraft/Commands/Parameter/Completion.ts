@@ -6,7 +6,7 @@ import { ParameterType } from 'bc-minecraft-bedrock-command';
 
 /**These are here to stop circular dependency */
 import * as Command from "../../Commands/Command/include";
-import * as General from "../../General/include";
+import * as General from "../../General/Completion";
 import * as Json from "../../Json/include";
 import * as Modes from "../../Modes/include";
 import * as ResourcePack from "../../ResourcePack/include";
