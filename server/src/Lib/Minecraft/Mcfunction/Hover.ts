@@ -3,7 +3,7 @@ import { ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/Com
 import { IDataSet } from "bc-minecraft-bedrock-project/lib/src/Lib/Types/DataSet/IDataSet";
 import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/Types/include";
 import { HoverParams, Hover, Range } from "vscode-languageserver";
-import { Database } from "../../Database/include";
+import { Database } from "../../Database/Database";
 import { RawText } from "../Json/include";
 import { IsEducationEnabled } from "../../Project/include";
 import { TextDocument } from "../../Types/Document/TextDocument";

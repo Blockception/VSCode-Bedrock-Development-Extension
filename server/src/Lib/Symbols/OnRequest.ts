@@ -1,11 +1,10 @@
 import { Fs, GetDirectory, GetFilename, Vscode } from "../Code/include";
-import { DocumentSymbolParams, SymbolInformation, SymbolKind, Location, Range, WorkspaceSymbolParams } from "vscode-languageserver";
-import { Database } from "../Database/include";
+import { DocumentSymbolParams, SymbolInformation, SymbolKind, WorkspaceSymbolParams } from "vscode-languageserver";
+import { Database } from "../Database/Database";
 import { Kinds } from "../Minecraft/General/Kinds";
 import { SymbolBuilder } from "./SymbolBuilder";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
-import { SSL_OP_NETSCAPE_CHALLENGE_BUG } from "constants";
 
 /**
  * The request to provide document symbols, asynchorious

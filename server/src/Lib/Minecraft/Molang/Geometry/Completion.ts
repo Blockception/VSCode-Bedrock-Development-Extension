@@ -3,7 +3,7 @@ import { ResourcePack, BehaviorPack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { Database } from "../../../Database/include";
+import { Database } from "../../../Database/Database";
 import { Kinds } from "../../General/Kinds";
 import { Models } from "../../ResourcePack/include";
 

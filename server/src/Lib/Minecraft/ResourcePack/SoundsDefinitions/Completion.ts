@@ -1,6 +1,6 @@
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { Database } from "../../../Database/include";
+import { Database } from "../../../Database/Database";
 import { GetCurrentString } from '../../Json/Functions';
 import { ProvideSoundFileCompletion } from "../Sounds/Completion";
 

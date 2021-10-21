@@ -1,6 +1,6 @@
 import { Hover } from "vscode-languageserver";
 import { HoverParams, Range } from "vscode-languageserver-protocol";
-import { Database } from "../../Database/include";
+import { Database } from "../../Database/Database";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { Molang } from "../include";
 import { IsMolang } from "../Molang/Functions";

@@ -3,7 +3,7 @@ import { OffsetWord } from "bc-vscode-words";
 import { DefinitionParams } from "vscode-languageserver";
 import { Location } from "vscode-languageserver-types";
 import { References } from "../../../Code/References";
-import { Database } from "../../../include";
+import { Database } from '../../../Database/Database';
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { TextDocument } from "../../../Types/Document/TextDocument";
 
@@ -39,5 +39,5 @@ export function ProvideReferences(value: OffsetWord, params: DefinitionParams, d
 
   //TODO add selector references
   const out: Location[] = [];
-  return References.ConvertLocation(Database.Database.FindReferences(Text, Types));
+  return References.ConvertLocation(Database.FindReferences(Text, Types));
 }

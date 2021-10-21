@@ -1,5 +1,5 @@
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
-import { Minecraft } from "../include";
+import * as Minecraft from "../Minecraft/include";
 import { CodeActionBuilder } from "./Builder";
 import { Attributes } from "./Types/Definition";
 

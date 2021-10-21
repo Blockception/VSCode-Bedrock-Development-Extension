@@ -1,8 +1,7 @@
-import { Entity } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack/include";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
-import { Database } from "../../../Database/include";
+import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Command } from "../../Commands/include";
 import { Kinds } from "../../General/Kinds";

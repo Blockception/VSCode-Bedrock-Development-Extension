@@ -4,7 +4,7 @@ import { TextDocument } from "../../Types/Document/TextDocument";
 import { OffsetWord } from "bc-vscode-words";
 import { IsMolang } from '../Molang/Functions';
 import { Commands, Molang } from '../include';
-import { Database } from '../../include';
+import { Database } from '../../Database/Database';
 import { ParameterType } from 'bc-minecraft-bedrock-command';
 import { References } from '../../Code/References';
 
@@ -27,7 +27,7 @@ export function ProvideReferences(doc: TextDocument, params: DefinitionParams | 
     }
     //Event
     else if (value.text.startsWith("@")) {
-      return References.ConvertLocation(Database.Database.FindReferences(value.text.slice(2).trim(), [ParameterType.event]));
+      return References.ConvertLocation(Database.FindReferences(value.text.slice(2).trim(), [ParameterType.event]));
     }
     //Molang
     else {
@@ -37,7 +37,7 @@ export function ProvideReferences(doc: TextDocument, params: DefinitionParams | 
   else {
     ReferencesInDocument(value, doc, Out);
 
-    const out = Database.Database.FindReference(value.text);
+    const out = Database.FindReference(value.text);
 
     if (out) { Out.push(...References.ConvertLocation([out]))}
   }

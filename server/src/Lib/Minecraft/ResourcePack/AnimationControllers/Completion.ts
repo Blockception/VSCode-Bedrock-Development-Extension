@@ -2,7 +2,7 @@ import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifia
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { Database } from "../../../Database/include";
+import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/include";
 import { Kinds } from "../../General/Kinds";
 

@@ -1,7 +1,7 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/include";
-import { Database } from "../../../Database/include";
+import { Database } from "../../../Database/Database";
 import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {

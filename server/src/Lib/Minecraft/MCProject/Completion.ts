@@ -6,7 +6,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { SimpleContext } from "../../Code/include";
 import { CompletionBuilder } from "../../Completion/Builder";
-import { Database } from "../../Database/include";
+import { Database } from "../../Database/Database";
 import { Boolean } from "../General/include";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {

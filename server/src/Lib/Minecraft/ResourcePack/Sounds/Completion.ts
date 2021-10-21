@@ -3,7 +3,7 @@ import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/include";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
-import { Database } from "../../../Database/include";
+import { Database } from "../../../Database/Database";
 import { Kinds } from "../../General/Kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { IsEducationEnabled } from "../../../Project/Attributes";

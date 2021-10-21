@@ -2,7 +2,7 @@ import { Pack } from "bc-minecraft-bedrock-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { HandleError } from "../Code/Error";
 import { Fs } from "../Code/Url";
-import { Database } from "../Database/include";
+import { Database } from "../Database/Database";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
