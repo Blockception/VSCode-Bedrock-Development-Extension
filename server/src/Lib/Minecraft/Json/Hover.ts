@@ -4,7 +4,7 @@ import { Database } from "../../Database/Database";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { Molang } from "../include";
 import { IsMolang } from "../Molang/Functions";
-import { GetCurrentString } from "./include";
+import { GetCurrentString } from './Functions';
 
 export function ProvideHover(doc: TextDocument, params: HoverParams): Hover | undefined {
   const cursor = doc.offsetAt(params.position);

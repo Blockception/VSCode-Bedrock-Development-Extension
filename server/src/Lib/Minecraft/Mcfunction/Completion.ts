@@ -2,11 +2,13 @@ import { Position } from "vscode-languageserver-textdocument";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { CommandCompletionContext } from "../../Completion/Context";
 import { Command } from "bc-minecraft-bedrock-command";
-import { Commands } from "../include";
-import { Parameter } from "../Commands/include";
+
 import { CompletionItemKind } from 'vscode-languageserver-types';
 import { SimpleContext } from '../../Code/SimpleContext';
 import { IsEducationEnabled } from '../../Project/Attributes';
+
+import * as Parameter from "../Commands/Parameter/Completion";
+import * as CCommand from "../Commands/Command/Completion";
 
 /**
  *
@@ -64,14 +66,14 @@ export function ProvideCompletionLine(context: SimpleContext<CompletionBuilder>,
  */
 export function ProvideCompletionCommand(context: SimpleContext<CompletionBuilder>, pos: number, command: Command): void {
   if (command == undefined || command.parameters.length == 0 || pos < command.parameters[0].offset + 3) {
-    Commands.Command.ProvideCompletion(context);
+    CCommand.ProvideCompletion(context);
     return;
   }
 
   const Matches = command.getBestMatch(IsEducationEnabled(context.doc));
 
   if (Matches.length === 0) {
-    if (pos < 10) Commands.Command.ProvideCompletion(context);
+    if (pos < 10) CCommand.ProvideCompletion(context);
 
     return;
   }
