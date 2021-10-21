@@ -32,8 +32,8 @@ jobs:
           # The folder path to start at
           folder: ${{ github.workspace }}/client/src
           excludes: |
-            "*.test.ts"
-            "include.ts"
+            *.test.ts
+            include.ts
 
       - name: server includes
         # You may pin to the exact commit or the version.
@@ -43,8 +43,8 @@ jobs:
           # The folder path to start at
           folder: ${{ github.workspace }}/server/src/Lib
           excludes: |
-            "*.test.ts"
-            "include.ts"
+            *.test.ts
+            include.ts
 
       - name: commit changes
         continue-on-error: true

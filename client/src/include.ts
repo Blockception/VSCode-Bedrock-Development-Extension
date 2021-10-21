@@ -4,6 +4,5 @@ export * as Code from "./Code/include";
 export * as Commands from "./Commands/include";
 export * as Console from "./Console/include";
 export * as Manager from "./Manager/include";
-export * from "./Constants.test";
 export * from "./Constants";
 export * from "./extension";
