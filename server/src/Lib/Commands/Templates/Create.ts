@@ -1,11 +1,11 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { TemplateBuilder } from "./Builder";
 import { Console } from "../../Manager/Console";
-import { GetContextCall, context } from "./include";
 import { Commands } from "../../Constants";
 import { Templates } from "../include";
-import { Database } from "../../Database/include";
+import { Database } from "../../Database/Database";
 import { Pack } from "bc-minecraft-bedrock-project";
+import { GetContextCall, context } from './Context';
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();

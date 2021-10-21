@@ -1,4 +1,4 @@
-import { Database } from "../Database/include";
+import { Database } from "../Database/Database";
 import { Console } from "../Manager/Console";
 import { Traverse } from "../Process/Traverse";
 

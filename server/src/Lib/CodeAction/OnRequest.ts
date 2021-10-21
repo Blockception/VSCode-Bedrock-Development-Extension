@@ -1,6 +1,5 @@
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
 import { Minecraft } from "../include";
-import { BehaviorPack, ResourcePack } from "../Minecraft/include";
 import { CodeActionBuilder } from "./Builder";
 import { Attributes } from "./Types/Definition";
 
@@ -52,11 +51,11 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
 
     switch (maincode) {
       case "behaviorpack":
-        BehaviorPack.OnCodeAction(builder, diag);
+        Minecraft.BehaviorPack.OnCodeAction(builder, diag);
         return Attributes(builder, diag);
 
       case "resourcepack":
-        ResourcePack.OnCodeAction(builder, diag);
+        Minecraft.ResourcePack.OnCodeAction(builder, diag);
         return Attributes(builder, diag);
 
       case "minecraft":

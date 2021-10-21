@@ -4,7 +4,7 @@ import { SimpleContext } from "../Code/SimpleContext";
 import { TextRange } from "../Minecraft/Json/Functions";
 import { IsEducationEnabled } from "../Project/Attributes";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { CompletionBuilder } from "./include";
+import { CompletionBuilder } from './Builder';
 
 /**
  *

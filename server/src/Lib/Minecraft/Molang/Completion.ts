@@ -3,14 +3,17 @@ import { CompletionItemKind, Position } from "vscode-languageserver-types";
 import { SimpleContext } from "../../Code/SimpleContext";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { Languages } from "../../Constants";
-import { BehaviorPack, ResourcePack } from "../include";
-import { GetPreviousWord, IsMolang } from "./include";
+
+
 import * as Query from "./Query/Completion";
 import * as Math from "./Math/Completion";
 import * as Temps from "./Temps/Completion";
 import * as Variables from "./Variables/Completion";
 import * as Geometry from "./Geometry/Completion";
 import * as Texture from "./Texture/Completion";
+
+import { GetPreviousWord, IsMolang } from './Functions';
+import { BehaviorPack, ResourcePack } from '../include';
 
 export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const doc = context.doc;

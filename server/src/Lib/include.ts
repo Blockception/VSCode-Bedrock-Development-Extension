@@ -20,7 +20,6 @@ export * as Semantics from "./Semantics/include";
 export * as Server from "./Server/include";
 export * as Signatures from "./Signatures/include";
 export * as Symbols from "./Symbols/include";
-export * as Types from "./Types/include";
 export * as Workspace from "./Workspace/include";
 export * from "./Constants";
 export * from "./Version";

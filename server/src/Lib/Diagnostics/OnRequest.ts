@@ -1,7 +1,7 @@
 import { Pack } from "bc-minecraft-bedrock-project";
 import { Fs } from "../Code/Url";
-import { Database } from "../Database/include";
-import { Console } from "../Manager/include";
+import { Database } from "../Database/Database";
+import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
 import { ForEachDocument } from '../Types/Document/Document';

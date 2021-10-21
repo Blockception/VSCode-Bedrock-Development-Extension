@@ -1,6 +1,6 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { GetProjectEmpty } from '../Project/include';
+import { GetProjectEmpty } from "../Project/MCProjects";
 
 /**
  *
@@ -27,7 +27,7 @@ export class WorkspaceData {
       }
     }
 
-    return GetProjectEmpty()
+    return GetProjectEmpty();
   }
 
   /**Gets the workspace folder that corresponds to the given document
@@ -44,8 +44,8 @@ export class WorkspaceData {
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   getFirst(): string | undefined {
     for (var [key, data] of this.Data) {

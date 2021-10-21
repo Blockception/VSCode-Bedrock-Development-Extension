@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Glob } from "./include";
+import { Glob } from "./Glob";
 
 describe("Glob", () => {
   it("Ensure Item", () => {

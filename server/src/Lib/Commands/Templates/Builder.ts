@@ -14,9 +14,6 @@ import * as fs from "fs";
 import { Range } from "vscode-languageserver-types";
 import { Console } from "../../Manager/Console";
 import { Fs, Vscode } from "../../Code/Url";
-import { Pack } from "bc-minecraft-bedrock-project";
-import { Database } from "../../include";
-import { AddBlockceptionToPack } from "../../Minecraft/General/Manifests/Functions";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];

@@ -2,14 +2,11 @@ import { expect } from "chai";
 import { SafeID, SafeIDNoNamespace } from "../Function";
 import {
   create_block,
-  create_dialogue,
   create_entity,
   create_item,
-  create_loot_table,
   create_manifest,
   create_recipe,
   create_spawn_rule,
-  create_trading,
   create_volume,
 } from "./files";
 import { create_animation, create_animation_controller } from "./include";

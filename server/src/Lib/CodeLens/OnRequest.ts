@@ -2,7 +2,7 @@ import { BehaviorPack, DataSet, ResourcePack } from "bc-minecraft-bedrock-projec
 import { Types } from "bc-minecraft-bedrock-types";
 import { CodeLens, CodeLensParams } from "vscode-languageserver";
 import { GetPosition, GetRange } from "../Code/DocumentLocation";
-import { Database } from "../Database/include";
+import { Database } from "../Database/Database";
 import { Manager } from '../Manager/include';
 import { GetDocument } from '../Types/Document/Document';
 import { TextDocument } from '../Types/Document/TextDocument';

@@ -1,13 +1,13 @@
 import { MCProject } from "bc-minecraft-project";
-import { TextDocument } from "../Types/Document/TextDocument";
+import { MCProjectProvider } from "./Interfaces";
 
 /**
  *
  * @param project
  * @returns
  */
-export function IsEducationEnabled(project: MCProject | TextDocument) {
-  if (!MCProject.is(project)) {
+export function IsEducationEnabled(project: MCProject | MCProjectProvider) {
+  if (MCProjectProvider.is(project)) {
     project = project.getConfiguration();
   }
 
@@ -19,8 +19,8 @@ export function IsEducationEnabled(project: MCProject | TextDocument) {
  * @param project
  * @returns
  */
-export function IsDiagnosticsEnabled(project: MCProject | TextDocument) {
-  if (!MCProject.is(project)) {
+export function IsDiagnosticsEnabled(project: MCProject | MCProjectProvider) {
+  if (MCProjectProvider.is(project)) {
     project = project.getConfiguration();
   }
 
@@ -32,8 +32,8 @@ export function IsDiagnosticsEnabled(project: MCProject | TextDocument) {
  * @param project
  * @returns
  */
-export function IsDiagnosticsJsonEnabled(project: MCProject | TextDocument) {
-  if (!MCProject.is(project)) {
+export function IsDiagnosticsJsonEnabled(project: MCProject | MCProjectProvider) {
+  if (MCProjectProvider.is(project)) {
     project = project.getConfiguration();
   }
 
@@ -45,8 +45,8 @@ export function IsDiagnosticsJsonEnabled(project: MCProject | TextDocument) {
  * @param project
  * @returns
  */
-export function IsDiagnosticsLangEnabled(project: MCProject | TextDocument) {
-  if (!MCProject.is(project)) {
+export function IsDiagnosticsLangEnabled(project: MCProject | MCProjectProvider) {
+  if (MCProjectProvider.is(project)) {
     project = project.getConfiguration();
   }
 

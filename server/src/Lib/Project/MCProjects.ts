@@ -6,8 +6,8 @@ import { Workspace } from "../Workspace/Workspace";
 /**
  *
  */
-export function CreateMCProject() {
-  Workspace.GetWorkSpaces().then(processWorkspace);
+export function CreateMCProject() : Promise<void> {
+  return Workspace.GetWorkSpaces().then(processWorkspace);
 }
 
 /**
@@ -54,6 +54,10 @@ export function GetProjectEmpty(): MCProject {
   return Overlay(MCProject.createEmpty());
 }
 
-export function UpdateProjectInfo() : Promise<void> {
+/**
+ * 
+ * @returns 
+ */
+export function UpdateProjectInfo(): Promise<void> {
   return Workspace.GetWorkSpaces().then(processWorkspace);
 }

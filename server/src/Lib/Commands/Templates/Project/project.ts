@@ -57,7 +57,7 @@ export function create_resourcepack(ID: string, context: context, Builder: Templ
     WorkSpace: context.WorkSpace,
     BehaviorPack: () => Folder,
     ResourcePack: () => Folder,
-    WorldFolder:context.WorldFolder,
+    WorldFolder: context.WorldFolder,
   };
 
   Templates.Resource_Pack.create_manifest_file(NewContext, Builder);
