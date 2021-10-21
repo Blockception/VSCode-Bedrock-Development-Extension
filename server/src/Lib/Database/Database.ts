@@ -9,24 +9,23 @@ import { WorkspaceData } from "./WorkspaceData";
 /** */
 export class Database {
   /** */
-  static ProjectData: ProjectData = new ProjectData(DiagnoserUtillity.CreateContext());
+  static Diagnoser: Diagnoser = DiagnoserUtillity.CreateDiagnoser(() => Database.ProjectData);
+
+  /** */
+  static ProjectData: ProjectData = new ProjectData(Database.Diagnoser.context);
 
   /** */
   static WorkspaceData: WorkspaceData = new WorkspaceData();
-
-  /** */
-  static Diagnoser: Diagnoser = DiagnoserUtillity.CreateDiagnoser();
 
   /**
    *
    */
   static Clear(): void {
     Console.Info("Reseting database");
+
+    Database.Diagnoser = DiagnoserUtillity.CreateDiagnoser(() => Database.ProjectData);
     Database.WorkspaceData = new WorkspaceData();
-    Database.Diagnoser = DiagnoserUtillity.CreateDiagnoser();
-    Database.ProjectData = new ProjectData(DiagnoserUtillity.CreateContext());
-    DiagnoserUtillity.CachedPatternFiles.clear();
-    DiagnoserUtillity.CachedDocuments.clear();
+    Database.ProjectData = new ProjectData(Database.Diagnoser.context);
   }
 }
 

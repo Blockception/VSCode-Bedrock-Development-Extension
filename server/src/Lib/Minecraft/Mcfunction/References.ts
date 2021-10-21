@@ -1,7 +1,7 @@
 import { OffsetWord } from 'bc-vscode-words';
 import { DefinitionParams, Location, Position, ReferenceParams } from 'vscode-languageserver';
 import { TextDocument } from '../../Types/Document/TextDocument';
-import { Commands } from '../include';
+import * as Command from '../Commands/Command/References';
 
 export function ProvideReferences(params: DefinitionParams | ReferenceParams, doc: TextDocument): Location[] | undefined {
   //Gets start of line
@@ -9,5 +9,5 @@ export function ProvideReferences(params: DefinitionParams | ReferenceParams, do
   const Line = doc.getLine(startP.line);
   const lineOffset = doc.offsetAt(startP);
 
-  return Commands.Command.ProvideReferences(new OffsetWord(Line, lineOffset), params, doc);
+  return Command.ProvideReferences(new OffsetWord(Line, lineOffset), params, doc);
 }

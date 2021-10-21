@@ -4,11 +4,11 @@ import { GetDocument } from "../Types/Document/Document";
 import { CompletionBuilder } from "./Builder";
 import { SimpleContext } from "../Code/SimpleContext";
 
-import * as Json from "../Minecraft/Json/include";
-import * as Language from "../Minecraft/Language/include";
-import * as Mcfunction from "../Minecraft/Mcfunction/include";
-import * as MCProject from "../Minecraft/MCProject/include";
-import * as Molang from "../Minecraft/Molang/include";
+import * as Json from "../Minecraft/Json/Completion";
+import * as Language from "../Minecraft/Language/Completion";
+import * as Mcfunction from "../Minecraft/Mcfunction/Completion";
+import * as MCProject from "../Minecraft/MCProject/Completion";
+import * as Molang from "../Minecraft/Molang/Completion";
 
 /**Handle request
  * @param params

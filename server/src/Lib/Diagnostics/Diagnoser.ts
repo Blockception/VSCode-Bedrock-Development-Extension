@@ -11,21 +11,21 @@ import { Manager } from "../Manager/Manager";
 import * as vstd from "vscode-languageserver-textdocument";
 import * as vscode from "vscode-languageserver";
 import { Types } from "bc-minecraft-bedrock-types";
-import { Database } from "../Database/Database";
 import { Glob } from "../Glob/Glob";
 import { Console } from "../Manager/Console";
 import path from "path";
 import { GetRange } from "../Code/DocumentLocation";
 import { DataCache } from "../Types/Cache/Cache";
-import { TextDocument } from '../Types/Document/TextDocument';
-import { GetDocument } from '../Types/Document/Document';
+import { TextDocument } from "../Types/Document/TextDocument";
+import { GetDocument } from "../Types/Document/Document";
+import { ProjectData } from "bc-minecraft-bedrock-project";
 
 export namespace DiagnoserUtillity {
   /**Creates a new bedrock diagnoser
    * @returns A diagnoser*/
-  export function CreateDiagnoser(): Diagnoser {
+  export function CreateDiagnoser(getCachefn: () => ProjectData): Diagnoser {
     //create diagnoser
-    const tcontext = CreateContext();
+    const tcontext = CreateContext(getCachefn);
     const out = new Diagnoser(tcontext);
 
     return out;
@@ -33,76 +33,63 @@ export namespace DiagnoserUtillity {
 
   /**Creates the content for the diagnoser
    * @returns*/
-  export function CreateContext(): DiagnoserContext {
+  export function CreateContext(getCachefn: () => ProjectData): DiagnoserContext {
     //create context
-    const context: DiagnoserContext = {
-      getCache: getCache,
-      getDiagnoser: getDiagnoser,
-      getDocument: getDocument,
-      getFiles: getFiles,
-    };
-
-    return context;
-  }
-
-  /**
-   *
-   * @returns
-   */
-  function getCache() {
-    return Database.ProjectData;
-  }
-
-  /**gets a document diagnoser
-   * @param doc The document to make a diagnoser for
-   * @param project The project context
-   * @returns*/
-  function getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnosticsBuilder | undefined {
-    if (Glob.IsMatch(doc.uri, project.ignores.patterns)) {
-      Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
-      return undefined;
-    }
-
-    //Check if project disabled diagnostics
-    if (project.attributes["diagnostic.enable"] === "false") return undefined;
-    if (project.attributes["diagnostic" + path.extname(doc.uri)] === "false") return undefined;
-
-    return new _InternalDiagnoser(<vstd.TextDocument>doc, project, CreateContext());
-  }
-
-  export const CachedDocuments: DataCache<string, TextDocument | undefined> = new DataCache<string, TextDocument | undefined>();
-
-  /**
-   *
-   * @param uri
-   * @returns
-   */
-  function getDocument(uri: string): TextDocument | undefined {
-    //return CachedDocuments.getOrAdd(uri, GetDocument);
-    return GetDocument(uri);
+    return new _InternalDiagnoserContext(getCachefn);
   }
 
   type CachedFilesKey = { folder: string; patterns: string[]; ignores: string[] };
-  export const CachedPatternFiles: DataCache<string, string[]> = new DataCache<string, string[]>();
 
-  /**
-   *
-   * @param folder
-   * @param ignores
-   * @returns
-   */
-  function getFiles(folder: string, patterns: string[], ignores: MCIgnore): string[] {
-    //return Glob.GetFiles(patterns, ignores.patterns, folder);
+  class _InternalDiagnoserContext implements DiagnoserContext {
+    private getCachefn: () => ProjectData;
+    private CachedDocuments: DataCache<string, TextDocument | undefined>;
+    private CachedPatternFiles: DataCache<string, string[]>;
 
-    const key: CachedFilesKey = {
-      folder: folder,
-      patterns: patterns,
-      ignores: ignores.patterns,
-    };
+    constructor(getCachefn: () => ProjectData) {
+      this.getCachefn = getCachefn;
+      this.CachedDocuments = new DataCache<string, TextDocument | undefined>();
+      this.CachedPatternFiles = new DataCache<string, string[]>();
+    }
 
-    return CachedPatternFiles.getOrAdd(JSON.stringify(key), (data) => {
-      return Glob.GetFiles(patterns, ignores.patterns, folder);
-    });
+    /**gets a document diagnoser
+     * @param doc The document to make a diagnoser for
+     * @param project The project context
+     * @returns*/
+    getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnosticsBuilder | undefined {
+      if (Glob.IsMatch(doc.uri, project.ignores.patterns)) {
+        Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
+        return undefined;
+      }
+
+      //Check if project disabled diagnostics
+      if (project.attributes["diagnostic.enable"] === "false") return undefined;
+      if (project.attributes["diagnostic" + path.extname(doc.uri)] === "false") return undefined;
+
+      return new _InternalDiagnoser(<vstd.TextDocument>doc, project, this);
+    }
+
+    getDocument(uri: string): TextDocument | undefined {
+      //return CachedDocuments.getOrAdd(uri, GetDocument);
+      return GetDocument(uri);
+    }
+
+    getFiles(folder: string, patterns: string[], ignores: MCIgnore): string[] {
+      //return Glob.GetFiles(patterns, ignores.patterns, folder);
+
+      const key: CachedFilesKey = {
+        folder: folder,
+        patterns: patterns,
+        ignores: ignores.patterns,
+      };
+
+      return this.CachedPatternFiles.getOrAdd(JSON.stringify(key), (data) => {
+        return Glob.GetFiles(patterns, ignores.patterns, folder);
+      });
+    }
+
+    getCache(): ProjectData {
+      return this.getCachefn();
+    }
   }
 
   /**Make sure the given text document is from <vstd.TextDocument>*/
