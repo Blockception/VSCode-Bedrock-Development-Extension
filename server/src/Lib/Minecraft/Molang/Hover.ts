@@ -1,7 +1,7 @@
 import { MolangData } from "bc-minecraft-molang";
 import { Hover, HoverParams, Range } from "vscode-languageserver-protocol";
 import { Character } from "../../Code/Character";
-import { TextDocument } from "../../Types/Document/include";
+import { TextDocument } from "../../Types/Document/TextDocument";
 import { TextRange } from "../Json/Functions";
 
 export function ProvideHover(doc: TextDocument, params: HoverParams): Hover | undefined {

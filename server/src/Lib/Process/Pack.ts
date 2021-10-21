@@ -4,7 +4,7 @@ import { Fs } from "../Code/Url";
 import { Database } from "../Database/include";
 import { Console } from "../Manager/Console";
 import { MinecraftFormat } from "../Minecraft/Format";
-import { Document } from "../Types/include";
+import { ForEachDocument } from '../Types/Document/Document';
 
 /**
  *
@@ -13,7 +13,7 @@ import { Document } from "../Types/include";
 export function ProcessPack(pack: Pack): void {
   Console.Info(`Processing pack: ${Fs.FromVscode(pack.folder)}`);
 
-  const P = Document.ForEachDocument(MinecraftFormat.GetPackFiles(pack), (doc) => {
+  const P = ForEachDocument(MinecraftFormat.GetPackFiles(pack), (doc) => {
     Database.ProjectData.process(doc);
   });
 

@@ -1,5 +1,5 @@
 import { CodeAction, CodeActionParams, Command, Range } from "vscode-languageserver";
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument } from "../Types/Document/Document";
 
 /** */
 export class CodeActionBuilder {

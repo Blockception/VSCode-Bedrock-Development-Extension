@@ -12,6 +12,28 @@ import * as Modes from "../../Modes/include";
 import * as ResourcePack from "../../ResourcePack/include";
 import * as BehaviorPack from "../../BehaviorPack/include";
 
+export function ProvideCompletion(context: CommandCompletionContext): void {
+  const parameter = context.parameter;
+
+  //Check default option
+  if (parameter.options) {
+    //Accepted values
+    if (parameter.options.acceptedValues) {
+      parameter.options.acceptedValues.forEach((value) => {
+        context.receiver.Add(value, "accepted values", CompletionItemKind.Text);
+      });
+    }
+
+    //Wildcard
+    if (parameter.options.wildcard) {
+      context.receiver.Add("*", "wild card", CompletionItemKind.Constant);
+    }
+  }
+
+  const call = DataMap[context.parameter.type];
+  if (call) call(context);
+}
+
 function toCompletion(context: CommandCompletionContext): void {
   context.receiver.Add(context.parameter.text, "The keyword: " + context.parameter.text, CompletionItemKind.Keyword);
 }
@@ -76,24 +98,3 @@ const DataMap: { [index: number]: functioncall } = {
   [ParameterType.unknown]: undefined,
 };
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
-  const parameter = context.parameter;
-
-  //Check default option
-  if (parameter.options) {
-    //Accepted values
-    if (parameter.options.acceptedValues) {
-      parameter.options.acceptedValues.forEach((value) => {
-        context.receiver.Add(value, "accepted values", CompletionItemKind.Text);
-      });
-    }
-
-    //Wildcard
-    if (parameter.options.wildcard) {
-      context.receiver.Add("*", "wild card", CompletionItemKind.Constant);
-    }
-  }
-
-  const call = DataMap[context.parameter.type];
-  if (call) call(context);
-}

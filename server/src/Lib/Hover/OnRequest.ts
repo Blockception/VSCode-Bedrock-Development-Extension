@@ -2,7 +2,7 @@
 import { Hover, HoverParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { Json, Mcfunction, Molang } from '../Minecraft/include';
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument } from "../Types/Document/Document";
 
 /**
  *

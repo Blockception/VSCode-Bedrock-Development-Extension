@@ -10,7 +10,6 @@ import { Diagnostic } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
 import * as vstd from "vscode-languageserver-textdocument";
 import * as vscode from "vscode-languageserver";
-import { GetDocument, TextDocument } from "../Types/Document/include";
 import { Types } from "bc-minecraft-bedrock-types";
 import { Database } from "../Database/include";
 import { Glob } from "../Glob/include";
@@ -18,6 +17,8 @@ import { Console } from "../Manager/Console";
 import path from "path";
 import { GetRange } from "../Code/DocumentLocation";
 import { DataCache } from "../Types/Cache/Cache";
+import { TextDocument } from '../Types/Document/TextDocument';
+import { GetDocument } from '../Types/Document/Document';
 
 export namespace DiagnoserUtillity {
   /**Creates a new bedrock diagnoser

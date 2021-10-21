@@ -3,7 +3,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { Glob } from "../../Glob/Glob";
 import { Console } from "../../Manager/Console";
 import { Process } from "../../Process/Process";
-import { GetDocument } from "../../Types/Document/include";
+import { GetDocument } from '../../Types/Document/Document';
 
 export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
   return new Promise((resolve, reject) => {

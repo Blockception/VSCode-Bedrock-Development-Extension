@@ -4,7 +4,7 @@ import { Commands } from "../..//Constants";
 import { Vscode } from "../../Code/Url";
 import { Database } from "../../Database/Database";
 import { Console } from "../../Manager/Console";
-import { GetDocument } from "../../Types/Document/include";
+import { GetDocument } from "../../Types/Document/Document";
 import { CodeActionBuilder } from "../Builder";
 
 /**Adds a given type and value to the definition

@@ -1,6 +1,6 @@
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { Languages } from "../Constants";
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument } from "../Types/Document/Document";
 import { CompletionBuilder } from "./Builder";
 import { Json, Language, Mcfunction, MCProject, Molang } from "../Minecraft/include";
 import { SimpleContext } from "../Code/SimpleContext";

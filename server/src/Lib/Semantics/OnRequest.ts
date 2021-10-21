@@ -3,7 +3,7 @@ import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-language
 import { HandleError } from "../Code/Error";
 import { GetFilename } from "../Code/include";
 import { Languages } from "../Constants";
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument } from "../Types/Document/Document";
 import { ProvideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
 import { ProvideMolangSemanticTokens } from "../Minecraft/Molang/Semantics";
 import { Mcfunction } from "../Minecraft/include";

@@ -1,7 +1,7 @@
 import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { Json, Mcfunction } from '../Minecraft/include';
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument } from "../Types/Document/Document";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {
   return new Promise<Location[] | undefined>((resolve, reject) => {

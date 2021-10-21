@@ -3,7 +3,7 @@ import { SafeIDNoNamespace } from "../../../Data/Templates/Function";
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { context } from "../Context";
-import { GetDocuments } from "../../../Types/Document/include";
+import { MinecraftFormat } from "../../../Minecraft/Format";
 
 const { v4: uuid } = require("uuid");
 
@@ -117,10 +117,10 @@ export function create_terrain_texture_file(context: context, Builder: TemplateB
 export function create_texture_list_file(context: context, Builder: TemplateBuilder): void {
   const uri = path.join(context.ResourcePack(), "textures", "texture_list.json");
 
-  const Textures = GetDocuments(context.ResourcePack() + "textures/", ["**/*.png", "**/*.tga"]);
+  const Textures = MinecraftFormat.GetTextureFiles(context.ResourcePack() + "textures/", []);
 
   for (let I = 0; I < Textures.length; I++) {
-    let Texture = Textures[I];
+    let Texture = Textures[I].replace(/\\/gim, "/");
 
     let Index = Texture.indexOf("/textures/");
 

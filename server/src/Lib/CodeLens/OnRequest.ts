@@ -4,7 +4,8 @@ import { CodeLens, CodeLensParams } from "vscode-languageserver";
 import { GetPosition, GetRange } from "../Code/DocumentLocation";
 import { Database } from "../Database/include";
 import { Manager } from '../Manager/include';
-import { GetDocument, TextDocument } from "../Types/Document/include";
+import { GetDocument } from '../Types/Document/Document';
+import { TextDocument } from '../Types/Document/TextDocument';
 import { CodeLensBuilder } from "./Builder";
 
 /**

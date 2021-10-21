@@ -1,17 +1,17 @@
-import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
-import { OffsetWord } from 'bc-vscode-words';
-import { DefinitionParams } from 'vscode-languageserver';
-import { Location } from 'vscode-languageserver-types';
-import { References } from '../../../Code/References';
-import { Database } from '../../../include';
-import { IsEducationEnabled } from '../../../Project/Attributes';
-import { TextDocument } from '../../../Types/Document/include';
+import { Command, ParameterType } from "bc-minecraft-bedrock-command";
+import { OffsetWord } from "bc-vscode-words";
+import { DefinitionParams } from "vscode-languageserver";
+import { Location } from "vscode-languageserver-types";
+import { References } from "../../../Code/References";
+import { Database } from "../../../include";
+import { IsEducationEnabled } from "../../../Project/Attributes";
+import { TextDocument } from "../../../Types/Document/TextDocument";
 
-export function ProvideReferences(value : OffsetWord, params: DefinitionParams, doc : TextDocument) : Location[] | undefined {
-	const Line = value.text;
-	const offset = value.offset;
+export function ProvideReferences(value: OffsetWord, params: DefinitionParams, doc: TextDocument): Location[] | undefined {
+  const Line = value.text;
+  const offset = value.offset;
 
-	const com = Command.parse(Line, offset);
+  const com = Command.parse(Line, offset);
 
   const data = com.getBestMatch(IsEducationEnabled(doc));
 
@@ -38,6 +38,6 @@ export function ProvideReferences(value : OffsetWord, params: DefinitionParams, 
   if (Types.length == 0) return undefined;
 
   //TODO add selector references
-	const out : Location[] = [];
+  const out: Location[] = [];
   return References.ConvertLocation(Database.Database.FindReferences(Text, Types));
 }

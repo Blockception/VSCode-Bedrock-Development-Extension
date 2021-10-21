@@ -4,7 +4,7 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { URI } from "vscode-uri";
 import { Fs } from "../Code/Url";
 import { Manager } from "../Manager/Manager";
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument } from "../Types/Document/Document";
 
 /**
  *

@@ -4,7 +4,7 @@ import { Database } from "../Database/include";
 import { Console } from "../Manager/include";
 import { Manager } from "../Manager/Manager";
 import { MinecraftFormat } from "../Minecraft/Format";
-import { ForEachDocument } from "../Types/Document/include";
+import { ForEachDocument } from '../Types/Document/Document';
 import { TextDocument } from "../Types/Document/TextDocument";
 import { ProgressBar } from '../Types/Progress/ProgressBar';
 

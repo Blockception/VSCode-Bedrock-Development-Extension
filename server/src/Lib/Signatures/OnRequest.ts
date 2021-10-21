@@ -1,7 +1,7 @@
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { Language, Mcfunction } from "../Minecraft/include";
-import { GetDocument } from "../Types/Document/include";
+import { GetDocument } from "../Types/Document/Document";
 import { ProvideJsonSignature } from "./Json";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {

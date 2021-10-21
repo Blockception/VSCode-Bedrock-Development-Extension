@@ -1,6 +1,6 @@
 import { OffsetWord } from 'bc-vscode-words';
 import { DefinitionParams, Location, Position, ReferenceParams } from 'vscode-languageserver';
-import { TextDocument } from '../../Types/Document/include';
+import { TextDocument } from '../../Types/Document/TextDocument';
 import { Commands } from '../include';
 
 export function ProvideReferences(params: DefinitionParams | ReferenceParams, doc: TextDocument): Location[] | undefined {
