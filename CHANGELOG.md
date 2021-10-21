@@ -1,47 +1,52 @@
 # Changelog
 ## Plugin
-- Refactoring diagnoser to use caching mechanicms
-- Added progressbar to traversing and diagnostics
-- Reformatted
-- Adding data cache
-- Updated foreach with a reporting features
-- Added progressbar interaction
-- Added completion text
-- formatted
-- Removed cheat-sheets from readme
-- Updated readme
-- build(deps-dev): bump @types/node from 16.10.9 to 16.11.0
-- build(deps-dev): bump mocha from 9.1.2 to 9.1.3
-- Updated schemas
-- updated schemas
-- Updated schemas
-- Updated schemas
-- fixing ids for animations and controllers
-- Update dependabot.yml
-- build(deps-dev): bump @types/node from 16.10.5 to 16.10.9 in /client
-- build(deps): bump minecraft-bedrock-schemas from `3f4c171` to `d31ee56`. 
+- Updated bc-minecraft-bedrock-command
+- Update publish-universal-to-vscode.yml
+- Update publish-universal-to-vscode.yml
+- Fixing more references
+- Solving dependencies
+- Added sanity tests
+- Updated dependencies
+- Updating
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Refactoring dependencies
+- Refactoring dependencies
+- Removing circular dependency
+- Update generate-includes.yml
+- Removing circular dependencies
+- build(deps-dev): bump webpack from 5.58.2 to 5.59.0
+- Fixing scripts
+- Updated family testing. 
 ## Diagnotics
-- Added float postive diagnostics
-- Removing minecraft:movement dependencies
-- Fixing radius type check
-- Updating texture atlas checking code
-- Fixing TextureAtlas diagnostics
-- Added objective length limit
-- build(deps-dev): bump @types/node from 16.10.9 to 16.11.0
-- build(deps): bump bc-minecraft-bedrock-vanilla-data from 1.5.9 to 1.5.10
-- build(deps-dev): bump @types/node from 16.10.5 to 16.10.7
-- Updating selector diagnostics
-- Added positive only integer check
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.13 to 1.2.14
-- Update dependabot.yml
-- Fixing [Object object] rertuend
-- build(deps-dev): bump ts-node from 10.2.1 to 10.3.0
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.44 to 1.7.45
-- Update tagged-release.yml
-- Update tagged-release.yml
-- Updated workspace settings
-- Refactor for new molang package. 
+- Updated contributing
+- Update check-auto-patch.yml
+- Update check-auto-patch.yml
+- Update check-auto-patch.yml
+- Update check-auto-patch.yml
+- Update check-auto-patch.yml
+- Added general manifests checks
+- Added type checking for objects
+- formatted code
+- refactoring code
+- Added manifest code checking for bp and rp
+- removed empty
+- Enabled skinpack & worldpack diagnostics
+- Added work pack manifest checks
+- Added skinpack manifest check
+- Update check-auto-patch.yml
+- Update check-auto-patch.yml
+- Update check-auto-patch.yml
+- build(deps): bump bc-minecraft-molang from 1.1.3 to 1.1.4
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.47 to 1.7.49. 
 ## ProjectData
+- Updated contributing
+- Added skinpack filetype
+- Extending manifest behaviour
+- build(deps): bump bc-minecraft-molang from 1.1.2 to 1.1.3
+- Extended manifests
 - Bump bc-minecraft-bedrock-command from 1.2.13 to 1.2.14
 - Update dependabot.yml
 - Fixing error message for json loading
@@ -56,14 +61,12 @@
 - Refactor
 - Added a general state
 - Addings worlds
-- Removed unused vanilla-data
-- Fixing render controllers on entity
-- Updated entity RP processing
-- Fixing render controller parsing
-- Updated typescript config
-- Updated dependencies. 
+- Removed unused vanilla-data. 
 ## Schemas
+- Added animations examples
+- rebuild_animation_matrices Has been deprecrated
 - Updated manifest authors
+- Added generated-with
 - Removed undocementated
 - Updated examples for events
 - UPdated example for minecraft:health
@@ -80,6 +83,3 @@
 - Flattened animation controllers RP
 - Flattenede animation controllers
 - Adding examples
-- Fixing manifest to support gametests
-- Updating and fixing
-- Updated rawtext with examples
