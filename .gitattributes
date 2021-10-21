@@ -12,6 +12,8 @@ readme.md linguist-detectable=false
 *.json linguist-generated=false
 *.json linguist-documentation=false
 
+test/**/*.json linguist-vendored=true
+
 ## Detect
 *.png linguist-detectable=true
 *.jpg linguist-detectable=true
