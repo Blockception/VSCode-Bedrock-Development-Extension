@@ -1,12 +1,6 @@
 # Changelog
 ## Plugin
-- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3 in /server
-- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3 in /client
-- build(deps-dev): bump vsce from 1.100.1 to 1.100.2
-- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3
-- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1 in /client
-- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1 in /server
-- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1
+- Updated changelog
 - Update publish-universal-to-vscode.yml
 - Update publish-universal-to-vscode.yml
 - build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5 in /server
@@ -19,7 +13,13 @@
 - Fixing more references
 - Solving dependencies
 - Added sanity tests
-- Updated dependencies. 
+- Updated dependencies
+- Updating
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Update generate-includes.yml
+- Refactoring dependencies. 
 ## Diagnotics
 - Added entity checking
 - Added entity events checks
@@ -27,11 +27,8 @@
 - Refactor codes
 - Added script checking
 - Add more component checks
-- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3
 - build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
-- build(deps-dev): bump @types/node from 16.11.1 to 16.11.2
 - build(deps): bump bc-minecraft-bedrock-command from 1.2.14 to 1.2.15
-- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1
 - Update dependabot.yml
 - Updated contributing
 - Update check-auto-patch.yml
@@ -40,14 +37,14 @@
 - Update check-auto-patch.yml
 - Update check-auto-patch.yml
 - Added general manifests checks
-- Added type checking for objects. 
+- Added type checking for objects
+- formatted code
+- refactoring code
+- Added manifest code checking for bp and rp. 
 ## ProjectData
-- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1
-- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3
 - build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
 - Update dependabot.yml
 - Found an error on processing of sounds definitions
-- build(deps-dev): bump @types/node from 16.11.1 to 16.11.2
 - build(deps): bump bc-minecraft-bedrock-command from 1.2.14 to 1.2.15
 - Updated contributing
 - Added skinpack filetype
@@ -61,7 +58,10 @@
 - Refactor json casting code for better error output
 - Fixing tests
 - Updated getFiles context
-- Added commands. 
+- Added commands
+- Added todos for events
+- Create dependabot.yml
+- Updating structures and fake players. 
 ## Schemas
 - Added hide armor to RP entity
 - Added spawns_above_block_filter spawn rule
