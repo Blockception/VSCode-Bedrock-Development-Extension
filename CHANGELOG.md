@@ -1,26 +1,38 @@
 # Changelog
 ## Plugin
+- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3 in /server
+- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3 in /client
+- build(deps-dev): bump vsce from 1.100.1 to 1.100.2
+- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3
+- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1 in /client
+- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1 in /server
+- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1
+- Update publish-universal-to-vscode.yml
+- Update publish-universal-to-vscode.yml
+- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5 in /server
+- Updated schemas
+- Updated Attributes
+- Update publish-universal-to-vscode.yml
 - Updated bc-minecraft-bedrock-command
 - Update publish-universal-to-vscode.yml
 - Update publish-universal-to-vscode.yml
 - Fixing more references
 - Solving dependencies
 - Added sanity tests
-- Updated dependencies
-- Updating
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Refactoring dependencies
-- Refactoring dependencies
-- Removing circular dependency
-- Update generate-includes.yml
-- Removing circular dependencies
-- build(deps-dev): bump webpack from 5.58.2 to 5.59.0
-- Fixing scripts
-- Updated family testing. 
+- Updated dependencies. 
 ## Diagnotics
+- Added entity checking
+- Added entity events checks
+- Adding ranges checks for #40
+- Refactor codes
+- Added script checking
+- Add more component checks
+- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3
+- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
+- build(deps-dev): bump @types/node from 16.11.1 to 16.11.2
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.14 to 1.2.15
+- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1
+- Update dependabot.yml
 - Updated contributing
 - Update check-auto-patch.yml
 - Update check-auto-patch.yml
@@ -28,20 +40,15 @@
 - Update check-auto-patch.yml
 - Update check-auto-patch.yml
 - Added general manifests checks
-- Added type checking for objects
-- formatted code
-- refactoring code
-- Added manifest code checking for bp and rp
-- removed empty
-- Enabled skinpack & worldpack diagnostics
-- Added work pack manifest checks
-- Added skinpack manifest check
-- Update check-auto-patch.yml
-- Update check-auto-patch.yml
-- Update check-auto-patch.yml
-- build(deps): bump bc-minecraft-molang from 1.1.3 to 1.1.4
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.47 to 1.7.49. 
+- Added type checking for objects. 
 ## ProjectData
+- build(deps-dev): bump ts-node from 10.3.0 to 10.3.1
+- build(deps-dev): bump @types/node from 16.11.2 to 16.11.3
+- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
+- Update dependabot.yml
+- Found an error on processing of sounds definitions
+- build(deps-dev): bump @types/node from 16.11.1 to 16.11.2
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.14 to 1.2.15
 - Updated contributing
 - Added skinpack filetype
 - Extending manifest behaviour
@@ -54,32 +61,25 @@
 - Refactor json casting code for better error output
 - Fixing tests
 - Updated getFiles context
-- Added commands
-- Added todos for events
-- Create dependabot.yml
-- Updating structures and fake players
-- Refactor
-- Added a general state
-- Addings worlds
-- Removed unused vanilla-data. 
+- Added commands. 
 ## Schemas
+- Added hide armor to RP entity
+- Added spawns_above_block_filter spawn rule
+- Added disallow_spawns_in_bubble spawn rule
+- Removed version
+- Renamed
+- Flattened spawn rules
+- Added more properties to the projectile component
+- Added thrown_potion_effect to projectile.onhit
+- Updated regex
+- Added 1.17.40 to version numbers
+- MoLang -> Molang
+- Fixing block patterns #10
+- Updated offset to reflect documentation in projectile
+- Added excluded_items to pickup_items
+- Updated move to block
+- Updated knockbac_roar
+- Updated attributes
 - Added animations examples
 - rebuild_animation_matrices Has been deprecrated
 - Updated manifest authors
-- Added generated-with
-- Removed undocementated
-- Updated examples for events
-- UPdated example for minecraft:health
-- Updated schemas
-- Added more examples
-- Update compress-json-schemas.yml
-- Update compress-json-schemas.yml
-- Update compress-json-schemas.yml
-- Fixing references
-- Added examples for filters
-- Added base examples
-- Added base examples
-- Updated skins
-- Flattened animation controllers RP
-- Flattenede animation controllers
-- Adding examples
