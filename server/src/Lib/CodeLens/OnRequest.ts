@@ -3,9 +3,9 @@ import { Types } from "bc-minecraft-bedrock-types";
 import { CodeLens, CodeLensParams } from "vscode-languageserver";
 import { GetPosition, GetRange } from "../Code/DocumentLocation";
 import { Database } from "../Database/Database";
-import { Manager } from '../Manager/Manager';
-import { GetDocument } from '../Types/Document/Document';
-import { TextDocument } from '../Types/Document/TextDocument';
+import { Manager } from "../Manager/Manager";
+import { GetDocument } from "../Types/Document/Document";
+import { TextDocument } from "../Types/Document/TextDocument";
 import { CodeLensBuilder } from "./Builder";
 
 /**
