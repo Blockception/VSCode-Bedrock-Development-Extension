@@ -8,7 +8,8 @@ describe("Molang", () => {
       "variable.is_blinking = 0.0;",
       "variable.last_blink_time = 0.0;",
       "variable.hand_bob = 0.0;",
-      "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);"
+      "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
+      "variable.tcos1 = -variable.tcos0;"
     ];
 
 		shouldbe.forEach(item=>it(item, ()=>{
