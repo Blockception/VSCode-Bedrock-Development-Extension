@@ -15,18 +15,6 @@
     },
     {
       "type": "npm",
-      "script": "lint",
-      "isBackground": true,
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "label": "npm lint 'vscode-plugin'",
-      "presentation": { "reveal": "always", "panel": "dedicated" },
-      "problemMatcher": ["$eslint-stylish", "$eslint-compact"]
-    },
-    {
-      "type": "npm",
       "script": "compile",
       "isBackground": false,
       "group": "build",
