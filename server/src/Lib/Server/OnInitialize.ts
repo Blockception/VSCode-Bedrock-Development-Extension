@@ -1,7 +1,8 @@
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
-import { Commands } from "../Constants";
+import { Commands, Languages } from "../Constants";
 import { Console } from "../Manager/Console";
+import { Version } from "../include";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {
@@ -47,7 +48,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: false,
-        triggerCharacters: [" ", "\t", "[", "=", ",", "."],
+        triggerCharacters: [" ", "\t", "[", "=", ",", ".", "/", "@"],
       },
 
       // Tell the client that this server supports go to references
@@ -55,10 +56,23 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         workDoneProgress: true,
       },
 
+      // Tell the client that this server supports go to implementation
+      implementationProvider: {
+        documentSelector: [
+          { language: Languages.JsonCIdentifier },
+          { language: Languages.JsonIdentifier },
+          { language: Languages.McFunctionIdentifier },
+          { language: Languages.McLanguageIdentifier },
+          { language: Languages.McMolangIdentifier },
+          { language: Languages.McOtherIdentifier },
+          { language: Languages.McProjectIdentifier },
+        ],
+      },
+
       // Tell the client that this server supports signatures
       signatureHelpProvider: {
-        triggerCharacters: [" "],
-        retriggerCharacters: [" ", "\t"],
+        triggerCharacters: [" ", "\t", "@", "/"],
+        retriggerCharacters: [" ", "\t", "@", "/"],
         workDoneProgress: true,
       },
 
@@ -76,7 +90,8 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       },
     },
     serverInfo: {
-      name: "BC-minecraft-language-server",
+      name: "bc-minecraft-language-server",
+      version: Version,
     },
   };
 

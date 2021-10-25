@@ -15,7 +15,7 @@ export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Prom
   });
 }
 
-function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
+export function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 

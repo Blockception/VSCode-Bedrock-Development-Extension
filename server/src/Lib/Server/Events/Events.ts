@@ -14,6 +14,7 @@ import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, On
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync, OnCodeLensResolveRequestAsync } from "../../CodeLens/OnRequest";
 import { OnConfigurationChanged } from '../Settings/Update';
+import { onImplementationRequestAsync } from '../../Implementation/OnRequest';
 
 /**
  * Setup the server events
@@ -40,6 +41,7 @@ export function setEvents() {
   // This handler provides completion items.
   Connection.onCompletion(OnCompletionRequestAsync);
   //Connection.onCompletionResolve(OnCompletionResolveRequestAsync);
+  Connection.onImplementation(onImplementationRequestAsync);
 
   // This handler provides go to definitions
   Connection.onDefinition(onDefinitionRequestAsync);
@@ -80,3 +82,6 @@ export function setEvents() {
     Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
   }
 }
+
+
+
