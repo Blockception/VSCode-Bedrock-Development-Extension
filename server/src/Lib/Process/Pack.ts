@@ -3,13 +3,13 @@ import { Fs } from "../Code/Url";
 import { Database } from "../Database/Database";
 import { Console } from "../Manager/Console";
 import { MinecraftFormat } from "../Minecraft/Format";
-import { ForEachDocument } from '../Types/Document/Document';
+import { ForEachDocument } from "../Types/Document/Document";
 
 /**
  *
  * @param pack
  */
-export function ProcessPack(pack: Pack): void {
+export function ProcessPack(pack: Pack): Promise<string[]> {
   Console.Info(`Processing pack: ${Fs.FromVscode(pack.folder)}`);
 
   const P = ForEachDocument(MinecraftFormat.GetPackFiles(pack), (doc) => {
@@ -24,4 +24,6 @@ export function ProcessPack(pack: Pack): void {
       pack.process({ getText: emptyText, uri: item });
     });
   }
+
+  return P;
 }

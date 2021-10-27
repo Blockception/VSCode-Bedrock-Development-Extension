@@ -1,5 +1,5 @@
+import { QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
-import { ResourceOperationKind } from "vscode-languageserver-protocol";
 import { HandleError } from "../Code/Error";
 import { ProvidePackDiagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Manager/Console";
@@ -39,19 +39,26 @@ async function TraverseProcess(reporter: ProgressBar): Promise<Pack[]> {
 
     reporter.sendMessage("Diagnosing");
 
-    for (let I = 0; I < packs.length; I++) {
-      ProvidePackDiagnostics(packs[I], reporter);
+    const processor = new QueueProcessor(packs, (pack) => {
+      const p = ProvidePackDiagnostics(pack, reporter);
 
       reporter.addValue(1);
       reporter.sendProgress();
-    }
 
-    Console.Info("Diagnostics completed");
-    reporter.done();
+      return new Promise<void>((resolve, reject) => {
+        p.then((values) => resolve());
+        p.catch((err) => reject());
+      });
+    });
 
-    const end_time = Date.now();
-    const span = new Date(end_time - start_time);
-    Console.Info(`Took: ${span.getMinutes()}:${span.getSeconds()}:${span.getMilliseconds()} for ${reporter.getMaximum()} items`);
+    processor.finally(() => {
+      Console.Info("Diagnostics completed");
+      reporter.done();
+
+      const end_time = Date.now();
+      const span = new Date(end_time - start_time);
+      Console.Info(`Took: ${span.getMinutes()}:${span.getSeconds()}:${span.getMilliseconds()} for ${reporter.getMaximum()} items`);
+    });
   });
 
   return out;

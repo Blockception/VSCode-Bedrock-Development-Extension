@@ -1,3 +1,4 @@
+import { QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
@@ -90,7 +91,7 @@ export namespace Workspace {
    * @param folder
    * @returns
    */
-  export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
+  export function TraverseWorkspace(folder: WorkspaceFolder): Promise<Pack[]> {
     const folderpath = Fs.FromVscode(folder.uri);
     Console.Info("Traversing workspace: " + folderpath);
 
@@ -101,9 +102,14 @@ export namespace Workspace {
     const packs = Database.ProjectData.addPack(manifests, project);
 
     //Process each pack
-    packs.forEach(ProcessPack);
+    const processor = new QueueProcessor(packs, pack=>{
+      const p = ProcessPack(pack);
 
-    return packs;
+      return new Promise<void>()
+    });
+    
+
+    return processor;
   }
 }
 
