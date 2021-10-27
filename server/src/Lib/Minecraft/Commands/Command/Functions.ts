@@ -8,7 +8,7 @@ export function GetPossibleEntityTypes(command: Command, maxIndex: number): stri
   for (let I = 0; I < data.length; I++) {
     const data_item = data[I];
 
-    const max = Math.min(data_item.parameters.length, maxIndex - 1);
+    const max = Math.min(data_item.parameters.length, maxIndex);
     for (let J = 0; J < max; J++) {
       const p = data_item.parameters[J];
 
@@ -25,4 +25,24 @@ export function GetPossibleEntityTypes(command: Command, maxIndex: number): stri
   }
 
   return out;
+}
+
+export function GetPossibleBlockID(command: Command, maxIndex: number): string | undefined {
+  const data = command.getBestMatch();
+
+  for (let I = 0; I < data.length; I++) {
+    const data_item = data[I];
+
+    const max = Math.min(data_item.parameters.length, maxIndex);
+    for (let J = 0; J < max; J++) {
+      const p = data_item.parameters[J];
+
+      switch (p.type) {
+        case ParameterType.block:
+          return command.parameters[J].text;
+      }
+    }
+  }
+
+  return undefined;
 }

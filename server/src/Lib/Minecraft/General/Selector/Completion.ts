@@ -156,17 +156,24 @@ export function IsFakePlayer(text: string): boolean {
 
 /**
  *
- * @param selector
+ * @param value
  * @param pos
  * @returns
  */
-export function IsEditingValue(selector: OffsetWord, pos: number): boolean {
-  const diff = pos - selector.offset;
+export function IsEditingValue(value: OffsetWord, pos: number): boolean {
+  pos = pos - value.offset;
 
-  if (diff > 0) {
-    if (selector.text.charAt(diff - 1) === "=") {
-      return true;
+  if (pos < 0) return false;
+
+  const equals = value.text.indexOf("=");
+  if (equals > -1 && pos > equals) {
+    const comma = value.text.indexOf(",");
+
+    if (comma > -1) {
+      if (pos > comma) return false;
     }
+
+    return true;
   }
 
   return false;
