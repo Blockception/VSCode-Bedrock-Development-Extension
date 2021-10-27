@@ -1,5 +1,11 @@
 # Changelog
 ## Plugin
+- Adding completion text for blockstates
+- Updated schemas
+- Added more tets
+- Removed lint
+- Formatted
+- Includes more molang test scenarios
 - Updated changelog
 - Update publish-universal-to-vscode.yml
 - Update publish-universal-to-vscode.yml
@@ -13,14 +19,11 @@
 - Fixing more references
 - Solving dependencies
 - Added sanity tests
-- Updated dependencies
-- Updating
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Update generate-includes.yml
-- Refactoring dependencies. 
+- Updated dependencies. 
 ## Diagnotics
+- Fixing regex matchin in json error parsing
+- Add more advancded json handling
+- Improved diagnostic path provision for entity events
 - Added entity checking
 - Added entity events checks
 - Adding ranges checks for #40
@@ -37,11 +40,9 @@
 - Update check-auto-patch.yml
 - Update check-auto-patch.yml
 - Added general manifests checks
-- Added type checking for objects
-- formatted code
-- refactoring code
-- Added manifest code checking for bp and rp. 
+- Added type checking for objects. 
 ## ProjectData
+- Fixing sounds definitions crash
 - build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
 - Update dependabot.yml
 - Found an error on processing of sounds definitions
@@ -60,9 +61,14 @@
 - Updated getFiles context
 - Added commands
 - Added todos for events
-- Create dependabot.yml
-- Updating structures and fake players. 
+- Create dependabot.yml. 
 ## Schemas
+- Fixing sounds_definitions
+- Updating sound definitions
+- Added more to projectile
+- Fixing projectile
+- Fixing additiona properties
+- Fixed title
 - Added hide armor to RP entity
 - Added spawns_above_block_filter spawn rule
 - Added disallow_spawns_in_bubble spawn rule
@@ -77,9 +83,3 @@
 - Fixing block patterns #10
 - Updated offset to reflect documentation in projectile
 - Added excluded_items to pickup_items
-- Updated move to block
-- Updated knockbac_roar
-- Updated attributes
-- Added animations examples
-- rebuild_animation_matrices Has been deprecrated
-- Updated manifest authors
