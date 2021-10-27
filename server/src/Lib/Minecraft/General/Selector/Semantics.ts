@@ -1,4 +1,4 @@
-import { Selector, SelectorAttribute } from "bc-minecraft-bedrock-types/lib/src/Minecraft/include";
+import { Minecraft } from "bc-minecraft-bedrock-types";
 import { OffsetWord } from "bc-vscode-words";
 import { McfunctionSemanticTokensBuilder } from "../../../Semantics/Builders/McfunctionSemanticTokensBuilder";
 import { CreateNamespaced, CreateRangeTokensWord } from "../../../Semantics/Functions";
@@ -6,7 +6,7 @@ import { SemanticModifiersEnum, SemanticTokensEnum } from "../../../Semantics/Le
 
 export function CreateSelectorTokens(word: OffsetWord, Builder: McfunctionSemanticTokensBuilder): void {
   if (word.text.startsWith("@")) {
-    const sel = Selector.parse(word.text, word.offset);
+    const sel = Minecraft.Selector.parse(word.text, word.offset);
 
     Builder.Add(word.offset, word.offset + 2, SemanticTokensEnum.enumMember, SemanticModifiersEnum.static);
 
@@ -17,7 +17,7 @@ export function CreateSelectorTokens(word: OffsetWord, Builder: McfunctionSemant
   }
 }
 
-function ProcessParameters(Parameters: SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
+function ProcessParameters(Parameters: Minecraft.SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
   for (let I = 0; I < Parameters.length; I++) {
     const parameter = Parameters[I];
 
@@ -25,7 +25,7 @@ function ProcessParameters(Parameters: SelectorAttribute[], Builder: McfunctionS
   }
 }
 
-function ProcessScoreParameters(Parameters: SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
+function ProcessScoreParameters(Parameters: Minecraft.SelectorAttribute[], Builder: McfunctionSemanticTokensBuilder): void {
   for (let I = 0; I < Parameters.length; I++) {
     let parameter = Parameters[I];
 
@@ -35,7 +35,7 @@ function ProcessScoreParameters(Parameters: SelectorAttribute[], Builder: Mcfunc
   }
 }
 
-function CreateTokens(Parameter: SelectorAttribute, Builder: McfunctionSemanticTokensBuilder): void {
+function CreateTokens(Parameter: Minecraft.SelectorAttribute, Builder: McfunctionSemanticTokensBuilder): void {
   //process header
   const Name = new OffsetWord(Parameter.name, Parameter.offset);
   const Value = new OffsetWord(Parameter.value, Name.offset + Name.text.length + 1);

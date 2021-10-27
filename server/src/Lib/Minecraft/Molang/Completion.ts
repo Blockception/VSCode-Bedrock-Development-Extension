@@ -13,7 +13,8 @@ import * as Geometry from "./Geometry/Completion";
 import * as Texture from "./Texture/Completion";
 
 import { GetPreviousWord, IsMolang } from './Functions';
-import { BehaviorPack, ResourcePack } from '../include';
+import * as BehaviorPack from '../BehaviorPack/include';
+import * as ResourcePack from '../ResourcePack/include';
 
 export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const doc = context.doc;

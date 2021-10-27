@@ -1,4 +1,4 @@
-import { Manifest } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/include";
+import { Internal } from "bc-minecraft-bedrock-project";
 import { writeFile } from "fs";
 import { Fs, Vscode } from "../../../Code/Url";
 import { ToolIdentification } from "../../../Constants";
@@ -22,9 +22,9 @@ export function AddBlockception(uri: string): void {
 
   if (doc === undefined) return;
 
-  const manifest = doc.CastTo<Manifest>();
+  const manifest = doc.CastTo<Internal.Manifest>();
 
-  if (!Manifest.is(manifest)) return;
+  if (!Internal.Manifest.is(manifest)) return;
 
   let save = false;
   let metadata = manifest.metadata;

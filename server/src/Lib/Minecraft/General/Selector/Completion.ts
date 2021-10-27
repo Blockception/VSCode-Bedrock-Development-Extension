@@ -3,12 +3,12 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { IsEducationEnabled } from "../../../Project/Attributes";
-import * as FakeEntity from "../FakeEntity/include";
+import * as FakeEntity from "../FakeEntity/Completion";
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SelectorType";
 
-import * as AttributeValue from "./AttributeValue/include";
-import * as Attributes from "./Attributes/include";
-import * as Scores from "./Scores/include";
+import * as AttributeValue from "./AttributeValue/Completion";
+import * as Attributes from "./Attributes/Completion";
+import * as Scores from "./Scores/Completion";
 
 /**
  *

@@ -1,6 +1,14 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { CommandCompletionContext } from '../../../../Completion/Context';
-import { BehaviorPack, General, Modes } from "../../../include";
+import { CommandCompletionContext } from "../../../../Completion/Context";
+
+import * as Entities from "../../../BehaviorPack/Entities/Completion";
+import * as Family from "../../../BehaviorPack/Family/Completion";
+import * as Modes from "../../../Modes/include";
+
+import * as Integer from "../../../General/Integer/include";
+import * as Names from "../../../General/Names/include";
+import * as Float from "../../../General/Float/include";
+import * as Tag from "../../../General/Tag/include";
 
 //Doesnt do scores and doesnt need to
 export function ProvideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
@@ -22,14 +30,14 @@ export function ProvideCompletion(context: CommandCompletionContext, attribute: 
       return;
 
     case "family":
-      BehaviorPack.Family.ProvideCompletionTest(context);
+      Family.ProvideCompletionTest(context);
       return;
 
     case "r":
     case "rm":
     case "lm":
     case "l":
-      General.Integer.ProvideCreateCompletion(receiver, 0, 100);
+      Integer.ProvideCreateCompletion(receiver, 0, 100);
       return;
 
     case "m":
@@ -37,23 +45,23 @@ export function ProvideCompletion(context: CommandCompletionContext, attribute: 
       return;
 
     case "name":
-      General.Names.ProvideCompletion(context);
+      Names.ProvideCompletion(context);
       return;
 
     case "rx":
     case "rxm":
     case "ry":
     case "rym":
-      General.Float.ProvideCreateCompletion(receiver, -180, 180);
+      Float.ProvideCreateCompletion(receiver, -180, 180);
       return;
 
     case "tag":
-      General.Tag.ProvideCompletionTest(context);
+      Tag.ProvideCompletionTest(context);
       return;
 
     case "type":
       if (forEntities) {
-        BehaviorPack.Entities.ProvideCompletion(context);
+        Entities.ProvideCompletion(context);
       }
       return;
 

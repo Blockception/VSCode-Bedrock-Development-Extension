@@ -1,6 +1,6 @@
 import { JsonCompletionContext } from "../../Completion/Context";
-import { Sound } from "../General/include";
-import * as Textures from "./Textures/include";
+import * as Sound from "../General/Sound/Completion";
+import * as Textures from "./Textures/Completion";
 
 export function ProvideCompletion(context: JsonCompletionContext) {
   //Prepare data to be fixed for json

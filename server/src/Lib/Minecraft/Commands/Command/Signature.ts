@@ -4,7 +4,7 @@ import { ParameterInformation, SignatureHelp, SignatureInformation } from "vscod
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { SignatureCarrier } from "../../../Signatures/Carrier";
 import { TextDocument } from "../../../Types/Document/TextDocument";
-import { RawText } from "../../Json/include";
+import * as RawText from "../../Json/RawText/Signature";
 
 export function ProvideSignature(Line: string, StartOffset: number, cursorOffset: number, doc: TextDocument): SignatureHelp | undefined {
   let command: Command = Command.parse(Line, StartOffset);

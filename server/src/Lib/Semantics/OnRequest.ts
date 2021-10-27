@@ -1,12 +1,11 @@
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
-import { HandleError } from "../Code/Error";
-import { GetFilename } from "../Code/include";
+import { GetFilename, HandleError } from "../Code/include";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/Document";
 import { ProvideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
 import { ProvideMolangSemanticTokens } from "../Minecraft/Molang/Semantics";
-import { Mcfunction } from "../Minecraft/include";
+import * as Mcfunction from "../Minecraft/Mcfunction/Semantics";
 import { Console } from "../Manager/Console";
 
 export function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
