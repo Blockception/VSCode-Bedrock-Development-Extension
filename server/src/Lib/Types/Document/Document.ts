@@ -118,7 +118,6 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
   });
 
   const temp: { _batchsize: number } = <{ _batchsize: number }>(<unknown>processor);
-
   Console.Info(`Processing ${uris.length} files with batchsize: ${temp._batchsize}`);
 
   return processor;
