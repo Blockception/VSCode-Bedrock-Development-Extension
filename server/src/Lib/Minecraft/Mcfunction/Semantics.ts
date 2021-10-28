@@ -1,7 +1,7 @@
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { McfunctionSemanticTokensBuilder } from "../../Semantics/Builders/McfunctionSemanticTokensBuilder";
-import { CreateNamespaced, CreateRangeTokensWord } from "../../Semantics/include";
+import { CreateNamespaced, CreateRangeTokensWord } from "../../Semantics/Functions";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Semantics/Legend";
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { IsEducationEnabled } from "../../Project/Attributes";

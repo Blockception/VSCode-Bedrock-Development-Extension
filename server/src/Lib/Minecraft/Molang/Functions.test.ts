@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { IsMolang } from './Functions';
+import { expect } from "chai";
+import { IsMolang } from "./Functions";
 
 describe("Molang", () => {
   describe("IsMolang", () => {
@@ -9,11 +9,13 @@ describe("Molang", () => {
       "variable.last_blink_time = 0.0;",
       "variable.hand_bob = 0.0;",
       "variable.first_person_rotation_factor = math.sin((1 - variable.attack_time) * 180.0);",
-      "variable.tcos1 = -variable.tcos0;"
+      "variable.tcos1 = -variable.tcos0;",
     ];
 
-		shouldbe.forEach(item=>it(item, ()=>{
-			expect(IsMolang(item)).to.be.true;
-		}));
+    shouldbe.forEach((item) =>
+      it(item, () => {
+        expect(IsMolang(item)).to.be.true;
+      })
+    );
   });
 });

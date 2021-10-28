@@ -2,7 +2,7 @@ import { Hover } from "vscode-languageserver";
 import { HoverParams, Range } from "vscode-languageserver-protocol";
 import { Database } from "../../Database/Database";
 import { TextDocument } from "../../Types/Document/TextDocument";
-import { Molang } from "../include";
+import * as Molang from "../Molang/Hover";
 import { IsMolang } from "../Molang/Functions";
 import { GetCurrentString } from './Functions';
 

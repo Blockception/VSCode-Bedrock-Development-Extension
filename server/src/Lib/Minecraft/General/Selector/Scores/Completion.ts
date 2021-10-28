@@ -1,8 +1,8 @@
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Offset, SimpleContext } from "../../../../Code/include";
-import { CompletionBuilder } from "../../../../Completion/include";
-import { General } from "../../../include";
+import { CompletionBuilder } from "../../../../Completion/Builder";
+import * as Objectives from "../../../General/Objectives/Completion";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {
   const receiver = context.receiver;
@@ -23,7 +23,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, sel
       if (old_event) old_event(item);
     };
 
-    General.Objectives.ProvideCompletion(context);
+    Objectives.ProvideCompletion(context);
     receiver.OnNewItem = old_event;
   }
 }

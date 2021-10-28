@@ -1,7 +1,7 @@
 import { JsonCompletionContext } from "../../Completion/Context";
 
-import * as LootTables from "./LootTables/include";
-import * as Trading from "./Trading/include";
+import * as LootTables from "./LootTables/Completion";
+import * as Trading from "./Trading/Completion";
 
 export function ProvideCompletion(context: JsonCompletionContext) {
   //Prepare data to be fixed for json
