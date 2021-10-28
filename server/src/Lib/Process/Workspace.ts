@@ -5,6 +5,6 @@ import { Workspace } from "../Workspace/Workspace";
 /**
  * @deprecated use TraverseWorkspace
  */
-export function ProcessWorkspace(ws: WorkspaceFolder): Pack[] {
+export function ProcessWorkspace(ws: WorkspaceFolder): Promise<Pack[]> {
   return Workspace.TraverseWorkspace(ws);
 }

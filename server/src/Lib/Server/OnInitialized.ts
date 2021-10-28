@@ -2,7 +2,7 @@ import { InitializedParams } from "vscode-languageserver";
 import { Console } from "../Manager/Console";
 import { Traverse } from "../Process/Traverse";
 import { SetDynamicEvents } from "./Events/Dynamic";
-import { UpdateSettings } from './Settings/Update';
+import { UpdateSettings } from "./Settings/Update";
 
 export async function onInitializedAsync(params: InitializedParams): Promise<void> {
   return new Promise<void>((resolve, reject) => {
@@ -20,7 +20,6 @@ function onInitialized(params: InitializedParams): void {
   //Registers any follow ups
   SetDynamicEvents();
 
-  //For debug purposes use the timeout version
-  Traverse();
-  //setTimeout(Traverse, 5000);
+  //For debug purposes use a higher delay version
+  setTimeout(Traverse, 0);
 }

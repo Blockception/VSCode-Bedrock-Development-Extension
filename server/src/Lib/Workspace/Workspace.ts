@@ -1,3 +1,4 @@
+import { PromiseUtility, QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
@@ -17,16 +18,18 @@ export namespace Workspace {
   /**
    *
    */
-  export function CreateMCProject(): Promise<void> {
-    return Workspace.GetWorkSpaces().then(processWorkspace);
+  export async function CreateMCProject(): Promise<void> {
+    const ws = await Workspace.GetWorkSpaces();
+    return processWorkspace(ws);
   }
 
   /**
    *
    * @returns
    */
-  export function UpdateProjectInfo(): Promise<void> {
-    return Workspace.GetWorkSpaces().then(processWorkspace);
+  export async function UpdateProjectInfo(): Promise<void> {
+    const ws = await Workspace.GetWorkSpaces();
+    return processWorkspace(ws);
   }
 
   /**
@@ -76,21 +79,28 @@ export namespace Workspace {
   /**Retrieves all the packs from the workspaces and process the document
    * @param folders
    */
-  export function TraverseWorkspaces(folders: WorkspaceFolder[]): Pack[] {
-    const out: Pack[] = [];
+  export function TraverseWorkspaces(folders: WorkspaceFolder[]): Promise<Pack[]> {
+    const packs: Pack[] = [];
 
-    folders.forEach((ws) => {
-      out.push(...TraverseWorkspace(ws));
+    const processor = new QueueProcessor(folders, (ws) => {
+      const p = TraverseWorkspace(ws);
+
+      p.then((ps) => packs.push(...ps));
+
+      return PromiseUtility.ToVoid(p);
     });
 
-    return out;
+    return new Promise<Pack[]>((resolve, reject) => {
+      processor.then((ws) => resolve(packs));
+      processor.catch((reason) => reject(reason));
+    });
   }
 
   /**Retrieves all the packs from the workspace and process the document
    * @param folder
    * @returns
    */
-  export function TraverseWorkspace(folder: WorkspaceFolder): Pack[] {
+  export function TraverseWorkspace(folder: WorkspaceFolder): Promise<Pack[]> {
     const folderpath = Fs.FromVscode(folder.uri);
     Console.Info("Traversing workspace: " + folderpath);
 
@@ -101,9 +111,13 @@ export namespace Workspace {
     const packs = Database.ProjectData.addPack(manifests, project);
 
     //Process each pack
-    packs.forEach(ProcessPack);
+    const processor = new QueueProcessor(packs, (pack) => {
+      const p = ProcessPack(pack);
 
-    return packs;
+      return PromiseUtility.ToVoid(p);
+    });
+
+    return processor;
   }
 }
 

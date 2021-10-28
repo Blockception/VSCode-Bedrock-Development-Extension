@@ -4,10 +4,10 @@ import { Manager } from "../../Manager/Manager";
 import { Languages } from "../../Constants";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { Glob } from "../../Glob/Glob";
 import { HandleError } from "../../Code/Error";
 import { Fs, Vscode } from "../../Code/Url";
 import { ProgressBar } from "../Progress/ProgressBar";
+import { QueueBatchProcessor } from "@daanv2/queue-processor";
 
 /**Returns an usable document interaction from the given data.
  * @param uri The url to the document to retrieve.
@@ -95,13 +95,12 @@ export function IdentifyDoc(uri: string): string {
  * @param uris
  * @param callback
  */
-export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void, reporter?: ProgressBar): void {
+export function ForEachDocument(uris: string[], callback: (doc: TextDocument) => void, reporter?: ProgressBar): Promise<string[]> {
   if (reporter) {
     reporter.addMaximum(uris.length);
   }
 
-  for (let index = 0; index < uris.length; index++) {
-    const element = uris[index];
+  const processor = new QueueBatchProcessor(uris, (element) => {
     const doc = GetDocument(element);
 
     try {
@@ -114,18 +113,12 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
       reporter.addValue();
       reporter.sendProgress();
     }
-  }
-}
+  });
 
-/**
- *
- * @param folder
- * @param pattern
- * @param ignores
- * @returns
- */
-export function GetDocuments(folder: string, pattern: string | string[], ignores: string[] | undefined = undefined): string[] {
-  return Glob.GetFiles(pattern, ignores, folder);
+  //const temp: { _batchsize: number } = <{ _batchsize: number }>(<unknown>processor);
+  //Console.Info(`Processing ${uris.length} files with batchsize: ${temp._batchsize}`);
+
+  return processor;
 }
 
 /**
