@@ -1,4 +1,4 @@
-import { QueueProcessor } from "@daanv2/queue-processor";
+import { PromiseUtility, QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
@@ -18,16 +18,18 @@ export namespace Workspace {
   /**
    *
    */
-  export function CreateMCProject(): Promise<void> {
-    return Workspace.GetWorkSpaces().then(processWorkspace);
+  export async function CreateMCProject(): Promise<void> {
+    const ws = await Workspace.GetWorkSpaces();
+    return processWorkspace(ws);
   }
 
   /**
    *
    * @returns
    */
-  export function UpdateProjectInfo(): Promise<void> {
-    return Workspace.GetWorkSpaces().then(processWorkspace);
+  export async function UpdateProjectInfo(): Promise<void> {
+    const ws = await Workspace.GetWorkSpaces();
+    return processWorkspace(ws);
   }
 
   /**
@@ -77,14 +79,21 @@ export namespace Workspace {
   /**Retrieves all the packs from the workspaces and process the document
    * @param folders
    */
-  export function TraverseWorkspaces(folders: WorkspaceFolder[]): Pack[] {
-    const out: Pack[] = [];
+  export function TraverseWorkspaces(folders: WorkspaceFolder[]): Promise<Pack[]> {
+    const packs: Pack[] = [];
 
-    folders.forEach((ws) => {
-      out.push(...TraverseWorkspace(ws));
+    const processor = new QueueProcessor(folders, (ws) => {
+      const p = TraverseWorkspace(ws);
+
+      p.then((ps) => packs.push(...ps));
+
+      return PromiseUtility.ToVoid(p);
     });
 
-    return out;
+    return new Promise<Pack[]>((resolve, reject) => {
+      processor.then((ws) => resolve(packs));
+      processor.catch((reason) => reject(reason));
+    });
   }
 
   /**Retrieves all the packs from the workspace and process the document
@@ -102,12 +111,11 @@ export namespace Workspace {
     const packs = Database.ProjectData.addPack(manifests, project);
 
     //Process each pack
-    const processor = new QueueProcessor(packs, pack=>{
+    const processor = new QueueProcessor(packs, (pack) => {
       const p = ProcessPack(pack);
 
-      return new Promise<void>()
+      return PromiseUtility.ToVoid(p);
     });
-    
 
     return processor;
   }
