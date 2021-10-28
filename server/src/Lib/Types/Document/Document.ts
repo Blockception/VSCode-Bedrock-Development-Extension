@@ -4,12 +4,10 @@ import { Manager } from "../../Manager/Manager";
 import { Languages } from "../../Constants";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { Glob } from "../../Glob/Glob";
 import { HandleError } from "../../Code/Error";
 import { Fs, Vscode } from "../../Code/Url";
 import { ProgressBar } from "../Progress/ProgressBar";
 import { QueueBatchProcessor } from "@daanv2/queue-processor";
-import { Console } from "../../Manager/Console";
 
 /**Returns an usable document interaction from the given data.
  * @param uri The url to the document to retrieve.
@@ -117,8 +115,8 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
     }
   });
 
-  const temp: { _batchsize: number } = <{ _batchsize: number }>(<unknown>processor);
-  Console.Info(`Processing ${uris.length} files with batchsize: ${temp._batchsize}`);
+  //const temp: { _batchsize: number } = <{ _batchsize: number }>(<unknown>processor);
+  //Console.Info(`Processing ${uris.length} files with batchsize: ${temp._batchsize}`);
 
   return processor;
 }
