@@ -1,8 +1,13 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
+- Pruned
+- Fixing dependecies
 - Adding completion text for blockstates
 - Updated schemas
 - Added more tets
+- Adding queue processing to diagnostics
 - Removed lint
 - Formatted
 - Includes more molang test scenarios
@@ -14,13 +19,14 @@
 - Updated Attributes
 - Update publish-universal-to-vscode.yml
 - Updated bc-minecraft-bedrock-command
-- Update publish-universal-to-vscode.yml
-- Update publish-universal-to-vscode.yml
-- Fixing more references
-- Solving dependencies
-- Added sanity tests
-- Updated dependencies. 
+- Update publish-universal-to-vscode.yml. 
 ## Diagnotics
+- Added minimum engine version checks for BP
+- Updated sound diagnostics
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
+- updating sound diagnostics
+- Refactor for molang
+- Updated diagnostics
 - Fixing regex matchin in json error parsing
 - Add more advancded json handling
 - Improved diagnostic path provision for entity events
@@ -34,14 +40,12 @@
 - build(deps): bump bc-minecraft-bedrock-command from 1.2.14 to 1.2.15
 - Update dependabot.yml
 - Updated contributing
-- Update check-auto-patch.yml
-- Update check-auto-patch.yml
-- Update check-auto-patch.yml
-- Update check-auto-patch.yml
-- Update check-auto-patch.yml
-- Added general manifests checks
-- Added type checking for objects. 
+- Update check-auto-patch.yml. 
 ## ProjectData
+- Updated manifests
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
+- Updated molang
+- Refactor for molang
 - Fixing sounds definitions crash
 - build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
 - Update dependabot.yml
@@ -57,12 +61,10 @@
 - Fixing error message for json loading
 - Better error handling output
 - Refactor json casting code for better error output
-- Fixing tests
-- Updated getFiles context
-- Added commands
-- Added todos for events
-- Create dependabot.yml. 
+- Fixing tests. 
 ## Schemas
+- Updated languages.json
+- foot_size is removed
 - Fixing sounds_definitions
 - Updating sound definitions
 - Added more to projectile
@@ -81,5 +83,3 @@
 - Added 1.17.40 to version numbers
 - MoLang -> Molang
 - Fixing block patterns #10
-- Updated offset to reflect documentation in projectile
-- Added excluded_items to pickup_items
