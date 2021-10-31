@@ -32,7 +32,7 @@ export namespace Files {
       fs.writeFileSync(path, line);
     } else {
       Manager.Connection.workspace.applyEdit({
-        label: "Add mcdefintions",
+        label: "Add mcdefinitions",
         edit: { documentChanges: [TextDocumentEdit.create({ uri: URI.file(path).toString(), version: doc.version }, [edit])] },
       });
     }

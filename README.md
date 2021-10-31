@@ -55,7 +55,7 @@ For behavior packs, have the files in a folder with the letter `BP` or `bp` in t
 Can read the following minecraft project files
 
 - [`.mcattributes`](./documentation/project/MCAttributes.md)
-- [`.mcdefintions`](./documentation/project/MCDefintions.md)
+- [`.mcdefinitions`](./documentation/project/MCDefinitions.md)
 - [`.mcignore`](./documentation/project/MCIgnore.md)
 
 ### Mcfunction
