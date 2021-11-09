@@ -1,6 +1,7 @@
 import { PromiseUtility, QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { HandleError } from "../Code/Error";
+import { Database } from '../Database/Database';
 import { ProvidePackDiagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
@@ -9,6 +10,7 @@ import { Workspace } from "../Workspace/Workspace";
 
 export async function Traverse(): Promise<Pack[]> {
   Console.Info("Traversing starting...");
+  Database.Clear();
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 
