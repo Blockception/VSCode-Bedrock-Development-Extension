@@ -27,7 +27,7 @@
   "dependencies": {
     "@daanv2/queue-processor": "^1.0.5",
     "bc-minecraft-bedrock-command": "^1.2.18",
-    "bc-minecraft-bedrock-diagnoser": "^1.0.63",
+    "bc-minecraft-bedrock-diagnoser": "^1.0.64",
     "bc-minecraft-bedrock-project": "^1.7.58",
     "bc-minecraft-bedrock-types": "^1.2.18",
     "bc-minecraft-bedrock-vanilla-data": "^1.5.13",
