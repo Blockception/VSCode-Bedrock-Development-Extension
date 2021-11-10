@@ -28,7 +28,7 @@
     "@daanv2/queue-processor": "^1.0.5",
     "bc-minecraft-bedrock-command": "^1.2.18",
     "bc-minecraft-bedrock-diagnoser": "^1.0.64",
-    "bc-minecraft-bedrock-project": "^1.7.58",
+    "bc-minecraft-bedrock-project": "^1.7.59",
     "bc-minecraft-bedrock-types": "^1.2.18",
     "bc-minecraft-bedrock-vanilla-data": "^1.5.13",
     "bc-minecraft-molang": "^1.2.5",
@@ -52,7 +52,7 @@
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4",
-    "webpack": "^5.62.2",
+    "webpack": "^5.63.0",
     "webpack-cli": "^4.9.1"
   }
 }
