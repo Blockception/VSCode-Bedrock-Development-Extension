@@ -23,7 +23,7 @@
     "vscode": "^1.59.0"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-project": "^1.7.58",
+    "bc-minecraft-bedrock-project": "^1.7.59",
     "vscode-languageclient": "^7.0.0"
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4",
     "vscode-test": "^1.6.1",
-    "webpack": "^5.62.2",
+    "webpack": "^5.63.0",
     "webpack-cli": "^4.9.1"
   }
 }
