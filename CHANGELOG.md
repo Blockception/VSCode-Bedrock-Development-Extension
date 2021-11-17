@@ -1,26 +1,35 @@
 # Changelog
 ## Plugin
+- Updated molang data package
+- Adding molang parameters completion
 - Updated schemas
-- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
-- Pruned
-- Fixing dependecies
-- Adding completion text for blockstates
 - Updated schemas
-- Added more tets
-- Adding queue processing to diagnostics
-- Removed lint
+- Updated schemas
+- Updated schemas
+- Updated schemas
+- build(deps): bump bc-minecraft-bedrock-project in /client
+- build(deps): bump minecraft-bedrock-schemas from `411cf3d` to `45d08e0`
+- Updated project and diagnoser
+- Updated schemas
+- Updated bc-minecraft-bedrock-diagnoser
+- Proper database reset when traversing
+- Updated schemas
+- Updated schemas
+- Updated project parsing
 - Formatted
-- Includes more molang test scenarios
-- Updated changelog
-- Update publish-universal-to-vscode.yml
-- Update publish-universal-to-vscode.yml
-- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5 in /server
 - Updated schemas
-- Updated Attributes
-- Update publish-universal-to-vscode.yml
-- Updated bc-minecraft-bedrock-command
-- Update publish-universal-to-vscode.yml. 
+- updated schemas
+- updated queue processor. 
 ## Diagnotics
+- Improved molang location specification
+- Adding particles, sounds diagnostics for animation and controllers
+- Added sound and particles diagnostics check
+- Added animation usage check
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.56 to 1.7.58
+- Updated objectives and tags diagnostics
+- build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4
+- Fixing types for manifests versions
+- Updated packages
 - Added minimum engine version checks for BP
 - Updated sound diagnostics
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
@@ -31,17 +40,14 @@
 - Add more advancded json handling
 - Improved diagnostic path provision for entity events
 - Added entity checking
-- Added entity events checks
-- Adding ranges checks for #40
-- Refactor codes
-- Added script checking
-- Add more component checks
-- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.14 to 1.2.15
-- Update dependabot.yml
-- Updated contributing
-- Update check-auto-patch.yml. 
+- Added entity events checks. 
 ## ProjectData
+- Updated processing
+- Stricter control
+- Added documentation processing for current line, previous line, or start of the line
+- build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4
+- Updated minecraft bedrock types
+- Fixing min_engine_version
 - Updated manifests
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
 - Updated molang
@@ -55,31 +61,25 @@
 - Added skinpack filetype
 - Extending manifest behaviour
 - build(deps): bump bc-minecraft-molang from 1.1.2 to 1.1.3
-- Extended manifests
-- Bump bc-minecraft-bedrock-command from 1.2.13 to 1.2.14
-- Update dependabot.yml
-- Fixing error message for json loading
-- Better error handling output
-- Refactor json casting code for better error output
-- Fixing tests. 
+- Extended manifests. 
 ## Schemas
-- Updated languages.json
-- foot_size is removed
-- Fixing sounds_definitions
-- Updating sound definitions
-- Added more to projectile
-- Fixing projectile
-- Fixing additiona properties
-- Fixed title
-- Added hide armor to RP entity
-- Added spawns_above_block_filter spawn rule
-- Added disallow_spawns_in_bubble spawn rule
-- Removed version
-- Renamed
-- Flattened spawn rules
-- Added more properties to the projectile component
-- Added thrown_potion_effect to projectile.onhit
-- Updated regex
-- Added 1.17.40 to version numbers
-- MoLang -> Molang
-- Fixing block patterns #10
+- Updated skins_packs
+- Fixing reference path
+- Spelling
+- "UNDOCUMENTED: " -> "UNDOCUMENTED"
+- Flattened particles
+- U pdated
+- Flatenned models
+- Fog flatterning
+- flattened biomes
+- Updated settings
+- Flatterning entity
+- Flattened render controllers
+- Updated reference
+- Fixing animations
+- Fixing more animations
+- Fixing a vscode error
+- Added mob_effect
+- Added more examples
+- Updating molang examplesz
+- added snippets
