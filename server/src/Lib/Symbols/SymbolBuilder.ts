@@ -39,12 +39,10 @@ export class SymbolBuilder {
     let range: Range = this.range;
     const p = item.location.position;
     if (Position.is(p)) {
-      range = Range.create(p, p);
+      range = Range.create(p, { character: p.character + item.id.length, line: p.line });
     }
 
-    const sym = SymbolInformation.create(item.id, this.kind, range, item.location.uri, this.containerName);
-    this.items.push(sym);
-    return sym;
+    return this.new(item.id, this.kind, range, item.location.uri, this.containerName);
   }
 
   generate<T extends Types.BaseObject>(data: forEachCarrier<T>, kind: SymbolKind): void {
