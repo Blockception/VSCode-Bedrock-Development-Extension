@@ -44,10 +44,19 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
     }
   };
 
+  builder.kind = Kinds.Symbol.FakeEntity;
   data.General.fakeEntities.forEach(check);
+
+  builder.kind = Kinds.Symbol.Objectives;
   data.General.objectives.forEach(check);
+
+  builder.kind = Kinds.Symbol.Structure;
   data.General.structures.forEach(check);
+
+  builder.kind = Kinds.Symbol.Tag;
   data.General.tags.forEach(check);
+
+  builder.kind = Kinds.Symbol.Tickingarea;
   data.General.tickingAreas.forEach(check);
 
   if (uri.endsWith(".json")) return builder.items;

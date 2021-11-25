@@ -11,13 +11,22 @@ export namespace Character {
   export const Character_dash: number = "-".charCodeAt(0);
   export const Character_forwardslash: number = "/".charCodeAt(0);
   export const Character_column: number = ":".charCodeAt(0);
-  export const Character_dot: number = ".".charCodeAt(0);
 
   /** */
   export function IsLetter(char: string): boolean {
     var code = char.charCodeAt(0);
 
     if (code >= Character_a && code <= Character_z) return true;
+    if (code >= Character_A && code <= Character_Z) return true;
+
+    return false;
+  }
+
+  
+  /** */
+  export function IsUppercase(char: string): boolean {
+    var code = char.charCodeAt(0);
+
     if (code >= Character_A && code <= Character_Z) return true;
 
     return false;
