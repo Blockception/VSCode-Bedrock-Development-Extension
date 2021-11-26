@@ -19,7 +19,8 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "es2019",
-    "types": ["node", "mocha"]
+    "types": ["node", "mocha"],
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules", ".vscode-test", "*.test.ts"],
   "include": ["./src"],
