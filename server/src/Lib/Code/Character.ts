@@ -13,7 +13,9 @@ export namespace Character {
   export const Character_column: number = ":".charCodeAt(0);
   export const Character_dot: number = ".".charCodeAt(0);
 
-  /** */
+  /**Tests if the first character of the provide string is a letter
+   * @param char The string to test the first character from
+   * @returns true or false*/
   export function IsLetter(char: string): boolean {
     var code = char.charCodeAt(0);
 
@@ -24,7 +26,9 @@ export namespace Character {
   }
 
   
-  /** */
+  /**Tests if the first character of the provide string is an uppercase letter
+   * @param char The string to test the first character from
+   * @returns true or false*/
   export function IsUppercase(char: string): boolean {
     var code = char.charCodeAt(0);
 
@@ -33,7 +37,9 @@ export namespace Character {
     return false;
   }
 
-  /** */
+  /**Tests if the character code is a letter
+   * @param char the character code is a letter
+   * @returns true or false*/
   export function IsLetterCode(char: number): boolean {
     if (char >= Character_a && char <= Character_z) return true;
     if (char >= Character_A && char <= Character_Z) return true;
@@ -41,7 +47,9 @@ export namespace Character {
     return false;
   }
 
-  /** */
+  /**Tests if the first character is a number
+   * @param char the character code is a letter
+   * @returns true or false*/
   export function IsNumber(char: string): boolean {
     var code = char.charCodeAt(0);
 
@@ -50,7 +58,9 @@ export namespace Character {
     return false;
   }
 
-  /** */
+  /**Tests if the character code is a number
+   * @param char the character code is a letter
+   * @returns true or false*/
   export function IsNumberCode(char: number): boolean {
     if (char >= Character_0 && char <= Character_9) return true;
 

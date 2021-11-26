@@ -15,15 +15,15 @@ describe("Character", () => {
   });
 
   it("IsUpperCase", () => {
-    expect(Character.IsLetter("A"), "A").to.true;
-    expect(Character.IsLetter("Z"), "Z").to.true;
+    expect(Character.IsUppercase("A"), "A").to.true;
+    expect(Character.IsUppercase("Z"), "Z").to.true;
     
-    expect(Character.IsLetter("a"), "a").to.false;
-    expect(Character.IsLetter("z"), "z").to.false;
-    expect(Character.IsLetter("0"), "0").to.false;
-    expect(Character.IsLetter("5"), "5").to.false;
-    expect(Character.IsLetter("$"), "$").to.false;
-    expect(Character.IsLetter("%"), "%").to.false;
+    expect(Character.IsUppercase("a"), "a").to.false;
+    expect(Character.IsUppercase("z"), "z").to.false;
+    expect(Character.IsUppercase("0"), "0").to.false;
+    expect(Character.IsUppercase("5"), "5").to.false;
+    expect(Character.IsUppercase("$"), "$").to.false;
+    expect(Character.IsUppercase("%"), "%").to.false;
   });
 
   it("IsNumber", () => {
