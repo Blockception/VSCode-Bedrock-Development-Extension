@@ -19,7 +19,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetBehaviorPackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["**/*.json", "*.json", "*.mcfunction", "**/*.mcfunction", "**/*.lang", "*.lang"], ignores, folder);
+    return Glob.GetFiles(["**/*.{json,jsonc,json5}", "*.{json,jsonc,json5}", "*.mcfunction", "**/*.mcfunction", "**/*.lang", "*.lang"], ignores, folder);
   }
 
   /**
@@ -29,7 +29,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetResourcePackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["**/*.json", "*.json", "**/*.lang", "*.lang"], ignores, folder);
+    return Glob.GetFiles(["**/*.{json,jsonc,json5}", "*.{json,jsonc,json5}", "**/*.lang", "*.lang"], ignores, folder);
   }
 
   /**
