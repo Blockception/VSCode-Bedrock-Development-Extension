@@ -1,5 +1,4 @@
-import { QueueBatchProcessor } from "@daanv2/queue-processor";
-import { Pack } from "bc-minecraft-bedrock-project";
+import { Pack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Fs } from "../Code/Url";
 import { Database } from "../Database/Database";
 import { Console } from "../Manager/Console";
@@ -12,12 +11,20 @@ import { ProgressBar } from "../Types/Progress/ProgressBar";
 export function ProvideDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
 
+  InternalProvideDiagnostics(doc);
+}
+
+function InternalProvideDiagnostics(doc: TextDocument): void {
   //Send it off to the diagnoser
   Database.Diagnoser.Process(doc);
 }
 
 export function ProvidePackDiagnostics(pack: Pack, reporter?: ProgressBar): Promise<string[]> {
+  if (!Manager.State.DataGathered) return Promise.resolve<string[]>([]);
+
   Console.Info("diagnosing: " + Fs.FromVscode(pack.folder));
 
-  return ForEachDocument(MinecraftFormat.GetPackFiles(pack), ProvideDiagnostics, reporter);
+  
+
+  return ForEachDocument(MinecraftFormat.GetPackFiles(pack), InternalProvideDiagnostics, reporter);
 }

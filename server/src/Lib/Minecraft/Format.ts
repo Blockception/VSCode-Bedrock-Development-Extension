@@ -43,6 +43,7 @@ export namespace MinecraftFormat {
     const folder = pack.folder;
     let files: string[];
 
+    //TODO use Util
     if (BehaviorPack.BehaviorPack.is(pack)) {
       files = MinecraftFormat.GetBehaviorPackFiles(folder, ignores);
     } else if (ResourcePack.ResourcePack.is(pack)) {
