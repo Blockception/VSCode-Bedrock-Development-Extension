@@ -1,26 +1,31 @@
 # Changelog
 ## Plugin
+- Updated depenendencies
+- Updated schemas
+- Updated schemas
+- Updated schemas
+- Disabled checks for now
+- Fixing tests and adding comments
+- Readded
+- Updated symbol creator
+- Upddated
+- build(deps): bump vscode-languageserver-textdocument in /server
+- Updated schemas
+- build(deps): bump bc-vscode-words from 1.3.12 to 1.3.13 in /server
+- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15 in /server
+- build(deps): bump minecraft-bedrock-schemas from `1460f9b` to `276a7c0`
+- build(deps): bump bc-minecraft-bedrock-types in /server
+- Updated schemas
 - Updated molang data package
 - Adding molang parameters completion
 - Updated schemas
-- Updated schemas
-- Updated schemas
-- Updated schemas
-- Updated schemas
-- build(deps): bump bc-minecraft-bedrock-project in /client
-- build(deps): bump minecraft-bedrock-schemas from `411cf3d` to `45d08e0`
-- Updated project and diagnoser
-- Updated schemas
-- Updated bc-minecraft-bedrock-diagnoser
-- Proper database reset when traversing
-- Updated schemas
-- Updated schemas
-- Updated project parsing
-- Formatted
-- Updated schemas
-- updated schemas
-- updated queue processor. 
+- Updated schemas. 
 ## Diagnotics
+- temp disabled path length
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
+- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
+- build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
+- Added range checks for rx rxm in selectors
 - Improved molang location specification
 - Adding particles, sounds diagnostics for animation and controllers
 - Added sound and particles diagnostics check
@@ -35,13 +40,16 @@
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
 - updating sound diagnostics
 - Refactor for molang
-- Updated diagnostics
-- Fixing regex matchin in json error parsing
-- Add more advancded json handling
-- Improved diagnostic path provision for entity events
-- Added entity checking
-- Added entity events checks. 
+- Updated diagnostics. 
 ## ProjectData
+- Can retruns world packs now
+- Updating packs
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.19 to 1.2.20
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.18 to 1.2.19
+- Updated IDataset
+- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
+- build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
 - Updated processing
 - Stricter control
 - Added documentation processing for current line, previous line, or start of the line
@@ -53,33 +61,25 @@
 - Updated molang
 - Refactor for molang
 - Fixing sounds definitions crash
-- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5
-- Update dependabot.yml
-- Found an error on processing of sounds definitions
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.14 to 1.2.15
-- Updated contributing
-- Added skinpack filetype
-- Extending manifest behaviour
-- build(deps): bump bc-minecraft-molang from 1.1.2 to 1.1.3
-- Extended manifests. 
+- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5. 
 ## Schemas
+- Added queryable_geometry
+- Updated manifest
+- Added has_nametag
+- Updated projectile
+- Triggers are full triggers
+- Refactor
+- Adding vscode snippets for events and triggers
+- Updated jump to block
+- Fixed
+- Updated schemas for #17
+- Updated path
+- Added $Schema #17
+- Updated scale timeline
+- Added more molang examples
 - Updated skins_packs
 - Fixing reference path
 - Spelling
 - "UNDOCUMENTED: " -> "UNDOCUMENTED"
 - Flattened particles
 - U pdated
-- Flatenned models
-- Fog flatterning
-- flattened biomes
-- Updated settings
-- Flatterning entity
-- Flattened render controllers
-- Updated reference
-- Fixing animations
-- Fixing more animations
-- Fixing a vscode error
-- Added mob_effect
-- Added more examples
-- Updating molang examplesz
-- added snippets
