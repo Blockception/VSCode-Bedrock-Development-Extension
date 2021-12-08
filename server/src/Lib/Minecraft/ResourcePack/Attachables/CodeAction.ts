@@ -7,7 +7,7 @@ export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
   switch (diag.code) {
     case "minecraft.attachable.missing":
     case "resourcepack.attachable.missing":
-      const id = builder.getText(diag.range);
+      const id = builder.getId(diag.range);
       builder.Command(`Create rp attachable: '${id}'`, Commands.Create.Resourcepack.Attachable, [id]);
       return Definition(builder, diag, "attachable");
   }

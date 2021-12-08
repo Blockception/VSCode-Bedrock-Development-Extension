@@ -7,7 +7,7 @@ export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "minecraft.animation.missing":
     case "resourcepack.animation.missing":
     case "resourcepack.anim_or_controller.missing":
-      const id = builder.getText(diag.range);
+      const id = builder.getId(diag.range);
       builder.Command(`Create rp animation: '${id}'`, Commands.Create.Resourcepack.Animation, [id]);
       return;
   }

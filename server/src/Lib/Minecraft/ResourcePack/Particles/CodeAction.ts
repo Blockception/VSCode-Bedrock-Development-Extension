@@ -6,7 +6,7 @@ import { Commands } from '../../../Constants';
 export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
   switch (diag.code) {
     case "resourcepack.particle.missing":
-      const id = builder.getText(diag.range);
+      const id = builder.getId(diag.range);
       builder.Command(`Create rp particle: '${id}'`, Commands.Create.Resourcepack.Particle, [id]);
       return;
   }

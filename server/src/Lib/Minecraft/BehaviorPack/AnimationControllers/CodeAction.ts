@@ -8,7 +8,7 @@ export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "minecraft.animation_controller.missing":
     case "behaviorpack.animation_controller.missing":
     case "behaviorpack.anim_or_controller.missing":
-      const id = builder.getText(diag.range);
+      const id = builder.getId(diag.range);
       builder.Command(`Create bp animation controller: '${id}'`, Commands.Create.Behaviorpack.Animation_Controller, [id]);
       return;
   }

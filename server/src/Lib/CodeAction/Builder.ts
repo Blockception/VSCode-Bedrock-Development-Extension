@@ -1,4 +1,5 @@
-import { CodeAction, CodeActionParams, Command, Range } from "vscode-languageserver";
+import { Text } from 'bc-minecraft-bedrock-project';
+import { CodeAction, CodeActionKind, CodeActionParams, Command, Range } from "vscode-languageserver";
 import { GetDocument } from "../Types/Document/Document";
 
 /** */
@@ -24,6 +25,12 @@ export class CodeActionBuilder {
     return doc.getText(range ?? this.params.range);
   }
 
+  getId(range : Range | undefined) : string {
+    let id = this.getText(range);
+
+    return Text.UnQuote(id);
+  }
+
   /** */
   Push(item: Command | CodeAction | undefined): Command | CodeAction | undefined {
     if (item) {
@@ -44,7 +51,7 @@ export class CodeActionBuilder {
   Command(title: string, commandid: string, args: string[] | undefined): Command {
     const item: Command = { command: commandid, title: title, arguments: args };
 
-    this.out.push(CodeAction.create(title, item, "create"));
+    this.out.push(CodeAction.create(title, item, CodeActionKind.QuickFix));
 
     return item;
   }
