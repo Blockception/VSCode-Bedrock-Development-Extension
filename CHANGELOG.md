@@ -1,5 +1,16 @@
 # Changelog
 ## Plugin
+- Refactored codeactions to reanabled creation code actions
+- build(deps): bump bc-vscode-words from 1.3.13 to 1.3.14 in /server
+- build(deps): bump bc-minecraft-molang from 1.2.6 to 1.2.7 in /server
+- build(deps): bump bc-minecraft-bedrock-types in /server
+- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
+- build(deps): bump bc-minecraft-bedrock-project in /server
+- build(deps): bump bc-minecraft-project from 1.0.15 to 1.0.16 in /server
+- build(deps): bump bc-minecraft-bedrock-command in /server
+- build(deps): bump bc-minecraft-bedrock-project in /client
+- build(deps): bump bc-minecraft-bedrock-vanilla-data in /server
+- build(deps): bump bc-minecraft-bedrock-project in /client
 - Updated depenendencies
 - Updated schemas
 - Updated schemas
@@ -8,19 +19,17 @@
 - Fixing tests and adding comments
 - Readded
 - Updated symbol creator
-- Upddated
-- build(deps): bump vscode-languageserver-textdocument in /server
-- Updated schemas
-- build(deps): bump bc-vscode-words from 1.3.12 to 1.3.13 in /server
-- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15 in /server
-- build(deps): bump minecraft-bedrock-schemas from `1460f9b` to `276a7c0`
-- build(deps): bump bc-minecraft-bedrock-types in /server
-- Updated schemas
-- Updated molang data package
-- Adding molang parameters completion
-- Updated schemas
-- Updated schemas. 
+- Upddated. 
 ## Diagnotics
+- resourpack -> resourcepack
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.67 to 1.7.68
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.21 to 1.2.22
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.20 to 1.2.21
+- build(deps): bump bc-minecraft-project from 1.0.15 to 1.0.16
+- build(deps): bump bc-minecraft-bedrock-vanilla-data
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.64 to 1.7.65
+- build(deps): bump bc-minecraft-molang from 1.2.6 to 1.2.7
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.63 to 1.7.64
 - temp disabled path length
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
 - build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
@@ -31,17 +40,10 @@
 - Added sound and particles diagnostics check
 - Added animation usage check
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.56 to 1.7.58
-- Updated objectives and tags diagnostics
-- build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4
-- Fixing types for manifests versions
-- Updated packages
-- Added minimum engine version checks for BP
-- Updated sound diagnostics
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
-- updating sound diagnostics
-- Refactor for molang
-- Updated diagnostics. 
+- Updated objectives and tags diagnostics. 
 ## ProjectData
+- Fixing tickingareas
+- Fixing tickingarea definition
 - Can retruns world packs now
 - Updating packs
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.19 to 1.2.20
@@ -59,9 +61,7 @@
 - Updated manifests
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
 - Updated molang
-- Refactor for molang
-- Fixing sounds definitions crash
-- build(deps): bump bc-minecraft-molang from 1.1.4 to 1.1.5. 
+- Refactor for molang. 
 ## Schemas
 - Added queryable_geometry
 - Updated manifest
