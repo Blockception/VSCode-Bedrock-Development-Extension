@@ -23,11 +23,11 @@
     "vscode": "^1.59.0"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-project": "^1.7.67",
+    "bc-minecraft-bedrock-project": "^1.7.68",
     "vscode-languageclient": "^7.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.22",
+    "@types/chai": "^4.3.0",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.12",
     "@types/vscode": "^1.62.0",
