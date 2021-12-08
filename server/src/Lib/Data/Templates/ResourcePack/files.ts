@@ -1,5 +1,5 @@
-import { ToolIdentification } from '../../../Constants';
-import { Version } from '../../../Version';
+import { ToolIdentification } from "../../../Constants";
+import { Version } from "../../../Version";
 import { SafeID, SafeIDNoNamespace } from "../Function";
 
 /**The template for the resourcepack animation controller*/
@@ -7,9 +7,9 @@ export function create_animation_controller(ID: string): string {
   return animation_controller.replace(/%ID%/gi, ID);
 }
 const animation_controller: string = `{
-  "format_version" : "1.10.0",
+  "format_version": "1.18.0",
   "animation_controllers" : {
-    "controller.animation.%ID%.example" : {
+    "controller.animation.%ID%" : {
       "initial_state" : "default",
       "states" : {
         "default" : {
@@ -31,12 +31,12 @@ const animation_controller: string = `{
 
 /**The template for the resourcepack animation*/
 export function create_animation(ID: string): string {
-  return animation.replace(/%SafeID%/gi, SafeID(ID, "."));
+  return animation.replace(/%ID%/gi, ID);
 }
 const animation: string = `{
-  "format_version": "1.10.0",
+  "format_version": "1.18.0",
   "animations": {
-    "animation.%SafeID%.example": {
+    "animation.%ID%": {
       "animation_length": 5,
       "bones": {}
     }
@@ -48,7 +48,7 @@ export function create_attachable(ID: string): string {
   return attachable.replace(/%ID%/gi, ID);
 }
 const attachable: string = `{
-  "format_version": "1.10.0",
+  "format_version": "1.18.0",
   "minecraft:attachable": {
     "description": {
       "identifier": "%ID%",
@@ -97,7 +97,7 @@ export function create_entity(ID: string): string {
   return entity.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
 }
 const entity: string = `{
-  "format_version": "1.17.0",
+  "format_version": "1.18.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "%ID%",
@@ -127,7 +127,7 @@ export function create_fog(ID: string) {
   return fog.replace(/%ID%/gi, ID);
 }
 const fog: string = `{
-  "format_version": "1.16.100",
+  "format_version": "1.18.0",
   "minecraft:fog_settings": {
     "description": {
       "identifier": "%ID%"
@@ -170,7 +170,11 @@ const item_texture: string = `{
 
 /**The template for the resourcepack manifest*/
 export function create_manifest(UUID1: string, UUID2: string): string {
-  return manifest.replace(/%UUID1%/gi, UUID1).replace(/%UUID2%/gi, UUID2).replace(/%TOOL%/gi, ToolIdentification).replace(/%Version%/gi, Version)
+  return manifest
+    .replace(/%UUID1%/gi, UUID1)
+    .replace(/%UUID2%/gi, UUID2)
+    .replace(/%TOOL%/gi, ToolIdentification)
+    .replace(/%Version%/gi, Version);
 }
 const manifest: string = `{
   "format_version": 2,
@@ -203,7 +207,7 @@ export function create_model(ID: string): string {
   return model.replace(/%ID%/gi, ID);
 }
 const model: string = `{
-  "format_version": "1.12.0",
+  "format_version": "1.18.0",
   "minecraft:geometry": [
     {
       "description": {
@@ -293,7 +297,7 @@ export function create_particle(ID: string): string {
   return particle.replace(/%ID%/gi, ID);
 }
 const particle: string = `{
-  "format_version": "1.10.0",
+  "format_version": "1.18.0",
   "particle_effect": {
     "description": {
       "identifier": "%ID%",
@@ -312,7 +316,7 @@ export function create_render_controller(ID: string): string {
   return render_controller.replace(/%ID%/gi, ID);
 }
 const render_controller: string = `{
-  "format_version": "1.8.0",
+  "format_version": "1.18.0",
   "render_controllers": {
     "controller.render.%ID%": {
       "geometry": "Geometry.default",
@@ -356,7 +360,7 @@ export function create_sound_definitions(): string {
   return sound_definitions;
 }
 const sound_definitions: string = `{
-  "format_version" : "1.14.0",
+  "format_version": "1.18.0",
   "sound_definitions" : {
      "example" : {
         "category" : "ambient",

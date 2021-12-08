@@ -7,7 +7,7 @@ export function create_animation_controller(ID: string): string {
   return animation_controller.replace(/%ID%/gi, ID);
 }
 const animation_controller: string = `{
-  "format_version" : "1.10.0",
+  "format_version": "1.18.0",
   "animation_controllers" : {
     "controller.animation.%ID%" : {
       "initial_state" : "default",
@@ -36,7 +36,7 @@ export function create_animation(ID: string): string {
   return animation.replace(/%ID%/gi, ID);
 }
 const animation: string = `{
-  "format_version": "1.8.0",
+  "format_version": "1.18.0",
   "animations": {
     "animation.%ID%": {
       "loop": false,
@@ -54,7 +54,7 @@ export function create_block(ID: string): string {
   return block.replace(/%ID%/gi, ID);
 }
 const block: string = `{
-  "format_version": "1.17.0",
+  "format_version": "1.18.0",
   "minecraft:block": {
     "description": {
       "identifier": "%ID%",
@@ -72,7 +72,7 @@ export function create_entity(ID: string): string {
   return entity.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
 }
 const entity: string = `{
-  "format_version": "1.17.0",
+  "format_version": "1.18.0",
   "minecraft:entity": {
     "description": {
       "identifier": "%ID%",
@@ -100,7 +100,7 @@ export function create_dialogue(ID: string): string {
   return dialogue.replace(/%ID%/gi, ID).replace(/%SafeID%/gi, SafeID);
 }
 const dialogue: string = `{
-  "format_version": "1.14.0",
+  "format_version": "1.18.0",
   "minecraft:npc_dialogue": {
     "scenes": [
       {
@@ -118,7 +118,7 @@ export function create_item(ID: string): string {
   return item.replace(/%ID%/gi, ID);
 }
 const item: string = `{
-  "format_version": "1.10.0",
+  "format_version": "1.18.0",
   "minecraft:item": {
     "description": {
       "identifier": "%ID%"
@@ -186,7 +186,7 @@ export function create_recipe(ID: string): string {
   return recipe.replace(/%ID%/gi, ID);
 }
 const recipe: string = `{
-  "format_version": "1.17.0",
+  "format_version": "1.18.0",
   "minecraft:<type>": {
     "description": {
       "identifier": "%ID%"
@@ -203,7 +203,7 @@ export function create_spawn_rule(ID: string): string {
   return spawn_rule.replace(/%ID%/gi, ID);
 }
 const spawn_rule: string = `{
-  "format_version": "1.8.0",
+  "format_version": "1.18.0",
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "%ID%",
@@ -249,7 +249,7 @@ export function create_volume(ID: string): string {
   return volume.replace(/%ID%/gi, ID);
 }
 const volume: string = `{
-  "format_version": "1.17.0",
+  "format_version": "1.18.0",
   "minecraft:volume": {
     "description": {
       "identifier": "%ID%"
