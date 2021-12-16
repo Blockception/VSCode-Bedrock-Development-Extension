@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.11.13",
+    "@types/node": "^17.0.0",
     "@types/picomatch": "^2.3.0",
     "chai": "^4.3.4",
     "json-loader": "^0.5.7",
