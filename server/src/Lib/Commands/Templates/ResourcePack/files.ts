@@ -116,16 +116,18 @@ export function create_terrain_texture_file(context: context, Builder: TemplateB
 }
 
 export function create_texture_list_file(context: context, Builder: TemplateBuilder): void {
-  const uri = path.join(context.ResourcePack(), "textures", "texture_list.json");
+  const rp = context.ResourcePack();
+  const folder = path.join(rp, "textures");
+  const uri = path.join(folder, "texture_list.json");
 
-  const Textures = MinecraftFormat.GetTextureFiles(context.ResourcePack() + "textures/", []);
+  const Textures = MinecraftFormat.GetTextureFiles(folder, []);
 
   for (let I = 0; I < Textures.length; I++) {
     let Texture = Textures[I].replace(/\\/gim, "/");
 
-    let Index = Texture.indexOf("/textures/");
+    let Index = Texture.indexOf("textures");
 
-    if (Index > -1) Texture = Texture.substring(Index + 1, Texture.length);
+    if (Index > -1) Texture = Texture.substring(Index, Texture.length);
 
     Index = Texture.lastIndexOf(".");
 
