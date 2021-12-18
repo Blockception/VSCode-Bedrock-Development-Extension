@@ -1,5 +1,6 @@
 # Changelog
 ## Plugin
+- Refactoring animations
 - Refactored codeactions to reanabled creation code actions
 - build(deps): bump bc-vscode-words from 1.3.13 to 1.3.14 in /server
 - build(deps): bump bc-minecraft-molang from 1.2.6 to 1.2.7 in /server
@@ -18,9 +19,9 @@
 - Disabled checks for now
 - Fixing tests and adding comments
 - Readded
-- Updated symbol creator
-- Upddated. 
+- Updated symbol creator. 
 ## Diagnotics
+- Update dependabot.yml
 - resourpack -> resourcepack
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.67 to 1.7.68
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.21 to 1.2.22
@@ -39,9 +40,9 @@
 - Adding particles, sounds diagnostics for animation and controllers
 - Added sound and particles diagnostics check
 - Added animation usage check
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.56 to 1.7.58
-- Updated objectives and tags diagnostics. 
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.56 to 1.7.58. 
 ## ProjectData
+- Update dependabot.yml
 - Fixing tickingareas
 - Fixing tickingarea definition
 - Can retruns world packs now
@@ -60,9 +61,10 @@
 - Fixing min_engine_version
 - Updated manifests
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
-- Updated molang
-- Refactor for molang. 
+- Updated molang. 
 ## Schemas
+- Updating manifest for blocks.json
+- Updated testing dependencies
 - Added queryable_geometry
 - Updated manifest
 - Added has_nametag
@@ -81,5 +83,3 @@
 - Fixing reference path
 - Spelling
 - "UNDOCUMENTED: " -> "UNDOCUMENTED"
-- Flattened particles
-- U pdated
