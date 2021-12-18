@@ -13,7 +13,7 @@ const manifest: string = `{
      "uuid": "%UUID1%",
      "version": [1, 0, 0],
      "lock_template_options": true,
-     "base_game_version": [1, 16, 200]
+     "min_engine_version": [1, 18, 0]
    },
    "modules": [
      {

@@ -162,7 +162,7 @@ const manifest: string = `{
     "name": "Vanilla Behavior Pack",
     "uuid": "%UUID1%",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 16, 200]
+    "min_engine_version": [1, 18, 0]
   },
   "modules": [
     {
