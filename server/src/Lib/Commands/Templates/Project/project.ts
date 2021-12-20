@@ -5,6 +5,7 @@ import * as path from "path";
 import * as BehaviorPack from "../BehaviorPack/include";
 import * as ResourcePack from "../ResourcePack/include";
 import * as World from "../World/include";
+import { create_language_files } from "../Language/files";
 
 /**
  *
@@ -26,6 +27,10 @@ export function create_world_project(ID: string, context: context, Builder: Temp
   World.create_manifest_file(NewContext, Builder);
   BehaviorPack.create_manifest_file(NewContext, Builder);
   ResourcePack.create_manifest_file(NewContext, Builder);
+
+  create_language_files(NewContext.BehaviorPack(), Builder);
+  create_language_files(NewContext.ResourcePack(), Builder);
+  create_language_files(NewContext.WorldFolder(), Builder);
 }
 
 /**
@@ -45,6 +50,7 @@ export function create_behaviorpack(ID: string, context: context, Builder: Templ
   };
 
   BehaviorPack.create_manifest_file(NewContext, Builder);
+  create_language_files(Folder, Builder);
 }
 
 /**
@@ -64,4 +70,5 @@ export function create_resourcepack(ID: string, context: context, Builder: Templ
   };
 
   ResourcePack.create_manifest_file(NewContext, Builder);
+  create_language_files(Folder, Builder);
 }
