@@ -19,6 +19,9 @@
     "onCommand:bc-cheat-sheet-behavior-filters",
     "onCommand:bc.errors.open_lastest",
     "onCommand:bc.mcproject.create",
+    "onCommand:bc-create-project-world",
+    "onCommand:bc-create-project-behavior-pack",
+    "onCommand:bc-create-project-resource-pack",
     "workspaceContains:**/.mcattributes",
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore"
@@ -203,20 +206,17 @@
       {
         "title": "Create world project",
         "command": "bc-create-project-world",
-        "category": "Blockception",
-        "enablement": "ext:is_active"
+        "category": "Blockception"
       },
       {
         "title": "Create behavior pack project",
         "command": "bc-create-project-behavior-pack",
-        "category": "Blockception",
-        "enablement": "ext:is_active"
+        "category": "Blockception"
       },
       {
         "title": "Create resource pack project",
         "command": "bc-create-project-resource-pack",
-        "category": "Blockception",
-        "enablement": "ext:is_active"
+        "category": "Blockception"
       },
       {
         "title": "Behavior Pack: Create animation controllers file",
