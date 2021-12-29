@@ -1,5 +1,12 @@
 # Changelog
 ## Plugin
+- Moving commands create project to have the plugin start
+- build(deps): bump vscode-uri from 3.0.2 to 3.0.3 in /server
+- Updated schemas
+- updated Schemas
+- Adding language file creation to project creation
+- Updated minimum engine version
+- Update dependabot.yml
 - Refactoring animations
 - Refactored codeactions to reanabled creation code actions
 - build(deps): bump bc-vscode-words from 1.3.13 to 1.3.14 in /server
@@ -12,15 +19,13 @@
 - build(deps): bump bc-minecraft-bedrock-project in /client
 - build(deps): bump bc-minecraft-bedrock-vanilla-data in /server
 - build(deps): bump bc-minecraft-bedrock-project in /client
-- Updated depenendencies
-- Updated schemas
-- Updated schemas
-- Updated schemas
-- Disabled checks for now
-- Fixing tests and adding comments
-- Readded
-- Updated symbol creator. 
+- Updated depenendencies. 
 ## Diagnotics
+- Changing path
+- Refactored
+- Added flipbook testing
+- Adding loot tables and trading tables checks
+- Adding diagnostics
 - Update dependabot.yml
 - resourpack -> resourcepack
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.67 to 1.7.68
@@ -35,12 +40,7 @@
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
 - build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
 - build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
-- Added range checks for rx rxm in selectors
-- Improved molang location specification
-- Adding particles, sounds diagnostics for animation and controllers
-- Added sound and particles diagnostics check
-- Added animation usage check
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.56 to 1.7.58. 
+- Added range checks for rx rxm in selectors. 
 ## ProjectData
 - Update dependabot.yml
 - Fixing tickingareas
@@ -63,6 +63,9 @@
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
 - Updated molang. 
 ## Schemas
+- Adding
+- Updated priority text
+- Fixing experience reward
 - Updating manifest for blocks.json
 - Updated testing dependencies
 - Added queryable_geometry
@@ -80,6 +83,3 @@
 - Updated scale timeline
 - Added more molang examples
 - Updated skins_packs
-- Fixing reference path
-- Spelling
-- "UNDOCUMENTED: " -> "UNDOCUMENTED"
