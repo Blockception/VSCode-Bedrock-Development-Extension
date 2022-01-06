@@ -121,7 +121,7 @@ export namespace DiagnoserUtillity {
      */
     Add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
       //Was diagnostics code disabled
-      if (this.project.attributes["diagnostic.disable." + code] === "false") return;
+      if (this.project.attributes["diagnostic.disable." + code] === "true") return;
 
       const Error: Diagnostic = {
         message: message,

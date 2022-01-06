@@ -64,6 +64,9 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
       case "minecraft":
         Minecraft.OnCodeAction(builder, diag);
         return Attributes(builder, diag);
+
+      case "mcfunction":
+        return Attributes(builder, diag);
     }
   }
 }

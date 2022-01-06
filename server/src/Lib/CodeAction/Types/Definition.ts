@@ -66,7 +66,7 @@ export function Attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
   const Command: Command = {
     title: `Disable diagnostic code in project: ${key}`,
     command: Commands.Files.Append,
-    arguments: [uri, `diagnostic.disable.${key}=false`],
+    arguments: [uri, `diagnostic.disable.${key}=true`],
   };
 
   const action: CodeAction = {
