@@ -1,0 +1,22 @@
+# Changelog
+## Plugin
+- Fixes
+- Updated schemas
+- Moving commands create project to have the plugin start
+- build(deps): bump vscode-uri from 3.0.2 to 3.0.3 in /server
+- Updated schemas
+- updated Schemas
+- Adding language file creation to project creation
+- Updated minimum engine version
+- Update dependabot.yml
+- Refactoring animations
+- Refactored codeactions to reanabled creation code actions
+- build(deps): bump bc-vscode-words from 1.3.13 to 1.3.14 in /server
+- build(deps): bump bc-minecraft-molang from 1.2.6 to 1.2.7 in /server
+- build(deps): bump bc-minecraft-bedrock-types in /server
+- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
+- build(deps): bump bc-minecraft-bedrock-project in /server
+- build(deps): bump bc-minecraft-project from 1.0.15 to 1.0.16 in /server
+- build(deps): bump bc-minecraft-bedrock-command in /server
+- build(deps): bump bc-minecraft-bedrock-project in /client
+- build(deps): bump bc-minecraft-bedrock-vanilla-data in /server
