@@ -1,5 +1,7 @@
 # Changelog
 ## Plugin
+- Fixes
+- Updated schemas
 - Moving commands create project to have the plugin start
 - build(deps): bump vscode-uri from 3.0.2 to 3.0.3 in /server
 - Updated schemas
@@ -17,10 +19,10 @@
 - build(deps): bump bc-minecraft-project from 1.0.15 to 1.0.16 in /server
 - build(deps): bump bc-minecraft-bedrock-command in /server
 - build(deps): bump bc-minecraft-bedrock-project in /client
-- build(deps): bump bc-minecraft-bedrock-vanilla-data in /server
-- build(deps): bump bc-minecraft-bedrock-project in /client
-- Updated depenendencies. 
+- build(deps): bump bc-minecraft-bedrock-vanilla-data in /server. 
 ## Diagnotics
+- Updating diagnostics texts
+- Add vanilla checks for trading and loot tables
 - Changing path
 - Refactored
 - Added flipbook testing
@@ -38,9 +40,7 @@
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.63 to 1.7.64
 - temp disabled path length
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
-- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
-- build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
-- Added range checks for rx rxm in selectors. 
+- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15. 
 ## ProjectData
 - Update dependabot.yml
 - Fixing tickingareas
@@ -63,6 +63,7 @@
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
 - Updated molang. 
 ## Schemas
+- Updated shooter component
 - Adding
 - Updated priority text
 - Fixing experience reward
@@ -82,4 +83,3 @@
 - Added $Schema #17
 - Updated scale timeline
 - Added more molang examples
-- Updated skins_packs
