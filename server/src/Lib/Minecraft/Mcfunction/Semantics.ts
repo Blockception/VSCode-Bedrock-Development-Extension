@@ -49,6 +49,9 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
   const Edu = IsEducationEnabled(Builder.doc.getConfiguration());
 
   const First = command.parameters[0];
+
+  if (First.text.startsWith("#")) return;
+
   Builder.AddWord(First, SemanticTokensEnum.class);
   const Matches = command.getBestMatch(Edu);
   let Match;
