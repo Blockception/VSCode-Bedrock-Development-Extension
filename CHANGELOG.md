@@ -1,5 +1,8 @@
 # Changelog
 ## Plugin
+- Better comment highlight for mcfunctions
+- Updated diagnoser package
+- Updated changelog script
 - Fixes
 - Updated schemas
 - Moving commands create project to have the plugin start
@@ -16,11 +19,10 @@
 - build(deps): bump bc-minecraft-bedrock-types in /server
 - build(deps): bump bc-minecraft-bedrock-diagnoser in /server
 - build(deps): bump bc-minecraft-bedrock-project in /server
-- build(deps): bump bc-minecraft-project from 1.0.15 to 1.0.16 in /server
-- build(deps): bump bc-minecraft-bedrock-command in /server
-- build(deps): bump bc-minecraft-bedrock-project in /client
-- build(deps): bump bc-minecraft-bedrock-vanilla-data in /server. 
+- build(deps): bump bc-minecraft-project from 1.0.15 to 1.0.16 in /server. 
 ## Diagnotics
+- Added path lengths
+- Added loot table diagnostics
 - Updating diagnostics texts
 - Add vanilla checks for trading and loot tables
 - Changing path
@@ -38,9 +40,7 @@
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.64 to 1.7.65
 - build(deps): bump bc-minecraft-molang from 1.2.6 to 1.2.7
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.63 to 1.7.64
-- temp disabled path length
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
-- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15. 
+- temp disabled path length. 
 ## ProjectData
 - Update dependabot.yml
 - Fixing tickingareas
