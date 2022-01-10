@@ -21,6 +21,6 @@ echo . >> ../CHANGELOG.md
 echo ## Schemas>> ../CHANGELOG.md
 git log -n 20 --regexp-ignore-case --grep="^build(deps-dev):*\|^auto:*\|^updated$\|^added$\|^fixing$\|^\([0-9]*\.[0-9]*\.[0-9]*\)$" --invert-grep --no-merges --pretty=format:"- %%s" >> ../CHANGELOG.md
 
-cd ../VSCode-Bedrock-Development-Extension
+cd ..
 git add .
 git commit -m "auto: Generated Changelog"
