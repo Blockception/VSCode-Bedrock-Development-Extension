@@ -42,7 +42,7 @@
     "vscode": "^1.59.0"
   },
   "dependencies": {
-    "fast-glob": "^3.2.7"
+    "fast-glob": "^3.2.10"
   },
   "extensionKind": [
     "workspace"
