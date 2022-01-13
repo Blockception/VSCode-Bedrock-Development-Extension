@@ -1,6 +1,8 @@
 # Changelog
 ## Plugin
 - Updated schemas
+- build(deps): bump fast-glob from 3.2.7 to 3.2.10
+- Updated schemas
 - Better comment highlight for mcfunctions
 - Updated diagnoser package
 - Updated changelog script
@@ -17,9 +19,7 @@
 - Refactored codeactions to reanabled creation code actions
 - build(deps): bump bc-vscode-words from 1.3.13 to 1.3.14 in /server
 - build(deps): bump bc-minecraft-molang from 1.2.6 to 1.2.7 in /server
-- build(deps): bump bc-minecraft-bedrock-types in /server
-- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
-- build(deps): bump bc-minecraft-bedrock-project in /server. 
+- build(deps): bump bc-minecraft-bedrock-types in /server. 
 ## Diagnotics
 - Fixing checks
 - Fixing item diagnostics
@@ -63,6 +63,7 @@
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
 - Updated molang. 
 ## Schemas
+- Updated spell_effects
 - Updated shooter component
 - Adding
 - Updated priority text
@@ -82,4 +83,3 @@
 - Updated path
 - Added $Schema #17
 - Updated scale timeline
-- Added more molang examples
