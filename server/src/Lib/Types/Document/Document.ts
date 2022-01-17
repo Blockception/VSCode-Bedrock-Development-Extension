@@ -28,7 +28,7 @@ export function GetDocument(
   }
 
   if (typeof Content === "undefined") {
-    const doc = Manager.Documents.get(Old);
+    const doc = Manager.Documents.get(uri);
 
     //Cached document
     if (doc) return TextDocument.wrap(doc);
