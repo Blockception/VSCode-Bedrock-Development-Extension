@@ -1,9 +1,11 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { WorldPack } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/World/WorldPack";
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
+import { HandleError } from '../../Code/Error';
+import { Console } from '../../Manager/Console';
 import { Manager } from "../../Manager/Manager";
-import { GetDocument } from '../../Types/Document/Document';
-import { TextDocument } from '../../Types/Document/TextDocument';
+import { GetDocument } from "../../Types/Document/Document";
+import { TextDocument } from "../../Types/Document/TextDocument";
 
 export function AddAllItems(params: ExecuteCommandParams): any {
   const args = params.arguments;
@@ -30,9 +32,23 @@ export function AddAllItems(params: ExecuteCommandParams): any {
         const edit = TextEdit.insert(doc.positionAt(builder.textdoc.length), builder.out);
 
         if (builder.out.length > 0)
-          Manager.Connection.workspace.applyEdit({
-            edit: { documentChanges: [TextDocumentEdit.create({ uri: doc.uri, version: doc.version }, [edit])] },
-          });
+          try {
+            const p = Manager.Connection.workspace.applyEdit({
+              edit: { documentChanges: [TextDocumentEdit.create({ uri: doc.uri, version: doc.version }, [edit])] },
+            });
+
+            p.then((check)=>{
+              if (!check.applied) Console.Error("Document edit failed!");
+              if (check.failureReason) Console.Error(check.failureReason);
+            });
+
+            p.catch((error) => {
+              HandleError(error, doc);
+            });
+
+          } catch (e) { 
+            HandleError(e, doc); 
+          }
       }
     }
   }
