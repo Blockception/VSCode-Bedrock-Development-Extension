@@ -60,7 +60,7 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
 }
 
 function findNext(text: string, startIndex: number): number {
-  while (startIndex > -1) {
+  while (startIndex > -1 && startIndex < text.length) {
     startIndex = text.indexOf('"', startIndex);
     if (startIndex < 0) break;
 
