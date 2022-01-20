@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@daanv2/queue-processor": "^1.0.5",
-    "bc-minecraft-bedrock-command": "^1.2.22",
+    "bc-minecraft-bedrock-command": "^1.2.23",
     "bc-minecraft-bedrock-diagnoser": "^1.0.81",
     "bc-minecraft-bedrock-project": "^1.7.69",
     "bc-minecraft-bedrock-types": "^1.2.23",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
-    "@types/mocha": "^9.0.0",
+    "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.10",
     "@types/picomatch": "^2.3.0",
     "chai": "^4.3.4",
