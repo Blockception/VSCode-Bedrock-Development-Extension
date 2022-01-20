@@ -1,4 +1,4 @@
-import { Pack, ProjectData, ResourcePack } from "bc-minecraft-bedrock-project";
+import { Pack } from "bc-minecraft-bedrock-project";
 import { Fs } from "../Code/Url";
 import { Database } from "../Database/Database";
 import { Console } from "../Manager/Console";
@@ -7,7 +7,6 @@ import { MinecraftFormat } from "../Minecraft/Format";
 import { ForEachDocument } from "../Types/Document/Document";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { ProgressBar } from "../Types/Progress/ProgressBar";
-import { Util } from "bc-minecraft-bedrock-project";
 
 export function ProvideDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
