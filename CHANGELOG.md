@@ -1,26 +1,35 @@
 # Changelog
 ## Plugin
 - Updated schemas
-- build(deps): bump fast-glob from 3.2.7 to 3.2.10
+- build(deps): bump vscode-languageserver-textdocument in /server
 - Updated schemas
-- Better comment highlight for mcfunctions
-- Updated diagnoser package
-- Updated changelog script
-- Fixes
+- Updating schemas
 - Updated schemas
-- Moving commands create project to have the plugin start
-- build(deps): bump vscode-uri from 3.0.2 to 3.0.3 in /server
-- Updated schemas
-- updated Schemas
-- Adding language file creation to project creation
-- Updated minimum engine version
-- Update dependabot.yml
-- Refactoring animations
-- Refactored codeactions to reanabled creation code actions
-- build(deps): bump bc-vscode-words from 1.3.13 to 1.3.14 in /server
-- build(deps): bump bc-minecraft-molang from 1.2.6 to 1.2.7 in /server
-- build(deps): bump bc-minecraft-bedrock-types in /server. 
+- Cleaned
+- build(deps): bump bc-vscode-words from 1.3.14 to 1.3.15 in /server
+- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
+- build(deps): bump fast-glob from 3.2.10 to 3.2.11
+- build(deps): bump bc-minecraft-bedrock-types in /server
+- build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8 in /server
+- build(deps): bump bc-minecraft-bedrock-project in /client
+- build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17 in /server
+- build(deps): bump bc-minecraft-bedrock-command in /server
+- build(deps): bump bc-minecraft-bedrock-vanilla-data in /server
+- build(deps): bump bc-minecraft-bedrock-project in /server
+- Added output to edits
+- Remove infinite loop
+- Fixing a version issues with documents
+- Updated schemas. 
 ## Diagnotics
+- Checking for correct mcstructure id
+- Updated ranged check
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.22 to 1.2.23
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.21 to 1.2.22
+- build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.68 to 1.7.69
+- build(deps): bump bc-minecraft-bedrock-vanilla-data
+- build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17
+- Updating texture
 - Fixing checks
 - Fixing item diagnostics
 - Fixing slot mode diagnostics
@@ -31,17 +40,10 @@
 - Changing path
 - Refactored
 - Added flipbook testing
-- Adding loot tables and trading tables checks
-- Adding diagnostics
-- Update dependabot.yml
-- resourpack -> resourcepack
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.67 to 1.7.68
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.21 to 1.2.22
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.20 to 1.2.21
-- build(deps): bump bc-minecraft-project from 1.0.15 to 1.0.16
-- build(deps): bump bc-minecraft-bedrock-vanilla-data
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.64 to 1.7.65. 
+- Adding loot tables and trading tables checks. 
 ## ProjectData
+- Correcting structure id creation for subfolder
+- putting sounds effects now in particles
 - Update dependabot.yml
 - Fixing tickingareas
 - Fixing tickingarea definition
@@ -59,10 +61,14 @@
 - build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4
 - Updated minecraft bedrock types
 - Fixing min_engine_version
-- Updated manifests
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.13 to 1.2.14
-- Updated molang. 
+- Updated manifests. 
 ## Schemas
+- Adding more snippets
+- particle_expire_if_in_blocks
+- Renamed
+- Updated exploration map
+- adding direction to particle_motion_parametric
+- Updating particle
 - Updated spell_effects
 - Updated shooter component
 - Adding
@@ -77,9 +83,3 @@
 - Triggers are full triggers
 - Refactor
 - Adding vscode snippets for events and triggers
-- Updated jump to block
-- Fixed
-- Updated schemas for #17
-- Updated path
-- Added $Schema #17
-- Updated scale timeline
