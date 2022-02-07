@@ -1,5 +1,4 @@
 import * as vstd from "vscode-languageserver-textdocument";
-import * as vscode from "vscode-languageserver";
 import { Types } from "bc-minecraft-bedrock-types";
 import { Range } from "vscode-languageserver";
 import { Character } from "./Character";
@@ -70,18 +69,31 @@ export function GetPosition(position: Types.DocumentLocation, doc: vstd.TextDocu
   return doc.positionAt(position);
 }
 
-export function resolveJsonPath(position: string, doc: vstd.TextDocument): Range {
-  const index = position.lastIndexOf("/");
-  const length = index > -1 ? position.length - index : position.length;
+/**Resolves a json path to a range
+ * @param path The json path to resolve
+ * @param doc The document that the path is in
+ * @returns A range of where the object is*/
+export function resolveJsonPath(path: string, doc: vstd.TextDocument): Range {
+  const index = path.lastIndexOf("/");
+  const length = index > -1 ? path.length - index : path.length;
+  
+  let offset = -1;
+  const text = doc.getText();
 
-  if (index === -1 && (doc.languageId === "json" || doc.languageId === "jsonc")) {
-    position = '"' + position + '"';
+  if (index === -1) {
+    const temp = '"' + path + '"';
+    offset = text.indexOf(temp);
+
+    if (offset < 0) {
+      offset = text.indexOf(path);
+    }
+  }
+  else {
+    offset = text.indexOf(path);
   }
 
-  let offset = doc.getText().indexOf(position);
-
   if (offset < 0) {
-    offset = Types.JsonPath.resolve(doc, position);
+    offset = Types.JsonPath.resolve(doc, path);
   }
 
   const start = doc.positionAt(offset);
