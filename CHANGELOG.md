@@ -1,5 +1,11 @@
 # Changelog
 ## Plugin
+- refactored
+- Updated QueueProcessor implementation
+- Fixing dependencies
+- Updated workspace settings
+- Updated schemas
+- build(deps): bump simple-get from 3.1.0 to 3.1.1
 - Updated schemas
 - build(deps): bump vscode-languageserver-textdocument in /server
 - Updated schemas
@@ -13,13 +19,7 @@
 - build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8 in /server
 - build(deps): bump bc-minecraft-bedrock-project in /client
 - build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17 in /server
-- build(deps): bump bc-minecraft-bedrock-command in /server
-- build(deps): bump bc-minecraft-bedrock-vanilla-data in /server
-- build(deps): bump bc-minecraft-bedrock-project in /server
-- Added output to edits
-- Remove infinite loop
-- Fixing a version issues with documents
-- Updated schemas. 
+- build(deps): bump bc-minecraft-bedrock-command in /server. 
 ## Diagnotics
 - Checking for correct mcstructure id
 - Updated ranged check
@@ -63,6 +63,10 @@
 - Fixing min_engine_version
 - Updated manifests. 
 ## Schemas
+- Added limit to array length
+- Updated templates to 1.18.0
+- Updated template
+- Updating all triggers
 - Adding more snippets
 - particle_expire_if_in_blocks
 - Renamed
@@ -79,7 +83,3 @@
 - Added queryable_geometry
 - Updated manifest
 - Added has_nametag
-- Updated projectile
-- Triggers are full triggers
-- Refactor
-- Adding vscode snippets for events and triggers
