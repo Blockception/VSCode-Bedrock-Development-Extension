@@ -9,38 +9,22 @@ updates:
     directory: "/" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "weekly"
-    assignees:
-    - "DaanV2"
-    reviewers:
-    - "DaanV2"
+      interval: "monthly"
         
   - package-ecosystem: "gitsubmodule" # See documentation for possible values
     directory: "/" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "weekly"
-    assignees:
-    - "DaanV2"
-    reviewers:
-    - "DaanV2"
+      interval: "monthly"
       
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/client" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "weekly"
-    assignees:
-    - "DaanV2"
-    reviewers:
-    - "DaanV2"
+      interval: "monthly"
       
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/server" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
-      interval: "weekly"
-    assignees:
-    - "DaanV2"
-    reviewers:
-    - "DaanV2"
+      interval: "monthly"
