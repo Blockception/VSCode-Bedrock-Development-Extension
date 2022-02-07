@@ -7,19 +7,16 @@ import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { HandleError } from "../../Code/Error";
 import { Fs, Vscode } from "../../Code/Url";
 import { ProgressBar } from "../Progress/ProgressBar";
-import { QueueBatchProcessor } from "@daanv2/queue-processor";
+import { QueueProcessor } from '@daanv2/queue-processor';
+
+type ContentType = string | vscode.TextDocument | undefined;
 
 /**Returns an usable document interaction from the given data.
  * @param uri The url to the document to retrieve.
  * @param Content The possible content of the document or interface to use
  * @param languageID The Language ID associated to the documentated.
- * @returns Returns a textdocument or undefined if something went wrong
- */
-export function GetDocument(
-  uri: string,
-  Content: string | vscode.TextDocument | undefined = undefined,
-  languageID: string = ""
-): TextDocument | undefined {
+ * @returns Returns a textdocument or undefined if something went wrong*/
+export function GetDocument(uri: string, Content: ContentType = undefined, languageID: string = ""): TextDocument | undefined {
   const Old = uri;
   uri = Vscode.FromFs(uri);
 
@@ -58,11 +55,7 @@ export function GetDocument(
  * @param languageID The Language ID associated to the documentated.
  * @returns Returns a textdocument or undefined if something went wrong
  */
-export function GetDocumnetAsync(
-  uri: string,
-  Content: string | vscode.TextDocument | undefined = undefined,
-  languageID: string = ""
-): Promise<TextDocument | undefined> {
+export function GetDocumnetAsync(uri: string, Content: ContentType = undefined, languageID: string = ""): Promise<TextDocument | undefined> {
   return new Promise<TextDocument | undefined>((resolve, reject) => {
     try {
       resolve(GetDocument(uri, Content, languageID));
@@ -100,10 +93,12 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
     reporter.addMaximum(uris.length);
   }
 
-  const processor = new QueueBatchProcessor(uris, (element) => {
+  return QueueProcessor.forEach(uris, (element) => {
+    //Get document
     const doc = GetDocument(element);
 
     try {
+      //If we have a document invoke the requests action
       if (doc) callback(doc);
     } catch (error) {
       HandleError(error, element);
@@ -114,11 +109,6 @@ export function ForEachDocument(uris: string[], callback: (doc: TextDocument) =>
       reporter.sendProgress();
     }
   });
-
-  //const temp: { _batchsize: number } = <{ _batchsize: number }>(<unknown>processor);
-  //Console.Info(`Processing ${uris.length} files with batchsize: ${temp._batchsize}`);
-
-  return processor;
 }
 
 /**

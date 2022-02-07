@@ -1,7 +1,7 @@
-import { PromiseUtility, QueueProcessor } from "@daanv2/queue-processor";
+import { QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { HandleError } from "../Code/Error";
-import { Database } from '../Database/Database';
+import { Database } from "../Database/Database";
 import { ProvidePackDiagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
@@ -47,7 +47,7 @@ async function TraverseProcess(reporter: ProgressBar): Promise<Pack[]> {
       reporter.addValue(1);
       reporter.sendProgress();
 
-      return PromiseUtility.ToVoid(p);
+      return p.then((items) => {});
     });
 
     processor.finally(() => {

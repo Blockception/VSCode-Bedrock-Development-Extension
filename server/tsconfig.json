@@ -2,6 +2,7 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": ["ES2019"],
     "module": "commonjs",
     "moduleResolution": "node",
@@ -20,7 +21,6 @@
     "strictPropertyInitialization": true,
     "target": "es2019",
     "types": ["node", "mocha"],
-    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules", ".vscode-test", "*.test.ts"],
   "include": ["./src"],

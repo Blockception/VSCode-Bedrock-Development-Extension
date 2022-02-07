@@ -1,4 +1,4 @@
-import { PromiseUtility, QueueProcessor } from "@daanv2/queue-processor";
+import { QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
@@ -77,19 +77,22 @@ export namespace Workspace {
   }
 
   /**Retrieves all the packs from the workspaces and process the document
-   * @param folders
-   */
+   * @param folders The workspace folders to process */
   export function TraverseWorkspaces(folders: WorkspaceFolder[]): Promise<Pack[]> {
     const packs: Pack[] = [];
 
+    //Setup queue processor
     const processor = new QueueProcessor(folders, (ws) => {
+      //Processor workspace
       const p = TraverseWorkspace(ws);
 
-      p.then((ps) => packs.push(...ps));
-
-      return PromiseUtility.ToVoid(p);
+      //Add outputted packs to the collection
+      return p.then((ps) => {
+        packs.push(...ps);
+      });
     });
 
+    //Wrap around the processor, if its done, return the packs
     return new Promise<Pack[]>((resolve, reject) => {
       processor.then((ws) => resolve(packs));
       processor.catch((reason) => reject(reason));
@@ -111,14 +114,16 @@ export namespace Workspace {
     const packs = Database.ProjectData.addPack(manifests, project);
 
     //Process each pack
-    const processor = new QueueProcessor(packs, (pack) => {
-      const p = ProcessPack(pack);
-
-      return PromiseUtility.ToVoid(p);
-    });
-
-    return processor;
+    return new QueueProcessor(packs, processPack);
   }
+}
+
+/**
+ * @param pack 
+ * @returns 
+ */
+function processPack(pack: Pack): Promise<void> {
+  return ProcessPack(pack).then((items) => {});
 }
 
 /**

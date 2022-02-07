@@ -74,7 +74,15 @@ export function resolveJsonPath(position: string, doc: vstd.TextDocument): Range
   const index = position.lastIndexOf("/");
   const length = index > -1 ? position.length - index : position.length;
 
-  const offset = Types.JsonPath.resolve(doc, position);
+  if (index === -1 && (doc.languageId === "json" || doc.languageId === "jsonc")) {
+    position = '"' + position + '"';
+  }
+
+  let offset = doc.getText().indexOf(position);
+
+  if (offset < 0) {
+    offset = Types.JsonPath.resolve(doc, position);
+  }
 
   const start = doc.positionAt(offset);
   const end = doc.positionAt(offset + length);
