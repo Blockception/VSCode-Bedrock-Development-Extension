@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.0",
-    "@types/node": "^17.0.15",
+    "@types/node": "^17.0.16",
     "@types/vscode": "^1.64.0",
     "chai": "^4.3.6",
     "json-loader": "^0.5.7",
