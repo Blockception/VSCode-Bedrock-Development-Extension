@@ -3,6 +3,7 @@
   "typescript.preferences.quoteStyle": "single",
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "npm.packageManager": "npm",
+  "prettier.printWidth": 150,
 
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
