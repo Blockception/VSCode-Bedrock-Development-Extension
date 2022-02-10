@@ -37,39 +37,23 @@ export function OnCodeLensRequest(params: CodeLensParams): CodeLens[] | null | u
   //Nothing
   const builder = new CodeLensBuilder(params);
 
-  if (ResourcePack.ResourcePack.is(pack)) {
-    forEach(pack.animation_controllers, doc, builder);
-    forEach(pack.animations, doc, builder);
-    forEach(pack.attachables, doc, builder);
-    forEach(pack.blocks, doc, builder);
-    forEach(pack.entities, doc, builder);
-    forEach(pack.fogs, doc, builder);
-    forEach(pack.materials, doc, builder);
-    forEach(pack.models, doc, builder);
-    forEach(pack.particles, doc, builder);
-    forEach(pack.render_controllers, doc, builder);
-    forEach(pack.sounds, doc, builder);
-    //Skipping textures
-    //forEach(pack.textures, doc, builder);
-  } else if (BehaviorPack.BehaviorPack.is(pack)) {
-    forEach(pack.animation_controllers, doc, builder);
-    forEach(pack.animations, doc, builder);
-    forEach(pack.blocks, doc, builder);
-    forEach(pack.entities, doc, builder);
-    forEach(pack.functions, doc, builder);
-    forEach(pack.items, doc, builder);
-    forEach(pack.loot_tables, doc, builder);
-    forEach(pack.structures, doc, builder);
-    forEach(pack.trading, doc, builder);
+  if (ResourcePack.ResourcePack.is(pack) || BehaviorPack.BehaviorPack.is(pack)) {
+    loop(<DataSet<Types.BaseObject>>pack.getDataset(doc.uri), doc, builder);
   }
 
-  forEachG(Database.ProjectData.General.fakeEntities, doc, builder);
-  forEachG(Database.ProjectData.General.objectives, doc, builder);
-  forEachG(Database.ProjectData.General.structures, doc, builder);
-  forEachG(Database.ProjectData.General.tags, doc, builder);
-  forEachG(Database.ProjectData.General.tickingAreas, doc, builder);
+  forEach(Database.ProjectData.General.fakeEntities, doc, builder);
+  forEach(Database.ProjectData.General.objectives, doc, builder);
+  forEach(Database.ProjectData.General.structures, doc, builder);
+  forEach(Database.ProjectData.General.tags, doc, builder);
+  forEach(Database.ProjectData.General.tickingAreas, doc, builder);
 
   return builder.out;
+}
+
+function loop(set: DataSet<Types.BaseObject> | undefined, doc: TextDocument, builder: CodeLensBuilder) {
+  if (set === undefined) return;
+
+  forEach(set, doc, builder);
 }
 
 /**
@@ -108,31 +92,23 @@ export function OnCodeLensResolveRequest(code: CodeLens): CodeLens {
 }
 
 function forEach<T extends Types.BaseObject>(data: DataSet<T>, doc: TextDocument, builder: CodeLensBuilder) {
-  const text = doc.getText();
-
   data.forEach((item) => {
-    if (item.location.uri === doc.uri) return;
+    if (item.location.uri !== doc.uri) return;
 
-    const reg = new RegExp(`\\b( ${item.id}|"${item.id}")\\b`);
-    const amount = reg.exec(text);
-
-    if (amount === null) return;
-
-    builder.Push({ range: GetRange(amount.index, doc), data: item });
-  });
-}
-
-function forEachG<T extends Types.BaseObject>(data: DataSet<T>, doc: TextDocument, builder: CodeLensBuilder) {
-  const text = doc.getText();
-
-  data.forEach((item) => {
-    if (item.location.uri === doc.uri) return;
-
-    const reg = new RegExp(`\\b([ =]${item.id}|${item.id}=)\\b`);
-    const amount = reg.exec(text);
-
-    if (amount === null) return;
-
-    builder.Push({ range: GetRange(amount.index, doc), data: item });
+    const range = GetRange(item.location.position, doc);
+    builder.Push({
+      range: range,
+      data: item,
+      command: {
+        command: "vscode.executeReferenceProvider",
+        title: item.documentation ?? item.id,
+        arguments: [
+          //uri - The text document in which to start
+          item.location.uri,
+          //position - The position at which to start
+          range.start,
+        ],
+      },
+    });
   });
 }
