@@ -1,7 +1,9 @@
 import { BehaviorPack, DataSet, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { CodeLens, CodeLensParams } from "vscode-languageserver";
+import { CodeLens, CodeLensParams, Command, ExecuteCommandRequest } from "vscode-languageserver";
+import { URI } from "vscode-uri";
 import { GetPosition, GetRange } from "../Code/DocumentLocation";
+import { Fs, Vscode } from "../Code/Url";
 import { Database } from "../Database/Database";
 import { Manager } from "../Manager/Manager";
 import { GetDocument } from "../Types/Document/Document";
@@ -79,13 +81,13 @@ export function OnCodeLensResolveRequest(code: CodeLens): CodeLens {
 
   code.command = {
     title: data.documentation ?? "",
-    command: "vscode.executeReferenceProvider",
-    arguments: [
-      //uri - The text document in which to start
-      data.location.uri,
-      //position - The position at which to start
-      p,
-    ],
+    command: "workbench.action.findInFiles",
+    arguments: [          {
+      query: data.id,
+      isCaseSensitive: true,
+      matchWholeWord: true,
+      isRegexp: false,
+    },],
   };
 
   return code;
@@ -100,13 +102,15 @@ function forEach<T extends Types.BaseObject>(data: DataSet<T>, doc: TextDocument
       range: range,
       data: item,
       command: {
-        command: "vscode.executeReferenceProvider",
+        command: "workbench.action.findInFiles",
         title: item.documentation ?? item.id,
         arguments: [
-          //uri - The text document in which to start
-          item.location.uri,
-          //position - The position at which to start
-          range.start,
+          {
+            query: item.id,
+            isCaseSensitive: true,
+            matchWholeWord: true,
+            isRegexp: false,
+          },
         ],
       },
     });
