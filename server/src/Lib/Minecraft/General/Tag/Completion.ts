@@ -6,8 +6,6 @@ import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
-  receiver.Add("Any Tag", "By inserting an `tag=` you test for entities with any kind of tag", Kinds.Completion.Tag, "");
-  receiver.Add("No Tags", "By inserting an `tag=!` you test for entities with no tags", Kinds.Completion.Tag, "!");
 
   receiver.Generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
 
@@ -26,6 +24,8 @@ function generateDocumentation(tag: GeneralInfo | string): string {
 export function ProvideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
   const receiver = context.receiver;
+  receiver.Add("Any Tag: `tag=`", "By inserting an `tag=` you test for entities with any kind of tag", Kinds.Completion.Tag, "");
+  receiver.Add("No Tags: `tag=!`", "By inserting an `tag=!` you test for entities with no tags", Kinds.Completion.Tag, "!");
 
   //Add defined tags to the context
   data.definitions.tag?.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));

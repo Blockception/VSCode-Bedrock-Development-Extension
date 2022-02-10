@@ -1,9 +1,11 @@
 /*	Auto generated	*/
 export * as CameraShake from "./CameraShake/include";
 export * as Clone from "./Clone/include";
+export * as CauseType from "./CauseType/include";
 export * as Difficulty from "./Difficulty/include";
 export * as Fill from "./Fill/include";
 export * as Gamemode from "./Gamemode/include";
+export * as HandType from "./HandType/include";
 export * as LocateFeature from "./LocateFeature/include";
 export * as Mask from "./Mask/include";
 export * as Mirror from "./Mirror/include";
