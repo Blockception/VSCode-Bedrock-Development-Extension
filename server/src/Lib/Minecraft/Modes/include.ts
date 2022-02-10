@@ -1,7 +1,7 @@
 /*	Auto generated	*/
 export * as CameraShake from "./CameraShake/include";
-export * as Clone from "./Clone/include";
 export * as CauseType from "./CauseType/include";
+export * as Clone from "./Clone/include";
 export * as Difficulty from "./Difficulty/include";
 export * as Fill from "./Fill/include";
 export * as Gamemode from "./Gamemode/include";
