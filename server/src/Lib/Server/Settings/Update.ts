@@ -10,7 +10,7 @@ export function OnConfigurationChanged(params: DidChangeConfigurationParams): vo
 }
 
 export function UpdateSettings(): void {
-  let Settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
+  const Settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
 
   //If settings is nothing then skip it.
   if (Settings === undefined || Settings === null) return;

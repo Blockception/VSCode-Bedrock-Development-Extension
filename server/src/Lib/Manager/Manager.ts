@@ -22,7 +22,7 @@ export class Manager {
   /**Server stuff*/
   public static Connection: Connection;
 
-  /** */
+  /**The settings of the plugin*/
   public static Settings: ServerSettings = ServerSettings.createDefaulSettings();
 }
 
@@ -48,7 +48,7 @@ export namespace Manager {
       }
       else {
         Manager.Connection.sendDiagnostics({ diagnostics: [], uri: doc.uri, version: doc.version });
-      }      
+      }
     }
   }
 
