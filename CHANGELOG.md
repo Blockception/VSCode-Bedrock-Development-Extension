@@ -1,26 +1,29 @@
 # Changelog
 ## Plugin
+- Updated schemas
+- Updated bc-minecraft-project #333
+- Updated schemas
+- Fixing create mcproject files #333
+- Updated code
+- Updating
+- Updated dependencies
+- Refactor code lenses
+- Fixing depencies
+- Updated dependencies
+- Updated completion
+- Updated schemas
+- Added empty tag completion
+- Updated packages
+- Updated schemas
+- Update dependabot.yml
+- build(deps): bump minecraft-bedrock-schemas from `dbacbd8` to `d88c7a5`
 - refactored
 - Updated QueueProcessor implementation
-- Fixing dependencies
-- Updated workspace settings
-- Updated schemas
-- build(deps): bump simple-get from 3.1.0 to 3.1.1
-- Updated schemas
-- build(deps): bump vscode-languageserver-textdocument in /server
-- Updated schemas
-- Updating schemas
-- Updated schemas
-- Cleaned
-- build(deps): bump bc-vscode-words from 1.3.14 to 1.3.15 in /server
-- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
-- build(deps): bump fast-glob from 3.2.10 to 3.2.11
-- build(deps): bump bc-minecraft-bedrock-types in /server
-- build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8 in /server
-- build(deps): bump bc-minecraft-bedrock-project in /client
-- build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17 in /server
-- build(deps): bump bc-minecraft-bedrock-command in /server. 
+- Fixing dependencies. 
 ## Diagnotics
+- Added diagnostics for new parameters types for /loot and /damage
+- Added empty tag support
+- Update dependabot.yml
 - Checking for correct mcstructure id
 - Updated ranged check
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.22 to 1.2.23
@@ -37,11 +40,9 @@
 - Added loot table diagnostics
 - Updating diagnostics texts
 - Add vanilla checks for trading and loot tables
-- Changing path
-- Refactored
-- Added flipbook testing
-- Adding loot tables and trading tables checks. 
+- Changing path. 
 ## ProjectData
+- build(deps): bump bc-minecraft-molang from 1.2.9 to 1.2.10
 - Correcting structure id creation for subfolder
 - putting sounds effects now in particles
 - Update dependabot.yml
@@ -60,9 +61,19 @@
 - Added documentation processing for current line, previous line, or start of the line
 - build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4
 - Updated minecraft bedrock types
-- Fixing min_engine_version
-- Updated manifests. 
+- Fixing min_engine_version. 
 ## Schemas
+- Added category examples
+- Updated health amount
+- Updated is missing health
+- Updated tags
+- Added celebrate_survive & move_outdoors
+- Added visible to spell effects
+- Updated range
+- Updated interact
+- Added is_missing_health filter
+- Added format version 1.18.10
+- Updating
 - Added limit to array length
 - Updated templates to 1.18.0
 - Updated template
@@ -72,14 +83,3 @@
 - Renamed
 - Updated exploration map
 - adding direction to particle_motion_parametric
-- Updating particle
-- Updated spell_effects
-- Updated shooter component
-- Adding
-- Updated priority text
-- Fixing experience reward
-- Updating manifest for blocks.json
-- Updated testing dependencies
-- Added queryable_geometry
-- Updated manifest
-- Added has_nametag
