@@ -2,7 +2,7 @@ import { DidChangeConfigurationParams } from 'vscode-languageserver';
 import { Identification } from '../../Constants';
 import { Database } from '../../Database/Database';
 import { Manager } from '../../Manager/Manager';
-import { Overlay } from '../../Project/MCProjects';
+import { GetProject } from '../../Project/MCProjects';
 import { ServerSettings } from './Settings';
 
 export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {
@@ -28,6 +28,8 @@ function UpdateSettingsThen(data: any): void {
     Manager.Settings = Casted;
 
     //Update existing settings
-    Database.WorkspaceData.forEach((value) => Overlay(value));
+    Database.WorkspaceData.forEach((value, uri) => {
+      Database.WorkspaceData.set(uri, GetProject(uri));
+    });
   }
 }

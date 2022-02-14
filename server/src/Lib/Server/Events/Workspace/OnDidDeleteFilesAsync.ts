@@ -1,5 +1,6 @@
-import { DeleteFilesParams, FileDelete } from "vscode-languageserver";
+import { DeleteFilesParams, Diagnostic, FileDelete } from "vscode-languageserver";
 import { Database } from "../../../Database/Database";
+import { Manager } from '../../../Manager/Manager';
 
 //Files created
 export async function onDidDeleteFilesAsync(params: DeleteFilesParams): Promise<void> {
@@ -26,6 +27,8 @@ async function onDidDeleteFile(Item: FileDelete): Promise<void> {
   return new Promise((resolve, reject) => {
     const uri = Item.uri;
     Database.ProjectData.deleteFile(uri);
+    //Reset any diagnostics on the file
+    Manager.Diagnostic.ResetDocument(Item.uri);
     resolve();
   });
 }

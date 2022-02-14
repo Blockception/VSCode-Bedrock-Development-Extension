@@ -6,6 +6,7 @@ import { GetProjectEmpty } from "../Project/MCProjects";
  *
  */
 export class WorkspaceData {
+  /**<Workspace Uri, Project Data> */
   private Data: Map<string, MCProject>;
 
   constructor() {
@@ -63,11 +64,7 @@ export class WorkspaceData {
    * @param Data
    */
   set(Folder: WorkspaceFolder | string, Data: MCProject): void {
-    if (typeof Folder === "string") {
-      this.Data.set(Folder, Data);
-    } else {
-      this.Data.set(Folder.uri, Data);
-    }
+    this.Data.set(typeof Folder === "string" ? Folder : Folder.uri, Data);
   }
 
   /**
@@ -79,14 +76,14 @@ export class WorkspaceData {
     if (typeof Folder === "string") return this.Data.delete(Folder);
 
     return this.Data.delete(Folder.uri);
-  }
+  } 
 
   /**
-   *
-   * @param callbackfn
-   * @param thisArg
+   * 
+   * @param callbackfn 
+   * @param thisArg 
    */
-  forEach(callbackfn: (value: MCProject, key: string, map: Map<string, MCProject>) => void, thisArg?: any): void {
+  forEach(callbackfn: (value: MCProject, workspaceuri: string, map: Map<string, MCProject>) => void, thisArg?: any): void {
     this.Data.forEach(callbackfn);
   }
 }

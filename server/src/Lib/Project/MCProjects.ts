@@ -1,5 +1,4 @@
 import { MCProject } from "bc-minecraft-project";
-import { WorkspaceFolder } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
 
 
@@ -34,7 +33,11 @@ export function GetProjectEmpty(): MCProject {
   return Overlay(MCProject.createEmpty());
 }
 
-
+/**
+ * 
+ * @param project 
+ * @returns 
+ */
 export function Overlay(project: MCProject): MCProject {
   const settings = Manager.Settings;
 

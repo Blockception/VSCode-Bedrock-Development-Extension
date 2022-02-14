@@ -30,9 +30,25 @@ export class Manager {
 export namespace Manager {
   /***/
   export namespace Diagnostic {
-    /**Sends the diagnostics to the client*/
+    /**Sends the diagnostics to the client
+     * @param doc 
+     * @param Diagnostics 
+     */
     export function SendDiagnostics(doc: TextDocument, Diagnostics: Diagnostic[]): void {
       Manager.Connection.sendDiagnostics({ diagnostics: Diagnostics, uri: doc.uri, version: doc.version });
+    }
+
+    /**
+     * 
+     * @param doc 
+     */
+    export function ResetDocument(doc: TextDocument | string) : void {
+      if (typeof doc === "string") {
+        Manager.Connection.sendDiagnostics({ diagnostics: [], uri: doc });
+      }
+      else {
+        Manager.Connection.sendDiagnostics({ diagnostics: [], uri: doc.uri, version: doc.version });
+      }      
     }
   }
 

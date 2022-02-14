@@ -3,6 +3,7 @@ import { GetDocument } from "../../../Types/Document/Document";
 import { Database } from "../../../Database/Database";
 import { Process } from "../../../Process/Process";
 import { Vscode } from "../../../Code/Url";
+import { Manager } from '../../../Manager/Manager';
 
 //Files created
 export async function OnDidRenameFilesAsync(params: RenameFilesParams): Promise<void> {
@@ -29,6 +30,7 @@ async function OnDidRenameFile(Item: FileRename): Promise<void> {
     //Delete old data
     const uri = Vscode.FromFs(Item.oldUri);
     Database.ProjectData.deleteFile(uri);
+    Manager.Diagnostic.ResetDocument(uri);
 
     //Update new one
     const Doc = GetDocument(Item.newUri);
