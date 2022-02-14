@@ -137,7 +137,7 @@ function processWorkspace(ws: WorkspaceFolder[] | null): void {
   for (let I = 0; I < ws.length; I++) {
     const folder = ws[I].uri;
     const p = GetProject(folder);
-
-    MCProject.saveSync(folder, p);
+    
+    MCProject.saveSync(Fs.FromVscode(folder), p);
   }
 }
