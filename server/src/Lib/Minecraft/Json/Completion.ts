@@ -31,7 +31,7 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
   c.receiver.OnNewItem = (NewItem: CompletionItem) => {
     //Update the filtering text
 
-    let old = NewItem.label;
+    let old = NewItem.insertText ?? NewItem.label;
     let text = old;
     if (first !== "") old = old.replace(first, "");
     if (second !== "") old = old.replace(second, "");
@@ -39,9 +39,10 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
     if (first !== "" && !text.startsWith(first)) text = first + text;
     if (second !== "" && !text.endsWith(second)) text = text + second;
 
-    NewItem.label = old;
     NewItem.filterText = '"' + text + '"';
-    NewItem.textEdit = InsertReplaceEdit.create(NewItem.label, R, R);
+    NewItem.textEdit = InsertReplaceEdit.create(NewItem.insertText ?? NewItem.label, R, R);
+
+    if (NewItem.insertText) NewItem.insertText = undefined;
 
     if (Function) Function(NewItem);
   };

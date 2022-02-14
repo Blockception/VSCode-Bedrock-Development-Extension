@@ -9,14 +9,11 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
 }
 
 function Generate(data: MolangFunction, builder: CompletionBuilder, kinds: CompletionItemKind = CompletionItemKind.Function): void {
-  const comp = builder.Add(data.id, data.documentation ?? `The molang math: ${data.id}`, kinds);
-  
+  let insert = data.id;
+
   if (data.parameters && data.parameters.length > 0) {
-    const p = data.parameters.map((p) => p.id);
-
-    comp.filterText = comp.label;
-    comp.insertText = `${data.id}(${p.join(", ")})`;
-
-    return;
+    insert += '(' + data.parameters.map((p) => p.id).join(', ') + ')';
   }
+
+  builder.Add(data.id, data.documentation ?? `The molang math: ${data.id}`, kinds, insert);
 }
