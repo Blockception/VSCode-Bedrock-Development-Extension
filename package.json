@@ -24,7 +24,8 @@
     "onCommand:bc-create-project-resource-pack",
     "workspaceContains:**/.mcattributes",
     "workspaceContains:**/.mcdefinitions",
-    "workspaceContains:**/.mcignore"
+    "workspaceContains:**/.mcignore",
+    "workspaceContains:**/.mcfunction"
   ],
   "author": {
     "name": "Blockception Ltd",
