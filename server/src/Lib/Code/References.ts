@@ -10,11 +10,12 @@ export namespace References {
    * @param receiver
    * @returns
    */
-  export function ConvertLocation(items: ((Types.Locatable & Types.Identifiable) | Location)[]): Location[] {
+  export function ConvertLocation(items: ((Types.Locatable & Types.Identifiable) | Location | undefined)[]): Location[] {
     let receiver: Location[] = [];
 
     for (let I = 0; I < items.length; I++) {
       const item = items[I];
+      if (item === undefined) continue;
 
       if (Location.is(item)) {
         receiver.push(item);

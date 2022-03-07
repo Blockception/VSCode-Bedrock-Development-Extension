@@ -10,6 +10,7 @@ import * as Molang from '../Molang/include';
 import { Database } from '../../Database/Database';
 import { ParameterType } from 'bc-minecraft-bedrock-command';
 import { References } from '../../Code/References';
+import { text } from 'stream/consumers';
 
 export function ProvideReferences(doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
   const pos = params.position;
