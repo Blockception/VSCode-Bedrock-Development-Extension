@@ -20,7 +20,7 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     //Accepted values
     if (parameter.options.acceptedValues) {
       parameter.options.acceptedValues.forEach((value) => {
-        context.receiver.Add(value, "accepted values", CompletionItemKind.Text);
+        context.receiver.Add(value, "accepted values", CompletionItemKind.EnumMember);
       });
     }
 
