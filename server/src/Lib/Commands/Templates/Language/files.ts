@@ -1,6 +1,7 @@
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
-import { Pack } from 'bc-minecraft-bedrock-project';
+import { Pack, Util } from 'bc-minecraft-bedrock-project';
+import { generate_bp, generate_rp, generate_wp, ITextEditBuilder, TextEditBuilder } from '../../Language/AddAll';
 
 const LanguageNames: string[] = [
   "en_US",
@@ -39,20 +40,33 @@ const LanguageContent = `## Comments can be added anywhere on a valid line by st
 ## Note, trailing spaces will NOT be trimmed. If you want room between the end of the string and the start of a
 ## comment on the same line, use TABs.'
 pack.name=Example pack name
-pack.description=The text that describes this example pack`;
+pack.description=The text that describes this example pack\n`;
 
 /**
  *
  * @param PackFolder
  * @param Builder
  */
-export function create_language_files(Pack: Pack | string, Builder: TemplateBuilder): void {
-  const BaseFolder = path.join(typeof Pack === "string" ? Pack : Pack.folder, "texts");
-
+export function create_language_files(Pack: Pack, Builder: TemplateBuilder): void {
+  const BaseFolder = path.join(Pack.folder, "texts");
   PrivateCreate(BaseFolder, Builder, "languages.json", JSON.stringify(LanguageNames));
 
+  let content = LanguageContent;
+  const builder = new TextEditBuilder(undefined);
+
+  if (Util.IsResourcePack(Pack)) {
+    generate_rp(Pack, builder);
+  }
+  else if (Util.IsBehaviorPack(Pack)) {
+    generate_bp(Pack, builder);
+  }
+  else if (Util.IsWorldPack(Pack)) {
+    generate_wp(Pack, builder);
+  }
+  content += builder.out;
+
   for (let I = 0; I < LanguageNames.length; I++) {
-    PrivateCreate(BaseFolder, Builder, `${LanguageNames[I]}.lang`, LanguageContent);
+    PrivateCreate(BaseFolder, Builder, `${LanguageNames[I]}.lang`, content);
   }
 }
 

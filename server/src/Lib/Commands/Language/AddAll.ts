@@ -56,7 +56,7 @@ export function AddAllItems(params: ExecuteCommandParams): any {
   return undefined;
 }
 
-function generate_bp(pack: BehaviorPack.BehaviorPack, builder: TextEditBuilder) {
+export function generate_bp(pack: BehaviorPack.BehaviorPack, builder: ITextEditBuilder) {
   pack.entities.forEach((entity) => {
     const id = Safe(entity.id);
 
@@ -68,7 +68,7 @@ function generate_bp(pack: BehaviorPack.BehaviorPack, builder: TextEditBuilder) 
   pack.items.forEach((item) => builder.Add("item." + item.id + ".name", Safe(item.id), "Item: " + item.id));
 }
 
-function generate_rp(pack: ResourcePack.ResourcePack, builder: TextEditBuilder) {
+export function generate_rp(pack: ResourcePack.ResourcePack, builder: ITextEditBuilder) {
   pack.entities.forEach((entity) => {
     const id = Safe(entity.id);
 
@@ -79,7 +79,7 @@ function generate_rp(pack: ResourcePack.ResourcePack, builder: TextEditBuilder) 
   pack.blocks.forEach((data) => builder.Add("tile." + data.id + ".name", Safe(data.id), "Block: " + data.id));
 }
 
-function generate_wp(pack: WorldPack, builder: TextEditBuilder) {}
+export function generate_wp(pack: WorldPack, builder: ITextEditBuilder) {}
 
 function Safe(id: string): string {
   const index = id.indexOf(":");
@@ -90,13 +90,17 @@ function Safe(id: string): string {
   return id;
 }
 
-class TextEditBuilder {
+export interface ITextEditBuilder {
+  Add(Key: string, Value: string, Comment: string | undefined): void;
+}
+
+export class TextEditBuilder implements ITextEditBuilder {
   public out: string;
   readonly textdoc: string;
 
-  constructor(doc: TextDocument) {
+  constructor(doc: TextDocument | undefined) {
     this.out = "";
-    this.textdoc = doc.getText();
+    this.textdoc = doc?.getText() ?? "";
   }
 
   Add(Key: string, Value: string, Comment: string | undefined = undefined): void {
