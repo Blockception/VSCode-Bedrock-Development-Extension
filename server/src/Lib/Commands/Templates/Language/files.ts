@@ -2,6 +2,7 @@ import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { Pack, Util } from 'bc-minecraft-bedrock-project';
 import { generate_bp, generate_rp, generate_wp, ITextEditBuilder, TextEditBuilder } from '../../Language/AddAll';
+import { Database } from '../../../Database/Database';
 
 const LanguageNames: string[] = [
   "en_US",
@@ -44,10 +45,17 @@ pack.description=The text that describes this example pack\n`;
 
 /**
  *
- * @param PackFolder
+ * @param Pack
  * @param Builder
  */
-export function create_language_files(Pack: Pack, Builder: TemplateBuilder): void {
+export function create_language_files(Pack: Pack | string, Builder: TemplateBuilder): void {
+  if (typeof Pack === "string") {
+    let nPack = Database.ProjectData.get(Pack);
+
+    if (nPack === undefined) return;
+    Pack = nPack;
+  }
+
   const BaseFolder = path.join(Pack.folder, "texts");
   PrivateCreate(BaseFolder, Builder, "languages.json", JSON.stringify(LanguageNames));
 
