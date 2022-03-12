@@ -1,68 +1,79 @@
 # Changelog
 ## Plugin
 - Updated schemas
+- Updated schemas
+- Adding more to languages
+- updated: schemas
+- Added commands
+- build(deps): bump node from 17.4.0 to 17.5.0
+- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
+- Updated schemas
+- Added extra start event
+- Fixing dependencies
+- Downgraded comment-json
+- UIpdated schemas
+- Refactored
+- Updated schemas
 - Updated bc-minecraft-project #333
 - Updated schemas
 - Fixing create mcproject files #333
 - Updated code
 - Updating
-- Updated dependencies
-- Refactor code lenses
-- Fixing depencies
-- Updated dependencies
-- Updated completion
-- Updated schemas
-- Added empty tag completion
-- Updated packages
-- Updated schemas
-- Update dependabot.yml
-- build(deps): bump minecraft-bedrock-schemas from `dbacbd8` to `d88c7a5`
-- refactored
-- Updated QueueProcessor implementation
-- Fixing dependencies. 
+- Updated dependencies. 
 ## Diagnotics
-- Added diagnostics for new parameters types for /loot and /damage
-- Added empty tag support
-- Update dependabot.yml
-- Checking for correct mcstructure id
-- Updated ranged check
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.22 to 1.2.23
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.21 to 1.2.22
-- build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.68 to 1.7.69
-- build(deps): bump bc-minecraft-bedrock-vanilla-data
-- build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17
-- Updating texture
-- Fixing checks
-- Fixing item diagnostics
-- Fixing slot mode diagnostics
-- Added path lengths
-- Added loot table diagnostics
-- Updating diagnostics texts
-- Add vanilla checks for trading and loot tables
-- Changing path. 
+- Updated schemas
+- Updated schemas
+- Adding more to languages
+- updated: schemas
+- Added commands
+- build(deps): bump node from 17.4.0 to 17.5.0
+- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
+- Updated schemas
+- Added extra start event
+- Fixing dependencies
+- Downgraded comment-json
+- UIpdated schemas
+- Refactored
+- Updated schemas
+- Updated bc-minecraft-project #333
+- Updated schemas
+- Fixing create mcproject files #333
+- Updated code
+- Updating
+- Updated dependencies. 
 ## ProjectData
-- build(deps): bump bc-minecraft-molang from 1.2.9 to 1.2.10
-- Correcting structure id creation for subfolder
-- putting sounds effects now in particles
-- Update dependabot.yml
-- Fixing tickingareas
-- Fixing tickingarea definition
-- Can retruns world packs now
-- Updating packs
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.19 to 1.2.20
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.18 to 1.2.19
-- Updated IDataset
-- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
-- build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
-- Updated processing
-- Stricter control
-- Added documentation processing for current line, previous line, or start of the line
-- build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4
-- Updated minecraft bedrock types
-- Fixing min_engine_version. 
+- Updated schemas
+- Updated schemas
+- Adding more to languages
+- updated: schemas
+- Added commands
+- build(deps): bump node from 17.4.0 to 17.5.0
+- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
+- Updated schemas
+- Added extra start event
+- Fixing dependencies
+- Downgraded comment-json
+- UIpdated schemas
+- Refactored
+- Updated schemas
+- Updated bc-minecraft-project #333
+- Updated schemas
+- Fixing create mcproject files #333
+- Updated code
+- Updating
+- Updated dependencies. 
 ## Schemas
+- Add doumentation
+- Added documentation to loot tables
+- Added documentation to dialogue
+- Added documentation to terrain textures
+- Added documentation to rawtext component
+- Update interact.json
+- Update compress-json-schemas.yml
+- Update interact.json
+- Update manifest.2.json
+- Update manifest.2.json
+- define subpacks
 - Added category examples
 - Updated health amount
 - Updated is missing health
@@ -72,14 +83,3 @@
 - Updated range
 - Updated interact
 - Added is_missing_health filter
-- Added format version 1.18.10
-- Updating
-- Added limit to array length
-- Updated templates to 1.18.0
-- Updated template
-- Updating all triggers
-- Adding more snippets
-- particle_expire_if_in_blocks
-- Renamed
-- Updated exploration map
-- adding direction to particle_motion_parametric
