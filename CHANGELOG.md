@@ -2,6 +2,7 @@
 ## Plugin
 - Updated schemas
 - Updated schemas
+- Updated schemas
 - Adding more to languages
 - updated: schemas
 - Added commands
@@ -18,51 +19,54 @@
 - Updated schemas
 - Fixing create mcproject files #333
 - Updated code
-- Updating
-- Updated dependencies. 
+- Updating. 
 ## Diagnotics
-- Updated schemas
-- Updated schemas
-- Adding more to languages
-- updated: schemas
-- Added commands
-- build(deps): bump node from 17.4.0 to 17.5.0
-- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
-- Updated schemas
-- Added extra start event
-- Fixing dependencies
-- Downgraded comment-json
-- UIpdated schemas
+- Expanded sound diagnostics
+- Added deprecated check
 - Refactored
-- Updated schemas
-- Updated bc-minecraft-project #333
-- Updated schemas
-- Fixing create mcproject files #333
-- Updated code
-- Updating
-- Updated dependencies. 
+- Adding table / loot table
+- Added diagnostics for new parameters types for /loot and /damage
+- Added empty tag support
+- Update dependabot.yml
+- Checking for correct mcstructure id
+- Updated ranged check
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.22 to 1.2.23
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.21 to 1.2.22
+- build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8
+- build(deps): bump bc-minecraft-bedrock-project from 1.7.68 to 1.7.69
+- build(deps): bump bc-minecraft-bedrock-vanilla-data
+- build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17
+- Updating texture
+- Fixing checks
+- Fixing item diagnostics
+- Fixing slot mode diagnostics
+- Added path lengths. 
 ## ProjectData
-- Updated schemas
-- Updated schemas
-- Adding more to languages
-- updated: schemas
-- Added commands
-- build(deps): bump node from 17.4.0 to 17.5.0
-- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
-- Updated schemas
-- Added extra start event
-- Fixing dependencies
-- Downgraded comment-json
-- UIpdated schemas
-- Refactored
-- Updated schemas
-- Updated bc-minecraft-project #333
-- Updated schemas
-- Fixing create mcproject files #333
-- Updated code
-- Updating
-- Updated dependencies. 
+- Expanded sound definition
+- Update dependabot.yml
+- build(deps): bump bc-minecraft-molang from 1.2.9 to 1.2.10
+- Correcting structure id creation for subfolder
+- putting sounds effects now in particles
+- Update dependabot.yml
+- Fixing tickingareas
+- Fixing tickingarea definition
+- Can retruns world packs now
+- Updating packs
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.19 to 1.2.20
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.18 to 1.2.19
+- Updated IDataset
+- build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
+- build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
+- build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
+- Updated processing
+- Stricter control
+- Added documentation processing for current line, previous line, or start of the line
+- build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4. 
 ## Schemas
+- Added comments
+- Fixed #25
+- Added sounds
+- Added documentation
 - Add doumentation
 - Added documentation to loot tables
 - Added documentation to dialogue
@@ -79,7 +83,3 @@
 - Updated is missing health
 - Updated tags
 - Added celebrate_survive & move_outdoors
-- Added visible to spell effects
-- Updated range
-- Updated interact
-- Added is_missing_health filter
