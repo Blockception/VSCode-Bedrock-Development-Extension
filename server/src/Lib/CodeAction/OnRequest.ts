@@ -5,6 +5,7 @@ import { Attributes } from "./Types/Definition";
 
 import * as BehaviorPack from '../Minecraft/BehaviorPack/CodeAction';
 import * as ResourcePack from '../Minecraft/ResourcePack/CodeAction';
+import { GetDocument } from '../Types/Document/Document';
 
 /**
  *
@@ -34,7 +35,10 @@ export async function OnCodeActionResolveAsync(params: CodeAction): Promise<Code
  * @returns
  */
 export function OnCodeAction(params: CodeActionParams): (Command | CodeAction)[] {
-  const builder = new CodeActionBuilder(params);
+  const doc = GetDocument(params.textDocument.uri);
+  if (!doc) return [];
+
+  const builder = new CodeActionBuilder(params, doc);
   params.context.diagnostics.forEach((d) => FindAction(builder, d));
   return builder.out;
 }
