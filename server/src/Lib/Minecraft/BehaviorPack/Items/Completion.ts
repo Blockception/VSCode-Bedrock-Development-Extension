@@ -27,5 +27,22 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   });
 
   //Education data
-  if (IsEducationEnabled(context.doc)) receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+  if (IsEducationEnabled(context.doc)) {
+    receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+
+    //Vanilla data
+    receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+
+    //spawn_eggs
+    MinecraftData.edu.BehaviorPack.entities.forEach((entity) => {
+      receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+    });
+  }
+
+  //Custom block items
+  receiver.Generate(
+    Database.ProjectData.BehaviorPacks.blocks,
+    (item: Identifiable) => `The block-item definition: ${item.id}`,
+    Kinds.Completion.Block
+  );
 }
