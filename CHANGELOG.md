@@ -1,6 +1,12 @@
 # Changelog
 ## Plugin
 - Updated schemas
+- corrected
+- Adding block custom items #352
+- Updated schemas
+- Updated schemas
+- Added more file extensions to be recognized by the JSON validator. The extensions are based on the ones used on this repository: https://github.com/SirLich/bedrock-addon-icons
+- Updated schemas
 - Updated schemas
 - Updated schemas
 - Adding more to languages
@@ -13,14 +19,12 @@
 - Fixing dependencies
 - Downgraded comment-json
 - UIpdated schemas
-- Refactored
-- Updated schemas
-- Updated bc-minecraft-project #333
-- Updated schemas
-- Fixing create mcproject files #333
-- Updated code
-- Updating. 
+- Refactored. 
 ## Diagnotics
+- Added diagnostics for: 'drop_item_for' behavior
+- Added better debug messaging
+- Changed
+- Adding block diagnostics
 - Expanded sound diagnostics
 - Added deprecated check
 - Refactored
@@ -36,12 +40,9 @@
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.68 to 1.7.69
 - build(deps): bump bc-minecraft-bedrock-vanilla-data
 - build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17
-- Updating texture
-- Fixing checks
-- Fixing item diagnostics
-- Fixing slot mode diagnostics
-- Added path lengths. 
+- Updating texture. 
 ## ProjectData
+- Updating
 - Expanded sound definition
 - Update dependabot.yml
 - build(deps): bump bc-minecraft-molang from 1.2.9 to 1.2.10
@@ -60,26 +61,25 @@
 - build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
 - Updated processing
 - Stricter control
-- Added documentation processing for current line, previous line, or start of the line
-- build(deps): bump bc-minecraft-molang from 1.2.3 to 1.2.4. 
+- Added documentation processing for current line, previous line, or start of the line. 
 ## Schemas
+- Updated format version
+- Processed updated docuemtnation from minecraft
+- Added documentation for celebrate_survive
+- Now documentated
+- avoid blocks now documentated
+- Added Work composter
+- Added biome filterint to trades
+- Added version format
+- Added exhaustion_values
+- Updated components
+- Added has_silk_touch
+- Updated dependecies
+- Fixing paths
+- Updated description field in manifests
+- Update compress-json-schemas.yml
+- fixing transition type
+- Updated patterns
 - Added comments
 - Fixed #25
 - Added sounds
-- Added documentation
-- Add doumentation
-- Added documentation to loot tables
-- Added documentation to dialogue
-- Added documentation to terrain textures
-- Added documentation to rawtext component
-- Update interact.json
-- Update compress-json-schemas.yml
-- Update interact.json
-- Update manifest.2.json
-- Update manifest.2.json
-- define subpacks
-- Added category examples
-- Updated health amount
-- Updated is missing health
-- Updated tags
-- Added celebrate_survive & move_outdoors
