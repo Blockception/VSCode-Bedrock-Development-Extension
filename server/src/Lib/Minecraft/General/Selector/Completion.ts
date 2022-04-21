@@ -9,6 +9,7 @@ import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Mod
 import * as AttributeValue from "./AttributeValue/Completion";
 import * as Attributes from "./Attributes/Completion";
 import * as Scores from "./Scores/Completion";
+import { HasItem } from './include';
 
 /**
  *
@@ -65,6 +66,12 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     return;
   }
 
+  //Not in selector
+  if (InHasItem(selector, pos)) {
+    HasItem.ProvideCompletion(context, selector, pos);
+    return;
+  }
+
   if (IsEditingValue(selector, pos)) {
     const Attribute = GetCurrentAttribute(selector, pos);
     AttributeValue.ProvideCompletion(context, Attribute, !playerOnly);
@@ -103,7 +110,29 @@ export function InSelector(selector: OffsetWord, pos: number): boolean {
  */
 export function InScore(selector: OffsetWord, pos: number): boolean {
   let Index = selector.text.indexOf("scores");
+  if (Index < 0) return false;
 
+  //scores={}
+  if (pos < Index + 8) {
+    return false;
+  }
+
+  Index = selector.text.indexOf("}") + selector.offset;
+
+  if (Index < 0) return true;
+
+  return pos <= Index;
+}
+
+
+/**
+ *
+ * @param selector
+ * @param pos
+ * @returns
+ */
+ export function InHasItem(selector: OffsetWord, pos: number): boolean {
+  let Index = selector.text.indexOf("hasitem");
   if (Index < 0) return false;
 
   //scores={}

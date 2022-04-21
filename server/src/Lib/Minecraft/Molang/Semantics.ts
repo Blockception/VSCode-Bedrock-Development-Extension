@@ -1,5 +1,4 @@
 import { Float } from "bc-minecraft-bedrock-types/lib/src/General/Float";
-import { Selector } from "bc-minecraft-bedrock-types/lib/src/Minecraft/Selector";
 import { OffsetWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
@@ -8,6 +7,7 @@ import { TextDocument } from "../../Types/Document/TextDocument";
 import { JsonSemanticTokensBuilder } from "../../Semantics/Builders/JsonSemanticTokensBuilder";
 import { MolangSemanticTokensBuilder } from "../../Semantics/Builders/MolangSemanticTokensBuilder";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Semantics/Legend";
+import { Minecraft } from 'bc-minecraft-bedrock-diagnoser/node_modules/bc-minecraft-bedrock-types';
 
 /**
  *
@@ -119,7 +119,7 @@ function ConvertWordsDefault(Words: OffsetWord[], Index: number, Builder: JsonSe
     return;
   }
 
-  if (Selector.isSelector(text, undefined)) {
+  if (Minecraft.Selector.Selector.isSelector(text, undefined)) {
     Builder.AddWord(Word, SemanticTokensEnum.variable);
     return;
   }

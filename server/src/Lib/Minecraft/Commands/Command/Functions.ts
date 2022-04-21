@@ -1,5 +1,5 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { Selector } from "bc-minecraft-bedrock-types/lib/src/Minecraft/Selector";
+import { Selector } from '../../General/include';
 
 export function GetPossibleEntityTypes(command: Command, maxIndex: number): string[] {
   const data = command.getBestMatch();
@@ -18,7 +18,10 @@ export function GetPossibleEntityTypes(command: Command, maxIndex: number): stri
           break;
 
         case ParameterType.selector:
-          out.push(...Selector.getAttribute("type", command.parameters[J].text));
+          const item = Selector.getAttribute("type", command.parameters[J].text);
+          
+          if (item)
+          out.push(...item);
           break;
       }
     }
