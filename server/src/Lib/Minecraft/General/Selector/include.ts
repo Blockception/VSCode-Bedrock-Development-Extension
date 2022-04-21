@@ -4,3 +4,4 @@ export * as Attributes from "./Attributes/include";
 export * as Scores from "./Scores/include";
 export * from "./Completion";
 export * from "./Semantics";
+export * from "./Code";
