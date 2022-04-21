@@ -7,7 +7,7 @@ import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { GetPossibleBlockID } from "../../Commands/Command/Functions";
 import { Kinds } from "../../General/Kinds";
-import { IsEditingValue } from "../../General/Selector/Completion";
+import { IsEditingValue } from '../../General/Selector/AttributeValue/Completion';
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
   const block = GetPossibleBlockID(context.command, context.parameterIndex);

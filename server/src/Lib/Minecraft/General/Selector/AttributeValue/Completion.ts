@@ -9,6 +9,8 @@ import * as Integer from "../../../General/Integer/include";
 import * as Names from "../../../General/Names/include";
 import * as Float from "../../../General/Float/include";
 import * as Tag from "../../../General/Tag/include";
+import { OffsetWord } from 'bc-vscode-words';
+import { equal } from 'assert';
 
 //Doesnt do scores and doesnt need to
 export function ProvideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
@@ -72,5 +74,38 @@ export function ProvideCompletion(context: CommandCompletionContext, attribute: 
       receiver.Add("~1", "A relative coordinate", CompletionItemKind.Constant);
       receiver.Add("~-1", "A relative coordinate", CompletionItemKind.Constant);
       return;
+
+    case "hasitem":
+    case "scores":
+      receiver.Add("={}", "Definition", CompletionItemKind.Class);
+      return;
   }
+}
+
+
+
+
+/**
+ *
+ * @param value
+ * @param pos
+ * @returns
+ */
+ export function IsEditingValue(value: OffsetWord, pos: number): boolean {
+  pos = pos - value.offset;
+
+  if (pos < 0) return false;
+  const text = value.text.slice(0, pos);
+
+  const equals = text.lastIndexOf("=");
+  if (equals > -1 && pos > equals) {
+
+    //Block by the equals
+    if (text.charAt(equals + 1) === '{') return false;
+    if (text.lastIndexOf(",") > equals) return false;
+
+    return true;
+  }
+
+  return false;
 }

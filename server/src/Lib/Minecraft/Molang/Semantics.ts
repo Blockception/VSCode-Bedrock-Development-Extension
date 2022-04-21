@@ -7,7 +7,7 @@ import { TextDocument } from "../../Types/Document/TextDocument";
 import { JsonSemanticTokensBuilder } from "../../Semantics/Builders/JsonSemanticTokensBuilder";
 import { MolangSemanticTokensBuilder } from "../../Semantics/Builders/MolangSemanticTokensBuilder";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Semantics/Legend";
-import { Minecraft } from 'bc-minecraft-bedrock-diagnoser/node_modules/bc-minecraft-bedrock-types';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
 
 /**
  *

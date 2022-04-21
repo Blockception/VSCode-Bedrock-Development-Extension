@@ -1,29 +1,45 @@
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
-import { Offset, SimpleContext } from "../../../../Code/include";
+import { SimpleContext } from "../../../../Code/include";
 import { CompletionBuilder } from "../../../../Completion/Builder";
-import * as Objectives from "../../../General/Objectives/Completion";
+import { Modes } from '../../../include';
+import { Integer } from '../../Completion';
+import { Kinds } from "../../Kinds";
+import { GetCurrentAttribute } from "../Attributes/Completion";
+import { IsEditingValue } from "../AttributeValue/Completion";
+
+import * as Item from '../../../BehaviorPack/Items/Completion'
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {
   const receiver = context.receiver;
 
-  if (Offset.IsWithin(selector, pos)) {
-    receiver.Add("0", "test for the exact value of 0", CompletionItemKind.Value);
-    receiver.Add("!0", "test for the exact value of everything but 0", CompletionItemKind.Value);
-    receiver.Add("0..", "test for the everything equal to 0 or higher", CompletionItemKind.Value);
-    receiver.Add("..0", "test for the everything equal to 0 or lower", CompletionItemKind.Value);
-    receiver.Add("0..10", "test for the everything equal to 0 or 10 and everything in between", CompletionItemKind.Value);
-    receiver.Add("!0..10", "test for the everything not equal to 0 or 10 and everything in between", CompletionItemKind.Value);
+  if (IsEditingValue(selector, pos)) {
+    const attr = GetCurrentAttribute(selector, pos);
+
+    switch (attr) {
+      case "data":
+        return Integer.ProvideCreateCompletion(receiver, -1, 9);
+
+      case "item":
+        return Item.ProvideCompletion(context)
+
+      case "location":
+        return Modes.SlotType.ProvideCompletion(context);
+
+      case "slot":
+        return Integer.ProvideCreateCompletion(receiver, 0, 53);
+
+      case "quantity":
+        return Integer.ProvideCreateCompletion(receiver, 0, 10);
+
+      default:
+        return;
+    }
   } else {
-    const old_event = receiver.OnNewItem;
-
-    receiver.OnNewItem = (item) => {
-      item.insertText = item.label += "=";
-
-      if (old_event) old_event(item);
-    };
-
-    Objectives.ProvideCompletion(context);
-    receiver.OnNewItem = old_event;
+    receiver.Add("data", "The data of the item that the selector is looking for", Kinds.Completion.Integer);
+    receiver.Add("item", "The item that the selector is looking for", Kinds.Completion.Item);
+    receiver.Add("location", "The slot id identification", CompletionItemKind.Enum);
+    receiver.Add("quantity", "The quantity of the item that the selector is looking for", Kinds.Completion.Integer);
+    receiver.Add("slot", "The slot number to check", Kinds.Completion.Integer);
   }
 }

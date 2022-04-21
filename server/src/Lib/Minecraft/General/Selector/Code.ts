@@ -1,4 +1,4 @@
-import { Minecraft } from 'bc-minecraft-bedrock-diagnoser/node_modules/bc-minecraft-bedrock-types';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
 
 
 export function getAttribute(attr : string, selector : string) : string[] {

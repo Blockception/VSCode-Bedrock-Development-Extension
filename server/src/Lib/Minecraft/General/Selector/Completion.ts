@@ -72,8 +72,8 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     return;
   }
 
-  if (IsEditingValue(selector, pos)) {
-    const Attribute = GetCurrentAttribute(selector, pos);
+  if (AttributeValue.IsEditingValue(selector, pos)) {
+    const Attribute = Attributes.GetCurrentAttribute(selector, pos);
     AttributeValue.ProvideCompletion(context, Attribute, !playerOnly);
   } else {
     Attributes.ProvideCompletion(context, !playerOnly);
@@ -149,61 +149,9 @@ export function InScore(selector: OffsetWord, pos: number): boolean {
 
 /**
  *
- * @param selector
- * @param pos
- * @returns
- */
-export function GetCurrentAttribute(selector: OffsetWord, pos: number): string {
-  let StartIndex = pos - selector.offset;
-
-  while (StartIndex > 2) {
-    let C = selector.text.charAt(StartIndex);
-
-    if (C === ",") {
-      break;
-    }
-
-    StartIndex--;
-  }
-
-  StartIndex++;
-  let EndIndex = selector.text.indexOf("=", StartIndex);
-
-  if (EndIndex < 0) EndIndex = selector.text.length;
-
-  return selector.text.slice(StartIndex, EndIndex).trim();
-}
-
-/**
- *
  * @param text
  * @returns
  */
 export function IsFakePlayer(text: string): boolean {
   return !text.startsWith("@") && text !== "*";
-}
-
-/**
- *
- * @param value
- * @param pos
- * @returns
- */
-export function IsEditingValue(value: OffsetWord, pos: number): boolean {
-  pos = pos - value.offset;
-
-  if (pos < 0) return false;
-
-  const equals = value.text.indexOf("=");
-  if (equals > -1 && pos > equals) {
-    const comma = value.text.indexOf(",");
-
-    if (comma > -1) {
-      if (pos > comma) return false;
-    }
-
-    return true;
-  }
-
-  return false;
 }
