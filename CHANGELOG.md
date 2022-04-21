@@ -1,5 +1,9 @@
 # Changelog
 ## Plugin
+- Fixing ciruclar dependecies
+- Version minor up
+- Added hasitem to selectors
+- Updated schemas
 - Updated schemas
 - corrected
 - Adding block custom items #352
@@ -15,12 +19,10 @@
 - build(deps): bump node from 17.4.0 to 17.5.0
 - build(deps): bump bc-minecraft-bedrock-diagnoser in /server
 - Updated schemas
-- Added extra start event
-- Fixing dependencies
-- Downgraded comment-json
-- UIpdated schemas
-- Refactored. 
+- Added extra start event. 
 ## Diagnotics
+- Fixing text
+- Refactored
 - Added diagnostics for: 'drop_item_for' behavior
 - Added better debug messaging
 - Changed
@@ -38,9 +40,7 @@
 - build(deps): bump bc-minecraft-bedrock-command from 1.2.21 to 1.2.22
 - build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8
 - build(deps): bump bc-minecraft-bedrock-project from 1.7.68 to 1.7.69
-- build(deps): bump bc-minecraft-bedrock-vanilla-data
-- build(deps): bump bc-minecraft-project from 1.0.16 to 1.0.17
-- Updating texture. 
+- build(deps): bump bc-minecraft-bedrock-vanilla-data. 
 ## ProjectData
 - Updating
 - Expanded sound definition
