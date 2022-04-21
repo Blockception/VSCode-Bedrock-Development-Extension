@@ -6,4 +6,3 @@ export * as HasItem from "./HasItem/include";
 export * from "./Code";
 export * from "./Completion";
 export * from "./Semantics";
-export * from "./Code";
