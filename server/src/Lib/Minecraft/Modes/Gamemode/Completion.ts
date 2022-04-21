@@ -2,7 +2,7 @@ import { Modes } from "bc-minecraft-bedrock-types";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
-import { Kinds } from "../../General/include";
+import { Kinds } from "../../General/Kinds";
 import { ProvideModeCompletion, ProvideModeTestCompletion } from "../Completion";
 
 /**

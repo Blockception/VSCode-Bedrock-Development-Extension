@@ -2,6 +2,7 @@ import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-vanilla-data";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionItemKind } from "vscode-languageserver-types";
+
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";

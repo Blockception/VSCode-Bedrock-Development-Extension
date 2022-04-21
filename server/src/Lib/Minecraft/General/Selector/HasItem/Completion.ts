@@ -2,13 +2,14 @@ import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../../Code/include";
 import { CompletionBuilder } from "../../../../Completion/Builder";
-import { Modes } from '../../../include';
-import { Integer } from '../../Completion';
+
 import { Kinds } from "../../Kinds";
 import { GetCurrentAttribute } from "../Attributes/Completion";
 import { IsEditingValue } from "../AttributeValue/Completion";
 
-import * as Item from '../../../BehaviorPack/Items/Completion'
+import * as SlotType from '../../../Modes/SlotType/Completion';
+import * as Item from '../../../BehaviorPack/Items/Completion';
+import * as Integer from '../../Integer/Completion';
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {
   const receiver = context.receiver;
@@ -24,7 +25,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, sel
         return Item.ProvideCompletion(context)
 
       case "location":
-        return Modes.SlotType.ProvideCompletion(context);
+        return SlotType.ProvideCompletion(context);
 
       case "slot":
         return Integer.ProvideCreateCompletion(receiver, 0, 53);

@@ -3,8 +3,9 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";
-import * as Command from "../../Commands/Command/Functions";
 import { Kinds } from "../../General/Kinds";
+
+import * as Command from "../../Commands/Command/Functions";
 
 export function ProvideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {

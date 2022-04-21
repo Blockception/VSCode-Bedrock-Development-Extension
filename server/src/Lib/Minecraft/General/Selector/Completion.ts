@@ -9,7 +9,7 @@ import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Mod
 import * as AttributeValue from "./AttributeValue/Completion";
 import * as Attributes from "./Attributes/Completion";
 import * as Scores from "./Scores/Completion";
-import { HasItem } from './include';
+import * as HasItem from './HasItem/Completion';
 
 /**
  *

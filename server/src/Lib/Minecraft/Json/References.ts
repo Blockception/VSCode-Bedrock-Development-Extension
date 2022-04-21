@@ -4,13 +4,12 @@ import { TextDocument } from "../../Types/Document/TextDocument";
 import { OffsetWord } from "bc-vscode-words";
 import { IsMolang } from '../Molang/Functions';
 
-import * as Commands from '../Commands/include';
+import * as Command from '../Commands/Command/References';
 import * as Molang from '../Molang/include';
 
 import { Database } from '../../Database/Database';
 import { ParameterType } from 'bc-minecraft-bedrock-command';
 import { References } from '../../Code/References';
-import { text } from 'stream/consumers';
 
 export function ProvideReferences(doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
   const pos = params.position;
@@ -27,7 +26,7 @@ export function ProvideReferences(doc: TextDocument, params: DefinitionParams | 
   if (IsMolang(value.text)) {
     //Command
     if (value.text.startsWith("/")) {
-      return Commands.Command.ProvideReferences(new OffsetWord(value.text.slice(1), value.offset + 1), params, doc);
+      return Command.ProvideReferences(new OffsetWord(value.text.slice(1), value.offset + 1), params, doc);
     }
     //Event
     else if (value.text.startsWith("@")) {
