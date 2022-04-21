@@ -76,6 +76,7 @@ export function ProvideCompletion(context: CommandCompletionContext, attribute: 
       return;
 
     case "hasitem":
+      receiver.Add("=[{},{}]", "Double Definition", CompletionItemKind.Class);
     case "scores":
       receiver.Add("={}", "Definition", CompletionItemKind.Class);
       return;
