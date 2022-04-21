@@ -1,5 +1,6 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { Selector } from '../../General/include';
+import { Selector } from 'bc-minecraft-bedrock-types/lib/src/Minecraft/Selector/Selector';
+
 
 export function GetPossibleEntityTypes(command: Command, maxIndex: number): string[] {
   const data = command.getBestMatch();
