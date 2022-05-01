@@ -33,7 +33,7 @@
     "@types/vscode": "^1.66.0",
     "chai": "^4.3.6",
     "json-loader": "^0.5.7",
-    "mocha": "^9.2.2",
+    "mocha": "^10.0.0",
     "ts-loader": "^9.3.0",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4",
