@@ -2,11 +2,12 @@ import { SignatureHelp } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { GetCurrentString } from "../Minecraft/Json/Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { Commands, Mcfunction, Molang } from "../Minecraft/include";
+import { Commands, Molang } from "../Minecraft/include";
 
 export function ProvideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
   let text = doc.getText();
-  let Range = GetCurrentString(text, doc.offsetAt(cursor));
+  const cpos = doc.offsetAt(cursor);
+  let Range = GetCurrentString(text, cpos);
 
   if (!Range) return;
   let property = text.substring(Range.start, Range.end);
@@ -17,15 +18,32 @@ export function ProvideJsonSignature(doc: TextDocument, cursor: Position): Signa
       property = property.substring(1);
       Range.start++;
 
-      return Commands.Command.ProvideSignature(property, Range.start, doc.offsetAt(cursor), doc);
+      return Commands.Command.ProvideSignature(property, Range.start, cpos, doc);
     } else if (property.startsWith("@s")) {
       //On event
-      //TODO add molang support
+      return MolangEventSignature;
     } else {
       //On other molang
-      //TODO add molang support
+      return Molang.ProvideSignature({ text: property, offset: Range.start }, cpos, doc);
     }
   }
 
   return undefined;
 }
+
+
+const MolangEventSignature : SignatureHelp = {
+  activeParameter: 1,
+  activeSignature: 0,
+  signatures: [
+    {
+      label: "Molang Event",
+      activeParameter: 1,
+      documentation: "A molang event to launch on the entity",
+      parameters: [
+        { label: "@s", documentation: "The selector aim at" },
+        { label: "< event >", documentation: "The event to launch" },
+      ],
+    },
+  ],
+};

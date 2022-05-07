@@ -71,8 +71,8 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports signatures
       signatureHelpProvider: {
-        triggerCharacters: [" ", "\t", "@", "/"],
-        retriggerCharacters: [" ", "\t", "@", "/"],
+        triggerCharacters: [" ", "\t", "@", "/", '"', "'", "."],
+        retriggerCharacters: [" ", "\t", "@", "/", '"', "'", "."],
         workDoneProgress: true,
       },
 

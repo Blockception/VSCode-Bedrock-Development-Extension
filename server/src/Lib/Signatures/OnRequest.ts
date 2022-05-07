@@ -1,6 +1,6 @@
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
-import { Language, Mcfunction } from "../Minecraft/include";
+import { Language, Mcfunction, Molang } from "../Minecraft/include";
 import { GetDocument } from "../Types/Document/Document";
 import { ProvideJsonSignature } from "./Json";
 
@@ -24,8 +24,7 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
       return Language.ProvideSignature(doc, pos);
 
     case Languages.McMolangIdentifier:
-      //TODO add molang support
-      return undefined;
+      return Molang.ProvideDocSignature(doc, pos);
 
     case Languages.McOtherIdentifier:
       return undefined;
@@ -33,7 +32,6 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
       return ProvideJsonSignature(doc, pos);
-    //return Other.ProvideSignature(doc, pos);
   }
 
   return undefined;
