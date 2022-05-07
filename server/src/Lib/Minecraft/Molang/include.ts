@@ -2,6 +2,7 @@
 export * as Contexts from "./Contexts/include";
 export * as General from "./General/include";
 export * as Geometry from "./Geometry/include";
+export * as Material from "./Material/include";
 export * as Math from "./Math/include";
 export * as Query from "./Query/include";
 export * as Temps from "./Temps/include";
@@ -12,5 +13,5 @@ export * from "./Functions";
 export * from "./Hover";
 export * from "./References";
 export * from "./Semantics";
-export * from "./Words";
 export * from "./Signature";
+export * from "./Words";
