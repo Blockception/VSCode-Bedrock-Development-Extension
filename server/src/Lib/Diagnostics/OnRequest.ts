@@ -24,16 +24,5 @@ export function ProvidePackDiagnostics(pack: Pack, reporter?: ProgressBar): Prom
 
   Console.Info("diagnosing: " + Fs.FromVscode(pack.folder));
 
-  //if (Util.IsResourcePack(pack)) CheckSoundsAndTextures(pack);
-
   return ForEachDocument(MinecraftFormat.GetPackFiles(pack), InternalProvideDiagnostics, reporter);
-}
-
-function CheckSoundsAndTextures(pack: Pack, reporter?: ProgressBar): void {
-  const ignores = pack.context.ignores.patterns;
-  const folder = pack.folder;
-
-  //TODO Check length of audio and textures files
-  let files = MinecraftFormat.GetTextureFiles(folder, ignores);
-
 }

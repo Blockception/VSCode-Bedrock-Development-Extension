@@ -37,7 +37,6 @@ export function OnHoverRequest(params: HoverParams): Hover | undefined {
       return Molang.ProvideHover(doc, params);
 
     case Languages.McOtherIdentifier:
-      //TODO provide hover for json
       break;
   }
 
