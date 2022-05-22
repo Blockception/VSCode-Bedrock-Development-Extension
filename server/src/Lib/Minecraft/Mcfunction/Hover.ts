@@ -65,20 +65,28 @@ function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): 
   switch (parameter.type) {
     case ParameterType.block:
       return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.blocks);
+
     case ParameterType.entity:
       return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.entities);
+
     case ParameterType.function:
       return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.functions);
+
     case ParameterType.jsonRawText:
       return RawText.provideHover(range);
+
     case ParameterType.objective:
       return GetDocumentation(Text, range, Database.ProjectData.General.objectives);
+
     case ParameterType.particle:
       return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.particles);
+
     case ParameterType.sound:
       return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.sounds);
+
     case ParameterType.tag:
       return GetDocumentation(Text, range, Database.ProjectData.General.tags);
+
     case ParameterType.tickingarea:
       return GetDocumentation(Text, range, Database.ProjectData.General.tickingAreas);
   }
@@ -93,40 +101,58 @@ function GetString(type: ParameterType): string | undefined {
   switch (type) {
     case ParameterType.boolean:
       return "A boolean value (true or false)";
+      
     case ParameterType.command:
       return "A sub command to execute";
+
     case ParameterType.coordinate:
       return "A coordinate";
+
     case ParameterType.effect:
       return "A effect identifier";
+
     case ParameterType.event:
       return "A event";
+
     case ParameterType.float:
       return "A float number";
+
     case ParameterType.gamemode:
       return "A minecraft gamemode";
+
     case ParameterType.integer:
       return "An integer number";
+
     case ParameterType.item:
       return "An item identifier";
+
     case ParameterType.jsonItem:
       return "The json schema for items";
+
     case ParameterType.locateFeature:
       return "A locate feature";
+
     case ParameterType.operation:
       return "A scoreboard math operation";
+
     case ParameterType.replaceMode:
       return "A replace mode";
+
     case ParameterType.selector:
       return "A selector that target all players, entities or fake players";
+
     case ParameterType.slotID:
       return "A slot id";
+
     case ParameterType.slotType:
       return "A slot type";
+
     case ParameterType.string:
       return "A string";
+
     case ParameterType.unknown:
       return "no idea, I quit";
+
     case ParameterType.xp:
       return "A xp number";
   }
