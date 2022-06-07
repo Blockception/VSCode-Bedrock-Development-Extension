@@ -26,7 +26,7 @@ export class SymbolBuilder {
   }
 
   new(name: string, kind?: SymbolKind, range?: Range, uri?: string, containerName?: string): SymbolInformation {
-    const item = SymbolInformation.create(name, kind ?? this.kind, range ?? this.range, uri, containerName ?? this.containerName);
+    const item = SymbolInformation.create(name, kind ?? this.kind, range ?? this.range, uri ?? "", containerName ?? this.containerName);
 
     this.items.push(item);
     return item;
