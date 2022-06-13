@@ -1,20 +1,13 @@
-/**
- *
- */
+/** */
 export interface TextRange {
-  /**
-   *
-   */
+  /** */
   start: number;
 
-  /**
-   *
-   */
+  /** */
   end: number;
 }
 
 /**
- *
  * @param Text
  * @param cursor
  * @returns

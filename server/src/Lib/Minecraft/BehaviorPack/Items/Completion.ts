@@ -28,8 +28,6 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
-
     //Vanilla data
     receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
 

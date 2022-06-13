@@ -54,7 +54,6 @@ export namespace Commands {
     }
 
     /**
-     *
      */
     export namespace Project {
       const PPBase = Base + "project-";

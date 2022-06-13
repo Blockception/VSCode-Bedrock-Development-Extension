@@ -1,18 +1,18 @@
-import { PackType } from "bc-minecraft-bedrock-project";
-import { CompletionItemKind, Position } from "vscode-languageserver-types";
-import { SimpleContext } from "../../Code/SimpleContext";
 import { CompletionBuilder } from "../../Completion/Builder";
-import { Languages } from "../../Constants";
-
-import * as Query from "./Query/Completion";
-import * as Math from "./Math/Completion";
-import * as Temps from "./Temps/Completion";
-import * as Variables from "./Variables/Completion";
-import * as Geometry from "./Geometry/Completion";
-import * as Texture from "./Texture/Completion";
-import * as Material from "./Material/Completion";
-
+import { CompletionItemKind, Position } from "vscode-languageserver-types";
 import { GetPreviousWord, IsMolang } from "./Functions";
+import { Languages } from "../../Constants";
+import { PackType } from "bc-minecraft-bedrock-project";
+import { SimpleContext } from "../../Code/SimpleContext";
+
+import * as Geometry from "./Geometry/Completion";
+import * as Material from "./Material/Completion";
+import * as Math from "./Math/Completion";
+import * as Query from "./Query/Completion";
+import * as Temps from "./Temps/Completion";
+import * as Texture from "./Texture/Completion";
+import * as Variables from "./Variables/Completion";
+
 import * as BehaviorPack from "../BehaviorPack/include";
 import * as ResourcePack from "../ResourcePack/include";
 

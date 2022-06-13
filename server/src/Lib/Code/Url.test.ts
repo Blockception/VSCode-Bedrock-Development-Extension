@@ -5,9 +5,11 @@ import { Fs, Vscode } from "./Url";
 describe("Url", () => {
   describe("Vscode", () => {
     it("FromFs",()=>{
-      const folder = Vscode.FromFs(path.resolve(__dirname, "test"));
+      const folderFs = path.resolve(__dirname, "test");
+      const folder = Vscode.FromFs(folderFs);
 
-      
+      expect(Vscode.isVscode(folderFs)).to.be.true;
+      expect(Vscode.isVscode(folder)).to.be.false;
     })
 
     it("isVscode",()=>{
@@ -15,9 +17,5 @@ describe("Url", () => {
       expect(Vscode.isVscode("f:/folder/behavior_packs/temp-bp/blocks/example.block.json")).to.be.false;
     })
     
-  });
-
-  describe("FS", () => {
-
   });
 });

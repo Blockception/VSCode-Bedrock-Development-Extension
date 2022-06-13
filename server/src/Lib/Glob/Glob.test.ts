@@ -4,15 +4,12 @@ import { Glob } from "./Glob";
 describe("Glob", () => {
   it("Ensure Item", () => {
     let source = Glob.EnsureSource("f:/Projects/Org B/Project-Foo");
-
     expect(source).to.equal("f:/Projects/Org B/Project-Foo");
 
     source = Glob.EnsureSource("file:///f%3A/Projects/Org%20B/Project-Foo/");
-
     expect(source).to.equal("f:/Projects/Org B/Project-Foo/");
 
     source = Glob.EnsureSource("file:\\\\f%3A\\Projects\\Org%20B\\Project-Foo\\");
-
     expect(source).to.equal("f:/Projects/Org B/Project-Foo/");
   });
 

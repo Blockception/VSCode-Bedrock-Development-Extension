@@ -11,20 +11,15 @@ import { MinecraftFormat } from "../Minecraft/Format";
 import { ProcessPack } from "../Process/Pack";
 import { GetProject } from "../Project/MCProjects";
 
-/**
- *
- */
+/**  */
 export namespace Workspace {
-  /**
-   *
-   */
+  /** */
   export async function CreateMCProject(): Promise<void> {
     const ws = await Workspace.GetWorkSpaces();
     return processWorkspace(ws);
   }
 
-  /**
-   *
+  /** 
    * @returns
    */
   export async function UpdateProjectInfo(): Promise<void> {
@@ -32,8 +27,7 @@ export namespace Workspace {
     return processWorkspace(ws);
   }
 
-  /**
-   *
+  /** 
    * @returns
    */
   export async function GetWorkSpaces(): Promise<WorkspaceFolder[]> {
@@ -53,8 +47,7 @@ export namespace Workspace {
     });
   }
 
-  /**
-   *
+  /** 
    * @param uri
    */
   export function RemoveWorkspace(uri: string): void {
@@ -76,7 +69,7 @@ export namespace Workspace {
     }
   }
 
-  /**Retrieves all the packs from the workspaces and process the document
+  /** Retrieves all the packs from the workspaces and process the document
    * @param folders The workspace folders to process */
   export function TraverseWorkspaces(folders: WorkspaceFolder[]): Promise<Pack[]> {
     const packs: Pack[] = [];
@@ -99,7 +92,7 @@ export namespace Workspace {
     });
   }
 
-  /**Retrieves all the packs from the workspace and process the document
+  /** Retrieves all the packs from the workspace and process the document
    * @param folder
    * @returns
    */

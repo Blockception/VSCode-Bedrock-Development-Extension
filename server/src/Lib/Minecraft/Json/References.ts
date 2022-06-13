@@ -1,15 +1,15 @@
+import { Database } from '../../Database/Database';
 import { DefinitionParams, Location, Range, ReferenceParams } from "vscode-languageserver-protocol";
 import { GetCurrentElement } from "./Functions";
-import { TextDocument } from "../../Types/Document/TextDocument";
-import { OffsetWord } from "bc-vscode-words";
 import { IsMolang } from '../Molang/Functions';
+import { OffsetWord } from "bc-vscode-words";
+import { ParameterType } from 'bc-minecraft-bedrock-command';
+import { References } from '../../Code/References';
+import { TextDocument } from "../../Types/Document/TextDocument";
 
 import * as Command from '../Commands/Command/References';
 import * as Molang from '../Molang/include';
 
-import { Database } from '../../Database/Database';
-import { ParameterType } from 'bc-minecraft-bedrock-command';
-import { References } from '../../Code/References';
 
 export function ProvideReferences(doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
   const pos = params.position;

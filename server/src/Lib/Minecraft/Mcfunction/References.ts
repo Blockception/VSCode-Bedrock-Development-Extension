@@ -1,5 +1,5 @@
-import { OffsetWord } from 'bc-vscode-words';
 import { DefinitionParams, Location, Position, ReferenceParams } from 'vscode-languageserver';
+import { OffsetWord } from 'bc-vscode-words';
 import { TextDocument } from '../../Types/Document/TextDocument';
 import * as Command from '../Commands/Command/References';
 

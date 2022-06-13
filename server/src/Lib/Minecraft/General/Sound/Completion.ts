@@ -5,7 +5,8 @@ import { Database } from "../../../Database/Database";
 import { Kinds } from "../Kinds";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const GenerateDoc = (item: Identifiable) => `The custom sound definition: '${item.id}'`;
-
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.sounds, GenerateDoc, Kinds.Completion.Sound);
+  context.receiver.Generate(
+    Database.ProjectData.ResourcePacks.sounds, 
+    (item: Identifiable) => `The custom sound definition: '${item.id}'`, 
+    Kinds.Completion.Sound);
 }

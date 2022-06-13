@@ -1,11 +1,10 @@
-import { Position } from "vscode-languageserver-textdocument";
-import { CompletionBuilder } from "../../Completion/Builder";
-import { CommandCompletionContext } from "../../Completion/Context";
 import { Command } from "bc-minecraft-bedrock-command";
-
+import { CommandCompletionContext } from "../../Completion/Context";
+import { CompletionBuilder } from "../../Completion/Builder";
 import { CompletionItemKind } from 'vscode-languageserver-types';
-import { SimpleContext } from '../../Code/SimpleContext';
 import { IsEducationEnabled } from '../../Project/Attributes';
+import { Position } from "vscode-languageserver-textdocument";
+import { SimpleContext } from '../../Code/SimpleContext';
 
 import * as Parameter from "../Commands/Parameter/Completion";
 import * as CCommand from "../Commands/Command/Completion";

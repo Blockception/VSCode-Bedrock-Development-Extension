@@ -1,13 +1,14 @@
+import { Boolean } from "../General/include";
+import { CompletionBuilder } from "../../Completion/Builder";
+import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
+import { Database } from "../../Database/Database";
 import { Documentated } from "bc-minecraft-bedrock-types/lib/src/Types/Documentated";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import path from "path";
 import { Position } from "vscode-languageserver-textdocument";
-import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { SimpleContext } from "../../Code/include";
-import { CompletionBuilder } from "../../Completion/Builder";
-import { Database } from "../../Database/Database";
-import { Boolean } from "../General/include";
+
+import path from "path";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {
   const filename = path.basename(context.doc.uri);

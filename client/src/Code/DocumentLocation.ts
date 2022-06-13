@@ -2,7 +2,6 @@ import { Position, Range, TextDocument } from "vscode";
 import { Character } from "./Character";
 
 /**
- *
  * @param position
  * @param doc
  * @returns
