@@ -1,3 +1,4 @@
+import { QueueProcessor } from "@daanv2/queue-processor";
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
@@ -138,4 +139,23 @@ export namespace Database {
 
     return out;
   }
+
+  export function ForEach(callbackfn: (item: BaseObject) => void): Promise<void> {
+    const packs: (forEachfn<BaseObject>[])[] = [
+      [Database.ProjectData.General],
+      Database.ProjectData.BehaviorPacks.packs,
+      Database.ProjectData.ResourcePacks.packs,
+      Database.ProjectData.Worlds.packs,
+    ];
+
+    return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col)=>{
+      return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack)=>{
+        return pack.forEach(callbackfn);
+      }).then((items)=>{});
+    }).then((items)=>{});
+  }
+}
+
+export interface forEachfn<T> {
+  forEach(callbackfn: (value: Types.BaseObject) => void): void
 }

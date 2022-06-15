@@ -1,11 +1,12 @@
-import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
-import * as Minecraft from "../Minecraft/CodeAction";
-import { CodeActionBuilder } from "./Builder";
 import { Attributes } from "./Types/Definition";
+import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
+import { CodeActionBuilder } from "./Builder";
+import { GetDocument } from "../Types/Document/Document";
 
-import * as BehaviorPack from '../Minecraft/BehaviorPack/CodeAction';
-import * as ResourcePack from '../Minecraft/ResourcePack/CodeAction';
-import { GetDocument } from '../Types/Document/Document';
+import * as Minecraft from "../Minecraft/CodeAction";
+import * as BehaviorPack from "../Minecraft/BehaviorPack/CodeAction";
+import * as ResourcePack from "../Minecraft/ResourcePack/CodeAction";
+import { FuzzyMatch } from './Fuzzy';
 
 /**
  *
@@ -13,9 +14,7 @@ import { GetDocument } from '../Types/Document/Document';
  * @returns
  */
 export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Command | CodeAction)[] | undefined | null> {
-  return new Promise<(Command | CodeAction)[] | undefined | null>((resolve, reject) => {
-    resolve(OnCodeAction(params));
-  });
+  return OnCodeAction(params);
 }
 
 /**
@@ -34,13 +33,13 @@ export async function OnCodeActionResolveAsync(params: CodeAction): Promise<Code
  * @param params
  * @returns
  */
-export function OnCodeAction(params: CodeActionParams): (Command | CodeAction)[] {
+export function OnCodeAction(params: CodeActionParams): Promise<(Command | CodeAction)[]> {
   const doc = GetDocument(params.textDocument.uri);
-  if (!doc) return [];
+  if (!doc) return Promise.resolve([]);
 
   const builder = new CodeActionBuilder(params, doc);
-  params.context.diagnostics.forEach((d) => FindAction(builder, d));
-  return builder.out;
+  const promises = params.context.diagnostics.map((d) => FindAction(builder, d));
+  return Promise.all(promises).then(() => builder.out);
 }
 
 /**
@@ -48,29 +47,26 @@ export function OnCodeAction(params: CodeActionParams): (Command | CodeAction)[]
  * @param builder
  * @param diag
  */
-function FindAction(builder: CodeActionBuilder, diag: Diagnostic): void {
-  var code = diag.code ?? "";
+function FindAction(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
+  var code = diag.code ?? "";  
+  Attributes(builder, diag);
 
-  if (typeof code === "number") {
-  } else {
-    const index = code.indexOf(".");
-    const maincode = index > -1 ? code.slice(0, index) : code;
+  if (typeof code === "number") return Promise<void>.resolve();
 
-    switch (maincode) {
-      case "behaviorpack":
-        BehaviorPack.OnCodeAction(builder, diag);
-        return Attributes(builder, diag);
+  const index = code.indexOf(".");
+  const maincode = index > -1 ? code.slice(0, index) : code;
 
-      case "resourcepack":
-        ResourcePack.OnCodeAction(builder, diag);
-        return Attributes(builder, diag);
+  switch (maincode) {
+    case "behaviorpack":
+      BehaviorPack.OnCodeAction(builder, diag);
+    case "resourcepack":
+      ResourcePack.OnCodeAction(builder, diag);
 
-      case "minecraft":
-        Minecraft.OnCodeAction(builder, diag);
-        return Attributes(builder, diag);
+    case "minecraft":
+      Minecraft.OnCodeAction(builder, diag);
 
-      case "mcfunction":
-        return Attributes(builder, diag);
-    }
+    case "mcfunction":
   }
+
+  return FuzzyMatch(builder, diag);
 }
