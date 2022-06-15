@@ -64,8 +64,8 @@ export function GetRange(position: Types.DocumentLocation, doc: vstd.TextDocumen
 export function GetPosition(position: Types.DocumentLocation, doc: vstd.TextDocument): vstd.Position {
   if (Types.Position.is(position)) return position;
   if (Types.JsonPath.is(position)) return resolveJsonPath(position, doc).start;
-  if (Types.OffsetWord.is(position)) return doc.positionAt(position.offset); 
-  
+  if (Types.OffsetWord.is(position)) return doc.positionAt(position.offset);
+
   return doc.positionAt(position);
 }
 
@@ -76,7 +76,7 @@ export function GetPosition(position: Types.DocumentLocation, doc: vstd.TextDocu
 export function resolveJsonPath(path: string, doc: vstd.TextDocument): Range {
   const index = path.lastIndexOf("/");
   const length = index > -1 ? path.length - index : path.length;
-  
+
   let offset = -1;
   const text = doc.getText();
 
@@ -86,9 +86,10 @@ export function resolveJsonPath(path: string, doc: vstd.TextDocument): Range {
 
     if (offset < 0) {
       offset = text.indexOf(path);
+    } else {
+      offset++;
     }
-  }
-  else {
+  } else {
     offset = text.indexOf(path);
   }
 
