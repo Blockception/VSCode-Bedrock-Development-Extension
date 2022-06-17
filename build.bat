@@ -1,0 +1,1 @@
+npm i && npm i vsce && npm run-script compile && npx vsce package
