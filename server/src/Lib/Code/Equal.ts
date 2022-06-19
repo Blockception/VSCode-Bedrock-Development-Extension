@@ -1,5 +1,5 @@
 /**
- * Check if the given two objects are equal to each other an value
+ * Check if the given two objects are equal to each and compares the values of each of their properties
  * @param A The first object
  * @param B The second object
  */
