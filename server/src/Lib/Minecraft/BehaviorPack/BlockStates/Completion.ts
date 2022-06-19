@@ -1,14 +1,14 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-vanilla-data";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionItemKind } from "vscode-languageserver-types";
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { Types } from "bc-minecraft-bedrock-vanilla-data";
 
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/Database";
-import { IsEducationEnabled } from "../../../Project/Attributes";
 import { GetPossibleBlockID } from "../../Commands/Command/Functions";
-import { Kinds } from "../../General/Kinds";
 import { IsEditingValue } from '../../General/Selector/AttributeValue/Completion';
+import { IsEducationEnabled } from "../../../Project/Attributes";
+import { Kinds } from "../../General/Kinds";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
   const block = GetPossibleBlockID(context.command, context.parameterIndex);
