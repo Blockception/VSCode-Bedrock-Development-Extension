@@ -27,7 +27,9 @@
       "request": "launch",
       "name": "Mocha Server tests",
       "program": "${workspaceFolder}/server/node_modules/mocha/bin/_mocha",
-      "args": ["${workspaceRoot}/server/**/*.test.ts"],
+      "args": [
+        "--loader ts-node/esm",
+        "${workspaceRoot}/server/**/*.test.ts"],
       "cwd": "${workspaceRoot}/server",
       "internalConsoleOptions": "openOnSessionStart"
     }

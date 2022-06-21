@@ -5,15 +5,22 @@ import { Offset } from './Offset';
 
 describe("Offset", ()=>{
     it("IsWithin", ()=>{
-        let word = new OffsetWord("test", 0);
-        expect(Offset.IsWithin(word, 0)).to.equal(true);
-        expect(Offset.IsWithin(word, 1)).to.equal(true);
-        expect(Offset.IsWithin(word, 2)).to.equal(true);
-        expect(Offset.IsWithin(word, 3)).to.equal(true);
+        const word = new OffsetWord("test", 0);
+        expect(word.text).to.equal("test")
+        expect(word.offset).to.equal(0);
+
+        const test = (value : number, actual : boolean) => {
+            expect(Offset.IsWithin(word, value), `${value}`).to.equal(actual);
+        }
+
+        test(0, true);
+        test(1, true);
+        test(2, true);
+        test(3, true);
         
-        expect(Offset.IsWithin(word, 4)).to.equal(false);
-        expect(Offset.IsWithin(word, 5)).to.equal(false);
-        expect(Offset.IsWithin(word, 6)).to.equal(false);
-        expect(Offset.IsWithin(word, 7)).to.equal(false);
+        test(4, false);
+        test(5, false);
+        test(6, false);
+        test(7, false);
     });
 })
