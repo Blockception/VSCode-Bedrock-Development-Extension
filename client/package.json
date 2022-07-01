@@ -24,12 +24,13 @@
   },
   "dependencies": {
     "bc-minecraft-bedrock-project": "^1.7.80",
+    "node": "^18.4.0",
     "vscode-languageclient": "^8.0.1"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^17.0.45",
+    "@types/node": "^18.0.0",
     "@types/vscode": "^1.68.1",
     "chai": "^4.3.6",
     "json-loader": "^0.5.7",
