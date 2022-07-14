@@ -1,26 +1,29 @@
 # Changelog
 ## Plugin
-- Fixing ciruclar dependecies
-- Version minor up
-- Added hasitem to selectors
-- Updated schemas
-- Updated schemas
-- corrected
-- Adding block custom items #352
-- Updated schemas
-- Updated schemas
-- Added more file extensions to be recognized by the JSON validator. The extensions are based on the ones used on this repository: https://github.com/SirLich/bedrock-addon-icons
 - Updated schemas
 - Updated schemas
 - Updated schemas
-- Adding more to languages
-- updated: schemas
-- Added commands
-- build(deps): bump node from 17.4.0 to 17.5.0
-- build(deps): bump bc-minecraft-bedrock-diagnoser in /server
 - Updated schemas
-- Added extra start event. 
+- Updated node
+- Update dependabot.yml
+- Updated schemas
+- Updates schemas
+- Updated nodes
+- Updated schemas
+- Added test
+- Correct comment
+- Sorted
+- Updated debugging information
+- Adding fuzzy suggestions
+- Major version
+- Updated schemas
+- Updated dependencies
+- Updated schemas
+- build(deps): bump vscode-languageserver from 7.0.0 to 8.0.1 in /server. 
 ## Diagnotics
+- Added check for leap_at_target
+- Refactor
+- Updated structures
 - Fixing text
 - Refactored
 - Added diagnostics for: 'drop_item_for' behavior
@@ -37,11 +40,11 @@
 - Checking for correct mcstructure id
 - Updated ranged check
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.22 to 1.2.23
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.21 to 1.2.22
-- build(deps): bump bc-minecraft-molang from 1.2.7 to 1.2.8
-- build(deps): bump bc-minecraft-bedrock-project from 1.7.68 to 1.7.69
-- build(deps): bump bc-minecraft-bedrock-vanilla-data. 
+- build(deps): bump bc-minecraft-bedrock-command from 1.2.21 to 1.2.22. 
 ## ProjectData
+- Adding forEach fn
+- Refactoring tests
+- Structure no longer need : in their id
 - Updating
 - Expanded sound definition
 - Update dependabot.yml
@@ -58,28 +61,25 @@
 - Updated IDataset
 - build(deps): bump bc-minecraft-project from 1.0.14 to 1.0.15
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
-- build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6
-- Updated processing
-- Stricter control
-- Added documentation processing for current line, previous line, or start of the line. 
+- build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6. 
 ## Schemas
-- Updated format version
-- Processed updated docuemtnation from minecraft
-- Added documentation for celebrate_survive
-- Now documentated
-- avoid blocks now documentated
-- Added Work composter
-- Added biome filterint to trades
-- Added version format
-- Added exhaustion_values
-- Updated components
-- Added has_silk_touch
-- Updated dependecies
-- Fixing paths
-- Updated description field in manifests
-- Update compress-json-schemas.yml
-- fixing transition type
-- Updated patterns
-- Added comments
-- Fixed #25
-- Added sounds
+- Updated genetics #54
+- Update target_when_pushed.json
+- Update swoop_attack.json
+- Update swim_with_entity.json
+- Update stalk_and_pounce_on_target.json
+- Update send_event.json
+- Update random_hover.json
+- Update nap.json
+- Update move_to_block.json
+- Update harvest_farm_block.json
+- Update find_mount.json
+- Update eat_block.json
+- Update defend_village_target.json
+- Update trust.json
+- Update trade_resupply.json
+- Update projectile.json
+- Update movement.glide.json
+- Update knockback_resistance.json
+- Update interact.json
+- Update dweller.json
