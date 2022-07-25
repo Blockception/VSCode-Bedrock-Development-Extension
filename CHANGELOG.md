@@ -4,6 +4,9 @@
 - Updated schemas
 - Updated schemas
 - Updated schemas
+- Updated schemas
+- Updated schemas
+- Updated schemas
 - Updated node
 - Update dependabot.yml
 - Updated schemas
@@ -16,11 +19,11 @@
 - Updated debugging information
 - Adding fuzzy suggestions
 - Major version
-- Updated schemas
-- Updated dependencies
-- Updated schemas
-- build(deps): bump vscode-languageserver from 7.0.0 to 8.0.1 in /server. 
+- Updated schemas. 
 ## Diagnotics
+- Filter diagnostics
+- Filter diagnostics
+- Updated types
 - Added check for leap_at_target
 - Refactor
 - Updated structures
@@ -37,10 +40,7 @@
 - Added diagnostics for new parameters types for /loot and /damage
 - Added empty tag support
 - Update dependabot.yml
-- Checking for correct mcstructure id
-- Updated ranged check
-- build(deps): bump bc-minecraft-bedrock-types from 1.2.22 to 1.2.23
-- build(deps): bump bc-minecraft-bedrock-command from 1.2.21 to 1.2.22. 
+- Checking for correct mcstructure id. 
 ## ProjectData
 - Adding forEach fn
 - Refactoring tests
@@ -63,23 +63,23 @@
 - build(deps): bump bc-minecraft-bedrock-types from 1.2.18 to 1.2.19
 - build(deps): bump bc-minecraft-molang from 1.2.5 to 1.2.6. 
 ## Schemas
+- Fixing strings
+- Adding dots to description
+- Updated dependencies
+- Bump terser from 5.14.1 to 5.14.2
+- Update compress-json-schemas.yml
+- Fixed ref
+- Fixed
+- Updating items
+- Updated movement_sound_distance_offset
+- Updated exhaustion values
+- Added drink milk
+- Update avoid_mob_type.json
+- Update angry.json
+- Update block_climber.json
 - Updated genetics #54
 - Update target_when_pushed.json
 - Update swoop_attack.json
 - Update swim_with_entity.json
 - Update stalk_and_pounce_on_target.json
 - Update send_event.json
-- Update random_hover.json
-- Update nap.json
-- Update move_to_block.json
-- Update harvest_farm_block.json
-- Update find_mount.json
-- Update eat_block.json
-- Update defend_village_target.json
-- Update trust.json
-- Update trade_resupply.json
-- Update projectile.json
-- Update movement.glide.json
-- Update knockback_resistance.json
-- Update interact.json
-- Update dweller.json
