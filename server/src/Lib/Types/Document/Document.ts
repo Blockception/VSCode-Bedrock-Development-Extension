@@ -7,7 +7,7 @@ import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { HandleError } from "../../Code/Error";
 import { Fs, Vscode } from "../../Code/Url";
 import { ProgressBar } from "../Progress/ProgressBar";
-import { QueueProcessor } from '@daanv2/queue-processor';
+import { QueueProcessor } from "@daanv2/queue-processor";
 
 type ContentType = string | vscode.TextDocument | undefined;
 
