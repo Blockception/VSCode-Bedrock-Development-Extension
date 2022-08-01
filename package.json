@@ -40,7 +40,7 @@
     "Debuggers"
   ],
   "engines": {
-    "vscode": "^1.59.0"
+    "vscode": "^1.69.2"
   },
   "dependencies": {
     "fast-glob": "^3.2.11",
