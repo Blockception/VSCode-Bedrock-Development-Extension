@@ -539,7 +539,8 @@
           "*rp*/animation_controllers/**/*.{json,jsonc,json5}",
           "*.animation_controller.rp.{json,jsonc,json5}",
           "*.rpac.{json,jsonc,json5}",
-          "*.ac.rp.{json,jsonc,json5}"
+          "*.ac.rp.{json,jsonc,json5}",
+          "*.rp_ac.{json,jsonc,json5}"
         ],
         "url": "./minecraft-bedrock-schemas/resource/animation_controllers/animation_controller.json"
       },
@@ -588,6 +589,7 @@
           "*.e.rp.{json,jsonc,json5}",
           "*.ce.{json,jsonc,json5}",
           "*.rpe.{json,jsonc,json5}",
+          "*.entity.{json,jsonc,json5}",
           "!models/entity/**/*.{json,jsonc,json5}",
           "!models/entity/*.{json,jsonc,json5}"
         ],
@@ -627,7 +629,8 @@
           "*rp*/items/**/*.{json,jsonc,json5}",
           "*.item.rp.{json,jsonc,json5}",
           "*.i.rp.{json,jsonc,json5}",
-          "*.rpi.{json,jsonc,json5}"
+          "*.rpi.{json,jsonc,json5}",
+          "*.rp_item.{json,jsonc,json5}"
         ],
         "url": "./minecraft-bedrock-schemas/resource/items/items.json"
       },
@@ -697,7 +700,8 @@
           "*bp*/animation_controllers/**/*.{json,jsonc,json5}",
           "*.animation_controller.bp.{json,jsonc,json5}",
           "*.bpac.{json,jsonc,json5}",
-          "*.ac.bp.{json,jsonc,json5}"
+          "*.ac.bp.{json,jsonc,json5}",
+          "*.bp_ac.{json,jsonc,json5}"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/animation_controllers/animation_controller.json"
       },
@@ -716,7 +720,8 @@
           "*.animation.bp.{json,jsonc,json5}",
           "*.anim.bp.{json,jsonc,json5}",
           "*.a.bp.{json,jsonc,json5}",
-          "*.bpa.{json,jsonc,json5}"
+          "*.bpa.{json,jsonc,json5}",
+          "*.bp_anim.{json,jsonc,json5}"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/animations/animations.json"
       },
@@ -812,6 +817,7 @@
           "*.e.bp.{json,jsonc,json5}",
           "*.se.{json,jsonc,json5}",
           "*.bpe.{json,jsonc,json5}",
+          "*.behavior.{json,jsonc,json5}",
           "!*loot_tables*"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/entities/entities.json"
@@ -864,7 +870,8 @@
           "*bp*/items/**/*.{json,jsonc,json5}",
           "*.item.bp.{json,jsonc,json5}",
           "*.i.bp.{json,jsonc,json5}",
-          "*.bpi.{json,jsonc,json5}"
+          "*.bpi.{json,jsonc,json5}",
+          "*.bp_item.{json,jsonc,json5}"
         ],
         "url": "./minecraft-bedrock-schemas/behavior/items/items.json"
       },
