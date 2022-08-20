@@ -32,7 +32,7 @@ jobs:
         with:
           # The folder path to start at
           folder: ${{ github.workspace }}/client/src
-          export_sub_include: false
+          export_sub_index: false
           excludes: |
             *.test.ts
             include.ts
@@ -44,7 +44,7 @@ jobs:
         with:
           # The folder path to start at
           folder: ${{ github.workspace }}/server/src/Lib
-          export_sub_include: false
+          export_sub_index: false
           excludes: |
             *.test.ts
             include.ts
@@ -53,7 +53,7 @@ jobs:
         with:
           # The folder path to start at
           folder: ${{ github.workspace }}/server/src/Lib/Minecraft
-          export_sub_include: true
+          export_sub_index: true
           excludes: |
             *.test.ts
             include.ts
