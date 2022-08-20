@@ -77,23 +77,23 @@
     "type": "git"
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile && npm run webpack",
-    "compile": "npm run compile:client && npm run compile:server && tsc -b",
     "compile:client": "tsc -b ./client/tsconfig.json",
     "compile:server": "tsc -b ./server/tsconfig.json",
-    "watch": "tsc -b -w",
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
-    "webpack": "webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js",
-    "webpack:dev": "webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
-    "test-compile": "tsc -p ./",
-    "lint": "npm run lint:client && npm run lint:server",
+    "compile": "npm run compile:client && npm run compile:server && tsc -b",
     "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
     "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
-    "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
-    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
+    "lint": "npm run lint:client && npm run lint:server",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "postversion": "git push && git push --tags",
-    "version": "git add -A ."
+    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
+    "test-compile": "tsc -p ./",
+    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
+    "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
+    "version": "git add -A .",
+    "vscode:prepublish": "npm run compile && npm run webpack",
+    "watch": "tsc -b -w",
+    "webpack:dev": "webpack --mode none --config ./client/webpack.config.js && webpack --mode none --config ./server/webpack.config.js",
+    "webpack": "webpack --mode production --config ./client/webpack.config.js && webpack --mode production --config ./server/webpack.config.js"
   },
   "contributes": {
     "configuration": [

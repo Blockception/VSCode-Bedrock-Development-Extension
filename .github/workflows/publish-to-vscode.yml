@@ -11,12 +11,17 @@ jobs:
   universal:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: actions/setup-node@v2
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
       - run: npm install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -76,18 +81,22 @@ jobs:
             
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: actions/setup-node@v2
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
-          
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
       - run: npm install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           npm_config_arch: ${{ matrix.npm_config_arch }}
-          
+
       - name: Test
         run: npm run test
       - name: Build "${{ matrix.platform }}-${{ matrix.arch }}"

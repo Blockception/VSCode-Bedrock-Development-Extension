@@ -2,7 +2,7 @@
 name: publish-universal-to-vscode
 
 # Controls when the workflow will run
-on:   
+on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   push:
@@ -18,39 +18,49 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
-          
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
       - name: Build
         run: npm ci
-        
+
       - name: Test
         run: npm test
 
   universal:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           submodules: true
-      - uses: actions/setup-node@v2
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v3
         with:
-          node-version: 14.x
-      - run: npm install
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
+      - name: Setup Node Project
+        run: npm install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build 
+
+      - name: Build
         run: npx vsce package
         env:
           VSCE_PAT: ${{ secrets.vsce }}
-      
+
       ## Check if the webpacked version is still good
       - name: Test
         run: npm test
@@ -59,8 +69,8 @@ jobs:
         with:
           name: universal
           path: "*.vsix"
-          
-  publish:  
+
+  publish:
     if: ${{ needs.test.result == 'success' && needs.universal.result == 'success' }}
     runs-on: ubuntu-latest
     needs: [universal, test]
