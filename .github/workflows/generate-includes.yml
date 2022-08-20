@@ -26,8 +26,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Client includes
-        # You may pin to the exact commit or the version.
-        # uses: DaanV2/Typescript-Action-Create-Indexes@69207e9b1ccf3f50b4d04849abcaa63157be9209
         uses: DaanV2/Typescript-Action-Create-Indexes@latest
         with:
           # The folder path to start at
@@ -38,8 +36,6 @@ jobs:
             index.ts
 
       - name: Server includes
-        # You may pin to the exact commit or the version.
-        # uses: DaanV2/Typescript-Action-Create-Indexes@69207e9b1ccf3f50b4d04849abcaa63157be9209
         uses: DaanV2/Typescript-Action-Create-Indexes@latest
         with:
           # The folder path to start at
