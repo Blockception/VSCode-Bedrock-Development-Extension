@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import path from 'path'
-import { GetDocument } from '../src/Lib/Types/Document/include';
+import { GetDocument } from '../src/Lib/Types/Document';
 
 //THis is made to test FS systems where the plugin will run on
 describe("GetDocument", ()=>{
