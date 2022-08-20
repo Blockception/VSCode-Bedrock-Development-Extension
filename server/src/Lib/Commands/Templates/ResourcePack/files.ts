@@ -3,7 +3,7 @@ import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { context } from "../Context";
 import { MinecraftFormat } from "../../../Minecraft/Format";
-import * as ResourcePack from "../../../Data/Templates/ResourcePack/include";
+import * as ResourcePack from "../../../Data/Templates/ResourcePack/index";
 
 const { v4: uuid } = require("uuid");
 

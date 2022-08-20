@@ -2,7 +2,7 @@ import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode
 import { Manager } from "../Manager/Manager";
 import { Commands, Languages } from "../Constants";
 import { Console } from "../Manager/Console";
-import { Version } from "../include";
+import { Version } from "../index";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return new Promise<InitializeResult>((resolve, reject) => {

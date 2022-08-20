@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Command, Parameter } from "./include";
+import { Command, Parameter } from "./index";
 
 describe("include", () => {
   it("Sanity", () => {

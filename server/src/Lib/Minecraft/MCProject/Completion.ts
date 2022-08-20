@@ -1,4 +1,4 @@
-import { Boolean } from "../General/include";
+import { Boolean } from "../General/index";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { Database } from "../../Database/Database";
@@ -6,7 +6,7 @@ import { Documentated } from "bc-minecraft-bedrock-types/lib/src/Types/Documenta
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from "../../Code/include";
+import { SimpleContext } from "../../Code/index";
 
 import path from "path";
 

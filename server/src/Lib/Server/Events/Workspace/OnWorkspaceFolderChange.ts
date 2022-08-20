@@ -1,5 +1,5 @@
 import { WorkspaceFoldersChangeEvent } from "vscode-languageserver";
-import { Workspace } from "../../../Workspace/include";
+import { Workspace } from "../../../Workspace/index";
 
 export async function OnWorkspaceFolderChangeAsync(params: WorkspaceFoldersChangeEvent): Promise<void> {
   return new Promise<void>((resolve, reject) => {

@@ -6,7 +6,7 @@ import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 import { HandleError } from "../Code/Error";
 import { StoreProject } from "./StoreProject";
-import { AddAllItems } from "./Language/include";
+import { AddAllItems } from "./Language/index";
 import { Workspace } from '../Workspace/Workspace';
 
 /**

@@ -1,10 +1,10 @@
 import { TemplateBuilder } from "../Builder";
 import * as path from "path";
 import { context } from "../Context";
-import { SafeIDNoNamespace } from "../../../Data/Templates/include";
+import { SafeIDNoNamespace } from "../../../Data/Templates/index";
 const { v4: uuid } = require("uuid");
 
-import * as BehaviorPack from "../../../Data/Templates/BehaviorPack/include";
+import * as BehaviorPack from "../../../Data/Templates/BehaviorPack/index";
 
 /**
  *

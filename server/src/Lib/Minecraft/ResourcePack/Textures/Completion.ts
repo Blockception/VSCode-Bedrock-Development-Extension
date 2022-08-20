@@ -1,4 +1,4 @@
-import { SimpleContext } from "../../../Code/include";
+import { SimpleContext } from "../../../Code/index";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
 import { Database } from "../../../Database/Database";

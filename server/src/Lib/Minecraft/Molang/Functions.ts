@@ -1,4 +1,4 @@
-import { Character } from "../../Code/include";
+import { Character } from "../../Code/index";
 
 const MolangRegexp = /\b((query|math|variable|texture|temp|geometry|material|array|context|c|q|v|t)\.[A-Za-z_0-9]+|->|this)\b/im;
 const MolangCommandRegexp = /^\/[a-z]+ /;

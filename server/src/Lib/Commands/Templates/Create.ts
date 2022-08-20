@@ -6,11 +6,11 @@ import { Database } from "../../Database/Database";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { GetContextCall, context } from "./Context";
 
-import * as BehaviorPack from "./BehaviorPack/include";
-import * as ResourcePack from "./ResourcePack/include";
-import * as Language from "./Language/include";
-import * as World from "./World/include";
-import * as Project from "./Project/include";
+import * as BehaviorPack from "./BehaviorPack/index";
+import * as ResourcePack from "./ResourcePack/index";
+import * as Language from "./Language/index";
+import * as World from "./World/index";
+import * as Project from "./Project/index";
 
 type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
 const CreationCommands: CommandManager = Initialize();

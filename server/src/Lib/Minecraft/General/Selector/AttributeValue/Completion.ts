@@ -3,12 +3,12 @@ import { CommandCompletionContext } from "../../../../Completion/Context";
 
 import * as Entities from "../../../BehaviorPack/Entities/Completion";
 import * as Family from "../../../BehaviorPack/Family/Completion";
-import * as Modes from "../../../Modes/include";
+import * as Modes from "../../../Modes/index";
 
-import * as Integer from "../../../General/Integer/include";
-import * as Names from "../../../General/Names/include";
-import * as Float from "../../../General/Float/include";
-import * as Tag from "../../../General/Tag/include";
+import * as Integer from "../../../General/Integer/index";
+import * as Names from "../../../General/Names/index";
+import * as Float from "../../../General/Float/index";
+import * as Tag from "../../../General/Tag/index";
 import { OffsetWord } from 'bc-vscode-words';
 import { equal } from 'assert';
 

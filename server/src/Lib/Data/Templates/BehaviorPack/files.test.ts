@@ -9,7 +9,7 @@ import {
   create_spawn_rule,
   create_volume,
 } from "./files";
-import { create_animation, create_animation_controller } from "./include";
+import { create_animation, create_animation_controller } from "./index";
 const { v4: uuid } = require("uuid");
 
 describe("Data", () => {

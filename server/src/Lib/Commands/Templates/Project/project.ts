@@ -2,9 +2,9 @@ import { TemplateBuilder } from "../Builder";
 import { context } from "../Context";
 import * as path from "path";
 
-import * as BehaviorPack from "../BehaviorPack/include";
-import * as ResourcePack from "../ResourcePack/include";
-import * as World from "../World/include";
+import * as BehaviorPack from "../BehaviorPack/index";
+import * as ResourcePack from "../ResourcePack/index";
+import * as World from "../World/index";
 import { create_language_files } from "../Language/files";
 
 /**

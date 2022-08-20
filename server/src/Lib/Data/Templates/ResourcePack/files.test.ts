@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { SafeID, SafeIDNoNamespace } from "../Function";
 import { create_attachable, create_entity, create_fog, create_manifest, create_model, create_particle, create_render_controller } from "./files";
-import { create_animation_controller } from "./include";
+import { create_animation_controller } from "./index";
 const { v4: uuid } = require("uuid");
 
 describe("Data", () => {
