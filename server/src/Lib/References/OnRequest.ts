@@ -1,6 +1,6 @@
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { Languages } from "../Constants";
-import { Json, Mcfunction } from '../Minecraft/include';
+import { Json, Mcfunction } from '../Minecraft';
 import { GetDocument } from "../Types/Document/Document";
 
 export async function OnReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {

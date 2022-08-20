@@ -1,9 +1,9 @@
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../CodeAction/Builder";
 
-import * as BehaviorPack from './BehaviorPack/include';
+import * as BehaviorPack from './BehaviorPack';
 import * as General from './General/CodeAction';
-import * as ResourcePack from './ResourcePack/include';
+import * as ResourcePack from './ResourcePack';
 
 /**
  *

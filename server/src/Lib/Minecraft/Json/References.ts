@@ -8,7 +8,7 @@ import { References } from '../../Code/References';
 import { TextDocument } from "../../Types/Document/TextDocument";
 
 import * as Command from '../Commands/Command/References';
-import * as Molang from '../Molang/include';
+import * as Molang from '../Molang';
 
 
 export function ProvideReferences(doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
