@@ -577,7 +577,7 @@
         "fileMatch": [
           "entity/*.{json,jsonc,json5}",
           "entity/**/*.{json,jsonc,json5}",
-          "*.{entity.rp,e.rp,ce,rpe,entity}.{json,jsonc,json5}",
+          "*.{entity.rp,e.rp,ce,rpe}.{json,jsonc,json5}",
           "!models/entity/**/*.{json,jsonc,json5}",
           "!models/entity/*.{json,jsonc,json5}"
         ],
