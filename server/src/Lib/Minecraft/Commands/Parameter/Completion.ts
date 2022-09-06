@@ -40,7 +40,7 @@ function toCompletion(context: CommandCompletionContext): void {
 
 type functioncall = ((context: SimpleContext<CompletionBuilder>) => void) | ((context: CommandCompletionContext) => void) | undefined;
 
-const DataMap: { [index: number]: functioncall } = {
+const DataMap: Record<number, functioncall> = {
   //BehaviorPacks
   [ParameterType.block]: BehaviorPack.Block.ProvideCompletion,
   [ParameterType.blockStates]: BehaviorPack.BlockStates.ProvideCompletion,

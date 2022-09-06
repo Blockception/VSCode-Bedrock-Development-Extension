@@ -44,13 +44,13 @@ function Store(value: WorkspaceFolder[]) {
 }
 
 function ConvertStore(filepath: string, data: any): void {
-  const temp: { [key: string]: any } = {};
+  const temp: Record<string, any> = {};
 
   Convert(data, temp);
   StoreObject(filepath, temp);
 }
 
-function Convert(data: any, receiver: { [key: string]: any }) {
+function Convert(data: any, receiver: Record<string, any>) {
   const names = Object.getOwnPropertyNames(data);
 
   for (let I = 0; I < names.length; I++) {

@@ -35,7 +35,7 @@ export function AddBlockception(uri: string): void {
     manifest.metadata = metadata;
   }
 
-  let generated_with: { [tool: string]: string[] } | undefined = metadata.generated_with;
+  let generated_with: Record<string, string[]> | undefined = metadata.generated_with;
 
   if (generated_with === undefined) {
     save = true;

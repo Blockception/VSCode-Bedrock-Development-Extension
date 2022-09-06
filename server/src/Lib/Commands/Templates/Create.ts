@@ -12,7 +12,7 @@ import * as Language from "./Language/index";
 import * as World from "./World/index";
 import * as Project from "./Project/index";
 
-type CommandManager = { [id: string]: (args: ExecuteCommandParams) => void | undefined };
+type CommandManager = Record<string, (args: ExecuteCommandParams) => void | undefined>
 const CreationCommands: CommandManager = Initialize();
 
 /**Executes the given creation command */
