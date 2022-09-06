@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Client includes
+      - name: Client indexes
         uses: DaanV2/Typescript-Action-Create-Indexes@latest
         with:
           # The folder path to start at
@@ -35,7 +35,7 @@ jobs:
             *.test.ts
             index.ts
 
-      - name: Server includes
+      - name: Server indexes
         uses: DaanV2/Typescript-Action-Create-Indexes@latest
         with:
           # The folder path to start at
@@ -45,7 +45,8 @@ jobs:
             *.test.ts
             index.ts
             
-      - uses: DaanV2/Typescript-Action-Create-Indexes@latest
+      - name: Server indexes
+        uses: DaanV2/Typescript-Action-Create-Indexes@latest
         with:
           # The folder path to start at
           folder: ${{ github.workspace }}/server/src/Lib/Minecraft
