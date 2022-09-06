@@ -14,7 +14,7 @@
     "type": "git"
   },
   "scripts": {
-    "compile": "tsc -b",
+    "compile": "tsc -b ./tsconfig.json",
     "pretest": "npm run compile",
     "test": "mocha -r ts-node/register '**/*.test.ts'",
     "update": "npm update && npm audit fix"

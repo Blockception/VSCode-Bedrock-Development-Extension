@@ -51,7 +51,7 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): Promise<void>
   var code = diag.code ?? "";  
   Attributes(builder, diag);
 
-  if (typeof code === "number") return Promise<void>.resolve();
+  if (typeof code === "number") return Promise.resolve();
 
   const index = code.indexOf(".");
   const maincode = index > -1 ? code.slice(0, index) : code;

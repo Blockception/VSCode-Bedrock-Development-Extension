@@ -6,9 +6,9 @@ import { distance } from 'fastest-levenshtein';
 export function FuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic) : Promise<void> {
     const code = diag.code;
 
-    if (typeof code !== 'string') return Promise<void>.resolve();    
+    if (typeof code !== 'string') return Promise.resolve();
     if (code.includes('missing') || code.endsWith('invalid')) {
-    } else return Promise<void>.resolve();
+    } else return Promise.resolve();
     
     const id = builder.getId(diag.range);
     let max = 20
