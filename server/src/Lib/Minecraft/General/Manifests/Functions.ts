@@ -8,6 +8,7 @@ import * as JSONC from "comment-json";
 import { HandleError } from "../../../Code/Error";
 import { Manager } from "../../../Manager/Manager";
 import { Pack } from "bc-minecraft-bedrock-project";
+import { Manifest } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types";
 
 export function AddBlockceptionToPack(pack: Pack | undefined): void {
   if (pack === undefined) return;
@@ -22,9 +23,9 @@ export function AddBlockception(uri: string): void {
 
   if (doc === undefined) return;
 
-  const manifest = doc.CastTo<Internal.Manifest>();
+  const manifest = doc.CastTo<Manifest>();
 
-  if (!Internal.Manifest.is(manifest)) return;
+  if (!Manifest.is(manifest)) return;
 
   let save = false;
   let metadata = manifest.metadata;
@@ -64,7 +65,9 @@ export function AddBlockception(uri: string): void {
     try {
       writeFile(fspath, json, { encoding: "utf8" }, () => {});
     } catch (err) {
-      Manager.Connection.window.showWarningMessage("Sorry tried to append tool information to the manifest but something went wrong");
+      Manager.Connection.window.showWarningMessage(
+        "Sorry tried to append tool information to the manifest but something went wrong"
+      );
       HandleError(err);
     }
   }

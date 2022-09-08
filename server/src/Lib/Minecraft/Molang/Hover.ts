@@ -1,4 +1,4 @@
-import { MolangData } from "bc-minecraft-molang";
+import { Data, MolangData } from "bc-minecraft-molang";
 import { Hover, HoverParams, Range } from "vscode-languageserver-protocol";
 import { Character } from "../../Code/Character";
 import { TextDocument } from "../../Types/Document/TextDocument";
@@ -10,10 +10,20 @@ export function ProvideHover(doc: TextDocument, params: HoverParams): Hover | un
   const cursor = doc.offsetAt(params.position);
   const range: TextRange = { start: cursor, end: cursor + line.length };
 
-  return ProvideHoverAt(line, range, offset, Range.create(params.position, { character: params.position.character, line: params.position.line }));
+  return ProvideHoverAt(
+    line,
+    range,
+    offset,
+    Range.create(params.position, { character: params.position.character, line: params.position.line })
+  );
 }
 
-export function ProvideHoverAt(currentText: string, trange: TextRange, cursor: number, range: Range | undefined): Hover | undefined {
+export function ProvideHoverAt(
+  currentText: string,
+  trange: TextRange,
+  cursor: number,
+  range: Range | undefined
+): Hover | undefined {
   let startindex = cursor - trange.start;
   let dotindex = -1;
 
@@ -29,7 +39,7 @@ export function ProvideHoverAt(currentText: string, trange: TextRange, cursor: n
     startindex++;
     break;
   }
-  
+
   if (startindex < 0) startindex = 0;
 
   let endindex = cursor - trange.start;
@@ -53,7 +63,11 @@ export function ProvideHoverAt(currentText: string, trange: TextRange, cursor: n
   return ProvideHoverSpecific(text);
 }
 
-export function ProvideHoverSpecific(main: string, sub: string | undefined = undefined, range: Range | undefined = undefined): Hover | undefined {
+export function ProvideHoverSpecific(
+  main: string,
+  sub: string | undefined = undefined,
+  range: Range | undefined = undefined
+): Hover | undefined {
   switch (main) {
     //TODO animation
     //TODO controller
@@ -92,7 +106,7 @@ export function ProvideHoverSpecific(main: string, sub: string | undefined = und
   return undefined;
 }
 
-function findGen(data: string, range: Range | undefined = undefined, items: MolangData.Data[]): Hover | undefined {
+function findGen(data: string, range: Range | undefined = undefined, items: Data[]): Hover | undefined {
   for (let I = 0; I < items.length; I++) {
     const item = items[I];
 

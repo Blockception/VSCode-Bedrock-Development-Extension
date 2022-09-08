@@ -18,7 +18,7 @@
       "script": "compile",
       "isBackground": false,
       "group": "build",
-      "label": "npm build 'vscode-plugin'",
+      "label": "npm compile 'vscode-plugin'",
       "presentation": { "reveal": "always", "panel": "dedicated" },
       "problemMatcher": ["$tsc"]
     },

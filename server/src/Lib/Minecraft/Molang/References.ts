@@ -1,13 +1,17 @@
-import { MolangCarrier } from 'bc-minecraft-bedrock-project/lib/src/Lib/Types/Carrier/Carrier';
-import { BaseObject } from 'bc-minecraft-bedrock-types/lib/src/Types/BaseObject';
-import { MolangSet } from 'bc-minecraft-molang/lib/src/Molang/MolangSet';
+import { MolangCarrier } from "bc-minecraft-bedrock-project";
+import { BaseObject } from "bc-minecraft-bedrock-types/lib/src/Types/BaseObject";
+import { MolangSet } from "bc-minecraft-molang/lib/src/Molang/MolangSet";
 import { OffsetWord } from "bc-vscode-words";
 import { DefinitionParams, Location, ReferenceParams } from "vscode-languageserver-protocol";
-import { References } from '../../Code/References';
-import { Database } from '../../Database/Database';
+import { References } from "../../Code/References";
+import { Database } from "../../Database/Database";
 import { TextDocument } from "../../Types/Document/TextDocument";
 
-export function ProvideReferences(text: OffsetWord, doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
+export function ProvideReferences(
+  text: OffsetWord,
+  doc: TextDocument,
+  params: DefinitionParams | ReferenceParams
+): Location[] | undefined {
   //const cursor = doc.offsetAt(params.position);
   //const data = MolangSet.harvest(text.text);
 
@@ -47,12 +51,11 @@ export function ProvideReferences(text: OffsetWord, doc: TextDocument, params: D
   return undefined;
 }
 
-
-function GetVariables(variable : string) : Location[] {
-  const locations : BaseObject[] = [];
-  const map = (item : BaseObject & MolangCarrier<MolangSet>) => {
+function GetVariables(variable: string): Location[] {
+  const locations: BaseObject[] = [];
+  const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
     if (item.molang.variables.defined.includes(variable)) locations.push(item);
-  }
+  };
 
   Database.ProjectData.BehaviorPacks.animation_controllers.forEach(map);
   Database.ProjectData.BehaviorPacks.animations.forEach(map);
@@ -67,11 +70,11 @@ function GetVariables(variable : string) : Location[] {
   return References.ConvertLocation(locations);
 }
 
-function GetTemp(variable : string) : Location[] {
-  const locations : BaseObject[] = [];
-  const map = (item : BaseObject & MolangCarrier<MolangSet>) => {
+function GetTemp(variable: string): Location[] {
+  const locations: BaseObject[] = [];
+  const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
     if (item.molang.temps.defined.includes(variable)) locations.push(item);
-  }
+  };
 
   Database.ProjectData.BehaviorPacks.animation_controllers.forEach(map);
   Database.ProjectData.BehaviorPacks.animations.forEach(map);

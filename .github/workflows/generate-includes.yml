@@ -55,7 +55,7 @@ jobs:
             *.test.ts
             index.ts
 
-      - name: commit changes
+      - name: Commit changes
         continue-on-error: true
         run: |
           cd ${{github.workspace}}

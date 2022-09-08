@@ -2,7 +2,7 @@ import { CommandData, CommandInfo } from 'bc-minecraft-bedrock-command';
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
-import { Map } from "bc-minecraft-bedrock-project";
+import { SMap } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/index";
 
 /**
@@ -12,8 +12,8 @@ import { SimpleContext } from "../../../Code/index";
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const edu = IsEducationEnabled(context.doc);
 
-  Map.forEach(CommandData.Vanilla, (data) => GetCompletion(data, context.receiver));
-  if (edu) Map.forEach(CommandData.Edu, (data) => GetCompletion(data, context.receiver));
+  SMap.forEach(CommandData.Vanilla, (data) => GetCompletion(data, context.receiver));
+  if (edu) SMap.forEach(CommandData.Edu, (data) => GetCompletion(data, context.receiver));
 }
 
 /**

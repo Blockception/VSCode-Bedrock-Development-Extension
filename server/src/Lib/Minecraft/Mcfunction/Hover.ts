@@ -2,7 +2,7 @@ import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { Database } from "../../Database/Database";
 import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/Types";
 import { HoverParams, Hover, Range } from "vscode-languageserver";
-import { IDataSet } from "bc-minecraft-bedrock-project/lib/src/Lib/Types/DataSet/IDataSet";
+import { IDataSet } from "bc-minecraft-bedrock-project";
 import { IsEducationEnabled } from '../../Project/Attributes';
 import { ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
 import { RawText } from "../Json/index";

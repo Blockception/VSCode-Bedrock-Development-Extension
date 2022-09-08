@@ -1,5 +1,5 @@
 import { MolangData } from "bc-minecraft-molang";
-import { MolangFunction } from "bc-minecraft-molang/lib/src/MolangData/MolangData";
+import { MolangFunction } from "bc-minecraft-molang";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
