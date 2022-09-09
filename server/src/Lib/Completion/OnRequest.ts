@@ -14,10 +14,10 @@ import * as Molang from "../Minecraft/Molang/Completion";
  * @param params
  * @returns
  */
-export async function OnCompletionRequestAsync(params: CompletionParams): Promise<CompletionItem[] | CompletionList | undefined> {
-  return new Promise((resolve, reject) => {
-    resolve(OnCompletionRequest(params));
-  });
+export async function OnCompletionRequestAsync(
+  params: CompletionParams
+): Promise<CompletionItem[] | CompletionList | undefined> {
+  return Promise.resolve(OnCompletionRequest(params));
 }
 
 /**

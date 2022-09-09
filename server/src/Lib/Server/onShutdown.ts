@@ -4,9 +4,7 @@ import { Console } from "../Manager/Console";
  * The code to run when the server is shutting down
  */
 export async function onShutdownAsync(): Promise<void> {
-  return new Promise<void>((resolve, reject) => {
-    resolve(onShutdown());
-  });
+return Promise.resolve(onShutdown());
 }
 
 /**

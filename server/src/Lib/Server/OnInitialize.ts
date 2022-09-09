@@ -5,9 +5,7 @@ import { Console } from "../Manager/Console";
 import { Version } from "../index";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
-  return new Promise<InitializeResult>((resolve, reject) => {
-    resolve(onInitialize(params));
-  });
+return Promise.resolve(onInitialize(params));
 }
 
 export function onInitialize(params: InitializeParams): InitializeResult {

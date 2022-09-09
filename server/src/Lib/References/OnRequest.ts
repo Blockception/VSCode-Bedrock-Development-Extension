@@ -4,9 +4,7 @@ import { Json, Mcfunction } from '../Minecraft';
 import { GetDocument } from "../Types/Document/Document";
 
 export async function OnReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {
-  return new Promise<Location[] | undefined>((resolve, reject) => {
-    resolve(OnReferencesRequest(params));
-  });
+return Promise.resolve(OnReferencesRequest(params));
 }
 
 function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {

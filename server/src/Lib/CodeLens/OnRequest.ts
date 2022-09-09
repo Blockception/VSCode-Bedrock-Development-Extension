@@ -16,9 +16,7 @@ import { CodeLensBuilder } from "./Builder";
  * @returns
  */
 export async function OnCodeLensRequestAsync(params: CodeLensParams): Promise<CodeLens[] | null | undefined> {
-  return new Promise<CodeLens[] | null | undefined>((resolve, reject) => {
-    resolve(OnCodeLensRequest(params));
-  });
+return Promise.resolve(OnCodeLensRequest(params));
 }
 
 /**
@@ -64,9 +62,7 @@ function loop(set: DataSet<Types.BaseObject> | undefined, doc: TextDocument, bui
  * @returns
  */
 export async function OnCodeLensResolveRequestAsync(params: CodeLens): Promise<CodeLens> {
-  return new Promise<CodeLens>((resolve, reject) => {
-    resolve(OnCodeLensResolveRequest(params));
-  });
+return Promise.resolve(OnCodeLensResolveRequest(params));
 }
 
 export function OnCodeLensResolveRequest(code: CodeLens): CodeLens {

@@ -23,9 +23,7 @@ export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Comm
  * @returns
  */
 export async function OnCodeActionResolveAsync(params: CodeAction): Promise<CodeAction> {
-  return new Promise<CodeAction>((resolve, reject) => {
-    resolve(params);
-  });
+return Promise.resolve(params);
 }
 
 /**

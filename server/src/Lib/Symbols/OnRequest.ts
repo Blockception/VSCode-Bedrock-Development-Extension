@@ -12,9 +12,7 @@ import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/Ge
  * @param params The parameter that specify which symbols to provide
  */
 export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[] | undefined> {
-  return new Promise<SymbolInformation[] | undefined>((resolve, reject) => {
-    resolve(OnDocumentSymbolRequest(params));
-  });
+return Promise.resolve(OnDocumentSymbolRequest(params));
 }
 
 /**
@@ -23,9 +21,7 @@ export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams)
  * @param params The parameter that specify which symbols to provide
  */
 export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
-  return new Promise<SymbolInformation[]>((resolve, reject) => {
-    resolve(OnWorkspaceSymbolRequest(params));
-  });
+return Promise.resolve(OnWorkspaceSymbolRequest(params));
 }
 
 /**

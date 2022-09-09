@@ -5,9 +5,7 @@ import { GetDocument } from "../Types/Document/Document";
 import { ProvideJsonSignature } from "./Json";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
-  return new Promise<SignatureHelp | undefined>((resolve, reject) => {
-    resolve(OnSignatureRequest(params));
-  });
+return Promise.resolve(OnSignatureRequest(params));
 }
 
 function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {

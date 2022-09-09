@@ -15,9 +15,7 @@ import { Workspace } from '../Workspace/Workspace';
  * @returns
  */
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
-  return new Promise<any>((resolve, reject) => {
-    resolve(OnCommandRequest(params));
-  });
+return Promise.resolve(OnCommandRequest(params));
 }
 
 /**

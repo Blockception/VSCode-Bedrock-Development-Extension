@@ -11,9 +11,7 @@ import { formatMcfunction, formatMcfunctionRange } from "./Mcfunction";
  * @returns
  */
 export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): Promise<TextEdit[] | undefined> {
-  return new Promise<TextEdit[] | undefined>((resolve, reject) => {
-    resolve(OnDocumentFormatRequest(params));
-  });
+return Promise.resolve(OnDocumentFormatRequest(params));
 }
 
 /**
@@ -22,9 +20,7 @@ export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): 
  * @returns
  */
 export function OnDocumentRangeFormatRequestAsync(params: DocumentRangeFormattingParams): Promise<TextEdit[] | undefined> {
-  return new Promise<TextEdit[] | undefined>((resolve, reject) => {
-    resolve(OnDocumentRangeFormatRequest(params));
-  });
+return Promise.resolve(OnDocumentRangeFormatRequest(params));
 }
 
 /**

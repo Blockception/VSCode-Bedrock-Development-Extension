@@ -19,7 +19,7 @@ export namespace Workspace {
     return processWorkspace(ws);
   }
 
-  /** 
+  /**
    * @returns
    */
   export async function UpdateProjectInfo(): Promise<void> {
@@ -27,7 +27,7 @@ export namespace Workspace {
     return processWorkspace(ws);
   }
 
-  /** 
+  /**
    * @returns
    */
   export async function GetWorkSpaces(): Promise<WorkspaceFolder[]> {
@@ -38,16 +38,10 @@ export namespace Workspace {
       HandleError(err);
     });
 
-    return WS.then((ws) => {
-      if (ws == null) {
-        ws = [];
-      }
-
-      return ws;
-    });
+    return WS.then((ws) => (ws ? ws : []));
   }
 
-  /** 
+  /**
    * @param uri
    */
   export function RemoveWorkspace(uri: string): void {
@@ -112,8 +106,8 @@ export namespace Workspace {
 }
 
 /**
- * @param pack 
- * @returns 
+ * @param pack
+ * @returns
  */
 function processPack(pack: Pack): Promise<void> {
   return ProcessPack(pack).then((items) => {});
@@ -130,7 +124,7 @@ function processWorkspace(ws: WorkspaceFolder[] | null): void {
   for (let I = 0; I < ws.length; I++) {
     const folder = ws[I].uri;
     const p = GetProject(folder);
-    
+
     MCProject.saveSync(Fs.FromVscode(folder), p);
   }
 }

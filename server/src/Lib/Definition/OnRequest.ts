@@ -4,15 +4,11 @@ import { Json, Mcfunction } from '../Minecraft';
 import { GetDocument } from "../Types/Document/Document";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {
-  return new Promise<Location[] | undefined>((resolve, reject) => {
-    resolve(onDefinition(params));
-  });
+return Promise.resolve(onDefinition(params));
 }
 
 export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[] | undefined> {
-  return new Promise<Location[] | undefined>((resolve, reject) => {
-    resolve(onDefinition(params));
-  });
+return Promise.resolve(onDefinition(params));
 }
 
 export function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
