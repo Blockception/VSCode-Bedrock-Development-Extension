@@ -59,22 +59,7 @@ export namespace ServerSettings {
    * @returns
    */
   export function clone(value: ServerSettings): ServerSettings {
-    return {
-      Education: {
-        Enable: value.Education.Enable,
-      },
-      Diagnostics: {
-        Enable: value.Diagnostics.Enable,
-        Lang: value.Diagnostics.Lang,
-        Json: value.Diagnostics.Json,
-        Mcfunctions: value.Diagnostics.Mcfunctions,
-        Objectives: value.Diagnostics.Objectives,
-        Tags: value.Diagnostics.Tags,
-      },
-      Plugin: {
-        CodeLens: value.Plugin.CodeLens,
-      },
-    };
+    return Object.assign({}, value);
   }
 
   export function createDefaulSettings(): ServerSettings {
