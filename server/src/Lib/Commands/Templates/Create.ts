@@ -5,7 +5,6 @@ import { Commands } from "../../Constants";
 import { Database } from "../../Database/Database";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { GetContext, Context } from "./Context";
-
 import { TemplateKeys, Templates } from "./Templates";
 
 import * as Language from "./language";
@@ -20,13 +19,15 @@ export async function Create(params: ExecuteCommandParams): Promise<void> {
   const context = GetContext(params);
   const command = params.command;
   const folder = context.GetFolder(command);
-  const id = command.replace(Commands.Create.Base, "") as TemplateKeys;
+  const templateId = command.replace(Commands.Create.Base, "") as TemplateKeys;
+  const id = (params.arguments ? params.arguments[0] : undefined) || "UNKNOWN";
 
   const attributes = {
     id,
+    templateId,
   };
 
-  if ((await Templates.create(id, folder, attributes)) === true) {
+  if ((await Templates.create(templateId, folder, attributes)) === true) {
     return;
   }
 

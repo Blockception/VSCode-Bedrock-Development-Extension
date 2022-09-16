@@ -1,4 +1,4 @@
-export const animation_controller: string = `{
+export const bp_animation_controller: string = `{
   "format_version": "1.18.0",
   "animation_controllers" : {
     "controller.animation.$\{\{id\}\} : {
@@ -23,7 +23,7 @@ export const animation_controller: string = `{
   }
 }`;
 
-export const animation: string = `{
+export const bp_animation: string = `{
   "format_version": "1.18.0",
   "animations": {
     "animation.$\{\{id\}\}": {
@@ -37,7 +37,7 @@ export const animation: string = `{
   }
 }`;
 
-export const block: string = `{
+export const bp_block: string = `{
   "format_version": "1.18.0",
   "minecraft:block": {
     "description": {
@@ -49,7 +49,7 @@ export const block: string = `{
   }
 }`;
 
-export const entity: string = `{
+export const bp_entity: string = `{
   "format_version": "1.18.0",
   "minecraft:entity": {
     "description": {
@@ -71,7 +71,7 @@ export const entity: string = `{
   }
 }`;
 
-export const dialogue: string = `{
+export const bp_dialogue: string = `{
   "format_version": "1.18.0",
   "minecraft:npc_dialogue": {
     "scenes": [
@@ -85,7 +85,7 @@ export const dialogue: string = `{
   }
 }`;
 
-export const item: string = `{
+export const bp_item: string = `{
   "format_version": "1.18.0",
   "minecraft:item": {
     "description": {
@@ -96,7 +96,7 @@ export const item: string = `{
   }
 }`;
 
-export const loot_table: string = `{
+export const bp_loot_table: string = `{
   "pools": [
     {
       "rolls": 1,
@@ -111,7 +111,7 @@ export const loot_table: string = `{
   ]
 }`;
 
-export const manifest: string = `{
+export const bp_manifest: string = `{
   "format_version": 2,
   "header": {
     "description": "Example vanilla behavior pack",
@@ -137,7 +137,7 @@ export const manifest: string = `{
   }
 }`;
 
-export const recipe: string = `{
+export const bp_recipe: string = `{
   "format_version": "1.18.0",
   "minecraft:<type>": {
     "description": {
@@ -150,7 +150,7 @@ export const recipe: string = `{
   }
 }`;
 
-export const spawn_rule: string = `{
+export const bp_spawn_rule: string = `{
   "format_version": "1.18.0",
   "minecraft:spawn_rules": {
     "description": {
@@ -165,7 +165,7 @@ export const spawn_rule: string = `{
   }
 }`;
 
-export const trading: string = `{
+export const bp_trading: string = `{
   "tiers": [
     {
       "trades": [
@@ -188,7 +188,7 @@ export const trading: string = `{
   ]
 }`;
 
-export const volume: string = `{
+export const bp_volume: string = `{
   "format_version": "1.18.0",
   "minecraft:volume": {
     "description": {

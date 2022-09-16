@@ -2,6 +2,7 @@ import { PackType } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { randomUUID } from "crypto";
 import path from "path";
+import { Fs, Vscode } from '../Code';
 import { ToolIdentification } from "../Constants";
 import { Database } from "../Database";
 import { Version } from "../Version";
@@ -64,9 +65,9 @@ export class TemplateFunctions {
 
   public data: Record<string, ReplaceFunction> = {
     filename: () => this._context.filename,
-    filepath: () => path.join(this._context.folder, this._context.filename),
+    filepath: () => Fs.FromVscode(Vscode.join(this._context.folder, this._context.filename)),
 
-    folder: () => this._context.folder,
+    folder: () => Fs.FromVscode(this._context.folder),
 
     id: () => this.getAttribute("id"),
     "id.safe": () => SafeID(this.getAttribute("id")),

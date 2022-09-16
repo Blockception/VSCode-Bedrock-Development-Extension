@@ -3,6 +3,8 @@ import { TemplateFallback } from "./Data";
 import * as fs from "fs";
 import { FunctionContext, TemplateFunctions } from "./Functions";
 import { FileBuilder } from "../Files/FileBuilder";
+import { Fs, Vscode } from "../Code";
+import path from "path";
 
 export class TemplateProcessor {
   protected _filename: string;
@@ -36,7 +38,9 @@ export class TemplateProcessor {
    */
   public async CreateFile(): Promise<void> {
     const fileBuilder = new FileBuilder();
-    fileBuilder.CreateFile(this._filename, this._content);
+    const filepath = Vscode.join(this.processor._context.folder, this._filename);
+
+    fileBuilder.CreateFile(filepath, this._content);
 
     return fileBuilder.Send();
   }
@@ -80,14 +84,19 @@ export namespace TemplateProcessor {
     }
 
     const project = Database.WorkspaceData.getProject(ws);
-    const attr = template.replace('-', '.');
+    const attr = template.replace("-", ".");
     const filename = project.attributes[`template.${attr}.filename`] || fallback.filename();
     const file = project.attributes[`template.${attr}.file`];
-    let content = "";
+    let content = undefined;
 
-    if (file && fs.existsSync(file)) {
-      content = fs.readFileSync(file, "utf8");
-    } else {
+    if (file) {
+      const filepath = path.resolve(Fs.FromVscode(ws), file);
+      if (fs.existsSync(filepath)) {
+        content = fs.readFileSync(file, "utf8");
+      }
+    }
+
+    if (content === undefined || content === "") {
       content = fallback.content();
     }
 
