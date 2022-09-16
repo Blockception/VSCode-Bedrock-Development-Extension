@@ -16,7 +16,7 @@ const TestContext: FunctionContext = {
 
 const TestProcessor = new TemplateFunctions(TestContext);
 
-describe.only("TestProcessor", () => {
+describe("TestProcessor", () => {
   TestProcessor.getPack = () => {
     const project = MCProject.createEmpty();
     project.attributes["pack_format"] = "7";
@@ -45,12 +45,12 @@ describe.only("TestProcessor", () => {
 
   //Filepath should be '/entities/test.json'
   it("Filepath should be '/entities/test.json'", () => {
-    expect(TestProcessor.data.filepath()).to.equal(path.join("entities", "test.json"));
+    expect(TestProcessor.data.filepath()).to.equal("\\" + path.join("entities", "test.json"));
   });
 
-  //Folder should be '/test/'
-  it("Folder should be '/test/'", () => {
-    expect(TestProcessor.data.folder()).to.equal("entities");
+  //Folder should be '/entities/'
+  it("Folder should be '/entities/'", () => {
+    expect(TestProcessor.data.folder()).to.equal("\\entities");
   });
 
   //ID should be 'kekw:id_test'
