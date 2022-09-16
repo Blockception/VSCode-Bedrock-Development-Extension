@@ -2,6 +2,7 @@ import { Database } from "../Database";
 import { TemplateFallback } from "./Data";
 import * as fs from "fs";
 import { FunctionContext, TemplateFunctions } from "./Functions";
+import { FileBuilder } from "../Files/FileBuilder";
 
 export class TemplateProcessor {
   protected _filename: string;
@@ -23,8 +24,15 @@ export class TemplateProcessor {
     this.processor = new TemplateFunctions(context);
   }
 
-  public process() : string {
+  /**
+   *
+   * @returns
+   */
+  public async CreateFile(): Promise<void> {
+    const fileBuilder = new FileBuilder();
+    fileBuilder.CreateFile(this._filename, this._content);
 
+    return fileBuilder.Send();
   }
 }
 

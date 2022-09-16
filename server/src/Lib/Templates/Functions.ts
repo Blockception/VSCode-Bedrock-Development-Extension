@@ -1,7 +1,10 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
+import { randomUUID } from "crypto";
 import path from "path";
+import { ToolIdentification } from "../Constants";
 import { Database } from "../Database";
+import { Version } from "../Version";
 
 type ReplaceFunction = (...args: any[]) => string;
 
@@ -47,20 +50,50 @@ export class TemplateFunctions {
     return this.getPack()?.context || MCProject.createEmpty();
   }
 
+  public getAttribute(attr: string): string {
+    return this._context.attributes[attr] || "";
+  }
+
   public data: Record<string, ReplaceFunction> = {
     filename: () => this._context.filename,
-    folder: () => this._context.folder,
     filepath: () => path.join(this._context.folder, this._context.filename),
-    id: () => this._context.attributes["id"] || "",
 
-    "template.id": () => this._context.templateID,
+    folder: () => this._context.folder,
+
+    id: () => this.getAttribute("id"),
+    "id.safe": () => SafeID(this.getAttribute("id")),
+    "id.safe.nonamespace": () => SafeIDNoNamespace(this.getAttribute("id")),
 
     pack: () => this._context.pack,
     "pack.type": () => PackType.toString(this.getPack()?.type),
     "pack.type.short": () => PackType.toStringShort(this.getPack()?.type),
 
+    "project.attributes": (attribute: string) => this.getProject().attributes[attribute],
+
+    "template.id": () => this._context.templateID,
+
     "time.now": () => new Date().toUTCString(),
 
-    "project.attributes": (attribute: string) => this.getProject().attributes[attribute],
+    tool: () => ToolIdentification,
+    "tool.version": () => Version,
+
+    uuid: () => randomUUID(),
   };
+}
+
+export function SafeID(ID: string, replace: string = "_"): string {
+  ID = ID.replace(/[:]/gi, replace);
+  return ID;
+}
+
+export function SafeIDNoNamespace(ID: string, replace: string = "_"): string {
+  ID = NoNamespace(ID);
+  return SafeID(ID);
+}
+
+export function NoNamespace(id: string): string {
+  let Index = id.indexOf(":");
+  if (Index > 0) id = id.substring(Index + 1);
+
+  return id;
 }

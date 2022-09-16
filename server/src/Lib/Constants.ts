@@ -72,7 +72,7 @@ export namespace Commands {
 
     /**The namespace that stores all Behavior pack creation commands */
     export namespace Behaviorpack {
-      const BPBase = Base + "behavior_pack-";
+      const BPBase = Base + "behavior-";
 
       /**The command to create animation controllers files */
       export const Animation_Controller: string = BPBase + "animation_controllers";
@@ -104,7 +104,7 @@ export namespace Commands {
 
     /**The namespace that stores all resourcepack creation commands */
     export namespace Resourcepack {
-      const RPBase = Base + "resource_pack-";
+      const RPBase = Base + "resource-";
 
       /**The command to create animation controllers files */
       export const Animation_Controller: string = RPBase + "animation_controllers";

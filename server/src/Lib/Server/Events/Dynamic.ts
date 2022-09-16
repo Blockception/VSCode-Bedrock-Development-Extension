@@ -45,4 +45,6 @@ export function SetDynamicEvents() {
     full: true
   };
   client.register(SemanticTokensRegistrationType.type, registrationOptions);
+
+  client.register(Command)
 }
