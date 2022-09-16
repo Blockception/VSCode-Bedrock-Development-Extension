@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { BehaviorPack, Commands, General, Json, Language, Mcfunction, MCProject, Modes, Molang, ResourcePack } from "./index";
+import { BehaviorPack, Commands, General, Json, Language, Mcfunction, MCProject, Modes, Molang, ResourcePack } from ".";
 
 describe("include", () => {
   it("Sanity", () => {

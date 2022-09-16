@@ -1,4 +1,4 @@
 /*	Auto generated	*/
-export * as Cache from "./Cache/index";
-export * as Document from "./Document/index";
-export * as Progress from "./Progress/index";
+export * as Cache from "./Cache";
+export * as Document from "./Document";
+export * as Progress from "./Progress";

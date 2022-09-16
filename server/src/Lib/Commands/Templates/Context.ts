@@ -2,14 +2,15 @@ import { ExecuteCommandParams } from "vscode-languageserver";
 import { Database } from "../../Database/Database";
 import { Manager } from "../../Manager/Manager";
 
-export interface context {
+export interface Context {
   BehaviorPack(): string;
   ResourcePack(): string;
   WorkSpace(): string;
   WorldFolder(): string;
+  GetFolder(command: string): string;
 }
 
-export function GetContext(params: ExecuteCommandParams): context {
+export function GetContext(params: ExecuteCommandParams): Context {
   const args = params.arguments;
 
   if (args) {
@@ -19,12 +20,7 @@ export function GetContext(params: ExecuteCommandParams): context {
   return new _internalContext(undefined);
 }
 
-export function GetContextCall(data: ExecuteCommandParams, callback: (c: context, data: ExecuteCommandParams) => void): void {
-  const c = GetContext(data);
-  callback(c, data);
-}
-
-class _internalContext implements context {
+class _internalContext implements Context {
   private __path: string | undefined;
   private ws: string | undefined;
   private bp: string | undefined;
@@ -75,5 +71,13 @@ class _internalContext implements context {
     const message = "This action requires world with manifest to be present and findable for the plugin!";
     Manager.Connection.window.showErrorMessage(message);
     throw new Error(message);
+  }
+
+  GetFolder(command: string): string {
+    if (command.includes("behavior-")) return this.BehaviorPack();
+    if (command.includes("resource-")) return this.ResourcePack();
+    if (command.includes("world-")) return this.WorldFolder();
+
+    return this.WorkSpace();
   }
 }

@@ -1,8 +1,7 @@
 import {
+  BulkRegistration,
   DidChangeConfigurationNotification,
-  DocumentFormattingRegistrationOptions,
   DocumentFormattingRequest,
-  SemanticTokensRegistrationOptions,
   SemanticTokensRegistrationType,
 } from "vscode-languageserver";
 import { Languages } from "../../Constants";
@@ -12,23 +11,23 @@ import { SemanticModifiers, SemanticTokens } from "../../Semantics/Legend";
 export function SetDynamicEvents() {
   const client = Manager.Connection.client;
 
-  if (Manager.Capabiltities.hasConfigurationCapability) {
+  if (Manager.Capabilities.hasConfigurationCapability) {
     // Register for all configuration changes.
     Manager.Connection.client.register(DidChangeConfigurationNotification.type);
   }
 
+  const register = BulkRegistration.create();
+
   // Tell the client that this server supports code formatting.
-  const Formatoptions: DocumentFormattingRegistrationOptions = {
+  register.add(DocumentFormattingRequest.type, {
     documentSelector: [
       { scheme: "file", language: Languages.McFunctionIdentifier },
       { scheme: "file", language: Languages.McLanguageIdentifier },
     ],
-  };
-
-  client.register(DocumentFormattingRequest.type, Formatoptions);
+  });
 
   // Tell the client that this server supports semantic tokens
-  const registrationOptions: SemanticTokensRegistrationOptions = {
+  register.add(SemanticTokensRegistrationType.type, {
     documentSelector: [
       { scheme: "file", language: Languages.JsonCIdentifier },
       { scheme: "file", language: Languages.JsonIdentifier },
@@ -42,9 +41,8 @@ export function SetDynamicEvents() {
       tokenTypes: SemanticTokens,
     },
     range: true,
-    full: true
-  };
-  client.register(SemanticTokensRegistrationType.type, registrationOptions);
+    full: true,
+  });
 
-  client.register(Command)
+  return client.register(register);
 }

@@ -1,6 +1,6 @@
 import { LocationWord, OffsetWord, RangedWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-types";
-import { McfunctionSemanticTokensBuilder } from "./Builders/index";
+import { McfunctionSemanticTokensBuilder } from "./Builders";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./Legend";
 
 /**

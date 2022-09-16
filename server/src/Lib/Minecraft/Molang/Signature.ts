@@ -2,7 +2,7 @@ import { OffsetWord } from "bc-vscode-words";
 import { Position, SignatureHelp } from "vscode-languageserver";
 import { Offset } from "../../Code/Offset";
 import { TextDocument } from "../../Types/Document/TextDocument";
-import { CreateMolangSetWords } from "./index";
+import { CreateMolangSetWords } from ".";
 
 import * as Contexts from "./Contexts/Signature";
 import * as Geometry from "./Geometry/Signature";

@@ -1,7 +1,7 @@
 import path from "path";
-import * as BP from "../../Data/Templates/BehaviorPack";
-import * as RP from "../../Data/Templates/ResourcePack";
-import * as WP from "../../Data/Templates/World";
+import * as BP from "../../Data/Templates/behaviorpack";
+import * as RP from "../../Data/Templates/resourcepack";
+import * as WP from "../../Data/Templates/world";
 import { TemplateFallback } from "../../Templates/Data";
 import { TemplateProcessor } from "../../Templates/Processor";
 

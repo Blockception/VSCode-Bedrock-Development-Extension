@@ -13,8 +13,8 @@ import * as Temps from "./Temps/Completion";
 import * as Texture from "./Texture/Completion";
 import * as Variables from "./Variables/Completion";
 
-import * as BehaviorPack from "../BehaviorPack/index";
-import * as ResourcePack from "../ResourcePack/index";
+import * as BehaviorPack from "../BehaviorPack";
+import * as ResourcePack from "../ResourcePack";
 
 export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const doc = context.doc;

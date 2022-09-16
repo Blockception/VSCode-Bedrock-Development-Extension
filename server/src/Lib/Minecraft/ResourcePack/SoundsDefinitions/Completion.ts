@@ -1,4 +1,4 @@
-import { SimpleContext } from "../../../Code/index";
+import { SimpleContext } from "../../../Code";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
 import { GetCurrentString } from '../../Json/Functions';

@@ -3,9 +3,9 @@ import { Hover, HoverParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/Document";
 
-import * as Json from "../Minecraft/Json/index";
-import * as Mcfunction from "../Minecraft/Mcfunction/index";
-import * as Molang from "../Minecraft/Molang/index";
+import * as Json from "../Minecraft/Json";
+import * as Mcfunction from "../Minecraft/Mcfunction";
+import * as Molang from "../Minecraft/Molang";
 
 /**
  *

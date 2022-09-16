@@ -64,9 +64,9 @@ export namespace Commands {
 
       /**The command to create world project */
       export const WorldProject: string = PPBase + "world";
-      /**The command to create resourcepack */
+      /**The command to create resource pack */
       export const Resourcepack: string = PPBase + "resource-pack";
-      /**The command to create behaviorpack */
+      /**The command to create behavior pack */
       export const Behaviorpack: string = PPBase + "behavior-pack";
     }
 

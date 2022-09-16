@@ -5,12 +5,12 @@ import { CommandCompletionContext } from "../../../Completion/Context";
 import { ParameterType } from 'bc-minecraft-bedrock-command';
 
 /**These are here to stop circular dependency */
-import * as Command from "../../Commands/Command/index";
+import * as Command from "../../Commands/Command";
 import * as General from "../../General/Completion";
-import * as Json from "../../Json/index";
-import * as Modes from "../../Modes/index";
-import * as ResourcePack from "../../ResourcePack/index";
-import * as BehaviorPack from "../../BehaviorPack/index";
+import * as Json from "../../Json";
+import * as Modes from "../../Modes";
+import * as ResourcePack from "../../ResourcePack";
+import * as BehaviorPack from "../../BehaviorPack";
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
   const parameter = context.parameter;

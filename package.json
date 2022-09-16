@@ -223,193 +223,193 @@
       },
       {
         "title": "Behavior Pack: Create animation controllers file",
-        "command": "bc-create-behavior_pack-animation_controllers",
+        "command": "bc-create-behavior-animation_controllers",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create animations file",
-        "command": "bc-create-behavior_pack-animations",
+        "command": "bc-create-behavior-animations",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create block file",
-        "command": "bc-create-behavior_pack-block",
+        "command": "bc-create-behavior-block",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create entities file",
-        "command": "bc-create-behavior_pack-entity",
+        "command": "bc-create-behavior-entity",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create dialogue file",
-        "command": "bc-create-behavior_pack-dialogue",
+        "command": "bc-create-behavior-dialogue",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create item file",
-        "command": "bc-create-behavior_pack-item",
+        "command": "bc-create-behavior-item",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create language files",
-        "command": "bc-create-behavior_pack-language",
+        "command": "bc-create-behavior-language",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create loot_table file",
-        "command": "bc-create-behavior_pack-loot_table",
+        "command": "bc-create-behavior-loot_table",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create manifest",
-        "command": "bc-create-behavior_pack-manifest",
+        "command": "bc-create-behavior-manifest",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create recipe file",
-        "command": "bc-create-behavior_pack-recipe",
+        "command": "bc-create-behavior-recipe",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create spawn_rule file",
-        "command": "bc-create-behavior_pack-spawn_rule",
+        "command": "bc-create-behavior-spawn_rule",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create trading file",
-        "command": "bc-create-behavior_pack-trading",
+        "command": "bc-create-behavior-trading",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Behavior Pack: Create volume file",
-        "command": "bc-create-behavior_pack-volume",
+        "command": "bc-create-behavior-volume",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create animation controllers files",
-        "command": "bc-create-resource_pack-animation_controllers",
+        "command": "bc-create-resource-animation_controllers",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create animations files",
-        "command": "bc-create-resource_pack-animations",
+        "command": "bc-create-resource-animations",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create attachable files",
-        "command": "bc-create-resource_pack-attachable",
+        "command": "bc-create-resource-attachable",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the biomes_client file",
-        "command": "bc-create-resource_pack-biomes_client",
+        "command": "bc-create-resource-biomes_client",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the blocks file",
-        "command": "bc-create-resource_pack-blocks",
+        "command": "bc-create-resource-blocks",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create entities files",
-        "command": "bc-create-resource_pack-entity",
+        "command": "bc-create-resource-entity",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create flipbook_textures file",
-        "command": "bc-create-resource_pack-flipbook_textures",
+        "command": "bc-create-resource-flipbook_textures",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create fog file",
-        "command": "bc-create-resource_pack-fog",
+        "command": "bc-create-resource-fog",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create language files",
-        "command": "bc-create-resource_pack-language",
+        "command": "bc-create-resource-language",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create item texture file",
-        "command": "bc-create-resource_pack-item_texture",
+        "command": "bc-create-resource-item_texture",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create manifest",
-        "command": "bc-create-resource_pack-manifest",
+        "command": "bc-create-resource-manifest",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create model file",
-        "command": "bc-create-resource_pack-model",
+        "command": "bc-create-resource-model",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the music definitions file",
-        "command": "bc-create-resource_pack-music_definitions",
+        "command": "bc-create-resource-music_definitions",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the particle file",
-        "command": "bc-create-resource_pack-particle",
+        "command": "bc-create-resource-particle",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the render controller file",
-        "command": "bc-create-resource_pack-render_controller",
+        "command": "bc-create-resource-render_controller",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the sounds file",
-        "command": "bc-create-resource_pack-sounds",
+        "command": "bc-create-resource-sounds",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the sound definitions file",
-        "command": "bc-create-resource_pack-sound_definitions",
+        "command": "bc-create-resource-sound_definitions",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the terrain texture file",
-        "command": "bc-create-resource_pack-terrain_texture",
+        "command": "bc-create-resource-terrain_texture",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },
       {
         "title": "Resource Pack: Create the texture_list file",
-        "command": "bc-create-resource_pack-texture_list",
+        "command": "bc-create-resource-texture_list",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },

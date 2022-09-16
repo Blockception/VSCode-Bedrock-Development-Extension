@@ -25,11 +25,11 @@ export class TemplateBuilder {
   }
 
   /**Sends the edits to the client*/
-  Send() {
-    if (this.receiver.length <= 0) return;
+  Send(): Promise<void> {
+    if (this.receiver.length <= 0) return Promise.resolve();
 
     const Edit: WorkspaceEdit = { documentChanges: this.receiver };
-    Manager.Connection.workspace.applyEdit(Edit).then(Response);
+    return Manager.Connection.workspace.applyEdit(Edit).then(Response);
   }
 
   CreateFile(uri: string, content: string): void {
