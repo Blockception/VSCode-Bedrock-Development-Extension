@@ -22,7 +22,11 @@ export async function Create(params: ExecuteCommandParams): Promise<void> {
   const folder = context.GetFolder(command);
   const id = command.replace(Commands.Create.Base, "") as TemplateKeys;
 
-  if ((await Templates.create(id, folder)) === true) {
+  const attributes = {
+    id,
+  };
+
+  if ((await Templates.create(id, folder, attributes)) === true) {
     return;
   }
 
@@ -40,8 +44,8 @@ function Initialize(): CommandManager {
   //General
   Out[Commands.Create.General.Entity] = (params: ExecuteCommandParams, context: Context) => {
     return PromisesAll(
-      Templates.create("behavior.entity", context.BehaviorPack()),
-      Templates.create("resource.entity", context.ResourcePack())
+      Templates.create("behavior-entity", context.BehaviorPack()),
+      Templates.create("resource-entity", context.ResourcePack())
     );
   };
   Out[Commands.Create.General.Languages] = () => {
@@ -49,9 +53,9 @@ function Initialize(): CommandManager {
   };
   Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams, context: Context) => {
     return PromisesAll(
-      Templates.create("behavior.manifest", context.BehaviorPack()),
-      Templates.create("resource.manifest", context.ResourcePack()),
-      Templates.create("world.manifest", context.ResourcePack())
+      Templates.create("behavior-manifest", context.BehaviorPack()),
+      Templates.create("resource-manifest", context.ResourcePack()),
+      Templates.create("world-manifest", context.ResourcePack())
     );
   };
 

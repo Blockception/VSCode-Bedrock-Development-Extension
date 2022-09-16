@@ -9,14 +9,20 @@ export class TemplateProcessor {
   protected _content: string;
   public processor: TemplateFunctions;
 
-  constructor(filename: string, content: string, templateId: string, folder: string) {
+  constructor(
+    filename: string,
+    content: string,
+    templateId: string,
+    folder: string,
+    attributes: Record<string, string>
+  ) {
     this._filename = filename;
     this._content = content;
 
     const context: FunctionContext = {
       filename: filename,
       folder: folder,
-      attributes: {},
+      attributes: attributes,
       pack: Database.ProjectData.get(folder)?.folder || "",
       templateID: templateId,
     };
@@ -33,6 +39,11 @@ export class TemplateProcessor {
     fileBuilder.CreateFile(this._filename, this._content);
 
     return fileBuilder.Send();
+  }
+
+  public Process(): void {
+    this._filename = this.processor.process(this._filename);
+    this._content = this.processor.process(this._content);
   }
 }
 
@@ -56,7 +67,12 @@ export namespace TemplateProcessor {
    * @param fallback
    * @returns
    */
-  export function create(template: string, folder: string, fallback?: TemplateFallback): TemplateProcessor {
+  export function create(
+    template: string,
+    folder: string,
+    attributes: Record<string, string> = {},
+    fallback?: TemplateFallback
+  ): TemplateProcessor {
     fallback = fallback || errorFallback;
     const ws = Database.WorkspaceData.getFolder(folder);
     if (ws === undefined) {
@@ -64,9 +80,9 @@ export namespace TemplateProcessor {
     }
 
     const project = Database.WorkspaceData.getProject(ws);
-    const filename = project.attributes[`template.${template}.filename`] || fallback.filename();
-
-    const file = project.attributes[`template.${template}.file`];
+    const attr = template.replace('-', '.');
+    const filename = project.attributes[`template.${attr}.filename`] || fallback.filename();
+    const file = project.attributes[`template.${attr}.file`];
     let content = "";
 
     if (file && fs.existsSync(file)) {
@@ -75,6 +91,6 @@ export namespace TemplateProcessor {
       content = fallback.content();
     }
 
-    return new TemplateProcessor(filename, content, template, folder);
+    return new TemplateProcessor(filename, content, template, folder, attributes);
   }
 }

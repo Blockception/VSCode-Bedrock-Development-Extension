@@ -35,10 +35,18 @@ export class TemplateFunctions {
   }
 
   process(template: string): string {
-    return template.replace(/\$\{\{(.*)\}\}/gim, (sub: string, ...args: any[]) => {
+    return template.replace(/\$\{\{([^\{\}]*)\}\}/gim, (sub: string, ...args: any[]) => {
+      const command = (args[0] as string).trim();
+
+      let parts = command.split(":");
+      if (parts.length > 0) {
+        sub = parts[0];
+        parts = parts.slice(1).map(item => item.trim());
+      }
+
       const fn = this.get(sub);
 
-      return fn ? fn(...args) : "";
+      return fn ? fn(...parts) : "";
     });
   }
 

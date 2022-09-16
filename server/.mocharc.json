@@ -1,5 +1,7 @@
 {
+  "extension": ["ts"],
   "ui": "bdd",
   "color": true,
-  "recursive": true
+  "recursive": true,
+  "require": "ts-node/register"
 }

@@ -22,9 +22,9 @@ export async function create_world_project(ID: string, context: Context, Builder
   };
 
   await Promise.all([
-    Templates.create("world.manifest", NewContext.WorldFolder()),
-    Templates.create("behavior.manifest", NewContext.BehaviorPack()),
-    Templates.create("resource.manifest", NewContext.ResourcePack()),
+    Templates.create("world-manifest", NewContext.WorldFolder()),
+    Templates.create("behavior-manifest", NewContext.BehaviorPack()),
+    Templates.create("resource-manifest", NewContext.ResourcePack()),
   ]);
 
   //create world manifest
@@ -49,7 +49,7 @@ export async function create_behaviorpack(ID: string, context: Context, Builder:
     WorldFolder: context.WorldFolder,
   };
 
-  await Templates.create("behavior.manifest", NewContext.BehaviorPack());
+  await Templates.create("behavior-manifest", NewContext.BehaviorPack());
   create_language_files(Folder, Builder);
 }
 
@@ -69,6 +69,6 @@ export async function create_resourcepack(ID: string, context: Context, Builder:
     WorldFolder: context.WorldFolder,
   };
 
-  await Templates.create("resource.manifest", NewContext.ResourcePack());
+  await Templates.create("resource-manifest", NewContext.ResourcePack());
   create_language_files(Folder, Builder);
 }
