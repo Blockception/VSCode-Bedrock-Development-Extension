@@ -45,12 +45,12 @@ describe("TestProcessor", () => {
 
   //Filepath should be '/entities/test.json'
   it("Filepath should be '/entities/test.json'", () => {
-    expect(TestProcessor.data.filepath()).to.equal("\\" + path.join("entities", "test.json"));
+    expect(TestProcessor.data.filepath()).to.equal(path.sep + path.join("entities", "test.json"));
   });
 
   //Folder should be '/entities/'
   it("Folder should be '/entities/'", () => {
-    expect(TestProcessor.data.folder()).to.equal("\\entities");
+    expect(TestProcessor.data.folder()).to.equal(path.sep + "entities");
   });
 
   //ID should be 'kekw:id_test'
