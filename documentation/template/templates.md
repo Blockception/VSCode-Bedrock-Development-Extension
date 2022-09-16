@@ -14,6 +14,11 @@ In [template variables](./variables.md) you can find all the available variables
 
 ## Example
 
+```ini
+template.behavior.entity.filename=entities/${{id}}.bp.entity.json
+template.behavior.entity.file=./.minecraft/templates/entity.bp.json
+```
+
 ```json
 {
   "format_version": "1.18.0",
