@@ -7,10 +7,10 @@ import { GetProjectEmpty } from "../Project/MCProjects";
  */
 export class WorkspaceData {
   /**<Workspace Uri, Project Data> */
-  private Data: Map<string, MCProject>;
+  private _data: Map<string, MCProject>;
 
   constructor() {
-    this.Data = new Map<string, MCProject>();
+    this._data = new Map<string, MCProject>();
   }
 
   /**
@@ -19,7 +19,7 @@ export class WorkspaceData {
    */
   getProject(docUri: string): MCProject {
     //Find most matching data
-    for (var [key, data] of this.Data) {
+    for (var [key, data] of this._data) {
       if (docUri.includes(key)) {
         const out = data;
         if (out) return out;
@@ -35,7 +35,7 @@ export class WorkspaceData {
    * @param uri The document uri to compare*/
   getFolder(docUri: string): string | undefined {
     //Find most matching data
-    for (var [key, data] of this.Data) {
+    for (var [key, data] of this._data) {
       if (docUri.includes(key)) {
         return key;
       }
@@ -49,7 +49,7 @@ export class WorkspaceData {
    * @returns
    */
   getFirst(): string | undefined {
-    for (var [key, data] of this.Data) {
+    for (var [key, data] of this._data) {
       if (data) {
         return key;
       }
@@ -64,7 +64,7 @@ export class WorkspaceData {
    * @param Data
    */
   set(Folder: WorkspaceFolder | string, Data: MCProject): void {
-    this.Data.set(typeof Folder === "string" ? Folder : Folder.uri, Data);
+    this._data.set(typeof Folder === "string" ? Folder : Folder.uri, Data);
   }
 
   /**
@@ -73,17 +73,20 @@ export class WorkspaceData {
    * @returns
    */
   remove(Folder: WorkspaceFolder | string): boolean {
-    if (typeof Folder === "string") return this.Data.delete(Folder);
+    if (typeof Folder === "string") return this._data.delete(Folder);
 
-    return this.Data.delete(Folder.uri);
-  } 
+    return this._data.delete(Folder.uri);
+  }
 
   /**
-   * 
-   * @param callbackfn 
-   * @param thisArg 
+   *
+   * @param callbackfn
+   * @param thisArg
    */
-  forEach(callbackfn: (value: MCProject, workspaceuri: string, map: Map<string, MCProject>) => void, thisArg?: any): void {
-    this.Data.forEach(callbackfn);
+  forEach(
+    callbackfn: (value: MCProject, workspaceUri: string, map: Map<string, MCProject>) => void,
+    thisArg?: any
+  ): void {
+    this._data.forEach(callbackfn, thisArg || this);
   }
 }

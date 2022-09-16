@@ -17,6 +17,8 @@ export function create_animation_controller_file(ID: string, context: context, B
   ID = ID.replace("animation.", "");
 
   const safeID = SafeIDNoNamespace(ID);
+
+
   const uri = path.join(context.BehaviorPack(), "animation_controllers", safeID + ".controller.json");
   Builder.CreateFile(uri, BehaviorPack.create_animation_controller(ID));
 }
