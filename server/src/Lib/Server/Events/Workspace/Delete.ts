@@ -1,4 +1,4 @@
-import { DeleteFilesParams, Diagnostic, FileDelete } from "vscode-languageserver";
+import { DeleteFilesParams, FileDelete } from "vscode-languageserver";
 import { Database } from "../../../Database/Database";
 import { Manager } from '../../../Manager/Manager';
 
