@@ -1,3 +1,6 @@
+//max 32
+export const ToolIdentification = "blockception-minecraft-bedrock";
+
 /** */
 export namespace Languages {
   /** */
@@ -54,21 +57,22 @@ export namespace Commands {
     }
 
     /**
+     *
      */
     export namespace Project {
       const PPBase = Base + "project-";
 
       /**The command to create world project */
       export const WorldProject: string = PPBase + "world";
-      /**The command to create resourcepack */
+      /**The command to create resource pack */
       export const Resourcepack: string = PPBase + "resource-pack";
-      /**The command to create behaviorpack */
+      /**The command to create behavior pack */
       export const Behaviorpack: string = PPBase + "behavior-pack";
     }
 
     /**The namespace that stores all Behavior pack creation commands */
     export namespace Behaviorpack {
-      const BPBase = Base + "behavior_pack-";
+      const BPBase = Base + "behavior-";
 
       /**The command to create animation controllers files */
       export const Animation_Controller: string = BPBase + "animation_controllers";
@@ -100,7 +104,7 @@ export namespace Commands {
 
     /**The namespace that stores all resourcepack creation commands */
     export namespace Resourcepack {
-      const RPBase = Base + "resource_pack-";
+      const RPBase = Base + "resource-";
 
       /**The command to create animation controllers files */
       export const Animation_Controller: string = RPBase + "animation_controllers";

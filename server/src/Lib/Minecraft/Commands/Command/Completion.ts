@@ -3,7 +3,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
 import { SMap } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../Code/index";
+import { SimpleContext } from "../../../Code";
 
 /**
  *

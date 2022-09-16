@@ -1,6 +1,6 @@
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
-import { GetFilename, HandleError } from "../Code/index";
+import { GetFilename, HandleError } from "../Code";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/Document";
 import { ProvideJsonSemanticTokens } from "../Minecraft/Json/Semantics";

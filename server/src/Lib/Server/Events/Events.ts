@@ -9,8 +9,8 @@ import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../Symbols/OnRequest";
 import { OndDocumentChangedAsync } from "./Documents";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
-import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics/index";
-import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace/index";
+import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics";
+import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync, OnCodeLensResolveRequestAsync } from "../../CodeLens/OnRequest";
 import { OnConfigurationChanged } from '../Settings/Update';
@@ -74,7 +74,7 @@ export function setEvents() {
   Connection.languages.semanticTokens.on(OnProvideSemanticRequestAsync);
   Connection.languages.semanticTokens.onRange(OnProvideRangeSemanticRequestAsync);
 
-  if (Manager.Capabiltities.hasWorkspaceFolderCapability) {
+  if (Manager.Capabilities.hasWorkspaceFolderCapability) {
     // Workspace event
     Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
     Connection.workspace.onDidDeleteFiles(onDidDeleteFilesAsync);

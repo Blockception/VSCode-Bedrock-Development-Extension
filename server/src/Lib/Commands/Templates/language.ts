@@ -1,10 +1,10 @@
-import { TemplateBuilder } from "../Builder";
+import { TemplateBuilder } from "./Builder";
 import * as path from "path";
 import { Pack, Util } from 'bc-minecraft-bedrock-project';
-import { generate_bp, generate_rp, generate_wp, ITextEditBuilder, TextEditBuilder } from '../../Language/AddAll';
-import { Database } from '../../../Database/Database';
+import { generate_bp, generate_rp, generate_wp, TextEditBuilder } from '../Language/AddAll';
+import { Database } from '../../Database/Database';
 
-const LanguageNames: string[] = [
+export const LanguageNames: string[] = [
   "en_US",
   "en_GB",
   "de_DE",

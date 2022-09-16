@@ -1,4 +1,4 @@
-import { Fs, GetDirectory, GetFilename, Vscode } from "../Code/index";
+import { Fs, GetDirectory, GetFilename, Vscode } from "../Code";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, WorkspaceSymbolParams } from "vscode-languageserver";
 import { Database } from "../Database/Database";
 import { Kinds } from "../Minecraft/General/Kinds";

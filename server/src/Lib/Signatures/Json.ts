@@ -2,7 +2,7 @@ import { SignatureHelp } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { GetCurrentString } from "../Minecraft/Json/Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
-import { Commands, Molang } from "../Minecraft/index";
+import { Commands, Molang } from "../Minecraft";
 
 export function ProvideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
   let text = doc.getText();

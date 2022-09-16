@@ -6,8 +6,8 @@ import { ReScanProject } from "./Rescan";
 import { Create } from "./Templates/Create";
 import { HandleError } from "../Code/Error";
 import { StoreProject } from "./StoreProject";
-import { AddAllItems } from "./Language/index";
-import { Workspace } from '../Workspace/Workspace';
+import { AddAllItems } from "./Language";
+import { Workspace } from "../Workspace/Workspace";
 
 /**
  *
@@ -15,7 +15,7 @@ import { Workspace } from '../Workspace/Workspace';
  * @returns
  */
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
-return Promise.resolve(OnCommandRequest(params));
+  return Promise.resolve(OnCommandRequest(params));
 }
 
 /**
@@ -35,6 +35,10 @@ function OnCommandRequest(params: ExecuteCommandParams): any {
 }
 
 function InternalCommandRequest(params: ExecuteCommandParams): any {
+  if (params.command.startsWith(Commands.Create.Base)) {
+    return Create(params);
+  }
+
   switch (params.command) {
     case Commands.Files.Append:
       return Files.Append(params);
@@ -53,10 +57,5 @@ function InternalCommandRequest(params: ExecuteCommandParams): any {
 
     case Commands.StoreProject:
       return StoreProject();
-
-    default:
-      if (params.command.startsWith(Commands.Create.Base)) {
-        return Create(params);
-      }
   }
 }

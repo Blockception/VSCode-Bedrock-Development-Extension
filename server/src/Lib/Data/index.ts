@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * as Templates from "./Templates/index";
+export * as Templates from "./Templates";

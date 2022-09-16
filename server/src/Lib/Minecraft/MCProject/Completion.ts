@@ -1,4 +1,4 @@
-import { Boolean } from "../General/index";
+import { Boolean } from "../General";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { Database } from "../../Database/Database";
@@ -6,9 +6,10 @@ import { Documentated } from "bc-minecraft-bedrock-types/lib/src/Types/Documenta
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from "../../Code/index";
+import { SimpleContext } from "../../Code";
 
 import path from "path";
+import { TemplateFilenames } from "../../Commands/Templates/Templates";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {
   const filename = path.basename(context.doc.uri);
@@ -42,10 +43,30 @@ function ProvideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
   }
 
   builder.Add("## ", "Comment", CompletionItemKind.Snippet);
-  builder.Add("education.enable", "Disable or enable education edition for this project", CompletionItemKind.Property, "education.enable=");
-  builder.Add("diagnostic.enable", "Disable or enable diagnostics for this project", CompletionItemKind.Property, "diagnostic.enable=");
-  builder.Add("diagnostic.json", "Disable or enable diagnostics for json in this project", CompletionItemKind.Property, "diagnostic.json=");
-  builder.Add("diagnostic.lang", "Disable or enable diagnostics for language in this project", CompletionItemKind.Property, "diagnostic.lang=");
+  builder.Add(
+    "education.enable",
+    "Disable or enable education edition for this project",
+    CompletionItemKind.Property,
+    "education.enable="
+  );
+  builder.Add(
+    "diagnostic.enable",
+    "Disable or enable diagnostics for this project",
+    CompletionItemKind.Property,
+    "diagnostic.enable="
+  );
+  builder.Add(
+    "diagnostic.json",
+    "Disable or enable diagnostics for json in this project",
+    CompletionItemKind.Property,
+    "diagnostic.json="
+  );
+  builder.Add(
+    "diagnostic.lang",
+    "Disable or enable diagnostics for language in this project",
+    CompletionItemKind.Property,
+    "diagnostic.lang="
+  );
   builder.Add(
     "diagnostic.mcfunction",
     "Disable or enable diagnostics for mcfunction in this project",
@@ -58,7 +79,29 @@ function ProvideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
     CompletionItemKind.Property,
     "diagnostic.objective="
   );
-  builder.Add("diagnostic.tag", "Disable or enable diagnostics for tags in this project", CompletionItemKind.Property, "diagnostic.tag=");
+  builder.Add(
+    "diagnostic.tag",
+    "Disable or enable diagnostics for tags in this project",
+    CompletionItemKind.Property,
+    "diagnostic.tag="
+  );
+
+  const templates = Object.getOwnPropertyNames(TemplateFilenames);
+  templates.forEach((temp) => {
+    temp = temp.replace("-", ".");
+    builder.Add(
+      `template.${temp}.filename`,
+      "The filename of the template",
+      CompletionItemKind.Property,
+      `template.${temp}.filename=`
+    );
+    builder.Add(
+      `template.${temp}.file`,
+      "The file of the content of the file",
+      CompletionItemKind.File,
+      `template.${temp}.file=`
+    );
+  });
 }
 
 /**
@@ -82,7 +125,9 @@ function ProvideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Posi
         return Database.ProjectData.BehaviorPacks.entities.forEach((entity) => Add(context, entity));
 
       case "family":
-        return Database.ProjectData.BehaviorPacks.entities.forEach((entity) => entity.families.forEach((family) => Add(context, family)));
+        return Database.ProjectData.BehaviorPacks.entities.forEach((entity) =>
+          entity.families.forEach((family) => Add(context, family))
+        );
 
       case "function":
         return Database.ProjectData.BehaviorPacks.functions.forEach((funct) => Add(context, funct));
@@ -124,7 +169,12 @@ function ProvideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Posi
   builder.Add("objective", "Include or excluded a objective definition", CompletionItemKind.Property, "objective=");
   builder.Add("structure", "Include or excluded a structure definition", CompletionItemKind.Property, "structure=");
   builder.Add("tag", "Include or excluded a tag definition", CompletionItemKind.Property, "tag=");
-  builder.Add("tickingarea", "Include or excluded a tickingarea definition", CompletionItemKind.Property, "tickingarea=");
+  builder.Add(
+    "tickingarea",
+    "Include or excluded a tickingarea definition",
+    CompletionItemKind.Property,
+    "tickingarea="
+  );
 }
 
 function Add(context: SimpleContext<CompletionBuilder>, value: (Identifiable & Documentated) | string) {

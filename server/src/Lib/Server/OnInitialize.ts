@@ -2,7 +2,7 @@ import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode
 import { Manager } from "../Manager/Manager";
 import { Commands, Languages } from "../Constants";
 import { Console } from "../Manager/Console";
-import { Version } from "../index";
+import { Version } from "..";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
 return Promise.resolve(onInitialize(params));
@@ -13,7 +13,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
   //process capabilities of the client
   const capabilities = params.capabilities;
-  Manager.Capabiltities.Parse(capabilities);
+  Manager.Capabilities.Parse(capabilities);
 
   const result: InitializeResult = {
     capabilities: {

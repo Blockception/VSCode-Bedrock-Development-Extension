@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * as Command from "./Command/index";
-export * as Parameter from "./Parameter/index";
+export * as Command from "./Command";
+export * as Parameter from "./Parameter";

@@ -5,7 +5,7 @@ import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../../General/Kinds";
-import { Models } from "../../ResourcePack/index";
+import { Models } from "../../ResourcePack";
 
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const packType = PackType.detect(context.doc.uri);

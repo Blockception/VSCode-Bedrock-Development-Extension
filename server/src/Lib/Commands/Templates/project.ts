@@ -1,11 +1,9 @@
-import { TemplateBuilder } from "../Builder";
-import { context } from "../Context";
-import * as path from "path";
+import { Context } from "./Context";
+import { create_language_files } from "./language";
+import { TemplateBuilder } from "./Builder";
+import { Templates } from "./Templates";
 
-import * as BehaviorPack from "../BehaviorPack/index";
-import * as ResourcePack from "../ResourcePack/index";
-import * as World from "../World/index";
-import { create_language_files } from "../Language/files";
+import * as path from "path";
 
 /**
  *
@@ -13,21 +11,23 @@ import { create_language_files } from "../Language/files";
  * @param context
  * @param Builder
  */
-export function create_world_project(ID: string, context: context, Builder: TemplateBuilder): void {
+export async function create_world_project(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
   const Folder = path.join(context.WorkSpace(), "world");
 
-  const NewContext: context = {
+  const NewContext = {
     WorkSpace: () => context.WorkSpace(),
     BehaviorPack: () => path.join(Folder, "behavior_packs", ID + "-BP"),
     ResourcePack: () => path.join(Folder, "resource_packs", ID + "-RP"),
     WorldFolder: () => Folder,
   };
 
-  //create world manifest
-  World.create_manifest_file(NewContext, Builder);
-  BehaviorPack.create_manifest_file(NewContext, Builder);
-  ResourcePack.create_manifest_file(NewContext, Builder);
+  await Promise.all([
+    Templates.create("world-manifest", NewContext.WorldFolder()),
+    Templates.create("behavior-manifest", NewContext.BehaviorPack()),
+    Templates.create("resource-manifest", NewContext.ResourcePack()),
+  ]);
 
+  //create world manifest
   create_language_files(NewContext.BehaviorPack(), Builder);
   create_language_files(NewContext.ResourcePack(), Builder);
   create_language_files(NewContext.WorldFolder(), Builder);
@@ -39,17 +39,17 @@ export function create_world_project(ID: string, context: context, Builder: Temp
  * @param context
  * @param Builder
  */
-export function create_behaviorpack(ID: string, context: context, Builder: TemplateBuilder): void {
+export async function create_behaviorpack(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
   const Folder = path.join(context.WorkSpace(), ID + "-BP");
 
-  const NewContext: context = {
+  const NewContext = {
     WorkSpace: () => context.WorkSpace(),
     BehaviorPack: () => Folder,
     ResourcePack: () => Folder,
     WorldFolder: context.WorldFolder,
   };
 
-  BehaviorPack.create_manifest_file(NewContext, Builder);
+  await Templates.create("behavior-manifest", NewContext.BehaviorPack());
   create_language_files(Folder, Builder);
 }
 
@@ -59,16 +59,16 @@ export function create_behaviorpack(ID: string, context: context, Builder: Templ
  * @param context
  * @param Builder
  */
-export function create_resourcepack(ID: string, context: context, Builder: TemplateBuilder): void {
+export async function create_resourcepack(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
   const Folder = path.join(context.WorkSpace(), ID + "-RP");
 
-  const NewContext: context = {
+  const NewContext = {
     WorkSpace: context.WorkSpace,
     BehaviorPack: () => Folder,
     ResourcePack: () => Folder,
     WorldFolder: context.WorldFolder,
   };
 
-  ResourcePack.create_manifest_file(NewContext, Builder);
+  await Templates.create("resource-manifest", NewContext.ResourcePack());
   create_language_files(Folder, Builder);
 }

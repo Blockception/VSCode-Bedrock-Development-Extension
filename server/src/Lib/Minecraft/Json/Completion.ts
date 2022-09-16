@@ -1,4 +1,4 @@
-import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "../index";
+import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "..";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { CompletionItem, InsertReplaceEdit, Position, Range } from "vscode-languageserver";
 import { GetCurrentString } from "./Functions";
