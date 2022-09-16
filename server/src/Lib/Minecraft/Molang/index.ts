@@ -1,13 +1,13 @@
 /*	Auto generated	*/
-export * as Contexts from "./Contexts";
-export * as General from "./General";
-export * as Geometry from "./Geometry";
-export * as Material from "./Material";
-export * as Math from "./Math";
-export * as Query from "./Query";
-export * as Temps from "./Temps";
-export * as Texture from "./Texture";
-export * as Variables from "./Variables";
+export * as Contexts from "./Contexts/index";
+export * as General from "./General/index";
+export * as Geometry from "./Geometry/index";
+export * as Material from "./Material/index";
+export * as Math from "./Math/index";
+export * as Query from "./Query/index";
+export * as Temps from "./Temps/index";
+export * as Texture from "./Texture/index";
+export * as Variables from "./Variables/index";
 export * from "./Completion";
 export * from "./Functions";
 export * from "./Hover";
