@@ -5,7 +5,7 @@ import { Console } from "../Manager/Console";
 import { Version } from "..";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
-return Promise.resolve(onInitialize(params));
+  return Promise.resolve(onInitialize(params));
 }
 
 export function onInitialize(params: InitializeParams): InitializeResult {
@@ -21,7 +21,13 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
-        commands: [Commands.DiagnoseProject, Commands.MCProject.Create, Commands.Files.Append, Commands.ScanProjects, Commands.StoreProject],
+        commands: [
+          Commands.DiagnoseProject,
+          Commands.MCProject.Create,
+          Commands.Files.Append,
+          Commands.ScanProjects,
+          Commands.StoreProject,
+        ],
         workDoneProgress: true,
       },
 
@@ -46,7 +52,8 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: false,
-        triggerCharacters: [" ", "\t", "[", "=", ",", ".", "/", "@"],
+        triggerCharacters: [" ", "\t", "[", "=", ",", ".", "/", "@", "\n", "{"],
+        allCommitCharacters: ["\t", "=", ",", ".", "/", "@"]
       },
 
       // Tell the client that this server supports go to references

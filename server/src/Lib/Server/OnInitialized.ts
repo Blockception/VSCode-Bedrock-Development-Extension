@@ -5,10 +5,7 @@ import { SetDynamicEvents } from "./Events/Dynamic";
 import { UpdateSettings } from "./Settings/Update";
 
 export async function onInitializedAsync(params: InitializedParams): Promise<void> {
-  return new Promise<void>((resolve, reject) => {
-    onInitialized(params);
-    resolve();
-  });
+  return Promise.resolve(onInitialized(params));
 }
 
 function onInitialized(params: InitializedParams): void {

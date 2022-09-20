@@ -28,7 +28,7 @@ export function SetupServer() {
 
   //Initialize server
   Manager.Documents.listen(connection);
-
+  
   // Listen on the connection
   connection.listen();
 }
