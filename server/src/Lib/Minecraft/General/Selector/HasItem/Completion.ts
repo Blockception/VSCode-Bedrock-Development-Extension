@@ -36,11 +36,11 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, sel
       default:
         return;
     }
-  } else {
-    receiver.Add("data", "The data of the item that the selector is looking for", Kinds.Completion.Integer);
-    receiver.Add("item", "The item that the selector is looking for", Kinds.Completion.Item);
-    receiver.Add("location", "The slot id identification", CompletionItemKind.Enum);
-    receiver.Add("quantity", "The quantity of the item that the selector is looking for", Kinds.Completion.Integer);
-    receiver.Add("slot", "The slot number to check", Kinds.Completion.Integer);
   }
+  
+  receiver.Add("data", "The data of the item that the selector is looking for", Kinds.Completion.Integer, "data=");
+  receiver.Add("item", "The item that the selector is looking for", Kinds.Completion.Item, "item=");
+  receiver.Add("location", "The slot id identification", CompletionItemKind.Enum, "location=");
+  receiver.Add("quantity", "The quantity of the item that the selector is looking for", Kinds.Completion.Integer, "quantity=");
+  receiver.Add("slot", "The slot number to check", Kinds.Completion.Integer, "slot=");
 }

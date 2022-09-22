@@ -1,7 +1,12 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { Selector } from 'bc-minecraft-bedrock-types/lib/src/Minecraft/Selector/Selector';
+import { Selector } from "../../General";
 
-
+/**
+ * Tries to determine the possible type of the entity in a command
+ * @param command The command to check
+ * @param maxIndex The max index to check
+ * @returns The possible type of the entity
+ */
 export function GetPossibleEntityTypes(command: Command, maxIndex: number): string[] {
   const data = command.getBestMatch();
   const out: string[] = [];
@@ -20,9 +25,8 @@ export function GetPossibleEntityTypes(command: Command, maxIndex: number): stri
 
         case ParameterType.selector:
           const item = Selector.getAttribute("type", command.parameters[J].text);
-          
-          if (item)
-          out.push(...item);
+
+          if (item) out.push(...item);
           break;
       }
     }

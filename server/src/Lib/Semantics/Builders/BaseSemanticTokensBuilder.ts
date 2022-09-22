@@ -45,16 +45,23 @@ export class BaseSemanticTokensBuilder {
 
   /**
    * Adds the given text locations into the tokens builder
-   * @param startindex
-   * @param endindex
+   * @param startIndex
+   * @param endIndex
    * @param tokenType
    * @param tokenModifier
    */
-  Add(startindex: number, endindex: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
-    const p = this.doc.positionAt(startindex);
-    const length = endindex - startindex;
+  Add(
+    startIndex: number,
+    endIndex: number,
+    tokenType: SemanticTokensEnum,
+    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
+  ): this {
+    const p = this.doc.positionAt(startIndex);
+    const length = endIndex - startIndex;
 
     this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+
+    return this;
   }
 
   /**
@@ -63,11 +70,19 @@ export class BaseSemanticTokensBuilder {
    * @param tokenType
    * @param tokenModifier
    */
-  AddWord(word: OffsetWord, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
+  AddWord(
+    word: OffsetWord,
+    tokenType: SemanticTokensEnum,
+    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
+  ): this {
     const p = this.doc.positionAt(word.offset);
     const length = word.text.length;
 
-    this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+    if (length > 0) {
+      this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+    }
+
+    return this;
   }
 
   /**
@@ -78,7 +93,14 @@ export class BaseSemanticTokensBuilder {
    * @param tokenType
    * @param tokenModifier
    */
-  AddAt(line: number, char: number, length: number, tokenType: SemanticTokensEnum, tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration): void {
+  AddAt(
+    line: number,
+    char: number,
+    length: number,
+    tokenType: SemanticTokensEnum,
+    tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
+  ): this {
     this.Builder.push(line, char, length, tokenType, tokenModifier);
+    return this;
   }
 }
