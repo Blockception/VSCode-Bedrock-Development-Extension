@@ -1,17 +1,19 @@
-import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { Minecraft } from "bc-minecraft-bedrock-types";
+import { CompactJson, CompactJsonReader } from "bc-minecraft-bedrock-types/lib/src/Minecraft/Json";
 
+export function getAttribute(attr: string, selector: string): string[] {
+  const sel = Minecraft.Selector.Selector.parse(selector);
+  if (sel === undefined) return [];
 
-export function getAttribute(attr : string, selector : string) : string[] {
-    const sel = Minecraft.Selector.Selector.parse(selector);
-    const types = sel.get(attr).map(castToString);
+  const types = sel.get(attr).map(castToString);
 
-    return types
+  return types;
 }
 
-function castToString(attr : Minecraft.Selector.SelectorAttribute) : string {
-    if (attr instanceof Minecraft.Selector.SelectorValueAttribute) {
-        return attr.getValue().text;
-    }
+function castToString(attr: CompactJsonReader<CompactJson.IKeyNode>): string {
+  if (attr.isString()) {
+    return attr.value as string;
+  }
 
-    return ""
+  return "";
 }

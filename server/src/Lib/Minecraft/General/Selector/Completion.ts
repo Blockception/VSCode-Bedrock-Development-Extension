@@ -9,7 +9,7 @@ import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Mod
 import * as AttributeValue from "./AttributeValue/Completion";
 import * as Attributes from "./Attributes/Completion";
 import * as Scores from "./Scores/Completion";
-import * as HasItem from './HasItem/Completion';
+import * as HasItem from "./HasItem/Completion";
 
 /**
  *
@@ -25,7 +25,12 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
 
   const playerOnly = Options?.playerOnly ?? false;
 
-  if (Options?.wildcard) receiver.Add("*", "Wildcard, aimed at all players / entities, or possible stored in memory", CompletionItemKind.Constant);
+  if (Options?.wildcard)
+    receiver.Add(
+      "*",
+      "Wildcard, aimed at all players / entities, or possible stored in memory",
+      CompletionItemKind.Constant
+    );
 
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     //In selector
@@ -76,7 +81,14 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     const Attribute = Attributes.GetCurrentAttribute(selector, pos);
     AttributeValue.ProvideCompletion(context, Attribute, !playerOnly);
   } else {
+    const old = context.receiver.OnNewItem;
+    context.receiver.OnNewItem = (item) => {
+      item.insertText = item.insertText || item.label + "=";
+      if (old) old(item);
+    };
+
     Attributes.ProvideCompletion(context, !playerOnly);
+    context.receiver.OnNewItem = old;
   }
 }
 
@@ -109,21 +121,20 @@ export function InSelector(selector: OffsetWord, pos: number): boolean {
  * @returns
  */
 export function InScore(selector: OffsetWord, pos: number): boolean {
-  let Index = selector.text.indexOf("scores");
-  if (Index < 0) return false;
+  pos -= selector.offset;
+  let index = selector.text.indexOf("scores");
+  if (index < 0) return false;
 
   //scores={}
-  if (pos < Index + 8) {
+  if (pos < index + 8) {
     return false;
   }
 
-  Index = selector.text.indexOf("}") + selector.offset;
+  index = selector.text.indexOf("}", index);
+  if (pos <= index) return true;
 
-  if (Index < 0) return true;
-
-  return pos <= Index;
+  return pos <= index;
 }
-
 
 /**
  *
@@ -131,20 +142,27 @@ export function InScore(selector: OffsetWord, pos: number): boolean {
  * @param pos
  * @returns
  */
- export function InHasItem(selector: OffsetWord, pos: number): boolean {
-  let Index = selector.text.indexOf("hasitem");
-  if (Index < 0) return false;
+export function InHasItem(selector: OffsetWord, pos: number): boolean {
+  pos -= selector.offset;
+  let index = selector.text.indexOf("hasitem");
+  if (index < 0) return false;
 
-  //scores={}
-  if (pos < Index + 8) {
+  //hasitem=[{}]
+  if (pos < index + 10) {
     return false;
   }
 
-  Index = selector.text.indexOf("}") + selector.offset;
+  if (selector.text[index + 8] === "[") {
+    index = selector.text.indexOf("]", index);
+    if (pos <= index) return true;
+  
+    return pos <= index;
+  } 
 
-  if (Index < 0) return true;
+  index = selector.text.indexOf("}", index);
+  if (pos <= index) return true;
 
-  return pos <= Index;
+  return pos <= index;
 }
 
 /**
