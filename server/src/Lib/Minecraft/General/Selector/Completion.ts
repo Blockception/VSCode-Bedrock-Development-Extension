@@ -81,14 +81,7 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     const Attribute = Attributes.GetCurrentAttribute(selector, pos);
     AttributeValue.ProvideCompletion(context, Attribute, !playerOnly);
   } else {
-    const old = context.receiver.OnNewItem;
-    context.receiver.OnNewItem = (item) => {
-      item.insertText = item.insertText || item.label + "=";
-      if (old) old(item);
-    };
-
     Attributes.ProvideCompletion(context, !playerOnly);
-    context.receiver.OnNewItem = old;
   }
 }
 
@@ -155,9 +148,9 @@ export function InHasItem(selector: OffsetWord, pos: number): boolean {
   if (selector.text[index + 8] === "[") {
     index = selector.text.indexOf("]", index);
     if (pos <= index) return true;
-  
+
     return pos <= index;
-  } 
+  }
 
   index = selector.text.indexOf("}", index);
   if (pos <= index) return true;

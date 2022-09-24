@@ -38,7 +38,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         workDoneProgress: false,
       },
 
-      // Tell the client that this server supports go to defintitions
+      // Tell the client that this server supports go to definitions
       definitionProvider: true,
       typeDefinitionProvider: true,
 
@@ -53,7 +53,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       completionProvider: {
         resolveProvider: false,
         triggerCharacters: [" ", "\t", "[", "=", ",", ".", "/", "@", "\n", "{"],
-        allCommitCharacters: ["\t", "=", ",", ".", "/", "@"]
+        allCommitCharacters: ["\t", "=", ",", ".", "/"]
       },
 
       // Tell the client that this server supports go to references

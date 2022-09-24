@@ -8,28 +8,14 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, sel
   const charBefore = Offset.charAt(selector, pos - 1);
 
   if (charBefore === "{") {
-    return provideObjectives(context);
+    return Objectives.ProvideCompletion(context);
   }
 
   if (Offset.IsWithin(selector, pos) || charBefore === "=") {
     return ProvideRange(context);
   }
 
-  return provideObjectives(context);
-}
-
-function provideObjectives(context: SimpleContext<CompletionBuilder>) {
-  const receiver = context.receiver;
-  const old_event = receiver.OnNewItem;
-
-  receiver.OnNewItem = (item) => {
-    item.insertText = item.label + "=";
-
-    if (old_event) old_event(item);
-  };
-
-  Objectives.ProvideCompletion(context);
-  receiver.OnNewItem = old_event;
+  return Objectives.ProvideCompletion(context);
 }
 
 function ProvideRange(context: SimpleContext<CompletionBuilder>): void {
