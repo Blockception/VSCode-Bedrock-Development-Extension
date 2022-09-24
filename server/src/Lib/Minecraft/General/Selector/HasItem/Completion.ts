@@ -32,10 +32,9 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, sel
 
       case "quantity":
         return Integer.ProvideCreateCompletion(receiver, 0, 10);
-
-      default:
-        return;
     }
+
+    return;
   }
   
   receiver.Add("data", "The data of the item that the selector is looking for", Kinds.Completion.Integer, "data=");
