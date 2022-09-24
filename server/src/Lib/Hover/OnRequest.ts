@@ -1,4 +1,3 @@
-
 import { Hover, HoverParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
 import { GetDocument } from "../Types/Document/Document";
@@ -6,6 +5,7 @@ import { GetDocument } from "../Types/Document/Document";
 import * as Json from "../Minecraft/Json";
 import * as Mcfunction from "../Minecraft/Mcfunction";
 import * as Molang from "../Minecraft/Molang";
+import { Console } from "../Manager";
 
 /**
  *
@@ -13,7 +13,7 @@ import * as Molang from "../Minecraft/Molang";
  * @returns
  */
 export function OnHoverRequestAsync(params: HoverParams): Promise<Hover | undefined> {
-  return new Promise<Hover | undefined>((resolve, reject) => resolve(OnHoverRequest(params)));
+  return Console.request("Formatting Document", Promise.resolve(OnHoverRequest(params)));
 }
 
 /**
@@ -32,7 +32,7 @@ export function OnHoverRequest(params: HoverParams): Hover | undefined {
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
       return Json.ProvideHover(doc, params);
-    
+
     case Languages.McMolangIdentifier:
       return Molang.ProvideHover(doc, params);
 

@@ -1,17 +1,16 @@
-import { FileRename, RenameFilesParams, RenameParams } from "vscode-languageserver";
-import { GetDocument } from "../../../Types/Document/Document";
+import { Console, Manager } from "../../../Manager";
 import { Database } from "../../../Database/Database";
+import { FileRename, RenameFilesParams } from "vscode-languageserver";
+import { GetDocument } from "../../../Types/Document/Document";
 import { Process } from "../../../Process/Process";
 import { Vscode } from "../../../Code/Url";
-import { Manager } from '../../../Manager/Manager';
 
 //Files created
 export async function OnDidRenameFilesAsync(params: RenameFilesParams): Promise<void> {
-  return new Promise<void>((resolve, reject) => {
-    let Promises = OnDidRenameFiles(params);
-
-    return Promise.all(Promises);
-  });
+  return Console.request(
+    "Files Renamed",
+    Promise.all(OnDidRenameFiles(params)).then(() => {})
+  );
 }
 
 function OnDidRenameFiles(params: RenameFilesParams): Promise<void>[] {
@@ -26,16 +25,12 @@ function OnDidRenameFiles(params: RenameFilesParams): Promise<void>[] {
 }
 
 async function OnDidRenameFile(Item: FileRename): Promise<void> {
-  return new Promise((resolve, reject) => {
-    //Delete old data
-    const uri = Vscode.FromFs(Item.oldUri);
-    Database.ProjectData.deleteFile(uri);
-    Manager.Diagnostic.ResetDocument(uri);
+  //Delete old data
+  const uri = Vscode.FromFs(Item.oldUri);
+  Database.ProjectData.deleteFile(uri);
+  Manager.Diagnostic.ResetDocument(uri);
 
-    //Update new one
-    const Doc = GetDocument(Item.newUri);
-    if (Doc) Process(Doc);
-
-    resolve();
-  });
+  //Update new one
+  const Doc = GetDocument(Item.newUri);
+  if (Doc) Process(Doc);
 }

@@ -31,22 +31,25 @@ export namespace Manager {
   /***/
   export namespace Diagnostic {
     /**Sends the diagnostics to the client
-     * @param doc 
-     * @param Diagnostics 
+     * @param doc
+     * @param Diagnostics
      */
     export function SendDiagnostics(doc: TextDocument, Diagnostics: Diagnostic[]): void {
-      Manager.Connection.sendDiagnostics({ diagnostics: Diagnostics, uri: doc.uri, version: doc.version });
+      Manager.Connection.sendDiagnostics({
+        diagnostics: Diagnostics,
+        uri: doc.uri,
+        version: doc.version,
+      });
     }
 
     /**
-     * 
-     * @param doc 
+     *
+     * @param doc
      */
-    export function ResetDocument(doc: TextDocument | string) : void {
+    export function ResetDocument(doc: TextDocument | string): void {
       if (typeof doc === "string") {
         Manager.Connection.sendDiagnostics({ diagnostics: [], uri: doc });
-      }
-      else {
+      } else {
         Manager.Connection.sendDiagnostics({ diagnostics: [], uri: doc.uri, version: doc.version });
       }
     }

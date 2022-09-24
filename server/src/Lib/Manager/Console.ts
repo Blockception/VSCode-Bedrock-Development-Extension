@@ -1,3 +1,4 @@
+import { HandleError } from "../Code";
 import { Manager } from "./Manager";
 
 /** */
@@ -14,6 +15,37 @@ export namespace Console {
 
   /** */
   export function Log(message: string): void {
-    Manager.Connection.console.log(message);
+    Manager.Connection.console.log('\t'+message);
+  }
+
+  type executorFn<T> = (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void;
+
+  export function request<T>(request: string, executor: executorFn<T>): Promise<T>;
+  export function request<T>(request: string, promise: Promise<T>): Promise<T>;
+
+  /**
+   *
+   * @param request
+   * @param executor
+   * @returns
+   */
+  export function request<T>(request: string, executor: executorFn<T> | Promise<T>): Promise<T> {
+    Console.Info("Starting: " + request);
+
+    if (executor instanceof Promise) {
+    } else if (typeof executor === "function") {
+      executor = new Promise(executor);
+    }
+
+    executor
+      .then(() => {
+        Console.Info("Completed: " + request);
+      })
+      .catch((err) => {
+        Console.Error("Failed: " + request);
+        HandleError(err);
+      });
+
+    return executor;
   }
 }

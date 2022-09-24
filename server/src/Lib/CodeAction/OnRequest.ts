@@ -1,12 +1,14 @@
 import { Attributes } from "./Types/Definition";
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "./Builder";
+import { Console } from '../Manager';
+import { FuzzyMatch } from "./Fuzzy";
 import { GetDocument } from "../Types/Document/Document";
 
 import * as Minecraft from "../Minecraft/CodeAction";
 import * as BehaviorPack from "../Minecraft/BehaviorPack/CodeAction";
 import * as ResourcePack from "../Minecraft/ResourcePack/CodeAction";
-import { FuzzyMatch } from './Fuzzy';
+
 
 /**
  *
@@ -14,7 +16,7 @@ import { FuzzyMatch } from './Fuzzy';
  * @returns
  */
 export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Command | CodeAction)[] | undefined | null> {
-  return OnCodeAction(params);
+  return Console.request("Code action", OnCodeAction(params));
 }
 
 /**
@@ -23,7 +25,7 @@ export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Comm
  * @returns
  */
 export async function OnCodeActionResolveAsync(params: CodeAction): Promise<CodeAction> {
-return Promise.resolve(params);
+  return Promise.resolve(params);
 }
 
 /**
@@ -31,13 +33,14 @@ return Promise.resolve(params);
  * @param params
  * @returns
  */
-export function OnCodeAction(params: CodeActionParams): Promise<(Command | CodeAction)[]> {
+export async function OnCodeAction(params: CodeActionParams): Promise<(Command | CodeAction)[]> {
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return Promise.resolve([]);
 
   const builder = new CodeActionBuilder(params, doc);
   const promises = params.context.diagnostics.map((d) => FindAction(builder, d));
-  return Promise.all(promises).then(() => builder.out);
+  await Promise.all(promises);
+  return builder.out;
 }
 
 /**
@@ -46,22 +49,26 @@ export function OnCodeAction(params: CodeActionParams): Promise<(Command | CodeA
  * @param diag
  */
 function FindAction(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
-  var code = diag.code ?? "";  
+  var code = diag.code ?? "";
   Attributes(builder, diag);
 
   if (typeof code === "number") return Promise.resolve();
 
   const index = code.indexOf(".");
-  const maincode = index > -1 ? code.slice(0, index) : code;
+  const mainCode = index > -1 ? code.slice(0, index) : code;
 
-  switch (maincode) {
+  switch (mainCode) {
     case "behaviorpack":
       BehaviorPack.OnCodeAction(builder, diag);
+      break;
+
     case "resourcepack":
       ResourcePack.OnCodeAction(builder, diag);
+      break;
 
     case "minecraft":
       Minecraft.OnCodeAction(builder, diag);
+      break;
 
     case "mcfunction":
   }

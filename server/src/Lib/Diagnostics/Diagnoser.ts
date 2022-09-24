@@ -5,56 +5,55 @@ import {
   DiagnosticSeverity,
   InternalDiagnosticsBuilder,
 } from "bc-minecraft-bedrock-diagnoser";
-import { MCIgnore, MCProject } from "bc-minecraft-project";
-import { Diagnostic } from "vscode-languageserver";
-import { Manager } from "../Manager/Manager";
-import * as vstd from "vscode-languageserver-textdocument";
-import * as vscode from "vscode-languageserver";
-import { Types } from "bc-minecraft-bedrock-types";
-import { Glob } from "../Glob/Glob";
 import { Console } from "../Manager/Console";
-import path from "path";
-import { GetRange } from "../Code/DocumentLocation";
 import { DataCache } from "../Types/Cache/Cache";
-import { TextDocument } from "../Types/Document/TextDocument";
+import { Diagnostic } from "vscode-languageserver";
 import { GetDocument } from "../Types/Document/Document";
+import { GetRange } from "../Code/DocumentLocation";
+import { Glob } from "../Glob/Glob";
+import { Manager } from "../Manager/Manager";
+import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { ProjectData } from "bc-minecraft-bedrock-project";
+import { TextDocument } from "../Types/Document/TextDocument";
+import { Types } from "bc-minecraft-bedrock-types";
+
+import path from "path";
+
+import * as vscode from "vscode-languageserver";
+import * as vstd from "vscode-languageserver-textdocument";
 
 export namespace DiagnoserUtillity {
   /**Creates a new bedrock diagnoser
    * @returns A diagnoser*/
-  export function CreateDiagnoser(getCachefn: () => ProjectData): Diagnoser {
+  export function CreateDiagnoser(getCacheFn: () => ProjectData): Diagnoser {
     //create diagnoser
-    const tcontext = CreateContext(getCachefn);
-    const out = new Diagnoser(tcontext);
+    const context = CreateContext(getCacheFn);
+    const out = new Diagnoser(context);
 
     return out;
   }
 
   /**Creates the content for the diagnoser
    * @returns*/
-  export function CreateContext(getCachefn: () => ProjectData): DiagnoserContext {
+  export function CreateContext(getCacheFn: () => ProjectData): DiagnoserContext {
     //create context
-    return new _InternalDiagnoserContext(getCachefn);
+    return new _InternalDiagnoserContext(getCacheFn);
   }
 
   type CachedFilesKey = { folder: string; patterns: string[]; ignores: string[] };
 
   class _InternalDiagnoserContext implements DiagnoserContext {
-    private getCachefn: () => ProjectData;
+    private getCacheFn: () => ProjectData;
     private CachedDocuments: DataCache<string, TextDocument | undefined>;
     private CachedPatternFiles: DataCache<string, string[]>;
 
-    constructor(getCachefn: () => ProjectData) {
-      this.getCachefn = getCachefn;
+    constructor(getCacheFn: () => ProjectData) {
+      this.getCacheFn = getCacheFn;
       this.CachedDocuments = new DataCache<string, TextDocument | undefined>();
       this.CachedPatternFiles = new DataCache<string, string[]>();
     }
 
-    /**gets a document diagnoser
-     * @param doc The document to make a diagnoser for
-     * @param project The project context
-     * @returns*/
+    /**@inheritdoc*/
     getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnosticsBuilder | undefined {
       if (Glob.IsMatch(doc.uri, project.ignores.patterns)) {
         Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
@@ -68,11 +67,13 @@ export namespace DiagnoserUtillity {
       return new _InternalDiagnoser(<vstd.TextDocument>doc, project, this);
     }
 
+    /**@inheritdoc*/
     getDocument(uri: string): TextDocument | undefined {
       //return CachedDocuments.getOrAdd(uri, GetDocument);
       return GetDocument(uri);
     }
 
+    /**@inheritdoc*/
     getFiles(folder: string, patterns: string[], ignores: MCIgnore): string[] {
       //return Glob.GetFiles(patterns, ignores.patterns, folder);
 
@@ -87,8 +88,9 @@ export namespace DiagnoserUtillity {
       });
     }
 
+    /**@inheritdoc*/
     getCache(): ProjectData {
-      return this.getCachefn();
+      return this.getCacheFn();
     }
   }
 
@@ -99,6 +101,7 @@ export namespace DiagnoserUtillity {
     public context: DiagnosticsBuilderContent;
     public project: MCProject;
 
+    /**@inheritdoc*/
     constructor(doc: vstd.TextDocument, project: MCProject, context: DiagnosticsBuilderContent) {
       this.doc = doc;
       this.Items = [];
@@ -107,18 +110,12 @@ export namespace DiagnoserUtillity {
       this.context = context;
     }
 
-    /**A signal from the diagnoser API that this diagnoser is done*/
+    /**@inheritdoc*/
     done(): void {
       Manager.Diagnostic.SendDiagnostics(this.doc, this.Items);
     }
 
-    /**
-     *
-     * @param position
-     * @param message
-     * @param severity
-     * @param code
-     */
+    /**@inheritdoc*/
     Add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
       //Was diagnostics code disabled
       if (this.project.attributes["diagnostic.disable." + code] === "true") return;
@@ -132,9 +129,13 @@ export namespace DiagnoserUtillity {
       };
 
       if (typeof code === "number") {
-        Error.codeDescription = { href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/codes/main.md#${code}` };
+        Error.codeDescription = {
+          href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/codes/main.md#${code}`,
+        };
       } else {
-        Error.codeDescription = { href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, "/")}.md` };
+        Error.codeDescription = {
+          href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, "/")}.md`,
+        };
       }
 
       this.Items.push(Error);

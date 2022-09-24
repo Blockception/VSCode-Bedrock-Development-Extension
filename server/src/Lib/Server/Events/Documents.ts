@@ -5,7 +5,7 @@ import { Console } from "../../Manager/Console";
 import { Process } from "../../Process/Process";
 import { GetDocument } from '../../Types/Document/Document';
 
-export async function OndDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
+export async function OnDocumentChangedAsync(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
   return new Promise((resolve, reject) => {
     const doc = GetDocument(e.document.uri, e.document, e.document.languageId);
 

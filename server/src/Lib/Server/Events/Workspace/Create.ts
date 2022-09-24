@@ -6,11 +6,10 @@ import { Console } from "../../../Manager/Console";
 
 //Files created
 export async function OnDidCreateFilesAsync(params: CreateFilesParams): Promise<void> {
-  return new Promise<void>((resolve, reject) => {
-    let Promises = OnDidCreateFiles(params);
-
-    return Promise.all(Promises);
-  });
+  return Console.request(
+    "File Created",
+    Promise.all(OnDidCreateFiles(params)).then(() => {})
+  );
 }
 
 function OnDidCreateFiles(params: CreateFilesParams): Promise<void>[] {
@@ -26,19 +25,15 @@ function OnDidCreateFiles(params: CreateFilesParams): Promise<void>[] {
 }
 
 async function OnDidCreateFile(Item: FileCreate): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const Doc = GetDocument(Item.uri);
+  const Doc = GetDocument(Item.uri);
 
-    if (Doc) {
-      let conf = Doc.getConfiguration();
+  if (Doc) {
+    let conf = Doc.getConfiguration();
 
-      if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores.patterns)) {
-        Process(Doc);
-      } else {
-        Console.Log(`Ignored: ` + Doc.uri);
-      }
+    if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(Doc.uri, conf.ignores.patterns)) {
+      Process(Doc);
+    } else {
+      Console.Log(`Ignored: ` + Doc.uri);
     }
-
-    resolve();
-  });
+  }
 }

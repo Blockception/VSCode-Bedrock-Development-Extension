@@ -1,32 +1,32 @@
-import { Fs, GetDirectory, GetFilename, Vscode } from "../Code";
-import { DocumentSymbolParams, SymbolInformation, SymbolKind, WorkspaceSymbolParams } from "vscode-languageserver";
+import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
+import { Console } from "../Manager";
 import { Database } from "../Database/Database";
+import { DocumentSymbolParams, SymbolInformation, SymbolKind, WorkspaceSymbolParams } from "vscode-languageserver";
+import { Fs, GetDirectory, GetFilename, Vscode } from "../Code";
+import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
 import { Kinds } from "../Minecraft/General/Kinds";
 import { SymbolBuilder } from "./SymbolBuilder";
-import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
 
 /**
- * The request to provide document symbols, asynchorious
- *
+ * The request to provide document symbols
  * @param params The parameter that specify which symbols to provide
  */
-export async function OnDocumentSymbolRequestAsync(params: DocumentSymbolParams): Promise<SymbolInformation[] | undefined> {
-return Promise.resolve(OnDocumentSymbolRequest(params));
+export async function OnDocumentSymbolRequestAsync(
+  params: DocumentSymbolParams
+): Promise<SymbolInformation[] | undefined> {
+  return Console.request("Symbols, Document", Promise.resolve(OnDocumentSymbolRequest(params)));
 }
 
 /**
- * The request to provide workspace symbols, asynchorious
- *
+ * The request to provide workspace symbols
  * @param params The parameter that specify which symbols to provide
  */
 export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
-return Promise.resolve(OnWorkspaceSymbolRequest(params));
+  return Console.request("Symbols, Workspace", Promise.resolve(OnWorkspaceSymbolRequest(params)));
 }
 
 /**
  * The request to provide document symbols
- *
  * @param params The parameter that specify which symbols to provide
  */
 function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformation[] | undefined {

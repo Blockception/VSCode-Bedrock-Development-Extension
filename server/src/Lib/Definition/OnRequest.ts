@@ -1,14 +1,15 @@
 import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
 import { Languages } from "../Constants";
-import { Json, Mcfunction } from '../Minecraft';
+import { Console } from "../Manager";
+import { Json, Mcfunction } from "../Minecraft";
 import { GetDocument } from "../Types/Document/Document";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {
-return Promise.resolve(onDefinition(params));
+  return Console.request("Definition", Promise.resolve(onDefinition(params)));
 }
 
 export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[] | undefined> {
-return Promise.resolve(onDefinition(params));
+  return Console.request("Type Definition", Promise.resolve(onDefinition(params)));
 }
 
 export function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {

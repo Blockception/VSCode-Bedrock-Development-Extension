@@ -15,7 +15,7 @@ import { Console, Manager } from "../Manager";
 import * as fs from "fs";
 
 /**
- * 
+ *
  */
 export class FileBuilder {
   private _receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -28,7 +28,7 @@ export class FileBuilder {
 
   /**
    * Sends the edits to the client
-   * @returns 
+   * @returns
    */
   async Send(): Promise<void> {
     if (this._receiver.length <= 0) return;
@@ -50,7 +50,7 @@ export class FileBuilder {
     uri = Vscode.FromFs(path);
 
     if (fs.existsSync(path)) {
-      Console.Info("creation of file skipped because it already exists: " + path);
+      Console.Log("Creation of file skipped because it already exists: " + path);
       return;
     }
 
@@ -59,16 +59,16 @@ export class FileBuilder {
       range: Range.create(0, 0, 0, 0),
     };
 
-    Console.Info("Creating: " + path);
+    Console.Log("Creating file: " + path);
     const Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
     this._receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
   }
 }
 
 /**
- * 
- * @param response 
- * @returns 
+ *
+ * @param response
+ * @returns
  */
 function Response(response: ApplyWorkspaceEditResult): void {
   if (response.applied) return;
@@ -76,7 +76,7 @@ function Response(response: ApplyWorkspaceEditResult): void {
   const keys = Object.getOwnPropertyNames(response);
 
   if (keys.length === 1) {
-    Console.Info("Workspace edit was not applied, possibly of already existing data");
+    Console.Error("Workspace edit was not applied, possibly of already existing data");
     return;
   }
 

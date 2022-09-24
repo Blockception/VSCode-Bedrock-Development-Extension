@@ -1,20 +1,19 @@
 import { DeleteFilesParams, FileDelete } from "vscode-languageserver";
 import { Database } from "../../../Database/Database";
-import { Manager } from '../../../Manager/Manager';
+import { Console } from "../../../Manager";
+import { Manager } from "../../../Manager/Manager";
 
 //Files created
 export async function onDidDeleteFilesAsync(params: DeleteFilesParams): Promise<void> {
-  return new Promise<void>((resolve, reject) => {
-    let Promises = onDidDeleteFiles(params);
-
-    return Promise.all(Promises);
-  });
+  return Console.request(
+    "File Deleted",
+    Promise.all(onDidDeleteFiles(params)).then(() => {})
+  );
 }
 
 function onDidDeleteFiles(params: DeleteFilesParams): Promise<void>[] {
-  let files = params.files;
-
-  let Promises: Promise<void>[] = [];
+  const files = params.files;
+  const Promises: Promise<void>[] = [];
 
   for (let I = 0; I < files.length; I++) {
     Promises.push(onDidDeleteFile(files[I]));
@@ -24,11 +23,8 @@ function onDidDeleteFiles(params: DeleteFilesParams): Promise<void>[] {
 }
 
 async function onDidDeleteFile(Item: FileDelete): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const uri = Item.uri;
-    Database.ProjectData.deleteFile(uri);
-    //Reset any diagnostics on the file
-    Manager.Diagnostic.ResetDocument(Item.uri);
-    resolve();
-  });
+  const uri = Item.uri;
+  Database.ProjectData.deleteFile(uri);
+  //Reset any diagnostics on the file
+  Manager.Diagnostic.ResetDocument(Item.uri);
 }

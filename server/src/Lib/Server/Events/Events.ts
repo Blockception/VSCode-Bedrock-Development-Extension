@@ -1,20 +1,20 @@
-import { OnCommandRequestAsync } from "../../Commands/OnRequest";
-import { OnCompletionRequestAsync } from "../../Completion/OnRequest";
-import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../Definition/OnRequest";
-import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../Format/OnRequest";
-import { OnHoverRequestAsync } from "../../Hover/OnRequest";
 import { Manager } from "../../Manager/Manager";
-import { OnReferencesRequestAsync } from "../../References/OnRequest";
-import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
-import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../Symbols/OnRequest";
-import { OndDocumentChangedAsync } from "./Documents";
-import { onDidChangeConfigurationAsync } from "../OnConfiguration";
-import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics";
-import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync, OnCodeLensResolveRequestAsync } from "../../CodeLens/OnRequest";
+import { OnCommandRequestAsync } from "../../Commands/OnRequest";
+import { OnCompletionRequestAsync } from "../../Completion/OnRequest";
 import { OnConfigurationChanged } from '../Settings/Update';
+import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../Definition/OnRequest";
+import { onDidChangeConfigurationAsync } from "../OnConfiguration";
+import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace";
+import { OnDocumentChangedAsync } from "./Documents";
+import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../Format/OnRequest";
+import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../Symbols/OnRequest";
+import { OnHoverRequestAsync } from "../../Hover/OnRequest";
 import { onImplementationRequestAsync } from '../../Implementation/OnRequest';
+import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics";
+import { OnReferencesRequestAsync } from "../../References/OnRequest";
+import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
 
 /**
  * Setup the server events
@@ -24,8 +24,8 @@ export function setEvents() {
   const Connection = Manager.Connection;
 
   //Provides diagnostics and such
-  Documents.onDidOpen(OndDocumentChangedAsync);
-  Documents.onDidSave(OndDocumentChangedAsync); 
+  Documents.onDidOpen(OnDocumentChangedAsync);
+  Documents.onDidSave(OnDocumentChangedAsync);
 
   // This handler provides commands
   Connection.onExecuteCommand(OnCommandRequestAsync);
@@ -82,6 +82,3 @@ export function setEvents() {
     Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
   }
 }
-
-
-

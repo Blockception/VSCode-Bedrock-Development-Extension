@@ -22,7 +22,7 @@ function InternalProvideDiagnostics(doc: TextDocument): void {
 export function ProvidePackDiagnostics(pack: Pack, reporter?: ProgressBar): Promise<string[]> {
   if (!Manager.State.DataGathered) return Promise.resolve<string[]>([]);
 
-  Console.Info("diagnosing: " + Fs.FromVscode(pack.folder));
+  Console.Info("Diagnosing pack: " + Fs.FromVscode(pack.folder));
 
   return ForEachDocument(MinecraftFormat.GetPackFiles(pack), InternalProvideDiagnostics, reporter);
 }

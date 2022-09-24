@@ -1,9 +1,10 @@
-import { DidChangeConfigurationParams } from 'vscode-languageserver';
-import { Identification } from '../../Constants';
-import { Database } from '../../Database/Database';
-import { Manager } from '../../Manager/Manager';
-import { GetProject } from '../../Project/MCProjects';
-import { ServerSettings } from './Settings';
+import { DidChangeConfigurationParams } from "vscode-languageserver";
+import { Identification } from "../../Constants";
+import { Database } from "../../Database/Database";
+import { Console } from "../../Manager";
+import { Manager } from "../../Manager/Manager";
+import { GetProject } from "../../Project/MCProjects";
+import { ServerSettings } from "./Settings";
 
 export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {
   UpdateSettings();
@@ -19,6 +20,8 @@ export function UpdateSettings(): void {
 }
 
 function UpdateSettingsThen(data: any): void {
+  Console.Info("Updating settings");
+
   //If settings is nothing then skip it.
   if (data === undefined || data === null) return;
 

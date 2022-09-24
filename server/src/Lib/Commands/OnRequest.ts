@@ -1,12 +1,13 @@
-import { ExecuteCommandParams } from "vscode-languageserver";
-import { Commands } from "../Constants";
-import { DiagnoseProjectCommand } from "./Diagnose Project";
-import { Files } from "./Files";
-import { ReScanProject } from "./Rescan";
-import { Create } from "./Templates/Create";
-import { HandleError } from "../Code/Error";
-import { StoreProject } from "./StoreProject";
 import { AddAllItems } from "./Language";
+import { Commands } from "../Constants";
+import { Console } from "../Manager";
+import { Create } from "./Templates/Create";
+import { DiagnoseProjectCommand } from "./Diagnose Project";
+import { ExecuteCommandParams } from "vscode-languageserver";
+import { Files } from "./Files";
+import { HandleError } from "../Code/Error";
+import { ReScanProject } from "./Rescan";
+import { StoreProject } from "./StoreProject";
 import { Workspace } from "../Workspace/Workspace";
 
 /**
@@ -15,7 +16,7 @@ import { Workspace } from "../Workspace/Workspace";
  * @returns
  */
 export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
-  return Promise.resolve(OnCommandRequest(params));
+  return Console.request(`Command Execution [${params.command}]`, Promise.resolve(OnCommandRequest(params)));
 }
 
 /**

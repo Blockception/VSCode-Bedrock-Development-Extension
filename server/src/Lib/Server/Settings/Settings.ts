@@ -29,7 +29,15 @@ export interface ServerSettings {
   };
 }
 
+/**
+ * 
+ */
 export namespace ServerSettings {
+  /**
+   * 
+   * @param value 
+   * @returns 
+   */
   export function is(value: any): value is ServerSettings {
     if (value) {
       const temp = <ServerSettings>value;
@@ -62,6 +70,10 @@ export namespace ServerSettings {
     return Object.assign({}, value);
   }
 
+  /**
+   * 
+   * @returns 
+   */
   export function createDefaultSettings(): ServerSettings {
     const Out: ServerSettings = {
       Education: {

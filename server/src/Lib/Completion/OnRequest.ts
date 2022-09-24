@@ -1,7 +1,8 @@
-import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
-import { Languages } from "../Constants";
-import { GetDocument } from "../Types/Document/Document";
 import { CompletionBuilder } from "./Builder";
+import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
+import { Console } from "../Manager";
+import { GetDocument } from "../Types/Document/Document";
+import { Languages } from "../Constants";
 import { SimpleContext } from "../Code/SimpleContext";
 
 import * as Json from "../Minecraft/Json/Completion";
@@ -17,7 +18,7 @@ import * as Molang from "../Minecraft/Molang/Completion";
 export async function OnCompletionRequestAsync(
   params: CompletionParams
 ): Promise<CompletionItem[] | CompletionList | undefined> {
-  return Promise.resolve(OnCompletionRequest(params));
+  return Console.request("Completion", Promise.resolve(OnCompletionRequest(params)));
 }
 
 /**
@@ -26,7 +27,7 @@ export async function OnCompletionRequestAsync(
  * @returns
  */
 export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem | undefined> {
-  return new Promise<CompletionItem>((resolve, reject) => resolve(params));
+  return Promise.resolve(params);
 }
 
 /**Processes request
