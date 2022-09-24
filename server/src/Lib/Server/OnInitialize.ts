@@ -2,20 +2,25 @@ import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode
 import { Manager } from "../Manager/Manager";
 import { Commands, Languages } from "../Constants";
 import { Console } from "../Manager/Console";
-import { Version } from "..";
+import { Version } from '../Version';
+
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return Promise.resolve(onInitialize(params));
 }
 
 export function onInitialize(params: InitializeParams): InitializeResult {
-  Console.Log("Initializing minecraft server");
+  Console.Info("Initializing minecraft server");
 
   //process capabilities of the client
   const capabilities = params.capabilities;
   Manager.Capabilities.Parse(capabilities);
 
   const result: InitializeResult = {
+    serverInfo: {
+      name: "bc-minecraft-language-server",
+      version: Version,
+    },
     capabilities: {
       textDocumentSync: TextDocumentSyncKind.Incremental,
 
@@ -93,10 +98,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
           didRename: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
         },
       },
-    },
-    serverInfo: {
-      name: "bc-minecraft-language-server",
-      version: Version,
     },
   };
 
