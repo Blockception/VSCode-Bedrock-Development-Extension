@@ -16,11 +16,11 @@ export const manifest: string = `{
      }
    ],
    "metadata": { 
-     "authors": ["Example author"],
-     "generated_with": {
-       "$\{\{tool\}\}": [
-         "$\{\{tool.version\}\}"
-       ]
-     }
+      "authors": [ "$\{\{project.attributes:author\}\}" ],
+      "generated_with": {
+        "$\{\{tool\}\}": [
+          "$\{\{tool.version\}\}"
+        ]
+      }
    }
 }`;

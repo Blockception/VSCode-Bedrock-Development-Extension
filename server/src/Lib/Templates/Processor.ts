@@ -1,10 +1,11 @@
 import { Database } from "../Database";
-import { TemplateFallback } from "./Data";
-import * as fs from "fs";
-import { FunctionContext, TemplateFunctions } from "./Functions";
 import { FileBuilder } from "../Files/FileBuilder";
 import { Fs, Vscode } from "../Code";
+import { FunctionContext, TemplateFunctions } from "./Functions";
+import { TemplateFallback } from "./Data";
+
 import path from "path";
+import * as fs from "fs";
 
 export class TemplateProcessor {
   protected _filename: string;
@@ -78,7 +79,7 @@ export namespace TemplateProcessor {
     fallback?: TemplateFallback
   ): TemplateProcessor {
     fallback = fallback || errorFallback;
-    const ws = Database.WorkspaceData.getFolder(folder);
+    let ws = Database.WorkspaceData.getFolder(folder);
     if (ws === undefined) {
       throw new Error("No workspace found");
     }

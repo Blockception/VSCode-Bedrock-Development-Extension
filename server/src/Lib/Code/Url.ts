@@ -17,10 +17,21 @@ export namespace Vscode {
     return URI.file(path).toString();
   }
 
-  export function join(path: string, combine: string): string {
-    if (path.endsWith("/")) return path + combine;
+  export function join(path: string, ...combine: string[]): string {
+    if (path.endsWith("/")) {
+      path = path.slice(0, -1);
+    };
 
-    return path + "/" + combine;
+    for (const c of combine) {
+      if (c.startsWith("/")) {
+        path += c;
+      } else {
+        path += "/" + c;
+      }
+    }
+    
+
+    return path;
   }
 
   /**

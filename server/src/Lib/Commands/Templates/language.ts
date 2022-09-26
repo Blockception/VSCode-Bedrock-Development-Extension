@@ -48,7 +48,7 @@ pack.description=The text that describes this example pack\n`;
  * @param Pack
  * @param Builder
  */
-export function create_language_files(Pack: Pack | string, Builder: TemplateBuilder): void {
+export function create_language_files(Pack: Pack | string, Builder: TemplateBuilder, additional?: (builder: TextEditBuilder) => void): void {
   if (typeof Pack === "string") {
     let nPack = Database.ProjectData.get(Pack);
 
@@ -72,6 +72,10 @@ export function create_language_files(Pack: Pack | string, Builder: TemplateBuil
     generate_wp(Pack, builder);
   }
   content += builder.out;
+
+  if (additional !== undefined) {
+    additional(builder);
+  }
 
   for (let I = 0; I < LanguageNames.length; I++) {
     PrivateCreate(BaseFolder, Builder, `${LanguageNames[I]}.lang`, content);

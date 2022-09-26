@@ -114,21 +114,21 @@ export const bp_loot_table: string = `{
 export const bp_manifest: string = `{
   "format_version": 2,
   "header": {
-    "description": "Example vanilla behavior pack",
-    "name": "Vanilla Behavior Pack",
+    "name": "pack.name",
+    "description": "pack.description",
     "uuid": "$\{\{uuid\}\}",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 18, 0]
+    "min_engine_version": [1, 19, 0]
   },
   "modules": [
     {
-      "description": "Example vanilla behavior pack",
       "type": "data",
       "uuid": "$\{\{uuid\}\}",
       "version": [1, 0, 0]
     }
   ],
   "metadata": {
+    "authors": [ "$\{\{project.attributes:author\}\}" ],
     "generated_with": {
       "$\{\{tool\}\}": [
         "$\{\{tool.version\}\}"

@@ -130,24 +130,24 @@ export const  rp_item_texture: string = `{
 export const  rp_manifest: string = `{
   "format_version": 2,
   "header": {
-    "description": "Example vanilla resource pack",
-    "name": "Vanilla Resource Pack",
-    "uuid": "%UUID1%",
+    "name": "pack.name",
+    "description": "pack.description",
+    "uuid": "$\{\{uuid\}\}",
     "version": [1, 0, 0],
     "min_engine_version": [1, 18, 0]
   },
   "modules": [
     {
-      "description": "Example vanilla resource pack",
       "type": "resources",
-      "uuid": "%UUID2%",
+      "uuid": "$\{\{uuid\}\}",
       "version": [1, 0, 0]
     }
   ],
   "metadata": {
+    "authors": [ "$\{\{project.attributes:author\}\}" ],
     "generated_with": {
-      "%TOOL%": [
-        "%Version%"
+      "$\{\{TOOL\}\}": [
+        "$\{\{Version\}\}"
       ]
     }
   }

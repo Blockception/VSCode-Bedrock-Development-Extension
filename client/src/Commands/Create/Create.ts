@@ -1,4 +1,4 @@
-import { commands, ExtensionContext, InputBoxOptions, window } from "vscode";
+import { commands, ExtensionContext, InputBoxOptions, window, workspace } from "vscode";
 import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
 import { Commands } from "../../Constants";
 import { Manager } from "../../Manager/Manager";
@@ -98,6 +98,7 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
         validateInput(value): string | undefined {
           return ValidIdentifier(value, IDRegex);
         },
+        title: title,
         prompt: title,
         password: false,
         ignoreFocusOut: true,
@@ -123,9 +124,20 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
 function OnCompleteID(value: string | undefined, command: string): Promise<any> {
   if (value === undefined) return Promise.resolve();
 
+  const doc = window.activeTextEditor;
+  let uri = doc?.document.uri.toString();
+  if (uri === undefined) {
+    uri = workspace.workspaceFolders?.[0].uri.toString();
+
+    if (uri === undefined) {
+      window.showErrorMessage("No workspace folder found");
+      return Promise.resolve();
+    }
+  }
+
   const Options: ExecuteCommandParams = {
     command: command,
-    arguments: [value, window.activeTextEditor?.document.uri.toString()],
+    arguments: [value, uri],
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);

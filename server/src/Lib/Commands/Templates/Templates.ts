@@ -1,4 +1,5 @@
 import path from "path";
+import { Vscode } from '../../Code';
 import * as BP from "../../Data/Templates/behaviorpack";
 import * as RP from "../../Data/Templates/resourcepack";
 import * as WP from "../../Data/Templates/world";
@@ -63,14 +64,19 @@ export namespace Templates {
     };
   }
 
-  export async function create(key: TemplateKeys, folder: string, attributes: Record<string, string> = {}): Promise<boolean> {
+  export async function create(
+    key: TemplateKeys,
+    folder: string,
+    attributes: Record<string, string> = {}
+  ): Promise<boolean> {
     const fallback = getFallback(key);
     if (fallback === undefined) return false;
 
-    const processor = TemplateProcessor.create(key, folder, attributes, fallback);
+    const processor = await TemplateProcessor.create(key, folder, attributes, fallback);
     processor.Process();
 
-    return processor.CreateFile().then(() => true);
+    await processor.CreateFile();
+    return true;
   }
 }
 
