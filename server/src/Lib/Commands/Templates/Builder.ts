@@ -4,16 +4,17 @@ import {
   RenameFile,
   DeleteFile,
   WorkspaceEdit,
-  ApplyWorkspaceEditResponse,
   CreateFileOptions,
   TextEdit,
   OptionalVersionedTextDocumentIdentifier,
+  ApplyWorkspaceEditResult,
 } from "vscode-languageserver";
 import { Manager } from "../../Manager/Manager";
-import * as fs from "fs";
 import { Range } from "vscode-languageserver-types";
 import { Console } from "../../Manager/Console";
 import { Fs, Vscode } from "../../Code/Url";
+
+import * as fs from "fs";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -54,7 +55,7 @@ export class TemplateBuilder {
   }
 }
 
-function Response(response: ApplyWorkspaceEditResponse): void {
+function Response(response: ApplyWorkspaceEditResult): void {
   if (response.applied) return;
 
   const keys = Object.getOwnPropertyNames(response);
