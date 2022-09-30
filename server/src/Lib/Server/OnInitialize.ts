@@ -58,7 +58,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       completionProvider: {
         resolveProvider: false,
         triggerCharacters: [" ", "\t", "[", "=", ",", ".", "/", "@", "\n", "{"],
-        allCommitCharacters: ["\t", "=", ",", ".", "/"]
+        //allCommitCharacters: ["\t", "=", ",", ".", "/"]
       },
 
       // Tell the client that this server supports go to references
