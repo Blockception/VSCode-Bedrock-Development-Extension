@@ -43,7 +43,7 @@
     "vscode": "^1.69.2"
   },
   "dependencies": {
-    "fast-glob": "^3.2.11",
+    "fast-glob": "^3.2.12",
     "node": "^18.10.0"
   },
   "extensionKind": [
