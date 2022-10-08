@@ -2,15 +2,15 @@ import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode
 import { Manager } from "../Manager/Manager";
 import { Commands, Languages } from "../Constants";
 import { Console } from "../Manager/Console";
-import { Version } from '../Version';
-
+import { Version } from "../Version";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return Promise.resolve(onInitialize(params));
 }
 
 export function onInitialize(params: InitializeParams): InitializeResult {
-  Console.Info("Initializing minecraft server");
+  Console.Info(`Initializing minecraft server`);
+  Console.Info(`\tVersion: ${Version}`);
 
   //process capabilities of the client
   const capabilities = params.capabilities;

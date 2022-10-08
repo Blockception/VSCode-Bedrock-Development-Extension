@@ -1,4 +1,5 @@
 import { InitializedParams } from "vscode-languageserver";
+import { HandleError } from "../Code";
 import { Console } from "../Manager/Console";
 import { Traverse } from "../Process/Traverse";
 import { SetDynamicEvents } from "./Events/Dynamic";
@@ -18,5 +19,8 @@ function onInitialized(params: InitializedParams): void {
   SetDynamicEvents();
 
   //For debug purposes use a higher delay version
-  setTimeout(Traverse, 0);
+  setImmediate(() => {
+    //Catch error to prevent the server from crashing
+    Traverse().catch((err) => HandleError(err));
+  });
 }
