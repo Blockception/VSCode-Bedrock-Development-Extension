@@ -61,7 +61,17 @@ export class ProgressBar {
   }
 }
 
+/**
+ * 
+ */
 export namespace ProgressBar {
+  /**
+   * 
+   * @param title 
+   * @param value 
+   * @param max 
+   * @returns 
+   */
   export function create(title: string, value: number = 0, max: number = 1): Promise<ProgressBar> {
     const temp = Manager.Connection.window.createWorkDoneProgress();
     return temp.then((item) => {

@@ -1,15 +1,16 @@
-import { QueueProcessor } from "@daanv2/queue-processor";
-import { Pack } from "bc-minecraft-bedrock-project";
-import { MCProject } from "bc-minecraft-project";
-import { WorkspaceFolder } from "vscode-languageserver";
-import { HandleError } from "../Code/Error";
-import { Fs } from "../Code/Url";
-import { Database } from "../Database/Database";
 import { Console } from "../Manager/Console";
-import { Manager } from "../Manager/Manager";
-import { MinecraftFormat } from "../Minecraft/Format";
-import { ProcessPack } from "../Process/Pack";
+import { Database } from "../Database/Database";
+import { Fs } from "../Code/Url";
 import { GetProject } from "../Project/MCProjects";
+import { HandleError } from "../Code/Error";
+import { lstatSync } from "fs";
+import { Manager } from "../Manager/Manager";
+import { MCProject } from "bc-minecraft-project";
+import { MinecraftFormat } from "../Minecraft/Format";
+import { Pack } from "bc-minecraft-bedrock-project";
+import { ProcessPack } from "../Process/Pack";
+import { QueueProcessor } from "@daanv2/queue-processor";
+import { WorkspaceFolder } from "vscode-languageserver";
 
 /**  */
 export namespace Workspace {
@@ -86,15 +87,21 @@ export namespace Workspace {
     });
   }
 
-  /** Retrieves all the packs from the workspace and process the document
-   * @param folder
-   * @returns
+  /** 
+   * Retrieves all the packs from the workspace and process the document
+   * @param folder The workspace folder to process
+   * @returns The packs that were found in the workspace
    */
   export function TraverseWorkspace(folder: WorkspaceFolder): Promise<Pack[]> {
-    const folderpath = Fs.FromVscode(folder.uri);
-    Console.Info("Traversing workspace: " + folderpath);
+    const folderPath = Fs.FromVscode(folder.uri);
 
-    const project = GetProject(folderpath);
+    if (!lstatSync(folderPath).isDirectory()) {
+      return Promise.resolve([]);
+    }
+
+    Console.Info("Traversing workspace: " + folderPath);
+
+    const project = GetProject(folderPath);
     Database.WorkspaceData.set(folder, project);
 
     const manifests = MinecraftFormat.GetManifests(folder.uri, project.ignores.patterns);
