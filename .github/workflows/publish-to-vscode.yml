@@ -32,7 +32,7 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.vsce }}
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: universal
           path: "*.vsix"
@@ -106,7 +106,7 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.vsce }}
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: ${{ env.target }}
           path: "*.vsix"
