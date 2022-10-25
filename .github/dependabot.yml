@@ -5,24 +5,29 @@
 
 version: 2
 updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: "monthly"
+
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
       interval: "monthly"
-        
+
   - package-ecosystem: "gitsubmodule" # See documentation for possible values
     directory: "/" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
       interval: "monthly"
-      
+
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/client" # Location of package manifests
     open-pull-requests-limit: 50
     schedule:
       interval: "monthly"
-      
+
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/server" # Location of package manifests
     open-pull-requests-limit: 50
