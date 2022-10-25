@@ -60,7 +60,7 @@ jobs:
         run: |
           cd ${{github.workspace}}
           git config --global user.email "Blockception@github.com"
-          git config --global user.name "Blockception Bot"
+          git config --global user.name "Blockception[bot]"
           git add .
           git commit -m "auto: generated typescript includes"
           git push
