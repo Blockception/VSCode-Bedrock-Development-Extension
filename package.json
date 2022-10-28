@@ -8,6 +8,7 @@
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
   "version": "4.1.26",
+  "pricing": "Free",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-mcfunction",
