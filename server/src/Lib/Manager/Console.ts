@@ -1,4 +1,3 @@
-import { HandleError } from "../Code";
 import { Manager } from "./Manager";
 
 /** */
@@ -15,7 +14,7 @@ export namespace Console {
 
   /** */
   export function Log(message: string): void {
-    Manager.Connection.console.log('\t'+message);
+    Manager.Connection.console.log("\t" + message);
   }
 
   type executorFn<T> = (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void;
@@ -38,13 +37,8 @@ export namespace Console {
     }
 
     executor
-      .then(() => {
-        Console.Info("Completed: " + request);
-      })
-      .catch((err) => {
-        Console.Error("Failed: " + request);
-        HandleError(err);
-      });
+      .then(() => Console.Info("Completed: " + request))
+      .catch((err) => Console.Error(`${JSON.stringify(request)} ${JSON.stringify(err)}`));
 
     return executor;
   }

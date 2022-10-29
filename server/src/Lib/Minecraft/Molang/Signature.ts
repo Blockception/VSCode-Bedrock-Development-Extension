@@ -1,8 +1,7 @@
+import { Offset } from "../../Code/Offset";
 import { OffsetWord } from "bc-vscode-words";
 import { Position, SignatureHelp } from "vscode-languageserver";
-import { Offset } from "../../Code/Offset";
 import { TextDocument } from "../../Types/Document/TextDocument";
-import { CreateMolangSetWords } from ".";
 
 import * as Contexts from "./Contexts/Signature";
 import * as Geometry from "./Geometry/Signature";
@@ -12,6 +11,7 @@ import * as Query from "./Query/Signature";
 import * as Temps from "./Temps/Signature";
 import * as Textures from "./Texture/Signature";
 import * as Variables from "./Variables/Signature";
+import { CreateMolangSetWords } from "./Words";
 
 /**
  *
@@ -50,7 +50,6 @@ export function ProvideSignature(text: OffsetWord, cursor: number, doc: TextDocu
 /**
  *
  * @param text
- * @param doc
  * @returns
  */
 export function ProvideWordSignature(text: OffsetWord): SignatureHelp | undefined {

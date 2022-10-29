@@ -1,10 +1,14 @@
-import { BehaviorPack, Mcfunction, Molang, ResourcePack } from "..";
 import { CompletionBuilder } from "../../Completion/Builder";
 import { CompletionItem, InsertReplaceEdit, Position, Range } from "vscode-languageserver";
 import { GetCurrentString } from "./Functions";
 import { JsonCompletionContext } from "../../Completion/Context";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../Code/SimpleContext";
+
+import * as BehaviorPack from "../BehaviorPack";
+import * as Mcfunction from "../Mcfunction";
+import * as Molang from "../Molang";
+import * as ResourcePack from "../ResourcePack";
 
 export function ProvideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const c = <JsonCompletionContext>context;
@@ -73,8 +77,13 @@ function OnCompletionJsonMolang(context: JsonCompletionContext) {
     BehaviorPack.EntityEvent.ProvideCompletion(context);
     //Is it a command instead
   } else if (context.currentText.startsWith("/")) {
-    Mcfunction.ProvideCompletionLine(context, context.currentText.substring(1), context.cursor, context.range.start + 1);
-    //Its probally molang
+    Mcfunction.ProvideCompletionLine(
+      context,
+      context.currentText.substring(1),
+      context.cursor,
+      context.range.start + 1
+    );
+    //Its probably molang
   } else {
     Molang.ProvideCompletion(context.currentText, context.cursor - context.range.start, context);
   }
