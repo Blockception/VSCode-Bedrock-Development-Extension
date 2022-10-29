@@ -38,6 +38,7 @@ jobs:
 
   universal:
     runs-on: windows-latest
+    name: 📦 Create universal build
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
