@@ -23,7 +23,7 @@
     "vscode": "^1.69.2"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-project": "^1.19.40-1",
+    "bc-minecraft-bedrock-project": "^1.19.40-2",
     "node": "^19.0.0",
     "vscode-languageclient": "^8.0.2"
   },
