@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "4.1.30",
+  "version": "4.1.31",
   "pricing": "Free",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
