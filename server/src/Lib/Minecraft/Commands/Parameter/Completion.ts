@@ -38,9 +38,9 @@ function toCompletion(context: CommandCompletionContext): void {
   context.receiver.Add(context.parameter.text, "The keyword: " + context.parameter.text, CompletionItemKind.Keyword);
 }
 
-type functioncall = ((context: SimpleContext<CompletionBuilder>) => void) | ((context: CommandCompletionContext) => void) | undefined;
+type functionCall = ((context: SimpleContext<CompletionBuilder>) => void) | ((context: CommandCompletionContext) => void) | undefined;
 
-const DataMap: Record<number, functioncall> = {
+const DataMap: Record<number, functionCall> = {
   //BehaviorPacks
   [ParameterType.block]: BehaviorPack.Block.ProvideCompletion,
   [ParameterType.blockStates]: BehaviorPack.BlockStates.ProvideCompletion,

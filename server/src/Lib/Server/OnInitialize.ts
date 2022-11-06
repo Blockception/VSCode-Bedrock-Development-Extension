@@ -8,6 +8,8 @@ export async function onInitializeAsync(params: InitializeParams): Promise<Initi
   return Promise.resolve(onInitialize(params));
 }
 
+const triggerCharacters = toArray(" abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"");
+
 export function onInitialize(params: InitializeParams): InitializeResult {
   Console.Info(`Initializing minecraft server`);
   Console.Info(`\tVersion: ${Version}`);
@@ -57,8 +59,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports code completion.
       completionProvider: {
         resolveProvider: false,
-        triggerCharacters: [" ", "\t", "[", "=", ",", ".", "/", "@", "\n", "{"],
-        //allCommitCharacters: ["\t", "=", ",", ".", "/"]
+        triggerCharacters: triggerCharacters,
       },
 
       // Tell the client that this server supports go to references
@@ -81,8 +82,8 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
       // Tell the client that this server supports signatures
       signatureHelpProvider: {
-        triggerCharacters: [" ", "\t", "@", "/", '"', "'", "."],
-        retriggerCharacters: [" ", "\t", "@", "/", '"', "'", "."],
+        triggerCharacters: triggerCharacters,
+        retriggerCharacters: triggerCharacters,
         workDoneProgress: true,
       },
 
@@ -102,4 +103,15 @@ export function onInitialize(params: InitializeParams): InitializeResult {
   };
 
   return result;
+}
+
+
+function toArray(value: string): string[] {
+  const out : string[] = [];
+
+  for (let i = 0; i < value.length; i++) {
+    out.push(value[i]);
+  }
+
+  return out;
 }
