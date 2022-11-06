@@ -28,5 +28,5 @@
       "end": "^\\#[ \t]*endregion"
     }
   },
-  "wordPattern": "\b[^ \t\n\r]+\b"
+  "wordPattern": "[^ \t\n\r]+"
 }
