@@ -1,19 +1,18 @@
 import { Command } from "bc-minecraft-bedrock-command";
 import { CommandCompletionContext } from "../../Completion/Context";
 import { CompletionBuilder } from "../../Completion/Builder";
-import { CompletionItemKind } from 'vscode-languageserver-types';
-import { IsEducationEnabled } from '../../Project/Attributes';
+import { CompletionItemKind } from "vscode-languageserver-types";
+import { IsEducationEnabled } from "../../Project/Attributes";
 import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from '../../Code/SimpleContext';
+import { SimpleContext } from "../../Code/SimpleContext";
 
 import * as Parameter from "../Commands/Parameter/Completion";
 import * as CCommand from "../Commands/Command/Completion";
 
 /**
  *
- * @param doc
+ * @param context
  * @param pos
- * @param receiver
  * @returns
  */
 export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
@@ -29,6 +28,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos
 
   if (LineIndex === 0 && pos.character < 3) {
     context.receiver.Add("# <mcfunction_documentation_here>", "mcfunction documentation", CompletionItemKind.Snippet);
+    context.receiver.Add("# region", "mcfunction documentation", CompletionItemKind.Snippet, "# region\b# endregion");
   }
 
   const offset = doc.offsetAt({ character: 0, line: pos.line });
@@ -45,25 +45,33 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos
 
 /**
  *
+ * @param context
  * @param text
  * @param cursor
  * @param offset
- * @param doc
- * @param receiver
  */
-export function ProvideCompletionLine(context: SimpleContext<CompletionBuilder>, text: string, cursor: number, offset: number): void {
+export function ProvideCompletionLine(
+  context: SimpleContext<CompletionBuilder>,
+  text: string,
+  cursor: number,
+  offset: number
+): void {
   const command: Command = Command.parse(text, offset);
   ProvideCompletionCommand(context, cursor, command);
 }
 
 /**
- *
- * @param pos
- * @param receiver
- * @param command
- * @returns
+ * 
+ * @param context 
+ * @param pos 
+ * @param command 
+ * @returns 
  */
-export function ProvideCompletionCommand(context: SimpleContext<CompletionBuilder>, pos: number, command: Command): void {
+export function ProvideCompletionCommand(
+  context: SimpleContext<CompletionBuilder>,
+  pos: number,
+  command: Command
+): void {
   if (command == undefined || command.parameters.length == 0 || pos < command.parameters[0].offset + 3) {
     CCommand.ProvideCompletion(context);
     return;
@@ -86,7 +94,15 @@ export function ProvideCompletionCommand(context: SimpleContext<CompletionBuilde
 
     if (Match.parameters.length > ParameterIndex) {
       const parameter = Match.parameters[ParameterIndex];
-      const ncontext = CommandCompletionContext.create(parameter, ParameterIndex, command, pos, context.receiver, Current, context.doc);
+      const ncontext = CommandCompletionContext.create(
+        parameter,
+        ParameterIndex,
+        command,
+        pos,
+        context.receiver,
+        Current,
+        context.doc
+      );
 
       Parameter.ProvideCompletion(ncontext);
     }
