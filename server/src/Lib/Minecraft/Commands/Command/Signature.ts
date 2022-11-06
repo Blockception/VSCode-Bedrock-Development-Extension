@@ -1,12 +1,30 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { CommandInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
-import { ParameterInformation, SignatureHelp, SignatureInformation } from "vscode-languageserver";
+import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
 import { IsEducationEnabled } from "../../../Project/Attributes";
+import {
+  OptionalVersionedTextDocumentIdentifier,
+  ParameterInformation,
+  SignatureHelp,
+  SignatureInformation,
+} from "vscode-languageserver";
 import { SignatureCarrier } from "../../../Signatures/Carrier";
 import { TextDocument } from "../../../Types/Document/TextDocument";
 import * as RawText from "../../Json/RawText/Signature";
 
-export function ProvideSignature(Line: string, StartOffset: number, cursorOffset: number, doc: TextDocument): SignatureHelp | undefined {
+/**
+ *
+ * @param Line
+ * @param StartOffset
+ * @param cursorOffset
+ * @param doc
+ * @returns
+ */
+export function ProvideSignature(
+  Line: string,
+  StartOffset: number,
+  cursorOffset: number,
+  doc: TextDocument
+): SignatureHelp | undefined {
   let command: Command = Command.parse(Line, StartOffset);
 
   if (command.isEmpty()) return undefined;
@@ -21,7 +39,7 @@ export function ProvideSignature(Line: string, StartOffset: number, cursorOffset
   const Matches = command.getBestMatch();
 
   const Out: SignatureHelp = {
-    signatures: ConverToSignatures(Matches),
+    signatures: ConvertToSignatures(Matches),
     activeParameter: command.findCursorIndex(cursorOffset),
     activeSignature: 0,
   };
@@ -29,12 +47,12 @@ export function ProvideSignature(Line: string, StartOffset: number, cursorOffset
   return Out;
 }
 
-function ConverToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
-  return Commands.map((item) => SignatureCarrier.get(item, ConverToSignature));
+function ConvertToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
+  return Commands.map((item) => SignatureCarrier.get(item, ConvertToSignature));
 }
 
 //Converts the given MCCommand into a signature
-function ConverToSignature(command: CommandInfo): SignatureInformation {
+function ConvertToSignature(command: CommandInfo): SignatureInformation {
   let Sign: SignatureInformation = {
     label: "",
     documentation: command.documentation,
@@ -44,20 +62,18 @@ function ConverToSignature(command: CommandInfo): SignatureInformation {
   const parameters = command.parameters;
   for (let I = 0; I < parameters.length; I++) {
     const parameter = parameters[I];
-    let p: ParameterInformation;
+    let t = parameter.text;
 
-    if (parameter.required) {
-      if (parameter.type === ParameterType.keyword) {
-        p = CreateParameter(parameter.text, parameter.type);
+    if (parameter.type !== ParameterType.keyword) {
+      if (parameter.required) {
+        t = `<${t}>`;
       } else {
-        p = CreateParameter("<" + parameter.text + ">", parameter.type);
+        t = `[${t}]`;
       }
-    } else {
-      p = CreateParameter("[" + parameter.text + "]", parameter.type);
     }
 
-    Sign.label += p.label + " ";
-
+    const p = createParameter(t, parameter);
+    Sign.label += t + " ";
     Sign.parameters?.push(p);
   }
 
@@ -66,14 +82,42 @@ function ConverToSignature(command: CommandInfo): SignatureInformation {
   return Sign;
 }
 
-function CreateParameter(label: string, kind: ParameterType): ParameterInformation {
-  switch (kind) {
+function createParameter(label: string, p: ParameterInfo): ParameterInformation {
+  switch (p.type) {
     case ParameterType.jsonRawText:
       return RawText.provideParameterInformation();
   }
 
-  const documentation = label;
-  const Temp: ParameterInformation = { label: label, documentation: { kind: "markdown", value: documentation } };
+  let documentation = label;
+
+  if (p.options) {
+    documentation += "\n\n**Options**:\n";
+    if (typeof p.options.allowFakePlayers === "boolean") {
+      documentation += `\nAllow fake players: ${p.options.allowFakePlayers}`;
+    }
+    if (typeof p.options.maximum === "number") {
+      documentation += `\nMaximum: ${p.options.maximum}`;
+    }
+    if (typeof p.options.minimum === "number") {
+      documentation += `\nMinimum: ${p.options.minimum}`;
+    }
+    if (typeof p.options.playerOnly === "boolean") {
+      documentation += `\nPlayer only: ${p.options.playerOnly}`;
+    }
+    if (typeof p.options.wildcard === "boolean") {
+      documentation += `\nWildcard: ${p.options.wildcard}`;
+    }
+    if (p.options.acceptedValues) {
+      documentation += `Accepted values: \n- ${p.options.acceptedValues.join("\n- ")}`;
+    }
+  }
+
+  documentation += "\n---";
+
+  const Temp: ParameterInformation = {
+    label: label,
+    documentation: { kind: "markdown", value: documentation },
+  };
 
   return Temp;
 }
