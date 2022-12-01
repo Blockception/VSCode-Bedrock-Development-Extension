@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.2.12",
-    "node": "^19.0.0"
+    "node": "^19.2.0"
   },
   "extensionKind": [
     "workspace"
