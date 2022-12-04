@@ -16,6 +16,10 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
   if (edu) SMap.forEach(CommandData.Edu, (data) => GetCompletion(data, context.receiver));
 }
 
+export function ProvideExecuteSubcommandCompletion(context: SimpleContext<CompletionBuilder>): void {
+  SMap.forEach(CommandData.ExecuteSubcommands, (data) => GetCompletion(data, context.receiver));
+}
+
 /**
  *
  * @param Datas

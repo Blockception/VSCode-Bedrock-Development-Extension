@@ -12,6 +12,26 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
   ProvideCreateCompletion(receiver, minimum, maximum);
 }
 
+export function ProvideRangeCompletion(context: CommandCompletionContext): void {
+  const receiver = context.receiver;
+  const Options = context.parameter.options;
+
+  const minimum = Options?.minimum ?? 0;
+  const maximum = Options?.maximum ?? 10;
+
+  let diff = maximum - minimum;
+  let steps = diff > 10 ? diff / 10 : 1;
+
+  if (steps < 1) steps = 1;
+
+  receiver.Add(`..${minimum}`, "", CompletionItemKind.Constant);
+  receiver.Add(`${maximum}..`, "", CompletionItemKind.Constant);
+
+  for (let I = minimum; I <= maximum; I += steps) {
+    receiver.Add(`${I}..${I + steps}`, "", CompletionItemKind.Constant);
+  }
+}
+
 export function ProvideCreateCompletion(receiver: CompletionBuilder, minimum: number, maximum: number): void {
   let diff = maximum - minimum;
   let steps = diff > 10 ? diff / 10 : 1;

@@ -249,7 +249,19 @@
         { "name": "entity.name.type.class.tp", "match": "\\btp\\b" },
         { "name": "entity.name.type.class.w", "match": "\\bw\\b" },
         { "name": "entity.name.type.class.weather", "match": "\\bweather\\b" },
-        { "name": "entity.name.type.class.xp", "match": "\\bxp\\b" }
+        { "name": "entity.name.type.class.xp", "match": "\\bxp\\b" },
+        
+        { "name": "keyword.control.execute.align", "match": "\\balign\\b" },
+        { "name": "keyword.control.execute.anchored", "match": "\\banchored\\b" },
+        { "name": "keyword.control.execute.as", "match": "\\bas\\b" },
+        { "name": "keyword.control.execute.at", "match": "\\bat\\b" },
+        { "name": "keyword.control.execute.facing", "match": "\\bfacing\\b" },
+        { "name": "keyword.control.execute.in", "match": "\\bin\\b" },
+        { "name": "keyword.control.execute.positioned", "match": "\\bpositioned\\b" },
+        { "name": "keyword.control.execute.rotated", "match": "\\brotated\\b" },
+        { "name": "keyword.control.execute.run", "match": "\\brun\\b" },
+        { "name": "keyword.control.execute.if", "match": "\\bif\\b" },
+        { "name": "keyword.control.execute.unless", "match": "\\bunless\\b" }
       ]
     },
     "comments": {

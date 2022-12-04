@@ -34,10 +34,15 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos
   const offset = doc.offsetAt({ character: 0, line: pos.line });
 
   let command = Command.parse(Line, offset);
-  const Subcommand = command.isInSubCommand(doc.offsetAt(pos));
+  const cursor = doc.offsetAt(pos);
+  let Subcommand = command.isInSubCommand(cursor);
 
-  if (Subcommand) {
-    command = Subcommand;
+  while (Subcommand) {
+    if (Subcommand) {
+      command = Subcommand;
+    }
+
+    Subcommand = command.isInSubCommand(cursor);
   }
 
   ProvideCompletionCommand(context, doc.offsetAt(pos), command);
@@ -61,11 +66,11 @@ export function ProvideCompletionLine(
 }
 
 /**
- * 
- * @param context 
- * @param pos 
- * @param command 
- * @returns 
+ *
+ * @param context
+ * @param pos
+ * @param command
+ * @returns
  */
 export function ProvideCompletionCommand(
   context: SimpleContext<CompletionBuilder>,

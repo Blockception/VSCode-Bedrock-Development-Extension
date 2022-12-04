@@ -1,12 +1,7 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
 import { IsEducationEnabled } from "../../../Project/Attributes";
-import {
-  OptionalVersionedTextDocumentIdentifier,
-  ParameterInformation,
-  SignatureHelp,
-  SignatureInformation,
-} from "vscode-languageserver";
+import { ParameterInformation, SignatureHelp, SignatureInformation } from "vscode-languageserver";
 import { SignatureCarrier } from "../../../Signatures/Carrier";
 import { TextDocument } from "../../../Types/Document/TextDocument";
 import * as RawText from "../../Json/RawText/Signature";
@@ -30,7 +25,15 @@ export function ProvideSignature(
   if (command.isEmpty()) return undefined;
 
   const edu = IsEducationEnabled(doc);
-  const SubCommand = command.isInSubCommand(cursorOffset, edu);
+  let SubCommand = command.isInSubCommand(cursorOffset, edu);
+
+  while (SubCommand) {
+    if (SubCommand) {
+      command = SubCommand;
+    }
+
+    SubCommand = command.isInSubCommand(cursorOffset, edu);
+  }
 
   if (SubCommand != undefined) {
     command = SubCommand;

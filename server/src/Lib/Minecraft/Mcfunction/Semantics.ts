@@ -9,15 +9,15 @@ import { TextDocument } from "../../Types/Document/TextDocument";
 
 export function ProvideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Builder = new McfunctionSemanticTokensBuilder(doc);
-  let startindex = 0;
-  let endindex = doc.lineCount;
+  let startIndex = 0;
+  let endIndex = doc.lineCount;
 
   if (range) {
-    startindex = range.start.line;
-    endindex = range.end.line;
+    startIndex = range.start.line;
+    endIndex = range.end.line;
   }
 
-  for (let I = startindex; I < endindex; I++) {
+  for (let I = startIndex; I < endIndex; I++) {
     const line = doc.getLine(I);
     const CommentIndex = line.indexOf("#");
 
@@ -33,7 +33,12 @@ export function ProvideSemanticToken(doc: TextDocument, range?: Range | undefine
   return Builder.Build();
 }
 
-export function McfunctionLineTokens(line: string, cursor: number, offset: number, Builder: McfunctionSemanticTokensBuilder): void {
+export function McfunctionLineTokens(
+  line: string,
+  cursor: number,
+  offset: number,
+  Builder: McfunctionSemanticTokensBuilder
+): void {
   if (line.startsWith("/")) {
     line = line.substring(1, line.length);
     offset++;
@@ -52,7 +57,12 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
 
   if (First.text.startsWith("#")) return;
 
-  Builder.AddWord(First, SemanticTokensEnum.class);
+  if (command.subType === ParameterType.executeSubcommand) {
+    Builder.AddWord(First, SemanticTokensEnum.keyword, SemanticModifiersEnum.declaration);
+  } else {
+    Builder.AddWord(First, SemanticTokensEnum.class);
+  }
+
   const Matches = command.getBestMatch(Edu);
   let Match;
 
@@ -68,6 +78,7 @@ function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder
     const Word = command.parameters[I];
 
     switch (Data.type) {
+      case ParameterType.executeSubcommand:
       case ParameterType.command:
         let Sub = command.getSubCommand(Edu);
         if (Sub) {

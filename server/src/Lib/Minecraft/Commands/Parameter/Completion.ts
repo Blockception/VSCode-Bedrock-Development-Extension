@@ -2,7 +2,7 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
-import { ParameterType } from 'bc-minecraft-bedrock-command';
+import { ParameterType } from "bc-minecraft-bedrock-command";
 
 /**These are here to stop circular dependency */
 import * as Command from "../../Commands/Command";
@@ -38,7 +38,10 @@ function toCompletion(context: CommandCompletionContext): void {
   context.receiver.Add(context.parameter.text, "The keyword: " + context.parameter.text, CompletionItemKind.Keyword);
 }
 
-type functionCall = ((context: SimpleContext<CompletionBuilder>) => void) | ((context: CommandCompletionContext) => void) | undefined;
+type functionCall =
+  | ((context: SimpleContext<CompletionBuilder>) => void)
+  | ((context: CommandCompletionContext) => void)
+  | undefined;
 
 const DataMap: Record<number, functionCall> = {
   //BehaviorPacks
@@ -59,6 +62,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.coordinate]: General.Coordinate.ProvideCompletion,
   [ParameterType.float]: General.Float.ProvideCompletion,
   [ParameterType.integer]: General.Integer.ProvideCompletion,
+  [ParameterType.integer_range]: General.Integer.ProvideRangeCompletion,
   //Json
   [ParameterType.jsonItem]: Json.ItemComponents.ProvideCompletion,
   [ParameterType.jsonRawText]: Json.RawText.ProvideCompletion,
@@ -67,6 +71,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.causeType]: Modes.CauseType.ProvideCompletion,
   [ParameterType.cloneMode]: Modes.Clone.ProvideCompletion,
   [ParameterType.difficulty]: Modes.Difficulty.ProvideCompletion,
+  [ParameterType.dimension]: Modes.Dimension.ProvideCompletion,
   [ParameterType.fillMode]: Modes.Fill.ProvideCompletion,
   [ParameterType.gamemode]: Modes.Gamemode.ProvideCompletion,
   [ParameterType.handType]: Modes.HandType.ProvideCompletion,
@@ -81,6 +86,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.rideRules]: Modes.RideRules.ProvideCompletion,
   [ParameterType.rotation]: Modes.Rotation.ProvideCompletion,
   [ParameterType.saveMode]: Modes.Save.ProvideCompletion,
+  [ParameterType.scanMode]: Modes.Scan.ProvideCompletion,
   [ParameterType.slotID]: Modes.SlotId.ProvideCompletion,
   [ParameterType.slotType]: Modes.SlotType.ProvideCompletion,
   [ParameterType.structureAnimationMode]: Modes.StructureAnimation.ProvideCompletion,
@@ -88,7 +94,9 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.time]: Modes.Time.ProvideCompletion,
   //Commands
   [ParameterType.command]: Command.ProvideCompletion,
+  [ParameterType.keyword]: toCompletion,
   [ParameterType.effect]: General.Effect.ProvideCompletion,
+  [ParameterType.executeSubcommand]: Command.ProvideExecuteSubcommandCompletion,
   [ParameterType.message]: General.String.ProvideCompletion,
   [ParameterType.objective]: General.Objectives.ProvideCompletion,
   [ParameterType.selector]: General.Selector.ProvideCompletion,
@@ -96,8 +104,4 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.tag]: General.Tag.ProvideCompletion,
   [ParameterType.tickingarea]: General.Tickingarea.ProvideCompletion,
   [ParameterType.xp]: General.Xp.ProvideCompletion,
-
-  [ParameterType.keyword]: toCompletion,
-  [ParameterType.unknown]: undefined,
 };
-

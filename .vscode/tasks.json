@@ -20,7 +20,10 @@
       "group": "build",
       "label": "npm compile 'vscode-plugin'",
       "presentation": { "reveal": "always", "panel": "dedicated" },
-      "problemMatcher": ["$tsc"]
+      "problemMatcher": ["$tsc"],
+      "icon": {
+        "id": "tasklist"
+      }
     },
     {
       "type": "npm",
