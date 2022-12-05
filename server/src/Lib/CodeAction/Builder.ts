@@ -46,13 +46,12 @@ export class CodeActionBuilder {
   /**
    *
    * @param title
-   * @param commandid
+   * @param commandId
    * @param args
    * @returns
    */
-
-  Command(title: string, commandid: string, args: string[] | undefined): Command {
-    const item: Command = { command: commandid, title: title, arguments: args };
+  Command(title: string, commandId: string, args: string[] | undefined): Command {
+    const item: Command = { command: commandId, title: title, arguments: args };
 
     this.out.push(CodeAction.create(title, item, CodeActionKind.QuickFix));
 
