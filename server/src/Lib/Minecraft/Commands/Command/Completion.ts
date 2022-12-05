@@ -22,7 +22,7 @@ export function ProvideExecuteSubcommandCompletion(context: SimpleContext<Comple
 
 /**
  *
- * @param Datas
+ * @param Data
  * @param receiver
  */
 function GetCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
