@@ -1,5 +1,5 @@
 export const bp_animation_controller: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "animation_controllers" : {
     "controller.animation.$\{\{id\}\} : {
       "initial_state" : "default",
@@ -24,7 +24,7 @@ export const bp_animation_controller: string = `{
 }`;
 
 export const bp_animation: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "animations": {
     "animation.$\{\{id\}\}": {
       "loop": false,
@@ -38,7 +38,7 @@ export const bp_animation: string = `{
 }`;
 
 export const bp_block: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:block": {
     "description": {
       "identifier": "$\{\{id\}\}",
@@ -50,7 +50,7 @@ export const bp_block: string = `{
 }`;
 
 export const bp_entity: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:entity": {
     "description": {
       "identifier": "$\{\{id\}\}",
@@ -72,7 +72,7 @@ export const bp_entity: string = `{
 }`;
 
 export const bp_dialogue: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:npc_dialogue": {
     "scenes": [
       {
@@ -86,7 +86,7 @@ export const bp_dialogue: string = `{
 }`;
 
 export const bp_item: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:item": {
     "description": {
       "identifier": "$\{\{id\}\}"
@@ -138,7 +138,7 @@ export const bp_manifest: string = `{
 }`;
 
 export const bp_recipe: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:<type>": {
     "description": {
       "identifier": "$\{\{id\}\}"
@@ -151,7 +151,7 @@ export const bp_recipe: string = `{
 }`;
 
 export const bp_spawn_rule: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "$\{\{id\}\}",
@@ -189,7 +189,7 @@ export const bp_trading: string = `{
 }`;
 
 export const bp_volume: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:volume": {
     "description": {
       "identifier": "$\{\{id\}\}"

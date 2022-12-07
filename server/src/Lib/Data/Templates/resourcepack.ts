@@ -1,5 +1,5 @@
 export const  rp_animation_controller: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "animation_controllers" : {
     "controller.animation.$\{\{id\}\}" : {
       "initial_state" : "default",
@@ -22,7 +22,7 @@ export const  rp_animation_controller: string = `{
 }`;
 
 export const  rp_animation: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "animations": {
     "animation.$\{\{id\}\}": {
       "animation_length": 5,
@@ -32,7 +32,7 @@ export const  rp_animation: string = `{
 }`;
 
 export const  rp_attachable: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:attachable": {
     "description": {
       "identifier": "$\{\{id\}\}",
@@ -67,7 +67,7 @@ export const  rp_biomes_client: string = `{
 }`;
 
 export const  rp_entity: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:client_entity": {
     "description": {
       "identifier": "$\{\{id\}\}",
@@ -94,7 +94,7 @@ export const  rp_entity: string = `{
 }`;
 
 export const  rp_fog: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:fog_settings": {
     "description": {
       "identifier": "$\{\{id\}\}"
@@ -154,7 +154,7 @@ export const  rp_manifest: string = `{
 }`;
 
 export const  rp_model: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "minecraft:geometry": [
     {
       "description": {
@@ -236,7 +236,7 @@ export const  rp_music_definitions: string = `{
 }`;
 
 export const  rp_particle: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "particle_effect": {
     "description": {
       "identifier": "$\{\{id\}\}",
@@ -251,7 +251,7 @@ export const  rp_particle: string = `{
 }`;
 
 export const  rp_render_controller: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "render_controllers": {
     "controller.render.$\{\{id\}\}": {
       "geometry": "Geometry.default",
@@ -286,7 +286,7 @@ export const  rp_sounds: string = `{
 }`;
 
 export const  rp_sound_definitions: string = `{
-  "format_version": "1.18.0",
+  "format_version": "1.19.50",
   "sound_definitions" : {
      "example" : {
         "category" : "ambient",

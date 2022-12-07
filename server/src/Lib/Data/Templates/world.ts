@@ -6,7 +6,7 @@ export const manifest: string = `{
      "uuid": "$\{\{uuid\}\}",
      "version": [1, 0, 0],
      "lock_template_options": true,
-     "min_engine_version": [1, 18, 0]
+     "min_engine_version": [1, 19, 50]
    },
    "modules": [
      {
