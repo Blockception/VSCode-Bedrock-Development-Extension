@@ -46,7 +46,7 @@ export function codeaction_execute_deprecated(builder: CodeActionBuilder, diag: 
 
   // execute as @a at @s positioned x y z
   if (detect.text === "detect") return;
-  const newCommand = `execute as ${selector.text} at @s positioned ${x.text} ${y.text} ${z.text}`;
+  let newCommand = `execute as ${selector.text} at @s positioned ${x.text} ${y.text} ${z.text} run`;
 
   //Get full range
   const range = diag.range;
@@ -56,6 +56,9 @@ export function codeaction_execute_deprecated(builder: CodeActionBuilder, diag: 
   const id = { uri: builder.doc.uri, version: builder.doc.version };
   const edit = TextEdit.replace(diag.range, newCommand);
   const docEdit = TextDocumentEdit.create(id, [edit]);
+
+  //Optimize
+  newCommand = newCommand.replace("positioned ~ ~ ~ run", "run");
 
   const action: CodeAction = {
     title: `Upgrade to new execute command: '${newCommand}'`,
