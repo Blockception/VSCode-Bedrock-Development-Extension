@@ -23,14 +23,14 @@
     "vscode": "^1.69.2"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-project": "^1.19.50-0",
+    "bc-minecraft-bedrock-project": "^1.19.50-1",
     "node": "^19.2.0",
     "vscode-languageclient": "^8.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.10",
+    "@types/node": "^18.11.11",
     "@types/vscode": "^1.73.1",
     "chai": "^4.3.7",
     "json-loader": "^0.5.7",
