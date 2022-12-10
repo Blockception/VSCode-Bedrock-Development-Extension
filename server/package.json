@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "@daanv2/queue-processor": "^1.1.0",
-    "@types/vscode": "^1.73.1",
+    "@types/vscode": "^1.74.0",
     "bc-minecraft-bedrock-command": "^1.19.50-0",
-    "bc-minecraft-bedrock-diagnoser": "^1.19.50-2",
+    "bc-minecraft-bedrock-diagnoser": "^1.19.50-3",
     "bc-minecraft-bedrock-project": "^1.19.50-1",
     "bc-minecraft-bedrock-types": "^1.19.50-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.19.50-0",
@@ -40,20 +40,20 @@
     "node": "^19.2.0",
     "uuid": "^9.0.0",
     "vscode-languageserver": "^8.0.2",
-    "vscode-languageserver-textdocument": "^1.0.7",
+    "vscode-languageserver-textdocument": "^1.0.8",
     "vscode-uri": "^3.0.6"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.11",
+    "@types/node": "^18.11.12",
     "@types/picomatch": "^2.3.0",
     "chai": "^4.3.7",
     "json-loader": "^0.5.7",
     "mocha": "^10.1.0",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.3",
+    "typescript": "^4.9.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0"
   }
