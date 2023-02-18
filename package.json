@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.2.12",
-    "node": "^19.2.0"
+    "node": "^19.6.0"
   },
   "extensionKind": [
     "workspace"
@@ -53,16 +53,16 @@
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.10",
-    "@vscode/vsce": "^2.15.0",
+    "@types/node": "^18.14.0",
+    "@vscode/vsce": "^2.17.0",
     "chai": "^4.3.7",
     "json-loader": "^0.5.7",
-    "mocha": "^10.1.0",
+    "mocha": "^10.2.0",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.3",
+    "typescript": "^4.9.5",
     "webpack": "^5.75.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^5.0.1"
   },
   "files": [
     "*.html"
@@ -555,7 +555,7 @@
           "*Resource*Pack*/animations/**/*.{json,jsonc,json5}",
           "*RP*/animations/**/*.{json,jsonc,json5}",
           "*rp*/animations/**/*.{json,jsonc,json5}",
-          "*.{animation.rp,anim.rp,a.rp,rpa}.{json,jsonc,json5}"
+          "*.{animation.rp,animation,anim.rp,a.rp,rpa}.{json,jsonc,json5}"
         ],
         "url": "./minecraft-bedrock-schemas/resource/animations/actor_animation.json"
       },
