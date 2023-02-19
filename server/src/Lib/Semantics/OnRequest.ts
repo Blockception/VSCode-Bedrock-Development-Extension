@@ -1,6 +1,6 @@
 import { Console } from "../Manager/Console";
 import { GetDocument } from "../Types/Document/Document";
-import { Languages } from "../Constants";
+import { Languages } from "@blockception/shared";
 import { ProvideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
 import { ProvideMolangSemanticTokens } from "../Minecraft/Molang/Semantics";
 import { Range, SemanticTokens } from "vscode-languageserver/node";

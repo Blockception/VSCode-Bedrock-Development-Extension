@@ -3,59 +3,62 @@ client/src/**
 server/node_modules/**
 server/src/**
 server/test/**
-
-client/out/**
-server/out/**
-!client/out/extension.js
-!server/out/server.js
-
+shared/**
 scripts/**
 node_modules
 node_modules/**
 LICENSES
 LICENSES/**
 
-**/*.ts
-**/*.js.map
+client/out/**
+server/out/**
+!client/out/extension.js
+!server/out/server.js
 
-**/tsconfig.json
-**/webpack.config.js
-*.git*
-*.code-workspace
-*.vsix
 .gitattributes
 .github
 .github/**
 .gitignore
+.mcignore
+.nvmrc
 .vscode
 .vscode/**
+*.code-workspace
+*.git*
+*.vsix
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
+contributing.mdp
 Debugging.md
+documentation/**
+log.txt
+minecraft colours.json
 NOTE.md
+source schemas/**
+src/**
+tools/**
+tsconfig.json
+webpack.config.js
 
+**/.eslintignore
+**/.eslintrc
+**/.mocharc.json
+**/*.js.map
+**/*.ts
 **/CODE_OF_CONDUCT.md
 **/CONTRIBUTING.md
 **/Debugging.md
 **/NOTE.md
-
-contributing.mdp
-documentation/**
-minecraft colours.json
-
-source schemas/**
-src/**
-tools/**
-log.txt
-tsconfig.json
-webpack.config.js
+**/tsconfig.json
+**/webpack.config.js
+**/package-lock.json
 
 !documentation/cheat-sheet
 !documentation/cheat-sheet/*html
 
-
 minecraft-bedrock-schemas/*
 minecraft-bedrock-schemas/**/*
+minecraft-bedrock-schemas/**/NOTE.md
 !minecraft-bedrock-schemas/behavior
 !minecraft-bedrock-schemas/behavior/*json
 !minecraft-bedrock-schemas/general
@@ -66,7 +69,3 @@ minecraft-bedrock-schemas/**/*
 !minecraft-bedrock-schemas/resource/*json
 !minecraft-bedrock-schemas/skinpacks
 !minecraft-bedrock-schemas/skinpacks/*json
-
-.eslintignore
-.eslintrc
-.mocharc.json

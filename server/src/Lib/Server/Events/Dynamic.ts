@@ -4,7 +4,7 @@ import {
   DocumentFormattingRequest,
   SemanticTokensRegistrationType,
 } from "vscode-languageserver";
-import { Languages } from "../../Constants";
+import { Languages } from "@blockception/shared";
 import { Manager } from "../../Manager/Manager";
 import { SemanticModifiers, SemanticTokens } from "../../Semantics/Legend";
 

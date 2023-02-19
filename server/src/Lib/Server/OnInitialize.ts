@@ -1,8 +1,8 @@
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../Manager/Manager";
-import { Commands, Languages } from "../Constants";
 import { Console } from "../Manager/Console";
 import { Version } from "../Version";
+import { Commands, Languages } from "@blockception/shared";
 
 export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
   return Promise.resolve(onInitialize(params));

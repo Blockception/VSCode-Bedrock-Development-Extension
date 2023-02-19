@@ -1,9 +1,10 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient/node";
-import { Languages } from "../Constants";
 import * as path from "path";
 import * as vscode from "vscode";
 import { Manager } from "../Manager/Manager";
 import { resolveCodeLens } from './Middleware';
+import { Languages } from '@blockception/shared';
+
 
 export function SetupClient(context: vscode.ExtensionContext) {
   console.log("starting minecraft language client");

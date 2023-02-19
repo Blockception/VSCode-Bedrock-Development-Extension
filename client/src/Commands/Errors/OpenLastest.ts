@@ -1,7 +1,7 @@
 import { readdirSync, statSync } from "fs";
 import path = require("path");
 import { commands, ExtensionContext, languages, Uri, window } from "vscode";
-import { Commands } from "../../Constants";
+import { Commands } from "@blockception/shared";
 
 export function Activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.Errors.OpenLastest, OpenLastestError));

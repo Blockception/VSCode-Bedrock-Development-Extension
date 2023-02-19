@@ -1,6 +1,6 @@
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../../CodeAction/Builder";
-import { Commands } from '../../../Constants';
+import { Commands } from "@blockception/shared";
 
 
 export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {

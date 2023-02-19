@@ -2,7 +2,7 @@ import { CompletionBuilder } from "./Builder";
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { Console } from "../Manager";
 import { GetDocument } from "../Types/Document/Document";
-import { Languages } from "../Constants";
+import { Languages } from "@blockception/shared";
 import { SimpleContext } from "../Code/SimpleContext";
 
 import * as Json from "../Minecraft/Json/Completion";

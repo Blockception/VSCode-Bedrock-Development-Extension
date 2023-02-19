@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
     "lib": ["ES2019"],
     "module": "commonjs",
@@ -24,5 +25,7 @@
   },
   "exclude": ["node_modules", ".vscode-test", "*.test.ts"],
   "include": ["./src"],
-  "references": []
+  "references": [
+    { "path": "../shared" }
+  ]
 }

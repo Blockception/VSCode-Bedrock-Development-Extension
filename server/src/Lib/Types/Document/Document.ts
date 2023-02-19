@@ -1,13 +1,13 @@
 import * as fs from "fs";
 import * as vscode from "vscode-languageserver-textdocument";
 import { Manager } from "../../Manager/Manager";
-import { Languages } from "../../Constants";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { HandleError } from "../../Code/Error";
 import { Fs, Vscode } from "../../Code/Url";
 import { ProgressBar } from "../Progress/ProgressBar";
 import { QueueProcessor } from "@daanv2/queue-processor";
+import { Languages } from "@blockception/shared";
 
 type ContentType = string | vscode.TextDocument | undefined;
 
@@ -55,7 +55,7 @@ export function GetDocument(uri: string, Content: ContentType = undefined, langu
  * @param languageID The Language ID associated to the documentated.
  * @returns Returns a textdocument or undefined if something went wrong
  */
-export function GetDocumnetAsync(uri: string, Content: ContentType = undefined, languageID: string = ""): Promise<TextDocument | undefined> {
+export function GetDocumentAsync(uri: string, Content: ContentType = undefined, languageID: string = ""): Promise<TextDocument | undefined> {
   return new Promise<TextDocument | undefined>((resolve, reject) => {
     try {
       resolve(GetDocument(uri, Content, languageID));

@@ -1,0 +1,13 @@
+{
+  "name": "@blockception/shared",
+  "version": "0.0.1",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
+}
