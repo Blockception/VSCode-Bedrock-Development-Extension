@@ -17,3 +17,4 @@ minecraft-bedrock-schemas/**/*.json
 
 minecraft-bedrock-schemas/src
 minecraft-bedrock-schemas/test
+reports
