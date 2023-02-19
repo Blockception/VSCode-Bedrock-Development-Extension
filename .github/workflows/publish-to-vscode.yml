@@ -60,9 +60,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🛠️ Build
-        run: npx vsce package
         env:
           VSCE_PAT: ${{ secrets.vsce }}
+        run: |
+          npx vsce package
+          echo "Size of package: $(du -h *.vsix | cut -f1)" >> $GITHUB_STEP_SUMMARY
 
       - name: 🚚 Upload Artifact
         uses: actions/upload-artifact@v3
