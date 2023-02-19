@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    /* Truncated compiler options to list only relevant options */
+    "declaration": true,
+    "declarationMap": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "composite": true
+  },
+  "references": [] // * Any project that is referenced must itself have a `references` array (which may be empty).
+}

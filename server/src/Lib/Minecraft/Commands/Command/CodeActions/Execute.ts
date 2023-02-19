@@ -9,7 +9,7 @@ import {
   TextEdit,
 } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../../../CodeAction/Builder";
-import { Languages } from "../../../../Constants";
+import { Languages } from "../../../../../../../shared/src";
 
 /**
  * Code action for `minecraft.commands.execute.deprecated`

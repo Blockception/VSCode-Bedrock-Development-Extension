@@ -1,7 +1,7 @@
 import { Internal } from "bc-minecraft-bedrock-project";
 import { writeFile } from "fs";
 import { Fs, Vscode } from "../../../Code/Url";
-import { ToolIdentification } from "../../../Constants";
+import { ToolIdentification } from "../../../../../../shared/src";
 import { JsonDocument } from "../../../Types/Document/Json Document";
 import { Version } from "../../../Version";
 import * as JSONC from "comment-json";

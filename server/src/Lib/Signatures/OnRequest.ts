@@ -1,5 +1,5 @@
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
-import { Languages } from "../Constants";
+import { Languages } from '../../../../shared/src';
 import { Console } from '../Manager';
 import { Language, Mcfunction, Molang } from "../Minecraft";
 import { GetDocument } from "../Types/Document/Document";

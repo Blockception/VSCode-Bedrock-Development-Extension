@@ -1,7 +1,6 @@
 import { Diagnostic } from "vscode-languageserver";
+import { Commands } from '../../../../../../shared/src';
 import { CodeActionBuilder } from "../../../CodeAction/Builder";
-import { Definition } from "../../../CodeAction/Types/Definition";
-import { Commands } from '../../../Constants';
 
 export function OnCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
   switch (diag.code) {

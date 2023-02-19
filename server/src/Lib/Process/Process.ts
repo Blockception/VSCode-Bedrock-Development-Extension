@@ -2,7 +2,7 @@ import { TextDocument } from "../Types/Document/TextDocument";
 import { Database } from "../Database/Database";
 import { HandleError } from "../Code/Error";
 import { ProvideDiagnostics } from "../Diagnostics/OnRequest";
-import { Languages } from "../Constants";
+import { Languages } from '../../../../shared/src';
 import { Traverse } from "./Traverse";
 import { Manager } from '../Manager/Manager';
 

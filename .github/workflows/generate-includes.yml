@@ -43,6 +43,15 @@ jobs:
             *.test.ts
             index.ts
 
+      - name: Shared indexes
+        uses: DaanV2/Typescript-Action-Create-Indexes@latest
+        with:
+          folder: ${{ github.workspace }}/shared
+          export_sub_index: true
+          excludes: |
+            *.test.ts
+            index.ts
+
       - name: ✏️ Commit changes
         continue-on-error: true
         run: |

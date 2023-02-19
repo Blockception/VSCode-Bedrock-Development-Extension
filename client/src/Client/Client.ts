@@ -1,5 +1,5 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient/node";
-import { Languages } from "../Constants";
+import { Languages } from "../../../../shared/src";
 import * as path from "path";
 import * as vscode from "vscode";
 import { Manager } from "../Manager/Manager";

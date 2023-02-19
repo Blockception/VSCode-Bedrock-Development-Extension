@@ -1,5 +1,5 @@
 import { Hover, HoverParams } from "vscode-languageserver";
-import { Languages } from "../Constants";
+import { Languages } from '../../../../shared/src';
 import { GetDocument } from "../Types/Document/Document";
 
 import * as Json from "../Minecraft/Json";

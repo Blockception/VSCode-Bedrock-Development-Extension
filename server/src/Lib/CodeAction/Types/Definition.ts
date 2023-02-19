@@ -1,6 +1,6 @@
 import { MCAttributes, MCDefinition } from "bc-minecraft-project";
 import { CodeAction, CodeActionKind, Command, Diagnostic } from "vscode-languageserver";
-import { Commands } from "../..//Constants";
+import { Commands } from '../../../../../shared/src';
 import { Vscode } from "../../Code/Url";
 import { Database } from "../../Database/Database";
 import { Console } from "../../Manager/Console";

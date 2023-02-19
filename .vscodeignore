@@ -3,6 +3,7 @@ client/src/**
 server/node_modules/**
 server/src/**
 server/test/**
+shared/**
 
 client/out/**
 server/out/**

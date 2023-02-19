@@ -2,7 +2,7 @@ import { exec } from "child_process";
 import { readdir, readFile } from "fs/promises";
 import { join, resolve as resolvePath } from "path";
 import { commands, ExtensionContext, Uri, window } from "vscode";
-import { Commands, VanillaPacks } from "../../Constants";
+import { Commands, VanillaPacks } from "../../../../../shared/src";
 import { jsonc } from "jsonc";
 
 export function Activate(context: ExtensionContext): void {
@@ -11,7 +11,7 @@ export function Activate(context: ExtensionContext): void {
 
 var dataDir: string = "";
 var vanillaFiles: Map<string, Map<string, string>> = new Map();
-const exclude:string[] = ['behavior_trees', 'contents.json']
+const exclude: string[] = ["behavior_trees", "contents.json"];
 
 function ShowVanillaFile(args: any): any {
   FindAllVanillaFiles().then(() => {
@@ -83,17 +83,17 @@ function FindVanillaFiles(dir: string, uuid: string, prefix: string): any {
         packs = packs
           .filter((pack) => pack && pack[1] && pack[1].header && pack[1].header.uuid === uuid)
           .sort((a, b) => compareSemver(a[1].header.version, b[1].header.version));
-          for (const pack of packs) {
-            let base = join(dir, pack[0]);
-            let files = await getFiles(base)
-              files
-                .filter((file) => file.endsWith(".json") && !exclude.some((ex) => file.includes(ex)))
-                .forEach((file) => {
-                  let relative = file.substring(base.length + 1);
-                  vanillaFiles.get(prefix)?.set(relative, file);
+        for (const pack of packs) {
+          let base = join(dir, pack[0]);
+          let files = await getFiles(base);
+          files
+            .filter((file) => file.endsWith(".json") && !exclude.some((ex) => file.includes(ex)))
+            .forEach((file) => {
+              let relative = file.substring(base.length + 1);
+              vanillaFiles.get(prefix)?.set(relative, file);
             });
-          }
-          resolve(null);
+        }
+        resolve(null);
       });
     });
 }

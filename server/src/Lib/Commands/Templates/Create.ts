@@ -1,7 +1,7 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { TemplateBuilder } from "./Builder";
 import { Console } from "../../Manager/Console";
-import { Commands } from "../../Constants";
+import { Commands } from "../../../../../shared/src";
 import { Database } from "../../Database/Database";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { GetContext, Context } from "./Context";
