@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    uses: ./.github/workflows/unit-test.yml@feature/test-report
+    uses: ./.github/workflows/unit-test.yml
 
   universal:
     runs-on: windows-latest
