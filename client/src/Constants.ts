@@ -38,6 +38,9 @@ export namespace Commands {
   export const StoreProject: string = "bc.minecraft.project.store";
 
   /** */
+  export const ShowVanillaFile: string = "bc.minecraft.vanilla.show";
+
+  /** */
   export namespace Files {
     export const Append = "bc-files-append";
   }
@@ -168,4 +171,15 @@ export namespace Commands {
     /** */
     export const OpenLastest = "bc.errors.open_lastest";
   }
+}
+
+
+/** */
+export namespace VanillaPacks {
+  /** */
+  export const MinecraftInstallLocationCommand = "(Get-AppxPackage -Name Microsoft.MinecraftUWP).InstallLocation";
+  /** */
+  export const VanillaBehaviorPackUUID = "fe9f8597-5454-481a-8730-8d070a8e2e58";
+  /** */
+  export const VanillaResourcePackUUID = "0575c61f-a5da-4b7f-9961-ffda2908861e";
 }
