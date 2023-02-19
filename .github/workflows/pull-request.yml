@@ -29,7 +29,9 @@ jobs:
         run: npm run compile
 
       - name: 📦 Package test
-        run: npx vsce package
+        run: |
+          npx vsce package
+          echo "Size of package: $(du -h *.vsix | cut -f1)" >> $GITHUB_STEP_SUMMARY
 
   test:
     name: 📋 Unit Test ${{ matrix.os }}
@@ -51,7 +53,7 @@ jobs:
           cache-dependency-path: package-lock.json
           node-version-file: .nvmrc
 
-      - name: Setup Project
+      - name: 🛠️ Setup Project
         run: npm ci
 
       - name: 📋 Test
