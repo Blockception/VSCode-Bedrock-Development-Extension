@@ -40,5 +40,6 @@ jobs:
         if: ${{ always() }}
         uses: dorny/test-reporter@v1
         with:
+          name: 📋 Unit Test
           path: "**/junit.xml"
 
