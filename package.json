@@ -90,7 +90,6 @@
     "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
     "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
     "lint": "npm run lint:client && npm run lint:server",
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "postversion": "git push && git push --tags",
     "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
     "test-compile": "tsc -p ./",
