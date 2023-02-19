@@ -1,7 +1,9 @@
 {
+  "color": true,
   "extension": ["ts"],
   "ui": "bdd",
-  "color": true,
   "recursive": true,
-  "require": "ts-node/register"
+  "require": "ts-node/register",
+  "reporter": "mocha-junit-reporter",
+  "reporterOptions": ["mochaFile=./reports/junit.xml"]
 }

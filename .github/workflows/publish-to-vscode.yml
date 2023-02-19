@@ -9,34 +9,7 @@ on:
 
 jobs:
   test:
-    name: 📋 Test ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js Environment
-        uses: actions/setup-node@v3
-        with:
-          cache: npm
-          cache-dependency-path: package-lock.json
-          node-version-file: .nvmrc
-
-      - name: Setup Project
-        run: npm ci
-
-      - name: 📋 Test
-        run: npm run test
-
-      - name: 📦 Package test
-        run: |
-          npx vsce package
-          echo "Size of package: $(du -h *.vsix | cut -f1)" >> $GITHUB_STEP_SUMMARY
+    uses: ./unit-test.yml
 
   universal:
     runs-on: windows-latest
