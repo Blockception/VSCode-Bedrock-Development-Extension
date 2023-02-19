@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    uses: ./unit-test.yml
+    uses: ./unit-test.yml@feature/test-report
 
   universal:
     runs-on: windows-latest
