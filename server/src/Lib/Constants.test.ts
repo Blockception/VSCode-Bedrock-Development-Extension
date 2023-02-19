@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Languages, ToolIdentification } from "../../../shared/src";
+import { Languages, ToolIdentification } from "@blockception/shared";
 
 describe("Constants", () => {
   it("values", () => {

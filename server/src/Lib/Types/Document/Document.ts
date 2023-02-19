@@ -7,7 +7,7 @@ import { HandleError } from "../../Code/Error";
 import { Fs, Vscode } from "../../Code/Url";
 import { ProgressBar } from "../Progress/ProgressBar";
 import { QueueProcessor } from "@daanv2/queue-processor";
-import { Languages } from '../../../../../shared/src';
+import { Languages } from "@blockception/shared";
 
 type ContentType = string | vscode.TextDocument | undefined;
 

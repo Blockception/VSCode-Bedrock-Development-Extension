@@ -9,6 +9,11 @@
   "publisher": "BlockceptionLtd",
   "version": "5.0.7",
   "pricing": "Free",
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
     "onLanguage:bc-mcfunction",

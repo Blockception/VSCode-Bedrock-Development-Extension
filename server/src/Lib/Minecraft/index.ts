@@ -11,4 +11,3 @@ export * as Molang from "./Molang/index";
 export * as ResourcePack from "./ResourcePack/index";
 export * from "./CodeAction";
 export * from "./Format";
-export * from "./Install Location";

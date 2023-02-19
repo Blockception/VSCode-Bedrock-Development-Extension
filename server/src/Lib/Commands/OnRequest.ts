@@ -1,5 +1,5 @@
 import { AddAllItems } from "./Language";
-import { Commands } from '../../../../shared/src';
+import { Commands } from "@blockception/shared";
 import { Console } from "../Manager";
 import { Create } from "./Templates/Create";
 import { DiagnoseProjectCommand } from "./Diagnose Project";

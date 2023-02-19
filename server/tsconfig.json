@@ -3,6 +3,7 @@
     "alwaysStrict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "lib": ["ES2019"],
     "module": "commonjs",
     "moduleResolution": "node",
@@ -23,7 +24,7 @@
     "types": ["node", "mocha"]
   },
   "exclude": ["node_modules", ".vscode-test", "*.test.ts"],
-  "include": ["./src/**/*"],
+  "include": ["./src"],
   "references": [
     { "path": "../shared" }
   ]

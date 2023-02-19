@@ -1,5 +1,2 @@
 export * from './Constants';
-
-export interface Data {
-
-};
+export * from './minecraft'

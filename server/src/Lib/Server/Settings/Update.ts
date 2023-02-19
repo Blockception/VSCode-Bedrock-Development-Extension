@@ -1,5 +1,5 @@
 import { DidChangeConfigurationParams } from "vscode-languageserver";
-import { Identification } from "../../../../../shared/src";
+import { Identification } from "@blockception/shared";
 import { Database } from "../../Database/Database";
 import { Console } from "../../Manager";
 import { Manager } from "../../Manager/Manager";

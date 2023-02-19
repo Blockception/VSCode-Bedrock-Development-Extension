@@ -1,7 +1,7 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { randomUUID } from "crypto";
-import { ToolIdentification } from '../../../../shared/src';
+import { ToolIdentification } from "@blockception/shared";
 import { Fs, Vscode } from '../Code';
 import { Database } from "../Database";
 import { Version } from "../Version";

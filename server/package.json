@@ -24,6 +24,7 @@
     "save_version": "echo export const Version = \"%npm_package_version%\" > ./src/Lib/Version.ts"
   },
   "dependencies": {
+    "@blockception/shared": "^0.0.1",
     "@daanv2/queue-processor": "^2.2.0",
     "@types/vscode": "^1.75.1",
     "bc-minecraft-bedrock-command": "^1.19.50-0",

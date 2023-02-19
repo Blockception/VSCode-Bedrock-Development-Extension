@@ -3,7 +3,7 @@ import { CompletionItemKind, Position } from "vscode-languageserver-types";
 import { GetPreviousWord, IsMolang } from "./Functions";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../Code/SimpleContext";
-import { Languages } from '../../../../../shared/src';
+import { Languages } from "@blockception/shared";
 
 import * as Geometry from "./Geometry/Completion";
 import * as Material from "./Material/Completion";
