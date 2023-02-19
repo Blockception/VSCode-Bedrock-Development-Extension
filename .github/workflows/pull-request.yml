@@ -34,5 +34,5 @@ jobs:
           echo "Size of package: $(du -h *.vsix | cut -f1)" >> $GITHUB_STEP_SUMMARY
 
   test:
-    uses: ./unit-test.yml@feature/test-report
+    uses: ./.github/workflows/unit-test.yml@feature/test-report
 
