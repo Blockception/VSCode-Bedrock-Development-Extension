@@ -2,7 +2,6 @@ name: Generate TS indexes
 
 on:
   push:
-
   workflow_dispatch:
 
 jobs:
