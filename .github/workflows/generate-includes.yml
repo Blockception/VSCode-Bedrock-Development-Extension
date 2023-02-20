@@ -43,7 +43,7 @@ jobs:
         uses: DaanV2/Typescript-Action-Create-Indexes@latest
         with:
           folder: ${{ github.workspace }}/shared
-          export_sub_index: true
+          export_sub_index: false
           excludes: |
             *.test.ts
             index.ts
