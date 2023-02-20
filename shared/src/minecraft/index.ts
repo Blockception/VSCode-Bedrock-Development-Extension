@@ -1,3 +1,5 @@
-export * from './data';
-export * from './general';
-export * from './installation';
+/*	Auto generated	*/
+
+export * from "./data";
+export * from "./general";
+export * from "./installation";

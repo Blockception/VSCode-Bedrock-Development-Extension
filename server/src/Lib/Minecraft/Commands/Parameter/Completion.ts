@@ -86,7 +86,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.rideRules]: Modes.RideRules.ProvideCompletion,
   [ParameterType.rotation]: Modes.Rotation.ProvideCompletion,
   [ParameterType.saveMode]: Modes.Save.ProvideCompletion,
-  [ParameterType.scanMode]: Modes.Scan.ProvideCompletion,
+  [ParameterType.scanMode]: Modes.ScanMode.ProvideCompletion,
   [ParameterType.slotID]: Modes.SlotId.ProvideCompletion,
   [ParameterType.slotType]: Modes.SlotType.ProvideCompletion,
   [ParameterType.structureAnimationMode]: Modes.StructureAnimation.ProvideCompletion,
