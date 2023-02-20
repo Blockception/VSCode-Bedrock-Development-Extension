@@ -1,3 +1,2 @@
-/*	Auto generated	*/
-export * as minecraft from "./minecraft/index";
-export * from "./Constants";
+export * from './Constants';
+export * from './minecraft'

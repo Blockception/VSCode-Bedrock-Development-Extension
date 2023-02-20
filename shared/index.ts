@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * as src from "./src/index";
+export * from "./src/index";
