@@ -566,7 +566,7 @@
           "*Resource*Pack*/animations/**/*.{json,jsonc,json5}",
           "*RP*/animations/**/*.{json,jsonc,json5}",
           "*rp*/animations/**/*.{json,jsonc,json5}",
-          "*.{animation.rp,animation,anim.rp,a.rp,rpa}.{json,jsonc,json5}"
+          "*.{animation.rp,animation,anim.rp,a.rp,rpa,animation}.{json,jsonc,json5}"
         ],
         "url": "./minecraft-bedrock-schemas/resource/animations/actor_animation.json"
       },
@@ -590,7 +590,7 @@
         "fileMatch": [
           "entity/*.{json,jsonc,json5}",
           "entity/**/*.{json,jsonc,json5}",
-          "*.{entity.rp,e.rp,ce,rpe,actor}.{json,jsonc,json5}",
+          "*.{entity.rp,e.rp,ce,rpe,actor,entity}.{json,jsonc,json5}",
           "!models/entity/**/*.{json,jsonc,json5}",
           "!models/entity/*.{json,jsonc,json5}"
         ],
