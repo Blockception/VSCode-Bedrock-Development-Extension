@@ -18,7 +18,7 @@ export * as RideFill from "./RideFill/index";
 export * as RideRules from "./RideRules/index";
 export * as Rotation from "./Rotation/index";
 export * as Save from "./Save/index";
-export * as Scan from "./Save/index";
+export * as ScanMode from "./ScanMode/index";
 export * as SlotId from "./SlotId/index";
 export * as SlotType from "./SlotType/index";
 export * as StructureAnimation from "./StructureAnimation/index";
