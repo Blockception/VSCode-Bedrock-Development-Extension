@@ -10,8 +10,8 @@ export class Console {
   }
 
   /**Sends a error to the console log of the server*/
-  static Log(message: string): void {
-    console.log(message);
+  static Log(message: string, ...optionalParams: any): void {
+    console.log(message, ...optionalParams);
   }
 
   /**Sends a error to the console log of the server*/
