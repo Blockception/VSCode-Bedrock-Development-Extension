@@ -1,5 +1,4 @@
 import path from "path";
-import { Vscode } from '../../Code';
 import * as BP from "../../Data/Templates/behaviorpack";
 import * as RP from "../../Data/Templates/resourcepack";
 import * as WP from "../../Data/Templates/world";
@@ -8,7 +7,7 @@ import { TemplateProcessor } from "../../Templates/Processor";
 
 export interface TemplateMap<T> {
   "behavior-animation_controller": T;
-  "behavior-animation": T;
+  "behavior-animations": T;
   "behavior-block": T;
   "behavior-entity": T;
   "behavior-dialogue": T;
@@ -21,7 +20,7 @@ export interface TemplateMap<T> {
   "behavior-volume": T;
 
   "resource-animation_controller": T;
-  "resource-animation": T;
+  "resource-animations": T;
   "resource-attachable": T;
   "resource-biomes_client": T;
   "resource-blocks": T;
@@ -88,7 +87,7 @@ export const TemplateFilenames: TemplateMap<TemplateItem> = {
     content: BP.bp_animation_controller,
     filename: path.join("animation_controllers", "${{id.safe}}.controller.json"),
   },
-  "behavior-animation": {
+  "behavior-animations": {
     content: BP.bp_animation,
     filename: path.join("animations", "${{id.safe}}.animation.json"),
   },
@@ -141,7 +140,7 @@ export const TemplateFilenames: TemplateMap<TemplateItem> = {
     content: RP.rp_animation_controller,
     filename: path.join("animation_controllers", "${{id.safe}}.controller.json"),
   },
-  "resource-animation": {
+  "resource-animations": {
     content: RP.rp_animation,
     filename: path.join("animations", "${{id.safe}}.animation.json"),
   },

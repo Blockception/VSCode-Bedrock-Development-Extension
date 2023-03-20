@@ -56,7 +56,9 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
   data.General.tickingAreas.forEach(check);
 
   if (uri.endsWith(".json")) return builder.items;
-  builder.new(GetFilename(uri), SymbolKind.Class);
+
+  const filename = GetFilename(uri);
+  if (filename !== "") builder.new(filename, SymbolKind.Class);  
 
   return builder.items;
 }

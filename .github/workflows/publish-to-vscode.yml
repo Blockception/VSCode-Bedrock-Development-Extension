@@ -63,6 +63,6 @@ jobs:
         uses: actions/download-artifact@v3
 
       - name: 📦 -> 🏤 Upload to Vscode
-        run: npx vsce publish --packagePath $(find . -iname *.vsix)
+        run: npx @vscode/vsce publish --packagePath $(find . -iname *.vsix)
         env:
           VSCE_PAT: ${{ secrets.vsce }}
