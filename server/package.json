@@ -28,7 +28,7 @@
     "@daanv2/queue-processor": "^2.2.0",
     "@types/vscode": "^1.75.1",
     "bc-minecraft-bedrock-command": "^1.19.50-0",
-    "bc-minecraft-bedrock-diagnoser": "^1.19.50-4",
+    "bc-minecraft-bedrock-diagnoser": "^1.19.60-0",
     "bc-minecraft-bedrock-project": "^1.19.50-1",
     "bc-minecraft-bedrock-types": "^1.19.50-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.19.60-0",

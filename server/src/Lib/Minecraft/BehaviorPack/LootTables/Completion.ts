@@ -11,33 +11,24 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
 }
 
 export function ProvideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
-  generate_items(context, (id) => {
-    //Remove loot_tables/
-    if (id.startsWith("loot_tables/")) {
-      id = id.substring(12);
-    }
+  const old = context.receiver.OnNewItem
+  context.receiver.OnNewItem = (item) => {
+    let id = short_id(item.label);
+    item.insertText = id;
 
-    //Remove .json
-    if (id.endsWith(".json")) {
-      id = id.substring(0, id.length - 5);
-    }
+    if (old) old(item);
+  };
 
-    if (id.includes('/') || id.includes('\\')) {
-      id = '"' + id + '"';
-    }
-
-    return id;
-  });
+  generate_items(context);
+  context.receiver.OnNewItem = old;
 }
 
-function generate_items(context: SimpleContext<CompletionBuilder>, additional?: (id: string) => string) {
-  let transform_id = additional ?? ((x) => x);
-
-  const generateDoc = (item: Identifiable) => `The loot table definition: ${transform_id(item.id)}`;
+function generate_items(context: SimpleContext<CompletionBuilder>) {
+  const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
 
   context.receiver.Generate(Database.ProjectData.BehaviorPacks.loot_tables, generateDoc, Kinds.Completion.LootTable);
 
-  const generatesDoc = (item: string) => `The vanilla loot table definition: ${transform_id(item)}`;
+  const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
   //Vanilla data
   context.receiver.GenerateStr(
@@ -49,4 +40,20 @@ function generate_items(context: SimpleContext<CompletionBuilder>, additional?: 
   //Education data
   if (IsEducationEnabled(context.doc))
     context.receiver.GenerateStr(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc, Kinds.Completion.LootTable);
+}
+
+
+function short_id(id: string) : string {
+  if (id.startsWith("loot_tables/")) {
+    id = id.slice(12);
+  }
+  if (id.endsWith(".json")) {
+    id = id.slice(0, -5);
+  }
+
+  if (id.includes('/') || id.includes('\\')) {
+    id = '"' + id + '"';
+  }
+
+  return id;
 }

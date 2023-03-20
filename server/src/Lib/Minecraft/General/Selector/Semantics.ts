@@ -59,7 +59,7 @@ function ProcessParameters(
       break;
 
     case "item":
-      builder.AddWord(name, Kinds.Symbol.Item, SemanticModifiersEnum.readonly);
+      builder.AddWord(name, SemanticTokensEnum.property, SemanticModifiersEnum.readonly);
       CreateNamespaced(value, builder);
       break;
 
