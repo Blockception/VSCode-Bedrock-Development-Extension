@@ -51,7 +51,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.event]: BehaviorPack.EntityEvent.ProvideCompletion,
   [ParameterType.function]: BehaviorPack.Functions.ProvideCompletion,
   [ParameterType.item]: BehaviorPack.Items.ProvideCompletion,
-  [ParameterType.lootTable]: BehaviorPack.LootTables.ProvideCompletion,
+  [ParameterType.lootTable]: BehaviorPack.LootTables.ProvideShortCompletion,
   [ParameterType.structure]: BehaviorPack.Structures.ProvideCompletion,
   //ResourcePacks
   [ParameterType.animation]: ResourcePack.Animations.ProvideCompletion,
