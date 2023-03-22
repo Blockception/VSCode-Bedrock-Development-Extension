@@ -29,7 +29,7 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
   const second = c.currentText.substring(insertIndex);
   const P = c.doc.positionAt(c.cursor);
   const R = Range.create(P, P);
-
+    
   //Have each new item pass through a new function
   var Function = c.receiver.OnNewItem;
   c.receiver.OnNewItem = (NewItem: CompletionItem) => {

@@ -4,6 +4,8 @@ import * as LootTables from "./LootTables/Completion";
 import * as Trading from "./Trading/Completion";
 
 export function ProvideCompletion(context: JsonCompletionContext) {
+  if (context.doc.uri.includes("loot_tables")) return LootTables.ProvideLootTableCompletion(context);
+
   //Prepare data to be fixed for json
   const data = context.currentText;
 

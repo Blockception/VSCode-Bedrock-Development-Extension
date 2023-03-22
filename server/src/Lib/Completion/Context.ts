@@ -24,12 +24,6 @@ export interface CommandCompletionContext extends SimpleContext<CompletionBuilde
   current: Parameter | undefined;
 }
 
-export interface JsonCompletionContext extends SimpleContext<CompletionBuilder> {
-  cursor: number;
-  range: TextRange;
-  currentText: string;
-}
-
 /**
  *
  */
@@ -79,5 +73,26 @@ export namespace CommandCompletionContext {
       current: current,
       doc: doc,
     };
+  }
+}
+
+export interface JsonCompletionContext extends SimpleContext<CompletionBuilder> {
+  cursor: number;
+  range: TextRange;
+  currentText: string;
+}
+
+export namespace JsonCompletionContext {
+  export function getProperty(context: JsonCompletionContext): string | undefined {
+    const text = context.doc.getText();
+    const before = text.slice(0, context.range.start);
+    const index = before.lastIndexOf('":');
+    if (index === -1) return undefined;
+
+    //Find the start of the property
+    const start = before.lastIndexOf('"', index - 1);
+    if (start === -1) return undefined;
+
+    return before.slice(start + 1, index);
   }
 }
