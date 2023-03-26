@@ -28,7 +28,7 @@
     "bc-minecraft-bedrock-project": "^1.19.70-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.19.71-0",
     "node": "^19.8.1",
-    "node-fetch": "^3.3.1",
+    "node-fetch": "^2.6.9",
     "vscode-languageclient": "^8.0.2"
   },
   "devDependencies": {
