@@ -1,4 +1,4 @@
-import { Command, ParameterType } from "bc-minecraft-bedrock-command";
+import { Command, ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
 import { Database } from "../../Database/Database";
 import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/Types";
 import { HoverParams, Hover, Range } from "vscode-languageserver";
@@ -15,7 +15,6 @@ import { TextDocument } from "../../Types/Document/TextDocument";
  * @returns
  */
 export function ProvideHover(params: HoverParams, doc: TextDocument): Hover | undefined {
-  //TODO redo
   const cursor = doc.offsetAt(params.position);
   const LineIndex = params.position.line;
   const Line = doc.getLine(LineIndex);
@@ -42,11 +41,14 @@ export function ProvideHover(params: HoverParams, doc: TextDocument): Hover | un
       const T = command.parameters[Index];
 
       if (T) {
+        const pdoc = ParameterTypeDocumentation[p.type] ?? '';
         const r = Range.create(doc.positionAt(T.offset), doc.positionAt(T.offset + T.text.length));
 
         if (Index == 0) {
-          return { contents: Info.documentation, range: r };
-        } else return GetHoverContent(p, r, T.text);
+          return { contents: `## ${Info.name}\n${Info.documentation}\n${pdoc}`, range: r };
+        } else {
+          return GetHoverContent(p, r, T.text, pdoc);
+        }
       }
     }
   }
@@ -61,40 +63,40 @@ export function ProvideHover(params: HoverParams, doc: TextDocument): Hover | un
  * @param Text
  * @returns
  */
-function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string): Hover | undefined {
+function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string, additional: string): Hover | undefined {
   switch (parameter.type) {
     case ParameterType.block:
-      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.blocks);
+      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.blocks, additional);
 
     case ParameterType.entity:
-      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.entities);
+      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.entities, additional);
 
     case ParameterType.function:
-      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.functions);
+      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.functions, additional);
 
     case ParameterType.jsonRawText:
       return RawText.provideHover(range);
 
     case ParameterType.objective:
-      return GetDocumentation(Text, range, Database.ProjectData.General.objectives);
+      return GetDocumentation(Text, range, Database.ProjectData.General.objectives, additional);
 
     case ParameterType.particle:
-      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.particles);
+      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.particles, additional);
 
     case ParameterType.sound:
-      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.sounds);
+      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.sounds, additional);
 
     case ParameterType.tag:
-      return GetDocumentation(Text, range, Database.ProjectData.General.tags);
+      return GetDocumentation(Text, range, Database.ProjectData.General.tags, additional);
 
     case ParameterType.tickingarea:
-      return GetDocumentation(Text, range, Database.ProjectData.General.tickingAreas);
+      return GetDocumentation(Text, range, Database.ProjectData.General.tickingAreas, additional);
   }
 
   const title = parameter.text;
-  const doc = GetString(parameter.type) ?? "";
+  const doc = `## ${title}\n${GetString(parameter.type) ?? ""}\n${additional}`;
 
-  return { contents: [title, doc], range: range };
+  return { contents: {kind: 'markdown', value: doc }, range: range };
 }
 
 function GetString(type: ParameterType): string | undefined {
@@ -160,15 +162,19 @@ function GetString(type: ParameterType): string | undefined {
   return undefined;
 }
 
-function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: IDataSet<T>): Hover | undefined {
-  let out = undefined;
+function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: IDataSet<T>, additional: string): Hover | undefined {
+  let out : Hover | undefined = undefined;
 
   Collection.forEach((item) => {
+    let doc : string;
     if (Documentated.is(item) && item.documentation) {
-      out = { contents: item.documentation, range: range };
+      doc = item.documentation;
     } else {
-      out = { contents: item.id + "\n" + item.location.uri, range: range };
+      doc = item.id + "\n" + item.location.uri;
     }
+
+    doc += "\n" + additional;
+    out = { contents: {kind:'markdown', value: doc}, range: range };
   });
 
   return out;

@@ -2,7 +2,7 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
-import { ParameterType } from "bc-minecraft-bedrock-command";
+import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
 
 /**These are here to stop circular dependency */
 import * as Command from "../../Commands/Command";
@@ -30,8 +30,30 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
     }
   }
 
+  //Adding explanation text
+  const old = context.receiver.OnNewItem;
+
+  context.receiver.OnNewItem = (item) => {
+    const doc = ParameterTypeDocumentation[context.parameter.type];
+
+    if (doc) {
+      if (typeof item.documentation === "string" || item.documentation === undefined) {
+        item.documentation = {
+          kind: "markdown",
+          value: item.documentation ?? "",
+        };
+      }
+
+      item.documentation.value += '\n' + doc;
+    }
+
+    if (old) old(item);
+  };
+  
   const call = DataMap[context.parameter.type];
   if (call) call(context);
+
+  context.receiver.OnNewItem = old;
 }
 
 function toCompletion(context: CommandCompletionContext): void {

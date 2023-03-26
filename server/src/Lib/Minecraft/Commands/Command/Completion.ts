@@ -1,4 +1,4 @@
-import { CommandData, CommandInfo } from 'bc-minecraft-bedrock-command';
+import { CommandData, CommandInfo } from "bc-minecraft-bedrock-command";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
@@ -28,8 +28,11 @@ export function ProvideExecuteSubcommandCompletion(context: SimpleContext<Comple
 function GetCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
   for (var I = 0; I < Data.length; I++) {
     const CInfo = Data[I];
+    if (CInfo.obsolete) continue;
 
-    receiver.Add(CInfo.name, CInfo.documentation, Kinds.Completion.Command);
+    const doc = `## ${CInfo.name}\n${CInfo.documentation}\n[documentation](https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/${CInfo.name})`;
+
+    receiver.Add(CInfo.name, doc, Kinds.Completion.Command);
     break;
   }
 }

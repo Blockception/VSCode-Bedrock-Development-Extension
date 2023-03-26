@@ -96,6 +96,9 @@ export function ProvideCompletionCommand(
 
   for (let I = 0; I < Matches.length; I++) {
     const Match = Matches[I];
+    if (Match.obsolete) {
+      continue;
+    }
 
     if (Match.parameters.length > ParameterIndex) {
       const parameter = Match.parameters[ParameterIndex];
