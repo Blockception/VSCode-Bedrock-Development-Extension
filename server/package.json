@@ -33,7 +33,7 @@
     "bc-minecraft-bedrock-types": "^1.19.50-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.19.71-0",
     "bc-minecraft-molang": "^1.19.60-0",
-    "bc-minecraft-project": "^1.19.40-1",
+    "bc-minecraft-project": "^1.19.70-2",
     "bc-vscode-words": "^1.3.16",
     "comment-json": "^4.2.3",
     "fast-glob": "^3.2.12",
