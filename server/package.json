@@ -29,7 +29,7 @@
     "@types/vscode": "^1.77.0",
     "bc-minecraft-bedrock-command": "^1.19.71-3",
     "bc-minecraft-bedrock-diagnoser": "^1.19.70-2",
-    "bc-minecraft-bedrock-project": "^1.19.70-1",
+    "bc-minecraft-bedrock-project": "^1.19.73-2",
     "bc-minecraft-bedrock-types": "^1.19.50-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.19.71-1",
     "bc-minecraft-molang": "^1.19.70-0",
@@ -55,7 +55,7 @@
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
-    "webpack": "^5.79.0",
+    "webpack": "^5.80.0",
     "webpack-cli": "^5.0.1"
   }
 }
