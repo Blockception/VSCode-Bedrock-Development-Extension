@@ -92,7 +92,7 @@
     "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
     "lint": "npm run lint:client && npm run lint:server",
     "postversion": "git push && git push --tags",
-    "preversion": "cd client && npm version %npm_package_version% && cd ../server && npm version %npm_package_version% && cd ..",
+    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
     "test-compile": "tsc -p ./",
     "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
     "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
