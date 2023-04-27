@@ -44,12 +44,12 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
         };
       }
 
-      item.documentation.value += '\n' + doc;
+      item.documentation.value += "\n" + doc;
     }
 
     if (old) old(item);
   };
-  
+
   const call = DataMap[context.parameter.type];
   if (call) call(context);
 

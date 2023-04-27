@@ -6,7 +6,7 @@ import { Types } from "bc-minecraft-bedrock-vanilla-data";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/Database";
 import { GetPossibleBlockID } from "../../Commands/Command/Functions";
-import { IsEditingValue } from '../../General/Selector/AttributeValue/Completion';
+import { IsEditingValue } from "../../General/Selector/AttributeValue/Completion";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
 
@@ -20,8 +20,6 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
 
       if ((b = Database.ProjectData.BehaviorPacks.blocks.get(block))) ProvideDefaultCompletion(b, context);
       if ((b = MinecraftData.BehaviorPack.getBlock(block, edu))) ProvideDefaultCompletion(b, context);
-
-      return;
     }
 
     context.receiver.Add("[]", "Block states", CompletionItemKind.Snippet);
@@ -39,15 +37,19 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
   ProvideStateCompletion(MinecraftData.General.Blocks.blockstates, context);
 }
 
-function ProvideDefaultCompletion(b: BehaviorPack.Block.Block | Types.BehaviorPack.Block, context: CommandCompletionContext): void {
-  const pars: string[] = [];
-
-  b.states.forEach((state) => pars.push(`${state.name}=${state.values[0]}`));
+function ProvideDefaultCompletion(
+  b: BehaviorPack.Block.Block | Types.BehaviorPack.Block,
+  context: CommandCompletionContext
+): void {
+  const pars = b.states.map((state) => `"${state.name}":${stateValue(state, state.values[0])}`);
 
   context.receiver.Add(`[${pars.join(",")}]`, `Default blockstates for: ${b.id}`, Kinds.Completion.Block);
 }
 
-function ProvideBlockCompletion(b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined, context: CommandCompletionContext): void {
+function ProvideBlockCompletion(
+  b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined,
+  context: CommandCompletionContext
+): void {
   if (!b) return;
   ProvideStateCompletion(b.states, context);
 }
@@ -55,13 +57,22 @@ function ProvideBlockCompletion(b: BehaviorPack.Block.Block | Types.BehaviorPack
 function ProvideStateCompletion(states: BehaviorPack.Block.BlockState[], context: CommandCompletionContext): void {
   const inValue = context.current ? IsEditingValue(context.current, context.cursor) : false;
 
-  for (let I = 0; I < states.length; I++) {
-    const s = states[I];
-
-    if (inValue) {
-      context.receiver.GenerateStr(s.values, (item) => `block state: ${s.name} with value: ${item}`, CompletionItemKind.Property);
-    } else {
-      context.receiver.Add(s.name, `block state: ${s.name} of ${s.type}`, CompletionItemKind.Property);
-    }
+  if (inValue) {
+    return;
   }
+
+  // Output all state
+  for (let state of states) {
+    const name = `"${state.name}"`;
+    const values = state.values.map((value) => stateValue(state, value));
+
+    const items = values.map((value) => `${name}:${value}`);
+    context.receiver.GenerateStr(items, (item) => `block state ${item}`, CompletionItemKind.Property);
+  }
+}
+
+function stateValue(state: BehaviorPack.Block.BlockState, value: string) {
+  if (state.type === "string") return `"${value}"`;
+
+  return value;
 }

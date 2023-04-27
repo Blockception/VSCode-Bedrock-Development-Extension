@@ -91,7 +91,6 @@ export function ProvideCompletionCommand(
   }
 
   let ParameterIndex: number = command.findCursorIndex(pos);
-
   const Current = command.parameters[ParameterIndex];
 
   for (let I = 0; I < Matches.length; I++) {
