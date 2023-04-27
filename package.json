@@ -85,9 +85,10 @@
     "type": "git"
   },
   "scripts": {
+    "compile:shared": "tsc -b ./shared/tsconfig.json",
     "compile:client": "tsc -b ./client/tsconfig.json",
     "compile:server": "tsc -b ./server/tsconfig.json",
-    "compile": "npm run compile:client && npm run compile:server && tsc -b",
+    "compile": "npm run compile:shared && npm run compile:client && npm run compile:server && tsc -b",
     "lint:client": "eslint --config ./client/.eslintrc.json ./client/src/*.ts",
     "lint:server": "eslint --config ./server/.eslintrc.json ./server/src/*.ts",
     "lint": "npm run lint:client && npm run lint:server",
