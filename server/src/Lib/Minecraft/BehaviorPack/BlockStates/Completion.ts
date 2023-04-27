@@ -9,6 +9,8 @@ import { GetPossibleBlockID } from "../../Commands/Command/Functions";
 import { IsEditingValue } from "../../General/Selector/AttributeValue/Completion";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
+import { Location } from 'bc-minecraft-bedrock-types/lib/src/Types';
+import { MolangSet } from 'bc-minecraft-molang/lib/src/Molang';
 
 export function ProvideCompletion(context: CommandCompletionContext): void {
   const block = GetPossibleBlockID(context.command, context.parameterIndex);
@@ -19,7 +21,7 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
       let b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined;
 
       if ((b = Database.ProjectData.BehaviorPacks.blocks.get(block))) ProvideDefaultCompletion(b, context);
-      if ((b = MinecraftData.BehaviorPack.getBlock(block, edu))) ProvideDefaultCompletion(b, context);
+      if ((b = vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu)))) ProvideDefaultCompletion(b, context);
     }
 
     context.receiver.Add("[]", "Block states", CompletionItemKind.Snippet);
@@ -28,17 +30,17 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
 
   if (block) {
     ProvideBlockCompletion(Database.ProjectData.BehaviorPacks.blocks.get(block), context);
-    return ProvideBlockCompletion(MinecraftData.BehaviorPack.getBlock(block, edu), context);
+    return ProvideBlockCompletion(vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu)), context);
   }
 
   //return all
   Database.ProjectData.BehaviorPacks.blocks.forEach((block) => ProvideStateCompletion(block.states, context));
 
-  ProvideStateCompletion(MinecraftData.General.Blocks.blockstates, context);
+  ProvideStateCompletion(MinecraftData.General.Blocks.block_states, context);
 }
 
 function ProvideDefaultCompletion(
-  b: BehaviorPack.Block.Block | Types.BehaviorPack.Block,
+  b: BehaviorPack.Block.Block,
   context: CommandCompletionContext
 ): void {
   const pars = b.states.map((state) => `"${state.name}":${stateValue(state, state.values[0])}`);
@@ -47,7 +49,7 @@ function ProvideDefaultCompletion(
 }
 
 function ProvideBlockCompletion(
-  b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined,
+  b: BehaviorPack.Block.Block | undefined,
   context: CommandCompletionContext
 ): void {
   if (!b) return;
@@ -71,7 +73,26 @@ function ProvideStateCompletion(states: BehaviorPack.Block.BlockState[], context
   }
 }
 
-function stateValue(state: BehaviorPack.Block.BlockState, value: string) {
+function vanillaBlockToBlock(block: Types.BehaviorPack.Block | undefined): BehaviorPack.Block.Block | undefined {
+  if (!block) return undefined;
+  const states: BehaviorPack.Block.BlockState[] = [];
+
+  for (let prop of block.properties) {
+    const state = MinecraftData.BehaviorPack.getBlockState(prop);
+    if (state) {
+      states.push(state);
+    };
+  }
+
+  return {
+    id: block.id,
+    location: Location.empty(),
+    molang: MolangSet.create(),
+    states: states,
+  }
+}
+
+function stateValue(state: BehaviorPack.Block.BlockState, value: string | number | boolean) {
   if (state.type === "string") return `"${value}"`;
 
   return value;
