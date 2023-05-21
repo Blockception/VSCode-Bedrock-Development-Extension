@@ -11,9 +11,12 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: 📑 Release Page
         uses: ncipollo/release-action@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
           bodyFile: CHANGELOG.md
           makeLatest: true
