@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "6.0.17",
+  "version": "6.0.18",
   "pricing": "Free",
   "workspaces": [
     "client",
