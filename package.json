@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.2.12",
-    "node": "^19.8.1"
+    "node": "^20.2.0"
   },
   "extensionKind": [
     "workspace"
@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.2.1",
     "@vscode/vsce": "^2.19.0",
     "chai": "^4.3.7",
     "json-loader": "^0.5.7",

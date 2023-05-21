@@ -12,7 +12,8 @@ jobs:
 
     steps:
       - name: 📑 Release Page
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: ncipollo/release-action@v1
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
+          bodyFile: CHANGELOG.md
+          makeLatest: true
