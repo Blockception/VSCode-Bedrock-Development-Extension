@@ -1,5 +1,7 @@
 ﻿# CHANGELOG
 ## Extension
+- Updated dependencies
+- 6.0.20
 - 6.0.19
 - Update and rename tagged-release.yml to release-page.yml
 - 6.0.18
@@ -17,8 +19,6 @@
 - 6.0.12
 - Fixed scripts
 - Updated scripts
-- Updated dependencies
-- 6.0.11
 - Updated dependencies
 ## Schemas
 - Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
@@ -42,6 +42,12 @@
 - Updated int_property.json so the value type. (#167)
 - Updated knockback_resistance component's max value (#168)
 ## Diagnoser
+- Merge pull request #131 from Blockception/dependabot/npm_and_yarn/typescript-5.1.3
+- Merge pull request #130 from Blockception/dependabot/npm_and_yarn/types/node-20.2.5
+- build(deps-dev): bump typescript from 5.0.4 to 5.1.3
+- Merge pull request #129 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.1
+- build(deps-dev): bump @types/node from 18.16.3 to 20.2.5
+- build(deps-dev): bump rimraf from 5.0.0 to 5.0.1
 - 1.19.80-0
 - Added command diagnostics
 - 1.19.72-3
@@ -56,12 +62,6 @@
 - 1.19.72-1
 - Fixes
 - 1.19.72-0
-- Adding better parent
-- 1.19.71
-- Fixing location of property diagnostics
-- Fixing properties
-- 1.19.70
-- Fixing how entity properties are checked
 ## Commands
 - 1.19.80-0
 - Added inputpermission
@@ -105,6 +105,12 @@
 - build(deps-dev): bump @types/node from 18.11.7 to 18.11.9 (#85)
 - Updated dependabot
 ## Vanilla-Data
+- 1.20.0-0
+- Adding makefile
+- Merge pull request #73 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.1
+- Merge pull request #72 from Blockception/dependabot/npm_and_yarn/types/node-20.2.5
+- build(deps-dev): bump rimraf from 5.0.0 to 5.0.1
+- build(deps-dev): bump @types/node from 18.16.3 to 20.2.5
 - build(deps-dev): bump @types/node from 18.15.11 to 18.16.3 (#71)
 - Merge pull request #70 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.0
 - Merge pull request #69 from Blockception/dependabot/npm_and_yarn/types/chai-4.3.5
@@ -119,9 +125,3 @@
 - Adding block state
 - 1.19.73-1
 - Fixing tests
-- Updated
-- 1.19.73-0
-- Updated block
-- Refactored scraper
-- Updated blocks
-- Updated blocks
