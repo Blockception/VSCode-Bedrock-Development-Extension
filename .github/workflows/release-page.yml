@@ -11,7 +11,7 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: Checkout Repository
+      - name: 📦 Checkout Repository
         uses: actions/checkout@v3
 
       - name: 📑 Release Page
