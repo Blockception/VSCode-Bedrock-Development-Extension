@@ -13,6 +13,8 @@ updates:
       all:
         patterns:
           - "*"
+        exclude-patterns:
+          - "node-fetch"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/server" # Location of package manifests
     schedule:
@@ -21,6 +23,8 @@ updates:
       all:
         patterns:
           - "*"
+        exclude-patterns:
+          - "node-fetch"        
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/client" # Location of package manifests
     schedule:
@@ -29,6 +33,8 @@ updates:
       all:
         patterns:
           - "*"
+        exclude-patterns:
+          - "node-fetch"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
@@ -37,3 +43,5 @@ updates:
       all:
         patterns:
           - "*"
+        exclude-patterns:
+          - "node-fetch"
