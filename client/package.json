@@ -25,7 +25,7 @@
   "dependencies": {
     "@blockception/shared": "^0.0.1",
     "@types/node-fetch": "^2.6.3",
-    "bc-minecraft-bedrock-project": "^1.19.73-2",
+    "bc-minecraft-bedrock-project": "^1.20.0-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.20.0-0",
     "node": "^20.4.0",
     "node-fetch": "2.6.9",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.0",
-    "@types/node": "^20.4.1",
+    "@types/node": "^20.4.2",
     "@types/vscode": "^1.80.0",
     "chai": "^4.3.6",
     "json-loader": "^0.5.7",
