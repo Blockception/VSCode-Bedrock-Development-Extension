@@ -35,24 +35,24 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
   let index = 0;
 
   while (index >= 0) {
-    let startindex = findNext(text, index);
-    if (startindex < 0) return;
+    let startIndex = findNext(text, index);
+    if (startIndex < 0) return;
 
-    let endindex = findNext(text, startindex + 1);
-    if (endindex < 0) return;
+    let endIndex = findNext(text, startIndex + 1);
+    if (endIndex < 0) return;
 
-    startindex++;
-    let property = text.substring(startindex, endindex);
-    index = endindex + 1;
+    startIndex++;
+    let property = text.substring(startIndex, endIndex);
+    index = endIndex + 1;
 
     if (IsMolang(property)) {
       if (property.startsWith("/")) {
         property = property.substring(1);
-        Builder.Add(startindex, startindex + 1, SemanticTokensEnum.operator);
-        startindex++;
-        McfunctionLineTokens(property, 0, offset + startindex, McfunctionSemanticTokensBuilder.FromJson(Builder));
+        Builder.Add(startIndex, startIndex + 1, SemanticTokensEnum.operator);
+        startIndex++;
+        McfunctionLineTokens(property, 0, offset + startIndex, McfunctionSemanticTokensBuilder.FromJson(Builder));
       } else {
-        const Words = CreateMolangWords(property, offset + startindex);
+        const Words = CreateMolangWords(property, offset + startIndex);
         ConvertWords(Words, Builder);
       }
     }

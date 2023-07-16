@@ -3,7 +3,7 @@ import { IsMolang } from "./Functions";
 
 describe("Molang", () => {
   describe("IsMolang", () => {
-    const shouldbe = [
+    const shouldBe = [
       "variable.is_holding_right = 0.0;",
       "variable.is_blinking = 0.0;",
       "variable.last_blink_time = 0.0;",
@@ -12,9 +12,17 @@ describe("Molang", () => {
       "variable.tcos1 = -variable.tcos0;",
     ];
 
-    shouldbe.forEach((item) =>
+    shouldBe.forEach((item) =>
       it(item, () => {
         expect(IsMolang(item)).to.be.true;
+      })
+    );
+
+    const shouldNotBe = ["Some texts should this not be detected"];
+
+    shouldNotBe.forEach((item) =>
+      it(item, () => {
+        expect(IsMolang(item)).to.be.false;
       })
     );
   });
