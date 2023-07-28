@@ -1,26 +1,29 @@
 ﻿# CHANGELOG
 ## Extension
+- Updated diagnoser
+- To lower case since molang can be upper case, fixes Some descriptions not showing up on hover in Windows 11 #475
+- 6.1.2
+- Updated bedrock commands to fix #451
+- Changing how molang sees 'this' #467
+- 6.1.1
+- Packages update
+- Updated dependencies to version v1.20.0-0
+- build(deps): bump semver from 5.7.1 to 5.7.2 (#473)
+- build(deps): bump the all group with 7 updates (#471)
+- Update dependabot.yml
+- Create dependabot.yml
+- Update release-page.yml
+- 6.0.21
 - Updated dependencies
 - 6.0.20
 - 6.0.19
 - Update and rename tagged-release.yml to release-page.yml
 - 6.0.18
 - Updated projects
-- 6.0.17
-- 6.0.16
-- Updated package-lock
-- Updated diagnoser to version 1.19.72-3
-- 6.0.15
-- Updated diagnoser and vanilla data (#465)
-- 6.0.14
-- Fixing completion of blocks and selectors
-- 6.0.13
-- Updated diagnoser to latest version
-- 6.0.12
-- Fixed scripts
-- Updated scripts
-- Updated dependencies
 ## Schemas
+- oneOf -> anyOf
+- Updated to support v1.20.10
+- Changed release action
 - Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
 - Updated block geometry
 - Fixes (#177)
@@ -38,10 +41,17 @@
 - Fixing
 -  Fixed float_property.json to the number value type. (#169)
 - Update has_equipment.json - Added "inventory" enum (#166)
-- Updated knockback_resistance to reflect documentation
-- Updated int_property.json so the value type. (#167)
-- Updated knockback_resistance component's max value (#168)
 ## Diagnoser
+- 1.20.12-0
+- Fixing issue #135
+- Changed release action
+- 1.20.0-0
+- Updated dependencies
+- Removed objective length as they removed limits #134
+- Merge pull request #133 from Blockception/dependabot/npm_and_yarn/types/node-20.3.3
+- Merge pull request #132 from Blockception/dependabot/npm_and_yarn/typescript-5.1.6
+- build(deps-dev): bump @types/node from 20.2.5 to 20.3.3
+- build(deps-dev): bump typescript from 5.1.3 to 5.1.6
 - Merge pull request #131 from Blockception/dependabot/npm_and_yarn/typescript-5.1.3
 - Merge pull request #130 from Blockception/dependabot/npm_and_yarn/types/node-20.2.5
 - build(deps-dev): bump typescript from 5.0.4 to 5.1.3
@@ -52,17 +62,12 @@
 - Added command diagnostics
 - 1.19.72-3
 - Merge branch 'main' of https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser
-- Fixing problem with empty block properties
-- Merge pull request #128 from Blockception/dependabot/npm_and_yarn/types/node-18.16.3
-- Merge pull request #127 from Blockception/dependabot/npm_and_yarn/types/chai-4.3.5
-- build(deps-dev): bump @types/node from 18.15.11 to 18.16.3
-- build(deps-dev): bump @types/chai from 4.3.4 to 4.3.5
-- 1.19.72-2
-- Feature/vanilla update (#126)
-- 1.19.72-1
-- Fixes
-- 1.19.72-0
 ## Commands
+- 1.20.0-1
+- Allowing fake players
+- Changed release action
+- 1.20.0-0
+- Updated dependencies
 - 1.19.80-0
 - Added inputpermission
 - Added new summon syntax #91
@@ -78,12 +83,10 @@
 - Updated unit-tests
 - Delete dependabot.yml
 - Merge pull request #89 from Blockception/dependabot/npm_and_yarn/typescript-4.9.5
-- build(deps-dev): bump typescript from 4.9.4 to 4.9.5
-- Merge pull request #88 from Blockception/dependabot/npm_and_yarn/rimraf-4.1.2
-- build(deps-dev): bump rimraf from 3.0.2 to 4.1.2
-- Merge pull request #87 from Blockception/dependabot/npm_and_yarn/types/node-18.11.18
-- Merge pull request #86 from Blockception/dependabot/npm_and_yarn/typescript-4.9.4
 ## Molang
+- Changed release action
+- 1.20.0-0
+- Updated dependencies
 - 1.19.70-0
 - 1.19.60-1
 - Updated dependencies
@@ -101,10 +104,12 @@
 - Merge pull request #88 from Blockception/dependabot/npm_and_yarn/chai-4.3.7
 - Merge pull request #86 from Blockception/dependabot/npm_and_yarn/types/node-18.11.10
 - build(deps-dev): bump chai from 4.3.6 to 4.3.7
-- build(deps-dev): bump @types/node from 18.11.9 to 18.11.10
-- build(deps-dev): bump @types/node from 18.11.7 to 18.11.9 (#85)
-- Updated dependabot
 ## Vanilla-Data
+- Changed release action
+- Merge pull request #75 from Blockception/dependabot/npm_and_yarn/types/node-20.3.3
+- Merge pull request #74 from Blockception/dependabot/npm_and_yarn/typescript-5.1.6
+- build(deps-dev): bump @types/node from 20.2.5 to 20.3.3
+- build(deps-dev): bump typescript from 5.0.4 to 5.1.6
 - 1.20.0-0
 - Adding makefile
 - Merge pull request #73 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.1
@@ -120,8 +125,3 @@
 - Fixing tests
 - 1.19.73-2
 - Adding blockstate
-- Adding tostring
-- Fixing blocks
-- Adding block state
-- 1.19.73-1
-- Fixing tests
