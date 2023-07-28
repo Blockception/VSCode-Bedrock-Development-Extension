@@ -1,4 +1,4 @@
-import { Data, MolangData } from "bc-minecraft-molang";
+import { Data, MolangData, MolangFunction } from "bc-minecraft-molang";
 import { Hover, HoverParams, Range } from "vscode-languageserver-protocol";
 import { Character } from "../../Code/Character";
 import { TextDocument } from "../../Types/Document/TextDocument";
@@ -20,43 +20,43 @@ export function ProvideHover(doc: TextDocument, params: HoverParams): Hover | un
 
 export function ProvideHoverAt(
   currentText: string,
-  trange: TextRange,
+  textRange: TextRange,
   cursor: number,
   range: Range | undefined
 ): Hover | undefined {
-  let startindex = cursor - trange.start;
-  let dotindex = -1;
+  let startIndex = cursor - textRange.start;
+  let dotIndex = -1;
 
-  for (; startindex >= 0; startindex--) {
-    const c = currentText.charCodeAt(startindex);
+  for (; startIndex >= 0; startIndex--) {
+    const c = currentText.charCodeAt(startIndex);
 
     if (Character.IsLetterCode(c) || Character.IsNumberCode(c) || c === Character.Character_underscore) continue;
     if (c === Character.Character_dot) {
-      dotindex = startindex;
+      dotIndex = startIndex;
       continue;
     }
 
-    startindex++;
+    startIndex++;
     break;
   }
 
-  if (startindex < 0) startindex = 0;
+  if (startIndex < 0) startIndex = 0;
 
-  let endindex = cursor - trange.start;
+  let endIndex = cursor - textRange.start;
 
-  for (; endindex < currentText.length; endindex++) {
-    const c = currentText.charCodeAt(endindex);
+  for (; endIndex < currentText.length; endIndex++) {
+    const c = currentText.charCodeAt(endIndex);
 
     if (Character.IsLetterCode(c) || Character.IsNumberCode(c) || c === Character.Character_underscore) continue;
 
     break;
   }
 
-  const text = currentText.slice(startindex, endindex);
+  const text = currentText.slice(startIndex, endIndex);
 
-  if (dotindex > -1) {
-    const main = currentText.slice(startindex, dotindex);
-    const sub = currentText.slice(dotindex + 1, endindex);
+  if (dotIndex > -1) {
+    const main = currentText.slice(startIndex, dotIndex).toLowerCase();
+    const sub = currentText.slice(dotIndex + 1, endIndex).toLowerCase();
     return ProvideHoverSpecific(main, sub);
   }
 
@@ -106,12 +106,22 @@ export function ProvideHoverSpecific(
   return undefined;
 }
 
-function findGen(data: string, range: Range | undefined = undefined, items: Data[]): Hover | undefined {
+function findGen(data: string, range: Range | undefined = undefined, items: MolangFunction[]): Hover | undefined {
   for (let I = 0; I < items.length; I++) {
     const item = items[I];
 
     if (item.id === data && item.documentation) {
-      return { contents: { value: item.documentation, kind: "markdown" }, range: range };
+      let doc = `${item.id}  \n\n${item.documentation}`;
+
+      if (item.parameters) {
+        doc += `\n\n**Parameters**:\n\n${item.parameters.map((p) => `- ${p.id}\n`).join("")}`;
+      }
+      if (item.deprecated) {
+        doc += `\n\n**Deprecated**: ${item.deprecated}`;
+      }
+    
+
+      return { contents: { value: doc, kind: "markdown" }, range: range };
     }
   }
 
