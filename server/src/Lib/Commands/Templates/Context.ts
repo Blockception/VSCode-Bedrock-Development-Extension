@@ -1,6 +1,7 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
 import { Database } from "../../Database/Database";
 import { Manager } from "../../Manager/Manager";
+import { Vscode } from 'src/Lib/Code';
 
 export interface Context {
   BehaviorPack(): string;
@@ -10,7 +11,11 @@ export interface Context {
   GetFolder(command: string): string;
 }
 
-export function GetContext(params: ExecuteCommandParams): Context {
+export interface EnsureContext extends Context {
+  Ensure(): Context;
+}
+
+export function GetContext(params: ExecuteCommandParams): EnsureContext {
   const args = params.arguments;
 
   if (args) {
@@ -21,21 +26,25 @@ export function GetContext(params: ExecuteCommandParams): Context {
 }
 
 class _internalContext implements Context {
-  private __path: string | undefined;
+  private _path: string | undefined;
   private ws: string | undefined;
   private bp: string | undefined;
   private rp: string | undefined;
   private wl: string | undefined;
 
   constructor(path: string | undefined) {
-    if ((this.__path = path)) {
-      this.ws = Database.WorkspaceData.getFolder(path);
+    this.ws = "";
+    const ws = Database.WorkspaceData.getFirst();
+    if (ws) this.ws = ws;
+
+    if ((this._path = path)) {
+      const ws = Database.WorkspaceData.getFolder(path);
+      if (ws) this.ws = ws;
 
       this.bp = Database.ProjectData.BehaviorPacks.get(path)?.folder;
       this.rp = Database.ProjectData.ResourcePacks.get(path)?.folder;
     }
 
-    if (!this.ws) this.ws = Database.WorkspaceData.getFirst();
     if (!this.bp) this.bp = Database.ProjectData.BehaviorPacks.packs[0]?.folder;
     if (!this.rp) this.rp = Database.ProjectData.ResourcePacks.packs[0]?.folder;
     if (!this.wl) this.wl = Database.ProjectData.Worlds.packs[0]?.folder;
@@ -79,5 +88,16 @@ class _internalContext implements Context {
     if (command.includes("world-")) return this.WorldFolder();
 
     return this.WorkSpace();
+  }
+
+  Ensure(): Context {
+    const ensured = new _internalContext(this._path);
+    const ws = this.WorkSpace();
+
+    ensured.bp = this.bp || Vscode.join(ws, "behavior_packs", "unnamed_bp");
+    ensured.rp = this.rp || Vscode.join(ws, "resource_packs", "unnamed_rp");
+    ensured.wl = this.wl || Vscode.join(ws, "worlds", "unnamed_wl");
+
+    return ensured;
   }
 }

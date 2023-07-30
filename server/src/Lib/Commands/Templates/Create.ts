@@ -4,13 +4,13 @@ import { Console } from "../../Manager/Console";
 import { Commands } from "@blockception/shared";
 import { Database } from "../../Database/Database";
 import { Pack } from "bc-minecraft-bedrock-project";
-import { GetContext, Context } from "./Context";
+import { GetContext, Context, EnsureContext } from "./Context";
 import { TemplateKeys, Templates } from "./Templates";
 
 import * as Language from "./language";
 import * as Project from "./project";
 
-type CreateFn = (params: ExecuteCommandParams, context: Context) => Promise<boolean | void>;
+type CreateFn = (params: ExecuteCommandParams, context: EnsureContext) => Promise<boolean | void>;
 type CommandManager = Record<string, CreateFn>;
 const CreationCommands: CommandManager = Initialize();
 
@@ -52,11 +52,13 @@ function Initialize(): CommandManager {
   Out[Commands.Create.General.Languages] = () => {
     return CreateAll(Language.create_language_files);
   };
-  Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams, context: Context) => {
+  Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams, context: EnsureContext) => {
+    const ensured = context.Ensure();
+
     return PromisesAll(
-      Templates.create("behavior-manifest", context.BehaviorPack()),
-      Templates.create("resource-manifest", context.ResourcePack()),
-      Templates.create("world-manifest", context.ResourcePack())
+      Templates.create("behavior-manifest", ensured.BehaviorPack()),
+      Templates.create("resource-manifest", ensured.ResourcePack()),
+      Templates.create("world-manifest", ensured.ResourcePack())
     );
   };
 
