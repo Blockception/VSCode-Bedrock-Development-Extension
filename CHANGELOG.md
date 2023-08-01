@@ -1,5 +1,12 @@
 ﻿# CHANGELOG
 ## Extension
+- Updating dependencies
+- Merge branch 'main' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Cleaned dependabot
+- build(deps): bump the all group with 5 updates (#476)
+- Fixing build issue
+- Ensuring folders if needed
+- 6.1.3
 - Updated diagnoser
 - To lower case since molang can be upper case, fixes Some descriptions not showing up on hover in Windows 11 #475
 - 6.1.2
@@ -13,14 +20,8 @@
 - Update dependabot.yml
 - Create dependabot.yml
 - Update release-page.yml
-- 6.0.21
-- Updated dependencies
-- 6.0.20
-- 6.0.19
-- Update and rename tagged-release.yml to release-page.yml
-- 6.0.18
-- Updated projects
 ## Schemas
+- Updating block components
 - oneOf -> anyOf
 - Updated to support v1.20.10
 - Changed release action
@@ -40,8 +41,9 @@
 - minecraft:physics - added "push_towards_closest_space" (#170)
 - Fixing
 -  Fixed float_property.json to the number value type. (#169)
-- Update has_equipment.json - Added "inventory" enum (#166)
 ## Diagnoser
+- 1.20.12-1
+- Updated dependencies
 - 1.20.12-0
 - Fixing issue #135
 - Changed release action
@@ -60,9 +62,9 @@
 - build(deps-dev): bump rimraf from 5.0.0 to 5.0.1
 - 1.19.80-0
 - Added command diagnostics
-- 1.19.72-3
-- Merge branch 'main' of https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser
 ## Commands
+- 1.20.12-0
+- Further fixing replaceitem
 - 1.20.0-1
 - Allowing fake players
 - Changed release action
@@ -81,8 +83,6 @@
 - Deprecating the data field and updating the summon command
 - Adding mocha reporter
 - Updated unit-tests
-- Delete dependabot.yml
-- Merge pull request #89 from Blockception/dependabot/npm_and_yarn/typescript-4.9.5
 ## Molang
 - Changed release action
 - 1.20.0-0
@@ -105,6 +105,8 @@
 - Merge pull request #86 from Blockception/dependabot/npm_and_yarn/types/node-18.11.10
 - build(deps-dev): bump chai from 4.3.6 to 4.3.7
 ## Vanilla-Data
+- Merge pull request #76 from Blockception/dependabot/npm_and_yarn/types/node-20.4.5
+- build(deps-dev): bump @types/node from 20.3.3 to 20.4.5
 - Changed release action
 - Merge pull request #75 from Blockception/dependabot/npm_and_yarn/types/node-20.3.3
 - Merge pull request #74 from Blockception/dependabot/npm_and_yarn/typescript-5.1.6
@@ -123,5 +125,3 @@
 - build(deps-dev): bump @types/chai from 4.3.4 to 4.3.5
 - 1.19.73-3
 - Fixing tests
-- 1.19.73-2
-- Adding blockstate
