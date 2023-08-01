@@ -24,7 +24,7 @@ updates:
         patterns:
           - "*"
         exclude-patterns:
-          - "node-fetch"        
+          - "node-fetch"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/client" # Location of package manifests
     schedule:
