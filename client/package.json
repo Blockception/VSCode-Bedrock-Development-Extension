@@ -25,7 +25,7 @@
   "dependencies": {
     "@blockception/shared": "^0.0.1",
     "@types/node-fetch": "^2.6.3",
-    "bc-minecraft-bedrock-project": "^1.20.0-0",
+    "bc-minecraft-bedrock-project": "^1.20.12-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.20.0-0",
     "node": "^20.5.0",
     "node-fetch": "2.6.9",

@@ -49,6 +49,7 @@
     "vscode": "^1.69.2"
   },
   "dependencies": {
+    "bc-minecraft-bedrock-diagnoser": "^1.20.12-1",
     "fast-glob": "^3.3.1",
     "node": "^20.5.0"
   },
