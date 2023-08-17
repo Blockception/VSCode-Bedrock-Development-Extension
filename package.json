@@ -60,7 +60,7 @@
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.4.5",
-    "@vscode/vsce": "^2.20.0",
+    "@vscode/vsce": "^2.20.1",
     "chai": "^4.3.7",
     "json-loader": "^0.5.7",
     "jsonc": "^2.0.0",
