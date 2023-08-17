@@ -1,5 +1,8 @@
 ﻿# CHANGELOG
 ## Extension
+- Updated diagnoser and commands
+- Updated schemas
+- 6.1.4
 - Updating dependencies
 - Merge branch 'main' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
 - Cleaned dependabot
@@ -17,10 +20,9 @@
 - Updated dependencies to version v1.20.0-0
 - build(deps): bump semver from 5.7.1 to 5.7.2 (#473)
 - build(deps): bump the all group with 7 updates (#471)
-- Update dependabot.yml
-- Create dependabot.yml
-- Update release-page.yml
 ## Schemas
+- Add Item Examples (#182)
+- Updating Undocumented (#180)
 - Updating block components
 - oneOf -> anyOf
 - Updated to support v1.20.10
@@ -39,9 +41,12 @@
 - Updated player.exhaustion, which fixes #153
 - Updated health documentation, fixes #172
 - minecraft:physics - added "push_towards_closest_space" (#170)
-- Fixing
--  Fixed float_property.json to the number value type. (#169)
 ## Diagnoser
+- 1.20.12-2
+- Merge pull request #137 from Blockception/dependabot/npm_and_yarn/bc-minecraft-bedrock-command-1.20.12-1
+- build(deps): bump bc-minecraft-bedrock-command
+- Merge pull request #136 from Blockception/dependabot/npm_and_yarn/types/node-20.4.7
+- build(deps-dev): bump @types/node from 20.4.5 to 20.4.7
 - 1.20.12-1
 - Updated dependencies
 - 1.20.12-0
@@ -57,12 +62,10 @@
 - Merge pull request #131 from Blockception/dependabot/npm_and_yarn/typescript-5.1.3
 - Merge pull request #130 from Blockception/dependabot/npm_and_yarn/types/node-20.2.5
 - build(deps-dev): bump typescript from 5.0.4 to 5.1.3
-- Merge pull request #129 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.1
-- build(deps-dev): bump @types/node from 18.16.3 to 20.2.5
-- build(deps-dev): bump rimraf from 5.0.0 to 5.0.1
-- 1.19.80-0
-- Added command diagnostics
 ## Commands
+- 1.20.12-1
+- fix replaceitem (#92)
+- Removed mocha-junit-reporter
 - 1.20.12-0
 - Further fixing replaceitem
 - 1.20.0-1
@@ -80,9 +83,6 @@
 - 1.19.71-1
 - Adding documentation for Parameter Types
 - 1.19.71-0
-- Deprecating the data field and updating the summon command
-- Adding mocha reporter
-- Updated unit-tests
 ## Molang
 - Changed release action
 - 1.20.0-0
