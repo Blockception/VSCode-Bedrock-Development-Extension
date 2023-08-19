@@ -1,5 +1,7 @@
 ﻿# CHANGELOG
 ## Extension
+- Updated schemas
+- 6.1.5
 - Updated diagnoser and commands
 - Updated schemas
 - 6.1.4
@@ -18,9 +20,8 @@
 - 6.1.1
 - Packages update
 - Updated dependencies to version v1.20.0-0
-- build(deps): bump semver from 5.7.1 to 5.7.2 (#473)
-- build(deps): bump the all group with 7 updates (#471)
 ## Schemas
+- Updating manifests
 - Add Item Examples (#182)
 - Updating Undocumented (#180)
 - Updating block components
@@ -40,7 +41,6 @@
 - Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
 - Updated player.exhaustion, which fixes #153
 - Updated health documentation, fixes #172
-- minecraft:physics - added "push_towards_closest_space" (#170)
 ## Diagnoser
 - 1.20.12-2
 - Merge pull request #137 from Blockception/dependabot/npm_and_yarn/bc-minecraft-bedrock-command-1.20.12-1
