@@ -51,17 +51,17 @@
   "dependencies": {
     "bc-minecraft-bedrock-diagnoser": "^1.20.15-0",
     "fast-glob": "^3.3.1",
-    "node": "^20.5.1"
+    "node": "^20.7.0"
   },
   "extensionKind": [
     "workspace"
   ],
   "devDependencies": {
-    "@types/chai": "^4.3.4",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^20.5.7",
-    "@vscode/vsce": "^2.21.0",
-    "chai": "^4.3.8",
+    "@types/chai": "^4.3.6",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.0",
+    "@vscode/vsce": "^2.21.1",
+    "chai": "^4.3.10",
     "json-loader": "^0.5.7",
     "jsonc": "^2.0.0",
     "mocha": "^10.2.0",
