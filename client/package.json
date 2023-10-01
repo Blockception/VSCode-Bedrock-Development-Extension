@@ -27,16 +27,16 @@
     "@types/node-fetch": "^2.6.3",
     "bc-minecraft-bedrock-project": "^1.20.15-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.20.15-0",
-    "node": "^20.5.1",
+    "node": "^20.7.0",
     "node-fetch": "2.6.9",
-    "vscode-languageclient": "^8.0.2"
+    "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.5",
-    "@types/mocha": "^10.0.0",
-    "@types/node": "^20.5.7",
-    "@types/vscode": "^1.80.0",
-    "chai": "^4.3.8",
+    "@types/chai": "^4.3.6",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.0",
+    "@types/vscode": "^1.82.0",
+    "chai": "^4.3.10",
     "json-loader": "^0.5.7",
     "mocha": "^10.1.0",
     "ts-loader": "^9.4.4",
