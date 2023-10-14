@@ -16,12 +16,12 @@ jobs:
     runs-on: windows-latest
     name: 📦 Create universal build
     steps:
-      - name: Checkout Repository
+      - name: 📦 Checkout Repository
         uses: actions/checkout@v3
         with:
           submodules: true
 
-      - name: Setup Node.js Environment
+      - name: 🏗️ Setup Node.js Environment
         uses: actions/setup-node@v3
         with:
           cache: npm

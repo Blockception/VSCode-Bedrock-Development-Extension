@@ -1,7 +1,6 @@
 import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from "vscode";
 import { Commands } from "@blockception/shared";
 import { GithubFiles } from "bc-minecraft-bedrock-vanilla-data/lib/src/Lib/Vanilla/sources";
-import fetch, { RequestInit } from "node-fetch";
 import path from "path";
 
 export function Activate(context: ExtensionContext): void {
