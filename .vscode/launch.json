@@ -3,21 +3,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-extensionHost",
+      "type": "extensionHost",
       "request": "launch",
       "name": "Launch Client",
       "runtimeExecutable": "${execPath}",
       "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"],
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/client/out/**/*.js"],
-      "preLaunchTask": "npm watch 'vscode-plugin'"
     },
     {
       "type": "node",
       "request": "attach",
       "name": "Attach to Server",
       "address": "localhost",
-      "protocol": "inspector",
       "port": 6009,
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/server/out/**/*.js"]

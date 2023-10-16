@@ -41,6 +41,9 @@ export namespace Commands {
   export const ShowVanillaFile: string = "bc.minecraft.vanilla.show";
 
   /** */
+  export const ShowDocs: string = "bc.minecraft.docs.show";
+
+  /** */
   export namespace Files {
     export const Append = "bc-files-append";
   }
