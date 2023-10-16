@@ -437,6 +437,11 @@
         "title": "Show vanilla file",
         "command": "bc.minecraft.vanilla.show",
         "category": "Blockception"
+      },
+      {
+        "title": "Show docs",
+        "command": "bc.minecraft.docs.show",
+        "category": "Blockception"
       }
     ],
     "grammars": [
