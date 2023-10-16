@@ -1,5 +1,12 @@
 ﻿# CHANGELOG
 ## Extension
+- 6.1.8
+- Updating latest
+- Updating pipelines, node, removing node fetch and updating dependencies
+- build(deps): bump the all group with 12 updates (#479)
+- Update README.md
+- Update README.md
+- 6.1.7
 - Updated dependencies
 - build(deps): bump the all group with 5 updates (#478)
 - 6.1.6
@@ -13,14 +20,13 @@
 - Cleaned dependabot
 - build(deps): bump the all group with 5 updates (#476)
 - Fixing build issue
-- Ensuring folders if needed
-- 6.1.3
-- Updated diagnoser
-- To lower case since molang can be upper case, fixes Some descriptions not showing up on hover in Windows 11 #475
-- 6.1.2
-- Updated bedrock commands to fix #451
-- Changing how molang sees 'this' #467
 ## Schemas
+- build(deps-dev): bump the all group with 1 update (#187)
+- build(deps): bump the all group with 1 update (#186)
+- Adding dependabot pipeline
+- 1.20.32-0
+- Updating dependencies and pipelines
+- Add 9Slice schema (#184)
 - Updating manifests
 - Add Item Examples (#182)
 - Updating Undocumented (#180)
@@ -35,34 +41,30 @@
 - Extendiing properties
 - Updated
 - Fixing bool property #173
-- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
-- fixes Incorrect description for places, that accept `entity_types` #163
-- Fixes Every `filters` field accepts an array as well #164
-- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
-- Updated player.exhaustion, which fixes #153
-- Updated health documentation, fixes #172
 ## Diagnoser
+- 1.20.32-0
+- Updated node, pipelines and dependencies
+- Update dependabot.yml
+- Update dependabot.yml
+- Merge pull request #145 from Blockception/dependabot/npm_and_yarn/types/node-20.8.0
+- Merge pull request #144 from Blockception/dependabot/npm_and_yarn/chai-and-types/chai-4.3.10
+- build(deps-dev): bump @types/node from 20.5.7 to 20.8.0
+- build(deps-dev): bump chai and @types/chai
+- Merge pull request #143 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.5
+- build(deps-dev): bump rimraf from 5.0.1 to 5.0.5
+- Merge pull request #142 from Blockception/dependabot/npm_and_yarn/types/mocha-10.0.2
+- build(deps-dev): bump @types/mocha from 10.0.1 to 10.0.2
+- Merge pull request #141 from Blockception/dependabot/github_actions/actions/checkout-4
+- build(deps): bump actions/checkout from 3 to 4
+- 1.20.15-0
+- Updated dependencies
 - Merge pull request #140 from Blockception/dependabot/npm_and_yarn/typescript-5.2.2
 - build(deps-dev): bump typescript from 5.1.6 to 5.2.2
 - Merge pull request #139 from Blockception/dependabot/npm_and_yarn/types/node-20.5.7
 - build(deps-dev): bump @types/node from 20.4.7 to 20.5.7
-- Merge pull request #138 from Blockception/dependabot/npm_and_yarn/chai-4.3.8
-- build(deps-dev): bump chai from 4.3.7 to 4.3.8
-- 1.20.12-2
-- Merge pull request #137 from Blockception/dependabot/npm_and_yarn/bc-minecraft-bedrock-command-1.20.12-1
-- build(deps): bump bc-minecraft-bedrock-command
-- Merge pull request #136 from Blockception/dependabot/npm_and_yarn/types/node-20.4.7
-- build(deps-dev): bump @types/node from 20.4.5 to 20.4.7
-- 1.20.12-1
-- Updated dependencies
-- 1.20.12-0
-- Fixing issue #135
-- Changed release action
-- 1.20.0-0
-- Updated dependencies
-- Removed objective length as they removed limits #134
-- Merge pull request #133 from Blockception/dependabot/npm_and_yarn/types/node-20.3.3
 ## Commands
+- 1.20.32-0
+- Updaating dependencies and pipelines
 - 1.20.15-0
 - fixing below_name -> belowname
 - 1.20.12-1
@@ -81,9 +83,9 @@
 - 1.19.71-3
 - Updated dependencies
 - 1.19.71-2
-- Updated dependencies
-- 1.19.71-1
 ## Molang
+- 1.20.32-0
+- Updated dependencies, node, pipelines and comments
 - Changed release action
 - 1.20.0-0
 - Updated dependencies
@@ -102,26 +104,24 @@
 - Updated molang functions
 - Delete dependabot.yml
 - Merge pull request #88 from Blockception/dependabot/npm_and_yarn/chai-4.3.7
-- Merge pull request #86 from Blockception/dependabot/npm_and_yarn/types/node-18.11.10
-- build(deps-dev): bump chai from 4.3.6 to 4.3.7
 ## Vanilla-Data
+- More Emoji
+- 1.20.32-0
+- Rescape data
+- Updated pipelines and dependencies
+- Merge pull request #84 from Blockception/dependabot/npm_and_yarn/chai-and-types/chai-4.3.10
+- build(deps-dev): bump chai and @types/chai
+- Merge pull request #83 from Blockception/dependabot/npm_and_yarn/types/node-20.8.0
+- build(deps-dev): bump @types/node from 20.5.7 to 20.8.0
+- Merge pull request #82 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.5
+- build(deps-dev): bump rimraf from 5.0.1 to 5.0.5
+- Merge pull request #81 from Blockception/dependabot/npm_and_yarn/types/mocha-10.0.2
+- build(deps-dev): bump @types/mocha from 10.0.1 to 10.0.2
+- Merge pull request #80 from Blockception/dependabot/github_actions/actions/checkout-4
+- build(deps): bump actions/checkout from 3 to 4
 - 1.20.15-0
 - Merge pull request #79 from Blockception/dependabot/npm_and_yarn/typescript-5.2.2
 - Merge pull request #78 from Blockception/dependabot/npm_and_yarn/chai-4.3.8
 - build(deps-dev): bump typescript from 5.1.6 to 5.2.2
 - Merge pull request #77 from Blockception/dependabot/npm_and_yarn/types/node-20.5.7
 - build(deps-dev): bump chai from 4.3.7 to 4.3.8
-- build(deps-dev): bump @types/node from 20.4.5 to 20.5.7
-- Merge pull request #76 from Blockception/dependabot/npm_and_yarn/types/node-20.4.5
-- build(deps-dev): bump @types/node from 20.3.3 to 20.4.5
-- Changed release action
-- Merge pull request #75 from Blockception/dependabot/npm_and_yarn/types/node-20.3.3
-- Merge pull request #74 from Blockception/dependabot/npm_and_yarn/typescript-5.1.6
-- build(deps-dev): bump @types/node from 20.2.5 to 20.3.3
-- build(deps-dev): bump typescript from 5.0.4 to 5.1.6
-- 1.20.0-0
-- Adding makefile
-- Merge pull request #73 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.1
-- Merge pull request #72 from Blockception/dependabot/npm_and_yarn/types/node-20.2.5
-- build(deps-dev): bump rimraf from 5.0.0 to 5.0.1
-- build(deps-dev): bump @types/node from 18.16.3 to 20.2.5
