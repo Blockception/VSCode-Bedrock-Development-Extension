@@ -18,5 +18,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-          bodyFile: CHANGELOG.md
+          generateReleaseNotes: true
           makeLatest: true
