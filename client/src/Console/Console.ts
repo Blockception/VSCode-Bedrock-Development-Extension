@@ -1,12 +1,12 @@
 export class Console {
   /**Sends a error to the console log of the server*/
-  static Error(message: string): void {
-    console.error(message);
+  static Error(message: string, ...optionalParams: any[]): void {
+    console.error(message, ...optionalParams);
   }
 
   /**Sends a error to the console log of the server*/
-  static Info(message: string): void {
-    console.info(message);
+  static Info(message: string, ...optionalParams: any[]): void {
+    console.info(message, ...optionalParams);
   }
 
   /**Sends a error to the console log of the server*/
@@ -15,7 +15,7 @@ export class Console {
   }
 
   /**Sends a error to the console log of the server*/
-  static Warn(message: string): void {
-    console.warn(message);
+  static Warn(message: string, ...optionalParams: any[]): void {
+    console.warn(message, ...optionalParams);
   }
 }
