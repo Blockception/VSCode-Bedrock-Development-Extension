@@ -1,5 +1,10 @@
 ﻿# CHANGELOG
 ## Extension
+- Updating schemas to include ui-json (#482)
+- Making it generate release notes
+- 6.1.9
+- Merge branch 'main' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
+- Add show docs command (#480) (#481)
 - 6.1.8
 - Updating latest
 - Updating pipelines, node, removing node fetch and updating dependencies
@@ -15,12 +20,10 @@
 - Updated diagnoser and commands
 - Updated schemas
 - 6.1.4
-- Updating dependencies
-- Merge branch 'main' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Cleaned dependabot
-- build(deps): bump the all group with 5 updates (#476)
-- Fixing build issue
 ## Schemas
+- Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
+- Fixing compress schema
+- Adding ui-json schemas (#188)
 - build(deps-dev): bump the all group with 1 update (#187)
 - build(deps): bump the all group with 1 update (#186)
 - Adding dependabot pipeline
@@ -38,9 +41,6 @@
 - Updated block geometry
 - Fixes (#177)
 - Update anger_level.json (#175)
-- Extendiing properties
-- Updated
-- Fixing bool property #173
 ## Diagnoser
 - 1.20.32-0
 - Updated node, pipelines and dependencies
