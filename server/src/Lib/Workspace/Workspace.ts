@@ -67,6 +67,8 @@ export namespace Workspace {
   /** Retrieves all the packs from the workspaces and process the document
    * @param folders The workspace folders to process */
   export function TraverseWorkspaces(folders: WorkspaceFolder[]): Promise<Pack[]> {
+    Console.Info(`Traversing workspaces: ${JSON.stringify(folders)}`);
+
     const packs: Pack[] = [];
 
     //Setup queue processor
@@ -99,10 +101,12 @@ export namespace Workspace {
       return Promise.resolve([]);
     }
 
-    Console.Info("Traversing workspace: " + folderPath);
+    Console.Info(`Traversing workspace: ${folderPath}`);
 
     const project = GetProject(folderPath);
     Database.WorkspaceData.set(folder, project);
+
+    Console.Debug(`Using settings: ${JSON.stringify(project, null, 2)}`);
 
     const manifests = MinecraftFormat.GetManifests(folder.uri, project.ignores.patterns);
     const packs = Database.ProjectData.addPack(manifests, project);

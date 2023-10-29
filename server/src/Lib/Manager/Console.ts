@@ -14,7 +14,12 @@ export namespace Console {
 
   /** */
   export function Log(message: string): void {
-    Manager.Connection.console.log("\t" + message);
+    Manager.Connection.console.log(message);
+  }
+
+  /** */
+  export function Debug(message: string): void {
+    Manager.Connection.console.debug(message);
   }
 
   type executorFn<T> = (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void;
