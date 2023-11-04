@@ -29,6 +29,7 @@ best color highlighting.
   - [Commands](#commands)
   - [Extension Settings](#extension-settings)
   - [Licenses](#licenses)
+- [Contributors](#contributors)
 
 ## Features
 
@@ -127,6 +128,10 @@ Special thanks to these awesome people for helping out these projects 😄
 **Schemas**  
 <a href="https://github.com/Blockception/Minecraft-bedrock-json-schemas/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Blockception/Minecraft-bedrock-json-schemas" />
+</a>  
+**Diagnoser**  
+<a href="https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Blockception/BC-Minecraft-Bedrock-Diagnoser" />
 </a>  
 
 Made with [contrib.rocks](https://contrib.rocks).
