@@ -3,14 +3,14 @@ import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnoserUtillity } from "../Diagnostics/Diagnoser";
+import { DiagnoserUtillity as DiagnoserUtility } from "../Diagnostics/Diagnoser";
 import { Console } from "../Manager/Console";
 import { WorkspaceData } from "./WorkspaceData";
 
 /** */
 export class Database {
   /** */
-  static Diagnoser: Diagnoser = DiagnoserUtillity.CreateDiagnoser(() => Database.ProjectData);
+  static Diagnoser: Diagnoser = DiagnoserUtility.CreateDiagnoser(() => Database.ProjectData);
 
   /** */
   static ProjectData: ProjectData = new ProjectData(Database.Diagnoser.context);
@@ -22,9 +22,9 @@ export class Database {
    *
    */
   static Clear(): void {
-    Console.Info("Reseting database");
+    Console.Info("Resetting database");
 
-    Database.Diagnoser = DiagnoserUtillity.CreateDiagnoser(() => Database.ProjectData);
+    Database.Diagnoser = DiagnoserUtility.CreateDiagnoser(() => Database.ProjectData);
     Database.WorkspaceData = new WorkspaceData();
     Database.ProjectData = new ProjectData(Database.Diagnoser.context);
   }
