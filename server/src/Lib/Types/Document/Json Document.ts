@@ -151,19 +151,6 @@ export class JsonDocument {
 }
 
 /**
- * Removes any json comments from the given json text
- * @param data json in text form
- */
-function stripJSONComments(data: string): string {
-  var re = new RegExp("//(.*)", "g");
-  data = data.replace(re, "");
-  data = data.replace(/\n/gi, "");
-  data = data.replace(/\r/gi, "");
-
-  return data;
-}
-
-/**
  * Searches the document with a given index and returns the index of that match.
  * @param doc
  * @param search

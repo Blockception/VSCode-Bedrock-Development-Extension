@@ -21,7 +21,7 @@ template.behavior.entity.file=./.minecraft/templates/entity.bp.json
 
 ```json
 {
-  "format_version": "1.18.0",
+  "format_version": "1.20.41",
   "minecraft:block": {
     "description": {
       "identifier": "${{id}}",

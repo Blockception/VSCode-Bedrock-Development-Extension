@@ -14,26 +14,25 @@ type ContentType = string | vscode.TextDocument | undefined;
 /**Returns an usable document interaction from the given data.
  * @param uri The url to the document to retrieve.
  * @param Content The possible content of the document or interface to use
- * @param languageID The Language ID associated to the documentated.
+ * @param languageID The Language ID associated to the documented.
  * @returns Returns a textdocument or undefined if something went wrong*/
 export function GetDocument(uri: string, Content: ContentType = undefined, languageID: string = ""): TextDocument | undefined {
-  const Old = uri;
-  uri = Vscode.FromFs(uri);
+  const fsPath = Vscode.FromFs(uri);
 
   if (languageID === "") {
-    languageID = IdentifyDoc(uri);
+    languageID = IdentifyDoc(fsPath);
   }
 
   if (typeof Content === "undefined") {
-    const doc = Manager.Documents.get(uri);
+    const doc = Manager.Documents.get(fsPath);
 
     //Cached document
     if (doc) return TextDocument.wrap(doc);
 
-    const content = GetDocumentContent(uri);
+    const content = GetDocumentContent(fsPath);
 
     if (content) {
-      return TextDocument.create(uri, languageID, 1, content);
+      return TextDocument.create(fsPath, languageID, 1, content);
     }
 
     //We have tried all methods of retrieving data so far
@@ -42,7 +41,7 @@ export function GetDocument(uri: string, Content: ContentType = undefined, langu
   //Content is provided
   else if (typeof Content === "string") {
     //string provided
-    return TextDocument.create(uri, languageID, 1, Content);
+    return TextDocument.create(fsPath, languageID, 1, Content);
   }
 
   //The interface is provided
