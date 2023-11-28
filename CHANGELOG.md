@@ -1,68 +1,72 @@
 ﻿# CHANGELOG
 ## Extension
-- Updating schemas to include ui-json (#482)
-- Making it generate release notes
-- 6.1.9
-- Merge branch 'main' of https://github.com/Blockception/VSCode-Bedrock-Development-Extension
-- Add show docs command (#480) (#481)
-- 6.1.8
-- Updating latest
-- Updating pipelines, node, removing node fetch and updating dependencies
-- build(deps): bump the all group with 12 updates (#479)
-- Update README.md
-- Update README.md
-- 6.1.7
+- Updated dependencies to latest version
+- Updating refence to 1.20.41
+- 7.0.8
+- Updating diagnoser to 1.20.41-1
+- 7.0.7
+- Updating schemas to latest
+- Updating dependencies and schemas
+- 7.0.6
+- Updated schemas with the latest ui
+- 7.0.5
+- Updated dependencies and diagnoser
+- 7.0.4
 - Updated dependencies
-- build(deps): bump the all group with 5 updates (#478)
-- 6.1.6
 - Updated schemas
-- 6.1.5
-- Updated diagnoser and commands
+- build(deps-dev): bump the all group with 1 update (#486)
+- build(deps): bump the all group with 2 updates (#485)
+- build(deps): bump the all group with 8 updates (#484)
+- Adding dependabot
+- 7.0.3
 - Updated schemas
-- 6.1.4
 ## Schemas
 - Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
-- Fixing compress schema
-- Adding ui-json schemas (#188)
-- build(deps-dev): bump the all group with 1 update (#187)
-- build(deps): bump the all group with 1 update (#186)
-- Adding dependabot pipeline
-- 1.20.32-0
-- Updating dependencies and pipelines
-- Add 9Slice schema (#184)
-- Updating manifests
-- Add Item Examples (#182)
-- Updating Undocumented (#180)
-- Updating block components
-- oneOf -> anyOf
-- Updated to support v1.20.10
-- Changed release action
+- Updating uuid reference
+- Updating format version
+- Update minecraft:damage_sensor damage sources (#194)
+- Formatted
+- Changing properties to stats
+- Update JSON UI schemas (#192)
+- Fixing reference
+- Fixing circular ref
+- Moving around refs
+- Add variables
+- Merge pull request #191 from Blockception/dependabot/npm_and_yarn/all-ca06bd0154
+- build(deps-dev): bump the all group with 3 updates
+- Merge pull request #190 from Blockception/dependabot/github_actions/all-451a913685
+- build(deps): bump the all group with 1 update
+- Fixing variable reference
 - Merge branch 'main' of https://github.com/Blockception/Minecraft-bedrock-json-schemas
-- Updated block geometry
-- Fixes (#177)
-- Update anger_level.json (#175)
+- Fixing references
+- Updating filters and behaviors
+- Fixing schemas
 ## Diagnoser
-- 1.20.32-0
-- Updated node, pipelines and dependencies
-- Update dependabot.yml
-- Update dependabot.yml
-- Merge pull request #145 from Blockception/dependabot/npm_and_yarn/types/node-20.8.0
-- Merge pull request #144 from Blockception/dependabot/npm_and_yarn/chai-and-types/chai-4.3.10
-- build(deps-dev): bump @types/node from 20.5.7 to 20.8.0
-- build(deps-dev): bump chai and @types/chai
-- Merge pull request #143 from Blockception/dependabot/npm_and_yarn/rimraf-5.0.5
-- build(deps-dev): bump rimraf from 5.0.1 to 5.0.5
-- Merge pull request #142 from Blockception/dependabot/npm_and_yarn/types/mocha-10.0.2
-- build(deps-dev): bump @types/mocha from 10.0.1 to 10.0.2
-- Merge pull request #141 from Blockception/dependabot/github_actions/actions/checkout-4
-- build(deps): bump actions/checkout from 3 to 4
-- 1.20.15-0
+- 1.20.41-2
+- Fixing regex
+- 1.20.41-1
+- Fixing molang complex check
+- 1.20.41-0
+- 1.20.40-4
+- Adding the start of diagnostics
+- 1.20.40-3
+- Updated dependences
+- 1.20.40-2
+- Update dependencies.ts (#149)
+- 1.20.40-1
 - Updated dependencies
-- Merge pull request #140 from Blockception/dependabot/npm_and_yarn/typescript-5.2.2
-- build(deps-dev): bump typescript from 5.1.6 to 5.2.2
-- Merge pull request #139 from Blockception/dependabot/npm_and_yarn/types/node-20.5.7
-- build(deps-dev): bump @types/node from 20.4.7 to 20.5.7
+- Updating comment
+- Merge pull request #148 from Blockception/dependabot/npm_and_yarn/all-d504efca9a
+- build(deps): bump the all group with 4 updates
+- Merge pull request #147 from Blockception/dependabot/github_actions/all-451a913685
+- build(deps): bump the all group with 1 update
+- 1.20.40-0
+- Updated molang and project to latest version
 ## Commands
+- 1.20.32-2
+- Correct inputpermission parameter type (#95)
+- 1.20.32-1
+- Updated bedrock types
 - 1.20.32-0
 - Updaating dependencies and pipelines
 - 1.20.15-0
@@ -79,11 +83,14 @@
 - Updated dependencies
 - 1.19.80-0
 - Added inputpermission
-- Added new summon syntax #91
-- 1.19.71-3
-- Updated dependencies
-- 1.19.71-2
 ## Molang
+- Updating patterning naming
+- 1.20.40-2
+- Updated bedrock types
+- 1.20.40-1
+- Adding parameters to above_top_solid
+- 1.20.40-0
+- Updating the molang data for 1.20.40
 - 1.20.32-0
 - Updated dependencies, node, pipelines and comments
 - Changed release action
@@ -97,14 +104,13 @@
 - 1.19.60-0
 - Added is_local_player
 - Adding mocha reporter
-- Updated unit-tests
-- 1.19.50-1
-- Added query.had_component_group
-- 1.19.50-0
-- Updated molang functions
-- Delete dependabot.yml
-- Merge pull request #88 from Blockception/dependabot/npm_and_yarn/chai-4.3.7
 ## Vanilla-Data
+- 1.20.32-1
+- Merge pull request #86 from Blockception/dependabot/github_actions/all-451a913685
+- build(deps): bump the all group with 1 update
+- Merge pull request #85 from Blockception/dependabot/npm_and_yarn/all-ca06bd0154
+- build(deps-dev): bump the all group with 3 updates
+- Adding work folder
 - More Emoji
 - 1.20.32-0
 - Rescape data
@@ -119,9 +125,3 @@
 - build(deps-dev): bump @types/mocha from 10.0.1 to 10.0.2
 - Merge pull request #80 from Blockception/dependabot/github_actions/actions/checkout-4
 - build(deps): bump actions/checkout from 3 to 4
-- 1.20.15-0
-- Merge pull request #79 from Blockception/dependabot/npm_and_yarn/typescript-5.2.2
-- Merge pull request #78 from Blockception/dependabot/npm_and_yarn/chai-4.3.8
-- build(deps-dev): bump typescript from 5.1.6 to 5.2.2
-- Merge pull request #77 from Blockception/dependabot/npm_and_yarn/types/node-20.5.7
-- build(deps-dev): bump chai from 4.3.7 to 4.3.8
