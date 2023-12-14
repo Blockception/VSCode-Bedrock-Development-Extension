@@ -1,7 +1,7 @@
 import { TextDocument } from "../Types/Document/TextDocument";
 import { Database } from "../Database/Database";
 import { HandleError } from "../Code/Error";
-import { ProvideDiagnostics } from "../Diagnostics/OnRequest";
+import { provideDiagnostics } from "../Diagnostics/OnRequest";
 import { Languages } from "@blockception/shared";
 import { Traverse } from "./Traverse";
 import { Manager } from '../Manager/Manager';
@@ -12,7 +12,7 @@ export function Process(document: TextDocument): void {
   try {
     Database.ProjectData.process(document);
 
-    ProvideDiagnostics(document);
+    provideDiagnostics(document);
   } catch (error) {
     HandleError(error, document);
   }

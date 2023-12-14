@@ -2,7 +2,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext | CompletionBuilder): void {
+export function provideCompletion(context: CommandCompletionContext | CompletionBuilder): void {
   let receiver = CommandCompletionContext.is(context) ? context.receiver : context;
 
   //False

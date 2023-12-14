@@ -7,7 +7,7 @@ import { Position, Range, SemanticTokens } from "vscode-languageserver";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Semantics/Legend";
 import { TextDocument } from "../../Types/Document/TextDocument";
 
-export function ProvideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {
+export function provideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Builder = new McfunctionSemanticTokensBuilder(doc);
   let startIndex = 0;
   let endIndex = doc.lineCount;
@@ -35,7 +35,6 @@ export function ProvideSemanticToken(doc: TextDocument, range?: Range | undefine
 
 export function McfunctionLineTokens(
   line: string,
-  cursor: number,
   offset: number,
   Builder: McfunctionSemanticTokensBuilder
 ): void {
@@ -45,6 +44,10 @@ export function McfunctionLineTokens(
   }
 
   const command = Command.parse(line, offset);
+  if (command.getCommandData(true).length <= 0) {
+    return;
+  }
+
   CreateTokens(command, Builder);
 }
 

@@ -2,7 +2,7 @@ import { QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { HandleError } from "../Code/Error";
 import { Database } from "../Database/Database";
-import { ProvidePackDiagnostics } from "../Diagnostics/OnRequest";
+import { providePackDiagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { ProgressBar } from "../Types/Progress/ProgressBar";
@@ -42,7 +42,7 @@ async function TraverseProcess(reporter: ProgressBar): Promise<Pack[]> {
     reporter.sendMessage("Diagnosing");
 
     const processor = new QueueProcessor(packs, (pack) => {
-      const p = ProvidePackDiagnostics(pack, reporter);
+      const p = providePackDiagnostics(pack, reporter);
 
       reporter.addValue(1);
       reporter.sendProgress();

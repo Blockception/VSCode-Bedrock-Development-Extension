@@ -10,8 +10,8 @@ import * as Mcfunction from "../Mcfunction";
 import * as Molang from "../Molang";
 import * as ResourcePack from "../ResourcePack";
 
-export function ProvideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
-  const c = <JsonCompletionContext>context;
+export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
+  const c = context as JsonCompletionContext;
   c.cursor = context.doc.offsetAt(cursorPos);
 
   const text = c.doc.getText();
@@ -29,7 +29,7 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
   const second = c.currentText.substring(insertIndex);
   const P = c.doc.positionAt(c.cursor);
   const R = Range.create(P, P);
-    
+
   //Have each new item pass through a new function
   var Function = c.receiver.OnNewItem;
   c.receiver.OnNewItem = (NewItem: CompletionItem) => {
@@ -58,10 +58,10 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
 
   switch (type) {
     case PackType.behavior_pack:
-      return BehaviorPack.ProvideCompletion(c);
+      return BehaviorPack.provideCompletion(c);
 
     case PackType.resource_pack:
-      return ResourcePack.ProvideCompletion(c);
+      return ResourcePack.provideCompletion(c);
 
     default:
       break;
@@ -74,17 +74,27 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
 function OnCompletionJsonMolang(context: JsonCompletionContext) {
   //Find all events
   if (context.currentText.startsWith("@s")) {
-    BehaviorPack.EntityEvent.ProvideCompletion(context);
-    //Is it a command instead
-  } else if (context.currentText.startsWith("/")) {
-    Mcfunction.ProvideCompletionLine(
+    return BehaviorPack.EntityEvent.provideCompletion(context);
+  }
+
+  // Commands
+  if (context.currentText.startsWith("/")) {
+    Mcfunction.provideCompletionLine(
       context,
       context.currentText.substring(1),
       context.cursor,
       context.range.start + 1
-    );
-    //Its probably molang
+    );  
   } else {
-    Molang.ProvideCompletion(context.currentText, context.cursor - context.range.start, context);
+    Mcfunction.provideCompletionLine(
+      context,
+      context.currentText,
+      context.cursor,
+      context.range.start
+    );
   }
+  
+
+  //Its probably molang
+  Molang.provideCompletion(context.currentText, context.cursor - context.range.start, context);
 }

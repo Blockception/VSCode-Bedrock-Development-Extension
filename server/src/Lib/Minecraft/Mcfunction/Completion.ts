@@ -15,7 +15,7 @@ import * as CCommand from "../Commands/Command/Completion";
  * @param pos
  * @returns
  */
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const doc = context.doc;
   const LineIndex = pos.line;
   const Line = doc.getLine(LineIndex);
@@ -45,7 +45,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos
     Subcommand = command.isInSubCommand(cursor);
   }
 
-  ProvideCompletionCommand(context, doc.offsetAt(pos), command);
+  provideCompletionCommand(context, doc.offsetAt(pos), command);
 }
 
 /**
@@ -55,14 +55,14 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos
  * @param cursor
  * @param offset
  */
-export function ProvideCompletionLine(
+export function provideCompletionLine(
   context: SimpleContext<CompletionBuilder>,
   text: string,
   cursor: number,
   offset: number
 ): void {
   const command: Command = Command.parse(text, offset);
-  ProvideCompletionCommand(context, cursor, command);
+  provideCompletionCommand(context, cursor, command);
 }
 
 /**
@@ -72,20 +72,20 @@ export function ProvideCompletionLine(
  * @param command
  * @returns
  */
-export function ProvideCompletionCommand(
+export function provideCompletionCommand(
   context: SimpleContext<CompletionBuilder>,
   pos: number,
   command: Command
 ): void {
   if (command == undefined || command.parameters.length == 0 || pos < command.parameters[0].offset + 3) {
-    CCommand.ProvideCompletion(context);
+    CCommand.provideCompletion(context);
     return;
   }
 
   const Matches = command.getBestMatch(IsEducationEnabled(context.doc));
 
   if (Matches.length === 0) {
-    if (pos < 10) CCommand.ProvideCompletion(context);
+    if (pos < 10) CCommand.provideCompletion(context);
 
     return;
   }
@@ -111,7 +111,7 @@ export function ProvideCompletionCommand(
         context.doc
       );
 
-      Parameter.ProvideCompletion(ncontext);
+      Parameter.provideCompletion(ncontext);
     }
   }
 }

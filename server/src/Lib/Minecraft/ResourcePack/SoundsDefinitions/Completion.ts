@@ -2,9 +2,9 @@ import { SimpleContext } from "../../../Code";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
 import { GetCurrentString } from '../../Json/Functions';
-import { ProvideSoundFileCompletion } from "../Sounds/Completion";
+import { provideSoundFileCompletion } from "../Sounds/Completion";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, cursor: number): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>, cursor: number): void {
   const text = context.doc.getText();
   const range = GetCurrentString(text, cursor);
 
@@ -15,7 +15,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, cur
   //TODO redo this
   if (!data.includes("sounds/")) return;
 
-  ProvideSoundFileCompletion(context);
+  provideSoundFileCompletion(context);
 
   Database.ProjectData.ResourcePacks;
 }

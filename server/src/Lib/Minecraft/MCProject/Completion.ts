@@ -11,15 +11,15 @@ import { SimpleContext } from "../../Code";
 import path from "path";
 import { TemplateFilenames } from "../../Commands/Templates/Templates";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {
   const filename = path.basename(context.doc.uri);
 
   switch (filename) {
     case MCAttributes.filename:
-      ProvideAttributes(context, pos);
+      provideAttributes(context, pos);
       break;
     case MCDefinition.filename:
-      ProvideDefinitions(context, pos);
+      provideDefinitions(context, pos);
       break;
     case MCIgnore.filename:
       break;
@@ -32,13 +32,13 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos
  * @param pos
  * @returns
  */
-function ProvideAttributes(context: SimpleContext<CompletionBuilder>, pos: Position) {
+function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Position) {
   const builder = context.receiver;
   const line = context.doc.getLine(pos.line);
 
   const index = line.indexOf("=");
   if (index > -1 && index < pos.character) {
-    Boolean.ProvideCompletion(builder);
+    Boolean.provideCompletion(builder);
     return;
   }
 
@@ -110,7 +110,7 @@ function ProvideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
  * @param pos
  * @returns
  */
-function ProvideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+function provideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const line = context.doc.getLine(pos.line);
 
   const index = line.indexOf("=");

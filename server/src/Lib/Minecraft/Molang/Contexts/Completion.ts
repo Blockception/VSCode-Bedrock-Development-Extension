@@ -5,7 +5,7 @@ import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { GetDataSet } from "../General/GetDataSet";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const packType = PackType.detect(context.doc.uri);
   const data = GetDataSet(context.doc.uri);
 

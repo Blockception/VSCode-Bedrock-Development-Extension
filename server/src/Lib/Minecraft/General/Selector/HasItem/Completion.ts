@@ -11,7 +11,7 @@ import * as SlotType from '../../../Modes/SlotType/Completion';
 import * as Item from '../../../BehaviorPack/Items/Completion';
 import * as Integer from '../../Integer/Completion';
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {
   const receiver = context.receiver;
 
   if (IsEditingValue(selector, pos)) {
@@ -19,19 +19,19 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, sel
 
     switch (attr) {
       case "data":
-        return Integer.ProvideCreateCompletion(receiver, -1, 9);
+        return Integer.provideCreateCompletion(receiver, -1, 9);
 
       case "item":
-        return Item.ProvideCompletion(context)
+        return Item.provideCompletion(context)
 
       case "location":
-        return SlotType.ProvideCompletion(context);
+        return SlotType.provideCompletion(context);
 
       case "slot":
-        return Integer.ProvideCreateCompletion(receiver, 0, 53);
+        return Integer.provideCreateCompletion(receiver, 0, 53);
 
       case "quantity":
-        return Integer.ProvideCreateCompletion(receiver, 0, 10);
+        return Integer.provideCreateCompletion(receiver, 0, 10);
     }
 
     return;

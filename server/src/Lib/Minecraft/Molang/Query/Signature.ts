@@ -7,7 +7,7 @@ import { SignatureCarrier } from "../../../Signatures/Carrier";
  * @param fn
  * @param doc
  */
-export function ProvideSignature(fn: string | undefined): SignatureHelp | undefined {
+export function provideSignature(fn: string | undefined): SignatureHelp | undefined {
   if (!fn) {
     return QuerySignature;
   }

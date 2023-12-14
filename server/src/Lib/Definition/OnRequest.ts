@@ -18,11 +18,11 @@ export function onDefinition(params: TypeDefinitionParams | DefinitionParams): L
 
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:
-      return Mcfunction.ProvideReferences(params, doc);
+      return Mcfunction.provideReferences(params, doc);
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      return Json.ProvideReferences(doc, params);
+      return Json.provideReferences(doc, params);
 
     case Languages.McOtherIdentifier:
       break;

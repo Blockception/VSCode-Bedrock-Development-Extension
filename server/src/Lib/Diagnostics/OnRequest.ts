@@ -8,21 +8,21 @@ import { ForEachDocument } from "../Types/Document/Document";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { ProgressBar } from "../Types/Progress/ProgressBar";
 
-export function ProvideDiagnostics(doc: TextDocument): void {
+export function provideDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
 
-  InternalProvideDiagnostics(doc);
+  InternalprovideDiagnostics(doc);
 }
 
-function InternalProvideDiagnostics(doc: TextDocument): void {
+function InternalprovideDiagnostics(doc: TextDocument): void {
   //Send it off to the diagnoser
   Database.Diagnoser.Process(doc);
 }
 
-export function ProvidePackDiagnostics(pack: Pack, reporter?: ProgressBar): Promise<string[]> {
+export function providePackDiagnostics(pack: Pack, reporter?: ProgressBar): Promise<string[]> {
   if (!Manager.State.DataGathered) return Promise.resolve<string[]>([]);
 
   Console.Info("Diagnosing pack: " + Fs.FromVscode(pack.folder));
 
-  return ForEachDocument(MinecraftFormat.GetPackFiles(pack), InternalProvideDiagnostics, reporter);
+  return ForEachDocument(MinecraftFormat.GetPackFiles(pack), InternalprovideDiagnostics, reporter);
 }

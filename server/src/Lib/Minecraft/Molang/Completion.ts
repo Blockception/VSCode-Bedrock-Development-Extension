@@ -16,12 +16,12 @@ import * as Variables from "./Variables/Completion";
 import * as BehaviorPack from "../BehaviorPack";
 import * as ResourcePack from "../ResourcePack";
 
-export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+export function provideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const doc = context.doc;
   const line = doc.getLine(pos.line);
   const cursor = doc.offsetAt(pos);
 
-  return ProvideCompletion(line, cursor, context);
+  return provideCompletion(line, cursor, context);
 }
 
 /**
@@ -32,47 +32,47 @@ export function ProvideDocCompletion(context: SimpleContext<CompletionBuilder>, 
  * @param receiver
  * @returns
  */
-export function ProvideCompletion(line: string, cursor: number, context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(line: string, cursor: number, context: SimpleContext<CompletionBuilder>): void {
   const Word = GetPreviousWord(line, cursor).toLowerCase();
 
   switch (Word) {
     case "animation":
-      return PrefixedData(ResourcePack.Animations.ProvideCompletion, BehaviorPack.Animations.ProvideCompletion, context);
+      return PrefixedData(ResourcePack.Animations.provideCompletion, BehaviorPack.Animations.provideCompletion, context);
 
     case "controller":
       return PrefixedData(
         (context) => {
-          ResourcePack.AnimationControllers.ProvideCompletion(context);
-          ResourcePack.RenderControllers.ProvideCompletion(context);
+          ResourcePack.AnimationControllers.provideCompletion(context);
+          ResourcePack.RenderControllers.provideCompletion(context);
         },
-        BehaviorPack.AnimationControllers.ProvideCompletion,
+        BehaviorPack.AnimationControllers.provideCompletion,
         context
       );
 
     case "q":
     case "query":
-      return Query.ProvideCompletion(context);
+      return Query.provideCompletion(context);
 
     case "m":
     case "math":
-      return Math.ProvideCompletion(context);
+      return Math.provideCompletion(context);
 
     case "geometry":
-      return Geometry.ProvideCompletion(context);
+      return Geometry.provideCompletion(context);
 
     case "material":
-      return Material.ProvideCompletion(context);
+      return Material.provideCompletion(context);
 
     case "v":
     case "variable":
-      return Variables.ProvideCompletion(context);
+      return Variables.provideCompletion(context);
 
     case "t":
     case "texture":
-      return Texture.ProvideCompletion(context);
+      return Texture.provideCompletion(context);
 
     case "temp":
-      return Temps.ProvideCompletion(context);
+      return Temps.provideCompletion(context);
   }
 
   const doc = context.doc;
@@ -88,8 +88,8 @@ export function ProvideCompletion(line: string, cursor: number, context: SimpleC
     receiver.Add("temp", "Temporary variable definitions", CompletionItemKind.Variable);
     receiver.Add("this", "refers to this object", CompletionItemKind.Struct);
 
-    Query.ProvideCompletion(context);
-    Math.ProvideCompletion(context);
+    Query.provideCompletion(context);
+    Math.provideCompletion(context);
   }
 }
 

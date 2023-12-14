@@ -44,24 +44,24 @@ function OnCompletionRequest(params: CompletionParams): CompletionList | undefin
 
   switch (doc.languageId) {
     case Languages.McLanguageIdentifier:
-      Language.ProvideCompletion(context, pos);
+      Language.provideCompletion(context, pos);
       break;
 
     case Languages.McFunctionIdentifier:
-      Mcfunction.ProvideCompletion(context, pos);
+      Mcfunction.provideCompletion(context, pos);
       break;
 
     case Languages.McProjectIdentifier:
-      MCProject.ProvideCompletion(context, pos);
+      MCProject.provideCompletion(context, pos);
       break;
 
     case Languages.McMolangIdentifier:
-      Molang.ProvideDocCompletion(context, pos);
+      Molang.provideDocCompletion(context, pos);
       break;
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      Json.ProvideCompletionDocument(context, pos);
+      Json.provideCompletionDocument(context, pos);
       break;
   }
 

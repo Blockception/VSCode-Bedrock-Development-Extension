@@ -2,7 +2,7 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
 
   receiver.Add("1L", "Add 1 level of xp", CompletionItemKind.Value);

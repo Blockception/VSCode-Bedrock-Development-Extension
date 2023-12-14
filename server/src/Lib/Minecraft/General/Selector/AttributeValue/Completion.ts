@@ -14,7 +14,7 @@ import { equal } from 'assert';
 import { Offset } from '../../../../Code';
 
 //Doesnt do scores and doesnt need to
-export function ProvideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
+export function provideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
   const receiver = context.receiver;
 
   switch (attribute) {
@@ -33,38 +33,38 @@ export function ProvideCompletion(context: CommandCompletionContext, attribute: 
       return;
 
     case "family":
-      Family.ProvideCompletionTest(context);
+      Family.provideCompletionTest(context);
       return;
 
     case "r":
     case "rm":
     case "lm":
     case "l":
-      Integer.ProvideCreateCompletion(receiver, 0, 100);
+      Integer.provideCreateCompletion(receiver, 0, 100);
       return;
 
     case "m":
-      Modes.Gamemode.ProvideCompletionTest(context);
+      Modes.Gamemode.provideCompletionTest(context);
       return;
 
     case "name":
-      Names.ProvideCompletion(context);
+      Names.provideCompletion(context);
       return;
 
     case "rx":
     case "rxm":
     case "ry":
     case "rym":
-      Float.ProvideCreateCompletion(receiver, -180, 180);
+      Float.provideCreateCompletion(receiver, -180, 180);
       return;
 
     case "tag":
-      Tag.ProvideCompletionTest(context);
+      Tag.provideCompletionTest(context);
       return;
 
     case "type":
       if (forEntities) {
-        Entities.ProvideCompletion(context);
+        Entities.provideCompletion(context);
       }
       return;
 

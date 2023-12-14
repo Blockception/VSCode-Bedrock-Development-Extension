@@ -4,7 +4,7 @@ import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   MolangData.General.Queries.forEach((item) => Generate(item, context.receiver));
 }
 

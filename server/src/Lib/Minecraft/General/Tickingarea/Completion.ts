@@ -4,7 +4,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: GeneralInfo) => `The tickingarea: ${item.id}\nLocation: ${item.location.uri}`;
 
   const receiver = context.receiver;

@@ -6,7 +6,7 @@ import { Kinds } from "../../General/Kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { SimpleContext } from "../../../Code/SimpleContext";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The block definition: ${item.id}`;
 
   context.receiver.Generate(Database.ProjectData.BehaviorPacks.blocks, generateDoc, Kinds.Completion.Block);

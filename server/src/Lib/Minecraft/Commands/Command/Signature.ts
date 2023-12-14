@@ -14,7 +14,7 @@ import * as RawText from "../../Json/RawText/Signature";
  * @param doc
  * @returns
  */
-export function ProvideSignature(
+export function provideSignature(
   Line: string,
   StartOffset: number,
   cursorOffset: number,

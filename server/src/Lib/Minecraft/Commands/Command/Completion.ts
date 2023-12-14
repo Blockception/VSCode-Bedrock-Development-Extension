@@ -9,14 +9,14 @@ import { SimpleContext } from "../../../Code";
  *
  * @param receiver
  */
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const edu = IsEducationEnabled(context.doc);
 
   SMap.forEach(CommandData.Vanilla, (data) => GetCompletion(data, context.receiver));
   if (edu) SMap.forEach(CommandData.Edu, (data) => GetCompletion(data, context.receiver));
 }
 
-export function ProvideExecuteSubcommandCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideExecuteSubcommandCompletion(context: SimpleContext<CompletionBuilder>): void {
   SMap.forEach(CommandData.ExecuteSubcommands, (data) => GetCompletion(data, context.receiver));
 }
 

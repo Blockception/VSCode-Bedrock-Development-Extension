@@ -6,7 +6,7 @@ import { Kinds } from "../../General/Kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The texture: ${item.id}`;
 
   context.receiver.Generate(Database.ProjectData.ResourcePacks.textures, generateDoc, Kinds.Completion.Texture);

@@ -4,7 +4,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../../General/Kinds";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The bp animation: ${item.id}`;
 
   context.receiver.Generate(Database.ProjectData.BehaviorPacks.animations, generateDoc, Kinds.Completion.Animation);

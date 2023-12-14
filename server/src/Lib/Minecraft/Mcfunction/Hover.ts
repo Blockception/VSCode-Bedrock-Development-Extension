@@ -14,7 +14,7 @@ import { TextDocument } from "../../Types/Document/TextDocument";
  * @param doc
  * @returns
  */
-export function ProvideHover(params: HoverParams, doc: TextDocument): Hover | undefined {
+export function provideHover(params: HoverParams, doc: TextDocument): Hover | undefined {
   const cursor = doc.offsetAt(params.position);
   const LineIndex = params.position.line;
   const Line = doc.getLine(LineIndex);

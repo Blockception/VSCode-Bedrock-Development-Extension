@@ -1,7 +1,7 @@
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
   const Kind = Kinds.Completion.Coordinate;
 

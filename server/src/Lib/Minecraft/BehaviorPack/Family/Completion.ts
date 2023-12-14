@@ -7,7 +7,7 @@ import { Kinds } from "../../General/Kinds";
 
 import * as Command from "../../Commands/Command/Functions";
 
-export function ProvideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
+export function provideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
 
@@ -18,7 +18,7 @@ export function ProvideCompletion(context: CommandCompletionContext, type: strin
   context.receiver.GenerateStr(MinecraftData.General.Entities.families, (item) => `The vanilla entity family: ${item}`, Kinds.Completion.Family);
 }
 
-export function ProvideCompletionTest(context: CommandCompletionContext): void {
+export function provideCompletionTest(context: CommandCompletionContext): void {
   const receiver = context.receiver;
 
   const types = Command.GetPossibleEntityTypes(context.command, context.parameterIndex);

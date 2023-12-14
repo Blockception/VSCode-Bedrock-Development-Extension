@@ -1,11 +1,11 @@
 import { expect } from 'chai';
-import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from './OnRequest';
+import { OnprovideRangeSemanticRequestAsync, OnprovideSemanticRequestAsync } from './OnRequest';
 
 describe("Semantics", () => {
   describe("Request", () => {
     it("Sanity", () => {
-      expect(OnProvideRangeSemanticRequestAsync).to.not.be.undefined;
-      expect(OnProvideSemanticRequestAsync).to.not.be.undefined;
+      expect(OnprovideRangeSemanticRequestAsync).to.not.be.undefined;
+      expect(OnprovideSemanticRequestAsync).to.not.be.undefined;
     });
   });
 });

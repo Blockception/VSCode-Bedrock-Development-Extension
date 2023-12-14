@@ -27,7 +27,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       textDocumentSync: TextDocumentSyncKind.Incremental,
 
       // Tell the client that this server supports a couple commands
-      executeCommandProvider: {
+      executeCommandprovider: {
         commands: [
           Commands.DiagnoseProject,
           Commands.MCProject.Create,
@@ -39,36 +39,36 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       },
 
       // Code Actions
-      codeActionProvider: true,
-      codeLensProvider: {
-        resolveProvider: true,
+      codeActionprovider: true,
+      codeLensprovider: {
+        resolveprovider: true,
         workDoneProgress: false,
       },
 
       // Tell the client that this server supports go to definitions
-      definitionProvider: true,
-      typeDefinitionProvider: true,
+      definitionprovider: true,
+      typeDefinitionprovider: true,
 
       // Tell the client that this server supports symbol provider
-      documentSymbolProvider: true,
-      workspaceSymbolProvider: true,
+      documentSymbolprovider: true,
+      workspaceSymbolprovider: true,
 
       // Tell the client that this server supports hover support
-      hoverProvider: true,
+      hoverprovider: true,
 
       // Tell the client that this server supports code completion.
-      completionProvider: {
-        resolveProvider: false,
+      completionprovider: {
+        resolveprovider: false,
         triggerCharacters: triggerCharacters,
       },
 
       // Tell the client that this server supports go to references
-      referencesProvider: {
+      referencesprovider: {
         workDoneProgress: true,
       },
 
       // Tell the client that this server supports go to implementation
-      implementationProvider: {
+      implementationprovider: {
         documentSelector: [
           { language: Languages.JsonCIdentifier },
           { language: Languages.JsonIdentifier },
@@ -81,7 +81,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       },
 
       // Tell the client that this server supports signatures
-      signatureHelpProvider: {
+      signatureHelpprovider: {
         triggerCharacters: triggerCharacters,
         retriggerCharacters: triggerCharacters,
         workDoneProgress: true,

@@ -1,29 +1,29 @@
 import { Console } from "../Manager/Console";
 import { GetDocument } from "../Types/Document/Document";
 import { Languages } from "@blockception/shared";
-import { ProvideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
-import { ProvideMolangSemanticTokens } from "../Minecraft/Molang/Semantics";
+import { provideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
+import { provideMolangSemanticTokens } from "../Minecraft/Molang/Semantics";
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
 import * as Mcfunction from "../Minecraft/Mcfunction/Semantics";
 
-export async function OnProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
+export async function OnprovideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
   try {
-    return Console.request("Semantics", Promise.resolve(OnProvideSemanticRequest(params)));
+    return Console.request("Semantics", Promise.resolve(OnprovideSemanticRequest(params)));
   } catch (err) {
     return { data: [] };
   }
 }
 
-export async function OnProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
+export async function OnprovideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
   try {
-    return Console.request("Semantics", Promise.resolve(OnProvideSemanticRequestAsync(params)));
+    return Console.request("Semantics", Promise.resolve(OnprovideSemanticRequestAsync(params)));
   } catch (err) {
     return { data: [] };
   }
 }
 
-function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
+function OnprovideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {
   let uri = params.textDocument.uri;
   if (!uri.startsWith("file://")) return { data: [] };
 
@@ -39,13 +39,13 @@ function OnProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTo
   switch (doc.languageId) {
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      return ProvideJsonSemanticTokens(doc, range);
+      return provideJsonSemanticTokens(doc, range);
 
     case Languages.McFunctionIdentifier:
-      return Mcfunction.ProvideSemanticToken(doc, range);
+      return Mcfunction.provideSemanticToken(doc, range);
 
     case Languages.McMolangIdentifier:
-      return ProvideMolangSemanticTokens(doc, range);
+      return provideMolangSemanticTokens(doc, range);
 
     case Languages.McOtherIdentifier:
     case Languages.McLanguageIdentifier:

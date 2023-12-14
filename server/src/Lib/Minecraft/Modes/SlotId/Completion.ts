@@ -3,7 +3,7 @@ import { SlotTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SlotType"
 import { CommandCompletionContext } from "../../../Completion/Context";
 import * as Integer from '../../General/Integer/Completion';
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: CommandCompletionContext): void {
   const command = context.command;
   const Index = context.parameterIndex;
 
@@ -14,9 +14,9 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
 
   if (Mode && Modes.SlotType.isValue(Mode.name)) {
     if (Mode.range) {
-      Integer.ProvideCreateCompletion(context.receiver, Mode.range.min, Mode.range.max);
+      Integer.provideCreateCompletion(context.receiver, Mode.range.min, Mode.range.max);
     } else {
-      Integer.ProvideCreateCompletion(context.receiver, 0, 9);
+      Integer.provideCreateCompletion(context.receiver, 0, 9);
     }
   }
 }

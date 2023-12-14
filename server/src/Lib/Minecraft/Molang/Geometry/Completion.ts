@@ -7,19 +7,19 @@ import { Database } from "../../../Database/Database";
 import { Kinds } from "../../General/Kinds";
 import { Models } from "../../ResourcePack";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const packType = PackType.detect(context.doc.uri);
 
   switch (packType) {
     case PackType.behavior_pack:
-      return ProvideBehaviorpackCompletion(context);
+      return provideBehaviorpackCompletion(context);
 
     case PackType.resource_pack:
-      return ProvideResourcepackCompletion(context);
+      return provideResourcepackCompletion(context);
   }
 }
 
-export function ProvideResourcepackCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideResourcepackCompletion(context: SimpleContext<CompletionBuilder>): void {
   const fileType = ResourcePack.FileType.detect(context.doc.uri);
   const receiver = context.receiver;
   const kind = Kinds.Completion.Models;
@@ -29,7 +29,7 @@ export function ProvideResourcepackCompletion(context: SimpleContext<CompletionB
     case ResourcePack.FileType.entity:
     case ResourcePack.FileType.attachable:
       //Using model geometries
-      Models.ProvideCompletion(context);
+      Models.provideCompletion(context);
       break;
 
     default:
@@ -45,7 +45,7 @@ export function ProvideResourcepackCompletion(context: SimpleContext<CompletionB
   }
 }
 
-export function ProvideBehaviorpackCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideBehaviorpackCompletion(context: SimpleContext<CompletionBuilder>): void {
   const fileType = BehaviorPack.FileType.detect(context.doc.uri);
   const receiver = context.receiver;
   const kind = Kinds.Completion.Models;

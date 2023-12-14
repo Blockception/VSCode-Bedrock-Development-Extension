@@ -4,7 +4,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../../General/Kinds";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   context.receiver.Generate(
     Database.ProjectData.BehaviorPacks.animation_controllers, 
     (item: Identifiable) => `The bp animation controller: ${item.id}`, 

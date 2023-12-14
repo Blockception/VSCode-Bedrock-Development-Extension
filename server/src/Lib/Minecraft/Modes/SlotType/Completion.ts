@@ -1,5 +1,5 @@
 import { Modes } from "bc-minecraft-bedrock-types";
-import { ProvideModeCompletion } from "../Completion";
+import { provideModeCompletion } from "../Completion";
 import { Kinds } from "../../General/Kinds";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
@@ -8,6 +8,6 @@ import { CompletionBuilder } from "../../../Completion/Builder";
  *
  * @param context
  */
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  ProvideModeCompletion(Modes.SlotType, context, Kinds.Completion.Gamemode);
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+  provideModeCompletion(Modes.SlotType, context, Kinds.Completion.Gamemode);
 }

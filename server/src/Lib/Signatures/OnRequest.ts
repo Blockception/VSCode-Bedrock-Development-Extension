@@ -3,7 +3,7 @@ import { Languages } from "@blockception/shared";
 import { Console } from '../Manager';
 import { Language, Mcfunction, Molang } from "../Minecraft";
 import { GetDocument } from "../Types/Document/Document";
-import { ProvideJsonSignature } from "./Json";
+import { provideJsonSignature } from "./Json";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
   return Console.request("Signature", Promise.resolve(OnSignatureRequest(params)));
@@ -17,20 +17,20 @@ function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefi
   //Switch per language type
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:
-      return Mcfunction.ProvideSignature(doc, pos);
+      return Mcfunction.provideSignature(doc, pos);
 
     case Languages.McLanguageIdentifier:
-      return Language.ProvideSignature(doc, pos);
+      return Language.provideSignature(doc, pos);
 
     case Languages.McMolangIdentifier:
-      return Molang.ProvideDocSignature(doc, pos);
+      return Molang.provideDocSignature(doc, pos);
 
     case Languages.McOtherIdentifier:
       return undefined;
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      return ProvideJsonSignature(doc, pos);
+      return provideJsonSignature(doc, pos);
   }
 
   return undefined;

@@ -11,21 +11,21 @@ import * as Items from "../Items/Completion";
 
 
 
-export function ProvideLootTableCompletion(context: JsonCompletionContext): void {
+export function provideLootTableCompletion(context: JsonCompletionContext): void {
   const property = JsonCompletionContext.getProperty(context);
   if (property === undefined) return;
 
   switch (property) {
     case "name":
-      return Items.ProvideCompletion(context);
+      return Items.provideCompletion(context);
   }
 }
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   generate_items(context);
 }
 
-export function ProvideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
   const old = context.receiver.OnNewItem
   context.receiver.OnNewItem = (item) => {
     let id = short_id(item.label);

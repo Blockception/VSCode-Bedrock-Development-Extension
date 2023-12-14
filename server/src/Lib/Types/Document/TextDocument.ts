@@ -2,12 +2,12 @@ import * as vscode from "vscode-languageserver-textdocument";
 import * as mcbe from "bc-minecraft-bedrock-project";
 import { Database } from "../../Database/Database";
 import { MCProject } from "bc-minecraft-project";
-import { MCProjectProvider } from '../../Project/Interfaces';
+import { MCProjectprovider } from '../../Project/Interfaces';
 
 /**
  *
  */
-export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument, MCProjectProvider {
+export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument, MCProjectprovider {
   /**Returns the text at the given text line
    * @param lineIndex The index of the line to retrieve
    */

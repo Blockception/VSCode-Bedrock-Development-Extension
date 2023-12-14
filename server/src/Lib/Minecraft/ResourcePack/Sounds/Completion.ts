@@ -9,7 +9,7 @@ import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { MinecraftFormat } from "../../Format";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
 
   context.receiver.Generate(Database.ProjectData.ResourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
@@ -28,7 +28,7 @@ export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): vo
  * @param doc
  * @returns
  */
-export function ProvideSoundFileCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideSoundFileCompletion(context: SimpleContext<CompletionBuilder>): void {
   const RP = context.doc.getPack();
 
   //No associated pack, then do nothing

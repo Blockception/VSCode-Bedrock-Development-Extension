@@ -1,7 +1,7 @@
 import { Position, SignatureHelp } from "vscode-languageserver";
 import { TextDocument } from "../../Types/Document/TextDocument";
 
-export function ProvideSignature(doc: TextDocument, pos: Position): SignatureHelp {
+export function provideSignature(doc: TextDocument, pos: Position): SignatureHelp {
   const Line = doc.getLine(pos.line);
 
   const index = Line.indexOf("=");

@@ -7,7 +7,7 @@ import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { TextDocument } from "../../../Types/Document/TextDocument";
 
-export function ProvideReferences(value: OffsetWord, params: DefinitionParams, doc: TextDocument): Location[] | undefined {
+export function provideReferences(value: OffsetWord, params: DefinitionParams, doc: TextDocument): Location[] | undefined {
   const Line = value.text;
   const offset = value.offset;
 

@@ -6,7 +6,7 @@ import { TextDocument } from '../../../Types/Document/TextDocument';
  * @param fn 
  * @param doc 
  */
-export function ProvideSignature(fn : string | undefined): SignatureHelp | undefined {
+export function provideSignature(fn : string | undefined): SignatureHelp | undefined {
 
 
     return undefined;

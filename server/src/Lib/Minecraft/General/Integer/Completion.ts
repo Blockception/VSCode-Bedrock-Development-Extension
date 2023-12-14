@@ -2,17 +2,17 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
   const Options = context.parameter.options;
 
   const minimum = Options?.minimum ?? 0;
   const maximum = Options?.maximum ?? 10;
 
-  ProvideCreateCompletion(receiver, minimum, maximum);
+  provideCreateCompletion(receiver, minimum, maximum);
 }
 
-export function ProvideRangeCompletion(context: CommandCompletionContext): void {
+export function provideRangeCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
   const Options = context.parameter.options;
 
@@ -32,7 +32,7 @@ export function ProvideRangeCompletion(context: CommandCompletionContext): void 
   }
 }
 
-export function ProvideCreateCompletion(receiver: CompletionBuilder, minimum: number, maximum: number): void {
+export function provideCreateCompletion(receiver: CompletionBuilder, minimum: number, maximum: number): void {
   let diff = maximum - minimum;
   let steps = diff > 10 ? diff / 10 : 1;
 

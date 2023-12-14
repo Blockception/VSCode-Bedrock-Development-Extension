@@ -1,14 +1,14 @@
 import { MCProject } from "bc-minecraft-project";
 
-export interface MCProjectProvider {
+export interface MCProjectprovider {
   /**
    *
    */
   getConfiguration(): MCProject;
 }
 
-export namespace MCProjectProvider {
-  export function is(value: any): value is MCProjectProvider {
+export namespace MCProjectprovider {
+  export function is(value: any): value is MCProjectprovider {
     if (typeof value === "object") {
       if (typeof value.getConfiguration === "undefined") return false;
 

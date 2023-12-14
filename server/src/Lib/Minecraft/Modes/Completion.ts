@@ -9,7 +9,7 @@ import { CompletionBuilder } from "../../Completion/Builder";
  * @param receiver
  * @param kind
  */
-export function ProvideModeCompletion(Mode: ModeCollection, context: SimpleContext<CompletionBuilder>, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
+export function provideModeCompletion(Mode: ModeCollection, context: SimpleContext<CompletionBuilder>, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
   const Modes = Mode.modes;
   for (let I = 0; I < Modes.length; I++) {
     const Element = Modes[I];
@@ -24,7 +24,7 @@ export function ProvideModeCompletion(Mode: ModeCollection, context: SimpleConte
  * @param receiver
  * @param kind
  */
-export function ProvideModeTestCompletion(Mode: ModeCollection, context: SimpleContext<CompletionBuilder>, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
+export function provideModeTestCompletion(Mode: ModeCollection, context: SimpleContext<CompletionBuilder>, kind: CompletionItemKind = CompletionItemKind.EnumMember): void {
   const Modes = Mode.modes;
   for (let I = 0; I < Modes.length; I++) {
     let Element = Modes[I];

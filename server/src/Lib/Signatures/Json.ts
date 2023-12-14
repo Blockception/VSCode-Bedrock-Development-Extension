@@ -4,7 +4,7 @@ import { GetCurrentString } from "../Minecraft/Json/Functions";
 import { TextDocument } from "../Types/Document/TextDocument";
 import { Commands, Molang } from "../Minecraft";
 
-export function ProvideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
+export function provideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
   let text = doc.getText();
   const cpos = doc.offsetAt(cursor);
   let Range = GetCurrentString(text, cpos);
@@ -18,13 +18,13 @@ export function ProvideJsonSignature(doc: TextDocument, cursor: Position): Signa
       property = property.substring(1);
       Range.start++;
 
-      return Commands.Command.ProvideSignature(property, Range.start, cpos, doc);
+      return Commands.Command.provideSignature(property, Range.start, cpos, doc);
     } else if (property.startsWith("@s")) {
       //On event
       return MolangEventSignature;
     } else {
       //On other molang
-      return Molang.ProvideSignature({ text: property, offset: Range.start }, cpos, doc);
+      return Molang.provideSignature({ text: property, offset: Range.start }, cpos, doc);
     }
   }
 

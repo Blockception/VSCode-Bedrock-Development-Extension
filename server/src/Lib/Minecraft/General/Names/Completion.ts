@@ -2,7 +2,7 @@ import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
   const receiver = context.receiver;
 

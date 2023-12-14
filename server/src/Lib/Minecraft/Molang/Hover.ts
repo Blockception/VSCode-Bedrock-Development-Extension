@@ -4,13 +4,13 @@ import { Character } from "../../Code/Character";
 import { TextDocument } from "../../Types/Document/TextDocument";
 import { TextRange } from "../Json/Functions";
 
-export function ProvideHover(doc: TextDocument, params: HoverParams): Hover | undefined {
+export function provideHover(doc: TextDocument, params: HoverParams): Hover | undefined {
   const line = doc.getLine(params.position.line);
   const offset = doc.offsetAt({ character: 0, line: params.position.line });
   const cursor = doc.offsetAt(params.position);
   const range: TextRange = { start: cursor, end: cursor + line.length };
 
-  return ProvideHoverAt(
+  return provideHoverAt(
     line,
     range,
     offset,
@@ -18,7 +18,7 @@ export function ProvideHover(doc: TextDocument, params: HoverParams): Hover | un
   );
 }
 
-export function ProvideHoverAt(
+export function provideHoverAt(
   currentText: string,
   textRange: TextRange,
   cursor: number,
@@ -57,13 +57,13 @@ export function ProvideHoverAt(
   if (dotIndex > -1) {
     const main = currentText.slice(startIndex, dotIndex).toLowerCase();
     const sub = currentText.slice(dotIndex + 1, endIndex).toLowerCase();
-    return ProvideHoverSpecific(main, sub);
+    return provideHoverSpecific(main, sub);
   }
 
-  return ProvideHoverSpecific(text);
+  return provideHoverSpecific(text);
 }
 
-export function ProvideHoverSpecific(
+export function provideHoverSpecific(
   main: string,
   sub: string | undefined = undefined,
   range: Range | undefined = undefined

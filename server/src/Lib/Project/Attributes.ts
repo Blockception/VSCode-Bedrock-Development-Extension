@@ -1,13 +1,13 @@
 import { MCProject } from "bc-minecraft-project";
-import { MCProjectProvider } from "./Interfaces";
+import { MCProjectprovider } from "./Interfaces";
 
 /**
  *
  * @param project
  * @returns
  */
-export function IsEducationEnabled(project: MCProject | MCProjectProvider) {
-  if (MCProjectProvider.is(project)) {
+export function IsEducationEnabled(project: MCProject | MCProjectprovider) {
+  if (MCProjectprovider.is(project)) {
     project = project.getConfiguration();
   }
 
@@ -19,8 +19,8 @@ export function IsEducationEnabled(project: MCProject | MCProjectProvider) {
  * @param project
  * @returns
  */
-export function IsDiagnosticsEnabled(project: MCProject | MCProjectProvider) {
-  if (MCProjectProvider.is(project)) {
+export function IsDiagnosticsEnabled(project: MCProject | MCProjectprovider) {
+  if (MCProjectprovider.is(project)) {
     project = project.getConfiguration();
   }
 
@@ -32,8 +32,8 @@ export function IsDiagnosticsEnabled(project: MCProject | MCProjectProvider) {
  * @param project
  * @returns
  */
-export function IsDiagnosticsJsonEnabled(project: MCProject | MCProjectProvider) {
-  if (MCProjectProvider.is(project)) {
+export function IsDiagnosticsJsonEnabled(project: MCProject | MCProjectprovider) {
+  if (MCProjectprovider.is(project)) {
     project = project.getConfiguration();
   }
 
@@ -45,8 +45,8 @@ export function IsDiagnosticsJsonEnabled(project: MCProject | MCProjectProvider)
  * @param project
  * @returns
  */
-export function IsDiagnosticsLangEnabled(project: MCProject | MCProjectProvider) {
-  if (MCProjectProvider.is(project)) {
+export function IsDiagnosticsLangEnabled(project: MCProject | MCProjectprovider) {
+  if (MCProjectprovider.is(project)) {
     project = project.getConfiguration();
   }
 

@@ -12,7 +12,7 @@ import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from 
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../Symbols/OnRequest";
 import { OnHoverRequestAsync } from "../../Hover/OnRequest";
 import { onImplementationRequestAsync } from '../../Implementation/OnRequest';
-import { OnProvideRangeSemanticRequestAsync, OnProvideSemanticRequestAsync } from "../../Semantics";
+import { OnprovideRangeSemanticRequestAsync, OnprovideSemanticRequestAsync } from "../../Semantics";
 import { OnReferencesRequestAsync } from "../../References/OnRequest";
 import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
 
@@ -23,7 +23,7 @@ export function setEvents() {
   const Documents = Manager.Documents;
   const Connection = Manager.Connection;
 
-  //Provides diagnostics and such
+  //provides diagnostics and such
   Documents.onDidOpen(OnDocumentChangedAsync);
   Documents.onDidSave(OnDocumentChangedAsync);
 
@@ -71,8 +71,8 @@ export function setEvents() {
   Connection.onDidChangeConfiguration(OnConfigurationChanged);
 
   // This handler provides semantic Tokens
-  Connection.languages.semanticTokens.on(OnProvideSemanticRequestAsync);
-  Connection.languages.semanticTokens.onRange(OnProvideRangeSemanticRequestAsync);
+  Connection.languages.semanticTokens.on(OnprovideSemanticRequestAsync);
+  Connection.languages.semanticTokens.onRange(OnprovideRangeSemanticRequestAsync);
 
   if (Manager.Capabilities.hasWorkspaceFolderCapability) {
     // Workspace event

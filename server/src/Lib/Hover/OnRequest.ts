@@ -27,14 +27,14 @@ export function OnHoverRequest(params: HoverParams): Hover | undefined {
 
   switch (doc.languageId) {
     case Languages.McFunctionIdentifier:
-      return Mcfunction.ProvideHover(params, doc);
+      return Mcfunction.provideHover(params, doc);
 
     case Languages.JsonCIdentifier:
     case Languages.JsonIdentifier:
-      return Json.ProvideHover(doc, params);
+      return Json.provideHover(doc, params);
 
     case Languages.McMolangIdentifier:
-      return Molang.ProvideHover(doc, params);
+      return Molang.provideHover(doc, params);
 
     case Languages.McOtherIdentifier:
       break;

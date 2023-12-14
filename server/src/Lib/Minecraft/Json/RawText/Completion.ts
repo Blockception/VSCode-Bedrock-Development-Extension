@@ -12,7 +12,7 @@ import {
   cTranslationWithComplex,
 } from "./Constants";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
 
   receiver.Add("Json Raw Text", cRawTextComponent, CompletionItemKind.Snippet, cRawTextComponent);

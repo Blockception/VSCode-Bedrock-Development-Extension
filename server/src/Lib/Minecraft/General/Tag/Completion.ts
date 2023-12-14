@@ -4,7 +4,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
 
   receiver.Generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
@@ -21,7 +21,7 @@ function generateDocumentation(tag: GeneralInfo | string): string {
   return `The tag: ${tag.id}\nLocation: ${filename}`;
 }
 
-export function ProvideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
   const receiver = context.receiver;
   receiver.Add("Any Tag: `tag=`", "By inserting an `tag=` you test for entities with any kind of tag", Kinds.Completion.Tag, "");

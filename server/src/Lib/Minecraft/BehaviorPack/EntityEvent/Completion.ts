@@ -12,7 +12,7 @@ import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
  * @param context
  * @returns
  */
-export function ProvideCompletion(context: CommandCompletionContext | SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: CommandCompletionContext | SimpleContext<CompletionBuilder>): void {
   if (CommandCompletionContext.is(context)) {
     const parameters = context.bestMatch.parameters;
     const Index = parameters.findIndex((p) => p.type === ParameterType.entity);

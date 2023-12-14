@@ -6,7 +6,7 @@ import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The particle: ${item.id}`;
 
   context.receiver.Generate(Database.ProjectData.ResourcePacks.particles, generateDoc, Kinds.Completion.Particle);

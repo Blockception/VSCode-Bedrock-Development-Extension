@@ -16,7 +16,7 @@ import * as HasItem from "./HasItem/Completion";
  * @param context
  * @returns
  */
-export function ProvideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
   const selector = context.current;
   const pos = context.cursor;
@@ -60,28 +60,28 @@ export function ProvideCompletion(context: CommandCompletionContext): void {
       FromType(receiver, InternalSelectorTypeMode.AllAgents);
     }
 
-    if (Options?.allowFakePlayers) FakeEntity.ProvideCompletion(context);
+    if (Options?.allowFakePlayers) FakeEntity.provideCompletion(context);
 
     return;
   }
 
   //Not in selector
   if (InScore(selector, pos)) {
-    Scores.ProvideCompletion(context, selector, pos);
+    Scores.provideCompletion(context, selector, pos);
     return;
   }
 
   //Not in selector
   if (InHasItem(selector, pos)) {
-    HasItem.ProvideCompletion(context, selector, pos);
+    HasItem.provideCompletion(context, selector, pos);
     return;
   }
 
   if (AttributeValue.IsEditingValue(selector, pos)) {
     const Attribute = Attributes.GetCurrentAttribute(selector, pos);
-    AttributeValue.ProvideCompletion(context, Attribute, !playerOnly);
+    AttributeValue.provideCompletion(context, Attribute, !playerOnly);
   } else {
-    Attributes.ProvideCompletion(context, !playerOnly);
+    Attributes.provideCompletion(context, !playerOnly);
   }
 }
 

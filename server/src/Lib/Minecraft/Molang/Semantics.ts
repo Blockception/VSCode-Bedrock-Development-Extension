@@ -15,7 +15,7 @@ import { Minecraft } from 'bc-minecraft-bedrock-types';
  * @param range
  * @returns
  */
-export function ProvideMolangSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
+export function provideMolangSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Builder = new MolangSemanticTokensBuilder(doc);
   const text = doc.getText(range);
   let offset = 0;

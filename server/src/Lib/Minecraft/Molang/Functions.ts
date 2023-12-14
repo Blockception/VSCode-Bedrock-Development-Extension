@@ -1,3 +1,4 @@
+import { Command, CommandData } from 'bc-minecraft-bedrock-command';
 import { Character } from "../../Code";
 
 const MolangRegexp = /\b((query|math|variable|texture|temp|geometry|material|array|context|c|q|v|t)\.[A-Za-z_0-9]+|->)\b/im;
@@ -11,10 +12,18 @@ const MolangCommandRegexp = /^\/[a-z]+ /;
 export function IsMolang(text: string): boolean {
   if (text.startsWith("@s")) return true;
 
-  if (text.startsWith("/")) {
-    if (MolangCommandRegexp.test(text)) return true;
+  //Get first word
+  let index = text.indexOf(" ");
+  if (index < 0) index = text.length;
+  let word = text.substring(0, index);
+  word = word.startsWith('/') ? word.substring(1, word.length) : word;
 
-    return false;
+  //command test
+  if (CommandData.Vanilla[word] !== undefined) {
+    return true;
+  }
+  if (CommandData.Edu[word] !== undefined) {
+    return true;
   }
 
   //general test

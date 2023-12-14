@@ -3,7 +3,7 @@ import { SimpleContext } from "../../../Code";
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from "./Constants";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
   receiver.Add("Json Item Components Example", Example, CompletionItemKind.Snippet, Example);
   receiver.Add("Can destroy component", CanDestroyComponent, CompletionItemKind.Snippet, CanDestroyComponent);

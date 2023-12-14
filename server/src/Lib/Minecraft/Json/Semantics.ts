@@ -10,7 +10,7 @@ import { SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensEnum } from "../../Semantics/Legend";
 import { TextDocument } from "../../Types/Document/TextDocument";
 
-export function ProvideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
+export function provideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const Type = PackType.detect(doc.uri);
 
   //Not related to minecraft
@@ -46,15 +46,9 @@ function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensB
     index = endIndex + 1;
 
     if (IsMolang(property)) {
-      if (property.startsWith("/")) {
-        property = property.substring(1);
-        Builder.Add(startIndex, startIndex + 1, SemanticTokensEnum.operator);
-        startIndex++;
-        McfunctionLineTokens(property, 0, offset + startIndex, McfunctionSemanticTokensBuilder.FromJson(Builder));
-      } else {
-        const Words = CreateMolangWords(property, offset + startIndex);
-        ConvertWords(Words, Builder);
-      }
+      McfunctionLineTokens(property, offset + startIndex, McfunctionSemanticTokensBuilder.FromJson(Builder));
+      const Words = CreateMolangWords(property, offset + startIndex);
+      ConvertWords(Words, Builder);
     }
   }
 }

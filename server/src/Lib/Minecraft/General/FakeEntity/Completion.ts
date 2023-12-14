@@ -4,7 +4,7 @@ import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../Kinds";
 
-export function ProvideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: CommandCompletionContext): void {
   const generateDoc = (fakeEntities: GeneralInfo) => {
     const filename = GetFilename(fakeEntities.location.uri);
     return `The dummy entity: ${fakeEntities.id}\nLocation: ${filename}`;

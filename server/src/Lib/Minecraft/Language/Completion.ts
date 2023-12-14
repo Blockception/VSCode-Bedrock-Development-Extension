@@ -3,7 +3,7 @@ import { CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { SimpleContext } from "../../Code/SimpleContext";
 
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const receiver = context.receiver;
   const cursor = pos.character;
 

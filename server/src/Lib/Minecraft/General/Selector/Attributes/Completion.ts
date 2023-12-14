@@ -3,11 +3,11 @@ import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../../../Completion/Builder";
-import { ProvideModeCompletion } from "../../../Modes/Completion";
+import { provideModeCompletion } from "../../../Modes/Completion";
 
 //Doesnt do scores and doesnt need to
-export function ProvideCompletion(context: SimpleContext<CompletionBuilder>, forEntities: boolean): void {
-  ProvideModeCompletion(Modes.SelectorAttribute, context, CompletionItemKind.Property);
+export function provideCompletion(context: SimpleContext<CompletionBuilder>, forEntities: boolean): void {
+  provideModeCompletion(Modes.SelectorAttribute, context, CompletionItemKind.Property);
 }
 
 /**

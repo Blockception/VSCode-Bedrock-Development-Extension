@@ -11,7 +11,7 @@ import * as Command from '../Commands/Command/References';
 import * as Molang from '../Molang';
 
 
-export function ProvideReferences(doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
+export function provideReferences(doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
   const pos = params.position;
 
   const Text = doc.getText();
@@ -26,7 +26,7 @@ export function ProvideReferences(doc: TextDocument, params: DefinitionParams | 
   if (IsMolang(value.text)) {
     //Command
     if (value.text.startsWith("/")) {
-      return Command.ProvideReferences(new OffsetWord(value.text.slice(1), value.offset + 1), params, doc);
+      return Command.provideReferences(new OffsetWord(value.text.slice(1), value.offset + 1), params, doc);
     }
     //Event
     else if (value.text.startsWith("@")) {
@@ -34,7 +34,7 @@ export function ProvideReferences(doc: TextDocument, params: DefinitionParams | 
     }
     //Molang
     else {
-      return Molang.ProvideReferences(value, doc, params);
+      return Molang.provideReferences(value, doc, params);
     }
   }
   else {

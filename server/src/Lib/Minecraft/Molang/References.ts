@@ -7,7 +7,7 @@ import { References } from "../../Code/References";
 import { Database } from "../../Database/Database";
 import { TextDocument } from "../../Types/Document/TextDocument";
 
-export function ProvideReferences(
+export function provideReferences(
   text: OffsetWord,
   doc: TextDocument,
   params: DefinitionParams | ReferenceParams
