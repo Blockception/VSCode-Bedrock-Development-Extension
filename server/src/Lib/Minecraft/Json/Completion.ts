@@ -54,7 +54,7 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
   const type = PackType.detect(context.doc.uri);
   if (type == PackType.unknown) return;
 
-  OnCompletionJsonMolang(c);
+  onCompletionJsonMolang(c);
 
   switch (type) {
     case PackType.behavior_pack:
@@ -71,7 +71,7 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
   c.receiver.OnNewItem = Function;
 }
 
-function OnCompletionJsonMolang(context: JsonCompletionContext) {
+function onCompletionJsonMolang(context: JsonCompletionContext) {
   //Find all events
   if (context.currentText.startsWith("@s")) {
     BehaviorPack.EntityEvent.provideCompletion(context);

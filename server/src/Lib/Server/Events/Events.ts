@@ -2,7 +2,7 @@ import { Manager } from "../../Manager/Manager";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequestAsync, OnCodeLensResolveRequestAsync } from "../../CodeLens/OnRequest";
 import { OnCommandRequestAsync } from "../../Commands/OnRequest";
-import { OnCompletionRequestAsync } from "../../Completion/OnRequest";
+import { onCompletionRequestAsync } from "../../Completion/OnRequest";
 import { OnConfigurationChanged } from '../Settings/Update';
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../Definition/OnRequest";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
@@ -39,8 +39,8 @@ export function setEvents() {
   Connection.onCodeLensResolve(OnCodeLensResolveRequestAsync)
 
   // This handler provides completion items.
-  Connection.onCompletion(OnCompletionRequestAsync);
-  //Connection.onCompletionResolve(OnCompletionResolveRequestAsync);
+  Connection.onCompletion(onCompletionRequestAsync);
+  //Connection.onCompletionResolve(onCompletionResolveRequestAsync);
   Connection.onImplementation(onImplementationRequestAsync);
 
   // This handler provides go to definitions

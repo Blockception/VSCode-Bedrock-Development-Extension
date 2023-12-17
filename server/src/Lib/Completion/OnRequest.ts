@@ -15,10 +15,10 @@ import * as Molang from "../Minecraft/Molang/Completion";
  * @param params
  * @returns
  */
-export async function OnCompletionRequestAsync(
+export async function onCompletionRequestAsync(
   params: CompletionParams
 ): Promise<CompletionItem[] | CompletionList | undefined> {
-  return Console.request("Completion", Promise.resolve(OnCompletionRequest(params)));
+  return Console.request("Completion", Promise.resolve(onCompletionRequest(params)));
 }
 
 /**
@@ -26,7 +26,7 @@ export async function OnCompletionRequestAsync(
  * @param params
  * @returns
  */
-export async function OnCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem | undefined> {
+export async function onCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem | undefined> {
   return Promise.resolve(params);
 }
 
@@ -34,7 +34,7 @@ export async function OnCompletionResolveRequestAsync(params: CompletionItem): P
  * @param params
  * @returns
  */
-function OnCompletionRequest(params: CompletionParams): CompletionList | undefined {
+function onCompletionRequest(params: CompletionParams): CompletionList | undefined {
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 

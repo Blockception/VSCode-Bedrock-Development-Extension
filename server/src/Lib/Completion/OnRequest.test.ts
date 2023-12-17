@@ -1,11 +1,11 @@
 import { expect } from 'chai';
-import { OnCompletionRequestAsync, OnCompletionResolveRequestAsync } from './OnRequest';
+import { onCompletionRequestAsync, onCompletionResolveRequestAsync } from './OnRequest';
 
 describe("Completion", () => {
   describe("Request", () => {
     it("Sanity", () => {
-      expect(OnCompletionRequestAsync).to.not.be.undefined;
-      expect(OnCompletionResolveRequestAsync).to.not.be.undefined;
+      expect(onCompletionRequestAsync).to.not.be.undefined;
+      expect(onCompletionResolveRequestAsync).to.not.be.undefined;
     });
   });
 });

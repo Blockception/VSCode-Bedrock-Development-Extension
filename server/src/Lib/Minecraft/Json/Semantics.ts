@@ -7,7 +7,6 @@ import { McfunctionSemanticTokensBuilder } from "../../Semantics/Builders/Mcfunc
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
-import { SemanticTokensEnum } from "../../Semantics/Legend";
 import { TextDocument } from "../../Types/Document/TextDocument";
 
 export function provideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
@@ -20,7 +19,7 @@ export function provideJsonSemanticTokens(doc: TextDocument, range?: Range | und
   const text = doc.getText(range);
   const offset = range ? doc.offsetAt(range.start) : 0;
 
-  CreateTokens(text, offset, Builder);
+  createTokens(text, offset, Builder);
 
   return Builder.Build();
 }
@@ -31,7 +30,7 @@ export function provideJsonSemanticTokens(doc: TextDocument, range?: Range | und
  * @param offset
  * @param Builder
  */
-function CreateTokens(text: string, offset: number, Builder: JsonSemanticTokensBuilder): void {
+function createTokens(text: string, offset: number, Builder: JsonSemanticTokensBuilder): void {
   let index = 0;
 
   while (index >= 0) {
