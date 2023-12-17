@@ -10,7 +10,7 @@ import * as Mcfunction from "../Mcfunction";
 import * as Molang from "../Molang";
 import * as ResourcePack from "../ResourcePack";
 
-export function ProvideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
+export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const c = <JsonCompletionContext>context;
   c.cursor = context.doc.offsetAt(cursorPos);
 
@@ -58,10 +58,10 @@ export function ProvideCompletionDocument(context: SimpleContext<CompletionBuild
 
   switch (type) {
     case PackType.behavior_pack:
-      return BehaviorPack.ProvideCompletion(c);
+      return BehaviorPack.provideCompletion(c);
 
     case PackType.resource_pack:
-      return ResourcePack.ProvideCompletion(c);
+      return ResourcePack.provideCompletion(c);
 
     default:
       break;
