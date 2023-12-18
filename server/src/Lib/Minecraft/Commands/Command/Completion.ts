@@ -12,12 +12,12 @@ import { SimpleContext } from "../../../Code";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const edu = IsEducationEnabled(context.doc);
 
-  SMap.forEach(CommandData.Vanilla, (data) => GetCompletion(data, context.receiver));
-  if (edu) SMap.forEach(CommandData.Edu, (data) => GetCompletion(data, context.receiver));
+  SMap.forEach(CommandData.Vanilla, (data) => getCompletion(data, context.receiver));
+  if (edu) SMap.forEach(CommandData.Edu, (data) => getCompletion(data, context.receiver));
 }
 
 export function provideExecuteSubcommandCompletion(context: SimpleContext<CompletionBuilder>): void {
-  SMap.forEach(CommandData.ExecuteSubcommands, (data) => GetCompletion(data, context.receiver));
+  SMap.forEach(CommandData.ExecuteSubcommands, (data) => getCompletion(data, context.receiver));
 }
 
 /**
@@ -25,7 +25,7 @@ export function provideExecuteSubcommandCompletion(context: SimpleContext<Comple
  * @param Data
  * @param receiver
  */
-function GetCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
+function getCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
   for (var I = 0; I < Data.length; I++) {
     const CInfo = Data[I];
     if (CInfo.obsolete) continue;

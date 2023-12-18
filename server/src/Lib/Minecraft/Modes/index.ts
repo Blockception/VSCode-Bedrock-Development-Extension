@@ -13,6 +13,8 @@ export * as Mirror from "./Mirror/index";
 export * as MusicRepeat from "./MusicRepeat/index";
 export * as OldBlock from "./OldBlock/index";
 export * as Operation from "./Operation/index";
+export * as Permission from "./Permission/index";
+export * as PermissionState from "./PermissionState/index";
 export * as Replace from "./Replace/index";
 export * as RideFill from "./RideFill/index";
 export * as RideRules from "./RideRules/index";

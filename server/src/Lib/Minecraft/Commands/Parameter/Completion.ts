@@ -103,6 +103,8 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.musicRepeatMode]: Modes.MusicRepeat.provideCompletion,
   [ParameterType.oldBlockMode]: Modes.OldBlock.provideCompletion,
   [ParameterType.operation]: Modes.Operation.provideCompletion,
+  [ParameterType.permission]: Modes.Permission.provideCompletion,
+  [ParameterType.permissionState]: Modes.PermissionState.provideCompletion,
   [ParameterType.replaceMode]: Modes.Replace.provideCompletion,
   [ParameterType.ridefillMode]: Modes.RideFill.provideCompletion,
   [ParameterType.rideRules]: Modes.RideRules.provideCompletion,
