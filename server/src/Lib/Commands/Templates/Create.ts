@@ -44,9 +44,15 @@ function initialize(): CommandManager {
 
   //General
   Out[Commands.Create.General.Entity] = (params: ExecuteCommandParams, context: Context) => {
+    const id = params.arguments ? params.arguments[0] : undefined;
+
+    const attributes = {
+      id,
+    }
+
     return PromisesAll(
-      Templates.create("behavior-entity", context.BehaviorPack()),
-      Templates.create("resource-entity", context.ResourcePack())
+      Templates.create("behavior-entity", context.BehaviorPack(), attributes),
+      Templates.create("resource-entity", context.ResourcePack(), attributes)
     );
   };
   Out[Commands.Create.General.Languages] = () => {
@@ -54,11 +60,16 @@ function initialize(): CommandManager {
   };
   Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams, context: EnsureContext) => {
     const ensured = context.Ensure();
+    const id = params.arguments ? params.arguments[0] : undefined;
+
+    const attributes = {
+      id,
+    }
 
     return PromisesAll(
-      Templates.create("behavior-manifest", ensured.BehaviorPack()),
-      Templates.create("resource-manifest", ensured.ResourcePack()),
-      Templates.create("world-manifest", ensured.ResourcePack())
+      Templates.create("behavior-manifest", ensured.BehaviorPack(), attributes),
+      Templates.create("resource-manifest", ensured.ResourcePack(), attributes),
+      Templates.create("world-manifest", ensured.ResourcePack(), attributes)
     );
   };
 
