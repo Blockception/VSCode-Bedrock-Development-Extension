@@ -1023,6 +1023,17 @@
             "completionEvents": [
               "onCommand:bc.errors.open_lastest"
             ]
+          },
+          {
+            "id": "bc-create-entity",
+            "title": "Create BP-RP entities files",
+            "description": "Create BP-RP entities files, using the command palette.\n[Run Command](command:bc-create-entity)",
+            "media": {
+              "markdown": "media/bc-create-entity.md"
+            },
+            "completionEvents": [
+              "onCommand:bc-create-entity"
+            ]
           }
         ]
       }
