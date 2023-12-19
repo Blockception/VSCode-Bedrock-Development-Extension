@@ -1,4 +1,4 @@
-export const  rp_animation_controller: string = `{
+export const rp_animation_controller: string = `{
   "format_version": "1.20.41",
   "animation_controllers" : {
     "controller.animation.$\{\{id\}\}" : {
@@ -21,7 +21,7 @@ export const  rp_animation_controller: string = `{
   }
 }`;
 
-export const  rp_animation: string = `{
+export const rp_animation: string = `{
   "format_version": "1.20.41",
   "animations": {
     "animation.$\{\{id\}\}": {
@@ -31,7 +31,7 @@ export const  rp_animation: string = `{
   }
 }`;
 
-export const  rp_attachable: string = `{
+export const rp_attachable: string = `{
   "format_version": "1.20.41",
   "minecraft:attachable": {
     "description": {
@@ -53,20 +53,20 @@ export const  rp_attachable: string = `{
   }
 }`;
 
-export const  rp_blocks: string = `{
+export const rp_blocks: string = `{
   "Example": {
     "textures": "example",
     "sound": "obsidian"
   }
 }`;
 
-export const  rp_biomes_client: string = `{
+export const rp_biomes_client: string = `{
   "biomes" : {
 
   }
 }`;
 
-export const  rp_entity: string = `{
+export const rp_entity: string = `{
   "format_version": "1.20.41",
   "minecraft:client_entity": {
     "description": {
@@ -93,7 +93,7 @@ export const  rp_entity: string = `{
   }
 }`;
 
-export const  rp_fog: string = `{
+export const rp_fog: string = `{
   "format_version": "1.20.41",
   "minecraft:fog_settings": {
     "description": {
@@ -110,7 +110,7 @@ export const  rp_fog: string = `{
   }
 }`;
 
-export const  rp_flipbook_textures: string = `[
+export const rp_flipbook_textures: string = `[
   {
     "flipbook_texture": "textures/example",
     "atlas_tile": "example",
@@ -118,7 +118,7 @@ export const  rp_flipbook_textures: string = `[
   }
 ]`;
 
-export const  rp_item_texture: string = `{
+export const rp_item_texture: string = `{
   "resource_pack_name": "vanilla",
   "texture_data": {
     "example": {
@@ -127,7 +127,7 @@ export const  rp_item_texture: string = `{
   }
 }`;
 
-export const  rp_manifest: string = `{
+export const rp_manifest: string = `{
   "format_version": 2,
   "header": {
     "name": "pack.name",
@@ -146,14 +146,14 @@ export const  rp_manifest: string = `{
   "metadata": {
     "authors": [ "$\{\{project.attributes:author\}\}" ],
     "generated_with": {
-      "$\{\{TOOL\}\}": [
-        "$\{\{Version\}\}"
+      "$\{\{tool\}\}": [
+        "$\{\{tool.version\}\}"
       ]
     }
   }
 }`;
 
-export const  rp_model: string = `{
+export const rp_model: string = `{
   "format_version": "1.20.41",
   "minecraft:geometry": [
     {
@@ -177,7 +177,7 @@ export const  rp_model: string = `{
   ]
 }`;
 
-export const  rp_music_definitions: string = `{
+export const rp_music_definitions: string = `{
   "creative" : {
      "event_name" : "music.game.creative",
      "max_delay" : 180,
@@ -235,7 +235,7 @@ export const  rp_music_definitions: string = `{
   }
 }`;
 
-export const  rp_particle: string = `{
+export const rp_particle: string = `{
   "format_version": "1.20.41",
   "particle_effect": {
     "description": {
@@ -250,7 +250,7 @@ export const  rp_particle: string = `{
   }
 }`;
 
-export const  rp_render_controller: string = `{
+export const rp_render_controller: string = `{
   "format_version": "1.20.41",
   "render_controllers": {
     "controller.render.$\{\{id\}\}": {
@@ -264,7 +264,7 @@ export const  rp_render_controller: string = `{
   }
 }`;
 
-export const  rp_sounds: string = `{
+export const rp_sounds: string = `{
   "block_sounds" : {
   },
   "entity_sounds" : {
@@ -285,7 +285,7 @@ export const  rp_sounds: string = `{
   }
 }`;
 
-export const  rp_sound_definitions: string = `{
+export const rp_sound_definitions: string = `{
   "format_version": "1.20.41",
   "sound_definitions" : {
      "example" : {
@@ -300,7 +300,7 @@ export const  rp_sound_definitions: string = `{
   }
 }`;
 
-export const  rp_terrain_texture: string = `{
+export const rp_terrain_texture: string = `{
   "num_mip_levels": 4,
   "padding": 8,
   "resource_pack_name": "vanilla",

@@ -5,8 +5,6 @@ import { Templates } from "./Templates";
 import { TextEditBuilder } from "../Language";
 import { Vscode } from "../../Code";
 
-import * as path from "path";
-
 /**
  *
  * @param ID
@@ -18,8 +16,8 @@ export async function create_world_project(ID: string, context: Context, Builder
 
   const NewContext = {
     WorkSpace: () => context.WorkSpace(),
-    BehaviorPack: () => Vscode.join(Folder, "behavior_packs", ID + "-BP"),
-    ResourcePack: () => Vscode.join(Folder, "resource_packs", ID + "-RP"),
+    BehaviorPack: () => Vscode.join(Folder, "behavior_packs", ID + "-bp"),
+    ResourcePack: () => Vscode.join(Folder, "resource_packs", ID + "-rp"),
     WorldFolder: () => Folder,
   };
 
@@ -42,17 +40,17 @@ export async function create_world_project(ID: string, context: Context, Builder
  * @param Builder
  */
 export async function create_behaviorpack(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
-  const Folder = path.join(context.WorkSpace(), ID + "-BP");
+  const folder = Vscode.join(context.WorkSpace(), `${ID}-bp`);
 
   const NewContext = {
     WorkSpace: () => context.WorkSpace(),
-    BehaviorPack: () => Folder,
-    ResourcePack: () => Folder,
+    BehaviorPack: () => folder,
+    ResourcePack: () => folder,
     WorldFolder: context.WorldFolder,
   };
 
   await Templates.create("behavior-manifest", NewContext.BehaviorPack());
-  create_language_files(Folder, Builder, languageBP);
+  create_language_files(folder, Builder, languageBP);
 }
 
 /**
@@ -62,17 +60,17 @@ export async function create_behaviorpack(ID: string, context: Context, Builder:
  * @param Builder
  */
 export async function create_resourcepack(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
-  const Folder = path.join(context.WorkSpace(), ID + "-RP");
+  const folder = Vscode.join(context.WorkSpace(), `${ID}-rp`);
 
   const NewContext = {
     WorkSpace: context.WorkSpace,
-    BehaviorPack: () => Folder,
-    ResourcePack: () => Folder,
+    BehaviorPack: () => folder,
+    ResourcePack: () => folder,
     WorldFolder: context.WorldFolder,
   };
 
   await Templates.create("resource-manifest", NewContext.ResourcePack());
-  create_language_files(Folder, Builder, languageRP);
+  create_language_files(folder, Builder, languageRP);
 }
 
 function languageWP(text: TextEditBuilder): void {

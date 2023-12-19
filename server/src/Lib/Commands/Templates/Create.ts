@@ -12,7 +12,7 @@ import * as Project from "./project";
 
 type CreateFn = (params: ExecuteCommandParams, context: EnsureContext) => Promise<boolean | void>;
 type CommandManager = Record<string, CreateFn>;
-const CreationCommands: CommandManager = Initialize();
+const CreationCommands: CommandManager = initialize();
 
 /**Executes the given creation command */
 export async function Create(params: ExecuteCommandParams): Promise<void> {
@@ -39,7 +39,7 @@ export async function Create(params: ExecuteCommandParams): Promise<void> {
   }
 }
 
-function Initialize(): CommandManager {
+function initialize(): CommandManager {
   const Out: CommandManager = {};
 
   //General
