@@ -71,7 +71,8 @@
     "webpack-cli": "^5.0.1"
   },
   "files": [
-    "*.html"
+    "*.html",
+    "media/**/*"
   ],
   "maintainers": [
     {
@@ -179,7 +180,7 @@
         "enablement": "workspaceFolderCount > 0"
       },
       {
-        "title": "Open lastest errors",
+        "title": "Open latest errors",
         "command": "bc.errors.open_lastest",
         "category": "Blockception"
       },
@@ -948,6 +949,82 @@
             "string.regexp"
           ]
         }
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "blockception-minecraft-basics",
+        "description": "Learn the basics of Blockception's Minecraft extension",
+        "title": "Blockception Minecraft",
+        "icon": "./resources/logo.png",
+        "steps": [
+          {
+            "id": "bc-minecraft-create-rp",
+            "title": "Create a new resource pack",
+            "description": "Create a new resource pack, using the command palette.\n[Run Command](command:bc-create-project-resource-pack)",
+            "completionEvents": [
+              "onCommand:bc-create-project-resource-pack"
+            ],
+            "media": {
+              "markdown": "media/bc-minecraft-create-rp.md"
+            }
+          },
+          {
+            "id": "bc-minecraft-create-bp",
+            "title": "Create a new behavior pack",
+            "description": "Create a new behavior pack, using the command palette.\n[Run Command](command:bc-create-project-behavior-pack)",
+            "completionEvents": [
+              "onCommand:bc-create-project-behavior-pack"
+            ],
+            "media": {
+              "markdown": "media/bc-minecraft-create-bp.md"
+            }
+          },
+          {
+            "id": "bc-minecraft-create-world",
+            "title": "Create a new world",
+            "description": "Create a new world, using the command palette, this will also create an RP and BP.\n[Run Command](command:bc-create-project-world)",
+            "completionEvents": [
+              "onCommand:bc-create-project-world"
+            ],
+            "media": {
+              "markdown": "media/bc-minecraft-create-world.md"
+            }
+          },
+          {
+            "id": "bc-minecraft-bc.minecraft.docs.show",
+            "title": "Show Microsoft's Minecraft Documentation",
+            "description": "Show Microsoft's Minecraft Documentation, using the command palette.\n[Run Command](command:bc.minecraft.docs.show)",
+            "media": {
+              "markdown": "media/bc.minecraft.docs.show.md"
+            },
+            "completionEvents": [
+              "onCommand:bc.minecraft.docs.show"
+            ]
+          },
+          {
+            "id": "bc-minecraft-bc.minecraft.vanilla.show",
+            "title": "Show Vanilla Minecraft Files",
+            "description": "Show Vanilla Minecraft Files, using the command palette.\n[Run Command](command:bc.minecraft.vanilla.show)",
+            "media": {
+              "markdown": "media/bc.minecraft.vanilla.show.md"
+            },
+            "completionEvents": [
+              "onCommand:bc.minecraft.vanilla.show"
+            ]
+          },
+          {
+            "id": "bc-minecraft-show-latest-errors",
+            "title": "Show latest errors",
+            "description": "Show latest errors produced by minecraft, using the command palette.\n[Run Command](command:bc.errors.open_lastest)",
+            "media": {
+              "markdown": "media/bc-minecraft-show-latest-errors.md"
+            },
+            "completionEvents": [
+              "onCommand:bc.errors.open_lastest"
+            ]
+          }
+        ]
       }
     ]
   }
