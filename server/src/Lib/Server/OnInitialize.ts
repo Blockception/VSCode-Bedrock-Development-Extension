@@ -70,13 +70,13 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports go to implementation
       implementationProvider: {
         documentSelector: [
-          { language: Languages.JsonCIdentifier },
-          { language: Languages.JsonIdentifier },
-          { language: Languages.McFunctionIdentifier },
-          { language: Languages.McLanguageIdentifier },
-          { language: Languages.McMolangIdentifier },
-          { language: Languages.McOtherIdentifier },
-          { language: Languages.McProjectIdentifier },
+          { scheme: "file", language: Languages.JsonCIdentifier },
+          { scheme: "file",language: Languages.JsonIdentifier },
+          { scheme: "file",language: Languages.McFunctionIdentifier },
+          { scheme: "file",language: Languages.McLanguageIdentifier },
+          { scheme: "file",language: Languages.McMolangIdentifier },
+          { scheme: "file",language: Languages.McOtherIdentifier },
+          { scheme: "file",language: Languages.McProjectIdentifier },
         ],
       },
 

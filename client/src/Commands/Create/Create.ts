@@ -1,5 +1,5 @@
-import { commands, ExtensionContext, InputBoxOptions, window, workspace } from "vscode";
-import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
+import { commands, ExtensionContext, InputBoxOptions, Uri, window, workspace } from "vscode";
+import { ExecuteCommandParams, ExecuteCommandRequest, URI } from "vscode-languageclient";
 import { Commands } from "@blockception/shared";
 import { Manager } from "../../Manager/Manager";
 
@@ -25,7 +25,7 @@ const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example
 const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
 const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
 
-const ProjectID: IDExample = { ID: /^[A-Z]+$/, example: "EP" };
+const ProjectID: IDExample = { ID: /^[A-Za-z]+$/, example: "EP" };
 
 export function Activate(context: ExtensionContext): void {
   console.log("registering create commands");
@@ -37,8 +37,8 @@ export function Activate(context: ExtensionContext): void {
 
   //Project
   CreateID(context, Commands.Create.Project.WorldProject, "Create World, BP, RP project", ProjectID);
-  CreateID(context, Commands.Create.Project.Resourcepack, "Create BP", ProjectID);
-  CreateID(context, Commands.Create.Project.Behaviorpack, "Create RP", ProjectID);
+  CreateID(context, Commands.Create.Project.Resourcepack, "Create RP", ProjectID);
+  CreateID(context, Commands.Create.Project.Behaviorpack, "Create BP", ProjectID);
 
   //Behavior pack
   Create(context, Commands.Create.Behaviorpack.Languages, "Create language files");
@@ -124,10 +124,17 @@ function CreateID(context: ExtensionContext, command: string, title: string, IDR
 function OnCompleteID(value: string | undefined, command: string): Promise<any> {
   if (value === undefined) return Promise.resolve();
 
-  const doc = window.activeTextEditor;
-  let uri = doc?.document.uri.toString();
+  const doc = window.activeTextEditor?.document.uri;
+  let uri: Uri | undefined = undefined;
+  if (doc !== undefined) {
+    const ws = workspace.getWorkspaceFolder(doc);
+    if (ws !== undefined) {
+      uri = ws.uri;
+    }
+  }
+
   if (uri === undefined) {
-    uri = workspace.workspaceFolders?.[0].uri.toString();
+    uri = workspace.workspaceFolders?.[0].uri;
 
     if (uri === undefined) {
       window.showErrorMessage("No workspace folder found");
@@ -137,7 +144,7 @@ function OnCompleteID(value: string | undefined, command: string): Promise<any> 
 
   const Options: ExecuteCommandParams = {
     command: command,
-    arguments: [value, uri],
+    arguments: [value, uri.toString()],
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Options);

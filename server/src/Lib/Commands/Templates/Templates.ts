@@ -97,7 +97,7 @@ export const TemplateFilenames: TemplateMap<TemplateItem> = {
   },
   "behavior-entity": {
     content: BP.bp_entity,
-    filename: path.join("entities", "${{id.safe}}.entity.json"),
+    filename: path.join("entities", "${{id.safe}}.entity.bp.json"),
   },
   "behavior-dialogue": {
     content: BP.bp_dialogue,
@@ -158,7 +158,7 @@ export const TemplateFilenames: TemplateMap<TemplateItem> = {
   },
   "resource-entity": {
     content: RP.rp_entity,
-    filename: path.join("entities", "${{id.safe}}.entity.json"),
+    filename: path.join("entity", "${{id.safe}}.entity.rp.json"),
   },
   "resource-fog": {
     content: RP.rp_fog,
