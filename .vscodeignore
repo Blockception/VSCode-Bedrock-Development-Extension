@@ -55,6 +55,7 @@ webpack.config.js
 
 !documentation/cheat-sheet
 !documentation/cheat-sheet/*html
+!media/**/*
 
 minecraft-bedrock-schemas/*
 minecraft-bedrock-schemas/**/*
