@@ -1034,6 +1034,17 @@
             "completionEvents": [
               "onCommand:bc-create-entity"
             ]
+          },
+          {
+            "id": "bc-create-language-all",
+            "title": "Create all language files",
+            "description": "Create all language files, using the command palette.\n[Run Command](command:bc-create-language-all)",
+            "media": {
+              "markdown": "media/bc-create-language-all.md"
+            },
+            "completionEvents": [
+              "onCommand:bc-create-language-all"
+            ]
           }
         ]
       }
