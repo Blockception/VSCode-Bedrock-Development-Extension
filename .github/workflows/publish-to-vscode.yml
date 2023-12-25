@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [universal, test]
     name: 📦 -> 🏤 Publish To Vscode
-    environment: 
+    environment:
       name: Vscode Marketplace
       url: https://marketplace.visualstudio.com/items?itemName=BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension
     steps:
