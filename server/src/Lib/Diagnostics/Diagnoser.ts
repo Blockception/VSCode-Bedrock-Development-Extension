@@ -3,7 +3,7 @@ import {
   DiagnoserContext,
   DiagnosticsBuilderContent,
   DiagnosticSeverity,
-  InternalDiagnosticsBuilder,
+  ManagedDiagnosticsBuilder
 } from "bc-minecraft-bedrock-diagnoser";
 import { Console } from "../Manager/Console";
 import { DataCache } from "../Types/Cache/Cache";
@@ -22,12 +22,12 @@ import path from "path";
 import * as vscode from "vscode-languageserver";
 import * as vstd from "vscode-languageserver-textdocument";
 
-export namespace DiagnoserUtillity {
+export namespace DiagnoserUtility {
   /**Creates a new bedrock diagnoser
    * @returns A diagnoser*/
-  export function CreateDiagnoser(getCacheFn: () => ProjectData): Diagnoser {
+  export function createDiagnoser(getCacheFn: () => ProjectData): Diagnoser {
     //create diagnoser
-    const context = CreateContext(getCacheFn);
+    const context = createContext(getCacheFn);
     const out = new Diagnoser(context);
 
     return out;
@@ -35,7 +35,7 @@ export namespace DiagnoserUtillity {
 
   /**Creates the content for the diagnoser
    * @returns*/
-  export function CreateContext(getCacheFn: () => ProjectData): DiagnoserContext {
+  export function createContext(getCacheFn: () => ProjectData): DiagnoserContext {
     //create context
     return new _InternalDiagnoserContext(getCacheFn);
   }
@@ -54,7 +54,7 @@ export namespace DiagnoserUtillity {
     }
 
     /**@inheritdoc*/
-    getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnosticsBuilder | undefined {
+    getDiagnoser(doc: TextDocument, project: MCProject): ManagedDiagnosticsBuilder<TextDocument> | undefined {
       if (Glob.IsMatch(doc.uri, project.ignores.patterns)) {
         Console.Info("Skipping diagnostics on document, because its ignored: " + doc.uri);
         return undefined;
@@ -95,14 +95,14 @@ export namespace DiagnoserUtillity {
   }
 
   /**Make sure the given text document is from <vstd.TextDocument>*/
-  class _InternalDiagnoser implements InternalDiagnosticsBuilder {
+  class _InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument> {
     public doc: vstd.TextDocument;
     public Items: Diagnostic[];
-    public context: DiagnosticsBuilderContent;
+    public context: DiagnosticsBuilderContent<TextDocument>;
     public project: MCProject;
 
     /**@inheritdoc*/
-    constructor(doc: vstd.TextDocument, project: MCProject, context: DiagnosticsBuilderContent) {
+    constructor(doc: vstd.TextDocument, project: MCProject, context: DiagnosticsBuilderContent<TextDocument>) {
       this.doc = doc;
       this.Items = [];
 
@@ -116,14 +116,14 @@ export namespace DiagnoserUtillity {
     }
 
     /**@inheritdoc*/
-    Add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
+    add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
       //Was diagnostics code disabled
       if (this.project.attributes["diagnostic.disable." + code] === "true") return;
 
       const Error: Diagnostic = {
         message: message,
         code: code,
-        severity: GetSeverity(severity),
+        severity: getSeverity(severity),
         range: GetRange(position, this.doc),
         source: "mc",
       };
@@ -147,7 +147,7 @@ export namespace DiagnoserUtillity {
    * @param severity
    * @returns
    */
-  function GetSeverity(severity: DiagnosticSeverity): vscode.DiagnosticSeverity {
+  function getSeverity(severity: DiagnosticSeverity): vscode.DiagnosticSeverity {
     switch (severity) {
       case DiagnosticSeverity.info:
         return vscode.DiagnosticSeverity.Information;

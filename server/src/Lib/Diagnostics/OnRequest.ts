@@ -11,12 +11,12 @@ import { ProgressBar } from "../Types/Progress/ProgressBar";
 export function provideDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;
 
-  InternalprovideDiagnostics(doc);
+  diagnoseDocument(doc);
 }
 
-function InternalprovideDiagnostics(doc: TextDocument): void {
+function diagnoseDocument(doc: TextDocument): void {
   //Send it off to the diagnoser
-  Database.Diagnoser.Process(doc);
+  Database.Diagnoser.process(doc);
 }
 
 export function providePackDiagnostics(pack: Pack, reporter?: ProgressBar): Promise<string[]> {
@@ -24,5 +24,5 @@ export function providePackDiagnostics(pack: Pack, reporter?: ProgressBar): Prom
 
   Console.Info("Diagnosing pack: " + Fs.FromVscode(pack.folder));
 
-  return ForEachDocument(MinecraftFormat.GetPackFiles(pack), InternalprovideDiagnostics, reporter);
+  return ForEachDocument(MinecraftFormat.GetPackFiles(pack), diagnoseDocument, reporter);
 }
