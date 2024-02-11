@@ -35,11 +35,6 @@ updates:
           - "chai"
           - "@types/chai"
           - "@types/mocha"
-      all:
-        patterns:
-          - "*"
-        exclude-patterns:
-          - "node-fetch"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
