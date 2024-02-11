@@ -16,7 +16,8 @@ const config = {
     concatenateModules: true,
     usedExports: true,
     moduleIds:'size',
-    chunkIds:'size'
+    chunkIds:'size',
+    innerGraph: true,
   },
   performance: {
     hints: "warning",
@@ -25,6 +26,7 @@ const config = {
   },
 
   target: "node", // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
+  mode: "production",
 
   entry: "./server/src/server.ts", // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
   output: {
