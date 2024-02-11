@@ -26,21 +26,21 @@
     "@blockception/shared": "^0.0.1",
     "bc-minecraft-bedrock-project": "^1.20.60-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.20.60-0",
-    "node": "^21.1.0",
+    "node": "^21.6.1",
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
     "@types/chai": "^4.3.9",
     "@types/mocha": "^10.0.3",
-    "@types/node": "^20.10.1",
+    "@types/node": "^20.11.17",
     "@types/vscode": "^1.84.0",
     "chai": "^4.3.10",
     "json-loader": "^0.5.7",
     "mocha": "^10.1.0",
     "ts-loader": "^9.4.4",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "webpack": "^5.88.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4"
   }
 }
