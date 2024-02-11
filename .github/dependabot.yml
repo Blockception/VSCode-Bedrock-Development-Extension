@@ -12,7 +12,29 @@ updates:
     groups:
       internal:
         patterns:
-          - "bc-minecraft-*"
+          - "bc-*"
+      nodejs:
+        patterns:
+          - "typescript"
+          - "ts-*"
+          - "@types/node"
+          - "node"
+          - "webpack"
+          - "webpack-cli"
+        exclude-patterns:
+          - "node-fetch"
+      others:
+        patterns:
+          - "@blockception*"
+          - "vscode-*"
+        exclude-patterns:
+          - "node-fetch"
+      test:
+        patterns:
+          - "mocha"
+          - "chai"
+          - "@types/chai"
+          - "@types/mocha"
       all:
         patterns:
           - "*"
