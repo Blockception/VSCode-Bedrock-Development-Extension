@@ -35,6 +35,18 @@ updates:
           - "chai"
           - "@types/chai"
           - "@types/mocha"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    groups:
+      important:
+        patterns:
+          - "bc-*"
+          - "@blockception*"
+          - "vscode-*"
+        exclude-patterns:
+          - "node-fetch"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
