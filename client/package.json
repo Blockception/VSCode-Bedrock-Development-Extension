@@ -25,7 +25,7 @@
   "dependencies": {
     "@blockception/shared": "^0.0.1",
     "bc-minecraft-bedrock-project": "^1.20.60-0",
-    "bc-minecraft-bedrock-vanilla-data": "^1.20.60-0",
+    "bc-minecraft-bedrock-vanilla-data": "^1.20.60-4",
     "node": "^21.6.1",
     "vscode-languageclient": "^9.0.1"
   },
