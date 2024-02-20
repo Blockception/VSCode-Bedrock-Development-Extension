@@ -43,3 +43,8 @@ updates:
       all:
         patterns:
           - "*"
+  - package-ecosystem: "gitsubmodule"
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+    
