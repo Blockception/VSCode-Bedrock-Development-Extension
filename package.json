@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.3.1",
-    "node": "^21.6.2"
+    "node": "^21.7.0"
   },
   "extensionKind": [
     "workspace"
@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.9",
     "@types/mocha": "^10.0.3",
-    "@types/node": "^20.11.21",
+    "@types/node": "^20.11.25",
     "@vscode/vsce": "^2.24.0",
     "chai": "^4.3.10",
     "json-loader": "^0.5.7",
@@ -66,7 +66,7 @@
     "mocha": "^10.2.0",
     "ts-loader": "^9.4.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.0.1"
   },
