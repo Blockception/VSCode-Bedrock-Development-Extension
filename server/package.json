@@ -38,7 +38,7 @@
     "comment-json": "^4.2.3",
     "fast-glob": "^3.3.2",
     "fastest-levenshtein": "^1.0.16",
-    "node": "^21.7.0",
+    "node": "^21.7.1",
     "uuid": "^9.0.1",
     "vscode-languageserver": "^9.0.1",
     "vscode-languageserver-textdocument": "^1.0.11",
