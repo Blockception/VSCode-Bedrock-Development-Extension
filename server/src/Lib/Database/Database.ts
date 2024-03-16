@@ -76,6 +76,8 @@ export namespace Database {
               if (anim === id) out.push(entity);
             });
           });
+          Database.ProjectData.ResourcePacks.animations.forEach(AddIfIDMatch);
+          Database.ProjectData.ResourcePacks.animation_controllers.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.block:
