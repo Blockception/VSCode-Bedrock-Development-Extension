@@ -585,6 +585,10 @@
         "url": "./minecraft-bedrock-schemas/resource/attachables/attachables.json"
       },
       {
+        "fileMatch": ["block_culling/*.{json,jsonc,json5}", "block_culling/**/*.{json,jsonc,json5}", "*.{cull}.{json,jsonc,json5}"],
+        "url": "./minecraft-bedrock-schemas/resource//block_culling/block_culling.json"
+      },
+      {
         "fileMatch": "biomes_client.{json,jsonc,json5}",
         "url": "./minecraft-bedrock-schemas/resource/biomes_client.json"
       },
