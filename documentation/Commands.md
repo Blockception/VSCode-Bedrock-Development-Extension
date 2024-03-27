@@ -54,6 +54,7 @@ resource pack to exist.
 | `Resource Pack: Create attachable files`            | Creates an attachable for the resource pack                                      |
 | `Resource Pack: Create the biomes_client file`      | Creates the `biomes_client.json` file in the resource pack                       |
 | `Resource Pack: Create the blocks file files`       | Creates the `blocks.json` file in the resource pack                              |
+| `Resource Pack: Create block culling rule file`     | Creates a block culling rule file in the resource pack                           |
 | `Resource Pack: Create entities files`              | Creates an entities for the resource pack                                        |
 | `Resource Pack: Create flipbook_textures files`     | Creates the `flipbook_textures.json` file in the resource pack                   |
 | `Resource Pack: Create language files`              | Creates the language files for the resource pack                                 |
