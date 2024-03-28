@@ -338,6 +338,12 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Resource Pack: Create block culling rule file",
+        "command": "bc-create-resource-block_culling",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "Resource Pack: Create entities files",
         "command": "bc-create-resource-entity",
         "category": "Blockception",

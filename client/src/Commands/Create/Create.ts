@@ -12,6 +12,7 @@ const AnimationControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example:
 const AnimationID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
 const AttachableID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:attachable" };
 const BlockID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:block" };
+const BlockCullingRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:culling_rule" };
 const DialogueID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "dialogue" };
 const EntityID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:entity" };
 const FogID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
@@ -72,6 +73,7 @@ export function Activate(context: ExtensionContext): void {
   CreateID(context, Commands.Create.Resourcepack.Animation_Controller, "Create animation controllers files", AnimationControllerID);
   CreateID(context, Commands.Create.Resourcepack.Animation, "Create animations files", AnimationID);
   CreateID(context, Commands.Create.Resourcepack.Attachable, "Create attachable files", AttachableID);
+  CreateID(context, Commands.Create.Resourcepack.BlockCulling, "Create the block culling rule file", BlockCullingRuleID)
   CreateID(context, Commands.Create.Resourcepack.Entity, "Create entities files", EntityID);
   CreateID(context, Commands.Create.Resourcepack.Fog, "Create fog file", FogID);
   CreateID(context, Commands.Create.Resourcepack.Model, "Create reate model file", ModelID);

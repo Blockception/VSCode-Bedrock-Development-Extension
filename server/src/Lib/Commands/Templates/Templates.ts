@@ -24,6 +24,7 @@ export interface TemplateMap<T> {
   "resource-attachable": T;
   "resource-biomes_client": T;
   "resource-blocks": T;
+  "resource-block_culling": T;
   "resource-entity": T;
   "resource-fog": T;
   "resource-flipbook_textures": T;
@@ -155,6 +156,10 @@ export const TemplateFilenames: TemplateMap<TemplateItem> = {
   "resource-blocks": {
     content: RP.rp_blocks,
     filename: "blocks.json",
+  },
+  "resource-block_culling": {
+    content: RP.rp_block_culling,
+    filename: path.join("block_culling", "${{id.safe}}.rule.json")
   },
   "resource-entity": {
     content: RP.rp_entity,
