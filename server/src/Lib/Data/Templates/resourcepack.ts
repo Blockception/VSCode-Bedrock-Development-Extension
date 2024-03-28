@@ -60,6 +60,24 @@ export const rp_blocks: string = `{
   }
 }`;
 
+export const rp_block_culling: string = `{
+  "format_version": "1.20.60",
+  "minecraft:block_culling_rules": {
+    "description": {
+      "identifier": "$\{\{id\}\}"
+    },
+    "rules": [
+      {
+        "part": {
+          "bone": "",
+          "cube": 0,
+          "face": ""
+        }
+      }
+    ]
+  }
+}`
+
 export const rp_biomes_client: string = `{
   "biomes" : {
 
