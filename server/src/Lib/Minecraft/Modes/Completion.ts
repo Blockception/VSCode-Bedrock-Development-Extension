@@ -1,4 +1,4 @@
-import { ModeCollection } from "bc-minecraft-bedrock-types/lib/src/Modes/ModeCollection";
+import { ModeCollection } from "bc-minecraft-bedrock-types/lib/src/modes/mode-collection";
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../Code";
 import { CompletionBuilder } from "../../Completion/Builder";

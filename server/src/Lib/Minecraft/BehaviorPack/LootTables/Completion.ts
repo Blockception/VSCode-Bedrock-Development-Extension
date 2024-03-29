@@ -1,6 +1,6 @@
 import { CompletionBuilder } from "../../../Completion/Builder";
 import { Database } from "../../../Database/Database";
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types/Identifiable";
+import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { JsonCompletionContext } from "../../../Completion/Context";
 import { Kinds } from "../../General/Kinds";

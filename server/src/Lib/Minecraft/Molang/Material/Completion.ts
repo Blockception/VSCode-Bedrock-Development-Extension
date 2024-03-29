@@ -55,7 +55,7 @@ export function provideBehaviorpackCompletion(context: SimpleContext<CompletionB
     case BehaviorPack.FileType.item:
     case BehaviorPack.FileType.entity:
       //Using model geometries
-      const gen = (item: ResourcePack.Model.Model) => `The material: ${item}\nDeclared in: ${item.location.uri}`;
+      const gen = (item: ResourcePack.Material.Material) => `The material: ${item}\nDeclared in: ${item.location.uri}`;
       receiver.Generate(Database.ProjectData.ResourcePacks.materials, gen, kind);
 
       receiver.GenerateStr(Vanilla.ResourcePack.Materials, (item) => `The vanilla geometry: ${item}`, kind);
