@@ -1,5 +1,5 @@
 import { Minecraft } from "bc-minecraft-bedrock-types";
-import { CompactJson, CompactJsonReader } from "bc-minecraft-bedrock-types/lib/src/Minecraft/Json";
+import { CompactJson, CompactJsonReader } from "bc-minecraft-bedrock-types/lib/src/minecraft/json";
 
 export function getAttribute(attr: string, selector: string): string[] {
   const sel = Minecraft.Selector.Selector.parse(selector);

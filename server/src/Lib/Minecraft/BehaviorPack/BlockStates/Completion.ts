@@ -9,7 +9,7 @@ import { GetPossibleBlockID } from "../../Commands/Command/Functions";
 import { IsEditingValue } from "../../General/Selector/AttributeValue/Completion";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
-import { Location } from 'bc-minecraft-bedrock-types/lib/src/Types';
+import { Location } from 'bc-minecraft-bedrock-types/lib/src/types';
 import { MolangSet } from 'bc-minecraft-molang/lib/src/Molang';
 
 export function provideCompletion(context: CommandCompletionContext): void {

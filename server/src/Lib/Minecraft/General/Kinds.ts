@@ -5,6 +5,7 @@ export namespace Kinds {
     //General
     export const AnimationControllers: SymbolKind = SymbolKind.Function;
     export const Animation: SymbolKind = SymbolKind.Method;
+    export const BlockCulling: SymbolKind = SymbolKind.Function;
     export const Block: SymbolKind = SymbolKind.Class;
     export const Effect: SymbolKind = SymbolKind.Class;
     export const Entity: SymbolKind = SymbolKind.Class;

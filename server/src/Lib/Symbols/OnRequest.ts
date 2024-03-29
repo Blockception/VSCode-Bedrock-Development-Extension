@@ -96,7 +96,7 @@ function convertResourcePack(pack: ResourcePack.ResourcePack, builder: SymbolBui
   builder.generate(pack.animations, Kinds.Symbol.Animation);
   builder.generate(pack.animation_controllers, Kinds.Symbol.AnimationControllers);
   builder.generate(pack.attachables, Kinds.Symbol.Item);
-  builder.generate(pack.blocks, Kinds.Symbol.Block);
+  builder.generate(pack.block_culling_rules, Kinds.Symbol.BlockCulling);
   builder.generate(pack.entities, Kinds.Symbol.Entity);
   builder.generate(pack.fogs, Kinds.Symbol.Fogs);
   builder.generate(pack.materials, Kinds.Symbol.Materials);

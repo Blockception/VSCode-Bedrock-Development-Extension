@@ -1,4 +1,4 @@
-import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/Types";
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
 import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 
 /**

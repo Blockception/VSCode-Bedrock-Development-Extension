@@ -4,7 +4,7 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import * as FakeEntity from "../FakeEntity/Completion";
-import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/Modes/SelectorType";
+import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/modes/selector-type";
 
 import * as AttributeValue from "./AttributeValue/Completion";
 import * as Attributes from "./Attributes/Completion";

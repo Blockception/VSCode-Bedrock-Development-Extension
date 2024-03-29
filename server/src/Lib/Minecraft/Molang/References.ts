@@ -1,5 +1,5 @@
 import { MolangCarrier } from "bc-minecraft-bedrock-project";
-import { BaseObject } from "bc-minecraft-bedrock-types/lib/src/Types/BaseObject";
+import { BaseObject } from "bc-minecraft-bedrock-types/lib/src/types/base-object";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang/MolangSet";
 import { OffsetWord } from "bc-vscode-words";
 import { DefinitionParams, Location, ReferenceParams } from "vscode-languageserver-protocol";

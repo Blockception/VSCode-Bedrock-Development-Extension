@@ -58,7 +58,7 @@ export function provideBehaviorpackCompletion(context: SimpleContext<CompletionB
       const gen = (item: ResourcePack.Model.Model) => `The geomtry: ${item}\nDeclared in: ${item.location.uri}`;
       receiver.Generate(Database.ProjectData.ResourcePacks.models, gen, kind);
 
-      receiver.GenerateStr(Vanilla.ResourcePack.Models, (item) => `The vanilla geometry: ${item}`, kind);
+      receiver.Generate(Vanilla.ResourcePack.Models, (item) => `Vanilla model: ${item.id}`, kind);
       break;
   }
 }

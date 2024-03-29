@@ -75,8 +75,6 @@ export function generate_rp(pack: ResourcePack.ResourcePack, builder: ITextEditB
     builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
     builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
   });
-
-  pack.blocks.forEach((data) => builder.Add("tile." + data.id + ".name", Safe(data.id), "Block: " + data.id));
 }
 
 export function generate_wp(pack: WorldPack, builder: ITextEditBuilder) {}
