@@ -7,7 +7,7 @@
   "main": "./client/out/extension.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "7.0.33",
+  "version": "7.0.34",
   "pricing": "Free",
   "workspaces": [
     "client",
@@ -591,7 +591,11 @@
         "url": "./minecraft-bedrock-schemas/resource/attachables/attachables.json"
       },
       {
-        "fileMatch": ["block_culling/*.{json,jsonc,json5}", "block_culling/**/*.{json,jsonc,json5}", "*.{cull}.{json,jsonc,json5}"],
+        "fileMatch": [
+          "block_culling/*.{json,jsonc,json5}",
+          "block_culling/**/*.{json,jsonc,json5}",
+          "*.{cull}.{json,jsonc,json5}"
+        ],
         "url": "./minecraft-bedrock-schemas/resource/block_culling/block_culling.json"
       },
       {
