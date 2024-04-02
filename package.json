@@ -638,6 +638,12 @@
       },
       {
         "fileMatch": [
+          "*.texture_set.{json,jsonc,json5}"
+        ],
+        "url": "./minecraft-bedrock-schemas/resource/textures/texture_set.json"
+      },
+      {
+        "fileMatch": [
           "resource_packs/*/items/*.{json,jsonc,json5}",
           "*resource*pack*/items/*.{json,jsonc,json5}",
           "*Resource*Pack*/items/*.{json,jsonc,json5}",
