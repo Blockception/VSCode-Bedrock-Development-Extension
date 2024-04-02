@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@blockception/shared": "^0.0.1",
-    "bc-minecraft-bedrock-project": "^1.20.71-6",
+    "bc-minecraft-bedrock-project": "^1.20.71-14",
     "bc-minecraft-bedrock-vanilla-data": "^1.20.71-0",
     "node": "^21.7.1",
     "vscode-languageclient": "^9.0.1"
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.9",
     "@types/mocha": "^10.0.3",
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.2",
     "@types/vscode": "^1.87.0",
     "chai": "^4.3.10",
     "json-loader": "^0.5.7",
