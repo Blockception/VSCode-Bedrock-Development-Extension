@@ -38,7 +38,7 @@
     "comment-json": "^4.2.3",
     "fast-glob": "^3.3.2",
     "fastest-levenshtein": "^1.0.16",
-    "node": "^21.7.1",
+    "node": "^21.7.2",
     "uuid": "^9.0.1",
     "vscode-languageserver": "^9.0.1",
     "vscode-languageserver-textdocument": "^1.0.11",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@types/chai": "^4.3.11",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.12.3",
+    "@types/node": "^20.12.4",
     "@types/picomatch": "^2.3.3",
     "chai": "^4.3.10",
     "json-loader": "^0.5.7",
