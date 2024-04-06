@@ -40,7 +40,7 @@ function onCompletionRequest(params: CompletionParams): CompletionList | undefin
 
   const builder = new CompletionBuilder();
   const pos = params.position;
-  const context = SimpleContext.create(doc, builder);
+  const context = SimpleContext.create(doc, builder, doc.offsetAt(pos));
 
   switch (doc.languageId) {
     case Languages.McLanguageIdentifier:
