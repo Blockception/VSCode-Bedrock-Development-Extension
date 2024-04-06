@@ -104,14 +104,12 @@ type functioncall = (context: SimpleContext<CompletionBuilder>) => void;
 function PrefixedData(RP: functioncall, BP: functioncall, context: SimpleContext<CompletionBuilder>): void {
   const type = PackType.detect(context.doc.uri);
 
-  const old_OnNewItem = context.receiver.OnNewItem;
-
   //register new OnNewItem event to prune ids
-  context.receiver.OnNewItem = (item) => {
+  const cancelFn = context.receiver.OnNewItem((item, next) => {
     item.label = IDRemoveFirst(item.label);
 
-    if (old_OnNewItem) old_OnNewItem(item);
-  };
+    next(item);
+  });
 
   switch (type) {
     case PackType.behavior_pack:
@@ -124,7 +122,7 @@ function PrefixedData(RP: functioncall, BP: functioncall, context: SimpleContext
   }
 
   //Restore old OnNewItem
-  context.receiver.OnNewItem = old_OnNewItem;
+  cancelFn();
 }
 
 /**

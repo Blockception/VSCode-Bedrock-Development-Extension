@@ -1,6 +1,6 @@
 import { CompletionBuilder } from "../../Completion/Builder";
 import { CompletionItem, InsertReplaceEdit, Position, Range } from "vscode-languageserver";
-import { GetCurrentString } from "./Functions";
+import { GetCurrentString, IsProperty } from "./Functions";
 import { JsonCompletionContext } from "../../Completion/Context";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../Code/SimpleContext";
@@ -11,7 +11,7 @@ import * as Molang from "../Molang";
 import * as ResourcePack from "../ResourcePack";
 
 export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
-  const c = <JsonCompletionContext>context;
+  const c = context as JsonCompletionContext;
   c.cursor = context.doc.offsetAt(cursorPos);
 
   const text = c.doc.getText();
@@ -29,13 +29,13 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
   const second = c.currentText.substring(insertIndex);
   const P = c.doc.positionAt(c.cursor);
   const R = Range.create(P, P);
-    
+
   //Have each new item pass through a new function
-  var Function = c.receiver.OnNewItem;
-  c.receiver.OnNewItem = (NewItem: CompletionItem) => {
+  const cancelFn = c.receiver.OnNewItem((item, next) => {
     //Update the filtering text
 
-    let old = NewItem.insertText ?? NewItem.label;
+    let old = item.insertText ?? item.label;
+
     let text = old;
     if (first !== "") old = old.replace(first, "");
     if (second !== "") old = old.replace(second, "");
@@ -43,32 +43,38 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
     if (first !== "" && !text.startsWith(first)) text = first + text;
     if (second !== "" && !text.endsWith(second)) text = text + second;
 
-    NewItem.filterText = '"' + text + '"';
-    NewItem.textEdit = InsertReplaceEdit.create(NewItem.insertText ?? NewItem.label, R, R);
+    item.filterText = text;
+    if (!item.filterText.endsWith('"')) item.filterText = item.filterText + '"';
+    if (!item.filterText.startsWith('"')) item.filterText = '"' + item.filterText;
 
-    if (NewItem.insertText) NewItem.insertText = undefined;
+    item.textEdit = InsertReplaceEdit.create(item.insertText ?? item.label, R, R);
 
-    if (Function) Function(NewItem);
-  };
+    if (item.insertText) item.insertText = undefined;
 
+    next(item);
+  });
+
+  performJsonCompletion(c);
+
+  //Restore old function
+  cancelFn();
+}
+
+function performJsonCompletion(context: JsonCompletionContext) {
   const type = PackType.detect(context.doc.uri);
-  if (type == PackType.unknown) return;
+  if (type == PackType.unknown) {
+    return;
+  }
 
-  onCompletionJsonMolang(c);
+  onCompletionJsonMolang(context);
 
   switch (type) {
     case PackType.behavior_pack:
-      return BehaviorPack.provideCompletion(c);
+      return BehaviorPack.provideJsonCompletion(context);
 
     case PackType.resource_pack:
-      return ResourcePack.provideCompletion(c);
-
-    default:
-      break;
+      return ResourcePack.provideJsonCompletion(context);
   }
-
-  //Restore old function
-  c.receiver.OnNewItem = Function;
 }
 
 function onCompletionJsonMolang(context: JsonCompletionContext) {

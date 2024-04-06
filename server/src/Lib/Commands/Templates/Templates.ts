@@ -5,43 +5,40 @@ import * as WP from "../../Data/Templates/world";
 import { TemplateFallback } from "../../Templates/Data";
 import { TemplateProcessor } from "../../Templates/Processor";
 
-export interface TemplateMap<T> {
-  "behavior-animation_controller": T;
-  "behavior-animations": T;
-  "behavior-block": T;
-  "behavior-entity": T;
-  "behavior-dialogue": T;
-  "behavior-item": T;
-  "behavior-loot_table": T;
-  "behavior-manifest": T;
-  "behavior-recipe": T;
-  "behavior-spawn_rule": T;
-  "behavior-trading": T;
-  "behavior-volume": T;
 
-  "resource-animation_controller": T;
-  "resource-animations": T;
-  "resource-attachable": T;
-  "resource-biomes_client": T;
-  "resource-blocks": T;
-  "resource-block_culling": T;
-  "resource-entity": T;
-  "resource-fog": T;
-  "resource-flipbook_textures": T;
-  "resource-item_texture": T;
-  "resource-manifest": T;
-  "resource-model": T;
-  "resource-music_definitions": T;
-  "resource-particle": T;
-  "resource-render_controller": T;
-  "resource-sounds": T;
-  "resource-sound_definitions": T;
-  "resource-terrain_texture": T;
+export type TemplateKeys = "behavior-animation_controller" |
+"behavior-animations" |
+"behavior-block" |
+"behavior-entity" |
+"behavior-dialogue" |
+"behavior-item" |
+"behavior-loot_table" |
+"behavior-manifest" |
+"behavior-recipe" |
+"behavior-spawn_rule" |
+"behavior-trading" |
+"behavior-volume" |
+"resource-animation_controller" |
+"resource-animations" |
+"resource-attachable" |
+"resource-biomes_client" |
+"resource-blocks" |
+"resource-block_culling" |
+"resource-entity" |
+"resource-fog" |
+"resource-flipbook_textures" |
+"resource-item_texture" |
+"resource-manifest" |
+"resource-model" |
+"resource-music_definitions" |
+"resource-particle" |
+"resource-render_controller" |
+"resource-sounds" |
+"resource-sound_definitions" |
+"resource-terrain_texture" |
+"world-manifest";
 
-  "world-manifest": T;
-}
-
-export type TemplateKeys = keyof TemplateMap<never>;
+export type TemplateMap<T> = Record<TemplateKeys, T>;
 
 interface TemplateItem {
   filename: string;

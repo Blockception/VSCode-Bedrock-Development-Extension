@@ -5,13 +5,11 @@ import { IsEducationEnabled } from "../../../Project/Attributes";
 import { JsonCompletionContext } from "../../../Completion/Context";
 import { Kinds } from "../../General/Kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from '../../../Code/SimpleContext';
+import { SimpleContext } from "../../../Code/SimpleContext";
 
 import * as Items from "../Items/Completion";
 
-
-
-export function provideLootTableCompletion(context: JsonCompletionContext): void {
+export function provideJsonCompletion(context: JsonCompletionContext): void {
   const property = JsonCompletionContext.getProperty(context);
   if (property === undefined) return;
 
@@ -26,16 +24,15 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 }
 
 export function provideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const old = context.receiver.OnNewItem
-  context.receiver.OnNewItem = (item) => {
+  const cancelFn = context.receiver.OnNewItem((item, next) => {
     let id = short_id(item.label);
     item.insertText = id;
 
-    if (old) old(item);
-  };
+    next(item);
+  });
 
   generate_items(context);
-  context.receiver.OnNewItem = old;
+  cancelFn();
 }
 
 function generate_items(context: SimpleContext<CompletionBuilder>) {
@@ -57,7 +54,7 @@ function generate_items(context: SimpleContext<CompletionBuilder>) {
     context.receiver.GenerateStr(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc, Kinds.Completion.LootTable);
 }
 
-function short_id(id: string) : string {
+function short_id(id: string): string {
   if (id.startsWith("loot_tables/")) {
     id = id.slice(12);
   }
@@ -65,7 +62,7 @@ function short_id(id: string) : string {
     id = id.slice(0, -5);
   }
 
-  if (id.includes('/') || id.includes('\\')) {
+  if (id.includes("/") || id.includes("\\")) {
     id = '"' + id + '"';
   }
 

@@ -13,14 +13,14 @@ export class CompletionBuilder {
   /**
    *
    */
-  public OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
+  private _OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
 
   /**
    *
    */
   constructor() {
     this.items = [];
-    this.OnNewItem = undefined;
+    this._OnNewItem = undefined;
   }
 
   /**
@@ -30,7 +30,12 @@ export class CompletionBuilder {
    * @param kind
    * @param insertText
    */
-  Add(label: string, documentation: string | MarkupContent, kind: CompletionItemKind = CompletionItemKind.Keyword, insertText: string | undefined = undefined): CompletionItem {
+  Add(
+    label: string,
+    documentation: string | MarkupContent,
+    kind: CompletionItemKind = CompletionItemKind.Keyword,
+    insertText: string | undefined = undefined
+  ): CompletionItem {
     let item = CompletionItem.create(label);
 
     if (typeof documentation === "string") {
@@ -45,8 +50,8 @@ export class CompletionBuilder {
 
     item.kind = kind;
 
-    if (this.OnNewItem) {
-      this.OnNewItem(item);
+    if (this._OnNewItem) {
+      this._OnNewItem(item);
     }
 
     this.items.push(item);
@@ -60,7 +65,11 @@ export class CompletionBuilder {
    * @param kind
    * @returns
    */
-  GenerateItem<T extends Identifiable>(item: T, generatefn: (item: T) => string, kind: CompletionItemKind = CompletionItemKind.Keyword): CompletionItem {
+  GenerateItem<T extends Identifiable>(
+    item: T,
+    generatefn: (item: T) => string,
+    kind: CompletionItemKind = CompletionItemKind.Keyword
+  ): CompletionItem {
     const docet = <Documentated>item;
     let doc = docet.documentation;
 
@@ -126,6 +135,21 @@ export class CompletionBuilder {
     }
 
     return out;
+  }
+
+  OnNewItem(callbackFn: (item: CompletionItem, next: (item: CompletionItem) => void) => void): () => void {
+    const old = this._OnNewItem;
+    const cancelFn = () => {
+      this._OnNewItem = old;
+    };
+
+    this._OnNewItem = (item: CompletionItem) => {
+      callbackFn(item, (item: CompletionItem) => {
+        if (old) old(item);
+      });
+    };
+
+    return cancelFn.bind(this);
   }
 }
 
