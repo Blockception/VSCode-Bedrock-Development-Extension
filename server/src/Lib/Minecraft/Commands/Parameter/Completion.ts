@@ -31,9 +31,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
   }
 
   //Adding explanation text
-  const old = context.receiver.OnNewItem;
-
-  context.receiver.OnNewItem = (item) => {
+  const cancelFn = context.receiver.OnNewItem((item, next) => {
     const doc = ParameterTypeDocumentation[context.parameter.type];
 
     if (doc) {
@@ -47,13 +45,13 @@ export function provideCompletion(context: CommandCompletionContext): void {
       item.documentation.value += "\n" + doc;
     }
 
-    if (old) old(item);
-  };
+    next(item);
+  });
 
   const call = DataMap[context.parameter.type];
   if (call) call(context);
 
-  context.receiver.OnNewItem = old;
+  cancelFn()
 }
 
 function toCompletion(context: CommandCompletionContext): void {
