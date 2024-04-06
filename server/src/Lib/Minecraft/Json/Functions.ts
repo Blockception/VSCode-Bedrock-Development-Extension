@@ -150,3 +150,4 @@ export function IsProperty(Text: string, startIndex: number): boolean {
 
   return false;
 }
+

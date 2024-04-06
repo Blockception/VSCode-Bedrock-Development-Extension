@@ -1,5 +1,6 @@
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack";
 import { JsonCompletionContext } from "../../Completion/Context";
+import { SantizeValue } from '../Json/Types';
 
 import * as LootTables from "./LootTables/Completion";
 import * as Entities from "./Entities/Completion";
@@ -14,7 +15,7 @@ export function provideJsonCompletion(context: JsonCompletionContext) {
 
   const cancelFn = context.receiver.OnNewItem((item, next) => {
     item.insertText = item.insertText ?? item.label;
-    item.insertText = `"${item.insertText}"`;
+    item.insertText = SantizeValue(item.insertText);
     next(item);
   });
 
