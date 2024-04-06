@@ -1,5 +1,5 @@
 import { SimpleContext } from "../Code";
-import { getJsonPath } from "../Json/Path";
+import { getJsonPath } from "../Minecraft/Json/Path";
 import { CompletionBuilder } from "./Builder";
 
 type JsonPathMatchFn = (path: string) => boolean;

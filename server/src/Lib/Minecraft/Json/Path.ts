@@ -1,6 +1,6 @@
 import * as jsonc from 'jsonc-parser';
 
-import { TextDocument } from '../Types/Document';
+import { TextDocument } from '../../Types/Document';
 
 export function getJsonPath(cursor: number, text: string | TextDocument) {
   if (typeof text !== "string") {
