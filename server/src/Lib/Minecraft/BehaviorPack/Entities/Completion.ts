@@ -7,6 +7,11 @@ import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
 import { JsonPathCompletion } from "../../../Completion/JsonPath";
 
+import * as Animations from "../Animations/Completion";
+import * as AnimationControllers from "../AnimationControllers/Completion";
+import * as LootTables from "../LootTables/Completion";
+import * as Item from "../Items/Completion";
+import * as Trading from "../Trading/Completion";
 import * as Sounds from "../../ResourcePack/Sounds/Completion";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
@@ -35,5 +40,25 @@ const entityJsonCompletion = new JsonPathCompletion(
   {
     match: "minecraft:ambient_sound_interval/event_name",
     onCompletion: Sounds.provideCompletion,
+  },
+  {
+    match: "minecraft:loot/table",
+    onCompletion: LootTables.provideCompletion,
+  },
+  {
+    match: "minecraft:trade_table/table",
+    onCompletion: Trading.provideCompletion,
+  },
+  {
+    match: "item",
+    onCompletion: Item.provideCompletion,
+  },
+
+  {
+    match: (path) => path.includes("minecraft:entity/description/animations/"),
+    onCompletion: (c) => {
+      Animations.provideCompletion(c);
+      AnimationControllers.provideCompletion(c);
+    }
   }
 );

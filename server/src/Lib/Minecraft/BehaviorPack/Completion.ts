@@ -7,12 +7,6 @@ import * as Entities from "./Entities/Completion";
 import * as Trading from "./Trading/Completion";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
-  //Prepare data to be fixed for json
-  const data = context.currentText;
-
-  if (data.startsWith("loot_tables/")) LootTables.provideCompletion(context);
-  if (data.startsWith("trading/")) Trading.provideCompletion(context);
-
   const cancelFn = context.receiver.OnNewItem((item, next) => {
     item.insertText = item.insertText ?? item.label;
     item.insertText = SantizeValue(item.insertText);
@@ -48,7 +42,7 @@ function checkFiles(context: JsonCompletionContext) {
     case FileType.structure:
       return;
     case FileType.trading:
-      return;
+      return ;
     case FileType.unknown:
       return;
   }
