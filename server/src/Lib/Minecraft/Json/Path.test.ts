@@ -54,13 +54,22 @@ describe("JsonPath", () => {
     const index = json.indexOf(search);
 
     it(`should return the correct path for ${element}`, () => {
-      const path = getJsonPath(index, json);
-      expect(path).to.equal(expectedPath);
+      const result = getJsonPath(index, json);
+      expect(result.path).to.equal(expectedPath);
+      expect(result.isProperty).to.be.false;
     });
 
     it(`should return the correct path for ${element}, if the cursor is after it`, () => {
-      const path = getJsonPath(index + search.length, json);
-      expect(path).to.equal(expectedPath);
+      const result = getJsonPath(index + search.length, json);
+      expect(result.path).to.equal(expectedPath);
+      expect(result.isProperty).to.be.true;
     })
+
+    it(`should return the correct path for the cursor if before the property: ${element}`, () => {
+      const result = getJsonPath(index - 1, json);
+      expect(result.path).to.not.equal(expectedPath);
+      expect(expectedPath).to.contain(result.path);
+      expect(result.isProperty).to.be.false;
+    });
   });
 });

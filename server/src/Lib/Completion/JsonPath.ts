@@ -20,7 +20,10 @@ export class JsonPathCompletion {
   }
 
   onCompletion(context: SimpleContext<CompletionBuilder>) {
-    const path = getJsonPath(context.cursor, context.doc);
+    const { isProperty, path } = getJsonPath(context.cursor, context.doc);
+    if (!isProperty) {
+      return;
+    }
 
     this._items.forEach((item) => {
       switch (typeof item.match) {
