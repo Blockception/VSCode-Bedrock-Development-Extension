@@ -9,6 +9,7 @@ import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/mod
 import * as AttributeValue from "./AttributeValue/Completion";
 import * as Attributes from "./Attributes/Completion";
 import * as Scores from "./Scores/Completion";
+import * as HasProperty from "./HasProperty/Completion";
 import * as HasItem from "./HasItem/Completion";
 
 /**
@@ -67,14 +68,15 @@ export function provideCompletion(context: CommandCompletionContext): void {
 
   //Not in selector
   if (InScore(selector, pos)) {
-    Scores.provideCompletion(context, selector, pos);
-    return;
+    return Scores.provideCompletion(context, selector, pos);
   }
 
   //Not in selector
   if (InHasItem(selector, pos)) {
-    HasItem.provideCompletion(context, selector, pos);
-    return;
+    return HasItem.provideCompletion(context, selector, pos);
+  }
+  if (InHasProperty(selector, pos)) {
+    return HasProperty.provideCompletion(context, selector, pos);
   }
 
   if (AttributeValue.IsEditingValue(selector, pos)) {
@@ -116,6 +118,28 @@ export function InSelector(selector: OffsetWord, pos: number): boolean {
 export function InScore(selector: OffsetWord, pos: number): boolean {
   pos -= selector.offset;
   let index = selector.text.indexOf("scores");
+  if (index < 0) return false;
+
+  //scores={}
+  if (pos < index + 8) {
+    return false;
+  }
+
+  index = selector.text.indexOf("}", index);
+  if (pos <= index) return true;
+
+  return pos <= index;
+}
+
+/**
+ *
+ * @param selector
+ * @param pos
+ * @returns
+ */
+export function InHasProperty(selector: OffsetWord, pos: number): boolean {
+  pos -= selector.offset;
+  let index = selector.text.indexOf("has_property");
   if (index < 0) return false;
 
   //scores={}

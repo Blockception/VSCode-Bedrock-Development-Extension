@@ -1,5 +1,7 @@
-import { CompletionItemKind } from "vscode-languageserver";
 import { CommandCompletionContext } from "../../../../Completion/Context";
+import { CompletionItemKind } from "vscode-languageserver";
+import { Offset } from '../../../../Code';
+import { OffsetWord } from 'bc-vscode-words';
 
 import * as Entities from "../../../BehaviorPack/Entities/Completion";
 import * as Family from "../../../BehaviorPack/Family/Completion";
@@ -9,11 +11,7 @@ import * as Integer from "../../../General/Integer";
 import * as Names from "../../../General/Names";
 import * as Float from "../../../General/Float";
 import * as Tag from "../../../General/Tag";
-import { OffsetWord } from 'bc-vscode-words';
-import { equal } from 'assert';
-import { Offset } from '../../../../Code';
 
-//Doesnt do scores and doesnt need to
 export function provideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
   const receiver = context.receiver;
 
@@ -78,6 +76,7 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
 
     case "hasitem":
       receiver.Add("[{},{}]", "Double Definition", CompletionItemKind.Class);
+    case "has_property":
     case "scores":
       receiver.Add("{}", "Definition", CompletionItemKind.Class);
       return;

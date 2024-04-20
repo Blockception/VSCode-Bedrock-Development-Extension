@@ -4,15 +4,19 @@ import { CompletionBuilder } from "../../../Completion/Builder";
 
 export function provideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
-  const Options = context.parameter.options;
+  const options = context.parameter.options;
 
-  const minimum = Options?.minimum ?? 0;
-  const maximum = Options?.maximum ?? 10;
-
-  provideCreateCompletion(receiver, minimum, maximum);
+  provideCreateCompletion(receiver, options?.minimum, options?.maximum);
 }
 
-export function provideCreateCompletion(context: CommandCompletionContext | CompletionBuilder, minimum: number, maximum: number): void {
+export function provideCreateCompletion(
+  context: CommandCompletionContext | CompletionBuilder,
+  minimum?: number,
+  maximum?: number
+): void {
+  minimum = minimum ?? 0;
+  maximum = maximum ?? 10;
+
   const receiver: CompletionBuilder = CommandCompletionContext.is(context) ? context.receiver : context;
 
   const diff = maximum - minimum;

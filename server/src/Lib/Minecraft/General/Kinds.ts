@@ -41,6 +41,8 @@ export namespace Kinds {
     export const Selector: SymbolKind = SymbolKind.TypeParameter;
     export const Tag: SymbolKind = SymbolKind.Property;
     export const Xp: SymbolKind = SymbolKind.Constant;
+    
+    export const Property: SymbolKind = SymbolKind.Property;
   }
 
   export namespace Completion {
@@ -84,5 +86,6 @@ export namespace Kinds {
     export const Xp: CompletionItemKind = CompletionItemKind.Constant;
 
     export const Vanilla: CompletionItemKind = CompletionItemKind.Unit;
+    export const Property: CompletionItemKind = CompletionItemKind.Property;
   }
 }
