@@ -1,7 +1,7 @@
 export const bp_animation_controller: string = `{
   "format_version": "1.20.41",
   "animation_controllers" : {
-    "controller.animation.$\{\{id\}\} : {
+    "controller.animation.$\{\{id\}\}" : {
       "initial_state" : "default",
       "states" : {
         "default" : {
