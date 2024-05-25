@@ -1,4 +1,4 @@
-import { CancellationToken, CodeLens, Location, Position, Uri, workspace } from "vscode";
+import { CancellationToken, CodeLens, Position, Uri, workspace } from "vscode";
 import { Command, ResolveCodeLensSignature } from "vscode-languageclient";
 import { GetPosition } from "../code/document-location";
 

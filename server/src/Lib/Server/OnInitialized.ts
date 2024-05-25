@@ -1,9 +1,9 @@
 import { InitializedParams } from "vscode-languageserver";
-import { HandleError } from "../Code";
 import { Console } from "../Manager/Console";
 import { Traverse } from "../Process/Traverse";
 import { SetDynamicEvents } from "./Events/Dynamic";
 import { UpdateSettings } from "./Settings/Update";
+import { HandleError } from '../Code/Error';
 
 export async function onInitializedAsync(params: InitializedParams): Promise<void> {
   return Promise.resolve(onInitialized(params));
