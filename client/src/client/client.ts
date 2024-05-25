@@ -1,12 +1,12 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient/node";
 import * as path from "path";
 import * as vscode from "vscode";
-import { Manager } from "../Manager/Manager";
-import { resolveCodeLens } from './Middleware';
+import { Manager } from "../manager/manager";
+import { resolveCodeLens } from './middleware';
 import { Languages } from '@blockception/shared';
 
 
-export function SetupClient(context: vscode.ExtensionContext) {
+export function setupClient(context: vscode.ExtensionContext) {
   console.log("starting minecraft language client");
 
   // The server is implemented in node
@@ -44,7 +44,7 @@ export function SetupClient(context: vscode.ExtensionContext) {
     },
     middleware: {
       resolveCodeLens:resolveCodeLens,
-    }
+    },
   };
 
   // Create the language client and start the client.

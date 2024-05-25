@@ -3,11 +3,11 @@ import path = require("path");
 import { commands, ExtensionContext, languages, Uri, window } from "vscode";
 import { Commands } from "@blockception/shared";
 
-export function Activate(context: ExtensionContext): void {
-  context.subscriptions.push(commands.registerCommand(Commands.Errors.OpenLastest, OpenLastestError));
+export function activate(context: ExtensionContext): void {
+  context.subscriptions.push(commands.registerCommand(Commands.Errors.OpenLastest, openLastestError));
 }
 
-function OpenLastestError(args: any): void {
+function openLastestError(args: any): void {
   try {
     let APPDATA = process.env.APPDATA;
 
@@ -28,15 +28,15 @@ function OpenLastestError(args: any): void {
       const Child = Childern[I];
       if (Child.includes("Microsoft.MinecraftUWP")) {
         const folder = path.join(APPDATA, Child);
-        FindLastestLog(folder);
+        findLastestLog(folder);
       }
     }
   } catch (error) {
-    HandleError(error);
+    handleError(error);
   }
 }
 
-function FindLastestLog(folder: string): void {
+function findLastestLog(folder: string): void {
   const LogFolder = path.join(folder, "LocalState", "logs");
   let Lastest = "";
   let LastestTime = 0;
@@ -67,6 +67,6 @@ function FindLastestLog(folder: string): void {
     window.showInformationMessage("Couldn't find content logs");
   }
 }
-function HandleError(error: unknown) {
+function handleError(error: unknown) {
   throw new Error("Function not implemented.");
 }

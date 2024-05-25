@@ -1,13 +1,13 @@
 import { commands, ExtensionContext, window } from "vscode";
 import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
 import { Commands } from "@blockception/shared";
-import { Manager } from "../../Manager/Manager";
+import { Manager } from "../manager/manager";
 
-export function Activate(context: ExtensionContext): void {
-  context.subscriptions.push(commands.registerCommand(Commands.AddLanguageFile, AddAll));
+export function activate(context: ExtensionContext): void {
+  context.subscriptions.push(commands.registerCommand(Commands.AddLanguageFile, addAll));
 }
 
-function AddAll(args: any): any {
+function addAll(args: any): any {
   const ed = window.activeTextEditor;
 
   if (!ed) return;

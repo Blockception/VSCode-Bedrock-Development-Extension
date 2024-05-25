@@ -1,6 +1,6 @@
 import { CancellationToken, CodeLens, Location, Position, Uri, workspace } from "vscode";
 import { Command, ResolveCodeLensSignature } from "vscode-languageclient";
-import { GetPosition } from "../Code/DocumentLocation";
+import { GetPosition } from "../code/document-location";
 
 export function resolveCodeLens(codeLens: CodeLens, token: CancellationToken, next: ResolveCodeLensSignature): Thenable<CodeLens> {
   const command = codeLens.command;

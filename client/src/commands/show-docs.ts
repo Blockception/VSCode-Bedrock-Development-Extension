@@ -1,10 +1,10 @@
 import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from "vscode";
 import { Commands } from "@blockception/shared";
 import path from "path";
-import { Console } from '../../Console/Console';
+import { Console } from '../console/console';
 
-export function Activate(context: ExtensionContext): void {
-  async function ShowDocs(args: any) {
+export function activate(context: ExtensionContext): void {
+  async function showDocs(args: any) {
     const base = context.storageUri || context.globalStorageUri;
     const storage_path = path.join(base.fsPath, "docs");
     const command = new ShowDocsCommand(storage_path);
@@ -25,7 +25,7 @@ export function Activate(context: ExtensionContext): void {
       // Find the item by title or processed title
       const item = sidebar.find((x) => x.processedTitle === title || x.toc_title === title);
       if (!item) {
-        Console.Error("Failed to find docs item", title);
+        Console.errror("Failed to find docs item", title);
         return;
       }
 
@@ -33,7 +33,7 @@ export function Activate(context: ExtensionContext): void {
     });
   }
 
-  context.subscriptions.push(commands.registerCommand(Commands.ShowDocs, ShowDocs));
+  context.subscriptions.push(commands.registerCommand(Commands.ShowDocs, showDocs));
 }
 
 const day_diff_2 = 1000 * 60 * 60 * 24 * 2;
@@ -140,7 +140,7 @@ class ShowDocsCommand {
 
       return diff <= day_diff_2;
     } catch (err) {
-      Console.Error(`Failed to read file ${filepath}`, )
+      Console.errror(`Failed to read file ${filepath}`, )
     }
 
     return false;
@@ -202,7 +202,7 @@ class ShowDocsCommand {
         const mdText = await mdResult.text();
 
         await workspace.fs.writeFile(Uri.file(filepath), Buffer.from(mdText, "utf8"));
-        Console.Info("Downloaded docs", filepath);
+        Console.info("Downloaded docs", filepath);
       } catch (err) {
         window.showErrorMessage("Failed to download docs\n", `${uri}\n${filepath}\n`, JSON.stringify(err));
       }

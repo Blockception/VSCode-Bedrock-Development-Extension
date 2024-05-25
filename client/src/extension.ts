@@ -3,14 +3,14 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 import * as vscode from "vscode";
-import { SetupClient } from "./Client/Client";
-import { Activate } from "./Commands/Activate";
+import { setupClient } from "./client/client";
+import * as Commands from "./commands";
 
-import { Manager } from "./Manager/Manager";
+import { Manager } from "./manager/manager";
 
 export function activate(context: vscode.ExtensionContext): void {
-  Activate(context);
-  SetupClient(context);
+  Commands.activate(context);
+  setupClient(context);
 }
 
 //shutdown server

@@ -3,8 +3,8 @@ import { Commands } from "@blockception/shared";
 import { GithubFiles } from "bc-minecraft-bedrock-vanilla-data/lib/src/Lib/Vanilla/sources";
 import path from "path";
 
-export function Activate(context: ExtensionContext): void {
-  async function ShowVanillaFile(args: any) {
+export function activate(context: ExtensionContext): void {
+  async function showVanillaFile(args: any) {
     const base = context.storageUri || context.globalStorageUri;
     const storage_path = path.join(base.fsPath, "vanilla");
     const command = new ShowVanillaFileCommand(storage_path);
@@ -25,7 +25,7 @@ export function Activate(context: ExtensionContext): void {
     });
   }
 
-  context.subscriptions.push(commands.registerCommand(Commands.ShowVanillaFile, ShowVanillaFile));
+  context.subscriptions.push(commands.registerCommand(Commands.ShowVanillaFile, showVanillaFile));
 }
 
 const day_diff_2 = 1000 * 60 * 60 * 24 * 2;
