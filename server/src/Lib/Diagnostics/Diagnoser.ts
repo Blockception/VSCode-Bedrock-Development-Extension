@@ -14,35 +14,34 @@ import { Glob } from "../Glob/Glob";
 import { Manager } from "../Manager/Manager";
 import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { ProjectData } from "bc-minecraft-bedrock-project";
-import { TextDocument } from "../Types/Document/TextDocument";
 import { Types } from "bc-minecraft-bedrock-types";
 
 import path from "path";
 
 import * as vscode from "vscode-languageserver";
-import * as vstd from "vscode-languageserver-textdocument";
+import { TextDocument } from "vscode-languageserver-textdocument";
 
 export namespace DiagnoserUtility {
   /**Creates a new bedrock diagnoser
    * @returns A diagnoser*/
-  export function createDiagnoser(getCacheFn: () => ProjectData): Diagnoser {
+  export function createDiagnoser(getCacheFn: () => ProjectData): Diagnoser<TextDocument> {
     //create diagnoser
     const context = createContext(getCacheFn);
-    const out = new Diagnoser(context);
+    const out = new Diagnoser<TextDocument>(context);
 
     return out;
   }
 
   /**Creates the content for the diagnoser
    * @returns*/
-  export function createContext(getCacheFn: () => ProjectData): DiagnoserContext {
+  export function createContext(getCacheFn: () => ProjectData): DiagnoserContext<TextDocument> {
     //create context
     return new _InternalDiagnoserContext(getCacheFn);
   }
 
   type CachedFilesKey = { folder: string; patterns: string[]; ignores: string[] };
 
-  class _InternalDiagnoserContext implements DiagnoserContext {
+  class _InternalDiagnoserContext implements DiagnoserContext<TextDocument> {
     private getCacheFn: () => ProjectData;
     private CachedDocuments: DataCache<string, TextDocument | undefined>;
     private CachedPatternFiles: DataCache<string, string[]>;
@@ -64,7 +63,7 @@ export namespace DiagnoserUtility {
       if (project.attributes["diagnostic.enable"] === "false") return undefined;
       if (project.attributes["diagnostic" + path.extname(doc.uri)] === "false") return undefined;
 
-      return new _InternalDiagnoser(<vstd.TextDocument>doc, project, this);
+      return new _InternalDiagnoser(doc, project, this);
     }
 
     /**@inheritdoc*/
@@ -94,15 +93,15 @@ export namespace DiagnoserUtility {
     }
   }
 
-  /**Make sure the given text document is from <vstd.TextDocument>*/
+  /**Make sure the given text document is from <TextDocument>*/
   class _InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument> {
-    public doc: vstd.TextDocument;
+    public doc: TextDocument;
     public Items: Diagnostic[];
     public context: DiagnosticsBuilderContent<TextDocument>;
     public project: MCProject;
 
     /**@inheritdoc*/
-    constructor(doc: vstd.TextDocument, project: MCProject, context: DiagnosticsBuilderContent<TextDocument>) {
+    constructor(doc: TextDocument, project: MCProject, context: DiagnosticsBuilderContent<TextDocument>) {
       this.doc = doc;
       this.Items = [];
 
