@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import path from "path";
-import { Fs, Vscode } from "./Url";
+import { Vscode } from "./Url";
 
 describe("Url", () => {
   describe("Vscode", () => {
