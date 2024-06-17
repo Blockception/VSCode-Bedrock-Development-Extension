@@ -26,7 +26,7 @@
     "@blockception/shared": "^0.0.1",
     "bc-minecraft-bedrock-project": "^1.20.72-0",
     "bc-minecraft-bedrock-vanilla-data": "^1.20.71-4",
-    "node": "^22.2.0",
+    "node": "^22.3.0",
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "ts-loader": "^9.4.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "webpack": "^5.91.0",
+    "webpack": "^5.92.0",
     "webpack-cli": "^5.1.4"
   }
 }
