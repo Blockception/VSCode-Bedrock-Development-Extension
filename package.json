@@ -53,10 +53,10 @@
   ],
   "devDependencies": {
     "@types/chai": "^4.3.9",
-    "@types/mocha": "^10.0.3",
+    "@types/mocha": "^10.0.7",
     "@types/node": "^20.14.2",
     "@vscode/vsce": "^2.27.0",
-    "chai": "^4.3.10",
+    "chai": "^5.1.1",
     "json-loader": "^0.5.7",
     "jsonc": "^2.0.0",
     "mocha": "^10.2.0",
