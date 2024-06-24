@@ -39,7 +39,7 @@
     "fast-glob": "^3.3.2",
     "fastest-levenshtein": "^1.0.16",
     "jsonc-parser": "^3.2.1",
-    "node": "^22.2.0",
+    "node": "^22.3.0",
     "uuid": "^10.0.0",
     "vscode-languageserver": "^9.0.1",
     "vscode-languageserver-textdocument": "^1.0.11",
@@ -55,8 +55,8 @@
     "mocha": "^10.2.0",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5",
-    "webpack": "^5.91.0",
+    "typescript": "^5.5.2",
+    "webpack": "^5.92.1",
     "webpack-cli": "^5.0.2"
   }
 }
