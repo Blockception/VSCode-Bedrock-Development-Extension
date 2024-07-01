@@ -3,6 +3,6 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 //import { isMainThread } from "worker_threads";
-import { SetupServer } from "./Lib/Server";
+import { SetupServer } from "./lib/Server";
 
 SetupServer();

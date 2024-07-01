@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import FastGlob from "fast-glob";
 import path from "path";
-import { Vscode } from "../src/Lib/Code/Url";
-import { Glob } from "../src/Lib/Glob/Glob";
-import { MinecraftFormat } from "../src/Lib/Minecraft/Format";
+import { Vscode } from "../src/lib/Code/Url";
+import { Glob } from "../src/lib/Glob/Glob";
+import { MinecraftFormat } from "../src/lib/Minecraft/Format";
 
 //THis is made to test FS systems where the plugin will run on
 describe("Glob", () => {
