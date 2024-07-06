@@ -5,7 +5,7 @@ import { CommandCompletionContext } from "../../../Completion/Context";
 import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
 
 /**These are here to stop circular dependency */
-import * as Command from "../../Commands/Command";
+import * as Command from "../Command";
 import * as General from "../../General/Completion";
 import * as Json from "../../Json";
 import * as Modes from "../../Modes";

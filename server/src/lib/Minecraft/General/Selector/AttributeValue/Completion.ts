@@ -7,10 +7,10 @@ import * as Entities from "../../../BehaviorPack/Entities/Completion";
 import * as Family from "../../../BehaviorPack/Family/Completion";
 import * as Modes from "../../../Modes";
 
-import * as Integer from "../../../General/Integer";
-import * as Names from "../../../General/Names";
-import * as Float from "../../../General/Float";
-import * as Tag from "../../../General/Tag";
+import * as Integer from "../../Integer";
+import * as Names from "../../Names";
+import * as Float from "../../Float";
+import * as Tag from "../../Tag";
 
 export function provideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
   const receiver = context.receiver;
