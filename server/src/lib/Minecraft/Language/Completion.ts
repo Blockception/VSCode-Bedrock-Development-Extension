@@ -1,5 +1,5 @@
 import { CompletionBuilder } from "../../Completion/Builder";
-import { CompletionItemKind } from "vscode-languageserver";
+import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { SimpleContext } from "../../Code/SimpleContext";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
@@ -8,13 +8,9 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
   const receiver = context.receiver;
   const cursor = pos.character;
 
-  if (cursor <= 0) {
-    //key or comment
-    receiver.Add("###", "comment", CompletionItemKind.Snippet);
-    receiver.Add("###region", "Region", CompletionItemKind.Snippet, "###region example\n\n###endregion");
-
-    return;
-  }
+  //key or comment
+  receiver.Add("###", "comment", CompletionItemKind.Snippet);
+  receiver.Add("###region", "Region", CompletionItemKind.Snippet, "###region example\n\n###endregion");
 
   const line = context.doc.getLine(pos.line);
 
@@ -60,38 +56,61 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
     return;
   }
 
-  receiver.Add("=", "Start of the value", CompletionItemKind.Snippet);
+  if (cursor > 3) {
+    receiver.Add("=", "Start of the value", CompletionItemKind.Snippet);
+  }
 
   const pack = context.doc.getPack();
   if (!pack) return;
 
+  const check_receiver = {
+    Add(id: string, doc: string, kind: CompletionItemKind, insertText?: string): CompletionItem {
+      if (context.doc.getText().includes(insertText ?? id)) {
+        return {} as any;
+      }
+
+      return receiver.Add(id, doc, kind, insertText);
+    },
+  };
+
   if (BehaviorPack.BehaviorPack.is(pack)) {
-    generate_bp(pack, receiver);
+    generate_bp(pack, check_receiver);
   } else if (ResourcePack.ResourcePack.is(pack)) {
-    generate_rp(pack, receiver);
+    generate_rp(pack, check_receiver);
   }
 }
 
-export function generate_bp(pack: BehaviorPack.BehaviorPack, receiver: CompletionBuilder) {
+export function generate_bp(pack: BehaviorPack.BehaviorPack, receiver: Pick<CompletionBuilder, "Add">) {
   pack.entities.forEach((entity) => {
     const docu = entity.documentation || `Entity: ${entity.id}`;
-    receiver.Add(`entity.${entity.id}.name`, docu, CompletionItemKind.Property);
-    receiver.Add(`item.spawn_egg.entity.${entity.id}.name`, docu, CompletionItemKind.Property);
+    receiver.Add(`entity.${entity.id}.name`, docu, CompletionItemKind.Property, `entity.${entity.id}.name=`);
+    receiver.Add(
+      `item.spawn_egg.entity.${entity.id}.name`,
+      docu,
+      CompletionItemKind.Property,
+      `item.spawn_egg.entity.${entity.id}.name=`
+    );
   });
 
   pack.blocks.forEach((block) =>
     receiver.Add(
       `tile.${block.id}.name`,
       block.documentation || `Entity: ${block.id}`,
-      CompletionItemKind.Property
+      CompletionItemKind.Property,
+      `tile.${block.id}.name=`
     )
   );
   pack.items.forEach((item) =>
-    receiver.Add(`item.${item.id}.name`, item.documentation || `Entity: ${item.id}`, CompletionItemKind.Property)
+    receiver.Add(
+      `item.${item.id}.name`,
+      item.documentation || `Entity: ${item.id}`,
+      CompletionItemKind.Property,
+      `item.${item.id}.name=`
+    )
   );
 }
 
-export function generate_rp(pack: ResourcePack.ResourcePack, receiver: CompletionBuilder) {
+export function generate_rp(pack: ResourcePack.ResourcePack, receiver: Pick<CompletionBuilder, "Add">) {
   pack.entities.forEach((entity) => {
     const id = safe_id(entity.id);
 
