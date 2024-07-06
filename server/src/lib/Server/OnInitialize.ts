@@ -4,15 +4,11 @@ import { Console } from "../Manager/Console";
 import { Version } from "../Version";
 import { Commands, Languages } from "@blockception/shared";
 
-export async function onInitializeAsync(params: InitializeParams): Promise<InitializeResult> {
-  return Promise.resolve(onInitialize(params));
-}
-
 const triggerCharacters = toArray(" abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"");
 
 export function onInitialize(params: InitializeParams): InitializeResult {
   Console.Info(`Initializing minecraft server`);
-  Console.Info(`\tVersion: ${Version}`);
+  Console.Info(`- Version: ${Version}`);
 
   //process capabilities of the client
   const capabilities = params.capabilities;

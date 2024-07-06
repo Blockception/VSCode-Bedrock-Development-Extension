@@ -8,15 +8,11 @@ import { Languages } from "@blockception/shared";
 import { Manager } from "../../Manager/Manager";
 import { SemanticModifiers, SemanticTokens } from "../../Semantics/Legend";
 
-export function SetDynamicEvents() {
-  const client = Manager.Connection.client;
-
+export function SetDynamicEvents(register: BulkRegistration) {
   if (Manager.Capabilities.hasConfigurationCapability) {
     // Register for all configuration changes.
     Manager.Connection.client.register(DidChangeConfigurationNotification.type);
   }
-
-  const register = BulkRegistration.create();
 
   // Tell the client that this server supports code formatting.
   register.add(DocumentFormattingRequest.type, {
@@ -43,6 +39,4 @@ export function SetDynamicEvents() {
     range: true,
     full: true,
   });
-
-  return client.register(register);
 }
