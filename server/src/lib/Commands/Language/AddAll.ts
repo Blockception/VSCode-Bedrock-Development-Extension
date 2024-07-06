@@ -60,20 +60,20 @@ export function generate_bp(pack: BehaviorPack.BehaviorPack, builder: ITextEditB
   pack.entities.forEach((entity) => {
     const id = Safe(entity.id);
 
-    builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
-    builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
+    builder.Add(`entity.${entity.id}.name`, id, "Entity: " + entity.id);
+    builder.Add(`item.spawn_egg.entity.${entity.id}.name`, "Spawn " + id, "Spawn egg for entity: " + entity.id);
   });
 
-  pack.blocks.forEach((data) => builder.Add("tile." + data.id + ".name", Safe(data.id), "Block: " + data.id));
-  pack.items.forEach((item) => builder.Add("item." + item.id + ".name", Safe(item.id), "Item: " + item.id));
+  pack.blocks.forEach((data) => builder.Add(`tile.${data.id}.name`, Safe(data.id), "Block: " + data.id));
+  pack.items.forEach((item) => builder.Add(`item.${item.id}.name`, Safe(item.id), "Item: " + item.id));
 }
 
 export function generate_rp(pack: ResourcePack.ResourcePack, builder: ITextEditBuilder) {
   pack.entities.forEach((entity) => {
     const id = Safe(entity.id);
 
-    builder.Add("entity." + entity.id + ".name", id, "Entity: " + entity.id);
-    builder.Add("item.spawn_egg.entity." + entity.id + ".name", "Spawn " + id, "Spawn egg for entity: " + entity.id);
+    builder.Add(`entity.${entity.id}.name`, id, "Entity: " + entity.id);
+    builder.Add(`item.spawn_egg.entity.${entity.id}.name`, "Spawn " + id, "Spawn egg for entity: " + entity.id);
   });
 }
 

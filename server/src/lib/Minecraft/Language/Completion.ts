@@ -76,18 +76,18 @@ export function generate_bp(pack: BehaviorPack.BehaviorPack, receiver: Completio
   pack.entities.forEach((entity) => {
     const docu = entity.documentation || `Entity: ${entity.id}`;
     receiver.Add(`entity.${entity.id}.name`, docu, CompletionItemKind.Property);
-    receiver.Add("item.spawn_egg.entity." + entity.id + ".name", docu, CompletionItemKind.Property);
+    receiver.Add(`item.spawn_egg.entity.${entity.id}.name`, docu, CompletionItemKind.Property);
   });
 
   pack.blocks.forEach((block) =>
     receiver.Add(
-      "tile." + block.id + ".name",
+      `tile.${block.id}.name`,
       block.documentation || `Entity: ${block.id}`,
       CompletionItemKind.Property
     )
   );
   pack.items.forEach((item) =>
-    receiver.Add("item." + item.id + ".name", item.documentation || `Entity: ${item.id}`, CompletionItemKind.Property)
+    receiver.Add(`item.${item.id}.name`, item.documentation || `Entity: ${item.id}`, CompletionItemKind.Property)
   );
 }
 
@@ -96,12 +96,12 @@ export function generate_rp(pack: ResourcePack.ResourcePack, receiver: Completio
     const id = safe_id(entity.id);
 
     receiver.Add(
-      "entity." + entity.id + ".name",
+      `entity.${entity.id}.name`,
       entity.documentation || "Entity: " + entity.id,
       CompletionItemKind.Property
     );
     receiver.Add(
-      "item.spawn_egg.entity." + entity.id + ".name",
+      `item.spawn_egg.entity.${entity.id}.name`,
       entity.documentation || "Entity: " + entity.id,
       CompletionItemKind.Property
     );

@@ -8,7 +8,7 @@ import { Manager } from '../Manager/Manager';
 
 //Process the given document
 export function Process(document: TextDocument): void {
-  //Console.Log("Processing: " + GetFilename(document.uri) + " | " + document.languageId);
+  //Console.Log(`Processing: ${GetFilename(document.uri)} | ` + document.languageId);
   try {
     Database.ProjectData.process(document);
 
