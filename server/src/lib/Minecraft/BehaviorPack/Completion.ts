@@ -1,4 +1,4 @@
-import { FileType } from "bc-minecraft-bedrock-project/lib/src/lib/Project/BehaviorPack";
+import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack";
 import { JsonCompletionContext } from "../../Completion/Context";
 import { SantizeValue } from '../Json/Types';
 
