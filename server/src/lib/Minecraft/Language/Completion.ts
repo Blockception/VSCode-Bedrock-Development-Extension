@@ -2,6 +2,7 @@ import { CompletionBuilder } from "../../Completion/Builder";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { SimpleContext } from "../../Code/SimpleContext";
+import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const receiver = context.receiver;
@@ -60,6 +61,51 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
   }
 
   receiver.Add("=", "Start of the value", CompletionItemKind.Snippet);
+
+  const pack = context.doc.getPack();
+  if (!pack) return;
+
+  if (BehaviorPack.BehaviorPack.is(pack)) {
+    generate_bp(pack, receiver);
+  } else if (ResourcePack.ResourcePack.is(pack)) {
+    generate_rp(pack, receiver);
+  }
+}
+
+export function generate_bp(pack: BehaviorPack.BehaviorPack, receiver: CompletionBuilder) {
+  pack.entities.forEach((entity) => {
+    const docu = entity.documentation || `Entity: ${entity.id}`;
+    receiver.Add(`entity.${entity.id}.name`, docu, CompletionItemKind.Property);
+    receiver.Add("item.spawn_egg.entity." + entity.id + ".name", docu, CompletionItemKind.Property);
+  });
+
+  pack.blocks.forEach((block) =>
+    receiver.Add(
+      "tile." + block.id + ".name",
+      block.documentation || `Entity: ${block.id}`,
+      CompletionItemKind.Property
+    )
+  );
+  pack.items.forEach((item) =>
+    receiver.Add("item." + item.id + ".name", item.documentation || `Entity: ${item.id}`, CompletionItemKind.Property)
+  );
+}
+
+export function generate_rp(pack: ResourcePack.ResourcePack, receiver: CompletionBuilder) {
+  pack.entities.forEach((entity) => {
+    const id = safe_id(entity.id);
+
+    receiver.Add(
+      "entity." + entity.id + ".name",
+      entity.documentation || "Entity: " + entity.id,
+      CompletionItemKind.Property
+    );
+    receiver.Add(
+      "item.spawn_egg.entity." + entity.id + ".name",
+      entity.documentation || "Entity: " + entity.id,
+      CompletionItemKind.Property
+    );
+  });
 }
 
 function isIn(text: string, index: number, inText: string): boolean {
@@ -70,4 +116,13 @@ function isIn(text: string, index: number, inText: string): boolean {
   if (index > findIndex) return true;
 
   return false;
+}
+
+function safe_id(id: string): string {
+  const index = id.indexOf(":");
+  if (index > -1) {
+    return id.substring(index + 1, id.length).trim();
+  }
+
+  return id;
 }
