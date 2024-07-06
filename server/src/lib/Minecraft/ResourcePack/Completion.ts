@@ -1,5 +1,5 @@
 import { JsonCompletionContext } from "../../Completion/Context";
-import { FileType } from "bc-minecraft-bedrock-project/lib/src/lib/Project/ResourcePack";
+import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/ResourcePack";
 import { SantizeValue } from '../Json/Types';
 
 import * as Sound from "../General/Sound/Completion";
