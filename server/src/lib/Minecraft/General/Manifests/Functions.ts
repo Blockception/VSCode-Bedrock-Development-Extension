@@ -8,7 +8,7 @@ import * as JSONC from "comment-json";
 import { HandleError } from "../../../Code/Error";
 import { Manager } from "../../../Manager/Manager";
 import { Pack } from "bc-minecraft-bedrock-project";
-import { Manifest } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types";
+import { Manifest } from "bc-minecraft-bedrock-project/lib/src/lib/Internal/Types";
 
 export function AddBlockceptionToPack(pack: Pack | undefined): void {
   if (pack === undefined) return;

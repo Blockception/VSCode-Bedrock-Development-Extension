@@ -1,5 +1,5 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/Lib/Data/CommandInfo";
+import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/lib/Data/CommandInfo";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { ParameterInformation, SignatureHelp, SignatureInformation } from "vscode-languageserver";
 import { SignatureCarrier } from "../../../Signatures/Carrier";

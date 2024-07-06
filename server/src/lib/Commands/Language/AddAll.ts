@@ -1,5 +1,5 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { WorldPack } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/World/WorldPack";
+import { WorldPack } from "bc-minecraft-bedrock-project/lib/src/lib/Project/World/WorldPack";
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { HandleError } from '../../Code/Error';
 import { Console } from '../../Manager/Console';

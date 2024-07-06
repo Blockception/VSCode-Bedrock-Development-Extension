@@ -1,4 +1,4 @@
-import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
+import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/lib/Project/General/Types/GeneralInfo";
 import { GetFilename } from "../../../Code/File";
 import { CommandCompletionContext } from "../../../Completion/Context";
 import { Database } from "../../../Database/Database";
