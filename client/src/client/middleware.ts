@@ -2,7 +2,11 @@ import { CancellationToken, CodeLens, Position, Uri, workspace } from "vscode";
 import { Command, ResolveCodeLensSignature } from "vscode-languageclient";
 import { GetPosition } from "../code/document-location";
 
-export function resolveCodeLens(codeLens: CodeLens, token: CancellationToken, next: ResolveCodeLensSignature): Thenable<CodeLens> {
+export function resolveCodeLens(
+  codeLens: CodeLens,
+  token: CancellationToken,
+  next: ResolveCodeLensSignature
+): Thenable<CodeLens> {
   const command = codeLens.command;
 
   if (!command) {
@@ -13,7 +17,18 @@ export function resolveCodeLens(codeLens: CodeLens, token: CancellationToken, ne
         const uri = Uri.parse(data.location.uri);
         return workspace.openTextDocument(uri).then((doc) => {
           const p = GetPosition(data.location.position, doc);
-          codeLens.command = Command.create(data.documentation ?? data.id, "editor.action.peekLocations", uri, p, [], `peek`);
+          const title = data.documentation ? 
+            data.documentation.replace(':', ' |') :
+            data.id;
+
+          codeLens.command = Command.create(
+            title,
+            "editor.action.goToLocations",
+            uri,
+            p,
+            [],
+            "gotoAndPeek"
+          );
 
           return codeLens;
         });
@@ -21,6 +36,7 @@ export function resolveCodeLens(codeLens: CodeLens, token: CancellationToken, ne
     }
   }
 
+  next(codeLens, token);
   return Promise.resolve(codeLens);
 }
 

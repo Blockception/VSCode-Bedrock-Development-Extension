@@ -1,6 +1,6 @@
 import { Manager } from "../../Manager/Manager";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
-import { OnCodeLensRequestAsync, OnCodeLensResolveRequestAsync } from "../../CodeLens/OnRequest";
+import { OnCodeLensRequest } from "../../CodeLens/OnRequest";
 import { OnCommandRequestAsync } from "../../Commands/OnRequest";
 import { onCompletionRequestAsync } from "../../Completion/OnRequest";
 import { OnConfigurationChanged } from '../Settings/Update';
@@ -35,8 +35,7 @@ export function setEvents() {
   Connection.onCodeActionResolve(OnCodeActionResolveAsync);
 
   // This handler provides code lens
-  Connection.onCodeLens(OnCodeLensRequestAsync);
-  Connection.onCodeLensResolve(OnCodeLensResolveRequestAsync)
+  Connection.onCodeLens(OnCodeLensRequest);
 
   // This handler provides completion items.
   Connection.onCompletion(onCompletionRequestAsync);
