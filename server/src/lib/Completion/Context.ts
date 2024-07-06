@@ -1,5 +1,4 @@
-import { Command, Parameter } from "bc-minecraft-bedrock-command";
-import { CommandInfo, ParameterInfo } from "bc-minecraft-bedrock-command/lib/src/lib/Data/CommandInfo";
+import { Command, CommandInfo, Parameter, ParameterInfo } from "bc-minecraft-bedrock-command";
 import { SimpleContext } from "../Code/SimpleContext";
 import { TextRange } from "../Minecraft/Json/Functions";
 import { IsEducationEnabled } from "../Project/Attributes";

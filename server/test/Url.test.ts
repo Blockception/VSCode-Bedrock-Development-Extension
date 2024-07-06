@@ -2,7 +2,7 @@ import { expect } from "chai";
 import * as fs from "fs";
 import path from "path";
 import { URI } from "vscode-uri";
-import { Fs, Vscode } from "../src/Lib/Code/Url";
+import { Fs, Vscode } from "../src/lib/Code/Url";
 
 describe("URL", () => {
   describe("Fs", () => {
