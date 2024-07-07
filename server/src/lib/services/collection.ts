@@ -1,4 +1,4 @@
-import { BulkRegistration, InitializeParams, InitializeResult } from "vscode-languageserver";
+import { BulkRegistration, Connection, InitializeParams, InitializeResult } from "vscode-languageserver";
 import { IService } from "./service";
 import { IExtendedLogger } from "../logger/logger";
 
@@ -42,11 +42,11 @@ export class ServiceManager implements NamedService {
   }
 
   /** @inheritdoc */
-  onInitialize(params: InitializeParams, receiver: InitializeResult): void {
+  onInitialize(params: InitializeParams, receiver: InitializeResult, connection: Connection): void {
     this.services.forEach((service) => {
       if (service.onInitialize) {
         this.logger.info(`Initializing service ${service.name}`);
-        service.onInitialize(params, receiver);
+        service.onInitialize(params, receiver, connection);
       }
     });
   }

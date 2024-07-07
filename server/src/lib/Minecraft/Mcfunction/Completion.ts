@@ -1,6 +1,6 @@
 import { Command } from "bc-minecraft-bedrock-command";
-import { CommandCompletionContext } from "../../Completion/Context";
-import { CompletionBuilder } from "../../Completion/Builder";
+import { CommandCompletionContext } from "../../Completion/builder/context";
+import { CompletionBuilder } from "../../Completion/builder/builder";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { IsEducationEnabled } from "../../Project/Attributes";
 import { Position } from "vscode-languageserver-textdocument";

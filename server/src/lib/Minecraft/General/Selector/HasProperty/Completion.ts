@@ -1,6 +1,6 @@
 import { OffsetWord } from "bc-vscode-words";
 import { SimpleContext } from "../../../../Code";
-import { CompletionBuilder } from "../../../../Completion/Builder";
+import { CompletionBuilder } from "../../../../Completion/builder/builder";
 import { Kinds } from "../../Kinds";
 import { GetCurrentAttribute } from "../Attributes/Completion";
 import { IsEditingValue } from "../AttributeValue/Completion";

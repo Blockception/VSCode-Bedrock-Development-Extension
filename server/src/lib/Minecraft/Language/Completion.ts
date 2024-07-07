@@ -1,4 +1,4 @@
-import { CompletionBuilder } from "../../Completion/Builder";
+import { CompletionBuilder } from "../../Completion/builder/builder";
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { SimpleContext } from "../../Code/SimpleContext";

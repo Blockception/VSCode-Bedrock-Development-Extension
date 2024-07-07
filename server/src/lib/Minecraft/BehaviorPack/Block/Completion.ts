@@ -1,4 +1,4 @@
-import { CompletionBuilder } from "../../../Completion/Builder";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
 import { Database } from "../../../Database/Database";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../Project/Attributes";

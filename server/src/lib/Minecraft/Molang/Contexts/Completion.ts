@@ -2,7 +2,7 @@ import { PackType } from "bc-minecraft-bedrock-project";
 import { Data, Defined, MolangData } from "bc-minecraft-molang";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/SimpleContext";
-import { CompletionBuilder } from "../../../Completion/Builder";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
 import { GetDataSet } from "../General/GetDataSet";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {

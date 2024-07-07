@@ -1,5 +1,5 @@
-import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
+import { CommandCompletionContext } from "../../../Completion/builder/context";
 import { Kinds } from "../Kinds";
 
 export function provideCompletion(context: CommandCompletionContext | CompletionBuilder): void {

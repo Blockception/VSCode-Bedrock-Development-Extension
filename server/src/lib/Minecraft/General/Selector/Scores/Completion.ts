@@ -1,7 +1,7 @@
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Offset, SimpleContext } from "../../../../Code";
-import { CompletionBuilder } from "../../../../Completion/Builder";
+import { CompletionBuilder } from "../../../../Completion/builder/builder";
 import * as Objectives from "../../Objectives/Completion";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {

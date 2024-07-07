@@ -1,7 +1,7 @@
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
-import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
+import { CommandCompletionContext } from "../../../Completion/builder/context";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import * as FakeEntity from "../FakeEntity/Completion";
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/modes/selector-type";

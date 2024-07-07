@@ -1,4 +1,4 @@
-import { CommandCompletionContext } from "../../../../Completion/Context";
+import { CommandCompletionContext } from "../../../../Completion/builder/context";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Offset } from '../../../../Code';
 import { OffsetWord } from 'bc-vscode-words';

@@ -1,4 +1,4 @@
-import { CompletionBuilder } from "./Builder";
+import { CompletionBuilder } from "./builder/builder";
 import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
 import { Console } from "../Manager";
 import { GetDocument } from "../Types/Document/Document";

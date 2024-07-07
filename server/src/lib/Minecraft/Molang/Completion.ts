@@ -1,4 +1,4 @@
-import { CompletionBuilder } from "../../Completion/Builder";
+import { CompletionBuilder } from "../../Completion/builder/builder";
 import { CompletionItemKind, Position } from "vscode-languageserver-types";
 import { GetPreviousWord, IsMolang } from "./Functions";
 import { PackType } from "bc-minecraft-bedrock-project";

@@ -2,7 +2,7 @@ import { Modes } from "bc-minecraft-bedrock-types";
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../../Code/SimpleContext";
-import { CompletionBuilder } from "../../../../Completion/Builder";
+import { CompletionBuilder } from "../../../../Completion/builder/builder";
 import { provideModeCompletion } from "../../../Modes/Completion";
 
 //Doesnt do scores and doesnt need to

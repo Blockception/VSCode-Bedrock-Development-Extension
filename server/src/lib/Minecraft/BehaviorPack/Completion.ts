@@ -1,5 +1,5 @@
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack";
-import { JsonCompletionContext } from "../../Completion/Context";
+import { JsonCompletionContext } from "../../Completion/builder/context";
 import { SantizeValue } from '../Json/Types';
 
 import * as LootTables from "./LootTables/Completion";

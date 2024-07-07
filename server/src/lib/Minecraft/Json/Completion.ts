@@ -1,7 +1,7 @@
-import { CompletionBuilder } from "../../Completion/Builder";
+import { CompletionBuilder } from "../../Completion/builder/builder";
 import { CompletionItem, InsertReplaceEdit, Position, Range } from "vscode-languageserver";
 import { GetCurrentString, IsProperty } from "./Functions";
-import { JsonCompletionContext } from "../../Completion/Context";
+import { JsonCompletionContext } from "../../Completion/builder/context";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../Code/SimpleContext";
 

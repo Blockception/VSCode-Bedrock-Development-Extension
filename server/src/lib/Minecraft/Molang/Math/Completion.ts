@@ -1,7 +1,7 @@
 import { MolangData, MolangFunction } from "bc-minecraft-molang";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/SimpleContext";
-import { CompletionBuilder } from "../../../Completion/Builder";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   MolangData.General.Math.forEach((item) => Generate(item, context.receiver));

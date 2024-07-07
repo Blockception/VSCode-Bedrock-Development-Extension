@@ -8,7 +8,7 @@ import { Traverse } from "../Process";
 import { HandleError } from "../Code";
 import { UpdateSettings } from "./Settings";
 import { SetDynamicEvents } from "./Events";
-import { ExtendedLogger } from '../logger/logger';
+import { ExtendedLogger } from "../logger/logger";
 
 export function SetupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -31,7 +31,7 @@ export function SetupServer() {
   //Initialize
   connection.onInitialize((params) => {
     const result = onInitialize(params);
-    service.onInitialize(params, result);
+    service.onInitialize(params, result, connection);
     return result;
   });
 

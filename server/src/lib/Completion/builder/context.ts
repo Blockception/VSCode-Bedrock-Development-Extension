@@ -1,9 +1,9 @@
 import { Command, CommandInfo, Parameter, ParameterInfo } from "bc-minecraft-bedrock-command";
-import { SimpleContext } from "../Code/SimpleContext";
-import { TextRange } from "../Minecraft/Json/Functions";
-import { IsEducationEnabled } from "../Project/Attributes";
-import { TextDocument } from "../Types/Document/TextDocument";
-import { CompletionBuilder } from './Builder';
+import { SimpleContext } from "../../Code/SimpleContext";
+import { TextRange } from "../../Minecraft/Json/Functions";
+import { IsEducationEnabled } from "../../Project/Attributes";
+import { TextDocument } from "../../Types/Document/TextDocument";
+import { CompletionBuilder } from './builder';
 
 /**
  *

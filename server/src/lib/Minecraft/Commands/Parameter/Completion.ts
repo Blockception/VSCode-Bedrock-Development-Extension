@@ -1,7 +1,7 @@
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code/SimpleContext";
-import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
+import { CommandCompletionContext } from "../../../Completion/builder/context";
 import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
 
 /**These are here to stop circular dependency */

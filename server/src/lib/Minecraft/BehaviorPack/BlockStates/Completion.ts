@@ -3,7 +3,7 @@ import { CompletionItemKind } from "vscode-languageserver-types";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { Types } from "bc-minecraft-bedrock-vanilla-data";
 
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { CommandCompletionContext } from "../../../Completion/builder/context";
 import { Database } from "../../../Database/Database";
 import { GetPossibleBlockID } from "../../Commands/Command/Functions";
 import { IsEditingValue } from "../../General/Selector/AttributeValue/Completion";

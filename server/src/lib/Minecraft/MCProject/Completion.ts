@@ -1,5 +1,5 @@
 import { Boolean } from "../General";
-import { CompletionBuilder } from "../../Completion/Builder";
+import { CompletionBuilder } from "../../Completion/builder/builder";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { Database } from "../../Database/Database";
 import { Documentated } from "bc-minecraft-bedrock-types/lib/src/types/documentated";

@@ -1,6 +1,6 @@
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code";
-import { CompletionBuilder } from "../../../Completion/Builder";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
 import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from "./Constants";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {

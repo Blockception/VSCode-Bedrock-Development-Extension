@@ -1,6 +1,6 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo';
 import { GetFilename } from "../../../Code/File";
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { CommandCompletionContext } from "../../../Completion/builder/context";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../Kinds";
 

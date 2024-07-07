@@ -1,6 +1,6 @@
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { CompletionBuilder } from "../../../Completion/Builder";
-import { CommandCompletionContext } from "../../../Completion/Context";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
+import { CommandCompletionContext } from "../../../Completion/builder/context";
 import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";

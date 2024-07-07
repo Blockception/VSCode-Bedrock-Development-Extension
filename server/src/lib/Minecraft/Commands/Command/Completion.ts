@@ -1,5 +1,5 @@
 import { CommandData, CommandInfo } from "bc-minecraft-bedrock-command";
-import { CompletionBuilder } from "../../../Completion/Builder";
+import { CompletionBuilder } from "../../../Completion/builder/builder";
 import { IsEducationEnabled } from "../../../Project/Attributes";
 import { Kinds } from "../../General/Kinds";
 import { SMap } from "bc-minecraft-bedrock-project";
