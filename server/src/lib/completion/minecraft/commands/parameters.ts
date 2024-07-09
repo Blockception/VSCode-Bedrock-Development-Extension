@@ -6,7 +6,7 @@ import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-
 import { Modes } from "bc-minecraft-bedrock-types";
 
 /**These are here to stop circular dependency */
-import * as Command from "../../../Minecraft/Commands/Command";
+import * as Command from "./commands";
 import * as General from "../../general";
 import * as Selectors from "../selectors/selector";
 import * as ItemComponents from "../json/item-components";
@@ -128,7 +128,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.command]: Command.provideCompletion,
   [ParameterType.keyword]: toCompletion,
   [ParameterType.effect]: General.Effect.provideCompletion,
-  [ParameterType.executeSubcommand]: Command.provideExecuteSubcommandCompletion,
+  [ParameterType.executeSubcommand]: Parameter.provideExecuteSubcommandCompletion,
   [ParameterType.message]: General.Strings.provideCompletion,
   [ParameterType.objective]: General.Objectives.provideCompletion,
   [ParameterType.selector]: Selectors.provideCompletion,

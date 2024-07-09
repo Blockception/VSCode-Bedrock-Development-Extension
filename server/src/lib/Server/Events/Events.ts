@@ -2,7 +2,7 @@ import { Manager } from "../../Manager/Manager";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequest } from "../../CodeLens/OnRequest";
 import { OnCommandRequestAsync } from "../../Commands/OnRequest";
-import { onCompletionRequestAsync } from "../../Completion/on-request";
+import { onCompletionRequestAsync } from "../../completion/on-request";
 import { OnConfigurationChanged } from '../Settings/Update';
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../Definition/OnRequest";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";

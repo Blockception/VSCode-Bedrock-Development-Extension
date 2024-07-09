@@ -6,10 +6,10 @@ import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { EntityEvent } from '../behavior-pack';
 
-import * as BehaviorPack from "../../minecraft/behavior-pack/main";
-import * as Mcfunction from "../../minecraft/mcfunctions/mcfunctions";
+import * as BehaviorPack from "../behavior-pack/main";
+import * as Mcfunction from "../mcfunctions/mcfunctions";
 import * as Molang from "../molang/main";
-import * as ResourcePack from "../../minecraft/resource-pack/main";
+import * as ResourcePack from "../resource-pack/main";
 
 export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const c = context as JsonCompletionContext;

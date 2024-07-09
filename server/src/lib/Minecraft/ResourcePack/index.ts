@@ -9,4 +9,3 @@ export * as Materials from "./Materials/index";
 export * as Particles from "./Particles/index";
 export * as RenderControllers from "./RenderControllers/index";
 export * from "./CodeAction";
-export * from "../../Completion/minecraft/resource-pack/main";
