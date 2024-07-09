@@ -128,7 +128,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.command]: Command.provideCompletion,
   [ParameterType.keyword]: toCompletion,
   [ParameterType.effect]: General.Effect.provideCompletion,
-  [ParameterType.executeSubcommand]: Parameter.provideExecuteSubcommandCompletion,
+  [ParameterType.executeSubcommand]: Command.provideExecuteSubcommandCompletion,
   [ParameterType.message]: General.Strings.provideCompletion,
   [ParameterType.objective]: General.Objectives.provideCompletion,
   [ParameterType.selector]: Selectors.provideCompletion,

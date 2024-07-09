@@ -2,14 +2,13 @@ import { CommandCompletionContext } from "../../builder/context";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Offset } from "../../../Code";
 import { OffsetWord } from "bc-vscode-words";
-import { Float, Names, Integer } from "../../general";
+import { Modes } from 'bc-minecraft-bedrock-types'
+import { Float, Names, Integer, Tags } from "../../general";
 
 import * as Entities from "../behavior-pack/entities";
 import * as Family from "../behavior-pack/families";
 import * as M from "../modes/modes";
 
-import * as Tag from "../../../Minecraft/General/Tag";
-import { Modes } from 'bc-minecraft-bedrock-types';
 
 export function provideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
   const receiver = context.receiver;
@@ -64,7 +63,7 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
       return;
 
     case "tag":
-      Tag.provideCompletionTest(context);
+      Tags.provideCompletionTest(context);
       return;
 
     case "type":
