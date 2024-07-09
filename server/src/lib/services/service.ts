@@ -1,4 +1,4 @@
-import { BulkRegistration, InitializeParams, InitializeResult } from "vscode-languageserver";
+import { BulkRegistration, Connection, InitializeParams, InitializeResult } from "vscode-languageserver";
 
 /**
  * Represents a service that can be registered and initialized
@@ -25,7 +25,7 @@ export interface IService {
    * @param params The initialization parameters
    * @param receiver The receiver to add the service to
    */
-  onInitialize(params: InitializeParams, receiver: InitializeResult): void;
+  onInitialize(params: InitializeParams, receiver: InitializeResult, connection: Connection): void;
 
   /**
    * Starts the service, called after initialization

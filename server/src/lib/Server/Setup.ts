@@ -1,14 +1,13 @@
 import { BulkRegistration, createConnection, ProposedFeatures } from "vscode-languageserver/node";
-import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
-import { setEvents } from "./Events/Events";
+import { setupHandlers } from "./Events/Events";
 import { onInitialize } from "./OnInitialize";
 import { ServiceManager } from "../services/collection";
 import { Traverse } from "../Process";
 import { HandleError } from "../Code";
 import { UpdateSettings } from "./Settings";
 import { SetDynamicEvents } from "./Events";
-import { ExtendedLogger } from '../logger/logger';
+import { ExtendedLogger } from "../logger/logger";
 
 export function SetupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -20,7 +19,7 @@ export function SetupServer() {
   const service = new ServiceManager(logger);
 
   logger.info("starting minecraft server");
-  setEvents();
+  setupHandlers();
 
   // On shutdown handler
   connection.onShutdown(() => {
@@ -31,7 +30,7 @@ export function SetupServer() {
   //Initialize
   connection.onInitialize((params) => {
     const result = onInitialize(params);
-    service.onInitialize(params, result);
+    service.onInitialize(params, result, connection);
     return result;
   });
 

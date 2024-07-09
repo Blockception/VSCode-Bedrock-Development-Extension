@@ -2,7 +2,7 @@ import { Manager } from "../../Manager/Manager";
 import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
 import { OnCodeLensRequest } from "../../CodeLens/OnRequest";
 import { OnCommandRequestAsync } from "../../Commands/OnRequest";
-import { onCompletionRequestAsync } from "../../Completion/OnRequest";
+import { onCompletionRequestAsync } from "../../Completion/on-request";
 import { OnConfigurationChanged } from '../Settings/Update';
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../Definition/OnRequest";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
@@ -19,7 +19,7 @@ import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
 /**
  * Setup the server events
  */
-export function setEvents() {
+export function setupHandlers() {
   const Documents = Manager.Documents;
   const Connection = Manager.Connection;
 
