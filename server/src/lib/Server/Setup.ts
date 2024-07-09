@@ -1,7 +1,6 @@
 import { BulkRegistration, createConnection, ProposedFeatures } from "vscode-languageserver/node";
-import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
-import { setEvents } from "./Events/Events";
+import { setupHandlers } from "./Events/Events";
 import { onInitialize } from "./OnInitialize";
 import { ServiceManager } from "../services/collection";
 import { Traverse } from "../Process";
@@ -20,7 +19,7 @@ export function SetupServer() {
   const service = new ServiceManager(logger);
 
   logger.info("starting minecraft server");
-  setEvents();
+  setupHandlers();
 
   // On shutdown handler
   connection.onShutdown(() => {

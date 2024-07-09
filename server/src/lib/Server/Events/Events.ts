@@ -19,7 +19,7 @@ import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
 /**
  * Setup the server events
  */
-export function setEvents() {
+export function setupHandlers() {
   const Documents = Manager.Documents;
   const Connection = Manager.Connection;
 

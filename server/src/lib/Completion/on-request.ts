@@ -1,31 +1,30 @@
 import { CompletionBuilder } from "./builder/builder";
-import { CompletionParams, CompletionList, CompletionItem } from "vscode-languageserver";
+import {
+  CompletionParams,
+  CompletionList,
+  CompletionItem,
+  CancellationToken,
+  WorkDoneProgressReporter,
+} from "vscode-languageserver";
 import { Console } from "../Manager";
 import { GetDocument } from "../Types/Document/Document";
 import { Languages } from "@blockception/shared";
 import { SimpleContext } from "../Code/SimpleContext";
 
-import * as Json from "../Minecraft/Json/Completion";
-import * as Language from "../Minecraft/Language/Completion";
-import * as Mcfunction from "../Minecraft/Mcfunction/Completion";
-import * as MCProject from "../Minecraft/MCProject/Completion";
-import * as Molang from "../Minecraft/Molang/Completion";
+import * as Json from "./minecraft/json/document";
+import * as Language from "./minecraft/language/language";
+import * as Mcfunction from "./minecraft/mcfunctions/mcfunctions";
+import * as MCProject from "./minecraft/mcproject/mcproject";
+import * as Molang from "./minecraft/molang/main";
 
-/**Handle request
- * @param params
- * @returns
- */
 export async function onCompletionRequestAsync(
-  params: CompletionParams
+  params: CompletionParams,
+  token: CancellationToken,
+  workDoneProgress: WorkDoneProgressReporter
 ): Promise<CompletionItem[] | CompletionList | undefined> {
-  return Console.request("Completion", Promise.resolve(onCompletionRequest(params)));
+  return Console.request("Completion", Promise.resolve(onCompletionRequest(params, token, workDoneProgress)));
 }
 
-/**
- *
- * @param params
- * @returns
- */
 export async function onCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem | undefined> {
   return Promise.resolve(params);
 }
@@ -34,11 +33,15 @@ export async function onCompletionResolveRequestAsync(params: CompletionItem): P
  * @param params
  * @returns
  */
-function onCompletionRequest(params: CompletionParams): CompletionList | undefined {
+function onCompletionRequest(
+  params: CompletionParams,
+  token: CancellationToken,
+  workDoneProgress: WorkDoneProgressReporter
+): CompletionList | undefined {
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 
-  const builder = new CompletionBuilder();
+  const builder = new CompletionBuilder(token, workDoneProgress);
   const pos = params.position;
   const context = SimpleContext.create(doc, builder, doc.offsetAt(pos));
 

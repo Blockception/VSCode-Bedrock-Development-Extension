@@ -1,24 +1,18 @@
 import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
+import { CancellationToken, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 
 /**
  *
  */
 export class CompletionBuilder {
-  /**
-   *
-   */
   public items: CompletionItem[];
-
-  /**
-   *
-   */
   private _OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
 
   /**
    *
    */
-  constructor() {
+  constructor(public token: CancellationToken, public workDoneProgress: WorkDoneProgressReporter) {
     this.items = [];
     this._OnNewItem = undefined;
   }
@@ -100,10 +94,16 @@ export class CompletionBuilder {
 
     if (query) {
       dataset.forEach((item) => {
+        if (this.token.isCancellationRequested) return;
+
         if (item.id.includes(query)) out.push(this.GenerateItem(item, generatefn, kind));
       });
     } else {
-      dataset.forEach((item) => out.push(this.GenerateItem(item, generatefn, kind)));
+      dataset.forEach((item) => {
+        if (this.token.isCancellationRequested) return;
+
+        out.push(this.GenerateItem(item, generatefn, kind));
+      });
     }
 
     return out;
@@ -128,10 +128,16 @@ export class CompletionBuilder {
 
     if (query) {
       dataset.forEach((item) => {
+        if (this.token.isCancellationRequested) return;
+
         if (item.includes(query)) out.push(this.Add(item, generatefn(item), kind));
       });
     } else {
-      dataset.forEach((item) => out.push(this.Add(item, generatefn(item), kind)));
+      dataset.forEach((item) => {
+        if (this.token.isCancellationRequested) return;
+
+        out.push(this.Add(item, generatefn(item), kind));
+      });
     }
 
     return out;
