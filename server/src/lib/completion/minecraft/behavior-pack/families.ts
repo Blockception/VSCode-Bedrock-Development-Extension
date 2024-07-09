@@ -28,8 +28,8 @@ export function provideCompletionTest(context: CommandCompletionContext): void {
     Database.ProjectData.BehaviorPacks.entities.forEach((entity) => ConvertTestEntity(entity, receiver));
 
     MinecraftData.General.Entities.families.forEach((family) => {
-      receiver.Add(family, `Test for the vanilla family: ${family}`, Kinds.Completion.Family);
-      receiver.Add("!" + family, `Test not for the vanilla family: ${family}`, Kinds.Completion.Family);
+      receiver.add(family, `Test for the vanilla family: ${family}`, Kinds.Completion.Family);
+      receiver.add("!" + family, `Test not for the vanilla family: ${family}`, Kinds.Completion.Family);
     });
   } else {
     types.forEach((type) => {
@@ -44,7 +44,7 @@ export function provideCompletionTest(context: CommandCompletionContext): void {
 
 function ConvertTestEntity(entity: { families?: string[]; id: string }, receiver: CompletionBuilder) {
   entity.families?.forEach((family) => {
-    receiver.Add(family, `Test for the family: ${family}\n\dForm ${entity.id}`, Kinds.Completion.Family);
-    receiver.Add("!" + family, `Test not for the family: ${family}\n\dForm ${entity.id}`, Kinds.Completion.Family);
+    receiver.add(family, `Test for the family: ${family}\n\dForm ${entity.id}`, Kinds.Completion.Family);
+    receiver.add("!" + family, `Test not for the family: ${family}\n\dForm ${entity.id}`, Kinds.Completion.Family);
   });
 }

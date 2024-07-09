@@ -42,44 +42,44 @@ function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
     return;
   }
 
-  builder.Add("## ", "Comment", CompletionItemKind.Snippet);
-  builder.Add(
+  builder.add("## ", "Comment", CompletionItemKind.Snippet);
+  builder.add(
     "education.enable",
     "Disable or enable education edition for this project",
     CompletionItemKind.Property,
     "education.enable="
   );
-  builder.Add(
+  builder.add(
     "diagnostic.enable",
     "Disable or enable diagnostics for this project",
     CompletionItemKind.Property,
     "diagnostic.enable="
   );
-  builder.Add(
+  builder.add(
     "diagnostic.json",
     "Disable or enable diagnostics for json in this project",
     CompletionItemKind.Property,
     "diagnostic.json="
   );
-  builder.Add(
+  builder.add(
     "diagnostic.lang",
     "Disable or enable diagnostics for language in this project",
     CompletionItemKind.Property,
     "diagnostic.lang="
   );
-  builder.Add(
+  builder.add(
     "diagnostic.mcfunction",
     "Disable or enable diagnostics for mcfunction in this project",
     CompletionItemKind.Property,
     "diagnostic.mcfunction="
   );
-  builder.Add(
+  builder.add(
     "diagnostic.objective",
     "Disable or enable diagnostics for objectives in this project",
     CompletionItemKind.Property,
     "diagnostic.objective="
   );
-  builder.Add(
+  builder.add(
     "diagnostic.tag",
     "Disable or enable diagnostics for tags in this project",
     CompletionItemKind.Property,
@@ -89,13 +89,13 @@ function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
   const templates = Object.getOwnPropertyNames(TemplateFilenames);
   templates.forEach((temp) => {
     temp = temp.replace("-", ".");
-    builder.Add(
+    builder.add(
       `template.${temp}.filename`,
       "The filename of the template",
       CompletionItemKind.Property,
       `template.${temp}.filename=`
     );
-    builder.Add(
+    builder.add(
       `template.${temp}.file`,
       "The file of the content of the file",
       CompletionItemKind.File,
@@ -158,18 +158,18 @@ function provideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Posi
   }
 
   const builder = context.receiver;
-  builder.Add("## ", "Comment", CompletionItemKind.Snippet);
-  builder.Add("block", "Include or excluded a block definition", CompletionItemKind.Property, "block=");
-  builder.Add("entity", "Include or excluded a entity definition", CompletionItemKind.Property, "entity=");
-  builder.Add("family", "Include or excluded a family definition", CompletionItemKind.Property, "family=");
-  builder.Add("function", "Include or excluded a function definition", CompletionItemKind.Property, "function=");
-  builder.Add("item", "Include or excluded a item definition", CompletionItemKind.Property, "item=");
-  builder.Add("loot_table", "Include or excluded a loot_table definition", CompletionItemKind.Property, "loot_table=");
-  builder.Add("name", "Include or excluded a name definition", CompletionItemKind.Property, "name=");
-  builder.Add("objective", "Include or excluded a objective definition", CompletionItemKind.Property, "objective=");
-  builder.Add("structure", "Include or excluded a structure definition", CompletionItemKind.Property, "structure=");
-  builder.Add("tag", "Include or excluded a tag definition", CompletionItemKind.Property, "tag=");
-  builder.Add(
+  builder.add("## ", "Comment", CompletionItemKind.Snippet);
+  builder.add("block", "Include or excluded a block definition", CompletionItemKind.Property, "block=");
+  builder.add("entity", "Include or excluded a entity definition", CompletionItemKind.Property, "entity=");
+  builder.add("family", "Include or excluded a family definition", CompletionItemKind.Property, "family=");
+  builder.add("function", "Include or excluded a function definition", CompletionItemKind.Property, "function=");
+  builder.add("item", "Include or excluded a item definition", CompletionItemKind.Property, "item=");
+  builder.add("loot_table", "Include or excluded a loot_table definition", CompletionItemKind.Property, "loot_table=");
+  builder.add("name", "Include or excluded a name definition", CompletionItemKind.Property, "name=");
+  builder.add("objective", "Include or excluded a objective definition", CompletionItemKind.Property, "objective=");
+  builder.add("structure", "Include or excluded a structure definition", CompletionItemKind.Property, "structure=");
+  builder.add("tag", "Include or excluded a tag definition", CompletionItemKind.Property, "tag=");
+  builder.add(
     "tickingarea",
     "Include or excluded a tickingarea definition",
     CompletionItemKind.Property,
@@ -189,6 +189,6 @@ function add(context: SimpleContext<CompletionBuilder>, value: (Identifiable & D
     documentation.value = value.documentation ?? "";
   }
 
-  context.receiver.Add(label, documentation, CompletionItemKind.Value).sortText = label;
-  context.receiver.Add("!" + label, documentation, CompletionItemKind.Value).sortText = label + "2";
+  context.receiver.add(label, documentation, CompletionItemKind.Value).sortText = label;
+  context.receiver.add("!" + label, documentation, CompletionItemKind.Value).sortText = label + "2";
 }

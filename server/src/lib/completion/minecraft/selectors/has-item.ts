@@ -38,9 +38,9 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
     return;
   }
   
-  receiver.Add("data", "The data of the item that the selector is looking for", Kinds.Completion.Integer, "data=");
-  receiver.Add("item", "The item that the selector is looking for", Kinds.Completion.Item, "item=");
-  receiver.Add("location", "The slot id identification", CompletionItemKind.Enum, "location=");
-  receiver.Add("quantity", "The quantity of the item that the selector is looking for", Kinds.Completion.Integer, "quantity=");
-  receiver.Add("slot", "The slot number to check", Kinds.Completion.Integer, "slot=");
+  receiver.add("data", "The data of the item that the selector is looking for", Kinds.Completion.Integer, "data=");
+  receiver.add("item", "The item that the selector is looking for", Kinds.Completion.Item, "item=");
+  receiver.add("location", "The slot id identification", CompletionItemKind.Enum, "location=");
+  receiver.add("quantity", "The quantity of the item that the selector is looking for", Kinds.Completion.Integer, "quantity=");
+  receiver.add("slot", "The slot number to check", Kinds.Completion.Integer, "slot=");
 }

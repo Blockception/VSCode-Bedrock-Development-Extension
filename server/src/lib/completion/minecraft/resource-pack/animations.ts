@@ -17,7 +17,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   );
 
   Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
-    entity.animations.defined.forEach((item) => context.receiver.Add(item, `The entity animation: ${item}`));
+    entity.animations.defined.forEach((item) => context.receiver.add(item, `The entity animation: ${item}`));
   });
 
   //Vanilla data
@@ -28,7 +28,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
     Kinds.Completion.Animation
   );
   MinecraftData.vanilla.ResourcePack.entities.forEach((entity) => {
-    entity.animations.forEach((item) => context.receiver.Add(item, `The vanilla entity animation: ${item}`));
+    entity.animations.forEach((item) => context.receiver.add(item, `The vanilla entity animation: ${item}`));
   });
 
   //Education data
@@ -40,7 +40,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
       Kinds.Completion.Animation
     );
     MinecraftData.edu.ResourcePack.entities.forEach((entity) => {
-      entity.animations.forEach((item) => context.receiver.Add(item, `The vanilla entity animation: ${item}`));
+      entity.animations.forEach((item) => context.receiver.add(item, `The vanilla entity animation: ${item}`));
     });
   }
 }

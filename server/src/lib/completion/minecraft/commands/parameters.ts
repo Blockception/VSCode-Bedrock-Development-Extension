@@ -24,13 +24,13 @@ export function provideCompletion(context: CommandCompletionContext): void {
     //Accepted values
     if (parameter.options.acceptedValues) {
       parameter.options.acceptedValues.forEach((value) => {
-        context.receiver.Add(value, "accepted values", CompletionItemKind.EnumMember);
+        context.receiver.add(value, "accepted values", CompletionItemKind.EnumMember);
       });
     }
 
     //Wildcard
     if (parameter.options.wildcard) {
-      context.receiver.Add("*", "wild card", CompletionItemKind.Constant);
+      context.receiver.add("*", "wild card", CompletionItemKind.Constant);
     }
   }
 
@@ -59,7 +59,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
 }
 
 function toCompletion(context: CommandCompletionContext): void {
-  context.receiver.Add(context.parameter.text, "The keyword: " + context.parameter.text, CompletionItemKind.Keyword);
+  context.receiver.add(context.parameter.text, "The keyword: " + context.parameter.text, CompletionItemKind.Keyword);
 }
 
 type functionCall =

@@ -18,13 +18,13 @@ export class CompletionBuilder {
   }
 
   /**
-   *
-   * @param label
-   * @param documentation
-   * @param kind
-   * @param insertText
+   * Adds a new completion item
+   * @param label The label of the item
+   * @param documentation The documentation of the item
+   * @param kind The kind of item
+   * @param insertText The insert text of the item
    */
-  Add(
+  add(
     label: string,
     documentation: string | MarkupContent,
     kind: CompletionItemKind = CompletionItemKind.Keyword,
@@ -72,7 +72,7 @@ export class CompletionBuilder {
       docet.documentation = doc;
     }
 
-    return this.Add(item.id, doc, kind);
+    return this.add(item.id, doc, kind);
   }
 
   /**
@@ -130,13 +130,13 @@ export class CompletionBuilder {
       dataset.forEach((item) => {
         if (this.token.isCancellationRequested) return;
 
-        if (item.includes(query)) out.push(this.Add(item, generatefn(item), kind));
+        if (item.includes(query)) out.push(this.add(item, generatefn(item), kind));
       });
     } else {
       dataset.forEach((item) => {
         if (this.token.isCancellationRequested) return;
 
-        out.push(this.Add(item, generatefn(item), kind));
+        out.push(this.add(item, generatefn(item), kind));
       });
     }
 

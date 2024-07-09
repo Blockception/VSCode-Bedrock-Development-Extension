@@ -45,7 +45,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
             Float.provideCreateCompletion(receiver, property.range[0], property.range[1]);
             break;
           case "enum":
-            property.values.forEach((item) => receiver.Add(item, "", Kinds.Completion.Property));
+            property.values.forEach((item) => receiver.add(item, "", Kinds.Completion.Property));
             break;
         }
 
@@ -58,7 +58,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
     entity.properties.forEach((property) => {
       const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
 
-      receiver.Add(property.name, msg, Kinds.Completion.Property);
+      receiver.add(property.name, msg, Kinds.Completion.Property);
     });
   });
 }

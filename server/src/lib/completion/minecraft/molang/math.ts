@@ -18,5 +18,5 @@ function Generate(
     insert += `(${data.parameters.map((p) => p.id).join(", ")})`;
   }
 
-  builder.Add(data.id, data.documentation ?? `The molang math: ${data.id}`, kinds, insert);
+  builder.add(data.id, data.documentation ?? `The molang math: ${data.id}`, kinds, insert);
 }

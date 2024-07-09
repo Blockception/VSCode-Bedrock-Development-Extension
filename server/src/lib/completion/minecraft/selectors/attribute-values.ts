@@ -15,14 +15,14 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
 
   switch (attribute) {
     case "c":
-      receiver.Add("1", "Limits the amount of target to 1", CompletionItemKind.Constant);
-      receiver.Add(
+      receiver.add("1", "Limits the amount of target to 1", CompletionItemKind.Constant);
+      receiver.add(
         "-1",
         "Limits the amount of target to 1, but picked from the end of the list",
         CompletionItemKind.Constant
       );
-      receiver.Add("5", "Limits the amount of target to 5", CompletionItemKind.Constant);
-      receiver.Add(
+      receiver.add("5", "Limits the amount of target to 5", CompletionItemKind.Constant);
+      receiver.add(
         "-5",
         "Limits the amount of target to 5, but picked from the end of the list",
         CompletionItemKind.Constant
@@ -32,8 +32,8 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
     case "dx":
     case "dy":
     case "dz":
-      receiver.Add("5", "A length of 5", CompletionItemKind.Constant);
-      receiver.Add("-5", "A length of 5, in the other direction", CompletionItemKind.Constant);
+      receiver.add("5", "A length of 5", CompletionItemKind.Constant);
+      receiver.add("-5", "A length of 5, in the other direction", CompletionItemKind.Constant);
       return;
 
     case "family":
@@ -75,16 +75,16 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
     case "x":
     case "y":
     case "z":
-      receiver.Add("1", "An absolute coordinate", CompletionItemKind.Constant);
-      receiver.Add("~1", "A relative coordinate", CompletionItemKind.Constant);
-      receiver.Add("~-1", "A relative coordinate", CompletionItemKind.Constant);
+      receiver.add("1", "An absolute coordinate", CompletionItemKind.Constant);
+      receiver.add("~1", "A relative coordinate", CompletionItemKind.Constant);
+      receiver.add("~-1", "A relative coordinate", CompletionItemKind.Constant);
       return;
 
     case "hasitem":
-      receiver.Add("[{},{}]", "Double Definition", CompletionItemKind.Class);
+      receiver.add("[{},{}]", "Double Definition", CompletionItemKind.Class);
     case "has_property":
     case "scores":
-      receiver.Add("{}", "Definition", CompletionItemKind.Class);
+      receiver.add("{}", "Definition", CompletionItemKind.Class);
       return;
   }
 }

@@ -82,14 +82,14 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
   const receiver = context.receiver;
 
   if (IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
-    receiver.Add("query", "Molang queries", CompletionItemKind.Class);
-    receiver.Add("variable", "Defined variables", CompletionItemKind.Variable);
-    receiver.Add("math", "Math functions", CompletionItemKind.Class);
-    receiver.Add("texture", "Texture definitions", CompletionItemKind.Property);
-    receiver.Add("material", "Material definitions", CompletionItemKind.Property);
-    receiver.Add("geometry", "Geometry definitions", CompletionItemKind.Property);
-    receiver.Add("temp", "Temporary variable definitions", CompletionItemKind.Variable);
-    receiver.Add("this", "refers to this object", CompletionItemKind.Struct);
+    receiver.add("query", "Molang queries", CompletionItemKind.Class);
+    receiver.add("variable", "Defined variables", CompletionItemKind.Variable);
+    receiver.add("math", "Math functions", CompletionItemKind.Class);
+    receiver.add("texture", "Texture definitions", CompletionItemKind.Property);
+    receiver.add("material", "Material definitions", CompletionItemKind.Property);
+    receiver.add("geometry", "Geometry definitions", CompletionItemKind.Property);
+    receiver.add("temp", "Temporary variable definitions", CompletionItemKind.Variable);
+    receiver.add("this", "refers to this object", CompletionItemKind.Struct);
 
     Query.provideCompletion(context);
     Math.provideCompletion(context);

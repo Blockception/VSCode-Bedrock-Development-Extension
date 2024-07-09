@@ -24,6 +24,6 @@ export function provideCreateCompletion(
 
   for (let I = minimum; I < maximum; I += steps) {
     let text = I.toPrecision(3);
-    receiver.Add(text, "The float number: " + text, CompletionItemKind.Constant);
+    receiver.add(text, "The float number: " + text, CompletionItemKind.Constant);
   }
 }

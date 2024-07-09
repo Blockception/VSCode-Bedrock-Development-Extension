@@ -24,15 +24,15 @@ function generateDocumentation(tag: GeneralInfo | string): string {
 export function provideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
   const receiver = context.receiver;
-  receiver.Add("Any Tag: `tag=`", "By inserting an `tag=` you test for entities with any kind of tag", Kinds.Completion.Tag, "");
-  receiver.Add("No Tags: `tag=!`", "By inserting an `tag=!` you test for entities with no tags", Kinds.Completion.Tag, "!");
+  receiver.add("Any Tag: `tag=`", "By inserting an `tag=` you test for entities with any kind of tag", Kinds.Completion.Tag, "");
+  receiver.add("No Tags: `tag=!`", "By inserting an `tag=!` you test for entities with no tags", Kinds.Completion.Tag, "!");
 
   //Add defined tags to the context
-  data.definitions.tag?.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));
+  data.definitions.tag?.defined.forEach((tag) => receiver.add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));
 
   //Add the tags to the list
   Database.ProjectData.General.tags.forEach((tag) => {
-    receiver.Add(tag.id, `Tests for the tag: '${tag.id}'`, Kinds.Completion.Tag);
-    receiver.Add("!" + tag.id, `Tests not for the tag: '${tag.id}'`, Kinds.Completion.Tag);
+    receiver.add(tag.id, `Tests for the tag: '${tag.id}'`, Kinds.Completion.Tag);
+    receiver.add("!" + tag.id, `Tests not for the tag: '${tag.id}'`, Kinds.Completion.Tag);
   });
 }

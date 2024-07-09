@@ -20,12 +20,12 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
 
 function provideRange(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
-  receiver.Add("0", "test for the exact value of 0", CompletionItemKind.Value);
-  receiver.Add("!0", "test for the exact value of everything but 0", CompletionItemKind.Value);
-  receiver.Add("0..", "test for the everything equal to 0 or higher", CompletionItemKind.Value);
-  receiver.Add("..0", "test for the everything equal to 0 or lower", CompletionItemKind.Value);
-  receiver.Add("0..10", "test for the everything equal to 0 or 10 and everything in between", CompletionItemKind.Value);
-  receiver.Add(
+  receiver.add("0", "test for the exact value of 0", CompletionItemKind.Value);
+  receiver.add("!0", "test for the exact value of everything but 0", CompletionItemKind.Value);
+  receiver.add("0..", "test for the everything equal to 0 or higher", CompletionItemKind.Value);
+  receiver.add("..0", "test for the everything equal to 0 or lower", CompletionItemKind.Value);
+  receiver.add("0..10", "test for the everything equal to 0 or 10 and everything in between", CompletionItemKind.Value);
+  receiver.add(
     "!0..10",
     "test for the everything not equal to 0 or 10 and everything in between",
     CompletionItemKind.Value

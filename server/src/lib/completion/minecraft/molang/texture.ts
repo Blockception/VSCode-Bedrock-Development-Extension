@@ -24,7 +24,7 @@ function Generate(
   builder: CompletionBuilder,
   kinds: CompletionItemKind = CompletionItemKind.Reference
 ): void {
-  builder.Add(data.id, data.documentation ?? `The molang texture: ${data.id}`, kinds);
+  builder.add(data.id, data.documentation ?? `The molang texture: ${data.id}`, kinds);
 }
 
 function GenerateDU(
@@ -34,6 +34,6 @@ function GenerateDU(
   kinds: CompletionItemKind = CompletionItemKind.Reference
 ): void {
   data.defined.forEach((item) => {
-    builder.Add(item, `The molang texture: ${item}\nDeclared by '${ownerid}'`, kinds);
+    builder.add(item, `The molang texture: ${item}\nDeclared by '${ownerid}'`, kinds);
   });
 }

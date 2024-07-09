@@ -15,7 +15,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   //spawn_eggs
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
-    receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+    receiver.add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
   });
 
   //Vanilla data
@@ -23,7 +23,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   //spawn_eggs
   MinecraftData.vanilla.BehaviorPack.entities.forEach((entity) => {
-    receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+    receiver.add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
   });
 
   //Education data
@@ -33,7 +33,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
     //spawn_eggs
     MinecraftData.edu.BehaviorPack.entities.forEach((entity) => {
-      receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+      receiver.add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
     });
   }
 

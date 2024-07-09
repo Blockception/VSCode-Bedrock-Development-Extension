@@ -27,7 +27,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
   const playerOnly = Options?.playerOnly ?? false;
 
   if (Options?.wildcard)
-    receiver.Add(
+    receiver.add(
       "*",
       "Wildcard, aimed at all players / entities, or possible stored in memory",
       CompletionItemKind.Constant
@@ -93,7 +93,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
  * @param item
  */
 function FromType(receiver: CompletionBuilder, item: any): void {
-  receiver.Add(item.name, item.documentation, CompletionItemKind.TypeParameter);
+  receiver.add(item.name, item.documentation, CompletionItemKind.TypeParameter);
 }
 
 /**

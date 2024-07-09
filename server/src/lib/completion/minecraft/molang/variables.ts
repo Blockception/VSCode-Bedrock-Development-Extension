@@ -28,7 +28,7 @@ function Generate(
   builder: CompletionBuilder,
   kinds: CompletionItemKind = CompletionItemKind.Variable
 ): void {
-  builder.Add(data.id, data.documentation ?? `The molang variable: ${data.id}`, kinds);
+  builder.add(data.id, data.documentation ?? `The molang variable: ${data.id}`, kinds);
 }
 
 function GenerateDU(
@@ -38,6 +38,6 @@ function GenerateDU(
   kinds: CompletionItemKind = CompletionItemKind.Variable
 ): void {
   data.defined.forEach((item) => {
-    builder.Add(item, `The molang variable: ${item}\nDeclared by '${ownerid}'`, kinds);
+    builder.add(item, `The molang variable: ${item}\nDeclared by '${ownerid}'`, kinds);
   });
 }

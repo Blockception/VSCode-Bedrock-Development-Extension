@@ -24,7 +24,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
       if ((b = vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu)))) provideDefaultCompletion(b, context);
     }
 
-    context.receiver.Add("[]", "Block states", CompletionItemKind.Snippet);
+    context.receiver.add("[]", "Block states", CompletionItemKind.Snippet);
     return;
   }
 
@@ -45,7 +45,7 @@ function provideDefaultCompletion(
 ): void {
   const pars = b.states.map((state) => `"${state.name}":${stateValue(state, state.values[0])}`);
 
-  context.receiver.Add(`[${pars.join(",")}]`, `Default blockstates for: ${b.id}`, Kinds.Completion.Block);
+  context.receiver.add(`[${pars.join(",")}]`, `Default blockstates for: ${b.id}`, Kinds.Completion.Block);
 }
 
 function provideBlockCompletion(

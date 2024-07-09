@@ -38,7 +38,7 @@ export function provideModeCompletion(
       documentation += "\nThis mode is only available in Education Edition";
     }
 
-    context.receiver.Add(m.name, documentation, kind);
+    context.receiver.add(m.name, documentation, kind);
   });
 }
 
@@ -56,7 +56,7 @@ export function provideModeCompletionTest(
       documentation += "\nThis mode is only available in Education Edition";
     }
 
-    context.receiver.Add(m.name, documentation, kind);
-    context.receiver.Add("!" + m.name, documentation, kind);
+    context.receiver.add(m.name, documentation, kind);
+    context.receiver.add("!" + m.name, documentation, kind);
   });
 }

@@ -32,7 +32,7 @@ function getCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
 
     const doc = `## ${CInfo.name}\n${CInfo.documentation}\n[documentation](https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/${CInfo.name})`;
 
-    receiver.Add(CInfo.name, doc, Kinds.Completion.Command);
+    receiver.add(CInfo.name, doc, Kinds.Completion.Command);
     break;
   }
 }

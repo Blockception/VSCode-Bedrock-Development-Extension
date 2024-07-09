@@ -6,6 +6,6 @@ export function provideCompletion(context: CommandCompletionContext): void {
   const receiver = context.receiver;
 
   MinecraftData.General.Effects.forEach((effect) => {
-    receiver.Add(effect, `The vanilla minecraft effect: '${effect}'`, Kinds.Completion.Effect);
+    receiver.add(effect, `The vanilla minecraft effect: '${effect}'`, Kinds.Completion.Effect);
   });
 }

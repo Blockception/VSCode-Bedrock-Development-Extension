@@ -43,7 +43,7 @@ export function provideSoundFileCompletion(context: SimpleContext<CompletionBuil
       const ext = path.extname(filepath);
       const id = filepath.substring(index, filepath.length - ext.length);
 
-      context.receiver.Add(id, filepath, CompletionItemKind.File, '"' + id + '"').filterText = '"' + id + '"';
+      context.receiver.add(id, filepath, CompletionItemKind.File, '"' + id + '"').filterText = '"' + id + '"';
     }
   });
 }
