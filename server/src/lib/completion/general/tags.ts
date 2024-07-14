@@ -22,34 +22,31 @@ function generateDocumentation(tag: GeneralInfo | string): string {
 
 export function provideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
-  const receiver = context.receiver;
+  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Tag });
+
   receiver.add({
     label: "Any Tag: `tag=`",
     documentation: "By inserting an `tag=` you test for entities with any kind of tag",
-    kind: Kinds.Completion.Tag,
     insertText: "",
   });
   receiver.add({
     label: "No Tags: `tag=!`",
     documentation: "By inserting an `tag=!` you test for entities with no tags",
-    kind: Kinds.Completion.Tag,
     insertText: "!",
   });
 
   //Add defined tags to the context
-  receiver.generate(data.definitions.tag?.defined, (tag) => `The defined tag: ${tag}`, Kinds.Completion.Tag);
+  receiver.generate(data.definitions.tag?.defined, (tag) => `The defined tag: ${tag}`);
 
   //Add the tags to the list
   Database.ProjectData.General.tags.forEach((tag) => {
     receiver.add({
       label: tag.id,
       documentation: `Tests for the tag: '${tag.id}'`,
-      kind: Kinds.Completion.Tag,
     });
     receiver.add({
       label: `!${tag.id}`,
       documentation: `Tests not for the tag: '${tag.id}'`,
-      kind: Kinds.Completion.Tag,
     });
   });
 }

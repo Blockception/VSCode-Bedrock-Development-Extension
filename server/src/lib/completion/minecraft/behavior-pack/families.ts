@@ -25,7 +25,7 @@ export function provideCompletionTest(context: CommandCompletionContext): void {
   const edu = IsEducationEnabled(context.doc);
 
   if (types.length === 0) {
-    Database.ProjectData.BehaviorPacks.entities.forEach((entity) => ConvertTestEntity(entity, receiver));
+    Database.ProjectData.BehaviorPacks.entities.forEach((entity) => convertTestEntity(entity, receiver));
 
     MinecraftData.General.Entities.families.forEach((family) => {
       receiver.add({ label:family, documentation: `Test for the vanilla family: ${family}`, kind: Kinds.Completion.Family});
@@ -34,15 +34,15 @@ export function provideCompletionTest(context: CommandCompletionContext): void {
   } else {
     types.forEach((type) => {
       const entity = Database.ProjectData.BehaviorPacks.entities.get(type);
-      if (entity) ConvertTestEntity(entity, receiver);
+      if (entity) convertTestEntity(entity, receiver);
 
       const vanilla_entity = MinecraftData.ResourcePack.getEntity(type, edu);
-      if (vanilla_entity) ConvertTestEntity(vanilla_entity, receiver);
+      if (vanilla_entity) convertTestEntity(vanilla_entity, receiver);
     });
   }
 }
 
-function ConvertTestEntity(entity: { families?: string[]; id: string }, receiver: CompletionBuilder) {
+function convertTestEntity(entity: { families?: string[]; id: string }, receiver: CompletionBuilder) {
   entity.families?.forEach((family) => {
     receiver.add({ label:family, documentation: `Test for the family: ${family}\n\dForm ${entity.id}`, kind: Kinds.Completion.Family});
     receiver.add({ label:"!" + family, documentation: `Test not for the family: ${family}\n\dForm ${entity.id}`, kind: Kinds.Completion.Family});
