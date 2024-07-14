@@ -7,7 +7,7 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The mcstructure: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.BehaviorPacks.structures, generateDoc, Kinds.Completion.Structure);
+  context.receiver.generate(Database.ProjectData.BehaviorPacks.structures, generateDoc, Kinds.Completion.Structure);
 
   //No vanilla data
 }

@@ -5,12 +5,17 @@ import { SimpleContext } from "../../../Code/SimpleContext";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
-  const receiver = context.receiver;
+  const receiver = context.receiver.withDefaults({ kind: CompletionItemKind.Color });
   const cursor = pos.character;
 
   //key or comment
-  receiver.Add("###", "comment", CompletionItemKind.Snippet);
-  receiver.Add("###region", "Region", CompletionItemKind.Snippet, "###region example\n\n###endregion");
+  receiver.add({ label: "###", documentation: "comment", kind: CompletionItemKind.Snippet });
+  receiver.add({
+    label: "###region",
+    documentation: "Region",
+    kind: CompletionItemKind.Snippet,
+    insertText: "###region example\n\n###endregion",
+  });
 
   const line = context.doc.getLine(pos.line);
 
@@ -20,56 +25,23 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
   }
 
   if (isIn("=", cursor, line)) {
-    receiver.Add("Black §0", "The colour: Black", CompletionItemKind.Color, "§0");
-    receiver.Add("Dark Blue §1", "The colour: Dark blue", CompletionItemKind.Color, "§1");
-    receiver.Add("Dark Green §2", "The colour: Dark green", CompletionItemKind.Color, "§2");
-    receiver.Add("Dark Aqua §3", "The colour: Dark aqua", CompletionItemKind.Color, "§3");
-    receiver.Add("Dark Red §4", "The colour: Dark red", CompletionItemKind.Color, "§4");
-    receiver.Add("Dark Purple §5", "The colour: Dark purple", CompletionItemKind.Color, "§5");
-    receiver.Add("Gold §6", "The colour: Gold", CompletionItemKind.Color, "§6");
-    receiver.Add("Gray §7", "The colour: Gray", CompletionItemKind.Color, "§7");
-    receiver.Add("Dark Gray §8", "The colour: Dark gray", CompletionItemKind.Color, "§8");
-    receiver.Add("Blue §9", "The colour: Blue", CompletionItemKind.Color, "§9");
-    receiver.Add("Green §a", "The colour: Green", CompletionItemKind.Color, "§a");
-    receiver.Add("Aqua §b", "The colour: Aqua", CompletionItemKind.Color, "§b");
-    receiver.Add("Red §c", "The colour: Red", CompletionItemKind.Color, "§c");
-    receiver.Add("Light Purple §d", "The colour: Light purple", CompletionItemKind.Color, "§d");
-    receiver.Add("Yellow §e", "The colour: Yellow", CompletionItemKind.Color, "§e");
-    receiver.Add("White §f", "The colour: White", CompletionItemKind.Color, "§f");
-    receiver.Add("Minecoin Gold §g", "The colour: Minecoin Gold", CompletionItemKind.Color, "§g");
-    receiver.Add("Material Quartz §", "The colour: Material Quartz", CompletionItemKind.Color, "§h");
-    receiver.Add("Material Iron §", "The colour: Material Iron", CompletionItemKind.Color, "§i");
-    receiver.Add("Material Netherite §", "The colour: Material Netherite", CompletionItemKind.Color, "§j");
-    receiver.Add("Material Redstone §", "The colour: Material Redstone", CompletionItemKind.Color, "§m");
-    receiver.Add("Material Copper §", "The colour: Material Copper", CompletionItemKind.Color, "§n");
-    receiver.Add("Material Gold §", "The colour: Material Gold", CompletionItemKind.Color, "§p");
-    receiver.Add("Material Emerald §", "The colour: Material Emerald", CompletionItemKind.Color, "§q");
-    receiver.Add("Material Diamond §", "The colour: Material Diamond", CompletionItemKind.Color, "§s");
-    receiver.Add("Material Lapis §", "The colour: Material Lapis", CompletionItemKind.Color, "§t");
-    receiver.Add("Material Amethyst §", "The colour: Material Amethyst", CompletionItemKind.Color, "§u");
-
-    receiver.Add("Random Symbols §k", "Makes the text from this point random symbols", CompletionItemKind.Color, "§k");
-    receiver.Add("Bold §l", "Makes the text from this point bold", CompletionItemKind.Color, "§l");
-    receiver.Add("Italic §o", "Makes the text from this point italic", CompletionItemKind.Color, "§o");
-    receiver.Add("Reset §r", "Resets the current formatting of text", CompletionItemKind.Color, "§r");
-
-    return;
+    return addColors(receiver);
   }
 
   if (cursor > 3) {
-    receiver.Add("=", "Start of the value", CompletionItemKind.Snippet);
+    receiver.add({ label: "=", documentation: "Start of the value", kind: CompletionItemKind.Snippet });
   }
 
   const pack = context.doc.getPack();
   if (!pack) return;
 
   const check_receiver = {
-    Add(id: string, doc: string, kind: CompletionItemKind, insertText?: string): CompletionItem {
-      if (context.doc.getText().includes(insertText ?? id)) {
+    add(item: CompletionItem): CompletionItem {
+      if (context.doc.getText().includes(item.insertText ?? item.label)) {
         return {} as any;
       }
 
-      return receiver.Add(id, doc, kind, insertText);
+      return receiver.add(item);
     },
   };
 
@@ -80,50 +52,89 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
   }
 }
 
-export function generate_bp(pack: BehaviorPack.BehaviorPack, receiver: Pick<CompletionBuilder, "Add">) {
+function addColors(receiver: CompletionBuilder) {
+  receiver.add({ label: "Black §0", documentation: "The colour: Black", insertText: "§0" });
+  receiver.add({ label: "Dark Blue §1", documentation: "The colour: Dark blue", insertText: "§1" });
+  receiver.add({ label: "Dark Green §2", documentation: "The colour: Dark green", insertText: "§2" });
+  receiver.add({ label: "Dark Aqua §3", documentation: "The colour: Dark aqua", insertText: "§3" });
+  receiver.add({ label: "Dark Red §4", documentation: "The colour: Dark red", insertText: "§4" });
+  receiver.add({ label: "Dark Purple §5", documentation: "The colour: Dark purple", insertText: "§5" });
+  receiver.add({ label: "Gold §6", documentation: "The colour: Gold", insertText: "§6" });
+  receiver.add({ label: "Gray §7", documentation: "The colour: Gray", insertText: "§7" });
+  receiver.add({ label: "Dark Gray §8", documentation: "The colour: Dark gray", insertText: "§8" });
+  receiver.add({ label: "Blue §9", documentation: "The colour: Blue", insertText: "§9" });
+  receiver.add({ label: "Green §a", documentation: "The colour: Green", insertText: "§a" });
+  receiver.add({ label: "Aqua §b", documentation: "The colour: Aqua", insertText: "§b" });
+  receiver.add({ label: "Red §c", documentation: "The colour: Red", insertText: "§c" });
+  receiver.add({ label: "Light Purple §d", documentation: "The colour: Light purple", insertText: "§d" });
+  receiver.add({ label: "Yellow §e", documentation: "The colour: Yellow", insertText: "§e" });
+  receiver.add({ label: "White §f", documentation: "The colour: White", insertText: "§f" });
+  receiver.add({ label: "Minecoin Gold §g", documentation: "The colour: Minecoin Gold", insertText: "§g" });
+  receiver.add({ label: "Material Quartz §", documentation: "The colour: Material Quartz", insertText: "§h" });
+  receiver.add({ label: "Material Iron §", documentation: "The colour: Material Iron", insertText: "§i" });
+  receiver.add({ label: "Material Netherite §", documentation: "The colour: Material Netherite", insertText: "§j" });
+  receiver.add({ label: "Material Redstone §", documentation: "The colour: Material Redstone", insertText: "§m" });
+  receiver.add({ label: "Material Copper §", documentation: "The colour: Material Copper", insertText: "§n" });
+  receiver.add({ label: "Material Gold §", documentation: "The colour: Material Gold", insertText: "§p" });
+  receiver.add({ label: "Material Emerald §", documentation: "The colour: Material Emerald", insertText: "§q" });
+  receiver.add({ label: "Material Diamond §", documentation: "The colour: Material Diamond", insertText: "§s" });
+  receiver.add({ label: "Material Lapis §", documentation: "The colour: Material Lapis", insertText: "§t" });
+  receiver.add({ label: "Material Amethyst §", documentation: "The colour: Material Amethyst", insertText: "§u" });
+  receiver.add({ label: "Random Symbols §k",documentation: "Makes the text from this point random symbols",insertText: "§k"});
+  receiver.add({ label: "Bold §l", documentation: "Makes the text from this point bold", insertText: "§l" });
+  receiver.add({ label: "Italic §o", documentation: "Makes the text from this point italic", insertText: "§o" });
+  receiver.add({ label: "Reset §r", documentation: "Resets the current formatting of text", insertText: "§r" });
+}
+
+export function generate_bp(pack: BehaviorPack.BehaviorPack, receiver: Pick<CompletionBuilder, "add">) {
   pack.entities.forEach((entity) => {
-    const docu = entity.documentation || `Entity: ${entity.id}`;
-    receiver.Add(`entity.${entity.id}.name`, docu, CompletionItemKind.Property, `entity.${entity.id}.name=`);
-    receiver.Add(
-      `item.spawn_egg.entity.${entity.id}.name`,
-      docu,
-      CompletionItemKind.Property,
-      `item.spawn_egg.entity.${entity.id}.name=`
-    );
+    const documentation = entity.documentation || `Entity: ${entity.id}`;
+    receiver.add({
+      label: `entity.${entity.id}.name`,
+      documentation,
+      kind: CompletionItemKind.Property,
+      insertText: `entity.${entity.id}.name=`,
+    });
+    receiver.add({
+      label: `item.spawn_egg.entity.${entity.id}.name`,
+      documentation,
+      kind: CompletionItemKind.Property,
+      insertText: `item.spawn_egg.entity.${entity.id}.name=`,
+    });
   });
 
   pack.blocks.forEach((block) =>
-    receiver.Add(
-      `tile.${block.id}.name`,
-      block.documentation || `Entity: ${block.id}`,
-      CompletionItemKind.Property,
-      `tile.${block.id}.name=`
-    )
+    receiver.add({
+      label: `tile.${block.id}.name`,
+      documentation: block.documentation || `Entity: ${block.id}`,
+      kind: CompletionItemKind.Property,
+      insertText: `tile.${block.id}.name=`,
+    })
   );
   pack.items.forEach((item) =>
-    receiver.Add(
-      `item.${item.id}.name`,
-      item.documentation || `Entity: ${item.id}`,
-      CompletionItemKind.Property,
-      `item.${item.id}.name=`
-    )
+    receiver.add({
+      label: `item.${item.id}.name`,
+      documentation: item.documentation || `Entity: ${item.id}`,
+      kind: CompletionItemKind.Property,
+      insertText: `item.${item.id}.name=`,
+    })
   );
 }
 
-export function generate_rp(pack: ResourcePack.ResourcePack, receiver: Pick<CompletionBuilder, "Add">) {
+export function generate_rp(pack: ResourcePack.ResourcePack, receiver: Pick<CompletionBuilder, "add">) {
   pack.entities.forEach((entity) => {
     const id = safe_id(entity.id);
 
-    receiver.Add(
-      `entity.${entity.id}.name`,
-      entity.documentation || "Entity: " + entity.id,
-      CompletionItemKind.Property
-    );
-    receiver.Add(
-      `item.spawn_egg.entity.${entity.id}.name`,
-      entity.documentation || "Entity: " + entity.id,
-      CompletionItemKind.Property
-    );
+    receiver.add({
+      label: `entity.${id}.name`,
+      documentation: entity.documentation || `Entity: ${id}`,
+      kind: CompletionItemKind.Property,
+    });
+    receiver.add({
+      label: `item.spawn_egg.entity.${entity.id}.name`,
+      documentation: entity.documentation || `Entity: ${id}`,
+      kind: CompletionItemKind.Property,
+    });
   });
 }
 

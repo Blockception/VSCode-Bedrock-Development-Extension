@@ -1,4 +1,4 @@
-import { CompletionBuilder } from "./builder/builder";
+import { createBuilder } from "./builder/builder";
 import {
   CompletionParams,
   CompletionList,
@@ -41,7 +41,7 @@ function onCompletionRequest(
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 
-  const builder = new CompletionBuilder(token, workDoneProgress);
+  const builder = createBuilder(token, workDoneProgress);
   const pos = params.position;
   const context = SimpleContext.create(doc, builder, doc.offsetAt(pos));
 
@@ -69,24 +69,24 @@ function onCompletionRequest(
   }
 
   const List: CompletionList = { isIncomplete: false, items: [] };
-  List.items = removeDuplicate(builder.items);
+  List.items = removeDuplicate(builder.getItems());
 
   return List;
 }
 
 function removeDuplicate(items: CompletionItem[]): CompletionItem[] {
   const Length = items.length;
-  const Out: CompletionItem[] = [];
+  const out: CompletionItem[] = [];
 
   for (let I = 0; I < Length; I++) {
-    const Current = items[I];
+    const current = items[I];
 
-    if (!hasItem(Out, Current)) {
-      Out.push(Current);
+    if (!hasItem(out, current)) {
+      out.push(current);
     }
   }
 
-  return Out;
+  return out;
 }
 
 function hasItem(items: CompletionItem[], item: CompletionItem): boolean {

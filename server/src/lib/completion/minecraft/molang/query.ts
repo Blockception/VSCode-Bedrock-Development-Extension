@@ -15,5 +15,5 @@ function Generate(data: MolangFunction, builder: CompletionBuilder, kinds: Compl
     insert += '(' + data.parameters.map((p) => p.id).join(', ') + ')';
   }
 
-  builder.Add(data.id, data.documentation ?? `The molang query: ${data.id}`, kinds, insert);
+  builder.add({ label:data.id, documentation: data.documentation ?? `The molang query: ${data.id}`, kind: kinds, insertText: insert});
 }

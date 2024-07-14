@@ -1,13 +1,13 @@
-export function IsBool(value: string) {
+export function isBool(value: string) {
   return value === "true" || value === "false";
 }
 
-export function IsNumber(value: string) {
+export function isNumber(value: string) {
   return !isNaN(Number(value));
 }
 
-export function SantizeValue(value: string) {
-  if (IsBool(value) || IsNumber(value)) {
+export function santizeValue(value: string) {
+  if (isBool(value) || isNumber(value)) {
     return value;
   }
 

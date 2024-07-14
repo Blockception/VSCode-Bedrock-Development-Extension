@@ -1,20 +1,19 @@
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack";
 import { JsonCompletionContext } from "../../builder/context";
-import { SantizeValue } from "../../../Minecraft/Json/Types";
+import { santizeValue as santizeValue } from "../../../Minecraft/Json/Types";
 
 import * as LootTables from "./loot-tables";
 import * as Entities from "./entities";
 import * as Trading from "./trading";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
-  const cancelFn = context.receiver.OnNewItem((item, next) => {
-    item.insertText = item.insertText ?? item.label;
-    item.insertText = SantizeValue(item.insertText);
-    next(item);
+  checkFiles({
+    ...context,
+    receiver: context.receiver.withEvents((item) => {
+      item.insertText = item.insertText ?? item.label;
+      item.insertText = santizeValue(item.insertText);
+    }),
   });
-
-  checkFiles(context);
-  cancelFn();
 }
 
 function checkFiles(context: JsonCompletionContext) {

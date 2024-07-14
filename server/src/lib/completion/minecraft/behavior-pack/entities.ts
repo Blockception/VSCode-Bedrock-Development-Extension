@@ -17,14 +17,14 @@ import * as Sounds from "../resource-pack/sounds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The entity definition: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.BehaviorPacks.entities, generateDoc, Kinds.Completion.Entity);
+  context.receiver.generate(Database.ProjectData.BehaviorPacks.entities, generateDoc, Kinds.Completion.Entity);
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.BehaviorPack.entities, generateDoc, Kinds.Completion.Entity);
+  context.receiver.generate(MinecraftData.vanilla.BehaviorPack.entities, generateDoc, Kinds.Completion.Entity);
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    context.receiver.Generate(MinecraftData.edu.BehaviorPack.entities, generateDoc, Kinds.Completion.Entity);
+    context.receiver.generate(MinecraftData.edu.BehaviorPack.entities, generateDoc, Kinds.Completion.Entity);
   }
 }
 

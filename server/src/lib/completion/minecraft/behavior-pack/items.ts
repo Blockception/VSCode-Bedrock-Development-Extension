@@ -11,34 +11,34 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const receiver = context.receiver;
 
   //Project data
-  receiver.Generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
+  receiver.generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
 
   //spawn_eggs
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
-    receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+    receiver.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
   });
 
   //Vanilla data
-  receiver.Generate(MinecraftData.vanilla.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+  receiver.generate(MinecraftData.vanilla.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
 
   //spawn_eggs
   MinecraftData.vanilla.BehaviorPack.entities.forEach((entity) => {
-    receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+    receiver.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
   });
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
     //Vanilla data
-    receiver.Generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+    receiver.generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
 
     //spawn_eggs
     MinecraftData.edu.BehaviorPack.entities.forEach((entity) => {
-      receiver.Add(entity.id + "_spawn_egg", "The spawn egg for entity: " + entity.id, Kinds.Completion.Entity);
+      receiver.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
     });
   }
 
   //Custom block items
-  receiver.Generate(
+  receiver.generate(
     Database.ProjectData.BehaviorPacks.blocks,
     (item: Identifiable) => `The block-item definition: ${item.id}`,
     Kinds.Completion.Block

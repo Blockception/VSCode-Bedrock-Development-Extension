@@ -8,39 +8,28 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp animation: ${item.id}`;
+  const receiver = context.receiver;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.animations, generateDoc, Kinds.Completion.Animation);
-  context.receiver.Generate(
-    Database.ProjectData.ResourcePacks.animation_controllers,
-    generateDoc,
-    Kinds.Completion.Animation
-  );
+  receiver.generate(Database.ProjectData.ResourcePacks.animations, generateDoc, Kinds.Completion.Animation);
+  receiver.generate(Database.ProjectData.ResourcePacks.animation_controllers, generateDoc, Kinds.Completion.Animation);
 
   Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
-    entity.animations.defined.forEach((item) => context.receiver.Add(item, `The entity animation: ${item}`));
+    receiver.generate(entity.animations.defined, (item) => `The entity animation: ${item}`, Kinds.Completion.Animation);
   });
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
-  context.receiver.Generate(
-    MinecraftData.vanilla.ResourcePack.animation_controllers,
-    generateDoc,
-    Kinds.Completion.Animation
-  );
+  receiver.generate(MinecraftData.vanilla.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
+  receiver.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.Animation);
   MinecraftData.vanilla.ResourcePack.entities.forEach((entity) => {
-    entity.animations.forEach((item) => context.receiver.Add(item, `The vanilla entity animation: ${item}`));
+    receiver.generate(entity.animations, (item) => `The vanilla entity animation: ${item}`, Kinds.Completion.Animation);
   });
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    context.receiver.Generate(MinecraftData.edu.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
-    context.receiver.Generate(
-      MinecraftData.edu.ResourcePack.animation_controllers,
-      generateDoc,
-      Kinds.Completion.Animation
-    );
+    receiver.generate(MinecraftData.edu.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
+    receiver.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.Animation);
     MinecraftData.edu.ResourcePack.entities.forEach((entity) => {
-      entity.animations.forEach((item) => context.receiver.Add(item, `The vanilla entity animation: ${item}`));
+      receiver.generate(entity.animations, (item) => `The edu entity animation: ${item}`, Kinds.Completion.Animation);
     });
   }
 }

@@ -31,7 +31,7 @@ export function provideCompletion(context: CommandCompletionContext | SimpleCont
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => Convert(entity, context.receiver));
 
   const generateDoc = (item: string) => `The vanilla entity event: ${item}`;
-  context.receiver.GenerateStr(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
+  context.receiver.generate(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
 }
 
 /**
@@ -42,5 +42,5 @@ export function provideCompletion(context: CommandCompletionContext | SimpleCont
 function Convert(Entity: BehaviorPack.Entity.Entity, builder: CompletionBuilder): void {
   const generateDoc = (item: string) => `The entity event: ${item}\nFrom: ${Entity.id}`;
 
-  builder.GenerateStr(Entity.events, generateDoc, Kinds.Completion.Event);
+  builder.generate(Entity.events, generateDoc, Kinds.Completion.Event);
 }

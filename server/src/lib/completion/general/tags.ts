@@ -6,11 +6,10 @@ import { Kinds } from "../../Minecraft/General/Kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
-
-  receiver.Generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
-
   const data = context.doc.getConfiguration();
-  receiver.GenerateStr(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
+
+  receiver.generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
+  receiver.generate(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
 }
 
 function generateDocumentation(tag: GeneralInfo | string): string {
@@ -23,16 +22,31 @@ function generateDocumentation(tag: GeneralInfo | string): string {
 
 export function provideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();
-  const receiver = context.receiver;
-  receiver.Add("Any Tag: `tag=`", "By inserting an `tag=` you test for entities with any kind of tag", Kinds.Completion.Tag, "");
-  receiver.Add("No Tags: `tag=!`", "By inserting an `tag=!` you test for entities with no tags", Kinds.Completion.Tag, "!");
+  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Tag });
+
+  receiver.add({
+    label: "Any Tag: `tag=`",
+    documentation: "By inserting an `tag=` you test for entities with any kind of tag",
+    insertText: "",
+  });
+  receiver.add({
+    label: "No Tags: `tag=!`",
+    documentation: "By inserting an `tag=!` you test for entities with no tags",
+    insertText: "!",
+  });
 
   //Add defined tags to the context
-  data.definitions.tag?.defined.forEach((tag) => receiver.Add(tag, "The defined tag: " + tag, Kinds.Completion.Tag));
+  receiver.generate(data.definitions.tag?.defined, (tag) => `The defined tag: ${tag}`);
 
   //Add the tags to the list
   Database.ProjectData.General.tags.forEach((tag) => {
-    receiver.Add(tag.id, `Tests for the tag: '${tag.id}'`, Kinds.Completion.Tag);
-    receiver.Add("!" + tag.id, `Tests not for the tag: '${tag.id}'`, Kinds.Completion.Tag);
+    receiver.add({
+      label: tag.id,
+      documentation: `Tests for the tag: '${tag.id}'`,
+    });
+    receiver.add({
+      label: `!${tag.id}`,
+      documentation: `Tests not for the tag: '${tag.id}'`,
+    });
   });
 }

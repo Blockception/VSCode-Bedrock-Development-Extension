@@ -1,90 +1,185 @@
 import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
 import { CancellationToken, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CompletionItem, CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
+import { CompletionItem, CompletionItemKind } from "vscode-languageserver-types";
 
-/**
- *
- */
-export class CompletionBuilder {
-  public items: CompletionItem[];
-  private _OnNewItem: ((NewItem: CompletionItem) => void) | undefined;
+export type GenerateFunction<T> = (item: T) => string;
+
+export interface IForEach<T> {
+  forEach(callbackfn: (value: T) => void, thisArg?: any): void;
+}
+
+export function createBuilder(token: CancellationToken, workDoneProgress: WorkDoneProgressReporter): CompletionBuilder {
+  return new WrappedBuilder(new BaseBuilder(token, workDoneProgress));
+}
+
+export interface CompletionBuilder {
+  /**
+   * Adds a new completion item
+   * @param item The item to add, will be sanitized
+   * @returns The added and sanitized item
+   */
+  add(item: CompletionItem): CompletionItem;
 
   /**
-   *
+   * Check if the request has been cancelled
+   * @returns True if the builder is done
+   * @returns False if the builder is not done
    */
-  constructor(public token: CancellationToken, public workDoneProgress: WorkDoneProgressReporter) {
-    this.items = [];
-    this._OnNewItem = undefined;
+  isCancelled(): boolean;
+
+  /**
+   * Returns all the items
+   */
+  getItems(): CompletionItem[];
+
+  /**
+   * Generate a completion item from the dataset / collection
+   * @param dataset The dataset to generate from
+   * @param generatefn The function to generate the documentation
+   * @param kind The kind of completion item
+   * @param query The query to filter the dataset
+   */
+  generate<T extends Identifiable | string>(
+    dataset: IForEach<T> | undefined,
+    generatefn: GenerateFunction<T>
+  ): CompletionItem[];
+  generate<T extends Identifiable | string>(
+    dataset: IForEach<T> | undefined,
+    generatefn: GenerateFunction<T>,
+    kind: CompletionItemKind
+  ): CompletionItem[];
+  generate<T extends Identifiable | string>(
+    dataset: IForEach<T> | undefined,
+    generatefn: GenerateFunction<T>,
+    kind: CompletionItemKind | undefined,
+    query: string | undefined
+  ): CompletionItem[];
+
+  /**
+   * Returns a new builder with the events added
+   * @param before The event to run before adding the item and sanitizing it
+   * @param after The event to run after adding the item and sanitizing it
+   */
+  withEvents(before?: (item: CompletionItem) => void, after?: (item: CompletionItem) => void): CompletionBuilder;
+
+  /**
+   * Returns a new builder with the default values added
+   * @param base The default values to add
+   */
+  withDefaults(base: Partial<CompletionItem>): CompletionBuilder;
+}
+
+type BaseCompletionBuilder = Pick<CompletionBuilder, "add" | "isCancelled" | "getItems">;
+
+export class BaseBuilder implements BaseCompletionBuilder {
+  private _items: CompletionItem[];
+  private _token: CancellationToken;
+  private _workDoneProgress: WorkDoneProgressReporter;
+
+  constructor(token: CancellationToken, workDoneProgress: WorkDoneProgressReporter, items?: CompletionItem[]) {
+    this._token = token;
+    this._workDoneProgress = workDoneProgress;
+    this._items = items ?? [];
   }
 
-  /**
-   *
-   * @param label
-   * @param documentation
-   * @param kind
-   * @param insertText
-   */
-  Add(
-    label: string,
-    documentation: string | MarkupContent,
-    kind: CompletionItemKind = CompletionItemKind.Keyword,
-    insertText: string | undefined = undefined
-  ): CompletionItem {
-    let item = CompletionItem.create(label);
-
-    if (typeof documentation === "string") {
-      item.documentation = { kind: "markdown", value: documentation };
-    } else {
-      item.documentation = documentation;
+  /** @inheritdoc */
+  add(item: CompletionItem): CompletionItem {
+    if (item.documentation) {
+      if (typeof item.documentation === "string") {
+        item.documentation = { kind: "markdown", value: item.documentation };
+      }
     }
 
-    if (insertText) {
-      item.insertText = insertText;
+    if (item.kind === undefined) {
+      item.kind = CompletionItemKind.Keyword;
     }
 
-    item.kind = kind;
-
-    if (this._OnNewItem) {
-      this._OnNewItem(item);
-    }
-
-    this.items.push(item);
+    this._items.push(item);
     return item;
   }
 
-  /**
-   *
-   * @param item
-   * @param generatefn
-   * @param kind
-   * @returns
-   */
-  GenerateItem<T extends Identifiable>(
+  /** @inheritdoc */
+  isCancelled(): boolean {
+    return this._token.isCancellationRequested;
+  }
+
+  /** @inheritdoc */
+  getItems(): CompletionItem[] {
+    return this._items;
+  }
+}
+
+export class EventedBuilder implements BaseCompletionBuilder {
+  private _builder: BaseCompletionBuilder;
+  private _before: (item: CompletionItem) => void;
+  private _after: (item: CompletionItem) => void;
+
+  constructor(
+    builder: BaseCompletionBuilder,
+    before: (item: CompletionItem) => void,
+    after: (item: CompletionItem) => void
+  ) {
+    this._builder = builder;
+    this._before = before;
+    this._after = after;
+  }
+
+  /** @inheritdoc */
+  add(item: CompletionItem): CompletionItem {
+    this._before(item);
+    const out = this._builder.add(item);
+    this._after(out);
+    return out;
+  }
+
+  /** @inheritdoc */
+  isCancelled(): boolean {
+    return this._builder.isCancelled();
+  }
+
+  /** @inheritdoc */
+  getItems(): CompletionItem[] {
+    return this._builder.getItems();
+  }
+}
+
+export class WrappedBuilder implements CompletionBuilder {
+  private builder: BaseCompletionBuilder;
+
+  constructor(builder: BaseCompletionBuilder) {
+    this.builder = builder;
+  }
+
+  /** @inheritdoc */
+  add(item: CompletionItem): CompletionItem {
+    return this.builder.add(item);
+  }
+  /** @inheritdoc */
+  isCancelled(): boolean {
+    return this.builder.isCancelled();
+  }
+  /** @inheritdoc */
+  getItems(): CompletionItem[] {
+    return this.builder.getItems();
+  }
+
+  generateItem<T extends Identifiable & Documentated>(
     item: T,
     generatefn: (item: T) => string,
     kind: CompletionItemKind = CompletionItemKind.Keyword
   ): CompletionItem {
-    const docet = <Documentated>item;
-    let doc = docet.documentation;
+    const citem = {
+      label: item.id,
+      documentation: item.documentation ?? generatefn(item),
+      kind: kind,
+    };
 
-    if (!doc) {
-      doc = generatefn(item);
-      docet.documentation = doc;
-    }
-
-    return this.Add(item.id, doc, kind);
+    return this.builder.add(citem);
   }
 
-  /**
-   *
-   * @param dataset
-   * @param generatefn
-   * @param kind
-   * @param query
-   * @returns
-   */
-  Generate<T extends Identifiable>(
-    dataset: IForEach<T>,
+  /** @inheritdoc */
+  generate<T extends Identifiable>(
+    dataset: IForEach<T | string> | undefined,
     generatefn: (item: T) => string,
     kind: CompletionItemKind = CompletionItemKind.Keyword,
     query: string | undefined = undefined
@@ -92,73 +187,43 @@ export class CompletionBuilder {
     const out: CompletionItem[] = [];
     if (dataset === undefined) return out;
 
-    if (query) {
-      dataset.forEach((item) => {
-        if (this.token.isCancellationRequested) return;
+    const filterFn = this.createFilter(query);
+    dataset.forEach((item) => {
+      if (this.builder.isCancelled()) return;
+      if (filterFn(item) === false) return;
 
-        if (item.id.includes(query)) out.push(this.GenerateItem(item, generatefn, kind));
-      });
-    } else {
-      dataset.forEach((item) => {
-        if (this.token.isCancellationRequested) return;
-
-        out.push(this.GenerateItem(item, generatefn, kind));
-      });
-    }
-
-    return out;
-  }
-
-  /**
-   *
-   * @param dataset
-   * @param generatefn
-   * @param kind
-   * @param query
-   * @returns
-   */
-  GenerateStr(
-    dataset: IForEach<string>,
-    generatefn: (item: string) => string,
-    kind: CompletionItemKind = CompletionItemKind.Keyword,
-    query: string | undefined = undefined
-  ): CompletionItem[] {
-    const out: CompletionItem[] = [];
-    if (dataset === undefined) return out;
-
-    if (query) {
-      dataset.forEach((item) => {
-        if (this.token.isCancellationRequested) return;
-
-        if (item.includes(query)) out.push(this.Add(item, generatefn(item), kind));
-      });
-    } else {
-      dataset.forEach((item) => {
-        if (this.token.isCancellationRequested) return;
-
-        out.push(this.Add(item, generatefn(item), kind));
-      });
-    }
+      switch (typeof item) {
+        case "string":
+          out.push(this.builder.add({ label: item, documentation: item, kind: kind }));
+          break;
+        default:
+          out.push(this.generateItem(item, generatefn, kind));
+      }
+    });
 
     return out;
   }
 
-  OnNewItem(callbackFn: (item: CompletionItem, next: (item: CompletionItem) => void) => void): () => void {
-    const old = this._OnNewItem;
-    const cancelFn = () => {
-      this._OnNewItem = old;
-    };
+  private createFilter(query: string | undefined): (item: Identifiable | string) => boolean {
+    if (query === undefined) return () => true;
 
-    this._OnNewItem = (item: CompletionItem) => {
-      callbackFn(item, (item: CompletionItem) => {
-        if (old) old(item);
-      });
+    return (item: Identifiable | string) => {
+      if (typeof item === "string") return item.includes(query);
+      return item.id.includes(query);
     };
+  }
 
-    return cancelFn.bind(this);
+  /** @inheritdoc */
+  withEvents(before?: (item: CompletionItem) => void, after?: (item: CompletionItem) => void): CompletionBuilder {
+    return new WrappedBuilder(new EventedBuilder(this.builder, before ?? noop, after ?? noop));
+  }
+
+  /** @inheritdoc */
+  withDefaults(base: Partial<CompletionItem>): CompletionBuilder {
+    return new WrappedBuilder(new EventedBuilder(this.builder, (item) => Object.assign(item, base), noop));
   }
 }
 
-interface IForEach<T> {
-  forEach(callbackfn: (value: T) => void, thisArg?: any): void;
+function noop() {
+  return;
 }

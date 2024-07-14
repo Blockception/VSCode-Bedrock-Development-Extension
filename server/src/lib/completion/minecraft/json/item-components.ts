@@ -1,14 +1,46 @@
 import { CompletionItemKind } from "vscode-languageserver";
 import { SimpleContext } from "../../../Code";
 import { CompletionBuilder } from "../../builder/builder";
-import { CanDestroyComponent, CanPlaceOnComponent, Example, KeepOnDeathComponent, LockInInventoryComponent, LockInSlotComponent } from "../../../Minecraft/Json/ItemComponents/Constants";
+import {
+  CanDestroyComponent,
+  CanPlaceOnComponent,
+  Example,
+  KeepOnDeathComponent,
+  LockInInventoryComponent,
+  LockInSlotComponent,
+} from "../../../Minecraft/Json/ItemComponents/Constants";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const receiver = context.receiver;
-  receiver.Add("Json Item Components Example", Example, CompletionItemKind.Snippet, Example);
-  receiver.Add("Can destroy component", CanDestroyComponent, CompletionItemKind.Snippet, CanDestroyComponent);
-  receiver.Add("Can place on component", CanPlaceOnComponent, CompletionItemKind.Snippet, CanPlaceOnComponent);
-  receiver.Add("Lock in inventory component", LockInInventoryComponent, CompletionItemKind.Snippet, LockInInventoryComponent);
-  receiver.Add("Keep on death component", KeepOnDeathComponent, CompletionItemKind.Snippet, KeepOnDeathComponent);
-  receiver.Add("Lock in slot component", LockInSlotComponent, CompletionItemKind.Snippet, LockInSlotComponent);
+  const receiver = context.receiver.withDefaults({ kind: CompletionItemKind.Snippet });
+
+  receiver.add({
+    label: "Json Item Components Example",
+    documentation: Example,
+    insertText: Example,
+  });
+  receiver.add({
+    label: "Can destroy component",
+    documentation: CanDestroyComponent,
+    insertText: CanDestroyComponent,
+  });
+  receiver.add({
+    label: "Can place on component",
+    documentation: CanPlaceOnComponent,
+    insertText: CanPlaceOnComponent,
+  });
+  receiver.add({
+    label: "Lock in inventory component",
+    documentation: LockInInventoryComponent,
+    insertText: LockInInventoryComponent,
+  });
+  receiver.add({
+    label: "Keep on death component",
+    documentation: KeepOnDeathComponent,
+    insertText: KeepOnDeathComponent,
+  });
+  receiver.add({
+    label: "Lock in slot component",
+    documentation: LockInSlotComponent,
+    insertText: LockInSlotComponent,
+  });
 }

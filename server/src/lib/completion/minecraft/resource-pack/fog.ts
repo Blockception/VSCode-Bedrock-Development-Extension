@@ -9,14 +9,14 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The fog: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
+  context.receiver.generate(Database.ProjectData.ResourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
 
   //Generate for vanilla data
   const generateV = (item: string) => `The vanilla fog: ${item}`;
 
   //Vanilla data
-  context.receiver.GenerateStr(MinecraftData.vanilla.ResourcePack.fogs, generateV, Kinds.Completion.Fogs);
+  context.receiver.generate(MinecraftData.vanilla.ResourcePack.fogs, generateV, Kinds.Completion.Fogs);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.GenerateStr(MinecraftData.edu.ResourcePack.fogs, generateV, Kinds.Completion.Fogs);
+  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.ResourcePack.fogs, generateV, Kinds.Completion.Fogs);
 }

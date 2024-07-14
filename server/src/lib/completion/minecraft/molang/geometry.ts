@@ -39,7 +39,7 @@ export function provideResourcepackCompletion(context: SimpleContext<CompletionB
       //Using defined geometries
       Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
         const gen = (item: string) => `The defined geomtry: ${item}\nDeclared by: ${entity.id}`;
-        receiver.GenerateStr(entity.molang.geometries.defined, gen, kind);
+        receiver.generate(entity.molang.geometries.defined, gen, kind);
       });
       break;
   }
@@ -56,9 +56,9 @@ export function provideBehaviorpackCompletion(context: SimpleContext<CompletionB
     case BehaviorPack.FileType.entity:
       //Using model geometries
       const gen = (item: ResourcePack.Model.Model) => `The geomtry: ${item}\nDeclared in: ${item.location.uri}`;
-      receiver.Generate(Database.ProjectData.ResourcePacks.models, gen, kind);
+      receiver.generate(Database.ProjectData.ResourcePacks.models, gen, kind);
 
-      receiver.Generate(Vanilla.ResourcePack.Models, (item) => `Vanilla model: ${item.id}`, kind);
+      receiver.generate(Vanilla.ResourcePack.Models, (item) => `Vanilla model: ${item.id}`, kind);
       break;
   }
 }

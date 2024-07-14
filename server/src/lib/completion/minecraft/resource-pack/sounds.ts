@@ -12,16 +12,16 @@ import { MinecraftFormat } from "../../../Minecraft/Format";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
+  context.receiver.generate(Database.ProjectData.ResourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
 
   //Generate for vanilla data
   const generateV = (item: string) => `The vanilla sound: ${item}`;
 
   //Vanilla data
-  context.receiver.GenerateStr(MinecraftData.vanilla.ResourcePack.sounds, generateV, Kinds.Completion.Sound);
+  context.receiver.generate(MinecraftData.vanilla.ResourcePack.sounds, generateV, Kinds.Completion.Sound);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.GenerateStr(MinecraftData.edu.ResourcePack.sounds, generateV, Kinds.Completion.Sound);
+  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.ResourcePack.sounds, generateV, Kinds.Completion.Sound);
 }
 
 /**Looks for all the sound files in the given pack and returns them as completion text
@@ -43,7 +43,7 @@ export function provideSoundFileCompletion(context: SimpleContext<CompletionBuil
       const ext = path.extname(filepath);
       const id = filepath.substring(index, filepath.length - ext.length);
 
-      context.receiver.Add(id, filepath, CompletionItemKind.File, '"' + id + '"').filterText = '"' + id + '"';
+      context.receiver.add({ label:id, documentation: filepath, kind: CompletionItemKind.File, insertText: '"' + id + '"'}).filterText = '"' + id + '"';
     }
   });
 }

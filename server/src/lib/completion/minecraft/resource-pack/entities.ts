@@ -16,17 +16,17 @@ import * as Textures from "./textures";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp entity: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.entities, generateDoc, Kinds.Completion.Entity);
+  context.receiver.generate(Database.ProjectData.ResourcePacks.entities, generateDoc, Kinds.Completion.Entity);
 
   //Generate for vanilla data
   const generateV = (item: Identifiable) => `The vanilla rp entity: ${item.id}`;
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.ResourcePack.entities, generateV, Kinds.Completion.Entity);
+  context.receiver.generate(MinecraftData.vanilla.ResourcePack.entities, generateV, Kinds.Completion.Entity);
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    context.receiver.Generate(MinecraftData.edu.ResourcePack.entities, generateV, Kinds.Completion.Entity);
+    context.receiver.generate(MinecraftData.edu.ResourcePack.entities, generateV, Kinds.Completion.Entity);
   }
 }
 

@@ -38,69 +38,69 @@ function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
 
   const index = line.indexOf("=");
   if (index > -1 && index < pos.character) {
-    Boolean.provideCompletion(builder);
+    Boolean.provideCompletion(context);
     return;
   }
 
-  builder.Add("## ", "Comment", CompletionItemKind.Snippet);
-  builder.Add(
-    "education.enable",
-    "Disable or enable education edition for this project",
-    CompletionItemKind.Property,
-    "education.enable="
-  );
-  builder.Add(
-    "diagnostic.enable",
-    "Disable or enable diagnostics for this project",
-    CompletionItemKind.Property,
-    "diagnostic.enable="
-  );
-  builder.Add(
-    "diagnostic.json",
-    "Disable or enable diagnostics for json in this project",
-    CompletionItemKind.Property,
-    "diagnostic.json="
-  );
-  builder.Add(
-    "diagnostic.lang",
-    "Disable or enable diagnostics for language in this project",
-    CompletionItemKind.Property,
-    "diagnostic.lang="
-  );
-  builder.Add(
-    "diagnostic.mcfunction",
-    "Disable or enable diagnostics for mcfunction in this project",
-    CompletionItemKind.Property,
-    "diagnostic.mcfunction="
-  );
-  builder.Add(
-    "diagnostic.objective",
-    "Disable or enable diagnostics for objectives in this project",
-    CompletionItemKind.Property,
-    "diagnostic.objective="
-  );
-  builder.Add(
-    "diagnostic.tag",
-    "Disable or enable diagnostics for tags in this project",
-    CompletionItemKind.Property,
-    "diagnostic.tag="
-  );
+  builder.add({ label: "## ", documentation: "Comment", kind: CompletionItemKind.Snippet });
+  builder.add({
+    label: "education.enable",
+    documentation: "Disable or enable education edition for this project",
+    kind: CompletionItemKind.Property,
+    insertText: "education.enable=",
+  });
+  builder.add({
+    label: "diagnostic.enable",
+    documentation: "Disable or enable diagnostics for this project",
+    kind: CompletionItemKind.Property,
+    insertText: "diagnostic.enable=",
+  });
+  builder.add({
+    label: "diagnostic.json",
+    documentation: "Disable or enable diagnostics for json in this project",
+    kind: CompletionItemKind.Property,
+    insertText: "diagnostic.json=",
+  });
+  builder.add({
+    label: "diagnostic.lang",
+    documentation: "Disable or enable diagnostics for language in this project",
+    kind: CompletionItemKind.Property,
+    insertText: "diagnostic.lang=",
+  });
+  builder.add({
+    label: "diagnostic.mcfunction",
+    documentation: "Disable or enable diagnostics for mcfunction in this project",
+    kind: CompletionItemKind.Property,
+    insertText: "diagnostic.mcfunction=",
+  });
+  builder.add({
+    label: "diagnostic.objective",
+    documentation: "Disable or enable diagnostics for objectives in this project",
+    kind: CompletionItemKind.Property,
+    insertText: "diagnostic.objective=",
+  });
+  builder.add({
+    label: "diagnostic.tag",
+    documentation: "Disable or enable diagnostics for tags in this project",
+    kind: CompletionItemKind.Property,
+    insertText: "diagnostic.tag=",
+  });
 
   const templates = Object.getOwnPropertyNames(TemplateFilenames);
   templates.forEach((temp) => {
     temp = temp.replace("-", ".");
-    builder.Add(
-      `template.${temp}.filename`,
-      "The filename of the template",
-      CompletionItemKind.Property,
-      `template.${temp}.filename=`
-    );
-    builder.Add(
-      `template.${temp}.file`,
-      "The file of the content of the file",
-      CompletionItemKind.File,
-      `template.${temp}.file=`
-    );
+    builder.add({
+      label: `template.${temp}.filename`,
+      documentation: "The filename of the template",
+      kind: CompletionItemKind.Property,
+      insertText: `template.${temp}.filename=`,
+    });
+    builder.add({
+      label: `template.${temp}.file`,
+      documentation: "The file of the content of the file",
+      kind: CompletionItemKind.File,
+      insertText: `template.${temp}.file=`,
+    });
   });
 }
 
@@ -158,23 +158,73 @@ function provideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Posi
   }
 
   const builder = context.receiver;
-  builder.Add("## ", "Comment", CompletionItemKind.Snippet);
-  builder.Add("block", "Include or excluded a block definition", CompletionItemKind.Property, "block=");
-  builder.Add("entity", "Include or excluded a entity definition", CompletionItemKind.Property, "entity=");
-  builder.Add("family", "Include or excluded a family definition", CompletionItemKind.Property, "family=");
-  builder.Add("function", "Include or excluded a function definition", CompletionItemKind.Property, "function=");
-  builder.Add("item", "Include or excluded a item definition", CompletionItemKind.Property, "item=");
-  builder.Add("loot_table", "Include or excluded a loot_table definition", CompletionItemKind.Property, "loot_table=");
-  builder.Add("name", "Include or excluded a name definition", CompletionItemKind.Property, "name=");
-  builder.Add("objective", "Include or excluded a objective definition", CompletionItemKind.Property, "objective=");
-  builder.Add("structure", "Include or excluded a structure definition", CompletionItemKind.Property, "structure=");
-  builder.Add("tag", "Include or excluded a tag definition", CompletionItemKind.Property, "tag=");
-  builder.Add(
-    "tickingarea",
-    "Include or excluded a tickingarea definition",
-    CompletionItemKind.Property,
-    "tickingarea="
-  );
+  builder.add({ label: "## ", documentation: "Comment", kind: CompletionItemKind.Snippet });
+  builder.add({
+    label: "block",
+    documentation: "Include or excluded a block definition",
+    kind: CompletionItemKind.Property,
+    insertText: "block=",
+  });
+  builder.add({
+    label: "entity",
+    documentation: "Include or excluded a entity definition",
+    kind: CompletionItemKind.Property,
+    insertText: "entity=",
+  });
+  builder.add({
+    label: "family",
+    documentation: "Include or excluded a family definition",
+    kind: CompletionItemKind.Property,
+    insertText: "family=",
+  });
+  builder.add({
+    label: "function",
+    documentation: "Include or excluded a function definition",
+    kind: CompletionItemKind.Property,
+    insertText: "function=",
+  });
+  builder.add({
+    label: "item",
+    documentation: "Include or excluded a item definition",
+    kind: CompletionItemKind.Property,
+    insertText: "item=",
+  });
+  builder.add({
+    label: "loot_table",
+    documentation: "Include or excluded a loot_table definition",
+    kind: CompletionItemKind.Property,
+    insertText: "loot_table=",
+  });
+  builder.add({
+    label: "name",
+    documentation: "Include or excluded a name definition",
+    kind: CompletionItemKind.Property,
+    insertText: "name=",
+  });
+  builder.add({
+    label: "objective",
+    documentation: "Include or excluded a objective definition",
+    kind: CompletionItemKind.Property,
+    insertText: "objective=",
+  });
+  builder.add({
+    label: "structure",
+    documentation: "Include or excluded a structure definition",
+    kind: CompletionItemKind.Property,
+    insertText: "structure=",
+  });
+  builder.add({
+    label: "tag",
+    documentation: "Include or excluded a tag definition",
+    kind: CompletionItemKind.Property,
+    insertText: "tag=",
+  });
+  builder.add({
+    label: "tickingarea",
+    documentation: "Include or excluded a tickingarea definition",
+    kind: CompletionItemKind.Property,
+    insertText: "tickingarea=",
+  });
 }
 
 function add(context: SimpleContext<CompletionBuilder>, value: (Identifiable & Documentated) | string) {
@@ -189,6 +239,6 @@ function add(context: SimpleContext<CompletionBuilder>, value: (Identifiable & D
     documentation.value = value.documentation ?? "";
   }
 
-  context.receiver.Add(label, documentation, CompletionItemKind.Value).sortText = label;
-  context.receiver.Add("!" + label, documentation, CompletionItemKind.Value).sortText = label + "2";
+  context.receiver.add({ label: label, documentation, kind: CompletionItemKind.Value }).sortText = label;
+  context.receiver.add({ label: "!" + label, documentation, kind: CompletionItemKind.Value }).sortText = `${label}2`;
 }

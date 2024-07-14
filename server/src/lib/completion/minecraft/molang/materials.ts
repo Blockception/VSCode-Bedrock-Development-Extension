@@ -6,6 +6,7 @@ import { CompletionBuilder } from "../../builder/builder";
 import { Database } from "../../../Database/Database";
 import { Kinds } from "../../../Minecraft/General/Kinds";
 import * as Models from "../resource-pack/models";
+import { Identifiable } from 'bc-minecraft-bedrock-types/lib/src/types';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const packType = PackType.detect(context.doc.uri);
@@ -39,7 +40,7 @@ export function provideResourcepackCompletion(context: SimpleContext<CompletionB
       //Using defined geometries
       Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
         const gen = (item: string) => `The defined material: ${item}\nDeclared by: ${entity.id}`;
-        receiver.GenerateStr(entity.molang.materials.defined, gen, kind);
+        receiver.generate(entity.molang.materials.defined, gen, kind);
       });
       break;
   }
@@ -56,9 +57,8 @@ export function provideBehaviorpackCompletion(context: SimpleContext<CompletionB
     case BehaviorPack.FileType.entity:
       //Using model geometries
       const gen = (item: ResourcePack.Material.Material) => `The material: ${item}\nDeclared in: ${item.location.uri}`;
-      receiver.Generate(Database.ProjectData.ResourcePacks.materials, gen, kind);
-
-      receiver.GenerateStr(Vanilla.ResourcePack.Materials, (item) => `The vanilla geometry: ${item}`, kind);
+      receiver.generate(Database.ProjectData.ResourcePacks.materials, gen, kind);
+      receiver.generate(Vanilla.ResourcePack.Materials, (item) => `The vanilla geometry: ${item}`, kind);
       break;
   }
 }

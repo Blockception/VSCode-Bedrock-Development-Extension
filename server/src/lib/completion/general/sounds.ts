@@ -5,7 +5,7 @@ import { Database } from "../../Database/Database";
 import { Kinds } from "../../Minecraft/General/Kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  context.receiver.Generate(
+  context.receiver.generate(
     Database.ProjectData.ResourcePacks.sounds, 
     (item: Identifiable) => `The custom sound definition: '${item.id}'`, 
     Kinds.Completion.Sound);

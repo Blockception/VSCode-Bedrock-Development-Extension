@@ -9,11 +9,11 @@ import { Kinds } from '../../../Minecraft/General';
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The block definition: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.BehaviorPacks.blocks, generateDoc, Kinds.Completion.Block);
+  context.receiver.generate(Database.ProjectData.BehaviorPacks.blocks, generateDoc, Kinds.Completion.Block);
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.BehaviorPack.blocks, generateDoc, Kinds.Completion.Block);
+  context.receiver.generate(MinecraftData.vanilla.BehaviorPack.blocks, generateDoc, Kinds.Completion.Block);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.Generate(MinecraftData.edu.BehaviorPack.blocks, generateDoc, Kinds.Completion.Block);
+  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.BehaviorPack.blocks, generateDoc, Kinds.Completion.Block);
 }

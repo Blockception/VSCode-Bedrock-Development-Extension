@@ -24,34 +24,29 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 }
 
 export function provideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const cancelFn = context.receiver.OnNewItem((item, next) => {
-    let id = short_id(item.label);
-    item.insertText = id;
+  const ncontext = {
+    ...context,
+    receiver: context.receiver.withEvents((item) => {
+      let id = short_id(item.label);
+      item.insertText = id;
+    }),
+  };
 
-    next(item);
-  });
-
-  generate_items(context);
-  cancelFn();
+  generate_items(ncontext);
 }
 
 function generate_items(context: SimpleContext<CompletionBuilder>) {
+  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.LootTable });
+
   const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
-
-  context.receiver.Generate(Database.ProjectData.BehaviorPacks.loot_tables, generateDoc, Kinds.Completion.LootTable);
-
   const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
-  //Vanilla data
-  context.receiver.GenerateStr(
-    MinecraftData.vanilla.BehaviorPack.loot_tables,
-    generatesDoc,
-    Kinds.Completion.LootTable
-  );
+  receiver.generate(Database.ProjectData.BehaviorPacks.loot_tables, generateDoc);
+  receiver.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
 
   //Education data
   if (IsEducationEnabled(context.doc))
-    context.receiver.GenerateStr(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc, Kinds.Completion.LootTable);
+    receiver.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
 }
 
 function short_id(id: string): string {
