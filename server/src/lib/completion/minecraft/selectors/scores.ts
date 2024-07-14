@@ -20,14 +20,30 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
 
 function provideRange(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
-  receiver.add({ label:"0", documentation: "test for the exact value of 0", kind: CompletionItemKind.Value});
-  receiver.add({ label:"!0", documentation: "test for the exact value of everything but 0", kind: CompletionItemKind.Value});
-  receiver.add({ label:"0..", documentation: "test for the everything equal to 0 or higher", kind: CompletionItemKind.Value});
-  receiver.add({ label:"..0", documentation: "test for the everything equal to 0 or lower", kind: CompletionItemKind.Value});
-  receiver.add({ label:"0..10", documentation: "test for the everything equal to 0 or 10 and everything in between", kind: CompletionItemKind.Value});
-  receiver.add(
-    "!0..10",
-    "test for the everything not equal to 0 or 10 and everything in between",
-    CompletionItemKind.Value
-  );
+  receiver.add({ label: "0", documentation: "test for the exact value of 0", kind: CompletionItemKind.Value });
+  receiver.add({
+    label: "!0",
+    documentation: "test for the exact value of everything but 0",
+    kind: CompletionItemKind.Value,
+  });
+  receiver.add({
+    label: "0..",
+    documentation: "test for the everything equal to 0 or higher",
+    kind: CompletionItemKind.Value,
+  });
+  receiver.add({
+    label: "..0",
+    documentation: "test for the everything equal to 0 or lower",
+    kind: CompletionItemKind.Value,
+  });
+  receiver.add({
+    label: "0..10",
+    documentation: "test for the everything equal to 0 or 10 and everything in between",
+    kind: CompletionItemKind.Value,
+  });
+  receiver.add({
+    label: "!0..10",
+    documentation: "test for the everything not equal to 0 or 10 and everything in between",
+    kind: CompletionItemKind.Value,
+  });
 }

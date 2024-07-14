@@ -27,11 +27,11 @@ export function provideCompletion(context: CommandCompletionContext): void {
   const playerOnly = Options?.playerOnly ?? false;
 
   if (Options?.wildcard)
-    receiver.add(
-      "*",
-      "Wildcard, aimed at all players / entities, or possible stored in memory",
-      CompletionItemKind.Constant
-    );
+    receiver.add({
+      label: "*",
+      documentation: "Wildcard, aimed at all players / entities, or possible stored in memory",
+      kind: CompletionItemKind.Constant,
+    });
 
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     //In selector
@@ -39,7 +39,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
       let diff = pos - selector.offset;
 
       if (diff < 3) {
-        receiver.items.push({ label: "[", kind: CompletionItemKind.Snippet });
+        receiver.add({ label: "[", kind: CompletionItemKind.Snippet });
         return;
       }
     }
@@ -93,7 +93,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
  * @param item
  */
 function FromType(receiver: CompletionBuilder, item: any): void {
-  receiver.add({ label:item.name, documentation: item.documentation, kind: CompletionItemKind.TypeParameter});
+  receiver.add({ label: item.name, documentation: item.documentation, kind: CompletionItemKind.TypeParameter });
 }
 
 /**

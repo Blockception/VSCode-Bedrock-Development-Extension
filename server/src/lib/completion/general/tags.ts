@@ -9,7 +9,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const data = context.doc.getConfiguration();
 
   receiver.generate(Database.ProjectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
-  receiver.generate<GeneralInfo>(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
+  receiver.generate(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
 }
 
 function generateDocumentation(tag: GeneralInfo | string): string {
@@ -37,7 +37,7 @@ export function provideCompletionTest(context: SimpleContext<CompletionBuilder>)
   });
 
   //Add defined tags to the context
-  receiver.generate(data.definitions.tag?.defined, (tag) => `The defined tag: ${tag.id}`, Kinds.Completion.Tag);
+  receiver.generate(data.definitions.tag?.defined, (tag) => `The defined tag: ${tag}`, Kinds.Completion.Tag);
 
   //Add the tags to the list
   Database.ProjectData.General.tags.forEach((tag) => {
