@@ -1,4 +1,5 @@
 import { SimpleContext } from "../../Code";
+import { Console } from '../../Manager';
 import { getJsonPath } from "../../Minecraft/Json/Path";
 import { CompletionBuilder } from "./builder";
 
@@ -24,6 +25,8 @@ export class JsonPathCompletion {
     if (!isProperty) {
       return;
     }
+
+    Console.Debug("json path completion: " + path);
 
     this._items.forEach((item) => {
       switch (typeof item.match) {

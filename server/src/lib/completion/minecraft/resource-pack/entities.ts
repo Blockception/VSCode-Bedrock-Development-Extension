@@ -15,18 +15,16 @@ import * as Textures from "./textures";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp entity: ${item.id}`;
-
-  context.receiver.generate(Database.ProjectData.ResourcePacks.entities, generateDoc, Kinds.Completion.Entity);
-
-  //Generate for vanilla data
   const generateV = (item: Identifiable) => `The vanilla rp entity: ${item.id}`;
 
-  //Vanilla data
-  context.receiver.generate(MinecraftData.vanilla.ResourcePack.entities, generateV, Kinds.Completion.Entity);
+  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Entity });
+
+  receiver.generate(Database.ProjectData.ResourcePacks.entities, generateDoc);
+  receiver.generate(MinecraftData.vanilla.ResourcePack.entities, generateV);
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    context.receiver.generate(MinecraftData.edu.ResourcePack.entities, generateV, Kinds.Completion.Entity);
+    receiver.generate(MinecraftData.edu.ResourcePack.entities, generateV);
   }
 }
 
@@ -57,5 +55,14 @@ const entityRpJsonCompletion = new JsonPathCompletion(
   {
     match: (path) => path.includes("minecraft:client_entity/description/textures/"),
     onCompletion: Textures.provideCompletion,
+  },
+  {
+    match: (path) => path.includes("minecraft:client_entity/description/scripts/animate/"),
+    onCompletion: (context: SimpleContext<CompletionBuilder>) => {
+      const data =  Database.ProjectData.ResourcePacks.entities.find((entity) => entity.location.uri === context.doc.uri);
+      if (data === undefined) return;
+
+       context.receiver.generate(data.animations.defined, (item) => `The rp entity animation: ${item}`, Kinds.Completion.Animation);
+    },
   }
 );
