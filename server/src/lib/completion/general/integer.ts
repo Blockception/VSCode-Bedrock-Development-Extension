@@ -10,7 +10,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
 }
 
 export function provideRangeCompletion(context: CommandCompletionContext): void {
-  const receiver = context.receiver;
+  const receiver = context.receiver.withDefaults({ kind: CompletionItemKind.Constant });
   const Options = context.parameter.options;
 
   const minimum = Options?.minimum ?? 0;
@@ -21,11 +21,11 @@ export function provideRangeCompletion(context: CommandCompletionContext): void 
 
   if (steps < 1) steps = 1;
 
-  receiver.add({ label:`..${minimum}`, documentation: "", kind: CompletionItemKind.Constant});
-  receiver.add({ label:`${maximum}..`, documentation: "", kind: CompletionItemKind.Constant});
+  receiver.add({ label: `..${minimum}`, documentation: "" });
+  receiver.add({ label: `${maximum}..`, documentation: "" });
 
   for (let I = minimum; I <= maximum; I += steps) {
-    receiver.add({ label:`${I}..${I + steps}`, documentation: "", kind: CompletionItemKind.Constant});
+    receiver.add({ label: `${I}..${I + steps}`, documentation: "" });
   }
 }
 
@@ -39,6 +39,10 @@ export function provideCreateCompletion(receiver: CompletionBuilder, minimum?: n
   if (steps < 1) steps = 1;
 
   for (let I = minimum; I < maximum; I += steps) {
-    receiver.add({ label:I.toString(), documentation: "The integer number: " + I.toString(), kind: CompletionItemKind.Constant});
+    receiver.add({
+      label: I.toString(),
+      documentation: "The integer number: " + I.toString(),
+      kind: CompletionItemKind.Constant,
+    });
   }
 }

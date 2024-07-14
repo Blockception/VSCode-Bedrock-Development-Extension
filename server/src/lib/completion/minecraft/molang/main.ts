@@ -40,10 +40,10 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
 
   switch (word) {
     case "animation":
-      return PrefixedData(RP_Animations.provideCompletion, BP_Animations.provideCompletion, context);
+      return prefixedData(RP_Animations.provideCompletion, BP_Animations.provideCompletion, context);
 
     case "controller":
-      return PrefixedData(
+      return prefixedData(
         (context) => {
           RP_Animations_Controllers.provideCompletion(context);
           RP_Render_Controllers.provideCompletion(context);
@@ -82,14 +82,14 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
   const receiver = context.receiver;
 
   if (IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
-    receiver.add({ label: "query", documentation: "Molang queries", kind: CompletionItemKind.Class});
-    receiver.add({ label: "variable", documentation: "Defined variables", kind: CompletionItemKind.Variable});
-    receiver.add({ label: "math", documentation: "Math functions", kind: CompletionItemKind.Class});
-    receiver.add({ label: "texture", documentation: "Texture definitions", kind: CompletionItemKind.Property});
-    receiver.add({ label: "material", documentation: "Material definitions", kind: CompletionItemKind.Property});
-    receiver.add({ label: "geometry", documentation: "Geometry definitions", kind: CompletionItemKind.Property});
-    receiver.add({ label: "temp", documentation: "Temporary variable definitions", kind: CompletionItemKind.Variable});
-    receiver.add({ label: "this", documentation: "refers to this object", kind: CompletionItemKind.Struct});
+    receiver.add({ label: "query", documentation: "Molang queries", kind: CompletionItemKind.Class });
+    receiver.add({ label: "variable", documentation: "Defined variables", kind: CompletionItemKind.Variable });
+    receiver.add({ label: "math", documentation: "Math functions", kind: CompletionItemKind.Class });
+    receiver.add({ label: "texture", documentation: "Texture definitions", kind: CompletionItemKind.Property });
+    receiver.add({ label: "material", documentation: "Material definitions", kind: CompletionItemKind.Property });
+    receiver.add({ label: "geometry", documentation: "Geometry definitions", kind: CompletionItemKind.Property });
+    receiver.add({ label: "temp", documentation: "Temporary variable definitions", kind: CompletionItemKind.Variable });
+    receiver.add({ label: "this", documentation: "refers to this object", kind: CompletionItemKind.Struct });
 
     Query.provideCompletion(context);
     Math.provideCompletion(context);
@@ -104,28 +104,24 @@ type functioncall = (context: SimpleContext<CompletionBuilder>) => void;
  * @param BP
  * @param context
  */
-function PrefixedData(RP: functioncall, BP: functioncall, context: SimpleContext<CompletionBuilder>): void {
+function prefixedData(RP: functioncall, BP: functioncall, context: SimpleContext<CompletionBuilder>): void {
   const type = PackType.detect(context.doc.uri);
 
   //register new OnNewItem event to prune ids
-  const cancelFn = context.receiver.onNewItem((item, next) => {
-    item.label = IDRemoveFirst(item.label);
-
-    next(item);
-  });
+  const ncontext = {
+    ...context,
+    receiver: context.receiver.withEvents((item) => {
+      item.label = IDRemoveFirst(item.label);
+    }),
+  };
 
   switch (type) {
     case PackType.behavior_pack:
-      BP(context);
-      break;
+      return BP(ncontext);
 
     case PackType.resource_pack:
-      RP(context);
-      break;
+      return RP(ncontext);
   }
-
-  //Restore old OnNewItem
-  cancelFn();
 }
 
 /**

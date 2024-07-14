@@ -1,40 +1,47 @@
 import { CompletionBuilder } from "../../builder/builder";
 import { InsertReplaceEdit, Position, Range } from "vscode-languageserver";
-import { GetCurrentString } from "../../../Minecraft/Json/Functions";
+import { GetCurrentString, TextRange } from "../../../Minecraft/Json/Functions";
 import { JsonCompletionContext } from "../../builder/context";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/SimpleContext";
-import { EntityEvent } from '../behavior-pack';
+import { EntityEvent } from "../behavior-pack";
 
 import * as BehaviorPack from "../behavior-pack/main";
 import * as Mcfunction from "../mcfunctions/mcfunctions";
 import * as Molang from "../molang/main";
 import * as ResourcePack from "../resource-pack/main";
+import { TextDocument } from '../../../Types/Document';
 
 export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
-  const c = context as JsonCompletionContext;
-  c.cursor = context.doc.offsetAt(cursorPos);
-
-  const text = c.doc.getText();
-  const range = GetCurrentString(text, c.cursor);
+  const doc = context.doc;
+  const cursor = doc.offsetAt(cursorPos);
+  const text = doc.getText();
+  const range = GetCurrentString(text, cursor);
 
   //If start has not been found or not a property
-  if (range == undefined) return;
-  c.range = range;
+  if (range === undefined) return;
+  const currentText = text.substring(range.start, range.end);
 
-  //Prepare data to be fixed for json
-  c.currentText = text.substring(c.range.start, c.range.end);
-
-  const insertIndex = c.cursor - range.start;
-  const first = c.currentText.substring(0, insertIndex);
-  const second = c.currentText.substring(insertIndex);
-  const P = c.doc.positionAt(c.cursor);
-  const R = Range.create(P, P);
+  const jsonContext: JsonCompletionContext = {
+    ...context,
+    cursor,
+    range,
+    currentText,
+    receiver: builder(cursor, range, currentText, doc, context.receiver),
+  };
 
   //Have each new item pass through a new function
-  const cancelFn = c.receiver.onNewItem((item, next) => {
-    //Update the filtering text
+  performJsonCompletion(jsonContext);
+}
 
+function builder(cursor: number, range: TextRange, currentText: string, doc: TextDocument, receiver: CompletionBuilder): CompletionBuilder {
+  const insertIndex = cursor - range.start;
+  const first = currentText.substring(0, insertIndex);
+  const second = currentText.substring(insertIndex);
+  const position = doc.positionAt(cursor);
+
+  return receiver.withEvents((item) => {
+    //Update the filtering text
     let old = item.insertText ?? item.label;
 
     let text = old;
@@ -48,17 +55,14 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
     if (!item.filterText.endsWith('"')) item.filterText = item.filterText + '"';
     if (!item.filterText.startsWith('"')) item.filterText = '"' + item.filterText;
 
-    item.textEdit = InsertReplaceEdit.create(item.insertText ?? item.label, R, R);
+    item.textEdit = InsertReplaceEdit.create(
+      item.insertText ?? item.label,
+      Range.create(position, position),
+      Range.create(position, position)
+    );
 
     if (item.insertText) item.insertText = undefined;
-
-    next(item);
   });
-
-  performJsonCompletion(c);
-
-  //Restore old function
-  cancelFn();
 }
 
 function performJsonCompletion(context: JsonCompletionContext) {

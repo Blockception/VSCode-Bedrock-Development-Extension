@@ -38,7 +38,7 @@ function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
 
   const index = line.indexOf("=");
   if (index > -1 && index < pos.character) {
-    Boolean.provideCompletion(builder);
+    Boolean.provideCompletion(context);
     return;
   }
 

@@ -24,21 +24,23 @@ export function provideCompletion(context: CommandCompletionContext): void {
     //Accepted values
     if (parameter.options.acceptedValues) {
       parameter.options.acceptedValues.forEach((value) => {
-        context.receiver.add({ label:value, documentation: "accepted values", kind: CompletionItemKind.EnumMember});
+        context.receiver.add({ label: value, documentation: "accepted values", kind: CompletionItemKind.EnumMember });
       });
     }
 
     //Wildcard
     if (parameter.options.wildcard) {
-      context.receiver.add({ label:"*", documentation: "wild card", kind: CompletionItemKind.Constant});
+      context.receiver.add({ label: "*", documentation: "wild card", kind: CompletionItemKind.Constant });
     }
   }
 
   //Adding explanation text
-  const cancelFn = context.receiver.onNewItem((item, next) => {
-    const doc = ParameterTypeDocumentation[context.parameter.type];
+  const ncontext = {
+    ...context,
+    receiver: context.receiver.withEvents((item) => {
+      const doc = ParameterTypeDocumentation[context.parameter.type];
+      if (!doc) return;
 
-    if (doc) {
       if (typeof item.documentation === "string" || item.documentation === undefined) {
         item.documentation = {
           kind: "markdown",
@@ -47,19 +49,19 @@ export function provideCompletion(context: CommandCompletionContext): void {
       }
 
       item.documentation.value += "\n" + doc;
-    }
-
-    next(item);
-  });
+    }),
+  };
 
   const call = DataMap[context.parameter.type];
-  if (call) call(context);
-
-  cancelFn();
+  if (call) call(ncontext);
 }
 
 function toCompletion(context: CommandCompletionContext): void {
-  context.receiver.add({ label:context.parameter.text, documentation: "The keyword: " + context.parameter.text, kind: CompletionItemKind.Keyword});
+  context.receiver.add({
+    label: context.parameter.text,
+    documentation: "The keyword: " + context.parameter.text,
+    kind: CompletionItemKind.Keyword,
+  });
 }
 
 type functionCall =

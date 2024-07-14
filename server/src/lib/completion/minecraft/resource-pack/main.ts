@@ -1,6 +1,6 @@
 import { JsonCompletionContext } from "../../builder/context";
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/ResourcePack";
-import { SantizeValue } from "../../../Minecraft/Json/Types";
+import { santizeValue as santizeValue } from "../../../Minecraft/Json/Types";
 
 import * as Sound from "./sounds";
 import * as Textures from "./textures";
@@ -13,60 +13,40 @@ export function provideJsonCompletion(context: JsonCompletionContext) {
   if (data.startsWith("textures/")) Textures.provideCompletion(context);
   if (data.startsWith("sounds/")) Sound.provideCompletion(context);
 
-  const cancelFn = context.receiver.onNewItem((item, next) => {
-    item.insertText = item.insertText ?? item.label;
-    item.insertText = SantizeValue(item.insertText);
-    next(item);
+  checkFiles({
+    ...context,
+    receiver: context.receiver.withEvents((item) => {
+      item.insertText = item.insertText ?? item.label;
+      item.insertText = santizeValue(item.insertText);
+    }),
   });
-
-  checkFiles(context);
-  cancelFn();
 }
 
 function checkFiles(context: JsonCompletionContext): void {
   switch (FileType.detect(context.doc.uri)) {
     case FileType.animation:
-      break;
     case FileType.animation_controller:
-      break;
     case FileType.attachable:
-      break;
     case FileType.biomes_client:
-      break;
     case FileType.block:
-      break;
     case FileType.block_culling_rules:
       break;
     case FileType.entity:
       return Entities.provideJsonCompletion(context);
     case FileType.fog:
-      break;
     case FileType.item:
-      break;
     case FileType.manifest:
-      break;
     case FileType.material:
-      break;
     case FileType.model:
-      break;
     case FileType.music_definitions:
-      break;
     case FileType.particle:
-      break;
     case FileType.render_controller:
-      break;
     case FileType.sounds:
-      break;
     case FileType.sounds_definitions:
-      break;
     case FileType.texture:
-      break;
     case FileType.texture_flipbook_atlas:
-      break;
     case FileType.texture_item_atlas:
-      break;
     case FileType.texture_terrain_atlas:
-      break;
     case FileType.unknown:
       break;
   }
