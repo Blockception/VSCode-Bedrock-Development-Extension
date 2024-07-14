@@ -24,18 +24,18 @@ export function provideCompletion(context: CommandCompletionContext): void {
     //Accepted values
     if (parameter.options.acceptedValues) {
       parameter.options.acceptedValues.forEach((value) => {
-        context.receiver.add(value, "accepted values", CompletionItemKind.EnumMember);
+        context.receiver.add({ label:value, documentation: "accepted values", kind: CompletionItemKind.EnumMember});
       });
     }
 
     //Wildcard
     if (parameter.options.wildcard) {
-      context.receiver.add("*", "wild card", CompletionItemKind.Constant);
+      context.receiver.add({ label:"*", documentation: "wild card", kind: CompletionItemKind.Constant});
     }
   }
 
   //Adding explanation text
-  const cancelFn = context.receiver.OnNewItem((item, next) => {
+  const cancelFn = context.receiver.onNewItem((item, next) => {
     const doc = ParameterTypeDocumentation[context.parameter.type];
 
     if (doc) {
@@ -59,7 +59,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
 }
 
 function toCompletion(context: CommandCompletionContext): void {
-  context.receiver.add(context.parameter.text, "The keyword: " + context.parameter.text, CompletionItemKind.Keyword);
+  context.receiver.add({ label:context.parameter.text, documentation: "The keyword: " + context.parameter.text, kind: CompletionItemKind.Keyword});
 }
 
 type functionCall =

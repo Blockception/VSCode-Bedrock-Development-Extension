@@ -93,7 +93,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
  * @param item
  */
 function FromType(receiver: CompletionBuilder, item: any): void {
-  receiver.add(item.name, item.documentation, CompletionItemKind.TypeParameter);
+  receiver.add({ label:item.name, documentation: item.documentation, kind: CompletionItemKind.TypeParameter});
 }
 
 /**

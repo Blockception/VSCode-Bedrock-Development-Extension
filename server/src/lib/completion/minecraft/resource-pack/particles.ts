@@ -8,15 +8,11 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The particle: ${item.id}`;
-
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.particles, generateDoc, Kinds.Completion.Particle);
-
-  //Generate for vanilla data
   const generateV = (item: string) => `The vanilla particle: ${item}`;
 
-  //Vanilla data
-  context.receiver.GenerateStr(MinecraftData.vanilla.ResourcePack.particles, generateV, Kinds.Completion.Particle);
+  context.receiver.generate(Database.ProjectData.ResourcePacks.particles, generateDoc, Kinds.Completion.Particle);
+  context.receiver.generate(MinecraftData.vanilla.ResourcePack.particles, generateV, Kinds.Completion.Particle);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.GenerateStr(MinecraftData.edu.ResourcePack.particles, generateV, Kinds.Completion.Particle);
+  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.ResourcePack.particles, generateV, Kinds.Completion.Particle);
 }

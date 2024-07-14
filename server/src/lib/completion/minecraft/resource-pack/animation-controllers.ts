@@ -9,11 +9,11 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp animation controller: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
+  context.receiver.generate(Database.ProjectData.ResourcePacks.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
+  context.receiver.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.Generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
+  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
 }

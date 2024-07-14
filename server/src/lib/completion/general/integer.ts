@@ -21,11 +21,11 @@ export function provideRangeCompletion(context: CommandCompletionContext): void 
 
   if (steps < 1) steps = 1;
 
-  receiver.add(`..${minimum}`, "", CompletionItemKind.Constant);
-  receiver.add(`${maximum}..`, "", CompletionItemKind.Constant);
+  receiver.add({ label:`..${minimum}`, documentation: "", kind: CompletionItemKind.Constant});
+  receiver.add({ label:`${maximum}..`, documentation: "", kind: CompletionItemKind.Constant});
 
   for (let I = minimum; I <= maximum; I += steps) {
-    receiver.add(`${I}..${I + steps}`, "", CompletionItemKind.Constant);
+    receiver.add({ label:`${I}..${I + steps}`, documentation: "", kind: CompletionItemKind.Constant});
   }
 }
 
@@ -39,6 +39,6 @@ export function provideCreateCompletion(receiver: CompletionBuilder, minimum?: n
   if (steps < 1) steps = 1;
 
   for (let I = minimum; I < maximum; I += steps) {
-    receiver.add(I.toString(), "The integer number: " + I.toString(), CompletionItemKind.Constant);
+    receiver.add({ label:I.toString(), documentation: "The integer number: " + I.toString(), kind: CompletionItemKind.Constant});
   }
 }

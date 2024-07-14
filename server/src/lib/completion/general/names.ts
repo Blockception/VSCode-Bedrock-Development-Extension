@@ -9,5 +9,5 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   //From definitions
   const generateDoc = (item: string) => "The defined name: " + item;
 
-  receiver.GenerateStr(data.definitions.name?.defined, generateDoc, Kinds.Completion.Objectives);
+  receiver.generate(data.definitions.name?.defined, generateDoc, Kinds.Completion.Objectives);
 }

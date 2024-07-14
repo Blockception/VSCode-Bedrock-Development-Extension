@@ -18,10 +18,10 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   };
 
   //From project data
-  receiver.Generate(Database.ProjectData.General.objectives, generateDoc, Kinds.Completion.Objectives);
+  receiver.generate(Database.ProjectData.General.objectives, generateDoc, Kinds.Completion.Objectives);
 
   const data = context.doc.getConfiguration();
 
   //From definitions
-  receiver.GenerateStr(data.definitions.objective?.defined, generateDoc, Kinds.Completion.Objectives);
+  receiver.generate(data.definitions.objective?.defined, generateDoc, Kinds.Completion.Objectives);
 }

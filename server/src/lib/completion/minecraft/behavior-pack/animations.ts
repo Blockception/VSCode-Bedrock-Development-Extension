@@ -7,5 +7,5 @@ import { Kinds } from "../../../Minecraft/General";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The bp animation: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.BehaviorPacks.animations, generateDoc, Kinds.Completion.Animation);
+  context.receiver.generate(Database.ProjectData.BehaviorPacks.animations, generateDoc, Kinds.Completion.Animation);
 }

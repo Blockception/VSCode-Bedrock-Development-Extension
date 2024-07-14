@@ -27,8 +27,17 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
   }
 
   if (LineIndex === 0 && pos.character < 3) {
-    context.receiver.add("# <mcfunction_documentation_here>", "mcfunction documentation", CompletionItemKind.Snippet);
-    context.receiver.add("# region", "mcfunction documentation", CompletionItemKind.Snippet, "# region\n# endregion");
+    context.receiver.add({
+      label: "# <mcfunction_documentation_here>",
+      documentation: "mcfunction documentation",
+      kind: CompletionItemKind.Snippet,
+    });
+    context.receiver.add({
+      label: "# region",
+      documentation: "mcfunction documentation",
+      kind: CompletionItemKind.Snippet,
+      insertText: "# region\n# endregion",
+    });
   }
 
   const offset = doc.offsetAt({ character: 0, line: pos.line });

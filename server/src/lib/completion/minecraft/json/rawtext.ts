@@ -15,12 +15,12 @@ import {
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;
 
-  receiver.add("Json Raw Text", cRawTextComponent, CompletionItemKind.Snippet, cRawTextComponent);
-  receiver.add("Json Raw Text example", cRawTextExample, CompletionItemKind.Snippet, cRawTextExample);
-  receiver.add("Translation component", cTranslationComponent, CompletionItemKind.Snippet, cTranslationComponent);
-  receiver.add("Translation component, with", cTranslationWith, CompletionItemKind.Snippet, cTranslationWith);
-  receiver.add("Translation component, with complex", cTranslationWithComplex, CompletionItemKind.Snippet, cTranslationWithComplex);
-  receiver.add("Text component", cTextComponent, CompletionItemKind.Snippet, cTextComponent);
-  receiver.add("Score component", cScoreComponent, CompletionItemKind.Snippet, cScoreComponent);
-  receiver.add("Selector component", cSelectorComponent, CompletionItemKind.Snippet, cSelectorComponent);
+  receiver.add({label:"Json Raw Text", documentation: cRawTextComponent, kind: CompletionItemKind.Snippet, insertText: cRawTextComponent});
+  receiver.add({label:"Json Raw Text example", documentation: cRawTextExample, kind: CompletionItemKind.Snippet, insertText: cRawTextExample});
+  receiver.add({label:"Translation component", documentation: cTranslationComponent, kind: CompletionItemKind.Snippet, insertText: cTranslationComponent});
+  receiver.add({label:"Translation component, with", documentation: cTranslationWith, kind: CompletionItemKind.Snippet, insertText: cTranslationWith});
+  receiver.add({label:"Translation component, with complex", documentation: cTranslationWithComplex, kind: CompletionItemKind.Snippet, insertText: cTranslationWithComplex});
+  receiver.add({label:"Text component", documentation: cTextComponent, kind: CompletionItemKind.Snippet, insertText: cTextComponent});
+  receiver.add({label:"Score component", documentation: cScoreComponent, kind: CompletionItemKind.Snippet, insertText: cScoreComponent});
+  receiver.add({label:"Selector component", documentation: cSelectorComponent, kind: CompletionItemKind.Snippet, insertText: cSelectorComponent});
 }

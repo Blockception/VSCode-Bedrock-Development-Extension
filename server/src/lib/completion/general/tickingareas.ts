@@ -9,9 +9,9 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   const receiver = context.receiver;
 
-  receiver.Generate(Database.ProjectData.General.tickingAreas, generateDoc, Kinds.Completion.Tickingarea);
+  receiver.generate(Database.ProjectData.General.tickingAreas, generateDoc, Kinds.Completion.Tickingarea);
 
   const data = context.doc.getConfiguration();
 
-  receiver.GenerateStr(data.definitions.tag?.defined, (item) => `The defined tickingarea: ${item}`, Kinds.Completion.Tickingarea);
+  receiver.generate(data.definitions.tag?.defined, (item) => `The defined tickingarea: ${item}`, Kinds.Completion.Tickingarea);
 }

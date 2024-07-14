@@ -6,8 +6,8 @@ export function provideCompletion(context: CommandCompletionContext | Completion
   let receiver = CommandCompletionContext.is(context) ? context.receiver : context;
 
   //False
-  receiver.add("false", "The boolean value for `false`", Kinds.Completion.Boolean);
+  receiver.add({label:"false", documentation: "The boolean value for `false`", kind: Kinds.Completion.Boolean});
 
   //True
-  receiver.add("true", "The boolean value for `true`", Kinds.Completion.Boolean);
+  receiver.add({label:"true", documentation: "The boolean value for `true`", kind: Kinds.Completion.Boolean});
 }

@@ -13,7 +13,7 @@ export function provideJsonCompletion(context: JsonCompletionContext) {
   if (data.startsWith("textures/")) Textures.provideCompletion(context);
   if (data.startsWith("sounds/")) Sound.provideCompletion(context);
 
-  const cancelFn = context.receiver.OnNewItem((item, next) => {
+  const cancelFn = context.receiver.onNewItem((item, next) => {
     item.insertText = item.insertText ?? item.label;
     item.insertText = SantizeValue(item.insertText);
     next(item);

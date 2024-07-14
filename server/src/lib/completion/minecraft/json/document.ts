@@ -32,7 +32,7 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
   const R = Range.create(P, P);
 
   //Have each new item pass through a new function
-  const cancelFn = c.receiver.OnNewItem((item, next) => {
+  const cancelFn = c.receiver.onNewItem((item, next) => {
     //Update the filtering text
 
     let old = item.insertText ?? item.label;

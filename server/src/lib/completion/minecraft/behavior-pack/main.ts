@@ -7,7 +7,7 @@ import * as Entities from "./entities";
 import * as Trading from "./trading";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
-  const cancelFn = context.receiver.OnNewItem((item, next) => {
+  const cancelFn = context.receiver.onNewItem((item, next) => {
     item.insertText = item.insertText ?? item.label;
     item.insertText = SantizeValue(item.insertText);
     next(item);

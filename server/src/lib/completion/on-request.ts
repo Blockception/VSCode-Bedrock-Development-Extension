@@ -1,4 +1,4 @@
-import { CompletionBuilder } from "./builder/builder";
+import { RootCompletionBuilder } from "./builder/builder";
 import {
   CompletionParams,
   CompletionList,
@@ -41,7 +41,7 @@ function onCompletionRequest(
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 
-  const builder = new CompletionBuilder(token, workDoneProgress);
+  const builder = new RootCompletionBuilder(token, workDoneProgress);
   const pos = params.position;
   const context = SimpleContext.create(doc, builder, doc.offsetAt(pos));
 

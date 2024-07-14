@@ -9,5 +9,5 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The attachbles: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.attachables, generateDoc, Kinds.Completion.Item);
+  context.receiver.generate(Database.ProjectData.ResourcePacks.attachables, generateDoc, Kinds.Completion.Item);
 }

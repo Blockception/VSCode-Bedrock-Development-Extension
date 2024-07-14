@@ -5,7 +5,7 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 import { GetCurrentAttribute } from "./attributes";
 import { IsEditingValue } from "./attribute-values";
 import { Database } from "../../../Database/Database";
-import { Boolean } from '../../general';
+import { Boolean } from "../../general";
 
 import * as Float from "../../general/float";
 import * as Integer from "../../general/integer";
@@ -20,7 +20,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
       entity.properties.forEach((property) => {
         if (property.name !== propertyName) return;
 
-        const cancelFn = receiver.OnNewItem((item, next) => {
+        const cancelFn = receiver.onNewItem((item, next) => {
           const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
           if (typeof item.documentation === "string" || item.documentation === undefined) {
             item.documentation = {
@@ -45,7 +45,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
             Float.provideCreateCompletion(receiver, property.range[0], property.range[1]);
             break;
           case "enum":
-            property.values.forEach((item) => receiver.add(item, "", Kinds.Completion.Property));
+            property.values.forEach((item) => receiver.add({ label: item, kind: Kinds.Completion.Property }));
             break;
         }
 
@@ -58,7 +58,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
     entity.properties.forEach((property) => {
       const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
 
-      receiver.add(property.name, msg, Kinds.Completion.Property);
+      receiver.add({ label: property.name, documentation: msg, kind: Kinds.Completion.Property });
     });
   });
 }

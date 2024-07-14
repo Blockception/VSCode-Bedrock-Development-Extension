@@ -28,7 +28,11 @@ function Generate(
   builder: CompletionBuilder,
   kinds: CompletionItemKind = CompletionItemKind.Variable
 ): void {
-  builder.add(data.id, data.documentation ?? `The molang temp variable: ${data.id}`, kinds);
+  builder.add({
+    label: data.id,
+    documentation: data.documentation ?? `The molang temp variable: ${data.id}`,
+    kind: kinds,
+  });
 }
 
 function GenerateDU(
@@ -38,6 +42,10 @@ function GenerateDU(
   kinds: CompletionItemKind = CompletionItemKind.Variable
 ): void {
   data.defined.forEach((item) => {
-    builder.add(item, `The molang temp variable: ${item}\nDeclared by '${ownerid}'`, kinds);
+    builder.add({
+      label: item,
+      documentation: `The molang temp variable: ${item}\nDeclared by '${ownerid}'`,
+      kind: kinds,
+    });
   });
 }

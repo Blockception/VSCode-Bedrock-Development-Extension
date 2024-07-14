@@ -82,14 +82,14 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
   const receiver = context.receiver;
 
   if (IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
-    receiver.add("query", "Molang queries", CompletionItemKind.Class);
-    receiver.add("variable", "Defined variables", CompletionItemKind.Variable);
-    receiver.add("math", "Math functions", CompletionItemKind.Class);
-    receiver.add("texture", "Texture definitions", CompletionItemKind.Property);
-    receiver.add("material", "Material definitions", CompletionItemKind.Property);
-    receiver.add("geometry", "Geometry definitions", CompletionItemKind.Property);
-    receiver.add("temp", "Temporary variable definitions", CompletionItemKind.Variable);
-    receiver.add("this", "refers to this object", CompletionItemKind.Struct);
+    receiver.add({ label: "query", documentation: "Molang queries", kind: CompletionItemKind.Class});
+    receiver.add({ label: "variable", documentation: "Defined variables", kind: CompletionItemKind.Variable});
+    receiver.add({ label: "math", documentation: "Math functions", kind: CompletionItemKind.Class});
+    receiver.add({ label: "texture", documentation: "Texture definitions", kind: CompletionItemKind.Property});
+    receiver.add({ label: "material", documentation: "Material definitions", kind: CompletionItemKind.Property});
+    receiver.add({ label: "geometry", documentation: "Geometry definitions", kind: CompletionItemKind.Property});
+    receiver.add({ label: "temp", documentation: "Temporary variable definitions", kind: CompletionItemKind.Variable});
+    receiver.add({ label: "this", documentation: "refers to this object", kind: CompletionItemKind.Struct});
 
     Query.provideCompletion(context);
     Math.provideCompletion(context);
@@ -108,7 +108,7 @@ function PrefixedData(RP: functioncall, BP: functioncall, context: SimpleContext
   const type = PackType.detect(context.doc.uri);
 
   //register new OnNewItem event to prune ids
-  const cancelFn = context.receiver.OnNewItem((item, next) => {
+  const cancelFn = context.receiver.onNewItem((item, next) => {
     item.label = IDRemoveFirst(item.label);
 
     next(item);

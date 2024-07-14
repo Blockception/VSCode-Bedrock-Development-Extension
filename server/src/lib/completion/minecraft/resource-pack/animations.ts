@@ -9,8 +9,8 @@ import { Kinds } from "../../../Minecraft/General/Kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp animation: ${item.id}`;
 
-  context.receiver.Generate(Database.ProjectData.ResourcePacks.animations, generateDoc, Kinds.Completion.Animation);
-  context.receiver.Generate(
+  context.receiver.generate(Database.ProjectData.ResourcePacks.animations, generateDoc, Kinds.Completion.Animation);
+  context.receiver.generate(
     Database.ProjectData.ResourcePacks.animation_controllers,
     generateDoc,
     Kinds.Completion.Animation
@@ -21,8 +21,8 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   });
 
   //Vanilla data
-  context.receiver.Generate(MinecraftData.vanilla.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
-  context.receiver.Generate(
+  context.receiver.generate(MinecraftData.vanilla.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
+  context.receiver.generate(
     MinecraftData.vanilla.ResourcePack.animation_controllers,
     generateDoc,
     Kinds.Completion.Animation
@@ -33,8 +33,8 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    context.receiver.Generate(MinecraftData.edu.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
-    context.receiver.Generate(
+    context.receiver.generate(MinecraftData.edu.ResourcePack.animations, generateDoc, Kinds.Completion.Animation);
+    context.receiver.generate(
       MinecraftData.edu.ResourcePack.animation_controllers,
       generateDoc,
       Kinds.Completion.Animation
