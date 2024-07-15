@@ -8,7 +8,7 @@ import {
   TextDocumentEdit,
   TextEdit,
 } from "vscode-languageserver";
-import { CodeActionBuilder } from "../../../../CodeAction/Builder";
+import { CodeActionBuilder } from "../../../../code-action/builder";
 import { Languages } from "@blockception/shared";
 
 /**

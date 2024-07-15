@@ -1,22 +1,23 @@
-import { Attributes } from "./Types/Definition";
+import { Attributes } from "./types/Definition";
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
-import { CodeActionBuilder } from "./Builder";
-import { Console } from '../Manager';
-import { FuzzyMatch } from "./Fuzzy";
+import { CodeActionBuilder } from "./builder";
+import { Console } from "../Manager";
+import { fuzzyMatch } from "./fuzzy";
 import { GetDocument } from "../Types/Document/Document";
 
 import * as Minecraft from "../Minecraft/CodeAction";
 import * as BehaviorPack from "../Minecraft/BehaviorPack/CodeAction";
 import * as ResourcePack from "../Minecraft/ResourcePack/CodeAction";
 
-
 /**
  *
  * @param params
  * @returns
  */
-export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Command | CodeAction)[] | undefined | null> {
-  return Console.request("Code action", OnCodeAction(params));
+export async function onCodeActionAsync(
+  params: CodeActionParams
+): Promise<(Command | CodeAction)[] | undefined | null> {
+  return Console.request("Code action", onCodeAction(params));
 }
 
 /**
@@ -24,7 +25,7 @@ export async function OnCodeActionAsync(params: CodeActionParams): Promise<(Comm
  * @param params
  * @returns
  */
-export async function OnCodeActionResolveAsync(params: CodeAction): Promise<CodeAction> {
+export async function onCodeActionResolveAsync(params: CodeAction): Promise<CodeAction> {
   return Promise.resolve(params);
 }
 
@@ -33,12 +34,12 @@ export async function OnCodeActionResolveAsync(params: CodeAction): Promise<Code
  * @param params
  * @returns
  */
-export async function OnCodeAction(params: CodeActionParams): Promise<(Command | CodeAction)[]> {
+export async function onCodeAction(params: CodeActionParams): Promise<(Command | CodeAction)[]> {
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return Promise.resolve([]);
 
   const builder = new CodeActionBuilder(params, doc);
-  const promises = params.context.diagnostics.map((d) => FindAction(builder, d));
+  const promises = params.context.diagnostics.map((d) => findAction(builder, d));
   await Promise.all(promises);
   return builder.out;
 }
@@ -48,7 +49,7 @@ export async function OnCodeAction(params: CodeActionParams): Promise<(Command |
  * @param builder
  * @param diag
  */
-function FindAction(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
+function findAction(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
   var code = diag.code ?? "";
   Attributes(builder, diag);
 
@@ -73,5 +74,5 @@ function FindAction(builder: CodeActionBuilder, diag: Diagnostic): Promise<void>
     case "mcfunction":
   }
 
-  return FuzzyMatch(builder, diag);
+  return fuzzyMatch(builder, diag);
 }

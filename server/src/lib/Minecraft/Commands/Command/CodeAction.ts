@@ -1,5 +1,5 @@
 import { Diagnostic } from "vscode-languageserver";
-import { CodeActionBuilder } from '../../../CodeAction/Builder';
+import { CodeActionBuilder } from '../../../code-action/builder';
 import { codeaction_execute_deprecated } from './CodeActions/Execute';
 
 /**

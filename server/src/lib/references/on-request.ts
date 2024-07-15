@@ -4,11 +4,11 @@ import { Console } from "../Manager";
 import { Json, Mcfunction } from "../Minecraft";
 import { GetDocument } from "../Types/Document/Document";
 
-export async function OnReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {
-  return Console.request("References", Promise.resolve(OnReferencesRequest(params)));
+export async function onReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {
+  return Console.request("References", Promise.resolve(onReferencesRequest(params)));
 }
 
-function OnReferencesRequest(params: ReferenceParams): Location[] | undefined {
+function onReferencesRequest(params: ReferenceParams): Location[] | undefined {
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 

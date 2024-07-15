@@ -1,5 +1,5 @@
 import { Diagnostic } from "vscode-languageserver";
-import { CodeActionBuilder } from "../../CodeAction/Builder";
+import { CodeActionBuilder } from "../../code-action/builder";
 import * as AnimationControllers from "./AnimationControllers/CodeAction";
 import * as Animations from "./Animations/CodeAction";
 import * as Block from "./Block/CodeAction";

@@ -1,10 +1,10 @@
 import { expect } from 'chai';
-import { OnReferencesRequestAsync } from './OnRequest';
+import { onReferencesRequestAsync } from './on-request';
 
 describe("Semantics", () => {
   describe("Request", () => {
     it("Sanity", () => {
-      expect(OnReferencesRequestAsync).to.not.be.undefined;
+      expect(onReferencesRequestAsync).to.not.be.undefined;
     });
   });
 });

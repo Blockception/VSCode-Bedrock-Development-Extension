@@ -1,4 +1,4 @@
-import { CodeActionBuilder } from "./Builder";
+import { CodeActionBuilder } from "./builder";
 import {
   CodeAction,
   CodeActionKind,
@@ -9,7 +9,7 @@ import {
 import { Database } from "../Database/Database";
 import { distance } from "fastest-levenshtein";
 
-export function FuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
+export function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
   const code = diag.code;
 
   if (typeof code !== "string") return Promise.resolve();

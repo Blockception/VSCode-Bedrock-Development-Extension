@@ -5,7 +5,7 @@ import { Vscode } from "../../Code/Url";
 import { Database } from "../../Database/Database";
 import { Console } from "../../Manager/Console";
 import { GetDocument } from "../../Types/Document/Document";
-import { CodeActionBuilder } from "../Builder";
+import { CodeActionBuilder } from "../builder";
 
 /**Adds a given type and value to the definition
  * @param builder

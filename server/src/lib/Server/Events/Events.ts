@@ -1,19 +1,19 @@
 import { Manager } from "../../Manager/Manager";
-import { OnCodeActionAsync, OnCodeActionResolveAsync } from "../../CodeAction/OnRequest";
+import { onCodeActionAsync, OnCodeActionResolveAsync } from "../../code-action/on-request";
 import { OnCodeLensRequest } from "../../CodeLens/OnRequest";
 import { OnCommandRequestAsync } from "../../Commands/OnRequest";
 import { onCompletionRequestAsync } from "../../completion/on-request";
 import { OnConfigurationChanged } from '../Settings/Update';
-import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../Definition/OnRequest";
+import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../definition/on-request";
 import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace";
 import { OnDocumentChangedAsync } from "./Documents";
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../Format/OnRequest";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../Symbols/OnRequest";
 import { OnHoverRequestAsync } from "../../Hover/OnRequest";
-import { onImplementationRequestAsync } from '../../Implementation/OnRequest';
+import { onImplementationRequestAsync } from '../../implementation/on-request';
 import { OnprovideRangeSemanticRequestAsync, OnprovideSemanticRequestAsync } from "../../Semantics";
-import { OnReferencesRequestAsync } from "../../References/OnRequest";
+import { onReferencesRequestAsync } from "../../references/on-request";
 import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
 
 /**
@@ -31,7 +31,7 @@ export function setupHandlers() {
   Connection.onExecuteCommand(OnCommandRequestAsync);
 
   // This handler provides code actions
-  Connection.onCodeAction(OnCodeActionAsync);
+  Connection.onCodeAction(onCodeActionAsync);
   Connection.onCodeActionResolve(OnCodeActionResolveAsync);
 
   // This handler provides code lens
@@ -61,7 +61,7 @@ export function setupHandlers() {
   Connection.onHover(OnHoverRequestAsync);
 
   // This handler provides references
-  Connection.onReferences(OnReferencesRequestAsync);
+  Connection.onReferences(onReferencesRequestAsync);
 
   // This handler provides signatures
   Connection.onSignatureHelp(OnSignatureRequestAsync);

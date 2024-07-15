@@ -1,5 +1,5 @@
 import { Definition, DefinitionLink, ImplementationParams, Location } from "vscode-languageserver";
-import { onDefinition } from "../Definition/OnRequest";
+import { onDefinition } from "../definition/on-request";
 
 export async function onImplementationRequestAsync(
   params: ImplementationParams
