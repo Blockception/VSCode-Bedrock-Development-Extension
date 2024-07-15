@@ -5,6 +5,7 @@ import { santizeValue as santizeValue } from "../../../Minecraft/Json/Types";
 import * as Sound from "./sounds";
 import * as Textures from "./textures";
 import * as Entities from "./entities";
+import * as Attachables from "./attachables";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
   //Prepare data to be fixed for json
@@ -27,6 +28,7 @@ function checkFiles(context: JsonCompletionContext): void {
     case FileType.animation:
     case FileType.animation_controller:
     case FileType.attachable:
+      return Attachables.provideJsonCompletion(context);
     case FileType.biomes_client:
     case FileType.block:
     case FileType.block_culling_rules:

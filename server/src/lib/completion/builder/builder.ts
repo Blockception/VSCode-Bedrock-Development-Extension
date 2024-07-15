@@ -220,7 +220,14 @@ export class WrappedBuilder implements CompletionBuilder {
 
   /** @inheritdoc */
   withDefaults(base: Partial<CompletionItem>): CompletionBuilder {
-    return new WrappedBuilder(new EventedBuilder(this.builder, (item) => Object.assign(item, base), noop));
+    const values = Object.entries(base);
+
+    return new WrappedBuilder(new EventedBuilder(this.builder, (item: any) => {
+      values.forEach(([key, value]) => {
+        if (item[key] === undefined) item[key] = value;
+      })
+
+    }, noop));
   }
 }
 
