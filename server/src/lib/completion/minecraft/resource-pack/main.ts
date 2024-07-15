@@ -2,10 +2,13 @@ import { JsonCompletionContext } from "../../builder/context";
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/ResourcePack";
 import { santizeValue as santizeValue } from "../../../Minecraft/Json/Types";
 
+import * as AnimationControllers from "./animation-controllers";
+import * as Animations from "./animations";
+import * as Attachables from "./attachables";
+import * as BlockCulling from "./block-culling";
+import * as Entities from "./entities";
 import * as Sound from "./sounds";
 import * as Textures from "./textures";
-import * as Entities from "./entities";
-import * as Attachables from "./attachables";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
   //Prepare data to be fixed for json
@@ -26,13 +29,16 @@ export function provideJsonCompletion(context: JsonCompletionContext) {
 function checkFiles(context: JsonCompletionContext): void {
   switch (FileType.detect(context.doc.uri)) {
     case FileType.animation:
+      return Animations.provideJsonCompletion(context);
     case FileType.animation_controller:
+      return AnimationControllers.provideJsonCompletion(context);
     case FileType.attachable:
       return Attachables.provideJsonCompletion(context);
     case FileType.biomes_client:
     case FileType.block:
-    case FileType.block_culling_rules:
       break;
+    case FileType.block_culling_rules:
+      return BlockCulling.provideJsonCompletion(context);
     case FileType.entity:
       return Entities.provideJsonCompletion(context);
     case FileType.fog:

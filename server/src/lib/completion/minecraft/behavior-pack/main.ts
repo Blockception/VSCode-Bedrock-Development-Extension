@@ -2,8 +2,11 @@ import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/Behav
 import { JsonCompletionContext } from "../../builder/context";
 import { santizeValue as santizeValue } from "../../../Minecraft/Json/Types";
 
-import * as LootTables from "./loot-tables";
+import * as AnimationControllers from "./animation-controllers";
+import * as Animations from "./animations";
+import * as Blocks from "./blocks";
 import * as Entities from "./entities";
+import * as LootTables from "./loot-tables";
 import * as Trading from "./trading";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
@@ -19,11 +22,11 @@ export function provideJsonCompletion(context: JsonCompletionContext) {
 function checkFiles(context: JsonCompletionContext) {
   switch (FileType.detect(context.doc.uri)) {
     case FileType.animation:
-      return;
+      return Animations.provideJsonCompletion(context);
     case FileType.animation_controller:
-      return;
+      return AnimationControllers.provideJsonCompletion(context);
     case FileType.block:
-      return;
+      return Blocks.provideJsonCompletion(context);
     case FileType.entity:
       return Entities.provideJsonCompletion(context);
     case FileType.function:

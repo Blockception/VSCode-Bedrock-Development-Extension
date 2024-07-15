@@ -5,15 +5,29 @@ import { CompletionBuilder } from "../../builder/builder";
 import { Database } from "../../../Database/Database";
 import { IsEducationEnabled } from '../../../Project/Attributes';
 import { Kinds } from "../../../Minecraft/General/Kinds";
+import { JsonPathCompletion } from '../../builder';
+
+import * as Animations from './animations';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp animation controller: ${item.id}`;
+  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.AnimationControllers });
 
-  context.receiver.generate(Database.ProjectData.ResourcePacks.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
-
-  //Vanilla data
-  context.receiver.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
+  receiver.generate(Database.ProjectData.ResourcePacks.animation_controllers, generateDoc);
+  receiver.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc, Kinds.Completion.AnimationControllers);
+  if (IsEducationEnabled(context.doc)) receiver.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc);
 }
+
+export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+  return acRPJsonCompletion.onCompletion(context);
+}
+
+const acRPJsonCompletion = new JsonPathCompletion(
+  {
+    match: /animation_controllers\/(.*)\/states\/(.*)\/animations\/.*/gi,
+    onCompletion: Animations.provideCompletion,
+  }
+);
+

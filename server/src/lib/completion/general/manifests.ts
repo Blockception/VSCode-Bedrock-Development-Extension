@@ -9,6 +9,8 @@ import { HandleError } from "../../Code/Error";
 import { Manager } from "../../Manager/Manager";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { Manifest } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types";
+import { SimpleContext } from '../../Code';
+import { CompletionBuilder } from '../builder';
 
 export function AddBlockceptionToPack(pack: Pack | undefined): void {
   if (pack === undefined) return;
@@ -71,4 +73,8 @@ export function AddBlockception(uri: string): void {
       HandleError(err);
     }
   }
+}
+
+export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+
 }

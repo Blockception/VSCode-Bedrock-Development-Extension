@@ -53,7 +53,6 @@ const entityJsonCompletion = new JsonPathCompletion(
     match: "item",
     onCompletion: Item.provideCompletion,
   },
-
   {
     match: (path) => path.includes("minecraft:entity/description/animations/"),
     onCompletion: (c) => {
