@@ -1,11 +1,11 @@
 import { Commands } from "@blockception/shared";
 import { MCAttributes, MCDefinition } from "bc-minecraft-project";
 import { CodeAction, CodeActionKind, Command, Diagnostic } from "vscode-languageserver";
-import { Vscode } from "../../util/url";
-import { Database } from "../../database/database";
-import { Console } from "../../manager/console";
-import { GetDocument } from "../../lsp/documents/document";
 import { CodeActionBuilder } from "../builder";
+import { GetDocument } from "../../documents/document";
+import { Database } from "../../../database/database";
+import { Console } from "../../../manager";
+import { Vscode } from "../../../util";
 
 /**
  * Adds a given type and value to the definition

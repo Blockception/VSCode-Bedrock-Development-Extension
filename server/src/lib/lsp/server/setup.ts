@@ -7,7 +7,7 @@ import { Traverse } from "../process";
 import { HandleError } from "../../util";
 import { SetDynamicEvents } from "./events";
 import { ExtendedLogger } from "../logger/logger";
-import { UpdateSettings } from './events/on-configuration';
+import { updateSettings } from './events/on-configuration';
 
 export function SetupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -39,7 +39,7 @@ export function SetupServer() {
     logger.info("Initialized minecraft server");
 
     //Update the settings of the language server
-    UpdateSettings();
+    updateSettings();
 
     //Registers any follow ups
     const register = BulkRegistration.create();

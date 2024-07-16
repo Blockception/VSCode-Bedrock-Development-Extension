@@ -1,13 +1,13 @@
-import { Attributes } from "./types/definition";
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "./builder";
-import { Console } from "../manager";
 import { fuzzyMatch } from "./fuzzy";
-import { GetDocument } from "../lsp/documents/document";
+import { Console } from "../../manager";
 
 import * as Minecraft from "./minecraft/code-actions";
 import * as BehaviorPack from "./minecraft/behavior-pack/main";
 import * as ResourcePack from "./minecraft/resource-pack/main";
+import { GetDocument } from "../documents";
+import { Attributes } from './types';
 
 /**
  *

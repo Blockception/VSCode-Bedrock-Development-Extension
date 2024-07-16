@@ -1,9 +1,9 @@
 import { Manager } from "../../../manager/manager";
-import { onCodeActionAsync, onCodeActionResolveAsync } from "../../../code-action/on-request";
-import { OnCodeLensRequest } from "../../../code-lens/on-request";
-import { OnCommandRequestAsync } from "../../commands/on-request";
+import { onCodeActionAsync, onCodeActionResolveAsync } from '../../code-action';
+import { onCodeLensRequest } from '../../code-lens';
+import { onCommandRequestAsync } from "../../commands/on-request";
 import { onCompletionRequestAsync } from "../../completion/on-request";
-import { OnConfigurationChanged, onDidChangeConfigurationAsync } from "./on-configuration";
+import { onConfigurationChanged, onDidChangeConfigurationAsync } from "./on-configuration";
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../references/on-definitions";
 import { OnDocumentChangedAsync } from "./on-documents";
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../../format/on-request";
@@ -32,14 +32,14 @@ export function setupHandlers() {
   Documents.onDidSave(OnDocumentChangedAsync);
 
   // This handler provides commands
-  Connection.onExecuteCommand(OnCommandRequestAsync);
+  Connection.onExecuteCommand(onCommandRequestAsync);
 
   // This handler provides code actions
   Connection.onCodeAction(onCodeActionAsync);
   Connection.onCodeActionResolve(onCodeActionResolveAsync);
 
   // This handler provides code lens
-  Connection.onCodeLens(OnCodeLensRequest);
+  Connection.onCodeLens(onCodeLensRequest);
 
   // This handler provides completion items.
   Connection.onCompletion(onCompletionRequestAsync);
@@ -71,7 +71,7 @@ export function setupHandlers() {
   Connection.onSignatureHelp(OnSignatureRequestAsync);
 
   //Settings changed
-  Connection.onDidChangeConfiguration(OnConfigurationChanged);
+  Connection.onDidChangeConfiguration(onConfigurationChanged);
 
   // This handler provides semantic Tokens
   Connection.languages.semanticTokens.on(onProvideSemanticRequestAsync);

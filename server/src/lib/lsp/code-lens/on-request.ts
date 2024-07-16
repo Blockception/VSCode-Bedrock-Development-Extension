@@ -1,21 +1,19 @@
-import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { CancellationToken, CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";
 import { CodeLensBuilder } from "./builder";
-import { Console } from "../manager";
-import { Database } from "../database/database";
-import { GetDocument } from "../lsp/documents/document";
-import { Manager } from "../manager/manager";
-import { TextDocument } from "../lsp/documents/text-document";
-import { Types } from "bc-minecraft-bedrock-types";
-import { QueueProcessor } from "@daanv2/queue-processor";
+import { Console, Manager } from "../../manager";
+import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Languages } from "@blockception/shared";
+import { QueueProcessor } from "@daanv2/queue-processor";
+import { Types } from "bc-minecraft-bedrock-types";
+import { GetDocument, TextDocument } from '../documents';
+import { Database } from '../../database';
 
 /**
  *
  * @param params
  * @returns
  */
-export async function OnCodeLensRequest(
+export async function onCodeLensRequest(
   params: CodeLensParams,
   token: CancellationToken
 ): Promise<CodeLens[] | null | undefined> {

@@ -11,32 +11,32 @@ export async function onDidChangeConfigurationAsync(params: DidChangeConfigurati
 }
 
 export function onDidChangeConfiguration(params: DidChangeConfigurationParams): void {
-  UpdateSettings();
+  updateSettings();
 }
 
-export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {
-  UpdateSettings();
+export function onConfigurationChanged(params: DidChangeConfigurationParams): void {
+  updateSettings();
 }
 
-export function UpdateSettings(): void {
+export function updateSettings(): void {
   const Settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
 
   //If settings is nothing then skip it.
   if (Settings === undefined || Settings === null) return;
 
-  Settings.then(UpdateSettingsThen);
+  Settings.then(updateSettingsObject);
 }
 
-function UpdateSettingsThen(data: any): void {
+function updateSettingsObject(data: any): void {
   Console.Info("Updating settings");
 
   //If settings is nothing then skip it.
   if (data === undefined || data === null) return;
 
-  const Casted = <ServerSettings>data;
+  const casted = data as ServerSettings;
 
-  if (ServerSettings.is(Casted)) {
-    Manager.Settings = Casted;
+  if (ServerSettings.is(casted)) {
+    Manager.Settings = casted;
 
     //Update existing settings
     Database.WorkspaceData.forEach((value, uri) => {

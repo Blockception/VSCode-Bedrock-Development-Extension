@@ -15,8 +15,8 @@ import { Workspace } from "../workspace/workspace";
  * @param params
  * @returns
  */
-export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
-  return Console.request(`Command Execution [${params.command}]`, Promise.resolve(OnCommandRequest(params)));
+export function onCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
+  return Console.request(`Command Execution [${params.command}]`, Promise.resolve(onCommandRequest(params)));
 }
 
 /**
@@ -24,7 +24,7 @@ export function OnCommandRequestAsync(params: ExecuteCommandParams): Promise<any
  * @param params
  * @returns
  */
-function OnCommandRequest(params: ExecuteCommandParams): any {
+function onCommandRequest(params: ExecuteCommandParams): any {
   let out = undefined;
   try {
     out = InternalCommandRequest(params);
