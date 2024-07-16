@@ -8,10 +8,10 @@ import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../re
 import { OnDocumentChangedAsync } from "./on-documents";
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../../format/on-request";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../symbols/on-request";
-import { onReferencesRequestAsync } from "../../references/on-request";
+import { onHoverRequestAsync } from "../../hover/on-request";
 import { onImplementationRequestAsync } from "../../references/on-implementation";
-import { onHoverRequestAsync } from "../../hover";
 import { onProvideSemanticRequestAsync, onProvideRangeSemanticRequestAsync } from "../../semantics/on-request";
+import { onReferencesRequestAsync } from "../../references/on-request";
 import { OnSignatureRequestAsync } from "../../signatures/on-request";
 import {
   OnDidCreateFilesAsync,

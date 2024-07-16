@@ -1,11 +1,12 @@
-import { Database } from '../../database/database';
-import { GetCurrentString } from '../../minecraft/json/functions';
+
+import { Database } from '../../../database/database';
+import { GetCurrentString } from '../../../minecraft/json/functions';
 import { Hover } from "vscode-languageserver";
 import { HoverParams, Range } from "vscode-languageserver-protocol";
-import { IsMolang } from '../../minecraft/molang/functions';
-import { TextDocument } from '../documents/text-document';
+import { IsMolang } from '../../../minecraft/molang/functions';
+import { TextDocument } from '../../documents/text-document';
 
-import * as Molang from "./minecraft/molang/main";
+import * as Molang from "./molang/main";
 
 export function provideHover(doc: TextDocument, params: HoverParams): Hover | undefined {
   const cursor = doc.offsetAt(params.position);
