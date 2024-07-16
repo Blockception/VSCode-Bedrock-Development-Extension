@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { Vscode } from "../src/lib/util/url";
 import { Glob } from "../src/lib/files/glob";
-import { MinecraftFormat } from "../src/lib/Minecraft/Format";
+import { MinecraftFormat } from "../src/lib/minecraft/format";
 
 import FastGlob from "fast-glob";
 import path from "path";
