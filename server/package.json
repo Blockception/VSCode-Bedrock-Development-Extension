@@ -21,7 +21,7 @@
     "test": "mocha -r ts-node/register '**/*.test.ts'",
     "update": "npm update && npm audit fix",
     "postversion": "npm run save_version && git add . && git commit -m \"auto: version update\"",
-    "save_version": "echo export const Version = \"%npm_package_version%\" > ./src/Lib/Version.ts"
+    "save_version": "echo export const Version = \"%npm_package_version%\" > ./src/lib/constants/version.ts"
   },
   "dependencies": {
     "@blockception/shared": "^0.0.1",
