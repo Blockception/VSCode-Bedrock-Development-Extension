@@ -3,9 +3,9 @@ import { CancellationToken, CodeLens, CodeLensParams, Position, Range } from "vs
 import { CodeLensBuilder } from "./builder";
 import { Console } from "../manager";
 import { Database } from "../database/database";
-import { GetDocument } from "../types/Document/Document";
+import { GetDocument } from "../lsp/documents/document";
 import { Manager } from "../manager/manager";
-import { TextDocument } from "../types/Document/TextDocument";
+import { TextDocument } from "../lsp/documents/text-document";
 import { Types } from "bc-minecraft-bedrock-types";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Languages } from "@blockception/shared";

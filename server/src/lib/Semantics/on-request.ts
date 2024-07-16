@@ -1,5 +1,5 @@
-import { Console } from "../manager/console";
-import { GetDocument } from "../types/Document/Document";
+import { Console } from "../../../manager/console";
+import { GetDocument } from "../../documents/document";
 import { Languages } from "@blockception/shared";
 import { provideJsonSemanticTokens } from "../minecraft/json/Semantics";
 import { provideMolangSemanticTokens } from "./minecraft/molang/main";

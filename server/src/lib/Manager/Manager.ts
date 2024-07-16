@@ -1,4 +1,4 @@
-import { ServerSettings } from "../server/Settings/Settings";
+import { ServerSettings } from "../lsp/server/settings";
 import { ExtensionState } from "./state";
 import { ExtensionCapabilities } from "./capabilities";
 import { Connection } from "vscode-languageserver/lib/common/server";

@@ -3,7 +3,7 @@ import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-langua
 import { CodeActionBuilder } from "./builder";
 import { Console } from "../manager";
 import { fuzzyMatch } from "./fuzzy";
-import { GetDocument } from "../types/Document/Document";
+import { GetDocument } from "../lsp/documents/document";
 
 import * as Minecraft from "./minecraft/code-actions";
 import * as BehaviorPack from "./minecraft/behavior-pack/main";

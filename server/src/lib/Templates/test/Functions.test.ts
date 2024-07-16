@@ -2,7 +2,7 @@ import { BehaviorPack, PackType } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { expect } from "chai";
 import path from "path";
-import { FunctionContext, TemplateFunctions } from "../Functions";
+import { FunctionContext, TemplateFunctions } from "../functions";
 
 const TestContext: FunctionContext = {
   filename: "test.json",

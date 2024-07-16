@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 
-export * from "./Attributes";
-export * from "./Interfaces";
-export * from "./MCProjects";
+export * from "./attributes";
+export * from "./interfaces";
+export * from "./mcprojects";

@@ -1,10 +1,10 @@
-import * as jsonc from 'jsonc-parser';
+import * as jsonc from "jsonc-parser";
 
-import { TextDocument } from '../../types/Document';
+import { TextDocument } from "../../lsp/documents";
 
 export interface Path {
   path: string;
-  isProperty: boolean
+  isProperty: boolean;
 }
 
 export function getJsonPath(cursor: number, text: string | TextDocument): Path {
@@ -14,7 +14,7 @@ export function getJsonPath(cursor: number, text: string | TextDocument): Path {
   const pos = jsonc.getLocation(text, cursor);
 
   return {
-    path: pos.path.join('/'),
-    isProperty: !pos.isAtPropertyKey
-  }
+    path: pos.path.join("/"),
+    isProperty: !pos.isAtPropertyKey,
+  };
 }

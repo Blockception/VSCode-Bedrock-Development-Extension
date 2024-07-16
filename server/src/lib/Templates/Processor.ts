@@ -1,8 +1,8 @@
 import { Database } from "../database";
 import { FileBuilder } from "../files/file-builder";
 import { Fs, Vscode } from "../Code";
-import { FunctionContext, TemplateFunctions } from "./Functions";
-import { TemplateFallback } from "./Data";
+import { FunctionContext, TemplateFunctions } from "./functions";
+import { TemplateFallback } from "./data";
 
 import path from "path";
 import * as fs from "fs";

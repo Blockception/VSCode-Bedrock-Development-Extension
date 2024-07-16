@@ -4,7 +4,7 @@ import { CodeAction, CodeActionKind, Command, Diagnostic } from "vscode-language
 import { Vscode } from "../../Code/Url";
 import { Database } from "../../database/database";
 import { Console } from "../../manager/console";
-import { GetDocument } from "../../types/Document/Document";
+import { GetDocument } from "../../lsp/documents/document";
 import { CodeActionBuilder } from "../builder";
 
 /**Adds a given type and value to the definition

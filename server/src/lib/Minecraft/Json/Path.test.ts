@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { getJsonPath } from './Path';
+import { getJsonPath } from './path';
 
 interface TestCase {
   element: string;

@@ -1,5 +1,5 @@
 import { MCProject } from "bc-minecraft-project";
-import { MCProjectprovider } from "./Interfaces";
+import { MCProjectprovider } from "./interfaces";
 
 /**
  *

@@ -3,7 +3,7 @@ import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnoserUtility as DiagnoserUtility } from "../diagnostics/diagnoser";
+import { DiagnoserUtility as DiagnoserUtility } from "../lsp/diagnostics/diagnoser";
 import { Console } from "../manager/console";
 import { WorkspaceData } from "./workspace-data";
 
@@ -143,21 +143,21 @@ export namespace Database {
   }
 
   export function ForEach(callbackfn: (item: BaseObject) => void): Promise<void> {
-    const packs: (forEachfn<BaseObject>[])[] = [
+    const packs: forEachfn<BaseObject>[][] = [
       [Database.ProjectData.General],
       Database.ProjectData.BehaviorPacks.packs,
       Database.ProjectData.ResourcePacks.packs,
       Database.ProjectData.Worlds.packs,
     ];
 
-    return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col)=>{
-      return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack)=>{
+    return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col) => {
+      return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => {
         return pack.forEach(callbackfn);
-      }).then((items)=>{});
-    }).then((items)=>{});
+      }).then((items) => {});
+    }).then((items) => {});
   }
 }
 
 export interface forEachfn<T> {
-  forEach(callbackfn: (value: Types.BaseObject) => void): void
+  forEach(callbackfn: (value: Types.BaseObject) => void): void;
 }

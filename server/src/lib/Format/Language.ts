@@ -1,7 +1,7 @@
 import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
 import { TextEdit } from "vscode-languageserver-textdocument";
 import { TrimStartFromLine } from '../Code/TextEdit';
-import { TextDocument } from "../types/Document/TextDocument";
+import { TextDocument } from "../lsp/documents/text-document";
 
 export function formatLangauge(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
   let Out: TextEdit[] = [];
