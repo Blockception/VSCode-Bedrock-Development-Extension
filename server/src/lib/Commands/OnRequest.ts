@@ -8,7 +8,7 @@ import { Files } from "./Files";
 import { HandleError } from "../Code/Error";
 import { ReScanProject } from "./Rescan";
 import { StoreProject } from "./StoreProject";
-import { Workspace } from "../Workspace/Workspace";
+import { Workspace } from "../workspace/workspace";
 
 /**
  *

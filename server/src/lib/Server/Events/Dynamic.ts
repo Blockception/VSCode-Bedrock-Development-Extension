@@ -6,7 +6,7 @@ import {
 } from "vscode-languageserver";
 import { Languages } from "@blockception/shared";
 import { Manager } from "../../Manager/Manager";
-import { SemanticModifiers, SemanticTokens } from "../../Semantics/Legend";
+import { SemanticModifiers, SemanticTokens } from "../../semantics/Legend";
 
 export function SetDynamicEvents(register: BulkRegistration) {
   if (Manager.Capabilities.hasConfigurationCapability) {

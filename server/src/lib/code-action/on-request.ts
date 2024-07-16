@@ -5,9 +5,9 @@ import { Console } from "../Manager";
 import { fuzzyMatch } from "./fuzzy";
 import { GetDocument } from "../Types/Document/Document";
 
-import * as Minecraft from "../Minecraft/CodeAction";
-import * as BehaviorPack from "../Minecraft/BehaviorPack/CodeAction";
-import * as ResourcePack from "../Minecraft/ResourcePack/CodeAction";
+import * as Minecraft from "./minecraft/code-actions";
+import * as BehaviorPack from "./minecraft/behavior-pack/main";
+import * as ResourcePack from "./minecraft/resource-pack/main";
 
 /**
  *
@@ -60,15 +60,15 @@ function findAction(builder: CodeActionBuilder, diag: Diagnostic): Promise<void>
 
   switch (mainCode) {
     case "behaviorpack":
-      BehaviorPack.OnCodeAction(builder, diag);
+      BehaviorPack.onCodeAction(builder, diag);
       break;
 
     case "resourcepack":
-      ResourcePack.OnCodeAction(builder, diag);
+      ResourcePack.onCodeAction(builder, diag);
       break;
 
     case "minecraft":
-      Minecraft.OnCodeAction(builder, diag);
+      Minecraft.onCodeAction(builder, diag);
       break;
 
     case "mcfunction":

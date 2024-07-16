@@ -1,5 +1,5 @@
 import { Manager } from "../../Manager/Manager";
-import { onCodeActionAsync, OnCodeActionResolveAsync } from "../../code-action/on-request";
+import { onCodeActionAsync, onCodeActionResolveAsync } from "../../code-action/on-request";
 import { OnCodeLensRequest } from "../../CodeLens/OnRequest";
 import { OnCommandRequestAsync } from "../../Commands/OnRequest";
 import { onCompletionRequestAsync } from "../../completion/on-request";
@@ -9,12 +9,12 @@ import { onDidChangeConfigurationAsync } from "../OnConfiguration";
 import { OnDidCreateFilesAsync, onDidDeleteFilesAsync, OnDidRenameFilesAsync, OnWorkspaceFolderChangeAsync } from "./Workspace";
 import { OnDocumentChangedAsync } from "./Documents";
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../Format/OnRequest";
-import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../Symbols/OnRequest";
-import { OnHoverRequestAsync } from "../../Hover/OnRequest";
+import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../symbols/on-request";
+import { onHoverRequestAsync } from "../../hover/on-request";
 import { onImplementationRequestAsync } from '../../implementation/on-request';
-import { OnprovideRangeSemanticRequestAsync, OnprovideSemanticRequestAsync } from "../../Semantics";
+import { onProvideRangeSemanticRequestAsync, onProvideSemanticRequestAsync } from "../../semantics";
 import { onReferencesRequestAsync } from "../../references/on-request";
-import { OnSignatureRequestAsync } from "../../Signatures/OnRequest";
+import { OnSignatureRequestAsync } from "../../signatures/OnRequest";
 
 /**
  * Setup the server events
@@ -32,7 +32,7 @@ export function setupHandlers() {
 
   // This handler provides code actions
   Connection.onCodeAction(onCodeActionAsync);
-  Connection.onCodeActionResolve(OnCodeActionResolveAsync);
+  Connection.onCodeActionResolve(onCodeActionResolveAsync);
 
   // This handler provides code lens
   Connection.onCodeLens(OnCodeLensRequest);
@@ -58,7 +58,7 @@ export function setupHandlers() {
   Connection.onDidChangeConfiguration(onDidChangeConfigurationAsync);
 
   // This handler provides hover support
-  Connection.onHover(OnHoverRequestAsync);
+  Connection.onHover(onHoverRequestAsync);
 
   // This handler provides references
   Connection.onReferences(onReferencesRequestAsync);
@@ -70,8 +70,8 @@ export function setupHandlers() {
   Connection.onDidChangeConfiguration(OnConfigurationChanged);
 
   // This handler provides semantic Tokens
-  Connection.languages.semanticTokens.on(OnprovideSemanticRequestAsync);
-  Connection.languages.semanticTokens.onRange(OnprovideRangeSemanticRequestAsync);
+  Connection.languages.semanticTokens.on(onProvideSemanticRequestAsync);
+  Connection.languages.semanticTokens.onRange(onProvideRangeSemanticRequestAsync);
 
   if (Manager.Capabilities.hasWorkspaceFolderCapability) {
     // Workspace event

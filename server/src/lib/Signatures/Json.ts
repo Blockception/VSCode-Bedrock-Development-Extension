@@ -31,8 +31,7 @@ export function provideJsonSignature(doc: TextDocument, cursor: Position): Signa
   return undefined;
 }
 
-
-const MolangEventSignature : SignatureHelp = {
+const MolangEventSignature: SignatureHelp = {
   activeParameter: 1,
   activeSignature: 0,
   signatures: [

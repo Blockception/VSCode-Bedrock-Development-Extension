@@ -4,9 +4,9 @@ import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
 import { CreateMolangWords } from "./Words";
 import { TextDocument } from "../../Types/Document/TextDocument";
-import { JsonSemanticTokensBuilder } from "../../Semantics/Builders/JsonSemanticTokensBuilder";
-import { MolangSemanticTokensBuilder } from "../../Semantics/Builders/MolangSemanticTokensBuilder";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Semantics/Legend";
+import { JsonSemanticTokensBuilder } from "../../semantics/builders/JsonSemanticTokensBuilder";
+import { MolangSemanticTokensBuilder } from "../../semantics/builders/MolangSemanticTokensBuilder";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../../semantics/Legend";
 import { Minecraft } from 'bc-minecraft-bedrock-types';
 
 /**

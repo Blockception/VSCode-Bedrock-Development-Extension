@@ -1,6 +1,6 @@
 import { MolangData, MolangFunction } from "bc-minecraft-molang";
 import { SignatureHelp, SignatureInformation } from "vscode-languageserver-types";
-import { SignatureCarrier } from "../../../Signatures/Carrier";
+import { SignatureCarrier } from "../../../signatures/Carrier";
 
 /**
  *

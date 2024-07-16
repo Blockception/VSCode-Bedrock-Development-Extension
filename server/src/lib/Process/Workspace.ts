@@ -1,6 +1,6 @@
 import { Pack } from "bc-minecraft-bedrock-project";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { Workspace } from "../Workspace/Workspace";
+import { Workspace } from "../workspace/workspace";
 
 /**
  * @deprecated use TraverseWorkspace

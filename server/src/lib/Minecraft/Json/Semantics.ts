@@ -1,9 +1,9 @@
 import { ConvertWords } from "../Molang/Semantics";
 import { CreateMolangWords } from "../Molang/Words";
 import { IsMolang } from "../Molang/Functions";
-import { JsonSemanticTokensBuilder } from "../../Semantics/Builders/JsonSemanticTokensBuilder";
+import { JsonSemanticTokensBuilder } from "../../semantics/builders/JsonSemanticTokensBuilder";
 import { McfunctionLineTokens } from "../Mcfunction/Semantics";
-import { McfunctionSemanticTokensBuilder } from "../../Semantics/Builders/McfunctionSemanticTokensBuilder";
+import { McfunctionSemanticTokensBuilder } from "../../semantics/builders/McfunctionSemanticTokensBuilder";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";

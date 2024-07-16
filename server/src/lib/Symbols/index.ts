@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./OnRequest";
-export * from "./SymbolBuilder";
+export * from "./on-request";
+export * from "./builder";

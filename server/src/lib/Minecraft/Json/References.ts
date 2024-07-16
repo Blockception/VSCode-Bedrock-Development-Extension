@@ -7,7 +7,7 @@ import { ParameterType } from 'bc-minecraft-bedrock-command';
 import { References } from '../../Code/References';
 import { TextDocument } from "../../Types/Document/TextDocument";
 
-import * as Command from '../Commands/Command/References';
+import * as Command from '../../signatures/minecraft/commands/commands';
 import * as Molang from '../Molang';
 
 

@@ -1,9 +1,9 @@
 import { Minecraft } from "bc-minecraft-bedrock-types";
 import { CompactJson } from "bc-minecraft-bedrock-types/lib/src/minecraft/json";
 import { OffsetWord } from "bc-vscode-words";
-import { McfunctionSemanticTokensBuilder } from "../../../Semantics/Builders/McfunctionSemanticTokensBuilder";
-import { CreateNamespaced, CreateRangeTokensWord } from "../../../Semantics/Functions";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../../../Semantics/Legend";
+import { McfunctionSemanticTokensBuilder } from "../../../semantics/builders/McfunctionSemanticTokensBuilder";
+import { CreateNamespaced, CreateRangeTokensWord } from "../../../semantics/Functions";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../../../semantics/Legend";
 import { Kinds } from "../Kinds";
 
 export function CreateSelectorTokens(word: OffsetWord, builder: McfunctionSemanticTokensBuilder): void {

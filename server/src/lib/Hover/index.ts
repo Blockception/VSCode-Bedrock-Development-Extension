@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./OnRequest";
+export * from "./on-request";

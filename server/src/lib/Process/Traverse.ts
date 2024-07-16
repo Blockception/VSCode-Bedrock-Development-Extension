@@ -6,7 +6,7 @@ import { providePackDiagnostics } from "../Diagnostics/OnRequest";
 import { Console } from "../Manager/Console";
 import { Manager } from "../Manager/Manager";
 import { ProgressBar } from "../Types/Progress/ProgressBar";
-import { Workspace } from "../Workspace/Workspace";
+import { Workspace } from "../workspace/workspace";
 
 export async function Traverse(): Promise<Pack[]> {
   Console.Info("Traversing starting...");

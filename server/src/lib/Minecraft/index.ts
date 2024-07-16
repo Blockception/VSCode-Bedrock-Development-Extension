@@ -7,5 +7,5 @@ export * as Language from "./Language";
 export * as Mcfunction from "./Mcfunction";
 export * as Molang from "./Molang";
 export * as ResourcePack from "./ResourcePack";
-export * from "./CodeAction";
+export * from "../code-action/minecraft/code-actions";
 export * from "./Format";

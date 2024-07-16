@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Workspace";
+export * from "./workspace";
