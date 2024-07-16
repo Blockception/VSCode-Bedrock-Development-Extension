@@ -1,6 +1,6 @@
 /*	Auto generated	*/
 
-export * from "./Function";
-export * from "./behaviorpack";
-export * from "./resourcepack";
+export * from "./function";
+export * from "./behavior-pack";
+export * from "./resource-pack";
 export * from "./world";

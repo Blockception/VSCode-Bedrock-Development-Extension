@@ -1,14 +1,15 @@
 import { expect } from "chai";
+import { Vscode } from "../src/lib/util/url";
+import { Glob } from "../src/lib/files/glob";
+import { MinecraftFormat } from "../src/lib/Minecraft/Format";
+
 import FastGlob from "fast-glob";
 import path from "path";
-import { Vscode } from "../src/lib/Code/Url";
-import { Glob } from "../src/lib/Glob/Glob";
-import { MinecraftFormat } from "../src/lib/Minecraft/Format";
 
 //THis is made to test FS systems where the plugin will run on
 describe("Glob", () => {
   const folder = Vscode.FromFs(path.resolve(__dirname, "files"));
-  
+
   describe("Direct", () => {
     it("Json", () => {
       const cwd = Glob.FolderPath(folder);

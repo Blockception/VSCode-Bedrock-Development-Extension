@@ -1,6 +1,6 @@
 import path from "path";
-import * as BP from "../../../data/templates/behaviorpack";
-import * as RP from "../../../data/templates/resourcepack";
+import * as BP from "../../../data/templates/behavior-pack";
+import * as RP from "../../../data/templates/resource-pack";
 import * as WP from "../../../data/templates/world";
 import { TemplateFallback, TemplateProcessor } from '../../../templates';
 

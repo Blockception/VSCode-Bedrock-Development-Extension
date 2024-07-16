@@ -4,7 +4,7 @@ import { randomUUID } from "crypto";
 import { ToolIdentification } from "@blockception/shared";
 import { Fs, Vscode } from '../util';
 import { Database } from "../database";
-import { Version } from "../Version";
+import { Version } from "../constants/version";
 
 type ReplaceFunction = (...args: any[]) => string;
 

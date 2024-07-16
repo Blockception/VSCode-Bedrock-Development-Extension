@@ -1,13 +1,17 @@
 import { expect } from "chai";
+import { URI } from "vscode-uri";
+import { Fs, Vscode } from "../src/lib/util/url";
+
 import * as fs from "fs";
 import path from "path";
-import { URI } from "vscode-uri";
-import { Fs, Vscode } from "../src/lib/Code/Url";
 
 describe("URL", () => {
   describe("Fs", () => {
     describe("folders", () => {
-      const folders = [path.resolve(__dirname, "files"), Fs.FromVscode(Vscode.FromFs(path.resolve(__dirname, "files")))];
+      const folders = [
+        path.resolve(__dirname, "files"),
+        Fs.FromVscode(Vscode.FromFs(path.resolve(__dirname, "files"))),
+      ];
 
       for (let I = 0; I < folders.length; I++) {
         const f = folders[I];

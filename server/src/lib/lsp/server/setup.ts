@@ -6,7 +6,7 @@ import { ServiceManager } from "../services/collection";
 import { Traverse } from "../process";
 import { HandleError } from "../../util";
 import { SetDynamicEvents } from "./events";
-import { ExtendedLogger } from "../../logger/logger";
+import { ExtendedLogger } from "../logger/logger";
 import { UpdateSettings } from './events/on-configuration';
 
 export function SetupServer() {

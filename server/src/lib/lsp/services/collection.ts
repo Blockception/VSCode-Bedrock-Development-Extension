@@ -1,6 +1,6 @@
 import { BulkRegistration, Connection, InitializeParams, InitializeResult } from "vscode-languageserver";
 import { IService } from "./service";
-import { IExtendedLogger } from "../../logger/logger";
+import { IExtendedLogger } from "../logger/logger";
 
 type NamedService = Pick<IService, "name"> & Partial<IService>;
 

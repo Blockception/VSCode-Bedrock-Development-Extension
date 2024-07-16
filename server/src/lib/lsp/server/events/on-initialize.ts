@@ -1,7 +1,7 @@
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
 import { Manager } from "../../../manager/manager";
 import { Console } from "../../../manager/console";
-import { Version } from "../../../Version";
+import { Version } from "../../../constants/version";
 import { Commands, Languages } from "@blockception/shared";
 
 const triggerCharacters = toArray(" abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"");
