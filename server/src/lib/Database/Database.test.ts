@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { Database } from './Database'
+import { Database } from './database'
 
 describe("Database",()=>{
   it("Sanity",()=>{

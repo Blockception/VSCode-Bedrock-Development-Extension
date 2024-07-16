@@ -1,14 +1,14 @@
-import { Console } from "../Manager/Console";
-import { Database } from "../Database/Database";
+import { Console } from "../manager/console";
+import { Database } from "../database/database";
 import { Fs } from "../Code/Url";
-import { GetProject } from "../Project/MCProjects";
+import { GetProject } from "../project/MCProjects";
 import { HandleError } from "../Code/Error";
 import { lstatSync } from "fs";
-import { Manager } from "../Manager/Manager";
+import { Manager } from "../manager/manager";
 import { MCProject } from "bc-minecraft-project";
-import { MinecraftFormat } from "../Minecraft/Format";
+import { MinecraftFormat } from "../minecraft/Format";
 import { Pack } from "bc-minecraft-bedrock-project";
-import { ProcessPack } from "../Process/Pack";
+import { ProcessPack } from "../process/Pack";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { WorkspaceFolder } from "vscode-languageserver";
 

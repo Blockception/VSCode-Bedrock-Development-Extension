@@ -4,12 +4,12 @@ import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { Types } from "bc-minecraft-bedrock-vanilla-data";
 
 import { CommandCompletionContext } from "../../builder/context";
-import { Database } from "../../../Database/Database";
-import { IsEducationEnabled } from "../../../Project/Attributes";
+import { Database } from "../../../database/database";
+import { IsEducationEnabled } from "../../../project/Attributes";
 import { Location } from "bc-minecraft-bedrock-types/lib/src/types";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang";
-import { GetPossibleBlockID } from "../../../Minecraft/Commands/Command/Functions";
-import { Kinds } from "../../../Minecraft/General";
+import { GetPossibleBlockID } from "../../../minecraft/commands";
+import { Kinds } from "../../../minecraft/general";
 import { IsEditingValue } from "../selectors/attribute-values";
 
 export function provideCompletion(context: CommandCompletionContext): void {

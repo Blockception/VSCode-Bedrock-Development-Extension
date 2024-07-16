@@ -1,7 +1,7 @@
 import { DeleteFilesParams, FileDelete } from "vscode-languageserver";
-import { Database } from "../../../Database/Database";
-import { Console } from "../../../Manager";
-import { Manager } from "../../../Manager/Manager";
+import { Database } from "../../../database/database";
+import { Console } from "../../../manager";
+import { Manager } from "../../../manager/manager";
 
 //Files created
 export async function onDidDeleteFilesAsync(params: DeleteFilesParams): Promise<void> {

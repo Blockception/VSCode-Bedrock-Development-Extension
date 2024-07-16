@@ -1,8 +1,8 @@
 import { SignatureHelp } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { GetCurrentString } from "../Minecraft/Json/Functions";
-import { TextDocument } from "../Types/Document/TextDocument";
-import { Commands, Molang } from "../Minecraft";
+import { GetCurrentString } from "../minecraft/json/functions";
+import { TextDocument } from "../types/Document/TextDocument";
+import { Commands, Molang } from "../minecraft";
 
 export function provideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
   let text = doc.getText();

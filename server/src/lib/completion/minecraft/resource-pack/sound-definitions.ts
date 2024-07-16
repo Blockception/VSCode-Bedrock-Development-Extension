@@ -1,7 +1,7 @@
 import { SimpleContext } from "../../../Code";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../Database/Database";
-import { GetCurrentString } from '../../../Minecraft/Json/Functions';
+import { Database } from "../../../database/database";
+import { GetCurrentString } from '../../../minecraft/json/functions';
 import { provideSoundFileCompletion } from './sounds';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, cursor: number): void {

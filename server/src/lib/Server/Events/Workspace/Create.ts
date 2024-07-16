@@ -1,8 +1,8 @@
 import { CreateFilesParams, FileCreate } from "vscode-languageserver";
-import { GetDocument } from "../../../Types/Document/Document";
-import { Process } from "../../../Process/Process";
-import { Glob } from "../../../Glob/Glob";
-import { Console } from "../../../Manager/Console";
+import { GetDocument } from "../../../types/Document/Document";
+import { Process } from "../../../process/Process";
+import { Glob } from "../../../files/glob";
+import { Console } from "../../../manager/console";
 
 //Files created
 export async function OnDidCreateFilesAsync(params: CreateFilesParams): Promise<void> {

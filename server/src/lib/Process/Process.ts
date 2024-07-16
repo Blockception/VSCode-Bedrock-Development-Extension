@@ -1,10 +1,10 @@
-import { TextDocument } from "../Types/Document/TextDocument";
-import { Database } from "../Database/Database";
+import { TextDocument } from "../types/Document/TextDocument";
+import { Database } from "../database/database";
 import { HandleError } from "../Code/Error";
-import { provideDiagnostics } from "../Diagnostics/OnRequest";
+import { provideDiagnostics } from "../diagnostics/on-request";
 import { Languages } from "@blockception/shared";
 import { Traverse } from "./Traverse";
-import { Manager } from '../Manager/Manager';
+import { Manager } from '../manager/manager';
 
 //Process the given document
 export function Process(document: TextDocument): void {

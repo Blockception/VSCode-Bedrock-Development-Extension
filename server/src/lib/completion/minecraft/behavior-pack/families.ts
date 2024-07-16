@@ -1,11 +1,11 @@
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionBuilder } from "../../builder/builder";
 import { CommandCompletionContext } from "../../builder/context";
-import { Database } from "../../../Database/Database";
-import { IsEducationEnabled } from "../../../Project/Attributes";
+import { Database } from "../../../database/database";
+import { IsEducationEnabled } from "../../../project/Attributes";
 
-import { Kinds } from '../../../Minecraft/General';
-import { GetPossibleEntityTypes } from '../../../Minecraft/Commands/Command';
+import { Kinds } from '../../../minecraft/general';
+import { GetPossibleEntityTypes } from '../../../minecraft/Commands/Command';
 
 export function provideCompletion(context: CommandCompletionContext, type: string | undefined = undefined): void {
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {

@@ -1,9 +1,9 @@
 import { BulkRegistration, createConnection, ProposedFeatures } from "vscode-languageserver/node";
-import { Manager } from "../Manager/Manager";
+import { Manager } from "../manager/manager";
 import { setupHandlers } from "./Events/Events";
 import { onInitialize } from "./OnInitialize";
-import { ServiceManager } from "../services/collection";
-import { Traverse } from "../Process";
+import { ServiceManager } from "../lsp/services/collection";
+import { Traverse } from "../process";
 import { HandleError } from "../Code";
 import { UpdateSettings } from "./Settings";
 import { SetDynamicEvents } from "./Events";

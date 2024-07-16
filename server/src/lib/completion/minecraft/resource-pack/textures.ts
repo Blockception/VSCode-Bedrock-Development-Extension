@@ -1,10 +1,10 @@
 import { SimpleContext } from "../../../Code";
 import { CompletionBuilder } from "../../builder/builder";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { Database } from "../../../Database/Database";
-import { Kinds } from "../../../Minecraft/General/Kinds";
+import { Database } from "../../../database/database";
+import { Kinds } from "../../../constants/kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { IsEducationEnabled } from "../../../Project/Attributes";
+import { IsEducationEnabled } from "../../../project/Attributes";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The texture: ${item.id}`;

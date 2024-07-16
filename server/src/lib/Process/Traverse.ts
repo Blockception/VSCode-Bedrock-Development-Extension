@@ -1,11 +1,11 @@
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { HandleError } from "../Code/Error";
-import { Database } from "../Database/Database";
-import { providePackDiagnostics } from "../Diagnostics/OnRequest";
-import { Console } from "../Manager/Console";
-import { Manager } from "../Manager/Manager";
-import { ProgressBar } from "../Types/Progress/ProgressBar";
+import { Database } from "../database/database";
+import { providePackDiagnostics } from "../diagnostics/on-request";
+import { Console } from "../manager/console";
+import { Manager } from "../manager/manager";
+import { ProgressBar } from "../types/Progress/ProgressBar";
 import { Workspace } from "../workspace/workspace";
 
 export async function Traverse(): Promise<Pack[]> {

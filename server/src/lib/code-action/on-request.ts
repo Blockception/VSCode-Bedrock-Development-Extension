@@ -1,9 +1,9 @@
 import { Attributes } from "./types/Definition";
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "./builder";
-import { Console } from "../Manager";
+import { Console } from "../manager";
 import { fuzzyMatch } from "./fuzzy";
-import { GetDocument } from "../Types/Document/Document";
+import { GetDocument } from "../types/Document/Document";
 
 import * as Minecraft from "./minecraft/code-actions";
 import * as BehaviorPack from "./minecraft/behavior-pack/main";

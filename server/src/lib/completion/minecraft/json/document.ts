@@ -1,6 +1,6 @@
 import { CompletionBuilder } from "../../builder/builder";
 import { InsertReplaceEdit, Position, Range } from "vscode-languageserver";
-import { GetCurrentString, TextRange } from "../../../Minecraft/Json/Functions";
+import { GetCurrentString, TextRange } from "../../../minecraft/json/functions";
 import { JsonCompletionContext } from "../../builder/context";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/SimpleContext";
@@ -10,7 +10,7 @@ import * as BehaviorPack from "../behavior-pack/main";
 import * as Mcfunction from "../mcfunctions/mcfunctions";
 import * as Molang from "../molang/main";
 import * as ResourcePack from "../resource-pack/main";
-import { TextDocument } from '../../../Types/Document';
+import { TextDocument } from '../../../types/Document';
 
 export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const doc = context.doc;

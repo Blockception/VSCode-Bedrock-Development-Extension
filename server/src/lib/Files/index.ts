@@ -1,3 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./FileBuilder";
+export * from "./file-builder";
+export * from "./glob";

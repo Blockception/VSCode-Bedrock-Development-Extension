@@ -1,6 +1,6 @@
 import { JsonCompletionContext } from "../../builder/context";
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/ResourcePack";
-import { santizeValue as santizeValue } from "../../../Minecraft/Json/Types";
+import { santizeValue as santizeValue } from "../../../minecraft/json/Types";
 
 import * as AnimationControllers from "./animation-controllers";
 import * as Animations from "./animations";

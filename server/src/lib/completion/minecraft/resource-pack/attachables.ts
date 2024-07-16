@@ -1,8 +1,8 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../Database/Database";
-import { Kinds } from "../../../Minecraft/General/Kinds";
+import { Database } from "../../../database/database";
+import { Kinds } from "../../../constants/kinds";
 import { JsonPathCompletion } from '../../builder';
 
 import * as Animations from "./animations";

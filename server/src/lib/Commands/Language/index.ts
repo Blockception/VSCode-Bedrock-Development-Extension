@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./AddAll";
+export * from "./add-all";

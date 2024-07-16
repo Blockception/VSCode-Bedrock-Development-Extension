@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as vscode from "vscode-languageserver-textdocument";
-import { Manager } from "../../Manager/Manager";
+import { Manager } from "../../manager/manager";
 import { TextDocument } from "./TextDocument";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { HandleError } from "../../Code/Error";

@@ -1,7 +1,7 @@
 import { SimpleContext } from "../../../Code";
 import { CompletionBuilder, JsonPathCompletion } from "../../builder";
-import { Database } from "../../../Database";
-import { Kinds } from "../../../Minecraft/General";
+import { Database } from "../../../database";
+import { Kinds } from "../../../minecraft/general";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Block });

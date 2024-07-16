@@ -1,8 +1,8 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
 import { GetFilename, SimpleContext } from "../../Code";
 import { CompletionBuilder } from "../builder/builder";
-import { Database } from "../../Database/Database";
-import { Kinds } from "../../Minecraft/General/Kinds";
+import { Database } from "../../database/database";
+import { Kinds } from "../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;

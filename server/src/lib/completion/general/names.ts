@@ -1,6 +1,6 @@
 import { SimpleContext } from "../../Code/SimpleContext";
 import { CompletionBuilder } from "../builder/builder";
-import { Kinds } from "../../Minecraft/General/Kinds";
+import { Kinds } from "../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const data = context.doc.getConfiguration();

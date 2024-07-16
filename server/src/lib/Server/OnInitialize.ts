@@ -1,6 +1,6 @@
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
-import { Manager } from "../Manager/Manager";
-import { Console } from "../Manager/Console";
+import { Manager } from "../manager/manager";
+import { Console } from "../manager/console";
 import { Version } from "../Version";
 import { Commands, Languages } from "@blockception/shared";
 

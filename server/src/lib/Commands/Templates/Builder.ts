@@ -9,9 +9,9 @@ import {
   OptionalVersionedTextDocumentIdentifier,
   ApplyWorkspaceEditResult,
 } from "vscode-languageserver";
-import { Manager } from "../../Manager/Manager";
+import { Manager } from "../../manager/manager";
 import { Range } from "vscode-languageserver-types";
-import { Console } from "../../Manager/Console";
+import { Console } from "../../manager/console";
 import { Fs, Vscode } from "../../Code/Url";
 
 import * as fs from "fs";

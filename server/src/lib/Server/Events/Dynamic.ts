@@ -5,7 +5,7 @@ import {
   SemanticTokensRegistrationType,
 } from "vscode-languageserver";
 import { Languages } from "@blockception/shared";
-import { Manager } from "../../Manager/Manager";
+import { Manager } from "../../manager/manager";
 import { SemanticModifiers, SemanticTokens } from "../../semantics/Legend";
 
 export function SetDynamicEvents(register: BulkRegistration) {

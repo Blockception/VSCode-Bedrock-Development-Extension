@@ -1,7 +1,7 @@
 import { Types } from "bc-minecraft-bedrock-types";
 import { DocumentLocation } from "bc-minecraft-bedrock-types/lib/src/types";
 import { Location } from "vscode-languageserver-types";
-import { GetDocument } from "../Types/Document/Document";
+import { GetDocument } from "../types/Document/Document";
 
 export namespace References {
   /**

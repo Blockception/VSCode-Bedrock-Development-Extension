@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { GetCurrentElement } from "./Functions";
+import { GetCurrentElement } from "./functions";
 
 describe("Json Functions", () => {
   it("GetCurrentElement", () => {

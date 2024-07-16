@@ -1,9 +1,9 @@
 import { BehaviorPack, Pack } from "bc-minecraft-bedrock-project";
 import { Fs } from "../Code/Url";
-import { Database } from "../Database/Database";
-import { Console } from "../Manager/Console";
-import { MinecraftFormat } from "../Minecraft/Format";
-import { ForEachDocument } from "../Types/Document/Document";
+import { Database } from "../database/database";
+import { Console } from "../manager/console";
+import { MinecraftFormat } from "../minecraft/Format";
+import { ForEachDocument } from "../types/Document/Document";
 
 /**
  *

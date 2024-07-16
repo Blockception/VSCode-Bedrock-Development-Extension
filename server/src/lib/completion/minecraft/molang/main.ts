@@ -1,6 +1,6 @@
 import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItemKind, Position } from "vscode-languageserver-types";
-import { GetPreviousWord, IsMolang } from "../../../Minecraft/Molang/Functions";
+import { GetPreviousWord, IsMolang } from "../../../minecraft/molang/functions";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { Languages } from "@blockception/shared";

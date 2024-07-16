@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./Diagnoser";
-export * from "./OnRequest";
+export * from "./diagnoser";
+export * from "./on-request";

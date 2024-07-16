@@ -10,7 +10,7 @@ import {
   cTranslationComponent,
   cTranslationWith,
   cTranslationWithComplex,
-} from "../../../Minecraft/Json/RawText/Constants";
+} from "../../../minecraft/json/raw-text/constants";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver;

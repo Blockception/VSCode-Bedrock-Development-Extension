@@ -1,6 +1,6 @@
-import { Database } from "../Database/Database";
-import { Console } from "../Manager/Console";
-import { Traverse } from "../Process/Traverse";
+import { Database } from "../database/database";
+import { Console } from "../manager/console";
+import { Traverse } from "../process/Traverse";
 
 /**
  *

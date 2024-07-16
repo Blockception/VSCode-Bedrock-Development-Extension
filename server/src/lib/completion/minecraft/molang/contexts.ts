@@ -2,7 +2,7 @@ import { Data } from "bc-minecraft-molang";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../builder/builder";
-import { GetDataSet } from "../../../Minecraft/Molang/General/GetDataSet";
+import { GetDataSet } from "../../../minecraft/molang/getdataset";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const data = GetDataSet(context.doc.uri);

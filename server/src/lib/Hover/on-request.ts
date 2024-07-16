@@ -1,11 +1,11 @@
 import { Hover, HoverParams } from "vscode-languageserver";
 import { Languages } from "@blockception/shared";
-import { GetDocument } from "../Types/Document/Document";
+import { GetDocument } from "../types/Document/Document";
 
-import * as Json from "../Minecraft/Json";
-import * as Mcfunction from "../Minecraft/Mcfunction";
-import * as Molang from "../Minecraft/Molang";
-import { Console } from "../Manager";
+import * as Json from "../minecraft/json";
+import * as Mcfunction from "../minecraft/Mcfunction";
+import * as Molang from "../minecraft/molang";
+import { Console } from "../manager";
 
 /**
  *

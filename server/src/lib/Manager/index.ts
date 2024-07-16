@@ -1,6 +1,6 @@
 /*	Auto generated	*/
 
-export * from "./Capabilities";
-export * from "./Console";
-export * from "./Manager";
-export * from "./State";
+export * from "./capabilities";
+export * from "./console";
+export * from "./manager";
+export * from "./state";

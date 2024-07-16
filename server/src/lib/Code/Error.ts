@@ -1,4 +1,4 @@
-import { Console } from "../Manager/Console";
+import { Console } from "../manager/console";
 import { GetFilename } from "./File";
 
 export function HandleError(error: any, doc: { uri: string } | string | undefined = undefined): void {

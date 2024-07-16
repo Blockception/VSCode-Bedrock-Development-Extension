@@ -1,4 +1,4 @@
-import { Manager } from "./Manager";
+import { Manager } from "./manager";
 
 /** */
 export namespace Console {

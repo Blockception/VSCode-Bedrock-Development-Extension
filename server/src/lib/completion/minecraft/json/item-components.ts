@@ -8,7 +8,7 @@ import {
   KeepOnDeathComponent,
   LockInInventoryComponent,
   LockInSlotComponent,
-} from "../../../Minecraft/Json/ItemComponents/Constants";
+} from "../../../minecraft/json/item-components/constants";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver.withDefaults({ kind: CompletionItemKind.Snippet });

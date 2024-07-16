@@ -5,13 +5,13 @@ import {
   DiagnosticSeverity,
   ManagedDiagnosticsBuilder
 } from "bc-minecraft-bedrock-diagnoser";
-import { Console } from "../Manager/Console";
-import { DataCache } from "../Types/Cache/Cache";
+import { Console } from "../manager/console";
+import { DataCache } from "../types/Cache/Cache";
 import { Diagnostic } from "vscode-languageserver";
-import { GetDocument } from "../Types/Document/Document";
+import { GetDocument } from "../types/Document/Document";
 import { GetRange } from "../Code/DocumentLocation";
-import { Glob } from "../Glob/Glob";
-import { Manager } from "../Manager/Manager";
+import { Glob } from "../files/glob";
+import { Manager } from "../manager/manager";
 import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";

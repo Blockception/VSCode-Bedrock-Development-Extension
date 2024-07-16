@@ -1,7 +1,7 @@
 /*	Auto generated	*/
-export * as ItemComponents from "./ItemComponents/index";
-export * as RawText from "./RawText/index";
-export * from "./Functions";
-export * from "./Hover";
-export * from "./References";
+export * as ItemComponents from "./item-components/index";
+export * as RawText from "./raw-text/index";
+export * from "./functions";
+export * from "../../hover/json";
+export * from "../../references/json";
 export * from "./Semantics";

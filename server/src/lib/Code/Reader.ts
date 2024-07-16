@@ -1,4 +1,4 @@
-import { TextDocument } from "../Types/Document/TextDocument";
+import { TextDocument } from "../types/Document/TextDocument";
 
 /**
  *

@@ -3,7 +3,7 @@ import { Data, Defined, MolangData } from "bc-minecraft-molang";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../Database/Database";
+import { Database } from "../../../database/database";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const packType = PackType.detect(context.doc.uri);

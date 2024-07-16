@@ -1,9 +1,9 @@
 import path from "path";
-import * as BP from "../../Data/Templates/behaviorpack";
-import * as RP from "../../Data/Templates/resourcepack";
-import * as WP from "../../Data/Templates/world";
-import { TemplateFallback } from "../../Templates/Data";
-import { TemplateProcessor } from "../../Templates/Processor";
+import * as BP from "../../data/templates/behaviorpack";
+import * as RP from "../../data/templates/resourcepack";
+import * as WP from "../../data/templates/world";
+import { TemplateFallback } from "../../templates/Data";
+import { TemplateProcessor } from "../../templates/Processor";
 
 export type TemplateKeys =
   | "behavior-animation_controllers"

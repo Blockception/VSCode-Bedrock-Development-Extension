@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { IsMolang } from "./Functions";
+import { IsMolang } from "./functions";
 
 describe("Molang", () => {
   describe("IsMolang", () => {

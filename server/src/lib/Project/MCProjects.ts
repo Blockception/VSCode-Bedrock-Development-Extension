@@ -1,5 +1,5 @@
 import { MCProject } from "bc-minecraft-project";
-import { Manager } from "../Manager/Manager";
+import { Manager } from "../manager/manager";
 
 
 

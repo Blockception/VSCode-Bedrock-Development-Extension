@@ -1,5 +1,5 @@
 import { CommandCompletionContext } from "../builder/context";
-import { Kinds } from "../../Minecraft/General/Kinds";
+import { Kinds } from "../../constants/kinds";
 
 export function provideCompletion(context: Pick<CommandCompletionContext, "receiver">): void {
   const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Boolean });

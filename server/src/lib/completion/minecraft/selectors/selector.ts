@@ -2,7 +2,7 @@ import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../builder/builder";
 import { CommandCompletionContext } from "../../builder/context";
-import { IsEducationEnabled } from "../../../Project/Attributes";
+import { IsEducationEnabled } from "../../../project/Attributes";
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/modes/selector-type";
 
 import * as Attributes from "./attributes";

@@ -1,6 +1,6 @@
 import { DocumentFormattingParams, DocumentRangeFormattingParams, TextEdit } from "vscode-languageserver";
 import { Replace, TrimEndFromLine, TrimStartFromLine } from "../Code/TextEdit";
-import { TextDocument } from "../Types/Document/TextDocument";
+import { TextDocument } from "../types/Document/TextDocument";
 
 /**
  *

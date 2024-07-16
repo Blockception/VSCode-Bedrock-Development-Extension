@@ -1,6 +1,6 @@
-import { ServerSettings } from "../Server/Settings/Settings";
-import { ExtensionState } from "./State";
-import { ExtensionCapabilities } from "./Capabilities";
+import { ServerSettings } from "../server/Settings/Settings";
+import { ExtensionState } from "./state";
+import { ExtensionCapabilities } from "./capabilities";
 import { Connection } from "vscode-languageserver/lib/common/server";
 import { Diagnostic } from "vscode-languageserver";
 import { TextDocuments } from "vscode-languageserver";

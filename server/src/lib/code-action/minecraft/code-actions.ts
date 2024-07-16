@@ -2,8 +2,8 @@ import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../builder";
 
 import * as BehaviorPack from "./behavior-pack/main";
-import * as General from "../../Minecraft/General/CodeAction";
-import * as ResourcePack from "../../Minecraft/ResourcePack";
+import * as General from "./general";
+import * as ResourcePack from "../../minecraft/ResourcePack";
 import * as Commands from "./commands/commands";
 
 /**

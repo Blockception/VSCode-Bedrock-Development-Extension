@@ -1,10 +1,10 @@
 import { OffsetWord } from "bc-vscode-words";
 import { SimpleContext } from "../../../Code";
 import { CompletionBuilder } from "../../builder/builder";
-import { Kinds } from "../../../Minecraft/General/Kinds";
+import { Kinds } from "../../../constants/kinds";
 import { GetCurrentAttribute } from "./attributes";
 import { IsEditingValue } from "./attribute-values";
-import { Database } from "../../../Database/Database";
+import { Database } from "../../../database/database";
 import { Boolean } from "../../general";
 
 import * as Float from "../../general/float";

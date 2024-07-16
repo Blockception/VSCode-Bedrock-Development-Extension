@@ -1,8 +1,8 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { TemplateBuilder } from "./Builder";
-import { Console } from "../../Manager/Console";
+import { Console } from "../../manager/console";
 import { Commands } from "@blockception/shared";
-import { Database } from "../../Database/Database";
+import { Database } from "../../database/database";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { GetContext, Context, EnsureContext } from "./Context";
 import { TemplateKeys, Templates } from "./Templates";

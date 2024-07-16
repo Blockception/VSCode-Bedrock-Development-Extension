@@ -1,6 +1,6 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { Console } from "../Manager/Console";
-import { Traverse } from "../Process/Traverse";
+import { Console } from "../manager/console";
+import { Traverse } from "../process/Traverse";
 
 export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
   Console.Log("Starting on diagnosing project");

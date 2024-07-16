@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./Database";
-export * from "./WorkspaceData";
+export * from "./database";
+export * from "./workspace-data";

@@ -1,5 +1,5 @@
 import { Pack, Util } from "bc-minecraft-bedrock-project";
-import { Glob } from "../Glob/Glob";
+import { Glob } from "../files/glob";
 
 export namespace MinecraftFormat {
   /**

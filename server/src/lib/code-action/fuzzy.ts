@@ -6,7 +6,7 @@ import {
   TextDocumentEdit,
   TextEdit,
 } from "vscode-languageserver";
-import { Database } from "../Database/Database";
+import { Database } from "../database/database";
 import { distance } from "fastest-levenshtein";
 
 export function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {

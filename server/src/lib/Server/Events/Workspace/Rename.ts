@@ -1,8 +1,8 @@
-import { Console, Manager } from "../../../Manager";
-import { Database } from "../../../Database/Database";
+import { Console, Manager } from "../../../manager";
+import { Database } from "../../../database/database";
 import { FileRename, RenameFilesParams } from "vscode-languageserver";
-import { GetDocument } from "../../../Types/Document/Document";
-import { Process } from "../../../Process/Process";
+import { GetDocument } from "../../../types/Document/Document";
+import { Process } from "../../../process/Process";
 import { Vscode } from "../../../Code/Url";
 
 //Files created

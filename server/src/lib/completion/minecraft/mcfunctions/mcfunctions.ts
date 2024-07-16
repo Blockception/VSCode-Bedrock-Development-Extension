@@ -2,7 +2,7 @@ import { Command } from "bc-minecraft-bedrock-command";
 import { CommandCompletionContext } from "../../builder/context";
 import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { IsEducationEnabled } from "../../../Project/Attributes";
+import { IsEducationEnabled } from "../../../project/Attributes";
 import { Position } from "vscode-languageserver-textdocument";
 import { SimpleContext } from "../../../Code/SimpleContext";
 

@@ -1,7 +1,7 @@
 import { Text } from 'bc-minecraft-bedrock-project';
 import { CodeAction, CodeActionKind, CodeActionParams, Command, Range } from "vscode-languageserver";
-import { GetDocument } from "../Types/Document/Document";
-import { TextDocument } from '../Types/Document/TextDocument';
+import { GetDocument } from "../types/Document/Document";
+import { TextDocument } from '../types/Document/TextDocument';
 
 /** */
 export class CodeActionBuilder {

@@ -2,7 +2,7 @@ import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItemKind } from "vscode-languageserver";
 import { GetCurrentAttribute } from "./attributes";
 import { IsEditingValue } from "./attribute-values";
-import { Kinds } from "../../../Minecraft/General/Kinds";
+import { Kinds } from "../../../constants/kinds";
 import { Modes } from 'bc-minecraft-bedrock-types';
 import { OffsetWord } from "bc-vscode-words";
 import { SimpleContext } from "../../../Code";

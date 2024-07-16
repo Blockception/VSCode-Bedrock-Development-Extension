@@ -3,9 +3,9 @@ import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnoserUtility as DiagnoserUtility } from "../Diagnostics/Diagnoser";
-import { Console } from "../Manager/Console";
-import { WorkspaceData } from "./WorkspaceData";
+import { DiagnoserUtility as DiagnoserUtility } from "../diagnostics/diagnoser";
+import { Console } from "../manager/console";
+import { WorkspaceData } from "./workspace-data";
 
 /** */
 export class Database {

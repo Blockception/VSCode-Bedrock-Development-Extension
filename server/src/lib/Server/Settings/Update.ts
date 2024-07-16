@@ -1,9 +1,9 @@
 import { DidChangeConfigurationParams } from "vscode-languageserver";
 import { Identification } from "@blockception/shared";
-import { Database } from "../../Database/Database";
-import { Console } from "../../Manager";
-import { Manager } from "../../Manager/Manager";
-import { GetProject } from "../../Project/MCProjects";
+import { Database } from "../../database/database";
+import { Console } from "../../manager";
+import { Manager } from "../../manager/manager";
+import { GetProject } from "../../project/MCProjects";
 import { ServerSettings } from "./Settings";
 
 export function OnConfigurationChanged(params: DidChangeConfigurationParams): void {

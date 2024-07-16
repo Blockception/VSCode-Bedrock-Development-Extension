@@ -2,9 +2,9 @@ import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifia
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../Database/Database";
-import { IsEducationEnabled } from "../../../Project/Attributes";
-import { Kinds } from "../../../Minecraft/General/Kinds";
+import { Database } from "../../../database/database";
+import { IsEducationEnabled } from "../../../project/Attributes";
+import { Kinds } from "../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The render controller: ${item.id}`;

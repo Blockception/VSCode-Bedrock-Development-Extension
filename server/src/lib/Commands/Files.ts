@@ -3,8 +3,8 @@ import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languag
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { URI } from "vscode-uri";
 import { Fs } from "../Code/Url";
-import { Manager } from "../Manager/Manager";
-import { GetDocument } from "../Types/Document/Document";
+import { Manager } from "../manager/manager";
+import { GetDocument } from "../types/Document/Document";
 
 /**
  *

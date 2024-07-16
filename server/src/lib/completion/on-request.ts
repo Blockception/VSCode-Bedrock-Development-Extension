@@ -6,8 +6,8 @@ import {
   CancellationToken,
   WorkDoneProgressReporter,
 } from "vscode-languageserver";
-import { Console } from "../Manager";
-import { GetDocument } from "../Types/Document/Document";
+import { Console } from "../manager";
+import { GetDocument } from "../types/Document/Document";
 import { Languages } from "@blockception/shared";
 import { SimpleContext } from "../Code/SimpleContext";
 

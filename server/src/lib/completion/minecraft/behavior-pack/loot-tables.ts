@@ -1,9 +1,9 @@
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../Database/Database";
+import { Database } from "../../../database/database";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { IsEducationEnabled } from "../../../Project/Attributes";
+import { IsEducationEnabled } from "../../../project/Attributes";
 import { JsonCompletionContext } from "../../builder/context";
-import { Kinds } from "../../../Minecraft/General/Kinds";
+import { Kinds } from "../../../constants/kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { SimpleContext } from "../../../Code/SimpleContext";
 

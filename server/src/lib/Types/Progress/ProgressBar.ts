@@ -1,5 +1,5 @@
 import { WorkDoneProgressReporter } from "vscode-languageserver";
-import { Manager } from '../../Manager/Manager';
+import { Manager } from '../../manager/manager';
 
 
 export class ProgressBar {

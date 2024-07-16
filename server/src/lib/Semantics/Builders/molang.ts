@@ -1,5 +1,5 @@
-import { TextDocument } from "../../Types/Document/TextDocument";
-import { BaseSemanticTokensBuilder } from "./BaseSemanticTokensBuilder";
+import { TextDocument } from "../../types/Document/TextDocument";
+import { BaseSemanticTokensBuilder } from "./base";
 
 /**
  *

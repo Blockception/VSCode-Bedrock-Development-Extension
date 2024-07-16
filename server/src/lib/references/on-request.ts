@@ -1,8 +1,8 @@
 import { ReferenceParams, Location } from "vscode-languageserver";
 import { Languages } from "@blockception/shared";
-import { Console } from "../Manager";
-import { Json, Mcfunction } from "../Minecraft";
-import { GetDocument } from "../Types/Document/Document";
+import { Console } from "../manager";
+import { Json, Mcfunction } from "../minecraft";
+import { GetDocument } from "../types/Document/Document";
 
 export async function onReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {
   return Console.request("References", Promise.resolve(onReferencesRequest(params)));

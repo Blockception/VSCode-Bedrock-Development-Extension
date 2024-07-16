@@ -5,7 +5,7 @@ import path from "path";
 import { WorkspaceFolder } from "vscode-languageserver-protocol";
 import { HandleError } from "../Code/Error";
 import { Fs } from "../Code/Url";
-import { Database } from "../Database/Database";
+import { Database } from "../database/database";
 import { Workspace } from "../workspace/workspace";
 
 export function StoreProject() {

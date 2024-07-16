@@ -1,5 +1,5 @@
-import { Database } from "../Database";
-import { FileBuilder } from "../Files/FileBuilder";
+import { Database } from "../database";
+import { FileBuilder } from "../files/file-builder";
 import { Fs, Vscode } from "../Code";
 import { FunctionContext, TemplateFunctions } from "./Functions";
 import { TemplateFallback } from "./Data";

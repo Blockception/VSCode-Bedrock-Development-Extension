@@ -1,8 +1,8 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { SimpleContext } from "../../../Code/SimpleContext";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../Database/Database";
-import { Kinds } from "../../../Minecraft/General";
+import { Database } from "../../../database/database";
+import { Kinds } from "../../../minecraft/general";
 import { JsonPathCompletion } from "../../builder";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {

@@ -1,6 +1,6 @@
 import * as jsonc from 'jsonc-parser';
 
-import { TextDocument } from '../../Types/Document';
+import { TextDocument } from '../../types/Document';
 
 export interface Path {
   path: string;

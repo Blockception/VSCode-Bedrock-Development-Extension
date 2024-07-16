@@ -1,11 +1,11 @@
-import { Console } from "../Manager/Console";
-import { GetDocument } from "../Types/Document/Document";
+import { Console } from "../manager/console";
+import { GetDocument } from "../types/Document/Document";
 import { Languages } from "@blockception/shared";
-import { provideJsonSemanticTokens } from "../Minecraft/Json/Semantics";
-import { provideMolangSemanticTokens } from "../Minecraft/Molang/Semantics";
+import { provideJsonSemanticTokens } from "../minecraft/json/Semantics";
+import { provideMolangSemanticTokens } from "./minecraft/molang/main";
 import { Range, SemanticTokens } from "vscode-languageserver/node";
 import { SemanticTokensParams, SemanticTokensRangeParams } from "vscode-languageserver/node";
-import * as Mcfunction from "../Minecraft/Mcfunction/Semantics";
+import * as Mcfunction from "./minecraft/mcfunctions";
 
 export async function onProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
   try {

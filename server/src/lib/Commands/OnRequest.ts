@@ -1,6 +1,6 @@
-import { AddAllItems } from "./Language";
+import { add_all_items } from "./Language";
 import { Commands } from "@blockception/shared";
-import { Console } from "../Manager";
+import { Console } from "../manager";
 import { Create } from "./Templates/Create";
 import { DiagnoseProjectCommand } from "./Diagnose Project";
 import { ExecuteCommandParams } from "vscode-languageserver";
@@ -48,7 +48,7 @@ function InternalCommandRequest(params: ExecuteCommandParams): any {
       return DiagnoseProjectCommand(params);
 
     case Commands.AddLanguageFile:
-      return AddAllItems(params);
+      return add_all_items(params);
 
     case Commands.MCProject.Create:
       return Workspace.CreateMCProject();

@@ -1,10 +1,10 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { Console } from "../Manager";
-import { Database } from "../Database/Database";
+import { Console } from "../manager";
+import { Database } from "../database/database";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, WorkspaceSymbolParams } from "vscode-languageserver";
 import { Fs, GetDirectory, GetFilename, Vscode } from "../Code";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
-import { Kinds } from "../Minecraft/General/Kinds";
+import { Kinds } from "../constants/kinds";
 import { SymbolBuilder } from "./builder";
 
 /**
