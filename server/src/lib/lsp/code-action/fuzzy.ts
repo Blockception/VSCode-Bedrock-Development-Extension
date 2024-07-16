@@ -1,12 +1,6 @@
+import { CodeAction, CodeActionKind, Diagnostic, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { CodeActionBuilder } from "./builder";
-import {
-  CodeAction,
-  CodeActionKind,
-  Diagnostic,
-  TextDocumentEdit,
-  TextEdit,
-} from "vscode-languageserver";
-import { Database } from "../database/database";
+import { Database } from "../../database/database";
 import { distance } from "fastest-levenshtein";
 
 export function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
