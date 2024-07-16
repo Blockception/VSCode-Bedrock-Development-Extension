@@ -1,9 +1,12 @@
-import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
-import { Languages } from "@blockception/shared";
 import { Console } from "../../manager";
-import { Language, Mcfunction, Molang } from "../../minecraft";
 import { GetDocument } from "../documents/document";
+import { Languages } from "@blockception/shared";
 import { provideJsonSignature } from "./json";
+import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
+
+import * as Language from "./minecraft/languages";
+import * as Mcfunction from "./minecraft/mcfunctions";
+import * as Molang from "./minecraft/molang/main";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
   return Console.request("Signature", Promise.resolve(OnSignatureRequest(params)));

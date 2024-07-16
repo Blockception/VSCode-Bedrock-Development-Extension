@@ -6,10 +6,10 @@ import { Documentated } from "bc-minecraft-bedrock-types/lib/src/types/documenta
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from "../../../../Code";
+import { SimpleContext } from "../../../../util";
+import { TemplateFilenames } from '../../../commands/templates/templates';
 
 import path from "path";
-import { TemplateFilenames } from "../../../../commands/Templates/Templates";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {
   const filename = path.basename(context.doc.uri);

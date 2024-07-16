@@ -1,6 +1,6 @@
 import { Database } from "../database";
 import { FileBuilder } from "../files/file-builder";
-import { Fs, Vscode } from "../Code";
+import { Fs, Vscode } from "../util";
 import { FunctionContext, TemplateFunctions } from "./functions";
 import { TemplateFallback } from "./data";
 

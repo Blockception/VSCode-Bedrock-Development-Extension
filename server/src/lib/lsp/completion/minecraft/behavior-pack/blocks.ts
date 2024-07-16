@@ -2,10 +2,10 @@ import { CompletionBuilder } from "../../builder/builder";
 import { Database } from "../../../../database/database";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../Code/SimpleContext";
-import { Kinds } from "../../../../minecraft/general";
 import { JsonPathCompletion } from '../../builder';
+import { Kinds } from "../../../../constants/kinds";
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { SimpleContext } from "../../../../util/simple-context";
 import * as BlockCulling from '../resource-pack/block-culling';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {

@@ -2,7 +2,7 @@ import * as fs from "fs";
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 import { URI } from "vscode-uri";
-import { Fs } from "../../Code/Url";
+import { Fs } from "../../util/url";
 import { Manager } from "../../manager/manager";
 import { GetDocument } from "../documents/document";
 

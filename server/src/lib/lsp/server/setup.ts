@@ -4,10 +4,10 @@ import { setupHandlers } from "./events/setup-handlers";
 import { onInitialize } from "./events/on-initialize";
 import { ServiceManager } from "../services/collection";
 import { Traverse } from "../process";
-import { HandleError } from "../../Code";
-import { UpdateSettings } from "./settings";
+import { HandleError } from "../../util";
 import { SetDynamicEvents } from "./events";
 import { ExtendedLogger } from "../../logger/logger";
+import { UpdateSettings } from './events/on-configuration';
 
 export function SetupServer() {
   // Create a connection for the server, using Node's IPC as a transport.

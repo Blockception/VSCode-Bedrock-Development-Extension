@@ -1,10 +1,13 @@
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../builder";
 
-import * as BehaviorPack from "./behavior-pack/main";
-import * as General from "./general";
-import * as ResourcePack from "../../minecraft/ResourcePack";
+import * as BP_AnimationControllers from "./behavior-pack/animation-controllers";
+import * as BP_Animations from "./behavior-pack/animations";
 import * as Commands from "./commands/commands";
+import * as Family from "./behavior-pack/families";
+import * as General from "./general";
+import * as RP_AnimationControllers from "./resource-pack/animation-controllers";
+import * as RP_Animations from "./resource-pack/animations";
 
 /**
  *
@@ -22,18 +25,18 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
 
   switch (subCode) {
     case "animation":
-      BehaviorPack.Animations.onCodeAction(builder, diag);
-      return ResourcePack.Animations.onCodeAction(builder, diag);
+      BP_Animations.onCodeAction(builder, diag);
+      return RP_Animations.onCodeAction(builder, diag);
 
     case "animation_controller":
-      BehaviorPack.AnimationControllers.onCodeAction(builder, diag);
-      return ResourcePack.AnimationControllers.onCodeAction(builder, diag);
+      BP_AnimationControllers.onCodeAction(builder, diag);
+      return RP_AnimationControllers.onCodeAction(builder, diag);
 
     case "anim_or_controller":
-      BehaviorPack.Animations.onCodeAction(builder, diag);
-      BehaviorPack.AnimationControllers.onCodeAction(builder, diag);
-      ResourcePack.Animations.onCodeAction(builder, diag);
-      return ResourcePack.AnimationControllers.onCodeAction(builder, diag);
+      BP_Animations.onCodeAction(builder, diag);
+      BP_AnimationControllers.onCodeAction(builder, diag);
+      RP_Animations.onCodeAction(builder, diag);
+      return RP_AnimationControllers.onCodeAction(builder, diag);
 
     case "commands":
       return Commands.onCodeAction(builder, diag);
@@ -42,7 +45,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
       return General.FakeEntity.onCodeAction(builder, diag);
 
     case "family":
-      return BehaviorPack.Family.onCodeAction(builder, diag);
+      return Family.onCodeAction(builder, diag);
 
     case "name":
       return General.Names.onCodeAction(builder, diag);
@@ -51,9 +54,9 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
       return General.Objectives.onCodeAction(builder, diag);
 
     case "tag":
-      return General.Tag.onCodeAction(builder, diag);
+      return General.Tags.onCodeAction(builder, diag);
 
     case "tickingarea":
-      return General.Tickingarea.onCodeAction(builder, diag);
+      return General.TickingAreas.onCodeAction(builder, diag);
   }
 }

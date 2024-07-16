@@ -1,9 +1,9 @@
+import { Database } from '../../database/database';
+import { GetCurrentString } from '../../minecraft/json/functions';
 import { Hover } from "vscode-languageserver";
 import { HoverParams, Range } from "vscode-languageserver-protocol";
-import { Database } from "../database/database";
-import { TextDocument } from "../types/Document/TextDocument";
-import { IsMolang } from "../minecraft/molang/functions";
-import { GetCurrentString } from '../minecraft/json/functions';
+import { IsMolang } from '../../minecraft/molang/functions';
+import { TextDocument } from '../documents/text-document';
 
 import * as Molang from "./minecraft/molang/main";
 

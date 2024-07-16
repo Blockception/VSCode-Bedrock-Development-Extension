@@ -18,7 +18,7 @@ import { DataCache } from '../caches';
 import { Glob } from '../../files';
 import { Console, Manager } from '../../manager';
 import { GetDocument } from '../documents';
-import { GetRange } from '../../Code';
+import { GetRange } from '../../util';
 
 export namespace DiagnoserUtility {
   /**Creates a new bedrock diagnoser

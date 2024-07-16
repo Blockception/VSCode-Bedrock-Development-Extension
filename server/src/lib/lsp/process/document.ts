@@ -1,6 +1,6 @@
 import { TextDocument } from "../documents/text-document";
 import { Database } from "../../database/database";
-import { HandleError } from "../../Code/Error";
+import { HandleError } from "../../util/error";
 import { provideDiagnostics } from "../diagnostics/on-request";
 import { Languages } from "@blockception/shared";
 import { Traverse } from "./traverse";

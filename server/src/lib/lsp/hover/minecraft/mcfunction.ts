@@ -1,11 +1,12 @@
 import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
-import { Database } from "../../database/database";
 import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/types";
 import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { IDataSet } from "bc-minecraft-bedrock-project";
-import { IsEducationEnabled } from '../../project/Attributes';
-import { RawText } from "../../minecraft/json";
-import { TextDocument } from "../../types/Document/TextDocument";
+import { TextDocument } from "../../documents/text-document";
+import { IsEducationEnabled } from "../../../project/attributes";
+import { Database } from "../../../database/database";
+
+import * as RawText from "./json/raw-text";
 
 /**
  *
@@ -40,7 +41,7 @@ export function provideHover(params: HoverParams, doc: TextDocument): Hover | un
       const T = command.parameters[Index];
 
       if (T) {
-        const pdoc = ParameterTypeDocumentation[p.type] ?? '';
+        const pdoc = ParameterTypeDocumentation[p.type] ?? "";
         const r = Range.create(doc.positionAt(T.offset), doc.positionAt(T.offset + T.text.length));
 
         if (Index == 0) {
@@ -95,14 +96,14 @@ function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string, a
   const title = parameter.text;
   const doc = `## ${title}\n${GetString(parameter.type) ?? ""}\n${additional}`;
 
-  return { contents: {kind: 'markdown', value: doc }, range: range };
+  return { contents: { kind: "markdown", value: doc }, range: range };
 }
 
 function GetString(type: ParameterType): string | undefined {
   switch (type) {
     case ParameterType.boolean:
       return "A boolean value (true or false)";
-      
+
     case ParameterType.command:
       return "A sub command to execute";
 
@@ -161,11 +162,16 @@ function GetString(type: ParameterType): string | undefined {
   return undefined;
 }
 
-function GetDocumentation<T extends Identifiable & Locatable>(query: string, range: Range, Collection: IDataSet<T>, additional: string): Hover | undefined {
-  let out : Hover | undefined = undefined;
+function GetDocumentation<T extends Identifiable & Locatable>(
+  query: string,
+  range: Range,
+  Collection: IDataSet<T>,
+  additional: string
+): Hover | undefined {
+  let out: Hover | undefined = undefined;
 
   Collection.forEach((item) => {
-    let doc : string;
+    let doc: string;
     if (Documentated.is(item) && item.documentation) {
       doc = item.documentation;
     } else {
@@ -173,7 +179,7 @@ function GetDocumentation<T extends Identifiable & Locatable>(query: string, ran
     }
 
     doc += "\n" + additional;
-    out = { contents: {kind:'markdown', value: doc}, range: range };
+    out = { contents: { kind: "markdown", value: doc }, range: range };
   });
 
   return out;

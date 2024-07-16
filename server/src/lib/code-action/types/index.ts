@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./Definition";
+export * from "./definition";

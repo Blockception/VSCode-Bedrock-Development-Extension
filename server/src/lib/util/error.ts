@@ -1,5 +1,5 @@
 import { Console } from "../manager/console";
-import { GetFilename } from "./File";
+import { GetFilename } from "./file";
 
 export function HandleError(error: any, doc: { uri: string } | string | undefined = undefined): void {
   let msg: string;

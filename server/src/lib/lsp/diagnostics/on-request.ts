@@ -1,12 +1,12 @@
 import { Pack } from "bc-minecraft-bedrock-project";
-import { Fs } from "../Code/Url";
-import { Database } from "../database/database";
-import { Console } from "../manager/console";
-import { Manager } from "../manager/manager";
-import { MinecraftFormat } from "../minecraft/Format";
-import { ForEachDocument } from "../types/Document/Document";
-import { TextDocument } from "../types/Document/TextDocument";
-import { ProgressBar } from "../types/Progress/ProgressBar";
+import { Fs } from "../../util/url";
+import { TextDocument } from '../documents/text-document';
+import { Manager } from '../../manager/manager';
+import { Database } from '../../database/database';
+import { ProgressBar } from '../progress/progress-bar';
+import { Console } from '../../manager/console';
+import { ForEachDocument } from '../documents/document';
+import { MinecraftFormat } from '../../minecraft/format';
 
 export function provideDiagnostics(doc: TextDocument): void {
   if (!Manager.State.DataGathered) return;

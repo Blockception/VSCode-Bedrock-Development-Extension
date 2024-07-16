@@ -1,7 +1,7 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
 import { Database } from "../../../database/database";
 import { Manager } from "../../../manager/manager";
-import { Vscode } from '../../../Code';
+import { Vscode } from '../../../util';
 
 export interface Context {
   BehaviorPack(): string;

@@ -3,7 +3,7 @@ import { create_language_files } from "./language";
 import { TemplateBuilder } from "./builder";
 import { Templates } from "./templates";
 import { TextEditBuilder } from "../commands/language";
-import { Vscode } from "../../../Code";
+import { Vscode } from "../../../util";
 
 /**
  *

@@ -1,8 +1,8 @@
-import { Data, MolangData, MolangFunction } from "bc-minecraft-molang";
+import { MolangData, MolangFunction } from "bc-minecraft-molang";
 import { Hover, HoverParams, Range } from "vscode-languageserver-protocol";
-import { Character } from "../../../Code/Character";
-import { TextDocument } from "../../../types/Document/TextDocument";
-import { TextRange } from "../../../minecraft/json/functions";
+import { TextDocument } from "../../../documents/text-document";
+import { TextRange } from "../../../../minecraft/json";
+import { Character } from "../../../../util";
 
 export function provideHover(doc: TextDocument, params: HoverParams): Hover | undefined {
   const line = doc.getLine(params.position.line);
@@ -119,7 +119,6 @@ function findGen(data: string, range: Range | undefined = undefined, items: Mola
       if (item.deprecated) {
         doc += `\n\n**Deprecated**: ${item.deprecated}`;
       }
-    
 
       return { contents: { value: doc, kind: "markdown" }, range: range };
     }

@@ -1,7 +1,7 @@
 import { Command, CommandInfo, ParameterInfo, ParameterType } from "bc-minecraft-bedrock-command";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { ParameterInformation, SignatureHelp, SignatureInformation } from "vscode-languageserver";
-import { SignatureCarrier } from "../../Carrier";
+import { SignatureCarrier } from "../../carrier";
 import { TextDocument } from "../../../documents/text-document";
 import * as RawText from "../json/raw-text";
 

@@ -5,7 +5,7 @@ import { IsEditingValue } from "./attribute-values";
 import { Kinds } from "../../../../constants/kinds";
 import { Modes } from 'bc-minecraft-bedrock-types';
 import { OffsetWord } from "bc-vscode-words";
-import { SimpleContext } from "../../../../Code";
+import { SimpleContext } from "../../../../util";
 
 import * as M from '../modes/modes';
 import * as Item from '../behavior-pack/items';

@@ -1,16 +1,19 @@
-import { Database } from '../../database/database';
+import { Database } from "../../../database/database";
 import { DefinitionParams, Location, Range, ReferenceParams } from "vscode-languageserver-protocol";
-import { GetCurrentElement } from "../../minecraft/json/functions";
-import { IsMolang } from '../../minecraft/molang/functions';
+import { GetCurrentElement } from "../../../minecraft/json/functions";
+import { IsMolang } from "../../../minecraft/molang/functions";
 import { OffsetWord } from "bc-vscode-words";
-import { ParameterType } from 'bc-minecraft-bedrock-command';
-import { References } from '../../Code/References';
-import { TextDocument } from "../documents/text-document";
+import { ParameterType } from "bc-minecraft-bedrock-command";
+import { References } from "../../../util/references";
+import { TextDocument } from "../../documents/text-document";
 
-import * as Command from './minecraft/commands';
-import * as Molang from './minecraft/molang/main';
+import * as Command from "./commands";
+import * as Molang from "./molang/main";
 
-export function provideReferences(doc: TextDocument, params: DefinitionParams | ReferenceParams): Location[] | undefined {
+export function provideReferences(
+  doc: TextDocument,
+  params: DefinitionParams | ReferenceParams
+): Location[] | undefined {
   const pos = params.position;
 
   const Text = doc.getText();
@@ -35,13 +38,14 @@ export function provideReferences(doc: TextDocument, params: DefinitionParams | 
     else {
       return Molang.provideReferences(value, doc, params);
     }
-  }
-  else {
+  } else {
     ReferencesInDocument(value, doc, Out);
 
     const out = Database.FindReference(value.text);
 
-    if (out) { Out.push(...References.ConvertLocation([out]))}
+    if (out) {
+      Out.push(...References.ConvertLocation([out]));
+    }
   }
 
   return Out;

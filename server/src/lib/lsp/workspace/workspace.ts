@@ -1,12 +1,12 @@
 import { Console } from "../../manager/console";
 import { Database } from "../../database/database";
-import { Fs } from "../../Code/Url";
+import { Fs } from "../../util/url";
 import { GetProject } from "../../project/mcprojects";
-import { HandleError } from "../../Code/Error";
+import { HandleError } from "../../util/error";
 import { lstatSync } from "fs";
 import { Manager } from "../../manager/manager";
 import { MCProject } from "bc-minecraft-project";
-import { MinecraftFormat } from "../../minecraft/Format";
+import { MinecraftFormat } from "../../minecraft/format";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { ProcessPack } from "../process/pack";
 import { QueueProcessor } from "@daanv2/queue-processor";

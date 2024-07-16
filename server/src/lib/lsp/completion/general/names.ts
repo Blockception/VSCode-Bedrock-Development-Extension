@@ -1,4 +1,4 @@
-import { SimpleContext } from "../../../Code/SimpleContext";
+import { SimpleContext } from "../../../util/simple-context";
 import { CompletionBuilder } from "../builder/builder";
 import { Kinds } from "../../../constants/kinds";
 

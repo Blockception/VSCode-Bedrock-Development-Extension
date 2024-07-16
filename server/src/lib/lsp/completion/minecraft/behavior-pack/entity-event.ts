@@ -3,9 +3,9 @@ import { CompletionBuilder } from "../../builder/builder";
 import { CommandCompletionContext } from "../../builder/context";
 import { Database } from "../../../../database/database";
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from '../../../../minecraft/general';
+import { Kinds } from '../../../../constants/kinds';
 
 /**
  *

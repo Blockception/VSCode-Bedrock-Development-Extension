@@ -1,4 +1,4 @@
-import { SimpleContext } from "../../../../Code";
+import { SimpleContext } from "../../../../util";
 import { CompletionBuilder } from "../../builder/builder";
 import { Database } from "../../../../database/database";
 import { GetCurrentString } from '../../../../minecraft/json/functions';

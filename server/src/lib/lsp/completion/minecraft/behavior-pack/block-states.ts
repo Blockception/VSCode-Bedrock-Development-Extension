@@ -1,16 +1,16 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
+import { CommandCompletionContext } from "../../builder/context";
 import { CompletionItemKind } from "vscode-languageserver-types";
+import { Database } from "../../../../database/database";
+import { GetPossibleBlockID } from "../../../../minecraft/commands";
+import { IsEditingValue } from "../selectors/attribute-values";
+import { IsEducationEnabled } from "../../../../project/attributes";
+import { Kinds } from "../../../../constants/kinds";
+import { Location } from "bc-minecraft-bedrock-types/lib/src/types";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { MolangSet } from "bc-minecraft-molang/lib/src/Molang";
 import { Types } from "bc-minecraft-bedrock-vanilla-data";
 
-import { CommandCompletionContext } from "../../builder/context";
-import { Database } from "../../../../database/database";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Location } from "bc-minecraft-bedrock-types/lib/src/types";
-import { MolangSet } from "bc-minecraft-molang/lib/src/Molang";
-import { GetPossibleBlockID } from "../../../../minecraft/commands";
-import { Kinds } from "../../../../minecraft/general";
-import { IsEditingValue } from "../selectors/attribute-values";
 
 export function provideCompletion(context: CommandCompletionContext): void {
   const block = GetPossibleBlockID(context.command, context.parameterIndex);

@@ -1,10 +1,10 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { CreateNamespaced, CreateRangeTokensWord } from "../Functions";
+import { CreateNamespaced, CreateRangeTokensWord } from "../functions";
 import { CreateSelectorTokens } from "./selectors";
 import { IsEducationEnabled } from "../../../project/attributes";
 import { McfunctionSemanticTokensBuilder } from "../builders";
 import { Position, Range, SemanticTokens } from "vscode-languageserver";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../Legend";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
 import { TextDocument } from "../../documents/text-document";
 
 export function provideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {

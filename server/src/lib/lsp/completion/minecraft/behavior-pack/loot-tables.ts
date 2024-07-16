@@ -5,7 +5,7 @@ import { IsEducationEnabled } from "../../../../project/attributes";
 import { JsonCompletionContext } from "../../builder/context";
 import { Kinds } from "../../../../constants/kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 
 import * as Items from "./items";
 

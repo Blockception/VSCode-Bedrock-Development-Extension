@@ -1,7 +1,7 @@
 import { Modes } from "bc-minecraft-bedrock-types";
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 import { CompletionBuilder } from "../../builder/builder";
 import { provideModeCompletion } from "../modes/modes";
 

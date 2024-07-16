@@ -4,7 +4,7 @@ import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 
 import * as Parameter from "../commands/parameters";
 import * as CCommand from "../commands/commands";

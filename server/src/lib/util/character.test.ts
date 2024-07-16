@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Character } from "./Character";
+import { Character } from "./character";
 
 describe("Character", () => {
   it("IsLetter", () => {

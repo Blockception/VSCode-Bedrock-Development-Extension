@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { DupeCheckAdd, removeDuplicate } from "./Array";
+import { DupeCheckAdd, removeDuplicate } from "./array";
 
 interface testobject {
   name: string;

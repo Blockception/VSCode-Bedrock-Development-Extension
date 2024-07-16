@@ -1,10 +1,10 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { ResourcePack, BehaviorPack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 import { CompletionBuilder } from "../../builder/builder";
 import { Database } from "../../../../database/database";
-import { Kinds } from '../../../../minecraft/general';
+import { Kinds } from '../../../../constants/kinds';
 import { Models } from '../resource-pack';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {

@@ -3,7 +3,7 @@ import { InsertReplaceEdit, Position, Range } from "vscode-languageserver";
 import { GetCurrentString, TextRange } from "../../../../minecraft/json/functions";
 import { JsonCompletionContext } from "../../builder/context";
 import { PackType } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 import { EntityEvent } from "../behavior-pack";
 
 import * as BehaviorPack from "../behavior-pack/main";

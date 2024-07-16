@@ -4,7 +4,7 @@ import { DefinitionParams, Location, ReferenceParams } from "vscode-languageserv
 import { MolangCarrier } from "bc-minecraft-bedrock-project";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang/MolangSet";
 import { OffsetWord } from "bc-vscode-words";
-import { References } from "../../../../Code/References";
+import { References } from "../../../../util/references";
 import { TextDocument } from "../../../documents/text-document";
 
 export function provideReferences(

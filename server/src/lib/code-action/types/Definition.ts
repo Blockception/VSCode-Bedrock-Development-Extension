@@ -1,13 +1,14 @@
-import { Commands } from '@blockception/shared';
+import { Commands } from "@blockception/shared";
 import { MCAttributes, MCDefinition } from "bc-minecraft-project";
 import { CodeAction, CodeActionKind, Command, Diagnostic } from "vscode-languageserver";
-import { Vscode } from "../../Code/Url";
+import { Vscode } from "../../util/url";
 import { Database } from "../../database/database";
 import { Console } from "../../manager/console";
 import { GetDocument } from "../../lsp/documents/document";
 import { CodeActionBuilder } from "../builder";
 
-/**Adds a given type and value to the definition
+/**
+ * Adds a given type and value to the definition
  * @param builder
  * @param diag
  * @param type

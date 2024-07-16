@@ -9,7 +9,7 @@ import {
 import { Console } from "../../manager";
 import { GetDocument } from "../documents/document";
 import { Languages } from "@blockception/shared";
-import { SimpleContext } from "../../Code/SimpleContext";
+import { SimpleContext } from "../../util/simple-context";
 
 import * as Json from "./minecraft/json/document";
 import * as Language from "./minecraft/language/language";

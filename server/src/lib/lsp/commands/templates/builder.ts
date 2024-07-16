@@ -12,7 +12,7 @@ import {
 import { Manager } from "../../../manager/manager";
 import { Range } from "vscode-languageserver-types";
 import { Console } from "../../../manager/console";
-import { Fs, Vscode } from "../../../Code/Url";
+import { Fs, Vscode } from "../../../util/url";
 
 import * as fs from "fs";
 

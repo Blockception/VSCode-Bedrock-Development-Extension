@@ -1,5 +1,5 @@
 import { OffsetWord } from "bc-vscode-words";
-import { SimpleContext } from "../../../../Code";
+import { SimpleContext } from "../../../../util";
 import { CompletionBuilder } from "../../builder/builder";
 import { Kinds } from "../../../../constants/kinds";
 import { GetCurrentAttribute } from "./attributes";

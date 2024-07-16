@@ -1,7 +1,7 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { WorldPack } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/World/WorldPack";
 import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { HandleError } from "../../../Code/Error";
+import { HandleError } from "../../../util/error";
 import { Console } from "../../../manager/console";
 import { Manager } from "../../../manager/manager";
 import { GetDocument } from "../../documents/document";

@@ -1,4 +1,4 @@
-import { SimpleContext } from "../../../Code";
+import { SimpleContext } from "../../../util";
 import { Console } from '../../../manager';
 import { getJsonPath } from "../../../minecraft/json/path";
 import { CompletionBuilder } from "./builder";

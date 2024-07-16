@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import path from "path";
-import { getExtension, GetFilename, GetParent } from "./File";
+import { getExtension, GetFilename, GetParent } from "./file";
 
 const Filename = "I am a filepath.json";
 const Extention = ".json";

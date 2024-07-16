@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Range } from "./Range";
+import { Range } from "./range";
 import * as vs from "vscode-languageserver-textdocument";
 import { Location } from "vscode-languageserver";
 

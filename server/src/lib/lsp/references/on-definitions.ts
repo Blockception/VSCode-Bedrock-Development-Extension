@@ -3,7 +3,7 @@ import { Languages } from "@blockception/shared";
 import { Console } from "../../manager";
 import { GetDocument } from "../documents/document";
 
-import * as Json from "./json";
+import * as Json from "./minecraft/json";
 import * as Mcfunction from "./minecraft/mcfunctions";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {

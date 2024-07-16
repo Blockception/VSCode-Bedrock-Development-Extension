@@ -3,7 +3,7 @@ import { Position } from "vscode-languageserver-textdocument";
 import * as JSONC from "comment-json";
 import * as Code from "./document";
 import { TextDocument } from "./text-document";
-import { HandleError } from "../../Code/Error";
+import { HandleError } from "../../util/error";
 
 /**
  *

@@ -1,6 +1,6 @@
 import { OffsetWord } from 'bc-vscode-words';
 import { expect } from 'chai';
-import { Offset } from './Offset';
+import { Offset } from './offset';
 
 
 describe("Offset", ()=>{

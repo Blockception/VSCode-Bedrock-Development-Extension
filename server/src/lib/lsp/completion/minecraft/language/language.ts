@@ -1,7 +1,7 @@
 import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {

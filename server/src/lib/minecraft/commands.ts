@@ -1,5 +1,5 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { Selector } from "./general";
+import * as Selectors from "./general/selectors";
 
 /**
  * Tries to determine the possible type of the entity in a command
@@ -24,7 +24,7 @@ export function GetPossibleEntityTypes(command: Command, maxIndex: number): stri
           break;
 
         case ParameterType.selector:
-          const item = Selector.getAttribute("type", command.parameters[J].text);
+          const item = Selectors.getAttribute("type", command.parameters[J].text);
 
           if (item) out.push(...item);
           break;

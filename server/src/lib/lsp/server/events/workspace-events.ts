@@ -14,7 +14,7 @@ import { Process } from "../../process";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Workspace } from "../../workspace";
 import { Database } from "../../../database";
-import { Vscode } from "../../../Code";
+import { Vscode } from "../../../util";
 
 // Workspace folder changed
 export async function OnWorkspaceFolderChangeAsync(params: WorkspaceFoldersChangeEvent): Promise<void> {

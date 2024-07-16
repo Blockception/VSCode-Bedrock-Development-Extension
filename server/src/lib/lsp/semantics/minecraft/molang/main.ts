@@ -4,7 +4,7 @@ import { JsonSemanticTokensBuilder, MolangSemanticTokensBuilder } from "../../bu
 import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { OffsetWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-textdocument";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../../Legend";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../../constants";
 import { SemanticTokens } from "vscode-languageserver/node";
 import { TextDocument } from "../../../documents/text-document";
 

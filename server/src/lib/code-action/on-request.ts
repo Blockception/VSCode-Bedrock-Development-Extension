@@ -1,4 +1,4 @@
-import { Attributes } from "./types/Definition";
+import { Attributes } from "./types/definition";
 import { CodeAction, CodeActionParams, Command, Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "./builder";
 import { Console } from "../manager";

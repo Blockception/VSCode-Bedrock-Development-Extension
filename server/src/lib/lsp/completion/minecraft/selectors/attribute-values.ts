@@ -1,6 +1,6 @@
 import { CommandCompletionContext } from "../../builder/context";
 import { CompletionItemKind } from "vscode-languageserver";
-import { Offset } from "../../../../Code";
+import { Offset } from "../../../../util";
 import { OffsetWord } from "bc-vscode-words";
 import { Modes } from "bc-minecraft-bedrock-types";
 import { Float, Names, Integer, Tags } from "../../general";

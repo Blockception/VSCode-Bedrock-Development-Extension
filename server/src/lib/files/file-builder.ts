@@ -10,7 +10,7 @@ import {
   ApplyWorkspaceEditResult,
   Range,
 } from "vscode-languageserver";
-import { Fs, Vscode } from "../Code";
+import { Fs, Vscode } from "../util";
 import { Console, Manager } from "../manager";
 import * as fs from "fs";
 

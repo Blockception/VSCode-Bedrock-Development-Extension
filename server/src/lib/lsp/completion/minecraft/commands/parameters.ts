@@ -1,5 +1,5 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 import { CompletionBuilder } from "../../builder/builder";
 import { CommandCompletionContext } from "../../builder/context";
 import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";

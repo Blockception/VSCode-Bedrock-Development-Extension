@@ -1,7 +1,7 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { ResourcePack, BehaviorPack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../Code/SimpleContext";
+import { SimpleContext } from "../../../../util/simple-context";
 import { CompletionBuilder } from "../../builder/builder";
 import { Database } from "../../../../database/database";
 import { Kinds } from "../../../../constants/kinds";

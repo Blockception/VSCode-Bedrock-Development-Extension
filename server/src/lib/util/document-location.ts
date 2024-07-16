@@ -1,7 +1,7 @@
 import * as vstd from "vscode-languageserver-textdocument";
 import { Types } from "bc-minecraft-bedrock-types";
 import { Range } from "vscode-languageserver";
-import { Character } from "./Character";
+import { Character } from "./character";
 
 /**
  *

@@ -1,4 +1,4 @@
-import { SimpleContext } from "../../../../Code";
+import { SimpleContext } from "../../../../util";
 import { CompletionBuilder } from "../..";
 import { ModeUtil } from "bc-minecraft-bedrock-types";
 import { CompletionItemKind } from "vscode-languageserver";

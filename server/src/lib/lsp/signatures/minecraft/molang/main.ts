@@ -1,4 +1,4 @@
-import { Offset } from "../../../../Code/Offset";
+import { Offset } from "../../../../util/offset";
 import { OffsetWord } from "bc-vscode-words";
 import { Position, SignatureHelp } from "vscode-languageserver";
 import { TextDocument } from "../../../documents/text-document";

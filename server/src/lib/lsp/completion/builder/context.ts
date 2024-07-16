@@ -1,5 +1,5 @@
 import { Command, CommandInfo, Parameter, ParameterInfo } from "bc-minecraft-bedrock-command";
-import { SimpleContext } from "../../../Code/SimpleContext";
+import { SimpleContext } from "../../../util/simple-context";
 import { TextRange } from "../../../minecraft/json/functions";
 import { IsEducationEnabled } from "../../../project/attributes";
 import { TextDocument } from "../../documents/text-document";
