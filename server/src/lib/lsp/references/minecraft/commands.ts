@@ -39,5 +39,5 @@ export function provideReferences(value: OffsetWord, params: DefinitionParams, d
   if (Types.length == 0) return undefined;
 
   //TODO add selector references
-  return References.ConvertLocation(Database.FindReferences(Text, Types));
+  return References.ConvertLocation(Database.findReferences(Text, Types));
 }

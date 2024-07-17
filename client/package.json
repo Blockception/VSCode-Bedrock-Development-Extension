@@ -30,13 +30,9 @@
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.9",
-    "@types/mocha": "^10.0.3",
     "@types/node": "^20.14.2",
     "@types/vscode": "^1.90.0",
-    "chai": "^4.3.10",
     "json-loader": "^0.5.7",
-    "mocha": "^10.1.0",
     "ts-loader": "^9.4.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",

@@ -1,5 +1,4 @@
-import { expect } from 'chai';
-import { getJsonPath } from './path';
+import { getJsonPath } from "./path";
 
 interface TestCase {
   element: string;
@@ -29,47 +28,47 @@ describe("JsonPath", () => {
   const properties: TestCase[] = [
     {
       element: "fog_identifier",
-      expectedPath: "minecraft:volume/components/minecraft:fog/fog_identifier"
+      expectedPath: "minecraft:volume/components/minecraft:fog/fog_identifier",
     },
     {
       element: "min",
-      expectedPath: "minecraft:volume/components/minecraft:bounds/min"
+      expectedPath: "minecraft:volume/components/minecraft:bounds/min",
     },
     {
       element: "max",
-      expectedPath: "minecraft:volume/components/minecraft:bounds/max"
+      expectedPath: "minecraft:volume/components/minecraft:bounds/max",
     },
     {
       element: "identifier",
-      expectedPath: "minecraft:volume/description/identifier"
+      expectedPath: "minecraft:volume/description/identifier",
     },
     {
       element: "format_version",
-      expectedPath: "format_version"
-    }
+      expectedPath: "format_version",
+    },
   ];
 
   properties.forEach(({ element, expectedPath }) => {
     const search = `"${element}":`;
     const index = json.indexOf(search);
 
-    it(`should return the correct path for ${element}`, () => {
+    test(`should return the correct path for ${element}`, () => {
       const result = getJsonPath(index, json);
-      expect(result.path).to.equal(expectedPath);
-      expect(result.isProperty).to.be.false;
+      expect(result.path).toEqual(expectedPath);
+      expect(result.isProperty).toBeFalsy;
     });
 
-    it(`should return the correct path for ${element}, if the cursor is after it`, () => {
+    test(`should return the correct path for ${element}, if the cursor is after it`, () => {
       const result = getJsonPath(index + search.length, json);
-      expect(result.path).to.equal(expectedPath);
-      expect(result.isProperty).to.be.true;
-    })
+      expect(result.path).toEqual(expectedPath);
+      expect(result.isProperty).toBeTruthy;
+    });
 
-    it(`should return the correct path for the cursor if before the property: ${element}`, () => {
+    test(`should return the correct path for the cursor if before the property: ${element}`, () => {
       const result = getJsonPath(index - 1, json);
-      expect(result.path).to.not.equal(expectedPath);
-      expect(expectedPath).to.contain(result.path);
-      expect(result.isProperty).to.be.false;
+      expect(result.path).not.toEqual(expectedPath);
+      expect(expectedPath).toContain(result.path);
+      expect(result.isProperty).toBeFalsy;
     });
   });
 });

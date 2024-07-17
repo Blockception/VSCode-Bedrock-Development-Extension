@@ -10,7 +10,7 @@ import { Workspace } from "../workspace/workspace";
 
 export async function Traverse(): Promise<Pack[]> {
   Console.Info("Traversing starting...");
-  Database.Clear();
+  Database.clear();
   Manager.State.TraversingProject = true;
   Manager.State.DataGathered = false;
 

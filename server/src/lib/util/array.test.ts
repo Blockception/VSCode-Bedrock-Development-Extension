@@ -1,64 +1,56 @@
-import { expect } from "chai";
 import { DupeCheckAdd, removeDuplicate } from "./array";
 
-interface testobject {
-  name: string;
-  mark: boolean;
-}
-
 describe("Array Functions", () => {
-  it("removeDuplicate string", () => {
-    var Items = ["string 1", "string 2", "string 3", "string 2"];
-
-    Items = removeDuplicate<string>(Items);
-
-    expect(Items.length).to.equal(3);
+  test("removeDuplicate string", () => {
+    const items = ["string 1", "string 2", "string 3", "string 2"];
+    const pruned = removeDuplicate<string>(items);
+    expect(pruned.length).toEqual(3);
   });
 
-  it("removeDuplicate number", () => {
-    var Items: number[] = [0, 1, 2, 1];
+  test("removeDuplicate number", () => {
+    const items: number[] = [0, 1, 2, 1];
 
-    Items = removeDuplicate<number>(Items);
+    const pruned = removeDuplicate<number>(items);
 
-    expect(Items.length).to.equal(3);
+    expect(pruned.length).toEqual(3);
   });
 
-  it("removeDuplicate boolean", () => {
-    var Items: boolean[] = [false, true, false];
+  test("removeDuplicate boolean", () => {
+    const items: boolean[] = [false, true, false];
 
-    Items = removeDuplicate<boolean>(Items);
+    const pruned = removeDuplicate<boolean>(items);
 
-    expect(Items.length).to.equal(2);
+    expect(pruned.length).toEqual(2);
   });
 
-  it("DupeCheckAdd string", () => {
-    var Items: string[] = [];
-    DupeCheckAdd(Items, "string 1");
-    DupeCheckAdd(Items, "string 2");
-    DupeCheckAdd(Items, "string 3");
-    DupeCheckAdd(Items, "string 2");
+  test("DupeCheckAdd string", () => {
+    const items: string[] = [];
+    DupeCheckAdd(items, "string 1");
+    DupeCheckAdd(items, "string 2");
+    DupeCheckAdd(items, "string 3");
+    DupeCheckAdd(items, "string 2");
 
-    expect(Items.length).to.equal(3);
+    expect(items.length).toEqual(3);
   });
 
-  it("DupeCheckAdd number", () => {
-    var Items: number[] = [];
+  test("DupeCheckAdd number", () => {
+    const items: number[] = [];
 
-    DupeCheckAdd(Items, 0);
-    DupeCheckAdd(Items, 1);
-    DupeCheckAdd(Items, 2);
-    DupeCheckAdd(Items, 1);
+    DupeCheckAdd(items, 0);
+    DupeCheckAdd(items, 1);
+    DupeCheckAdd(items, 2);
+    DupeCheckAdd(items, 1);
 
-    expect(Items.length).to.equal(3);
+    expect(items.length).toEqual(3);
   });
 
-  it("DupeCheckAdd boolean", () => {
-    var Items: boolean[] = [];
+  test("DupeCheckAdd boolean", () => {
+    const items: boolean[] = [];
 
-    DupeCheckAdd(Items, false);
-    DupeCheckAdd(Items, true);
-    DupeCheckAdd(Items, false);
+    DupeCheckAdd(items, false);
+    DupeCheckAdd(items, true);
+    DupeCheckAdd(items, false);
 
-    expect(Items.length).to.equal(2);
+    expect(items.length).toEqual(2);
   });
 });

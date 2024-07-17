@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import path from "path";
 import { getExtension, GetFilename, GetParent } from "./file";
 
@@ -8,21 +7,21 @@ const Parent = "C:\\temp";
 const Fullpath = path.join(Parent, Filename);
 
 describe("File", () => {
-  it("GetFilename", () => {
+  test("GetFilename", () => {
     const Fname = GetFilename(Fullpath);
 
-    expect(Fname).to.equal("I am a filepath");
+    expect(Fname).toEqual("I am a filepath");
   });
 
-  it("getExtension", () => {
+  test("getExtension", () => {
     const Ext = getExtension(Fullpath);
 
-    expect(Ext).to.equal(Extention);
+    expect(Ext).toEqual(Extention);
   });
 
-  it("GetParent", () => {
+  test("GetParent", () => {
     const P = GetParent(Fullpath);
 
-    expect(P).to.equal(Parent + path.sep);
+    expect(P).toEqual(Parent + path.sep);
   });
 });

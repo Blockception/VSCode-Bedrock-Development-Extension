@@ -21,7 +21,7 @@ export class Database {
   /**
    *
    */
-  static Clear(): void {
+  static clear(): void {
     Console.Info("Resetting database");
 
     Database.Diagnoser = DiagnoserUtility.createDiagnoser(() => Database.ProjectData);
@@ -41,7 +41,7 @@ export namespace Database {
    * @param id
    * @param callbackfn
    */
-  export function FindReference(id: string): BaseObject | undefined {
+  export function findReference(id: string): BaseObject | undefined {
     return Database.ProjectData.find((item) => item.id === id);
   }
 
@@ -50,7 +50,7 @@ export namespace Database {
    * @param id
    * @param callbackfn
    */
-  export function FindReferences(id: string, Types: ParameterType[] | undefined = undefined): BaseObject[] {
+  export function findReferences(id: string, Types: ParameterType[] | undefined = undefined): BaseObject[] {
     if (Types) return internalTypeSearch(id, Types);
 
     return internalSearchAll(id);
@@ -142,7 +142,7 @@ export namespace Database {
     return out;
   }
 
-  export function ForEach(callbackfn: (item: BaseObject) => void): Promise<void> {
+  export function forEach(callbackfn: (item: BaseObject) => void): Promise<void> {
     const packs: forEachfn<BaseObject>[][] = [
       [Database.ProjectData.General],
       Database.ProjectData.BehaviorPacks.packs,

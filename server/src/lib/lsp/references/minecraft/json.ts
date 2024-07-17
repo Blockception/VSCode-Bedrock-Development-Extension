@@ -32,7 +32,7 @@ export function provideReferences(
     }
     //Event
     else if (value.text.startsWith("@")) {
-      return References.ConvertLocation(Database.FindReferences(value.text.slice(2).trim(), [ParameterType.event]));
+      return References.ConvertLocation(Database.findReferences(value.text.slice(2).trim(), [ParameterType.event]));
     }
     //Molang
     else {
@@ -41,7 +41,7 @@ export function provideReferences(
   } else {
     ReferencesInDocument(value, doc, Out);
 
-    const out = Database.FindReference(value.text);
+    const out = Database.findReference(value.text);
 
     if (out) {
       Out.push(...References.ConvertLocation([out]));

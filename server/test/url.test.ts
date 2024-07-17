@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { URI } from "vscode-uri";
 import { Fs, Vscode } from "../src/lib/util/url";
 
@@ -26,10 +25,7 @@ describe("URL", () => {
         Fs.FromVscode(URI.file(path.resolve(__dirname, "files", "example.entity.json")).path),
       ];
 
-      for (let I = 0; I < files.length; I++) {
-        const f = files[I];
-        it(f, () => CheckFile(f, true));
-      }
+      test.each(files)("check file: $file", (file) => CheckFile(file, true));
     });
   });
 });
@@ -37,19 +33,19 @@ describe("URL", () => {
 function CheckFolder(folder: string, result: boolean) {
   if (result) {
     //console.log("checking folder exists: " + folder);
-    expect(fs.existsSync(folder), folder).to.be.true;
-    expect(fs.lstatSync(folder).isFile()).to.be.false;
+    expect(fs.existsSync(folder)).toBeTruthy;
+    expect(fs.lstatSync(folder).isFile()).toBeFalsy;
   } else {
-    expect(fs.existsSync(folder), folder).to.be.false;
+    expect(fs.existsSync(folder)).toBeFalsy;
   }
 }
 
 function CheckFile(file: string, result: boolean) {
   if (result) {
     //console.log("checking file exists: " + file);
-    expect(fs.existsSync(file), file).to.be.true;
-    expect(fs.lstatSync(file).isFile()).to.be.true;
+    expect(fs.existsSync(file)).toBeTruthy;
+    expect(fs.lstatSync(file).isFile()).toBeTruthy;
   } else {
-    expect(fs.existsSync(file), file).to.be.false;
+    expect(fs.existsSync(file)).toBeFalsy;
   }
 }

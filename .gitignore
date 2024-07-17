@@ -8,6 +8,7 @@ dist/
 log.txt
 out
 node_modules
+coverage
 client/server
 .vscode-test
 /documentation/cheat-sheet/*.html
