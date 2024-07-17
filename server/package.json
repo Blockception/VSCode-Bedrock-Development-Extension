@@ -40,9 +40,11 @@
     "fastest-levenshtein": "^1.0.16",
     "jsonc-parser": "^3.3.1",
     "node": "^22.4.1",
-    "uuid": "^10.0.0",
+    "picomatch": "^4.0.2",
     "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-protocol": "^3.17.5",
     "vscode-languageserver-textdocument": "^1.0.11",
+    "vscode-languageserver-types": "^3.17.5",
     "vscode-uri": "^3.0.8"
   },
   "devDependencies": {
