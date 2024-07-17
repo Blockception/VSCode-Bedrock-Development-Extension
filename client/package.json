@@ -16,7 +16,7 @@
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
     "pretest": "npm run compile",
-    "test": "mocha -r ts-node/register '**/*.test.ts'",
+    "test": "jest",
     "update": "npm update && npm audit fix"
   },
   "engines": {
@@ -24,13 +24,15 @@
   },
   "dependencies": {
     "@blockception/shared": "^0.0.1",
+    "@types/jest": "^29.5.12",
     "bc-minecraft-bedrock-project": "^1.21.1-2",
     "bc-minecraft-bedrock-vanilla-data": "^1.21.1-3",
     "node": "^22.3.0",
+    "ts-jest": "^29.2.2",
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.11",
     "@types/vscode": "^1.90.0",
     "json-loader": "^0.5.7",
     "ts-loader": "^9.4.4",
