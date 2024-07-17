@@ -1,2 +1,2 @@
-export * from './Constants';
+export * from './constants';
 export * from './minecraft'
