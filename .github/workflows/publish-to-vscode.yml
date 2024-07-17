@@ -1,6 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 name: 📦 Publish To Vscode
 
+env:
+  FORCE_COLOR: true
+
 on:
   workflow_dispatch:
   push:
