@@ -6,7 +6,6 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "compile": "npm run build",
-    "test": "jest"
+    "compile": "npm run build"
   }
 }
