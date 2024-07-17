@@ -31,6 +31,8 @@ CONTRIBUTING.md
 contributing.mdp
 Debugging.md
 documentation/**
+server/coverage/**
+client/coverage/**
 log.txt
 minecraft colours.json
 NOTE.md
@@ -52,6 +54,7 @@ webpack.config.js
 **/tsconfig.json
 **/webpack.config.js
 **/package-lock.json
+
 
 !documentation/cheat-sheet
 !documentation/cheat-sheet/*html
