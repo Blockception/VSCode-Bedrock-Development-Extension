@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "lib": ["ES2019"],
     "module": "commonjs",
     "moduleResolution": "node",
