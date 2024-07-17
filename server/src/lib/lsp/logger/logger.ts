@@ -5,15 +5,21 @@ export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger>;
 
 export class ExtendedLogger implements IExtendedLogger {
   private logger: ILogger;
+  private prefix: string;
+  private additionals: any[];
 
-  constructor(logger: ILogger) {
+  constructor(logger: ILogger, prefix: string = "", additionals: any[] = []) {
     this.logger = logger;
+    this.prefix = prefix;
+    this.additionals = additionals;
   }
 
   private render(base: string, ...messages: any[]): string {
-    messages = messages.map((m) => (typeof m === "object" ? JSON.stringify(m, undefined, 2) : `${m}`));
+    messages = [...messages, ...this.additionals].map((m) =>
+      typeof m === "object" ? JSON.stringify(m, undefined, 2) : `${m}`
+    );
 
-    return `${base} ${messages.join(" ")}`;
+    return `${this.prefix} ${base} ${messages.join(" ")}`;
   }
 
   /**
@@ -59,5 +65,23 @@ export class ExtendedLogger implements IExtendedLogger {
    */
   debug(message: string, ...additionals: any[]): void {
     this.logger.debug(this.render(message, ...additionals));
+  }
+
+  /**
+   * Adds a prefix to all the logging
+   * @param prefix The prefix to add
+   * @returns A new logger
+   */
+  withPrefix(prefix: string): IExtendedLogger {
+    return new ExtendedLogger(this.logger, this.prefix + prefix, this.additionals);
+  }
+
+  /**
+   * Adds the given additionals to the logger
+   * @param additionals The additional objects to add
+   * @returns Returns a new logger
+   */
+  with(...additionals: any): IExtendedLogger {
+    return new ExtendedLogger(this.logger, this.prefix, [...this.additionals, ...additionals]);
   }
 }
