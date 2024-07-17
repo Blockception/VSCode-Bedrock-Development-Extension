@@ -27,7 +27,7 @@ export function provideReferences(
       break;
 
     case "geometry":
-      return References.ConvertLocation([Database.FindReference(text.text)]);
+      return References.ConvertLocation([Database.findReference(text.text)]);
 
     case "math":
       break;

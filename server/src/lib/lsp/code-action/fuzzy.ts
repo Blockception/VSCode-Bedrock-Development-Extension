@@ -20,7 +20,7 @@ export function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): Promis
     { id: "", distance: max },
   ];
 
-  return Database.ForEach((item) => {
+  return Database.forEach((item) => {
     if (items.findIndex((i) => i.id === item.id) > -1) return;
 
     const dist = distance(id, item.id);

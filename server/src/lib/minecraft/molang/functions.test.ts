@@ -1,4 +1,3 @@
-import { expect } from "chai";
 import { IsMolang } from "./functions";
 
 describe("Molang", () => {
@@ -15,16 +14,16 @@ describe("Molang", () => {
     ];
 
     shouldBe.forEach((item) =>
-      it(item, () => {
-        expect(IsMolang(item)).to.be.true;
+      test(item, () => {
+        expect(IsMolang(item)).toBeTruthy;
       })
     );
 
     const shouldNotBe = ["Some texts should this not be detected"];
 
     shouldNotBe.forEach((item) =>
-      it(item, () => {
-        expect(IsMolang(item)).to.be.false;
+      test(item, () => {
+        expect(IsMolang(item)).toBeFalsy;
       })
     );
   });

@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "lib": ["ES2019"],
     "module": "commonjs",
     "moduleResolution": "node",
@@ -20,10 +21,9 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "target": "es2019",
-    "types": ["node", "mocha"],
-    "forceConsistentCasingInFileNames": true
+    "types": ["node", "jest"]
   },
-  "exclude": ["node_modules", ".vscode-test", "*.test.ts"],
+  "exclude": ["node_modules", ".vscode-test", "*.test.ts", "__tests__"],
   "include": ["./src"],
   "references": [
     { "path": "../shared" }

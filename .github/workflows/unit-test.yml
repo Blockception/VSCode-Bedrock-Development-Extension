@@ -1,6 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 name: 📋 Unit Test
 
+env:
+  FORCE_COLOR: true
+
 on:
   workflow_dispatch: {}
   workflow_call: {}
@@ -35,4 +38,3 @@ jobs:
         run: |
           npx vsce package
           echo "Size of package: $(du -h *.vsix | cut -f1)" >> $GITHUB_STEP_SUMMARY
-

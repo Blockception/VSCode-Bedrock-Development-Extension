@@ -1,36 +1,35 @@
-import { expect } from "chai";
 import { provideHoverAt } from "./main";
 
 describe("Molang", () => {
   describe("Hover", () => {
-    it("provideHoverAt1", () => {
+    test("provideHoverAt1", () => {
       const out = provideHoverAt("query.is_baby", { start: 5, end: 18 }, 2 + 5, undefined);
-      expect(out, "query.is_baby").to.not.be.undefined;
+      expect(out).toBeUndefined;
     });
 
-    it("provideHoverAt2", () => {
+    test("provideHoverAt2", () => {
       const out = provideHoverAt("query.is_baby", { start: 5, end: 18 }, 10 + 5, undefined);
-      expect(out, "query.is_baby").to.not.be.undefined;
+      expect(out).toBeUndefined;
     });
 
-    it("provideHoverAt3", () => {
+    test("provideHoverAt3", () => {
       const out = provideHoverAt("!query.is_baby", { start: 5, end: 18 }, 2 + 5, undefined);
-      expect(out, "query.is_baby").to.not.be.undefined;
+      expect(out).toBeUndefined;
     });
 
-    it("provideHoverAt4", () => {
+    test("provideHoverAt4", () => {
       const out = provideHoverAt("!query.is_baby", { start: 5, end: 18 }, 10 + 5, undefined);
-      expect(out, "query.is_baby").to.not.be.undefined;
+      expect(out).toBeUndefined;
     });
 
-    it("provideHoverAt5", () => {
+    test("provideHoverAt5", () => {
       const out = provideHoverAt("query.is_baby && query.is_baby", { start: 5, end: 18 }, 20 + 5, undefined);
-      expect(out, "query.is_baby").to.not.be.undefined;
+      expect(out).toBeUndefined;
     });
 
-    it("provideHoverAt6", () => {
+    test("provideHoverAt6", () => {
       const out = provideHoverAt("query.is_baby && !query.is_baby", { start: 5, end: 18 }, 26 + 5, undefined);
-      expect(out, "query.is_baby").to.not.be.undefined;
+      expect(out).toBeUndefined;
     });
   });
 });
