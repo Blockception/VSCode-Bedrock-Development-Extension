@@ -1,8 +1,7 @@
-import { readdirSync } from 'fs';
-import path = require('path');
+import { readdirSync } from "fs";
+import path = require("path");
 
-
-export function findInFolder(base: string, find: string) : string | undefined {
+export function findInFolder(base: string, find: string): string | undefined {
   const folders = readdirSync(base);
 
   for (let I = 0; I < folders.length; I++) {
@@ -12,4 +11,6 @@ export function findInFolder(base: string, find: string) : string | undefined {
       return path.join(base, f);
     }
   }
+
+  return undefined;
 }
