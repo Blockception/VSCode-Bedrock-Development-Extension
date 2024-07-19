@@ -7,7 +7,9 @@ import { Traverse } from "../process";
 import { HandleError } from "../../util";
 import { SetDynamicEvents } from "./events";
 import { ExtendedLogger } from "../logger/logger";
-import { updateSettings } from './events/on-configuration';
+import { updateSettings } from "./events/on-configuration";
+import { ExtensionContext } from "../extension/context";
+import { CapabilityBuilder } from "../services/capabilities";
 
 export function SetupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -16,6 +18,7 @@ export function SetupServer() {
   Manager.Connection = connection;
 
   const logger = new ExtendedLogger(connection.console);
+  const extensionContext = new ExtensionContext();
   const service = new ServiceManager(logger);
 
   logger.info("starting minecraft server");
@@ -30,7 +33,9 @@ export function SetupServer() {
   //Initialize
   connection.onInitialize((params) => {
     const result = onInitialize(params);
-    service.onInitialize(params, result, connection);
+    const builder = new CapabilityBuilder(result.capabilities);
+    service.onInitialize(builder, params, connection);
+    result.capabilities = builder.result();
     return result;
   });
 

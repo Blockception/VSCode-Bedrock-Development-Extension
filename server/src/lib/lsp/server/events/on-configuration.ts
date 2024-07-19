@@ -1,20 +1,22 @@
-import { DidChangeConfigurationParams } from "vscode-languageserver";
-import { Identification } from "@blockception/shared";
-import { Database } from "../../../database/database";
 import { Console } from "../../../manager";
-import { Manager } from "../../../manager/manager";
+import { Database } from "../../../lsp/database/database";
+import { DidChangeConfigurationParams } from "vscode-languageserver";
 import { GetProject } from "../../../project/mcprojects";
+import { Identification } from "@blockception/shared";
+import { Manager } from "../../../manager/manager";
 import { ServerSettings } from "../settings";
 
 export async function onDidChangeConfigurationAsync(params: DidChangeConfigurationParams): Promise<void> {
-  return Promise.resolve(onDidChangeConfiguration(params));
+  onDidChangeConfiguration(params);
 }
 
 export function onDidChangeConfiguration(params: DidChangeConfigurationParams): void {
+  Console.Info("onDidChangeConfiguration: " + JSON.stringify(params, undefined, 2));
   updateSettings();
 }
 
 export function onConfigurationChanged(params: DidChangeConfigurationParams): void {
+  Console.Info("onConfigurationChanged: " + JSON.stringify(params, undefined, 2));
   updateSettings();
 }
 

@@ -1,4 +1,5 @@
 import { BulkRegistration, Connection, InitializeParams, InitializeResult } from "vscode-languageserver";
+import { CapabilityBuilder } from "./capabilities";
 
 /**
  * Represents a service that can be registered and initialized
@@ -22,10 +23,11 @@ export interface IService {
 
   /**
    * Initializes the service, the service should add to the receiver
+   * @param capabilities The capabilities the server can do
    * @param params The initialization parameters
-   * @param receiver The receiver to add the service to
+   * @param connection The lsp connection
    */
-  onInitialize(params: InitializeParams, receiver: InitializeResult, connection: Connection): void;
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void;
 
   /**
    * Starts the service, called after initialization
