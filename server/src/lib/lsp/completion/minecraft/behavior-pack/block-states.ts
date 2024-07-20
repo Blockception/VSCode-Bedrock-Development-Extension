@@ -1,7 +1,7 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { CommandCompletionContext } from "../../builder/context";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { GetPossibleBlockID } from "../../../../minecraft/commands";
 import { IsEditingValue } from "../selectors/attribute-values";
 import { IsEducationEnabled } from "../../../../project/attributes";

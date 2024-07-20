@@ -1,5 +1,5 @@
 import { BaseObject } from "bc-minecraft-bedrock-types/lib/src/types/base-object";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { DefinitionParams, Location, ReferenceParams } from "vscode-languageserver-protocol";
 import { MolangCarrier } from "bc-minecraft-bedrock-project";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang/MolangSet";

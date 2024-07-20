@@ -1,6 +1,6 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Console } from "../../manager";
-import { Database } from "../../database/database";
+import { Database } from "../../lsp/database/database";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, WorkspaceSymbolParams } from "vscode-languageserver";
 import { Fs, GetDirectory, GetFilename, Vscode } from "../../util";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";

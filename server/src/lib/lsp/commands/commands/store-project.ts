@@ -1,4 +1,4 @@
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { Fs } from "../../../util/url";
 import { HandleError } from "../../../util/error";

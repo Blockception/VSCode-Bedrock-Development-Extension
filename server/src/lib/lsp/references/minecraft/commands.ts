@@ -3,7 +3,7 @@ import { OffsetWord } from "bc-vscode-words";
 import { DefinitionParams } from "vscode-languageserver";
 import { Location } from "vscode-languageserver-types";
 import { References } from "../../../util/references";
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 import { IsEducationEnabled } from "../../../project/attributes";
 import { TextDocument } from "../../documents/text-document";
 

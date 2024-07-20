@@ -1,6 +1,6 @@
 import * as vscode from "vscode-languageserver-textdocument";
 import * as mcbe from "bc-minecraft-bedrock-project";
-import { Database } from "../../database/database";
+import { Database } from "../../lsp/database/database";
 import { MCProject } from "bc-minecraft-project";
 import { MCProjectprovider } from '../../project/interfaces';
 

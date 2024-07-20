@@ -1,5 +1,5 @@
 import { ExecuteCommandParams } from "vscode-languageserver";
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 import { Manager } from "../../../manager/manager";
 import { Vscode } from '../../../util';
 

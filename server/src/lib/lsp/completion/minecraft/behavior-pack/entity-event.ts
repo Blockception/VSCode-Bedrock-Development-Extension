@@ -1,7 +1,7 @@
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { CompletionBuilder } from "../../builder/builder";
 import { CommandCompletionContext } from "../../builder/context";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { SimpleContext } from "../../../../util/simple-context";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";

@@ -1,5 +1,5 @@
 
-import { Database } from '../../../database/database';
+import { Database } from '../../../lsp/database/database';
 import { GetCurrentString } from '../../../minecraft/json/functions';
 import { Hover } from "vscode-languageserver";
 import { HoverParams, Range } from "vscode-languageserver-protocol";

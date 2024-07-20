@@ -1,6 +1,6 @@
 import { CommandCompletionContext } from "../../builder/context";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { GetPossibleEntityTypes } from '../../../../minecraft/commands';
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from '../../../../constants/kinds';

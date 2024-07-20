@@ -2,7 +2,7 @@ import { TemplateBuilder } from "./builder";
 import * as path from "path";
 import { Pack, Util } from 'bc-minecraft-bedrock-project';
 import { generate_bp, generate_rp, generate_wp, TextEditBuilder } from '../commands/language';
-import { Database } from '../../../database/database';
+import { Database } from '../../../lsp/database/database';
 
 export const LanguageNames: string[] = [
   "en_US",

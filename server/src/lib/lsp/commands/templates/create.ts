@@ -2,7 +2,7 @@ import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { TemplateBuilder } from "./builder";
 import { Console } from "../../../manager/console";
 import { Commands } from "@blockception/shared";
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { GetContext, Context, EnsureContext } from "./context";
 import { TemplateKeys, Templates } from "./templates";

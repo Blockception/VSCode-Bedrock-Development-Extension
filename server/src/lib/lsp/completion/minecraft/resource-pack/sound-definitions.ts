@@ -1,6 +1,6 @@
 import { SimpleContext } from "../../../../util";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { GetCurrentString } from '../../../../minecraft/json/functions';
 import { provideSoundFileCompletion } from './sounds';
 

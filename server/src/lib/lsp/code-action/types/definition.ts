@@ -3,7 +3,7 @@ import { MCAttributes, MCDefinition } from "bc-minecraft-project";
 import { CodeAction, CodeActionKind, Command, Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../builder";
 import { GetDocument } from "../../documents/document";
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 import { Console } from "../../../manager";
 import { Vscode } from "../../../util";
 

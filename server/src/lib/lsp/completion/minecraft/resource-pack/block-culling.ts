@@ -1,6 +1,6 @@
 import { SimpleContext } from "../../../../util";
 import { CompletionBuilder, JsonPathCompletion } from "../../builder";
-import { Database } from "../../../../database";
+import { Database } from "../../../../lsp/database";
 import { Kinds } from "../../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
