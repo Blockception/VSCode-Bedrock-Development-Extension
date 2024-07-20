@@ -10,8 +10,9 @@ import { ExtendedLogger } from "../logger/logger";
 import { updateSettings } from "./events/on-configuration";
 import { ExtensionContext } from "../extension/context";
 import { CapabilityBuilder } from "../services/capabilities";
+import { CompletionService } from '../completion/service';
 
-export function SetupServer() {
+export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
   // Also include all preview / proposed LSP features.
   const connection = createConnection(ProposedFeatures.all);
@@ -19,7 +20,10 @@ export function SetupServer() {
 
   const logger = new ExtendedLogger(connection.console);
   const extensionContext = new ExtensionContext();
-  const service = new ServiceManager(logger);
+  const manager = new ServiceManager(logger);
+  manager.add(
+    new CompletionService(logger, extensionContext)
+  )
 
   logger.info("starting minecraft server");
   setupHandlers();
@@ -27,14 +31,14 @@ export function SetupServer() {
   // On shutdown handler
   connection.onShutdown(() => {
     logger.info("Shutting down server");
-    service.dispose();
+    manager.dispose();
   });
 
   //Initialize
   connection.onInitialize((params) => {
     const result = onInitialize(params);
     const builder = new CapabilityBuilder(result.capabilities);
-    service.onInitialize(builder, params, connection);
+    manager.onInitialize(builder, params, connection);
     result.capabilities = builder.result();
     return result;
   });
@@ -49,10 +53,10 @@ export function SetupServer() {
     //Registers any follow ups
     const register = BulkRegistration.create();
     SetDynamicEvents(register);
-    service.dynamicRegister(register);
+    manager.dynamicRegister(register);
     await connection.client.register(register);
 
-    service.start();
+    manager.start();
 
     return Traverse().catch((err) => HandleError(err));
   });

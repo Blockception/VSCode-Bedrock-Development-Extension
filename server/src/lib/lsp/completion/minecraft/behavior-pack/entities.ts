@@ -9,6 +9,7 @@ import { JsonPathCompletion } from "../../builder/json-path";
 
 import * as Animations from "./animations";
 import * as AnimationControllers from "./animation-controllers";
+import * as EntityComponentGroups from "./entity-component-groups";
 import * as LootTables from "./loot-tables";
 import * as Item from "./items";
 import * as Trading from "./trading";
@@ -58,6 +59,10 @@ const entityJsonCompletion = new JsonPathCompletion(
     onCompletion: (c) => {
       Animations.provideCompletion(c);
       AnimationControllers.provideCompletion(c);
-    }
+    },
+  },
+  {
+    match: /\/component_groups\/(\d+)$/,
+    onCompletion: EntityComponentGroups.provideCompletion,
   }
 );
