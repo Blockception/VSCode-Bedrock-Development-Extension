@@ -19,7 +19,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
 
-  builder.generate(Database.ProjectData.ResourcePacks.entities, generateDoc);
+  builder.generate(context.projectData.ResourcePacks.entities, generateDoc);
   builder.generate(MinecraftData.vanilla.ResourcePack.entities, generateV);
 
   //Education data
@@ -59,7 +59,7 @@ const entityRpJsonCompletion = new JsonPathCompletion(
   {
     match: (path) => path.includes("minecraft:client_entity/description/scripts/animate/"),
     onCompletion: (context: SimpleContext<CompletionBuilder>) => {
-      const data =  Database.ProjectData.ResourcePacks.entities.find((entity) => entity.location.uri === context.doc.uri);
+      const data =  context.projectData.ResourcePacks.entities.find((entity) => entity.location.uri === context.doc.uri);
       if (data === undefined) return;
 
        context.builder.generate(data.animations.defined, (item) => `The rp entity animation: ${item}`, Kinds.Completion.Animation);

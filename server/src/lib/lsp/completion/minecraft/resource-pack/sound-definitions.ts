@@ -17,5 +17,5 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, cur
 
   provideSoundFileCompletion(context);
 
-  Database.ProjectData.ResourcePacks;
+  context.projectData.ResourcePacks;
 }

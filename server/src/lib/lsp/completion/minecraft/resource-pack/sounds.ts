@@ -12,7 +12,7 @@ import { MinecraftFormat } from "../../../../minecraft/format";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
 
-  context.builder.generate(Database.ProjectData.ResourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
+  context.builder.generate(context.projectData.ResourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
 
   //Generate for vanilla data
   const generateV = (item: string) => `The vanilla sound: ${item}`;

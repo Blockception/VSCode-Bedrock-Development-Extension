@@ -13,7 +13,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
       return;
 
     case PackType.resource_pack:
-      Database.ProjectData.ResourcePacks.entities.forEach((entity) =>
+      context.projectData.ResourcePacks.entities.forEach((entity) =>
         GenerateDU(entity.molang.textures, context.builder, entity.id)
       );
   }

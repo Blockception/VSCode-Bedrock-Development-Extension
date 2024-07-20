@@ -9,7 +9,7 @@ import { Kinds } from "../../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The model: ${item.id}`;
 
-  context.builder.generate(Database.ProjectData.ResourcePacks.models, generateDoc, Kinds.Completion.Models);
+  context.builder.generate(context.projectData.ResourcePacks.models, generateDoc, Kinds.Completion.Models);
 
   //Generate for vanilla data
   const generateV = (item: Identifiable) => `The vanilla model: ${item}`;

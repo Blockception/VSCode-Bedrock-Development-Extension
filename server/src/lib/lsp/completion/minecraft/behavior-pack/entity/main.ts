@@ -18,7 +18,7 @@ import * as Sounds from "../../resource-pack/sounds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The entity definition: ${item.id}`;
 
-  context.builder.generate(Database.ProjectData.BehaviorPacks.entities, generateDoc, Kinds.Completion.Entity);
+  context.builder.generate(context.projectData.BehaviorPacks.entities, generateDoc, Kinds.Completion.Entity);
 
   //Vanilla data
   context.builder.generate(MinecraftData.vanilla.BehaviorPack.entities, generateDoc, Kinds.Completion.Entity);

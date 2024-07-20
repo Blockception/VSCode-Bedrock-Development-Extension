@@ -1,7 +1,6 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { CommandCompletionContext } from "../../builder/context";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { Database } from "../../../../lsp/database/database";
 import { GetPossibleBlockID } from "../../../../minecraft/commands";
 import { IsEditingValue } from "../selectors/attribute-values";
 import { IsEducationEnabled } from "../../../../project/attributes";
@@ -20,7 +19,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
     if (block) {
       let b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined;
 
-      if ((b = Database.ProjectData.BehaviorPacks.blocks.get(block))) provideDefaultCompletion(b, context);
+      if ((b = context.projectData.BehaviorPacks.blocks.get(block))) provideDefaultCompletion(b, context);
       if ((b = vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu))))
         provideDefaultCompletion(b, context);
     }
@@ -30,12 +29,12 @@ export function provideCompletion(context: CommandCompletionContext): void {
   }
 
   if (block) {
-    provideBlockCompletion(Database.ProjectData.BehaviorPacks.blocks.get(block), context);
+    provideBlockCompletion(context.projectData.BehaviorPacks.blocks.get(block), context);
     return provideBlockCompletion(vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu)), context);
   }
 
   //return all
-  Database.ProjectData.BehaviorPacks.blocks.forEach((block) => provideStateCompletion(block.states, context));
+  context.projectData.BehaviorPacks.blocks.forEach((block) => provideStateCompletion(block.states, context));
 
   provideStateCompletion(MinecraftData.General.Blocks.block_states, context);
 }

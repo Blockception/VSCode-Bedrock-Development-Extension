@@ -9,7 +9,7 @@ import { IsEducationEnabled } from "../../../../project/attributes";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The texture: ${item.id}`;
 
-  context.builder.generate(Database.ProjectData.ResourcePacks.textures, generateDoc, Kinds.Completion.Texture);
+  context.builder.generate(context.projectData.ResourcePacks.textures, generateDoc, Kinds.Completion.Texture);
 
   //Generate for vanilla data
   const generateV = (item: string) => `The vanilla texture: ${item}`;

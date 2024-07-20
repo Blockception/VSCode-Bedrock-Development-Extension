@@ -2,7 +2,6 @@ import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifia
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { SimpleContext } from "../../../../util/simple-context";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../lsp/database/database";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from "../../../../constants/kinds";
 
@@ -11,10 +10,10 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const builder = context.builder;
 
   //Project data
-  builder.generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
+  builder.generate(context.projectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
 
   //spawn_eggs
-  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+  context.projectData.BehaviorPacks.entities.forEach((entity) => {
     builder.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
   });
 
@@ -39,7 +38,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   //Custom block items
   builder.generate(
-    Database.ProjectData.BehaviorPacks.blocks,
+    context.projectData.BehaviorPacks.blocks,
     (item: Identifiable) => `The block-item definition: ${item.id}`,
     Kinds.Completion.Block
   );

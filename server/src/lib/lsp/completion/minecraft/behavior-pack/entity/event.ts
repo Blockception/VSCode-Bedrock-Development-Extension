@@ -19,7 +19,7 @@ export function provideCompletion(context: CommandCompletionContext | SimpleCont
 
     if (Index >= 0) {
       const EntityID = parameters[Index].text;
-      const Entity = Database.ProjectData.BehaviorPacks.entities.get(EntityID);
+      const Entity = context.projectData.BehaviorPacks.entities.get(EntityID);
 
       if (Entity) {
         Convert(Entity, context.builder);
@@ -28,7 +28,7 @@ export function provideCompletion(context: CommandCompletionContext | SimpleCont
     }
   }
 
-  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => Convert(entity, context.builder));
+  context.projectData.BehaviorPacks.entities.forEach((entity) => Convert(entity, context.builder));
 
   const generateDoc = (item: string) => `The vanilla entity event: ${item}`;
   context.builder.generate(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);

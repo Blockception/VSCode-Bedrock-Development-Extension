@@ -10,5 +10,5 @@ export function provideCompletion(context: CommandCompletionContext): void {
     return `The dummy entity: ${fakeEntities.id}\nLocation: ${filename}`;
   };
 
-  context.builder.generate(Database.ProjectData.General.fakeEntities, generateDoc, Kinds.Completion.FakeEntity);
+  context.builder.generate(context.projectData.General.fakeEntities, generateDoc, Kinds.Completion.FakeEntity);
 }

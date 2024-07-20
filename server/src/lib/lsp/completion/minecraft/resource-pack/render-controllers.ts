@@ -9,7 +9,7 @@ import { Kinds } from "../../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The render controller: ${item.id}`;
 
-  context.builder.generate(Database.ProjectData.ResourcePacks.render_controllers, generateDoc, Kinds.Completion.RenderController);
+  context.builder.generate(context.projectData.ResourcePacks.render_controllers, generateDoc, Kinds.Completion.RenderController);
 
   //Generate for vanilla data
   const generateV = (item: string) => `The vanilla render controller: ${item}`;

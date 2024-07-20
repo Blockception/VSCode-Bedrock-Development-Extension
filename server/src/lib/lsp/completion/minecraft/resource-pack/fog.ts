@@ -9,7 +9,7 @@ import { Kinds } from "../../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The fog: ${item.id}`;
 
-  context.builder.generate(Database.ProjectData.ResourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
+  context.builder.generate(context.projectData.ResourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
 
   //Generate for vanilla data
   const generateV = (item: string) => `The vanilla fog: ${item}`;

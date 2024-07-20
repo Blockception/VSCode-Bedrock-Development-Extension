@@ -1,5 +1,4 @@
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../lsp/database/database";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { JsonCompletionContext } from "../../builder/context";
@@ -41,7 +40,7 @@ function generate_items(context: SimpleContext<CompletionBuilder>) {
   const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
   const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
-  builder.generate(Database.ProjectData.BehaviorPacks.loot_tables, generateDoc);
+  builder.generate(context.projectData.BehaviorPacks.loot_tables, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
 
   //Education data

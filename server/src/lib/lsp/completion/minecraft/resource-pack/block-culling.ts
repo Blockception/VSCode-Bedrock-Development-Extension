@@ -6,7 +6,7 @@ import { Kinds } from "../../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-  builder.generate(Database.ProjectData.ResourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
+  builder.generate(context.projectData.ResourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
 }
 
 export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
@@ -18,7 +18,7 @@ const blockCullingRPJsonCompletion = new JsonPathCompletion({
   onCompletion: (context: SimpleContext<CompletionBuilder>) => {
     const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-    Database.ProjectData.ResourcePacks.models.forEach((model) => {
+    context.projectData.ResourcePacks.models.forEach((model) => {
       builder.generate(model.bones, () => `Bone defined by ${model.id}`);
     });
   },

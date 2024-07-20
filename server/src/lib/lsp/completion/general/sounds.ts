@@ -6,7 +6,7 @@ import { Kinds } from "../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   context.builder.generate(
-    Database.ProjectData.ResourcePacks.sounds, 
+    context.projectData.ResourcePacks.sounds, 
     (item: Identifiable) => `The custom sound definition: '${item.id}'`, 
     Kinds.Completion.Sound);
 }

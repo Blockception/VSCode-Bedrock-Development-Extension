@@ -1,17 +1,16 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../util/simple-context";
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../lsp/database/database";
+import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from "../../../../constants/kinds";
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { SimpleContext } from "../../../../util/simple-context";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The trading table: ${item.id}`;
   const generatesDoc = (item: string) => `The vanilla trading table: ${item}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Trading });
 
-  builder.generate(Database.ProjectData.BehaviorPacks.trading, generateDoc);
+  builder.generate(context.projectData.BehaviorPacks.trading, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.trading, generatesDoc);
 
   //Education data

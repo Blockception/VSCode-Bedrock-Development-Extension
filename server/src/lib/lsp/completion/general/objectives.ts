@@ -19,6 +19,6 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   };
 
   //From project data
-  builder.generate(Database.ProjectData.General.objectives, generateDoc, Kinds.Completion.Objectives);
+  builder.generate(context.projectData.General.objectives, generateDoc, Kinds.Completion.Objectives);
   builder.generate(data.definitions.objective?.defined, generateDoc, Kinds.Completion.Objectives);
 }

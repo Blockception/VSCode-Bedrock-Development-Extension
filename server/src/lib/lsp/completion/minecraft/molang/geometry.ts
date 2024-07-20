@@ -37,7 +37,7 @@ export function provideResourcepackCompletion(context: SimpleContext<CompletionB
     case ResourcePack.FileType.animation_controller:
     case ResourcePack.FileType.render_controller:
       //Using defined geometries
-      Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
+      context.projectData.ResourcePacks.entities.forEach((entity) => {
         const gen = (item: string) => `The defined geomtry: ${item}\nDeclared by: ${entity.id}`;
         builder.generate(entity.molang.geometries.defined, gen, kind);
       });
@@ -56,7 +56,7 @@ export function provideBehaviorpackCompletion(context: SimpleContext<CompletionB
     case BehaviorPack.FileType.entity:
       //Using model geometries
       const gen = (item: ResourcePack.Model.Model) => `The geomtry: ${item}\nDeclared in: ${item.location.uri}`;
-      builder.generate(Database.ProjectData.ResourcePacks.models, gen, kind);
+      builder.generate(context.projectData.ResourcePacks.models, gen, kind);
 
       builder.generate(Vanilla.ResourcePack.Models, (item) => `Vanilla model: ${item.id}`, kind);
       break;

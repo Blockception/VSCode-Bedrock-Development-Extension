@@ -10,7 +10,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const generateDoc = (item: Identifiable) => `The particle: ${item.id}`;
   const generateV = (item: string) => `The vanilla particle: ${item}`;
 
-  context.builder.generate(Database.ProjectData.ResourcePacks.particles, generateDoc, Kinds.Completion.Particle);
+  context.builder.generate(context.projectData.ResourcePacks.particles, generateDoc, Kinds.Completion.Particle);
   context.builder.generate(MinecraftData.vanilla.ResourcePack.particles, generateV, Kinds.Completion.Particle);
 
   //Education data

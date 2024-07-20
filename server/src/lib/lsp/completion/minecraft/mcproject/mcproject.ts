@@ -119,39 +119,39 @@ function provideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Posi
 
     switch (definition) {
       case "block":
-        return Database.ProjectData.BehaviorPacks.blocks.forEach((block) => add(context, block));
+        return context.projectData.BehaviorPacks.blocks.forEach((block) => add(context, block));
 
       case "entity":
-        return Database.ProjectData.BehaviorPacks.entities.forEach((entity) => add(context, entity));
+        return context.projectData.BehaviorPacks.entities.forEach((entity) => add(context, entity));
 
       case "family":
-        return Database.ProjectData.BehaviorPacks.entities.forEach((entity) =>
+        return context.projectData.BehaviorPacks.entities.forEach((entity) =>
           entity.families.forEach((family) => add(context, family))
         );
 
       case "function":
-        return Database.ProjectData.BehaviorPacks.functions.forEach((funct) => add(context, funct));
+        return context.projectData.BehaviorPacks.functions.forEach((funct) => add(context, funct));
 
       case "item":
-        return Database.ProjectData.BehaviorPacks.items.forEach((item) => add(context, item));
+        return context.projectData.BehaviorPacks.items.forEach((item) => add(context, item));
 
       case "loot_table":
-        return Database.ProjectData.BehaviorPacks.loot_tables.forEach((loot_table) => add(context, loot_table));
+        return context.projectData.BehaviorPacks.loot_tables.forEach((loot_table) => add(context, loot_table));
 
       case "name":
-        return Database.ProjectData.General.fakeEntities.forEach((entity) => add(context, entity));
+        return context.projectData.General.fakeEntities.forEach((entity) => add(context, entity));
 
       case "objective":
-        return Database.ProjectData.General.objectives.forEach((obj) => add(context, obj));
+        return context.projectData.General.objectives.forEach((obj) => add(context, obj));
 
       case "structure":
-        return Database.ProjectData.BehaviorPacks.structures.forEach((structure) => add(context, structure));
+        return context.projectData.BehaviorPacks.structures.forEach((structure) => add(context, structure));
 
       case "tag":
-        return Database.ProjectData.General.tags.forEach((tag) => add(context, tag));
+        return context.projectData.General.tags.forEach((tag) => add(context, tag));
 
       case "tickingarea":
-        return Database.ProjectData.General.tickingAreas.forEach((tickingarea) => add(context, tickingarea));
+        return context.projectData.General.tickingAreas.forEach((tickingarea) => add(context, tickingarea));
     }
 
     return;
