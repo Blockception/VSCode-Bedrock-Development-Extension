@@ -1,4 +1,4 @@
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 import { Console } from "../../../manager/console";
 import { Traverse } from "../../process/traverse";
 

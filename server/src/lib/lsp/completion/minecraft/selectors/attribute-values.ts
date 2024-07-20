@@ -5,7 +5,7 @@ import { OffsetWord } from "bc-vscode-words";
 import { Modes } from "bc-minecraft-bedrock-types";
 import { Float, Names, Integer, Tags } from "../../general";
 
-import * as Entities from "../behavior-pack/entities";
+import * as Entities from "../behavior-pack/entity/main";
 import * as Family from "../behavior-pack/families";
 import * as M from "../modes/modes";
 

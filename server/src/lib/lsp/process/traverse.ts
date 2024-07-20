@@ -1,7 +1,7 @@
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { HandleError } from "../../util/error";
-import { Database } from "../../database/database";
+import { Database } from "../../lsp/database/database";
 import { providePackDiagnostics } from "../diagnostics/on-request";
 import { Console } from "../../manager/console";
 import { Manager } from "../../manager/manager";

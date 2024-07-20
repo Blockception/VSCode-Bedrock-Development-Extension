@@ -1,5 +1,5 @@
 import { TextDocument } from "../documents/text-document";
-import { Database } from "../../database/database";
+import { Database } from "../../lsp/database/database";
 import { HandleError } from "../../util/error";
 import { provideDiagnostics } from "../diagnostics/on-request";
 import { Languages } from "@blockception/shared";

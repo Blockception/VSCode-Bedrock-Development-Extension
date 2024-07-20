@@ -1,5 +1,5 @@
 import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { JsonPathCompletion } from '../../builder';

@@ -1,7 +1,7 @@
 import { RemoteConsole } from "vscode-languageserver";
 
 export type ILogger = Pick<RemoteConsole, "error" | "warn" | "info" | "log" | "debug">;
-export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger>;
+export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger | "with" | "withPrefix">;
 
 export class ExtendedLogger implements IExtendedLogger {
   private logger: ILogger;

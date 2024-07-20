@@ -1,5 +1,5 @@
 import { Console } from "../../manager/console";
-import { Database } from "../../database/database";
+import { Database } from "../../lsp/database/database";
 import { Fs } from "../../util/url";
 import { GetProject } from "../../project/mcprojects";
 import { HandleError } from "../../util/error";

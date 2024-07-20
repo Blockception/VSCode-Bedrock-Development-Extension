@@ -1,7 +1,7 @@
 import { Boolean } from "../../general";
 import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { Documentated } from "bc-minecraft-bedrock-types/lib/src/types/documentated";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";

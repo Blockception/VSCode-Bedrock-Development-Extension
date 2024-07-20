@@ -13,7 +13,7 @@ import { Glob } from "../../../files";
 import { Process } from "../../process";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Workspace } from "../../workspace";
-import { Database } from "../../../database";
+import { Database } from "../../../lsp/database";
 import { Vscode } from "../../../util";
 
 // Workspace folder changed

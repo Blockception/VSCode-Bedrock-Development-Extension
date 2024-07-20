@@ -3,8 +3,8 @@ import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnoserUtility as DiagnoserUtility } from "../lsp/diagnostics/diagnoser";
-import { Console } from "../manager/console";
+import { DiagnoserUtility as DiagnoserUtility } from "../diagnostics/diagnoser";
+import { Console } from "../../manager/console";
 import { WorkspaceData } from "./workspace-data";
 
 /** */

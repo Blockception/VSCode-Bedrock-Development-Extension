@@ -2,7 +2,7 @@ import { Pack } from "bc-minecraft-bedrock-project";
 import { Fs } from "../../util/url";
 import { TextDocument } from '../documents/text-document';
 import { Manager } from '../../manager/manager';
-import { Database } from '../../database/database';
+import { Database } from '../../lsp/database/database';
 import { ProgressBar } from '../progress/progress-bar';
 import { Console } from '../../manager/console';
 import { ForEachDocument } from '../documents/document';

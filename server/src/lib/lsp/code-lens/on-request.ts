@@ -6,7 +6,7 @@ import { Languages } from "@blockception/shared";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Types } from "bc-minecraft-bedrock-types";
 import { GetDocument, TextDocument } from '../documents';
-import { Database } from '../../database';
+import { Database } from '../../lsp/database';
 
 /**
  *

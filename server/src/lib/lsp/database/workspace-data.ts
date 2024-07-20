@@ -1,6 +1,6 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { GetProjectEmpty } from "../project/mcprojects";
+import { GetProjectEmpty } from '../../project/mcprojects';
 
 /**
  *

@@ -33,7 +33,7 @@ export async function onCompletionResolveRequestAsync(params: CompletionItem): P
  * @param params
  * @returns
  */
-function onCompletionRequest(
+export function onCompletionRequest(
   params: CompletionParams,
   token: CancellationToken,
   workDoneProgress: WorkDoneProgressReporter

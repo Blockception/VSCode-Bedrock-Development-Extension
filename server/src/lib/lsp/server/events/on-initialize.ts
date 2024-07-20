@@ -52,11 +52,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports hover support
       hoverProvider: true,
 
-      // Tell the client that this server supports code completion.
-      completionProvider: {
-        resolveProvider: false,
-        triggerCharacters: triggerCharacters,
-      },
+
 
       // Tell the client that this server supports go to references
       referencesProvider: {

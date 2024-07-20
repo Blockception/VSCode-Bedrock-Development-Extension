@@ -4,7 +4,7 @@ import { CompletionBuilder } from "../../builder/builder";
 import { Kinds } from "../../../../constants/kinds";
 import { GetCurrentAttribute } from "./attributes";
 import { IsEditingValue } from "./attribute-values";
-import { Database } from "../../../../database/database";
+import { Database } from "../../../../lsp/database/database";
 import { Boolean } from "../../general";
 
 import * as Float from "../../general/float";

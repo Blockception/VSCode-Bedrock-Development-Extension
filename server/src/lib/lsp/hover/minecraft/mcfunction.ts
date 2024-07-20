@@ -4,7 +4,7 @@ import { HoverParams, Hover, Range } from "vscode-languageserver";
 import { IDataSet } from "bc-minecraft-bedrock-project";
 import { TextDocument } from "../../documents/text-document";
 import { IsEducationEnabled } from "../../../project/attributes";
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 
 import * as RawText from "./json/raw-text";
 

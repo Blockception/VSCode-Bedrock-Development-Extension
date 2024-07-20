@@ -1,4 +1,4 @@
-import { Database } from "../../../database/database";
+import { Database } from "../../../lsp/database/database";
 import { DefinitionParams, Location, Range, ReferenceParams } from "vscode-languageserver-protocol";
 import { GetCurrentElement } from "../../../minecraft/json/functions";
 import { IsMolang } from "../../../minecraft/molang/functions";
