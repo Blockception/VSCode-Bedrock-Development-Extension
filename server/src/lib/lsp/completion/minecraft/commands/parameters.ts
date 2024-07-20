@@ -24,20 +24,20 @@ export function provideCompletion(context: CommandCompletionContext): void {
     //Accepted values
     if (parameter.options.acceptedValues) {
       parameter.options.acceptedValues.forEach((value) => {
-        context.receiver.add({ label: value, documentation: "accepted values", kind: CompletionItemKind.EnumMember });
+        context.builder.add({ label: value, documentation: "accepted values", kind: CompletionItemKind.EnumMember });
       });
     }
 
     //Wildcard
     if (parameter.options.wildcard) {
-      context.receiver.add({ label: "*", documentation: "wild card", kind: CompletionItemKind.Constant });
+      context.builder.add({ label: "*", documentation: "wild card", kind: CompletionItemKind.Constant });
     }
   }
 
   //Adding explanation text
   const ncontext = {
     ...context,
-    receiver: context.receiver.withEvents((item) => {
+    receiver: context.builder.withEvents((item) => {
       const doc = ParameterTypeDocumentation[context.parameter.type];
       if (!doc) return;
 
@@ -57,7 +57,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
 }
 
 function toCompletion(context: CommandCompletionContext): void {
-  context.receiver.add({
+  context.builder.add({
     label: context.parameter.text,
     documentation: "The keyword: " + context.parameter.text,
     kind: CompletionItemKind.Keyword,

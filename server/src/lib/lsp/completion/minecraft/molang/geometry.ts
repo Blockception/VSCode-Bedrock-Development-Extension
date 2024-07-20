@@ -21,7 +21,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
 export function provideResourcepackCompletion(context: SimpleContext<CompletionBuilder>): void {
   const fileType = ResourcePack.FileType.detect(context.doc.uri);
-  const receiver = context.receiver;
+  const builder = context.builder;
   const kind = Kinds.Completion.Models;
 
   switch (fileType) {
@@ -39,7 +39,7 @@ export function provideResourcepackCompletion(context: SimpleContext<CompletionB
       //Using defined geometries
       Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
         const gen = (item: string) => `The defined geomtry: ${item}\nDeclared by: ${entity.id}`;
-        receiver.generate(entity.molang.geometries.defined, gen, kind);
+        builder.generate(entity.molang.geometries.defined, gen, kind);
       });
       break;
   }
@@ -47,7 +47,7 @@ export function provideResourcepackCompletion(context: SimpleContext<CompletionB
 
 export function provideBehaviorpackCompletion(context: SimpleContext<CompletionBuilder>): void {
   const fileType = BehaviorPack.FileType.detect(context.doc.uri);
-  const receiver = context.receiver;
+  const builder = context.builder;
   const kind = Kinds.Completion.Models;
 
   switch (fileType) {
@@ -56,9 +56,9 @@ export function provideBehaviorpackCompletion(context: SimpleContext<CompletionB
     case BehaviorPack.FileType.entity:
       //Using model geometries
       const gen = (item: ResourcePack.Model.Model) => `The geomtry: ${item}\nDeclared in: ${item.location.uri}`;
-      receiver.generate(Database.ProjectData.ResourcePacks.models, gen, kind);
+      builder.generate(Database.ProjectData.ResourcePacks.models, gen, kind);
 
-      receiver.generate(Vanilla.ResourcePack.Models, (item) => `Vanilla model: ${item.id}`, kind);
+      builder.generate(Vanilla.ResourcePack.Models, (item) => `Vanilla model: ${item.id}`, kind);
       break;
   }
 }

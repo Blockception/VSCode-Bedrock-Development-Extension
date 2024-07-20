@@ -5,7 +5,7 @@ import { Database } from "../../../lsp/database/database";
 import { Kinds } from "../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  context.receiver.generate(
+  context.builder.generate(
     Database.ProjectData.ResourcePacks.sounds, 
     (item: Identifiable) => `The custom sound definition: '${item.id}'`, 
     Kinds.Completion.Sound);

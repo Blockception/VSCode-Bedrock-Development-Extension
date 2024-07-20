@@ -1,8 +1,7 @@
 import { Manager } from "../../../manager/manager";
-import { onCodeActionAsync, onCodeActionResolveAsync } from '../../code-action';
-import { onCodeLensRequest } from '../../code-lens';
+import { onCodeActionAsync, onCodeActionResolveAsync } from "../../code-action";
+import { onCodeLensRequest } from "../../code-lens";
 import { onCommandRequestAsync } from "../../commands/on-request";
-import { onCompletionRequestAsync } from "../../completion/on-request";
 import { onConfigurationChanged, onDidChangeConfigurationAsync } from "./on-configuration";
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../references/on-definitions";
 import { OnDocumentChangedAsync } from "./on-documents";
@@ -41,14 +40,10 @@ export function setupHandlers() {
   // This handler provides code lens
   Connection.onCodeLens(onCodeLensRequest);
 
-  // This handler provides completion items.
-  Connection.onCompletion(onCompletionRequestAsync);
-  //Connection.onCompletionResolve(onCompletionResolveRequestAsync);
-  Connection.onImplementation(onImplementationRequestAsync);
-
   // This handler provides go to definitions
   Connection.onDefinition(onDefinitionRequestAsync);
   Connection.onTypeDefinition(onTypeDefinitionRequestAsync);
+  Connection.onImplementation(onImplementationRequestAsync);
 
   // This handler provides formatting
   Connection.onDocumentFormatting(OnDocumentFormatRequestAsync);

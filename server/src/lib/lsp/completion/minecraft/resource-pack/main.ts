@@ -19,7 +19,7 @@ export function provideJsonCompletion(context: JsonCompletionContext) {
 
   checkFiles({
     ...context,
-    receiver: context.receiver.withEvents((item) => {
+    builder: context.builder.withEvents((item) => {
       item.insertText = item.insertText ?? item.label;
       item.insertText = santizeValue(item.insertText);
     }),

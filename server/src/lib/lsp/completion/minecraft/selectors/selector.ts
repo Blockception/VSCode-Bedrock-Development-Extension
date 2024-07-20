@@ -18,7 +18,7 @@ import * as Scores from "./scores";
  * @returns
  */
 export function provideCompletion(context: CommandCompletionContext): void {
-  const receiver = context.receiver;
+  const builder = context.builder;
   const selector = context.current;
   const pos = context.cursor;
   const Options = context.parameter.options;
@@ -27,7 +27,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
   const playerOnly = Options?.playerOnly ?? false;
 
   if (Options?.wildcard)
-    receiver.add({
+    builder.add({
       label: "*",
       documentation: "Wildcard, aimed at all players / entities, or possible stored in memory",
       kind: CompletionItemKind.Constant,
@@ -39,26 +39,26 @@ export function provideCompletion(context: CommandCompletionContext): void {
       let diff = pos - selector.offset;
 
       if (diff < 3) {
-        receiver.add({ label: "[", kind: CompletionItemKind.Snippet });
+        builder.add({ label: "[", kind: CompletionItemKind.Snippet });
         return;
       }
     }
 
     //Defaults
-    FromType(receiver, InternalSelectorTypeMode.AllPlayers);
-    FromType(receiver, InternalSelectorTypeMode.Nearest);
-    FromType(receiver, InternalSelectorTypeMode.Random);
-    FromType(receiver, InternalSelectorTypeMode.Self);
+    FromType(builder, InternalSelectorTypeMode.AllPlayers);
+    FromType(builder, InternalSelectorTypeMode.Nearest);
+    FromType(builder, InternalSelectorTypeMode.Random);
+    FromType(builder, InternalSelectorTypeMode.Self);
 
     if (!playerOnly) {
-      FromType(receiver, InternalSelectorTypeMode.AllEntities);
+      FromType(builder, InternalSelectorTypeMode.AllEntities);
     }
 
-    if (context.doc.uri.includes("/dialogue/")) FromType(receiver, InternalSelectorTypeMode.Initiator);
+    if (context.doc.uri.includes("/dialogue/")) FromType(builder, InternalSelectorTypeMode.Initiator);
 
     if (edu) {
-      FromType(receiver, InternalSelectorTypeMode.Agents);
-      FromType(receiver, InternalSelectorTypeMode.AllAgents);
+      FromType(builder, InternalSelectorTypeMode.Agents);
+      FromType(builder, InternalSelectorTypeMode.AllAgents);
     }
 
     if (Options?.allowFakePlayers) FakeEntity.provideCompletion(context);

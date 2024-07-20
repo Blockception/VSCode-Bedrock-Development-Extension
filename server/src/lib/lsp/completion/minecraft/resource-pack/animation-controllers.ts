@@ -11,13 +11,13 @@ import * as Animations from './animations';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp animation controller: ${item.id}`;
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.AnimationControllers });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.AnimationControllers });
 
-  receiver.generate(Database.ProjectData.ResourcePacks.animation_controllers, generateDoc);
-  receiver.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc);
+  builder.generate(Database.ProjectData.ResourcePacks.animation_controllers, generateDoc);
+  builder.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) receiver.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc);
+  if (IsEducationEnabled(context.doc)) builder.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc);
 }
 
 export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {

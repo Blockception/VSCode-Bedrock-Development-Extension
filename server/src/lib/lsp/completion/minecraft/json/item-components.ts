@@ -11,34 +11,34 @@ import {
 } from "../../../../minecraft/json/item-components/constants";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const receiver = context.receiver.withDefaults({ kind: CompletionItemKind.Snippet });
+  const builder = context.builder.withDefaults({ kind: CompletionItemKind.Snippet });
 
-  receiver.add({
+  builder.add({
     label: "Json Item Components Example",
     documentation: Example,
     insertText: Example,
   });
-  receiver.add({
+  builder.add({
     label: "Can destroy component",
     documentation: CanDestroyComponent,
     insertText: CanDestroyComponent,
   });
-  receiver.add({
+  builder.add({
     label: "Can place on component",
     documentation: CanPlaceOnComponent,
     insertText: CanPlaceOnComponent,
   });
-  receiver.add({
+  builder.add({
     label: "Lock in inventory component",
     documentation: LockInInventoryComponent,
     insertText: LockInInventoryComponent,
   });
-  receiver.add({
+  builder.add({
     label: "Keep on death component",
     documentation: KeepOnDeathComponent,
     insertText: KeepOnDeathComponent,
   });
-  receiver.add({
+  builder.add({
     label: "Lock in slot component",
     documentation: LockInSlotComponent,
     insertText: LockInSlotComponent,

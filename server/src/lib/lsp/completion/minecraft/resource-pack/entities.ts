@@ -17,14 +17,14 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const generateDoc = (item: Identifiable) => `The rp entity: ${item.id}`;
   const generateV = (item: Identifiable) => `The vanilla rp entity: ${item.id}`;
 
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Entity });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
 
-  receiver.generate(Database.ProjectData.ResourcePacks.entities, generateDoc);
-  receiver.generate(MinecraftData.vanilla.ResourcePack.entities, generateV);
+  builder.generate(Database.ProjectData.ResourcePacks.entities, generateDoc);
+  builder.generate(MinecraftData.vanilla.ResourcePack.entities, generateV);
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    receiver.generate(MinecraftData.edu.ResourcePack.entities, generateV);
+    builder.generate(MinecraftData.edu.ResourcePack.entities, generateV);
   }
 }
 
@@ -62,7 +62,7 @@ const entityRpJsonCompletion = new JsonPathCompletion(
       const data =  Database.ProjectData.ResourcePacks.entities.find((entity) => entity.location.uri === context.doc.uri);
       if (data === undefined) return;
 
-       context.receiver.generate(data.animations.defined, (item) => `The rp entity animation: ${item}`, Kinds.Completion.Animation);
+       context.builder.generate(data.animations.defined, (item) => `The rp entity animation: ${item}`, Kinds.Completion.Animation);
     },
   }
 );

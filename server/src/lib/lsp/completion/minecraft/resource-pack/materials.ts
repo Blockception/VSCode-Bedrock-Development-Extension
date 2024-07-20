@@ -10,9 +10,9 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const generateDoc = (item: Identifiable) => `The material: ${item.id}`;
   const generateV = (item: string) => `The vanilla material: ${item}`;
 
-  context.receiver.generate(Database.ProjectData.ResourcePacks.materials, generateDoc, Kinds.Completion.Materials);
-  context.receiver.generate(MinecraftData.vanilla.ResourcePack.materials, generateV, Kinds.Completion.Materials);
+  context.builder.generate(Database.ProjectData.ResourcePacks.materials, generateDoc, Kinds.Completion.Materials);
+  context.builder.generate(MinecraftData.vanilla.ResourcePack.materials, generateV, Kinds.Completion.Materials);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.ResourcePack.materials, generateV, Kinds.Completion.Materials);
+  if (IsEducationEnabled(context.doc)) context.builder.generate(MinecraftData.edu.ResourcePack.materials, generateV, Kinds.Completion.Materials);
 }

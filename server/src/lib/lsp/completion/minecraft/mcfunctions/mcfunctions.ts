@@ -27,12 +27,12 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
   }
 
   if (LineIndex === 0 && pos.character < 3) {
-    context.receiver.add({
+    context.builder.add({
       label: "# <mcfunction_documentation_here>",
       documentation: "mcfunction documentation",
       kind: CompletionItemKind.Snippet,
     });
-    context.receiver.add({
+    context.builder.add({
       label: "# region",
       documentation: "mcfunction documentation",
       kind: CompletionItemKind.Snippet,
@@ -115,9 +115,11 @@ export function provideCompletionCommand(
         parameterIndex,
         command,
         cursor,
-        context.receiver,
+        context.builder,
         current,
-        context.doc
+        context.doc,
+        context.logger,
+        context.projectData
       );
 
       Parameter.provideCompletion(ncontext);

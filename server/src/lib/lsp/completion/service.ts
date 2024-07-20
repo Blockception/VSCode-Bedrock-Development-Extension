@@ -14,6 +14,7 @@ import { BaseService } from "../services/base";
 import { onCompletionRequest } from ".";
 import { ErrorCodes } from "../../constants/errors";
 import { ExtensionContext } from "../extension/context";
+import { Database } from "../database";
 
 const triggerCharacters = " abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"".split("");
 
@@ -53,7 +54,7 @@ export class CompletionService extends BaseService implements Partial<IService> 
     workDoneProgress.begin(`completion ${uri}`, 0, undefined, true);
 
     try {
-      return onCompletionRequest(params, token, workDoneProgress);
+      return onCompletionRequest(params, token, workDoneProgress, this.logger, Database.ProjectData);
     } catch (err: any) {
       const code = ErrorCodes.CompletionService + (err.code ?? 0);
 

@@ -14,9 +14,9 @@ export function provideCompletion(context: CommandCompletionContext): void {
 
   if (Mode && Modes.SlotType.isValue(Mode.name)) {
     if (Mode.range) {
-      Integer.provideCreateCompletion(context.receiver, Mode.range.min, Mode.range.max);
+      Integer.provideCreateCompletion(context.builder, Mode.range.min, Mode.range.max);
     } else {
-      Integer.provideCreateCompletion(context.receiver, 0, 9);
+      Integer.provideCreateCompletion(context.builder, 0, 9);
     }
   }
 }

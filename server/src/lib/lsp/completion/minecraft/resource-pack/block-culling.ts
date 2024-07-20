@@ -4,9 +4,9 @@ import { Database } from "../../../../lsp/database";
 import { Kinds } from "../../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Block });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-  receiver.generate(Database.ProjectData.ResourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
+  builder.generate(Database.ProjectData.ResourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
 }
 
 export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
@@ -16,10 +16,10 @@ export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>)
 const blockCullingRPJsonCompletion = new JsonPathCompletion({
   match: (item) => item.endsWith("/bone"),
   onCompletion: (context: SimpleContext<CompletionBuilder>) => {
-    const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Block });
+    const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
     Database.ProjectData.ResourcePacks.models.forEach((model) => {
-      receiver.generate(model.bones, () => `Bone defined by ${model.id}`);
+      builder.generate(model.bones, () => `Bone defined by ${model.id}`);
     });
   },
 });

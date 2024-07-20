@@ -7,16 +7,16 @@ import { SimpleContext } from "../../../../util/simple-context";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The bp animation: ${item.id}`;
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Animation });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  receiver.generate(Database.ProjectData.BehaviorPacks.animations, generateDoc);
+  builder.generate(Database.ProjectData.BehaviorPacks.animations, generateDoc);
 }
 
 export function provideDefinedAnimationCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Animation });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
   Database.ProjectData.BehaviorPacks.entities.forEach((item) => {
-    receiver.generate(item.animations.defined, (anim) => `Animation defined by ${item.id}`);
+    builder.generate(item.animations.defined, (anim) => `Animation defined by ${item.id}`);
   });
 }
 

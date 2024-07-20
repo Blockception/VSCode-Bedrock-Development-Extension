@@ -26,7 +26,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 export function provideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
   const ncontext = {
     ...context,
-    receiver: context.receiver.withEvents((item) => {
+    receiver: context.builder.withEvents((item) => {
       let id = short_id(item.label);
       item.insertText = id;
     }),
@@ -36,17 +36,17 @@ export function provideShortCompletion(context: SimpleContext<CompletionBuilder>
 }
 
 function generate_items(context: SimpleContext<CompletionBuilder>) {
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.LootTable });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.LootTable });
 
   const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
   const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
-  receiver.generate(Database.ProjectData.BehaviorPacks.loot_tables, generateDoc);
-  receiver.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
+  builder.generate(Database.ProjectData.BehaviorPacks.loot_tables, generateDoc);
+  builder.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
 
   //Education data
   if (IsEducationEnabled(context.doc))
-    receiver.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
+    builder.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
 }
 
 function short_id(id: string): string {

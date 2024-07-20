@@ -3,10 +3,10 @@ import { CommandCompletionContext } from "../builder/context";
 import { CompletionBuilder } from "../builder/builder";
 
 export function provideCompletion(context: CommandCompletionContext): void {
-  const receiver = context.receiver;
+  const builder = context.builder;
   const options = context.parameter.options;
 
-  provideCreateCompletion(receiver, options?.minimum, options?.maximum);
+  provideCreateCompletion(builder, options?.minimum, options?.maximum);
 }
 
 export function provideCreateCompletion(
@@ -17,7 +17,7 @@ export function provideCreateCompletion(
   minimum = minimum ?? 0;
   maximum = maximum ?? 10;
 
-  const receiver: CompletionBuilder = CommandCompletionContext.is(context) ? context.receiver : context;
+  const receiver: CompletionBuilder = CommandCompletionContext.is(context) ? context.builder : context;
 
   const diff = maximum - minimum;
   const steps = diff / 10;

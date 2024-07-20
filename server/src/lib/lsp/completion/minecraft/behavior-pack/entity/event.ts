@@ -22,16 +22,16 @@ export function provideCompletion(context: CommandCompletionContext | SimpleCont
       const Entity = Database.ProjectData.BehaviorPacks.entities.get(EntityID);
 
       if (Entity) {
-        Convert(Entity, context.receiver);
+        Convert(Entity, context.builder);
         return;
       }
     }
   }
 
-  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => Convert(entity, context.receiver));
+  Database.ProjectData.BehaviorPacks.entities.forEach((entity) => Convert(entity, context.builder));
 
   const generateDoc = (item: string) => `The vanilla entity event: ${item}`;
-  context.receiver.generate(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
+  context.builder.generate(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
 }
 
 /**

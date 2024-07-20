@@ -5,12 +5,12 @@ import { SimpleContext } from "../../../../util/simple-context";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
-  const receiver = context.receiver.withDefaults({ kind: CompletionItemKind.Color });
+  const builder = context.builder.withDefaults({ kind: CompletionItemKind.Color });
   const cursor = pos.character;
 
   //key or comment
-  receiver.add({ label: "###", documentation: "comment", kind: CompletionItemKind.Snippet });
-  receiver.add({
+  builder.add({ label: "###", documentation: "comment", kind: CompletionItemKind.Snippet });
+  builder.add({
     label: "###region",
     documentation: "Region",
     kind: CompletionItemKind.Snippet,
@@ -25,11 +25,11 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
   }
 
   if (isIn("=", cursor, line)) {
-    return addColors(receiver);
+    return addColors(builder);
   }
 
   if (cursor > 3) {
-    receiver.add({ label: "=", documentation: "Start of the value", kind: CompletionItemKind.Snippet });
+    builder.add({ label: "=", documentation: "Start of the value", kind: CompletionItemKind.Snippet });
   }
 
   const pack = context.doc.getPack();
@@ -41,7 +41,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
         return {} as any;
       }
 
-      return receiver.add(item);
+      return builder.add(item);
     },
   };
 

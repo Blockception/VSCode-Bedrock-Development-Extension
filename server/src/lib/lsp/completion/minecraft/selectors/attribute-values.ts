@@ -10,26 +10,26 @@ import * as Family from "../behavior-pack/families";
 import * as M from "../modes/modes";
 
 export function provideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
-  const receiver = context.receiver;
+  const builder = context.builder;
 
   switch (attribute) {
     case "c":
-      receiver.add({
+      builder.add({
         label: "1",
         documentation: "Limits the amount of target to 1",
         kind: CompletionItemKind.Constant,
       });
-      receiver.add({
+      builder.add({
         label: "-1",
         documentation: "Limits the amount of target to 1, but picked from the end of the list",
         kind: CompletionItemKind.Constant,
       });
-      receiver.add({
+      builder.add({
         label: "5",
         documentation: "Limits the amount of target to 5",
         kind: CompletionItemKind.Constant,
       });
-      receiver.add({
+      builder.add({
         label: "-5",
         documentation: "Limits the amount of target to 5, but picked from the end of the list",
         kind: CompletionItemKind.Constant,
@@ -39,8 +39,8 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
     case "dx":
     case "dy":
     case "dz":
-      receiver.add({ label: "5", documentation: "A length of 5", kind: CompletionItemKind.Constant });
-      receiver.add({
+      builder.add({ label: "5", documentation: "A length of 5", kind: CompletionItemKind.Constant });
+      builder.add({
         label: "-5",
         documentation: "A length of 5, in the other direction",
         kind: CompletionItemKind.Constant,
@@ -55,7 +55,7 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
     case "rm":
     case "lm":
     case "l":
-      Integer.provideCreateCompletion(receiver, 0, 100);
+      Integer.provideCreateCompletion(builder, 0, 100);
       return;
 
     case "m":
@@ -70,7 +70,7 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
     case "rxm":
     case "ry":
     case "rym":
-      Float.provideCreateCompletion(receiver, -180, 180);
+      Float.provideCreateCompletion(builder, -180, 180);
       return;
 
     case "tag":
@@ -86,16 +86,16 @@ export function provideCompletion(context: CommandCompletionContext, attribute: 
     case "x":
     case "y":
     case "z":
-      receiver.add({ label: "1", documentation: "An absolute coordinate", kind: CompletionItemKind.Constant });
-      receiver.add({ label: "~1", documentation: "A relative coordinate", kind: CompletionItemKind.Constant });
-      receiver.add({ label: "~-1", documentation: "A relative coordinate", kind: CompletionItemKind.Constant });
+      builder.add({ label: "1", documentation: "An absolute coordinate", kind: CompletionItemKind.Constant });
+      builder.add({ label: "~1", documentation: "A relative coordinate", kind: CompletionItemKind.Constant });
+      builder.add({ label: "~-1", documentation: "A relative coordinate", kind: CompletionItemKind.Constant });
       return;
 
     case "hasitem":
-      receiver.add({ label: "[{},{}]", documentation: "Double Definition", kind: CompletionItemKind.Class });
+      builder.add({ label: "[{},{}]", documentation: "Double Definition", kind: CompletionItemKind.Class });
     case "has_property":
     case "scores":
-      receiver.add({ label: "{}", documentation: "Definition", kind: CompletionItemKind.Class });
+      builder.add({ label: "{}", documentation: "Definition", kind: CompletionItemKind.Class });
       return;
   }
 }

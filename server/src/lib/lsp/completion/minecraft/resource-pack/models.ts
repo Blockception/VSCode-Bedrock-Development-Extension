@@ -9,14 +9,14 @@ import { Kinds } from "../../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The model: ${item.id}`;
 
-  context.receiver.generate(Database.ProjectData.ResourcePacks.models, generateDoc, Kinds.Completion.Models);
+  context.builder.generate(Database.ProjectData.ResourcePacks.models, generateDoc, Kinds.Completion.Models);
 
   //Generate for vanilla data
   const generateV = (item: Identifiable) => `The vanilla model: ${item}`;
 
   //Vanilla data
-  context.receiver.generate(MinecraftData.vanilla.ResourcePack.models, generateV, Kinds.Completion.Models);
+  context.builder.generate(MinecraftData.vanilla.ResourcePack.models, generateV, Kinds.Completion.Models);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) context.receiver.generate(MinecraftData.edu.ResourcePack.models, generateV, Kinds.Completion.Models);
+  if (IsEducationEnabled(context.doc)) context.builder.generate(MinecraftData.edu.ResourcePack.models, generateV, Kinds.Completion.Models);
 }

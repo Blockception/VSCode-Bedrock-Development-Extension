@@ -8,37 +8,37 @@ import { Kinds } from "../../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The item definition: ${item.id}`;
-  const receiver = context.receiver;
+  const builder = context.builder;
 
   //Project data
-  receiver.generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
+  builder.generate(Database.ProjectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
 
   //spawn_eggs
   Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
-    receiver.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
+    builder.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
   });
 
   //Vanilla data
-  receiver.generate(MinecraftData.vanilla.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+  builder.generate(MinecraftData.vanilla.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
 
   //spawn_eggs
   MinecraftData.vanilla.BehaviorPack.entities.forEach((entity) => {
-    receiver.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
+    builder.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
   });
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
     //Vanilla data
-    receiver.generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
+    builder.generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
 
     //spawn_eggs
     MinecraftData.edu.BehaviorPack.entities.forEach((entity) => {
-      receiver.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
+      builder.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
     });
   }
 
   //Custom block items
-  receiver.generate(
+  builder.generate(
     Database.ProjectData.BehaviorPacks.blocks,
     (item: Identifiable) => `The block-item definition: ${item.id}`,
     Kinds.Completion.Block

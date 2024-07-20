@@ -12,14 +12,14 @@ import * as Item from '../behavior-pack/items';
 import * as Integer from '../../general/integer';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, selector: OffsetWord, pos: number): void {
-  const receiver = context.receiver;
+  const builder = context.builder;
 
   if (IsEditingValue(selector, pos)) {
     const attr = GetCurrentAttribute(selector, pos);
 
     switch (attr) {
       case "data":
-        return Integer.provideCreateCompletion(receiver, -1, 9);
+        return Integer.provideCreateCompletion(builder, -1, 9);
 
       case "item":
         return Item.provideCompletion(context)
@@ -28,18 +28,18 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, sel
         return M.provideModeCompletion(Modes.SlotType, context);
 
       case "slot":
-        return Integer.provideCreateCompletion(receiver, 0, 53);
+        return Integer.provideCreateCompletion(builder, 0, 53);
 
       case "quantity":
-        return Integer.provideCreateCompletion(receiver, 0, 10);
+        return Integer.provideCreateCompletion(builder, 0, 10);
     }
 
     return;
   }
   
-  receiver.add({ label: "data", documentation: "The data of the item that the selector is looking for", kind: Kinds.Completion.Integer, insertText: "data="});
-  receiver.add({ label: "item", documentation: "The item that the selector is looking for", kind: Kinds.Completion.Item, insertText: "item="});
-  receiver.add({ label: "location", documentation: "The slot id identification", kind: CompletionItemKind.Enum, insertText: "location="});
-  receiver.add({ label: "quantity", documentation: "The quantity of the item that the selector is looking for", kind: Kinds.Completion.Integer, insertText: "quantity="});
-  receiver.add({ label: "slot", documentation: "The slot number to check", kind: Kinds.Completion.Integer, insertText: "slot="});
+  builder.add({ label: "data", documentation: "The data of the item that the selector is looking for", kind: Kinds.Completion.Integer, insertText: "data="});
+  builder.add({ label: "item", documentation: "The item that the selector is looking for", kind: Kinds.Completion.Item, insertText: "item="});
+  builder.add({ label: "location", documentation: "The slot id identification", kind: CompletionItemKind.Enum, insertText: "location="});
+  builder.add({ label: "quantity", documentation: "The quantity of the item that the selector is looking for", kind: Kinds.Completion.Integer, insertText: "quantity="});
+  builder.add({ label: "slot", documentation: "The slot number to check", kind: Kinds.Completion.Integer, insertText: "slot="});
 }

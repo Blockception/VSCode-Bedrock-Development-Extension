@@ -33,7 +33,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
  * @returns
  */
 function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Position) {
-  const builder = context.receiver;
+  const builder = context.builder;
   const line = context.doc.getLine(pos.line);
 
   const index = line.indexOf("=");
@@ -157,7 +157,7 @@ function provideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Posi
     return;
   }
 
-  const builder = context.receiver;
+  const builder = context.builder;
   builder.add({ label: "## ", documentation: "Comment", kind: CompletionItemKind.Snippet });
   builder.add({
     label: "block",
@@ -239,6 +239,6 @@ function add(context: SimpleContext<CompletionBuilder>, value: (Identifiable & D
     documentation.value = value.documentation ?? "";
   }
 
-  context.receiver.add({ label: label, documentation, kind: CompletionItemKind.Value }).sortText = label;
-  context.receiver.add({ label: "!" + label, documentation, kind: CompletionItemKind.Value }).sortText = `${label}2`;
+  context.builder.add({ label: label, documentation, kind: CompletionItemKind.Value }).sortText = label;
+  context.builder.add({ label: "!" + label, documentation, kind: CompletionItemKind.Value }).sortText = `${label}2`;
 }

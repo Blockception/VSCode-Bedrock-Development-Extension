@@ -9,13 +9,13 @@ import { Kinds } from "../../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The trading table: ${item.id}`;
   const generatesDoc = (item: string) => `The vanilla trading table: ${item}`;
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Trading });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.Trading });
 
-  receiver.generate(Database.ProjectData.BehaviorPacks.trading, generateDoc);
-  receiver.generate(MinecraftData.vanilla.BehaviorPack.trading, generatesDoc);
+  builder.generate(Database.ProjectData.BehaviorPacks.trading, generateDoc);
+  builder.generate(MinecraftData.vanilla.BehaviorPack.trading, generatesDoc);
 
   //Education data
   if (IsEducationEnabled(context.doc)) {
-    receiver.generate(MinecraftData.edu.BehaviorPack.trading, generatesDoc);
+    builder.generate(MinecraftData.edu.BehaviorPack.trading, generatesDoc);
   }
 }

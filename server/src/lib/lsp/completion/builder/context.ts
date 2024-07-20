@@ -3,7 +3,10 @@ import { SimpleContext } from "../../../util/simple-context";
 import { TextRange } from "../../../minecraft/json/functions";
 import { IsEducationEnabled } from "../../../project/attributes";
 import { TextDocument } from "../../documents/text-document";
-import { CompletionBuilder } from './builder';
+import { CompletionBuilder } from "./builder";
+import { CompletionContext } from "vscode-languageserver-protocol";
+import { IExtendedLogger } from "../../logger/logger";
+import { ProjectData } from "bc-minecraft-bedrock-project";
 
 /**
  *
@@ -36,7 +39,7 @@ export namespace CommandCompletionContext {
     if (value) {
       let temp = value as CommandCompletionContext;
 
-      if (temp.parameter && temp.command && temp.cursor && temp.receiver) return true;
+      if (temp.parameter && temp.command && temp.cursor && temp.builder) return true;
     }
 
     return false;
@@ -56,21 +59,25 @@ export namespace CommandCompletionContext {
     parameterIndex: number,
     command: Command,
     cursor: number,
-    receiver: CompletionBuilder,
+    builder: CompletionBuilder,
     current: Parameter | undefined = undefined,
-    doc: TextDocument
+    doc: TextDocument,
+    logger: IExtendedLogger,
+    projectData: ProjectData
   ): CommandCompletionContext {
-    const BestMatch = command.getCommandData(IsEducationEnabled(doc))[0];
+    const bestMatch = command.getCommandData(IsEducationEnabled(doc))[0];
 
     return {
-      parameter: parameter,
-      parameterIndex: parameterIndex,
-      command: command,
-      bestMatch: BestMatch,
-      cursor: cursor,
-      receiver: receiver,
-      current: current,
-      doc: doc,
+      parameter,
+      parameterIndex,
+      command,
+      bestMatch,
+      cursor,
+      builder,
+      current,
+      doc,
+      logger,
+      projectData,
     };
   }
 }

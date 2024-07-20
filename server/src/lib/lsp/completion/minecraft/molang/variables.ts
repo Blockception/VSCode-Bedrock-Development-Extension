@@ -10,7 +10,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const packType = PackType.detect(context.doc.uri);
   const data = GetDataSet(context.doc.uri);
 
-  data?.Variables.forEach((item) => Generate(item, context.receiver));
+  data?.Variables.forEach((item) => Generate(item, context.builder));
 
   switch (packType) {
     case PackType.behavior_pack:
@@ -18,7 +18,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
     case PackType.resource_pack:
       Database.ProjectData.ResourcePacks.entities.forEach((entity) =>
-        GenerateDU(entity.molang.variables, context.receiver, entity.id)
+        GenerateDU(entity.molang.variables, context.builder, entity.id)
       );
   }
 }

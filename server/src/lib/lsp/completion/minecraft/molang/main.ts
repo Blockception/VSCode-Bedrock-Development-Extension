@@ -79,17 +79,17 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
   }
 
   const doc = context.doc;
-  const receiver = context.receiver;
+  const builder = context.builder;
 
   if (IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
-    receiver.add({ label: "query", documentation: "Molang queries", kind: CompletionItemKind.Class });
-    receiver.add({ label: "variable", documentation: "Defined variables", kind: CompletionItemKind.Variable });
-    receiver.add({ label: "math", documentation: "Math functions", kind: CompletionItemKind.Class });
-    receiver.add({ label: "texture", documentation: "Texture definitions", kind: CompletionItemKind.Property });
-    receiver.add({ label: "material", documentation: "Material definitions", kind: CompletionItemKind.Property });
-    receiver.add({ label: "geometry", documentation: "Geometry definitions", kind: CompletionItemKind.Property });
-    receiver.add({ label: "temp", documentation: "Temporary variable definitions", kind: CompletionItemKind.Variable });
-    receiver.add({ label: "this", documentation: "refers to this object", kind: CompletionItemKind.Struct });
+    builder.add({ label: "query", documentation: "Molang queries", kind: CompletionItemKind.Class });
+    builder.add({ label: "variable", documentation: "Defined variables", kind: CompletionItemKind.Variable });
+    builder.add({ label: "math", documentation: "Math functions", kind: CompletionItemKind.Class });
+    builder.add({ label: "texture", documentation: "Texture definitions", kind: CompletionItemKind.Property });
+    builder.add({ label: "material", documentation: "Material definitions", kind: CompletionItemKind.Property });
+    builder.add({ label: "geometry", documentation: "Geometry definitions", kind: CompletionItemKind.Property });
+    builder.add({ label: "temp", documentation: "Temporary variable definitions", kind: CompletionItemKind.Variable });
+    builder.add({ label: "this", documentation: "refers to this object", kind: CompletionItemKind.Struct });
 
     Query.provideCompletion(context);
     Math.provideCompletion(context);
@@ -110,7 +110,7 @@ function prefixedData(RP: functioncall, BP: functioncall, context: SimpleContext
   //register new OnNewItem event to prune ids
   const ncontext = {
     ...context,
-    receiver: context.receiver.withEvents((item) => {
+    receiver: context.builder.withEvents((item) => {
       item.label = IDRemoveFirst(item.label);
     }),
   };

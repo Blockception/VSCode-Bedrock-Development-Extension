@@ -14,7 +14,7 @@ import * as Textures from "./textures";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The attachbles: ${item.id}`;
 
-  context.receiver.generate(Database.ProjectData.ResourcePacks.attachables, generateDoc, Kinds.Completion.Item);
+  context.builder.generate(Database.ProjectData.ResourcePacks.attachables, generateDoc, Kinds.Completion.Item);
 }
 
 export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
@@ -51,7 +51,7 @@ const attachableRpJsonCompletion = new JsonPathCompletion(
       const data =  Database.ProjectData.ResourcePacks.attachables.find((attachable) => attachable.location.uri === context.doc.uri);
       if (data === undefined) return;
 
-       context.receiver.generate(data.animations.defined, (item) => `The rp entity animation: ${item}`, Kinds.Completion.Animation);
+       context.builder.generate(data.animations.defined, (item) => `The rp entity animation: ${item}`, Kinds.Completion.Animation);
     },
   }
 );

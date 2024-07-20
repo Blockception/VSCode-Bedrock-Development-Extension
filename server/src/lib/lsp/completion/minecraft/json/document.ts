@@ -27,7 +27,7 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
     cursor,
     range,
     currentText,
-    receiver: builder(cursor, range, currentText, doc, context.receiver),
+    builder: builder(cursor, range, currentText, doc, context.builder),
   };
 
   //Have each new item pass through a new function

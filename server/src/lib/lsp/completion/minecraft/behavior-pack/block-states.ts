@@ -25,7 +25,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
         provideDefaultCompletion(b, context);
     }
 
-    context.receiver.add({ label: "[]", documentation: "Block states", kind: CompletionItemKind.Snippet });
+    context.builder.add({ label: "[]", documentation: "Block states", kind: CompletionItemKind.Snippet });
     return;
   }
 
@@ -43,7 +43,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
 function provideDefaultCompletion(b: BehaviorPack.Block.Block, context: CommandCompletionContext): void {
   const pars = b.states.map((state) => `"${state.name}":${stateValue(state, state.values[0])}`);
 
-  context.receiver.add({
+  context.builder.add({
     label: `[${pars.join(",")}]`,
     documentation: `Default blockstates for: ${b.id}`,
     kind: Kinds.Completion.Block,
@@ -68,7 +68,7 @@ function provideStateCompletion(states: BehaviorPack.Block.BlockState[], context
     const values = state.values.map((value) => stateValue(state, value));
 
     const items = values.map((value) => `${name}:${value}`);
-    context.receiver.generate(items, (item) => `block state ${item}`, CompletionItemKind.Property);
+    context.builder.generate(items, (item) => `block state ${item}`, CompletionItemKind.Property);
   }
 }
 

@@ -7,7 +7,7 @@ import { JsonPathCompletion } from '../../builder';
 import * as Animations from './animations';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  context.receiver.generate(
+  context.builder.generate(
     Database.ProjectData.BehaviorPacks.animation_controllers, 
     (item: Identifiable) => `The bp animation controller: ${item.id}`, 
     Kinds.Completion.AnimationControllers);

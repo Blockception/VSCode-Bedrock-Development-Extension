@@ -1,4 +1,7 @@
 import { createBuilder } from "./builder/builder";
+import { GetDocument } from "../documents/document";
+import { Languages } from "@blockception/shared";
+import { SimpleContext } from "../../util/simple-context";
 import {
   CompletionParams,
   CompletionList,
@@ -6,44 +9,28 @@ import {
   CancellationToken,
   WorkDoneProgressReporter,
 } from "vscode-languageserver";
-import { Console } from "../../manager";
-import { GetDocument } from "../documents/document";
-import { Languages } from "@blockception/shared";
-import { SimpleContext } from "../../util/simple-context";
 
 import * as Json from "./minecraft/json/document";
 import * as Language from "./minecraft/language/language";
 import * as Mcfunction from "./minecraft/mcfunctions/mcfunctions";
 import * as MCProject from "./minecraft/mcproject/mcproject";
 import * as Molang from "./minecraft/molang/main";
+import { IExtendedLogger } from "../logger/logger";
+import { ProjectData } from "bc-minecraft-bedrock-project";
 
-export async function onCompletionRequestAsync(
-  params: CompletionParams,
-  token: CancellationToken,
-  workDoneProgress: WorkDoneProgressReporter
-): Promise<CompletionItem[] | CompletionList | undefined> {
-  return Console.request("Completion", Promise.resolve(onCompletionRequest(params, token, workDoneProgress)));
-}
-
-export async function onCompletionResolveRequestAsync(params: CompletionItem): Promise<CompletionItem | undefined> {
-  return Promise.resolve(params);
-}
-
-/**Processes request
- * @param params
- * @returns
- */
 export function onCompletionRequest(
   params: CompletionParams,
   token: CancellationToken,
-  workDoneProgress: WorkDoneProgressReporter
+  workDoneProgress: WorkDoneProgressReporter,
+  logger: IExtendedLogger,
+  projectData: ProjectData
 ): CompletionList | undefined {
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;
 
   const builder = createBuilder(token, workDoneProgress);
   const pos = params.position;
-  const context = SimpleContext.create(doc, builder, doc.offsetAt(pos));
+  const context = SimpleContext.create(doc, builder, doc.offsetAt(pos), projectData, logger);
 
   switch (doc.languageId) {
     case Languages.McLanguageIdentifier:
@@ -68,10 +55,7 @@ export function onCompletionRequest(
       break;
   }
 
-  const List: CompletionList = { isIncomplete: false, items: [] };
-  List.items = removeDuplicate(builder.getItems());
-
-  return List;
+  return { isIncomplete: false, items: removeDuplicate(builder.getItems()) };
 }
 
 function removeDuplicate(items: CompletionItem[]): CompletionItem[] {

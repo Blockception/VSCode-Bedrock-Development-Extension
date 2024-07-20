@@ -10,13 +10,13 @@ import * as BlockCulling from '../resource-pack/block-culling';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The block definition: ${item.id}`;
-  const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Block });
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-  receiver.generate(Database.ProjectData.BehaviorPacks.blocks, generateDoc);
-  receiver.generate(MinecraftData.vanilla.BehaviorPack.blocks, generateDoc);
+  builder.generate(Database.ProjectData.BehaviorPacks.blocks, generateDoc);
+  builder.generate(MinecraftData.vanilla.BehaviorPack.blocks, generateDoc);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) receiver.generate(MinecraftData.edu.BehaviorPack.blocks, generateDoc);
+  if (IsEducationEnabled(context.doc)) builder.generate(MinecraftData.edu.BehaviorPack.blocks, generateDoc);
 }
 
 export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {

@@ -7,7 +7,7 @@ import { Kinds } from "../../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The mcstructure: ${item.id}`;
 
-  context.receiver.generate(Database.ProjectData.BehaviorPacks.structures, generateDoc, Kinds.Completion.Structure);
+  context.builder.generate(Database.ProjectData.BehaviorPacks.structures, generateDoc, Kinds.Completion.Structure);
 
   //No vanilla data
 }

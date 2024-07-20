@@ -14,7 +14,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
     case PackType.resource_pack:
       Database.ProjectData.ResourcePacks.entities.forEach((entity) =>
-        GenerateDU(entity.molang.textures, context.receiver, entity.id)
+        GenerateDU(entity.molang.textures, context.builder, entity.id)
       );
   }
 }

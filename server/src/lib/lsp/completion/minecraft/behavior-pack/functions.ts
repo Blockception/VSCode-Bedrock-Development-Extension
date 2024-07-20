@@ -8,7 +8,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   const generateDoc = (item: Identifiable) => `The mcfunction: ${item.id}}`;
 
   //Project data
-  context.receiver.generate(Database.ProjectData.BehaviorPacks.functions, generateDoc, Kinds.Completion.Functions);
+  context.builder.generate(Database.ProjectData.BehaviorPacks.functions, generateDoc, Kinds.Completion.Functions);
 
   //No vanilla data
 }

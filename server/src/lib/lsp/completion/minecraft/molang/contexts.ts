@@ -7,7 +7,7 @@ import { GetDataSet } from "../../../../minecraft/molang/getdataset";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const data = GetDataSet(context.doc.uri);
 
-  data?.Contexts.forEach((item) => generate(item, context.receiver));
+  data?.Contexts.forEach((item) => generate(item, context.builder));
 }
 
 function generate(data: Data, builder: CompletionBuilder, kinds: CompletionItemKind = CompletionItemKind.Struct): void {
