@@ -144,6 +144,24 @@
             "type": "boolean",
             "default": true,
             "description": "Requires restart: Turns on or off the diagnostics for tags"
+          },
+          "BC-MC.Completion.JSON": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Turns on or off the dynamic completion for JSON"
+          },
+          "BC-MC.Completion.Lang.Dynamic": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Turns on or off the dynamic completion for lang files"
+          },
+          "BC-MC.Completion.Lang.Comments": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": true,
+            "description": "Turns on or off the comment completion for lang files ie; ### and ### (region)"
           }
         }
       }
