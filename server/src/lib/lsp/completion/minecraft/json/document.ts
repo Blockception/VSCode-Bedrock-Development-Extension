@@ -11,6 +11,7 @@ import * as Mcfunction from "../mcfunctions/mcfunctions";
 import * as Molang from "../molang/main";
 import * as ResourcePack from "../resource-pack/main";
 import { TextDocument } from "../../../documents";
+import { Manager } from '../../../../manager/manager';
 
 export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const doc = context.doc;
@@ -83,6 +84,8 @@ function performJsonCompletion(context: JsonCompletionContext) {
   }
 
   onCompletionJsonMolang(context);
+
+  if (!Manager.Settings.Completion.JSON) return;
 
   switch (type) {
     case PackType.behavior_pack:

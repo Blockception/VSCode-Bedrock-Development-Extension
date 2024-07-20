@@ -3,19 +3,22 @@ import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { SimpleContext } from "../../../../util/simple-context";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
+import { Manager } from '../../../../manager/manager';
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
   const builder = context.builder.withDefaults({ kind: CompletionItemKind.Color });
   const cursor = pos.character;
 
   //key or comment
-  builder.add({ label: "###", documentation: "comment", kind: CompletionItemKind.Snippet });
-  builder.add({
-    label: "###region",
-    documentation: "Region",
-    kind: CompletionItemKind.Snippet,
-    insertText: "###region example\n\n###endregion",
-  });
+  if (Manager.Settings.Completion.Lang.Comments) {
+    builder.add({ label: "###", documentation: "comment", kind: CompletionItemKind.Snippet });
+    builder.add({
+      label: "###region",
+      documentation: "Region",
+      kind: CompletionItemKind.Snippet,
+      insertText: "###region example\n\n###endregion",
+    });
+  }
 
   const line = context.doc.getLine(pos.line);
 
@@ -44,6 +47,8 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
       return builder.add(item);
     },
   };
+
+  if (!Manager.Settings.Completion.Lang.Dynamic) return;
 
   if (BehaviorPack.BehaviorPack.is(pack)) {
     generate_bp(pack, check_receiver);

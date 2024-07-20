@@ -27,6 +27,13 @@ export interface ServerSettings {
     /** */
     CodeLens: boolean;
   };
+  Completion: {
+    JSON: boolean,
+    Lang: {
+      Dynamic: boolean,
+      Comments: boolean
+    }
+  }
 }
 
 /**
@@ -53,6 +60,10 @@ export namespace ServerSettings {
         if (typeof temp.Diagnostics.Tags !== "boolean") return false;
 
         if (typeof temp.Plugin.CodeLens !== "boolean") return false;
+
+        if (typeof temp.Completion.JSON !== "boolean") return false;
+        if (typeof temp.Completion.Lang.Comments !== "boolean") return false;
+        if (typeof temp.Completion.Lang.Dynamic !== "boolean") return false;
 
         return true;
       }
@@ -90,6 +101,13 @@ export namespace ServerSettings {
       Plugin: {
         CodeLens: true,
       },
+      Completion: {
+        JSON: true,
+        Lang: {
+          Comments: true,
+          Dynamic: true
+        }
+      }
     };
 
     return Out;
