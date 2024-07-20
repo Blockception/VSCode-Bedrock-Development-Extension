@@ -5,7 +5,7 @@ import { santizeValue as santizeValue } from "../../../../minecraft/json/types";
 import * as AnimationControllers from "./animation-controllers";
 import * as Animations from "./animations";
 import * as Blocks from "./blocks";
-import * as Entities from "./entities";
+import * as Entities from "./entity/main";
 import * as LootTables from "./loot-tables";
 import * as Trading from "./trading";
 

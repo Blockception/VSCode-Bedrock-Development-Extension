@@ -1,7 +1,7 @@
-import { Kinds } from "../../../../constants/kinds";
-import { SimpleContext } from "../../../../util";
-import { Database } from "../../../database";
-import { CompletionBuilder } from "../../builder";
+import { Kinds } from "../../../../../constants/kinds";
+import { SimpleContext } from "../../../../../util";
+import { Database } from '../../../../database';
+import { CompletionBuilder } from "../../../builder";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const receiver = context.receiver.withDefaults({ kind: Kinds.Completion.Animation });
