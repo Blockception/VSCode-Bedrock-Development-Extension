@@ -7,12 +7,15 @@ import * as Animations from "./animations";
 import * as Attachables from "./attachables";
 import * as BlockCulling from "./block-culling";
 import * as Entities from "./entities";
+import * as RenderController from "./render-controllers";
 import * as Sound from "./sounds";
+import * as SoundDefinitions from "./sound-definitions";
 import * as Textures from "./textures";
+import * as TexturesAtlas from "./texture-atlas";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
   //Prepare data to be fixed for json
-  const data = context.currentText;
+  const data = context.  currentText;
 
   if (data.startsWith("textures/")) Textures.provideCompletion(context);
   if (data.startsWith("sounds/")) Sound.provideCompletion(context);
@@ -34,13 +37,22 @@ function checkFiles(context: JsonCompletionContext): void {
       return AnimationControllers.provideJsonCompletion(context);
     case FileType.attachable:
       return Attachables.provideJsonCompletion(context);
-    case FileType.biomes_client:
-    case FileType.block:
-      break;
     case FileType.block_culling_rules:
       return BlockCulling.provideJsonCompletion(context);
     case FileType.entity:
       return Entities.provideJsonCompletion(context);
+    case FileType.render_controller:
+      return RenderController.provideJsonCompletion(context);
+    case FileType.sounds_definitions:
+      return SoundDefinitions.provideJsonCompletion(context);
+
+    case FileType.texture_flipbook_atlas:
+    case FileType.texture_item_atlas:
+    case FileType.texture_terrain_atlas:
+      return TexturesAtlas.provideJsonCompletion(context);
+
+    case FileType.biomes_client:
+    case FileType.block:
     case FileType.fog:
     case FileType.item:
     case FileType.manifest:
@@ -48,13 +60,8 @@ function checkFiles(context: JsonCompletionContext): void {
     case FileType.model:
     case FileType.music_definitions:
     case FileType.particle:
-    case FileType.render_controller:
     case FileType.sounds:
-    case FileType.sounds_definitions:
     case FileType.texture:
-    case FileType.texture_flipbook_atlas:
-    case FileType.texture_item_atlas:
-    case FileType.texture_terrain_atlas:
     case FileType.unknown:
       break;
   }

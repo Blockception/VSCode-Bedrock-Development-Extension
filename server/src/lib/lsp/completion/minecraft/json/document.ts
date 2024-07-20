@@ -10,16 +10,21 @@ import * as BehaviorPack from "../behavior-pack/main";
 import * as Mcfunction from "../mcfunctions/mcfunctions";
 import * as Molang from "../molang/main";
 import * as ResourcePack from "../resource-pack/main";
-import { TextDocument } from '../../../documents';
+import { TextDocument } from "../../../documents";
 
 export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const doc = context.doc;
   const cursor = doc.offsetAt(cursorPos);
   const text = doc.getText();
-  const range = GetCurrentString(text, cursor);
+  let range = GetCurrentString(text, cursor);
 
   //If start has not been found or not a property
-  if (range === undefined) return;
+  if (range === undefined) {
+    range = {
+      start: cursor,
+      end: cursor,
+    };
+  }
   const currentText = text.substring(range.start, range.end);
 
   const jsonContext: JsonCompletionContext = {
@@ -34,7 +39,13 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
   performJsonCompletion(jsonContext);
 }
 
-function builder(cursor: number, range: TextRange, currentText: string, doc: TextDocument, receiver: CompletionBuilder): CompletionBuilder {
+function builder(
+  cursor: number,
+  range: TextRange,
+  currentText: string,
+  doc: TextDocument,
+  receiver: CompletionBuilder
+): CompletionBuilder {
   const insertIndex = cursor - range.start;
   const first = currentText.substring(0, insertIndex);
   const second = currentText.substring(insertIndex);

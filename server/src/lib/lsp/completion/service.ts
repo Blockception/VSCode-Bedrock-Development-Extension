@@ -54,7 +54,7 @@ export class CompletionService extends BaseService implements Partial<IService> 
     workDoneProgress.begin(`completion ${uri}`, 0, undefined, true);
 
     try {
-      return onCompletionRequest(params, token, workDoneProgress, this.logger, Database.ProjectData);
+      return  onCompletionRequest(params, token, workDoneProgress, this.logger, Database.ProjectData);
     } catch (err: any) {
       const code = ErrorCodes.CompletionService + (err.code ?? 0);
 

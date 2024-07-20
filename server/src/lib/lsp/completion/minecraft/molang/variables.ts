@@ -9,8 +9,13 @@ import { GetDataSet } from "../../../../minecraft/molang/getdataset";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const packType = PackType.detect(context.doc.uri);
   const data = GetDataSet(context.doc.uri);
+  const builder = context.builder.withDefaults({
+    kind: CompletionItemKind.Variable,
+  });
 
-  data?.Variables.forEach((item) => Generate(item, context.builder));
+  data?.Variables.forEach((item) => {
+    builder.add({ label: item.id, documentation: item.documentation ?? `The molang variable: ${item.id}` });
+  });
 
   switch (packType) {
     case PackType.behavior_pack:
@@ -18,26 +23,9 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
     case PackType.resource_pack:
       context.projectData.ResourcePacks.entities.forEach((entity) =>
-        GenerateDU(entity.molang.variables, context.builder, entity.id)
+        entity.molang.variables.defined.forEach((item) => {
+          builder.add({ label: item, documentation: `The molang variable: ${item}\nDeclared by '${entity.id}'` });
+        })
       );
   }
-}
-
-function Generate(
-  data: Data,
-  builder: CompletionBuilder,
-  kinds: CompletionItemKind = CompletionItemKind.Variable
-): void {
-  builder.add({label: data.id, documentation: data.documentation ?? `The molang variable: ${data.id}`, kind: kinds});
-}
-
-function GenerateDU(
-  data: Defined<string>,
-  builder: CompletionBuilder,
-  ownerid: string,
-  kinds: CompletionItemKind = CompletionItemKind.Variable
-): void {
-  data.defined.forEach((item) => {
-    builder.add({label: item, documentation: `The molang variable: ${item}\nDeclared by '${ownerid}'`, kind: kinds});
-  });
 }

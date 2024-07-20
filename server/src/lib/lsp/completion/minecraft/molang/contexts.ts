@@ -11,5 +11,9 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 }
 
 function generate(data: Data, builder: CompletionBuilder, kinds: CompletionItemKind = CompletionItemKind.Struct): void {
-  builder.add({label: data.id, documentation: data.documentation ?? `The molang context variable: ${data.id}`, kind: kinds});
+  builder.add({
+    label: data.id,
+    documentation: data.documentation ?? `The molang context variable: ${data.id}`,
+    kind: kinds,
+  });
 }
