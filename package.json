@@ -53,7 +53,7 @@
   ],
   "devDependencies": {
     "@types/node": "^20.14.2",
-    "@vscode/vsce": "^2.30.0",
+    "@vscode/vsce": "^2.31.1",
     "json-loader": "^0.5.7",
     "jsonc": "^2.0.0",
     "ts-loader": "^9.4.4",
