@@ -1,6 +1,5 @@
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack";
 import { JsonCompletionContext } from "../../builder/context";
-import { santizeValue as santizeValue } from "../../../../minecraft/json/types";
 
 import * as AnimationControllers from "./animation-controllers";
 import * as Animations from "./animations";
@@ -10,16 +9,6 @@ import * as LootTables from "./loot-tables";
 import * as Trading from "./trading";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
-  checkFiles({
-    ...context,
-    builder: context.builder.withEvents((item) => {
-      item.insertText = item.insertText ?? item.label;
-      item.insertText = santizeValue(item.insertText);
-    }),
-  });
-}
-
-function checkFiles(context: JsonCompletionContext) {
   switch (FileType.detect(context.doc.uri)) {
     case FileType.animation:
       return Animations.provideJsonCompletion(context);

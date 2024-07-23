@@ -81,7 +81,7 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
   const doc = context.doc;
   const builder = context.builder;
 
-  if (IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
+  if (line.length === 0 || IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
     builder.add({ label: "query", documentation: "Molang queries", kind: CompletionItemKind.Class });
     builder.add({ label: "variable", documentation: "Defined variables", kind: CompletionItemKind.Variable });
     builder.add({ label: "math", documentation: "Math functions", kind: CompletionItemKind.Class });
@@ -90,9 +90,6 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
     builder.add({ label: "geometry", documentation: "Geometry definitions", kind: CompletionItemKind.Property });
     builder.add({ label: "temp", documentation: "Temporary variable definitions", kind: CompletionItemKind.Variable });
     builder.add({ label: "this", documentation: "refers to this object", kind: CompletionItemKind.Struct });
-
-    Query.provideCompletion(context);
-    Math.provideCompletion(context);
   }
 }
 
@@ -110,7 +107,7 @@ function prefixedData(RP: functioncall, BP: functioncall, context: SimpleContext
   //register new OnNewItem event to prune ids
   const ncontext = {
     ...context,
-    receiver: context.builder.withEvents((item) => {
+    builder: context.builder.withEvents((item) => {
       item.label = IDRemoveFirst(item.label);
     }),
   };

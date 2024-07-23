@@ -19,13 +19,17 @@ export class JsonPathCompletion {
     this._items = items;
   }
 
-  onCompletion(context: SimpleContext<CompletionBuilder>) {
+  /**
+   * Performs the onCompletion request, checks all of its item match and performs their events if it matches
+   * @param context The context to use and pass on
+   */
+  onCompletion(context: SimpleContext<CompletionBuilder>): void {
     const { isProperty, path } = getJsonPath(context.cursor, context.doc);
     if (!isProperty) {
       return;
     }
 
-    context.logger.debug("json path completion: " + path);
+    context.logger.debug(`json path completion: '${path}'`);
 
     this._items.forEach((item) => {
       switch (typeof item.match) {

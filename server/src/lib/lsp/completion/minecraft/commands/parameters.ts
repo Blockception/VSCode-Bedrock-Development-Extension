@@ -37,7 +37,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
   //Adding explanation text
   const ncontext = {
     ...context,
-    receiver: context.builder.withEvents((item) => {
+    builder: context.builder.withEvents((item) => {
       const doc = ParameterTypeDocumentation[context.parameter.type];
       if (!doc) return;
 

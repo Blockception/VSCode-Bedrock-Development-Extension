@@ -1,33 +1,34 @@
 import { CompletionBuilder } from "../../builder/builder";
-import { InsertReplaceEdit, Position, Range } from "vscode-languageserver";
-import { GetCurrentString, TextRange } from "../../../../minecraft/json/functions";
-import { JsonCompletionContext } from "../../builder/context";
-import { PackType } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../../util/simple-context";
 import { EntityEvent } from "../behavior-pack";
+import { getCurrentStringValue, TextRange } from "../../../../minecraft/json/functions";
+import { getJsonPath } from "../../../../minecraft/json/path";
+import { InsertReplaceEdit, Position, Range } from "vscode-languageserver";
+import { JsonCompletionContext } from "../../builder/context";
+import { Manager } from "../../../../manager/manager";
+import { PackType } from "bc-minecraft-bedrock-project";
+import { santizeValue } from "../../../../minecraft/json/types";
+import { SimpleContext } from "../../../../util/simple-context";
+import { TextDocument } from "../../../documents";
 
 import * as BehaviorPack from "../behavior-pack/main";
 import * as Mcfunction from "../mcfunctions/mcfunctions";
 import * as Molang from "../molang/main";
 import * as ResourcePack from "../resource-pack/main";
-import { TextDocument } from "../../../documents";
-import { Manager } from '../../../../manager/manager';
 
 export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
   const doc = context.doc;
   const cursor = doc.offsetAt(cursorPos);
   const text = doc.getText();
-  let range = GetCurrentString(text, cursor);
+
+  const p = getJsonPath(context.cursor, text);
+  if (!p.isProperty) {
+    return;
+  }
 
   //If start has not been found or not a property
-  if (range === undefined) {
-    range = {
-      start: cursor,
-      end: cursor,
-    };
-  }
-  const currentText = text.substring(range.start, range.end);
+  let range = getCurrentStringValue(text, p.property, cursor) ?? { start: cursor, end: cursor };
 
+  const currentText = text.substring(range.start, range.end);
   const jsonContext: JsonCompletionContext = {
     ...context,
     cursor,
@@ -52,20 +53,22 @@ function builder(
   const second = currentText.substring(insertIndex);
   const position = doc.positionAt(cursor);
 
-  return receiver.withEvents((item) => {
+  return receiver.withEvents(undefined, (item) => {
     //Update the filtering text
-    let old = item.insertText ?? item.label;
+    let filterText = item.insertText ?? item.label;
 
-    let text = old;
-    if (first !== "") old = old.replace(first, "");
-    if (second !== "") old = old.replace(second, "");
+    if (currentText === "") {
+      item.filterText = filterText;
+      return;
+    }
 
-    if (first !== "" && !text.startsWith(first)) text = first + text;
-    if (second !== "" && !text.endsWith(second)) text = text + second;
+    if (first !== "" && !filterText.startsWith(first)) filterText = first + filterText;
+    if (second !== "" && !filterText.endsWith(second)) filterText = filterText + second;
 
-    item.filterText = text;
-    if (!item.filterText.endsWith('"')) item.filterText = item.filterText + '"';
-    if (!item.filterText.startsWith('"')) item.filterText = '"' + item.filterText;
+    // Filter text is provided for completion order
+    if (!filterText.endsWith('"')) filterText = filterText + '"';
+    if (!filterText.startsWith('"')) filterText = '"' + filterText;
+    item.filterText = filterText;
 
     item.textEdit = InsertReplaceEdit.create(
       item.insertText ?? item.label,
@@ -78,6 +81,8 @@ function builder(
 }
 
 function performJsonCompletion(context: JsonCompletionContext) {
+  if (!Manager.Settings?.Completion?.JSON) return;
+
   const type = PackType.detect(context.doc.uri);
   if (type == PackType.unknown) {
     return;
@@ -85,7 +90,13 @@ function performJsonCompletion(context: JsonCompletionContext) {
 
   onCompletionJsonMolang(context);
 
-  if (!Manager.Settings.Completion.JSON) return;
+  context = {
+    ...context,
+    builder: context.builder.withEvents((item) => {
+      item.insertText = item.insertText ?? item.label;
+      item.insertText = santizeValue(item.insertText);
+    }),
+  };
 
   switch (type) {
     case PackType.behavior_pack:

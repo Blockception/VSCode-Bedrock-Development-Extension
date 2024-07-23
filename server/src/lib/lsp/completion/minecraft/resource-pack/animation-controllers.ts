@@ -26,7 +26,7 @@ export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>)
 
 const acRPJsonCompletion = new JsonPathCompletion(
   {
-    match: /animation_controllers\/(.*)\/states\/(.*)\/animations\/.*/gi,
+    match: /animation_controllers\/(.*)\/states\/(.*)\/animations\/\d+$/gi,
     onCompletion: Animations.provideCompletion,
   }
 );

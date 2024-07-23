@@ -1,10 +1,10 @@
-import { GetCurrentElement } from "./functions";
+import { getCurrentElement } from "./functions";
 
 describe("Json Functions", () => {
   test("GetCurrentElement", () => {
     const data = `{"foo":"/example foo"}`;
 
-    const range = GetCurrentElement(data, 15);
+    const range = getCurrentElement(data, 15);
     expect(range).toBeUndefined;
 
     if (!range) return;

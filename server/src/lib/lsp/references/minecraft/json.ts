@@ -1,6 +1,6 @@
 import { Database } from "../../../lsp/database/database";
 import { DefinitionParams, Location, Range, ReferenceParams } from "vscode-languageserver-protocol";
-import { GetCurrentElement } from "../../../minecraft/json/functions";
+import { getCurrentElement } from "../../../minecraft/json/functions";
 import { IsMolang } from "../../../minecraft/molang/functions";
 import { OffsetWord } from "bc-vscode-words";
 import { ParameterType } from "bc-minecraft-bedrock-command";
@@ -17,7 +17,7 @@ export function provideReferences(
   const pos = params.position;
 
   const Text = doc.getText();
-  const ElementRange = GetCurrentElement(Text, doc.offsetAt(pos));
+  const ElementRange = getCurrentElement(Text, doc.offsetAt(pos));
 
   if (!ElementRange) return undefined;
 

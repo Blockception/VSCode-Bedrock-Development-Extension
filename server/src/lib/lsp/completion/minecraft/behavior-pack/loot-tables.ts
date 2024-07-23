@@ -25,10 +25,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 export function provideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
   const ncontext = {
     ...context,
-    receiver: context.builder.withEvents((item) => {
-      let id = short_id(item.label);
-      item.insertText = id;
-    }),
+    builder: context.builder.withEvents((item) => (item.insertText = short_id(item.label))),
   };
 
   generate_items(ncontext);
@@ -44,8 +41,7 @@ function generate_items(context: SimpleContext<CompletionBuilder>) {
   builder.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
 
   //Education data
-  if (IsEducationEnabled(context.doc))
-    builder.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
+  if (IsEducationEnabled(context.doc)) builder.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
 }
 
 function short_id(id: string): string {

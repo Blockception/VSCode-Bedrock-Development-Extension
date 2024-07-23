@@ -1,4 +1,4 @@
-import { BulkRegistration, Connection, ResultProgressReporter, WorkDoneProgressReporter } from "vscode-languageserver";
+import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
   CompletionItem,
@@ -15,6 +15,7 @@ import { onCompletionRequest } from ".";
 import { ErrorCodes } from "../../constants/errors";
 import { ExtensionContext } from "../extension/context";
 import { Database } from "../database";
+import { GetFilename } from '../../util';
 
 const triggerCharacters = " abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"".split("");
 
@@ -50,17 +51,18 @@ export class CompletionService extends BaseService implements Partial<IService> 
     workDoneProgress: WorkDoneProgressReporter
   ): ResponseError<void> | CompletionItem[] | CompletionList | undefined | null {
     const { uri } = params.textDocument;
-    this.logger.debug(`starting on: ${uri}`, params);
-    workDoneProgress.begin(`completion ${uri}`, 0, undefined, true);
+    const filename = GetFilename(uri);
+    this.logger.debug(`starting on: ${filename}`, params);
+    workDoneProgress.begin(`completion ${filename}`, 0, undefined, true);
 
     try {
-      return  onCompletionRequest(params, token, workDoneProgress, this.logger, Database.ProjectData);
+      return onCompletionRequest(params, token, workDoneProgress, this.logger, Database.ProjectData);
     } catch (err: any) {
       const code = ErrorCodes.CompletionService + (err.code ?? 0);
 
-      return new ResponseError<void>(code, `error on ${uri}, error: ` + JSON.stringify(err, undefined, 2));
+      return new ResponseError<void>(code, `error on ${filename}, error: ` + JSON.stringify(err, undefined, 2));
     } finally {
-      this.logger.debug(`exiting on: ${uri}`, params);
+      this.logger.debug(`exiting on: ${filename}`);
       workDoneProgress.done();
     }
   }

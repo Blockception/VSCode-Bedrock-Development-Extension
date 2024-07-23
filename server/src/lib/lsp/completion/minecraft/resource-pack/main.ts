@@ -15,21 +15,11 @@ import * as TexturesAtlas from "./texture-atlas";
 
 export function provideJsonCompletion(context: JsonCompletionContext) {
   //Prepare data to be fixed for json
-  const data = context.  currentText;
+  const data = context.currentText;
 
   if (data.startsWith("textures/")) Textures.provideCompletion(context);
   if (data.startsWith("sounds/")) Sound.provideCompletion(context);
 
-  checkFiles({
-    ...context,
-    builder: context.builder.withEvents((item) => {
-      item.insertText = item.insertText ?? item.label;
-      item.insertText = santizeValue(item.insertText);
-    }),
-  });
-}
-
-function checkFiles(context: JsonCompletionContext): void {
   switch (FileType.detect(context.doc.uri)) {
     case FileType.animation:
       return Animations.provideJsonCompletion(context);

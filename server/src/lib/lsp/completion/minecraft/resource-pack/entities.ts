@@ -12,6 +12,7 @@ import * as AnimationControllers from "./animation-controllers";
 import * as Models from "./models";
 import * as RenderControllers from "./render-controllers";
 import * as Textures from "./textures";
+import { Material } from "../molang";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: Identifiable) => `The rp entity: ${item.id}`;
@@ -41,6 +42,10 @@ const entityRpJsonCompletion = new JsonPathCompletion(
     },
   },
   {
+    match: (path) => path.includes("minecraft:client_entity/description/materials/"),
+    onCompletion: Material.provideCompletion,
+  },
+  {
     match: (path) => path.includes("minecraft:client_entity/description/animation_controllers/"),
     onCompletion: AnimationControllers.provideCompletion,
   },
@@ -59,10 +64,14 @@ const entityRpJsonCompletion = new JsonPathCompletion(
   {
     match: (path) => path.includes("minecraft:client_entity/description/scripts/animate/"),
     onCompletion: (context: SimpleContext<CompletionBuilder>) => {
-      const data =  context.projectData.ResourcePacks.entities.find((entity) => entity.location.uri === context.doc.uri);
+      const data = context.projectData.ResourcePacks.entities.find((entity) => entity.location.uri === context.doc.uri);
       if (data === undefined) return;
 
-       context.builder.generate(data.animations.defined, (item) => `The rp entity animation: ${item}`, Kinds.Completion.Animation);
+      context.builder.generate(
+        data.animations.defined,
+        (item) => `The rp entity animation: ${item}`,
+        Kinds.Completion.Animation
+      );
     },
   }
 );
