@@ -18,7 +18,7 @@ import { Vscode } from "../../../util";
 
 // Workspace folder changed
 export async function OnWorkspaceFolderChangeAsync(params: WorkspaceFoldersChangeEvent): Promise<void> {
-  return Console.request("Workspace Folder Changed", Promise.resolve(OnWorkspaceFolderChange(params)));
+  return Console.request("Workspace Folder Changed", () => OnWorkspaceFolderChange(params));
 }
 
 function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
@@ -34,13 +34,20 @@ function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
 
 //Files created
 export async function OnDidCreateFilesAsync(params: CreateFilesParams): Promise<void> {
-  return Console.request(
-    "File Created",
-    QueueProcessor.forEach(params.files, OnDidCreateFile).then(() => {})
-  );
+  return Console.request("File Created", () => QueueProcessor.forEach(params.files, onDidCreateFile).then(() => {}));
 }
 
-async function OnDidCreateFile(Item: FileCreate): Promise<void> {
+//Files deleted
+export async function onDidDeleteFilesAsync(params: DeleteFilesParams): Promise<void> {
+  return Console.request("File Deleted", () => QueueProcessor.forEach(params.files, onDidDeleteFile).then(() => {}));
+}
+
+//Files renamed
+export async function OnDidRenameFilesAsync(params: RenameFilesParams): Promise<void> {
+  return Console.request("Files Renamed", () => QueueProcessor.forEach(params.files, onDidRenameFile).then(() => {}));
+}
+
+async function onDidCreateFile(Item: FileCreate): Promise<void> {
   const Doc = GetDocument(Item.uri);
 
   if (Doc) {
@@ -54,14 +61,6 @@ async function OnDidCreateFile(Item: FileCreate): Promise<void> {
   }
 }
 
-//Files deleted
-export async function onDidDeleteFilesAsync(params: DeleteFilesParams): Promise<void> {
-  return Console.request(
-    "File Deleted",
-    QueueProcessor.forEach(params.files, onDidDeleteFile).then(() => {})
-  );
-}
-
 async function onDidDeleteFile(Item: FileDelete): Promise<void> {
   const uri = Item.uri;
   Database.ProjectData.deleteFile(uri);
@@ -69,15 +68,7 @@ async function onDidDeleteFile(Item: FileDelete): Promise<void> {
   Manager.Diagnostic.ResetDocument(Item.uri);
 }
 
-//Files renamed
-export async function OnDidRenameFilesAsync(params: RenameFilesParams): Promise<void> {
-  return Console.request(
-    "Files Renamed",
-    QueueProcessor.forEach(params.files, OnDidRenameFile).then(() => {})
-  );
-}
-
-async function OnDidRenameFile(Item: FileRename): Promise<void> {
+async function onDidRenameFile(Item: FileRename): Promise<void> {
   //Delete old data
   const uri = Vscode.FromFs(Item.oldUri);
   Database.ProjectData.deleteFile(uri);

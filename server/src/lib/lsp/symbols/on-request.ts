@@ -14,15 +14,17 @@ import { SymbolBuilder } from "./builder";
 export async function OnDocumentSymbolRequestAsync(
   params: DocumentSymbolParams
 ): Promise<SymbolInformation[] | undefined> {
-  return Console.request("Symbols, Document", Promise.resolve(OnDocumentSymbolRequest(params)));
+  return Console.request("Symbols, Document", () => OnDocumentSymbolRequest(params));
 }
 
 /**
  * The request to provide workspace symbols
  * @param params The parameter that specify which symbols to provide
  */
-export async function OnWorkspaceSymbolRequestAsync(params: WorkspaceSymbolParams): Promise<SymbolInformation[]> {
-  return Console.request("Symbols, Workspace", Promise.resolve(OnWorkspaceSymbolRequest(params)));
+export async function OnWorkspaceSymbolRequestAsync(
+  params: WorkspaceSymbolParams
+): Promise<SymbolInformation[] | undefined> {
+  return Console.request("Symbols, Workspace", () => OnWorkspaceSymbolRequest(params));
 }
 
 /**
@@ -58,7 +60,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
   if (uri.endsWith(".json")) return builder.items;
 
   const filename = GetFilename(uri);
-  if (filename !== "") builder.new(filename, SymbolKind.Class);  
+  if (filename !== "") builder.new(filename, SymbolKind.Class);
 
   return builder.items;
 }

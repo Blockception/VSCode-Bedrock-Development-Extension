@@ -7,7 +7,7 @@ import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";
 
 export async function onReferencesRequestAsync(params: ReferenceParams): Promise<Location[] | undefined> {
-  return Console.request("References", Promise.resolve(onReferencesRequest(params)));
+  return Console.request("References", () => onReferencesRequest(params));
 }
 
 function onReferencesRequest(params: ReferenceParams): Location[] | undefined {

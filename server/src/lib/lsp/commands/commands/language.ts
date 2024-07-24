@@ -7,7 +7,7 @@ import { Manager } from "../../../manager/manager";
 import { GetDocument } from "../../documents/document";
 import { TextDocument } from "../../documents/text-document";
 
-export function add_all_items(params: ExecuteCommandParams): any {
+export function add_all_items(params: ExecuteCommandParams): void {
   const args = params.arguments;
 
   if (args) {
@@ -52,7 +52,7 @@ export function add_all_items(params: ExecuteCommandParams): any {
     }
   }
 
-  return undefined;
+  return;
 }
 
 export function generate_bp(pack: BehaviorPack.BehaviorPack, builder: ITextEditBuilder) {

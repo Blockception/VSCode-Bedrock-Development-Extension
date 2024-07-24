@@ -12,7 +12,7 @@ import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";
  * @returns
  */
 export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): Promise<TextEdit[] | undefined> {
-  return Console.request("Formatting Document", Promise.resolve(OnDocumentFormatRequest(params)));
+  return Console.request("Formatting Document", () => OnDocumentFormatRequest(params));
 }
 
 /**
@@ -23,7 +23,7 @@ export function OnDocumentFormatRequestAsync(params: DocumentFormattingParams): 
 export function OnDocumentRangeFormatRequestAsync(
   params: DocumentRangeFormattingParams
 ): Promise<TextEdit[] | undefined> {
-  return Console.request("Formatting Document", Promise.resolve(OnDocumentRangeFormatRequest(params)));
+  return Console.request("Formatting Document", () => OnDocumentRangeFormatRequest(params));
 }
 
 /**

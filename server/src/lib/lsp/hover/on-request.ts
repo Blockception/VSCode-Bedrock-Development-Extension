@@ -13,7 +13,7 @@ import * as Molang from "./minecraft/molang/main";
  * @returns
  */
 export function onHoverRequestAsync(params: HoverParams): Promise<Hover | undefined> {
-  return Console.request("Hover", Promise.resolve(onHoverRequest(params)));
+  return Console.request("Hover", () => onHoverRequest(params));
 }
 
 /**

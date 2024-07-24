@@ -7,54 +7,46 @@ import * as RawText from "../json/raw-text";
 
 /**
  *
- * @param Line
- * @param StartOffset
+ * @param line
+ * @param startOffset
  * @param cursorOffset
  * @param doc
  * @returns
  */
 export function provideSignature(
-  Line: string,
-  StartOffset: number,
+  line: string,
+  startOffset: number,
   cursorOffset: number,
   doc: TextDocument
 ): SignatureHelp | undefined {
-  let command: Command = Command.parse(Line, StartOffset);
+  let command: Command = Command.parse(line, startOffset);
 
   if (command.isEmpty()) return undefined;
 
   const edu = IsEducationEnabled(doc);
-  let SubCommand = command.isInSubCommand(cursorOffset, edu);
+  let subCommand = command.isInSubCommand(cursorOffset, edu);
 
-  while (SubCommand) {
-    if (SubCommand) {
-      command = SubCommand;
+  while (subCommand) {
+    if (subCommand) {
+      command = subCommand;
     }
 
-    SubCommand = command.isInSubCommand(cursorOffset, edu);
+    subCommand = command.isInSubCommand(cursorOffset, edu);
   }
 
-  if (SubCommand != undefined) {
-    command = SubCommand;
+  if (subCommand != undefined) {
+    command = subCommand;
   }
 
-  const Matches = command.getBestMatch();
-
-  const Out: SignatureHelp = {
-    signatures: ConvertToSignatures(Matches),
+  return {
+    signatures: command.getBestMatch().map((item) => SignatureCarrier.get(item, toSignature)),
     activeParameter: command.findCursorIndex(cursorOffset),
     activeSignature: 0,
   };
-
-  return Out;
-}
-
-function ConvertToSignatures(Commands: CommandInfo[]): SignatureInformation[] {
-  return Commands.map((item) => SignatureCarrier.get(item, ConvertToSignature));
 }
 
 //Converts the given MCCommand into a signature
-function ConvertToSignature(command: CommandInfo): SignatureInformation {
+function toSignature(command: CommandInfo): SignatureInformation {
   let Sign: SignatureInformation = {
     label: "",
     documentation: command.documentation,

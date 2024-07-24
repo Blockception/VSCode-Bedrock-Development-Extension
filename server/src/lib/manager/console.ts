@@ -22,29 +22,23 @@ export namespace Console {
     Manager.Connection.console.debug(message);
   }
 
-  type executorFn<T> = (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void;
-
-  export function request<T>(request: string, executor: executorFn<T>): Promise<T>;
-  export function request<T>(request: string, promise: Promise<T>): Promise<T>;
-
   /**
    *
    * @param request
-   * @param executor
+   * @param todo
    * @returns
    */
-  export function request<T>(request: string, executor: executorFn<T> | Promise<T>): Promise<T> {
+  export function request<T>(request: string, todo: () => Promise<T> | T): Promise<T | undefined> {
     Console.Info("Starting: " + request);
 
-    if (executor instanceof Promise) {
-    } else if (typeof executor === "function") {
-      executor = new Promise(executor);
-    }
-
-    executor
-      .then(() => Console.Info("Completed: " + request))
-      .catch((err) => Console.Error(`${JSON.stringify(request)} ${JSON.stringify(err)}`));
-
-    return executor;
+    return Promise.resolve(todo())
+      .then((result) => {
+        Console.Info("Completed: " + request);
+        return result;
+      })
+      .catch((err) => {
+        Console.Error(`${JSON.stringify(request)} ${JSON.stringify(err)}`);
+        return undefined;
+      });
   }
 }

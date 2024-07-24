@@ -7,7 +7,7 @@ import * as Minecraft from "./minecraft/code-actions";
 import * as BehaviorPack from "./minecraft/behavior-pack/main";
 import * as ResourcePack from "./minecraft/resource-pack/main";
 import { GetDocument } from "../documents";
-import { Attributes } from './types';
+import { Attributes } from "./types";
 
 /**
  *
@@ -17,7 +17,7 @@ import { Attributes } from './types';
 export async function onCodeActionAsync(
   params: CodeActionParams
 ): Promise<(Command | CodeAction)[] | undefined | null> {
-  return Console.request("Code action", onCodeAction(params));
+  return Console.request("Code action", () => onCodeAction(params));
 }
 
 /**

@@ -20,7 +20,7 @@ export async function onCodeLensRequest(
   //If code lens is disabled
   if (!Manager.Settings.Plugin.CodeLens) return undefined;
 
-  return Console.request("Code Lens", internalRequest(params, token));
+  return Console.request("Code Lens", () => internalRequest(params, token));
 }
 
 /**

@@ -8,19 +8,13 @@ import * as Mcfunction from "./minecraft/mcfunctions";
 import { provideJsonSemanticTokens } from "./minecraft/json/json";
 
 export async function onProvideSemanticRequestAsync(params: SemanticTokensParams): Promise<SemanticTokens> {
-  try {
-    return Console.request("Semantics", Promise.resolve(onProvideSemanticRequest(params)));
-  } catch (err) {
-    return { data: [] };
-  }
+  return Console.request("Semantics", () => onProvideSemanticRequest(params)).then((result) => {
+    return result !== undefined ? result : { data: [] };
+  });
 }
 
 export async function onProvideRangeSemanticRequestAsync(params: SemanticTokensRangeParams): Promise<SemanticTokens> {
-  try {
-    return Console.request("Semantics", Promise.resolve(onProvideSemanticRequestAsync(params)));
-  } catch (err) {
-    return { data: [] };
-  }
+  return onProvideSemanticRequestAsync(params);
 }
 
 function onProvideSemanticRequest(params: SemanticTokensRangeParams | SemanticTokensParams): SemanticTokens {

@@ -9,6 +9,7 @@ import { HandleError } from "../../util/error";
 import { ReScanProject } from "./commands/rescan";
 import { StoreProject } from "./commands/store-project";
 import { Workspace } from "../workspace/workspace";
+import { Pack } from "bc-minecraft-bedrock-project";
 
 /**
  *
@@ -16,7 +17,9 @@ import { Workspace } from "../workspace/workspace";
  * @returns
  */
 export function onCommandRequestAsync(params: ExecuteCommandParams): Promise<any> {
-  return Console.request(`Command Execution [${params.command}]`, Promise.resolve(onCommandRequest(params)));
+  return Console.request<void | Promise<void> | Promise<Pack[]>>(`Command Execution [${params.command}]`, () =>
+    onCommandRequest(params)
+  );
 }
 
 /**
@@ -24,7 +27,7 @@ export function onCommandRequestAsync(params: ExecuteCommandParams): Promise<any
  * @param params
  * @returns
  */
-function onCommandRequest(params: ExecuteCommandParams): any {
+function onCommandRequest(params: ExecuteCommandParams): void | Promise<void> | Promise<Pack[]> {
   let out = undefined;
   try {
     out = InternalCommandRequest(params);
@@ -35,7 +38,7 @@ function onCommandRequest(params: ExecuteCommandParams): any {
   return out;
 }
 
-function InternalCommandRequest(params: ExecuteCommandParams): any {
+function InternalCommandRequest(params: ExecuteCommandParams): void | Promise<void> | Promise<Pack[]> {
   if (params.command.startsWith(Commands.Create.Base)) {
     return Create(params);
   }

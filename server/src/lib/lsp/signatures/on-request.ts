@@ -9,10 +9,10 @@ import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Molang from "./minecraft/molang/main";
 
 export async function OnSignatureRequestAsync(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
-  return Console.request("Signature", Promise.resolve(OnSignatureRequest(params)));
+  return Console.request("Signature", () => onSignatureRequest(params));
 }
 
-function OnSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
+function onSignatureRequest(params: SignatureHelpParams): SignatureHelp | undefined {
   const pos = params.position;
   const doc = GetDocument(params.textDocument.uri);
   if (!doc) return undefined;

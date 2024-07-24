@@ -7,11 +7,11 @@ import * as Json from "./minecraft/json";
 import * as Mcfunction from "./minecraft/mcfunctions";
 
 export function onDefinitionRequestAsync(params: DefinitionParams): Promise<Location[] | undefined> {
-  return Console.request("Definition", Promise.resolve(onDefinition(params)));
+  return Console.request("Definition", () => onDefinition(params));
 }
 
 export function onTypeDefinitionRequestAsync(params: TypeDefinitionParams): Promise<Location[] | undefined> {
-  return Console.request("Type Definition", Promise.resolve(onDefinition(params)));
+  return Console.request("Type Definition", () => onDefinition(params));
 }
 
 export function onDefinition(params: TypeDefinitionParams | DefinitionParams): Location[] | undefined {
