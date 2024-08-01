@@ -1,19 +1,13 @@
 import { Range } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import * as JSONC from "comment-json";
-import * as Code from "./document";
-import { TextDocument } from "./text-document";
+import { TextDocument, WrappedTextDocument } from "./text-document";
 import { HandleError } from "../../util/error";
+import * as JSONC from "comment-json";
+import * as Code from "./io";
+import * as vscode from "vscode-languageserver-textdocument";
 
-/**
- *
- */
-export class JsonDocument {
-  /**
-   *
-   */
-  public doc: TextDocument;
-
+/** A class that help */
+export class JsonDocument extends WrappedTextDocument {
   /**
    *
    */
@@ -23,65 +17,51 @@ export class JsonDocument {
    *
    * @param doc
    */
-  constructor(doc: TextDocument) {
+  constructor(document: vscode.TextDocument) {
+    super(document);
     this.object = undefined;
-    this.doc = doc;
   }
 
-  /**Casts the contents of the document to the specified interface*/
-  public CastTo<T>(): T | undefined | null {
-    let object = this.GetObject();
-
-    return <T>object;
-  }
-
-  /**Casts the contents of the document to the specified interface, if any errors is occured during that process. that error is returned */
-  public CastToError<T>(): { value: T | undefined | null; error: any } {
-    let object = this.GetObjectError();
-
-    if (object.error) {
-      return { value: undefined, error: object.error };
-    }
-
-    let value = object.value;
-
-    return { value: <T>value, error: undefined };
-  }
-
-  /**Retrieves the json object from the given contents. if failed a null or undefined is returned*/
-  public GetObject(): any | undefined | null {
+  /**
+   * Retrieves the json object from the given contents. if failed a null or undefined is returned
+   * @returns The object as T or any
+   */
+  public getObject<T = any>(): T | undefined | null {
     if (this.object === undefined) {
       try {
-        let Text = this.doc.getText();
+        const text = this.getText();
 
         let object;
-        if (Text !== "") {
-          object = JSONC.parse(Text, undefined, true);
+        if (text !== "") {
+          object = JSONC.parse(text, undefined, true);
         }
 
-        this.object = object;
+        this.object = object as T;
         //ValidJson(this.doc);
       } catch (error) {
-        HandleError(error, this.doc);
+        HandleError(error, undefined, this._document);
       }
     }
 
     return this.object;
   }
 
-  /**Retrieves the json object from the given contents. if failed a the error is returned*/
-  public GetObjectError(): { value: any | undefined | null; error: any } {
+  /**
+   * Retrieves the json object from the given contents. if failed a the error is returned
+   * @returns The object as T or any
+   */
+  public getObjectError(): { value: any | undefined | null; error: any } {
     let err: any = null;
 
     if (this.object === undefined) {
       try {
-        let Text = this.doc.getText();
-        let object = JSONC.parse(Text);
+        const text = this.getText();
+        const object = JSONC.parse(text);
         this.object = object;
 
         //ValidJson(this.doc);
       } catch (error) {
-        HandleError(error, this.doc);
+        HandleError(error, undefined, this._document);
       }
     }
 
@@ -90,38 +70,36 @@ export class JsonDocument {
 
   /**
    * Tries to find the range of the given text.
-   * @param Name The name of the property to find,
-   * @param Value The value of the property to find
+   * @param name The name of the property to find,
+   * @param value The value of the property to find
    */
-  public GetRange(Name: string, Value: string): Range | undefined {
-    let RegX = new RegExp('"' + Name + '"s*:s*"' + Value + '"', "m");
+  public getRange(name: string, value: string): Range | undefined {
+    const regx = new RegExp(`"${name}"s*:s*"${value}'"`, "m");
 
-    return FindRangeReg(this.doc, RegX);
+    return findRangeRegX(this, regx);
   }
 
   /**
-   *
-   * @param Value
+   * Tries to find the rangeOf the given value in the text
+   * @param value The value to look for
    * @returns
    */
-  public RangeOf(Value: string): Range | undefined {
-    let Text = this.doc.getText();
-
-    let index = Text.indexOf(Value);
-
+  public rangeOf(value: string): Range | undefined {
+    const text = this.getText();
+    const index = text.indexOf(value);
     if (index < 0) return undefined;
 
-    return Range.create(this.doc.positionAt(index), this.doc.positionAt(index + Value.length));
+    return Range.create(this.positionAt(index), this.positionAt(index + value.length));
   }
 
   /**
    * Tries to find the range of the given property
    * @param Name The name of the property to find
    */
-  public GetRangeOfObject(Name: string): Range | undefined {
-    let RegX = new RegExp('"' + Name + '"s*:', "m");
+  public getRangeOfObject(Name: string): Range | undefined {
+    const regx = new RegExp('"' + Name + '"s*:', "m");
 
-    return FindRangeReg(this.doc, RegX);
+    return findRangeRegX(this, regx);
   }
 
   /**
@@ -129,10 +107,10 @@ export class JsonDocument {
    * @param Name
    * @returns
    */
-  public GetStartOfObject(Name: string): Position | undefined {
-    let RegX = new RegExp('"' + Name + '"s*:', "m");
+  public getStartOfObject(Name: string): Position | undefined {
+    const regx = new RegExp('"' + Name + '"s*:', "m");
 
-    return FindLocationReg(this.doc, RegX);
+    return findLocationReg(this, regx);
   }
 
   /**
@@ -140,11 +118,10 @@ export class JsonDocument {
    * @param value
    * @returns
    */
-  public GetPositionOf(value: string): Position | undefined {
-    let text = this.doc.getText();
-    let index = text.indexOf(value);
-
-    if (index >= 0) return this.doc.positionAt(index);
+  public getPositionOf(value: string): Position | undefined {
+    const text = this.getText();
+    const index = text.indexOf(value);
+    if (index >= 0) return this.positionAt(index);
 
     return undefined;
   }
@@ -152,20 +129,20 @@ export class JsonDocument {
 
 /**
  * Searches the document with a given index and returns the index of that match.
- * @param doc
- * @param search
+ * @param doc The document to search through
+ * @param search The regex to search for
  */
-function FindRangeReg(doc: TextDocument, search: RegExp): Range | undefined {
-  let Text = doc.getText();
-  let Matches = Text.match(search);
+function findRangeRegX(doc: TextDocument, search: RegExp): Range | undefined {
+  const text = doc.getText();
+  const matches = text.match(search);
 
-  if (Matches) {
+  if (matches) {
     let index = 0;
 
-    if (Matches.index) index = Matches.index;
+    if (matches.index) index = matches.index;
 
-    let startP = doc.positionAt(index);
-    let endP = doc.positionAt(index + Matches.length);
+    const startP = doc.positionAt(index);
+    const endP = doc.positionAt(index + matches.length);
 
     return Range.create(startP, endP);
   }
@@ -175,38 +152,19 @@ function FindRangeReg(doc: TextDocument, search: RegExp): Range | undefined {
 
 /**
  * Searches the document with a given index and returns the index of that match.
- * @param doc
- * @param search
+ * @param doc The document to search through
+ * @param search The regex to search for
  */
-function FindLocationReg(doc: TextDocument, search: RegExp): Position | undefined {
-  let Text = doc.getText();
-  let Matches = Text.match(search);
+function findLocationReg(doc: TextDocument, search: RegExp): Position | undefined {
+  const text = doc.getText();
+  const matches = text.match(search);
 
-  if (Matches) {
+  if (matches) {
     let index = 0;
-
-    if (Matches.index) index = Matches.index;
+    if (matches.index) index = matches.index;
 
     return doc.positionAt(index);
   }
 
   return undefined;
-}
-
-/**
- *
- */
-export namespace JsonDocument {
-  /**
-   *
-   * @param uri
-   * @returns
-   */
-  export function GetDocument(uri: string): JsonDocument | undefined {
-    const temp = Code.GetDocument(uri);
-
-    if (temp) return new JsonDocument(temp);
-
-    return undefined;
-  }
 }
