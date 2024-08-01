@@ -1,6 +1,6 @@
-import { WorkDoneProgressReporter } from "vscode-languageserver";
-import { Manager } from '../../manager/manager';
-
+import { ProgressToken, WorkDoneProgressReporter } from "vscode-languageserver";
+import { Manager } from "../../manager/manager";
+import { ExtensionContext } from "../extension/context";
 
 export class ProgressBar {
   private value: number;
@@ -27,8 +27,8 @@ export class ProgressBar {
     return this.value;
   }
 
-  getPercentage() : number {
-    return (this.value / this.maximum) * 100
+  getPercentage(): number {
+    return (this.value / this.maximum) * 100;
   }
 
   setMaximum(value: number): void {
@@ -62,20 +62,49 @@ export class ProgressBar {
 }
 
 /**
- * 
+ *
  */
 export namespace ProgressBar {
   /**
-   * 
-   * @param title 
-   * @param value 
-   * @param max 
-   * @returns 
+   *
+   * @param title
+   * @param value
+   * @param max
+   * @returns
    */
-  export function create(title: string, value: number = 0, max: number = 1): Promise<ProgressBar> {
-    const temp = Manager.Connection.window.createWorkDoneProgress();
-    return temp.then((item) => {
-      return new ProgressBar(item, title, value, max);
+  export function create(
+    extension: ExtensionContext,
+    title: string,
+    value: number = 0,
+    max: number = 1
+  ): Promise<ProgressBar> {
+    const temp = extension.connection.window.createWorkDoneProgress();
+    return temp.then((progres) => {
+      return new ProgressBar(progres, title, value, max);
     });
+  }
+
+  export function attach(
+    extension: ExtensionContext,
+    token: ProgressToken | undefined,
+    title: string,
+    value: number = 0,
+    max: number = 1
+  ) {
+    const progres = extension.connection.window.attachWorkDoneProgress(token);
+    return new ProgressBar(progres, title, value, max);
+  }
+
+  const _noop = new ProgressBar(
+    {
+      begin: () => {},
+      report: () => {},
+      done: () => {},
+    },
+    "noop"
+  );
+
+  export function noop(): ProgressBar {
+    return _noop;
   }
 }

@@ -8,17 +8,6 @@ import { Manager } from "../../manager/manager";
 import { ProgressBar } from "../progress/progress-bar";
 import { Workspace } from "../workspace/workspace";
 
-export async function Traverse(): Promise<Pack[]> {
-  Console.Info("Traversing starting...");
-  Database.clear();
-  Manager.State.TraversingProject = true;
-  Manager.State.DataGathered = false;
-
-  const reporter = ProgressBar.create("Minecraft: Traverse & Diagnose", 0, 1);
-
-  return reporter.then(TraverseProcess);
-}
-
 async function TraverseProcess(reporter: ProgressBar): Promise<Pack[]> {
   const start_time = Date.now();
   reporter.sendMessage("Traversing");
