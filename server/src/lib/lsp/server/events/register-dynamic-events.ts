@@ -14,13 +14,7 @@ export function SetDynamicEvents(register: BulkRegistration) {
     Manager.Connection.client.register(DidChangeConfigurationNotification.type);
   }
 
-  // Tell the client that this server supports code formatting.
-  register.add(DocumentFormattingRequest.type, {
-    documentSelector: [
-      { scheme: "file", language: Languages.McFunctionIdentifier },
-      { scheme: "file", language: Languages.McLanguageIdentifier },
-    ],
-  });
+
 
   // Tell the client that this server supports semantic tokens
   register.add(SemanticTokensRegistrationType.type, {

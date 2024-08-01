@@ -20,17 +20,10 @@ import { DiagnoserService } from "../diagnostics/service";
 
 export class DocumentProcessor extends BaseService implements Pick<IService, "onInitialize"> {
   name: string = "document processor";
-  private _documentManager: DocumentManager;
   private _diagnoser: DiagnoserService;
 
-  constructor(
-    logger: IExtendedLogger,
-    extension: ExtensionContext,
-    documentManager: DocumentManager,
-    diagnoser: DiagnoserService
-  ) {
+  constructor(logger: IExtendedLogger, extension: ExtensionContext, diagnoser: DiagnoserService) {
     super(logger.withPrefix("[doc pros]"), extension);
-    this._documentManager = documentManager;
     this._diagnoser = diagnoser;
   }
 
@@ -56,11 +49,11 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
   get(uri: string, content: ContentType): TextDocument;
   get(uri: string, content: ContentType, languageID: string): TextDocument;
   get(uri: string, content?: ContentType, languageID?: string): TextDocument | undefined {
-    return this._documentManager.get(uri, content, languageID);
+    return this.extension.documents.get(uri, content, languageID);
   }
 
   delete(uri: string) {
-    return Database.ProjectData.deleteFile(uri);
+    return this.extension.database.ProjectData.deleteFile(uri);
   }
 
   /**
@@ -74,7 +67,7 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
 
     try {
       if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(document.uri, conf.ignores.patterns)) {
-        Database.ProjectData.process(document);
+        this.extension.database.ProjectData.process(document);
       } else {
         this.logger.info(`ignoring file ${document.uri}`);
       }
@@ -87,13 +80,32 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
     return this._diagnoser.diagnose(doc);
   }
 
-  private onDidDeleteFiles(onDidDeleteFiles: DeleteFilesParams) {
-    throw new Error("Method not implemented.");
+  private onDidDeleteFiles(params: DeleteFilesParams) {
+    this.logger.debug("received deleted files", params);
+
+    params.files.forEach((file) => this.delete(file.uri));
   }
-  private onDidCreateFiles(onDidCreateFiles: CreateFilesParams) {
-    throw new Error("Method not implemented.");
+
+  private onDidCreateFiles(params: CreateFilesParams) {
+    this.logger.debug("received created files", params);
+
+    params.files.forEach((file) => {
+      const doc = this.extension.documents.get(file.uri);
+      if (doc === undefined) return;
+
+      return this.process(doc);
+    });
   }
-  private onDidRenameFiles(onDidRenameFiles: RenameFilesParams) {
-    throw new Error("Method not implemented.");
+
+  private onDidRenameFiles(params: RenameFilesParams) {
+    this.logger.debug("received files rename", params);
+
+    params.files.forEach((file) => this.delete(file.oldUri));
+    params.files.forEach((file) => {
+      const doc = this.extension.documents.get(file.newUri);
+      if (doc === undefined) return;
+
+      return this.process(doc);
+    });
   }
 }

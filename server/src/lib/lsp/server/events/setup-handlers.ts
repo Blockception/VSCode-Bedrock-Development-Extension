@@ -5,7 +5,7 @@ import { onCommandRequestAsync } from "../../commands/on-request";
 import { onConfigurationChanged, onDidChangeConfigurationAsync } from "./on-configuration";
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../references/on-definitions";
 import { OnDocumentChangedAsync } from "./on-documents";
-import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../../format/on-request";
+import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../format/on-request";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../symbols/on-request";
 import { onHoverRequestAsync } from "../../hover/on-request";
 import { onImplementationRequestAsync } from "../../references/on-implementation";

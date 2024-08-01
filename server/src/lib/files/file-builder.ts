@@ -9,9 +9,11 @@ import {
   OptionalVersionedTextDocumentIdentifier,
   ApplyWorkspaceEditResult,
   Range,
+  Connection,
 } from "vscode-languageserver";
 import { Fs, Vscode } from "../util";
-import { Console, Manager } from "../manager";
+import { Console } from "../manager";
+
 import * as fs from "fs";
 
 /**
@@ -20,9 +22,11 @@ import * as fs from "fs";
 export class FileBuilder {
   private _receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
   public CreateOptions: CreateFileOptions;
+  private _connection: Connection;
 
-  constructor() {
+  constructor(connection: Connection) {
     this._receiver = [];
+    this._connection = connection;
     this.CreateOptions = { ignoreIfExists: true, overwrite: false };
   }
 
@@ -33,8 +37,8 @@ export class FileBuilder {
   async Send(): Promise<void> {
     if (this._receiver.length <= 0) return;
 
-    const Edit: WorkspaceEdit = { documentChanges: this._receiver };
-    return Manager.Connection.workspace.applyEdit(Edit).then(Response);
+    const edit: WorkspaceEdit = { documentChanges: this._receiver };
+    return this._connection.workspace.applyEdit(edit).then(Response);
   }
 
   /**

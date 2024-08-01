@@ -14,6 +14,7 @@ import { WorkspaceProcessor } from "../process/workspace-processor";
 import { PackProcessor } from "../process/pack-processor";
 import { DiagnoserService } from "../diagnostics/service";
 import { Database } from "../database/database";
+import { FormatService } from "../format/service";
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -22,12 +23,14 @@ export function setupServer() {
 
   const logger = new ExtendedLogger(connection.console);
   const documents = new DocumentManager(logger);
-  const extension = new ExtensionContext(connection, logger, documents);
-  const database = new Database(logger, extension);
+  const database = new Database(logger, documents);
+  const extension = new ExtensionContext(connection, logger, documents, database);
+
   const diagnoserService = new DiagnoserService(logger, extension);
-  const documentProcessor = new DocumentProcessor(logger, extension, documents, diagnoserService);
+  const documentProcessor = new DocumentProcessor(logger, extension, diagnoserService);
   const packProcessor = new PackProcessor(logger, extension, documentProcessor);
   const workspaceProcessor = new WorkspaceProcessor(logger, extension, packProcessor);
+
   const manager = new ServiceManager(logger).add(
     documents,
     database,
@@ -35,7 +38,8 @@ export function setupServer() {
     documentProcessor,
     packProcessor,
     workspaceProcessor,
-    new CompletionService(logger, extension)
+    new CompletionService(logger, extension),
+    new FormatService(logger, extension)
   );
 
   logger.info("starting minecraft server");

@@ -1,22 +1,27 @@
-import { Connection } from "vscode-languageserver";
-import { DeleteFilesParams, Diagnostic, InitializeParams } from "vscode-languageserver-protocol";
-import { ExtensionContext } from "../extension/context";
-import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
+import { Connection } from "vscode-languageserver";
+import { DeleteFilesParams, Diagnostic, InitializeParams } from "vscode-languageserver-protocol";
+import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
+import { DocumentManager } from "../documents/manager";
+import { ExtensionContext } from "../extension/context";
+import { getFilename } from "../../util";
+import { IExtendedLogger } from "../logger/logger";
+import { InternalContext } from "./context";
 import { IService } from "../services/service";
 import { TextDocument } from "../documents";
-import { Database } from "../database";
-import { getFilename } from "../../util";
 
 export class DiagnoserService extends BaseService implements Pick<IService, "onInitialize"> {
   name: string = "diagnoser";
+  private _context: InternalContext;
+  private _diagnoser: Diagnoser;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[diagnoser]"), extension);
+    logger = logger.withPrefix("[diagnoser]");
+    super(logger, extension);
 
-    const context = createContext(getCacheFn);
-    const out = new Diagnoser<TextDocument>(context);
+    this._context = new InternalContext(logger, this.extension.documents, () => extension.database.ProjectData);
+    this._diagnoser = new Diagnoser(this._context);
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
@@ -31,8 +36,7 @@ export class DiagnoserService extends BaseService implements Pick<IService, "onI
       return;
     }
 
-    //Send it off to the diagnoser
-    Database.Diagnoser.process(doc);
+    this._diagnoser.process(doc);
   }
 
   set(doc: Pick<TextDocument, "uri"> & Partial<Pick<TextDocument, "version">>, diagnostics: Diagnostic[]) {

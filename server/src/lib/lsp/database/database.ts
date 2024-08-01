@@ -10,6 +10,8 @@ import { ExtensionContext } from "../extension/context";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { IService } from "../services/service";
+import { DocumentManager } from "../documents/manager";
+import { InternalContext } from "../diagnostics/context";
 
 type BaseObject = Types.BaseObject;
 
@@ -23,13 +25,15 @@ export class Database implements Pick<IService, "name"> {
   public Diagnoser: Diagnoser;
   public ProjectData: ProjectData;
   public WorkspaceData: WorkspaceData;
+  public context: InternalContext;
 
-  constructor(logger: IExtendedLogger, extension: ExtensionContext) {
+  constructor(logger: IExtendedLogger, documents: DocumentManager) {
     this.logger = logger.withPrefix("[database]");
 
+    this.context = new InternalContext(this.logger, () => this.ProjectData);
     this.Diagnoser = DiagnoserUtility.createDiagnoser(() => this.ProjectData);
     this.WorkspaceData = new WorkspaceData();
-    this.ProjectData = new ProjectData(this.Diagnoser.context);
+    this.ProjectData = new ProjectData(this.context);
   }
 
   /**
@@ -38,14 +42,14 @@ export class Database implements Pick<IService, "name"> {
   clear(): void {
     Console.Info("Resetting database");
     this.WorkspaceData.clear();
-    this.ProjectData
+    this.ProjectData;
   }
 
   getPacks() {
     return [
-      ...this.ProjectData.BehaviorPacks.packs,
-      ...this.ProjectData.ResourcePacks.packs,
-      ...this.ProjectData.Worlds.packs,
+      ...this.ProjectData.behaviorPacks.packs,
+      ...this.ProjectData.resourcePacks.packs,
+      ...this.ProjectData.worlds.packs,
     ];
   }
 
@@ -157,10 +161,10 @@ export class Database implements Pick<IService, "name"> {
 
   forEach(callbackfn: (item: BaseObject) => void): Promise<void> {
     const packs: forEachfn<BaseObject>[][] = [
-      [this.ProjectData.General],
-      this.ProjectData.BehaviorPacks.packs,
-      this.ProjectData.ResourcePacks.packs,
-      this.ProjectData.Worlds.packs,
+      [this.ProjectData.general],
+      this.ProjectData.behaviorPacks.packs,
+      this.ProjectData.resourcePacks.packs,
+      this.ProjectData.worlds.packs,
     ];
 
     return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col) => {

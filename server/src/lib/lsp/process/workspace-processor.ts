@@ -22,15 +22,12 @@ import { Pack } from "bc-minecraft-bedrock-project";
 
 export class WorkspaceProcessor extends BaseService implements Pick<IService, "onInitialize" | "start"> {
   name: string = "workspace processor";
-  private _onDocumentProcess: Emitter<TextDocument>;
   private _packProcessor: PackProcessor;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext, packProcessor: PackProcessor) {
     super(logger.withPrefix("[ws pros]"), extension);
 
-    this._onDocumentProcess = new Emitter();
     this._packProcessor = packProcessor;
-    this.addDisposable(this._onDocumentProcess);
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
