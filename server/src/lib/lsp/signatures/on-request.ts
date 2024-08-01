@@ -1,5 +1,5 @@
 import { Console } from "../../manager";
-import { GetDocument } from "../documents/document";
+import { GetDocument } from "../documents/io";
 import { Languages } from "@blockception/shared";
 import { provideJsonSignature } from "./json";
 import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver";

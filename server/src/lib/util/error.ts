@@ -1,7 +1,8 @@
-import { Console } from "../manager/console";
-import { GetFilename } from "./file";
+import { IExtendedLogger } from '../lsp/logger/logger';
+import { Manager } from '../manager';
+import { getFilename } from "./file";
 
-export function HandleError(error: any, doc: { uri: string } | string | undefined = undefined): void {
+export function HandleError(error: any, logger?: IExtendedLogger, doc: { uri: string } | string | undefined = undefined): void {
   let msg: string;
 
   if (errormsg.is(error)) {
@@ -11,10 +12,14 @@ export function HandleError(error: any, doc: { uri: string } | string | undefine
   }
 
   if (doc) {
-    msg = GetFilename(typeof doc === "object" ? doc.uri : doc) + " | " + msg;
+    msg = getFilename(typeof doc === "object" ? doc.uri : doc) + " | " + msg;
   }
 
-  Console.Error(msg);
+  if (logger !== undefined) {
+    logger.error(msg);
+  } else {
+    Manager.Connection.console.error(msg);
+  }
 }
 
 interface errormsg {

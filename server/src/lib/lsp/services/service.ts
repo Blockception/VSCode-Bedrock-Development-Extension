@@ -33,4 +33,9 @@ export interface IService {
    * Starts the service, called after initialization
    */
   start(): void;
+
+  /**
+   * Stios the service, called on Exit
+   */
+  stop(): void;
 }

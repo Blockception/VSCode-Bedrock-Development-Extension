@@ -22,14 +22,7 @@ export async function OnWorkspaceFolderChangeAsync(params: WorkspaceFoldersChang
 }
 
 function OnWorkspaceFolderChange(params: WorkspaceFoldersChangeEvent): void {
-  const removed = params.removed;
 
-  for (let index = 0; index < removed.length; index++) {
-    Workspace.RemoveWorkspace(removed[index].uri);
-  }
-
-  //Call to process workspaces
-  Workspace.TraverseWorkspaces(params.added);
 }
 
 //Files created

@@ -1,7 +1,7 @@
 import { DefinitionParams, Location, TypeDefinitionParams } from "vscode-languageserver";
 import { Languages } from "@blockception/shared";
 import { Console } from "../../manager";
-import { GetDocument } from "../documents/document";
+import { GetDocument } from "../documents/io";
 
 import * as Json from "./minecraft/json";
 import * as Mcfunction from "./minecraft/mcfunctions";

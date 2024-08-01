@@ -2,7 +2,7 @@ import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-
 import { TextEdit } from "vscode-languageserver-textdocument";
 import { Languages } from "@blockception/shared";
 import { Console } from "../manager";
-import { GetDocument } from "../lsp/documents/document";
+import { GetDocument } from "../lsp/documents/io";
 import { formatLangauge, formatLangaugeRange } from "./language";
 import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";
 

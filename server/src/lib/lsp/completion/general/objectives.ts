@@ -1,5 +1,5 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
-import { GetFilename, SimpleContext } from "../../../util";
+import { getFilename, SimpleContext } from "../../../util";
 import { CompletionBuilder } from "../builder/builder";
 import { Database } from "../../../lsp/database/database";
 import { Kinds } from "../../../constants/kinds";
@@ -13,7 +13,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
       return `The objective: ${item}`;
     }
 
-    const filename = GetFilename(item.location.uri);
+    const filename = getFilename(item.location.uri);
 
     return `The objective: ${item.id}\nLocation: ${filename}`;
   };

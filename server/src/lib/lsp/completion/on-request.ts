@@ -1,5 +1,4 @@
 import { createBuilder } from "./builder/builder";
-import { GetDocument } from "../documents/document";
 import { Languages } from "@blockception/shared";
 import { SimpleContext } from "../../util/simple-context";
 import {
@@ -17,22 +16,21 @@ import * as MCProject from "./minecraft/mcproject/mcproject";
 import * as Molang from "./minecraft/molang/main";
 import { IExtendedLogger } from "../logger/logger";
 import { ProjectData } from "bc-minecraft-bedrock-project";
+import { TextDocument } from "../documents";
 
 export function onCompletionRequest(
+  document: TextDocument,
   params: CompletionParams,
   token: CancellationToken,
   workDoneProgress: WorkDoneProgressReporter,
   logger: IExtendedLogger,
   projectData: ProjectData
 ): CompletionList | undefined {
-  const doc = GetDocument(params.textDocument.uri);
-  if (!doc) return undefined;
-
   const builder = createBuilder(token, workDoneProgress);
   const pos = params.position;
-  const context = SimpleContext.create(doc, builder, doc.offsetAt(pos), projectData, logger);
+  const context = SimpleContext.create(document, builder, document.offsetAt(pos), projectData, logger);
 
-  switch (doc.languageId) {
+  switch (document.languageId) {
     case Languages.McLanguageIdentifier:
       Language.provideCompletion(context, pos);
       break;

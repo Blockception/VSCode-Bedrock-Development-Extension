@@ -17,7 +17,6 @@ import { TextDocument } from "vscode-languageserver-textdocument";
 import { DataCache } from '../caches';
 import { Glob } from '../../files';
 import { Console, Manager } from '../../manager';
-import { GetDocument } from '../documents';
 import { GetRange } from '../../util';
 
 export namespace DiagnoserUtility {
@@ -25,8 +24,7 @@ export namespace DiagnoserUtility {
    * @returns A diagnoser*/
   export function createDiagnoser(getCacheFn: () => ProjectData): Diagnoser<TextDocument> {
     //create diagnoser
-    const context = createContext(getCacheFn);
-    const out = new Diagnoser<TextDocument>(context);
+
 
     return out;
   }
@@ -68,7 +66,7 @@ export namespace DiagnoserUtility {
     /**@inheritdoc*/
     getDocument(uri: string): TextDocument | undefined {
       //return CachedDocuments.getOrAdd(uri, GetDocument);
-      return GetDocument(uri);
+      return this.;
     }
 
     /**@inheritdoc*/

@@ -26,9 +26,7 @@ export function setupHandlers() {
   const Documents = Manager.Documents;
   const Connection = Manager.Connection;
 
-  //provides diagnostics and such
-  Documents.onDidOpen(OnDocumentChangedAsync);
-  Documents.onDidSave(OnDocumentChangedAsync);
+
 
   // This handler provides commands
   Connection.onExecuteCommand(onCommandRequestAsync);
@@ -74,9 +72,6 @@ export function setupHandlers() {
 
   if (Manager.Capabilities.hasWorkspaceFolderCapability) {
     // Workspace event
-    Connection.workspace.onDidCreateFiles(OnDidCreateFilesAsync);
-    Connection.workspace.onDidDeleteFiles(onDidDeleteFilesAsync);
-    Connection.workspace.onDidRenameFiles(OnDidRenameFilesAsync);
-    Connection.workspace.onDidChangeWorkspaceFolders(OnWorkspaceFolderChangeAsync);
+
   }
 }

@@ -2,7 +2,7 @@ import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Console } from "../../manager";
 import { Database } from "../../lsp/database/database";
 import { DocumentSymbolParams, SymbolInformation, SymbolKind, WorkspaceSymbolParams } from "vscode-languageserver";
-import { Fs, GetDirectory, GetFilename, Vscode } from "../../util";
+import { Fs, GetDirectory, getFilename, Vscode } from "../../util";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
 import { Kinds } from "../../constants/kinds";
 import { SymbolBuilder } from "./builder";
@@ -59,7 +59,7 @@ function OnDocumentSymbolRequest(params: DocumentSymbolParams): SymbolInformatio
 
   if (uri.endsWith(".json")) return builder.items;
 
-  const filename = GetFilename(uri);
+  const filename = getFilename(uri);
   if (filename !== "") builder.new(filename, SymbolKind.Class);
 
   return builder.items;

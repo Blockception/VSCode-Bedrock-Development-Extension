@@ -12,7 +12,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
 
   //process capabilities of the client
   const capabilities = params.capabilities;
-  Manager.Capabilities.Parse(capabilities);
 
   const result: InitializeResult = {
     serverInfo: {
@@ -77,19 +76,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
         triggerCharacters: triggerCharacters,
         retriggerCharacters: triggerCharacters,
         workDoneProgress: true,
-      },
-
-      //Workspace settings
-      workspace: {
-        workspaceFolders: {
-          changeNotifications: true,
-          supported: true,
-        },
-        fileOperations: {
-          didCreate: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
-          didDelete: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
-          didRename: { filters: [{ scheme: "file", pattern: { glob: "**​/*.{mcfunction,json}" } }] },
-        },
       },
     },
   };

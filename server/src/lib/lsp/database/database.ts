@@ -6,43 +6,47 @@ import { Types } from "bc-minecraft-bedrock-types";
 import { DiagnoserUtility as DiagnoserUtility } from "../diagnostics/diagnoser";
 import { Console } from "../../manager/console";
 import { WorkspaceData } from "./workspace-data";
-
-/** */
-export class Database {
-  /** */
-  static Diagnoser: Diagnoser = DiagnoserUtility.createDiagnoser(() => Database.ProjectData);
-
-  /** */
-  static ProjectData: ProjectData = new ProjectData(Database.Diagnoser.context);
-
-  /** */
-  static WorkspaceData: WorkspaceData = new WorkspaceData();
-
-  /**
-   *
-   */
-  static clear(): void {
-    Console.Info("Resetting database");
-
-    Database.Diagnoser = DiagnoserUtility.createDiagnoser(() => Database.ProjectData);
-    Database.WorkspaceData = new WorkspaceData();
-    Database.ProjectData = new ProjectData(Database.Diagnoser.context);
-  }
-}
+import { ExtensionContext } from "../extension/context";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { IService } from "../services/service";
 
 type BaseObject = Types.BaseObject;
 
-/**
- *
- */
-export namespace Database {
+export interface forEachfn<T> {
+  forEach(callbackfn: (value: Types.BaseObject) => void): void;
+}
+
+export class Database implements Pick<IService, "name"> {
+  readonly name: string = "database";
+  public logger: IExtendedLogger;
+  public Diagnoser: Diagnoser;
+  public ProjectData: ProjectData;
+  public WorkspaceData: WorkspaceData;
+
+  constructor(logger: IExtendedLogger, extension: ExtensionContext) {
+    this.logger = logger.withPrefix("[database]");
+
+    this.Diagnoser = DiagnoserUtility.createDiagnoser(() => this.ProjectData);
+    this.WorkspaceData = new WorkspaceData();
+    this.ProjectData = new ProjectData(this.Diagnoser.context);
+  }
+
   /**
    *
-   * @param id
-   * @param callbackfn
    */
-  export function findReference(id: string): BaseObject | undefined {
-    return Database.ProjectData.find((item) => item.id === id);
+  clear(): void {
+    Console.Info("Resetting database");
+    this.WorkspaceData.clear();
+    this.ProjectData
+  }
+
+  getPacks() {
+    return [
+      ...this.ProjectData.BehaviorPacks.packs,
+      ...this.ProjectData.ResourcePacks.packs,
+      ...this.ProjectData.Worlds.packs,
+    ];
   }
 
   /**
@@ -50,17 +54,26 @@ export namespace Database {
    * @param id
    * @param callbackfn
    */
-  export function findReferences(id: string, Types: ParameterType[] | undefined = undefined): BaseObject[] {
-    if (Types) return internalTypeSearch(id, Types);
-
-    return internalSearchAll(id);
+  findReference(id: string): BaseObject | undefined {
+    return this.ProjectData.find((item) => item.id === id);
   }
 
-  function internalSearchAll(id: string): BaseObject[] {
+  /**
+   *
+   * @param id
+   * @param callbackfn
+   */
+  findReferences(id: string, Types: ParameterType[] | undefined = undefined): BaseObject[] {
+    if (Types) return this.internalTypeSearch(id, Types);
+
+    return this.internalSearchAll(id);
+  }
+
+  private internalSearchAll(id: string): BaseObject[] {
     return [];
   }
 
-  function internalTypeSearch(id: string, Types: ParameterType[]): BaseObject[] {
+  private internalTypeSearch(id: string, Types: ParameterType[]): BaseObject[] {
     const out: BaseObject[] = [];
     const AddIfIDMatch = (item: BaseObject) => {
       if (item.id === id) out.push(item);
@@ -71,25 +84,25 @@ export namespace Database {
 
       switch (T) {
         case ParameterType.animation:
-          Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
+          this.ProjectData.ResourcePacks.entities.forEach((entity) => {
             entity.animations.defined.forEach((anim) => {
               if (anim === id) out.push(entity);
             });
           });
-          Database.ProjectData.ResourcePacks.animations.forEach(AddIfIDMatch);
-          Database.ProjectData.ResourcePacks.animation_controllers.forEach(AddIfIDMatch);
+          this.ProjectData.ResourcePacks.animations.forEach(AddIfIDMatch);
+          this.ProjectData.ResourcePacks.animation_controllers.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.block:
-          Database.ProjectData.BehaviorPacks.blocks.forEach(AddIfIDMatch);
+          this.ProjectData.BehaviorPacks.blocks.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.entity:
-          Database.ProjectData.BehaviorPacks.entities.forEach(AddIfIDMatch);
+          this.ProjectData.BehaviorPacks.entities.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.event:
-          Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+          this.ProjectData.BehaviorPacks.entities.forEach((entity) => {
             entity.events.forEach((event) => {
               if (event === id) out.push(entity);
             });
@@ -97,7 +110,7 @@ export namespace Database {
           break;
 
         case ParameterType.event:
-          Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+          this.ProjectData.BehaviorPacks.entities.forEach((entity) => {
             entity.families.forEach((family) => {
               if (family === id) out.push(entity);
             });
@@ -105,36 +118,36 @@ export namespace Database {
           break;
 
         case ParameterType.function:
-          Database.ProjectData.BehaviorPacks.functions.forEach(AddIfIDMatch);
+          this.ProjectData.BehaviorPacks.functions.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.item:
-          Database.ProjectData.BehaviorPacks.items.forEach(AddIfIDMatch);
+          this.ProjectData.BehaviorPacks.items.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.objective:
-          Database.ProjectData.General.objectives.forEach(AddIfIDMatch);
+          this.ProjectData.General.objectives.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.particle:
-          Database.ProjectData.ResourcePacks.particles.forEach(AddIfIDMatch);
+          this.ProjectData.ResourcePacks.particles.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.sound:
-          Database.ProjectData.ResourcePacks.sounds.forEach(AddIfIDMatch);
+          this.ProjectData.ResourcePacks.sounds.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.structure:
-          Database.ProjectData.BehaviorPacks.structures.forEach(AddIfIDMatch);
-          Database.ProjectData.General.structures.forEach(AddIfIDMatch);
+          this.ProjectData.BehaviorPacks.structures.forEach(AddIfIDMatch);
+          this.ProjectData.General.structures.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tag:
-          Database.ProjectData.General.tags.forEach(AddIfIDMatch);
+          this.ProjectData.General.tags.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tickingarea:
-          Database.ProjectData.General.tickingAreas.forEach(AddIfIDMatch);
+          this.ProjectData.General.tickingAreas.forEach(AddIfIDMatch);
           break;
       }
     }
@@ -142,12 +155,12 @@ export namespace Database {
     return out;
   }
 
-  export function forEach(callbackfn: (item: BaseObject) => void): Promise<void> {
+  forEach(callbackfn: (item: BaseObject) => void): Promise<void> {
     const packs: forEachfn<BaseObject>[][] = [
-      [Database.ProjectData.General],
-      Database.ProjectData.BehaviorPacks.packs,
-      Database.ProjectData.ResourcePacks.packs,
-      Database.ProjectData.Worlds.packs,
+      [this.ProjectData.General],
+      this.ProjectData.BehaviorPacks.packs,
+      this.ProjectData.ResourcePacks.packs,
+      this.ProjectData.Worlds.packs,
     ];
 
     return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col) => {
@@ -156,8 +169,4 @@ export namespace Database {
       }).then((items) => {});
     }).then((items) => {});
   }
-}
-
-export interface forEachfn<T> {
-  forEach(callbackfn: (value: Types.BaseObject) => void): void;
 }

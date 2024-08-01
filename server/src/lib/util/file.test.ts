@@ -1,5 +1,5 @@
 import path from "path";
-import { getExtension, GetFilename, GetParent } from "./file";
+import { getExtension, getFilename, GetParent } from "./file";
 
 const Filename = "I am a filepath.json";
 const Extention = ".json";
@@ -8,7 +8,7 @@ const Fullpath = path.join(Parent, Filename);
 
 describe("File", () => {
   test("GetFilename", () => {
-    const Fname = GetFilename(Fullpath);
+    const Fname = getFilename(Fullpath);
 
     expect(Fname).toEqual("I am a filepath");
   });

@@ -21,12 +21,12 @@ export function onConfigurationChanged(params: DidChangeConfigurationParams): vo
 }
 
 export function updateSettings(): void {
-  const Settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
+  const settings = Manager.Connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier);
 
   //If settings is nothing then skip it.
-  if (Settings === undefined || Settings === null) return;
+  if (settings === undefined || settings === null) return;
 
-  Settings.then(updateSettingsObject);
+  settings.then(updateSettingsObject);
 }
 
 function updateSettingsObject(data: any): void {

@@ -1,6 +1,6 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { GetProjectEmpty } from '../../project/mcprojects';
+import { GetProjectEmpty } from "../../project/mcprojects";
 
 /**
  *
@@ -88,5 +88,9 @@ export class WorkspaceData {
     thisArg?: any
   ): void {
     this._data.forEach(callbackfn, thisArg || this);
+  }
+
+  clear() {
+    return this._data.clear();
   }
 }

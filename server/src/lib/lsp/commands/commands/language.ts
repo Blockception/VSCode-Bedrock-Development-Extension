@@ -4,7 +4,7 @@ import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languag
 import { HandleError } from "../../../util/error";
 import { Console } from "../../../manager/console";
 import { Manager } from "../../../manager/manager";
-import { GetDocument } from "../../documents/document";
+import { GetDocument } from "../../documents/io";
 import { TextDocument } from "../../documents/text-document";
 
 export function add_all_items(params: ExecuteCommandParams): void {

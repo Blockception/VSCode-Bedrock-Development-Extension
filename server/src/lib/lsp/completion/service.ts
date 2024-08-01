@@ -15,19 +15,19 @@ import { onCompletionRequest } from ".";
 import { ErrorCodes } from "../../constants/errors";
 import { ExtensionContext } from "../extension/context";
 import { Database } from "../database";
-import { GetFilename } from '../../util';
+import { getFilename } from "../../util";
 
 const triggerCharacters = " abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"".split("");
 
 export class CompletionService extends BaseService implements Partial<IService> {
-  readonly name: string = "Completion Service";
+  readonly name: string = "completion";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
     super(logger.withPrefix("[completion]"), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
-    this.extension.context.completion = true;
+    this.extension.capabilities.completion = true;
 
     capabilities.addCompletion({
       resolveProvider: false,
@@ -51,12 +51,15 @@ export class CompletionService extends BaseService implements Partial<IService> 
     workDoneProgress: WorkDoneProgressReporter
   ): ResponseError<void> | CompletionItem[] | CompletionList | undefined | null {
     const { uri } = params.textDocument;
-    const filename = GetFilename(uri);
+    const filename = getFilename(uri);
     this.logger.debug(`starting on: ${filename}`, params);
     workDoneProgress.begin(`completion ${filename}`, 0, undefined, true);
 
     try {
-      return onCompletionRequest(params, token, workDoneProgress, this.logger, Database.ProjectData);
+      const document = this.extension.documents.get(uri);
+      if (document === undefined) return;
+
+      return onCompletionRequest(document, params, token, workDoneProgress, this.logger, Database.ProjectData);
     } catch (err: any) {
       const code = ErrorCodes.CompletionService + (err.code ?? 0);
 

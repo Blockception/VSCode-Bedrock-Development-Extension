@@ -71,4 +71,14 @@ export class ServiceManager implements NamedService {
       }
     });
   }
+
+  /** @inheritdoc */
+  stop(): void {
+    this.services.forEach((service) => {
+      if (service.stop) {
+        this.logger.info(`Stopping service ${service.name}`);
+        service.stop();
+      }
+    });
+  }
 }

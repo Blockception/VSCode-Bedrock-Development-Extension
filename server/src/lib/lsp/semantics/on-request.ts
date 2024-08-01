@@ -1,5 +1,5 @@
 import { Console } from "../../manager/console";
-import { GetDocument } from "../documents/document";
+import { GetDocument } from "../documents/io";
 import { Languages } from "@blockception/shared";
 import { provideMolangSemanticTokens } from "./minecraft/molang/main";
 import { Range, SemanticTokens } from "vscode-languageserver/node";

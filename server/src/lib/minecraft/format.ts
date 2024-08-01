@@ -72,7 +72,11 @@ export namespace MinecraftFormat {
    * @param ignores The glob patterns to ignore
    */
   export function GetTextureFiles(folder: string, ignores: string[]) {
-    return Glob.GetFiles(["textures/**/*.png", "textures/*.png", "textures/**/*.tga", "textures/*.tga"], ignores, folder);
+    return Glob.GetFiles(
+      ["textures/**/*.png", "textures/*.png", "textures/**/*.tga", "textures/*.tga"],
+      ignores,
+      folder
+    );
   }
 
   /**

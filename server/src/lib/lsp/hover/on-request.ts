@@ -1,5 +1,5 @@
 import { Console } from "../../manager/console";
-import { GetDocument } from "../documents/document";
+import { GetDocument } from "../documents/io";
 import { Hover, HoverParams } from "vscode-languageserver";
 import { Languages } from "@blockception/shared";
 

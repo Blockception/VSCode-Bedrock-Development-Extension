@@ -29,20 +29,6 @@ export namespace Workspace {
   }
 
   /**
-   * @returns
-   */
-  export async function GetWorkSpaces(): Promise<WorkspaceFolder[]> {
-    const WS = Manager.Connection.workspace.getWorkspaceFolders();
-
-    WS.catch((err) => {
-      Console.Error(`No workspaces folders received`);
-      HandleError(err);
-    });
-
-    return WS.then((ws) => (ws ? ws : []));
-  }
-
-  /**
    * @param uri
    */
   export function RemoveWorkspace(uri: string): void {
