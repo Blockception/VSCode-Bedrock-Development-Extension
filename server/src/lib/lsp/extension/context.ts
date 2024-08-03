@@ -13,6 +13,7 @@ export interface IExtensionContext {
   documents: IDocumentManager;
   logger: IExtendedLogger;
   state: State;
+  settings: Settings;
 }
 
 export class ExtensionContext implements IExtensionContext {
