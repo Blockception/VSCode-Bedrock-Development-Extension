@@ -1,13 +1,11 @@
-import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
-import { Console } from "../../../manager/console";
+import { InitializeParams, InitializeResult } from "vscode-languageserver";
 import { Version } from "../../../constants/version";
 import { Commands, Languages } from "@blockception/shared";
 
 const triggerCharacters = toArray(" abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"");
 
 export function onInitialize(params: InitializeParams): InitializeResult {
-  Console.Info(`Initializing minecraft server`);
-  Console.Info(`- Version: ${Version}`);
+
 
   const result: InitializeResult = {
     serverInfo: {

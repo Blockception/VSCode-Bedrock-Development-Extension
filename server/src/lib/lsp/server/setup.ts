@@ -17,6 +17,7 @@ import { FormatService } from "../format/service";
 import { CodeActionService } from "../code-action/service";
 import { CodeLensService } from "../code-lens/service";
 import { ConfigurationService } from "../configuration/service";
+import { Version } from "../../constants/version";
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -48,14 +49,16 @@ export function setupServer() {
     documentProcessor,
     packProcessor,
     workspaceProcessor,
-    diagnoserService,
+    diagnoserService
   );
 
   logger.info("starting minecraft server");
-  setupHandlers();
+  setupHandlers(connection);
 
   //Initialize
   connection.onInitialize((params) => {
+    logger.info("Initializing minecraft server", { version: Version });
+
     extension.parseClientCapabilities(params.capabilities);
 
     const result = onInitialize(params);
@@ -67,7 +70,7 @@ export function setupServer() {
 
   // This handler provides diagnostics
   connection.onInitialized(async (params) => {
-    logger.info("Initialized minecraft server");
+    logger.info("Initialized minecraft server", { version: Version });
 
     //Registers any follow ups
     const register = BulkRegistration.create();
