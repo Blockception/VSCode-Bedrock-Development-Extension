@@ -1,29 +1,22 @@
 import { MolangData, MolangFunction } from "bc-minecraft-molang";
-import { Hover, HoverParams, Range } from "vscode-languageserver-protocol";
-import { TextDocument } from "../../../documents/text-document";
-import { TextRange } from "../../../../minecraft/json";
-import { Character } from "../../../../util";
+import { Hover, Range } from "vscode-languageserver-protocol";
+import { TextRange } from "../../../minecraft/json";
+import { Character } from "../../../util";
+import { HoverContext } from "../context";
+import { Context } from "../../context/context";
 
-export function provideHover(doc: TextDocument, params: HoverParams): Hover | undefined {
-  const line = doc.getLine(params.position.line);
-  const offset = doc.offsetAt({ character: 0, line: params.position.line });
-  const cursor = doc.offsetAt(params.position);
+export function provideHover(context: Context<HoverContext>): Hover | undefined {
+  const { document, params } = context;
+
+  const line = document.getLine(params.position.line);
+  const offset = document.offsetAt({ character: 0, line: params.position.line });
+  const cursor = document.offsetAt(params.position);
   const range: TextRange = { start: cursor, end: cursor + line.length };
 
-  return provideHoverAt(
-    line,
-    range,
-    offset,
-    Range.create(params.position, { character: params.position.character, line: params.position.line })
-  );
+  return provideHoverAt(line, range, offset);
 }
 
-export function provideHoverAt(
-  currentText: string,
-  textRange: TextRange,
-  cursor: number,
-  range: Range | undefined
-): Hover | undefined {
+export function provideHoverAt(currentText: string, textRange: TextRange, cursor: number): Hover | undefined {
   let startIndex = cursor - textRange.start;
   let dotIndex = -1;
 
