@@ -4,17 +4,19 @@ import { onInitialize } from "./events/on-initialize";
 import { ServiceManager } from "../services/collection";
 import { SetDynamicEvents } from "./events";
 import { ExtendedLogger } from "../logger/logger";
-import { updateSettings } from "./events/on-configuration";
 import { ExtensionContext } from "../extension/context";
 import { CapabilityBuilder } from "../services/capabilities";
 import { CompletionService } from "../completion/service";
-import { DocumentManager } from "../documents/manager";
+import { DocumentManager, IDocumentManager } from "../documents/manager";
 import { DocumentProcessor } from "../process/document-processor";
 import { WorkspaceProcessor } from "../process/workspace-processor";
 import { PackProcessor } from "../process/pack-processor";
 import { DiagnoserService } from "../diagnostics/service";
 import { Database } from "../database/database";
 import { FormatService } from "../format/service";
+import { CodeActionService } from "../code-action/service";
+import { CodeLensService } from "../code-lens/service";
+import { ConfigurationService } from "../configuration/service";
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -22,9 +24,11 @@ export function setupServer() {
   const connection = createConnection(ProposedFeatures.all);
 
   const logger = new ExtendedLogger(connection.console);
-  const documents = new DocumentManager(logger);
+  const extension = new ExtensionContext(connection, logger, {} as IDocumentManager, {} as Database);
+  const documents = new DocumentManager(logger, extension);
   const database = new Database(logger, documents);
-  const extension = new ExtensionContext(connection, logger, documents, database);
+  extension.documents = documents;
+  extension.database = database;
 
   const diagnoserService = new DiagnoserService(logger, extension);
   const documentProcessor = new DocumentProcessor(logger, extension, diagnoserService);
@@ -32,14 +36,19 @@ export function setupServer() {
   const workspaceProcessor = new WorkspaceProcessor(logger, extension, packProcessor);
 
   const manager = new ServiceManager(logger).add(
+    // Essentials
+    new ConfigurationService(logger, extension),
     documents,
     database,
-    diagnoserService,
+    // Non Essentials
+    new CodeActionService(logger, extension),
+    new CodeLensService(logger, extension),
+    new CompletionService(logger, extension),
+    new FormatService(logger, extension),
     documentProcessor,
     packProcessor,
     workspaceProcessor,
-    new CompletionService(logger, extension),
-    new FormatService(logger, extension)
+    diagnoserService,
   );
 
   logger.info("starting minecraft server");
@@ -47,6 +56,8 @@ export function setupServer() {
 
   //Initialize
   connection.onInitialize((params) => {
+    extension.parseClientCapabilities(params.capabilities);
+
     const result = onInitialize(params);
     const builder = new CapabilityBuilder(result.capabilities);
     manager.onInitialize(builder, params, connection);
@@ -58,16 +69,13 @@ export function setupServer() {
   connection.onInitialized(async (params) => {
     logger.info("Initialized minecraft server");
 
-    //Update the settings of the language server
-    updateSettings();
-
     //Registers any follow ups
     const register = BulkRegistration.create();
     SetDynamicEvents(register);
     manager.dynamicRegister(register);
     await connection.client.register(register);
 
-    manager.start();
+    return manager.start();
   });
 
   // On shutdown handler

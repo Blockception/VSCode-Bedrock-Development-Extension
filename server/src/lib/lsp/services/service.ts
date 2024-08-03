@@ -32,7 +32,7 @@ export interface IService {
   /**
    * Starts the service, called after initialization
    */
-  start(): void;
+  start(): void | Promise<void>;
 
   /**
    * Stios the service, called on Exit

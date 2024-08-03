@@ -2,21 +2,19 @@ import { Connection, TextDocumentChangeEvent } from "vscode-languageserver";
 import {
   CreateFilesParams,
   DeleteFilesParams,
-  Emitter,
   InitializeParams,
   RenameFilesParams,
 } from "vscode-languageserver-protocol";
-import { ExtensionContext } from "../extension/context";
-import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
+import { ContentType } from "../documents/manager";
+import { DiagnoserService } from "../diagnostics/service";
+import { ExtensionContext } from "../extension/context";
+import { getFilename } from "../../util";
+import { Glob } from "../../files/glob";
+import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { TextDocument } from "../documents/text-document";
-import { Glob } from "../../files/glob";
-import { getFilename, HandleError } from "../../util";
-import { Database } from "../database/database";
-import { ContentType, DocumentManager } from "../documents/manager";
-import { DiagnoserService } from "../diagnostics/service";
 
 export class DocumentProcessor extends BaseService implements Pick<IService, "onInitialize"> {
   name: string = "document processor";
@@ -55,7 +53,8 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
   }
 
   delete(uri: string) {
-    return this.extension.database.ProjectData.deleteFile(uri);
+    this.extension.database.ProjectData.deleteFile(uri);
+    this._diagnoser.clear({ uri });
   }
 
   /**
@@ -74,7 +73,7 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
         this.logger.info(`ignoring file ${document.uri}`);
       }
     } catch (error) {
-      this.logger.recordError(error, this.logger, document);
+      this.logger.recordError(error, document);
     }
   }
 

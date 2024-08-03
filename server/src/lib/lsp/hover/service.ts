@@ -25,7 +25,7 @@ export class HoverService extends BaseService implements Pick<IService, "onIniti
       workDoneProgress: true,
     });
 
-    this.addDisposable(connection.onHover( this.onHoverRequest.bind(this)));
+    this.addDisposable(connection.onHover(this.onHoverRequest.bind(this)));
   }
 
   private async onHoverRequest(

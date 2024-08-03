@@ -50,7 +50,7 @@ export class PackProcessor extends BaseService {
   }
 
   remove(pack: Pack) {
-    return Database.ProjectData.deleteFolder(pack.folder);
+    return this.extension.database.ProjectData.deleteFolder(pack.folder);
   }
 
   diagnose(pack: Pack) {
@@ -79,10 +79,17 @@ export class PackProcessor extends BaseService {
     }
 
     const project = GetProject(folderPath);
-    Database.WorkspaceData.set(folder, project);
+    this.extension.database.WorkspaceData.set(folder, project);
 
     const manifests = MinecraftFormat.GetManifests(folder, project.ignores.patterns);
-    const packs = Database.ProjectData.addPack(manifests, project);
+    const packs: Pack[] = [];
+
+    manifests.forEach((m) => {
+      const pack = this.extension.database.ProjectData.addPack(m, project);
+      if (pack === undefined) return;
+
+      packs.push(pack);
+    });
 
     return packs;
   }
@@ -93,7 +100,7 @@ export class PackProcessor extends BaseService {
    * @returns
    */
   get(): Pack[] {
-    return Database.getPacks();
+    return this.extension.database.getPacks();
   }
 
   files(pack: Pack): string[] {

@@ -1,6 +1,6 @@
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
-import { CancellationToken, Connection, InitializeParams, TextDocuments } from "vscode-languageserver";
+import { CancellationToken, Connection, InitializeParams, TextDocuments, TextDocumentSyncKind } from "vscode-languageserver";
 import { ExtensionContext } from "../extension/context";
 import { identifyDocument } from "./languageId";
 import { IExtendedLogger } from "../logger/logger";
@@ -55,6 +55,7 @@ export class DocumentManager
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
     this._documents.listen(connection);
 
+    capabilities.set("textDocumentSync", TextDocumentSyncKind.Incremental);
     capabilities.addWorkspace({
       workspaceFolders: {
         changeNotifications: true,

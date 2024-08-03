@@ -15,7 +15,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       version: Version,
     },
     capabilities: {
-      textDocumentSync: TextDocumentSyncKind.Incremental,
 
       // Tell the client that this server supports a couple commands
       executeCommandProvider: {
@@ -27,13 +26,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
           Commands.StoreProject,
         ],
         workDoneProgress: true,
-      },
-
-      // Code Actions
-      codeActionProvider: true,
-      codeLensProvider: {
-        resolveProvider: true,
-        workDoneProgress: false,
       },
 
       // Tell the client that this server supports go to definitions

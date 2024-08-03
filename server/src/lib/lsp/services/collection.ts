@@ -63,13 +63,13 @@ export class ServiceManager implements NamedService {
   }
 
   /** @inheritdoc */
-  start(): void {
-    this.services.forEach((service) => {
+  async start(): Promise<void> {
+    for (const service of this.services) {
       if (service.start) {
         this.logger.info(`Starting service ${service.name}`);
-        service.start();
+        await service.start();
       }
-    });
+    }
   }
 
   /** @inheritdoc */

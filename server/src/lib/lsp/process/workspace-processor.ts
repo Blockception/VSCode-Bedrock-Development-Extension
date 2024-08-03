@@ -1,24 +1,21 @@
-import { Languages } from "@blockception/shared";
 import {
   Connection,
-  Emitter,
   InitializeParams,
   TextDocumentChangeEvent,
   WorkspaceFolder,
   WorkspaceFoldersChangeEvent,
 } from "vscode-languageserver";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
 import { ExtensionContext } from "../extension/context";
 import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
 import { IService } from "../services/service";
-import { TextDocument } from "../documents/text-document";
-import { DocumentProcessor } from "./document-processor";
-import { CapabilityBuilder } from "../services/capabilities";
-import { HandleError } from "../../util";
-import { ProgressBar } from "../progress";
-import { PackProcessor } from "./pack-processor";
-import { QueueProcessor } from "@daanv2/queue-processor";
+import { Languages } from "@blockception/shared";
 import { Pack } from "bc-minecraft-bedrock-project";
+import { PackProcessor } from "./pack-processor";
+import { ProgressBar } from "../progress";
+import { QueueProcessor } from "@daanv2/queue-processor";
+import { TextDocument } from "../documents/text-document";
 
 export class WorkspaceProcessor extends BaseService implements Pick<IService, "onInitialize" | "start"> {
   name: string = "workspace processor";
@@ -110,7 +107,7 @@ export class WorkspaceProcessor extends BaseService implements Pick<IService, "o
     this.logger.info(`removing workspace ${workspace.name}`, workspace);
     const packs = await this.packs(workspace);
 
-    return QueueProcessor.forEach(packs, (pack) => this._packProcessor.remove(pack));
+    await QueueProcessor.map(packs, (pack) => this._packProcessor.remove(pack));
   }
 
   async diagnose(workspace: WorkspaceFolder) {

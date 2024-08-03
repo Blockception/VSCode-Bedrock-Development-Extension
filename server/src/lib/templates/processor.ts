@@ -41,9 +41,9 @@ export class TemplateProcessor {
     const fileBuilder = new FileBuilder();
     const filepath = Vscode.join(this.processor._context.folder, this._filename);
 
-    fileBuilder.CreateFile(filepath, this._content);
+    fileBuilder.create(filepath, this._content);
 
-    return fileBuilder.Send();
+    return fileBuilder.send();
   }
 
   public Process(): void {

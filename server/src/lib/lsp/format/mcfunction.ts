@@ -1,6 +1,13 @@
-import { DocumentFormattingParams, DocumentRangeFormattingParams, TextEdit } from "vscode-languageserver";
+import {
+  DocumentFormattingParams,
+  DocumentRangeFormattingParams,
+  FormattingOptions,
+  TextEdit,
+} from "vscode-languageserver";
 import { Replace, TrimEndFromLine, TrimStartFromLine } from "../../util/text-edit";
 import { TextDocument } from "../documents/text-document";
+import { FormatContext } from "./context";
+import { Context } from "../context/context";
 
 /**
  *
@@ -8,14 +15,10 @@ import { TextDocument } from "../documents/text-document";
  * @param params
  * @returns
  */
-export function formatMcfunction(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
-  const result: TextEdit[] = [];
+export function formatMcfunction(context: Context<FormatContext>, params: DocumentFormattingParams): TextEdit[] {
+  const formatter = new MCFunctionFormatter(params, context);
 
-  for (let index = 0; index < doc.lineCount; index++) {
-    formatline(index, doc, result);
-  }
-
-  return result;
+  return formatter.format(context.document, 0, context.document.lineCount);
 }
 
 /**
@@ -24,35 +27,44 @@ export function formatMcfunction(doc: TextDocument, params: DocumentFormattingPa
  * @param params
  * @returns
  */
-export function formatMcfunctionRange(doc: TextDocument, params: DocumentRangeFormattingParams): TextEdit[] {
-  const result: TextEdit[] = [];
+export function formatMcfunctionRange(
+  context: Context<FormatContext>,
+  params: DocumentRangeFormattingParams
+): TextEdit[] {
   const startIndex = params.range.start.line;
   const endIndex = params.range.end.line;
+  const formatter = new MCFunctionFormatter(params, context);
 
-  for (let index = startIndex; index < endIndex; index++) {
-    formatline(index, doc, result);
-  }
-
-  return result;
+  return formatter.format(context.document, startIndex, endIndex);
 }
 
-/**
- * formatts the specified line
- * @param index
- * @param document
- * @param result
- */
-function formatline(index: number, document: TextDocument, result: TextEdit[]) {
-  const line = document.getLine(index);
+class MCFunctionFormatter {
+  options: FormattingOptions;
+  context: Context<FormatContext>;
 
-  if (line.length > 2) {
-    TrimStartFromLine(line, index, result, ["/", " ", "\t"]);
-    TrimEndFromLine(line, index, result, [" ", "\t"]);
+  constructor(params: DocumentFormattingParams | DocumentRangeFormattingParams, context: Context<FormatContext>) {
+    this.options = params.options;
+    this.context = context;
+  }
 
-    Replace(line, "~+", "~", index, result);
-    Replace(line, "~0", "~", index, result);
-    Replace(line, "^+", "^", index, result);
-    Replace(line, "^0", "^", index, result);
-    Replace(line, " ##", " \t##", index, result);
+  format(document: TextDocument, startIndex: number, endIndex: number): TextEdit[] {
+    const result: TextEdit[] = [];
+
+    for (let index = startIndex; index < endIndex; index++) {
+      const line = document.getLine(index);
+
+      if (line.length > 2) {
+        TrimStartFromLine(line, index, result, ["/", " ", "\t"]);
+        TrimEndFromLine(line, index, result, [" ", "\t"]);
+
+        Replace(line, "~+", "~", index, result);
+        Replace(line, "~0", "~", index, result);
+        Replace(line, "^+", "^", index, result);
+        Replace(line, "^0", "^", index, result);
+        Replace(line, " ##", " \t##", index, result);
+      }
+    }
+
+    return result;
   }
 }

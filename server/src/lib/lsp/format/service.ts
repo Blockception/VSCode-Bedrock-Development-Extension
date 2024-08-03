@@ -1,4 +1,5 @@
 import {
+  CancellationToken,
   DocumentFormattingParams,
   DocumentFormattingRequest,
   DocumentRangeFormattingParams,
@@ -12,11 +13,13 @@ import { PackProcessor } from "../process/pack-processor";
 import { BaseService } from "../services/base";
 import { IService } from "../services/service";
 import { TextDocument } from "../documents/text-document";
-import { BulkRegistration, Connection } from "vscode-languageserver";
+import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CapabilityBuilder } from "../services/capabilities";
 import { Languages } from "@blockception/shared";
 import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";
 import { formatLangauge, formatLangaugeRange } from "./language";
+import { Context } from "../context/context";
+import { FormatContext } from "./context";
 
 export class FormatService extends BaseService implements Pick<IService, "onInitialize" | "dynamicRegister"> {
   name: string = "workspace processor";
@@ -42,16 +45,32 @@ export class FormatService extends BaseService implements Pick<IService, "onInit
     );
   }
 
-  async onDocumentFormatting(params: DocumentFormattingParams): Promise<TextEdit[] | undefined | null> {
-    const doc = this.extension.documents.get(params.textDocument.uri);
-    if (!doc) return null;
+  async onDocumentFormatting(
+    params: DocumentFormattingParams,
+    token: CancellationToken,
+    workDoneProgress: WorkDoneProgressReporter
+  ): Promise<TextEdit[] | undefined | null> {
+    const document = this.extension.documents.get(params.textDocument.uri);
+    if (!document) return null;
 
-    switch (doc.languageId) {
+    const context = Context.create<FormatContext>(
+      this.extension,
+      {
+        document,
+        token,
+        workDoneProgress,
+      },
+      {
+        logger: this.logger,
+      }
+    );
+
+    switch (document.languageId) {
       case Languages.McFunctionIdentifier:
-        return formatMcfunction(doc, params);
+        return formatMcfunction(document, params);
 
       case Languages.McLanguageIdentifier:
-        return formatLangauge(doc, params);
+        return formatLangauge(context, params);
 
       case Languages.JsonCIdentifier:
       case Languages.JsonIdentifier:
@@ -61,16 +80,32 @@ export class FormatService extends BaseService implements Pick<IService, "onInit
     return undefined;
   }
 
-  async onDocumentRangeFormatting(params: DocumentRangeFormattingParams): Promise<TextEdit[] | undefined | null> {
-    const doc = this.extension.documents.get(params.textDocument.uri);
-    if (!doc) return undefined;
+  async onDocumentRangeFormatting(
+    params: DocumentRangeFormattingParams,
+    token: CancellationToken,
+    workDoneProgress: WorkDoneProgressReporter
+  ): Promise<TextEdit[] | undefined | null> {
+    const document = this.extension.documents.get(params.textDocument.uri);
+    if (!document) return undefined;
 
-    switch (doc.languageId) {
+    const context = Context.create<FormatContext>(
+      this.extension,
+      {
+        document,
+        token,
+        workDoneProgress,
+      },
+      {
+        logger: this.logger,
+      }
+    );
+
+    switch (document.languageId) {
       case Languages.McFunctionIdentifier:
-        return formatMcfunctionRange(doc, params);
+        return formatMcfunctionRange(context, params);
 
       case Languages.McLanguageIdentifier:
-        return formatLangaugeRange(doc, params);
+        return formatLangaugeRange(context, params);
 
       case Languages.JsonCIdentifier:
       case Languages.JsonIdentifier:

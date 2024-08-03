@@ -1,29 +1,19 @@
 import { Manager } from "../../../manager/manager";
-import { onCodeActionAsync, onCodeActionResolveAsync } from "../../code-action";
 import { onCodeLensRequest } from "../../code-lens";
 import { onCommandRequestAsync } from "../../commands/on-request";
 import { onConfigurationChanged, onDidChangeConfigurationAsync } from "./on-configuration";
 import { onDefinitionRequestAsync, onTypeDefinitionRequestAsync } from "../../references/on-definitions";
-import { OnDocumentChangedAsync } from "./on-documents";
 import { OnDocumentFormatRequestAsync, OnDocumentRangeFormatRequestAsync } from "../../format/on-request";
 import { OnDocumentSymbolRequestAsync, OnWorkspaceSymbolRequestAsync } from "../../symbols/on-request";
-import { onHoverRequestAsync } from "../../hover/on-request";
 import { onImplementationRequestAsync } from "../../references/on-implementation";
 import { onProvideSemanticRequestAsync, onProvideRangeSemanticRequestAsync } from "../../semantics/on-request";
 import { onReferencesRequestAsync } from "../../references/on-request";
 import { OnSignatureRequestAsync } from "../../signatures/on-request";
-import {
-  OnDidCreateFilesAsync,
-  onDidDeleteFilesAsync,
-  OnDidRenameFilesAsync,
-  OnWorkspaceFolderChangeAsync,
-} from "./workspace-events";
 
 /**
  * Setup the server events
  */
 export function setupHandlers() {
-  const Documents = Manager.Documents;
   const Connection = Manager.Connection;
 
 
@@ -32,8 +22,7 @@ export function setupHandlers() {
   Connection.onExecuteCommand(onCommandRequestAsync);
 
   // This handler provides code actions
-  Connection.onCodeAction(onCodeActionAsync);
-  Connection.onCodeActionResolve(onCodeActionResolveAsync);
+
 
   // This handler provides code lens
   Connection.onCodeLens(onCodeLensRequest);

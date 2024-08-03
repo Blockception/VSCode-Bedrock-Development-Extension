@@ -1,15 +1,13 @@
-import { QueueProcessor } from "@daanv2/queue-processor";
-import { ParameterType } from "bc-minecraft-bedrock-command";
-import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
-import { ProjectData } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-types";
-import { Console } from "../../manager/console";
-import { WorkspaceData } from "./workspace-data";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
-import { IDocumentManager } from "../documents/manager";
-import { InternalContext } from "../diagnostics/context";
 import { CancellationToken } from "vscode-languageserver-protocol";
+import { IDocumentManager } from "../documents/manager";
+import { IExtendedLogger } from "../logger/logger";
+import { InternalContext } from "../diagnostics/context";
+import { IService } from "../services/service";
+import { ParameterType } from "bc-minecraft-bedrock-command";
+import { ProjectData } from "bc-minecraft-bedrock-project";
+import { QueueProcessor } from "@daanv2/queue-processor";
+import { Types } from "bc-minecraft-bedrock-types";
+import { WorkspaceData } from "./workspace-data";
 
 type BaseObject = Types.BaseObject;
 
@@ -36,7 +34,7 @@ export class Database implements Pick<IService, "name"> {
    *
    */
   clear(): void {
-    Console.Info("Resetting database");
+    this.logger.info("clearing database");
     this.WorkspaceData.clear();
     this.ProjectData;
   }

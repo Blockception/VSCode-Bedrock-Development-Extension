@@ -1,17 +1,10 @@
-import { Connection, InitializeParams } from "vscode-languageserver";
+import { ClientCapabilities, Connection } from "vscode-languageserver";
 import { IDocumentManager } from "../documents/manager";
 import { IExtendedLogger } from "../logger/logger";
 import { Database } from "../database/database";
-
-export interface ExtensionCapabilities {
-  completion: boolean;
-}
-
-export interface State {
-  workspaces: {
-    traversed: boolean;
-  };
-}
+import { ExtensionCapabilities } from "./capabilities";
+import { State } from "./state";
+import { Settings } from "./settings";
 
 export interface IExtensionContext {
   capabilities: ExtensionCapabilities;
@@ -29,19 +22,19 @@ export class ExtensionContext implements IExtensionContext {
   public documents: IDocumentManager;
   public logger: IExtendedLogger;
   public state: State;
+  public settings: Settings;
 
   constructor(connection: Connection, logger: IExtendedLogger, documents: IDocumentManager, database: Database) {
+    this.capabilities = ExtensionCapabilities.empty();
     this.connection = connection;
     this.database = database;
     this.documents = documents;
     this.logger = logger;
-    this.capabilities = {
-      completion: false,
-    };
-    this.state = {
-      workspaces: {
-        traversed: false,
-      },
-    };
+    this.settings = Settings.createDefaultSettings();
+    this.state = State.empty();
+  }
+
+  parseClientCapabilities(capabilities: ClientCapabilities): void {
+    ExtensionCapabilities.parseCapabilities(this.capabilities, capabilities);
   }
 }
