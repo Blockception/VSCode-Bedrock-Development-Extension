@@ -1,5 +1,9 @@
-import { Connection } from "vscode-languageserver";
-import { DidChangeConfigurationParams, InitializeParams } from "vscode-languageserver-protocol";
+import { BulkRegistration, Connection } from "vscode-languageserver";
+import {
+  DidChangeConfigurationNotification,
+  DidChangeConfigurationParams,
+  InitializeParams,
+} from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension/context";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
@@ -9,7 +13,10 @@ import { Identification } from "@blockception/shared";
 import { Settings } from "../extension/settings";
 import { GetProject } from "../../project/mcprojects";
 
-export class ConfigurationService extends BaseService implements Pick<IService, "onInitialize" | "start"> {
+export class ConfigurationService
+  extends BaseService
+  implements Pick<IService, "onInitialize" | "dynamicRegister" | "start">
+{
   name: string = "configuration";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
@@ -17,7 +24,12 @@ export class ConfigurationService extends BaseService implements Pick<IService, 
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+    
     this.addDisposable(connection.onDidChangeConfiguration(this.updateSettings.bind(this)));
+  }
+
+  dynamicRegister(register: BulkRegistration): void {
+    register.add(DidChangeConfigurationNotification.type, {});
   }
 
   async updateSettings(params?: DidChangeConfigurationParams) {
@@ -41,6 +53,6 @@ export class ConfigurationService extends BaseService implements Pick<IService, 
   }
 
   start(): void {
-    void this.updateSettings()
+    void this.updateSettings();
   }
 }
