@@ -14,7 +14,7 @@ import { CodeActionContext } from "./context";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension/context";
-import { fuzzyMatch } from './fuzzy';
+import { fuzzyMatch } from "./fuzzy";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 
@@ -52,12 +52,18 @@ export class CodeActionService extends BaseService implements Pick<IService, "on
 
     this.logger.info("checking code actions", params);
 
-    const context = Context.create<CodeActionContext>(this.extension, {
-      document,
-      token,
-      workDoneProgress,
-      ...params,
-    });
+    const context = Context.create<CodeActionContext>(
+      this.extension,
+      {
+        document,
+        token,
+        workDoneProgress,
+        ...params,
+      },
+      {
+        logger: this.logger,
+      }
+    );
 
     const builder = new CodeActionBuilder(params, context);
     const promises = params.context.diagnostics.map((d) => this.findAction(builder, d));

@@ -57,7 +57,7 @@ export async function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): 
             },
           };
 
-          builder.Push(action);
+          builder.push(action);
         });
     });
 }

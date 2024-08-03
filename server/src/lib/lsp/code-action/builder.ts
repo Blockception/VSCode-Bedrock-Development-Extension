@@ -35,7 +35,7 @@ export class CodeActionBuilder {
   }
 
   /** */
-  Push(item: Command | CodeAction | undefined): Command | CodeAction | undefined {
+  push(item: Command | CodeAction | undefined): Command | CodeAction | undefined {
     if (item) {
       this.out.push(item);
     }
@@ -50,7 +50,7 @@ export class CodeActionBuilder {
    * @param args
    * @returns
    */
-  Command(title: string, commandId: string, args: string[] | undefined): Command {
+  command(title: string, commandId: string, args: string[] | undefined): Command {
     const item: Command = { command: commandId, title: title, arguments: args };
 
     this.out.push(CodeAction.create(title, item, CodeActionKind.QuickFix));
@@ -63,7 +63,7 @@ export class CodeActionBuilder {
    * @param title
    * @returns
    */
-  Action(title: string): CodeAction {
+  action(title: string): CodeAction {
     const item: CodeAction = {
       title: title,
     };

@@ -60,5 +60,5 @@ export function codeaction_execute_deprecated(builder: CodeActionBuilder, diag: 
     },
   };
 
-  builder.Push(action);
+  builder.push(action);
 }

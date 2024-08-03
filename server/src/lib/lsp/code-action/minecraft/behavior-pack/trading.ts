@@ -7,7 +7,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "minecraft.trading.missing":
     case "behaviorpack.trading.missing":
       const id = builder.getId(diag.range);
-      builder.Command(`Create loot table: '${id}'`, Commands.Create.Behaviorpack.Trading, [id]);
+      builder.command(`Create loot table: '${id}'`, Commands.Create.Behaviorpack.Trading, [id]);
       return;
   }
 }
