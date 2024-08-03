@@ -1,9 +1,10 @@
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { CompletionBuilder } from "../../builder/builder";
-import { CommandCompletionContext } from "../../builder/context";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/modes/selector-type";
+import { CommandCompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 
 import * as Attributes from "./attributes";
 import * as AttributeValue from "./attribute-values";
@@ -17,12 +18,12 @@ import * as Scores from "./scores";
  * @param context
  * @returns
  */
-export function provideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const builder = context.builder;
   const selector = context.current;
   const pos = context.cursor;
   const Options = context.parameter.options;
-  const edu = IsEducationEnabled(context.doc);
+  const edu = IsEducationEnabled(context.document);
 
   const playerOnly = Options?.playerOnly ?? false;
 
@@ -54,7 +55,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
       FromType(builder, InternalSelectorTypeMode.AllEntities);
     }
 
-    if (context.doc.uri.includes("/dialogue/")) FromType(builder, InternalSelectorTypeMode.Initiator);
+    if (context.document.uri.includes("/dialogue/")) FromType(builder, InternalSelectorTypeMode.Initiator);
 
     if (edu) {
       FromType(builder, InternalSelectorTypeMode.Agents);

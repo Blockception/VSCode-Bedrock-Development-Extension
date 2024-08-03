@@ -1,20 +1,21 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../util/simple-context";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 import { CompletionBuilder } from "../../builder/builder";
 import { Database } from "../../../../lsp/database/database";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from "../../../../constants/kinds";
 import { JsonPathCompletion } from "../../builder";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The rp animation: ${item.id}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  builder.generate(context.projectData.ResourcePacks.animations, generateDoc);
-  builder.generate(context.projectData.ResourcePacks.animation_controllers, generateDoc);
+  builder.generate(context.database.ProjectData.resourcePacks.animations, generateDoc);
+  builder.generate(context.database.ProjectData.resourcePacks.animation_controllers, generateDoc);
 
-  context.projectData.ResourcePacks.entities.forEach((entity) => {
+  context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
     builder.generate(entity.animations.defined, (item) => `The entity animation: ${item}`);
   });
 
@@ -26,7 +27,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   });
 
   //Education data
-  if (IsEducationEnabled(context.doc)) {
+  if (IsEducationEnabled(context.document)) {
     builder.generate(MinecraftData.edu.ResourcePack.animations, generateDoc);
     builder.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc);
     MinecraftData.edu.ResourcePack.entities.forEach((entity) => {
@@ -35,10 +36,10 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   }
 }
 
-export function provideDefinedAnimationCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideDefinedAnimationCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  context.projectData.ResourcePacks.entities.forEach((entity) => {
+  context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
     builder.generate(entity.animations.defined, () => `Animation defined by ${entity.id}`);
   });
   MinecraftData.vanilla.ResourcePack.entities.forEach((entity) => {
@@ -46,14 +47,14 @@ export function provideDefinedAnimationCompletion(context: SimpleContext<Complet
   });
 
   //Education data
-  if (IsEducationEnabled(context.doc)) {
+  if (IsEducationEnabled(context.document)) {
     MinecraftData.edu.ResourcePack.entities.forEach((entity) => {
       builder.generate(entity.animations, () => `Animation defined by ${entity.id}`);
     });
   }
 }
 
-export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideJsonCompletion(context: Context<CompletionContext>): void {
   return animRPJsonCompletion.onCompletion(context);
 }
 

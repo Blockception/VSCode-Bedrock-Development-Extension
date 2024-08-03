@@ -1,10 +1,11 @@
 import { PackType } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../../util/simple-context";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 import { CompletionBuilder } from "../../builder/builder";
 import { Kinds } from "../../../../constants/kinds";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>, prefixed: boolean = false): void {
-  const packType = PackType.detect(context.doc.uri);
+export function provideCompletion(context: Context<CompletionContext>, prefixed: boolean = false): void {
+  const packType = PackType.detect(context.document.uri);
 
   switch (packType) {
     case PackType.behavior_pack:
@@ -12,7 +13,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pre
 
     case PackType.resource_pack:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Texture });
-      context.projectData.ResourcePacks.entities.forEach((entity) => {
+      context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
         entity.molang.textures.defined.forEach((item) => {
           const label = prefixed ? `Texture.${item}` : item;
           builder.add({

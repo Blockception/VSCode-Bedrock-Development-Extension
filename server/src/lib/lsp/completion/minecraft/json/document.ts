@@ -1,13 +1,12 @@
 import { CompletionBuilder } from "../../builder/builder";
+import { CompletionContext, JsonCompletionContext } from "../../context";
+import { Context } from "../../../context/context";
 import { EntityEvent } from "../behavior-pack";
 import { getCurrentStringValue, TextRange } from "../../../../minecraft/json/functions";
 import { getJsonPath } from "../../../../minecraft/json/path";
-import { InsertReplaceEdit, Position, Range } from "vscode-languageserver";
-import { JsonCompletionContext } from "../../builder/context";
-import { Manager } from "../../../../manager/manager";
+import { InsertReplaceEdit, Range } from "vscode-languageserver";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { santizeValue } from "../../../../minecraft/json/types";
-import { SimpleContext } from "../../../../util/simple-context";
 import { TextDocument } from "../../../documents";
 
 import * as BehaviorPack from "../behavior-pack/main";
@@ -15,10 +14,9 @@ import * as Mcfunction from "../mcfunctions/mcfunctions";
 import * as Molang from "../molang/main";
 import * as ResourcePack from "../resource-pack/main";
 
-export function provideCompletionDocument(context: SimpleContext<CompletionBuilder>, cursorPos: Position): void {
-  const doc = context.doc;
-  const cursor = doc.offsetAt(cursorPos);
-  const text = doc.getText();
+export function provideCompletionDocument(context: Context<CompletionContext>): void {
+  const { document, cursor } = context;
+  const text = document.getText();
 
   const p = getJsonPath(context.cursor, text);
   if (!p.isProperty) {
@@ -26,34 +24,30 @@ export function provideCompletionDocument(context: SimpleContext<CompletionBuild
   }
 
   //If start has not been found or not a property
-  let range = getCurrentStringValue(text, p.property, cursor) ?? { start: cursor, end: cursor };
-
+  const range = getCurrentStringValue(text, p.property, cursor) ?? { start: cursor, end: cursor };
   const currentText = text.substring(range.start, range.end);
-  const jsonContext: JsonCompletionContext = {
-    ...context,
-    cursor,
+  const jsonContext: Context<JsonCompletionContext> = Context.modify(context, {
     range,
     currentText,
-    builder: builder(cursor, range, currentText, doc, context.builder),
-  };
+  });
 
   //Have each new item pass through a new function
   performJsonCompletion(jsonContext);
 }
 
-function builder(
+function jsonBuilder(
   cursor: number,
   range: TextRange,
   currentText: string,
-  doc: TextDocument,
-  receiver: CompletionBuilder
+  document: TextDocument,
+  builder: CompletionBuilder
 ): CompletionBuilder {
   const insertIndex = cursor - range.start;
   const first = currentText.substring(0, insertIndex);
   const second = currentText.substring(insertIndex);
-  const position = doc.positionAt(cursor);
+  const position = document.positionAt(cursor);
 
-  return receiver.withEvents(undefined, (item) => {
+  return builder.withEvents(undefined, (item) => {
     //Update the filtering text
     let filterText = item.insertText ?? item.label;
 
@@ -80,23 +74,22 @@ function builder(
   });
 }
 
-function performJsonCompletion(context: JsonCompletionContext) {
-  if (!Manager.Settings?.Completion?.JSON) return;
+function performJsonCompletion(context: Context<JsonCompletionContext>) {
+  if (!context.settings?.Completion?.JSON) return;
 
-  const type = PackType.detect(context.doc.uri);
+  const type = PackType.detect(context.document.uri);
   if (type == PackType.unknown) {
     return;
   }
 
   onCompletionJsonMolang(context);
 
-  context = {
-    ...context,
+  context = Context.modify(context, {
     builder: context.builder.withEvents((item) => {
       item.insertText = item.insertText ?? item.label;
       item.insertText = santizeValue(item.insertText);
     }),
-  };
+  });
 
   switch (type) {
     case PackType.behavior_pack:
@@ -107,20 +100,15 @@ function performJsonCompletion(context: JsonCompletionContext) {
   }
 }
 
-function onCompletionJsonMolang(context: JsonCompletionContext) {
+function onCompletionJsonMolang(context: Context<JsonCompletionContext>) {
   //Find all events
   if (context.currentText.startsWith("@s")) {
     EntityEvent.provideCompletion(context);
     //Is it a command instead
   } else if (context.currentText.startsWith("/")) {
-    Mcfunction.provideCompletionLine(
-      context,
-      context.currentText.substring(1),
-      context.cursor,
-      context.range.start + 1
-    );
+    Mcfunction.provideCompletionLine(context, context.currentText.substring(1), context.cursor);
     //Its probably molang
   } else {
-    Molang.provideCompletion(context.currentText, context.cursor - context.range.start, context);
+    Molang.provideCompletion(context, context.currentText, context.cursor - context.range.start);
   }
 }

@@ -1,14 +1,14 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
-import { getFilename, SimpleContext } from "../../../util";
-import { CompletionBuilder } from "../builder/builder";
-import { Database } from "../../../lsp/database/database";
+import { getFilename } from "../../../util";
 import { Kinds } from "../../../constants/kinds";
+import { CompletionContext } from "../context";
+import { Context } from "../../context/context";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;
-  const data = context.doc.configuration();
+  const data = context.document.configuration();
 
-  builder.generate(context.projectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
+  builder.generate(context.database.ProjectData.general.tags, generateDocumentation, Kinds.Completion.Tag);
   builder.generate(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
 }
 
@@ -20,8 +20,8 @@ function generateDocumentation(tag: GeneralInfo | string): string {
   return `The tag: ${tag.id}\nLocation: ${filename}`;
 }
 
-export function provideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
-  const data = context.doc.configuration();
+export function provideCompletionTest(context: Context<CompletionContext>): void {
+  const data = context.document.configuration();
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Tag });
 
   builder.add({
@@ -39,7 +39,7 @@ export function provideCompletionTest(context: SimpleContext<CompletionBuilder>)
   builder.generate(data.definitions.tag?.defined, (tag) => `The defined tag: ${tag}`);
 
   //Add the tags to the list
-  context.projectData.General.tags.forEach((tag) => {
+  context.database.ProjectData.general.tags.forEach((tag) => {
     builder.add({
       label: tag.id,
       documentation: `Tests for the tag: '${tag.id}'`,

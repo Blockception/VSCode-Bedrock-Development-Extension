@@ -1,10 +1,10 @@
-import { CompletionBuilder } from "../../../builder/builder";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../../../project/attributes";
 import { JsonPathCompletion } from "../../../builder/json-path";
 import { Kinds } from "../../../../../constants/kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../../util/simple-context";
+import { Context } from "../../../../context/context";
+import { CompletionContext } from "../../../context";
 
 import * as AnimationControllers from "../animation-controllers";
 import * as Animations from "../animations";
@@ -14,20 +14,20 @@ import * as LootTables from "../loot-tables";
 import * as Sounds from "../../resource-pack/sounds";
 import * as Trading from "../trading";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The entity definition: ${item.id}`;
-  const builder = context.builder.withDefaults({kind: Kinds.Completion.Entity})
+  const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
 
-  builder.generate(context.projectData.BehaviorPacks.entities, generateDoc);
+  builder.generate(context.database.ProjectData.behaviorPacks.entities, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.entities, generateDoc);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) {
+  if (IsEducationEnabled(context.document)) {
     builder.generate(MinecraftData.edu.BehaviorPack.entities, generateDoc);
   }
 }
 
-export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>) {
+export function provideJsonCompletion(context: Context<CompletionContext>) {
   return entityJsonCompletion.onCompletion(context);
 }
 

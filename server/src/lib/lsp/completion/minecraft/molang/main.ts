@@ -1,9 +1,10 @@
 import { CompletionBuilder } from "../../builder/builder";
-import { CompletionItemKind, Position } from "vscode-languageserver-types";
+import { CompletionItemKind } from "vscode-languageserver-types";
 import { GetPreviousWord, IsMolang } from "../../../../minecraft/molang/functions";
 import { PackType } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../../util/simple-context";
 import { Languages } from "@blockception/shared";
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
 
 import * as Geometry from "./geometry";
 import * as Material from "./materials";
@@ -19,12 +20,11 @@ import * as RP_Render_Controllers from "../resource-pack/render-controllers";
 import * as BP_Animations from "../behavior-pack/animations";
 import * as BP_Animation_Controllers from "../behavior-pack/animation-controllers";
 
-export function provideDocCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
-  const doc = context.doc;
-  const line = doc.getLine(pos.line);
-  const cursor = doc.offsetAt(pos);
+export function provideDocCompletion(context: Context<CompletionContext>): void {
+  const { document, position } = context;
+  const line = document.getLine(position.line);
 
-  return provideCompletion(line, cursor, context);
+  return provideCompletion(context, line, context.cursor);
 }
 
 /**
@@ -35,7 +35,7 @@ export function provideDocCompletion(context: SimpleContext<CompletionBuilder>, 
  * @param receiver
  * @returns
  */
-export function provideCompletion(line: string, cursor: number, context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>, line: string, cursor: number): void {
   const word = GetPreviousWord(line, cursor).toLowerCase();
 
   switch (word) {
@@ -78,10 +78,9 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
       return Temps.provideCompletion(context);
   }
 
-  const doc = context.doc;
-  const builder = context.builder;
+  const { document, builder } = context;
 
-  if (line.length === 0 || IsMolang(line) || doc.languageId == Languages.McMolangIdentifier) {
+  if (line.length === 0 || IsMolang(line) || document.languageId == Languages.McMolangIdentifier) {
     builder.add({ label: "query", documentation: "Molang queries", kind: CompletionItemKind.Class });
     builder.add({ label: "variable", documentation: "Defined variables", kind: CompletionItemKind.Variable });
     builder.add({ label: "math", documentation: "Math functions", kind: CompletionItemKind.Class });
@@ -93,7 +92,7 @@ export function provideCompletion(line: string, cursor: number, context: SimpleC
   }
 }
 
-type functioncall = (context: SimpleContext<CompletionBuilder>) => void;
+type functioncall = (context: Context<CompletionContext>) => void;
 
 /**
  *
@@ -101,16 +100,15 @@ type functioncall = (context: SimpleContext<CompletionBuilder>) => void;
  * @param BP
  * @param context
  */
-function prefixedData(RP: functioncall, BP: functioncall, context: SimpleContext<CompletionBuilder>): void {
-  const type = PackType.detect(context.doc.uri);
+function prefixedData(RP: functioncall, BP: functioncall, context: Context<CompletionContext>): void {
+  const type = PackType.detect(context.document.uri);
 
   //register new OnNewItem event to prune ids
-  const ncontext = {
-    ...context,
+  const ncontext = Context.modify(context, {
     builder: context.builder.withEvents((item) => {
       item.label = IDRemoveFirst(item.label);
     }),
-  };
+  });
 
   switch (type) {
     case PackType.behavior_pack:

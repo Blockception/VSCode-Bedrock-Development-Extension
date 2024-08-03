@@ -1,14 +1,13 @@
-import { CompletionBuilder } from "../../builder/builder";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { JsonCompletionContext } from "../../builder/context";
+import { CompletionContext, JsonCompletionContext } from "../../context";
 import { Kinds } from "../../../../constants/kinds";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../util/simple-context";
 
 import * as Items from "./items";
+import { Context } from "../../../context/context";
 
-export function provideJsonCompletion(context: JsonCompletionContext): void {
+export function provideJsonCompletion(context: Context<JsonCompletionContext>): void {
   const property = JsonCompletionContext.getProperty(context);
   if (property === undefined) return;
 
@@ -18,11 +17,11 @@ export function provideJsonCompletion(context: JsonCompletionContext): void {
   }
 }
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   generate_items(context);
 }
 
-export function provideShortCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideShortCompletion(context: Context<CompletionContext>): void {
   const ncontext = {
     ...context,
     builder: context.builder.withEvents((item) => (item.insertText = short_id(item.label))),
@@ -31,17 +30,17 @@ export function provideShortCompletion(context: SimpleContext<CompletionBuilder>
   generate_items(ncontext);
 }
 
-function generate_items(context: SimpleContext<CompletionBuilder>) {
+function generate_items(context: Context<CompletionContext>) {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.LootTable });
 
   const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
   const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
-  builder.generate(context.projectData.BehaviorPacks.loot_tables, generateDoc);
+  builder.generate(context.database.ProjectData.behaviorPacks.loot_tables, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
 
   //Education data
-  if (IsEducationEnabled(context.doc)) builder.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
+  if (IsEducationEnabled(context.document)) builder.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
 }
 
 function short_id(id: string): string {

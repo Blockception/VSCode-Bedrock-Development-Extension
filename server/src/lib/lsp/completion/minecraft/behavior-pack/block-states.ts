@@ -1,6 +1,7 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
-import { CommandCompletionContext } from "../../builder/context";
+import { CommandCompletionContext } from '../../context';
 import { CompletionItemKind } from "vscode-languageserver-types";
+import { Context } from '../../../context/context';
 import { GetPossibleBlockID } from "../../../../minecraft/commands";
 import { IsEditingValue } from "../selectors/attribute-values";
 import { IsEducationEnabled } from "../../../../project/attributes";
@@ -10,16 +11,15 @@ import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang";
 import { Types } from "bc-minecraft-bedrock-vanilla-data";
 
-
-export function provideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const block = GetPossibleBlockID(context.command, context.parameterIndex);
-  const edu = IsEducationEnabled(context.doc);
+  const edu = IsEducationEnabled(context.document);
 
   if (!(context.current?.text.startsWith("[") ?? false)) {
     if (block) {
       let b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined;
 
-      if ((b = context.projectData.BehaviorPacks.blocks.get(block))) provideDefaultCompletion(b, context);
+      if ((b = context.database.ProjectData.behaviorPacks.blocks.get(block))) provideDefaultCompletion(b, context);
       if ((b = vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu))))
         provideDefaultCompletion(b, context);
     }
@@ -29,12 +29,12 @@ export function provideCompletion(context: CommandCompletionContext): void {
   }
 
   if (block) {
-    provideBlockCompletion(context.projectData.BehaviorPacks.blocks.get(block), context);
+    provideBlockCompletion(context.database.ProjectData.behaviorPacks.blocks.get(block), context);
     return provideBlockCompletion(vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu)), context);
   }
 
   //return all
-  context.projectData.BehaviorPacks.blocks.forEach((block) => provideStateCompletion(block.states, context));
+  context.database.ProjectData.behaviorPacks.blocks.forEach((block) => provideStateCompletion(block.states, context));
 
   provideStateCompletion(MinecraftData.General.Blocks.block_states, context);
 }

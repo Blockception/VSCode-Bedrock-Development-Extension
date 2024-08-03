@@ -1,6 +1,6 @@
-import { SimpleContext } from "../../../util";
 import { getJsonPath } from "../../../minecraft/json/path";
-import { CompletionBuilder } from "./builder";
+import { Context } from "../../context/context";
+import { CompletionContext } from "../context";
 
 type JsonPathMatchFn = (path: string) => boolean;
 
@@ -9,7 +9,7 @@ export interface JsonPathMatch {
    * Either a string that matches the postfix, a regular expression that matches the path, or a function that returns true if the path matches
    */
   match: string | RegExp | JsonPathMatchFn;
-  onCompletion: (context: SimpleContext<CompletionBuilder>) => void;
+  onCompletion: (context: Context<CompletionContext>) => void;
 }
 
 export class JsonPathCompletion {
@@ -23,8 +23,8 @@ export class JsonPathCompletion {
    * Performs the onCompletion request, checks all of its item match and performs their events if it matches
    * @param context The context to use and pass on
    */
-  onCompletion(context: SimpleContext<CompletionBuilder>): void {
-    const { isProperty, path } = getJsonPath(context.cursor, context.doc);
+  onCompletion(context: Context<CompletionContext>): void {
+    const { isProperty, path } = getJsonPath(context.cursor, context.document);
     if (!isProperty) {
       return;
     }

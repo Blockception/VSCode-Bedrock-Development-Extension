@@ -11,11 +11,13 @@ import { IService } from "../services/service";
 import { IExtendedLogger } from "../logger/logger";
 import { CapabilityBuilder } from "../services/capabilities";
 import { BaseService } from "../services/base";
-import { onCompletionRequest } from ".";
 import { ErrorCodes } from "../../constants/errors";
 import { ExtensionContext } from "../extension/context";
-import { Database } from "../database";
 import { getFilename } from "../../util";
+import { Context } from "../context/context";
+import { CompletionContext } from "./context";
+import { createBuilder } from "./builder/builder";
+import { onCompletionRequest } from "./on-request";
 
 const triggerCharacters = " abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"".split("");
 
@@ -27,7 +29,7 @@ export class CompletionService extends BaseService implements Partial<IService> 
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
-    this.extension.capabilities.completion = true;
+    this.extension.capabilities.server.completion = true;
 
     capabilities.addCompletion({
       resolveProvider: false,
@@ -50,16 +52,35 @@ export class CompletionService extends BaseService implements Partial<IService> 
     token: CancellationToken,
     workDoneProgress: WorkDoneProgressReporter
   ): ResponseError<void> | CompletionItem[] | CompletionList | undefined | null {
-    const { uri } = params.textDocument;
-    const filename = getFilename(uri);
-    this.logger.debug(`starting on: ${filename}`, params);
-    workDoneProgress.begin(`completion ${filename}`, 0, undefined, true);
+    const filename = getFilename(params.textDocument.uri);
 
     try {
-      const document = this.extension.documents.get(uri);
+      const document = this.extension.documents.get(params.textDocument.uri);
+      const pos = params.position;
       if (document === undefined) return;
 
-      return onCompletionRequest(document, params, token, workDoneProgress, this.logger, Database.ProjectData);
+      this.logger.debug(`starting on: ${filename}`, params);
+      workDoneProgress.begin(`completion ${filename}`, 0, undefined, true);
+
+      const context = Context.create<CompletionContext>(
+        this.extension,
+        {
+          document,
+          token,
+          workDoneProgress,
+          cursor: document.offsetAt(pos),
+          builder: createBuilder(token, workDoneProgress),
+          ...params,
+        },
+        { logger: this.logger }
+      );
+
+      onCompletionRequest(context);
+
+      return {
+        isIncomplete: false,
+        items: removeDuplicate(context.builder.getItems()),
+      };
     } catch (err: any) {
       const code = ErrorCodes.CompletionService + (err.code ?? 0);
 
@@ -69,4 +90,29 @@ export class CompletionService extends BaseService implements Partial<IService> 
       workDoneProgress.done();
     }
   }
+}
+
+function removeDuplicate(items: CompletionItem[]): CompletionItem[] {
+  const Length = items.length;
+  const out: CompletionItem[] = [];
+
+  for (let I = 0; I < Length; I++) {
+    const current = items[I];
+
+    if (!hasItem(out, current)) {
+      out.push(current);
+    }
+  }
+
+  return out;
+}
+
+function hasItem(items: CompletionItem[], item: CompletionItem): boolean {
+  const label = item.label;
+
+  for (let I = 0; I < items.length; I++) {
+    if (label == items[I].label) return true;
+  }
+
+  return false;
 }

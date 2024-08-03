@@ -1,8 +1,8 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { SimpleContext } from "../../../util/simple-context";
-import { CompletionBuilder } from "../builder/builder";
+import { CompletionContext } from "../context";
+import { Context } from "../../context/context";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;
 
   builder.add({ label: "1L", documentation: "Add 1 level of xp", kind: CompletionItemKind.Value });
