@@ -9,6 +9,7 @@ import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { IDocumentManager } from "../documents/manager";
 import { InternalContext } from "../diagnostics/context";
+import { CancellationToken } from "vscode-languageserver-protocol";
 
 type BaseObject = Types.BaseObject;
 
@@ -154,7 +155,7 @@ export class Database implements Pick<IService, "name"> {
     return out;
   }
 
-  forEach(callbackfn: (item: BaseObject) => void): Promise<void> {
+  forEach(callbackfn: (item: BaseObject) => void, token?: CancellationToken): Promise<void> {
     const packs: forEachfn<BaseObject>[][] = [
       [this.ProjectData.general],
       this.ProjectData.behaviorPacks.packs,
@@ -163,7 +164,11 @@ export class Database implements Pick<IService, "name"> {
     ];
 
     return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col) => {
+      if (token?.isCancellationRequested) return;
+
       return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => {
+        if (token?.isCancellationRequested) return;
+
         return pack.forEach(callbackfn);
       }).then((items) => {});
     }).then((items) => {});
