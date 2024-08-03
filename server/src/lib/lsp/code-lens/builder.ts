@@ -1,32 +1,28 @@
-import { CodeLens, CodeLensParams } from "vscode-languageserver";
+import { CancellationToken, CodeLens, CodeLensParams } from "vscode-languageserver";
 
 /**
  *
  */
 export class CodeLensBuilder {
-  /**
-   *
-   */
   public params: CodeLensParams;
-  /**
-   *
-   */
+  public token: CancellationToken;
   public out: CodeLens[];
 
   /**
    *
    * @param params
    */
-  constructor(params: CodeLensParams) {
+  constructor(params: CodeLensParams, token: CancellationToken) {
     this.params = params;
     this.out = [];
+    this.token = token;
   }
 
   /**
    *
    * @param item
    */
-  Push(item: CodeLens) {
+  push(item: CodeLens) {
     if (item) {
       this.out.push(item);
     }
