@@ -14,14 +14,14 @@ import { Vscode } from "../../../util";
  * @param type
  */
 export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: string): void {
-  const doc = readDocument(builder.params.textDocument.uri);
-  if (!doc) return;
+  const document = builder.context.document;
+  if (!document) return;
 
-  const value = doc.getText(diag.range);
-  const ws = Database.WorkspaceData.getFolder(doc.uri);
+  const value = document.getText(diag.range);
+  const ws = builder.context.database.WorkspaceData.getFolder(document.uri);
 
   if (!ws) {
-    Console.Error(`Couldn't find workspace for: ${doc.uri}`);
+    Console.Error(`Couldn't find workspace for: ${document.uri}`);
     return;
   }
 
@@ -48,17 +48,17 @@ export function Definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
  * @param diag
  * @param type
  */
-export function Attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
-  const doc = GetDocument(builder.params.textDocument.uri);
-  if (!doc) return;
+export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
+  const document = builder.context.document;
+  if (!document) return;
 
-  const ws = Database.WorkspaceData.getFolder(doc.uri);
+  const ws = builder.context.database.WorkspaceData.getFolder(document.uri);
   const key = diag.code ?? "";
 
   if (typeof key === "undefined") return;
 
   if (!ws) {
-    Console.Error(`Couldn't find workspace for: ${doc.uri}`);
+    Console.Error(`Couldn't find workspace for: ${document.uri}`);
     return;
   }
 

@@ -1,13 +1,5 @@
 import { Command } from "bc-minecraft-bedrock-command";
-import {
-  AnnotatedTextEdit,
-  CodeAction,
-  CodeActionKind,
-  Diagnostic,
-  OptionalVersionedTextDocumentIdentifier,
-  TextDocumentEdit,
-  TextEdit,
-} from "vscode-languageserver";
+import { CodeAction, CodeActionKind, Diagnostic, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../builder";
 import { Languages } from "@blockception/shared";
 
@@ -18,22 +10,22 @@ import { Languages } from "@blockception/shared";
  * @returns
  */
 export function codeaction_execute_deprecated(builder: CodeActionBuilder, diag: Diagnostic): void {
-  if (builder.doc.languageId !== Languages.McFunctionIdentifier) return;
+  const document = builder.context.document;
+  if (document.languageId !== Languages.McFunctionIdentifier) return;
 
-  const doc = builder.doc;
-  const line = doc.getLine(diag.range.start.line);
-  const offset = doc.offsetAt(diag.range.start);
+  const line = document.getLine(diag.range.start.line);
+  const offset = document.offsetAt(diag.range.start);
 
   let command = Command.parse(line, offset);
-  const cursor = doc.offsetAt(diag.range.start);
-  let Subcommand = command.isInSubCommand(cursor);
+  const cursor = document.offsetAt(diag.range.start);
+  let subCommand = command.isInSubCommand(cursor);
 
-  while (Subcommand) {
-    if (Subcommand) {
-      command = Subcommand;
+  while (subCommand) {
+    if (subCommand) {
+      command = subCommand;
     }
 
-    Subcommand = command.isInSubCommand(cursor);
+    subCommand = command.isInSubCommand(cursor);
   }
 
   if (command.parameters.length < 4) return;
@@ -53,7 +45,7 @@ export function codeaction_execute_deprecated(builder: CodeActionBuilder, diag: 
   const offsetRange = keyword.offset;
   range.end.character = range.start.character + (z.offset - offsetRange) + z.text.length;
 
-  const id = { uri: builder.doc.uri, version: builder.doc.version };
+  const id = { uri: document.uri, version: document.version };
   const edit = TextEdit.replace(diag.range, newCommand);
   const docEdit = TextDocumentEdit.create(id, [edit]);
 

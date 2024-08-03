@@ -1,6 +1,7 @@
 import { Text } from "bc-minecraft-bedrock-project";
 import { CodeAction, CodeActionKind, CodeActionParams, Command, Range } from "vscode-languageserver";
-import { TextDocument } from "../documents/text-document";
+import { Context } from "../context/context";
+import { CodeActionContext } from "./context";
 
 /** */
 export class CodeActionBuilder {
@@ -9,13 +10,14 @@ export class CodeActionBuilder {
   /** */
   out: (Command | CodeAction)[];
 
-  public doc: TextDocument;
+  public context: Context<CodeActionContext>;
 
   /** */
-  constructor(params: CodeActionParams, doc: TextDocument) {
+  constructor(params: CodeActionParams, context: Context<CodeActionContext>) {
     this.params = params;
+    this.context = context;
+
     this.out = [];
-    this.doc = doc;
   }
 
   /**
@@ -23,11 +25,11 @@ export class CodeActionBuilder {
    * @returns
    */
   getText(range: Range | undefined): string {
-    return this.doc.getText(range ?? this.params.range);
+    return this.context.document.getText(range ?? this.params.range);
   }
 
   getId(range: Range | undefined): string {
-    let id = this.getText(range);
+    const id = this.getText(range);
 
     return Text.UnQuote(id);
   }
