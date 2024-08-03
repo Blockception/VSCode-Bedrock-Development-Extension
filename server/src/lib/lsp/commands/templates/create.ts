@@ -1,131 +1,99 @@
 import { ExecuteCommandParams } from "vscode-languageserver/node";
 import { TemplateBuilder } from "./builder";
-import { Console } from "../../../manager/console";
 import { Commands } from "@blockception/shared";
-import { Database } from "../../../lsp/database/database";
 import { Pack } from "bc-minecraft-bedrock-project";
-import { GetContext, Context, EnsureContext } from "./context";
-import { TemplateKeys, Templates } from "./templates";
+import { getFolders, Folders, EnsureFolders } from "./folders";
+import { Context } from "../../context/context";
+import { CommandContext } from "../context";
+import { CommandManager } from "../manager";
 
 import * as Language from "./language";
 import * as Project from "./project";
+import { IExtensionContext } from "../../extension/context";
 
-type CreateFn = (params: ExecuteCommandParams, context: EnsureContext) => Promise<boolean | void>;
-type CommandManager = Record<string, CreateFn>;
-const CreationCommands: CommandManager = initialize();
+type CreateFn = (context: Context<CommandContext>, folders: EnsureFolders) => Promise<boolean | void>;
 
 /**Executes the given creation command */
-export async function Create(params: ExecuteCommandParams): Promise<void> {
-  const context = GetContext(params);
-  const command = params.command;
-  const folder = context.GetFolder(command);
-  const templateId = command.replace(Commands.Create.Base, "") as TemplateKeys;
-  const id = (params.arguments ? params.arguments[0] : undefined) || "UNKNOWN";
+function createCommand(callback: CreateFn) {
+  return async function (context: Context<CommandContext>) {
+    const folders = getFolders(context);
+    const command = context.command;
 
-  const attributes = {
-    id,
-    templateId,
+    return callback(context, folders).then((value) => {});
   };
-
-  if ((await Templates.create(templateId, folder, attributes)) === true) {
-    return;
-  }
-
-  const fn = CreationCommands[params.command];
-  if (fn) {
-    return fn(params, context).then((value) => {});
-  } else {
-    Console.Error("Unknown creation command: " + params.command);
-  }
 }
 
-function initialize(): CommandManager {
-  const Out: CommandManager = {};
-
+export function setupCreate(manager: CommandManager) {
   //General
-  Out[Commands.Create.General.Entity] = (params: ExecuteCommandParams, context: Context) => {
-    const id = params.arguments ? params.arguments[0] : undefined;
-
-    const attributes = {
-      id,
-    }
-
-    return PromisesAll(
-      Templates.create("behavior-entity", context.BehaviorPack(), attributes),
-      Templates.create("resource-entity", context.ResourcePack(), attributes)
-    );
-  };
-  Out[Commands.Create.General.Languages] = () => {
-    return CreateAll(Language.create_language_files);
-  };
-  Out[Commands.Create.General.Manifests] = (params: ExecuteCommandParams, context: EnsureContext) => {
-    const ensured = context.Ensure();
-    const id = params.arguments ? params.arguments[0] : undefined;
-
-    const attributes = {
-      id,
-    }
-
-    return PromisesAll(
-      Templates.create("behavior-manifest", ensured.BehaviorPack(), attributes),
-      Templates.create("resource-manifest", ensured.ResourcePack(), attributes),
-      Templates.create("world-manifest", ensured.ResourcePack(), attributes)
-    );
-  };
+  manager.add(Commands.Create.General.Languages, (context) => createAll(context, Language.create_language_files));
+  manager.add(
+    Commands.Create.General.Entity,
+    createCommand((context: Context<CommandContext>) => {
+      return Promise.all([
+        manager.executeCommand(Commands.Create.Behaviorpack.Entity, context),
+        manager.executeCommand(Commands.Create.Resourcepack.Entity, context),
+      ]).then(() => {});
+    })
+  );
+  manager.add(
+    Commands.Create.General.Manifests,
+    createCommand((context: Context<CommandContext>) => {
+      return Promise.all([
+        manager.executeCommand(Commands.Create.Behaviorpack.Manifests, context),
+        manager.executeCommand(Commands.Create.Resourcepack.Manifests, context),
+        manager.executeCommand(Commands.Create.World.Manifests, context),
+      ]).then(() => {});
+    })
+  );
 
   //Project
-  Out[Commands.Create.Project.WorldProject] = (params: ExecuteCommandParams) =>
-    FunctionWithID(params, Project.create_world_project);
-  Out[Commands.Create.Project.Resourcepack] = (params: ExecuteCommandParams) =>
-    FunctionWithID(params, Project.create_resourcepack);
-  Out[Commands.Create.Project.Behaviorpack] = (params: ExecuteCommandParams) =>
-    FunctionWithID(params, Project.create_behaviorpack);
-
-  return Out;
+  manager.add(
+    Commands.Create.Project.WorldProject,
+    createCommand((params) => FunctionWithID(params, Project.create_world_project))
+  );
+  manager.add(
+    Commands.Create.Project.Resourcepack,
+    createCommand((params) => FunctionWithID(params, Project.create_resourcepack))
+  );
+  manager.add(
+    Commands.Create.Project.Behaviorpack,
+    createCommand((params) => FunctionWithID(params, Project.create_behaviorpack))
+  );
 }
 
 /**
  *
- * @param params
+ * @param context
  * @param callback
  */
-function FunctionWithID(
-  params: ExecuteCommandParams,
-  callback: (ID: string, context: Context, Builder: TemplateBuilder) => void
+async function FunctionWithID(
+  context: Context<CommandContext>,
+  callback: (ID: string, context: Folders, builder: TemplateBuilder) => void
 ): Promise<void> {
-  const context = GetContext(params);
+  const folders = getFolders(context);
+  const ids = context.args;
+  if (!ids) return;
+  if (!folders) return;
 
-  const IDs = params.arguments;
-  if (!IDs) return Promise.resolve();
-  if (!context) return Promise.resolve();
-
-  const Builder = new TemplateBuilder();
+  const builder = new TemplateBuilder(context);
 
   //Last is reserved for the document
-  for (let I = 0; I < IDs.length - 1; I++) {
-    callback(IDs[I], context, Builder);
+  for (let I = 0; I < ids.length - 1; I++) {
+    callback(ids[I], folders, builder);
   }
 
-  return Builder.Send();
+  return builder.send();
 }
 
-function CreateAll(callback: (Folder: Pack, Builder: TemplateBuilder) => void): Promise<void> {
-  const Builder = new TemplateBuilder();
+function createAll(
+  context: IExtensionContext,
+  callback: (Folder: Pack, Builder: TemplateBuilder) => void
+): Promise<void> {
+  const builder = new TemplateBuilder(context);
 
-  Database.ProjectData.BehaviorPacks.packs.forEach((pack) => callback(pack, Builder));
-  Database.ProjectData.ResourcePacks.packs.forEach((pack) => callback(pack, Builder));
-  Database.ProjectData.Worlds.packs.forEach((pack) => callback(pack, Builder));
+  context.database.ProjectData.behaviorPacks.packs.forEach((pack) => callback(pack, builder));
+  context.database.ProjectData.resourcePacks.packs.forEach((pack) => callback(pack, builder));
+  context.database.ProjectData.worlds.packs.forEach((pack) => callback(pack, builder));
 
-  return Builder.Send();
-}
-
-function PromisesAll(...promises: Promise<boolean>[]): Promise<boolean> {
-  return new Promise((resolve, reject) => {
-    Promise.all(promises).then((values) => {
-      let out = true;
-      values.forEach((value) => (out &&= value));
-
-      return out;
-    });
-  });
+  return builder.send();
 }

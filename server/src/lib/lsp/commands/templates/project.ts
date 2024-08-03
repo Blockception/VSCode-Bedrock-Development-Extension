@@ -1,23 +1,22 @@
-import { Context } from "./context";
+import { Folders } from "./folders";
 import { create_language_files } from "./language";
 import { TemplateBuilder } from "./builder";
-import { Templates } from "./templates";
 import { TextEditBuilder } from "../commands/language";
 import { Vscode } from "../../../util";
 
 /**
  *
- * @param ID
+ * @param id
  * @param context
- * @param Builder
+ * @param builder
  */
-export async function create_world_project(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
+export async function create_world_project(id: string, context: Folders, builder: TemplateBuilder): Promise<void> {
   const Folder = Vscode.join(context.WorkSpace(), "world");
 
   const NewContext = {
     WorkSpace: () => context.WorkSpace(),
-    BehaviorPack: () => Vscode.join(Folder, "behavior_packs", ID + "-bp"),
-    ResourcePack: () => Vscode.join(Folder, "resource_packs", ID + "-rp"),
+    BehaviorPack: () => Vscode.join(Folder, "behavior_packs", id + "-bp"),
+    ResourcePack: () => Vscode.join(Folder, "resource_packs", id + "-rp"),
     WorldFolder: () => Folder,
   };
 
@@ -28,19 +27,19 @@ export async function create_world_project(ID: string, context: Context, Builder
   ]);
 
   //create world manifest
-  create_language_files(NewContext.BehaviorPack(), Builder, languageBP);
-  create_language_files(NewContext.ResourcePack(), Builder, languageRP);
-  create_language_files(NewContext.WorldFolder(), Builder, languageWP);
+  create_language_files(NewContext.BehaviorPack(), builder, languageBP);
+  create_language_files(NewContext.ResourcePack(), builder, languageRP);
+  create_language_files(NewContext.WorldFolder(), builder, languageWP);
 }
 
 /**
  *
- * @param ID
+ * @param id
  * @param context
- * @param Builder
+ * @param builder
  */
-export async function create_behaviorpack(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
-  const folder = Vscode.join(context.WorkSpace(), `${ID}-bp`);
+export async function create_behaviorpack(id: string, context: Folders, builder: TemplateBuilder): Promise<void> {
+  const folder = Vscode.join(context.WorkSpace(), `${id}-bp`);
 
   const NewContext = {
     WorkSpace: () => context.WorkSpace(),
@@ -50,17 +49,17 @@ export async function create_behaviorpack(ID: string, context: Context, Builder:
   };
 
   await Templates.create("behavior-manifest", NewContext.BehaviorPack());
-  create_language_files(folder, Builder, languageBP);
+  create_language_files(folder, builder, languageBP);
 }
 
 /**
  *
- * @param ID
+ * @param id
  * @param context
- * @param Builder
+ * @param builder
  */
-export async function create_resourcepack(ID: string, context: Context, Builder: TemplateBuilder): Promise<void> {
-  const folder = Vscode.join(context.WorkSpace(), `${ID}-rp`);
+export async function create_resourcepack(id: string, context: Folders, builder: TemplateBuilder): Promise<void> {
+  const folder = Vscode.join(context.WorkSpace(), `${id}-rp`);
 
   const NewContext = {
     WorkSpace: context.WorkSpace,
@@ -70,7 +69,7 @@ export async function create_resourcepack(ID: string, context: Context, Builder:
   };
 
   await Templates.create("resource-manifest", NewContext.ResourcePack());
-  create_language_files(folder, Builder, languageRP);
+  create_language_files(folder, builder, languageRP);
 }
 
 function languageWP(text: TextEditBuilder): void {

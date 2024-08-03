@@ -1,43 +1,14 @@
+import { TemplateFallback, TemplateProcessor } from "../../../templates";
+import { CommandManager } from "../manager";
+import { Commands } from "@blockception/shared";
+import { CommandContext } from "../context";
+import { Context } from "../../context/context";
+import { getFolders } from "./folders";
+
+import * as BPT from "../../../data/templates/behavior-pack";
+import * as RPT from "../../../data/templates/resource-pack";
+import * as WPT from "../../../data/templates/world";
 import path from "path";
-import * as BP from "../../../data/templates/behavior-pack";
-import * as RP from "../../../data/templates/resource-pack";
-import * as WP from "../../../data/templates/world";
-import { TemplateFallback, TemplateProcessor } from '../../../templates';
-
-export type TemplateKeys =
-  | "behavior-animation_controllers"
-  | "behavior-animations"
-  | "behavior-block"
-  | "behavior-entity"
-  | "behavior-dialogue"
-  | "behavior-item"
-  | "behavior-loot_table"
-  | "behavior-manifest"
-  | "behavior-recipe"
-  | "behavior-spawn_rule"
-  | "behavior-trading"
-  | "behavior-volume"
-  | "resource-animation_controllers"
-  | "resource-animations"
-  | "resource-attachable"
-  | "resource-biomes_client"
-  | "resource-blocks"
-  | "resource-block_culling"
-  | "resource-entity"
-  | "resource-fog"
-  | "resource-flipbook_textures"
-  | "resource-item_texture"
-  | "resource-manifest"
-  | "resource-model"
-  | "resource-music_definitions"
-  | "resource-particle"
-  | "resource-render_controller"
-  | "resource-sounds"
-  | "resource-sound_definitions"
-  | "resource-terrain_texture"
-  | "world-manifest";
-
-export type TemplateMap<T> = Record<TemplateKeys, T>;
 
 interface TemplateItem {
   filename: string;
@@ -53,88 +24,84 @@ namespace TemplateItem {
   }
 }
 
-export namespace Templates {
-  export function get(key: TemplateKeys): TemplateItem | undefined {
-    return TemplateFilenames[key];
-  }
+export function setupTemplates(manager: CommandManager): void {
+  const BPC = Commands.Create.Behaviorpack;
+  const RPC = Commands.Create.Resourcepack;
 
-  export function getFallback(key: TemplateKeys): TemplateFallback | undefined {
-    const item = get(key);
+  createCommand(
+    manager,
+    BPC.Animation_Controller,
+    BPT.animation_controller,
+    "animation_controllers",
+    "${{id.safe}}.controller.json"
+  );
+  createCommand(manager, BPC.Animation, BPT.animation, "animations", "${{id.safe}}.animation..json");
+  createCommand(manager, BPC.Block, BPT.block, "blocks", "${{id.safe}}.block..json");
+  createCommand(manager, BPC.Entity, BPT.entity, "entities", "${{id.safe}}.entity.bp..json");
+  createCommand(manager, BPC.Dialogue, BPT.dialogue, "dialogue", "${{id.safe}}.dialogue..json");
+  createCommand(manager, BPC.Item, BPT.item, "items", "${{id.safe}}.item..json");
+  createCommand(manager, BPC.Loot_Table, BPT.loot_table, "loot_tables", "${{id.safe}}.loot..json");
+  createCommand(manager, BPC.Manifests, BPT.manifest, "manifest..json");
+  createCommand(manager, BPC.Recipe, BPT.recipe, "recipes", "${{id.safe}}.recipe..json");
+  createCommand(manager, BPC.Spawn_Rule, BPT.spawn_rule, "spawn_rules", "${{id.safe}}.spawn..json");
+  createCommand(manager, BPC.Trading, BPT.trading, "trading", "${{id.safe}}.trades..json");
+  createCommand(manager, BPC.Volume, BPT.volume, "volumes", "${{id.safe}}.volume..json");
 
-    if (item === undefined) return undefined;
+  createCommand(
+    manager,
+    RPC.Animation_Controller,
+    RPT.animation_controller,
+    "animation_controllers",
+    "${{id.safe}}.controller.json"
+  );
+  createCommand(manager, RPC.Animation, RPT.animation, "animations", "${{id.safe}}.animation..json");
+  createCommand(manager, RPC.Attachable, RPT.attachable, "attachables", "${{id.safe}}.attachable..json");
+  createCommand(manager, RPC.Biomes_Client, RPT.biomes_client, "biomes_client..json");
+  createCommand(manager, RPC.Blocks, RPT.blocks, "blocks..json");
+  createCommand(manager, RPC.BlockCulling, RPT.block_culling, "block_culling", "${{id.safe}}.rule..json");
+  createCommand(manager, RPC.Entity, RPT.entity, "entity", "${{id.safe}}.entity.rp..json");
+  createCommand(manager, RPC.Fog, RPT.fog, "fogs", "${{id.safe}}.fog..json");
+  createCommand(manager, RPC.Flipbook_Textures, RPT.flipbook_textures, "textures", "flipbook_textures..json");
+  createCommand(manager, RPC.Item_Texture, RPT.item_texture, "textures", "item_texture.png");
+  createCommand(manager, RPC.Manifests, RPT.manifest, "manifest..json");
+  createCommand(manager, RPC.Model, RPT.model, "models", "entity", "${{id.safe}}.geo..json");
+  createCommand(manager, RPC.Music_Definitions, RPT.music_definitions, "sounds", "music_definitions..json");
+  createCommand(manager, RPC.Particle, RPT.particle, "particles", "${{id.safe}}.particle..json");
+  createCommand(
+    manager,
+    RPC.Render_Controller,
+    RPT.render_controller,
+    "render_controllers",
+    "${{id.safe}}.render..json"
+  );
+  createCommand(manager, RPC.Sounds, RPT.sounds, "sounds..json");
+  createCommand(manager, RPC.Sound_Definitions, RPT.sound_definitions, "sounds", "sound_definitions..json");
+  createCommand(manager, RPC.Terrain_Texture, RPT.terrain_texture, "textures", "terrain_texture..json");
 
-    return {
-      filename: () => item.filename,
-      content: () => item.content,
-    };
-  }
-
-  export async function create(
-    key: TemplateKeys,
-    folder: string,
-    attributes: Record<string, string> = {}
-  ): Promise<boolean> {
-    const fallback = getFallback(key);
-    if (fallback === undefined) return false;
-
-    const processor = await TemplateProcessor.create(key, folder, attributes, fallback);
-    processor.Process();
-
-    await processor.CreateFile();
-    return true;
-  }
+  createCommand(manager, Commands.Create.World.Manifests, WPT.manifest, "manifest..json");
 }
 
-export const TemplateFilenames: TemplateMap<TemplateItem> = {
-  //#region Behavior Pack
-  "behavior-animation_controllers": TemplateItem.create(
-    BP.bp_animation_controller,
-    "animation_controllers",
-    "${{id.safe}}.controller.json"
-  ),
-  "behavior-animations": TemplateItem.create(BP.bp_animation, "animations", "${{id.safe}}.animation.json"),
-  "behavior-block": TemplateItem.create(BP.bp_block, "blocks", "${{id.safe}}.block.json"),
-  "behavior-entity": TemplateItem.create(BP.bp_entity, "entities", "${{id.safe}}.entity.bp.json"),
-  "behavior-dialogue": TemplateItem.create(BP.bp_dialogue, "dialogue", "${{id.safe}}.dialogue.json"),
-  "behavior-item": TemplateItem.create(BP.bp_item, "items", "${{id.safe}}.item.json"),
-  "behavior-loot_table": TemplateItem.create(BP.bp_loot_table, "loot_tables", "${{id.safe}}.loot.json"),
-  "behavior-manifest": TemplateItem.create(BP.bp_manifest, "manifest.json"),
-  "behavior-recipe": TemplateItem.create(BP.bp_recipe, "recipes", "${{id.safe}}.recipe.json"),
-  "behavior-spawn_rule": TemplateItem.create(BP.bp_spawn_rule, "spawn_rules", "${{id.safe}}.spawn.json"),
-  "behavior-trading": TemplateItem.create(BP.bp_trading, "trading", "${{id.safe}}.trades.json"),
-  "behavior-volume": TemplateItem.create(BP.bp_volume, "volumes", "${{id.safe}}.volume.json"),
-  //#endregion
+function createCommand(manager: CommandManager, commandId: string, content: string, ...paths: string[]) {
+  const templateId = commandId.replace(Commands.Create.Base, "");
+  const item = TemplateItem.create(content, ...paths);
+  const fallback: TemplateFallback = {
+    content: () => item.content,
+    filename: () => item.filename,
+  };
 
-  //#region Resource Pack
-  "resource-animation_controllers": TemplateItem.create(
-    RP.rp_animation_controller,
-    "animation_controllers",
-    "${{id.safe}}.controller.json"
-  ),
-  "resource-animations": TemplateItem.create(RP.rp_animation, "animations", "${{id.safe}}.animation.json"),
-  "resource-attachable": TemplateItem.create(RP.rp_attachable, "attachables", "${{id.safe}}.attachable.json"),
-  "resource-biomes_client": TemplateItem.create(RP.rp_biomes_client, "biomes_client.json"),
-  "resource-blocks": TemplateItem.create(RP.rp_blocks, "blocks.json"),
-  "resource-block_culling": TemplateItem.create(RP.rp_block_culling, "block_culling", "${{id.safe}}.rule.json"),
-  "resource-entity": TemplateItem.create(RP.rp_entity, "entity", "${{id.safe}}.entity.rp.json"),
-  "resource-fog": TemplateItem.create(RP.rp_fog, "fogs", "${{id.safe}}.fog.json"),
-  "resource-flipbook_textures": TemplateItem.create(RP.rp_flipbook_textures, "textures", "flipbook_textures.json"),
-  "resource-item_texture": TemplateItem.create(RP.rp_item_texture, "textures", "item_texture.png"),
-  "resource-manifest": TemplateItem.create(RP.rp_manifest, "manifest.json"),
-  "resource-model": TemplateItem.create(RP.rp_model, "models", "entity", "${{id.safe}}.geo.json"),
-  "resource-music_definitions": TemplateItem.create(RP.rp_music_definitions, "sounds", "music_definitions.json"),
-  "resource-particle": TemplateItem.create(RP.rp_particle, "particles", "${{id.safe}}.particle.json"),
-  "resource-render_controller": TemplateItem.create(
-    RP.rp_render_controller,
-    "render_controllers",
-    "${{id.safe}}.render.json"
-  ),
-  "resource-sounds": TemplateItem.create(RP.rp_sounds, "sounds.json"),
-  "resource-sound_definitions": TemplateItem.create(RP.rp_sound_definitions, "sounds", "sound_definitions.json"),
-  "resource-terrain_texture": TemplateItem.create(RP.rp_terrain_texture, "textures", "terrain_texture.json"),
-  //#endregion
+  manager.add(commandId, async function (context: Context<CommandContext>): Promise<boolean> {
+    const folder = getFolders(context).GetFolder(commandId);
+    const id = (context.args ? context.args[0] : undefined) || "UNKNOWN";
 
-  //#region World
-  "world-manifest": TemplateItem.create(WP.manifest, "manifest.json"),
-  //#endregion
-};
+    const attributes = {
+      id,
+      templateId,
+    };
+
+    const processor = TemplateProcessor.create(context, templateId, folder, attributes, fallback);
+    processor.process();
+
+    await processor.createFile();
+    return true;
+  });
+}

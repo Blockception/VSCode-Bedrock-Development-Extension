@@ -1,9 +1,8 @@
-import { ExecuteCommandParams } from "vscode-languageserver";
-import { Database } from "../../../lsp/database/database";
-import { Manager } from "../../../manager/manager";
-import { Vscode } from '../../../util';
+import { Vscode } from "../../../util";
+import { Context } from "../../context/context";
+import { CommandContext } from "../context";
 
-export interface Context {
+export interface Folders {
   BehaviorPack(): string;
   ResourcePack(): string;
   WorkSpace(): string;
@@ -11,50 +10,52 @@ export interface Context {
   GetFolder(command: string): string;
 }
 
-export interface EnsureContext extends Context {
-  Ensure(): Context;
+export interface EnsureFolders extends Folders {
+  Ensure(): Folders;
 }
 
-export function GetContext(params: ExecuteCommandParams): EnsureContext {
-  const args = params.arguments;
-
+export function getFolders(context: Context<CommandContext>): EnsureFolders {
+  const args = context.args;
   if (args) {
-    return new _internalContext(args[args.length - 1]);
+    return new _internalContext(context, args[args.length - 1]);
   }
 
-  return new _internalContext(undefined);
+  return new _internalContext(context, undefined);
 }
 
-class _internalContext implements Context {
+class _internalContext implements Folders {
   private _path: string | undefined;
   private ws: string | undefined;
   private bp: string | undefined;
   private rp: string | undefined;
   private wl: string | undefined;
+  private context: Context<CommandContext>;
 
-  constructor(path: string | undefined) {
+  constructor(context: Context<CommandContext>, path: string | undefined) {
+    this.context = context;
+
     this.ws = "";
-    const ws = Database.WorkspaceData.getFirst();
+    const ws = context.database.WorkspaceData.getFirst();
     if (ws) this.ws = ws;
 
     if ((this._path = path)) {
-      const ws = Database.WorkspaceData.getFolder(path);
+      const ws = context.database.WorkspaceData.getFolder(path);
       if (ws) this.ws = ws;
 
-      this.bp = Database.ProjectData.BehaviorPacks.get(path)?.folder;
-      this.rp = Database.ProjectData.ResourcePacks.get(path)?.folder;
+      this.bp = context.database.ProjectData.behaviorPacks.get(path)?.folder;
+      this.rp = context.database.ProjectData.resourcePacks.get(path)?.folder;
     }
 
-    if (!this.bp) this.bp = Database.ProjectData.BehaviorPacks.packs[0]?.folder;
-    if (!this.rp) this.rp = Database.ProjectData.ResourcePacks.packs[0]?.folder;
-    if (!this.wl) this.wl = Database.ProjectData.Worlds.packs[0]?.folder;
+    if (!this.bp) this.bp = context.database.ProjectData.behaviorPacks.packs[0]?.folder;
+    if (!this.rp) this.rp = context.database.ProjectData.resourcePacks.packs[0]?.folder;
+    if (!this.wl) this.wl = context.database.ProjectData.worlds.packs[0]?.folder;
   }
 
   BehaviorPack(): string {
     if (this.bp) return this.bp;
 
     const message = "This action requires behaviorpack with manifest to be present and findable for the plugin!";
-    Manager.Connection.window.showErrorMessage(message);
+    this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
 
@@ -62,7 +63,7 @@ class _internalContext implements Context {
     if (this.rp) return this.rp;
 
     const message = "This action requires resourcepack with manifest to be present and findable for the plugin!";
-    Manager.Connection.window.showErrorMessage(message);
+    this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
 
@@ -70,7 +71,7 @@ class _internalContext implements Context {
     if (this.ws) return this.ws;
 
     const message = "This action requires a workspace to be opened!";
-    Manager.Connection.window.showErrorMessage(message);
+    this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
 
@@ -78,7 +79,7 @@ class _internalContext implements Context {
     if (this.wl) return this.wl;
 
     const message = "This action requires world with manifest to be present and findable for the plugin!";
-    Manager.Connection.window.showErrorMessage(message);
+    this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
 
@@ -90,8 +91,8 @@ class _internalContext implements Context {
     return this.WorkSpace();
   }
 
-  Ensure(): Context {
-    const ensured = new _internalContext(this._path);
+  Ensure(): Folders {
+    const ensured = new _internalContext(this.context, this._path);
     const ws = this.WorkSpace();
 
     ensured.bp = this.bp || Vscode.join(ws, "behavior_packs", "unnamed_bp");

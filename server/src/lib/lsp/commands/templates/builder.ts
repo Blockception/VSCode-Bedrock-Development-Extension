@@ -9,63 +9,62 @@ import {
   OptionalVersionedTextDocumentIdentifier,
   ApplyWorkspaceEditResult,
 } from "vscode-languageserver";
-import { Manager } from "../../../manager/manager";
 import { Range } from "vscode-languageserver-types";
-import { Console } from "../../../manager/console";
 import { Fs, Vscode } from "../../../util/url";
+import { IExtensionContext } from "../../extension/context";
 
 import * as fs from "fs";
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
-  public CreateOptions: CreateFileOptions;
+  readonly context: IExtensionContext;
+  readonly options: CreateFileOptions;
 
-  constructor() {
+  constructor(context: IExtensionContext) {
+    this.context = context;
     this.receiver = [];
-    this.CreateOptions = { ignoreIfExists: true, overwrite: false };
+    this.options = { ignoreIfExists: true, overwrite: false };
   }
 
   /**Sends the edits to the client*/
-  Send(): Promise<void> {
+  send(): Promise<void> {
     if (this.receiver.length <= 0) return Promise.resolve();
 
     const Edit: WorkspaceEdit = { documentChanges: this.receiver };
-    return Manager.Connection.workspace.applyEdit(Edit).then(Response);
+    return this.context.connection.workspace.applyEdit(Edit).then(this.handleResponse.bind(this));
   }
 
-  CreateFile(uri: string, content: string): void {
+  createFile(uri: string, body: string): void {
     if (uri.startsWith("file:\\")) uri = uri.replace(/\\/gi, "/");
 
     const path = Fs.FromVscode(uri);
     uri = Vscode.FromFs(path);
 
     if (fs.existsSync(path)) {
-      Console.Info("creation of file skipped because it already exists: " + path);
+      this.context.logger.info("creation of file skipped because it already exists: " + path);
       return;
     }
 
-    const Content: TextEdit = {
-      newText: content,
+    const content: TextEdit = {
+      newText: body,
       range: Range.create(0, 0, 0, 0),
     };
 
-    Console.Info("Creating: " + path);
-    const Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
-    this.receiver.push(CreateFile.create(uri, this.CreateOptions), TextDocumentEdit.create(Version, [Content]));
-  }
-}
-
-function Response(response: ApplyWorkspaceEditResult): void {
-  if (response.applied) return;
-
-  const keys = Object.getOwnPropertyNames(response);
-
-  if (keys.length === 1) {
-    Console.Info("Workspace edit was not applied, possibly of already existing data");
-    return;
+    this.context.logger.info("creating: " + path);
+    const document = OptionalVersionedTextDocumentIdentifier.create(uri, null);
+    this.receiver.push(CreateFile.create(uri, this.options), TextDocumentEdit.create(document, [content]));
   }
 
-  Console.Error("Workspace edit failed:");
-  if (response.failedChange) Console.Error(`Item index: ${response.failedChange}`);
-  if (response.failureReason) Console.Error(`Item reason: ${response.failureReason}`);
+  handleResponse(response: ApplyWorkspaceEditResult): void {
+    if (response.applied) return;
+
+    const keys = Object.getOwnPropertyNames(response);
+
+    if (keys.length === 1) {
+      this.context.logger.info("Workspace edit was not applied, possibly of already existing data");
+      return;
+    }
+
+    this.context.logger.error("Workspace edit failed", response);
+  }
 }

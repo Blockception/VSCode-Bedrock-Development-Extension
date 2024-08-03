@@ -1,8 +1,8 @@
 import { TemplateBuilder } from "./builder";
+import { Pack, Util } from "bc-minecraft-bedrock-project";
+import { generate_bp, generate_rp, generate_wp, TextEditBuilder } from "../commands/language";
+import { Database } from "../../../lsp/database/database";
 import * as path from "path";
-import { Pack, Util } from 'bc-minecraft-bedrock-project';
-import { generate_bp, generate_rp, generate_wp, TextEditBuilder } from '../commands/language';
-import { Database } from '../../../lsp/database/database';
 
 export const LanguageNames: string[] = [
   "en_US",
@@ -45,44 +45,47 @@ pack.description=The text that describes this example pack\n`;
 
 /**
  *
- * @param Pack
- * @param Builder
+ * @param pack
+ * @param builder
  */
-export function create_language_files(Pack: Pack | string, Builder: TemplateBuilder, additional?: (builder: TextEditBuilder) => void): void {
-  if (typeof Pack === "string") {
-    let nPack = Database.ProjectData.get(Pack);
+export function create_language_files(
+  pack: Pack | string,
+  builder: TemplateBuilder,
+  additional?: (builder: TextEditBuilder) => void
+): void {
+  if (typeof pack === "string") {
+    let nPack = builder.context.database.ProjectData.get(pack);
 
     if (nPack === undefined) return;
-    Pack = nPack;
+    pack = nPack;
   }
 
-  const BaseFolder = path.join(Pack.folder, "texts");
-  PrivateCreate(BaseFolder, Builder, "languages.json", JSON.stringify(LanguageNames));
+  const baseFolder = path.join(pack.folder, "texts");
+  internalCreate(baseFolder, builder, "languages.json", JSON.stringify(LanguageNames));
 
   let content = LanguageContent;
-  const builder = new TextEditBuilder(undefined);
+  const textBuilder = new TextEditBuilder(undefined);
 
-  if (Util.IsResourcePack(Pack)) {
-    generate_rp(Pack, builder);
+  if (Util.IsResourcePack(pack)) {
+    generate_rp(pack, textBuilder);
+  } else if (Util.IsBehaviorPack(pack)) {
+    generate_bp(pack, textBuilder);
+  } else if (Util.IsWorldPack(pack)) {
+    generate_wp(pack, textBuilder);
   }
-  else if (Util.IsBehaviorPack(Pack)) {
-    generate_bp(Pack, builder);
-  }
-  else if (Util.IsWorldPack(Pack)) {
-    generate_wp(Pack, builder);
-  }
-  content += builder.out;
 
   if (additional !== undefined) {
-    additional(builder);
+    additional(textBuilder);
   }
 
+  content += textBuilder.out;
+
   for (let I = 0; I < LanguageNames.length; I++) {
-    PrivateCreate(BaseFolder, Builder, `${LanguageNames[I]}.lang`, content);
+    internalCreate(baseFolder, builder, `${LanguageNames[I]}.lang`, content);
   }
 }
 
-function PrivateCreate(BaseFolder: string, Builder: TemplateBuilder, Name: string, Content: string): void {
+function internalCreate(BaseFolder: string, Builder: TemplateBuilder, Name: string, Content: string): void {
   const uri = path.join(BaseFolder, Name);
-  Builder.CreateFile(uri, Content);
+  Builder.createFile(uri, Content);
 }
