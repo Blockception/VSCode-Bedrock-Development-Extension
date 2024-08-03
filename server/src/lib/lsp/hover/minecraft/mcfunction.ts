@@ -6,7 +6,7 @@ import { HoverContext } from "../context";
 import { IDataSet } from "bc-minecraft-bedrock-project";
 import { IsEducationEnabled } from "../../../project/attributes";
 
-import * as RawText from "./json/raw-text";
+import * as RawText from "./json-raw-text";
 
 export function provideHover(context: Context<HoverContext>): Hover | undefined {
   const { params, document } = context;
