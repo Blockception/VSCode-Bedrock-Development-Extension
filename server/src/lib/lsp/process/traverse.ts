@@ -20,7 +20,7 @@ async function TraverseProcess(reporter: ProgressBar): Promise<Pack[]> {
   });
 
   out.catch((err) => {
-    HandleError(err);
+    this.logger.recordError(err);
     reporter.done();
   });
 

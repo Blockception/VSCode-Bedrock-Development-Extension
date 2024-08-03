@@ -4,7 +4,6 @@ export * from "./array";
 export * from "./character";
 export * from "./document-location";
 export * from "./equal";
-export * from "./error";
 export * from "./file";
 export * from "./offset";
 export * from "./range";

@@ -3,7 +3,7 @@ import { CompletionBuilder } from "../builder/builder";
 import { Kinds } from "../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const data = context.doc.getConfiguration();
+  const data = context.doc.configuration();
   const builder = context.builder;
 
   //From definitions

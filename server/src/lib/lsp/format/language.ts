@@ -1,33 +1,47 @@
-import { DocumentFormattingParams, DocumentRangeFormattingParams } from "vscode-languageserver";
+import { DocumentFormattingParams, DocumentRangeFormattingParams, FormattingOptions } from "vscode-languageserver";
 import { TextEdit } from "vscode-languageserver-textdocument";
 import { TrimStartFromLine } from "../../util/text-edit";
 import { TextDocument } from "../documents/text-document";
+import { Context } from '../context/context';
+import { FormatContext } from './context';
 
-export function formatLangauge(doc: TextDocument, params: DocumentFormattingParams): TextEdit[] {
-  const result: TextEdit[] = [];
+export function formatLangauge(context: Context<FormatContext>, params: DocumentFormattingParams): TextEdit[] {
+  const formatter = new McfunctionFormatter(params, context);
 
-  for (let index = 0; index < doc.lineCount; index++) {
-    formatline(index, doc, result);
-  }
-
-  return result;
+  return formatter.format(context.document, 0, context.document.lineCount);
 }
 
-export function formatLangaugeRange(doc: TextDocument, params: DocumentRangeFormattingParams): TextEdit[] {
-  const out: TextEdit[] = [];
-  const startIndex = params.range.start.line;
-  const endIndex = params.range.end.line;
+export function formatLangaugeRange(context: Context<FormatContext>, params: DocumentRangeFormattingParams): TextEdit[] {
+  const formatter = new McfunctionFormatter(params, context);
+  const startLine = params.range.start.line;
+  const endLine = params.range.end.line;
 
-  for (let index = startIndex; index < endIndex; index++) {
-    formatline(index, doc, out);
-  }
-
-  return out;
+  return formatter.format(context.document, startLine, endLine);
 }
 
-//formatts the specified line
-function formatline(index: number, document: TextDocument, result: TextEdit[]) {
-  const line = document.getLine(index);
+class McfunctionFormatter {
+  options: FormattingOptions;
+  context: Context<FormatContext>;
 
-  TrimStartFromLine(line, index, result, [" ", "\t"]);
+  constructor(params: DocumentFormattingParams | DocumentRangeFormattingParams, context: Context<FormatContext>) {
+    this.options = params.options;
+    this.context = context;
+  }
+
+  format(document: TextDocument, startLine: number, endLine: number): TextEdit[] {
+    this.context.logger.info(`formatting document`)
+
+    const result: TextEdit[] = [];
+    for (let index = startLine; index < endLine; index++) {
+      this.formatline(index, document, result);
+    }
+
+    return result;
+  }
+
+  formatline(index: number, document: TextDocument, result: TextEdit[]) {
+    const line = document.getLine(index);
+
+    TrimStartFromLine(line, index, result, [" ", "\t"]);
+  }
 }

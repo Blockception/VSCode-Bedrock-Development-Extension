@@ -7,7 +7,7 @@ import * as Animations from "./animations";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   context.builder.generate(
-    context.projectData.BehaviorPacks.animation_controllers,
+    context.projectData.behaviorPacks.animation_controllers,
     (item: Identifiable) => `The bp animation controller: ${item.id}`,
     Kinds.Completion.AnimationControllers
   );

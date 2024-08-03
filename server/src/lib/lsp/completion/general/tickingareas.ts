@@ -7,7 +7,7 @@ import { Kinds } from "../../../constants/kinds";
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const generateDoc = (item: GeneralInfo) => `The tickingarea: ${item.id}\nLocation: ${item.location.uri}`;
   const builder = context.builder;
-  const data = context.doc.getConfiguration();
+  const data = context.doc.configuration();
 
   builder.generate(context.projectData.General.tickingAreas, generateDoc, Kinds.Completion.Tickingarea);
   builder.generate(data.definitions.tag?.defined, (item) => `The defined tickingarea: ${item}`, Kinds.Completion.Tickingarea);

@@ -5,7 +5,6 @@ import { Create } from "./templates/create";
 import { DiagnoseProjectCommand } from "./commands/diagnose-project";
 import { ExecuteCommandParams } from "vscode-languageserver";
 import { Files } from "./files";
-import { HandleError } from "../../util/error";
 import { ReScanProject } from "./commands/rescan";
 import { StoreProject } from "./commands/store-project";
 import { Workspace } from "../workspace/workspace";
@@ -32,7 +31,7 @@ function onCommandRequest(params: ExecuteCommandParams): void | Promise<void> | 
   try {
     out = InternalCommandRequest(params);
   } catch (error) {
-    HandleError(error);
+    this.logger.recordError(error);
   }
 
   return out;

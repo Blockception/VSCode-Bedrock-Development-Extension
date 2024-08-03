@@ -27,7 +27,7 @@ export class DiagnoserService extends BaseService implements Pick<IService, "onI
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
     params.capabilities.textDocument?.diagnostic;
 
-    connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this));
+    this.addDisposable(connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)));
   }
 
   diagnose(doc: TextDocument): void {

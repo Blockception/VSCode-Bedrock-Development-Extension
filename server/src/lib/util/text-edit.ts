@@ -19,23 +19,25 @@ export function Replace(line: string, oldText: string, newText: string, lineInde
   }
 }
 
-/**Loop through starting character to filters out empty characters and slashes
- * @param line
- * @param index
- * @param Collector
- * @param ToRemove*/
-export function TrimStartFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]) {
-  const Text = line;
-  const LineIndex = index;
+/**
+ * Loop through starting character to filters out empty characters and slashes
+ * @param line The line to edit
+ * @param index The index of the line
+ * @param receiver
+ * @param toRemove
+ */
+export function TrimStartFromLine(line: string, index: number, receiver: TextEdit[], toRemove: string[]) {
+  const text = line;
+  const lineIndex = index;
   let startindex = 0;
-  let Loop = true;
+  let loop = true;
 
-  while (Loop) {
-    Loop = false;
+  while (loop) {
+    loop = false;
 
-    ToRemove.forEach((x) => {
-      if (x == Text.substring(startindex, startindex + x.length)) {
-        Loop = true;
+    toRemove.forEach((x) => {
+      if (x == text.substring(startindex, startindex + x.length)) {
+        loop = true;
         startindex += x.length;
       }
     });
@@ -43,7 +45,7 @@ export function TrimStartFromLine(line: string, index: number, Collector: TextEd
 
   //If any unwanted character are found, remove them
   if (startindex > 0) {
-    Collector.push(TextEdit.del(Range.create(LineIndex, 0, LineIndex, startindex)));
+    receiver.push(TextEdit.del(Range.create(lineIndex, 0, lineIndex, startindex)));
   }
 }
 
@@ -51,22 +53,22 @@ export function TrimStartFromLine(line: string, index: number, Collector: TextEd
  *
  * @param line
  * @param index
- * @param Collector
- * @param ToRemove*/
-export function TrimEndFromLine(line: string, index: number, Collector: TextEdit[], ToRemove: string[]): void {
-  const Text = line;
-  const LineIndex = index;
-  let startindex = Text.length - 1;
-  let endindex = Text.length;
+ * @param receiver
+ * @param toRemove*/
+export function TrimEndFromLine(line: string, index: number, receiver: TextEdit[], toRemove: string[]): void {
+  const text = line;
+  const lineIndex = index;
+  let startindex = text.length - 1;
+  let endindex = text.length;
   startindex = endindex;
-  let Loop = true;
+  let loop = true;
 
-  while (Loop) {
-    Loop = false;
+  while (loop) {
+    loop = false;
 
-    ToRemove.forEach((x) => {
-      if (x == Text.substring(startindex, startindex + x.length)) {
-        Loop = true;
+    toRemove.forEach((x) => {
+      if (x == text.substring(startindex, startindex + x.length)) {
+        loop = true;
         startindex -= x.length;
       }
     });
@@ -75,6 +77,6 @@ export function TrimEndFromLine(line: string, index: number, Collector: TextEdit
   startindex++;
 
   if (startindex < endindex) {
-    Collector.push(TextEdit.del(Range.create(LineIndex, startindex, LineIndex, endindex)));
+    receiver.push(TextEdit.del(Range.create(lineIndex, startindex, lineIndex, endindex)));
   }
 }

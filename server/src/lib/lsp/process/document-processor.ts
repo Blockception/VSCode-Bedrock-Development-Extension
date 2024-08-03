@@ -33,9 +33,11 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
     documents.onDidOpen(this.onDocumentChanged.bind(this));
     documents.onDidSave(this.onDocumentChanged.bind(this));
 
-    connection.workspace.onDidCreateFiles(this.onDidCreateFiles.bind(this));
-    connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this));
-    connection.workspace.onDidRenameFiles(this.onDidRenameFiles.bind(this));
+    this.addDisposable(
+      connection.workspace.onDidCreateFiles(this.onDidCreateFiles.bind(this)),
+      connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)),
+      connection.workspace.onDidRenameFiles(this.onDidRenameFiles.bind(this))
+    );
   }
 
   private onDocumentChanged(e: TextDocumentChangeEvent<TextDocument>) {
@@ -62,7 +64,7 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
    */
   process(document: TextDocument): void {
     const filename = getFilename(document.uri);
-    const conf = document.getConfiguration();
+    const conf = document.configuration();
     this.logger.debug(`processing document: ${filename}`);
 
     try {
@@ -72,7 +74,7 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
         this.logger.info(`ignoring file ${document.uri}`);
       }
     } catch (error) {
-      HandleError(error, this.logger, document);
+      this.logger.recordError(error, this.logger, document);
     }
   }
 

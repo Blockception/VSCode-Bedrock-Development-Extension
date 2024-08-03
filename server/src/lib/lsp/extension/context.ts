@@ -13,7 +13,16 @@ export interface State {
   };
 }
 
-export class ExtensionContext {
+export interface IExtensionContext {
+  capabilities: ExtensionCapabilities;
+  connection: Connection;
+  database: Database;
+  documents: IDocumentManager;
+  logger: IExtendedLogger;
+  state: State;
+}
+
+export class ExtensionContext implements IExtensionContext {
   public capabilities: ExtensionCapabilities;
   public connection: Connection;
   public database: Database;

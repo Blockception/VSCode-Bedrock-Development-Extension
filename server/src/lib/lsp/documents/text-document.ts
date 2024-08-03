@@ -3,9 +3,11 @@ import { MCProject } from "bc-minecraft-project";
 import { MCProjectprovider } from "../../project/interfaces";
 import { Range } from "vscode-languageserver-types";
 import { TextDocumentContentChangeEvent } from "vscode-languageserver";
+import { getFilename } from "../../util";
 
 import * as vscode from "vscode-languageserver-textdocument";
 import * as mcbe from "bc-minecraft-bedrock-project";
+import { ExtensionContext } from "../extension/context";
 
 /**
  * The extended text document to give additional code for documents
@@ -20,48 +22,33 @@ export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument, MC
   /**
    * Returns the configuration of the text document
    */
-  getConfiguration(): MCProject;
+  configuration(): MCProject;
 
   /**
    * Returns the associated pack to the file
    */
-  getPack(): mcbe.Pack | undefined;
-}
+  pack(): mcbe.Pack | undefined;
 
-export namespace TextDocument {
   /**
-   * Extends the vscode document into an internal format.
-   * @param doc The document to enhance
-   * @returns A upgraded version
+   * Returns the filename of the document being worked on
    */
-  export function extend(doc: vscode.TextDocument): TextDocument {
-    if (doc instanceof WrappedTextDocument) {
-      return doc;
-    }
+  filename(): string;
 
-    return new WrappedTextDocument(doc);
-  }
-
-  export function create(uri: vscode.DocumentUri, languageId: string, version: number, content: string): TextDocument {
-    return extend(vscode.TextDocument.create(uri, languageId, version, content));
-  }
-
-  export function update(
-    document: vscode.TextDocument,
-    changes: TextDocumentContentChangeEvent[],
-    version: number
-  ): TextDocument {
-    return extend(vscode.TextDocument.update(document, changes, version));
-  }
+  /**
+   * Returns the extension context
+   */
+  extension(): ExtensionContext;
 }
 
 export class WrappedTextDocument implements TextDocument {
   protected _document: vscode.TextDocument;
   /**A hidden field that helps with storing the cache */
   protected _pack: mcbe.Pack | null | undefined;
+  protected _extension: ExtensionContext;
 
-  constructor(document: vscode.TextDocument) {
+  constructor(document: vscode.TextDocument, extension: ExtensionContext) {
     this._document = document;
+    this._extension = extension;
   }
 
   /** @inheritdoc */
@@ -100,10 +87,25 @@ export class WrappedTextDocument implements TextDocument {
   }
 
   /** @inheritdoc */
-  getPack(): mcbe.Pack | undefined {
+  pack(): mcbe.Pack | undefined {
     if (this._pack) return this._pack;
 
-    return (this._pack = Database.ProjectData.get(this.uri));
+    return (this._pack = this._extension.database.ProjectData.get(this.uri));
+  }
+
+  /** @inheritdoc */
+  configuration(): MCProject {
+    return this.pack()?.context ?? this._extension.database.WorkspaceData.getProject(this.uri);
+  }
+
+  /** @inheritdoc */
+  filename(): string {
+    return getFilename(this.uri);
+  }
+
+  /** @inheritdoc */
+  extension(): ExtensionContext {
+    return this._extension;
   }
 
   /** @inheritdoc */
@@ -112,10 +114,5 @@ export class WrappedTextDocument implements TextDocument {
       start: { line: lineIndex, character: 0 },
       end: { line: lineIndex, character: Number.MAX_VALUE },
     });
-  }
-
-  /** @inheritdoc */
-  getConfiguration(): MCProject {
-    return this.getPack()?.context ?? Database.WorkspaceData.getProject(this.uri);
   }
 }

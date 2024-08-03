@@ -6,7 +6,7 @@ import { Kinds } from "../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const builder = context.builder;
-  const data = context.doc.getConfiguration();
+  const data = context.doc.configuration();
 
   const generateDoc = (item: GeneralInfo | string) => {
     if (typeof item === "string") {

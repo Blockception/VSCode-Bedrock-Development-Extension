@@ -4,7 +4,7 @@ export interface MCProjectprovider {
   /**
    *
    */
-  getConfiguration(): MCProject;
+  configuration(): MCProject;
 }
 
 export namespace MCProjectprovider {

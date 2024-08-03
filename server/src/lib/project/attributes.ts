@@ -8,7 +8,7 @@ import { MCProjectprovider } from "./interfaces";
  */
 export function IsEducationEnabled(project: MCProject | MCProjectprovider) {
   if (MCProjectprovider.is(project)) {
-    project = project.getConfiguration();
+    project = project.configuration();
   }
 
   return project.attributes["education.enable"] === "true";
@@ -21,7 +21,7 @@ export function IsEducationEnabled(project: MCProject | MCProjectprovider) {
  */
 export function IsDiagnosticsEnabled(project: MCProject | MCProjectprovider) {
   if (MCProjectprovider.is(project)) {
-    project = project.getConfiguration();
+    project = project.configuration();
   }
 
   return project.attributes["diagnostic.enable"] === "true";
@@ -34,7 +34,7 @@ export function IsDiagnosticsEnabled(project: MCProject | MCProjectprovider) {
  */
 export function IsDiagnosticsJsonEnabled(project: MCProject | MCProjectprovider) {
   if (MCProjectprovider.is(project)) {
-    project = project.getConfiguration();
+    project = project.configuration();
   }
 
   return project.attributes["diagnostic.json"] === "true";
@@ -47,7 +47,7 @@ export function IsDiagnosticsJsonEnabled(project: MCProject | MCProjectprovider)
  */
 export function IsDiagnosticsLangEnabled(project: MCProject | MCProjectprovider) {
   if (MCProjectprovider.is(project)) {
-    project = project.getConfiguration();
+    project = project.configuration();
   }
 
   return project.attributes["diagnostic.lang"] === "true";

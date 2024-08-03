@@ -1,5 +1,4 @@
 import { InitializeParams, InitializeResult, TextDocumentSyncKind } from "vscode-languageserver";
-import { Manager } from "../../../manager/manager";
 import { Console } from "../../../manager/console";
 import { Version } from "../../../constants/version";
 import { Commands, Languages } from "@blockception/shared";
@@ -9,9 +8,6 @@ const triggerCharacters = toArray(" abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$
 export function onInitialize(params: InitializeParams): InitializeResult {
   Console.Info(`Initializing minecraft server`);
   Console.Info(`- Version: ${Version}`);
-
-  //process capabilities of the client
-  const capabilities = params.capabilities;
 
   const result: InitializeResult = {
     serverInfo: {
@@ -47,11 +43,6 @@ export function onInitialize(params: InitializeParams): InitializeResult {
       // Tell the client that this server supports symbol provider
       documentSymbolProvider: true,
       workspaceSymbolProvider: true,
-
-      // Tell the client that this server supports hover support
-      hoverProvider: true,
-
-
 
       // Tell the client that this server supports go to references
       referencesProvider: {

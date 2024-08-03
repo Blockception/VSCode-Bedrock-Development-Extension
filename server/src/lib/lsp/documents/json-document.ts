@@ -1,7 +1,8 @@
 import { Range } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { TextDocument, WrappedTextDocument } from "./text-document";
-import { HandleError } from "../../util/error";
+import { ExtensionContext } from "../extension/context";
+
 import * as JSONC from "comment-json";
 import * as Code from "./io";
 import * as vscode from "vscode-languageserver-textdocument";
@@ -17,8 +18,8 @@ export class JsonDocument extends WrappedTextDocument {
    *
    * @param doc
    */
-  constructor(document: vscode.TextDocument) {
-    super(document);
+  constructor(document: vscode.TextDocument, extension: ExtensionContext) {
+    super(document, extension);
     this.object = undefined;
   }
 
@@ -39,7 +40,7 @@ export class JsonDocument extends WrappedTextDocument {
         this.object = object as T;
         //ValidJson(this.doc);
       } catch (error) {
-        HandleError(error, undefined, this._document);
+        this.extension().logger.recordError(error, this._document);
       }
     }
 
@@ -61,7 +62,7 @@ export class JsonDocument extends WrappedTextDocument {
 
         //ValidJson(this.doc);
       } catch (error) {
-        HandleError(error, undefined, this._document);
+        this.extension().logger.recordError(error, this._document);
       }
     }
 

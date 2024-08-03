@@ -26,7 +26,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
  * @returns
  */
 export function provideSoundFileCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const RP = context.doc.getPack();
+  const RP = context.doc.pack();
 
   //No associated pack, then do nothing
   if (!ResourcePack.ResourcePack.is(RP)) return;

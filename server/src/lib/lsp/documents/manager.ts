@@ -1,13 +1,16 @@
-import { HandleError, Vscode } from "../../util";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { CancellationToken, Connection, InitializeParams, TextDocuments } from "vscode-languageserver";
+import { ExtensionContext } from "../extension/context";
 import { identifyDocument } from "./languageId";
-import { Connection, InitializeParams, TextDocuments, TextDocumentsConfiguration } from "vscode-languageserver";
-import { TextDocument } from "./text-document";
+import { IExtendedLogger } from "../logger/logger";
+import { IService } from "../services/service";
 import { ProgressBar } from "../progress";
 import { QueueProcessor } from "@daanv2/queue-processor";
-import { IExtendedLogger } from "../logger/logger";
 import { readDocument } from "./io";
-import { IService } from "../services/service";
-import { CapabilityBuilder } from "../services/capabilities";
+import { TextDocument } from "./text-document";
+import { TextDocumentFactory } from "./factory";
+import { Vscode } from "../../util";
 
 import * as vscode from "vscode-languageserver-textdocument";
 
@@ -16,17 +19,20 @@ export interface IDocumentManager
   extends Pick<DocumentManager, "get" | "forEach" | "onDidChangeContent" | "onDidClose" | "onDidOpen" | "onDidSave"> {}
 
 export class DocumentManager
+  extends BaseService
   implements
     Pick<IService, "name" | "onInitialize">,
     Pick<TextDocuments<TextDocument>, "onDidChangeContent" | "onDidClose" | "onDidOpen" | "onDidSave">
 {
-  private _documents: TextDocuments<TextDocument>;
-  private _logger: IExtendedLogger;
   public readonly name: string = "documents";
+  private _documents: TextDocuments<TextDocument>;
+  private _factory: TextDocumentFactory;
 
-  constructor(logger: IExtendedLogger) {
-    this._logger = logger.withPrefix("[documents]");
-    this._documents = new TextDocuments(TextDocument as TextDocumentsConfiguration<TextDocument>);
+  constructor(logger: IExtendedLogger, extension: ExtensionContext) {
+    super(logger.withPrefix("[documents]"), extension);
+
+    this._factory = new TextDocumentFactory(logger, extension);
+    this._documents = new TextDocuments(this._factory);
   }
 
   /** @inheritdoc */
@@ -77,18 +83,18 @@ export class DocumentManager
     }
 
     if (typeof content === "string") {
-      return TextDocument.create(fsPath, languageID, 1, content);
+      return this._factory.create(fsPath, languageID, 1, content);
     }
     if (typeof content !== "undefined") {
-      return TextDocument.extend(content);
+      return this._factory.extend(content);
     }
 
     const doc = this._documents.get(fsPath);
-    if (doc) return TextDocument.extend(doc);
+    if (doc) return this._factory.extend(doc);
 
-    const text = readDocument(fsPath, this._logger);
+    const text = readDocument(fsPath, this.logger);
     if (text) {
-      return TextDocument.create(fsPath, languageID, 1, text);
+      return this._factory.create(fsPath, languageID, 1, text);
     }
 
     //We have tried all methods of retrieving data so far
@@ -102,10 +108,12 @@ export class DocumentManager
    * @param reporter
    * @returns
    */
-  forEach(uris: string[], callback: (doc: TextDocument) => void, reporter: ProgressBar): Promise<string[]> {
+  forEach(uris: string[], callback: (doc: TextDocument) => void, reporter: ProgressBar, token: CancellationToken): Promise<string[]> {
     reporter.addMaximum(uris.length);
 
     return QueueProcessor.forEach(uris, (uri) => {
+      if (token.isCancellationRequested) return;
+
       //Get document
       const doc = this.get(uri);
 
@@ -113,7 +121,7 @@ export class DocumentManager
         //If we have a document invoke the requests action
         if (doc) callback(doc);
       } catch (error) {
-        HandleError(error, this._logger, uri);
+        this.logger.recordError(error, uri);
       }
 
       reporter.addValue();

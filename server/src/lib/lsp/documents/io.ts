@@ -1,4 +1,3 @@
-import { HandleError } from "../../util/error";
 import { Fs } from "../../util/url";
 import { IExtendedLogger } from "../logger/logger";
 
@@ -19,7 +18,7 @@ export function readDocument(uri: string, logger: IExtendedLogger): string | und
     try {
       return fs.readFileSync(path, "utf8");
     } catch (error) {
-      HandleError(error, logger, uri);
+      logger.recordError(error, uri);
     }
   }
 

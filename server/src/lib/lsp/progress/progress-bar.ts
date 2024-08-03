@@ -1,5 +1,4 @@
 import { ProgressToken, WorkDoneProgressReporter } from "vscode-languageserver";
-import { Manager } from "../../manager/manager";
 import { ExtensionContext } from "../extension/context";
 
 export class ProgressBar {

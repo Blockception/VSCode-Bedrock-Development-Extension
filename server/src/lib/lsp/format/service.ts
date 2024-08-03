@@ -36,8 +36,10 @@ export class FormatService extends BaseService implements Pick<IService, "onInit
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
-    connection.onDocumentFormatting(this.onDocumentFormatting.bind(this));
-    connection.onDocumentRangeFormatting(this.onDocumentRangeFormatting.bind(this));
+    this.addDisposable(
+      connection.onDocumentFormatting(this.onDocumentFormatting.bind(this)),
+      connection.onDocumentRangeFormatting(this.onDocumentRangeFormatting.bind(this))
+    );
   }
 
   async onDocumentFormatting(params: DocumentFormattingParams): Promise<TextEdit[] | undefined | null> {

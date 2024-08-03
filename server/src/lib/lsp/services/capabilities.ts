@@ -54,4 +54,8 @@ export class CapabilityBuilder {
 
     return this.base.workspace;
   }
+
+  set<K extends keyof Capabilities>(item: K, data: Capabilities[K]) {
+    return (this.base[item] = data);
+  }
 }

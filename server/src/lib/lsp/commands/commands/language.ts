@@ -43,10 +43,10 @@ export function add_all_items(params: ExecuteCommandParams): void {
             });
 
             p.catch((error) => {
-              HandleError(error, doc);
+              this.logger.recordError(error, doc);
             });
           } catch (e) {
-            HandleError(e, doc);
+            this.logger.recordError(e, doc);
           }
       }
     }

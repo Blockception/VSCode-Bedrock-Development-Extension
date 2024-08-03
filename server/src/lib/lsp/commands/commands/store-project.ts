@@ -78,6 +78,6 @@ function StoreObject(path: string, data: any): void {
     const content = JSON.stringify(data);
     writeFileSync(path, content);
   } catch (err) {
-    HandleError(err);
+    this.logger.recordError(err);
   }
 }

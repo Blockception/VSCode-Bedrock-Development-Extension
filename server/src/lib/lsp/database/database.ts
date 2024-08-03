@@ -3,14 +3,11 @@ import { ParameterType } from "bc-minecraft-bedrock-command";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnoserUtility as DiagnoserUtility } from "../diagnostics/diagnoser";
 import { Console } from "../../manager/console";
 import { WorkspaceData } from "./workspace-data";
-import { ExtensionContext } from "../extension/context";
 import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
 import { IService } from "../services/service";
-import { DocumentManager } from "../documents/manager";
+import { IDocumentManager } from "../documents/manager";
 import { InternalContext } from "../diagnostics/context";
 
 type BaseObject = Types.BaseObject;
@@ -22,16 +19,14 @@ export interface forEachfn<T> {
 export class Database implements Pick<IService, "name"> {
   readonly name: string = "database";
   public logger: IExtendedLogger;
-  public Diagnoser: Diagnoser;
   public ProjectData: ProjectData;
   public WorkspaceData: WorkspaceData;
   public context: InternalContext;
 
-  constructor(logger: IExtendedLogger, documents: DocumentManager) {
+  constructor(logger: IExtendedLogger, documents: IDocumentManager) {
     this.logger = logger.withPrefix("[database]");
 
-    this.context = new InternalContext(this.logger, () => this.ProjectData);
-    this.Diagnoser = DiagnoserUtility.createDiagnoser(() => this.ProjectData);
+    this.context = new InternalContext(this.logger, documents, () => this.ProjectData);
     this.WorkspaceData = new WorkspaceData();
     this.ProjectData = new ProjectData(this.context);
   }
@@ -88,25 +83,25 @@ export class Database implements Pick<IService, "name"> {
 
       switch (T) {
         case ParameterType.animation:
-          this.ProjectData.ResourcePacks.entities.forEach((entity) => {
+          this.ProjectData.resourcePacks.entities.forEach((entity) => {
             entity.animations.defined.forEach((anim) => {
               if (anim === id) out.push(entity);
             });
           });
-          this.ProjectData.ResourcePacks.animations.forEach(AddIfIDMatch);
-          this.ProjectData.ResourcePacks.animation_controllers.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.animations.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.animation_controllers.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.block:
-          this.ProjectData.BehaviorPacks.blocks.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.blocks.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.entity:
-          this.ProjectData.BehaviorPacks.entities.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.entities.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.event:
-          this.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+          this.ProjectData.behaviorPacks.entities.forEach((entity) => {
             entity.events.forEach((event) => {
               if (event === id) out.push(entity);
             });
@@ -114,44 +109,44 @@ export class Database implements Pick<IService, "name"> {
           break;
 
         case ParameterType.event:
-          this.ProjectData.BehaviorPacks.entities.forEach((entity) => {
-            entity.families.forEach((family) => {
-              if (family === id) out.push(entity);
-            });
+          this.ProjectData.behaviorPacks.entities.forEach((entity) => {
+            if (entity.families.some((family) => family === id)) {
+              out.push(entity);
+            }
           });
           break;
 
         case ParameterType.function:
-          this.ProjectData.BehaviorPacks.functions.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.functions.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.item:
-          this.ProjectData.BehaviorPacks.items.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.items.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.objective:
-          this.ProjectData.General.objectives.forEach(AddIfIDMatch);
+          this.ProjectData.general.objectives.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.particle:
-          this.ProjectData.ResourcePacks.particles.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.particles.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.sound:
-          this.ProjectData.ResourcePacks.sounds.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.sounds.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.structure:
-          this.ProjectData.BehaviorPacks.structures.forEach(AddIfIDMatch);
-          this.ProjectData.General.structures.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.structures.forEach(AddIfIDMatch);
+          this.ProjectData.general.structures.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tag:
-          this.ProjectData.General.tags.forEach(AddIfIDMatch);
+          this.ProjectData.general.tags.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tickingarea:
-          this.ProjectData.General.tickingAreas.forEach(AddIfIDMatch);
+          this.ProjectData.general.tickingAreas.forEach(AddIfIDMatch);
           break;
       }
     }

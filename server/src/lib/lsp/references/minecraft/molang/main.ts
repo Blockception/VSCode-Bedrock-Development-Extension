@@ -1,22 +1,16 @@
 import { BaseObject } from "bc-minecraft-bedrock-types/lib/src/types/base-object";
 import { Database } from "../../../../lsp/database/database";
-import { DefinitionParams, Location, ReferenceParams } from "vscode-languageserver-protocol";
+import { Location } from "vscode-languageserver-protocol";
 import { MolangCarrier } from "bc-minecraft-bedrock-project";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang/MolangSet";
 import { OffsetWord } from "bc-vscode-words";
 import { References } from "../../../../util/references";
 import { TextDocument } from "../../../documents/text-document";
 
-export function provideReferences(
-  text: OffsetWord,
-  doc: TextDocument,
-  params: DefinitionParams | ReferenceParams
-): Location[] | undefined {
-  //const cursor = doc.offsetAt(params.position);
-  //const data = MolangSet.harvest(text.text);
-
+export function provideReferences(text: OffsetWord, doc: TextDocument): Location[] | undefined {
   const index = text.text.indexOf(".");
   if (index < 0) return undefined;
+  const { database } = doc.extension();
 
   const type = text.text.slice(0, index);
   let value = text.text.slice(index + 1);
@@ -27,7 +21,7 @@ export function provideReferences(
       break;
 
     case "geometry":
-      return References.ConvertLocation([Database.findReference(text.text)]);
+      return References.ConvertLocation([database.findReference(text.text)]);
 
     case "math":
       break;
@@ -41,49 +35,49 @@ export function provideReferences(
 
     case "temp":
     case "t":
-      return GetTemp(value);
+      return GetTemp(value, database);
 
     case "variable":
     case "v":
-      return GetVariables(value);
+      return GetVariables(value, database);
   }
 
   return undefined;
 }
 
-function GetVariables(variable: string): Location[] {
+function GetVariables(variable: string, database: Database): Location[] {
   const locations: BaseObject[] = [];
   const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
     if (item.molang.variables.defined.includes(variable)) locations.push(item);
   };
 
-  Database.ProjectData.BehaviorPacks.animation_controllers.forEach(map);
-  Database.ProjectData.BehaviorPacks.animations.forEach(map);
-  Database.ProjectData.BehaviorPacks.entities.forEach(map);
+  database.ProjectData.behaviorPacks.animation_controllers.forEach(map);
+  database.ProjectData.behaviorPacks.animations.forEach(map);
+  database.ProjectData.behaviorPacks.entities.forEach(map);
 
-  Database.ProjectData.ResourcePacks.animation_controllers.forEach(map);
-  Database.ProjectData.ResourcePacks.animations.forEach(map);
-  Database.ProjectData.ResourcePacks.entities.forEach(map);
-  Database.ProjectData.ResourcePacks.render_controllers.forEach(map);
+  database.ProjectData.resourcePacks.animation_controllers.forEach(map);
+  database.ProjectData.resourcePacks.animations.forEach(map);
+  database.ProjectData.resourcePacks.entities.forEach(map);
+  database.ProjectData.resourcePacks.render_controllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
   return References.ConvertLocation(locations);
 }
 
-function GetTemp(variable: string): Location[] {
+function GetTemp(variable: string, database: Database): Location[] {
   const locations: BaseObject[] = [];
   const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
     if (item.molang.temps.defined.includes(variable)) locations.push(item);
   };
 
-  Database.ProjectData.BehaviorPacks.animation_controllers.forEach(map);
-  Database.ProjectData.BehaviorPacks.animations.forEach(map);
-  Database.ProjectData.BehaviorPacks.entities.forEach(map);
+  database.ProjectData.behaviorPacks.animation_controllers.forEach(map);
+  database.ProjectData.behaviorPacks.animations.forEach(map);
+  database.ProjectData.behaviorPacks.entities.forEach(map);
 
-  Database.ProjectData.ResourcePacks.animation_controllers.forEach(map);
-  Database.ProjectData.ResourcePacks.animations.forEach(map);
-  Database.ProjectData.ResourcePacks.entities.forEach(map);
-  Database.ProjectData.ResourcePacks.render_controllers.forEach(map);
+  database.ProjectData.resourcePacks.animation_controllers.forEach(map);
+  database.ProjectData.resourcePacks.animations.forEach(map);
+  database.ProjectData.resourcePacks.entities.forEach(map);
+  database.ProjectData.resourcePacks.render_controllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
   return References.ConvertLocation(locations);

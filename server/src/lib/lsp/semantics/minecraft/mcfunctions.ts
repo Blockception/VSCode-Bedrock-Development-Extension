@@ -50,7 +50,7 @@ export function McfunctionLineTokens(line: string, offset: number, Builder: Mcfu
 function CreateTokens(command: Command, Builder: McfunctionSemanticTokensBuilder): void {
   if (command.parameters.length == 0) return;
 
-  const Edu = IsEducationEnabled(Builder.doc.getConfiguration());
+  const Edu = IsEducationEnabled(Builder.doc.configuration());
 
   const First = command.parameters[0];
 

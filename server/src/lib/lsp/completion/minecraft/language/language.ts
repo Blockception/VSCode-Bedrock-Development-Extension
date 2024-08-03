@@ -35,7 +35,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
     builder.add({ label: "=", documentation: "Start of the value", kind: CompletionItemKind.Snippet });
   }
 
-  const pack = context.doc.getPack();
+  const pack = context.doc.pack();
   if (!pack) return;
 
   const check_receiver = {

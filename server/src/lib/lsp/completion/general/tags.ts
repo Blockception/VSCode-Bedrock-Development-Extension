@@ -6,7 +6,7 @@ import { Kinds } from "../../../constants/kinds";
 
 export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
   const builder = context.builder;
-  const data = context.doc.getConfiguration();
+  const data = context.doc.configuration();
 
   builder.generate(context.projectData.General.tags, generateDocumentation, Kinds.Completion.Tag);
   builder.generate(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
@@ -21,7 +21,7 @@ function generateDocumentation(tag: GeneralInfo | string): string {
 }
 
 export function provideCompletionTest(context: SimpleContext<CompletionBuilder>): void {
-  const data = context.doc.getConfiguration();
+  const data = context.doc.configuration();
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Tag });
 
   builder.add({

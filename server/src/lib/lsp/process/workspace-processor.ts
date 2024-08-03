@@ -35,7 +35,7 @@ export class WorkspaceProcessor extends BaseService implements Pick<IService, "o
     const documents = this.extension.documents;
     documents.onDidSave(this.onDocumentChanged.bind(this));
 
-    connection.workspace.onDidChangeWorkspaceFolders(this.onWorkspaceFolderChanged.bind(this));
+    this.addDisposable(connection.workspace.onDidChangeWorkspaceFolders(this.onWorkspaceFolderChanged.bind(this)));
   }
 
   /**
@@ -132,7 +132,7 @@ export class WorkspaceProcessor extends BaseService implements Pick<IService, "o
    */
   async get(): Promise<WorkspaceFolder[] | null> {
     return this.extension.connection.workspace.getWorkspaceFolders().catch((err) => {
-      HandleError(err, this.logger);
+      this.logger.recordError(err);
       return null;
     });
   }

@@ -54,8 +54,7 @@ export function setupHandlers() {
   // This handler provides support for when a configuration changes
   Connection.onDidChangeConfiguration(onDidChangeConfigurationAsync);
 
-  // This handler provides hover support
-  Connection.onHover(onHoverRequestAsync);
+
 
   // This handler provides references
   Connection.onReferences(onReferencesRequestAsync);
