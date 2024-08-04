@@ -25,11 +25,11 @@ export namespace References {
         continue;
       }
 
-      const doc = documents.get(item.location.uri);
-      if (!doc) continue;
+      const document = documents.get(item.location.uri);
+      if (!document) continue;
 
-      const range = DocumentLocation.ToRange(item.location.position, doc, item.id.length);
-      receiver.push(Location.create(doc.uri, range));
+      const range = DocumentLocation.ToRange(item.location.position, document, item.id.length);
+      receiver.push(Location.create(document.uri, range));
     }
 
     return receiver;

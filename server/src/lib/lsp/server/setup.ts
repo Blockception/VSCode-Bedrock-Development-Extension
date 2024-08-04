@@ -2,7 +2,6 @@ import { BulkRegistration, createConnection, ProposedFeatures } from "vscode-lan
 import { setupHandlers } from "./events/setup-handlers";
 import { onInitialize } from "./events/on-initialize";
 import { ServiceManager } from "../services/collection";
-import { SetDynamicEvents } from "./events";
 import { ExtendedLogger } from "../logger/logger";
 import { ExtensionContext } from "../extension/context";
 import { CapabilityBuilder } from "../services/capabilities";
@@ -19,6 +18,11 @@ import { CodeLensService } from "../code-lens/service";
 import { ConfigurationService } from "../configuration/service";
 import { Version } from "../../constants/version";
 import { CommandService } from "../commands/service";
+import { ReferenceService } from "../references/references-service";
+import { DefinitionService } from "../references/definitions-service";
+import { TypeDefinitionService } from "../references/type-definitions-service";
+import { ImplementationService } from "../references/implementation-service";
+import { SemanticsServer } from "../semantics/semantics";
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -51,7 +55,12 @@ export function setupServer() {
       new CodeLensService(logger, extension),
       new CommandService(logger, extension),
       new CompletionService(logger, extension),
-      new FormatService(logger, extension)
+      new DefinitionService(logger, extension),
+      new FormatService(logger, extension),
+      new ImplementationService(logger, extension),
+      new ReferenceService(logger, extension),
+      new TypeDefinitionService(logger, extension),
+      new SemanticsServer(logger, extension)
     );
 
   logger.info("starting minecraft server");
@@ -76,7 +85,6 @@ export function setupServer() {
 
     //Registers any follow ups
     const register = BulkRegistration.create();
-    SetDynamicEvents(register);
     manager.dynamicRegister(register);
     await connection.client.register(register);
 

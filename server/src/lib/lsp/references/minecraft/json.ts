@@ -1,54 +1,51 @@
-import { Database } from "../../../lsp/database/database";
-import { DefinitionParams, Location, Range, ReferenceParams } from "vscode-languageserver-protocol";
+import { Location, Range } from "vscode-languageserver-protocol";
 import { getCurrentElement } from "../../../minecraft/json/functions";
 import { IsMolang } from "../../../minecraft/molang/functions";
 import { OffsetWord } from "bc-vscode-words";
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { References } from "../../../util/references";
 import { TextDocument } from "../../documents/text-document";
+import { ReferenceContext } from "../context";
+import { Context } from "../../context/context";
 
 import * as Command from "./commands";
-import * as Molang from "./molang/main";
+import * as Molang from "./molang";
 
-export function provideReferences(
-  doc: TextDocument,
-  params: DefinitionParams | ReferenceParams
-): Location[] | undefined {
-  const pos = params.position;
+export async function provideReferences(context: Context<ReferenceContext>): Promise<Location[] | undefined> {
+  const { document, position } = context;
 
-  const Text = doc.getText();
-  const ElementRange = getCurrentElement(Text, doc.offsetAt(pos));
+  const text = document.getText();
+  const elementRange = getCurrentElement(text, document.offsetAt(position));
+  if (!elementRange) return undefined;
 
-  if (!ElementRange) return undefined;
-
-  const value = new OffsetWord(Text.slice(ElementRange.start, ElementRange.end), ElementRange.start);
-  const Out: Location[] = [];
+  const value = new OffsetWord(text.slice(elementRange.start, elementRange.end), elementRange.start);
+  const result: Location[] = [];
 
   //Find references in document
   if (IsMolang(value.text)) {
     //Command
     if (value.text.startsWith("/")) {
-      return Command.provideReferences(new OffsetWord(value.text.slice(1), value.offset + 1), params, doc);
+      return Command.provideReferences(context, new OffsetWord(value.text.slice(1), value.offset + 1));
     }
     //Event
     else if (value.text.startsWith("@")) {
-      return References.ConvertLocation(Database.findReferences(value.text.slice(2).trim(), [ParameterType.event]));
+      const references = await context.database.findReferences(value.text.slice(2).trim(), [ParameterType.event]);
+      return References.ConvertLocation(references, context.documents);
     }
     //Molang
     else {
-      return Molang.provideReferences(value, doc, params);
+      return Molang.provideReferences(context, value);
     }
   } else {
-    ReferencesInDocument(value, doc, Out);
-
-    const out = Database.findReference(value.text);
+    ReferencesInDocument(value, document, result);
+    const out = context.database.findReference(value.text);
 
     if (out) {
-      Out.push(...References.ConvertLocation([out]));
+      result.push(...References.ConvertLocation([out], context.documents));
     }
   }
 
-  return Out;
+  return result;
 }
 
 function ReferencesInDocument(value: OffsetWord, doc: TextDocument, receiver: Location[]) {

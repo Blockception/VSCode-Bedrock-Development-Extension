@@ -1,6 +1,5 @@
 import { InitializeParams, InitializeResult } from "vscode-languageserver";
 import { Version } from "../../../constants/version";
-import { Commands, Languages } from "@blockception/shared";
 
 const triggerCharacters = toArray(" abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"");
 
@@ -14,33 +13,12 @@ export function onInitialize(params: InitializeParams): InitializeResult {
     },
     capabilities: {
 
-
-
-      // Tell the client that this server supports go to definitions
-      definitionProvider: true,
       typeDefinitionProvider: true,
 
       // Tell the client that this server supports symbol provider
       documentSymbolProvider: true,
       workspaceSymbolProvider: true,
 
-      // Tell the client that this server supports go to references
-      referencesProvider: {
-        workDoneProgress: true,
-      },
-
-      // Tell the client that this server supports go to implementation
-      implementationProvider: {
-        documentSelector: [
-          { scheme: "file", language: Languages.JsonCIdentifier },
-          { scheme: "file",language: Languages.JsonIdentifier },
-          { scheme: "file",language: Languages.McFunctionIdentifier },
-          { scheme: "file",language: Languages.McLanguageIdentifier },
-          { scheme: "file",language: Languages.McMolangIdentifier },
-          { scheme: "file",language: Languages.McOtherIdentifier },
-          { scheme: "file",language: Languages.McProjectIdentifier },
-        ],
-      },
 
       // Tell the client that this server supports signatures
       signatureHelpProvider: {

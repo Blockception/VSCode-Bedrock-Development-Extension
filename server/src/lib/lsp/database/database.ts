@@ -8,6 +8,7 @@ import { ProjectData } from "bc-minecraft-bedrock-project";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Types } from "bc-minecraft-bedrock-types";
 import { WorkspaceData } from "./workspace-data";
+import { WorkDoneProgressReporter } from "vscode-languageserver";
 
 type BaseObject = Types.BaseObject;
 
@@ -61,26 +62,48 @@ export class Database implements Pick<IService, "name"> {
    * @param id
    * @param callbackfn
    */
-  findReferences(id: string, Types: ParameterType[] | undefined = undefined): BaseObject[] {
-    if (Types) return this.internalTypeSearch(id, Types);
+  async findReferences(
+    id: string,
+    types: ParameterType[] | undefined = undefined,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): Promise<BaseObject[]> {
+    if (types) return this.internalTypeSearch(id, types, token, workDoneProgress);
 
-    return this.internalSearchAll(id);
+    return this.internalSearchAll(id, token, workDoneProgress);
   }
 
-  private internalSearchAll(id: string): BaseObject[] {
-    return [];
+  private async internalSearchAll(
+    id: string,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): Promise<Types.BaseObject[]> {
+    const result: BaseObject[] = [];
+
+    await this.forEach((item) => {
+      if (item.id === id) result.push(item);
+    });
+
+    return result;
   }
 
-  private internalTypeSearch(id: string, Types: ParameterType[]): BaseObject[] {
+  private internalTypeSearch(
+    id: string,
+    types: ParameterType[],
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): BaseObject[] {
     const out: BaseObject[] = [];
     const AddIfIDMatch = (item: BaseObject) => {
       if (item.id === id) out.push(item);
     };
 
-    for (let I = 0; I < Types.length; I++) {
-      const T = Types[I];
+    for (let i = 0; i < types.length; i++) {
+      const item = types[i];
+      if (token?.isCancellationRequested) break;
+      workDoneProgress?.report(i / types.length, `checking type: ${ParameterType[item]}`);
 
-      switch (T) {
+      switch (item) {
         case ParameterType.animation:
           this.ProjectData.resourcePacks.entities.forEach((entity) => {
             entity.animations.defined.forEach((anim) => {
@@ -153,22 +176,27 @@ export class Database implements Pick<IService, "name"> {
     return out;
   }
 
-  forEach(callbackfn: (item: BaseObject) => void, token?: CancellationToken): Promise<void> {
-    const packs: forEachfn<BaseObject>[][] = [
+  forEach(
+    callbackfn: (item: BaseObject) => void,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): Promise<void> {
+    const packs = [
       [this.ProjectData.general],
       this.ProjectData.behaviorPacks.packs,
       this.ProjectData.resourcePacks.packs,
       this.ProjectData.worlds.packs,
     ];
 
-    return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col) => {
+    return QueueProcessor.forEach(packs, (pack_col, index, col) => {
       if (token?.isCancellationRequested) return;
+      workDoneProgress?.report(index / col.length);
 
       return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => {
         if (token?.isCancellationRequested) return;
 
         return pack.forEach(callbackfn);
-      }).then((items) => {});
-    }).then((items) => {});
+      }).then(() => {});
+    }).then(() => {});
   }
 }

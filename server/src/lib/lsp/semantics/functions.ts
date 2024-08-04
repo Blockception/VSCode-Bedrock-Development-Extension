@@ -1,16 +1,23 @@
 import { LocationWord, OffsetWord, RangedWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-types";
-import { McfunctionSemanticTokensBuilder } from "./builders";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "./constants";
+import { McfunctionSemanticTokensBuilder } from "./builders/mcfunction";
 
 /**
  *
  * @param word
  * @param builder
  */
-export function CreateRangeTokensWord(word: LocationWord | RangedWord | OffsetWord, builder: McfunctionSemanticTokensBuilder): void {
+export function CreateRangeTokensWord(
+  word: LocationWord | RangedWord | OffsetWord,
+  builder: McfunctionSemanticTokensBuilder
+): void {
   if (OffsetWord.is(word)) {
-    word = new RangedWord(word.text, Range.create(builder.doc.positionAt(word.offset), builder.doc.positionAt(word.offset + word.text.length)));
+    const range = Range.create(
+      builder.document.positionAt(word.offset),
+      builder.document.positionAt(word.offset + word.text.length)
+    );
+    word = new RangedWord(word.text, range);
   } else if (LocationWord.is(word)) {
     word = new RangedWord(word.text, word.location.range);
   }
@@ -33,7 +40,14 @@ export function CreateRangeTokens(word: RangedWord, builder: McfunctionSemanticT
 
     value = value.substring(2);
     start += 2;
-  } else if (value.startsWith("~") || value.startsWith("^") || value.startsWith("-") || value.startsWith("+") || value.startsWith("+") || value.startsWith("!")) {
+  } else if (
+    value.startsWith("~") ||
+    value.startsWith("^") ||
+    value.startsWith("-") ||
+    value.startsWith("+") ||
+    value.startsWith("+") ||
+    value.startsWith("!")
+  ) {
     builder.AddAt(word.range.start.line, start, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(1);
@@ -42,24 +56,36 @@ export function CreateRangeTokens(word: RangedWord, builder: McfunctionSemanticT
 
   if (value === "") return;
 
-  let Range = value.indexOf("..");
-  let Line = word.range.start.line;
+  let range = value.indexOf("..");
+  let line = word.range.start.line;
 
-  if (Range >= 0) {
-    var First = value.substring(0, Range);
-    var Second = value.substring(Range + 2);
+  if (range >= 0) {
+    var first = value.substring(0, range);
+    var second = value.substring(range + 2);
 
     //Builder.AddAt(Line, start + Range, 1, SemanticTokensEnum.operator);
 
-    if (First && First !== "") {
-      builder.AddAt(Line, start + value.indexOf(First), First.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
+    if (first && first !== "") {
+      builder.AddAt(
+        line,
+        start + value.indexOf(first),
+        first.length,
+        SemanticTokensEnum.number,
+        SemanticModifiersEnum.readonly
+      );
     }
 
-    if (Second && Second !== "") {
-      builder.AddAt(Line, start + value.indexOf(Second), Second.length, SemanticTokensEnum.number, SemanticModifiersEnum.readonly);
+    if (second && second !== "") {
+      builder.AddAt(
+        line,
+        start + value.indexOf(second),
+        second.length,
+        SemanticTokensEnum.number,
+        SemanticModifiersEnum.readonly
+      );
     }
   } else {
-    builder.AddAt(Line, start, value.length, SemanticTokensEnum.number);
+    builder.AddAt(line, start, value.length, SemanticTokensEnum.number);
   }
 }
 
@@ -70,21 +96,21 @@ export function CreateRangeTokens(word: RangedWord, builder: McfunctionSemanticT
  */
 export function CreateNamespaced(word: OffsetWord, builder: McfunctionSemanticTokensBuilder): void {
   const text = word.text;
-  
-  if(text.startsWith('"') || text.endsWith('"')) {
+
+  if (text.startsWith('"') || text.endsWith('"')) {
     builder.AddWord(word, SemanticTokensEnum.string, SemanticModifiersEnum.static);
     return;
   }
 
-  let Index = text.indexOf(":");
+  let index = text.indexOf(":");
 
-  if (Index >= 0) {
-    Index += word.offset;
+  if (index >= 0) {
+    index += word.offset;
 
     //namespace
-    builder.Add(word.offset, Index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
+    builder.Add(word.offset, index, SemanticTokensEnum.namespace, SemanticModifiersEnum.static);
     //Value
-    builder.Add(Index + 1, word.offset + word.text.length, SemanticTokensEnum.method, SemanticModifiersEnum.static);
+    builder.Add(index + 1, word.offset + word.text.length, SemanticTokensEnum.method, SemanticModifiersEnum.static);
   } else {
     builder.AddWord(word, SemanticTokensEnum.method, SemanticModifiersEnum.readonly);
   }
