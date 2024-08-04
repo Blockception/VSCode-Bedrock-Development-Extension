@@ -1,4 +1,4 @@
-import { BulkRegistration, createConnection, ProposedFeatures } from "vscode-languageserver/node";
+import { BulkRegistration, createConnection, InitializeResult, ProposedFeatures } from "vscode-languageserver/node";
 import { setupHandlers } from "./events/setup-handlers";
 import { onInitialize } from "./events/on-initialize";
 import { ServiceManager } from "../services/collection";
@@ -23,6 +23,7 @@ import { DefinitionService } from "../references/definitions-service";
 import { TypeDefinitionService } from "../references/type-definitions-service";
 import { ImplementationService } from "../references/implementation-service";
 import { SemanticsServer } from "../semantics/semantics";
+import { SignatureService } from '../signatures/service';
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -59,8 +60,9 @@ export function setupServer() {
       new FormatService(logger, extension),
       new ImplementationService(logger, extension),
       new ReferenceService(logger, extension),
+      new SemanticsServer(logger, extension),
+      new SignatureService(logger, extension),
       new TypeDefinitionService(logger, extension),
-      new SemanticsServer(logger, extension)
     );
 
   logger.info("starting minecraft server");
@@ -69,12 +71,22 @@ export function setupServer() {
   //Initialize
   connection.onInitialize((params) => {
     logger.info("Initializing minecraft server", { version: Version });
+    const result: InitializeResult = {
+      serverInfo: {
+        name: "bc-minecraft-language-server",
+        version: Version,
+      },
+      capabilities: {
+        // Tell the client that this server supports symbol provider
+        documentSymbolProvider: true,
+        workspaceSymbolProvider: true,
+      },
+    };
+    const builder = new CapabilityBuilder(result.capabilities);
 
     extension.parseClientCapabilities(params.capabilities);
-
-    const result = onInitialize(params);
-    const builder = new CapabilityBuilder(result.capabilities);
     manager.onInitialize(builder, params, connection);
+
     result.capabilities = builder.result();
     return result;
   });

@@ -14,7 +14,7 @@ export function provideReferences(context: Context<ReferenceContext>, text: Offs
   if (index < 0) return undefined;
 
   const type = text.text.slice(0, index);
-  let value = text.text.slice(index + 1);
+  const value = text.text.slice(index + 1);
 
   switch (type.toLowerCase()) {
     // case "context":
