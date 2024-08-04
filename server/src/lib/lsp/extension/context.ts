@@ -5,6 +5,7 @@ import { Database } from "../database/database";
 import { ExtensionCapabilities } from "./capabilities";
 import { State } from "./state";
 import { Settings } from "./settings";
+import { ServiceManager } from "../services/collection";
 
 export interface IExtensionContext {
   capabilities: ExtensionCapabilities;
@@ -14,6 +15,7 @@ export interface IExtensionContext {
   logger: IExtendedLogger;
   state: State;
   settings: Settings;
+  services: ServiceManager;
 }
 
 export class ExtensionContext implements IExtensionContext {
@@ -22,15 +24,23 @@ export class ExtensionContext implements IExtensionContext {
   public database: Database;
   public documents: IDocumentManager;
   public logger: IExtendedLogger;
-  public state: State;
+  public services: ServiceManager;
   public settings: Settings;
+  public state: State;
 
-  constructor(connection: Connection, logger: IExtendedLogger, documents: IDocumentManager, database: Database) {
+  constructor(
+    connection: Connection,
+    services: ServiceManager,
+    logger: IExtendedLogger,
+    documents: IDocumentManager,
+    database: Database
+  ) {
     this.capabilities = ExtensionCapabilities.empty();
     this.connection = connection;
     this.database = database;
     this.documents = documents;
     this.logger = logger;
+    this.services = services;
     this.settings = Settings.createDefaultSettings();
     this.state = State.empty();
   }

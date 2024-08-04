@@ -13,7 +13,7 @@ export class ServiceManager implements NamedService {
   readonly name: string = "ServiceManager";
 
   private logger: IExtendedLogger;
-  private services: NamedService[];
+  public services: NamedService[];
 
   constructor(logger: IExtendedLogger) {
     this.logger = logger;
@@ -80,5 +80,15 @@ export class ServiceManager implements NamedService {
         service.stop();
       }
     });
+  }
+
+  service<T>(constructor: new (...args: any[]) => T): T | undefined {
+    for (const s of this.services) {
+      if (s instanceof constructor) {
+        return s;
+      }
+    }
+
+    return undefined;
   }
 }

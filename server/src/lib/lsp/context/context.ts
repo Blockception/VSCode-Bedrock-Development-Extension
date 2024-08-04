@@ -14,6 +14,7 @@ export namespace Context {
       logger: base.logger,
       state: base.state,
       settings: base.settings,
+      services: base.services,
 
       ...additional,
       ...overrides,

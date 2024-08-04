@@ -18,6 +18,7 @@ import { CodeActionService } from "../code-action/service";
 import { CodeLensService } from "../code-lens/service";
 import { ConfigurationService } from "../configuration/service";
 import { Version } from "../../constants/version";
+import { CommandService } from "../commands/service";
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -25,7 +26,8 @@ export function setupServer() {
   const connection = createConnection(ProposedFeatures.all);
 
   const logger = new ExtendedLogger(connection.console);
-  const extension = new ExtensionContext(connection, logger, {} as IDocumentManager, {} as Database);
+  const manager = new ServiceManager(logger);
+  const extension = new ExtensionContext(connection, manager, logger, {} as IDocumentManager, {} as Database);
   const documents = new DocumentManager(logger, extension);
   const database = new Database(logger, documents);
   extension.documents = documents;
@@ -36,21 +38,21 @@ export function setupServer() {
   const packProcessor = new PackProcessor(logger, extension, documentProcessor);
   const workspaceProcessor = new WorkspaceProcessor(logger, extension, packProcessor);
 
-  const manager = new ServiceManager(logger).add(
+  manager
     // Essentials
-    new ConfigurationService(logger, extension),
-    documents,
-    database,
+    .add(new ConfigurationService(logger, extension), documents, database)
     // Non Essentials
-    new CodeActionService(logger, extension),
-    new CodeLensService(logger, extension),
-    new CompletionService(logger, extension),
-    new FormatService(logger, extension),
-    documentProcessor,
-    packProcessor,
-    workspaceProcessor,
-    diagnoserService
-  );
+    .add(
+      diagnoserService,
+      documentProcessor,
+      packProcessor,
+      workspaceProcessor,
+      new CodeActionService(logger, extension),
+      new CodeLensService(logger, extension),
+      new CommandService(logger, extension),
+      new CompletionService(logger, extension),
+      new FormatService(logger, extension)
+    );
 
   logger.info("starting minecraft server");
   setupHandlers(connection);

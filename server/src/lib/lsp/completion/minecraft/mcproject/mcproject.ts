@@ -2,10 +2,9 @@ import { Boolean } from "../../general";
 import { CompletionContext } from "../../context";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { Context } from "../../../context/context";
-import { Documentated } from "bc-minecraft-bedrock-types/lib/src/types/documentated";
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { TemplateFilenames } from "../../../commands/templates/templates";
+import { TemplateCommands } from "../../../commands/commands/templates";
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
 
 export function provideCompletion(context: Context<CompletionContext>) {
   const filename = context.document.filename();
@@ -82,7 +81,7 @@ function provideAttributes(context: Context<CompletionContext>) {
     insertText: "diagnostic.tag=",
   });
 
-  const templates = Object.getOwnPropertyNames(TemplateFilenames);
+  const templates = TemplateCommands.map((v) => v.templateId());
   templates.forEach((temp) => {
     temp = temp.replace("-", ".");
     builder.add({

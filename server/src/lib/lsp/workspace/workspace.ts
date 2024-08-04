@@ -110,18 +110,3 @@ function processPack(pack: Pack): Promise<void> {
   return ProcessPack(pack).then((items) => {});
 }
 
-/**
- *
- * @param ws
- * @returns
- */
-function processWorkspace(ws: WorkspaceFolder[] | null): void {
-  if (ws === null) return;
-
-  for (let I = 0; I < ws.length; I++) {
-    const folder = ws[I].uri;
-    const p = GetProject(folder);
-
-    MCProject.saveSync(Fs.FromVscode(folder), p);
-  }
-}

@@ -14,17 +14,7 @@ export function onInitialize(params: InitializeParams): InitializeResult {
     },
     capabilities: {
 
-      // Tell the client that this server supports a couple commands
-      executeCommandProvider: {
-        commands: [
-          Commands.DiagnoseProject,
-          Commands.MCProject.Create,
-          Commands.Files.Append,
-          Commands.ScanProjects,
-          Commands.StoreProject,
-        ],
-        workDoneProgress: true,
-      },
+
 
       // Tell the client that this server supports go to definitions
       definitionProvider: true,
