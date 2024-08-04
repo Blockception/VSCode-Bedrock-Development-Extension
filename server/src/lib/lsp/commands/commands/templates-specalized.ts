@@ -6,33 +6,10 @@ import { Context } from "../../context/context";
 import { CommandContext } from "../context";
 import { CommandManager } from "../manager";
 import { IExtensionContext } from "../../extension/context";
-import { getTemplateCommand } from "./templates";
+import { createCommand, mustExecute } from "./functions";
 
 import * as Language from "../../templates/language";
-import * as Project from "../../templates/project";
-
-type CreateFn = (context: Context<CommandContext>, folders: EnsureFolders) => Promise<boolean | void>;
-
-/**Executes the given creation command */
-function createCommand(callback: CreateFn) {
-  return async function (context: Context<CommandContext>) {
-    const folders = getFolders(context);
-
-    return callback(context, folders).then((value) => {});
-  };
-}
-
-function mustExecute(
-  commandId: string,
-  context: Context<CommandContext>,
-  folder?: string | undefined,
-  attributes: Record<string, string> = {}
-) {
-  const t = getTemplateCommand(commandId);
-  if (t === undefined) throw new Error("couldn't find template command: " + commandId);
-
-  return t.execute(context, folder, attributes);
-}
+import * as Project from "./project";
 
 export function setupCreate(manager: CommandManager) {
   //General
@@ -74,7 +51,7 @@ export function setupCreate(manager: CommandManager) {
  */
 async function FunctionWithID(
   context: Context<CommandContext>,
-  callback: (ID: string, context: Folders, builder: TemplateBuilder) => void
+  callback: (context: Context<CommandContext>, id: string, folders: Folders, builder: TemplateBuilder) => void
 ): Promise<void> {
   const folders = getFolders(context);
   const ids = context.args;
@@ -85,7 +62,7 @@ async function FunctionWithID(
 
   //Last is reserved for the document
   for (let I = 0; I < ids.length - 1; I++) {
-    callback(ids[I], folders, builder);
+    callback(context, ids[I], folders, builder);
   }
 
   return builder.send();
@@ -96,10 +73,11 @@ function createAll(
   callback: (Folder: Pack, Builder: TemplateBuilder) => void
 ): Promise<void> {
   const builder = new TemplateBuilder(context);
+  const pd = context.database.ProjectData;
 
-  context.database.ProjectData.behaviorPacks.packs.forEach((pack) => callback(pack, builder));
-  context.database.ProjectData.resourcePacks.packs.forEach((pack) => callback(pack, builder));
-  context.database.ProjectData.worlds.packs.forEach((pack) => callback(pack, builder));
+  pd.behaviorPacks.packs.forEach((pack) => callback(pack, builder));
+  pd.resourcePacks.packs.forEach((pack) => callback(pack, builder));
+  pd.worlds.packs.forEach((pack) => callback(pack, builder));
 
   return builder.send();
 }

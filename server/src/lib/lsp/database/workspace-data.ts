@@ -1,6 +1,7 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
-import { GetProjectEmpty } from "../../project/mcprojects";
+import { getProjectEmpty } from "../../project/mcprojects";
+import { Settings } from '../extension/settings';
 
 /**
  *
@@ -17,7 +18,7 @@ export class WorkspaceData {
    *
    * @param uri
    */
-  getProject(docUri: string): MCProject {
+  getProject(docUri: string, settings: Settings): MCProject {
     //Find most matching data
     for (var [key, data] of this._data) {
       if (docUri.includes(key)) {
@@ -28,7 +29,7 @@ export class WorkspaceData {
       }
     }
 
-    return GetProjectEmpty();
+    return getProjectEmpty(settings);
   }
 
   /**Gets the workspace folder that corresponds to the given document

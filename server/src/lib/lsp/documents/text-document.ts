@@ -95,7 +95,7 @@ export class WrappedTextDocument implements TextDocument {
 
   /** @inheritdoc */
   configuration(): MCProject {
-    return this.pack()?.context ?? this._extension.database.WorkspaceData.getProject(this.uri);
+    return this.pack()?.context ?? this._extension.database.WorkspaceData.getProject(this.uri, this._extension.settings);
   }
 
   /** @inheritdoc */

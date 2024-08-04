@@ -2,7 +2,7 @@ import { MCProject } from "bc-minecraft-project";
 import { Context } from "../../context/context";
 import { CommandContext } from "../context";
 import { getWorkspace } from "../util";
-import { GetProject } from "../../../project/mcprojects";
+import { getProject } from "../../../project/mcprojects";
 import { Fs } from "../../../util/url";
 
 export async function createMcProject(context: Context<CommandContext>) {
@@ -14,7 +14,7 @@ export async function createMcProject(context: Context<CommandContext>) {
 
   for (let I = 0; I < ws.length; I++) {
     const folder = ws[I].uri;
-    const p = GetProject(folder);
+    const p = getProject(folder, context.settings);
 
     MCProject.saveSync(Fs.FromVscode(folder), p);
   }

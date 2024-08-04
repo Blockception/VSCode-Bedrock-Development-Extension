@@ -11,7 +11,7 @@ import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
 import { Identification } from "@blockception/shared";
 import { Settings } from "../extension/settings";
-import { GetProject } from "../../project/mcprojects";
+import { getProject } from "../../project/mcprojects";
 
 export class ConfigurationService
   extends BaseService
@@ -24,7 +24,6 @@ export class ConfigurationService
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
-    
     this.addDisposable(connection.onDidChangeConfiguration(this.updateSettings.bind(this)));
   }
 
@@ -47,7 +46,7 @@ export class ConfigurationService
       //Update existing settings
       const workspace = this.extension.database.WorkspaceData;
       workspace.forEach((value, uri) => {
-        workspace.set(uri, GetProject(uri));
+        workspace.set(uri, getProject(uri, this.extension.settings));
       });
     }
   }

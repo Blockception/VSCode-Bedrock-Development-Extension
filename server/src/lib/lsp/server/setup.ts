@@ -1,6 +1,4 @@
 import { BulkRegistration, createConnection, InitializeResult, ProposedFeatures } from "vscode-languageserver/node";
-import { setupHandlers } from "./events/setup-handlers";
-import { onInitialize } from "./events/on-initialize";
 import { ServiceManager } from "../services/collection";
 import { ExtendedLogger } from "../logger/logger";
 import { ExtensionContext } from "../extension/context";
@@ -23,7 +21,9 @@ import { DefinitionService } from "../references/definitions-service";
 import { TypeDefinitionService } from "../references/type-definitions-service";
 import { ImplementationService } from "../references/implementation-service";
 import { SemanticsServer } from "../semantics/semantics";
-import { SignatureService } from '../signatures/service';
+import { SignatureService } from "../signatures/service";
+import { DocumentSymbolService } from "../symbols/document-service";
+import { WorkspaceSymbolService } from "../symbols/workspace-service";
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
@@ -57,16 +57,17 @@ export function setupServer() {
       new CommandService(logger, extension),
       new CompletionService(logger, extension),
       new DefinitionService(logger, extension),
+      new DocumentSymbolService(logger, extension),
       new FormatService(logger, extension),
       new ImplementationService(logger, extension),
       new ReferenceService(logger, extension),
       new SemanticsServer(logger, extension),
       new SignatureService(logger, extension),
       new TypeDefinitionService(logger, extension),
+      new WorkspaceSymbolService(logger, extension)
     );
 
   logger.info("starting minecraft server");
-  setupHandlers(connection);
 
   //Initialize
   connection.onInitialize((params) => {
@@ -76,11 +77,7 @@ export function setupServer() {
         name: "bc-minecraft-language-server",
         version: Version,
       },
-      capabilities: {
-        // Tell the client that this server supports symbol provider
-        documentSymbolProvider: true,
-        workspaceSymbolProvider: true,
-      },
+      capabilities: {},
     };
     const builder = new CapabilityBuilder(result.capabilities);
 

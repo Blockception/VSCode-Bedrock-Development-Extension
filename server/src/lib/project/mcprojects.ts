@@ -1,13 +1,13 @@
 import { MCProject } from "bc-minecraft-project";
-import { Manager } from "../manager/manager";
+import { Settings } from "../lsp/extension/settings";
 
 /**
  *
  * @param folder
  * @returns
  */
-export function GetProject(folder: string): MCProject {
-  return overlay(MCProject.loadSync(folder));
+export function getProject(folder: string, settings: Settings): MCProject {
+  return overlay(MCProject.loadSync(folder), settings);
 }
 
 /**
@@ -15,9 +15,9 @@ export function GetProject(folder: string): MCProject {
  * @param folder
  * @returns
  */
-export async function GetProjectAsync(folder: string): Promise<MCProject> {
+export async function GetProjectAsync(folder: string, settings: Settings): Promise<MCProject> {
   return MCProject.load(folder).then((project) => {
-    return overlay(project);
+    return overlay(project, settings);
   });
 }
 
@@ -25,8 +25,8 @@ export async function GetProjectAsync(folder: string): Promise<MCProject> {
  *
  * @returns
  */
-export function GetProjectEmpty(): MCProject {
-  return overlay(MCProject.createEmpty());
+export function getProjectEmpty(settings: Settings): MCProject {
+  return overlay(MCProject.createEmpty(), settings);
 }
 
 /**
@@ -34,9 +34,7 @@ export function GetProjectEmpty(): MCProject {
  * @param project
  * @returns
  */
-export function overlay(project: MCProject): MCProject {
-  const settings = Manager.Settings;
-
+export function overlay(project: MCProject, settings: Settings): MCProject {
   overlayIf(project, "education.enable", `${settings.Education.Enable}`);
   overlayIf(project, "diagnostic.enable", `${settings.Diagnostics.Enable}`);
   overlayIf(project, "diagnostic.lang", `${settings.Diagnostics.Lang}`);

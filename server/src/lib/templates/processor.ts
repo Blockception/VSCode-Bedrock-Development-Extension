@@ -33,7 +33,7 @@ export class TemplateProcessor {
       templateID: templateId,
     };
 
-    this.processor = new TemplateFunctions(fcontext);
+    this.processor = new TemplateFunctions(fcontext, context);
   }
 
   /**
@@ -42,7 +42,7 @@ export class TemplateProcessor {
    */
   public async createFile(): Promise<void> {
     const fileBuilder = new FileBuilder(this._context.connection, this._context.logger);
-    const filepath = Vscode.join(this.processor._context.folder, this._filename);
+    const filepath = Vscode.join(this.processor._fcontent.folder, this._filename);
 
     fileBuilder.create(filepath, this._content);
 
@@ -88,7 +88,7 @@ export namespace TemplateProcessor {
       throw new Error("No workspace found");
     }
 
-    const project = context.database.WorkspaceData.getProject(ws);
+    const project = context.database.WorkspaceData.getProject(ws, context.settings);
     const attr = template.replace("-", ".");
     const filename = project.attributes[`template.${attr}.filename`] || fallback.filename();
     const file = project.attributes[`template.${attr}.file`];
