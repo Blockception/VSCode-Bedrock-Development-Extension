@@ -9,6 +9,5 @@ export * from "./offset";
 export * from "./range";
 export * from "./reader";
 export * from "./references";
-export * from "./simple-context";
 export * from "./text-edit";
 export * from "./url";

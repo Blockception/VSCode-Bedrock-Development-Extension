@@ -8,7 +8,7 @@ import { IExtendedLogger } from "../../logger/logger";
 import path from "path";
 
 export async function storeProject(context: Context<CommandContext>) {
-  const { logger } = context;
+  const { logger, database } = context;
   const workspaceProcessor = getWorkspace(context);
   const ws = await workspaceProcessor.get();
   if (ws === undefined || ws === null) {
@@ -20,10 +20,10 @@ export async function storeProject(context: Context<CommandContext>) {
 
   if (!existsSync(outputfolder)) mkdirSync(outputfolder);
 
-  context.database.ProjectData.behaviorPacks.packs.forEach(createGenerator(logger, "bp_pack", outputfolder));
-  context.database.ProjectData.resourcePacks.packs.forEach(createGenerator(logger, "rp_pack", outputfolder));
-  context.database.WorkspaceData.forEach(createGenerator(logger, "workspace", outputfolder));
-  context.database.ProjectData.general.forEach(createGenerator(logger, "general", outputfolder));
+  database.ProjectData.behaviorPacks.packs.forEach(createGenerator(logger, "bp_pack", outputfolder));
+  database.ProjectData.resourcePacks.packs.forEach(createGenerator(logger, "rp_pack", outputfolder));
+  database.WorkspaceData.forEach(createGenerator(logger, "workspace", outputfolder));
+  database.ProjectData.general.forEach(createGenerator(logger, "general", outputfolder));
 }
 
 function createGenerator<T>(logger: IExtendedLogger, type: string, outputfolder: string) {

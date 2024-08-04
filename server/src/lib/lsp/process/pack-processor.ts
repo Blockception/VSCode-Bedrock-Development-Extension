@@ -7,7 +7,7 @@ import { ProgressBar } from "../progress";
 import { Fs, getFilename } from "../../util";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { lstatSync } from "fs";
-import { GetProject } from "../../project/mcprojects";
+import { getProject } from "../../project/mcprojects";
 import { Database } from "../database/database";
 import { MinecraftFormat } from "../../minecraft/format";
 
@@ -50,7 +50,20 @@ export class PackProcessor extends BaseService {
   }
 
   remove(pack: Pack) {
-    return this.extension.database.ProjectData.deleteFolder(pack.folder);
+    const pd = this.extension.database.ProjectData;
+    pd.deleteFolder(pack.folder);
+
+    this.removePack(pd.behaviorPacks.packs, pack.folder, pd.behaviorPacks.delete);
+    this.removePack(pd.resourcePacks.packs, pack.folder, pd.resourcePacks.delete);
+    this.removePack(pd.worlds.packs, pack.folder, pd.worlds.delete);
+  }
+
+  private removePack(packs: Pack[], uri: string, deletefn: (folder: string) => boolean): void {
+    for (var I = 0; I < packs.length; I++) {
+      const p = packs[I];
+
+      if (p.folder.startsWith(uri)) deletefn(p.folder);
+    }
   }
 
   diagnose(pack: Pack) {
@@ -78,7 +91,7 @@ export class PackProcessor extends BaseService {
       return [];
     }
 
-    const project = GetProject(folderPath);
+    const project = getProject(folderPath, this.extension.settings);
     this.extension.database.WorkspaceData.set(folder, project);
 
     const manifests = MinecraftFormat.GetManifests(folder, project.ignores.patterns);

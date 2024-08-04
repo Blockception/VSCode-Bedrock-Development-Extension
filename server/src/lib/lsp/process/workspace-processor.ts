@@ -107,7 +107,9 @@ export class WorkspaceProcessor extends BaseService implements Pick<IService, "o
     this.logger.info(`removing workspace ${workspace.name}`, workspace);
     const packs = await this.packs(workspace);
 
-    await QueueProcessor.map(packs, (pack) => this._packProcessor.remove(pack));
+    const result = await QueueProcessor.map(packs, (pack) => this._packProcessor.remove(pack));
+
+    return this.extension.database.WorkspaceData.remove(workspace.uri) || result;
   }
 
   async diagnose(workspace: WorkspaceFolder) {

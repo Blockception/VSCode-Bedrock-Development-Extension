@@ -61,31 +61,30 @@ function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder
     builder.AddWord(first, SemanticTokensEnum.class);
   }
 
-  const Matches = command.getBestMatch(edu);
-  let Match;
+  const matches = command.getBestMatch(edu);
+  let match;
 
-  if (Matches.length == 0) return;
+  if (matches.length == 0) return;
+  match = matches[0];
 
-  Match = Matches[0];
+  let max = command.parameters.length;
+  if (match.parameters.length < max) max = match.parameters.length;
 
-  let Max = command.parameters.length;
-  if (Match.parameters.length < Max) Max = Match.parameters.length;
+  for (let I = 1; I < max; I++) {
+    const data = match.parameters[I];
+    const word = command.parameters[I];
 
-  for (let I = 1; I < Max; I++) {
-    const Data = Match.parameters[I];
-    const Word = command.parameters[I];
-
-    switch (Data.type) {
+    switch (data.type) {
       case ParameterType.executeSubcommand:
       case ParameterType.command:
-        let Sub = command.getSubCommand(edu);
-        if (Sub) {
-          CreateTokens(Sub, builder);
+        let sub = command.getSubCommand(edu);
+        if (sub) {
+          CreateTokens(sub, builder);
         }
         return;
 
       case ParameterType.boolean:
-        builder.AddWord(Word, SemanticTokensEnum.keyword);
+        builder.AddWord(word, SemanticTokensEnum.keyword);
         break;
 
       //Values
@@ -96,36 +95,36 @@ function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder
       case ParameterType.sound:
       case ParameterType.tickingarea:
       case ParameterType.structure:
-        CreateNamespaced(Word, builder);
+        CreateNamespaced(word, builder);
         break;
 
       case ParameterType.coordinate:
       case ParameterType.float:
       case ParameterType.integer:
       case ParameterType.xp:
-        CreateRangeTokensWord(Word, builder);
+        CreateRangeTokensWord(word, builder);
 
         break;
 
       case ParameterType.keyword:
-        builder.AddWord(Word, SemanticTokensEnum.method, SemanticModifiersEnum.defaultLibrary);
+        builder.AddWord(word, SemanticTokensEnum.method, SemanticModifiersEnum.defaultLibrary);
         break;
 
       case ParameterType.function:
       case ParameterType.string:
-        builder.AddWord(Word, SemanticTokensEnum.string);
+        builder.AddWord(word, SemanticTokensEnum.string);
         break;
 
       case ParameterType.objective:
-        builder.AddWord(Word, SemanticTokensEnum.variable);
+        builder.AddWord(word, SemanticTokensEnum.variable);
         break;
 
       case ParameterType.tag:
-        builder.AddWord(Word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
+        builder.AddWord(word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
         break;
 
       case ParameterType.operation:
-        builder.AddWord(Word, SemanticTokensEnum.operator);
+        builder.AddWord(word, SemanticTokensEnum.operator);
         break;
 
       //Modes
@@ -150,7 +149,7 @@ function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder
       case ParameterType.teleportRules:
       case ParameterType.oldBlockMode:
       case ParameterType.time:
-        builder.AddWord(Word, SemanticTokensEnum.enumMember);
+        builder.AddWord(word, SemanticTokensEnum.enumMember);
         break;
 
       //json
@@ -161,7 +160,7 @@ function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder
 
       //
       case ParameterType.selector:
-        CreateSelectorTokens(Word, builder);
+        CreateSelectorTokens(word, builder);
         break;
 
       default:

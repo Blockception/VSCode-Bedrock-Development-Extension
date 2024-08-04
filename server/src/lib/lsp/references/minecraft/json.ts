@@ -29,7 +29,12 @@ export async function provideReferences(context: Context<ReferenceContext>): Pro
     }
     //Event
     else if (value.text.startsWith("@")) {
-      const references = await context.database.findReferences(value.text.slice(2).trim(), [ParameterType.event]);
+      const references = await context.database.findReferences(
+        value.text.slice(2).trim(),
+        [ParameterType.event],
+        context.token,
+        context.workDoneProgress
+      );
       return References.ConvertLocation(references, context.documents);
     }
     //Molang
@@ -48,18 +53,19 @@ export async function provideReferences(context: Context<ReferenceContext>): Pro
   return result;
 }
 
-function ReferencesInDocument(value: OffsetWord, doc: TextDocument, receiver: Location[]) {
-  const Text = doc.getText();
-  let Index = value.offset;
+function ReferencesInDocument(value: OffsetWord, document: TextDocument, receiver: Location[]) {
+  const text = document.getText();
+  let index = value.offset;
   const start = value.offset;
   const length = value.text.length;
   const end = value.offset + length;
 
-  while (Index > -1) {
-    if (Index < start || Index > end) {
-      receiver.push(Location.create(doc.uri, Range.create(doc.positionAt(Index), doc.positionAt(Index + length))));
+  while (index > -1) {
+    if (index < start || index > end) {
+      const range = Range.create(document.positionAt(index), document.positionAt(index + length));
+      receiver.push(Location.create(document.uri, range));
     }
 
-    Index = Text.indexOf(value.text, Index + length);
+    index = text.indexOf(value.text, index + length);
   }
 }

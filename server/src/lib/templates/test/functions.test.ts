@@ -2,7 +2,8 @@ import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { FunctionContext, TemplateFunctions } from "../functions";
 import path from "path";
-import { Manifest } from 'bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types';
+import { Manifest } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types";
+import { IExtensionContext } from "../../lsp/extension/context";
 
 const TestContext: FunctionContext = {
   filename: "test.json",
@@ -14,7 +15,7 @@ const TestContext: FunctionContext = {
   },
 };
 
-const TestProcessor = new TemplateFunctions(TestContext);
+const TestProcessor = new TemplateFunctions(TestContext, {} as IExtensionContext);
 
 describe("TestProcessor", () => {
   TestProcessor.getPack = () => {
