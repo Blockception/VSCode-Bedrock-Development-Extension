@@ -1,12 +1,13 @@
+import { addAllItems } from "./commands/language";
+import { appendToFile } from "./commands/files";
+import { CommandContext, ICommand } from "./context";
 import { Commands } from "@blockception/shared";
 import { Context } from "../context/context";
-import { CommandContext, ICommand } from "./context";
+import { createMcProject } from "./commands/mcproject";
 import { diagnoseProject, rescanProject } from "./commands/diagnose-project";
-import { addAllItems } from "./commands/language";
+import { setupCreate } from "./commands/templates-specalized";
+import { setupTemplates } from "./commands/templates";
 import { storeProject } from "./commands/store-project";
-import { appendToFile } from "./commands/files";
-import { setupCreate } from "./templates/create";
-import { setupTemplates } from "./templates/templates";
 
 import assert from "assert";
 
@@ -56,12 +57,6 @@ export class CommandManager implements ICommand {
     }
   }
 
-  executeCommand(command: string, context: Context<CommandContext>) {
-    context = Context.modify(context, {
-      command: command,
-    });
-  }
-
   static load(): CommandManager {
     const manager = new CommandManager();
 
@@ -71,7 +66,7 @@ export class CommandManager implements ICommand {
       .add(Commands.ScanProjects, rescanProject)
       .add(Commands.StoreProject, storeProject)
       .add(Commands.Files.Append, appendToFile)
-      .add(Commands.MCProject.Create, Workspace.CreateMCProject);
+      .add(Commands.MCProject.Create, createMcProject);
 
     setupCreate(manager);
     setupTemplates(manager);

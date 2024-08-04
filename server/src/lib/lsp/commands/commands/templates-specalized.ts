@@ -1,15 +1,15 @@
-import { ExecuteCommandParams } from "vscode-languageserver/node";
-import { TemplateBuilder } from "./builder";
+import { TemplateBuilder } from "../../templates/builder";
 import { Commands } from "@blockception/shared";
 import { Pack } from "bc-minecraft-bedrock-project";
-import { getFolders, Folders, EnsureFolders } from "./folders";
+import { getFolders, Folders, EnsureFolders } from "../../templates/folders";
 import { Context } from "../../context/context";
 import { CommandContext } from "../context";
 import { CommandManager } from "../manager";
-
-import * as Language from "./language";
-import * as Project from "./project";
 import { IExtensionContext } from "../../extension/context";
+import { getTemplateCommand } from "./templates";
+
+import * as Language from "../../templates/language";
+import * as Project from "../../templates/project";
 
 type CreateFn = (context: Context<CommandContext>, folders: EnsureFolders) => Promise<boolean | void>;
 
@@ -17,10 +17,21 @@ type CreateFn = (context: Context<CommandContext>, folders: EnsureFolders) => Pr
 function createCommand(callback: CreateFn) {
   return async function (context: Context<CommandContext>) {
     const folders = getFolders(context);
-    const command = context.command;
 
     return callback(context, folders).then((value) => {});
   };
+}
+
+function mustExecute(
+  commandId: string,
+  context: Context<CommandContext>,
+  folder?: string | undefined,
+  attributes: Record<string, string> = {}
+) {
+  const t = getTemplateCommand(commandId);
+  if (t === undefined) throw new Error("couldn't find template command: " + commandId);
+
+  return t.execute(context, folder, attributes);
 }
 
 export function setupCreate(manager: CommandManager) {
@@ -28,37 +39,32 @@ export function setupCreate(manager: CommandManager) {
   manager.add(Commands.Create.General.Languages, (context) => createAll(context, Language.create_language_files));
   manager.add(
     Commands.Create.General.Entity,
-    createCommand((context: Context<CommandContext>) => {
+    createCommand((context: Context<CommandContext>, folders: EnsureFolders) => {
+      const ensured = folders.Ensure();
+
       return Promise.all([
-        manager.executeCommand(Commands.Create.Behaviorpack.Entity, context),
-        manager.executeCommand(Commands.Create.Resourcepack.Entity, context),
+        mustExecute(Commands.Create.Behaviorpack.Entity, context, ensured.BehaviorPack()),
+        mustExecute(Commands.Create.Resourcepack.Entity, context, ensured.ResourcePack()),
       ]).then(() => {});
     })
   );
   manager.add(
     Commands.Create.General.Manifests,
-    createCommand((context: Context<CommandContext>) => {
+    createCommand((context: Context<CommandContext>, folders: EnsureFolders) => {
+      const ensured = folders.Ensure();
+
       return Promise.all([
-        manager.executeCommand(Commands.Create.Behaviorpack.Manifests, context),
-        manager.executeCommand(Commands.Create.Resourcepack.Manifests, context),
-        manager.executeCommand(Commands.Create.World.Manifests, context),
+        mustExecute(Commands.Create.Behaviorpack.Manifests, context, ensured.BehaviorPack()),
+        mustExecute(Commands.Create.Resourcepack.Manifests, context, ensured.ResourcePack()),
+        mustExecute(Commands.Create.World.Manifests, context, ensured.WorldFolder()),
       ]).then(() => {});
     })
   );
 
   //Project
-  manager.add(
-    Commands.Create.Project.WorldProject,
-    createCommand((params) => FunctionWithID(params, Project.create_world_project))
-  );
-  manager.add(
-    Commands.Create.Project.Resourcepack,
-    createCommand((params) => FunctionWithID(params, Project.create_resourcepack))
-  );
-  manager.add(
-    Commands.Create.Project.Behaviorpack,
-    createCommand((params) => FunctionWithID(params, Project.create_behaviorpack))
-  );
+  manager.add(Commands.Create.Project.WorldProject, (params) => FunctionWithID(params, Project.create_world_project));
+  manager.add(Commands.Create.Project.Resourcepack, (params) => FunctionWithID(params, Project.create_resourcepack));
+  manager.add(Commands.Create.Project.Behaviorpack, (params) => FunctionWithID(params, Project.create_behaviorpack));
 }
 
 /**

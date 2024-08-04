@@ -5,7 +5,6 @@ import { IExtendedLogger } from "../logger/logger";
 import { CapabilityBuilder } from "../services/capabilities";
 import { BaseService } from "../services/base";
 import { ExtensionContext } from "../extension/context";
-import { Commands } from "@blockception/shared";
 import { Context } from "../context/context";
 import { CommandContext, ICommand } from "./context";
 import { CommandManager } from "./manager";
