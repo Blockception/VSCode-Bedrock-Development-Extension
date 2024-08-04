@@ -146,7 +146,7 @@ function onCompleteID(value: string | undefined, command: string): Promise<any> 
 
   const opts: ExecuteCommandParams = {
     command: command,
-    arguments: [value, uri.toString()],
+    args: [value, uri.toString()],
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, opts);
@@ -159,7 +159,7 @@ function onCommandComplete(command: string, arg: any[]): Promise<any> {
 
   const opts: ExecuteCommandParams = {
     command: command,
-    arguments: arg,
+    args: arg,
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, opts);

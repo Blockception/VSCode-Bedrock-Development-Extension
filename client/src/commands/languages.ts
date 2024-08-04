@@ -14,7 +14,7 @@ function addAll(args: any): any {
   const Current = ed.document.uri.path;
   const Params: ExecuteCommandParams = {
     command: Commands.AddLanguageFile,
-    arguments: [Current],
+    args: [Current],
   };
 
   return Manager.Client.sendRequest(ExecuteCommandRequest.type, Params);

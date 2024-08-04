@@ -3,23 +3,20 @@ import {
   DocumentFormattingParams,
   DocumentFormattingRequest,
   DocumentRangeFormattingParams,
-  Emitter,
   InitializeParams,
   TextEdit,
 } from "vscode-languageserver-protocol";
-import { ExtensionContext } from "../extension/context";
-import { IExtendedLogger } from "../logger/logger";
-import { PackProcessor } from "../process/pack-processor";
 import { BaseService } from "../services/base";
-import { IService } from "../services/service";
-import { TextDocument } from "../documents/text-document";
 import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CapabilityBuilder } from "../services/capabilities";
-import { Languages } from "@blockception/shared";
-import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";
-import { formatLangauge, formatLangaugeRange } from "./language";
 import { Context } from "../context/context";
+import { ExtensionContext } from "../extension/context";
 import { FormatContext } from "./context";
+import { formatLangauge, formatLangaugeRange } from "./language";
+import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";
+import { IExtendedLogger } from "../logger/logger";
+import { IService } from "../services/service";
+import { Languages } from "@blockception/shared";
 
 export class FormatService extends BaseService implements Pick<IService, "onInitialize" | "dynamicRegister"> {
   name: string = "workspace processor";
@@ -67,7 +64,7 @@ export class FormatService extends BaseService implements Pick<IService, "onInit
 
     switch (document.languageId) {
       case Languages.McFunctionIdentifier:
-        return formatMcfunction(document, params);
+        return formatMcfunction(context, params);
 
       case Languages.McLanguageIdentifier:
         return formatLangauge(context, params);

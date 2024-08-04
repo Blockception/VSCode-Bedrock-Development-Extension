@@ -2,6 +2,7 @@ import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { FunctionContext, TemplateFunctions } from "../functions";
 import path from "path";
+import { Manifest } from 'bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types';
 
 const TestContext: FunctionContext = {
   filename: "test.json",
@@ -22,7 +23,7 @@ describe("TestProcessor", () => {
     project.attributes["description"] = "Test";
     project.attributes["namespace"] = "blockception";
 
-    return new BehaviorPack.BehaviorPack("/test/bp", project);
+    return new BehaviorPack.BehaviorPack("/test/bp", project, {} as Manifest);
   };
 
   test("Attribute should be able to return stuff", () => {

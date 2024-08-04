@@ -1,4 +1,3 @@
-import { Database } from "../lsp/database";
 import { FileBuilder } from "../files/file-builder";
 import { Fs, Vscode } from "../util";
 import { FunctionContext, TemplateFunctions } from "./functions";
@@ -6,39 +5,43 @@ import { TemplateFallback } from "./data";
 
 import path from "path";
 import * as fs from "fs";
+import { IExtensionContext } from "../lsp/extension/context";
 
 export class TemplateProcessor {
   protected _filename: string;
   protected _content: string;
+  private _context: IExtensionContext;
   public processor: TemplateFunctions;
 
   constructor(
+    context: IExtensionContext,
     filename: string,
     content: string,
     templateId: string,
     folder: string,
     attributes: Record<string, string>
   ) {
-    this._filename = filename;
     this._content = content;
+    this._context = context;
+    this._filename = filename;
 
-    const context: FunctionContext = {
+    const fcontext: FunctionContext = {
       filename: filename,
       folder: folder,
       attributes: attributes,
-      pack: Database.ProjectData.get(folder)?.folder || "",
+      pack: this._context.database.ProjectData.get(folder)?.folder || "",
       templateID: templateId,
     };
 
-    this.processor = new TemplateFunctions(context);
+    this.processor = new TemplateFunctions(fcontext);
   }
 
   /**
    *
    * @returns
    */
-  public async CreateFile(): Promise<void> {
-    const fileBuilder = new FileBuilder();
+  public async createFile(): Promise<void> {
+    const fileBuilder = new FileBuilder(this._context.connection, this._context.logger);
     const filepath = Vscode.join(this.processor._context.folder, this._filename);
 
     fileBuilder.create(filepath, this._content);
@@ -46,7 +49,7 @@ export class TemplateProcessor {
     return fileBuilder.send();
   }
 
-  public Process(): void {
+  public process(): void {
     this._filename = this.processor.process(this._filename);
     this._content = this.processor.process(this._content);
   }
@@ -73,18 +76,19 @@ export namespace TemplateProcessor {
    * @returns
    */
   export function create(
+    context: IExtensionContext,
     template: string,
     folder: string,
     attributes: Record<string, string> = {},
     fallback?: TemplateFallback
   ): TemplateProcessor {
     fallback = fallback || errorFallback;
-    let ws = Database.WorkspaceData.getFolder(folder);
+    const ws = context.database.WorkspaceData.getFolder(folder);
     if (ws === undefined) {
       throw new Error("No workspace found");
     }
 
-    const project = Database.WorkspaceData.getProject(ws);
+    const project = context.database.WorkspaceData.getProject(ws);
     const attr = template.replace("-", ".");
     const filename = project.attributes[`template.${attr}.filename`] || fallback.filename();
     const file = project.attributes[`template.${attr}.file`];
@@ -101,6 +105,6 @@ export namespace TemplateProcessor {
       content = fallback.content();
     }
 
-    return new TemplateProcessor(filename, content, template, folder, attributes);
+    return new TemplateProcessor(context, filename, content, template, folder, attributes);
   }
 }
