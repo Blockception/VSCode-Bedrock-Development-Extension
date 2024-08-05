@@ -49,10 +49,10 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.1.0",
     "@types/picomatch": "^3.0.0",
     "json-loader": "^0.5.7",
-    "ts-jest": "^29.2.3",
+    "ts-jest": "^29.2.4",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
