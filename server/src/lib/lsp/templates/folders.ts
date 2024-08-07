@@ -15,7 +15,7 @@ export interface EnsureFolders extends Folders {
 }
 
 export function getFolders(context: Context<CommandContext>): EnsureFolders {
-  const args = context.args;
+  const args = context.arguments;
   if (args) {
     return new _internalContext(context, args[args.length - 1]);
   }

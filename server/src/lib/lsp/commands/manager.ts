@@ -47,7 +47,7 @@ export class CommandManager implements ICommand {
 
       context.connection.window.showErrorMessage(
         `couldn't execute command: ${context.command} with ${JSON.stringify(
-          context.args,
+          context.arguments,
           undefined,
           2
         )}. error: ${JSON.stringify(error, undefined, 2)}`

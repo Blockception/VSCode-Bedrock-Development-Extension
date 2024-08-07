@@ -6,7 +6,7 @@ import { CommandContext } from "../context";
 import { Context } from "../../context/context";
 
 export function appendToFile(context: Context<CommandContext>): void {
-  const { args } = context;
+  const { arguments: args } = context;
 
   if (!args || args.length < 2) {
     throw new Error("wrong parameters: expected: [uri, line]");

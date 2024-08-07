@@ -6,7 +6,7 @@ import { Context } from "../../context/context";
 import { CommandContext } from "../context";
 
 export async function addAllItems(context: Context<CommandContext>): Promise<void> {
-  const { logger, args } = context;
+  const { logger, arguments: args } = context;
   if (args === undefined) {
     throw new Error("no arguments");
   }

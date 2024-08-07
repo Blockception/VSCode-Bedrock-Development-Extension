@@ -54,7 +54,7 @@ async function FunctionWithID(
   callback: (context: Context<CommandContext>, id: string, folders: Folders, builder: TemplateBuilder) => void
 ): Promise<void> {
   const folders = getFolders(context);
-  const ids = context.args;
+  const ids = context.arguments;
   if (!ids) return;
   if (!folders) return;
 

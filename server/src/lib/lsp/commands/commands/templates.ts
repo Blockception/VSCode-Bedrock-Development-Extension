@@ -55,7 +55,7 @@ export class TemplateItem {
   ) {
     folder = folder || getFolders(context).GetFolder(this.commandId());
     const processor = TemplateProcessor.create(context, this.templateId(), folder, attributes, this);
-    const id = (context.args ? context.args[0] : undefined) || "UNKNOWN";
+    const id = (context.arguments ? context.arguments[0] : undefined) || "UNKNOWN";
     attributes = {
       id,
       templateId: this.templateId(),
