@@ -9,7 +9,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetManifests(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["manifest.json", "**/manifest.json"], ignores, folder, true);
+    return Glob.getFiles(["manifest.json", "**/manifest.json"], ignores, folder, true);
   }
 
   /**
@@ -19,7 +19,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetBehaviorPackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(
+    return Glob.getFiles(
       ["**/*.{json,jsonc,json5}", "*.{json,jsonc,json5}", "*.mcfunction", "**/*.mcfunction", "**/*.lang", "*.lang"],
       ignores,
       folder
@@ -33,7 +33,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetResourcePackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.GetFiles(["**/*.{json,jsonc,json5}", "*.{json,jsonc,json5}", "**/*.lang", "*.lang"], ignores, folder);
+    return Glob.getFiles(["**/*.{json,jsonc,json5}", "*.{json,jsonc,json5}", "**/*.lang", "*.lang"], ignores, folder);
   }
 
   /**
@@ -63,7 +63,7 @@ export namespace MinecraftFormat {
    * @param ignores The glob patterns to ignore
    */
   export function GetAudioFiles(folder: string, ignores: string[]) {
-    return Glob.GetFiles(["sounds/**/*.ogg", "sounds/*.ogg", "sounds/**/*.fsb", "sounds/*.fsb"], ignores, folder);
+    return Glob.getFiles(["sounds/**/*.ogg", "sounds/*.ogg", "sounds/**/*.fsb", "sounds/*.fsb"], ignores, folder);
   }
 
   /**
@@ -72,7 +72,7 @@ export namespace MinecraftFormat {
    * @param ignores The glob patterns to ignore
    */
   export function GetTextureFiles(folder: string, ignores: string[]) {
-    return Glob.GetFiles(
+    return Glob.getFiles(
       ["textures/**/*.png", "textures/*.png", "textures/**/*.tga", "textures/*.tga"],
       ignores,
       folder
@@ -85,6 +85,6 @@ export namespace MinecraftFormat {
    * @param ignores The glob patterns to ignore
    */
   export function GetStructureFiles(folder: string, ignores: string[]) {
-    return Glob.GetFiles(["**/*.mcstructure", "*.mcstructure"], ignores, folder);
+    return Glob.getFiles(["**/*.mcstructure", "*.mcstructure"], ignores, folder);
   }
 }

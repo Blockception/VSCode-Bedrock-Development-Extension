@@ -22,7 +22,7 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
 
   /**@inheritdoc*/
   getDiagnoser(doc: TextDocument, project: MCProject): InternalDiagnoser | undefined {
-    if (Glob.IsMatch(doc.uri, project.ignores.patterns)) {
+    if (Glob.isMatch(doc.uri, project.ignores.patterns)) {
       this.logger.info("Skipping diagnostics on document, because its ignored: " + doc.uri);
       return undefined;
     }
@@ -42,7 +42,7 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
 
   /**@inheritdoc*/
   getFiles(folder: string, patterns: string[], ignores: MCIgnore): string[] {
-    return Glob.GetFiles(patterns, ignores.patterns, folder);
+    return Glob.getFiles(patterns, ignores.patterns, folder);
   }
 
   /**@inheritdoc*/

@@ -67,7 +67,7 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
     this.logger.debug(`processing document: ${filename}`);
 
     try {
-      if (conf.ignores.patterns.length == 0 || !Glob.IsMatch(document.uri, conf.ignores.patterns)) {
+      if (conf.ignores.patterns.length == 0 || !Glob.isMatch(document.uri, conf.ignores.patterns)) {
         this.extension.database.ProjectData.process(document);
       } else {
         this.logger.info(`ignoring file ${document.uri}`);

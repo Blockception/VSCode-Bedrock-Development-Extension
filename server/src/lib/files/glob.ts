@@ -16,7 +16,7 @@ export namespace Glob {
    * @param ignores
    * @returns
    */
-  export function Excludes(source: string[], ignores: string[]): string[] {
+  export function excludes(source: string[], ignores: string[]): string[] {
     return source.filter((x) => !pm.isMatch(x, ignores, opt));
   }
 
@@ -26,7 +26,7 @@ export namespace Glob {
    * @param patterns
    * @returns
    */
-  export function IsMatch(source: string, patterns: string[]): boolean {
+  export function isMatch(source: string, patterns: string[]): boolean {
     return pm.isMatch(source, patterns, opt);
   }
 
@@ -38,18 +38,18 @@ export namespace Glob {
    * @param baseNameMatch
    * @returns
    */
-  export function GetFiles(
+  export function getFiles(
     source: string | string[],
     ignores: string[] | undefined = undefined,
     cwd: string | undefined = undefined,
     baseNameMatch: boolean | undefined = undefined
   ): string[] {
-    if (cwd) cwd = FolderPath(cwd);
+    if (cwd) cwd = folderPath(cwd);
 
     const options: FastGlob.Options = { onlyFiles: true, absolute: true, cwd: cwd, baseNameMatch: baseNameMatch };
     let entries = FastGlob.sync(source, options);
 
-    if (ignores && ignores.length > 0) entries = Excludes(entries, ignores);
+    if (ignores && ignores.length > 0) entries = excludes(entries, ignores);
 
     return entries.map(Vscode.FromFs);
   }
@@ -58,27 +58,27 @@ export namespace Glob {
    *
    * @param folder
    */
-  export function FolderPath(folder: string): string {
+  export function folderPath(folder: string): string {
     return Fs.FromVscode(folder).replace(/\\/gi, "/");
   }
 
   /**Ensures the source is glob friendly
    * @param source*/
-  export function EnsureSources(source: string | string[]): string | string[] {
+  export function ensureSources(source: string | string[]): string | string[] {
     if (typeof source == "string") {
-      return InternalEnsureSource(source);
+      return internalEnsureSource(source);
     }
 
-    return source.map(InternalEnsureSource);
+    return source.map(internalEnsureSource);
   }
 
   /**Ensures the source is glob friendly
    * @param source*/
-  export function EnsureSource(source: string): string {
-    return InternalEnsureSource(source);
+  export function ensureSource(source: string): string {
+    return internalEnsureSource(source);
   }
 
-  function InternalEnsureSource(source: string): string {
+  function internalEnsureSource(source: string): string {
     source = decodeURI(source);
     source = source.replace(/%3A/gi, ":");
     source = source.replace(/\\/gi, "/");
