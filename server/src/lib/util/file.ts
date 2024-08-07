@@ -8,7 +8,7 @@ import path from "path";
 export function getFilename(filepath: string): string {
   const filename = path.basename(filepath);
   const extension = path.extname(filename);
-  const result = filename.slice(0, extension.length);
+  const result = filename.slice(0, filename.length - extension.length);
 
   return result.trim();
 }
