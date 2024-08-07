@@ -1,15 +1,20 @@
-import { CommandCompletionContext } from "../../builder/context";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Offset } from "../../../../util";
 import { OffsetWord } from "bc-vscode-words";
 import { Modes } from "bc-minecraft-bedrock-types";
 import { Float, Names, Integer, Tags } from "../../general";
+import { CommandCompletionContext } from "../../context";
+import { Context } from "../../../context/context";
 
 import * as Entities from "../behavior-pack/entity/main";
 import * as Family from "../behavior-pack/families";
 import * as M from "../modes/modes";
 
-export function provideCompletion(context: CommandCompletionContext, attribute: string, forEntities: boolean): void {
+export function provideCompletion(
+  context: Context<CommandCompletionContext>,
+  attribute: string,
+  forEntities: boolean
+): void {
   const builder = context.builder;
 
   switch (attribute) {

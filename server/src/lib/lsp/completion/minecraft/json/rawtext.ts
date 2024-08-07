@@ -1,6 +1,7 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { SimpleContext } from "../../../../util";
-import { CompletionBuilder } from "../../builder/builder";
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
+
 import {
   cRawTextComponent,
   cRawTextExample,
@@ -12,7 +13,7 @@ import {
   cTranslationWithComplex,
 } from "../../../../minecraft/json/raw-text/constants";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: CompletionItemKind.Snippet });
 
   builder.add({ label: "Json Raw Text", documentation: cRawTextComponent, insertText: cRawTextComponent });

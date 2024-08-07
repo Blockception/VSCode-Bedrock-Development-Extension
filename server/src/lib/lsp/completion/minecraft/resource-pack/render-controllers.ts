@@ -1,6 +1,7 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../util/simple-context";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 import { CompletionBuilder } from "../../builder/builder";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from "../../../../constants/kinds";
@@ -8,12 +9,12 @@ import { JsonPathCompletion } from "../../builder";
 
 import * as Molang from "../molang";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The render controller: ${item.id}`;
   const generateV = (item: string) => `The vanilla render controller: ${item}`;
 
   context.builder.generate(
-    context.projectData.ResourcePacks.render_controllers,
+    context.database.ProjectData.resourcePacks.render_controllers,
     generateDoc,
     Kinds.Completion.RenderController
   );
@@ -24,7 +25,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   );
 
   //Education data
-  if (IsEducationEnabled(context.doc))
+  if (IsEducationEnabled(context.document))
     context.builder.generate(
       MinecraftData.edu.ResourcePack.render_controllers,
       generateV,
@@ -32,7 +33,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
     );
 }
 
-export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideJsonCompletion(context: Context<CompletionContext>): void {
   return jsonRenderController.onCompletion(context);
 }
 

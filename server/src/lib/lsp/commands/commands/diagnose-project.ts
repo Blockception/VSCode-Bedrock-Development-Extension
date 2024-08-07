@@ -1,9 +1,24 @@
-import { ExecuteCommandParams } from "vscode-languageserver";
-import { Console } from "../../../manager/console";
-import { Traverse } from "../../process/traverse";
+import { CommandContext } from "../context";
+import { Context } from "../../context/context";
+import { getWorkspace } from "../util";
 
-export function DiagnoseProjectCommand(params: ExecuteCommandParams) {
-  Console.Log("Starting on diagnosing project");
+/**
+ * @see {Commands.DiagnoseProject}
+ * @param context
+ * @returns
+ */
+export function diagnoseProject(context: Context<CommandContext>) {
+  const workspaceProcessor = getWorkspace(context);
 
-  Traverse();
+  return workspaceProcessor.start();
+}
+
+/**
+ * @see {Commands.ScanProjects}
+ */
+export function rescanProject(context: Context<CommandContext>) {
+  const workspaceProcessor = getWorkspace(context);
+  context.database.clear();
+
+  return workspaceProcessor.start();
 }

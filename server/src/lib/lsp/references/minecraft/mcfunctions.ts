@@ -1,14 +1,17 @@
-import { DefinitionParams, Location, Position, ReferenceParams } from 'vscode-languageserver';
-import { OffsetWord } from 'bc-vscode-words';
-import { TextDocument } from '../../documents/text-document';
+import { Location, Position } from "vscode-languageserver";
+import { OffsetWord } from "bc-vscode-words";
+import { Context } from "../../context/context";
+import { ReferenceContext } from "../context";
 
-import * as Command from './commands';
+import * as Command from "./commands";
 
-export function provideReferences(params: DefinitionParams | ReferenceParams, doc: TextDocument): Location[] | undefined {
+export function provideReferences(context: Context<ReferenceContext>): Promise<Location[] | undefined> {
+  const { document, position } = context;
+
   //Gets start of line
-  const startP = Position.create(params.position.line, 0);
-  const Line = doc.getLine(startP.line);
-  const lineOffset = doc.offsetAt(startP);
+  const startP = Position.create(position.line, 0);
+  const line = document.getLine(startP.line);
+  const lineOffset = document.offsetAt(startP);
 
-  return Command.provideReferences(new OffsetWord(Line, lineOffset), params, doc);
+  return Command.provideReferences(context, new OffsetWord(line, lineOffset));
 }

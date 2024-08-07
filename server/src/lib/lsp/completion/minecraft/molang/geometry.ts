@@ -1,12 +1,12 @@
-import { CompletionBuilder } from "../../builder/builder";
 import { Kinds } from "../../../../constants/kinds";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { ResourcePack, BehaviorPack } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../../util/simple-context";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const packType = PackType.detect(context.doc.uri);
+export function provideCompletion(context: Context<CompletionContext>): void {
+  const packType = PackType.detect(context.document.uri);
 
   switch (packType) {
     case PackType.behavior_pack:
@@ -18,10 +18,10 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 }
 
 export function provideResourcePackCompletion(
-  context: SimpleContext<CompletionBuilder>,
+  context: Context<CompletionContext>,
   prefixed: boolean = false
 ): void {
-  const fileType = ResourcePack.FileType.detect(context.doc.uri);
+  const fileType = ResourcePack.FileType.detect(context.document.uri);
 
   switch (fileType) {
     case ResourcePack.FileType.item:
@@ -34,7 +34,7 @@ export function provideResourcePackCompletion(
     case ResourcePack.FileType.animation_controller:
     case ResourcePack.FileType.render_controller:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Models });
-      context.projectData.ResourcePacks.entities.forEach((entity) => {
+      context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
         entity.molang.geometries.defined.forEach((geo) => {
           const label = prefixed ? `Geometry.${geo}` : geo;
           builder.add({
@@ -47,8 +47,8 @@ export function provideResourcePackCompletion(
   }
 }
 
-export function provideBehaviorPackCompletion(context: SimpleContext<CompletionBuilder>): void {
-  switch (BehaviorPack.FileType.detect(context.doc.uri)) {
+export function provideBehaviorPackCompletion(context: Context<CompletionContext>): void {
+  switch (BehaviorPack.FileType.detect(context.document.uri)) {
     case BehaviorPack.FileType.block:
     case BehaviorPack.FileType.item:
     case BehaviorPack.FileType.entity:
@@ -56,10 +56,10 @@ export function provideBehaviorPackCompletion(context: SimpleContext<CompletionB
   }
 }
 
-function provideGeometries(context: SimpleContext<CompletionBuilder>) {
+function provideGeometries(context: Context<CompletionContext>) {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Models });
   const gen = (item: ResourcePack.Material.Material) => `The model: ${item}\nDeclared in: ${item.location.uri}`;
 
-  builder.generate(context.projectData.ResourcePacks.models, gen);
+  builder.generate(context.database.ProjectData.resourcePacks.models, gen);
   builder.generate(Vanilla.ResourcePack.Models, (item) => `The vanilla model: ${item}`);
 }

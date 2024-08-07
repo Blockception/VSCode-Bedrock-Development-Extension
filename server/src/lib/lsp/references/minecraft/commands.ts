@@ -1,30 +1,32 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { OffsetWord } from "bc-vscode-words";
-import { DefinitionParams } from "vscode-languageserver";
 import { Location } from "vscode-languageserver-types";
 import { References } from "../../../util/references";
-import { Database } from "../../../lsp/database/database";
 import { IsEducationEnabled } from "../../../project/attributes";
-import { TextDocument } from "../../documents/text-document";
+import { ReferenceContext } from "../context";
+import { Context } from "../../context/context";
 
-export function provideReferences(value: OffsetWord, params: DefinitionParams, doc: TextDocument): Location[] | undefined {
-  const Line = value.text;
+export async function provideReferences(
+  context: Context<ReferenceContext>,
+  value: OffsetWord
+): Promise<Location[] | undefined> {
+  const { document, position } = context;
+  const line = value.text;
   const offset = value.offset;
 
-  const com = Command.parse(Line, offset);
-
-  const data = com.getBestMatch(IsEducationEnabled(doc));
+  const com = Command.parse(line, offset);
+  const data = com.getBestMatch(IsEducationEnabled(document));
 
   if (data.length == 0) return undefined;
 
-  const cursor = doc.offsetAt(params.position);
+  const cursor = document.offsetAt(position);
   const Index = com.findCursorIndex(cursor);
 
   if (Index < 0) return;
 
   const parameter = com.parameters[Index];
-  const Text = parameter.text;
-  const Types: ParameterType[] = [];
+  const text = parameter.text;
+  const types: ParameterType[] = [];
 
   //Gets types used
   for (let I = 0; I < data.length; I++) {
@@ -32,12 +34,13 @@ export function provideReferences(value: OffsetWord, params: DefinitionParams, d
     const Parameters = Pattern.parameters;
 
     if (Parameters.length > Index) {
-      Types.push(Parameters[Index].type);
+      types.push(Parameters[Index].type);
     }
   }
 
-  if (Types.length == 0) return undefined;
+  if (types.length == 0) return undefined;
 
   //TODO add selector references
-  return References.ConvertLocation(Database.findReferences(Text, Types));
+  const references = await context.database.findReferences(text, types, context.token, context.workDoneProgress);
+  return References.ConvertLocation(references, context.documents);
 }

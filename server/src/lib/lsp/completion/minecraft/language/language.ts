@@ -1,16 +1,15 @@
 import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
-import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from "../../../../util/simple-context";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { Manager } from '../../../../manager/manager';
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: CompletionItemKind.Color });
-  const cursor = pos.character;
+  const cursor = context.position.character;
 
   //key or comment
-  if (Manager.Settings.Completion.Lang.Comments) {
+  if (context.settings.Completion.Lang.Comments) {
     builder.add({ label: "###", documentation: "comment", kind: CompletionItemKind.Snippet });
     builder.add({
       label: "###region",
@@ -20,7 +19,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
     });
   }
 
-  const line = context.doc.getLine(pos.line);
+  const line = context.document.getLine(context.position.line);
 
   //in comment
   if (isIn("#", cursor, line)) {
@@ -35,12 +34,12 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
     builder.add({ label: "=", documentation: "Start of the value", kind: CompletionItemKind.Snippet });
   }
 
-  const pack = context.doc.getPack();
+  const pack = context.document.pack();
   if (!pack) return;
 
   const check_receiver = {
     add(item: CompletionItem): CompletionItem {
-      if (context.doc.getText().includes(item.insertText ?? item.label)) {
+      if (context.document.getText().includes(item.insertText ?? item.label)) {
         return {} as any;
       }
 
@@ -48,7 +47,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
     },
   };
 
-  if (!Manager.Settings.Completion.Lang.Dynamic) return;
+  if (!context.settings.Completion.Lang.Dynamic) return;
 
   if (BehaviorPack.BehaviorPack.is(pack)) {
     generate_bp(pack, check_receiver);
@@ -85,7 +84,11 @@ function addColors(receiver: CompletionBuilder) {
   receiver.add({ label: "Material Diamond §", documentation: "The colour: Material Diamond", insertText: "§s" });
   receiver.add({ label: "Material Lapis §", documentation: "The colour: Material Lapis", insertText: "§t" });
   receiver.add({ label: "Material Amethyst §", documentation: "The colour: Material Amethyst", insertText: "§u" });
-  receiver.add({ label: "Random Symbols §k",documentation: "Makes the text from this point random symbols",insertText: "§k"});
+  receiver.add({
+    label: "Random Symbols §k",
+    documentation: "Makes the text from this point random symbols",
+    insertText: "§k",
+  });
   receiver.add({ label: "Bold §l", documentation: "Makes the text from this point bold", insertText: "§l" });
   receiver.add({ label: "Italic §o", documentation: "Makes the text from this point italic", insertText: "§o" });
   receiver.add({ label: "Reset §r", documentation: "Resets the current formatting of text", insertText: "§r" });

@@ -1,25 +1,25 @@
-import { CompletionBuilder } from "../../builder/builder";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { JsonPathCompletion } from "../../builder";
 import { Kinds } from "../../../../constants/kinds";
-import { SimpleContext } from "../../../../util/simple-context";
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The bp animation: ${item.id}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  builder.generate(context.projectData.BehaviorPacks.animations, generateDoc);
+  builder.generate(context.database.ProjectData.behaviorPacks.animations, generateDoc);
 }
 
-export function provideDefinedAnimationCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideDefinedAnimationCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  context.projectData.BehaviorPacks.entities.forEach((item) => {
+  context.database.ProjectData.behaviorPacks.entities.forEach((item) => {
     builder.generate(item.animations.defined, (anim) => `Animation defined by ${item.id}`);
   });
 }
 
-export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideJsonCompletion(context: Context<CompletionContext>): void {
   return animBPJsonCompletion.onCompletion(context);
 }
 

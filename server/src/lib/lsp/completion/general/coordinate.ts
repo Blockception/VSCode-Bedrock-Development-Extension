@@ -1,4 +1,4 @@
-import { CommandCompletionContext } from "../builder/context";
+import { CommandCompletionContext } from "../context";
 import { Kinds } from "../../../constants/kinds";
 
 export function provideCompletion(context: CommandCompletionContext): void {

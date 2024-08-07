@@ -1,17 +1,17 @@
-import { SimpleContext } from "../../../../util";
-import { CompletionBuilder } from "../..";
 import { ModeUtil } from "bc-minecraft-bedrock-types";
 import { CompletionItemKind } from "vscode-languageserver";
 import { ModeHandler } from "bc-minecraft-bedrock-types/lib/src/modes/mode-handler";
+import { CompletionContext } from "../../context";
+import { Context } from "../../../context/context";
 
-const expections: Record<string, (context: SimpleContext<CompletionBuilder>) => void> = {};
+const expections: Record<string, (context: Context<CompletionContext>) => void> = {};
 
 /**
  * Provide completion for the given mode
  * @param mode The mode to provide completion for
  * @param context The context to provide completion in
  */
-export function provideCompletion(mode: string, context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(mode: string, context: Context<CompletionContext>): void {
   const func = expections[mode];
   if (func) return func(context);
 
@@ -26,7 +26,7 @@ export function provideCompletion(mode: string, context: SimpleContext<Completio
  */
 export function provideModeCompletion(
   mode: ModeHandler | undefined,
-  context: SimpleContext<CompletionBuilder>,
+  context: Context<CompletionContext>,
   kind: CompletionItemKind = CompletionItemKind.Property
 ) {
   if (!mode) return;
@@ -44,7 +44,7 @@ export function provideModeCompletion(
 
 export function provideModeCompletionTest(
   mode: ModeHandler | undefined,
-  context: SimpleContext<CompletionBuilder>,
+  context: Context<CompletionContext>,
   kind: CompletionItemKind = CompletionItemKind.Property
 ) {
   if (!mode) return;

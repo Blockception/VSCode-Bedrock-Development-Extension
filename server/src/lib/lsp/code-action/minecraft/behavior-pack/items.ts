@@ -7,7 +7,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "minecraft.item.missing":
     case "behaviorpack.item.missing":
       const id = builder.getId(diag.range);
-      builder.Command(`Create bp item: '${id}'`, Commands.Create.Behaviorpack.Item, [id]);
+      builder.command(`Create bp item: '${id}'`, Commands.Create.Behaviorpack.Item, [id]);
       return;
   }
 }

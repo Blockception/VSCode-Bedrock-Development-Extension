@@ -4,7 +4,7 @@ import { GetCurrentString } from "../../minecraft/json/functions";
 import { TextDocument } from "../documents/text-document";
 import { IsMolang } from "../../minecraft/molang/functions";
 
-import * as Commands from "./minecraft/commands/commands";
+import * as Commands from "./minecraft/commands";
 import * as Molang from "./minecraft/molang/main";
 
 export function provideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {

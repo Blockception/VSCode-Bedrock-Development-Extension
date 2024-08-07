@@ -8,7 +8,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "behaviorpack.animation_controller.missing":
     case "behaviorpack.anim_or_controller.missing":
       const id = builder.getId(diag.range);
-      builder.Command(`Create bp animation controller: '${id}'`, Commands.Create.Behaviorpack.Animation_Controller, [id]);
+      builder.command(`Create bp animation controller: '${id}'`, Commands.Create.Behaviorpack.Animation_Controller, [id]);
       return;
   }
 }

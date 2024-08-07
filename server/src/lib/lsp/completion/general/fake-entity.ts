@@ -1,14 +1,14 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo';
-import { GetFilename } from "../../../util/file";
-import { CommandCompletionContext } from "../builder/context";
-import { Database } from "../../../lsp/database/database";
+import { getFilename } from "../../../util/file";
+import { CommandCompletionContext } from "../context";
 import { Kinds } from "../../../constants/kinds";
+import { Context } from '../../context/context';
 
-export function provideCompletion(context: CommandCompletionContext): void {
+export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const generateDoc = (fakeEntities: GeneralInfo) => {
-    const filename = GetFilename(fakeEntities.location.uri);
+    const filename = getFilename(fakeEntities.location.uri);
     return `The dummy entity: ${fakeEntities.id}\nLocation: ${filename}`;
   };
 
-  context.builder.generate(context.projectData.General.fakeEntities, generateDoc, Kinds.Completion.FakeEntity);
+  context.builder.generate(context.database.ProjectData.general.fakeEntities, generateDoc, Kinds.Completion.FakeEntity);
 }

@@ -1,49 +1,34 @@
 import { CancellationToken, CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";
 import { CodeLensBuilder } from "./builder";
-import { Console, Manager } from "../../manager";
 import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Languages } from "@blockception/shared";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { Types } from "bc-minecraft-bedrock-types";
-import { GetDocument, TextDocument } from '../documents';
-import { Database } from '../../lsp/database';
+import { TextDocument } from "../documents";
+import { Context } from "../context/context";
+import { CodeLensContext } from "./context";
 
 /**
  *
  * @param params
  * @returns
  */
-export async function onCodeLensRequest(
-  params: CodeLensParams,
-  token: CancellationToken
+export async function internalRequest(
+  context: Context<CodeLensContext>,
+  params: CodeLensParams
 ): Promise<CodeLens[] | null | undefined> {
-  //If code lens is disabled
-  if (!Manager.Settings.Plugin.CodeLens) return undefined;
+  const document = context.documents.get(params.textDocument.uri);
+  if (!document) return undefined;
 
-  return Console.request("Code Lens", () => internalRequest(params, token));
-}
-
-/**
- *
- * @param params
- * @returns
- */
-async function internalRequest(
-  params: CodeLensParams,
-  token: CancellationToken
-): Promise<CodeLens[] | null | undefined> {
-  const builder = new CodeLensBuilder(params);
-  const doc = GetDocument(params.textDocument.uri);
-  if (!doc) return undefined;
-
-  const pd = Database.ProjectData;
+  const builder = new CodeLensBuilder(params, context.token);
+  const pd = context.database.ProjectData;
   const items = config(pd);
 
   // Queue processor to batch all the data
   await QueueProcessor.forEach(items, (item) => {
-    if (token.isCancellationRequested) return;
+    if (builder.token.isCancellationRequested) return;
 
-    return forEach(item, doc, builder);
+    return forEach(item, document, builder);
   });
 
   return builder.out;
@@ -55,6 +40,7 @@ function forEach<T extends Types.BaseObject>(config: LensConfig<T>, doc: TextDoc
   }
 
   config.data.forEach((item) => {
+    if (builder.token.isCancellationRequested) return;
     if (item.location.uri === doc.uri) return;
 
     const text = doc.getText();
@@ -68,7 +54,7 @@ function forEach<T extends Types.BaseObject>(config: LensConfig<T>, doc: TextDoc
       index = text.indexOf(match, index);
       if (index < 0) return;
 
-      builder.Push({ range: createRange(index, doc, match.length), data: item });
+      builder.push({ range: createRange(index, doc, match.length), data: item });
 
       index += match.length;
     });
@@ -99,32 +85,32 @@ function selectorThing(id: string, doc: TextDocument) {
 
 function config(pd: ProjectData) {
   return [
-    { data: pd.General.fakeEntities, regex: defaultRegex },
-    { data: pd.General.objectives, regex: selectorThing },
-    { data: pd.General.structures, regex: defaultRegex },
-    { data: pd.General.tags, regex: selectorThing },
-    { data: pd.General.tickingAreas, regex: defaultRegex },
-    { data: pd.BehaviorPacks.animation_controllers },
-    { data: pd.BehaviorPacks.animations },
-    { data: pd.BehaviorPacks.blocks },
-    { data: pd.BehaviorPacks.entities },
-    { data: pd.BehaviorPacks.functions, regex: defaultRegex },
-    { data: pd.BehaviorPacks.items },
-    { data: pd.BehaviorPacks.loot_tables, regex: defaultRegex },
-    { data: pd.BehaviorPacks.structures },
-    { data: pd.BehaviorPacks.trading },
-    { data: pd.ResourcePacks.animation_controllers },
-    { data: pd.ResourcePacks.animations },
-    { data: pd.ResourcePacks.attachables },
-    { data: pd.ResourcePacks.block_culling_rules },
-    { data: pd.ResourcePacks.entities },
-    { data: pd.ResourcePacks.fogs },
-    { data: pd.ResourcePacks.materials },
-    { data: pd.ResourcePacks.models },
-    { data: pd.ResourcePacks.particles },
-    { data: pd.ResourcePacks.render_controllers },
-    { data: pd.ResourcePacks.sounds },
-    { data: pd.ResourcePacks.textures, regex: defaultRegex },
+    { data: pd.general.fakeEntities, regex: defaultRegex },
+    { data: pd.general.objectives, regex: selectorThing },
+    { data: pd.general.structures, regex: defaultRegex },
+    { data: pd.general.tags, regex: selectorThing },
+    { data: pd.general.tickingAreas, regex: defaultRegex },
+    { data: pd.behaviorPacks.animation_controllers },
+    { data: pd.behaviorPacks.animations },
+    { data: pd.behaviorPacks.blocks },
+    { data: pd.behaviorPacks.entities },
+    { data: pd.behaviorPacks.functions, regex: defaultRegex },
+    { data: pd.behaviorPacks.items },
+    { data: pd.behaviorPacks.loot_tables, regex: defaultRegex },
+    { data: pd.behaviorPacks.structures },
+    { data: pd.behaviorPacks.trading },
+    { data: pd.resourcePacks.animation_controllers },
+    { data: pd.resourcePacks.animations },
+    { data: pd.resourcePacks.attachables },
+    { data: pd.resourcePacks.block_culling_rules },
+    { data: pd.resourcePacks.entities },
+    { data: pd.resourcePacks.fogs },
+    { data: pd.resourcePacks.materials },
+    { data: pd.resourcePacks.models },
+    { data: pd.resourcePacks.particles },
+    { data: pd.resourcePacks.render_controllers },
+    { data: pd.resourcePacks.sounds },
+    { data: pd.resourcePacks.textures, regex: defaultRegex },
   ];
 }
 

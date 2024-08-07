@@ -1,25 +1,20 @@
 import { Boolean } from "../../general";
-import { CompletionBuilder } from "../../builder/builder";
+import { CompletionContext } from "../../context";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
-import { Database } from "../../../../lsp/database/database";
-import { Documentated } from "bc-minecraft-bedrock-types/lib/src/types/documentated";
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
+import { Context } from "../../../context/context";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { Position } from "vscode-languageserver-textdocument";
-import { SimpleContext } from "../../../../util";
-import { TemplateFilenames } from '../../../commands/templates/templates';
+import { TemplateCommands } from "../../../commands/commands/templates";
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
 
-import path from "path";
-
-export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos: Position) {
-  const filename = path.basename(context.doc.uri);
+export function provideCompletion(context: Context<CompletionContext>) {
+  const filename = context.document.filename();
 
   switch (filename) {
     case MCAttributes.filename:
-      provideAttributes(context, pos);
+      provideAttributes(context);
       break;
     case MCDefinition.filename:
-      provideDefinitions(context, pos);
+      provideDefinitions(context);
       break;
     case MCIgnore.filename:
       break;
@@ -32,12 +27,12 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>, pos
  * @param pos
  * @returns
  */
-function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Position) {
-  const builder = context.builder;
-  const line = context.doc.getLine(pos.line);
+function provideAttributes(context: Context<CompletionContext>) {
+  const { builder, document, position } = context;
+  const line = document.getLine(position.line);
 
   const index = line.indexOf("=");
-  if (index > -1 && index < pos.character) {
+  if (index > -1 && index < position.character) {
     Boolean.provideCompletion(context);
     return;
   }
@@ -86,7 +81,7 @@ function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
     insertText: "diagnostic.tag=",
   });
 
-  const templates = Object.getOwnPropertyNames(TemplateFilenames);
+  const templates = TemplateCommands.map((v) => v.templateId());
   templates.forEach((temp) => {
     temp = temp.replace("-", ".");
     builder.add({
@@ -110,54 +105,55 @@ function provideAttributes(context: SimpleContext<CompletionBuilder>, pos: Posit
  * @param pos
  * @returns
  */
-function provideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Position): void {
-  const line = context.doc.getLine(pos.line);
+function provideDefinitions(context: Context<CompletionContext>): void {
+  const { builder, document, position, database } = context;
+  const projectData = database.ProjectData;
+  const line = document.getLine(position.line);
 
   const index = line.indexOf("=");
-  if (index > -1 && index < pos.character) {
+  if (index > -1 && index < position.character) {
     const definition = line.substring(0, index);
 
     switch (definition) {
       case "block":
-        return context.projectData.BehaviorPacks.blocks.forEach((block) => add(context, block));
+        return projectData.behaviorPacks.blocks.forEach((block) => add(context, block));
 
       case "entity":
-        return context.projectData.BehaviorPacks.entities.forEach((entity) => add(context, entity));
+        return projectData.behaviorPacks.entities.forEach((entity) => add(context, entity));
 
       case "family":
-        return context.projectData.BehaviorPacks.entities.forEach((entity) =>
+        return projectData.behaviorPacks.entities.forEach((entity) =>
           entity.families.forEach((family) => add(context, family))
         );
 
       case "function":
-        return context.projectData.BehaviorPacks.functions.forEach((funct) => add(context, funct));
+        return projectData.behaviorPacks.functions.forEach((funct) => add(context, funct));
 
       case "item":
-        return context.projectData.BehaviorPacks.items.forEach((item) => add(context, item));
+        return projectData.behaviorPacks.items.forEach((item) => add(context, item));
 
       case "loot_table":
-        return context.projectData.BehaviorPacks.loot_tables.forEach((loot_table) => add(context, loot_table));
+        return projectData.behaviorPacks.loot_tables.forEach((loot_table) => add(context, loot_table));
 
       case "name":
-        return context.projectData.General.fakeEntities.forEach((entity) => add(context, entity));
+        return projectData.general.fakeEntities.forEach((entity) => add(context, entity));
 
       case "objective":
-        return context.projectData.General.objectives.forEach((obj) => add(context, obj));
+        return projectData.general.objectives.forEach((obj) => add(context, obj));
 
       case "structure":
-        return context.projectData.BehaviorPacks.structures.forEach((structure) => add(context, structure));
+        return projectData.behaviorPacks.structures.forEach((structure) => add(context, structure));
 
       case "tag":
-        return context.projectData.General.tags.forEach((tag) => add(context, tag));
+        return projectData.general.tags.forEach((tag) => add(context, tag));
 
       case "tickingarea":
-        return context.projectData.General.tickingAreas.forEach((tickingarea) => add(context, tickingarea));
+        return projectData.general.tickingAreas.forEach((tickingarea) => add(context, tickingarea));
     }
 
     return;
   }
 
-  const builder = context.builder;
   builder.add({ label: "## ", documentation: "Comment", kind: CompletionItemKind.Snippet });
   builder.add({
     label: "block",
@@ -227,7 +223,7 @@ function provideDefinitions(context: SimpleContext<CompletionBuilder>, pos: Posi
   });
 }
 
-function add(context: SimpleContext<CompletionBuilder>, value: (Identifiable & Documentated) | string) {
+function add(context: Context<CompletionContext>, value: (Identifiable & Documentated) | string) {
   let label: string;
   let documentation: MarkupContent = { kind: "markdown", value: "" };
 

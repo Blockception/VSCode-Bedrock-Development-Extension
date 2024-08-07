@@ -1,9 +1,10 @@
-import { SimpleContext } from "../../../util/simple-context";
-import { CompletionBuilder } from "../builder/builder";
+
+import { CompletionContext } from "../context";
+import { Context } from "../../context/context";
 import { Kinds } from "../../../constants/kinds";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const data = context.doc.getConfiguration();
+export function provideCompletion(context: Context<CompletionContext>): void {
+  const data = context.document.configuration();
   const builder = context.builder;
 
   //From definitions

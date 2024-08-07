@@ -1,19 +1,20 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../util/simple-context";
-import { CompletionBuilder } from "../../builder/builder";
+
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from "../../../../constants/kinds";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The item definition: ${item.id}`;
   const builder = context.builder;
 
   //Project data
-  builder.generate(context.projectData.BehaviorPacks.items, generateDoc, Kinds.Completion.Item);
+  builder.generate(context.database.ProjectData.behaviorPacks.items, generateDoc, Kinds.Completion.Item);
 
   //spawn_eggs
-  context.projectData.BehaviorPacks.entities.forEach((entity) => {
+  context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
     builder.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
   });
 
@@ -26,7 +27,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
   });
 
   //Education data
-  if (IsEducationEnabled(context.doc)) {
+  if (IsEducationEnabled(context.document)) {
     //Vanilla data
     builder.generate(MinecraftData.edu.BehaviorPack.items, generateDoc, Kinds.Completion.Item);
 
@@ -38,7 +39,7 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 
   //Custom block items
   builder.generate(
-    context.projectData.BehaviorPacks.blocks,
+    context.database.ProjectData.behaviorPacks.blocks,
     (item: Identifiable) => `The block-item definition: ${item.id}`,
     Kinds.Completion.Block
   );

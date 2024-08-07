@@ -1,58 +1,56 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { WorldPack } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/World/WorldPack";
-import { ExecuteCommandParams, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { HandleError } from "../../../util/error";
-import { Console } from "../../../manager/console";
-import { Manager } from "../../../manager/manager";
-import { GetDocument } from "../../documents/document";
+import { TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { TextDocument } from "../../documents/text-document";
+import { Context } from "../../context/context";
+import { CommandContext } from "../context";
 
-export function add_all_items(params: ExecuteCommandParams): void {
-  const args = params.arguments;
-
-  if (args) {
-    const uri = args[0];
-
-    if (uri !== "") {
-      const doc = GetDocument(uri);
-
-      if (doc) {
-        const pack = doc.getPack();
-        if (!pack) return;
-
-        const builder = new TextEditBuilder(doc);
-        if (BehaviorPack.BehaviorPack.is(pack)) {
-          generate_bp(pack, builder);
-        } else if (ResourcePack.ResourcePack.is(pack)) {
-          generate_rp(pack, builder);
-        } else if (WorldPack.is(pack)) {
-          generate_wp(pack, builder);
-        }
-
-        const edit = TextEdit.insert(doc.positionAt(builder.textdoc.length), builder.out);
-
-        if (builder.out.length > 0)
-          try {
-            const p = Manager.Connection.workspace.applyEdit({
-              edit: { documentChanges: [TextDocumentEdit.create({ uri: doc.uri, version: doc.version }, [edit])] },
-            });
-
-            p.then((check) => {
-              if (!check.applied) Console.Error("Document edit failed!");
-              if (check.failureReason) Console.Error(check.failureReason);
-            });
-
-            p.catch((error) => {
-              HandleError(error, doc);
-            });
-          } catch (e) {
-            HandleError(e, doc);
-          }
-      }
-    }
+export async function addAllItems(context: Context<CommandContext>): Promise<void> {
+  const { logger, arguments: args } = context;
+  if (args === undefined) {
+    throw new Error("no arguments");
   }
 
-  return;
+  const uri = args[0];
+  if (uri === "" || uri === undefined) {
+    throw new Error("no uri given, should be at 0");
+  }
+
+  const document = context.documents.get(uri);
+  if (document === undefined) {
+    throw new Error("document not found: " + uri);
+  }
+  const pack = document.pack();
+  if (!pack) {
+    return logger.info("ignoring command, because document is not associated with a pack");
+  }
+
+  const builder = new TextEditBuilder(document);
+
+  if (BehaviorPack.BehaviorPack.is(pack)) {
+    generate_bp(pack, builder);
+  } else if (ResourcePack.ResourcePack.is(pack)) {
+    generate_rp(pack, builder);
+  } else if (WorldPack.is(pack)) {
+    generate_wp(pack, builder);
+  }
+
+  const edit = TextEdit.insert(document.positionAt(builder.textdoc.length), builder.out);
+
+  if (builder.out.length > 0) {
+    try {
+      const check = await context.connection.workspace.applyEdit({
+        edit: {
+          documentChanges: [TextDocumentEdit.create({ uri: document.uri, version: document.version }, [edit])],
+        },
+      });
+
+      if (!check.applied) logger.error("document edit failed!");
+      if (check.failureReason) logger.error(check.failureReason);
+    } catch (e) {
+      logger.recordError(e, document);
+    }
+  }
 }
 
 export function generate_bp(pack: BehaviorPack.BehaviorPack, builder: ITextEditBuilder) {

@@ -1,48 +1,60 @@
-import { QueueProcessor } from "@daanv2/queue-processor";
+import { CancellationToken } from "vscode-languageserver-protocol";
+import { IDocumentManager } from "../documents/manager";
+import { IExtendedLogger } from "../logger/logger";
+import { InternalContext } from "../diagnostics/context";
+import { IService } from "../services/service";
 import { ParameterType } from "bc-minecraft-bedrock-command";
-import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { ProjectData } from "bc-minecraft-bedrock-project";
+import { QueueProcessor } from "@daanv2/queue-processor";
 import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnoserUtility as DiagnoserUtility } from "../diagnostics/diagnoser";
-import { Console } from "../../manager/console";
 import { WorkspaceData } from "./workspace-data";
-
-/** */
-export class Database {
-  /** */
-  static Diagnoser: Diagnoser = DiagnoserUtility.createDiagnoser(() => Database.ProjectData);
-
-  /** */
-  static ProjectData: ProjectData = new ProjectData(Database.Diagnoser.context);
-
-  /** */
-  static WorkspaceData: WorkspaceData = new WorkspaceData();
-
-  /**
-   *
-   */
-  static clear(): void {
-    Console.Info("Resetting database");
-
-    Database.Diagnoser = DiagnoserUtility.createDiagnoser(() => Database.ProjectData);
-    Database.WorkspaceData = new WorkspaceData();
-    Database.ProjectData = new ProjectData(Database.Diagnoser.context);
-  }
-}
+import { WorkDoneProgressReporter } from "vscode-languageserver";
 
 type BaseObject = Types.BaseObject;
 
-/**
- *
- */
-export namespace Database {
+export interface forEachfn<T> {
+  forEach(callbackfn: (value: Types.BaseObject) => void): void;
+}
+
+export class Database implements Partial<IService> {
+  readonly name: string = "database";
+  public logger: IExtendedLogger;
+  public ProjectData: ProjectData;
+  public WorkspaceData: WorkspaceData;
+  public context: InternalContext;
+
+  constructor(logger: IExtendedLogger, documents: IDocumentManager) {
+    this.logger = logger.withPrefix("[database]");
+
+    this.context = new InternalContext(this.logger, documents, () => this.ProjectData);
+    this.WorkspaceData = new WorkspaceData();
+    this.ProjectData = new ProjectData(this.context);
+  }
+
+  /**
+   *
+   */
+  clear(): void {
+    this.logger.info("clearing database");
+    this.WorkspaceData.clear();
+    this.ProjectData;
+  }
+
+  getPacks() {
+    return [
+      ...this.ProjectData.behaviorPacks.packs,
+      ...this.ProjectData.resourcePacks.packs,
+      ...this.ProjectData.worlds.packs,
+    ];
+  }
+
   /**
    *
    * @param id
    * @param callbackfn
    */
-  export function findReference(id: string): BaseObject | undefined {
-    return Database.ProjectData.find((item) => item.id === id);
+  findReference(id: string): BaseObject | undefined {
+    return this.ProjectData.find((item) => item.id === id);
   }
 
   /**
@@ -50,46 +62,68 @@ export namespace Database {
    * @param id
    * @param callbackfn
    */
-  export function findReferences(id: string, Types: ParameterType[] | undefined = undefined): BaseObject[] {
-    if (Types) return internalTypeSearch(id, Types);
+  async findReferences(
+    id: string,
+    types: ParameterType[] | undefined = undefined,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): Promise<BaseObject[]> {
+    if (types) return this.internalTypeSearch(id, types, token, workDoneProgress);
 
-    return internalSearchAll(id);
+    return this.internalSearchAll(id, token, workDoneProgress);
   }
 
-  function internalSearchAll(id: string): BaseObject[] {
-    return [];
+  private async internalSearchAll(
+    id: string,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): Promise<Types.BaseObject[]> {
+    const result: BaseObject[] = [];
+
+    await this.forEach((item) => {
+      if (item.id === id) result.push(item);
+    });
+
+    return result;
   }
 
-  function internalTypeSearch(id: string, Types: ParameterType[]): BaseObject[] {
+  private internalTypeSearch(
+    id: string,
+    types: ParameterType[],
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): BaseObject[] {
     const out: BaseObject[] = [];
     const AddIfIDMatch = (item: BaseObject) => {
       if (item.id === id) out.push(item);
     };
 
-    for (let I = 0; I < Types.length; I++) {
-      const T = Types[I];
+    for (let i = 0; i < types.length; i++) {
+      const item = types[i];
+      if (token?.isCancellationRequested) break;
+      workDoneProgress?.report(i / types.length, `checking type: ${ParameterType[item]}`);
 
-      switch (T) {
+      switch (item) {
         case ParameterType.animation:
-          Database.ProjectData.ResourcePacks.entities.forEach((entity) => {
+          this.ProjectData.resourcePacks.entities.forEach((entity) => {
             entity.animations.defined.forEach((anim) => {
               if (anim === id) out.push(entity);
             });
           });
-          Database.ProjectData.ResourcePacks.animations.forEach(AddIfIDMatch);
-          Database.ProjectData.ResourcePacks.animation_controllers.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.animations.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.animation_controllers.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.block:
-          Database.ProjectData.BehaviorPacks.blocks.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.blocks.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.entity:
-          Database.ProjectData.BehaviorPacks.entities.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.entities.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.event:
-          Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
+          this.ProjectData.behaviorPacks.entities.forEach((entity) => {
             entity.events.forEach((event) => {
               if (event === id) out.push(entity);
             });
@@ -97,44 +131,44 @@ export namespace Database {
           break;
 
         case ParameterType.event:
-          Database.ProjectData.BehaviorPacks.entities.forEach((entity) => {
-            entity.families.forEach((family) => {
-              if (family === id) out.push(entity);
-            });
+          this.ProjectData.behaviorPacks.entities.forEach((entity) => {
+            if (entity.families.some((family) => family === id)) {
+              out.push(entity);
+            }
           });
           break;
 
         case ParameterType.function:
-          Database.ProjectData.BehaviorPacks.functions.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.functions.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.item:
-          Database.ProjectData.BehaviorPacks.items.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.items.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.objective:
-          Database.ProjectData.General.objectives.forEach(AddIfIDMatch);
+          this.ProjectData.general.objectives.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.particle:
-          Database.ProjectData.ResourcePacks.particles.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.particles.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.sound:
-          Database.ProjectData.ResourcePacks.sounds.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.sounds.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.structure:
-          Database.ProjectData.BehaviorPacks.structures.forEach(AddIfIDMatch);
-          Database.ProjectData.General.structures.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.structures.forEach(AddIfIDMatch);
+          this.ProjectData.general.structures.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tag:
-          Database.ProjectData.General.tags.forEach(AddIfIDMatch);
+          this.ProjectData.general.tags.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tickingarea:
-          Database.ProjectData.General.tickingAreas.forEach(AddIfIDMatch);
+          this.ProjectData.general.tickingAreas.forEach(AddIfIDMatch);
           break;
       }
     }
@@ -142,22 +176,27 @@ export namespace Database {
     return out;
   }
 
-  export function forEach(callbackfn: (item: BaseObject) => void): Promise<void> {
-    const packs: forEachfn<BaseObject>[][] = [
-      [Database.ProjectData.General],
-      Database.ProjectData.BehaviorPacks.packs,
-      Database.ProjectData.ResourcePacks.packs,
-      Database.ProjectData.Worlds.packs,
+  forEach(
+    callbackfn: (item: BaseObject) => void,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): Promise<void> {
+    const packs = [
+      [this.ProjectData.general],
+      this.ProjectData.behaviorPacks.packs,
+      this.ProjectData.resourcePacks.packs,
+      this.ProjectData.worlds.packs,
     ];
 
-    return QueueProcessor.forEach<forEachfn<BaseObject>[]>(packs, (pack_col) => {
-      return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => {
-        return pack.forEach(callbackfn);
-      }).then((items) => {});
-    }).then((items) => {});
-  }
-}
+    return QueueProcessor.forEach(packs, (pack_col, index, col) => {
+      if (token?.isCancellationRequested) return;
+      workDoneProgress?.report(index / col.length);
 
-export interface forEachfn<T> {
-  forEach(callbackfn: (value: Types.BaseObject) => void): void;
+      return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => {
+        if (token?.isCancellationRequested) return;
+
+        return pack.forEach(callbackfn);
+      }).then(() => {});
+    }).then(() => {});
+  }
 }

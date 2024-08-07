@@ -1,6 +1,6 @@
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../builder";
-import { Definition } from "../../types/definition";
+import { definition } from "../../types/definition";
 import { Commands } from "@blockception/shared";
 
 export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
@@ -8,7 +8,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "minecraft.fog.missing":
     case "resourcepack.fog.missing":
       const id = builder.getId(diag.range);
-      builder.Command(`Create rp fog: '${id}'`, Commands.Create.Resourcepack.Fog, [id]);
-      return Definition(builder, diag, "fog");
+      builder.command(`Create rp fog: '${id}'`, Commands.Create.Resourcepack.Fog, [id]);
+      return definition(builder, diag, "fog");
   }
 }

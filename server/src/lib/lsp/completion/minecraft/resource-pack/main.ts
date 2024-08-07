@@ -1,6 +1,6 @@
-import { JsonCompletionContext } from "../../builder/context";
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/ResourcePack";
-import { santizeValue as santizeValue } from "../../../../minecraft/json/types";
+import { JsonCompletionContext } from "../../context";
+import { Context } from "../../../context/context";
 
 import * as AnimationControllers from "./animation-controllers";
 import * as Animations from "./animations";
@@ -13,14 +13,14 @@ import * as SoundDefinitions from "./sound-definitions";
 import * as Textures from "./textures";
 import * as TexturesAtlas from "./texture-atlas";
 
-export function provideJsonCompletion(context: JsonCompletionContext) {
+export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   //Prepare data to be fixed for json
   const data = context.currentText;
 
   if (data.startsWith("textures/")) Textures.provideCompletion(context);
   if (data.startsWith("sounds/")) Sound.provideCompletion(context);
 
-  switch (FileType.detect(context.doc.uri)) {
+  switch (FileType.detect(context.document.uri)) {
     case FileType.animation:
       return Animations.provideJsonCompletion(context);
     case FileType.animation_controller:
@@ -41,18 +41,19 @@ export function provideJsonCompletion(context: JsonCompletionContext) {
     case FileType.texture_terrain_atlas:
       return TexturesAtlas.provideJsonCompletion(context);
 
-    case FileType.biomes_client:
-    case FileType.block:
-    case FileType.fog:
-    case FileType.item:
-    case FileType.manifest:
-    case FileType.material:
-    case FileType.model:
-    case FileType.music_definitions:
-    case FileType.particle:
-    case FileType.sounds:
-    case FileType.texture:
-    case FileType.unknown:
+    // case FileType.biomes_client:
+    // case FileType.block:
+    // case FileType.fog:
+    // case FileType.item:
+    // case FileType.manifest:
+    // case FileType.material:
+    // case FileType.model:
+    // case FileType.music_definitions:
+    // case FileType.particle:
+    // case FileType.sounds:
+    // case FileType.texture:
+    // case FileType.unknown:
+    default:
       break;
   }
 }

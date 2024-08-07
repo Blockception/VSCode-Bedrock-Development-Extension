@@ -8,22 +8,16 @@ import { SemanticTokensEnum, SemanticModifiersEnum } from "../constants";
  *
  */
 export class BaseSemanticTokensBuilder {
-  /**
-   *
-   */
-  public Builder: SemanticTokensBuilder;
-  /**
-   *
-   */
-  public doc: TextDocument;
+  public builder: SemanticTokensBuilder;
+  public document: TextDocument;
 
   /**
    *
    * @param doc
    */
   constructor(doc: TextDocument) {
-    this.doc = doc;
-    this.Builder = new SemanticTokensBuilder();
+    this.document = doc;
+    this.builder = new SemanticTokensBuilder();
   }
 
   /**
@@ -31,7 +25,7 @@ export class BaseSemanticTokensBuilder {
    * @returns
    */
   Build(): SemanticTokens {
-    return this.Builder.build();
+    return this.builder.build();
   }
 
   /**
@@ -40,7 +34,7 @@ export class BaseSemanticTokensBuilder {
    * @returns
    */
   PositionAt(offset: number): Position {
-    return this.doc.positionAt(offset);
+    return this.document.positionAt(offset);
   }
 
   /**
@@ -56,10 +50,10 @@ export class BaseSemanticTokensBuilder {
     tokenType: SemanticTokensEnum,
     tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
   ): this {
-    const p = this.doc.positionAt(startIndex);
+    const p = this.document.positionAt(startIndex);
     const length = endIndex - startIndex;
 
-    this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+    this.builder.push(p.line, p.character, length, tokenType, tokenModifier);
 
     return this;
   }
@@ -75,11 +69,11 @@ export class BaseSemanticTokensBuilder {
     tokenType: SemanticTokensEnum,
     tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
   ): this {
-    const p = this.doc.positionAt(word.offset);
+    const p = this.document.positionAt(word.offset);
     const length = word.text.length;
 
     if (length > 0) {
-      this.Builder.push(p.line, p.character, length, tokenType, tokenModifier);
+      this.builder.push(p.line, p.character, length, tokenType, tokenModifier);
     }
 
     return this;
@@ -100,7 +94,7 @@ export class BaseSemanticTokensBuilder {
     tokenType: SemanticTokensEnum,
     tokenModifier: SemanticModifiersEnum = SemanticModifiersEnum.declaration
   ): this {
-    this.Builder.push(line, char, length, tokenType, tokenModifier);
+    this.builder.push(line, char, length, tokenType, tokenModifier);
     return this;
   }
 }

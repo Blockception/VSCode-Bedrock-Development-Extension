@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * as Templates from "./templates";
+export * as Templates from "../lsp/templates/templates";

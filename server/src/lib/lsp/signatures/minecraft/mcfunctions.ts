@@ -1,7 +1,7 @@
 import { Position } from "vscode-languageserver-textdocument";
 import { SignatureHelp } from "vscode-languageserver";
 import { TextDocument } from "../../documents/text-document";
-import * as Command from "./commands/commands";
+import * as Command from "./commands";
 
 /**
  * Provides the signature of the command

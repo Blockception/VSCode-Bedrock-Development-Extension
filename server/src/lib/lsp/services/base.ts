@@ -6,7 +6,7 @@ import { ExtensionContext } from "../extension/context";
 /**
  * The class that holds the base information most service will use
  */
-export class BaseService implements Pick<IService, "dispose"> {
+export class BaseService implements Partial<IService> {
   public disposables: Disposable[];
   public logger: IExtendedLogger;
   public extension: ExtensionContext;

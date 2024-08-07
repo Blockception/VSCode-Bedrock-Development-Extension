@@ -1,9 +1,8 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { SimpleContext } from "../../../../util/simple-context";
-import { CompletionBuilder } from "../../builder/builder";
-import { CommandCompletionContext } from "../../builder/context";
 import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
 import { Modes } from "bc-minecraft-bedrock-types";
+import { CommandCompletionContext, CompletionContext } from "../../context";
+import { Context } from "../../../context/context";
 
 /**These are here to stop circular dependency */
 import * as Command from "./commands";
@@ -16,29 +15,29 @@ import * as BehaviorPack from "../behavior-pack";
 import * as ModeCompletions from "../modes/modes";
 import * as SlotId from "../modes/slot-id";
 
-export function provideCompletion(context: CommandCompletionContext): void {
-  const parameter = context.parameter;
+export function provideCompletion(context: Context<CommandCompletionContext>): void {
+  const { parameter, builder } = context;
 
   //Check default option
   if (parameter.options) {
     //Accepted values
     if (parameter.options.acceptedValues) {
       parameter.options.acceptedValues.forEach((value) => {
-        context.builder.add({ label: value, documentation: "accepted values", kind: CompletionItemKind.EnumMember });
+        builder.add({ label: value, documentation: "accepted values", kind: CompletionItemKind.EnumMember });
       });
     }
 
     //Wildcard
     if (parameter.options.wildcard) {
-      context.builder.add({ label: "*", documentation: "wild card", kind: CompletionItemKind.Constant });
+      builder.add({ label: "*", documentation: "wild card", kind: CompletionItemKind.Constant });
     }
   }
 
   //Adding explanation text
   const ncontext = {
     ...context,
-    builder: context.builder.withEvents((item) => {
-      const doc = ParameterTypeDocumentation[context.parameter.type];
+    builder: builder.withEvents((item) => {
+      const doc = ParameterTypeDocumentation[parameter.type];
       if (!doc) return;
 
       if (typeof item.documentation === "string" || item.documentation === undefined) {
@@ -52,7 +51,7 @@ export function provideCompletion(context: CommandCompletionContext): void {
     }),
   };
 
-  const call = DataMap[context.parameter.type];
+  const call = DataMap[parameter.type];
   if (call) call(ncontext);
 }
 
@@ -65,12 +64,12 @@ function toCompletion(context: CommandCompletionContext): void {
 }
 
 type functionCall =
-  | ((context: SimpleContext<CompletionBuilder>) => void)
-  | ((context: CommandCompletionContext) => void)
+  | ((context: Context<CompletionContext>) => void)
+  | ((context: Context<CommandCompletionContext>) => void)
   | undefined;
 
 function modeCompletion(mode: string): functionCall {
-  return (context: SimpleContext<CompletionBuilder>) => {
+  return (context: Context<CompletionContext>) => {
     return ModeCompletions.provideCompletion(mode, context);
   };
 }

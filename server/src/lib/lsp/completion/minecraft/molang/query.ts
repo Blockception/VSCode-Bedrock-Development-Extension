@@ -1,10 +1,11 @@
 import { MolangData } from "bc-minecraft-molang";
 import { MolangFunction } from "bc-minecraft-molang";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { SimpleContext } from "../../../../util/simple-context";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 import { CompletionBuilder } from "../../builder/builder";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   MolangData.General.Queries.forEach((item) => Generate(item, context.builder));
 }
 

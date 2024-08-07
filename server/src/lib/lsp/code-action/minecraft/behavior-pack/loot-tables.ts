@@ -7,7 +7,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "minecraft.loot_table.missing":
     case "behaviorpack.loot_table.missing":
       const id = builder.getId(diag.range);
-      builder.Command(`Create loot table: '${id}'`, Commands.Create.Behaviorpack.Loot_Table, [id]);
+      builder.command(`Create loot table: '${id}'`, Commands.Create.Behaviorpack.Loot_Table, [id]);
       return;
   }
 }
