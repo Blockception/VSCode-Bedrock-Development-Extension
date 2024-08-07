@@ -1,4 +1,4 @@
-import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
+import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CancellationToken, ExecuteCommandParams, InitializeParams } from "vscode-languageserver-protocol";
 import { IService } from "../services/service";
 import { IExtendedLogger } from "../logger/logger";
@@ -6,7 +6,7 @@ import { CapabilityBuilder } from "../services/capabilities";
 import { BaseService } from "../services/base";
 import { ExtensionContext } from "../extension/context";
 import { Context } from "../context/context";
-import { CommandContext, ICommand } from "./context";
+import { CommandContext } from "./context";
 import { CommandManager } from "./manager";
 
 export class CommandService extends BaseService implements Partial<IService> {
@@ -20,8 +20,10 @@ export class CommandService extends BaseService implements Partial<IService> {
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+    const commandsIds = new Array(...this.manager.commands()).filter(([id, v]) => v.private !== true).map(([id]) => id);
+
     capabilities.set("executeCommandProvider", {
-      commands: [...this.manager.commands()],
+      commands: commandsIds,
       workDoneProgress: true,
     });
 

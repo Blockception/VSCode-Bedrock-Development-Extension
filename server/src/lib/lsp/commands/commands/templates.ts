@@ -125,6 +125,6 @@ export function getTemplateCommand(command: string): TemplateItem | undefined {
 
 export function setupTemplates(manager: CommandManager): void {
   TemplateCommands.filter((value) => value instanceof TemplateItem).forEach((template) =>
-    manager.add(template.commandId(), template.execute.bind(template))
+    manager.add(template.commandId(), template)
   );
 }

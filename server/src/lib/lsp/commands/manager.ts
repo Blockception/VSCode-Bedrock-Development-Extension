@@ -19,15 +19,19 @@ export class CommandManager implements ICommand {
   }
 
   commands() {
-    return this._commands.keys();
+    return this._commands.entries();
   }
 
-  add(id: string, callback: ICommand["execute"]): this {
+  add(id: string, callback: ICommand | ICommand["execute"]): this {
     assert(this._commands.has(id) === false, `command with ${id} already exists`);
 
-    this._commands.set(id, {
-      execute: callback,
-    });
+    if (typeof callback === "function") {
+      callback = {
+        execute: callback,
+      };
+    }
+
+    this._commands.set(id, callback);
 
     return this;
   }
@@ -61,12 +65,12 @@ export class CommandManager implements ICommand {
     const manager = new CommandManager();
 
     manager
-      .add(Commands.DiagnoseProject, diagnoseProject)
-      .add(Commands.AddLanguageFile, addAllItems)
-      .add(Commands.ScanProjects, rescanProject)
-      .add(Commands.StoreProject, storeProject)
-      .add(Commands.Files.Append, appendToFile)
-      .add(Commands.MCProject.Create, createMcProject);
+      .add(Commands.DiagnoseProject, { execute: diagnoseProject })
+      .add(Commands.AddLanguageFile, { execute: addAllItems, private: true })
+      .add(Commands.ScanProjects, { execute: rescanProject })
+      .add(Commands.StoreProject, { execute: storeProject })
+      .add(Commands.Files.Append, { execute: appendToFile })
+      .add(Commands.MCProject.Create, { execute: createMcProject });
 
     setupCreate(manager);
     setupTemplates(manager);
