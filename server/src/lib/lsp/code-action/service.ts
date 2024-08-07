@@ -22,16 +22,18 @@ import * as Minecraft from "./minecraft/code-actions";
 import * as BehaviorPack from "./minecraft/behavior-pack/main";
 import * as ResourcePack from "./minecraft/resource-pack/main";
 
-export class CodeActionService extends BaseService implements Pick<IService, "onInitialize"> {
+export class CodeActionService extends BaseService implements Partial<IService> {
   name: string = "code-actions";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
     super(logger.withPrefix("[code-actions]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("codeActionProvider", true);
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.onCodeAction(this.onCodeAction.bind(this)),
       connection.onCodeActionResolve(this.onCodeActionResolve.bind(this))

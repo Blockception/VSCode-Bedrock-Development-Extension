@@ -4,11 +4,10 @@ import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { DocumentProcessor } from "./document-processor";
 import { ProgressBar } from "../progress";
-import { Fs, getFilename } from "../../util";
+import { Fs, getBasename, getFilename } from "../../util";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { lstatSync } from "fs";
 import { getProject } from "../../project/mcprojects";
-import { Database } from "../database/database";
 import { MinecraftFormat } from "../../minecraft/format";
 
 export class PackProcessor extends BaseService {
@@ -21,7 +20,7 @@ export class PackProcessor extends BaseService {
   }
 
   async process(pack: Pack, reporter?: ProgressBar): Promise<void> {
-    const name = getFilename(pack.folder);
+    const name = getBasename(Fs.FromVscode(pack.folder));
     reporter = reporter || (await ProgressBar.create(this.extension, `pack: ${name}`));
     reporter.sendMessage("processing");
     this.logger.info(`Processing pack: ${name}`, {
@@ -47,6 +46,8 @@ export class PackProcessor extends BaseService {
         pack.process({ getText: emptyText, uri: item });
       });
     }
+
+    reporter.done();
   }
 
   remove(pack: Pack) {

@@ -7,6 +7,6 @@ export interface CommandContext extends ExecuteCommandParams {
 }
 
 export interface ICommand {
-  private?: boolean;
+  register?: boolean;
   execute(context: Context<CommandContext>): any | Promise<any>;
 }

@@ -15,7 +15,7 @@ import { getProject } from "../../project/mcprojects";
 
 export class ConfigurationService
   extends BaseService
-  implements Pick<IService, "onInitialize" | "dynamicRegister" | "start">
+  implements Partial<IService>
 {
   name: string = "configuration";
 
@@ -23,7 +23,7 @@ export class ConfigurationService
     super(logger.withPrefix("[configuration]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.onDidChangeConfiguration(this.updateSettings.bind(this)));
   }
 

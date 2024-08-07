@@ -12,7 +12,6 @@ import * as fs from "fs";
 export function readDocument(uri: string, logger: IExtendedLogger): string | undefined {
   //Reading file
   const path = Fs.FromVscode(uri);
-  logger.debug(`reading file: ${uri}`);
 
   if (fs.existsSync(path)) {
     try {

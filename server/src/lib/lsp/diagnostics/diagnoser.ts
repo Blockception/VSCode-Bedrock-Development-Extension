@@ -16,21 +16,21 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
   public items: Diagnostic[];
   public context: DiagnosticsBuilderContent<TextDocument>;
   public project: MCProject;
-  public isDone: boolean;
+  public done: () => void;
 
   /**@inheritdoc*/
-  constructor(doc: TextDocument, project: MCProject, context: DiagnosticsBuilderContent<TextDocument>) {
+  constructor(
+    doc: TextDocument,
+    project: MCProject,
+    context: DiagnosticsBuilderContent<TextDocument>,
+    doneFN: (e: InternalDiagnoser) => void
+  ) {
     this.doc = doc;
     this.items = [];
 
     this.project = project;
     this.context = context;
-    this.isDone = false;
-  }
-
-  /**@inheritdoc*/
-  done(): void {
-    this.isDone = true;
+    this.done = () => doneFN(this);
   }
 
   /**@inheritdoc*/

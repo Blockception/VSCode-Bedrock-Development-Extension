@@ -1,11 +1,11 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { Fs, GetDirectory } from "../../util";
+import { Fs, getDirectory } from "../../util";
 import { Kinds } from "../../constants/kinds";
 import { SymbolBuilder } from "./builder";
 
 export function convertResourcePack(pack: ResourcePack.ResourcePack, builder: SymbolBuilder): void {
   const folder = Fs.FromVscode(pack.folder);
-  builder.containerName = GetDirectory(folder);
+  builder.containerName = getDirectory(folder);
 
   builder.generate(pack.animations, Kinds.Symbol.Animation);
   builder.generate(pack.animation_controllers, Kinds.Symbol.AnimationControllers);
@@ -23,7 +23,7 @@ export function convertResourcePack(pack: ResourcePack.ResourcePack, builder: Sy
 
 export function convertBehaviorPacks(pack: BehaviorPack.BehaviorPack, builder: SymbolBuilder): void {
   const folder = Fs.FromVscode(pack.folder);
-  builder.containerName = GetDirectory(folder);
+  builder.containerName = getDirectory(folder);
 
   builder.generate(pack.animations, Kinds.Symbol.Animation);
   builder.generate(pack.animation_controllers, Kinds.Symbol.AnimationControllers);

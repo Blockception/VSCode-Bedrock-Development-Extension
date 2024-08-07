@@ -65,12 +65,12 @@ export class CommandManager implements ICommand {
     const manager = new CommandManager();
 
     manager
-      .add(Commands.DiagnoseProject, { execute: diagnoseProject })
-      .add(Commands.AddLanguageFile, { execute: addAllItems, private: true })
-      .add(Commands.ScanProjects, { execute: rescanProject })
-      .add(Commands.StoreProject, { execute: storeProject })
-      .add(Commands.Files.Append, { execute: appendToFile })
-      .add(Commands.MCProject.Create, { execute: createMcProject });
+      .add(Commands.DiagnoseProject, diagnoseProject)
+      .add(Commands.AddLanguageFile, addAllItems)
+      .add(Commands.ScanProjects, rescanProject)
+      .add(Commands.StoreProject, storeProject)
+      .add(Commands.Files.Append, appendToFile)
+      .add(Commands.MCProject.Create, createMcProject);
 
     setupCreate(manager);
     setupTemplates(manager);

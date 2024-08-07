@@ -27,7 +27,13 @@ export interface IService {
    * @param params The initialization parameters
    * @param connection The lsp connection
    */
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void;
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void;
+
+  /**
+   * Setup function handlers
+   * @param connection The connection to set it to
+   */
+  setupHandlers(connection: Connection): void;
 
   /**
    * Starts the service, called after initialization

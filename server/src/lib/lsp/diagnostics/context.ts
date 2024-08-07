@@ -8,16 +8,24 @@ import { InternalDiagnoser } from "./diagnoser";
 import { IDocumentManager } from "../documents/manager";
 
 import path from "path";
+import { Emitter } from "vscode-languageserver-protocol";
 
 export class InternalContext implements DiagnoserContext<TextDocument> {
   private getCacheFn: () => ProjectData;
   private logger: IExtendedLogger;
   private documents: IDocumentManager;
+  private _onDiagnosingDone: Emitter<InternalDiagnoser>;
 
   constructor(logger: IExtendedLogger, documents: IDocumentManager, getCacheFn: () => ProjectData) {
     this.logger = logger;
     this.getCacheFn = getCacheFn;
     this.documents = documents;
+
+    this._onDiagnosingDone = new Emitter();
+  }
+
+  get onDiagnosingFinished() {
+    return this._onDiagnosingDone.event;
   }
 
   /**@inheritdoc*/
@@ -31,7 +39,7 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
     if (project.attributes["diagnostic.enable"] === "false") return undefined;
     if (project.attributes["diagnostic" + path.extname(doc.uri)] === "false") return undefined;
 
-    return new InternalDiagnoser(doc, project, this);
+    return new InternalDiagnoser(doc, project, this, (e) => this._onDiagnosingDone.fire(e));
   }
 
   /**@inheritdoc*/

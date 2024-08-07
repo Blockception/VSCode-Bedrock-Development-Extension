@@ -16,7 +16,7 @@ import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { TextDocument } from "../documents/text-document";
 
-export class DocumentProcessor extends BaseService implements Pick<IService, "onInitialize"> {
+export class DocumentProcessor extends BaseService implements Partial<IService> {
   name: string = "document processor";
   private _diagnoser: DiagnoserService;
 
@@ -25,12 +25,14 @@ export class DocumentProcessor extends BaseService implements Pick<IService, "on
     this._diagnoser = diagnoser;
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     //provides diagnostics and such
     const { documents } = this.extension;
     documents.onDidOpen(this.onDocumentChanged.bind(this));
     documents.onDidSave(this.onDocumentChanged.bind(this));
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.workspace.onDidCreateFiles(this.onDidCreateFiles.bind(this)),
       connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)),

@@ -27,13 +27,14 @@ export class DocumentSymbolService extends BaseService implements Partial<IServi
     super(logger.withPrefix("[document-symbols]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("documentSymbolProvider", {
       label: "minecraft",
       workDoneProgress: true,
     });
+  }
 
-    // register function
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.onDocumentSymbol(this.onDocumentSymbol.bind(this)));
   }
 

@@ -6,7 +6,7 @@ import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
 import { SemanticModifiers, SemanticTokens } from "./constants";
-import { provideJsonSemanticTokens } from './minecraft/json';
+import { provideJsonSemanticTokens } from "./minecraft/json";
 import {
   InitializeParams,
   SemanticTokens as VSSemanticsTokens,
@@ -17,20 +17,22 @@ import {
 } from "vscode-languageserver-protocol";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
-import { provideMolangSemanticTokens } from './minecraft/molang';
+import { provideMolangSemanticTokens } from "./minecraft/molang";
 
-export class SemanticsServer extends BaseService implements Pick<IService, "onInitialize" | "dynamicRegister"> {
+export class SemanticsServer extends BaseService implements Partial<IService> {
   name: string = "definitions";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
     super(logger.withPrefix("[definitions]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("definitionProvider", {
       workDoneProgress: true,
     });
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.languages.semanticTokens.on(this.onProvideSemanticRequest.bind(this)),
       connection.languages.semanticTokens.onRange(this.onProvideSemanticRequest.bind(this))

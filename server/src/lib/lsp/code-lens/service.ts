@@ -9,19 +9,21 @@ import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { internalRequest } from "./on-request";
 
-export class CodeLensService extends BaseService implements Pick<IService, "onInitialize"> {
+export class CodeLensService extends BaseService implements Partial<IService> {
   name: string = "code-lens";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
     super(logger.withPrefix("[code-lens]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("codeLensProvider", {
       resolveProvider: true,
       workDoneProgress: true,
     });
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.onCodeLens(this.onCodeLens.bind(this)),
       connection.onCodeLensResolve(this.onCodeLensResolve.bind(this))

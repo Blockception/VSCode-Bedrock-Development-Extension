@@ -21,14 +21,15 @@ export class SignatureService extends BaseService implements Partial<IService> {
     super(logger.withPrefix("[signatures]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("signatureHelpProvider", {
       triggerCharacters: triggerCharacters,
       retriggerCharacters: triggerCharacters,
       workDoneProgress: true,
     });
+  }
 
-    // register function
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.onSignatureHelp(this.onSignatureHelp.bind(this)));
   }
 

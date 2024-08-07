@@ -12,18 +12,20 @@ import { ReferenceContext } from "./context";
 import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";
 
-export class ReferenceService extends BaseService implements Pick<IService, "onInitialize"> {
+export class ReferenceService extends BaseService implements Partial<IService> {
   name: string = "references";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
     super(logger.withPrefix("[references]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("referencesProvider", {
       workDoneProgress: true,
     });
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.onReferences(this.onReferences.bind(this)));
   }
 

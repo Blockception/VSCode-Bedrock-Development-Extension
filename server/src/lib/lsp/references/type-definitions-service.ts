@@ -12,14 +12,14 @@ import { ReferenceContext } from "./context";
 import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";
 
-export class TypeDefinitionService extends BaseService implements Pick<IService, "onInitialize"> {
+export class TypeDefinitionService extends BaseService implements Partial<IService> {
   name: string = "type-definitions";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
     super(logger.withPrefix("[type-definitions]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("typeDefinitionProvider", {
       workDoneProgress: true,
       documentSelector: [
@@ -32,7 +32,9 @@ export class TypeDefinitionService extends BaseService implements Pick<IService,
         { language: Languages.McProjectIdentifier },
       ],
     });
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.onTypeDefinition(this.onTypeDefinition.bind(this)));
   }
 

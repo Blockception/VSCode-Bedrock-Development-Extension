@@ -1,32 +1,31 @@
 import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
 import { Connection } from "vscode-languageserver";
-import { DeleteFilesParams, Diagnostic, InitializeParams } from "vscode-languageserver-protocol";
+import { DeleteFilesParams, Diagnostic } from "vscode-languageserver-protocol";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
-import { DocumentManager } from "../documents/manager";
 import { ExtensionContext } from "../extension/context";
 import { getFilename } from "../../util";
 import { IExtendedLogger } from "../logger/logger";
 import { InternalContext } from "./context";
 import { IService } from "../services/service";
 import { TextDocument } from "../documents";
+import { IDocumentManager } from "../documents/manager";
 
-export class DiagnoserService extends BaseService implements Pick<IService, "onInitialize"> {
+export class DiagnoserService extends BaseService implements Partial<IService> {
   name: string = "diagnoser";
   private _context: InternalContext;
   private _diagnoser: Diagnoser;
 
-  constructor(logger: IExtendedLogger, extension: ExtensionContext) {
+  constructor(logger: IExtendedLogger, extension: ExtensionContext, documents: IDocumentManager) {
     logger = logger.withPrefix("[diagnoser]");
     super(logger, extension);
 
-    this._context = new InternalContext(logger, this.extension.documents, () => extension.database.ProjectData);
+    this._context = new InternalContext(logger, documents, () => extension.database.ProjectData);
     this._diagnoser = new Diagnoser(this._context);
+
+    this._context.onDiagnosingFinished((e) => this.set(e.doc, e.items));
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
-    params.capabilities.textDocument?.diagnostic;
-
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)));
   }
 

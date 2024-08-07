@@ -22,13 +22,14 @@ export class WorkspaceSymbolService extends BaseService implements Partial<IServ
     super(logger.withPrefix("[workspace-symbols]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("workspaceSymbolProvider", {
       resolveProvider: true,
       workDoneProgress: true,
     });
+  }
 
-    // register function
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.onWorkspaceSymbol(this.onWorkspaceSymbol.bind(this)));
   }
 

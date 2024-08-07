@@ -16,8 +16,9 @@ import { PackProcessor } from "./pack-processor";
 import { ProgressBar } from "../progress";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { TextDocument } from "../documents/text-document";
+import { getBasename } from '../../util';
 
-export class WorkspaceProcessor extends BaseService implements Pick<IService, "onInitialize" | "start"> {
+export class WorkspaceProcessor extends BaseService implements Partial<IService> {
   name: string = "workspace processor";
   private _packProcessor: PackProcessor;
 
@@ -27,11 +28,13 @@ export class WorkspaceProcessor extends BaseService implements Pick<IService, "o
     this._packProcessor = packProcessor;
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     //provides diagnostics and such
     const documents = this.extension.documents;
     documents.onDidSave(this.onDocumentChanged.bind(this));
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.workspace.onDidChangeWorkspaceFolders(this.onWorkspaceFolderChanged.bind(this)));
   }
 
@@ -83,8 +86,8 @@ export class WorkspaceProcessor extends BaseService implements Pick<IService, "o
     }
 
     this.extension.state.workspaces.traversed = true;
+    progress.done();
     progress = await ProgressBar.create(this.extension, "diagnosing workspaces", 0, 1);
-    progress.sendMessage;
 
     for (const ws of workspaces) {
       progress.addValue(1);

@@ -18,7 +18,7 @@ import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
 
-export class FormatService extends BaseService implements Pick<IService, "onInitialize" | "dynamicRegister"> {
+export class FormatService extends BaseService implements Partial<IService> {
   name: string = "workspace processor";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
@@ -35,7 +35,7 @@ export class FormatService extends BaseService implements Pick<IService, "onInit
     });
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.onDocumentFormatting(this.onDocumentFormatting.bind(this)),
       connection.onDocumentRangeFormatting(this.onDocumentRangeFormatting.bind(this))

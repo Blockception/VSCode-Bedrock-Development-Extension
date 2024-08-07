@@ -1,6 +1,5 @@
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
-import { CancellationToken, Connection, InitializeParams, TextDocuments, TextDocumentSyncKind } from "vscode-languageserver";
 import { ExtensionContext } from "../extension/context";
 import { identifyDocument } from "./languageId";
 import { IExtendedLogger } from "../logger/logger";
@@ -11,6 +10,13 @@ import { readDocument } from "./io";
 import { TextDocument } from "./text-document";
 import { TextDocumentFactory } from "./factory";
 import { Vscode } from "../../util";
+import {
+  CancellationToken,
+  Connection,
+  InitializeParams,
+  TextDocuments,
+  TextDocumentSyncKind,
+} from "vscode-languageserver";
 
 import * as vscode from "vscode-languageserver-textdocument";
 
@@ -21,7 +27,7 @@ export interface IDocumentManager
 export class DocumentManager
   extends BaseService
   implements
-    Pick<IService, "name" | "onInitialize">,
+    Partial<IService>,
     Pick<TextDocuments<TextDocument>, "onDidChangeContent" | "onDidClose" | "onDidOpen" | "onDidSave">
 {
   public readonly name: string = "documents";
@@ -52,9 +58,7 @@ export class DocumentManager
     return this._documents.onDidSave;
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
-    this._documents.listen(connection);
-
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("textDocumentSync", TextDocumentSyncKind.Incremental);
     capabilities.addWorkspace({
       workspaceFolders: {
@@ -67,6 +71,10 @@ export class DocumentManager
         didRename: { filters: [{ scheme: "file", pattern: { glob: "**/*.{mcfunction,json}" } }] },
       },
     });
+  }
+
+  setupHandlers(connection: Connection): void {
+    this._documents.listen(connection);
   }
 
   get(uri: string): TextDocument | undefined;
@@ -109,7 +117,12 @@ export class DocumentManager
    * @param reporter
    * @returns
    */
-  forEach(uris: string[], callback: (doc: TextDocument) => void, reporter: ProgressBar, token: CancellationToken): Promise<string[]> {
+  forEach(
+    uris: string[],
+    callback: (doc: TextDocument) => void,
+    reporter: ProgressBar,
+    token: CancellationToken
+  ): Promise<string[]> {
     reporter.addMaximum(uris.length);
 
     return QueueProcessor.forEach(uris, (uri) => {

@@ -18,7 +18,16 @@ export function getFilename(filepath: string): string {
  * @param filepath
  * @returns
  */
-export function GetDirectory(filepath: string): string {
+export function getBasename(filepath: string): string {
+  return path.basename(filepath).trim();
+}
+
+/**
+ *
+ * @param filepath
+ * @returns
+ */
+export function getDirectory(filepath: string): string {
   filepath = filepath.replace(/\\/g, "/");
   let index = filepath.lastIndexOf("/");
 

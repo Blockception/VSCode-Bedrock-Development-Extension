@@ -13,18 +13,20 @@ import * as Json from "./minecraft/json";
 import * as Mcfunction from "./minecraft/mcfunction";
 import * as Molang from "./minecraft/molang";
 
-export class HoverService extends BaseService implements Pick<IService, "onInitialize"> {
+export class HoverService extends BaseService implements Partial<IService> {
   name: string = "hover";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
     super(logger.withPrefix("[hover]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     capabilities.set("hoverProvider", {
       workDoneProgress: true,
     });
+  }
 
+  setupHandlers(connection: Connection): void {
     this.addDisposable(connection.onHover(this.onHoverRequest.bind(this)));
   }
 

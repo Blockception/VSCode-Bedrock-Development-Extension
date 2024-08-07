@@ -28,15 +28,16 @@ export class CompletionService extends BaseService implements Partial<IService> 
     super(logger.withPrefix("[completion]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     this.extension.capabilities.server.completion = true;
 
     capabilities.addCompletion({
       resolveProvider: false,
       triggerCharacters: triggerCharacters,
     });
+  }
 
-    // register function
+  setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.onCompletion(this.onCompletion.bind(this)),
       connection.onCompletionResolve(this.onCompletionResolve.bind(this))

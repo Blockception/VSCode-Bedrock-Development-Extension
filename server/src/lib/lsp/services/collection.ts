@@ -43,11 +43,21 @@ export class ServiceManager implements NamedService {
   }
 
   /** @inheritdoc */
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams, connection: Connection): void {
+  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
     this.services.forEach((service) => {
       if (service.onInitialize) {
         this.logger.info(`Initializing service ${service.name}`);
-        service.onInitialize(capabilities, params, connection);
+        service.onInitialize(capabilities, params);
+      }
+    });
+  }
+
+  /** @inheritdoc */
+  setupHandlers(connection: Connection): void {
+    this.services.forEach((service) => {
+      if (service.setupHandlers) {
+        this.logger.info(`setup handlers ${service.name}`);
+        service.setupHandlers(connection);
       }
     });
   }

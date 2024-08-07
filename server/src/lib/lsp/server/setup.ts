@@ -38,7 +38,7 @@ export function setupServer() {
   extension.documents = documents;
   extension.database = database;
 
-  const diagnoserService = new DiagnoserService(logger, extension);
+  const diagnoserService = new DiagnoserService(logger, extension, documents);
   const documentProcessor = new DocumentProcessor(logger, extension, diagnoserService);
   const packProcessor = new PackProcessor(logger, extension, documentProcessor);
   const workspaceProcessor = new WorkspaceProcessor(logger, extension, packProcessor);
@@ -70,7 +70,7 @@ export function setupServer() {
   logger.info("starting minecraft server");
 
   //Initialize
-  connection.onInitialize((params) => {
+  connection.onInitialize((params, token, workDoneProgress) => {
     logger.info("Initializing minecraft server", { version: Version });
     const result: InitializeResult = {
       serverInfo: {
@@ -82,7 +82,7 @@ export function setupServer() {
     const builder = new CapabilityBuilder(result.capabilities);
 
     extension.parseClientCapabilities(params.capabilities);
-    manager.onInitialize(builder, params, connection);
+    manager.onInitialize(builder, params);
 
     result.capabilities = builder.result();
     return result;
@@ -91,6 +91,7 @@ export function setupServer() {
   // This handler provides diagnostics
   connection.onInitialized(async (params) => {
     logger.info("Initialized minecraft server", { version: Version });
+    manager.setupHandlers(connection);
 
     //Registers any follow ups
     const register = BulkRegistration.create();
