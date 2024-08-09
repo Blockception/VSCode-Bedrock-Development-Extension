@@ -1,7 +1,7 @@
 import { FileBuilder } from "../files/file-builder";
 import { Fs, Vscode } from "../util";
 import { FunctionContext, TemplateFunctions } from "./functions";
-import { TemplateFallback } from "./data";
+import { TemplateFallback } from "./fallback";
 
 import path from "path";
 import * as fs from "fs";

@@ -28,7 +28,9 @@ export class ConfigurationService
   }
 
   dynamicRegister(register: BulkRegistration): void {
-    register.add(DidChangeConfigurationNotification.type, {});
+    register.add(DidChangeConfigurationNotification.type, {
+      section: "BC-MC"
+    });
   }
 
   async updateSettings(params?: DidChangeConfigurationParams) {

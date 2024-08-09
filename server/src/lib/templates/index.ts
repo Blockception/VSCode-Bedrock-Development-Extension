@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 
-export * from "./data";
+export * from "./fallback";
 export * from "./functions";
 export * from "./processor";

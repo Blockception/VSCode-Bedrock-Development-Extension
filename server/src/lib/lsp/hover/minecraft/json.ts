@@ -1,4 +1,4 @@
-import { GetCurrentString } from "../../../minecraft/json/functions";
+import { getCurrentString } from "../../../minecraft/json/functions";
 import { Hover } from "vscode-languageserver";
 import { Range } from "vscode-languageserver-protocol";
 import { IsMolang } from "../../../minecraft/molang/functions";
@@ -12,7 +12,7 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
 
   const cursor = document.offsetAt(params.position);
   const text = document.getText();
-  let range = GetCurrentString(text, cursor);
+  let range = getCurrentString(text, cursor);
 
   //If start has not been found or not a property
   if (range === undefined) return;

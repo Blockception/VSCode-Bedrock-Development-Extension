@@ -42,5 +42,5 @@ export async function provideReferences(
 
   //TODO add selector references
   const references = await context.database.findReferences(text, types, context.token, context.workDoneProgress);
-  return References.ConvertLocation(references, context.documents);
+  return References.convertLocation(references, context.documents);
 }

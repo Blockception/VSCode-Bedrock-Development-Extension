@@ -35,7 +35,7 @@ export async function provideReferences(context: Context<ReferenceContext>): Pro
         context.token,
         context.workDoneProgress
       );
-      return References.ConvertLocation(references, context.documents);
+      return References.convertLocation(references, context.documents);
     }
     //Molang
     else {
@@ -46,7 +46,7 @@ export async function provideReferences(context: Context<ReferenceContext>): Pro
     const out = context.database.findReference(value.text);
 
     if (out) {
-      result.push(...References.ConvertLocation([out], context.documents));
+      result.push(...References.convertLocation([out], context.documents));
     }
   }
 

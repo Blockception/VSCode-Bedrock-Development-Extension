@@ -1,6 +1,6 @@
 import { SignatureHelp } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { GetCurrentString } from "../../minecraft/json/functions";
+import { getCurrentString } from "../../minecraft/json/functions";
 import { TextDocument } from "../documents/text-document";
 import { IsMolang } from "../../minecraft/molang/functions";
 
@@ -10,7 +10,7 @@ import * as Molang from "./minecraft/molang/main";
 export function provideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
   let text = doc.getText();
   const cpos = doc.offsetAt(cursor);
-  let Range = GetCurrentString(text, cpos);
+  let Range = getCurrentString(text, cpos);
 
   if (!Range) return;
   let property = text.substring(Range.start, Range.end);

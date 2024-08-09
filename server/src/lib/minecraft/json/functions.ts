@@ -1,17 +1,18 @@
-import { Character } from "../../util";
-
-/** */
+/**
+ * A range of text using offsets
+ */
 export interface TextRange {
-  /** */
+  /** The start offset in the text */
   start: number;
 
-  /** */
+  /** The end offset in the text */
   end: number;
 }
 
 /**
- * @param text
- * @param cursor
+ * Returns the current element value
+ * @param text The json text to retrieve the range from
+ * @param cursor The cursor offset
  * @returns
  */
 export function getCurrentElement(text: string, cursor: number): TextRange | undefined {
@@ -66,17 +67,17 @@ export function getCurrentElement(text: string, cursor: number): TextRange | und
 
 /**
  *
- * @param Text
+ * @param text
  * @param cursor
  * @returns
  */
-export function GetCurrentString(Text: string, cursor: number): TextRange | undefined {
+export function getCurrentString(text: string, cursor: number): TextRange | undefined {
   let startIndex = -1;
 
   for (let index = cursor - 1; index > -1; index--) {
-    const c = Text.charAt(index);
+    const c = text.charAt(index);
     if (c === '"') {
-      if (Text.charAt(index - 1) === "\\") {
+      if (text.charAt(index - 1) === "\\") {
         continue;
       }
 
@@ -91,10 +92,10 @@ export function GetCurrentString(Text: string, cursor: number): TextRange | unde
 
   let endIndex = -1;
 
-  for (let index = startIndex; index < Text.length; index++) {
-    const c = Text.charAt(index);
+  for (let index = startIndex; index < text.length; index++) {
+    const c = text.charAt(index);
     if (c === '"') {
-      if (Text.charAt(index - 1) === "\\") {
+      if (text.charAt(index - 1) === "\\") {
         continue;
       }
 
@@ -152,7 +153,7 @@ export function getEndOfPropertyKey(text: string, property: string, start: numbe
 
   for (; startIndex > 0; startIndex--) {
     // Have we found the colon?
-    const c = text.charAt(startIndex)
+    const c = text.charAt(startIndex);
     if (c === ":") {
       // Record that position, and we can move the index back equal to the length of the property.
       lastColon = startIndex;
@@ -176,7 +177,7 @@ export function getEndOfPropertyKey(text: string, property: string, start: numbe
  * @param cursor
  * @returns
  */
-export function GetStartString(Text: string, cursor: number): number {
+export function getStartString(Text: string, cursor: number): number {
   for (let Index = cursor; Index > -1; Index--) {
     const c = Text.charAt(Index);
 
@@ -198,7 +199,7 @@ export function GetStartString(Text: string, cursor: number): number {
  * @param startIndex
  * @returns
  */
-export function IsProperty(Text: string, startIndex: number): boolean {
+export function isProperty(Text: string, startIndex: number): boolean {
   for (let Index = startIndex; Index > -1; Index--) {
     const c = Text.charAt(Index);
 

@@ -10,7 +10,7 @@ export namespace References {
    * @param receiver
    * @returns
    */
-  export function ConvertLocation(
+  export function convertLocation(
     items: ((Types.Locatable & Types.Identifiable) | Location | undefined)[],
     documents: IDocumentManager
   ): Location[] {

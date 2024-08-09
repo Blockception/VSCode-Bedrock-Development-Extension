@@ -22,7 +22,7 @@ export function provideReferences(context: Context<ReferenceContext>, text: Offs
     //   break;
 
     case "geometry":
-      return References.ConvertLocation([database.findReference(text.text)], context.documents);
+      return References.convertLocation([database.findReference(text.text)], context.documents);
 
     // case "math":
     //   break;
@@ -63,7 +63,7 @@ function GetVariables(context: Context<any>, variable: string): Location[] {
   database.ProjectData.resourcePacks.render_controllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
-  return References.ConvertLocation(locations, documents);
+  return References.convertLocation(locations, documents);
 }
 
 function GetTemp(context: Context<any>, variable: string): Location[] {
@@ -83,5 +83,5 @@ function GetTemp(context: Context<any>, variable: string): Location[] {
   database.ProjectData.resourcePacks.render_controllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
-  return References.ConvertLocation(locations, documents);
+  return References.convertLocation(locations, documents);
 }
