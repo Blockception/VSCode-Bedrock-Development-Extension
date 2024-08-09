@@ -1,9 +1,9 @@
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
-import { Connection } from "vscode-languageserver";
+import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { ExtensionContext } from "../extension/context";
 import { IExtendedLogger } from "../logger/logger";
-import { InitializeParams, SignatureHelp, SignatureHelpParams } from "vscode-languageserver-protocol";
+import { CancellationToken, InitializeParams, SignatureHelp, SignatureHelpParams } from "vscode-languageserver-protocol";
 import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
 import { provideJsonSignature } from "./json";
@@ -33,10 +33,16 @@ export class SignatureService extends BaseService implements Partial<IService> {
     this.addDisposable(connection.onSignatureHelp(this.onSignatureHelp.bind(this)));
   }
 
-  async onSignatureHelp(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
+  async onSignatureHelp(
+    params: SignatureHelpParams,
+    token: CancellationToken,
+    workDoneProgress: WorkDoneProgressReporter
+  ): Promise<SignatureHelp | undefined> {
     const position = params.position;
     const documents = this.extension.documents.get(params.textDocument.uri);
     if (!documents) return undefined;
+
+    //TODO: use context
 
     //Switch per language type
     switch (documents.languageId) {

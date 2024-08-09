@@ -2,23 +2,20 @@ import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { ExtensionContext } from "../extension/context";
+import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
+import { getFilename, Vscode } from "../../util";
 import { IExtendedLogger } from "../logger/logger";
+import { IService } from "../services/service";
+import { Kinds } from "../../constants/kinds";
+import { SymbolBuilder } from "./builder";
 import {
   CancellationToken,
   DocumentSymbol,
   DocumentSymbolParams,
   InitializeParams,
-  SignatureHelp,
-  SignatureHelpParams,
   SymbolInformation,
   SymbolKind,
 } from "vscode-languageserver-protocol";
-import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
-import { Kinds } from "../../constants/kinds";
-import { SymbolBuilder } from "./builder";
-import { getFilename, Vscode } from "../../util";
-import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
 
 export class DocumentSymbolService extends BaseService implements Partial<IService> {
   readonly name: string = "document-symbols";

@@ -51,6 +51,7 @@ class MCFunctionFormatter {
     const result: TextEdit[] = [];
 
     for (let index = startIndex; index < endIndex; index++) {
+      if (this.context.token.isCancellationRequested) break;
       const line = document.getLine(index);
 
       if (line.length > 2) {

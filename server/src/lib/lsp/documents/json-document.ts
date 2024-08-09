@@ -4,7 +4,6 @@ import { TextDocument, WrappedTextDocument } from "./text-document";
 import { ExtensionContext } from "../extension/context";
 
 import * as JSONC from "comment-json";
-import * as Code from "./io";
 import * as vscode from "vscode-languageserver-textdocument";
 
 /** A class that help */

@@ -20,11 +20,11 @@ export async function provideReferences(
   if (data.length == 0) return undefined;
 
   const cursor = document.offsetAt(position);
-  const Index = com.findCursorIndex(cursor);
+  const index = com.findCursorIndex(cursor);
 
-  if (Index < 0) return;
+  if (index < 0) return;
 
-  const parameter = com.parameters[Index];
+  const parameter = com.parameters[index];
   const text = parameter.text;
   const types: ParameterType[] = [];
 
@@ -33,8 +33,8 @@ export async function provideReferences(
     const Pattern = data[I];
     const Parameters = Pattern.parameters;
 
-    if (Parameters.length > Index) {
-      types.push(Parameters[Index].type);
+    if (Parameters.length > index) {
+      types.push(Parameters[index].type);
     }
   }
 

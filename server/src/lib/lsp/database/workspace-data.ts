@@ -1,7 +1,7 @@
 import { MCProject } from "bc-minecraft-project";
 import { WorkspaceFolder } from "vscode-languageserver";
 import { getProjectEmpty } from "../../project/mcprojects";
-import { Settings } from '../extension/settings';
+import { Settings } from "../extension/settings";
 
 /**
  *

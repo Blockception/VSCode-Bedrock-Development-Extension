@@ -37,6 +37,7 @@ class LanguageFormatter {
 
     const result: TextEdit[] = [];
     for (let index = startLine; index < endLine; index++) {
+      if (this.context.token.isCancellationRequested) break;
       const line = document.getLine(index);
 
       TrimStartFromLine(line, index, result, [" ", "\t"]);

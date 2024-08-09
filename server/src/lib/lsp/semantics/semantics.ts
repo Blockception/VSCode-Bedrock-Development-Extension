@@ -1,5 +1,5 @@
 import { BaseService } from "../services/base";
-import { BulkRegistration, Connection } from "vscode-languageserver";
+import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CapabilityBuilder } from "../services/capabilities";
 import { ExtensionContext } from "../extension/context";
 import { IExtendedLogger } from "../logger/logger";
@@ -14,6 +14,7 @@ import {
   SemanticTokensRangeParams,
   SemanticTokensRegistrationType,
   Range,
+  CancellationToken,
 } from "vscode-languageserver-protocol";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
@@ -59,13 +60,17 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
   }
 
   private async onProvideSemanticRequest(
-    params: SemanticTokensRangeParams | SemanticTokensParams
+    params: SemanticTokensRangeParams | SemanticTokensParams,
+    token: CancellationToken,
+    workDoneProgress: WorkDoneProgressReporter
   ): Promise<VSSemanticsTokens> {
     const uri = params.textDocument.uri;
     if (!uri.startsWith("file://")) return { data: [] };
 
     const document = this.extension.documents.get(uri);
     if (!document) return { data: [] };
+
+    // TODO: context object
 
     let range: Range | undefined = undefined;
 

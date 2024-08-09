@@ -38,7 +38,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     //Was diagnostics code disabled
     if (this.project.attributes["diagnostic.disable." + code] === "true") return;
 
-    const Error: Diagnostic = {
+    const error: Diagnostic = {
       message: message,
       code: code,
       severity: getSeverity(severity),
@@ -47,16 +47,16 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     };
 
     if (typeof code === "number") {
-      Error.codeDescription = {
+      error.codeDescription = {
         href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/codes/main.md#${code}`,
       };
     } else {
-      Error.codeDescription = {
+      error.codeDescription = {
         href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, "/")}.md`,
       };
     }
 
-    this.items.push(Error);
+    this.items.push(error);
   }
 }
 

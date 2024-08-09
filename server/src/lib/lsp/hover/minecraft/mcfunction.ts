@@ -59,45 +59,45 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
  *
  * @param parameter
  * @param range
- * @param Text
+ * @param text
  * @returns
  */
 function GetHoverContent(
   context: Context<HoverContext>,
   parameter: ParameterInfo,
   range: Range,
-  Text: string,
+  text: string,
   additional: string
 ): Hover | undefined {
   const { database } = context;
 
   switch (parameter.type) {
     case ParameterType.block:
-      return getDocumentation(Text, range, database.ProjectData.behaviorPacks.blocks, additional);
+      return getDocumentation(text, range, database.ProjectData.behaviorPacks.blocks, additional);
 
     case ParameterType.entity:
-      return getDocumentation(Text, range, database.ProjectData.behaviorPacks.entities, additional);
+      return getDocumentation(text, range, database.ProjectData.behaviorPacks.entities, additional);
 
     case ParameterType.function:
-      return getDocumentation(Text, range, database.ProjectData.behaviorPacks.functions, additional);
+      return getDocumentation(text, range, database.ProjectData.behaviorPacks.functions, additional);
 
     case ParameterType.jsonRawText:
       return RawText.provideHover(range);
 
     case ParameterType.objective:
-      return getDocumentation(Text, range, database.ProjectData.general.objectives, additional);
+      return getDocumentation(text, range, database.ProjectData.general.objectives, additional);
 
     case ParameterType.particle:
-      return getDocumentation(Text, range, database.ProjectData.resourcePacks.particles, additional);
+      return getDocumentation(text, range, database.ProjectData.resourcePacks.particles, additional);
 
     case ParameterType.sound:
-      return getDocumentation(Text, range, database.ProjectData.resourcePacks.sounds, additional);
+      return getDocumentation(text, range, database.ProjectData.resourcePacks.sounds, additional);
 
     case ParameterType.tag:
-      return getDocumentation(Text, range, database.ProjectData.general.tags, additional);
+      return getDocumentation(text, range, database.ProjectData.general.tags, additional);
 
     case ParameterType.tickingarea:
-      return getDocumentation(Text, range, database.ProjectData.general.tickingAreas, additional);
+      return getDocumentation(text, range, database.ProjectData.general.tickingAreas, additional);
   }
 
   const title = parameter.text;
@@ -172,12 +172,12 @@ function GetString(type: ParameterType): string | undefined {
 function getDocumentation<T extends Identifiable & Locatable>(
   query: string,
   range: Range,
-  Collection: IDataSet<T>,
+  collection: IDataSet<T>,
   additional: string
 ): Hover | undefined {
   let out: Hover | undefined = undefined;
 
-  Collection.forEach((item) => {
+  collection.forEach((item) => {
     let doc: string;
     if (Documentated.is(item) && item.documentation) {
       doc = item.documentation;
