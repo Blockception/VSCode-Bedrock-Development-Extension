@@ -1,7 +1,7 @@
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { CancellationToken, InitializeParams, SignatureHelp, SignatureHelpParams } from "vscode-languageserver-protocol";
 import { IService } from "../services/service";

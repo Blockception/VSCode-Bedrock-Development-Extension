@@ -1,7 +1,8 @@
-import { Offset } from "../../../../util/offset";
+import { Offset } from "../../../../util";
 import { OffsetWord } from "bc-vscode-words";
 import { Position, SignatureHelp } from "vscode-languageserver";
 import { TextDocument } from "../../../documents/text-document";
+import { CreateMolangSetWords } from "../../../../minecraft/molang/words";
 
 import * as Contexts from "./contexts";
 import * as Geometry from "./geometries";
@@ -11,7 +12,6 @@ import * as Query from "./queries";
 import * as Temps from "./temps";
 import * as Textures from "./textures";
 import * as Variables from "./variables";
-import { CreateMolangSetWords } from "../../../../minecraft/molang/words";
 
 /**
  *

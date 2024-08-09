@@ -1,5 +1,5 @@
 import { ProgressToken, WorkDoneProgressReporter } from "vscode-languageserver";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 
 export class ProgressBar {
   private value: number;

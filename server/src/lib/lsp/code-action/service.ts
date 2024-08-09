@@ -13,7 +13,7 @@ import { CodeActionBuilder } from "./builder";
 import { CodeActionContext } from "./context";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { fuzzyMatch } from "./fuzzy";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";

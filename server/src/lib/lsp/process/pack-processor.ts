@@ -2,13 +2,12 @@ import { BaseService } from "../services/base";
 import { BehaviorPack, Pack } from "bc-minecraft-bedrock-project";
 import { CancellationToken } from "vscode-languageserver-protocol";
 import { DocumentProcessor } from "./document-processor";
-import { ExtensionContext } from "../extension/context";
-import { Fs, getBasename, getFilename } from "../../util";
+import { ExtensionContext } from "../extension";
+import { Fs, getBasename, getFilename, Processor } from "../../util";
 import { getProject } from "../../project/mcprojects";
 import { IExtendedLogger } from "../logger/logger";
 import { lstatSync } from "fs";
 import { MinecraftFormat } from "../../minecraft/format";
-import { Processor } from "../../util/processor";
 import { ProgressBar } from "../progress";
 
 export class PackProcessor extends BaseService {
@@ -30,13 +29,17 @@ export class PackProcessor extends BaseService {
     });
 
     const files = this.files(pack);
-    await Processor.forEach(files, (file) => {
-      reporter.sendMessage(getFilename(file));
-      const doc = this._documentProcessor.get(file);
-      if (doc === undefined) return;
+    await Processor.forEach(
+      files,
+      (file) => {
+        reporter.sendMessage(getFilename(file));
+        const doc = this._documentProcessor.get(file);
+        if (doc === undefined) return;
 
-      return this._documentProcessor.process(doc);
-    }, token);
+        return this._documentProcessor.process(doc);
+      },
+      token
+    );
 
     if (BehaviorPack.BehaviorPack.is(pack)) {
       this.logger.debug("checking structures");
@@ -70,12 +73,16 @@ export class PackProcessor extends BaseService {
     this.logger.info(`diagnosing pack: ${pack.folder}`);
     const files = this.files(pack);
 
-    return Processor.forEach(files, (file) => {
-      const doc = this._documentProcessor.get(file);
-      if (doc === undefined) return;
+    return Processor.forEach(
+      files,
+      (file) => {
+        const doc = this._documentProcessor.get(file);
+        if (doc === undefined) return;
 
-      return this._documentProcessor.diagnose(doc);
-    }, token);
+        return this._documentProcessor.diagnose(doc);
+      },
+      token
+    );
   }
 
   /**

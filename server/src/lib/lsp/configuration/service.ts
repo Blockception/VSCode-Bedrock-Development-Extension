@@ -1,17 +1,14 @@
 import { BulkRegistration, Connection } from "vscode-languageserver";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { IService } from "../services/service";
+import { Identification } from "@blockception/shared";
+import { Settings, ExtensionContext } from "../extension";
+import { getProject } from "../../project/mcprojects";
 import {
   DidChangeConfigurationNotification,
   DidChangeConfigurationParams,
-  InitializeParams,
 } from "vscode-languageserver-protocol";
-import { ExtensionContext } from "../extension/context";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { Identification } from "@blockception/shared";
-import { Settings } from "../extension/settings";
-import { getProject } from "../../project/mcprojects";
 
 export class ConfigurationService
   extends BaseService

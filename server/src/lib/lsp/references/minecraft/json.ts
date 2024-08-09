@@ -3,7 +3,7 @@ import { getCurrentElement } from "../../../minecraft/json/functions";
 import { IsMolang } from "../../../minecraft/molang/functions";
 import { OffsetWord } from "bc-vscode-words";
 import { ParameterType } from "bc-minecraft-bedrock-command";
-import { References } from "../../../util/references";
+import { References } from "../../../util";
 import { TextDocument } from "../../documents/text-document";
 import { ReferenceContext } from "../context";
 import { Context } from "../../context/context";

@@ -1,5 +1,5 @@
 import { RemoteConsole } from "vscode-languageserver";
-import { getFilename } from "../../util/file";
+import { getFilename } from "../../util";
 
 export type ILogger = Pick<RemoteConsole, "error" | "warn" | "info" | "log" | "debug">;
 export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger | "with" | "withPrefix" | "recordError">;

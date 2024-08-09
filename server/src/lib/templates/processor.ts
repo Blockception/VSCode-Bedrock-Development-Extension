@@ -2,10 +2,10 @@ import { FileBuilder } from "../files/file-builder";
 import { Fs, Vscode } from "../util";
 import { FunctionContext, TemplateFunctions } from "./functions";
 import { TemplateFallback } from "./fallback";
+import { IExtensionContext } from "../lsp/extension";
 
 import path from "path";
 import * as fs from "fs";
-import { IExtensionContext } from "../lsp/extension/context";
 
 export class TemplateProcessor {
   protected _filename: string;

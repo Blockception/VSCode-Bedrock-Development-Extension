@@ -2,10 +2,10 @@ import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { convertBehaviorPacks, convertResourcePack } from "./functions";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
-import { Kinds } from "../../constants/kinds";
+import { Kinds } from "../../constants";
 import { SymbolBuilder } from "./builder";
 import {
   CancellationToken,

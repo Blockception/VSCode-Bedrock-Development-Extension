@@ -2,7 +2,7 @@ import { DocumentUri, TextDocumentContentChangeEvent, TextDocumentsConfiguration
 import { TextDocument, WrappedTextDocument } from "./text-document";
 import { BaseService } from "../services/base";
 import { IExtendedLogger } from "../logger/logger";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 
 import * as vscode from "vscode-languageserver-textdocument";
 

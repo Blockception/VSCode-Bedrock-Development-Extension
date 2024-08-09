@@ -8,7 +8,7 @@ import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
 import { WorkspaceData } from "./workspace-data";
 import { WorkDoneProgressReporter } from "vscode-languageserver";
-import { Processor } from "../../util/processor";
+import { Processor } from "../../util";
 
 type BaseObject = Types.BaseObject;
 

@@ -4,7 +4,7 @@ import {
   FormattingOptions,
   TextEdit,
 } from "vscode-languageserver";
-import { Replace, TrimEndFromLine, TrimStartFromLine } from "../../util/text-edit";
+import { Replace, TrimEndFromLine, TrimStartFromLine } from "../../util";
 import { TextDocument } from "../documents/text-document";
 import { FormatContext } from "./context";
 import { Context } from "../context/context";

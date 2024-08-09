@@ -1,7 +1,7 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { IsEducationEnabled } from "../../../../../project/attributes";
 import { JsonPathCompletion } from "../../../builder/json-path";
-import { Kinds } from "../../../../../constants/kinds";
+import { Kinds } from "../../../../../constants";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { Context } from "../../../../context/context";
 import { CompletionContext } from "../../../context";

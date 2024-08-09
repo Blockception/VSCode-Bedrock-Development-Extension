@@ -1,4 +1,4 @@
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { ResourcePack, BehaviorPack } from "bc-minecraft-bedrock-project";
 import { CompletionContext } from '../../context';

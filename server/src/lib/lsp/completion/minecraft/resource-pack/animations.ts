@@ -2,10 +2,8 @@ import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifia
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
-import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../lsp/database/database";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { JsonPathCompletion } from "../../builder";
 
 export function provideCompletion(context: Context<CompletionContext>): void {

@@ -1,5 +1,5 @@
 import { OffsetWord } from "bc-vscode-words";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { GetCurrentAttribute } from "./attributes";
 import { IsEditingValue } from "./attribute-values";
 import { Boolean } from "../../general";

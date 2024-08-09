@@ -1,7 +1,6 @@
 
-import { CompletionBuilder, JsonPathCompletion } from "../../builder";
-import { Database } from "../../../../lsp/database";
-import { Kinds } from "../../../../constants/kinds";
+import { JsonPathCompletion } from "../../builder";
+import { Kinds } from "../../../../constants";
 import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
 

@@ -9,7 +9,7 @@ import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { ContentType } from "../documents/manager";
 import { DiagnoserService } from "../diagnostics/service";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { getFilename } from "../../util";
 import { Glob } from "../../files/glob";
 import { IExtendedLogger } from "../logger/logger";

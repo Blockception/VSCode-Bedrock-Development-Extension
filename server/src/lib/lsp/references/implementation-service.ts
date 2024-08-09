@@ -5,20 +5,18 @@ import {
   DefinitionLink,
   ImplementationParams,
   InitializeParams,
-  Location,
-  ReferenceParams,
 } from "vscode-languageserver-protocol";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
+import { ReferenceContext } from "./context";
+import { Context } from "../context/context";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";
-import { ReferenceContext } from "./context";
-import { Context } from "../context/context";
 
 export class ImplementationService extends BaseService implements Partial<IService> {
   name: string = "implementation";

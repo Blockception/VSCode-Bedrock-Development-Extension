@@ -2,7 +2,7 @@ import { BaseService } from "../services/base";
 import { Connection } from "vscode-languageserver";
 import { DeleteFilesParams, Diagnostic } from "vscode-languageserver-protocol";
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { getFilename } from "../../util";
 import { IExtendedLogger } from "../logger/logger";
 import { InternalContext } from "./context";

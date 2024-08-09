@@ -12,9 +12,9 @@ import {
   Connection,
 } from "vscode-languageserver";
 import { Fs, Vscode } from "../util";
+import { IExtendedLogger } from "../lsp/logger/logger";
 
 import * as fs from "fs";
-import { IExtendedLogger } from "../lsp/logger/logger";
 
 /**
  *

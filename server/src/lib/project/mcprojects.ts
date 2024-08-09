@@ -1,5 +1,5 @@
 import { MCProject } from "bc-minecraft-project";
-import { Settings } from "../lsp/extension/settings";
+import { Settings } from "../lsp/extension";
 
 /**
  *

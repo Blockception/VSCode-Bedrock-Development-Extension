@@ -1,6 +1,6 @@
 import FastGlob from "fast-glob";
 import pm from "picomatch";
-import { Fs, Vscode } from "../util/url";
+import { Fs, Vscode } from "../util";
 
 /**
  *

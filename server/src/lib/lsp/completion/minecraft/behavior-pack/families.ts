@@ -3,7 +3,7 @@ import { CompletionBuilder } from "../../builder/builder";
 import { Context } from "../../../context/context";
 import { GetPossibleEntityTypes } from "../../../../minecraft/commands";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {

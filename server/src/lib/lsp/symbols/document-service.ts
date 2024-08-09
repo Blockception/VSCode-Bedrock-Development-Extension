@@ -1,12 +1,12 @@
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
 import { getFilename, Vscode } from "../../util";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
-import { Kinds } from "../../constants/kinds";
+import { Kinds } from "../../constants";
 import { SymbolBuilder } from "./builder";
 import {
   CancellationToken,

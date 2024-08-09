@@ -3,9 +3,8 @@ import { MCProject } from "bc-minecraft-project";
 import { randomUUID } from "crypto";
 import { ToolIdentification } from "@blockception/shared";
 import { Fs, Vscode } from "../util";
-import { Database } from "../lsp/database";
-import { Version } from "../constants/version";
-import { IExtensionContext } from "../lsp/extension/context";
+import { Version } from "../constants";
+import { IExtensionContext } from "../lsp/extension";
 
 type ReplaceFunction = (...args: any[]) => string;
 

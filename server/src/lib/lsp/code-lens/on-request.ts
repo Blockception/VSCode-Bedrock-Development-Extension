@@ -1,4 +1,4 @@
-import { CancellationToken, CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";
+import { CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";
 import { CodeLensBuilder } from "./builder";
 import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Languages } from "@blockception/shared";
@@ -6,7 +6,7 @@ import { Types } from "bc-minecraft-bedrock-types";
 import { TextDocument } from "../documents";
 import { Context } from "../context/context";
 import { CodeLensContext } from "./context";
-import { Processor } from "../../util/processor";
+import { Processor } from "../../util";
 
 /**
  *

@@ -10,8 +10,8 @@ import {
   ApplyWorkspaceEditResult,
 } from "vscode-languageserver";
 import { Range } from "vscode-languageserver-types";
-import { Fs, Vscode } from "../../util/url";
-import { IExtensionContext } from "../extension/context";
+import { Fs, Vscode } from "../../util";
+import { IExtensionContext } from "../extension";
 
 import * as fs from "fs";
 

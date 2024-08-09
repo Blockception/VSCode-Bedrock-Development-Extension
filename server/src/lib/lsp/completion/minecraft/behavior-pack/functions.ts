@@ -1,5 +1,5 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
 

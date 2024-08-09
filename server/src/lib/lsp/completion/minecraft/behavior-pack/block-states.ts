@@ -5,7 +5,7 @@ import { Context } from '../../../context/context';
 import { GetPossibleBlockID } from "../../../../minecraft/commands";
 import { IsEditingValue } from "../selectors/attribute-values";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { Location } from "bc-minecraft-bedrock-types/lib/src/types";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang";

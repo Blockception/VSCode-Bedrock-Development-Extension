@@ -1,4 +1,4 @@
-import { Fs } from "../../util/url";
+import { Fs } from "../../util";
 import { IExtendedLogger } from "../logger/logger";
 
 import * as fs from "fs";

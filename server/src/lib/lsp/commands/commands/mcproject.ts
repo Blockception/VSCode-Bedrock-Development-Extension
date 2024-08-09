@@ -3,7 +3,7 @@ import { Context } from "../../context/context";
 import { CommandContext } from "../context";
 import { getWorkspace } from "../util";
 import { getProject } from "../../../project/mcprojects";
-import { Fs } from "../../../util/url";
+import { Fs } from "../../../util";
 
 export async function createMcProject(context: Context<CommandContext>) {
   const workspaceProcessor = getWorkspace(context);

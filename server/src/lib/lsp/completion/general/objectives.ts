@@ -2,7 +2,7 @@ import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/Ge
 import { getFilename } from "../../../util";
 import { CompletionContext } from "../context";
 import { Context } from "../../context/context";
-import { Kinds } from "../../../constants/kinds";
+import { Kinds } from "../../../constants";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;

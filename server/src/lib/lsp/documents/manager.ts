@@ -1,6 +1,6 @@
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { identifyDocument } from "./languageId";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
@@ -8,7 +8,7 @@ import { ProgressBar } from "../progress";
 import { readDocument } from "./io";
 import { TextDocument } from "./text-document";
 import { TextDocumentFactory } from "./factory";
-import { Vscode } from "../../util";
+import { Vscode, Processor } from "../../util";
 import {
   CancellationToken,
   Connection,
@@ -18,7 +18,7 @@ import {
 } from "vscode-languageserver";
 
 import * as vscode from "vscode-languageserver-textdocument";
-import { Processor } from "../../util/processor";
+
 
 export type ContentType = string | vscode.TextDocument | undefined;
 export interface IDocumentManager

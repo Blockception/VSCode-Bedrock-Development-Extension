@@ -1,4 +1,4 @@
-import { Kinds } from "../../../../../constants/kinds";
+import { Kinds } from "../../../../../constants";
 import { Context } from "../../../../context/context";
 import { CompletionContext } from "../../../context";
 

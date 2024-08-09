@@ -1,12 +1,5 @@
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import {
-  CancellationToken,
-  DefinitionParams,
-  InitializeParams,
-  Location,
-  ReferenceParams,
-} from "vscode-languageserver-protocol";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
@@ -14,6 +7,12 @@ import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
 import { Context } from "../context/context";
 import { ReferenceContext } from "./context";
+import {
+  CancellationToken,
+  DefinitionParams,
+  InitializeParams,
+  Location,
+} from "vscode-languageserver-protocol";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";

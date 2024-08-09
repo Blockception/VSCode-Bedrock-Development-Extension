@@ -4,7 +4,7 @@ import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
 import { CompletionBuilder } from "../../builder/builder";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { JsonPathCompletion } from "../../builder";
 
 import * as Molang from "../molang";

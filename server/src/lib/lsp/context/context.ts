@@ -1,4 +1,4 @@
-import { IExtensionContext } from "../extension/context";
+import { IExtensionContext } from "../extension";
 
 export type Context<T> = Readonly<T> & IExtensionContext;
 

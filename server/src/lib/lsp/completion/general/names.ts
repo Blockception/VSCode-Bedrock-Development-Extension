@@ -1,7 +1,7 @@
 
 import { CompletionContext } from "../context";
 import { Context } from "../../context/context";
-import { Kinds } from "../../../constants/kinds";
+import { Kinds } from "../../../constants";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const data = context.document.configuration();

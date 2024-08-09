@@ -5,7 +5,7 @@ import { getFolders, Folders, EnsureFolders } from "../../templates/folders";
 import { Context } from "../../context/context";
 import { CommandContext } from "../context";
 import { CommandManager } from "../manager";
-import { IExtensionContext } from "../../extension/context";
+import { IExtensionContext } from "../../extension";
 import { createCommand, mustExecute } from "./functions";
 
 import * as Language from "../../templates/language";

@@ -4,7 +4,7 @@ import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
 import { CompletionBuilder } from "../../builder/builder";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const packType = PackType.detect(context.document.uri);

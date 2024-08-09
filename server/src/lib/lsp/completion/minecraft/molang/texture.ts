@@ -1,8 +1,7 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
-import { CompletionBuilder } from "../../builder/builder";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 
 export function provideCompletion(context: Context<CompletionContext>, prefixed: boolean = false): void {
   const packType = PackType.detect(context.document.uri);

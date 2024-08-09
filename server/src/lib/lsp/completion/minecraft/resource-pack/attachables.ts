@@ -1,7 +1,5 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { CompletionBuilder } from "../../builder/builder";
-import { Database } from "../../../../lsp/database/database";
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { JsonPathCompletion } from "../../builder";
 import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';

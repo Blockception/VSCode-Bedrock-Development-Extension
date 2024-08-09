@@ -1,4 +1,4 @@
-import { Kinds } from "../../../../constants/kinds";
+import { Kinds } from "../../../../constants";
 import { JsonPathCompletion } from "../../builder";
 import { CompletionContext } from "../../context";
 import { Context } from "../../../context/context";

@@ -2,7 +2,7 @@ import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { MCProject } from "bc-minecraft-project";
 import { FunctionContext, TemplateFunctions } from "./functions";
 import { Manifest } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types";
-import { IExtensionContext } from "../lsp/extension/context";
+import { IExtensionContext } from "../lsp/extension";
 
 import path from "path";
 

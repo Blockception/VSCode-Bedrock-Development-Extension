@@ -8,16 +8,14 @@ import {
 } from "vscode-languageserver";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { PackProcessor } from "./pack-processor";
-import { ProgressBar } from "../progress";
 import { TextDocument } from "../documents/text-document";
-import { Processor } from "../../util/processor";
-import { Tokens } from "../../util/tokens";
+import { Processor, Tokens } from "../../util";
 
 export class WorkspaceProcessor extends BaseService implements Partial<IService> {
   name: string = "workspace processor";

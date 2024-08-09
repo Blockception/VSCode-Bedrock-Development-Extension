@@ -1,12 +1,13 @@
 import { BaseService } from "../services/base";
 import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CapabilityBuilder } from "../services/capabilities";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
 import { SemanticModifiers, SemanticTokens } from "./constants";
 import { provideJsonSemanticTokens } from "./minecraft/json";
+import { provideMolangSemanticTokens } from "./minecraft/molang";
 import {
   InitializeParams,
   SemanticTokens as VSSemanticsTokens,
@@ -18,7 +19,6 @@ import {
 } from "vscode-languageserver-protocol";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
-import { provideMolangSemanticTokens } from "./minecraft/molang";
 
 export class SemanticsServer extends BaseService implements Partial<IService> {
   name: string = "definitions";

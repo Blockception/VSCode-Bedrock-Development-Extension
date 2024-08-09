@@ -3,7 +3,7 @@ import { CompletionBuilder } from "../../../builder/builder";
 import { CommandCompletionContext, CompletionContext } from "../../../context";
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../../constants/kinds";
+import { Kinds } from "../../../../../constants";
 import { Context } from "../../../../context/context";
 
 /**

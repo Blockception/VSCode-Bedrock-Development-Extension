@@ -3,14 +3,12 @@ import {
   DocumentFormattingParams,
   DocumentFormattingRequest,
   DocumentRangeFormattingParams,
-  InitializeParams,
   TextEdit,
 } from "vscode-languageserver-protocol";
 import { BaseService } from "../services/base";
 import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CapabilityBuilder } from "../services/capabilities";
 import { Context } from "../context/context";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { FormatContext } from "./context";
 import { formatLangauge, formatLangaugeRange } from "./language";
 import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";

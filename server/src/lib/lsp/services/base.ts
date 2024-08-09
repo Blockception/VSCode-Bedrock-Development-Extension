@@ -1,7 +1,7 @@
 import { Disposable } from "vscode-languageserver";
 import { IService } from "./service";
 import { IExtendedLogger } from "../logger/logger";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 
 /**
  * The class that holds the base information most service will use

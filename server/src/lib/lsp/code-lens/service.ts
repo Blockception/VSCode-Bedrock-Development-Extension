@@ -4,7 +4,7 @@ import { CapabilityBuilder } from "../services/capabilities";
 import { CodeLensContext } from "./context";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
-import { ExtensionContext } from "../extension/context";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { internalRequest } from "./on-request";
