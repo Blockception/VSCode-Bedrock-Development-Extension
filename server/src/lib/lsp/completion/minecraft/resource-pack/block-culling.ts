@@ -1,24 +1,26 @@
-import { SimpleContext } from "../../../../util";
+
 import { CompletionBuilder, JsonPathCompletion } from "../../builder";
 import { Database } from "../../../../lsp/database";
 import { Kinds } from "../../../../constants/kinds";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-  builder.generate(context.projectData.ResourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
+  builder.generate(context.database.ProjectData.resourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
 }
 
-export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideJsonCompletion(context: Context<CompletionContext>): void {
   return blockCullingRPJsonCompletion.onCompletion(context);
 }
 
 const blockCullingRPJsonCompletion = new JsonPathCompletion({
   match: (item) => item.endsWith("/bone"),
-  onCompletion: (context: SimpleContext<CompletionBuilder>) => {
+  onCompletion: (context: Context<CompletionContext>) => {
     const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-    context.projectData.ResourcePacks.models.forEach((model) => {
+    context.database.ProjectData.resourcePacks.models.forEach((model) => {
       builder.generate(model.bones, () => `Bone defined by ${model.id}`);
     });
   },

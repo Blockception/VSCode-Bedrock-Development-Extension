@@ -8,7 +8,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
     case "resourcepack.animation.missing":
     case "resourcepack.anim_or_controller.missing":
       const id = builder.getId(diag.range);
-      builder.Command(`Create rp animation: '${id}'`, Commands.Create.Resourcepack.Animation, [id]);
+      builder.command(`Create rp animation: '${id}'`, Commands.Create.Resourcepack.Animation, [id]);
       return;
   }
 }

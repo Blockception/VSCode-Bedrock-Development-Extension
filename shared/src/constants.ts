@@ -123,7 +123,7 @@ export namespace Commands {
       /**The command to create animations files */
       export const Blocks: string = RPBase + "blocks";
       /**The command to create block_culling rule files */
-      export const BlockCulling : string = RPBase + "block_culling";
+      export const BlockCulling: string = RPBase + "block_culling";
       /**The command to create entities files */
       export const Entity: string = RPBase + "entity";
       /**The command to create flipbook_textures files */

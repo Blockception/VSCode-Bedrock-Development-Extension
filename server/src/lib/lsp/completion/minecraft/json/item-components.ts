@@ -1,6 +1,6 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { SimpleContext } from "../../../../util";
-import { CompletionBuilder } from "../../builder/builder";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 import {
   CanDestroyComponent,
   CanPlaceOnComponent,
@@ -10,7 +10,7 @@ import {
   LockInSlotComponent,
 } from "../../../../minecraft/json/item-components/constants";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: CompletionItemKind.Snippet });
 
   builder.add({

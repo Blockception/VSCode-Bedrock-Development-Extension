@@ -1,6 +1,8 @@
-import { SimpleContext } from '../../../util';
-import { CompletionBuilder } from '../builder';
 
-export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+
+import { CompletionContext } from "../context";
+import { Context } from "../../context/context";
+
+export function provideJsonCompletion(context: Context<CompletionContext>): void {
 
 }

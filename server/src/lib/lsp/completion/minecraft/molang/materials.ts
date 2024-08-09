@@ -1,12 +1,13 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { ResourcePack, BehaviorPack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
-import { SimpleContext } from "../../../../util/simple-context";
+import { CompletionContext } from '../../context';
+import { Context } from '../../../context/context';
 import { CompletionBuilder } from "../../builder/builder";
 import { Kinds } from "../../../../constants/kinds";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const packType = PackType.detect(context.doc.uri);
+export function provideCompletion(context: Context<CompletionContext>): void {
+  const packType = PackType.detect(context.document.uri);
 
   switch (packType) {
     case PackType.behavior_pack:
@@ -18,10 +19,10 @@ export function provideCompletion(context: SimpleContext<CompletionBuilder>): vo
 }
 
 export function provideResourcePackCompletion(
-  context: SimpleContext<CompletionBuilder>,
+  context: Context<CompletionContext>,
   prefixed: boolean = false
 ): void {
-  const fileType = ResourcePack.FileType.detect(context.doc.uri);
+  const fileType = ResourcePack.FileType.detect(context.document.uri);
 
   switch (fileType) {
     case ResourcePack.FileType.item:
@@ -34,7 +35,7 @@ export function provideResourcePackCompletion(
     case ResourcePack.FileType.animation_controller:
     case ResourcePack.FileType.render_controller:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Materials });
-      context.projectData.ResourcePacks.entities.forEach((entity) => {
+      context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
         entity.molang.materials.defined.forEach((item) => {
           const label = prefixed ? `Material.${item}` : item;
           builder.add({
@@ -47,8 +48,8 @@ export function provideResourcePackCompletion(
   }
 }
 
-export function provideBehaviorPackCompletion(context: SimpleContext<CompletionBuilder>): void {
-  const fileType = BehaviorPack.FileType.detect(context.doc.uri);
+export function provideBehaviorPackCompletion(context: Context<CompletionContext>): void {
+  const fileType = BehaviorPack.FileType.detect(context.document.uri);
 
   switch (fileType) {
     case BehaviorPack.FileType.block:
@@ -58,11 +59,11 @@ export function provideBehaviorPackCompletion(context: SimpleContext<CompletionB
   }
 }
 
-function provideMaterials(context: SimpleContext<CompletionBuilder>) {
+function provideMaterials(context: Context<CompletionContext>) {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Materials });
 
   const gen = (item: ResourcePack.Material.Material) => `The material: ${item}\nDeclared in: ${item.location.uri}`;
 
-  builder.generate(context.projectData.ResourcePacks.materials, gen);
+  builder.generate(context.database.ProjectData.resourcePacks.materials, gen);
   builder.generate(Vanilla.ResourcePack.Materials, (item) => `The vanilla material: ${item}`);
 }

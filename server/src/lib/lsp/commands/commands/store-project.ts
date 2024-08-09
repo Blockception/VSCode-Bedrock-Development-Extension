@@ -1,62 +1,52 @@
-import { Database } from "../../../lsp/database/database";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { Fs } from "../../../util/url";
-import { HandleError } from "../../../util/error";
-import { MCProject } from "bc-minecraft-project";
-import { Pack } from "bc-minecraft-bedrock-project";
-import { Workspace } from "../../workspace/workspace";
-import { WorkspaceFolder } from "vscode-languageserver-protocol";
+import { getWorkspace } from "../util";
+import { CommandContext } from "../context";
+import { Context } from "../../context/context";
+import { IExtendedLogger } from "../../logger/logger";
 
 import path from "path";
 
-export function StoreProject() {
-  Workspace.GetWorkSpaces().then(Store);
-}
+export async function storeProject(context: Context<CommandContext>) {
+  const { logger, database } = context;
+  const workspaceProcessor = getWorkspace(context);
+  const ws = await workspaceProcessor.get();
+  if (ws === undefined || ws === null) {
+    throw new Error("couldn't find workspaces");
+  }
 
-function Store(value: WorkspaceFolder[]) {
-  const folder = Fs.FromVscode(value[0].uri);
-
+  const folder = Fs.FromVscode(ws[0].uri);
   const outputfolder = path.join(folder, ".minecraft");
 
   if (!existsSync(outputfolder)) mkdirSync(outputfolder);
 
-  let count = 0;
-  let generate: (pack: Pack | WorkspaceFolder | MCProject) => void = (pack: Pack | WorkspaceFolder | MCProject) => {
-    ConvertStore(path.join(outputfolder, `bp_pack_${count++}.json`), pack);
-  };
-
-  Database.ProjectData.BehaviorPacks.packs.forEach(generate);
-
-  count = 0;
-  generate = (pack: Pack | WorkspaceFolder | MCProject) => {
-    ConvertStore(path.join(outputfolder, `rp_pack_${count++}.json`), pack);
-  };
-
-  Database.ProjectData.ResourcePacks.packs.forEach(generate);
-
-  ConvertStore(path.join(outputfolder, `general.json`), Database.ProjectData.General);
-
-  count = 0;
-  generate = (pack: Pack | WorkspaceFolder | MCProject) => {
-    ConvertStore(path.join(outputfolder, `workspace_${count++}.json`), pack);
-  };
-
-  Database.WorkspaceData.forEach(generate);
+  database.ProjectData.behaviorPacks.packs.forEach(createGenerator(logger, "bp_pack", outputfolder));
+  database.ProjectData.resourcePacks.packs.forEach(createGenerator(logger, "rp_pack", outputfolder));
+  database.WorkspaceData.forEach(createGenerator(logger, "workspace", outputfolder));
+  database.ProjectData.general.forEach(createGenerator(logger, "general", outputfolder));
 }
 
-function ConvertStore(filepath: string, data: any): void {
+function createGenerator<T>(logger: IExtendedLogger, type: string, outputfolder: string) {
+  let count = 0;
+
+  return function (data: T) {
+    const filepath = path.join(outputfolder, `${type}_${count++}.json`);
+    convertStore(logger, filepath, data);
+  };
+}
+
+function convertStore(logger: IExtendedLogger, filepath: string, data: any): void {
   const temp: Record<string, any> = {};
 
-  Convert(data, temp);
-  StoreObject(filepath, temp);
+  convert(data, temp);
+  StoreObject(logger, filepath, temp);
 }
 
-function Convert(data: any, receiver: Record<string, any>) {
+function convert(data: any, receiver: Record<string, any>) {
   const names = Object.getOwnPropertyNames(data);
 
   for (let I = 0; I < names.length; I++) {
     const name = names[I];
-
     const value = data[name];
 
     if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
@@ -73,11 +63,11 @@ function Convert(data: any, receiver: Record<string, any>) {
   }
 }
 
-function StoreObject(path: string, data: any): void {
+function StoreObject(logger: IExtendedLogger, path: string, data: any): void {
   try {
     const content = JSON.stringify(data);
     writeFileSync(path, content);
   } catch (err) {
-    HandleError(err);
+    logger.recordError(err);
   }
 }

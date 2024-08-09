@@ -20,8 +20,8 @@ export class McfunctionSemanticTokensBuilder extends BaseSemanticTokensBuilder {
    * @returns
    */
   static FromJson(Builder: JsonSemanticTokensBuilder): McfunctionSemanticTokensBuilder {
-    const Out = new McfunctionSemanticTokensBuilder(Builder.doc);
-    Out.Builder = Builder.Builder;
+    const Out = new McfunctionSemanticTokensBuilder(Builder.document);
+    Out.builder = Builder.builder;
 
     return Out;
   }

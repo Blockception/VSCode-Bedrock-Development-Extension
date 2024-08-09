@@ -1,37 +1,38 @@
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { CompletionBuilder } from "../../../builder/builder";
-import { CommandCompletionContext } from "../../../builder/context";
-import { Database } from "../../../../database/database";
+import { CommandCompletionContext, CompletionContext } from "../../../context";
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
-import { SimpleContext } from "../../../../../util/simple-context";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from '../../../../../constants/kinds';
+import { Kinds } from "../../../../../constants/kinds";
+import { Context } from "../../../../context/context";
 
 /**
  *
  * @param context
  * @returns
  */
-export function provideCompletion(context: CommandCompletionContext | SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CommandCompletionContext> | Context<CompletionContext>): void {
+  const { builder, database } = context;
+
   if (CommandCompletionContext.is(context)) {
     const parameters = context.bestMatch.parameters;
     const Index = parameters.findIndex((p) => p.type === ParameterType.entity);
 
     if (Index >= 0) {
       const EntityID = parameters[Index].text;
-      const Entity = context.projectData.BehaviorPacks.entities.get(EntityID);
+      const Entity = database.ProjectData.behaviorPacks.entities.get(EntityID);
 
       if (Entity) {
-        Convert(Entity, context.builder);
+        Convert(Entity, builder);
         return;
       }
     }
   }
 
-  context.projectData.BehaviorPacks.entities.forEach((entity) => Convert(entity, context.builder));
+  database.ProjectData.behaviorPacks.entities.forEach((entity) => Convert(entity, builder));
 
   const generateDoc = (item: string) => `The vanilla entity event: ${item}`;
-  context.builder.generate(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
+  builder.generate(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
 }
 
 /**

@@ -1,19 +1,19 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { SimpleContext } from "../../../../util/simple-context";
-import { CompletionBuilder } from "../../builder/builder";
 import { Kinds } from "../../../../constants/kinds";
 import { JsonPathCompletion } from "../../builder";
+import { CompletionContext } from "../../context";
+import { Context } from "../../../context/context";
+
 import * as Animations from "./animations";
 
-export function provideCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   context.builder.generate(
-    context.projectData.BehaviorPacks.animation_controllers,
-    (item: Identifiable) => `The bp animation controller: ${item.id}`,
+    context.database.ProjectData.behaviorPacks.animation_controllers,
+    (item) => `The bp animation controller: ${item.id}`,
     Kinds.Completion.AnimationControllers
   );
 }
 
-export function provideJsonCompletion(context: SimpleContext<CompletionBuilder>): void {
+export function provideJsonCompletion(context: Context<CompletionContext>): void {
   return acBPJsonCompletion.onCompletion(context);
 }
 

@@ -1,6 +1,6 @@
 import { Types } from "bc-minecraft-bedrock-types";
 import { Position } from "bc-minecraft-bedrock-types/lib/src/types/position";
-import { Range, SymbolInformation, SymbolKind } from "vscode-languageserver";
+import { CancellationToken, Range, SymbolInformation, SymbolKind } from "vscode-languageserver";
 
 type forEachCarrier<T> = { forEach: (callbackfn: (value: T) => void, thisArg?: any) => void };
 
@@ -10,8 +10,10 @@ export class SymbolBuilder {
   public kind: SymbolKind;
   public containerName: string | undefined;
   private range: Range;
+  private token: CancellationToken;
 
-  constructor(query: string | undefined = undefined) {
+  constructor(query: string | undefined = undefined, token: CancellationToken) {
+    this.token = token;
     if (query === "") query = undefined;
 
     this.query = query;
@@ -26,16 +28,20 @@ export class SymbolBuilder {
   }
 
   new(name: string, kind?: SymbolKind, range?: Range, uri?: string, containerName?: string): SymbolInformation {
-    const item = SymbolInformation.create(name, kind ?? this.kind, range ?? this.range, uri ?? "", containerName ?? this.containerName);
+    const item = SymbolInformation.create(
+      name,
+      kind ?? this.kind,
+      range ?? this.range,
+      uri ?? "",
+      containerName ?? this.containerName
+    );
 
     this.items.push(item);
     return item;
   }
 
   add(item: Types.BaseObject): SymbolInformation | undefined {
-    if (this.query) {
-      if (!item.id.includes(this.query)) return undefined;
-    }
+    if (this.query && !item.id.includes(this.query)) return undefined;
 
     let range: Range = this.range;
     const p = item.location.position;
@@ -47,8 +53,12 @@ export class SymbolBuilder {
   }
 
   generate<T extends Types.BaseObject>(data: forEachCarrier<T>, kind: SymbolKind): void {
+    if (this.token.isCancellationRequested) return;
     this.kind = kind;
 
-    data.forEach(this.add, this);
+    data.forEach((item) => {
+      if (this.token.isCancellationRequested) return;
+      this.add(item);
+    });
   }
 }

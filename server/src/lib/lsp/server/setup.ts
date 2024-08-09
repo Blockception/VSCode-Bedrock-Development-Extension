@@ -1,68 +1,120 @@
-import { BulkRegistration, createConnection, ProposedFeatures } from "vscode-languageserver/node";
-import { Manager } from "../../manager/manager";
-import { setupHandlers } from "./events/setup-handlers";
-import { onInitialize } from "./events/on-initialize";
+import { BulkRegistration, createConnection, InitializeResult, ProposedFeatures } from "vscode-languageserver/node";
 import { ServiceManager } from "../services/collection";
-import { Traverse } from "../process";
-import { HandleError } from "../../util";
-import { SetDynamicEvents } from "./events";
 import { ExtendedLogger } from "../logger/logger";
-import { updateSettings } from "./events/on-configuration";
 import { ExtensionContext } from "../extension/context";
 import { CapabilityBuilder } from "../services/capabilities";
-import { CompletionService } from '../completion/service';
+import { CompletionService } from "../completion/service";
+import { DocumentManager, IDocumentManager } from "../documents/manager";
+import { DocumentProcessor } from "../process/document-processor";
+import { WorkspaceProcessor } from "../process/workspace-processor";
+import { PackProcessor } from "../process/pack-processor";
+import { DiagnoserService } from "../diagnostics/service";
+import { Database } from "../database/database";
+import { FormatService } from "../format/service";
+import { CodeActionService } from "../code-action/service";
+import { CodeLensService } from "../code-lens/service";
+import { ConfigurationService } from "../configuration/service";
+import { Version } from "../../constants/version";
+import { CommandService } from "../commands/service";
+import { ReferenceService } from "../references/references-service";
+import { DefinitionService } from "../references/definitions-service";
+import { TypeDefinitionService } from "../references/type-definitions-service";
+import { ImplementationService } from "../references/implementation-service";
+import { SemanticsServer } from "../semantics/semantics";
+import { SignatureService } from "../signatures/service";
+import { DocumentSymbolService } from "../symbols/document-service";
+import { WorkspaceSymbolService } from "../symbols/workspace-service";
 
 export function setupServer() {
   // Create a connection for the server, using Node's IPC as a transport.
   // Also include all preview / proposed LSP features.
   const connection = createConnection(ProposedFeatures.all);
-  Manager.Connection = connection;
 
   const logger = new ExtendedLogger(connection.console);
-  const extensionContext = new ExtensionContext();
   const manager = new ServiceManager(logger);
-  manager.add(
-    new CompletionService(logger, extensionContext)
-  )
+  const extension = new ExtensionContext(connection, manager, logger, {} as IDocumentManager, {} as Database);
+  const documents = new DocumentManager(logger, extension);
+  const database = new Database(logger, documents);
+  extension.documents = documents;
+  extension.database = database;
+
+  const diagnoserService = new DiagnoserService(logger, extension, documents);
+  const documentProcessor = new DocumentProcessor(logger, extension, diagnoserService);
+  const packProcessor = new PackProcessor(logger, extension, documentProcessor);
+  const workspaceProcessor = new WorkspaceProcessor(logger, extension, packProcessor);
+
+  manager
+    // Essentials
+    .add(new ConfigurationService(logger, extension), documents, database)
+    // Non Essentials
+    .add(
+      diagnoserService,
+      documentProcessor,
+      packProcessor,
+      workspaceProcessor,
+      new CodeActionService(logger, extension),
+      new CodeLensService(logger, extension),
+      new CommandService(logger, extension),
+      new CompletionService(logger, extension),
+      new DefinitionService(logger, extension),
+      new DocumentSymbolService(logger, extension),
+      new FormatService(logger, extension),
+      new ImplementationService(logger, extension),
+      new ReferenceService(logger, extension),
+      new SemanticsServer(logger, extension),
+      new SignatureService(logger, extension),
+      new TypeDefinitionService(logger, extension),
+      new WorkspaceSymbolService(logger, extension)
+    );
 
   logger.info("starting minecraft server");
-  setupHandlers();
-
-  // On shutdown handler
-  connection.onShutdown(() => {
-    logger.info("Shutting down server");
-    manager.dispose();
-  });
 
   //Initialize
-  connection.onInitialize((params) => {
-    const result = onInitialize(params);
+  connection.onInitialize((params, token, workDoneProgress) => {
+    workDoneProgress.begin("initializing", 0);
+
+    logger.info("Initializing minecraft server", { version: Version });
+    const result: InitializeResult = {
+      serverInfo: {
+        name: "bc-minecraft-language-server",
+        version: Version,
+      },
+      capabilities: {},
+    };
     const builder = new CapabilityBuilder(result.capabilities);
-    manager.onInitialize(builder, params, connection);
+
+    extension.parseClientCapabilities(params.capabilities);
+    manager.onInitialize(builder, params, token, workDoneProgress);
+
     result.capabilities = builder.result();
+
+    workDoneProgress.done();
     return result;
   });
 
   // This handler provides diagnostics
   connection.onInitialized(async (params) => {
-    logger.info("Initialized minecraft server");
-
-    //Update the settings of the language server
-    updateSettings();
+    logger.info("Initialized minecraft server", { version: Version });
+    manager.setupHandlers(connection);
 
     //Registers any follow ups
     const register = BulkRegistration.create();
-    SetDynamicEvents(register);
     manager.dynamicRegister(register);
     await connection.client.register(register);
 
-    manager.start();
-
-    return Traverse().catch((err) => HandleError(err));
+    return manager.start();
   });
 
-  //Initialize server
-  Manager.Documents.listen(connection);
+  // On shutdown handler
+  connection.onShutdown(() => {
+    logger.info("Shutting down server");
+    manager.stop();
+  });
+
+  connection.onExit(() => {
+    logger.info("exiting server");
+    manager.dispose();
+  });
 
   // Listen on the connection
   connection.listen();

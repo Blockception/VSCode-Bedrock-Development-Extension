@@ -1,53 +1,52 @@
 import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
+import { Context } from "../../context/context";
 import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/types";
-import { HoverParams, Hover, Range } from "vscode-languageserver";
+import { Hover, Range } from "vscode-languageserver";
+import { HoverContext } from "../context";
 import { IDataSet } from "bc-minecraft-bedrock-project";
-import { TextDocument } from "../../documents/text-document";
 import { IsEducationEnabled } from "../../../project/attributes";
-import { Database } from "../../../lsp/database/database";
 
-import * as RawText from "./json/raw-text";
+import * as RawText from "./json-raw-text";
 
-/**
- *
- * @param params
- * @param doc
- * @returns
- */
-export function provideHover(params: HoverParams, doc: TextDocument): Hover | undefined {
-  const cursor = doc.offsetAt(params.position);
+export function provideHover(context: Context<HoverContext>): Hover | undefined {
+  const { params, document } = context;
+
+  const cursor = document.offsetAt(params.position);
   const LineIndex = params.position.line;
-  const Line = doc.getLine(LineIndex);
-  const offset = doc.offsetAt({ character: 0, line: LineIndex });
-  const Edu = IsEducationEnabled(doc);
+  const Line = document.getLine(LineIndex);
+  const offset = document.offsetAt({ character: 0, line: LineIndex });
+  const Edu = IsEducationEnabled(document);
 
   let command: Command = Command.parse(Line, offset);
-  let Sub = command.isInSubCommand(cursor, Edu);
+  let subCommand = command.isInSubCommand(cursor, Edu);
 
-  while (Sub) {
-    command = Sub;
-    Sub = Sub.isInSubCommand(cursor, Edu);
+  while (subCommand) {
+    command = subCommand;
+    subCommand = subCommand.isInSubCommand(cursor, Edu);
   }
 
-  const Data = command.getBestMatch(Edu);
+  const data = command.getBestMatch(Edu);
 
-  if (Data.length >= 1) {
-    const Info = Data[0];
-    const parameters = Info.parameters;
-    const Index = command.findCursorIndex(cursor);
+  if (data.length >= 1) {
+    const info = data[0];
+    const parameters = info.parameters;
+    const index = command.findCursorIndex(cursor);
 
-    if (parameters.length > Index) {
-      const p = parameters[Index];
-      const T = command.parameters[Index];
+    if (parameters.length > index) {
+      const parameterInfo = parameters[index];
+      const parameter = command.parameters[index];
 
-      if (T) {
-        const pdoc = ParameterTypeDocumentation[p.type] ?? "";
-        const r = Range.create(doc.positionAt(T.offset), doc.positionAt(T.offset + T.text.length));
+      if (parameter) {
+        const pdoc = ParameterTypeDocumentation[parameterInfo.type] ?? "";
+        const r = Range.create(
+          document.positionAt(parameter.offset),
+          document.positionAt(parameter.offset + parameter.text.length)
+        );
 
-        if (Index == 0) {
-          return { contents: `## ${Info.name}\n${Info.documentation}\n${pdoc}`, range: r };
+        if (index == 0) {
+          return { contents: `## ${info.name}\n${info.documentation}\n${pdoc}`, range: r };
         } else {
-          return GetHoverContent(p, r, T.text, pdoc);
+          return GetHoverContent(context, parameterInfo, r, parameter.text, pdoc);
         }
       }
     }
@@ -63,34 +62,42 @@ export function provideHover(params: HoverParams, doc: TextDocument): Hover | un
  * @param Text
  * @returns
  */
-function GetHoverContent(parameter: ParameterInfo, range: Range, Text: string, additional: string): Hover | undefined {
+function GetHoverContent(
+  context: Context<HoverContext>,
+  parameter: ParameterInfo,
+  range: Range,
+  Text: string,
+  additional: string
+): Hover | undefined {
+  const { database } = context;
+
   switch (parameter.type) {
     case ParameterType.block:
-      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.blocks, additional);
+      return getDocumentation(Text, range, database.ProjectData.behaviorPacks.blocks, additional);
 
     case ParameterType.entity:
-      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.entities, additional);
+      return getDocumentation(Text, range, database.ProjectData.behaviorPacks.entities, additional);
 
     case ParameterType.function:
-      return GetDocumentation(Text, range, Database.ProjectData.BehaviorPacks.functions, additional);
+      return getDocumentation(Text, range, database.ProjectData.behaviorPacks.functions, additional);
 
     case ParameterType.jsonRawText:
       return RawText.provideHover(range);
 
     case ParameterType.objective:
-      return GetDocumentation(Text, range, Database.ProjectData.General.objectives, additional);
+      return getDocumentation(Text, range, database.ProjectData.general.objectives, additional);
 
     case ParameterType.particle:
-      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.particles, additional);
+      return getDocumentation(Text, range, database.ProjectData.resourcePacks.particles, additional);
 
     case ParameterType.sound:
-      return GetDocumentation(Text, range, Database.ProjectData.ResourcePacks.sounds, additional);
+      return getDocumentation(Text, range, database.ProjectData.resourcePacks.sounds, additional);
 
     case ParameterType.tag:
-      return GetDocumentation(Text, range, Database.ProjectData.General.tags, additional);
+      return getDocumentation(Text, range, database.ProjectData.general.tags, additional);
 
     case ParameterType.tickingarea:
-      return GetDocumentation(Text, range, Database.ProjectData.General.tickingAreas, additional);
+      return getDocumentation(Text, range, database.ProjectData.general.tickingAreas, additional);
   }
 
   const title = parameter.text;
@@ -162,7 +169,7 @@ function GetString(type: ParameterType): string | undefined {
   return undefined;
 }
 
-function GetDocumentation<T extends Identifiable & Locatable>(
+function getDocumentation<T extends Identifiable & Locatable>(
   query: string,
   range: Range,
   Collection: IDataSet<T>,

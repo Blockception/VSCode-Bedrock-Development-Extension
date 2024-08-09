@@ -10,6 +10,9 @@
         "isDefault": true
       },
       "label": "npm watch 'vscode-plugin'",
+      "icon": {
+        "id": "gear"
+      }, 
       "presentation": { "reveal": "always", "panel": "dedicated" },
       "problemMatcher": ["$tsc-watch"]
     },

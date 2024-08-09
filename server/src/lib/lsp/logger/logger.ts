@@ -1,7 +1,8 @@
 import { RemoteConsole } from "vscode-languageserver";
+import { getFilename } from "../../util/file";
 
 export type ILogger = Pick<RemoteConsole, "error" | "warn" | "info" | "log" | "debug">;
-export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger | "with" | "withPrefix">;
+export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger | "with" | "withPrefix" | "recordError">;
 
 export class ExtendedLogger implements IExtendedLogger {
   private logger: ILogger;
@@ -19,7 +20,7 @@ export class ExtendedLogger implements IExtendedLogger {
       typeof m === "object" ? JSON.stringify(m, undefined, 2) : `${m}`
     );
 
-    return `${this.prefix} ${base} ${messages.join(" ")}`;
+    return `${this.prefix} ${base} ${messages.join(" ")}`.trim();
   }
 
   /**
@@ -83,5 +84,36 @@ export class ExtendedLogger implements IExtendedLogger {
    */
   with(...additionals: any): IExtendedLogger {
     return new ExtendedLogger(this.logger, this.prefix, [...this.additionals, ...additionals]);
+  }
+
+  recordError(err: any, doc?: { uri: string } | string): void {
+    let msg: string;
+
+    if (errormsg.is(err)) {
+      msg = `message: ${err.message}\n\tstack:${err.stack}`;
+    } else {
+      msg = JSON.stringify(err);
+    }
+
+    if (doc) {
+      msg = getFilename(typeof doc === "object" ? doc.uri : doc) + " | " + msg;
+    }
+
+    this.error(msg);
+  }
+}
+
+interface errormsg {
+  message: string;
+  stack: string;
+}
+
+namespace errormsg {
+  export function is(value: any): value is errormsg {
+    if (typeof value === "object") {
+      if (typeof value.message === "string" && typeof value.stack === "string") return true;
+    }
+
+    return false;
   }
 }

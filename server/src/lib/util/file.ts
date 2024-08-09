@@ -1,23 +1,16 @@
+import path from "path";
+
 /**
  *
  * @param filepath
  * @returns
  */
-export function GetFilename(filepath: string): string {
-  filepath = filepath.replace(/\\/g, "/");
-  let index = filepath.lastIndexOf("/");
+export function getFilename(filepath: string): string {
+  const filename = path.basename(filepath);
+  const extension = path.extname(filename);
+  const result = filename.slice(0, filename.length - extension.length);
 
-  if (index > -1) {
-    filepath = filepath.substring(index + 1, filepath.length);
-  }
-
-  index = filepath.lastIndexOf(".");
-
-  if (index > -1) {
-    filepath = filepath.substring(0, index);
-  }
-
-  return filepath.trim();
+  return result.trim();
 }
 
 /**
@@ -25,7 +18,16 @@ export function GetFilename(filepath: string): string {
  * @param filepath
  * @returns
  */
-export function GetDirectory(filepath: string): string {
+export function getBasename(filepath: string): string {
+  return path.basename(filepath).trim();
+}
+
+/**
+ *
+ * @param filepath
+ * @returns
+ */
+export function getDirectory(filepath: string): string {
   filepath = filepath.replace(/\\/g, "/");
   let index = filepath.lastIndexOf("/");
 

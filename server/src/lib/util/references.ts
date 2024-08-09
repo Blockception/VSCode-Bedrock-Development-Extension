@@ -1,7 +1,7 @@
 import { Types } from "bc-minecraft-bedrock-types";
 import { DocumentLocation } from "bc-minecraft-bedrock-types/lib/src/types";
 import { Location } from "vscode-languageserver-types";
-import { GetDocument } from "../lsp/documents/document";
+import { IDocumentManager } from "../lsp/documents/manager";
 
 export namespace References {
   /**
@@ -10,7 +10,10 @@ export namespace References {
    * @param receiver
    * @returns
    */
-  export function ConvertLocation(items: ((Types.Locatable & Types.Identifiable) | Location | undefined)[]): Location[] {
+  export function ConvertLocation(
+    items: ((Types.Locatable & Types.Identifiable) | Location | undefined)[],
+    documents: IDocumentManager
+  ): Location[] {
     let receiver: Location[] = [];
 
     for (let I = 0; I < items.length; I++) {
@@ -22,12 +25,11 @@ export namespace References {
         continue;
       }
 
-      const doc = GetDocument(item.location.uri);
+      const document = documents.get(item.location.uri);
+      if (!document) continue;
 
-      if (!doc) continue;
-
-      const range = DocumentLocation.ToRange(item.location.position, doc, item.id.length);
-      receiver.push(Location.create(doc.uri, range));
+      const range = DocumentLocation.ToRange(item.location.position, document, item.id.length);
+      receiver.push(Location.create(document.uri, range));
     }
 
     return receiver;
