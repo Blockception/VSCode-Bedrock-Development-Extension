@@ -71,6 +71,8 @@ export function setupServer() {
 
   //Initialize
   connection.onInitialize((params, token, workDoneProgress) => {
+    workDoneProgress.begin("initializing", 0);
+
     logger.info("Initializing minecraft server", { version: Version });
     const result: InitializeResult = {
       serverInfo: {
@@ -82,9 +84,11 @@ export function setupServer() {
     const builder = new CapabilityBuilder(result.capabilities);
 
     extension.parseClientCapabilities(params.capabilities);
-    manager.onInitialize(builder, params);
+    manager.onInitialize(builder, params, token, workDoneProgress);
 
     result.capabilities = builder.result();
+
+    workDoneProgress.done();
     return result;
   });
 

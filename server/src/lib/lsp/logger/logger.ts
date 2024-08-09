@@ -20,7 +20,7 @@ export class ExtendedLogger implements IExtendedLogger {
       typeof m === "object" ? JSON.stringify(m, undefined, 2) : `${m}`
     );
 
-    return `${this.prefix} ${base} ${messages.join(" ")}`;
+    return `${this.prefix} ${base} ${messages.join(" ")}`.trim();
   }
 
   /**

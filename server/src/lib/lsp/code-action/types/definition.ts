@@ -33,6 +33,7 @@ export function definition(builder: CodeActionBuilder, diag: Diagnostic, type: s
     command: command,
     diagnostics: [diag],
     kind: CodeActionKind.QuickFix,
+    isPreferred: false,
   };
 
   builder.push(action);
@@ -50,7 +51,7 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
   const ws = builder.context.database.WorkspaceData.getFolder(document.uri);
   const key = diag.code ?? "";
 
-  if (typeof key === "undefined") return;
+  if (typeof key === "undefined" || key === "") return;
 
   if (!ws) {
     builder.context.logger.error(`Couldn't find workspace for: ${document.uri}`);
@@ -70,6 +71,7 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
     command: command,
     diagnostics: [diag],
     kind: CodeActionKind.QuickFix,
+    isPreferred: false,
   };
 
   builder.push(action);

@@ -54,7 +54,6 @@ export class TemplateItem {
     attributes: Record<string, string> = {}
   ) {
     folder = folder || getFolders(context).GetFolder(this.commandId());
-    const processor = TemplateProcessor.create(context, this.templateId(), folder, attributes, this);
     const id = (context.arguments ? context.arguments[0] : undefined) || "UNKNOWN";
     attributes = {
       id,
@@ -62,6 +61,7 @@ export class TemplateItem {
       ...attributes,
     };
 
+    const processor = TemplateProcessor.create(context, this.templateId(), folder, attributes, this);
     processor.process();
 
     await processor.createFile();

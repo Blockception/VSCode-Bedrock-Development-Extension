@@ -60,7 +60,7 @@ export function create_language_files(
   }
 
   const baseFolder = path.join(pack.folder, "texts");
-  internalCreate(baseFolder, builder, "languages.json", JSON.stringify(LanguageNames));
+  internalCreate(baseFolder, builder, "languages.json", JSON.stringify(LanguageNames, undefined, 2));
 
   let content = LanguageContent;
   const textBuilder = new TextEditBuilder(undefined);

@@ -1,4 +1,11 @@
-import { BulkRegistration, Connection, InitializeParams, InitializeResult } from "vscode-languageserver";
+import {
+  BulkRegistration,
+  CancellationToken,
+  Connection,
+  InitializeParams,
+  InitializeResult,
+  WorkDoneProgressReporter,
+} from "vscode-languageserver";
 import { IService } from "./service";
 import { IExtendedLogger } from "../logger/logger";
 import { CapabilityBuilder } from "./capabilities";
@@ -16,7 +23,7 @@ export class ServiceManager implements NamedService {
   public services: NamedService[];
 
   constructor(logger: IExtendedLogger) {
-    this.logger = logger;
+    this.logger = logger.withPrefix("[service manager]");
     this.services = [];
   }
 
@@ -43,9 +50,18 @@ export class ServiceManager implements NamedService {
   }
 
   /** @inheritdoc */
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
-    this.services.forEach((service) => {
+  onInitialize(
+    capabilities: CapabilityBuilder,
+    params: InitializeParams,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): void {
+    const max = this.services.length;
+    this.services.forEach((service, index) => {
+      if (token?.isCancellationRequested) return;
+
       if (service.onInitialize) {
+        workDoneProgress?.report(index / max, service.name);
         this.logger.info(`Initializing service ${service.name}`);
         service.onInitialize(capabilities, params);
       }

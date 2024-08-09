@@ -1,12 +1,17 @@
-import { CreateFile, TextDocumentEdit, TextEdit } from "vscode-languageserver";
+import { ApplyWorkspaceEditResult, CreateFile, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { URI } from "vscode-uri";
-import { Fs } from "../../../util/url";
 import { CommandContext } from "../context";
 import { Context } from "../../context/context";
 
-export function appendToFile(context: Context<CommandContext>): void {
+export async function appendToFile(context: Context<CommandContext>): Promise<void> {
   const { arguments: args } = context;
+  function handleResponse(result: ApplyWorkspaceEditResult) {
+    context.logger.info("changes: ", result);
+
+    if (result.applied === false) {
+      context.logger.warn("Changes haven't been applied");
+    }
+  }
 
   if (!args || args.length < 2) {
     throw new Error("wrong parameters: expected: [uri, line]");
@@ -18,17 +23,27 @@ export function appendToFile(context: Context<CommandContext>): void {
     throw new Error("wrong parameters: expected: [uri, line]");
   }
 
-  const document = context.documents.get(uri) ?? TextDocument.create(uri, "other", 0, "");
-  const edit = TextEdit.insert(document.positionAt(document.getText().length), "\n" + line);
-  const path = Fs.FromVscode(document.uri);
+  let document: TextDocument | undefined = context.documents.get(uri);
+  if (document === undefined) {
+    document = TextDocument.create(uri, "other", 0, "");
+    await context.connection.workspace
+      .applyEdit({
+        label: "creating file",
+        edit: {
+          documentChanges: [CreateFile.create(document.uri, { ignoreIfExists: true, overwrite: false })],
+        },
+      })
+      .then(handleResponse);
+  }
 
-  context.connection.workspace.applyEdit({
-    label: "Add mcdefinitions",
-    edit: {
-      documentChanges: [
-        CreateFile.create(uri, { ignoreIfExists: true, overwrite: false }),
-        TextDocumentEdit.create({ uri: URI.file(path).toString(), version: document.version }, [edit]),
-      ],
-    },
-  });
+  return context.connection.workspace
+    .applyEdit({
+      label: "Adding line",
+      edit: {
+        changes: {
+          [document.uri]: [TextEdit.insert(document.positionAt(document.getText().length), "\n" + line)],
+        },
+      },
+    })
+    .then(handleResponse);
 }

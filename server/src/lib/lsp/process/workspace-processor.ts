@@ -16,7 +16,7 @@ import { PackProcessor } from "./pack-processor";
 import { ProgressBar } from "../progress";
 import { QueueProcessor } from "@daanv2/queue-processor";
 import { TextDocument } from "../documents/text-document";
-import { getBasename } from '../../util';
+import { getBasename } from "../../util";
 
 export class WorkspaceProcessor extends BaseService implements Partial<IService> {
   name: string = "workspace processor";

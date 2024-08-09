@@ -22,13 +22,24 @@ export class CommandManager implements ICommand {
     return this._commands.entries();
   }
 
-  add(id: string, callback: ICommand | ICommand["execute"]): this {
+  /**
+   * Adds a new command to the service handler
+   * @param id The command identifcation vscode uses
+   * @param callback The function to call or the ICommand object to use
+   * @param register Whenever or not the function must be registered on server side
+   * @returns this
+   */
+  add(id: string, callback: ICommand | ICommand["execute"], register?: boolean): this {
     assert(this._commands.has(id) === false, `command with ${id} already exists`);
 
     if (typeof callback === "function") {
       callback = {
         execute: callback,
+        register
       };
+    }
+    if (typeof register === "boolean") {
+      callback.register = register;
     }
 
     this._commands.set(id, callback);
@@ -65,11 +76,11 @@ export class CommandManager implements ICommand {
     const manager = new CommandManager();
 
     manager
-      .add(Commands.DiagnoseProject, diagnoseProject)
+      .add(Commands.DiagnoseProject, diagnoseProject, true)
       .add(Commands.AddLanguageFile, addAllItems)
-      .add(Commands.ScanProjects, rescanProject)
-      .add(Commands.StoreProject, storeProject)
-      .add(Commands.Files.Append, appendToFile)
+      .add(Commands.ScanProjects, rescanProject, true)
+      .add(Commands.StoreProject, storeProject, true)
+      .add(Commands.Files.Append, appendToFile, true)
       .add(Commands.MCProject.Create, createMcProject);
 
     setupCreate(manager);
