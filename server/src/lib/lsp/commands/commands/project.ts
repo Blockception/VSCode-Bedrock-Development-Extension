@@ -14,13 +14,13 @@ export async function create_world_project(
   folders: Folders,
   builder: TemplateBuilder
 ): Promise<void> {
-  const Folder = Vscode.join(folders.WorkSpace(), "world");
+  const folder = Vscode.join(folders.WorkSpace(), "world");
 
   const nfolders = {
     WorkSpace: () => folders.WorkSpace(),
-    BehaviorPack: () => Vscode.join(Folder, "behavior_packs", id + "-bp"),
-    ResourcePack: () => Vscode.join(Folder, "resource_packs", id + "-rp"),
-    WorldFolder: () => Folder,
+    BehaviorPack: () => Vscode.join(folder, "behavior_packs", id + "-bp"),
+    ResourcePack: () => Vscode.join(folder, "resource_packs", id + "-rp"),
+    WorldFolder: () => folder,
   };
 
   await Promise.all([

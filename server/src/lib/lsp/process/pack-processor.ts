@@ -1,14 +1,15 @@
-import { BehaviorPack, Pack } from "bc-minecraft-bedrock-project";
-import { ExtensionContext } from "../extension/context";
-import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
+import { BehaviorPack, Pack } from "bc-minecraft-bedrock-project";
+import { CancellationToken } from "vscode-languageserver-protocol";
 import { DocumentProcessor } from "./document-processor";
-import { ProgressBar } from "../progress";
+import { ExtensionContext } from "../extension/context";
 import { Fs, getBasename, getFilename } from "../../util";
-import { QueueProcessor } from "@daanv2/queue-processor";
-import { lstatSync } from "fs";
 import { getProject } from "../../project/mcprojects";
+import { IExtendedLogger } from "../logger/logger";
+import { lstatSync } from "fs";
 import { MinecraftFormat } from "../../minecraft/format";
+import { Processor } from "../../util/processor";
+import { ProgressBar } from "../progress";
 
 export class PackProcessor extends BaseService {
   name: string = "pack processor";
@@ -19,9 +20,9 @@ export class PackProcessor extends BaseService {
     this._documentProcessor = documentProcessor;
   }
 
-  async process(pack: Pack, reporter?: ProgressBar): Promise<void> {
+  async process(pack: Pack, token?: CancellationToken): Promise<void> {
     const name = getBasename(Fs.FromVscode(pack.folder));
-    reporter = reporter || (await ProgressBar.create(this.extension, `pack: ${name}`));
+    const reporter = await ProgressBar.create(this.extension, `pack: ${name}`);
     reporter.sendMessage("processing");
     this.logger.info(`Processing pack: ${name}`, {
       uri: pack.folder,
@@ -29,22 +30,20 @@ export class PackProcessor extends BaseService {
     });
 
     const files = this.files(pack);
-    await QueueProcessor.forEach(files, (file) => {
+    await Processor.forEach(files, (file) => {
       reporter.sendMessage(getFilename(file));
       const doc = this._documentProcessor.get(file);
       if (doc === undefined) return;
 
       return this._documentProcessor.process(doc);
-    });
+    }, token);
 
     if (BehaviorPack.BehaviorPack.is(pack)) {
       this.logger.debug("checking structures");
       const structures = MinecraftFormat.GetStructureFiles(pack.folder, pack.context.ignores.patterns);
 
       const emptyText = () => "";
-      structures.forEach((item) => {
-        pack.process({ getText: emptyText, uri: item });
-      });
+      structures.forEach((item) => pack.process({ getText: emptyText, uri: item }));
     }
 
     reporter.done();
@@ -67,16 +66,16 @@ export class PackProcessor extends BaseService {
     }
   }
 
-  diagnose(pack: Pack) {
+  diagnose(pack: Pack, token?: CancellationToken) {
     this.logger.info(`diagnosing pack: ${pack.folder}`);
     const files = this.files(pack);
 
-    return QueueProcessor.forEach(files, (file) => {
+    return Processor.forEach(files, (file) => {
       const doc = this._documentProcessor.get(file);
       if (doc === undefined) return;
 
       return this._documentProcessor.diagnose(doc);
-    });
+    }, token);
   }
 
   /**

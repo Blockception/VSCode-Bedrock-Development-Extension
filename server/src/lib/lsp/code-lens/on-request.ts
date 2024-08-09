@@ -2,11 +2,11 @@ import { CancellationToken, CodeLens, CodeLensParams, Position, Range } from "vs
 import { CodeLensBuilder } from "./builder";
 import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Languages } from "@blockception/shared";
-import { QueueProcessor } from "@daanv2/queue-processor";
 import { Types } from "bc-minecraft-bedrock-types";
 import { TextDocument } from "../documents";
 import { Context } from "../context/context";
 import { CodeLensContext } from "./context";
+import { Processor } from "../../util/processor";
 
 /**
  *
@@ -25,11 +25,7 @@ export async function internalRequest(
   const items = config(pd);
 
   // Queue processor to batch all the data
-  await QueueProcessor.forEach(items, (item) => {
-    if (builder.token.isCancellationRequested) return;
-
-    return forEach(item, document, builder);
-  });
+  await Processor.forEach(items, (item) => forEach(item, document, builder), context.token, context.workDoneProgress);
 
   return builder.out;
 }

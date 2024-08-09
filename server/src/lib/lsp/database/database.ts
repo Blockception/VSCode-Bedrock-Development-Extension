@@ -5,10 +5,10 @@ import { InternalContext } from "../diagnostics/context";
 import { IService } from "../services/service";
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { ProjectData } from "bc-minecraft-bedrock-project";
-import { QueueProcessor } from "@daanv2/queue-processor";
 import { Types } from "bc-minecraft-bedrock-types";
 import { WorkspaceData } from "./workspace-data";
 import { WorkDoneProgressReporter } from "vscode-languageserver";
+import { Processor } from "../../util/processor";
 
 type BaseObject = Types.BaseObject;
 
@@ -180,7 +180,7 @@ export class Database implements Partial<IService> {
     callbackfn: (item: BaseObject) => void,
     token?: CancellationToken,
     workDoneProgress?: WorkDoneProgressReporter
-  ): Promise<void> {
+  ): Promise<void> | void {
     const packs = [
       [this.ProjectData.general],
       this.ProjectData.behaviorPacks.packs,
@@ -188,15 +188,11 @@ export class Database implements Partial<IService> {
       this.ProjectData.worlds.packs,
     ];
 
-    return QueueProcessor.forEach(packs, (pack_col, index, col) => {
-      if (token?.isCancellationRequested) return;
-      workDoneProgress?.report(index / col.length);
-
-      return QueueProcessor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => {
-        if (token?.isCancellationRequested) return;
-
-        return pack.forEach(callbackfn);
-      }).then(() => {});
-    }).then(() => {});
+    return Processor.forEach(
+      packs,
+      (pack_col) => Processor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => pack.forEach(callbackfn), token),
+      token,
+      workDoneProgress
+    );
   }
 }

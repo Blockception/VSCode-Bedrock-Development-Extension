@@ -1,4 +1,5 @@
 import {
+  CancellationToken,
   Connection,
   InitializeParams,
   TextDocumentChangeEvent,
@@ -14,9 +15,9 @@ import { Languages } from "@blockception/shared";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { PackProcessor } from "./pack-processor";
 import { ProgressBar } from "../progress";
-import { QueueProcessor } from "@daanv2/queue-processor";
 import { TextDocument } from "../documents/text-document";
-import { getBasename } from "../../util";
+import { Processor } from "../../util/processor";
+import { Tokens } from "../../util/tokens";
 
 export class WorkspaceProcessor extends BaseService implements Partial<IService> {
   name: string = "workspace processor";
@@ -66,62 +67,64 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
     }
   }
 
-  start(): void {
-    this.traverse();
+  start(token?: CancellationToken): void {
+    this.traverse(token);
   }
 
-  async traverse(): Promise<void> {
+  async traverse(token?: CancellationToken): Promise<void> {
     this.extension.state.workspaces.traversed = false;
     this.logger.info("traversing all workspaces");
-    let progress = await ProgressBar.create(this.extension, "processing workspaces", 0, 1);
 
     const workspaces = (await this.get()) ?? [];
-    progress.setMaximum(workspaces.length * 2);
 
     for (const ws of workspaces) {
-      progress.addValue(1);
-      progress.sendProgress(ws.name);
-
-      await this.process(ws);
+      await this.process(ws, token);
     }
 
     this.extension.state.workspaces.traversed = true;
-    progress.done();
-    progress = await ProgressBar.create(this.extension, "diagnosing workspaces", 0, 1);
 
     for (const ws of workspaces) {
-      progress.addValue(1);
-      progress.sendProgress(ws.name);
-
-      await this.diagnose(ws);
+      await this.diagnose(ws, token);
     }
-
-    progress.done();
   }
 
-  async process(workspace: WorkspaceFolder) {
+  async process(workspace: WorkspaceFolder, token?: CancellationToken) {
+    const reporter = await this.extension.connection.window.createWorkDoneProgress();
+    reporter.begin(`Processing workspace: ${workspace.name}`, 0, "", true);
     this.logger.info(`processing workspace ${workspace.name}`, workspace);
     const packs = await this._packProcessor.discover(workspace.uri);
 
-    return QueueProcessor.forEach(packs, (pack) => this._packProcessor.process(pack));
+    token = Tokens.combine(token, reporter.token);
+
+    return Processor.forEach(packs, (pack) => this._packProcessor.process(pack, token), token, reporter).finally(() =>
+      reporter.done()
+    );
   }
 
-  async remove(workspace: WorkspaceFolder) {
+  async remove(workspace: WorkspaceFolder, token?: CancellationToken) {
     this.logger.info(`removing workspace ${workspace.name}`, workspace);
     const packs = await this.packs(workspace);
 
-    const result = await QueueProcessor.map(packs, (pack) => this._packProcessor.remove(pack));
+    const result = await Processor.map(packs, (pack) => this._packProcessor.remove(pack), token);
 
     return this.extension.database.WorkspaceData.remove(workspace.uri) || result;
   }
 
-  async diagnose(workspace: WorkspaceFolder) {
+  async diagnose(workspace: WorkspaceFolder, token?: CancellationToken) {
+    const reporter = await this.extension.connection.window.createWorkDoneProgress();
+    reporter.begin(`Diagnosing workspace: ${workspace.name}`, 0, "", true);
     this.logger.info(`diagnosing workspace ${workspace.name}`, workspace);
     const packs = await this.packs(workspace);
 
-    return QueueProcessor.forEach(packs, (pack) => {
-      this._packProcessor.diagnose(pack);
-    });
+    token = Tokens.combine(token, reporter.token);
+    return Processor.forEach(
+      packs,
+      async (pack) => {
+        await this._packProcessor.diagnose(pack, token);
+      },
+      token,
+      reporter
+    ).finally(() => reporter.done());
   }
 
   async packs(workspace: WorkspaceFolder): Promise<Pack[]> {

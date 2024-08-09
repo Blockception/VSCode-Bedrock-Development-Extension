@@ -39,7 +39,7 @@ function convertStore(logger: IExtendedLogger, filepath: string, data: any): voi
   const temp: Record<string, any> = {};
 
   convert(data, temp);
-  StoreObject(logger, filepath, temp);
+  storeObject(logger, filepath, temp);
 }
 
 function convert(data: any, receiver: Record<string, any>) {
@@ -63,7 +63,7 @@ function convert(data: any, receiver: Record<string, any>) {
   }
 }
 
-function StoreObject(logger: IExtendedLogger, path: string, data: any): void {
+function storeObject(logger: IExtendedLogger, path: string, data: any): void {
   try {
     const content = JSON.stringify(data);
     writeFileSync(path, content);

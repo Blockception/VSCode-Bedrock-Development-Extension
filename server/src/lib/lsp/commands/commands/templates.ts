@@ -63,6 +63,9 @@ export class TemplateItem {
 
     const processor = TemplateProcessor.create(context, this.templateId(), folder, attributes, this);
     processor.process();
+    if (context.token.isCancellationRequested) {
+      return false;
+    }
 
     await processor.createFile();
     return true;

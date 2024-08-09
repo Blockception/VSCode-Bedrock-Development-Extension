@@ -10,7 +10,7 @@ import { getWorkspace } from "../util";
 export function diagnoseProject(context: Context<CommandContext>) {
   const workspaceProcessor = getWorkspace(context);
 
-  return workspaceProcessor.start();
+  return workspaceProcessor.start(context.token);
 }
 
 /**
@@ -20,5 +20,5 @@ export function rescanProject(context: Context<CommandContext>) {
   const workspaceProcessor = getWorkspace(context);
   context.database.clear();
 
-  return workspaceProcessor.start();
+  return workspaceProcessor.start(context.token);
 }

@@ -5,7 +5,6 @@ import { identifyDocument } from "./languageId";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
 import { ProgressBar } from "../progress";
-import { QueueProcessor } from "@daanv2/queue-processor";
 import { readDocument } from "./io";
 import { TextDocument } from "./text-document";
 import { TextDocumentFactory } from "./factory";
@@ -19,6 +18,7 @@ import {
 } from "vscode-languageserver";
 
 import * as vscode from "vscode-languageserver-textdocument";
+import { Processor } from "../../util/processor";
 
 export type ContentType = string | vscode.TextDocument | undefined;
 export interface IDocumentManager
@@ -122,24 +122,26 @@ export class DocumentManager
     callback: (doc: TextDocument) => void,
     reporter: ProgressBar,
     token: CancellationToken
-  ): Promise<string[]> {
+  ): void | Promise<void> {
     reporter.addMaximum(uris.length);
 
-    return QueueProcessor.forEach(uris, (uri) => {
-      if (token.isCancellationRequested) return;
+    return Processor.forEach(
+      uris,
+      (uri) => {
+        //Get document
+        const doc = this.get(uri);
 
-      //Get document
-      const doc = this.get(uri);
+        try {
+          //If we have a document invoke the requests action
+          if (doc) callback(doc);
+        } catch (error) {
+          this.logger.recordError(error, uri);
+        }
 
-      try {
-        //If we have a document invoke the requests action
-        if (doc) callback(doc);
-      } catch (error) {
-        this.logger.recordError(error, uri);
-      }
-
-      reporter.addValue();
-      reporter.sendProgress();
-    });
+        reporter.addValue();
+        reporter.sendProgress();
+      },
+      token
+    );
   }
 }
