@@ -22,13 +22,7 @@ export namespace Processor {
 
     return QueueProcessor.forEach(data, (item, index, col) => {
       if (token.isCancellationRequested) return;
-      if (Identifiable.is(item)) {
-        reporter.report(index / col.length, item.id);
-      } else if (typeof item === "string") {
-        reporter.report(index / col.length, item);
-      } else {
-        reporter.report(index / col.length);
-      }
+      reporter.report(index / col.length);
 
       return callbackFn(item, index, col);
     }).then(() => {});
