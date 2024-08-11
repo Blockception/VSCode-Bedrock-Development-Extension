@@ -1,4 +1,4 @@
-import { CancellationToken } from "vscode-languageserver-protocol";
+import { CancellationToken, Location } from "vscode-languageserver-protocol";
 import { IDocumentManager } from "../documents/manager";
 import { IExtendedLogger } from "../logger/logger";
 import { InternalContext } from "../diagnostics/context";
@@ -8,7 +8,8 @@ import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
 import { WorkspaceData } from "./workspace-data";
 import { WorkDoneProgressReporter } from "vscode-languageserver";
-import { Processor } from "../../util";
+import { Processor, References } from "../../util";
+import { Options, ReferenceBuilder } from "./references";
 
 type BaseObject = Types.BaseObject;
 
@@ -53,8 +54,17 @@ export class Database implements Partial<IService> {
    * @param id
    * @param callbackfn
    */
-  findReference(id: string): BaseObject | undefined {
-    return this.ProjectData.find((item) => item.id === id);
+  async findReference(
+    id: string,
+    documents: IDocumentManager,
+    options?: Options,
+    token?: CancellationToken,
+    workDoneProgress?: WorkDoneProgressReporter
+  ): Promise<Location[]> {
+    const builder = new ReferenceBuilder(documents, { defined: true, usage: false, ...(options || {}) }, token);
+    await this.forEach((item) => builder.findReference(item, id), token, workDoneProgress);
+
+    return References.convertLocation(builder.locations, documents);
   }
 
   /**

@@ -43,10 +43,14 @@ export async function provideReferences(context: Context<ReferenceContext>): Pro
     }
   } else {
     ReferencesInDocument(value, document, result);
-    const out = context.database.findReference(value.text);
-
+    const out = await context.database.findReference(
+      value.text,
+      context.documents,
+      { defined: true, usage: true },
+      context.token
+    );
     if (out) {
-      result.push(...References.convertLocation([out], context.documents));
+      result.push(...out);
     }
   }
 

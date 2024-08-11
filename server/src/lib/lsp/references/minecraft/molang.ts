@@ -7,7 +7,7 @@ import { References } from "../../../util";
 import { Context } from "../../context/context";
 import { ReferenceContext } from "../context";
 
-export function provideReferences(context: Context<ReferenceContext>, text: OffsetWord): Location[] | undefined {
+export async function provideReferences(context: Context<ReferenceContext>, text: OffsetWord): Promise<Location[] | undefined> {
   const { database } = context;
 
   const index = text.text.indexOf(".");
@@ -22,7 +22,7 @@ export function provideReferences(context: Context<ReferenceContext>, text: Offs
     //   break;
 
     case "geometry":
-      return References.convertLocation([database.findReference(text.text)], context.documents);
+      return database.findReference(text.text, context.documents, { defined: true, usage: false }, context.token);
 
     // case "math":
     //   break;

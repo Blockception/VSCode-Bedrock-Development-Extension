@@ -11,6 +11,7 @@ import { ReferenceContext } from "./context";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";
+import { getCurrentWord } from './function';
 
 export class TypeDefinitionService extends BaseService implements Partial<IService> {
   name: string = "type-definitions";
@@ -46,29 +47,24 @@ export class TypeDefinitionService extends BaseService implements Partial<IServi
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return undefined;
 
-    const context: Context<ReferenceContext> = Context.create(
-      this.extension,
-      {
-        ...params,
-        document,
-        token,
-        workDoneProgress,
-      },
-      { logger: this.logger }
-    );
-
-    switch (document.languageId) {
-      case Languages.McFunctionIdentifier:
-        return Mcfunction.provideReferences(context);
-
-      case Languages.JsonCIdentifier:
-      case Languages.JsonIdentifier:
-        return Json.provideReferences(context);
-
-      case Languages.McOtherIdentifier:
-        break;
+    const cursor = document.offsetAt(params.position);
+    const w = getCurrentWord(document, cursor);
+    if (w.text === "") {
+      return;
     }
 
-    return [];
+    workDoneProgress.begin("searching references");
+
+    const locations = await this.extension.database.findReference(
+      w.text,
+      this.extension.documents,
+      { defined: true, usage: true },
+      token,
+      workDoneProgress
+    );
+
+    workDoneProgress.done();
+
+    return locations;
   }
 }

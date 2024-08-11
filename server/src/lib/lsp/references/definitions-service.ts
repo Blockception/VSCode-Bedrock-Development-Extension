@@ -13,6 +13,8 @@ import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";
 import { getCurrentWord } from "./function";
 import { References } from "../../util";
+import { ReferenceBuilder } from "../database/references";
+import { Database } from "../database";
 
 export class DefinitionService extends BaseService implements Partial<IService> {
   name: string = "definitions";
@@ -39,28 +41,24 @@ export class DefinitionService extends BaseService implements Partial<IService> 
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return undefined;
 
-    const context: Context<ReferenceContext> = Context.create(
-      this.extension,
-      {
-        ...params,
-        document,
-        token,
-        workDoneProgress,
-      },
-      { logger: this.logger }
-    );
-
     const cursor = document.offsetAt(params.position);
     const w = getCurrentWord(document, cursor);
     if (w.text === "") {
       return;
     }
 
-    const obj = context.database.findReference(w.text);
-    if (obj === undefined) {
-      return;
-    }
+    workDoneProgress.begin("searching references");
 
-    return References.convertLocation([obj], context.documents);
+    const locations = await this.extension.database.findReference(
+      w.text,
+      this.extension.documents,
+      { defined: true, usage: false },
+      token,
+      workDoneProgress
+    );
+
+    workDoneProgress.done();
+
+    return locations;
   }
 }
