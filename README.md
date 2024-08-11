@@ -14,28 +14,11 @@ best color highlighting.
   </a>
 </p>
 
-## Content
-
-- [VSCode-Bedrock-Development-Extension](#vscode-bedrock-development-extension)
-  - [Content](#content)
-  - [Features](#features)
-    - [JSON](#json)
-      - [Molang](#molang)
-      - [Validation](#validation)
-    - [Minecraft project files](#minecraft-project-files)
-    - [Mcfunction](#mcfunction)
-    - [Language files](#language-files)
-    - [Molang](#molang-1)
-  - [Commands](#commands)
-  - [Extension Settings](#extension-settings)
-  - [Licenses](#licenses)
-- [Contributors](#contributors)
-
 ## Features
 
 ### JSON
 
-This plugin provides, validations, completions, hovers and others for json, and jsonc schemas
+This plugin provides, validations, completions, hovers, signatures, code-lens, code actions and JSON schemas
 
 #### Molang
 
@@ -44,16 +27,16 @@ This plugin provides automatic highlighting for Molang code in JSON files.
 #### Validation
 
 Automatic JSON validation is applied if the files follow a given pattern for naming or proper file structure.  
-For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or in the world folder: `resource_packs`.  
-For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or in the world folder: `behavior_packs`.
+For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or the world folder: `resource_packs`.  
+For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or the world folder: `behavior_packs`.
 
-[Full list of json validation](https://github.com/Blockception/VSCode-Bedrock-Development-Extension/blob/main/documentation/Json%20Validation.md)
+[Full list of JSON validation](https://github.com/Blockception/VSCode-Bedrock-Development-Extension/blob/main/documentation/Json%20Validation.md)
 
 ---
 
 ### Minecraft project files
 
-Can read the following minecraft project files
+Can read the following Minecraft project files
 
 - [`.mcattributes`](./documentation/project/MCAttributes.md)
 - [`.mcdefinitions`](./documentation/project/MCDefinitions.md)
@@ -115,7 +98,7 @@ A complete list can be found [here](documentation/Commands.md). These commands p
 
 ## Licenses
 
-All thrid party code and libraries this plugin uses are listed [**here**](./LICENSES/Licenses.md)!
+All third party code and libraries this plugin uses are listed [**here**](./LICENSES/Licenses.md)!
 
 
 # Contributors
