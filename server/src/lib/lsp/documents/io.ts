@@ -10,8 +10,6 @@ import * as fs from "fs";
  * @returns The contents of the file or undefined when an error occured
  */
 export function readDocument(uri: URI, logger: IExtendedLogger): string | undefined {
-  //Reading file
-
   try {
     switch (uri.scheme) {
       case "file":
@@ -29,7 +27,8 @@ export function readDocument(uri: URI, logger: IExtendedLogger): string | undefi
 function fromFilesystem(uri: URI): string | undefined {
   const path = uri.fsPath;
   if (fs.existsSync(path)) {
-    return fs.readFileSync(path, "utf8");
+    const data = fs.readFileSync(path, "utf8");
+    return data;
   }
 
   return undefined;

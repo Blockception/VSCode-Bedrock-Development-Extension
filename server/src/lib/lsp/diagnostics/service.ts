@@ -35,7 +35,16 @@ export class DiagnoserService extends BaseService implements Partial<IService> {
       return;
     }
 
+    const start = Date.now();
     this._diagnoser.process(doc);
+
+    const dur = Date.now() - start;
+    if (dur > 10) {
+      this.logger.info("diagnosing done", {
+        uri: doc.uri,
+        ms: dur,
+      });
+    }
   }
 
   set(doc: Pick<TextDocument, "uri"> & Partial<Pick<TextDocument, "version">>, diagnostics: Diagnostic[]) {

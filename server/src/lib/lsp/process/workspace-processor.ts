@@ -70,20 +70,31 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
   }
 
   async traverse(token?: CancellationToken): Promise<void> {
+    const start = Date.now();
     this.extension.state.workspaces.traversed = false;
+    const reporter = await this.extension.connection.window.createWorkDoneProgress();
+    token = Tokens.combine(token, reporter.token);
+    reporter.begin("Traversing all", 0, "", true);
     this.logger.info("traversing all workspaces");
 
     const workspaces = (await this.get()) ?? [];
 
     for (const ws of workspaces) {
+      reporter.report(ws.name);
       await this.process(ws, token);
     }
 
     this.extension.state.workspaces.traversed = true;
 
     for (const ws of workspaces) {
+      reporter.report(ws.name);
       await this.diagnose(ws, token);
     }
+
+    this.logger.info("Traversing done", {
+      ms: Date.now() - start
+    });
+    reporter.done();
   }
 
   async process(workspace: WorkspaceFolder, token?: CancellationToken) {
@@ -117,9 +128,7 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
     token = Tokens.combine(token, reporter.token);
     return Processor.forEach(
       packs,
-      async (pack) => {
-        await this._packProcessor.diagnose(pack, token);
-      },
+      async (pack) => this._packProcessor.diagnose(pack, token),
       token,
       reporter
     ).finally(() => reporter.done());

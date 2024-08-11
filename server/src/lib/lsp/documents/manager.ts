@@ -1,14 +1,15 @@
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { ExtensionContext } from "../extension";
+import { FileOperationFilter } from "vscode-languageserver-protocol/lib/common/protocol.fileOperations";
 import { identifyDocument } from "./languageId";
 import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
+import { Processor } from "../../util";
 import { ProgressBar } from "../progress";
 import { readDocument } from "./io";
 import { TextDocument } from "./text-document";
 import { TextDocumentFactory } from "./factory";
-import { Processor } from "../../util";
 import { URI } from "vscode-uri";
 import {
   CancellationToken,
@@ -19,7 +20,6 @@ import {
 } from "vscode-languageserver";
 
 import * as vscode from "vscode-languageserver-textdocument";
-import { FileOperationFilter } from "vscode-languageserver-protocol/lib/common/protocol.fileOperations";
 
 export type ContentType = string | vscode.TextDocument | undefined;
 export interface IDocumentManager
@@ -98,10 +98,6 @@ export class DocumentManager
       languageID = identifyDocument(u);
     }
 
-    if (u.scheme !== "file") {
-      this.logger.info("A non file found");
-    }
-
     if (typeof content === "string") {
       return this._factory.create(u.toString(), languageID, 1, content);
     }
@@ -113,7 +109,7 @@ export class DocumentManager
     if (doc) return this._factory.extend(doc);
 
     const text = readDocument(u, this.logger);
-    if (text) {
+    if (text !== undefined) {
       return this._factory.create(u.toString(), languageID, 1, text);
     }
 

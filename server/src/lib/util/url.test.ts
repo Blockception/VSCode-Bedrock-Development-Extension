@@ -22,6 +22,7 @@ describe("Url", () => {
       });
 
       test("Is vscode folder", () => {
+        expect(Vscode.isVscode("file:///f%3A/Projects/Minecraft/minecraft-bedrock-samples/resource_pack/manifest.json")).toBeTruthy;
         expect(Vscode.isVscode("file:///f%3A/folder/behavior_packs/temp-bp/blocks/example.block.json")).toBeTruthy;
       });
     });

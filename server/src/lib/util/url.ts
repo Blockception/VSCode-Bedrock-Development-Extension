@@ -33,7 +33,7 @@ export namespace Vscode {
     return path;
   }
 
-  const vsUri = /^([a-zA-Z-09\-+]+:\/\/)/gim;
+  const vsUri = /^([a-zA-Z-09\-+]+:\/\/)/im;
 
   /**
    *

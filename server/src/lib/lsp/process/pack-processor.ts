@@ -23,7 +23,7 @@ export class PackProcessor extends BaseService {
     const name = getBasename(Fs.FromVscode(pack.folder));
     const reporter = await ProgressBar.create(this.extension, `pack: ${name}`);
     reporter.sendMessage("processing");
-    this.logger.info(`Processing pack: ${name}`, {
+    this.logger.info(`processing pack: ${name}`, {
       uri: pack.folder,
       type: pack.type,
     });
@@ -82,7 +82,11 @@ export class PackProcessor extends BaseService {
         return this._documentProcessor.diagnose(doc);
       },
       token
-    );
+    ).finally(() => {
+      this.logger.info("pack diagnosed", {
+        files: files.length,
+      });
+    });
   }
 
   /**
