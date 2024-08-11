@@ -8,6 +8,7 @@ import { InternalDiagnoser } from "./diagnoser";
 import { IDocumentManager } from "../documents/manager";
 import { Emitter } from "vscode-languageserver-protocol";
 import { getExtension, Vscode } from "../../util";
+import { DataCache } from "../caches";
 
 export class InternalContext implements DiagnoserContext<TextDocument> {
   private getCacheFn: () => ProjectData;
@@ -15,12 +16,17 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
   private documents: IDocumentManager;
   private _onDiagnosingDone: Emitter<InternalDiagnoser>;
 
+  private _getFilesCache: DataCache<string, string[]>;
+
   constructor(logger: IExtendedLogger, documents: IDocumentManager, getCacheFn: () => ProjectData) {
     this.logger = logger;
     this.getCacheFn = getCacheFn;
     this.documents = documents;
 
     this._onDiagnosingDone = new Emitter();
+
+    this._getFilesCache = new DataCache(DataCache.defaultTimespan);
+    this.documents.onDidSave((e) => this._getFilesCache.clear());
   }
 
   get onDiagnosingFinished() {
@@ -50,7 +56,11 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
 
   /**@inheritdoc*/
   getFiles(folder: string, patterns: string[], ignores: MCIgnore): string[] {
-    return Glob.getFiles(patterns, ignores.patterns, folder);
+    const key = (folder = patterns.join(",") + ignores.patterns.join(","));
+
+    return this._getFilesCache.getOrAdd(key, (k) => {
+      return Glob.getFiles(patterns, patterns, folder);
+    });
   }
 
   /**@inheritdoc*/
