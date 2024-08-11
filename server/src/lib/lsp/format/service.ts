@@ -27,8 +27,8 @@ export class FormatService extends BaseService implements Partial<IService> {
     // Tell the client that this server supports code formatting.
     register.add(DocumentFormattingRequest.type, {
       documentSelector: [
-        { scheme: "file", language: Languages.McFunctionIdentifier },
-        { scheme: "file", language: Languages.McLanguageIdentifier },
+        { language: Languages.McFunctionIdentifier },
+        { language: Languages.McLanguageIdentifier },
       ],
     });
   }

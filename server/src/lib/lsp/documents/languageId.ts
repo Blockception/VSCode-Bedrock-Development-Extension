@@ -1,13 +1,13 @@
 import { Languages } from "@blockception/shared";
 import { MCAttributes, MCIgnore, MCDefinition } from "bc-minecraft-project";
-import path from "path";
+import { URI, Utils } from "vscode-uri";
 
 /**
  * Returns the language ID based upon the uri
  * @param uri The documents uri
  */
-export function identifyDocument(uri: string): string {
-  const ext = path.extname(uri).toLowerCase();
+export function identifyDocument(uri: URI): string {
+  const ext = Utils.extname(uri).toLowerCase();
   switch (ext) {
     case ".lang":
       return Languages.McLanguageIdentifier;
@@ -19,7 +19,7 @@ export function identifyDocument(uri: string): string {
       return Languages.McMolangIdentifier;
   }
 
-  const filename = path.basename(uri);
+  const filename = Utils.basename(uri);
   switch (filename) {
     case MCAttributes.filename:
       return Languages.McProjectIdentifier;

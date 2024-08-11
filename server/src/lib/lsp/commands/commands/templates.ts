@@ -1,15 +1,15 @@
 import { Commands } from "@blockception/shared";
+import { CommandManager } from "../manager";
+import { Context } from "../../context/context";
+import { CommandContext } from "../context";
+import { getFolders } from "../../templates/folders";
+import { TemplateProcessor } from "../../../templates/processor";
 
 import * as BPT from "../../templates/definitions/behavior-pack";
 import * as RPT from "../../templates/definitions/resource-pack";
 import * as WPT from "../../templates/definitions/world";
 
 import path from "path";
-import { CommandManager } from "../manager";
-import { Context } from "../../context/context";
-import { CommandContext } from "../context";
-import { getFolders } from "../../templates/folders";
-import { TemplateProcessor } from "../../../templates/processor";
 
 const BPC = Commands.Create.Behaviorpack;
 const RPC = Commands.Create.Resourcepack;

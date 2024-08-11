@@ -1,4 +1,4 @@
-import { URI } from "vscode-uri";
+import { URI as VS_URI } from "vscode-uri";
 
 //Format that vscode sends:
 //file:///f%3A/folder/behavior_packs/temp-bp/blocks/example.block.json
@@ -9,18 +9,18 @@ export namespace Vscode {
    * @param path
    * @returns
    */
-  export function FromFs(path: string): string {
+  export function fromFs(path: string): string {
     if (isVscode(path)) {
       return path.replace(/\\/gi, "//");
     }
 
-    return URI.file(path).toString();
+    return VS_URI.file(path).toString();
   }
 
   export function join(path: string, ...combine: string[]): string {
     if (path.endsWith("/")) {
       path = path.slice(0, -1);
-    };
+    }
 
     for (const c of combine) {
       if (c.startsWith("/")) {
@@ -29,10 +29,11 @@ export namespace Vscode {
         path += "/" + c;
       }
     }
-    
 
     return path;
   }
+
+  const vsUri = /^([a-zA-Z-09\-+]+:\/\/)/gim;
 
   /**
    *
@@ -40,8 +41,9 @@ export namespace Vscode {
    * @returns
    */
   export function isVscode(uri: string): boolean {
-    if (uri.startsWith("file:///")) return true;
-    if (uri.startsWith("file:\\\\\\")) return true;
+    if (vsUri.test(uri)) {
+      return true;
+    }
 
     return false;
   }
@@ -53,6 +55,6 @@ export namespace Fs {
    * @returns
    */
   export function FromVscode(uri: string): string {
-    return URI.parse(uri, false).fsPath;
+    return VS_URI.parse(uri, false).fsPath;
   }
 }

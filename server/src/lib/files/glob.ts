@@ -51,7 +51,7 @@ export namespace Glob {
 
     if (ignores && ignores.length > 0) entries = excludes(entries, ignores);
 
-    return entries.map(Vscode.FromFs);
+    return entries.map(Vscode.fromFs);
   }
 
   /**

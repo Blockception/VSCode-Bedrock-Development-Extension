@@ -7,10 +7,15 @@ export namespace Character {
   export const Character_0: number = "0".charCodeAt(0);
   export const Character_9: number = "9".charCodeAt(0);
 
+  /** `_` */
   export const Character_underscore: number = "_".charCodeAt(0);
+  /** `-` */
   export const Character_dash: number = "-".charCodeAt(0);
+  /** `/` */
   export const Character_forwardslash: number = "/".charCodeAt(0);
+  /** `:` */
   export const Character_column: number = ":".charCodeAt(0);
+  /** `.` */
   export const Character_dot: number = ".".charCodeAt(0);
 
   /**Tests if the first character of the provide string is a letter

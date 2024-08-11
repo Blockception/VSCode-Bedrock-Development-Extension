@@ -1,7 +1,8 @@
 import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from "vscode";
 import { Commands } from "@blockception/shared";
-import path from "path";
 import { Console } from '../console/console';
+
+import path from "path";
 
 export function activate(context: ExtensionContext): void {
   async function showDocs(args: any) {

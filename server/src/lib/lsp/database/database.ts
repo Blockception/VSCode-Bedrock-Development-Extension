@@ -120,6 +120,7 @@ export class Database implements Partial<IService> {
 
         case ParameterType.entity:
           this.ProjectData.behaviorPacks.entities.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.entities.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.event:
@@ -127,14 +128,6 @@ export class Database implements Partial<IService> {
             entity.events.forEach((event) => {
               if (event === id) out.push(entity);
             });
-          });
-          break;
-
-        case ParameterType.event:
-          this.ProjectData.behaviorPacks.entities.forEach((entity) => {
-            if (entity.families.some((family) => family === id)) {
-              out.push(entity);
-            }
           });
           break;
 

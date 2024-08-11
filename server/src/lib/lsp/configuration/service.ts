@@ -5,15 +5,9 @@ import { IService } from "../services/service";
 import { Identification } from "@blockception/shared";
 import { Settings, ExtensionContext } from "../extension";
 import { getProject } from "../../project/mcprojects";
-import {
-  DidChangeConfigurationNotification,
-  DidChangeConfigurationParams,
-} from "vscode-languageserver-protocol";
+import { DidChangeConfigurationNotification, DidChangeConfigurationParams } from "vscode-languageserver-protocol";
 
-export class ConfigurationService
-  extends BaseService
-  implements Partial<IService>
-{
+export class ConfigurationService extends BaseService implements Partial<IService> {
   name: string = "configuration";
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
@@ -26,7 +20,7 @@ export class ConfigurationService
 
   dynamicRegister(register: BulkRegistration): void {
     register.add(DidChangeConfigurationNotification.type, {
-      section: "BC-MC"
+      section: "BC-MC",
     });
   }
 

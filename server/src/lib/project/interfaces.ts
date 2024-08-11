@@ -10,7 +10,7 @@ export interface MCProjectprovider {
 export namespace MCProjectprovider {
   export function is(value: any): value is MCProjectprovider {
     if (typeof value === "object") {
-      if (typeof value.getConfiguration === "undefined") return false;
+      if (typeof value.configuration === "undefined") return false;
 
       return true;
     }

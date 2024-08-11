@@ -6,9 +6,8 @@ import { IExtendedLogger } from "../logger/logger";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { InternalDiagnoser } from "./diagnoser";
 import { IDocumentManager } from "../documents/manager";
-
-import path from "path";
 import { Emitter } from "vscode-languageserver-protocol";
+import { getExtension, Vscode } from "../../util";
 
 export class InternalContext implements DiagnoserContext<TextDocument> {
   private getCacheFn: () => ProjectData;
@@ -37,14 +36,15 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
 
     //Check if project disabled diagnostics
     if (project.attributes["diagnostic.enable"] === "false") return undefined;
-    if (project.attributes["diagnostic" + path.extname(doc.uri)] === "false") return undefined;
+    if (project.attributes[`diagnostic${getExtension(doc.uri)}`] === "false") return undefined;
 
     return new InternalDiagnoser(doc, project, this, (e) => this._onDiagnosingDone.fire(e));
   }
 
   /**@inheritdoc*/
   getDocument(uri: string): TextDocument | undefined {
-    //return CachedDocuments.getOrAdd(uri, GetDocument);
+    uri = Vscode.fromFs(uri);
+
     return this.documents.get(uri);
   }
 

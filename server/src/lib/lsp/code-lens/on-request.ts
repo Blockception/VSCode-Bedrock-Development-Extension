@@ -32,14 +32,14 @@ export async function internalRequest(
 
 function forEach<T extends Types.BaseObject>(config: LensConfig<T>, doc: TextDocument, builder: CodeLensBuilder) {
   if (config.regex === undefined) {
-    config.regex = isJson(doc) ? jsonRegex : defaultRegex;
+    config.regex = defaultRegex;
   }
 
+  const text = doc.getText();
   config.data.forEach((item) => {
     if (builder.token.isCancellationRequested) return;
     if (item.location.uri === doc.uri) return;
 
-    const text = doc.getText();
     const regex = config.regex!(item.id, doc);
     const matches = regex.exec(text);
 
@@ -67,16 +67,12 @@ function isJson(doc: TextDocument) {
   return doc.languageId === Languages.JsonIdentifier || doc.languageId === Languages.JsonCIdentifier;
 }
 
-function jsonRegex(id: string, doc: TextDocument) {
-  return new RegExp(`\"${id}\"`, "g");
-}
-
-function defaultRegex(id: string, doc: TextDocument) {
+function defaultRegex(id: string) {
   return new RegExp(`\\b${id}\\b`, "g");
 }
 
 function selectorThing(id: string, doc: TextDocument) {
-  return isJson(doc) ? new RegExp(`\\b(${id}=|=${id})\\b`, "g") : defaultRegex(id, doc);
+  return isJson(doc) ? new RegExp(`\\b(${id}=|=${id})\\b`, "g") : defaultRegex(id);
 }
 
 function config(pd: ProjectData) {

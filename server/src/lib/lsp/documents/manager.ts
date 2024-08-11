@@ -8,7 +8,8 @@ import { ProgressBar } from "../progress";
 import { readDocument } from "./io";
 import { TextDocument } from "./text-document";
 import { TextDocumentFactory } from "./factory";
-import { Vscode, Processor } from "../../util";
+import { Processor } from "../../util";
+import { URI } from "vscode-uri";
 import {
   CancellationToken,
   Connection,
@@ -18,7 +19,7 @@ import {
 } from "vscode-languageserver";
 
 import * as vscode from "vscode-languageserver-textdocument";
-
+import { FileOperationFilter } from "vscode-languageserver-protocol/lib/common/protocol.fileOperations";
 
 export type ContentType = string | vscode.TextDocument | undefined;
 export interface IDocumentManager
@@ -59,16 +60,22 @@ export class DocumentManager
   }
 
   onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+    const filters: FileOperationFilter[] = [
+      { pattern: { glob: "**/*.{mcfunction}", options: { ignoreCase: true } } },
+      { pattern: { glob: "**/*.{json,jsonc}", options: { ignoreCase: true } } },
+      { pattern: { glob: "**/*.{.mcignore,.mcattributes,.mcdefinitions}", options: { ignoreCase: true } } },
+    ];
+
     capabilities.set("textDocumentSync", TextDocumentSyncKind.Incremental);
-    capabilities.addWorkspace({
+    capabilities.set("workspace", {
       workspaceFolders: {
         changeNotifications: true,
         supported: true,
       },
       fileOperations: {
-        didCreate: { filters: [{ scheme: "file", pattern: { glob: "**/*.{mcfunction,json}" } }] },
-        didDelete: { filters: [{ scheme: "file", pattern: { glob: "**/*.{mcfunction,json}" } }] },
-        didRename: { filters: [{ scheme: "file", pattern: { glob: "**/*.{mcfunction,json}" } }] },
+        didCreate: { filters: filters },
+        didDelete: { filters: filters },
+        didRename: { filters: filters },
       },
     });
   }
@@ -86,24 +93,28 @@ export class DocumentManager
    * Retrieve the given document from the
    */
   get(uri: string, content?: ContentType, languageID?: string): TextDocument | undefined {
-    const fsPath = Vscode.FromFs(uri);
+    const u = URI.parse(uri);
     if (languageID === undefined || languageID === "") {
-      languageID = identifyDocument(fsPath);
+      languageID = identifyDocument(u);
+    }
+
+    if (u.scheme !== "file") {
+      this.logger.info("A non file found");
     }
 
     if (typeof content === "string") {
-      return this._factory.create(fsPath, languageID, 1, content);
+      return this._factory.create(u.toString(), languageID, 1, content);
     }
     if (typeof content !== "undefined") {
       return this._factory.extend(content);
     }
 
-    const doc = this._documents.get(fsPath);
+    const doc = this._documents.get(u.toString());
     if (doc) return this._factory.extend(doc);
 
-    const text = readDocument(fsPath, this.logger);
+    const text = readDocument(u, this.logger);
     if (text) {
-      return this._factory.create(fsPath, languageID, 1, text);
+      return this._factory.create(u.toString(), languageID, 1, text);
     }
 
     //We have tried all methods of retrieving data so far

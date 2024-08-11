@@ -38,7 +38,7 @@ export class TemplateBuilder {
     if (uri.startsWith("file:\\")) uri = uri.replace(/\\/gi, "/");
 
     const path = Fs.FromVscode(uri);
-    uri = Vscode.FromFs(path);
+    uri = Vscode.fromFs(path);
 
     if (fs.existsSync(path)) {
       this.context.logger.info("creation of file skipped because it already exists: " + path);

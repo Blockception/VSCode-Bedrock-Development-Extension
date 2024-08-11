@@ -57,7 +57,7 @@ export function getExtension(filepath: string): string {
  * @returns
  */
 
-export function GetParent(uri: string): string {
+export function getParent(uri: string): string {
   let Index = uri.lastIndexOf("/");
 
   if (Index > -1) {

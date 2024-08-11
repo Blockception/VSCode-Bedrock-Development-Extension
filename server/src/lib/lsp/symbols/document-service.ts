@@ -42,7 +42,7 @@ export class DocumentSymbolService extends BaseService implements Partial<IServi
   ): Promise<SymbolInformation[] | DocumentSymbol[]> {
     const builder = new SymbolBuilder(undefined, token);
     const data = this.extension.database.ProjectData;
-    const uri = Vscode.FromFs(params.textDocument.uri);
+    const uri = Vscode.fromFs(params.textDocument.uri);
     workDoneProgress.begin("document symbols", 0, "", true);
 
     const check = (obj: GeneralInfo) => {

@@ -64,9 +64,7 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
    * @param document
    */
   process(document: TextDocument): void {
-    const filename = getFilename(document.uri);
     const conf = document.configuration();
-    this.logger.debug(`processing document: ${filename}`);
 
     try {
       if (conf.ignores.patterns.length == 0 || !Glob.isMatch(document.uri, conf.ignores.patterns)) {

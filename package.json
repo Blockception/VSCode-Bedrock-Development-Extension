@@ -502,9 +502,6 @@
         ],
         "extensions": [
           ".mcfunction"
-        ],
-        "filenamePatterns": [
-          "[a-z0-9_]*\\.mcfunction"
         ]
       },
       {

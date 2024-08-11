@@ -7,7 +7,7 @@ import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { MinecraftFormat } from "../../../../minecraft/format";
 import { ResourcePack } from "bc-minecraft-bedrock-project";
-import path from "path";
+import { getExtension } from '../../../../util';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
@@ -37,7 +37,7 @@ export function provideSoundFileCompletion(context: Context<CompletionContext>):
     if (index <= 0) {
       return;
     }
-    const ext = path.extname(filepath);
+    const ext = getExtension(filepath);
     const id = filepath.substring(index, filepath.length - ext.length);
 
     context.builder.add({

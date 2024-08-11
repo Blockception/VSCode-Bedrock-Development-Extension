@@ -38,7 +38,7 @@ export interface TextDocument extends vscode.TextDocument, mcbe.TextDocument, MC
   extension(): ExtensionContext;
 }
 
-export class WrappedTextDocument implements TextDocument {
+export class WrappedTextDocument implements TextDocument, MCProjectprovider {
   protected _document: vscode.TextDocument;
   /**A hidden field that helps with storing the cache */
   protected _pack: mcbe.Pack | null | undefined;
@@ -47,6 +47,10 @@ export class WrappedTextDocument implements TextDocument {
   constructor(document: vscode.TextDocument, extension: ExtensionContext) {
     this._document = document;
     this._extension = extension;
+  }
+
+  public get base() {
+    return this._document;
   }
 
   /** @inheritdoc */

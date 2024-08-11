@@ -1,4 +1,4 @@
-import { Fs } from "../../util";
+import { URI } from "vscode-uri";
 import { IExtendedLogger } from "../logger/logger";
 
 import * as fs from "fs";
@@ -9,16 +9,27 @@ import * as fs from "fs";
  * @param logger The logger to report error and information to
  * @returns The contents of the file or undefined when an error occured
  */
-export function readDocument(uri: string, logger: IExtendedLogger): string | undefined {
+export function readDocument(uri: URI, logger: IExtendedLogger): string | undefined {
   //Reading file
-  const path = Fs.FromVscode(uri);
 
-  if (fs.existsSync(path)) {
-    try {
-      return fs.readFileSync(path, "utf8");
-    } catch (error) {
-      logger.recordError(error, uri);
+  try {
+    switch (uri.scheme) {
+      case "file":
+        return fromFilesystem(uri);
+
+      default:
+        throw new Error("unknown uri scheme: " + uri.toString());
     }
+  } catch (error) {
+    logger.recordError(error, uri.toString());
+  }
+  return undefined;
+}
+
+function fromFilesystem(uri: URI): string | undefined {
+  const path = uri.fsPath;
+  if (fs.existsSync(path)) {
+    return fs.readFileSync(path, "utf8");
   }
 
   return undefined;

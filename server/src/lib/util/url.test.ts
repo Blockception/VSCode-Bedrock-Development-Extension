@@ -5,7 +5,7 @@ describe("Url", () => {
   describe("Vscode", () => {
     describe("FromFs", () => {
       const folderFs = path.resolve(__dirname, "test");
-      const folder = Vscode.FromFs(folderFs);
+      const folder = Vscode.fromFs(folderFs);
 
       test("Is not vscode folder", () => {
         expect(Vscode.isVscode(folderFs)).toBeFalsy;

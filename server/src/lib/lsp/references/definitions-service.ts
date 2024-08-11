@@ -7,15 +7,12 @@ import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
 import { Context } from "../context/context";
 import { ReferenceContext } from "./context";
-import {
-  CancellationToken,
-  DefinitionParams,
-  InitializeParams,
-  Location,
-} from "vscode-languageserver-protocol";
+import { CancellationToken, DefinitionParams, InitializeParams, Location } from "vscode-languageserver-protocol";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
 import * as Json from "./minecraft/json";
+import { getCurrentWord } from "./function";
+import { References } from "../../util";
 
 export class DefinitionService extends BaseService implements Partial<IService> {
   name: string = "definitions";
@@ -53,18 +50,17 @@ export class DefinitionService extends BaseService implements Partial<IService> 
       { logger: this.logger }
     );
 
-    switch (document.languageId) {
-      case Languages.McFunctionIdentifier:
-        return Mcfunction.provideReferences(context);
-
-      case Languages.JsonCIdentifier:
-      case Languages.JsonIdentifier:
-        return Json.provideReferences(context);
-
-      case Languages.McOtherIdentifier:
-        break;
+    const cursor = document.offsetAt(params.position);
+    const w = getCurrentWord(document, cursor);
+    if (w.text === "") {
+      return;
     }
 
-    return [];
+    const obj = context.database.findReference(w.text);
+    if (obj === undefined) {
+      return;
+    }
+
+    return References.convertLocation([obj], context.documents);
   }
 }

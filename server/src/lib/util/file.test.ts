@@ -1,5 +1,5 @@
 import path from "path";
-import { getExtension, getFilename, GetParent } from "./file";
+import { getExtension, getFilename, getParent } from "./file";
 
 const filename = "I am a filepath.json";
 const Extention = ".json";
@@ -20,7 +20,7 @@ describe("File", () => {
   });
 
   test("GetParent", () => {
-    const P = GetParent(Fullpath);
+    const P = getParent(Fullpath);
 
     expect(P).toEqual(parent + path.sep);
   });

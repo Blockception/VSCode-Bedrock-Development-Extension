@@ -33,6 +33,10 @@ export class TextDocumentFactory extends BaseService implements TextDocumentsCon
 
   /** @inheritdoc */
   update(document: TextDocument, changes: TextDocumentContentChangeEvent[], version: number): TextDocument {
+    if (document instanceof WrappedTextDocument) {
+      return this.extend(vscode.TextDocument.update(document.base, changes, version));
+    }
+
     return this.extend(vscode.TextDocument.update(document, changes, version));
   }
 }

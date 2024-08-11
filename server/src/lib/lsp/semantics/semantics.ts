@@ -43,12 +43,12 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
   dynamicRegister(register: BulkRegistration): void {
     register.add(SemanticTokensRegistrationType.type, {
       documentSelector: [
-        { scheme: "file", language: Languages.JsonCIdentifier },
-        { scheme: "file", language: Languages.JsonIdentifier },
-        { scheme: "file", language: Languages.McFunctionIdentifier },
-        { scheme: "file", language: Languages.McLanguageIdentifier },
-        { scheme: "file", language: Languages.McOtherIdentifier },
-        { scheme: "file", language: Languages.McMolangIdentifier },
+        { language: Languages.JsonCIdentifier },
+        { language: Languages.JsonIdentifier },
+        { language: Languages.McFunctionIdentifier },
+        { language: Languages.McLanguageIdentifier },
+        { language: Languages.McOtherIdentifier },
+        { language: Languages.McMolangIdentifier },
       ],
       legend: {
         tokenModifiers: SemanticModifiers,
