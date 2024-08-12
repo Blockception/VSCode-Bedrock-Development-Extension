@@ -35,7 +35,7 @@
     "bc-minecraft-molang": "^1.21.1-2",
     "bc-minecraft-project": "^1.21.1-2",
     "bc-vscode-words": "^1.3.16",
-    "comment-json": "^4.2.3",
+    "comment-json": "^4.2.5",
     "fast-glob": "^3.3.2",
     "fastest-levenshtein": "^1.0.16",
     "jsonc-parser": "^3.3.1",
