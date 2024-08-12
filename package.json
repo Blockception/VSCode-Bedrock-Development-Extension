@@ -52,7 +52,7 @@
     "workspace"
   ],
   "devDependencies": {
-    "@types/node": "^22.1.0",
+    "@types/node": "^22.2.0",
     "@vscode/vsce": "^2.31.1",
     "json-loader": "^0.5.7",
     "jsonc": "^2.0.0",
