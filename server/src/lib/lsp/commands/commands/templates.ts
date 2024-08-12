@@ -85,17 +85,12 @@ export const TemplateCommands: TemplateItem[] = [
   new TemplateItem(BPC.Dialogue, BPT.dialogue, "dialogue", "${{id.safe}}.dialogue..json"),
   new TemplateItem(BPC.Item, BPT.item, "items", "${{id.safe}}.item..json"),
   new TemplateItem(BPC.Loot_Table, BPT.loot_table, "loot_tables", "${{id.safe}}.loot..json"),
-  new TemplateItem(BPC.Manifests, BPT.manifest, "manifest..json"),
+  new TemplateItem(BPC.Manifests, BPT.manifest, "manifest.json"),
   new TemplateItem(BPC.Recipe, BPT.recipe, "recipes", "${{id.safe}}.recipe..json"),
   new TemplateItem(BPC.Spawn_Rule, BPT.spawn_rule, "spawn_rules", "${{id.safe}}.spawn..json"),
   new TemplateItem(BPC.Trading, BPT.trading, "trading", "${{id.safe}}.trades..json"),
   new TemplateItem(BPC.Volume, BPT.volume, "volumes", "${{id.safe}}.volume..json"),
-  new TemplateItem(
-    RPC.Animation_Controller,
-    RPT.animation_controller,
-    "animation_controllers",
-    "${{id.safe}}.controller.json"
-  ),
+  new TemplateItem(RPC.Animation_Controller, RPT.animation_controller, "animation_controllers","${{id.safe}}.controller.json"),
   new TemplateItem(RPC.Animation, RPT.animation, "animations", "${{id.safe}}.animation..json"),
   new TemplateItem(RPC.Attachable, RPT.attachable, "attachables", "${{id.safe}}.attachable..json"),
   new TemplateItem(RPC.Biomes_Client, RPT.biomes_client, "biomes_client..json"),
@@ -105,7 +100,7 @@ export const TemplateCommands: TemplateItem[] = [
   new TemplateItem(RPC.Fog, RPT.fog, "fogs", "${{id.safe}}.fog..json"),
   new TemplateItem(RPC.Flipbook_Textures, RPT.flipbook_textures, "textures", "flipbook_textures..json"),
   new TemplateItem(RPC.Item_Texture, RPT.item_texture, "textures", "item_texture.png"),
-  new TemplateItem(RPC.Manifests, RPT.manifest, "manifest..json"),
+  new TemplateItem(RPC.Manifests, RPT.manifest, "manifest.json"),
   new TemplateItem(RPC.Model, RPT.model, "models", "entity", "${{id.safe}}.geo..json"),
   new TemplateItem(RPC.Music_Definitions, RPT.music_definitions, "sounds", "music_definitions..json"),
   new TemplateItem(RPC.Particle, RPT.particle, "particles", "${{id.safe}}.particle..json"),
@@ -113,7 +108,7 @@ export const TemplateCommands: TemplateItem[] = [
   new TemplateItem(RPC.Sounds, RPT.sounds, "sounds..json"),
   new TemplateItem(RPC.Sound_Definitions, RPT.sound_definitions, "sounds", "sound_definitions..json"),
   new TemplateItem(RPC.Terrain_Texture, RPT.terrain_texture, "textures", "terrain_texture..json"),
-  new TemplateItem(Commands.Create.World.Manifests, WPT.manifest, "manifest..json"),
+  new TemplateItem(Commands.Create.World.Manifests, WPT.manifest, "manifest.json"),
 ];
 
 export function getTemplateCommand(command: string): TemplateItem | undefined {
