@@ -16,14 +16,17 @@ export function IsMolang(text: string): boolean {
   let index = text.indexOf(" ");
   if (index < 0) index = text.length;
   let word = text.substring(0, index);
-  word = word.startsWith('/') ? word.substring(1, word.length) : word;
 
-  //command test
-  if (CommandData.Vanilla[word] !== undefined) {
-    return true;
-  }
-  if (CommandData.Edu[word] !== undefined) {
-    return true;
+  if (word.startsWith('/')) {
+    word = word.substring(1, word.length);
+
+    //command test
+    if (CommandData.Vanilla[word] !== undefined) {
+      return true;
+    }
+    if (CommandData.Edu[word] !== undefined) {
+      return true;
+    }
   }
 
   //general test
@@ -36,7 +39,7 @@ export function IsMolang(text: string): boolean {
  * @param cursor The cursor offset in the text
  * @returns
  */
-export function GetPreviousWord(text: string, cursor: number): string {
+export function getPreviousWord(text: string, cursor: number): string {
   let endIndex = cursor;
 
   if (text.charAt(endIndex - 1) === ".") endIndex = cursor - 1;

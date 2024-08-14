@@ -14,15 +14,21 @@ describe("Molang", () => {
     ];
 
     shouldBe.forEach((item) =>
-      test(item, () => {
+      test(`is molang: ${item}`, () => {
         expect(IsMolang(item)).toBeTruthy;
       })
     );
 
-    const shouldNotBe = ["Some texts should this not be detected"];
+    const shouldNotBe = [
+      "Some texts should this not be detected",
+      "damage",
+      "event",
+      "query",
+      "time"
+    ];
 
     shouldNotBe.forEach((item) =>
-      test(item, () => {
+      test(`not molang: ${item}`, () => {
         expect(IsMolang(item)).toBeFalsy;
       })
     );
