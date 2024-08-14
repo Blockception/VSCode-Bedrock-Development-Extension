@@ -56,10 +56,10 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
 
   /**@inheritdoc*/
   getFiles(folder: string, patterns: string[], ignores: MCIgnore): string[] {
-    const key = (folder = patterns.join(",") + ignores.patterns.join(","));
+    const key = (folder + patterns.join(",") + ignores.patterns.join(","));
 
     return this._getFilesCache.getOrAdd(key, (k) => {
-      return Glob.getFiles(patterns, patterns, folder);
+      return Glob.getFiles(patterns, ignores.patterns, folder);
     });
   }
 
