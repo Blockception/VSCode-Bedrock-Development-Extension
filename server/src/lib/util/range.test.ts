@@ -3,7 +3,7 @@ import * as vs from "vscode-languageserver-textdocument";
 import { Location } from "vscode-languageserver";
 
 describe("Range", () => {
-  test("Wihtin Range", () => {
+  test("should be within range", () => {
     const R: vs.Range = { start: { character: 10, line: 1 }, end: { character: 5, line: 2 } };
 
     expect(Range.Within(R, { line: 1, character: 11 })).toBeTruthy;
@@ -13,7 +13,7 @@ describe("Range", () => {
     expect(Range.Within(R, { line: 2, character: 6 })).toBeFalsy;
   });
 
-  test("Wihtin Location", () => {
+  test("location should be within range", () => {
     const R: vs.Range = { start: { character: 10, line: 1 }, end: { character: 5, line: 2 } };
     const L: Location = Location.create("", R);
 
@@ -24,7 +24,7 @@ describe("Range", () => {
     expect(Range.Within(L, { line: 2, character: 6 })).toBeFalsy;
   });
 
-  test("Wihtin Range 2", () => {
+  test("extensive within range", () => {
     const R: vs.Range = { start: { character: 2, line: 1 }, end: { character: 12, line: 1 } };
 
     for (var I = 3; I < 12; I++) {
@@ -35,7 +35,7 @@ describe("Range", () => {
     expect(Range.Within(R, { line: 2, character: 13 })).toBeFalsy;
   });
 
-  test("Wihtin Location 2", () => {
+  test("extensive within range", () => {
     const R: vs.Range = { start: { character: 2, line: 1 }, end: { character: 12, line: 1 } };
     const L: Location = Location.create("", R);
 
