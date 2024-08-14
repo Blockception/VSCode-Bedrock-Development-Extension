@@ -44,7 +44,8 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
     const doc = this.extension.documents.get(e.document.uri, e.document, e.document.languageId);
     if (doc === undefined) return;
 
-    return this.process(doc);
+    this.process(doc);
+    return this.diagnose(doc)
   }
 
   get(uri: string): TextDocument;
