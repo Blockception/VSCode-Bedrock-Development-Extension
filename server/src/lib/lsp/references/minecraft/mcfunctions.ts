@@ -1,5 +1,5 @@
-import { Location, Position } from "vscode-languageserver";
 import { OffsetWord } from "bc-vscode-words";
+import { Location, Position } from "vscode-languageserver";
 import { Context } from "../../context/context";
 import { ReferenceContext } from "../context";
 

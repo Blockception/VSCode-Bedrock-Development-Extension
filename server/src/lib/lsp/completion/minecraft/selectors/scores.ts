@@ -1,8 +1,8 @@
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Offset } from "../../../../util";
-import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 
 import * as Objectives from "../../general/objectives";
 

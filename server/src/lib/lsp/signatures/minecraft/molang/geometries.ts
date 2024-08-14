@@ -1,13 +1,10 @@
-import { SignatureHelp } from 'vscode-languageserver-types';
-import { TextDocument } from '../../../documents/text-document';
+import { SignatureHelp } from "vscode-languageserver-types";
 
 /**
- * 
- * @param fn 
- * @param doc 
+ *
+ * @param fn
+ * @param doc
  */
-export function provideSignature(fn : string | undefined): SignatureHelp | undefined {
-
-
-    return undefined;
+export function provideSignature(fn: string | undefined): SignatureHelp | undefined {
+  return undefined;
 }

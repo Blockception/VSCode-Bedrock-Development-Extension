@@ -1,5 +1,5 @@
-import { CommandCompletionContext } from "../context";
 import { Kinds } from "../../../constants";
+import { CommandCompletionContext } from "../context";
 
 export function provideCompletion(context: CommandCompletionContext): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Coordinate });

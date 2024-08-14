@@ -6,9 +6,9 @@ import * as Animations from "./animations";
 import * as Block from "./blocks";
 import * as Entities from "./entities";
 import * as Family from "./families";
-import * as Functions from "./mcfunctions";
 import * as Items from "./items";
 import * as LootTables from "./loot-tables";
+import * as Functions from "./mcfunctions";
 import * as Structures from "./structures";
 import * as Trading from "./trading";
 

@@ -1,16 +1,12 @@
+import { Languages } from "@blockception/shared";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, Definition, DefinitionLink, InitializeParams, Location, ReferenceParams, TypeDefinitionParams } from "vscode-languageserver-protocol";
+import { CancellationToken, Definition, DefinitionLink, InitializeParams, TypeDefinitionParams } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
-import { Context } from "../context/context";
-import { ReferenceContext } from "./context";
 
-import * as Mcfunction from "./minecraft/mcfunctions";
-import * as Json from "./minecraft/json";
 import { getCurrentWord } from './function';
 
 export class TypeDefinitionService extends BaseService implements Partial<IService> {

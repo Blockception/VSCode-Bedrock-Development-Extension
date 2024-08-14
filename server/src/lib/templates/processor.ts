@@ -6,7 +6,6 @@ import { IExtensionContext } from "../lsp/extension";
 
 import path from "path";
 import * as fs from "fs";
-import { Utils } from 'vscode-uri';
 
 export class TemplateProcessor {
   protected _filename: string;

@@ -1,9 +1,9 @@
-import { CompactJson } from "bc-minecraft-bedrock-types/lib/src/minecraft/json";
-import { CreateNamespaced, CreateRangeTokensWord } from "../functions";
 import { Minecraft } from "bc-minecraft-bedrock-types";
+import { CompactJson } from "bc-minecraft-bedrock-types/lib/src/minecraft/json";
 import { OffsetWord } from "bc-vscode-words";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
 import { McfunctionSemanticTokensBuilder } from "../builders/mcfunction";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
+import { CreateNamespaced, CreateRangeTokensWord } from "../functions";
 
 export function CreateSelectorTokens(word: OffsetWord, builder: McfunctionSemanticTokensBuilder): void {
   if (word.text.startsWith("@")) {

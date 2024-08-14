@@ -1,4 +1,4 @@
-import { CommandManager } from './manager'
+import { CommandManager } from './manager';
 
 
 describe("command manager", () => {

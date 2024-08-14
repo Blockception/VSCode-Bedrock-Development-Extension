@@ -1,7 +1,7 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { CompletionContext } from "../context";
-import { Context } from "../../context/context";
 import { Kinds } from "../../../constants";
+import { Context } from "../../context/context";
+import { CompletionContext } from "../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   context.builder.generate(

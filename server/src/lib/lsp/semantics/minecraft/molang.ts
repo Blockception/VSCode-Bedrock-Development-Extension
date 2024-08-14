@@ -1,13 +1,13 @@
-import { CreateMolangWords } from "../../../minecraft/molang/words";
-import { Float } from "bc-minecraft-bedrock-types/lib/src/general/float";
 import { Minecraft } from "bc-minecraft-bedrock-types";
+import { Float } from "bc-minecraft-bedrock-types/lib/src/general/float";
 import { OffsetWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-textdocument";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
 import { SemanticTokens } from "vscode-languageserver/node";
+import { CreateMolangWords } from "../../../minecraft/molang/words";
 import { TextDocument } from "../../documents/text-document";
-import { MolangSemanticTokensBuilder } from "../builders/molang";
 import { JsonSemanticTokensBuilder } from "../builders/json";
+import { MolangSemanticTokensBuilder } from "../builders/molang";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
 
 /**
  *

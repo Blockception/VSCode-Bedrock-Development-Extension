@@ -1,8 +1,8 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { WorldPack } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/World/WorldPack";
 import { TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { TextDocument } from "../../documents/text-document";
 import { Context } from "../../context/context";
+import { TextDocument } from "../../documents/text-document";
 import { CommandContext } from "../context";
 
 export async function addAllItems(context: Context<CommandContext>): Promise<void> {

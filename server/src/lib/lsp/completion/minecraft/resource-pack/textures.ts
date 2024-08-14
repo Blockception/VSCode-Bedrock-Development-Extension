@@ -1,9 +1,9 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { Kinds } from "../../../../constants";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { Kinds } from "../../../../constants";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The texture: ${item.id}`;

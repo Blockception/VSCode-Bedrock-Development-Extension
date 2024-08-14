@@ -1,3 +1,5 @@
+import { Languages } from "@blockception/shared";
+import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
   DocumentFormattingParams,
@@ -5,16 +7,14 @@ import {
   DocumentRangeFormattingParams,
   TextEdit,
 } from "vscode-languageserver-protocol";
-import { BaseService } from "../services/base";
-import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { IService } from "../services/service";
 import { FormatContext } from "./context";
 import { formatLangauge, formatLangaugeRange } from "./language";
 import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
 
 export class FormatService extends BaseService implements Partial<IService> {
   name: string = "workspace processor";

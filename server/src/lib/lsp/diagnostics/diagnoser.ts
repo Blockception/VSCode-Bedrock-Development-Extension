@@ -3,9 +3,9 @@ import {
   DiagnosticSeverity,
   ManagedDiagnosticsBuilder,
 } from "bc-minecraft-bedrock-diagnoser";
-import { Diagnostic } from "vscode-languageserver";
-import { MCProject } from "bc-minecraft-project";
 import { Types } from "bc-minecraft-bedrock-types";
+import { MCProject } from "bc-minecraft-project";
+import { Diagnostic } from "vscode-languageserver";
 import { GetRange } from "../../util";
 import { TextDocument } from "../documents/text-document";
 

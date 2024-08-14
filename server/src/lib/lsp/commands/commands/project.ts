@@ -1,12 +1,12 @@
+import { Commands } from "@blockception/shared";
+import { Vscode } from "../../../util";
+import { Context } from "../../context/context";
+import { TemplateBuilder } from "../../templates/builder";
 import { Folders } from "../../templates/folders";
 import { create_language_files } from "../../templates/language";
-import { TemplateBuilder } from "../../templates/builder";
-import { TextEditBuilder } from "./language";
-import { Vscode } from "../../../util";
-import { mustExecute } from "./functions";
-import { Commands } from "@blockception/shared";
-import { Context } from "../../context/context";
 import { CommandContext } from "../context";
+import { mustExecute } from "./functions";
+import { TextEditBuilder } from "./language";
 
 export async function create_world_project(
   context: Context<CommandContext>,

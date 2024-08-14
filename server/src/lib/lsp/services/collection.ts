@@ -3,12 +3,11 @@ import {
   CancellationToken,
   Connection,
   InitializeParams,
-  InitializeResult,
-  WorkDoneProgressReporter,
+  WorkDoneProgressReporter
 } from "vscode-languageserver";
-import { IService } from "./service";
 import { IExtendedLogger } from "../logger/logger";
 import { CapabilityBuilder } from "./capabilities";
+import { IService } from "./service";
 
 type NamedService = Pick<IService, "name"> & Partial<IService>;
 

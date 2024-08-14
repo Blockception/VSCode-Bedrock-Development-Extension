@@ -3,8 +3,8 @@ import { CodeActionBuilder } from "../builder";
 
 import * as BP_AnimationControllers from "./behavior-pack/animation-controllers";
 import * as BP_Animations from "./behavior-pack/animations";
-import * as Commands from "./commands/commands";
 import * as Family from "./behavior-pack/families";
+import * as Commands from "./commands/commands";
 import * as General from "./general";
 import * as RP_AnimationControllers from "./resource-pack/animation-controllers";
 import * as RP_Animations from "./resource-pack/animations";

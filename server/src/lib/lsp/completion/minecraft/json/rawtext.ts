@@ -1,7 +1,4 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from "../../../context/context";
-import { CompletionContext } from "../../context";
-
 import {
   cRawTextComponent,
   cRawTextExample,
@@ -12,6 +9,8 @@ import {
   cTranslationWith,
   cTranslationWithComplex,
 } from "../../../../minecraft/json/raw-text/constants";
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: CompletionItemKind.Snippet });

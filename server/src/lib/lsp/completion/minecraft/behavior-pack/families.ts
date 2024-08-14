@@ -1,10 +1,10 @@
-import { CommandCompletionContext } from "../../context";
-import { CompletionBuilder } from "../../builder/builder";
-import { Context } from "../../../context/context";
+import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { Kinds } from "../../../../constants";
 import { GetPossibleEntityTypes } from "../../../../minecraft/commands";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { Kinds } from "../../../../constants";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { Context } from "../../../context/context";
+import { CompletionBuilder } from "../../builder/builder";
+import { CommandCompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
   context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {

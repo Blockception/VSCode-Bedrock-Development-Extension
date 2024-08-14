@@ -5,12 +5,6 @@ import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
-import { Context } from "../context/context";
-import { ReferenceContext } from "./context";
-
-import * as Mcfunction from "./minecraft/mcfunctions";
-import * as Json from "./minecraft/json";
 import { getCurrentWord } from './function';
 
 export class ReferenceService extends BaseService implements Partial<IService> {

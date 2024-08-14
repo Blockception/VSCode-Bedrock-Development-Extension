@@ -1,11 +1,11 @@
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CancellationToken, ExecuteCommandParams, InitializeParams } from "vscode-languageserver-protocol";
-import { IService } from "../services/service";
-import { IExtendedLogger } from "../logger/logger";
-import { CapabilityBuilder } from "../services/capabilities";
-import { BaseService } from "../services/base";
-import { ExtensionContext } from "../extension";
 import { Context } from "../context/context";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { IService } from "../services/service";
 import { CommandContext } from "./context";
 import { CommandManager } from "./manager";
 

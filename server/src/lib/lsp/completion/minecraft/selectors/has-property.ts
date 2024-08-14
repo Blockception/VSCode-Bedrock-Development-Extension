@@ -1,10 +1,10 @@
 import { OffsetWord } from "bc-vscode-words";
 import { Kinds } from "../../../../constants";
-import { GetCurrentAttribute } from "./attributes";
-import { IsEditingValue } from "./attribute-values";
-import { Boolean } from "../../general";
-import { CompletionContext } from "../../context";
 import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
+import { Boolean } from "../../general";
+import { IsEditingValue } from "./attribute-values";
+import { GetCurrentAttribute } from "./attributes";
 
 import * as Float from "../../general/float";
 import * as Integer from "../../general/integer";

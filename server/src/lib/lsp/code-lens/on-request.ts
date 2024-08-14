@@ -1,12 +1,12 @@
-import { CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";
-import { CodeLensBuilder } from "./builder";
-import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Languages } from "@blockception/shared";
+import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { TextDocument } from "../documents";
-import { Context } from "../context/context";
-import { CodeLensContext } from "./context";
+import { CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";
 import { Processor } from "../../util";
+import { Context } from "../context/context";
+import { TextDocument } from "../documents";
+import { CodeLensBuilder } from "./builder";
+import { CodeLensContext } from "./context";
 
 /**
  *

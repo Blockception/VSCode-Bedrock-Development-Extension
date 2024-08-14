@@ -1,5 +1,5 @@
-import { CommandContext } from "../context";
 import { Context } from "../../context/context";
+import { CommandContext } from "../context";
 import { getWorkspace } from "../util";
 
 /**

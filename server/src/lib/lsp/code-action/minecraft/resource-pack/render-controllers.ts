@@ -1,7 +1,6 @@
+import { Commands } from "@blockception/shared";
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../builder";
-import { definition } from "../../types/definition";
-import { Commands } from "@blockception/shared";
 
 export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
   switch (diag.code) {

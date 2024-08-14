@@ -1,11 +1,11 @@
+import { Identification } from "@blockception/shared";
 import { BulkRegistration, Connection } from "vscode-languageserver";
+import { DidChangeConfigurationNotification, DidChangeConfigurationParams } from "vscode-languageserver-protocol";
+import { getProject } from "../../project/mcprojects";
+import { ExtensionContext, Settings } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { IService } from "../services/service";
-import { Identification } from "@blockception/shared";
-import { Settings, ExtensionContext } from "../extension";
-import { getProject } from "../../project/mcprojects";
-import { DidChangeConfigurationNotification, DidChangeConfigurationParams } from "vscode-languageserver-protocol";
 
 export class ConfigurationService extends BaseService implements Partial<IService> {
   name: string = "configuration";

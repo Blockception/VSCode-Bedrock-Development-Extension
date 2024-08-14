@@ -1,8 +1,8 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { CompletionContext } from '../../context';
-import { Context } from '../../../context/context';
 import { GetDataSet } from "../../../../minecraft/molang/getdataset";
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const packType = PackType.detect(context.document.uri);

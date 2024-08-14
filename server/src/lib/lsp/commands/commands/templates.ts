@@ -1,9 +1,9 @@
 import { Commands } from "@blockception/shared";
-import { CommandManager } from "../manager";
-import { Context } from "../../context/context";
-import { CommandContext } from "../context";
-import { getFolders } from "../../templates/folders";
 import { TemplateProcessor } from "../../../templates/processor";
+import { Context } from "../../context/context";
+import { getFolders } from "../../templates/folders";
+import { CommandContext } from "../context";
+import { CommandManager } from "../manager";
 
 import * as BPT from "../../templates/definitions/behavior-pack";
 import * as RPT from "../../templates/definitions/resource-pack";

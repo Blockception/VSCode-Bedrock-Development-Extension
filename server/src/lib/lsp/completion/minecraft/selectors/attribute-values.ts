@@ -1,10 +1,10 @@
+import { Modes } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Offset } from "../../../../util";
-import { OffsetWord } from "bc-vscode-words";
-import { Modes } from "bc-minecraft-bedrock-types";
-import { Float, Names, Integer, Tags } from "../../general";
-import { CommandCompletionContext } from "../../context";
 import { Context } from "../../../context/context";
+import { CommandCompletionContext } from "../../context";
+import { Float, Integer, Names, Tags } from "../../general";
 
 import * as Entities from "../behavior-pack/entity/main";
 import * as Family from "../behavior-pack/families";

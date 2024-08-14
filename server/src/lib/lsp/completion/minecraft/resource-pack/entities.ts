@@ -1,14 +1,14 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { CompletionContext } from '../../context';
-import { Context } from '../../../context/context';
-import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from "../../../../constants";
+import { IsEducationEnabled } from "../../../../project/attributes";
+import { Context } from '../../../context/context';
 import { JsonPathCompletion } from "../../builder/json-path";
+import { CompletionContext } from '../../context';
 import { Material } from "../molang";
 
-import * as Animations from "./animations";
 import * as AnimationControllers from "./animation-controllers";
+import * as Animations from "./animations";
 import * as Models from "./models";
 import * as RenderControllers from "./render-controllers";
 import * as Textures from "./textures";

@@ -1,9 +1,8 @@
-import { Kinds } from "../../../../constants";
-import { PackType } from "bc-minecraft-bedrock-project";
-import { ResourcePack, BehaviorPack } from "bc-minecraft-bedrock-project";
-import { CompletionContext } from '../../context';
-import { Context } from '../../../context/context';
+import { BehaviorPack, PackType, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
+import { Kinds } from "../../../../constants";
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const packType = PackType.detect(context.document.uri);

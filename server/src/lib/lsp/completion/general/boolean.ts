@@ -1,5 +1,5 @@
-import { CommandCompletionContext } from "../context";
 import { Kinds } from "../../../constants";
+import { CommandCompletionContext } from "../context";
 
 export function provideCompletion(context: Pick<CommandCompletionContext, "builder">): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Boolean });

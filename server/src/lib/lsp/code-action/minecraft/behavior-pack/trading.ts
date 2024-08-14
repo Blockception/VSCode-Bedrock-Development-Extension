@@ -1,5 +1,5 @@
-import { Diagnostic } from "vscode-languageserver";
 import { Commands } from "@blockception/shared";
+import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../builder";
 
 export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {

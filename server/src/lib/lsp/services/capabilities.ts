@@ -1,5 +1,4 @@
 import { InitializeResult } from "vscode-languageserver";
-import { entries } from "../../util";
 
 type Capabilities = InitializeResult["capabilities"];
 

@@ -1,6 +1,4 @@
-import { notDeepEqual } from 'assert';
-import { DataCache } from './data-cache'
-import { promisify } from 'util';
+import { DataCache } from './data-cache';
 
 interface TestData {
   id: string,

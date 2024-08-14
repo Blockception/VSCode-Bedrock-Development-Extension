@@ -1,13 +1,13 @@
 import { ConvertWords } from "./molang";
+import { CreateMolangWords } from "../../../minecraft/molang/words";
+import { IsMolang } from "../../../minecraft/molang/functions";
+import { JsonSemanticTokensBuilder } from "../builders/json";
 import { McfunctionLineTokens } from "./mcfunctions";
+import { McfunctionSemanticTokensBuilder } from "../builders/mcfunction";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
 import { TextDocument } from "../../documents/text-document";
-import { IsMolang } from "../../../minecraft/molang/functions";
-import { CreateMolangWords } from "../../../minecraft/molang/words";
-import { JsonSemanticTokensBuilder } from "../builders/json";
-import { McfunctionSemanticTokensBuilder } from "../builders/mcfunction";
 
 export function provideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   //Not related to minecraft

@@ -5,16 +5,15 @@ import {
   InitializeParams,
   RenameFilesParams,
 } from "vscode-languageserver-protocol";
+import { Glob } from "../../files/glob";
+import { DiagnoserService } from "../diagnostics/service";
+import { ContentType } from "../documents/manager";
+import { TextDocument } from "../documents/text-document";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
-import { ContentType } from "../documents/manager";
-import { DiagnoserService } from "../diagnostics/service";
-import { ExtensionContext } from "../extension";
-import { getFilename } from "../../util";
-import { Glob } from "../../files/glob";
-import { IExtendedLogger } from "../logger/logger";
 import { IService } from "../services/service";
-import { TextDocument } from "../documents/text-document";
 
 export class DocumentProcessor extends BaseService implements Partial<IService> {
   name: string = "document processor";

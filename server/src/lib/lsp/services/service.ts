@@ -1,4 +1,4 @@
-import { BulkRegistration, Connection, InitializeParams, InitializeResult } from "vscode-languageserver";
+import { BulkRegistration, Connection, InitializeParams } from "vscode-languageserver";
 import { CapabilityBuilder } from "./capabilities";
 
 /**

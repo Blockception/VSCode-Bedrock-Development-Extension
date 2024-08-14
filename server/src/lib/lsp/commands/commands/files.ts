@@ -1,7 +1,7 @@
-import { ApplyWorkspaceEditResult, CreateFile, TextDocumentEdit, TextEdit } from "vscode-languageserver";
+import { ApplyWorkspaceEditResult, CreateFile, TextEdit } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
-import { CommandContext } from "../context";
 import { Context } from "../../context/context";
+import { CommandContext } from "../context";
 
 export async function appendToFile(context: Context<CommandContext>): Promise<void> {
   const { arguments: args } = context;

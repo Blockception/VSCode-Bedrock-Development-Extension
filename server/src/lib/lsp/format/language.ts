@@ -1,10 +1,10 @@
 import { DocumentFormattingParams, DocumentRangeFormattingParams, FormattingOptions } from "vscode-languageserver";
 import { TextEdit } from "vscode-languageserver-textdocument";
 import { TrimEndFromLine, TrimStartFromLine } from "../../util";
-import { TextDocument } from "../documents/text-document";
 import { Context } from "../context/context";
-import { FormatContext } from "./context";
+import { TextDocument } from "../documents/text-document";
 import { ProgressBar } from "../progress";
+import { FormatContext } from "./context";
 
 export function formatLangauge(context: Context<FormatContext>, params: DocumentFormattingParams): TextEdit[] {
   const formatter = new LanguageFormatter(params, context);

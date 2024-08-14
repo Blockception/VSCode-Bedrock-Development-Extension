@@ -1,13 +1,13 @@
-import { addAllItems } from "./commands/language";
-import { appendToFile } from "./commands/files";
-import { CommandContext, ICommand } from "./context";
 import { Commands } from "@blockception/shared";
 import { Context } from "../context/context";
-import { createMcProject } from "./commands/mcproject";
 import { diagnoseProject, rescanProject } from "./commands/diagnose-project";
-import { setupCreate } from "./commands/templates-specalized";
-import { setupTemplates } from "./commands/templates";
+import { appendToFile } from "./commands/files";
+import { addAllItems } from "./commands/language";
+import { createMcProject } from "./commands/mcproject";
 import { storeProject } from "./commands/store-project";
+import { setupTemplates } from "./commands/templates";
+import { setupCreate } from "./commands/templates-specalized";
+import { CommandContext, ICommand } from "./context";
 
 import assert from "assert";
 

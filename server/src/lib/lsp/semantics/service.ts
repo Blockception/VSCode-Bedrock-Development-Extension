@@ -1,22 +1,22 @@
-import { BaseService } from "../services/base";
-import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CapabilityBuilder } from "../services/capabilities";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
 import { Languages } from "@blockception/shared";
-import { SemanticModifiers, SemanticTokens } from "./constants";
-import { provideJsonSemanticTokens } from "./minecraft/json";
-import { provideMolangSemanticTokens } from "./minecraft/molang";
+import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
+  CancellationToken,
   InitializeParams,
-  SemanticTokens as VSSemanticsTokens,
+  Range,
   SemanticTokensParams,
   SemanticTokensRangeParams,
   SemanticTokensRegistrationType,
-  Range,
-  CancellationToken,
+  SemanticTokens as VSSemanticsTokens,
 } from "vscode-languageserver-protocol";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { IService } from "../services/service";
+import { SemanticModifiers, SemanticTokens } from "./constants";
+import { provideJsonSemanticTokens } from "./minecraft/json";
+import { provideMolangSemanticTokens } from "./minecraft/molang";
 
 import * as Mcfunction from "./minecraft/mcfunctions";
 

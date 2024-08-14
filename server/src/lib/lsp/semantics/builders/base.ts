@@ -2,7 +2,7 @@ import { OffsetWord } from "bc-vscode-words";
 import { SemanticTokens, SemanticTokensBuilder } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { TextDocument } from "../../documents/text-document";
-import { SemanticTokensEnum, SemanticModifiersEnum } from "../constants";
+import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
 
 /**
  *

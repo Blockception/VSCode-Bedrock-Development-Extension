@@ -1,8 +1,8 @@
 import { ModeUtil } from "bc-minecraft-bedrock-types";
-import { CompletionItemKind } from "vscode-languageserver";
 import { ModeHandler } from "bc-minecraft-bedrock-types/lib/src/modes/mode-handler";
-import { CompletionContext } from "../../context";
+import { CompletionItemKind } from "vscode-languageserver";
 import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
 
 const expections: Record<string, (context: Context<CompletionContext>) => void> = {};
 

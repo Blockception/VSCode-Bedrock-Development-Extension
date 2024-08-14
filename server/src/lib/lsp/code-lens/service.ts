@@ -1,12 +1,12 @@
-import { CancellationToken, CodeLens, CodeLensParams, InitializeParams } from "vscode-languageserver-protocol";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { CodeLensContext } from "./context";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
+import { CancellationToken, CodeLens, CodeLensParams, InitializeParams } from "vscode-languageserver-protocol";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
+import { CodeLensContext } from "./context";
 import { internalRequest } from "./on-request";
 
 export class CodeLensService extends BaseService implements Partial<IService> {

@@ -1,9 +1,9 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { Fs } from "../../../util";
-import { getWorkspace } from "../util";
-import { CommandContext } from "../context";
 import { Context } from "../../context/context";
 import { IExtendedLogger } from "../../logger/logger";
+import { CommandContext } from "../context";
+import { getWorkspace } from "../util";
 
 import path from "path";
 

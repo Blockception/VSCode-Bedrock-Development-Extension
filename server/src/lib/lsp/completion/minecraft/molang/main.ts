@@ -1,7 +1,7 @@
+import { Languages } from "@blockception/shared";
+import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { getPreviousWord, IsMolang } from "../../../../minecraft/molang/functions";
-import { PackType } from "bc-minecraft-bedrock-project";
-import { Languages } from "@blockception/shared";
 import { Context } from "../../../context/context";
 import { CompletionContext } from "../../context";
 
@@ -13,11 +13,11 @@ import * as Temps from "./temps";
 import * as Texture from "./texture";
 import * as Variables from "./variables";
 
-import * as RP_Animations from "../resource-pack/animations";
-import * as RP_Animations_Controllers from "../resource-pack/animation-controllers";
-import * as RP_Render_Controllers from "../resource-pack/render-controllers";
-import * as BP_Animations from "../behavior-pack/animations";
 import * as BP_Animation_Controllers from "../behavior-pack/animation-controllers";
+import * as BP_Animations from "../behavior-pack/animations";
+import * as RP_Animations_Controllers from "../resource-pack/animation-controllers";
+import * as RP_Animations from "../resource-pack/animations";
+import * as RP_Render_Controllers from "../resource-pack/render-controllers";
 
 export function provideDocCompletion(context: Context<CompletionContext>): void {
   const { document, position } = context;

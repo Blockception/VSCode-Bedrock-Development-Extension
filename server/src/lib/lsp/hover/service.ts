@@ -1,12 +1,12 @@
+import { Languages } from "@blockception/shared";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CancellationToken, Hover, HoverParams, InitializeParams } from "vscode-languageserver-protocol";
+import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
-import { Context } from "../context/context";
 import { HoverContext } from "./context";
 
 import * as Json from "./minecraft/json";

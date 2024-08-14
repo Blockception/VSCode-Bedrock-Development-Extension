@@ -1,5 +1,5 @@
 import { BulkRegistration, createConnection, InitializeResult, ProposedFeatures } from "vscode-languageserver/node";
-import { CapabilityBuilder } from "../services/capabilities";
+import { Version } from "../../constants";
 import { CodeActionService } from "../code-action/service";
 import { CodeLensService } from "../code-lens/service";
 import { CommandService } from "../commands/service";
@@ -8,16 +8,16 @@ import { ConfigurationService } from "../configuration/service";
 import { Database } from "../database/database";
 import { DiagnoserService } from "../diagnostics/service";
 import { DocumentManager, IDocumentManager } from "../documents/manager";
-import { DocumentProcessor, PackProcessor, WorkspaceProcessor } from "../process";
-import { DocumentSymbolService } from "../symbols/document-service";
-import { ExtendedLogger } from "../logger/logger";
 import { ExtensionContext } from "../extension";
 import { FormatService } from "../format/service";
-import { DefinitionService, ReferenceService, TypeDefinitionService, ImplementationService } from "../references";
+import { ExtendedLogger } from "../logger/logger";
+import { DocumentProcessor, PackProcessor, WorkspaceProcessor } from "../process";
+import { DefinitionService, ImplementationService, ReferenceService, TypeDefinitionService } from "../references";
 import { SemanticsServer } from "../semantics/service";
+import { CapabilityBuilder } from "../services/capabilities";
 import { ServiceManager } from "../services/collection";
 import { SignatureService } from "../signatures/service";
-import { Version } from "../../constants";
+import { DocumentSymbolService } from "../symbols/document-service";
 import { WorkspaceSymbolService } from "../symbols/workspace-service";
 
 export function setupServer() {

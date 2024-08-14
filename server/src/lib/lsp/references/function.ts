@@ -1,6 +1,6 @@
 import { OffsetWord } from "bc-vscode-words";
-import { TextDocument } from "../documents";
 import { Character } from "../../util";
+import { TextDocument } from "../documents";
 
 export function getCurrentWord(document: TextDocument, cursor: number): OffsetWord {
   let startIndex = cursor;

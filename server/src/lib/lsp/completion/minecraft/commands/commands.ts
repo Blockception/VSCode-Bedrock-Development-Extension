@@ -1,10 +1,10 @@
 import { CommandData, CommandInfo } from "bc-minecraft-bedrock-command";
+import { SMap } from "bc-minecraft-bedrock-project";
+import { Kinds } from "../../../../constants";
+import { IsEducationEnabled } from "../../../../project/attributes";
+import { Context } from "../../../context/context";
 import { CompletionBuilder } from "../../builder/builder";
 import { CompletionContext } from "../../context";
-import { Context } from "../../../context/context";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Kinds } from "../../../../constants";
-import { SMap } from "bc-minecraft-bedrock-project";
 
 /**
  *

@@ -1,15 +1,4 @@
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { CompletionContext } from "./context";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { Context } from "../context/context";
-import { createBuilder } from "./builder/builder";
-import { ErrorCodes } from "../../constants";
-import { ExtensionContext } from "../extension";
-import { getFilename } from "../../util";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
-import { onCompletionRequest } from "./on-request";
 import {
   CancellationToken,
   CompletionItem,
@@ -18,6 +7,17 @@ import {
   InitializeParams,
   ResponseError,
 } from "vscode-languageserver-protocol";
+import { ErrorCodes } from "../../constants";
+import { getFilename } from "../../util";
+import { Context } from "../context/context";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { IService } from "../services/service";
+import { createBuilder } from "./builder/builder";
+import { CompletionContext } from "./context";
+import { onCompletionRequest } from "./on-request";
 
 const triggerCharacters = " abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,'\"".split("");
 

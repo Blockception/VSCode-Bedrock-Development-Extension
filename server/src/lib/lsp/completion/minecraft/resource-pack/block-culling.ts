@@ -1,8 +1,8 @@
 
-import { JsonPathCompletion } from "../../builder";
 import { Kinds } from "../../../../constants";
-import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
+import { JsonPathCompletion } from "../../builder";
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });

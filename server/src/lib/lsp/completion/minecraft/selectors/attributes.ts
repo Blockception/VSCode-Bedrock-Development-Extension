@@ -1,8 +1,8 @@
-import { CompletionContext } from '../../context';
-import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from '../../../context/context';
 import { Modes } from "bc-minecraft-bedrock-types";
 import { OffsetWord } from "bc-vscode-words";
+import { CompletionItemKind } from "vscode-languageserver";
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 import { provideModeCompletion } from "../modes/modes";
 
 //Doesnt do scores and doesnt need to

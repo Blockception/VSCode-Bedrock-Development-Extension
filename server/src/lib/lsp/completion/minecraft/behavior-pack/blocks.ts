@@ -1,9 +1,9 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { JsonPathCompletion } from "../../builder";
-import { Kinds } from "../../../../constants";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { Kinds } from "../../../../constants";
+import { IsEducationEnabled } from "../../../../project/attributes";
 import { Context } from "../../../context/context";
+import { JsonPathCompletion } from "../../builder";
 import { CompletionContext } from "../../context";
 
 import * as BlockCulling from "../resource-pack/block-culling";

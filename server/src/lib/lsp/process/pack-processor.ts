@@ -1,14 +1,14 @@
-import { BaseService } from "../services/base";
 import { BehaviorPack, Pack } from "bc-minecraft-bedrock-project";
-import { CancellationToken } from "vscode-languageserver-protocol";
-import { DocumentProcessor } from "./document-processor";
-import { ExtensionContext } from "../extension";
-import { Fs, getBasename, getFilename, Processor } from "../../util";
-import { getProject } from "../../project/mcprojects";
-import { IExtendedLogger } from "../logger/logger";
 import { lstatSync } from "fs";
+import { CancellationToken } from "vscode-languageserver-protocol";
 import { MinecraftFormat } from "../../minecraft/format";
+import { getProject } from "../../project/mcprojects";
+import { Fs, getBasename, getFilename, Processor } from "../../util";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
 import { ProgressBar } from "../progress";
+import { BaseService } from "../services/base";
+import { DocumentProcessor } from "./document-processor";
 
 export class PackProcessor extends BaseService {
   name: string = "pack processor";

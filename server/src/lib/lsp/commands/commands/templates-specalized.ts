@@ -1,11 +1,11 @@
-import { TemplateBuilder } from "../../templates/builder";
 import { Commands } from "@blockception/shared";
 import { Pack } from "bc-minecraft-bedrock-project";
-import { getFolders, Folders, EnsureFolders } from "../../templates/folders";
 import { Context } from "../../context/context";
+import { IExtensionContext } from "../../extension";
+import { TemplateBuilder } from "../../templates/builder";
+import { EnsureFolders, Folders, getFolders } from "../../templates/folders";
 import { CommandContext } from "../context";
 import { CommandManager } from "../manager";
-import { IExtensionContext } from "../../extension";
 import { createCommand, mustExecute } from "./functions";
 
 import * as Language from "../../templates/language";

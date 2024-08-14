@@ -1,6 +1,6 @@
-import { CompletionBuilder, JsonPathCompletion } from '../../builder';
-import { CompletionContext } from '../../context';
 import { Context } from '../../../context/context';
+import { JsonPathCompletion } from '../../builder';
+import { CompletionContext } from '../../context';
 
 import * as Textures from './textures';
 

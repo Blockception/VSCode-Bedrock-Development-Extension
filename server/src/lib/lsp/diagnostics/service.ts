@@ -1,14 +1,14 @@
-import { BaseService } from "../services/base";
+import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
 import { Connection } from "vscode-languageserver";
 import { DeleteFilesParams, Diagnostic } from "vscode-languageserver-protocol";
-import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
-import { ExtensionContext } from "../extension";
 import { getFilename } from "../../util";
-import { IExtendedLogger } from "../logger/logger";
-import { InternalContext } from "./context";
-import { IService } from "../services/service";
 import { TextDocument } from "../documents";
 import { IDocumentManager } from "../documents/manager";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { IService } from "../services/service";
+import { InternalContext } from "./context";
 
 export class DiagnoserService extends BaseService implements Partial<IService> {
   name: string = "diagnoser";

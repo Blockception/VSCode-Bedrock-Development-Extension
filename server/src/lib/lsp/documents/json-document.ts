@@ -1,7 +1,7 @@
 import { Range } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
-import { TextDocument, WrappedTextDocument } from "./text-document";
 import { ExtensionContext } from "../extension";
+import { TextDocument, WrappedTextDocument } from "./text-document";
 
 import * as JSONC from "comment-json";
 import * as vscode from "vscode-languageserver-textdocument";

@@ -1,7 +1,7 @@
-import { CompletionBuilder } from "../../builder/builder";
-import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
+import { CompletionItem, CompletionItemKind } from "vscode-languageserver";
 import { Context } from "../../../context/context";
+import { CompletionBuilder } from "../../builder/builder";
 import { CompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {

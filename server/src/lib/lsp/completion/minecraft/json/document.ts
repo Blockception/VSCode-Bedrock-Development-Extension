@@ -1,13 +1,13 @@
-import { CompletionBuilder } from "../../builder/builder";
-import { CompletionContext, JsonCompletionContext } from "../../context";
-import { Context } from "../../../context/context";
-import { EntityEvent } from "../behavior-pack";
+import { PackType } from "bc-minecraft-bedrock-project";
+import { InsertReplaceEdit, Range } from "vscode-languageserver";
 import { getCurrentStringValue, TextRange } from "../../../../minecraft/json/functions";
 import { getJsonPath } from "../../../../minecraft/json/path";
-import { InsertReplaceEdit, Range } from "vscode-languageserver";
-import { PackType } from "bc-minecraft-bedrock-project";
 import { santizeValue } from "../../../../minecraft/json/types";
+import { Context } from "../../../context/context";
 import { TextDocument } from "../../../documents";
+import { CompletionBuilder } from "../../builder/builder";
+import { CompletionContext, JsonCompletionContext } from "../../context";
+import { EntityEvent } from "../behavior-pack";
 
 import * as BehaviorPack from "../behavior-pack/main";
 import * as Mcfunction from "../mcfunctions/mcfunctions";

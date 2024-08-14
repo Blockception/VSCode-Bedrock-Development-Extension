@@ -1,6 +1,6 @@
-import { getCurrentString } from "../../../minecraft/json/functions";
 import { Hover } from "vscode-languageserver";
 import { Range } from "vscode-languageserver-protocol";
+import { getCurrentString } from "../../../minecraft/json/functions";
 import { IsMolang } from "../../../minecraft/molang/functions";
 import { Context } from "../../context/context";
 import { HoverContext } from "../context";

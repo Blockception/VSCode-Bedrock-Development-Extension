@@ -1,20 +1,11 @@
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
+import { CancellationToken, DefinitionParams, InitializeParams, Location } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
 import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
-import { Context } from "../context/context";
-import { ReferenceContext } from "./context";
-import { CancellationToken, DefinitionParams, InitializeParams, Location } from "vscode-languageserver-protocol";
-
-import * as Mcfunction from "./minecraft/mcfunctions";
-import * as Json from "./minecraft/json";
 import { getCurrentWord } from "./function";
-import { References } from "../../util";
-import { ReferenceBuilder } from "../database/references";
-import { Database } from "../database";
 
 export class DefinitionService extends BaseService implements Partial<IService> {
   name: string = "definitions";

@@ -1,6 +1,6 @@
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/ResourcePack";
-import { JsonCompletionContext } from "../../context";
 import { Context } from "../../../context/context";
+import { JsonCompletionContext } from "../../context";
 
 import * as AnimationControllers from "./animation-controllers";
 import * as Animations from "./animations";
@@ -8,10 +8,10 @@ import * as Attachables from "./attachables";
 import * as BlockCulling from "./block-culling";
 import * as Entities from "./entities";
 import * as RenderController from "./render-controllers";
-import * as Sound from "./sounds";
 import * as SoundDefinitions from "./sound-definitions";
-import * as Textures from "./textures";
+import * as Sound from "./sounds";
 import * as TexturesAtlas from "./texture-atlas";
+import * as Textures from "./textures";
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   //Prepare data to be fixed for json

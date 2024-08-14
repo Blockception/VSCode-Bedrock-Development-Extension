@@ -2,16 +2,16 @@ import { Position, SignatureHelp } from "vscode-languageserver";
 import { TextDocument } from "../../documents/text-document";
 
 export function provideSignature(doc: TextDocument, pos: Position): SignatureHelp {
-  const Line = doc.getLine(pos.line);
+  const line = doc.getLine(pos.line);
 
-  const index = Line.indexOf("=");
+  const index = line.indexOf("=");
   let parameter = 0;
 
   if (index > 0 && index < pos.character) {
     parameter = 1;
   }
 
-  const Out: SignatureHelp = {
+  const out: SignatureHelp = {
     activeParameter: parameter,
     activeSignature: 0,
     signatures: [
@@ -32,5 +32,5 @@ export function provideSignature(doc: TextDocument, pos: Position): SignatureHel
     ],
   };
 
-  return Out;
+  return out;
 }

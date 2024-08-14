@@ -1,17 +1,13 @@
-import { SignatureHelp } from 'vscode-languageserver-types';
+import { SignatureHelp } from "vscode-languageserver-types";
 
 /**
  *
  * @param fn
  * @param doc
  */
- export function provideSignature(fn: string | undefined): SignatureHelp | undefined {
-    VariableSignature.activeParameter = fn ? 1 : 0;
-    return VariableSignature;
-  }
-  
-  const VariableSignature: SignatureHelp = {
-    activeParameter: 1,
+export function provideSignature(fn: string | undefined): SignatureHelp | undefined {
+  return {
+    activeParameter: fn ? 1 : 0,
     activeSignature: 0,
     signatures: [
       {
@@ -23,3 +19,4 @@ import { SignatureHelp } from 'vscode-languageserver-types';
       },
     ],
   };
+}

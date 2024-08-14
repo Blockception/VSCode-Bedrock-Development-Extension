@@ -1,19 +1,19 @@
-import { CompletionItemKind } from "vscode-languageserver";
 import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
 import { Modes } from "bc-minecraft-bedrock-types";
-import { CommandCompletionContext, CompletionContext } from "../../context";
+import { CompletionItemKind } from "vscode-languageserver";
 import { Context } from "../../../context/context";
+import { CommandCompletionContext, CompletionContext } from "../../context";
 
 /**These are here to stop circular dependency */
-import * as Command from "./commands";
 import * as General from "../../general";
-import * as Selectors from "../selectors/selector";
+import * as BehaviorPack from "../behavior-pack";
 import * as ItemComponents from "../json/item-components";
 import * as RawText from "../json/rawtext";
-import * as ResourcePack from "../resource-pack";
-import * as BehaviorPack from "../behavior-pack";
 import * as ModeCompletions from "../modes/modes";
 import * as SlotId from "../modes/slot-id";
+import * as ResourcePack from "../resource-pack";
+import * as Selectors from "../selectors/selector";
+import * as Command from "./commands";
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const { parameter, builder } = context;

@@ -1,11 +1,11 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { CompletionContext, JsonCompletionContext } from "../../context";
-import { Kinds } from "../../../../constants";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { Kinds } from "../../../../constants";
+import { IsEducationEnabled } from "../../../../project/attributes";
+import { Context } from "../../../context/context";
+import { CompletionContext, JsonCompletionContext } from "../../context";
 
 import * as Items from "./items";
-import { Context } from "../../../context/context";
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>): void {
   const property = JsonCompletionContext.getProperty(context);

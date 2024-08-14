@@ -1,6 +1,6 @@
 import { CompletionItemKind } from "vscode-languageserver";
-import { CompletionContext } from "../context";
 import { Context } from "../../context/context";
+import { CompletionContext } from "../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;

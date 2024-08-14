@@ -1,5 +1,5 @@
 import { Languages } from "@blockception/shared";
-import { MCAttributes, MCIgnore, MCDefinition } from "bc-minecraft-project";
+import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { URI, Utils } from "vscode-uri";
 
 /**

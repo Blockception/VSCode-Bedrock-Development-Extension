@@ -1,15 +1,15 @@
-import { CancellationToken, Location } from "vscode-languageserver-protocol";
-import { IDocumentManager } from "../documents/manager";
-import { IExtendedLogger } from "../logger/logger";
-import { InternalContext } from "../diagnostics/context";
-import { IService } from "../services/service";
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { WorkspaceData } from "./workspace-data";
 import { WorkDoneProgressReporter } from "vscode-languageserver";
+import { CancellationToken, Location } from "vscode-languageserver-protocol";
 import { Processor, References } from "../../util";
+import { InternalContext } from "../diagnostics/context";
+import { IDocumentManager } from "../documents/manager";
+import { IExtendedLogger } from "../logger/logger";
+import { IService } from "../services/service";
 import { Options, ReferenceBuilder } from "./references";
+import { WorkspaceData } from "./workspace-data";
 
 type BaseObject = Types.BaseObject;
 

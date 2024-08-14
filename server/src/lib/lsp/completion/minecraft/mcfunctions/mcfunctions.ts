@@ -1,12 +1,11 @@
-import { Command, getBestMatches } from "bc-minecraft-bedrock-command";
-import { CompletionBuilder } from "../../builder/builder";
+import { Command } from "bc-minecraft-bedrock-command";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { CommandCompletionContext, CompletionContext } from "../../context";
 import { Context } from "../../../context/context";
+import { CommandCompletionContext, CompletionContext } from "../../context";
 
-import * as Parameter from "../commands/parameters";
 import * as CCommand from "../commands/commands";
+import * as Parameter from "../commands/parameters";
 
 /**
  *

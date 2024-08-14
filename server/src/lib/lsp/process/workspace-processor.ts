@@ -1,3 +1,5 @@
+import { Languages } from "@blockception/shared";
+import { Pack } from "bc-minecraft-bedrock-project";
 import {
   CancellationToken,
   Connection,
@@ -6,16 +8,14 @@ import {
   WorkspaceFolder,
   WorkspaceFoldersChangeEvent,
 } from "vscode-languageserver";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
+import { Processor, Tokens } from "../../util";
+import { TextDocument } from "../documents/text-document";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
-import { Pack } from "bc-minecraft-bedrock-project";
 import { PackProcessor } from "./pack-processor";
-import { TextDocument } from "../documents/text-document";
-import { Processor, Tokens } from "../../util";
 
 export class WorkspaceProcessor extends BaseService implements Partial<IService> {
   name: string = "workspace processor";

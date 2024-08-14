@@ -1,7 +1,7 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { JsonPathCompletion } from "../../builder";
 import { Kinds } from "../../../../constants";
 import { Context } from "../../../context/context";
+import { JsonPathCompletion } from "../../builder";
 import { CompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {

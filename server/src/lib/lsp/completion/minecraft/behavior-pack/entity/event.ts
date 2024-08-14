@@ -1,10 +1,10 @@
 import { ParameterType } from "bc-minecraft-bedrock-command";
-import { CompletionBuilder } from "../../../builder/builder";
-import { CommandCompletionContext, CompletionContext } from "../../../context";
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { Kinds } from "../../../../../constants";
 import { Context } from "../../../../context/context";
+import { CompletionBuilder } from "../../../builder/builder";
+import { CommandCompletionContext, CompletionContext } from "../../../context";
 
 /**
  *

@@ -1,8 +1,8 @@
-import { BaseObject } from "bc-minecraft-bedrock-types/lib/src/types/base-object";
-import { Location } from "vscode-languageserver-protocol";
 import { MolangCarrier } from "bc-minecraft-bedrock-project";
+import { BaseObject } from "bc-minecraft-bedrock-types/lib/src/types/base-object";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang/MolangSet";
 import { OffsetWord } from "bc-vscode-words";
+import { Location } from "vscode-languageserver-protocol";
 import { References } from "../../../util";
 import { Context } from "../../context/context";
 import { ReferenceContext } from "../context";

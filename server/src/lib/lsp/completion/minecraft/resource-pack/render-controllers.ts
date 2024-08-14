@@ -1,11 +1,10 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { CompletionContext } from '../../context';
-import { Context } from '../../../context/context';
-import { CompletionBuilder } from "../../builder/builder";
-import { IsEducationEnabled } from "../../../../project/attributes";
 import { Kinds } from "../../../../constants";
+import { IsEducationEnabled } from "../../../../project/attributes";
+import { Context } from '../../../context/context';
 import { JsonPathCompletion } from "../../builder";
+import { CompletionContext } from '../../context';
 
 import * as Molang from "../molang";
 

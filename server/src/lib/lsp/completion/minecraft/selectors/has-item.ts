@@ -1,16 +1,16 @@
-import { CompletionItemKind } from "vscode-languageserver";
-import { GetCurrentAttribute } from "./attributes";
-import { IsEditingValue } from "./attribute-values";
-import { Kinds } from "../../../../constants";
 import { Modes } from 'bc-minecraft-bedrock-types';
 import { OffsetWord } from "bc-vscode-words";
-import { CompletionContext } from '../../context';
+import { CompletionItemKind } from "vscode-languageserver";
+import { Kinds } from "../../../../constants";
 import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
+import { IsEditingValue } from "./attribute-values";
+import { GetCurrentAttribute } from "./attributes";
 
 
-import * as M from '../modes/modes';
-import * as Item from '../behavior-pack/items';
 import * as Integer from '../../general/integer';
+import * as Item from '../behavior-pack/items';
+import * as M from '../modes/modes';
 
 export function provideCompletion(context: Context<CompletionContext>, selector: OffsetWord, pos: number): void {
   const builder = context.builder;

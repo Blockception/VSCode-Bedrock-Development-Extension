@@ -1,11 +1,11 @@
 import { ClientCapabilities, Connection } from "vscode-languageserver";
+import { Database } from "../database/database";
 import { IDocumentManager } from "../documents/manager";
 import { IExtendedLogger } from "../logger/logger";
-import { Database } from "../database/database";
-import { ExtensionCapabilities } from "./capabilities";
-import { State } from "./state";
-import { Settings } from "./settings";
 import { ServiceManager } from "../services/collection";
+import { ExtensionCapabilities } from "./capabilities";
+import { Settings } from "./settings";
+import { State } from "./state";
 
 export interface IExtensionContext {
   capabilities: ExtensionCapabilities;

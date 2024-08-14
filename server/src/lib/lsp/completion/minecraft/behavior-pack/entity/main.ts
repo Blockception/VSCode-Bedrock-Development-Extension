@@ -1,18 +1,18 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
-import { IsEducationEnabled } from "../../../../../project/attributes";
-import { JsonPathCompletion } from "../../../builder/json-path";
-import { Kinds } from "../../../../../constants";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
+import { Kinds } from "../../../../../constants";
+import { IsEducationEnabled } from "../../../../../project/attributes";
 import { Context } from "../../../../context/context";
+import { JsonPathCompletion } from "../../../builder/json-path";
 import { CompletionContext } from "../../../context";
 
+import * as Sounds from "../../resource-pack/sounds";
 import * as AnimationControllers from "../animation-controllers";
 import * as Animations from "../animations";
-import * as EntityComponentGroups from "./component-groups";
 import * as Item from "../items";
 import * as LootTables from "../loot-tables";
-import * as Sounds from "../../resource-pack/sounds";
 import * as Trading from "../trading";
+import * as EntityComponentGroups from "./component-groups";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The entity definition: ${item.id}`;

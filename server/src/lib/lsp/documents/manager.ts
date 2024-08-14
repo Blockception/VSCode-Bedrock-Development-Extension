@@ -1,16 +1,3 @@
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { ExtensionContext } from "../extension";
-import { FileOperationFilter } from "vscode-languageserver-protocol/lib/common/protocol.fileOperations";
-import { identifyDocument } from "./languageId";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
-import { Processor } from "../../util";
-import { ProgressBar } from "../progress";
-import { readDocument } from "./io";
-import { TextDocument } from "./text-document";
-import { TextDocumentFactory } from "./factory";
-import { URI } from "vscode-uri";
 import {
   CancellationToken,
   Connection,
@@ -18,6 +5,19 @@ import {
   TextDocuments,
   TextDocumentSyncKind,
 } from "vscode-languageserver";
+import { FileOperationFilter } from "vscode-languageserver-protocol/lib/common/protocol.fileOperations";
+import { URI } from "vscode-uri";
+import { Processor } from "../../util";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { ProgressBar } from "../progress";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { IService } from "../services/service";
+import { TextDocumentFactory } from "./factory";
+import { readDocument } from "./io";
+import { identifyDocument } from "./languageId";
+import { TextDocument } from "./text-document";
 
 import * as vscode from "vscode-languageserver-textdocument";
 

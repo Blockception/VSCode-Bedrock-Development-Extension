@@ -1,14 +1,14 @@
 import { DiagnoserContext } from "bc-minecraft-bedrock-diagnoser";
-import { TextDocument } from "../documents/text-document";
-import { Glob } from "../../files/glob";
-import { MCIgnore, MCProject } from "bc-minecraft-project";
-import { IExtendedLogger } from "../logger/logger";
 import { ProjectData } from "bc-minecraft-bedrock-project";
-import { InternalDiagnoser } from "./diagnoser";
-import { IDocumentManager } from "../documents/manager";
+import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { Emitter } from "vscode-languageserver-protocol";
+import { Glob } from "../../files/glob";
 import { getExtension, Vscode } from "../../util";
 import { DataCache } from "../caches";
+import { IDocumentManager } from "../documents/manager";
+import { TextDocument } from "../documents/text-document";
+import { IExtendedLogger } from "../logger/logger";
+import { InternalDiagnoser } from "./diagnoser";
 
 export class InternalContext implements DiagnoserContext<TextDocument> {
   private getCacheFn: () => ProjectData;

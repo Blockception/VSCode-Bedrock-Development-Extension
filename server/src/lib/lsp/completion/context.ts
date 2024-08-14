@@ -1,8 +1,8 @@
+import { Command, CommandInfo, Parameter, ParameterInfo } from "bc-minecraft-bedrock-command";
 import { CancellationToken, CompletionParams, WorkDoneProgressReporter } from "vscode-languageserver";
+import { TextRange } from "../../minecraft/json/functions";
 import { TextDocument } from "../documents";
 import { CompletionBuilder } from "./builder";
-import { TextRange } from "../../minecraft/json/functions";
-import { ParameterInfo, CommandInfo, Parameter, Command } from "bc-minecraft-bedrock-command";
 
 export interface CompletionContext extends CompletionParams {
   document: TextDocument;

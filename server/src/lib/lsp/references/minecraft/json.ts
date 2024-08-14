@@ -1,12 +1,12 @@
+import { ParameterType } from "bc-minecraft-bedrock-command";
+import { OffsetWord } from "bc-vscode-words";
 import { Location, Range } from "vscode-languageserver-protocol";
 import { getCurrentElement } from "../../../minecraft/json/functions";
 import { IsMolang } from "../../../minecraft/molang/functions";
-import { OffsetWord } from "bc-vscode-words";
-import { ParameterType } from "bc-minecraft-bedrock-command";
 import { References } from "../../../util";
+import { Context } from "../../context/context";
 import { TextDocument } from "../../documents/text-document";
 import { ReferenceContext } from "../context";
-import { Context } from "../../context/context";
 
 import * as Command from "./commands";
 import * as Molang from "./molang";

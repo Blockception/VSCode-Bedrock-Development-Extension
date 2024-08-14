@@ -1,11 +1,11 @@
 import { MCProject } from "bc-minecraft-project";
-import { MCProjectprovider } from "../../project/interfaces";
 import { Range } from "vscode-languageserver-types";
+import { MCProjectprovider } from "../../project/interfaces";
 import { getFilename } from "../../util";
 import { ExtensionContext } from "../extension/context";
 
-import * as vscode from "vscode-languageserver-textdocument";
 import * as mcbe from "bc-minecraft-bedrock-project";
+import * as vscode from "vscode-languageserver-textdocument";
 
 /**
  * The extended text document to give additional code for documents

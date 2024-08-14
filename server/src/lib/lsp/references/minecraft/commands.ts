@@ -1,10 +1,10 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { OffsetWord } from "bc-vscode-words";
 import { Location } from "vscode-languageserver-types";
-import { References } from "../../../util";
 import { IsEducationEnabled } from "../../../project/attributes";
-import { ReferenceContext } from "../context";
+import { References } from "../../../util";
 import { Context } from "../../context/context";
+import { ReferenceContext } from "../context";
 
 export async function provideReferences(
   context: Context<ReferenceContext>,

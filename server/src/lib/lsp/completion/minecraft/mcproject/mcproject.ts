@@ -1,10 +1,10 @@
-import { Boolean } from "../../general";
-import { CompletionContext } from "../../context";
-import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
-import { Context } from "../../../context/context";
-import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { TemplateCommands } from "../../../commands/commands/templates";
 import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
+import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
+import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
+import { TemplateCommands } from "../../../commands/commands/templates";
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
+import { Boolean } from "../../general";
 
 export function provideCompletion(context: Context<CompletionContext>) {
   const filename = context.document.filename();

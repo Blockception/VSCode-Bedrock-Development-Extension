@@ -1,7 +1,7 @@
+import { Languages } from "@blockception/shared";
 import { Command } from "bc-minecraft-bedrock-command";
 import { CodeAction, CodeActionKind, Diagnostic, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../builder";
-import { Languages } from "@blockception/shared";
 
 /**
  * Code action for `minecraft.commands.execute.deprecated`

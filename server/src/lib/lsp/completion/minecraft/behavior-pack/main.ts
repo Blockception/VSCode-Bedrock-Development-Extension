@@ -1,6 +1,6 @@
 import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack";
-import { JsonCompletionContext } from "../../context";
 import { Context } from "../../../context/context";
+import { JsonCompletionContext } from "../../context";
 
 import * as AnimationControllers from "./animation-controllers";
 import * as Animations from "./animations";
