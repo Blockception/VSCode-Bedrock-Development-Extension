@@ -42,8 +42,9 @@ function createTokens(text: string, offset: number, Builder: JsonSemanticTokensB
     startIndex++;
     let property = text.substring(startIndex, endIndex);
     index = endIndex + 1;
-
-    if (IsMolang(property)) {
+  
+    const c = text.charAt(endIndex + 1)
+    if (c !== ":" && IsMolang(property)) {
       McfunctionLineTokens(property, offset + startIndex, McfunctionSemanticTokensBuilder.FromJson(Builder));
       const Words = CreateMolangWords(property, offset + startIndex);
       ConvertWords(Words, Builder);
