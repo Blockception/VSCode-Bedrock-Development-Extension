@@ -14,7 +14,7 @@ import { ExtendedLogger } from "../logger/logger";
 import { ExtensionContext } from "../extension";
 import { FormatService } from "../format/service";
 import { DefinitionService, ReferenceService, TypeDefinitionService, ImplementationService } from "../references";
-import { SemanticsServer } from "../semantics/semantics";
+import { SemanticsServer } from "../semantics/service";
 import { ServiceManager } from "../services/collection";
 import { SignatureService } from "../signatures/service";
 import { Version } from "../../constants";

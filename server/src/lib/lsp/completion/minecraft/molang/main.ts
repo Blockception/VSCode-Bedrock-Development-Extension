@@ -1,6 +1,5 @@
-import { CompletionBuilder } from "../../builder/builder";
 import { CompletionItemKind } from "vscode-languageserver-types";
-import { GetPreviousWord, IsMolang } from "../../../../minecraft/molang/functions";
+import { getPreviousWord, IsMolang } from "../../../../minecraft/molang/functions";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Languages } from "@blockception/shared";
 import { Context } from "../../../context/context";
@@ -36,7 +35,7 @@ export function provideDocCompletion(context: Context<CompletionContext>): void 
  * @returns
  */
 export function provideCompletion(context: Context<CompletionContext>, line: string, cursor: number): void {
-  const word = GetPreviousWord(line, cursor).toLowerCase();
+  const word = getPreviousWord(line, cursor).toLowerCase();
 
   switch (word) {
     case "animation":
