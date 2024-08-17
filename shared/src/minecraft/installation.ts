@@ -1,5 +1,4 @@
-import { readdirSync } from "fs";
-import path = require("path");
+import path from "path";
 import { findInFolder } from "./general";
 
 /**
@@ -31,7 +30,7 @@ export function GetBedrockInstallationFolder(): string {
 }
 
 function GetBedrockWinsInstallationFolder(): string | undefined {
-  let ProgramFiles = process.env.ProgramFiles;
+  const ProgramFiles = process.env.ProgramFiles;
 
   if (ProgramFiles) {
     return findInFolder(path.join(ProgramFiles, "WindowsApps"), "Microsoft.MinecraftUWP");

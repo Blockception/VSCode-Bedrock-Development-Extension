@@ -1,33 +1,33 @@
 import { SignatureHelp } from "vscode-languageserver";
 import { Position } from "vscode-languageserver-textdocument";
 import { getCurrentString } from "../../minecraft/json/functions";
-import { TextDocument } from "../documents/text-document";
 import { IsMolang } from "../../minecraft/molang/functions";
+import { TextDocument } from "../documents/text-document";
 
 import * as Commands from "./minecraft/commands";
 import * as Molang from "./minecraft/molang/main";
 
 export function provideJsonSignature(doc: TextDocument, cursor: Position): SignatureHelp | undefined {
-  let text = doc.getText();
+  const text = doc.getText();
   const cpos = doc.offsetAt(cursor);
-  let Range = getCurrentString(text, cpos);
+  const range = getCurrentString(text, cpos);
 
-  if (!Range) return;
-  let property = text.substring(Range.start, Range.end);
+  if (!range) return;
+  let property = text.substring(range.start, range.end);
 
   if (IsMolang(property)) {
     if (property.startsWith("/")) {
       //On command
       property = property.substring(1);
-      Range.start++;
+      range.start++;
 
-      return Commands.provideSignature(property, Range.start, cpos, doc);
+      return Commands.provideSignature(property, range.start, cpos, doc);
     } else if (property.startsWith("@s")) {
       //On event
       return MolangEventSignature;
     } else {
       //On other molang
-      return Molang.provideSignature({ text: property, offset: Range.start }, cpos, doc);
+      return Molang.provideSignature({ text: property, offset: range.start }, cpos, doc);
     }
   }
 

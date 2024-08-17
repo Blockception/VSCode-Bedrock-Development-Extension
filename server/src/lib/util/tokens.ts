@@ -10,7 +10,7 @@ class CombineToken implements CancellationToken {
   private _onCancellationRequested: Emitter<any>;
 
   constructor(private first?: CancellationToken, private second?: CancellationToken) {
-    this.isCancellationRequested = (first?.isCancellationRequested || second?.isCancellationRequested) || false;
+    this.isCancellationRequested = first?.isCancellationRequested || second?.isCancellationRequested || false;
 
     this._onCancellationRequested = new Emitter();
     this.first?.onCancellationRequested(this._onCancellation.bind(this));
@@ -24,7 +24,7 @@ class CombineToken implements CancellationToken {
   }
 
   private _onCancellation(e: any) {
-    this.isCancellationRequested = (this.first?.isCancellationRequested || this.second?.isCancellationRequested) || false;
+    this.isCancellationRequested = this.first?.isCancellationRequested || this.second?.isCancellationRequested || false;
     this._onCancellationRequested.fire(e);
   }
 }

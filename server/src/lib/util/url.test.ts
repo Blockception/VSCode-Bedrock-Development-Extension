@@ -8,22 +8,22 @@ describe("Url", () => {
       const folder = Vscode.fromFs(folderFs);
 
       test("Is not vscode folder", () => {
-        expect(Vscode.isVscode(folderFs)).toBeFalsy;
+        expect(Vscode.isVscode(folderFs)).toBeFalsy();
       });
 
       test("Is vscode folder", () => {
-        expect(Vscode.isVscode(folder)).toBeTruthy;
+        expect(Vscode.isVscode(folder)).toBeTruthy();
       });
     });
 
     describe("isVscode", () => {
       test("Is not vscode folder", () => {
-        expect(Vscode.isVscode("f:/folder/behavior_packs/temp-bp/blocks/example.block.json")).toBeFalsy;
+        expect(Vscode.isVscode("f:/folder/behavior_packs/temp-bp/blocks/example.block.json")).toBeFalsy();
       });
 
       test("Is vscode folder", () => {
-        expect(Vscode.isVscode("file:///f%3A/Projects/Minecraft/minecraft-bedrock-samples/resource_pack/manifest.json")).toBeTruthy;
-        expect(Vscode.isVscode("file:///f%3A/folder/behavior_packs/temp-bp/blocks/example.block.json")).toBeTruthy;
+        expect(Vscode.isVscode("file:///f%3A/Projects/Minecraft/minecraft-bedrock-samples/resource_pack/manifest.json")).toBeTruthy();
+        expect(Vscode.isVscode("file:///f%3A/folder/behavior_packs/temp-bp/blocks/example.block.json")).toBeTruthy();
       });
     });
 

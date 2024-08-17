@@ -1,7 +1,7 @@
 export const animation_controller: string = `{
   "format_version": "1.20.41",
   "animation_controllers" : {
-    "controller.animation.$\{\{id\}\}" : {
+    "controller.animation.$\{{id}}" : {
       "initial_state" : "default",
       "states" : {
         "default" : {
@@ -24,7 +24,7 @@ export const animation_controller: string = `{
 export const animation: string = `{
   "format_version": "1.20.41",
   "animations": {
-    "animation.$\{\{id\}\}": {
+    "animation.$\{{id}}": {
       "animation_length": 5,
       "bones": {}
     }
@@ -35,7 +35,7 @@ export const attachable: string = `{
   "format_version": "1.20.41",
   "minecraft:attachable": {
     "description": {
-      "identifier": "$\{\{id\}\}",
+      "identifier": "$\{{id}}",
       "materials": {
         "default": "armor",
         "enchanted": "armor_enchanted"
@@ -64,7 +64,7 @@ export const block_culling: string = `{
   "format_version": "1.20.60",
   "minecraft:block_culling_rules": {
     "description": {
-      "identifier": "$\{\{id\}\}"
+      "identifier": "$\{{id}}"
     },
     "rules": [
       {
@@ -88,15 +88,15 @@ export const entity: string = `{
   "format_version": "1.20.41",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "$\{\{id\}\}",
+      "identifier": "$\{{id}}",
       "min_engine_version": "1.8.0",
       "materials": { "default": "entity", "alpha": "entity_alphatest" },
-      "textures": { "default": "textures/entity/$\{\{id.safe.nonamespace\}\}/$\{\{id.safe.nonamespace\}\}" },
+      "textures": { "default": "textures/entity/$\{{id.safe.nonamespace}}/$\{{id.safe.nonamespace}}" },
       "render_controllers": ["controller.render.default"],
-      "geometry": { "default": "geometry.$\{\{id.safe.nonamespace\}\}" },
+      "geometry": { "default": "geometry.$\{{id.safe.nonamespace}}" },
       "animations": {
-        "default_pose": "animation.$\{\{id.safe.nonamespace\}\}.default_pose",
-        "controller.pose": "controller.animation.$\{\{id.safe.nonamespace\}\}.pose"
+        "default_pose": "animation.$\{{id.safe.nonamespace}}.default_pose",
+        "controller.pose": "controller.animation.$\{{id.safe.nonamespace}}.pose"
       },
       "scripts": {
         "initialize": [
@@ -115,7 +115,7 @@ export const fog: string = `{
   "format_version": "1.20.41",
   "minecraft:fog_settings": {
     "description": {
-      "identifier": "$\{\{id\}\}"
+      "identifier": "$\{{id}}"
     },
     "distance": {
       "air": {
@@ -150,22 +150,22 @@ export const manifest: string = `{
   "header": {
     "name": "pack.name",
     "description": "pack.description",
-    "uuid": "$\{\{uuid\}\}",
+    "uuid": "$\{{uuid}}",
     "version": [1, 0, 0],
     "min_engine_version": [1, 18, 0]
   },
   "modules": [
     {
       "type": "resources",
-      "uuid": "$\{\{uuid\}\}",
+      "uuid": "$\{{uuid}}",
       "version": [1, 0, 0]
     }
   ],
   "metadata": {
-    "authors": [ "$\{\{project.attributes:author\}\}" ],
+    "authors": [ "$\{{project.attributes:author}}" ],
     "generated_with": {
-      "$\{\{tool\}\}": [
-        "$\{\{tool.version\}\}"
+      "$\{{tool}}": [
+        "$\{{tool.version}}"
       ]
     }
   }
@@ -176,7 +176,7 @@ export const model: string = `{
   "minecraft:geometry": [
     {
       "description": {
-        "identifier": "$\{\{id\}\}",
+        "identifier": "$\{{id}}",
         "texture_width": 16,
         "texture_height": 16,
         "visible_bounds_width": 2,
@@ -257,7 +257,7 @@ export const particle: string = `{
   "format_version": "1.20.41",
   "particle_effect": {
     "description": {
-      "identifier": "$\{\{id\}\}",
+      "identifier": "$\{{id}}",
       "basic_render_parameters": {
         "material": "particles_alpha",
         "texture": "textures/particle/particles"
@@ -271,7 +271,7 @@ export const particle: string = `{
 export const render_controller: string = `{
   "format_version": "1.20.41",
   "render_controllers": {
-    "controller.render.$\{\{id\}\}": {
+    "controller.render.$\{{id}}": {
       "geometry": "Geometry.default",
       "materials": [
         { "*": "Material.default" },

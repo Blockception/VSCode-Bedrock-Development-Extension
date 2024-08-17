@@ -15,7 +15,7 @@ describe("Molang", () => {
 
     shouldBe.forEach((item) =>
       test(`is molang: ${item}`, () => {
-        expect(IsMolang(item)).toBeTruthy;
+        expect(IsMolang(item)).toBeTruthy();
       })
     );
 
@@ -29,7 +29,7 @@ describe("Molang", () => {
 
     shouldNotBe.forEach((item) =>
       test(`not molang: ${item}`, () => {
-        expect(IsMolang(item)).toBeFalsy;
+        expect(IsMolang(item)).toBeFalsy();
       })
     );
   });

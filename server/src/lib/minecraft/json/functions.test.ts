@@ -6,7 +6,7 @@ describe("Json Functions", () => {
 
     for (let i = 8; i < 21; i++) {
       const range = getCurrentElement(data, i);
-      expect(range).toBeUndefined;
+      expect(range).toBeUndefined();
 
       if (!range) return;
 
@@ -20,7 +20,7 @@ describe("Json Functions", () => {
 
     for (let i = 8; i < 21; i++) {
       const range = getCurrentString(data, i);
-      expect(range).toBeUndefined;
+      expect(range).toBeUndefined();
 
       if (!range) return;
 
@@ -34,7 +34,7 @@ describe("Json Functions", () => {
 
     for (let i = 8; i < 21; i++) {
       const range = getCurrentStringValue(data, "foo", i);
-      expect(range).toBeUndefined;
+      expect(range).toBeUndefined();
 
       if (!range) return;
 

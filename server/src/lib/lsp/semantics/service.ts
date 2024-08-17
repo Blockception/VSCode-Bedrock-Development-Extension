@@ -1,13 +1,11 @@
 import { Languages } from "@blockception/shared";
-import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
+import { BulkRegistration, Connection } from "vscode-languageserver";
 import {
-  CancellationToken,
-  InitializeParams,
   Range,
   SemanticTokensParams,
   SemanticTokensRangeParams,
   SemanticTokensRegistrationType,
-  SemanticTokens as VSSemanticsTokens,
+  SemanticTokens as VSSemanticsTokens
 } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
@@ -27,7 +25,7 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
     super(logger.withPrefix("[definitions]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("definitionProvider", {
       workDoneProgress: true,
     });
@@ -60,9 +58,7 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
   }
 
   private async onProvideSemanticRequest(
-    params: SemanticTokensRangeParams | SemanticTokensParams,
-    token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    params: SemanticTokensRangeParams | SemanticTokensParams
   ): Promise<VSSemanticsTokens> {
     const uri = params.textDocument.uri;
     if (!uri.startsWith("file://")) return { data: [] };
@@ -101,7 +97,7 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
 function IsSemanticTokensRangeParams(
   value: SemanticTokensRangeParams | SemanticTokensParams
 ): value is SemanticTokensRangeParams {
-  let temp: any = value;
+  const temp: any = value;
 
   if (temp.range && Range.is(temp.range)) return true;
 

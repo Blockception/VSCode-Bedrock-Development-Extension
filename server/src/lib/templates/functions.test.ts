@@ -33,11 +33,11 @@ describe("TestProcessor", () => {
   });
 
   test("getPack should match", () => {
-    expect(TestProcessor.getPack()).toBeUndefined;
+    expect(TestProcessor.getPack()).toBeUndefined();
   });
 
   test("getProject should be defined", () => {
-    expect(TestProcessor.getProject).toBeUndefined;
+    expect(TestProcessor.getProject).toBeUndefined();
   });
 
   //Filename should be 'test.json'

@@ -119,7 +119,7 @@ export function getCurrentString(text: string, cursor: number): TextRange | unde
  * @returns undefined if nothing of a value has been found
  */
 export function getCurrentStringValue(text: string, property: string, cursor: number): TextRange | undefined {
-  let startIndex = getEndOfPropertyKey(text, property, cursor);
+  const startIndex = getEndOfPropertyKey(text, property, cursor);
 
   // We have found where the colon ends, or the property ends
   // Now we find the " or anything that indicates the end of json,

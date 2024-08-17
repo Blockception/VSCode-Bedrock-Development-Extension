@@ -1,8 +1,8 @@
-import { Command, CommandData } from 'bc-minecraft-bedrock-command';
+import { CommandData } from 'bc-minecraft-bedrock-command';
 import { Character } from "../../util";
 
 const MolangRegexp = /\b((query|math|variable|texture|temp|geometry|material|array|context|c|q|v|t)\.[A-Za-z_0-9]+|->)\b/im;
-const MolangCommandRegexp = /^\/[a-z]+ /;
+// const MolangCommandRegexp = /^\/[a-z]+ /;
 
 /**
  *

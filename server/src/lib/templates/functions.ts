@@ -37,7 +37,7 @@ export class TemplateFunctions {
   }
 
   process(template: string): string {
-    return template.replace(/\$\{\{([^\{\}]*)\}\}/gim, (sub: string, ...args: any[]) => {
+    return template.replace(/\$\{{([^{}]*)}}/gim, (sub: string, ...args: any[]) => {
       const command = (args[0] as string).trim();
 
       let parts = command.split(":");
@@ -102,7 +102,7 @@ export function safeIDWithoutNamespace(ID: string, replace: string = "_"): strin
 }
 
 export function WithoutNamespace(id: string): string {
-  let Index = id.indexOf(":");
+  const Index = id.indexOf(":");
   if (Index > 0) id = id.substring(Index + 1);
 
   return id;

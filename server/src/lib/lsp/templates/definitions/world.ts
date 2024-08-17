@@ -3,7 +3,7 @@ export const manifest: string = `{
    "header": {
      "name": "pack.name",
      "description": "pack.description",
-     "uuid": "$\{\{uuid\}\}",
+     "uuid": "$\{{uuid}}",
      "version": [1, 0, 0],
      "lock_template_options": true,
      "min_engine_version": [1, 19, 50]
@@ -11,15 +11,15 @@ export const manifest: string = `{
    "modules": [
      {
        "type": "world_template",
-       "uuid": "$\{\{uuid\}\}",
+       "uuid": "$\{{uuid}}",
        "version": [1, 0, 0]
      }
    ],
    "metadata": { 
-      "authors": [ "$\{\{project.attributes:author\}\}" ],
+      "authors": [ "$\{{project.attributes:author}}" ],
       "generated_with": {
-        "$\{\{tool\}\}": [
-          "$\{\{tool.version\}\}"
+        "$\{{tool}}": [
+          "$\{{tool.version}}"
         ]
       }
    }
