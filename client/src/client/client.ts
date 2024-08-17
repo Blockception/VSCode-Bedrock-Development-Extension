@@ -1,11 +1,10 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient/node";
 import { Manager } from "../manager/manager";
-import { resolveCodeLens } from './middleware';
-import { Languages } from '@blockception/shared';
+import { resolveCodeLens } from "./middleware";
+import { Languages } from "@blockception/shared";
 
 import * as path from "path";
 import * as vscode from "vscode";
-
 
 export function setupClient(context: vscode.ExtensionContext) {
   console.log("starting minecraft language client");
@@ -44,15 +43,20 @@ export function setupClient(context: vscode.ExtensionContext) {
       fileEvents: vscode.workspace.createFileSystemWatcher("**/.clientrc"),
     },
     middleware: {
-      resolveCodeLens:resolveCodeLens,
+      resolveCodeLens: resolveCodeLens,
     },
   };
 
   // Create the language client and start the client.
-  Manager.Client = new LanguageClient("languageBlockceptionMinecraftClient", "LSP-BC Minecraft", serverOptions, clientOptions);
+  Manager.Client = new LanguageClient(
+    "languageBlockceptionMinecraftClient",
+    "LSP-BC Minecraft",
+    serverOptions,
+    clientOptions
+  );
 
   // Start the client. This will also launch the server
-  Manager.Client.start();
-
-  vscode.commands.executeCommand("setContext", "ext:is_active", true);
+  Manager.Client.start().then(() => {
+    vscode.commands.executeCommand("setContext", "ext:is_active", true);
+  });
 }
