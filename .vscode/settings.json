@@ -23,5 +23,9 @@
   "mocha.requires": ["ts-node/register", "chai"],
   "mocha.env": {
     "TS_NODE_COMPILER_OPTIONS": "{\"module\":\"commonjs\",\"declaration\":true,\"noImplicitAny\":false,\"removeComments\":false,\"noLib\":false,\"emitDecoratorMetadata\":true,\"experimentalDecorators\":true,\"target\":\"es6\",\"sourceMap\":false,\"resolveJsonModule\":true,\"esModuleInterop\":true,\"moduleResolution\":\"node\",\"lib\":[\"dom\",\"es2017\"],\"types\":[\"chai\",\"chai-as-promised\",\"chai-http\",\"convict\",\"cors\",\"helmet\",\"mocha\",\"mongoose\",\"morgan\",\"node\",\"winston\"]}"
-  }
+  },
+
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.run": "onSave",
+  "eslint.lintTask.enable": true
 }
