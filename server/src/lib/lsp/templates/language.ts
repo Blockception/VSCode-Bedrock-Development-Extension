@@ -16,7 +16,7 @@ export function create_language_files(
   additional?: (builder: TextEditBuilder) => void
 ): void {
   if (typeof pack === "string") {
-    let nPack = builder.context.database.ProjectData.get(pack);
+    const nPack = builder.context.database.ProjectData.get(pack);
 
     if (nPack === undefined) return;
     pack = nPack;

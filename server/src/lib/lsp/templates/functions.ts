@@ -5,9 +5,9 @@ export function safeID(ID: string, replace: string = "_"): string {
 }
 
 export function safeIDWithoutNamespaces(ID: string, replace: string = "_"): string {
-  let Index = ID.indexOf(":");
+  const index = ID.indexOf(":");
 
-  if (Index > 0) ID = ID.substring(Index + 1);
+  if (index > 0) ID = ID.substring(index + 1);
 
   ID = ID.replace(/[:]/gi, replace);
 

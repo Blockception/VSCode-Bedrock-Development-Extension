@@ -56,12 +56,12 @@ export function CreateRangeTokens(word: RangedWord, builder: McfunctionSemanticT
 
   if (value === "") return;
 
-  let range = value.indexOf("..");
-  let line = word.range.start.line;
+  const range = value.indexOf("..");
+  const line = word.range.start.line;
 
   if (range >= 0) {
-    var first = value.substring(0, range);
-    var second = value.substring(range + 2);
+    const first = value.substring(0, range);
+    const second = value.substring(range + 2);
 
     //Builder.AddAt(Line, start + Range, 1, SemanticTokensEnum.operator);
 

@@ -37,7 +37,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     //In selector
     if (selector !== undefined) {
-      let diff = pos - selector.offset;
+      const diff = pos - selector.offset;
 
       if (diff < 3) {
         builder.add({ label: "[", kind: CompletionItemKind.Snippet });

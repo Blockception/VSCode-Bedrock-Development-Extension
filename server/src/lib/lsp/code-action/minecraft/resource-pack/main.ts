@@ -17,7 +17,7 @@ import * as RenderControllers from "./render-controllers";
  * @param diag
  */
 export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void {
-  let code = diag.code ?? "";
+  const code = diag.code ?? "";
 
   if (typeof code === "number") return;
 

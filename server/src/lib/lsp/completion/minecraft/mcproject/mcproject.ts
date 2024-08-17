@@ -225,7 +225,7 @@ function provideDefinitions(context: Context<CompletionContext>): void {
 
 function add(context: Context<CompletionContext>, value: (Identifiable & Documentated) | string) {
   let label: string;
-  let documentation: MarkupContent = { kind: "markdown", value: "" };
+  const documentation: MarkupContent = { kind: "markdown", value: "" };
 
   if (typeof value === "string") {
     label = value;

@@ -147,7 +147,7 @@ export function generate_rp(pack: ResourcePack.ResourcePack, receiver: Pick<Comp
 }
 
 function isIn(text: string, index: number, inText: string): boolean {
-  let findIndex = inText.indexOf(text);
+  const findIndex = inText.indexOf(text);
 
   if (findIndex < 0) return false;
 

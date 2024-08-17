@@ -51,7 +51,7 @@ export class JsonDocument extends WrappedTextDocument {
    * @returns The object as T or any
    */
   public getObjectError(): { value: any | undefined | null; error: any } {
-    let err: any = null;
+    const err: any = null;
 
     if (this.object === undefined) {
       try {

@@ -62,7 +62,7 @@ export class PackProcessor extends BaseService {
   }
 
   private removePack(packs: Pack[], uri: string, deletefn: (folder: string) => boolean): void {
-    for (var I = 0; I < packs.length; I++) {
+    for (let I = 0; I < packs.length; I++) {
       const p = packs[I];
 
       if (p.folder.startsWith(uri)) deletefn(p.folder);

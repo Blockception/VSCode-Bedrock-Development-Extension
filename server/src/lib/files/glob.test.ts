@@ -13,7 +13,7 @@ describe("Glob", () => {
   });
 
   test("Ensure Array", () => {
-    let source = Glob.ensureSources(["f:/Projects/Org B/Project-Foo", "file:///f%3A/Projects/Org%20B/Project-Foo/", "file:\\\\f%3A\\Projects\\Org%20B\\Project-Foo\\"]);
+    const source = Glob.ensureSources(["f:/Projects/Org B/Project-Foo", "file:///f%3A/Projects/Org%20B/Project-Foo/", "file:\\\\f%3A\\Projects\\Org%20B\\Project-Foo\\"]);
 
     expect(source[0]).toEqual("f:/Projects/Org B/Project-Foo");
     expect(source[1]).toEqual("f:/Projects/Org B/Project-Foo/");

@@ -20,9 +20,9 @@ export function GetCurrentAttribute(selector: OffsetWord, pos: number): string {
   let StartIndex = pos - selector.offset;
 
   while (StartIndex > 2) {
-    let C = selector.text.charAt(StartIndex);
+    const character = selector.text.charAt(StartIndex);
 
-    if (C === "," || C === "{") {
+    if (character === "," || character === "{") {
       break;
     }
 

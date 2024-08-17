@@ -77,7 +77,7 @@ function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder
     switch (data.type) {
       case ParameterType.executeSubcommand:
       case ParameterType.command:
-        let sub = command.getSubCommand(edu);
+        const sub = command.getSubCommand(edu);
         if (sub) {
           CreateTokens(sub, builder);
         }

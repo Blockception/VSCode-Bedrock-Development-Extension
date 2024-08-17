@@ -20,7 +20,7 @@ export class WorkspaceData {
    */
   getProject(docUri: string, settings: Settings): MCProject {
     //Find most matching data
-    for (var [key, data] of this._data) {
+    for (const [key, data] of this._data) {
       if (docUri.includes(key)) {
         const out = data;
         if (out) return out;
@@ -36,7 +36,7 @@ export class WorkspaceData {
    * @param uri The document uri to compare*/
   getFolder(docUri: string): string | undefined {
     //Find most matching data
-    for (var [key, data] of this._data) {
+    for (const [key] of this._data) {
       if (docUri.includes(key)) {
         return key;
       }
@@ -50,7 +50,7 @@ export class WorkspaceData {
    * @returns
    */
   getFirst(): string | undefined {
-    for (var [key, data] of this._data) {
+    for (const [key, data] of this._data) {
       if (data) {
         return key;
       }

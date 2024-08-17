@@ -24,7 +24,7 @@ export function provideCreateCompletion(
   const steps = diff / 10;
 
   for (let I = minimum; I < maximum; I += steps) {
-    let text = I.toPrecision(3);
+    const text = I.toPrecision(3);
     receiver.add({ label: text, documentation: "The float number: " + text, kind: CompletionItemKind.Constant });
   }
 }
