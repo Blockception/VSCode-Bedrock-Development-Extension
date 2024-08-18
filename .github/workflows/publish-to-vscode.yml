@@ -53,6 +53,9 @@ jobs:
       - name: 📋 Test
         run: npm run test
 
+      - name: 🔍 Linting
+        run: npm run lint
+
   publish:
     if: ${{ needs.test.result == 'success' && needs.universal.result == 'success' }}
     runs-on: ubuntu-latest

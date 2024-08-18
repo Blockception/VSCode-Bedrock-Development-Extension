@@ -8,7 +8,7 @@ export function activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.Errors.OpenLastest, openLastestError));
 }
 
-function openLastestError(args: any): void {
+function openLastestError(): void {
   try {
     let APPDATA = process.env.APPDATA;
 
@@ -33,7 +33,7 @@ function openLastestError(args: any): void {
       }
     }
   } catch (error) {
-    handleError(error);
+    window.showErrorMessage("error retrieving errors", JSON.stringify(error));
   }
 }
 
@@ -67,7 +67,4 @@ function findLastestLog(folder: string): void {
   } else {
     window.showInformationMessage("Couldn't find content logs");
   }
-}
-function handleError(error: unknown) {
-  throw new Error("Function not implemented.");
 }

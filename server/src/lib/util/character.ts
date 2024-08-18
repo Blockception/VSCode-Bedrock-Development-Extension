@@ -22,7 +22,7 @@ export namespace Character {
    * @param char The string to test the first character from
    * @returns true or false*/
   export function IsLetter(char: string): boolean {
-    var code = char.charCodeAt(0);
+    const code = char.charCodeAt(0);
 
     if (code >= Character_a && code <= Character_z) return true;
     if (code >= Character_A && code <= Character_Z) return true;
@@ -30,12 +30,11 @@ export namespace Character {
     return false;
   }
 
-  
   /**Tests if the first character of the provide string is an uppercase letter
    * @param char The string to test the first character from
    * @returns true or false*/
   export function IsUppercase(char: string): boolean {
-    var code = char.charCodeAt(0);
+    const code = char.charCodeAt(0);
 
     if (code >= Character_A && code <= Character_Z) return true;
 
@@ -56,7 +55,7 @@ export namespace Character {
    * @param char the character code is a letter
    * @returns true or false*/
   export function IsNumber(char: string): boolean {
-    var code = char.charCodeAt(0);
+    const code = char.charCodeAt(0);
 
     if (code >= Character_0 && code <= Character_9) return true;
 

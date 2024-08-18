@@ -37,6 +37,9 @@ jobs:
       - name: 🛠️ Build
         run: npm run compile
 
+      - name: 🔍 Linting
+        run: npm run lint
+
       - name: 📦 Package test
         run: |
           npx vsce package

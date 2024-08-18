@@ -13,10 +13,10 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
   const cursor = document.offsetAt(params.position);
   const range: TextRange = { start: cursor, end: cursor + line.length };
 
-  return provideHoverAt(line, range, offset);
+  return provideHoverAt(context, line, range, offset);
 }
 
-export function provideHoverAt(currentText: string, textRange: TextRange, cursor: number): Hover | undefined {
+export function provideHoverAt(context: Pick<Context<HoverContext>, "document">, currentText: string, textRange: TextRange, cursor: number): Hover | undefined {
   let startIndex = cursor - textRange.start;
   let dotIndex = -1;
 
@@ -46,14 +46,15 @@ export function provideHoverAt(currentText: string, textRange: TextRange, cursor
   }
 
   const text = currentText.slice(startIndex, endIndex);
+  const range = Range.create(context.document.positionAt(startIndex), context.document.positionAt(endIndex));
 
   if (dotIndex > -1) {
     const main = currentText.slice(startIndex, dotIndex).toLowerCase();
     const sub = currentText.slice(dotIndex + 1, endIndex).toLowerCase();
-    return provideHoverSpecific(main, sub);
+    return provideHoverSpecific(main, sub, range);
   }
 
-  return provideHoverSpecific(text);
+  return provideHoverSpecific(text, undefined, range);
 }
 
 export function provideHoverSpecific(
@@ -62,7 +63,7 @@ export function provideHoverSpecific(
   range: Range | undefined = undefined
 ): Hover | undefined {
   switch (main) {
-    //TODO animation
+    //TODO animations
     //TODO controller
     //TODO geometry
     //TODO texture

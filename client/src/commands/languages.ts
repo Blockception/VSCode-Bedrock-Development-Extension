@@ -7,15 +7,15 @@ export function activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.AddLanguageFile, addAll));
 }
 
-function addAll(args: any): any {
+function addAll(): any {
   const ed = window.activeTextEditor;
 
   if (!ed) return;
-  const Current = ed.document.uri.path;
-  const Params: ExecuteCommandParams = {
+  const current = ed.document.uri.path;
+  const params: ExecuteCommandParams = {
     command: Commands.AddLanguageFile,
-    arguments: [Current],
+    arguments: [current],
   };
 
-  return Manager.Client.sendRequest(ExecuteCommandRequest.type, Params);
+  return Manager.Client.sendRequest(ExecuteCommandRequest.type, params);
 }

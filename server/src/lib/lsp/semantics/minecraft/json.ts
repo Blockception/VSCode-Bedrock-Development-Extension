@@ -1,13 +1,13 @@
-import { ConvertWords } from "./molang";
-import { CreateMolangWords } from "../../../minecraft/molang/words";
-import { IsMolang } from "../../../minecraft/molang/functions";
-import { JsonSemanticTokensBuilder } from "../builders/json";
-import { McfunctionLineTokens } from "./mcfunctions";
-import { McfunctionSemanticTokensBuilder } from "../builders/mcfunction";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";
+import { IsMolang } from "../../../minecraft/molang/functions";
+import { CreateMolangWords } from "../../../minecraft/molang/words";
 import { TextDocument } from "../../documents/text-document";
+import { JsonSemanticTokensBuilder } from "../builders/json";
+import { McfunctionSemanticTokensBuilder } from "../builders/mcfunction";
+import { McfunctionLineTokens } from "./mcfunctions";
+import { ConvertWords } from "./molang";
 
 export function provideJsonSemanticTokens(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   //Not related to minecraft
@@ -36,14 +36,14 @@ function createTokens(text: string, offset: number, Builder: JsonSemanticTokensB
     let startIndex = findNext(text, index);
     if (startIndex < 0) return;
 
-    let endIndex = findNext(text, startIndex + 1);
+    const endIndex = findNext(text, startIndex + 1);
     if (endIndex < 0) return;
 
     startIndex++;
-    let property = text.substring(startIndex, endIndex);
+    const property = text.substring(startIndex, endIndex);
     index = endIndex + 1;
-  
-    const c = text.charAt(endIndex + 1)
+
+    const c = text.charAt(endIndex + 1);
     if (c !== ":" && IsMolang(property)) {
       McfunctionLineTokens(property, offset + startIndex, McfunctionSemanticTokensBuilder.FromJson(Builder));
       const Words = CreateMolangWords(property, offset + startIndex);

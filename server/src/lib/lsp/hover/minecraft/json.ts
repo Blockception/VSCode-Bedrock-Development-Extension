@@ -12,7 +12,7 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
 
   const cursor = document.offsetAt(params.position);
   const text = document.getText();
-  let range = getCurrentString(text, cursor);
+  const range = getCurrentString(text, cursor);
 
   //If start has not been found or not a property
   if (range === undefined) return;
@@ -25,7 +25,7 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
   });
 
   if (IsMolang(currentText)) {
-    return Molang.provideHoverAt(currentText, range, cursor);
+    return Molang.provideHoverAt(context, currentText, range, cursor);
   }
 
   //Check project data

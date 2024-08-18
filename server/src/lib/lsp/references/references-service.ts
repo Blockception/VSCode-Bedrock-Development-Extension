@@ -1,5 +1,5 @@
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, InitializeParams, Location, ReferenceParams } from "vscode-languageserver-protocol";
+import { CancellationToken, Location, ReferenceParams } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
@@ -14,7 +14,7 @@ export class ReferenceService extends BaseService implements Partial<IService> {
     super(logger.withPrefix("[references]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("referencesProvider", {
       workDoneProgress: true,
     });

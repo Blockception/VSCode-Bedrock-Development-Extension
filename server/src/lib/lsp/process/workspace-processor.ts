@@ -3,17 +3,15 @@ import { Pack } from "bc-minecraft-bedrock-project";
 import {
   CancellationToken,
   Connection,
-  InitializeParams,
   TextDocumentChangeEvent,
   WorkspaceFolder,
-  WorkspaceFoldersChangeEvent,
+  WorkspaceFoldersChangeEvent
 } from "vscode-languageserver";
 import { Processor, Tokens } from "../../util";
 import { TextDocument } from "../documents/text-document";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
 import { PackProcessor } from "./pack-processor";
 
@@ -27,7 +25,7 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
     this._packProcessor = packProcessor;
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(): void {
     //provides diagnostics and such
     const documents = this.extension.documents;
     documents.onDidSave(this.onDocumentChanged.bind(this));

@@ -9,13 +9,13 @@ import { Range, TextEdit } from "vscode-languageserver";
  * @param receiver
  */
 export function Replace(line: string, oldText: string, newText: string, lineIndex: number, receiver: TextEdit[]) {
-  let Index = line.indexOf(oldText);
+  let index = line.indexOf(oldText);
 
-  while (Index > -1) {
-    let R = Range.create(lineIndex, Index, lineIndex, Index + oldText.length);
-    receiver.push(TextEdit.replace(R, newText));
+  while (index > -1) {
+    const range = Range.create(lineIndex, index, lineIndex, index + oldText.length);
+    receiver.push(TextEdit.replace(range, newText));
 
-    Index = line.indexOf(oldText, Index + 1);
+    index = line.indexOf(oldText, index + 1);
   }
 }
 
@@ -59,7 +59,7 @@ export function TrimEndFromLine(line: string, index: number, receiver: TextEdit[
   const text = line;
   const lineIndex = index;
   let startindex = text.length - 1;
-  let endindex = text.length;
+  const endindex = text.length;
   startindex = endindex;
   let loop = true;
 

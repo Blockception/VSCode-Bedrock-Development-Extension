@@ -61,7 +61,7 @@ function provideStateCompletion(states: BehaviorPack.Block.BlockState[], context
   }
 
   // Output all state
-  for (let state of states) {
+  for (const state of states) {
     const name = `"${state.name}"`;
     const values = state.values.map((value) => stateValue(state, value));
 
@@ -74,7 +74,7 @@ function vanillaBlockToBlock(block: Types.BehaviorPack.Block | undefined): Behav
   if (!block) return undefined;
   const states: BehaviorPack.Block.BlockState[] = [];
 
-  for (let prop of block.properties) {
+  for (const prop of block.properties) {
     const state = MinecraftData.BehaviorPack.getBlockState(prop);
     if (state) {
       states.push(state);

@@ -17,7 +17,7 @@ export function provideRangeCompletion(context: CommandCompletionContext): void 
   const minimum = options?.minimum ?? 0;
   const maximum = options?.maximum ?? 10;
 
-  let diff = maximum - minimum;
+  const diff = maximum - minimum;
   let steps = diff > 10 ? diff / 10 : 1;
 
   if (steps < 1) steps = 1;
@@ -34,7 +34,7 @@ export function provideCreateCompletion(receiver: CompletionBuilder, minimum?: n
   minimum = minimum ?? 0;
   maximum = maximum ?? 10;
 
-  let diff = maximum - minimum;
+  const diff = maximum - minimum;
   let steps = diff > 10 ? diff / 10 : 1;
 
   if (steps < 1) steps = 1;

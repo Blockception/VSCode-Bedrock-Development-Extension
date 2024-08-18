@@ -32,12 +32,11 @@ export function provideMolangSemanticTokens(document: TextDocument, range?: Rang
  */
 export function ConvertWords(words: OffsetWord[], builder: JsonSemanticTokensBuilder | MolangSemanticTokensBuilder) {
   for (let I = 0; I < words.length; I++) {
-    const Word = words[I];
-
-    let text = Word.text;
+    const word = words[I];
+    const text = word.text;
 
     if ((text.startsWith("'") && text.endsWith("'")) || (text.startsWith('"') && text.endsWith('"'))) {
-      builder.AddWord(Word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
+      builder.AddWord(word, SemanticTokensEnum.regexp, SemanticModifiersEnum.readonly);
 
       continue;
     }
@@ -47,7 +46,7 @@ export function ConvertWords(words: OffsetWord[], builder: JsonSemanticTokensBui
       case "geometry":
       case "material":
       case "texture":
-        builder.AddWord(Word, SemanticTokensEnum.interface, SemanticModifiersEnum.readonly);
+        builder.AddWord(word, SemanticTokensEnum.interface, SemanticModifiersEnum.readonly);
         break;
 
       case "q":
@@ -59,11 +58,11 @@ export function ConvertWords(words: OffsetWord[], builder: JsonSemanticTokensBui
       case "query":
       case "variable":
       case "temp":
-        builder.AddWord(Word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
+        builder.AddWord(word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
         break;
 
       case "this":
-        builder.AddWord(Word, SemanticTokensEnum.keyword, SemanticModifiersEnum.readonly);
+        builder.AddWord(word, SemanticTokensEnum.keyword, SemanticModifiersEnum.readonly);
         break;
 
       case "(":
@@ -89,7 +88,7 @@ export function ConvertWords(words: OffsetWord[], builder: JsonSemanticTokensBui
       case "-":
       case "/":
       case "*":
-        builder.AddWord(Word, SemanticTokensEnum.operator);
+        builder.AddWord(word, SemanticTokensEnum.operator);
         break;
 
       default:

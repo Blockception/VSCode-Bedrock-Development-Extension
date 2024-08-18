@@ -2,9 +2,9 @@ import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/mod
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from '../../../context/context';
+import { Context } from "../../../context/context";
 import { CompletionBuilder } from "../../builder/builder";
-import { CommandCompletionContext } from '../../context';
+import { CommandCompletionContext } from "../../context";
 
 import * as FakeEntity from "../../general/fake-entity";
 import * as AttributeValue from "./attribute-values";
@@ -37,7 +37,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
   if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
     //In selector
     if (selector !== undefined) {
-      let diff = pos - selector.offset;
+      const diff = pos - selector.offset;
 
       if (diff < 3) {
         builder.add({ label: "[", kind: CompletionItemKind.Snippet });
@@ -84,7 +84,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
     const Attribute = Attributes.GetCurrentAttribute(selector, pos);
     AttributeValue.provideCompletion(context, Attribute, !playerOnly);
   } else {
-    Attributes.provideCompletion(context, !playerOnly);
+    Attributes.provideCompletion(context);
   }
 }
 

@@ -1,6 +1,6 @@
 import { Languages } from "@blockception/shared";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, Definition, DefinitionLink, InitializeParams, TypeDefinitionParams } from "vscode-languageserver-protocol";
+import { CancellationToken, Definition, DefinitionLink, TypeDefinitionParams } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
@@ -16,7 +16,7 @@ export class TypeDefinitionService extends BaseService implements Partial<IServi
     super(logger.withPrefix("[type-definitions]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("typeDefinitionProvider", {
       workDoneProgress: true,
       documentSelector: [

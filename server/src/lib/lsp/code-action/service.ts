@@ -1,25 +1,24 @@
+import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
   CodeAction,
   CodeActionParams,
   Command,
-  Diagnostic,
-  InitializeParams,
+  Diagnostic
 } from "vscode-languageserver-protocol";
-import { attributes } from "./types";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { CodeActionBuilder } from "./builder";
-import { CodeActionContext } from "./context";
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
-import { fuzzyMatch } from "./fuzzy";
 import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
+import { CodeActionBuilder } from "./builder";
+import { CodeActionContext } from "./context";
+import { fuzzyMatch } from "./fuzzy";
+import { attributes } from "./types";
 
-import * as Minecraft from "./minecraft/code-actions";
 import * as BehaviorPack from "./minecraft/behavior-pack/main";
+import * as Minecraft from "./minecraft/code-actions";
 import * as ResourcePack from "./minecraft/resource-pack/main";
 
 export class CodeActionService extends BaseService implements Partial<IService> {
@@ -29,7 +28,7 @@ export class CodeActionService extends BaseService implements Partial<IService> 
     super(logger.withPrefix("[code-actions]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("codeActionProvider", true);
   }
 

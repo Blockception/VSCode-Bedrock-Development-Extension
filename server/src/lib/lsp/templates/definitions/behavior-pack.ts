@@ -1,7 +1,7 @@
 export const animation_controller: string = `{
   "format_version": "1.20.41",
   "animation_controllers" : {
-    "controller.animation.$\{\{id\}\}" : {
+    "controller.animation.$\{{id}}" : {
       "initial_state" : "default",
       "states" : {
         "default" : {
@@ -26,7 +26,7 @@ export const animation_controller: string = `{
 export const animation: string = `{
   "format_version": "1.20.41",
   "animations": {
-    "animation.$\{\{id\}\}": {
+    "animation.$\{{id}}": {
       "loop": false,
       "timeline": {
         "0.0": [],
@@ -41,7 +41,7 @@ export const block: string = `{
   "format_version": "1.20.41",
   "minecraft:block": {
     "description": {
-      "identifier": "$\{\{id\}\}",
+      "identifier": "$\{{id}}",
       "register_to_creative_menu": true
     },
     "components": {
@@ -53,14 +53,14 @@ export const entity: string = `{
   "format_version": "1.20.41",
   "minecraft:entity": {
     "description": {
-      "identifier": "$\{\{id\}\}",
+      "identifier": "$\{{id}}",
       "is_spawnable": true,
       "is_summonable": true
     },
     "component_groups": {
     },
     "components": {
-      "minecraft:type_family": { "family": ["$\{\{id.safe.nonamespace\}\}"] },
+      "minecraft:type_family": { "family": ["$\{{id.safe.nonamespace}}"] },
       "minecraft:health": { "value": 10, "max": 10 },
       "minecraft:damage_sensor": {
         "triggers": { "cause": "all", "deals_damage": false }
@@ -76,9 +76,9 @@ export const dialogue: string = `{
   "minecraft:npc_dialogue": {
     "scenes": [
       {
-        "scene_tag": "$\{\{id.safe.nonamespace\}\}",
-        "npc_name": { "rawtext": [{ "translate": "dialogue.$\{\{id.safe.nonamespace\}\}.name" }] },
-        "text": { "rawtext": [{ "translate": "dialogue.$\{\{id.safe.nonamespace\}\}.body", "with": ["\\n"] }] },
+        "scene_tag": "$\{{id.safe.nonamespace}}",
+        "npc_name": { "rawtext": [{ "translate": "dialogue.$\{{id.safe.nonamespace}}.name" }] },
+        "text": { "rawtext": [{ "translate": "dialogue.$\{{id.safe.nonamespace}}.body", "with": ["\\n"] }] },
         "buttons": []
       }
     ]
@@ -89,7 +89,7 @@ export const item: string = `{
   "format_version": "1.20.41",
   "minecraft:item": {
     "description": {
-      "identifier": "$\{\{id\}\}"
+      "identifier": "$\{{id}}"
     },
     "components": {
     }
@@ -116,22 +116,22 @@ export const manifest: string = `{
   "header": {
     "name": "pack.name",
     "description": "pack.description",
-    "uuid": "$\{\{uuid\}\}",
+    "uuid": "$\{{uuid}}",
     "version": [1, 0, 0],
     "min_engine_version": [1, 19, 0]
   },
   "modules": [
     {
       "type": "data",
-      "uuid": "$\{\{uuid\}\}",
+      "uuid": "$\{{uuid}}",
       "version": [1, 0, 0]
     }
   ],
   "metadata": {
-    "authors": [ "$\{\{project.attributes:author\}\}" ],
+    "authors": [ "$\{{project.attributes:author}}" ],
     "generated_with": {
-      "$\{\{tool\}\}": [
-        "$\{\{tool.version\}\}"
+      "$\{{tool}}": [
+        "$\{{tool.version}}"
       ]
     }
   }
@@ -141,7 +141,7 @@ export const recipe: string = `{
   "format_version": "1.20.41",
   "minecraft:<type>": {
     "description": {
-      "identifier": "$\{\{id\}\}"
+      "identifier": "$\{{id}}"
     },
 
     "result": {
@@ -154,7 +154,7 @@ export const spawn_rule: string = `{
   "format_version": "1.20.41",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "$\{\{id\}\}",
+      "identifier": "$\{{id}}",
       "population_control": "animal"
     },
     "conditions": [
@@ -192,7 +192,7 @@ export const volume: string = `{
   "format_version": "1.20.41",
   "minecraft:volume": {
     "description": {
-      "identifier": "$\{\{id\}\}"
+      "identifier": "$\{{id}}"
     },
     "components": {
       "minecraft:bounds": {

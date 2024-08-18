@@ -15,7 +15,7 @@ export function provideDefinedAnimationCompletion(context: Context<CompletionCon
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
   context.database.ProjectData.behaviorPacks.entities.forEach((item) => {
-    builder.generate(item.animations.defined, (anim) => `Animation defined by ${item.id}`);
+    builder.generate(item.animations.defined, (anim) => `Animation ${anim} defined  by ${item.id}`);
   });
 }
 

@@ -1,11 +1,11 @@
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
+import { Languages } from "@blockception/shared";
+import { Connection } from "vscode-languageserver";
+import { SignatureHelp, SignatureHelpParams } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
-import { CancellationToken, InitializeParams, SignatureHelp, SignatureHelpParams } from "vscode-languageserver-protocol";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
-import { Languages } from "@blockception/shared";
 import { provideJsonSignature } from "./json";
 
 import * as Language from "./minecraft/languages";
@@ -21,7 +21,7 @@ export class SignatureService extends BaseService implements Partial<IService> {
     super(logger.withPrefix("[signatures]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("signatureHelpProvider", {
       triggerCharacters: triggerCharacters,
       retriggerCharacters: triggerCharacters,
@@ -33,11 +33,7 @@ export class SignatureService extends BaseService implements Partial<IService> {
     this.addDisposable(connection.onSignatureHelp(this.onSignatureHelp.bind(this)));
   }
 
-  async onSignatureHelp(
-    params: SignatureHelpParams,
-    token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
-  ): Promise<SignatureHelp | undefined> {
+  async onSignatureHelp(params: SignatureHelpParams): Promise<SignatureHelp | undefined> {
     const position = params.position;
     const documents = this.extension.documents.get(params.textDocument.uri);
     if (!documents) return undefined;

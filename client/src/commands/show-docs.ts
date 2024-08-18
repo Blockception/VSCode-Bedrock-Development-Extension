@@ -1,11 +1,11 @@
 import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from "vscode";
 import { Commands } from "@blockception/shared";
-import { Console } from '../console/console';
+import { Console } from "../console/console";
 
 import path from "path";
 
 export function activate(context: ExtensionContext): void {
-  async function showDocs(args: any) {
+  async function showDocs() {
     const base = context.storageUri || context.globalStorageUri;
     const storage_path = path.join(base.fsPath, "docs");
     const command = new ShowDocsCommand(storage_path);
@@ -141,7 +141,7 @@ class ShowDocsCommand {
 
       return diff <= day_diff_2;
     } catch (err) {
-      Console.errror(`Failed to read file ${filepath}`, )
+      Console.errror(`Failed to read file ${filepath}`, err);
     }
 
     return false;
@@ -234,7 +234,7 @@ class ShowDocsCommand {
       // Open the markdown preview
       await commands.executeCommand("markdown.showPreview", uri);
     } catch (err) {
-      window.showErrorMessage("Failed to open docs", filepath);
+      window.showErrorMessage("Failed to open docs", filepath, JSON.stringify(err));
     }
   }
 }

@@ -27,7 +27,7 @@ export function provideExecuteSubcommandCompletion(context: Context<CompletionCo
  * @param receiver
  */
 function getCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
-  for (var I = 0; I < Data.length; I++) {
+  for (let I = 0; I < Data.length; I++) {
     const CInfo = Data[I];
     if (CInfo.obsolete) continue;
 

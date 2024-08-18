@@ -26,7 +26,7 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
     this._onDiagnosingDone = new Emitter();
 
     this._getFilesCache = new DataCache(DataCache.defaultTimespan);
-    this.documents.onDidSave((e) => this._getFilesCache.clear());
+    this.documents.onDidSave(() => this._getFilesCache.clear());
   }
 
   get onDiagnosingFinished() {
@@ -56,11 +56,9 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
 
   /**@inheritdoc*/
   getFiles(folder: string, patterns: string[], ignores: MCIgnore): string[] {
-    const key = (folder + patterns.join(",") + ignores.patterns.join(","));
+    const key = folder + patterns.join(",") + ignores.patterns.join(",");
 
-    return this._getFilesCache.getOrAdd(key, (k) => {
-      return Glob.getFiles(patterns, ignores.patterns, folder);
-    });
+    return this._getFilesCache.getOrAdd(key, () => Glob.getFiles(patterns, ignores.patterns, folder));
   }
 
   /**@inheritdoc*/

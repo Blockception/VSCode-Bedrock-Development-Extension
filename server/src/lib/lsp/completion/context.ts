@@ -37,7 +37,7 @@ export namespace CommandCompletionContext {
    */
   export function is(value: any): value is CommandCompletionContext {
     if (value) {
-      let temp = value as CommandCompletionContext;
+      const temp = value as CommandCompletionContext;
 
       if (temp.parameter && temp.command && temp.cursor && temp.builder) return true;
     }

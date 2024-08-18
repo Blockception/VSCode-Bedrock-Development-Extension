@@ -1,4 +1,4 @@
-export function entries<U extends Object, K extends keyof U>(data: U | undefined, callbackfn: (key: K, value: U[K]) => void): void {
+export function entries<U extends object, K extends keyof U>(data: U | undefined, callbackfn: (key: K, value: U[K]) => void): void {
   if (data === undefined) return;
   const keys = Object.keys(data) as K[];
 

@@ -119,7 +119,7 @@ export function getCurrentString(text: string, cursor: number): TextRange | unde
  * @returns undefined if nothing of a value has been found
  */
 export function getCurrentStringValue(text: string, property: string, cursor: number): TextRange | undefined {
-  let startIndex = getEndOfPropertyKey(text, property, cursor);
+  const startIndex = getEndOfPropertyKey(text, property, cursor);
 
   // We have found where the colon ends, or the property ends
   // Now we find the " or anything that indicates the end of json,
@@ -148,21 +148,24 @@ export function getCurrentStringValue(text: string, property: string, cursor: nu
 }
 
 export function getEndOfPropertyKey(text: string, property: string, start: number): number {
+  if (!property.startsWith('"') && !property.endsWith('"')) {
+    property = `"${property}"`
+  }
+
   let startIndex = start;
   let lastColon = -1;
 
   for (; startIndex > 0; startIndex--) {
     // Have we found the colon?
-    const c = text.charAt(startIndex);
-    if (c === ":") {
+    const s = text.slice(startIndex, startIndex + property.length);
+    if (s.startsWith(":")) {
       // Record that position, and we can move the index back equal to the length of the property.
       lastColon = startIndex;
-      startIndex -= property.length;
+      startIndex -= (property.length - 1);
       continue;
     }
 
     // Have we found the property?
-    const s = text.slice(startIndex, startIndex + property.length);
     if (s === property) {
       return lastColon === -1 ? startIndex + property.length + 1 : lastColon + 1;
     }

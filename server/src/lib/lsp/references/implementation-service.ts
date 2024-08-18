@@ -4,8 +4,7 @@ import {
   CancellationToken,
   Definition,
   DefinitionLink,
-  ImplementationParams,
-  InitializeParams,
+  ImplementationParams
 } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
@@ -21,7 +20,7 @@ export class ImplementationService extends BaseService implements Partial<IServi
     super(logger.withPrefix("[implementation]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("implementationProvider", {
       documentSelector: [
         { language: Languages.JsonCIdentifier },

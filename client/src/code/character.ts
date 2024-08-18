@@ -14,7 +14,7 @@ export namespace Character {
 
   /** */
   export function IsLetter(char: string): boolean {
-    var code = char.charCodeAt(0);
+    const code = char.charCodeAt(0);
 
     if (code >= Character_a && code <= Character_z) return true;
     if (code >= Character_A && code <= Character_Z) return true;
@@ -32,7 +32,7 @@ export namespace Character {
 
   /** */
   export function IsNumber(char: string): boolean {
-    var code = char.charCodeAt(0);
+    const code = char.charCodeAt(0);
 
     if (code >= Character_0 && code <= Character_9) return true;
 

@@ -1,5 +1,5 @@
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, DefinitionParams, InitializeParams, Location } from "vscode-languageserver-protocol";
+import { CancellationToken, DefinitionParams, Location } from "vscode-languageserver-protocol";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
@@ -14,7 +14,7 @@ export class DefinitionService extends BaseService implements Partial<IService> 
     super(logger.withPrefix("[definitions]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("definitionProvider", {
       workDoneProgress: true,
     });

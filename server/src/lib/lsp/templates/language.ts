@@ -16,7 +16,7 @@ export function create_language_files(
   additional?: (builder: TextEditBuilder) => void
 ): void {
   if (typeof pack === "string") {
-    let nPack = builder.context.database.ProjectData.get(pack);
+    const nPack = builder.context.database.ProjectData.get(pack);
 
     if (nPack === undefined) return;
     pack = nPack;
@@ -33,7 +33,7 @@ export function create_language_files(
   } else if (Util.IsBehaviorPack(pack)) {
     generate_bp(pack, textBuilder);
   } else if (Util.IsWorldPack(pack)) {
-    generate_wp(pack, textBuilder);
+    generate_wp();
   }
 
   if (additional !== undefined) {

@@ -1,21 +1,20 @@
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { ExtensionContext } from "../extension";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
-import { getFilename, Vscode } from "../../util";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
-import { Kinds } from "../../constants";
-import { SymbolBuilder } from "./builder";
+import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
   DocumentSymbol,
   DocumentSymbolParams,
-  InitializeParams,
   SymbolInformation,
-  SymbolKind,
+  SymbolKind
 } from "vscode-languageserver-protocol";
+import { Kinds } from "../../constants";
+import { getFilename, Vscode } from "../../util";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { IService } from "../services/service";
+import { SymbolBuilder } from "./builder";
 
 export class DocumentSymbolService extends BaseService implements Partial<IService> {
   readonly name: string = "document-symbols";
@@ -24,7 +23,7 @@ export class DocumentSymbolService extends BaseService implements Partial<IServi
     super(logger.withPrefix("[document-symbols]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("documentSymbolProvider", {
       label: "minecraft",
       workDoneProgress: true,

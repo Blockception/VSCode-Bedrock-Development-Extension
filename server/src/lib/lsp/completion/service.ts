@@ -4,8 +4,7 @@ import {
   CompletionItem,
   CompletionList,
   CompletionParams,
-  InitializeParams,
-  ResponseError,
+  ResponseError
 } from "vscode-languageserver-protocol";
 import { ErrorCodes } from "../../constants";
 import { getFilename } from "../../util";
@@ -28,7 +27,7 @@ export class CompletionService extends BaseService implements Partial<IService> 
     super(logger.withPrefix("[completion]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     this.extension.capabilities.server.completion = true;
 
     capabilities.addCompletion({
@@ -44,7 +43,7 @@ export class CompletionService extends BaseService implements Partial<IService> 
     );
   }
 
-  onCompletionResolve(params: CompletionItem, token: CancellationToken) {
+  onCompletionResolve(params: CompletionItem) {
     return params;
   }
 

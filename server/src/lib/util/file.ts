@@ -29,7 +29,7 @@ export function getBasename(filepath: string): string {
  */
 export function getDirectory(filepath: string): string {
   filepath = filepath.replace(/\\/g, "/");
-  let index = filepath.lastIndexOf("/");
+  const index = filepath.lastIndexOf("/");
 
   if (index > -1) {
     filepath = filepath.substring(index + 1, filepath.length);

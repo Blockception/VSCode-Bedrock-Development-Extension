@@ -98,6 +98,7 @@ export function provideCompletion(
 
     case "hasitem":
       builder.add({ label: "[{},{}]", documentation: "Double Definition", kind: CompletionItemKind.Class });
+      // falls through
     case "has_property":
     case "scores":
       builder.add({ label: "{}", documentation: "Definition", kind: CompletionItemKind.Class });

@@ -47,7 +47,7 @@ export function provideSignature(
 
 //Converts the given MCCommand into a signature
 function toSignature(command: CommandInfo): SignatureInformation {
-  let Sign: SignatureInformation = {
+  const signature: SignatureInformation = {
     label: "",
     documentation: command.documentation,
     parameters: [],
@@ -67,13 +67,13 @@ function toSignature(command: CommandInfo): SignatureInformation {
     }
 
     const p = createParameter(t, parameter);
-    Sign.label += t + " ";
-    Sign.parameters?.push(p);
+    signature.label += t + " ";
+    signature.parameters?.push(p);
   }
 
-  Sign.label = Sign.label.trim();
+  signature.label = signature.label.trim();
 
-  return Sign;
+  return signature;
 }
 
 function createParameter(label: string, p: ParameterInfo): ParameterInformation {

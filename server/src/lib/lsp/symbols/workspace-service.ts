@@ -1,18 +1,17 @@
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { convertBehaviorPacks, convertResourcePack } from "./functions";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
-import { Kinds } from "../../constants";
-import { SymbolBuilder } from "./builder";
 import {
   CancellationToken,
-  InitializeParams,
   SymbolInformation,
-  WorkspaceSymbolParams,
+  WorkspaceSymbolParams
 } from "vscode-languageserver-protocol";
+import { Kinds } from "../../constants";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { IService } from "../services/service";
+import { SymbolBuilder } from "./builder";
+import { convertBehaviorPacks, convertResourcePack } from "./functions";
 
 export class WorkspaceSymbolService extends BaseService implements Partial<IService> {
   readonly name: string = "workspace-symbols";
@@ -21,7 +20,7 @@ export class WorkspaceSymbolService extends BaseService implements Partial<IServ
     super(logger.withPrefix("[workspace-symbols]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("workspaceSymbolProvider", {
       resolveProvider: true,
       workDoneProgress: true,

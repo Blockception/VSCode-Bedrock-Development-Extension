@@ -88,7 +88,7 @@ export function setupServer() {
   });
 
   // This handler provides diagnostics
-  connection.onInitialized(async (params) => {
+  connection.onInitialized(async () => {
     logger.info("Initialized minecraft server", { version: Version });
     manager.setupHandlers(connection);
 
