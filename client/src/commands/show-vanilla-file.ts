@@ -4,7 +4,7 @@ import { GithubFiles } from "bc-minecraft-bedrock-vanilla-data/lib/src/Lib/Vanil
 import path from "path";
 
 export function activate(context: ExtensionContext): void {
-  async function showVanillaFile(args: any) {
+  async function showVanillaFile() {
     const base = context.storageUri || context.globalStorageUri;
     const storage_path = path.join(base.fsPath, "vanilla");
     const command = new ShowVanillaFileCommand(storage_path);
@@ -55,6 +55,7 @@ class ShowVanillaFileCommand {
 
       return diff <= day_diff_2;
     } catch (err) {
+      console.log("trouble during checking of file", err);
       return false;
     }
   }
@@ -115,7 +116,7 @@ class ShowVanillaFileCommand {
       const doc = await workspace.openTextDocument(Uri.file(filepath));
       await window.showTextDocument(doc);
     } catch (err) {
-      window.showErrorMessage("Failed to open vanilla file", filepath);
+      window.showErrorMessage("Failed to open vanilla file", filepath, JSON.stringify(err));
     }
   }
 }

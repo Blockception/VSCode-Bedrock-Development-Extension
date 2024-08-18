@@ -33,8 +33,8 @@ export function activate(context: ExtensionContext): void {
 
   //General
   createCommandWithID(context, Commands.Create.General.Entity, "Create Entity", EntityID);
-  createCommand(context, Commands.Create.General.Languages, "Create Languages");
-  createCommand(context, Commands.Create.General.Manifests, "Create Manifests");
+  createCommand(context, Commands.Create.General.Languages);
+  createCommand(context, Commands.Create.General.Manifests);
 
   //Project
   createCommandWithID(context, Commands.Create.Project.WorldProject, "Create World, BP, RP project", ProjectID);
@@ -42,10 +42,15 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.Project.Behaviorpack, "Create BP", ProjectID);
 
   //Behavior pack
-  createCommand(context, Commands.Create.Behaviorpack.Languages, "Create language files");
-  createCommand(context, Commands.Create.Behaviorpack.Manifests, "Create manifest");
+  createCommand(context, Commands.Create.Behaviorpack.Languages);
+  createCommand(context, Commands.Create.Behaviorpack.Manifests);
 
-  createCommandWithID(context, Commands.Create.Behaviorpack.Animation_Controller, "Create animation controller", AnimationControllerID);
+  createCommandWithID(
+    context,
+    Commands.Create.Behaviorpack.Animation_Controller,
+    "Create animation controller",
+    AnimationControllerID
+  );
   createCommandWithID(context, Commands.Create.Behaviorpack.Animation, "Create animation", AnimationID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Block, "Create block", BlockID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Dialogue, "Create dialogue", DialogueID);
@@ -58,34 +63,49 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.Behaviorpack.Volume, "Create volume", VolumeID);
 
   //Resource pack
-  createCommand(context, Commands.Create.Resourcepack.Biomes_Client, "Create biomesclient file");
-  createCommand(context, Commands.Create.Resourcepack.Blocks, "Create the blocks file");
-  createCommand(context, Commands.Create.Resourcepack.Flipbook_Textures, "Create flipbook_textures file");
-  createCommand(context, Commands.Create.Resourcepack.Item_Texture, "Create item tereate item texture file");
-  createCommand(context, Commands.Create.Resourcepack.Languages, "Create lanreate language file");
-  createCommand(context, Commands.Create.Resourcepack.Manifests, "Creatreate all manifest");
-  createCommand(context, Commands.Create.Resourcepack.Music_Definitions, "Create the music definireate the music definitions file");
-  createCommand(context, Commands.Create.Resourcepack.Sound_Definitions, "Create the sound definireate the sound definitions file");
-  createCommand(context, Commands.Create.Resourcepack.Sounds, "Create the sreate the sounds file");
-  createCommand(context, Commands.Create.Resourcepack.Terrain_Texture, "Create the terrain texture file");
-  createCommand(context, Commands.Create.Resourcepack.Texture_List, "Create texturelist");
+  createCommand(context, Commands.Create.Resourcepack.Biomes_Client);
+  createCommand(context, Commands.Create.Resourcepack.Blocks);
+  createCommand(context, Commands.Create.Resourcepack.Flipbook_Textures);
+  createCommand(context, Commands.Create.Resourcepack.Item_Texture);
+  createCommand(context, Commands.Create.Resourcepack.Languages);
+  createCommand(context, Commands.Create.Resourcepack.Manifests);
+  createCommand(context, Commands.Create.Resourcepack.Music_Definitions);
+  createCommand(context, Commands.Create.Resourcepack.Sound_Definitions);
+  createCommand(context, Commands.Create.Resourcepack.Sounds);
+  createCommand(context, Commands.Create.Resourcepack.Terrain_Texture);
+  createCommand(context, Commands.Create.Resourcepack.Texture_List);
 
-  createCommandWithID(context, Commands.Create.Resourcepack.Animation_Controller, "Create animation controllers files", AnimationControllerID);
+  createCommandWithID(
+    context,
+    Commands.Create.Resourcepack.Animation_Controller,
+    "Create animation controllers files",
+    AnimationControllerID
+  );
   createCommandWithID(context, Commands.Create.Resourcepack.Animation, "Create animations files", AnimationID);
   createCommandWithID(context, Commands.Create.Resourcepack.Attachable, "Create attachable files", AttachableID);
-  createCommandWithID(context, Commands.Create.Resourcepack.BlockCulling, "Create the block culling rule file", BlockCullingRuleID)
+  createCommandWithID(
+    context,
+    Commands.Create.Resourcepack.BlockCulling,
+    "Create the block culling rule file",
+    BlockCullingRuleID
+  );
   createCommandWithID(context, Commands.Create.Resourcepack.Entity, "Create entities files", EntityID);
   createCommandWithID(context, Commands.Create.Resourcepack.Fog, "Create fog file", FogID);
   createCommandWithID(context, Commands.Create.Resourcepack.Model, "Create reate model file", ModelID);
   createCommandWithID(context, Commands.Create.Resourcepack.Particle, "Create particle file", ParticleID);
-  createCommandWithID(context, Commands.Create.Resourcepack.Render_Controller, "Create render_controller file", RenderControllerID);
+  createCommandWithID(
+    context,
+    Commands.Create.Resourcepack.Render_Controller,
+    "Create render_controller file",
+    RenderControllerID
+  );
 
   //World
-  createCommand(context, Commands.Create.World.Languages, "Create language files");
-  createCommand(context, Commands.Create.World.Manifests, "Create manifest");
+  createCommand(context, Commands.Create.World.Languages);
+  createCommand(context, Commands.Create.World.Manifests);
 }
 
-function createCommand(context: ExtensionContext, command: string, title: string) {
+function createCommand(context: ExtensionContext, command: string) {
   context.subscriptions.push(
     commands.registerCommand(command, (arg: any[]) => {
       onCommandComplete(command, arg);

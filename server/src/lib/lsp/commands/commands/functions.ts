@@ -10,7 +10,7 @@ export function createCommand(callback: CreateFn) {
   return async function (context: Context<CommandContext>) {
     const folders = getFolders(context);
 
-    return callback(context, folders).then((value) => {});
+    return callback(context, folders).then(() => {});
   };
 }
 

@@ -1,5 +1,5 @@
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, CodeLens, CodeLensParams, InitializeParams } from "vscode-languageserver-protocol";
+import { CancellationToken, CodeLens, CodeLensParams } from "vscode-languageserver-protocol";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
@@ -16,7 +16,7 @@ export class CodeLensService extends BaseService implements Partial<IService> {
     super(logger.withPrefix("[code-lens]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("codeLensProvider", {
       resolveProvider: true,
       workDoneProgress: true,

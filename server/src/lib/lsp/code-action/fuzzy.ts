@@ -1,6 +1,6 @@
-import { CodeAction, CodeActionKind, Diagnostic, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { CodeActionBuilder } from "./builder";
 import { distance } from "fastest-levenshtein";
+import { CodeAction, CodeActionKind, Diagnostic, TextEdit } from "vscode-languageserver";
+import { CodeActionBuilder } from "./builder";
 
 export async function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
   const code = diag.code;

@@ -2,8 +2,7 @@ import { Connection, TextDocumentChangeEvent } from "vscode-languageserver";
 import {
   CreateFilesParams,
   DeleteFilesParams,
-  InitializeParams,
-  RenameFilesParams,
+  RenameFilesParams
 } from "vscode-languageserver-protocol";
 import { Glob } from "../../files/glob";
 import { DiagnoserService } from "../diagnostics/service";
@@ -12,7 +11,6 @@ import { TextDocument } from "../documents/text-document";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
 import { IService } from "../services/service";
 
 export class DocumentProcessor extends BaseService implements Partial<IService> {
@@ -24,7 +22,7 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
     this._diagnoser = diagnoser;
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(): void {
     //provides diagnostics and such
     const { documents } = this.extension;
     documents.onDidOpen(this.onDocumentChanged.bind(this));

@@ -13,8 +13,8 @@ import { WorkspaceData } from "./workspace-data";
 
 type BaseObject = Types.BaseObject;
 
-export interface forEachfn<T> {
-  forEach(callbackfn: (value: Types.BaseObject) => void): void;
+export interface forEachfn<T extends Types.BaseObject> {
+  forEach(callbackfn: (value: T) => void): void;
 }
 
 export class Database implements Partial<IService> {
@@ -38,7 +38,7 @@ export class Database implements Partial<IService> {
   clear(): void {
     this.logger.info("clearing database");
     this.WorkspaceData.clear();
-    this.ProjectData;
+    this.ProjectData = new ProjectData(this.context);
   }
 
   getPacks() {
@@ -90,9 +90,13 @@ export class Database implements Partial<IService> {
   ): Promise<Types.BaseObject[]> {
     const result: BaseObject[] = [];
 
-    await this.forEach((item) => {
-      if (item.id === id) result.push(item);
-    });
+    await this.forEach(
+      (item) => {
+        if (item.id === id) result.push(item);
+      },
+      token,
+      workDoneProgress
+    );
 
     return result;
   }

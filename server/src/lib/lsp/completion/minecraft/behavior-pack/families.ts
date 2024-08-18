@@ -57,12 +57,12 @@ function convertTestEntity(entity: { families?: string[]; id: string }, receiver
   entity.families?.forEach((family) => {
     receiver.add({
       label: family,
-      documentation: `Test for the family: ${family}\n\dForm ${entity.id}`,
+      documentation: `Test for the family: ${family}\n\rForm ${entity.id}`,
       kind: Kinds.Completion.Family,
     });
     receiver.add({
       label: "!" + family,
-      documentation: `Test not for the family: ${family}\n\dForm ${entity.id}`,
+      documentation: `Test not for the family: ${family}\n\rForm ${entity.id}`,
       kind: Kinds.Completion.Family,
     });
   });

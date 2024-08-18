@@ -74,7 +74,7 @@ export function generate_rp(pack: ResourcePack.ResourcePack, builder: ITextEditB
   });
 }
 
-export function generate_wp(pack: WorldPack, builder: ITextEditBuilder) {}
+export function generate_wp() {}
 
 function Safe(id: string): string {
   const index = id.indexOf(":");

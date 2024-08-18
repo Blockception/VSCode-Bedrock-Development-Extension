@@ -1,12 +1,12 @@
 import { Modes } from "bc-minecraft-bedrock-types";
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from '../../../context/context';
-import { CompletionContext } from '../../context';
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
 import { provideModeCompletion } from "../modes/modes";
 
 //Doesnt do scores and doesnt need to
-export function provideCompletion(context: Context<CompletionContext>, forEntities: boolean): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   provideModeCompletion(Modes.SelectorAttribute, context, CompletionItemKind.Property);
 }
 

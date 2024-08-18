@@ -1,9 +1,8 @@
 import {
   CancellationToken,
   Connection,
-  InitializeParams,
   TextDocuments,
-  TextDocumentSyncKind,
+  TextDocumentSyncKind
 } from "vscode-languageserver";
 import { FileOperationFilter } from "vscode-languageserver-protocol/lib/common/protocol.fileOperations";
 import { URI } from "vscode-uri";
@@ -22,8 +21,10 @@ import { TextDocument } from "./text-document";
 import * as vscode from "vscode-languageserver-textdocument";
 
 export type ContentType = string | vscode.TextDocument | undefined;
-export interface IDocumentManager
-  extends Pick<DocumentManager, "get" | "forEach" | "onDidChangeContent" | "onDidClose" | "onDidOpen" | "onDidSave"> {}
+export type IDocumentManager = Pick<
+  DocumentManager,
+  "get" | "forEach" | "onDidChangeContent" | "onDidClose" | "onDidOpen" | "onDidSave"
+>;
 
 export class DocumentManager
   extends BaseService
@@ -59,7 +60,7 @@ export class DocumentManager
     return this._documents.onDidSave;
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     const filters: FileOperationFilter[] = [
       { pattern: { glob: "**/*.{mcfunction}", options: { ignoreCase: true } } },
       { pattern: { glob: "**/*.{json,jsonc}", options: { ignoreCase: true } } },

@@ -1,8 +1,8 @@
 import { BehaviorPack, PackType, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 import { Kinds } from "../../../../constants";
-import { Context } from '../../../context/context';
-import { CompletionContext } from '../../context';
+import { Context } from "../../../context/context";
+import { CompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const packType = PackType.detect(context.document.uri);
@@ -16,10 +16,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   }
 }
 
-export function provideResourcePackCompletion(
-  context: Context<CompletionContext>,
-  prefixed: boolean = false
-): void {
+export function provideResourcePackCompletion(context: Context<CompletionContext>, prefixed: boolean = false): void {
   const fileType = ResourcePack.FileType.detect(context.document.uri);
 
   switch (fileType) {

@@ -1,6 +1,6 @@
 import { Languages } from "@blockception/shared";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, Hover, HoverParams, InitializeParams } from "vscode-languageserver-protocol";
+import { CancellationToken, Hover, HoverParams } from "vscode-languageserver-protocol";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
@@ -20,7 +20,7 @@ export class HoverService extends BaseService implements Partial<IService> {
     super(logger.withPrefix("[hover]"), extension);
   }
 
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void {
+  onInitialize(capabilities: CapabilityBuilder): void {
     capabilities.set("hoverProvider", {
       workDoneProgress: true,
     });

@@ -8,7 +8,7 @@ import { CreateNamespaced, CreateRangeTokensWord } from "../functions";
 import { CreateSelectorTokens } from "./selectors";
 
 export function provideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {
-  const Builder = new McfunctionSemanticTokensBuilder(doc);
+  const builder = new McfunctionSemanticTokensBuilder(doc);
   let startIndex = 0;
   let endIndex = doc.lineCount;
 
@@ -22,15 +22,15 @@ export function provideSemanticToken(doc: TextDocument, range?: Range | undefine
     const CommentIndex = line.indexOf("#");
 
     if (CommentIndex >= 0) {
-      Builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
+      builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
     }
 
-    const P = Position.create(I, 0);
-    const command = Command.parse(line, doc.offsetAt(P));
-    CreateTokens(command, Builder);
+    const pos = Position.create(I, 0);
+    const command = Command.parse(line, doc.offsetAt(pos));
+    createTokens(command, builder);
   }
 
-  return Builder.Build();
+  return builder.Build();
 }
 
 export function McfunctionLineTokens(line: string, offset: number, Builder: McfunctionSemanticTokensBuilder): void {
@@ -44,10 +44,10 @@ export function McfunctionLineTokens(line: string, offset: number, Builder: Mcfu
     return;
   }
 
-  CreateTokens(command, Builder);
+  createTokens(command, Builder);
 }
 
-function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder): void {
+function createTokens(command: Command, builder: McfunctionSemanticTokensBuilder): void {
   if (command.parameters.length == 0) return;
 
   const edu = IsEducationEnabled(builder.document.configuration());
@@ -62,10 +62,9 @@ function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder
   }
 
   const matches = command.getBestMatch(edu);
-  let match;
 
   if (matches.length == 0) return;
-  match = matches[0];
+  const match = matches[0];
 
   let max = command.parameters.length;
   if (match.parameters.length < max) max = match.parameters.length;
@@ -79,7 +78,7 @@ function CreateTokens(command: Command, builder: McfunctionSemanticTokensBuilder
       case ParameterType.command:
         const sub = command.getSubCommand(edu);
         if (sub) {
-          CreateTokens(sub, builder);
+          createTokens(sub, builder);
         }
         return;
 

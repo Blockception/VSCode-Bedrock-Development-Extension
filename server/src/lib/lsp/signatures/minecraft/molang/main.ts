@@ -24,7 +24,7 @@ export function provideDocSignature(doc: TextDocument, cursor: Position): Signat
   const w: OffsetWord = { offset: 0, text: text };
   const cpos = doc.offsetAt(cursor);
 
-  return provideSignature(w, cpos, doc);
+  return provideSignature(w, cpos);
 }
 
 /**
@@ -34,7 +34,7 @@ export function provideDocSignature(doc: TextDocument, cursor: Position): Signat
  * @param doc
  * @returns
  */
-export function provideSignature(text: OffsetWord, cursor: number, doc: TextDocument): SignatureHelp | undefined {
+export function provideSignature(text: OffsetWord, cursor: number): SignatureHelp | undefined {
   const words = CreateMolangSetWords(text.text, text.offset);
 
   for (let I = 0; I < words.length; I++) {
@@ -78,10 +78,10 @@ export function provideWordSignature(text: OffsetWord): SignatureHelp | undefine
       return Math.provideSignature(sub);
 
     case "geometry":
-      return Geometry.provideSignature(sub);
+      return Geometry.provideSignature();
 
     case "material":
-      return Material.provideSignature(sub);
+      return Material.provideSignature();
 
     case "v":
     case "variable":
