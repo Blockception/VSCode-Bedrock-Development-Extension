@@ -25,13 +25,12 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
   const subcode = index > -1 ? code.slice(13, index) : code.slice(13);
 
   switch (subcode) {
-
     case "animation_controller":
       return AnimationControllers.onCodeAction(builder, diag);
-      
+
     case "animation":
       return Animations.onCodeAction(builder, diag);
-      
+
     case "anim_or_controller":
       AnimationControllers.onCodeAction(builder, diag);
       return Animations.onCodeAction(builder, diag);
@@ -50,7 +49,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
       return Fogs.onCodeAction(builder, diag);
 
     case "material":
-      return Materials.onCodeAction(builder, diag);
+      return Materials.onCodeAction();
 
     case "particle":
       return Particles.onCodeAction(builder, diag);

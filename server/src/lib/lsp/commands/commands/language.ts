@@ -32,7 +32,7 @@ export async function addAllItems(context: Context<CommandContext>): Promise<voi
   } else if (ResourcePack.ResourcePack.is(pack)) {
     generate_rp(pack, builder);
   } else if (WorldPack.is(pack)) {
-    generate_wp(pack, builder);
+    generate_wp();
   }
 
   const edit = TextEdit.insert(document.positionAt(builder.textdoc.length), builder.out);

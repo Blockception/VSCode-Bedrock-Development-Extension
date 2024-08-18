@@ -27,7 +27,7 @@ export function provideJsonSignature(doc: TextDocument, cursor: Position): Signa
       return MolangEventSignature;
     } else {
       //On other molang
-      return Molang.provideSignature({ text: property, offset: range.start }, cpos, doc);
+      return Molang.provideSignature({ text: property, offset: range.start }, cpos);
     }
   }
 

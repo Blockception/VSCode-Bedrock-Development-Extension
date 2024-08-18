@@ -25,7 +25,7 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
   });
 
   if (IsMolang(currentText)) {
-    return Molang.provideHoverAt(currentText, range, cursor);
+    return Molang.provideHoverAt(context, currentText, range, cursor);
   }
 
   //Check project data

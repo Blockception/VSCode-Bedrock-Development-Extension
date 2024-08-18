@@ -8,6 +8,7 @@ import * as Blocks from "./blocks";
 import * as Entities from "./entity/main";
 import * as LootTables from "./loot-tables";
 import * as Trading from "./trading";
+import * as Manifests from "../../general/manifests";
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   switch (FileType.detect(context.document.uri)) {
@@ -21,12 +22,13 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
       return Entities.provideJsonCompletion(context);
     case FileType.loot_table:
       return LootTables.provideJsonCompletion(context);
+    case FileType.manifest:
+      return Manifests.provideJsonCompletion(context);
     case FileType.trading:
       return Trading.provideCompletion(context);
 
     // case FileType.function:
     // case FileType.item:
-    // case FileType.manifest:
     // case FileType.script:
     // case FileType.spawn_rule:
     // case FileType.structure:

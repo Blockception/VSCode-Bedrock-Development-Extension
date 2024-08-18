@@ -14,8 +14,8 @@ export namespace References {
     items: ((Types.Locatable & Types.Identifiable) | Location | undefined)[],
     documents: IDocumentManager
   ): Location[] {
-    function mapItem(item: (Types.Locatable & Types.Identifiable) | Location | undefined) {
-      if (Location.is(item) || item === undefined) return item;
+    function mapItem(item: (Types.Locatable & Types.Identifiable) | Location | undefined): Location | undefined {
+      if (Location.is(item) || item === undefined) return item as (Location | undefined);
 
       const document = documents.get(item.location.uri);
       if (!document) return;

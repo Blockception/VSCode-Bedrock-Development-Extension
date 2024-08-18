@@ -12,6 +12,7 @@ import * as SoundDefinitions from "./sound-definitions";
 import * as Sound from "./sounds";
 import * as TexturesAtlas from "./texture-atlas";
 import * as Textures from "./textures";
+import * as Manifests from "../../general/manifests";
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   //Prepare data to be fixed for json
@@ -31,6 +32,8 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
       return BlockCulling.provideJsonCompletion(context);
     case FileType.entity:
       return Entities.provideJsonCompletion(context);
+    case FileType.manifest:
+      return Manifests.provideJsonCompletion(context);
     case FileType.render_controller:
       return RenderController.provideJsonCompletion(context);
     case FileType.sounds_definitions:
@@ -45,7 +48,6 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
     // case FileType.block:
     // case FileType.fog:
     // case FileType.item:
-    // case FileType.manifest:
     // case FileType.material:
     // case FileType.model:
     // case FileType.music_definitions:

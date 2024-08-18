@@ -33,7 +33,7 @@ export function create_language_files(
   } else if (Util.IsBehaviorPack(pack)) {
     generate_bp(pack, textBuilder);
   } else if (Util.IsWorldPack(pack)) {
-    generate_wp(pack, textBuilder);
+    generate_wp();
   }
 
   if (additional !== undefined) {

@@ -27,6 +27,7 @@ export function provideCompletionDocument(context: Context<CompletionContext>): 
   const range = getCurrentStringValue(text, p.property, cursor) ?? { start: cursor, end: cursor };
   const currentText = text.substring(range.start, range.end);
   const jsonContext: Context<JsonCompletionContext> = Context.modify(context, {
+    builder: jsonBuilder(cursor, range, currentText, document, context.builder),
     range,
     currentText,
   });
