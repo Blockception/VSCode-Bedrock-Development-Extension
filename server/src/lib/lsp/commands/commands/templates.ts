@@ -84,7 +84,6 @@ export const TemplateCommands: TemplateItem[] = [
   new TemplateItem(BPC.Block, BPT.block, "blocks", "${{id.safe}}.block.json"),
   new TemplateItem(BPC.Entity, BPT.entity, "entities", "${{id.safe}}.entity.bp.json"),
   new TemplateItem(BPC.Dialogue, BPT.dialogue, "dialogue", "${{id.safe}}.dialogue.json"),
-  new TemplateItem(BPC.Manifests, BPT.dialogue, "dialogue", "${{id.safe}}.dialogue.json"),
   new TemplateItem(BPC.Item, BPT.item, "items", "${{id.safe}}.item.json"),
   new TemplateItem(BPC.Loot_Table, BPT.loot_table, "loot_tables", "${{id.safe}}.loot.json"),
   new TemplateItem(BPC.Manifests, BPT.manifest, "manifest.json"),
@@ -126,7 +125,8 @@ export function getTemplateCommand(command: string): TemplateItem | undefined {
 }
 
 export function setupTemplates(manager: CommandManager): void {
-  TemplateCommands.filter((value) => value instanceof TemplateItem).forEach((template) =>
-    manager.add(template.commandId(), template)
-  );
+  TemplateCommands
+    .filter((v) => v !== undefined)
+    .filter((value) => value instanceof TemplateItem)
+    .forEach((template) => manager.add(template.commandId(), template));
 }
