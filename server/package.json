@@ -27,7 +27,7 @@
     "@blockception/shared": "^0.0.1",
     "@daanv2/queue-processor": "^2.2.1",
     "@types/vscode": "^1.92.0",
-    "bc-minecraft-bedrock-command": "^1.21.2-1",
+    "bc-minecraft-bedrock-command": "^1.21.2-2",
     "bc-minecraft-bedrock-diagnoser": "^1.21.2-4",
     "bc-minecraft-bedrock-project": "^1.21.2-4",
     "bc-minecraft-bedrock-types": "^1.21.1-5",
