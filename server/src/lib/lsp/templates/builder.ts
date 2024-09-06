@@ -12,8 +12,7 @@ import {
 import { Range } from "vscode-languageserver-types";
 import { Fs, Vscode } from "../../util";
 import { IExtensionContext } from "../extension";
-
-import * as fs from "fs";
+import { exists } from '../../io/io';
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -40,7 +39,7 @@ export class TemplateBuilder {
     const path = Fs.FromVscode(uri);
     uri = Vscode.fromFs(path);
 
-    if (fs.existsSync(path)) {
+    if (exists(path, this.context.logger)) {
       this.context.logger.info("creation of file skipped because it already exists: " + path);
       return;
     }

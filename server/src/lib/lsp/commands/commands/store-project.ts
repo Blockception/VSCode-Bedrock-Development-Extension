@@ -1,9 +1,10 @@
-import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { mkdirSync, writeFileSync } from "fs";
 import { Fs } from "../../../util";
 import { Context } from "../../context/context";
 import { IExtendedLogger } from "../../logger/logger";
 import { CommandContext } from "../context";
 import { getWorkspace } from "../util";
+import { exists } from '../../../io/io';
 
 import path from "path";
 
@@ -18,7 +19,7 @@ export async function storeProject(context: Context<CommandContext>) {
   const folder = Fs.FromVscode(ws[0].uri);
   const outputfolder = path.join(folder, ".minecraft");
 
-  if (!existsSync(outputfolder)) mkdirSync(outputfolder);
+  if (!exists(outputfolder, context.logger)) mkdirSync(outputfolder);
 
   database.ProjectData.behaviorPacks.packs.forEach(createGenerator(logger, "bp_pack", outputfolder));
   database.ProjectData.resourcePacks.packs.forEach(createGenerator(logger, "rp_pack", outputfolder));

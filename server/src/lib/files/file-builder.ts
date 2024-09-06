@@ -13,8 +13,7 @@ import {
 } from "vscode-languageserver";
 import { Fs, Vscode } from "../util";
 import { IExtendedLogger } from "../lsp/logger/logger";
-
-import * as fs from "fs";
+import { exists } from "../io/io";
 
 /**
  *
@@ -55,7 +54,7 @@ export class FileBuilder {
     const path = Fs.FromVscode(uri);
     uri = Vscode.fromFs(path);
 
-    if (fs.existsSync(path)) {
+    if (exists(path, this._logger)) {
       this._logger.info("Creation of file skipped because it already exists: " + path);
       return;
     }

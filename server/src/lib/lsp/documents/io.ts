@@ -1,5 +1,6 @@
 import { URI } from "vscode-uri";
 import { IExtendedLogger } from "../logger/logger";
+import { exists } from "../../io/io";
 
 import * as fs from "fs";
 
@@ -13,7 +14,7 @@ export function readDocument(uri: URI, logger: IExtendedLogger): string | undefi
   try {
     switch (uri.scheme) {
       case "file":
-        return fromFilesystem(uri);
+        return fromFilesystem(uri, logger);
 
       default:
         throw new Error("unknown uri scheme: " + uri.toString());
@@ -24,9 +25,9 @@ export function readDocument(uri: URI, logger: IExtendedLogger): string | undefi
   return undefined;
 }
 
-function fromFilesystem(uri: URI): string | undefined {
+function fromFilesystem(uri: URI, logger: IExtendedLogger): string | undefined {
   const path = uri.fsPath;
-  if (fs.existsSync(path)) {
+  if (exists(path, logger)) {
     const data = fs.readFileSync(path, "utf8");
     return data;
   }

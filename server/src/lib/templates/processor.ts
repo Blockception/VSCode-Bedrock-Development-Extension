@@ -6,6 +6,7 @@ import { IExtensionContext } from "../lsp/extension";
 
 import path from "path";
 import * as fs from "fs";
+import { exists } from '../io/io';
 
 export class TemplateProcessor {
   protected _filename: string;
@@ -96,7 +97,7 @@ export namespace TemplateProcessor {
 
     if (file) {
       const filepath = path.resolve(Fs.FromVscode(ws), file);
-      if (fs.existsSync(filepath)) {
+      if (exists(filepath, context.logger)) {
         content = fs.readFileSync(file, "utf8");
       }
     }

@@ -1,5 +1,4 @@
 import { BehaviorPack, Pack } from "bc-minecraft-bedrock-project";
-import { lstatSync } from "fs";
 import { CancellationToken } from "vscode-languageserver-protocol";
 import { MinecraftFormat } from "../../minecraft/format";
 import { getProject } from "../../project/mcprojects";
@@ -9,6 +8,7 @@ import { IExtendedLogger } from "../logger/logger";
 import { ProgressBar } from "../progress";
 import { BaseService } from "../services/base";
 import { DocumentProcessor } from "./document-processor";
+import { isDirectory } from "../../io/io";
 
 export class PackProcessor extends BaseService {
   name: string = "pack processor";
@@ -98,7 +98,7 @@ export class PackProcessor extends BaseService {
     const folderPath = Fs.FromVscode(folder);
     this.logger.info(`discovery packs from: ${folderPath}`);
 
-    if (!lstatSync(folderPath).isDirectory()) {
+    if (!isDirectory(folderPath, this.logger)) {
       return [];
     }
 
