@@ -4,7 +4,7 @@ describe("Array Functions", () => {
   test("removeDuplicate string", () => {
     const items = ["string 1", "string 2", "string 3", "string 2"];
     const pruned = removeDuplicate<string>(items);
-    expect(pruned.length).toEqual(3);
+    expect(pruned).toHaveLength(3);
   });
 
   test("removeDuplicate number", () => {
@@ -12,7 +12,7 @@ describe("Array Functions", () => {
 
     const pruned = removeDuplicate<number>(items);
 
-    expect(pruned.length).toEqual(3);
+    expect(pruned).toHaveLength(3);
   });
 
   test("removeDuplicate boolean", () => {
@@ -20,7 +20,7 @@ describe("Array Functions", () => {
 
     const pruned = removeDuplicate<boolean>(items);
 
-    expect(pruned.length).toEqual(2);
+    expect(pruned).toHaveLength(2);
   });
 
   test("DupeCheckAdd string", () => {
@@ -30,7 +30,7 @@ describe("Array Functions", () => {
     DupeCheckAdd(items, "string 3");
     DupeCheckAdd(items, "string 2");
 
-    expect(items.length).toEqual(3);
+    expect(items).toHaveLength(3);
   });
 
   test("DupeCheckAdd number", () => {
@@ -41,7 +41,7 @@ describe("Array Functions", () => {
     DupeCheckAdd(items, 2);
     DupeCheckAdd(items, 1);
 
-    expect(items.length).toEqual(3);
+    expect(items).toHaveLength(3);
   });
 
   test("DupeCheckAdd boolean", () => {
@@ -51,6 +51,6 @@ describe("Array Functions", () => {
     DupeCheckAdd(items, true);
     DupeCheckAdd(items, false);
 
-    expect(items.length).toEqual(2);
+    expect(items).toHaveLength(2);
   });
 });

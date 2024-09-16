@@ -29,10 +29,10 @@ updates:
           - "node-fetch"
       test:
         patterns:
-          - "mocha"
-          - "chai"
-          - "@types/chai"
-          - "@types/mocha"
+          - "jest"
+          - "eslint"
+          - "@types/eslint"
+          - "@types/jest"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
