@@ -52,11 +52,11 @@
     "workspace"
   ],
   "devDependencies": {
-    "@eslint/js": "^9.10.0",
+    "@eslint/js": "^9.11.1",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.5.5",
     "@vscode/vsce": "^3.1.0",
-    "eslint": "^9.10.0",
+    "eslint": "^9.11.1",
     "eslint-plugin-jest": "^28.8.3",
     "globals": "^15.9.0",
     "json-loader": "^0.5.7",
@@ -64,7 +64,7 @@
     "ts-loader": "^9.4.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
-    "typescript-eslint": "^8.5.0",
+    "typescript-eslint": "^8.7.0",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.0.1"
   },
