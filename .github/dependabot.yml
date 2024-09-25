@@ -31,6 +31,8 @@ updates:
         patterns:
           - "jest"
           - "eslint"
+          - "*eslint*"
+          - "*jest*"
           - "@types/eslint"
           - "@types/jest"
   - package-ecosystem: "github-actions" # See documentation for possible values
