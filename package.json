@@ -55,7 +55,7 @@
     "@eslint/js": "^9.11.1",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.7.4",
-    "@vscode/vsce": "^3.1.0",
+    "@vscode/vsce": "^3.1.1",
     "eslint": "^9.11.1",
     "eslint-plugin-jest": "^28.8.3",
     "globals": "^15.9.0",
