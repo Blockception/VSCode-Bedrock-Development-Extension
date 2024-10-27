@@ -1,7 +1,7 @@
-import { GeneralInfo } from 'bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo';
+import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/project/general/types";
 import { Kinds } from "../../../constants";
 import { getFilename } from "../../../util";
-import { Context } from '../../context/context';
+import { Context } from "../../context/context";
 import { CommandCompletionContext } from "../context";
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
