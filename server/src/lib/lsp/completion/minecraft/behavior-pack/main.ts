@@ -1,4 +1,4 @@
-import { FileType } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/BehaviorPack";
+import { FileType } from "bc-minecraft-bedrock-project/lib/src/project/behavior-pack";
 import { Context } from "../../../context/context";
 import { JsonCompletionContext } from "../../context";
 
