@@ -1,5 +1,5 @@
 import { Minecraft } from "bc-minecraft-bedrock-types";
-import { CompactJson } from "bc-minecraft-bedrock-types/lib/src/minecraft/json";
+import { CompactJson } from "bc-minecraft-bedrock-types/lib/minecraft/json";
 import { OffsetWord } from "bc-vscode-words";
 import { McfunctionSemanticTokensBuilder } from "../builders/mcfunction";
 import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";

@@ -1,5 +1,5 @@
 import { ModeUtil } from "bc-minecraft-bedrock-types";
-import { ModeHandler } from "bc-minecraft-bedrock-types/lib/src/modes/mode-handler";
+import { ModeHandler } from "bc-minecraft-bedrock-types/lib/modes/mode-handler";
 import { CompletionItemKind } from "vscode-languageserver";
 import { Context } from "../../../context/context";
 import { CompletionContext } from "../../context";

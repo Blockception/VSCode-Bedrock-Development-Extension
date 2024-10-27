@@ -1,4 +1,4 @@
-import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/src/modes/selector-type";
+import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/lib/modes/selector-type";
 import { OffsetWord } from "bc-vscode-words";
 import { CompletionItemKind } from "vscode-languageserver";
 import { IsEducationEnabled } from "../../../../project/attributes";
