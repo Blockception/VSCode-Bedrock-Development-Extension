@@ -1,4 +1,4 @@
-import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/types";
 import { CancellationToken, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CompletionItem, CompletionItemKind } from "vscode-languageserver-types";
 

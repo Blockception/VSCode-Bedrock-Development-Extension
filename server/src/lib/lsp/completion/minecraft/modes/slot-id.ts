@@ -1,5 +1,5 @@
 import { Modes } from "bc-minecraft-bedrock-types";
-import { SlotTypeMode } from "bc-minecraft-bedrock-types/lib/src/modes/slot-type";
+import { SlotTypeMode } from "bc-minecraft-bedrock-types/lib/modes/slot-type";
 import { CommandCompletionContext } from '../../context';
 
 import * as Integer from '../../general/integer';

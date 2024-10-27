@@ -1,5 +1,5 @@
 import { ResourcePack } from "bc-minecraft-bedrock-project";
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/src/types/identifiable";
+import { Identifiable } from "bc-minecraft-bedrock-types/lib/types/identifiable";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { CompletionItemKind } from "vscode-languageserver-types";
 import { Kinds } from "../../../../constants";

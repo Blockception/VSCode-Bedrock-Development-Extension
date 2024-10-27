@@ -1,5 +1,5 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
-import { Location } from "bc-minecraft-bedrock-types/lib/src/types";
+import { Location } from "bc-minecraft-bedrock-types/lib/types";
 import { MinecraftData, Types } from "bc-minecraft-bedrock-vanilla-data";
 import { MolangSet } from "bc-minecraft-molang/lib/src/Molang";
 import { CompletionItemKind } from "vscode-languageserver-types";

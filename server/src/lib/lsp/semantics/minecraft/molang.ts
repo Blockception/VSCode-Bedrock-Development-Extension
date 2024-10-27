@@ -1,5 +1,5 @@
 import { Minecraft } from "bc-minecraft-bedrock-types";
-import { Float } from "bc-minecraft-bedrock-types/lib/src/general/float";
+import { Float } from "bc-minecraft-bedrock-types/lib/general/float";
 import { OffsetWord } from "bc-vscode-words";
 import { Range } from "vscode-languageserver-textdocument";
 import { SemanticTokens } from "vscode-languageserver/node";

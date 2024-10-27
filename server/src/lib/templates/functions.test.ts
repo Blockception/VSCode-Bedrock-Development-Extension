@@ -1,10 +1,9 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
+import { Manifest } from "bc-minecraft-bedrock-project/lib/src/internal/types";
 import { MCProject } from "bc-minecraft-project";
-import { FunctionContext, TemplateFunctions } from "./functions";
-import { Manifest } from "bc-minecraft-bedrock-project/lib/src/Lib/Internal/Types";
-import { IExtensionContext } from "../lsp/extension";
-
 import path from "path";
+import { IExtensionContext } from "../lsp/extension";
+import { FunctionContext, TemplateFunctions } from "./functions";
 
 const TestContext: FunctionContext = {
   filename: "test.json",

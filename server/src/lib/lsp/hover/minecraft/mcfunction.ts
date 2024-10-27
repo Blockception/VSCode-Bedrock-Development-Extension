@@ -1,6 +1,6 @@
 import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
 import { IDataSet } from "bc-minecraft-bedrock-project";
-import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/types";
+import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/types";
 import { Hover, Range } from "vscode-languageserver";
 import { IsEducationEnabled } from "../../../project/attributes";
 import { Context } from "../../context/context";

@@ -1,4 +1,4 @@
-import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types";
+import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/project/general/types";
 import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,

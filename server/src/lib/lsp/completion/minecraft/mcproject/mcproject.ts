@@ -1,4 +1,4 @@
-import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/src/types";
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/types";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
 import { TemplateCommands } from "../../../commands/commands/templates";

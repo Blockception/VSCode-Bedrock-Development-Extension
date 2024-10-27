@@ -1,11 +1,11 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/Lib/Project/General/Types/GeneralInfo";
-import { DocumentLocation, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/src/types";
+import { DocumentLocation, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/types";
 import { Defined, Using } from "bc-minecraft-molang";
 import { MolangFullSet, MolangSetOptional } from "bc-minecraft-molang/lib/src/Molang";
 import { CancellationToken } from "vscode-languageserver-protocol";
 import { Location } from "vscode-languageserver-types";
 import { IDocumentManager } from "../documents/manager";
+import { GeneralInfo } from 'bc-minecraft-bedrock-project/lib/src/project/general/types';
 
 type Base = Identifiable & Locatable;
 type Carriers = Base & Partial<Items>;
