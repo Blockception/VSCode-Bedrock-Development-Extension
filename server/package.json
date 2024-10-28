@@ -48,7 +48,7 @@
     "vscode-uri": "^3.0.8"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.13",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.7.7",
     "@types/picomatch": "^3.0.1",
     "json-loader": "^0.5.7",
