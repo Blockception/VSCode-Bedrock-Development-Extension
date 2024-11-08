@@ -44,7 +44,6 @@ webpack.config.js
 
 **/.eslintignore
 **/.eslintrc
-**/.mocharc.json
 **/*.js.map
 **/*.ts
 **/CODE_OF_CONDUCT.md
