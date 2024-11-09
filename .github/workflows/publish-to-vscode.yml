@@ -75,6 +75,7 @@ jobs:
   tagged-release:
     name: 📑 Release Page
     runs-on: "ubuntu-latest"
+    if: ${{ needs.universal.result == 'success' }}
     needs: 
       - universal
     steps:
