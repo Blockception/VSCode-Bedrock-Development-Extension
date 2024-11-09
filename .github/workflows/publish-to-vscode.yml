@@ -92,4 +92,4 @@ jobs:
           token: "${{ secrets.GITHUB_TOKEN }}"
           generateReleaseNotes: true
           makeLatest: true
-          artifacts: ${{ steps.download-artifact.outputs.download-path }}
+          artifacts: ${{ steps.download-artifact.outputs.download-path }}/*
