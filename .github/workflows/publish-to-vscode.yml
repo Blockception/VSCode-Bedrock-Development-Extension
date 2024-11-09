@@ -85,6 +85,8 @@ jobs:
       - name: 🚚 Download Artifact
         id: download-artifact
         uses: actions/download-artifact@v4
+        with:
+          name: universal
 
       - name: 📑 Release Page
         uses: ncipollo/release-action@v1
@@ -92,4 +94,4 @@ jobs:
           token: "${{ secrets.GITHUB_TOKEN }}"
           generateReleaseNotes: true
           makeLatest: true
-          artifacts: ${{ steps.download-artifact.outputs.download-path }}/*
+          artifacts: ${{ steps.download-artifact.outputs.download-path }}/*.vsix
