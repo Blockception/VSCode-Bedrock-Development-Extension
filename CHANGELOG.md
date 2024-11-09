@@ -1,5 +1,16 @@
 # CHANGELOG
 ## Extension
+- updated schemas
+- Fixing the failing pipelines on linux / macos (#694)
+- updated dependencies
+- updated schemas
+- updated to v8.20
+- 8.0.13
+- adding universal name
+- 8.0.12
+- adding a glob
+- adding universal check if success
+- 8.0.11
 - trying to add artifacts to the release page
 - updated schemas to latest
 - updated schemas
@@ -8,18 +19,9 @@
 - build(deps-dev): bump the test group across 1 directory with 3 updates (#691)
 - build(deps-dev): bump globals from 15.11.0 to 15.12.0 (#689)
 - build(deps-dev): bump the nodejs group with 2 updates (#687)
-- build(deps-dev): bump @types/node in the nodejs group across 1 directory (#686)
-- build(deps): bump node from 22.10.0 to 23.1.0 in the nodejs group (#683)
-- build(deps-dev): bump the test group with 2 updates (#684)
-- build(deps-dev): bump @vscode/vsce from 3.2.0 to 3.2.1 (#685)
-- 8.0.10
-- updating dependencies (#682)
-- 8.0.9
-- Feature/tigher schema checks (#681)
-- build(deps): bump the nodejs group with 2 updates (#677)
-- build(deps-dev): bump @vscode/vsce from 3.1.1 to 3.2.0 (#679)
-- build(deps-dev): bump the test group with 3 updates (#678)
-- build(deps-dev): bump the nodejs group with 2 updates (#674)## Schemas
+- build(deps-dev): bump @types/node in the nodejs group across 1 directory (#686)## Schemas
+- Addded "minecraft:dimension_bound":{} with documentation. (#323)
+- updated to v20
 - cleaning package-lock
 - Feature/jest2 (#322)
 - adding tigther schema checks for entities (#320)
@@ -37,9 +39,11 @@
 - Update example recipe tags, make tags required and add support for extent and distribution in feature rules (#300)
 - Allow 1.8.0 as a format version for bp/rp animations and render controllers (#299)
 - - Add vanilla entity enum for runtime ids (#298)
-- Update geometry identifier to allow for : in it  (#297)
-- Some more misc fixes (#295)
-- - Add block sounds enum and remove default texture value under material instance (#293)## Diagnoser
+- Update geometry identifier to allow for : in it  (#297)## Diagnoser
+- 1.21.44-1
+- updated dependencies (#277)
+- 1.21.44-0
+- updated to v20
 - Removing mocha settings
 - Bump the test group with 4 updates (#275)
 - Bump @types/node from 22.8.1 to 22.8.7 in the nodejs group (#274)
@@ -55,11 +59,11 @@
 - Bump typescript-eslint from 8.8.1 to 8.9.0 in the test group (#268)
 - 1.21.2
 - replacing mocha with jest (#254)
-- Bump @types/node in the nodejs group across 1 directory (#263)
-- updateding dependabot
-- Update diagnoser to support certain 1.21.30 changes (#259)
-- Bump @types/node from 22.5.4 to 22.5.5 in the nodejs group (#256)
-- Bump the nodejs group with 2 updates (#253)## Commands
+- Bump @types/node in the nodejs group across 1 directory (#263)## Commands
+- 1.21.44-1
+- updated bedrock types
+- 1.21.44-0
+- updated to v20
 - Removing mocha settings
 - build(deps-dev): bump the test group with 3 updates (#160)
 - build(deps-dev): bump @types/node in the nodejs group (#159)
@@ -75,11 +79,11 @@
 - build(deps-dev): bump the test group with 3 updates (#155)
 - build(deps-dev): bump @types/node in the nodejs group (#154)
 - build(deps-dev): bump typescript-eslint in the test group (#153)
-- build(deps-dev): bump the nodejs group with 2 updates (#152)
-- build(deps-dev): bump the test group with 3 updates (#151)
-- build(deps-dev): bump @types/node in the nodejs group (#150)
-- build(deps-dev): bump the test group across 1 directory with 3 updates (#149)
-- build(deps-dev): bump @types/node in the nodejs group (#148)## Molang
+- build(deps-dev): bump the nodejs group with 2 updates (#152)## Molang
+- 1.21.44-1
+- updated dependencies
+- 1.21.44-0
+- updated to v20
 - Removing mocha settings
 - build(deps-dev): bump the test group with 3 updates (#163)
 - build(deps-dev): bump @types/node in the nodejs group (#162)
@@ -95,11 +99,14 @@
 - build(deps-dev): bump the nodejs group with 2 updates (#155)
 - build(deps-dev): bump typescript-eslint in the test group (#156)
 - build(deps-dev): bump the test group with 3 updates (#154)
-- build(deps-dev): bump @types/node in the nodejs group (#153)
-- build(deps-dev): bump the test group across 1 directory with 3 updates (#152)
-- build(deps-dev): bump @types/node in the nodejs group (#151)
-- updating dependabot
-- build(deps-dev): bump the nodejs group with 2 updates (#145)## Vanilla-Data
+- build(deps-dev): bump @types/node in the nodejs group (#153)## Vanilla-Data
+- adding hasSoundFile
+- 1.21.44-1
+- adding sound files
+- updated files
+- adding sound files
+- 1.21.44-0
+- updated to v20
 - Removing mocha settings
 - build(deps-dev): bump the test group with 3 updates (#182)
 - build(deps-dev): bump @types/node in the nodejs group (#181)
@@ -113,10 +120,3 @@
 - build(deps-dev): bump @types/node in the nodejs group (#174)
 - build(deps-dev): bump typescript-eslint (#173)
 - build(deps-dev): bump the nodejs group with 2 updates (#171)
-- build(deps-dev): bump the test group with 3 updates (#170)
-- build(deps-dev): bump @types/node in the nodejs group (#169)
-- build(deps-dev): bump the test group across 1 directory with 3 updates (#168)
-- build(deps-dev): bump @types/node in the nodejs group (#167)
-- build(deps): bump peter-evans/create-pull-request in the all group (#166)
-- Merge branch 'main' of https://github.com/Blockception/BC-Minecraft-Bedrock-Vanilla-Data
-- updating dependabot
