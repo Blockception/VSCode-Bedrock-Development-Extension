@@ -1,5 +1,9 @@
 # CHANGELOG
 ## Extension
+- trying to add artifacts to the release page
+- updated schemas to latest
+- updated schemas
+- small update
 - build(deps): bump @types/vscode from 1.94.0 to 1.95.0 (#690)
 - build(deps-dev): bump the test group across 1 directory with 3 updates (#691)
 - build(deps-dev): bump globals from 15.11.0 to 15.12.0 (#689)
@@ -15,11 +19,9 @@
 - build(deps): bump the nodejs group with 2 updates (#677)
 - build(deps-dev): bump @vscode/vsce from 3.1.1 to 3.2.0 (#679)
 - build(deps-dev): bump the test group with 3 updates (#678)
-- build(deps-dev): bump the nodejs group with 2 updates (#674)
-- build(deps-dev): bump typescript-eslint in the test group (#675)
-- build(deps-dev): bump globals from 15.10.0 to 15.11.0 (#676)
-- 8.0.8
-- adding biomes to the json validation## Schemas
+- build(deps-dev): bump the nodejs group with 2 updates (#674)## Schemas
+- cleaning package-lock
+- Feature/jest2 (#322)
 - adding tigther schema checks for entities (#320)
 - Added client biome schema (#319)
 - Fix item damage component and event object schema (#316)
@@ -37,9 +39,8 @@
 - - Add vanilla entity enum for runtime ids (#298)
 - Update geometry identifier to allow for : in it  (#297)
 - Some more misc fixes (#295)
-- - Add block sounds enum and remove default texture value under material instance (#293)
-- build(deps): bump braces from 3.0.2 to 3.0.3 (#294)
-- 1.21 (#292)## Diagnoser
+- - Add block sounds enum and remove default texture value under material instance (#293)## Diagnoser
+- Removing mocha settings
 - Bump the test group with 4 updates (#275)
 - Bump @types/node from 22.8.1 to 22.8.7 in the nodejs group (#274)
 - - Stricter number type check (#269)
@@ -58,8 +59,8 @@
 - updateding dependabot
 - Update diagnoser to support certain 1.21.30 changes (#259)
 - Bump @types/node from 22.5.4 to 22.5.5 in the nodejs group (#256)
-- Bump the nodejs group with 2 updates (#253)
-- Bump bc-minecraft-bedrock-command in the important group (#250)## Commands
+- Bump the nodejs group with 2 updates (#253)## Commands
+- Removing mocha settings
 - build(deps-dev): bump the test group with 3 updates (#160)
 - build(deps-dev): bump @types/node in the nodejs group (#159)
 - Merge pull request #156 from Blockception/dependabot/npm_and_yarn/important-4be66b14e0
@@ -78,8 +79,8 @@
 - build(deps-dev): bump the test group with 3 updates (#151)
 - build(deps-dev): bump @types/node in the nodejs group (#150)
 - build(deps-dev): bump the test group across 1 directory with 3 updates (#149)
-- build(deps-dev): bump @types/node in the nodejs group (#148)
-- updating dependabot## Molang
+- build(deps-dev): bump @types/node in the nodejs group (#148)## Molang
+- Removing mocha settings
 - build(deps-dev): bump the test group with 3 updates (#163)
 - build(deps-dev): bump @types/node in the nodejs group (#162)
 - Merge pull request #159 from Blockception/dependabot/npm_and_yarn/important-4be66b14e0
@@ -98,8 +99,8 @@
 - build(deps-dev): bump the test group across 1 directory with 3 updates (#152)
 - build(deps-dev): bump @types/node in the nodejs group (#151)
 - updating dependabot
-- build(deps-dev): bump the nodejs group with 2 updates (#145)
-- build(deps-dev): bump @types/jest from 29.5.12 to 29.5.13 (#146)## Vanilla-Data
+- build(deps-dev): bump the nodejs group with 2 updates (#145)## Vanilla-Data
+- Removing mocha settings
 - build(deps-dev): bump the test group with 3 updates (#182)
 - build(deps-dev): bump @types/node in the nodejs group (#181)
 - [create-pull-request] automated change (#180)
@@ -119,4 +120,3 @@
 - build(deps): bump peter-evans/create-pull-request in the all group (#166)
 - Merge branch 'main' of https://github.com/Blockception/BC-Minecraft-Bedrock-Vanilla-Data
 - updating dependabot
-- build(deps-dev): bump typescript-eslint from 8.5.0 to 8.6.0 (#164)
