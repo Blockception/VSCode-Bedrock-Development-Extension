@@ -101,7 +101,7 @@ export const TemplateCommands: TemplateItem[] = [
   new TemplateItem(RPC.Entity, RPT.entity, "entity", "${{id.safe}}.entity.rp.json"),
   new TemplateItem(RPC.Fog, RPT.fog, "fogs", "${{id.safe}}.fog.json"),
   new TemplateItem(RPC.Flipbook_Textures, RPT.flipbook_textures, "textures", "flipbook_textures.json"),
-  new TemplateItem(RPC.Item_Texture, RPT.item_texture, "textures", "item_texture.png"),
+  new TemplateItem(RPC.Item_Texture, RPT.item_texture, "textures", "item_texture.json"),
   new TemplateItem(RPC.Manifests, RPT.manifest, "manifest.json"),
   new TemplateItem(RPC.Model, RPT.model, "models", "entity", "${{id.safe}}.geo.json"),
   new TemplateItem(RPC.Music_Definitions, RPT.music_definitions, "sounds", "music_definitions.json"),
