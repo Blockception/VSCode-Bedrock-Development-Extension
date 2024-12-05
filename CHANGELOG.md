@@ -1,25 +1,29 @@
 # CHANGELOG
 ## Extension
+- updating dependencies
+- build(deps-dev): bump @types/node in the nodejs group (#701)
+- build(deps-dev): bump the test group with 3 updates (#702)
+- build(deps-dev): bump globals from 15.12.0 to 15.13.0 (#703)
+- 8.0.15
+- updated dependencies
+- added schemas
+- Update templates.ts (#700)
+- build(deps-dev): bump the test group with 3 updates (#699)
+- build(deps): bump the nodejs group with 2 updates (#698)
+- build(deps): bump node from 23.1.0 to 23.2.0 in the nodejs group (#696)
+- build(deps): bump minecraft-bedrock-schemas from `31ad665` to `0c2f6b0` (#695)
+- 8.0.14
 - updated schemas
 - Fixing the failing pipelines on linux / macos (#694)
 - updated dependencies
 - updated schemas
 - updated to v8.20
 - 8.0.13
-- adding universal name
-- 8.0.12
-- adding a glob
-- adding universal check if success
-- 8.0.11
-- trying to add artifacts to the release page
-- updated schemas to latest
-- updated schemas
-- small update
-- build(deps): bump @types/vscode from 1.94.0 to 1.95.0 (#690)
-- build(deps-dev): bump the test group across 1 directory with 3 updates (#691)
-- build(deps-dev): bump globals from 15.11.0 to 15.12.0 (#689)
-- build(deps-dev): bump the nodejs group with 2 updates (#687)
-- build(deps-dev): bump @types/node in the nodejs group across 1 directory (#686)## Schemas
+- adding universal name## Schemas
+- Updated to 1.21.50 (#330)
+- fix: damage_sensor | triggers | deals_damage accept string only (#328)
+- Correct spelling of "mincraft" for geode features (#326)
+- - Updated for 1.21.40 (#324)
 - Addded "minecraft:dimension_bound":{} with documentation. (#323)
 - updated to v20
 - cleaning package-lock
@@ -35,51 +39,57 @@
 - - Some misc tweaks (#301)
 - Fixed terrain_texture.json edits and added descriptions on "num_mip_levels" and "padding" (#304)
 - fixing has_damaged_equipment
-- cleanup
-- Update example recipe tags, make tags required and add support for extent and distribution in feature rules (#300)
-- Allow 1.8.0 as a format version for bp/rp animations and render controllers (#299)
-- - Add vanilla entity enum for runtime ids (#298)
-- Update geometry identifier to allow for : in it  (#297)## Diagnoser
+- cleanup## Diagnoser
+- 1.21.44-2
+- updating dependencies
+- Bump @types/node from 22.9.3 to 22.10.1 in the nodejs group (#288)
+- Bump the test group with 3 updates (#289)
+- updated dependencies
+- - Remove \n error (#287)
+- - Add checks for icon and material instance being defined in their respective atlas files (#286)
+- Bump the nodejs group with 2 updates (#283)
+- Bump typescript-eslint from 8.15.0 to 8.16.0 in the test group (#284)
+- Account for block references being objects of format {"name": "value"} (#280)
+- Bump the test group with 3 updates (#281)
+- Bump @types/node from 22.8.7 to 22.9.0 in the nodejs group (#278)
+- Bump the test group with 2 updates (#279)
 - 1.21.44-1
 - updated dependencies (#277)
 - 1.21.44-0
 - updated to v20
 - Removing mocha settings
 - Bump the test group with 4 updates (#275)
-- Bump @types/node from 22.8.1 to 22.8.7 in the nodejs group (#274)
-- - Stricter number type check (#269)
-- Merge pull request #271 from Blockception/dependabot/npm_and_yarn/test-7d57fd34f3
-- Merge branch 'main' into dependabot/npm_and_yarn/test-7d57fd34f3
-- Merge pull request #272 from Blockception/dependabot/npm_and_yarn/important-8c4350da78
-- Bump the important group with 6 updates
-- Bump @types/node from 22.7.7 to 22.8.1 in the nodejs group (#273)
-- Bump the test group with 3 updates
-- 1.21.3-0
-- Bump @types/node from 22.7.5 to 22.7.7 in the nodejs group (#270)
-- Bump typescript-eslint from 8.8.1 to 8.9.0 in the test group (#268)
-- 1.21.2
-- replacing mocha with jest (#254)
-- Bump @types/node in the nodejs group across 1 directory (#263)## Commands
+- Bump @types/node from 22.8.1 to 22.8.7 in the nodejs group (#274)## Commands
+- 1.21.44-3
+- updateding bc-minecraft-bedrock-types
+- Merge pull request #168 from Blockception/dependabot/npm_and_yarn/nodejs-0c28a80a1f
+- Merge pull request #169 from Blockception/dependabot/npm_and_yarn/test-a9bf073efd
+- build(deps-dev): bump the test group with 3 updates
+- build(deps-dev): bump @types/node in the nodejs group
+- 1.21.44-2
+- updated bedrock types
+- build(deps-dev): bump the test group with 3 updates (#167)
+- build(deps-dev): bump the nodejs group with 2 updates (#166)
+- - Update effect command for 1.21.40 (#163)
+- build(deps-dev): bump the test group with 2 updates (#162)
+- build(deps-dev): bump @types/node in the nodejs group (#161)
 - 1.21.44-1
 - updated bedrock types
 - 1.21.44-0
 - updated to v20
 - Removing mocha settings
 - build(deps-dev): bump the test group with 3 updates (#160)
-- build(deps-dev): bump @types/node in the nodejs group (#159)
-- Merge pull request #156 from Blockception/dependabot/npm_and_yarn/important-4be66b14e0
-- Merge pull request #157 from Blockception/dependabot/npm_and_yarn/nodejs-17db9fe127
-- Merge pull request #158 from Blockception/dependabot/npm_and_yarn/test-356ab41ca2
-- build(deps-dev): bump the test group with 2 updates
-- build(deps-dev): bump @types/node in the nodejs group
-- build(deps): bump bc-minecraft-bedrock-types in the important group
-- 1.21.2-4
-- updated
-- fixing gitignore
-- build(deps-dev): bump the test group with 3 updates (#155)
-- build(deps-dev): bump @types/node in the nodejs group (#154)
-- build(deps-dev): bump typescript-eslint in the test group (#153)
-- build(deps-dev): bump the nodejs group with 2 updates (#152)## Molang
+- build(deps-dev): bump @types/node in the nodejs group (#159)## Molang
+- 1.21.44-3
+- updateding bc-minecraft-bedrock-types
+- - Mark client/server memory tier and max render distance as not experimental (#170)
+- 1.21.44-2
+- updated bedrock types
+- build(deps-dev): bump the nodejs group with 2 updates (#168)
+- build(deps-dev): bump the test group with 3 updates (#169)
+- - Updated for 1.21.40's experimental queries (#166)
+- build(deps-dev): bump @types/node in the nodejs group (#164)
+- build(deps-dev): bump the test group with 2 updates (#165)
 - 1.21.44-1
 - updated dependencies
 - 1.21.44-0
@@ -89,17 +99,19 @@
 - build(deps-dev): bump @types/node in the nodejs group (#162)
 - Merge pull request #159 from Blockception/dependabot/npm_and_yarn/important-4be66b14e0
 - Merge pull request #160 from Blockception/dependabot/npm_and_yarn/nodejs-17db9fe127
-- Merge pull request #161 from Blockception/dependabot/npm_and_yarn/test-356ab41ca2
+- Merge pull request #161 from Blockception/dependabot/npm_and_yarn/test-356ab41ca2## Vanilla-Data
+- 1.21.44-3
+- build(deps-dev): bump @types/node in the nodejs group (#189)
+- Merge pull request #190 from Blockception/dependabot/npm_and_yarn/test-a9bf073efd
+- build(deps-dev): bump the test group with 3 updates
+- 1.21.44-2
+- build(deps-dev): bump the nodejs group with 2 updates (#187)
+- build(deps-dev): bump the test group with 3 updates (#188)
+- [create-pull-request] automated change (#185)
+- Merge pull request #184 from Blockception/dependabot/npm_and_yarn/test-dbb0c5cc60
 - build(deps-dev): bump the test group with 2 updates
+- Merge pull request #183 from Blockception/dependabot/npm_and_yarn/nodejs-ade089374e
 - build(deps-dev): bump @types/node in the nodejs group
-- build(deps): bump bc-minecraft-bedrock-types in the important group
-- 1.21.1-6
-- build(deps-dev): bump the test group with 3 updates (#158)
-- build(deps-dev): bump @types/node in the nodejs group (#157)
-- build(deps-dev): bump the nodejs group with 2 updates (#155)
-- build(deps-dev): bump typescript-eslint in the test group (#156)
-- build(deps-dev): bump the test group with 3 updates (#154)
-- build(deps-dev): bump @types/node in the nodejs group (#153)## Vanilla-Data
 - adding hasSoundFile
 - 1.21.44-1
 - adding sound files
@@ -108,15 +120,3 @@
 - 1.21.44-0
 - updated to v20
 - Removing mocha settings
-- build(deps-dev): bump the test group with 3 updates (#182)
-- build(deps-dev): bump @types/node in the nodejs group (#181)
-- [create-pull-request] automated change (#180)
-- build(deps-dev): bump typescript-eslint (#179)
-- build(deps-dev): bump the test group with 2 updates (#177)
-- Merge pull request #176 from Blockception/dependabot/npm_and_yarn/nodejs-17db9fe127
-- build(deps-dev): bump @types/node in the nodejs group
-- 1.21.1-6
-- build(deps-dev): bump the test group with 3 updates (#175)
-- build(deps-dev): bump @types/node in the nodejs group (#174)
-- build(deps-dev): bump typescript-eslint (#173)
-- build(deps-dev): bump the nodejs group with 2 updates (#171)
