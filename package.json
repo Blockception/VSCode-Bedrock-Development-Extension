@@ -19,6 +19,7 @@
     "onLanguage:bc-mcfunction",
     "onLanguage:json",
     "onLanguage:jsonc",
+    "onLanguage:hjson",
     "onLanguage:bc-minecraft-project",
     "onLanguage:bc-minecraft-molang",
     "onCommand:bc-cheat-sheet-molang",
