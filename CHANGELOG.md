@@ -1,5 +1,10 @@
 # CHANGELOG
 ## Extension
+- build(deps): bump the nodejs group with 3 updates (#721)
+- build(deps): bump minecraft-bedrock-schemas from `5b374fb` to `378ff7d` (#720)
+- build(deps): bump minecraft-bedrock-schemas from `5b374fb` to `378ff7d` (#720)
+- 8.0.19
+- updating dependencies
 - build(deps): bump fast-glob from 3.3.2 to 3.3.3 (#719)
 - build(deps-dev): bump typescript-eslint in the test group (#718)
 - build(deps-dev): bump @types/node in the nodejs group (#717)
@@ -14,12 +19,7 @@
 - build(deps): bump node from 23.3.0 to 23.4.0 in the nodejs group (#705)
 - build(deps): bump @types/vscode from 1.95.0 to 1.96.0 (#707)
 - 8.0.18
-- updated dependencies
-- 8.0.17
-- updated dependencies
-- build(deps-dev): bump webpack from 5.96.1 to 5.97.1 in the nodejs group (#704)
-- 8.0.16
-- updating dependencies## Schemas
+- updated dependencies## Schemas
 - Updated to 1.21.50 (#330)
 - fix: damage_sensor | triggers | deals_damage accept string only (#328)
 - Correct spelling of "mincraft" for geode features (#326)
@@ -40,6 +40,12 @@
 - Fixed terrain_texture.json edits and added descriptions on "num_mip_levels" and "padding" (#304)
 - fixing has_damaged_equipment
 - cleanup## Diagnoser
+- 1.21.44-5
+- chore: updating dependencies
+- Bump typescript from 5.7.2 to 5.7.3 in the nodejs group (#304)
+- Bump the test group with 3 updates (#305)
+- Bump the important group with 5 updates (#303)
+- Fix misc bugs (#302)
 - Bump @types/node from 22.10.2 to 22.10.5 in the nodejs group (#300)
 - Bump typescript-eslint from 8.19.0 to 8.19.1 in the test group (#301)
 - Bump typescript-eslint from 8.18.2 to 8.19.0 in the test group (#299)
@@ -53,13 +59,10 @@
 - 1.21.44-3
 - updated dependencies
 - Bump typescript-eslint from 8.17.0 to 8.18.0 in the test group (#292)
-- 1.21.44-2
-- updating dependencies
-- Bump @types/node from 22.9.3 to 22.10.1 in the nodejs group (#288)
-- Bump the test group with 3 updates (#289)
-- updated dependencies
-- - Remove \n error (#287)
-- - Add checks for icon and material instance being defined in their respective atlas files (#286)## Commands
+- 1.21.44-2## Commands
+- 1.21.44-7
+- build(deps-dev): bump the test group with 3 updates (#181)
+- build(deps-dev): bump typescript from 5.7.2 to 5.7.3 in the nodejs group (#180)
 - 1.21.44-6
 - updating bedrock types
 - build(deps-dev): bump typescript-eslint in the test group (#179)
@@ -76,10 +79,9 @@
 - 1.21.44-3
 - updateding bc-minecraft-bedrock-types
 - Merge pull request #168 from Blockception/dependabot/npm_and_yarn/nodejs-0c28a80a1f
-- Merge pull request #169 from Blockception/dependabot/npm_and_yarn/test-a9bf073efd
-- build(deps-dev): bump the test group with 3 updates
-- build(deps-dev): bump @types/node in the nodejs group
-- 1.21.44-2## Molang
+- Merge pull request #169 from Blockception/dependabot/npm_and_yarn/test-a9bf073efd## Molang
+- build(deps-dev): bump the test group with 3 updates (#180)
+- build(deps-dev): bump the nodejs group with 2 updates (#179)
 - 1.21.44-6
 - updating dependencies
 - build(deps-dev): bump typescript-eslint in the test group (#178)
@@ -97,9 +99,11 @@
 - 1.21.44-3
 - updateding bc-minecraft-bedrock-types
 - - Mark client/server memory tier and max render distance as not experimental (#170)
-- 1.21.44-2
-- updated bedrock types
-- build(deps-dev): bump the nodejs group with 2 updates (#168)## Vanilla-Data
+- 1.21.44-2## Vanilla-Data
+- 1.21.45-2
+- adding namespaced
+- build(deps-dev): bump the test group with 3 updates (#202)
+- build(deps-dev): bump typescript from 5.7.2 to 5.7.3 in the nodejs group (#201)
 - 1.21.45-1
 - Merge branch 'main' of https://github.com/Blockception/BC-Minecraft-Bedrock-Vanilla-Data
 - 1.21.45-0
@@ -116,7 +120,3 @@
 - 1.21.44-5
 - 1.21.44-4
 - [create-pull-request] automated change (#191)
-- build(deps-dev): bump typescript-eslint in the test group (#192)
-- 1.21.44-3
-- build(deps-dev): bump @types/node in the nodejs group (#189)
-- Merge pull request #190 from Blockception/dependabot/npm_and_yarn/test-a9bf073efd
