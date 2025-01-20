@@ -50,7 +50,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
-    "@types/picomatch": "^3.0.1",
+    "@types/picomatch": "^3.0.2",
     "json-loader": "^0.5.7",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.2",
