@@ -1,14 +1,11 @@
-import { Languages } from "@blockception/shared";
 import { Pack } from "bc-minecraft-bedrock-project";
 import {
   CancellationToken,
   Connection,
-  TextDocumentChangeEvent,
   WorkspaceFolder,
   WorkspaceFoldersChangeEvent
 } from "vscode-languageserver";
 import { Processor, Tokens } from "../../util";
-import { TextDocument } from "../documents/text-document";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";
@@ -26,28 +23,13 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
   }
 
   onInitialize(): void {
-    //provides diagnostics and such
-    const documents = this.extension.documents;
-    documents.onDidSave(this.onDocumentChanged.bind(this));
+    setImmediate(() => this.traverse());
   }
 
   setupHandlers(connection: Connection): void {
     this.addDisposable(connection.workspace.onDidChangeWorkspaceFolders(this.onWorkspaceFolderChanged.bind(this)));
   }
 
-  /**
-   * Watch for project files being update that might changes settings for the workspace
-   * @param e
-   * @returns
-   */
-  private async onDocumentChanged(e: TextDocumentChangeEvent<TextDocument>): Promise<void> {
-    if (this.extension.state.workspaces.traversed === false) return;
-    const { document } = e;
-
-    if (document.languageId === Languages.McProjectIdentifier) {
-      return this.traverse();
-    }
-  }
 
   /**
    * The event that is called when any workspaces are added / removed

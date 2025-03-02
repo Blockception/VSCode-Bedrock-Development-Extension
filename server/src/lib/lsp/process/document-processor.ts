@@ -1,11 +1,7 @@
-import { Connection, TextDocumentChangeEvent } from "vscode-languageserver";
-import {
-  CreateFilesParams,
-  DeleteFilesParams,
-  RenameFilesParams
-} from "vscode-languageserver-protocol";
+import { CreateFilesParams, DeleteFilesParams, RenameFilesParams } from "vscode-languageserver-protocol";
 import { Glob } from "../../files/glob";
 import { DiagnoserService } from "../diagnostics/service";
+import { DocumentEvent } from "../documents/event";
 import { ContentType } from "../documents/manager";
 import { TextDocument } from "../documents/text-document";
 import { ExtensionContext } from "../extension";
@@ -25,24 +21,16 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
   onInitialize(): void {
     //provides diagnostics and such
     const { documents } = this.extension;
-    documents.onDidOpen(this.onDocumentChanged.bind(this));
-    documents.onDidSave(this.onDocumentChanged.bind(this));
+
+    this.addDisposable(documents.onChanged(this.onDocumentChanged.bind(this)));
   }
 
-  setupHandlers(connection: Connection): void {
-    this.addDisposable(
-      connection.workspace.onDidCreateFiles(this.onDidCreateFiles.bind(this)),
-      connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)),
-      connection.workspace.onDidRenameFiles(this.onDidRenameFiles.bind(this))
-    );
-  }
+  private onDocumentChanged(e: DocumentEvent) {
+    const document = e.document;
+    if (document === undefined) return;
 
-  private onDocumentChanged(e: TextDocumentChangeEvent<TextDocument>) {
-    const doc = this.extension.documents.get(e.document.uri, e.document, e.document.languageId);
-    if (doc === undefined) return;
-
-    this.process(doc);
-    return this.diagnose(doc)
+    this.process(document);
+    return this.diagnose(document);
   }
 
   get(uri: string): TextDocument;
