@@ -1,1 +1,1 @@
-"export const Version = \"$npm_package_version\"" 
+export const Version = "8.0.28" 
