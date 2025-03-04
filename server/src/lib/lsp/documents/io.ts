@@ -11,6 +11,8 @@ import * as fs from "fs";
  * @returns The contents of the file or undefined when an error occured
  */
 export function readDocument(uri: URI, logger: IExtendedLogger): string | undefined {
+  logger.debug("loading document manually", uri);
+  
   try {
     switch (uri.scheme) {
       case "file":
