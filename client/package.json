@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.5",
-    "@types/vscode": "^1.97.0",
+    "@types/vscode": "^1.98.0",
     "json-loader": "^0.5.7",
     "ts-jest": "^29.2.6",
     "ts-loader": "^9.5.2",
