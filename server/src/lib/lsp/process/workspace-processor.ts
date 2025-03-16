@@ -95,7 +95,7 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
     reporter.done();
   }
 
-  async process(workspace: WorkspaceFolder, token?: CancellationToken) {
+  async process(workspace: WorkspaceFolder, token?: CancellationToken): Promise<void> {
     const reporter = await this.extension.connection.window.createWorkDoneProgress();
     reporter.begin(`Processing workspace: ${workspace.name}`, 0, "", true);
     this.logger.info(`processing workspace ${workspace.name}`, workspace);

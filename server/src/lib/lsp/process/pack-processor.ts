@@ -20,6 +20,7 @@ export class PackProcessor extends BaseService {
   }
 
   async process(pack: Pack, token?: CancellationToken): Promise<void> {
+    const start = Date.now();
     const name = getBasename(Fs.FromVscode(pack.folder));
     const reporter = await ProgressBar.create(this.extension, `pack: ${name}`);
     reporter.sendMessage("processing");
@@ -49,6 +50,12 @@ export class PackProcessor extends BaseService {
       structures.forEach((item) => pack.process({ getText: emptyText, uri: item }));
     }
 
+    this.logger.debug("processed pack", {
+      uri: pack.folder,
+      type: pack.type,
+      files: files.length,
+      ms: Date.now() - start
+    })
     reporter.done();
   }
 
