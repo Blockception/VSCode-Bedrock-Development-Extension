@@ -1,20 +1,23 @@
+.decontainer/**
 client/node_modules/**
 client/src/**
+LICENSES
+LICENSES/**
+node_modules
+node_modules/**
+scripts/**
 server/node_modules/**
 server/src/**
 server/test/**
 shared/**
-scripts/**
-node_modules
-node_modules/**
-LICENSES
-LICENSES/**
 
+# include source code
 client/out/**
 server/out/**
 !client/out/extension.js
 !server/out/server.js
 
+# exclude the following files and folders from the extension package
 .gitattributes
 .github
 .github/**
@@ -41,6 +44,8 @@ src/**
 tools/**
 tsconfig.json
 webpack.config.js
+TODO.md
+eslint.config.mjs
 
 **/.eslintignore
 **/.eslintrc
@@ -54,7 +59,7 @@ webpack.config.js
 **/webpack.config.js
 **/package-lock.json
 
-
+# Include the following files and folders in the extension package
 !documentation/cheat-sheet
 !documentation/cheat-sheet/*html
 !media/**/*
