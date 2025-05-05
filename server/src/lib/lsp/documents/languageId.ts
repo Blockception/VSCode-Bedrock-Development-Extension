@@ -21,11 +21,9 @@ export function identifyDocument(uri: URI): string {
 
   const filename = Utils.basename(uri);
   switch (filename) {
-    case MCAttributes.filename:
-      return Languages.McProjectIdentifier;
-    case MCIgnore.filename:
-      return Languages.McProjectIdentifier;
     case MCDefinition.filename:
+    case MCAttributes.filename:
+    case MCIgnore.filename:
       return Languages.McProjectIdentifier;
   }
 
