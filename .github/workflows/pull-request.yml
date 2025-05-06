@@ -5,11 +5,14 @@ env:
   FORCE_COLOR: true
 
 on:
-  pull_request: {}
-  workflow_dispatch: {}
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+  merge_group: {}
+  workflow_dispatch: {}
 
 jobs:
   test:
