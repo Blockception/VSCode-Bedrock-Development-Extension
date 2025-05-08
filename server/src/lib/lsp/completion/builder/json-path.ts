@@ -12,6 +12,24 @@ export interface JsonPathMatch {
   onCompletion: (context: Context<CompletionContext>) => void;
 }
 
+export namespace JsonPathMatch {
+  /**
+   *
+   * @param match
+   * @param onCompletion
+   * @returns
+   */
+  export function create(
+    match: string | RegExp | JsonPathMatchFn,
+    onCompletion: (context: Context<CompletionContext>) => void
+  ) {
+    return {
+      match: match,
+      onCompletion: onCompletion,
+    };
+  }
+}
+
 export class JsonPathCompletion {
   private readonly _items: JsonPathMatch[];
 

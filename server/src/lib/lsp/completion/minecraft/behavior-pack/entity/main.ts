@@ -8,7 +8,10 @@ import { CompletionContext } from "../../../context";
 
 import * as Sounds from "../../resource-pack/sounds";
 import * as AnimationControllers from "../animation-controllers";
+import * as Blocks from "../blocks";
 import * as Animations from "../animations";
+import * as Families from '../families';
+import * as EntityEvents from './event';
 import * as Item from "../items";
 import * as LootTables from "../loot-tables";
 import * as Trading from "../trading";
@@ -33,12 +36,20 @@ export function provideJsonCompletion(context: Context<CompletionContext>) {
 
 const entityJsonCompletion = new JsonPathCompletion(
   {
-    match: "throw_sound",
+    match: /throw_sound|hit_sound|spawn_sound$/,
     onCompletion: Sounds.provideCompletion,
   },
   {
     match: "minecraft:ambient_sound_interval/event_name",
     onCompletion: Sounds.provideCompletion,
+  },
+  {
+    match: "event",
+    onCompletion: EntityEvents.provideCompletion,
+  },
+  {
+    match: "block/name",
+    onCompletion: Blocks.provideCompletion,
   },
   {
     match: "minecraft:loot/table",
@@ -49,8 +60,12 @@ const entityJsonCompletion = new JsonPathCompletion(
     onCompletion: Trading.provideCompletion,
   },
   {
-    match: "item",
+    match: /item|items|feed_items|spawn_item$/,
     onCompletion: Item.provideCompletion,
+  },
+  {
+    match: "family",
+    onCompletion: Families.provideCompletion,
   },
   {
     match: (path) => path.includes("minecraft:entity/description/animations/"),
@@ -62,5 +77,9 @@ const entityJsonCompletion = new JsonPathCompletion(
   {
     match: /\/component_groups\/(\d+)$/,
     onCompletion: EntityComponentGroups.provideCompletion,
+  },
+  {
+    match: /breeds_with\/(mate_type|baby_type)$/,
+    onCompletion: provideCompletion
   }
 );

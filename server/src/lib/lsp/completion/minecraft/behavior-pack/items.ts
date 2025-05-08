@@ -4,6 +4,7 @@ import { Kinds } from "../../../../constants";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
+import { JsonPathCompletion, JsonPathMatch } from '../../builder';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The item definition: ${item.id}`;
@@ -43,3 +44,11 @@ export function provideCompletion(context: Context<CompletionContext>): void {
     Kinds.Completion.Block
   );
 }
+
+export function provideJsonCompletion(context: Context<CompletionContext>) {
+  return itemJsonCompletion.onCompletion(context);
+}
+
+const itemJsonCompletion = new JsonPathCompletion(
+  JsonPathMatch.create("minecraft:icon/texture", provideCompletion)
+)

@@ -23,13 +23,13 @@ export function provideCompletion(context: Context<CommandCompletionContext> | C
       const Entity = database.ProjectData.behaviorPacks.entities.get(EntityID);
 
       if (Entity) {
-        Convert(Entity, builder);
+        convert(Entity, builder);
         return;
       }
     }
   }
 
-  database.ProjectData.behaviorPacks.entities.forEach((entity) => Convert(entity, builder));
+  database.ProjectData.behaviorPacks.entities.forEach((entity) => convert(entity, builder));
 
   const generateDoc = (item: string) => `The vanilla entity event: ${item}`;
   builder.generate(MinecraftData.General.Entities.events, generateDoc, Kinds.Completion.Event);
@@ -40,7 +40,7 @@ export function provideCompletion(context: Context<CommandCompletionContext> | C
  * @param Entity
  * @param builder
  */
-function Convert(Entity: BehaviorPack.Entity.Entity, builder: CompletionBuilder): void {
+function convert(Entity: BehaviorPack.Entity.Entity, builder: CompletionBuilder): void {
   const generateDoc = (item: string) => `The entity event: ${item}\nFrom: ${Entity.id}`;
 
   builder.generate(Entity.events, generateDoc, Kinds.Completion.Event);

@@ -2,13 +2,14 @@ import { FileType } from "bc-minecraft-bedrock-project/lib/src/project/behavior-
 import { Context } from "../../../context/context";
 import { JsonCompletionContext } from "../../context";
 
+import * as Manifests from "../../general/manifests";
 import * as AnimationControllers from "./animation-controllers";
 import * as Animations from "./animations";
 import * as Blocks from "./blocks";
 import * as Entities from "./entity/main";
+import * as Items from "./items";
 import * as LootTables from "./loot-tables";
 import * as Trading from "./trading";
-import * as Manifests from "../../general/manifests";
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   switch (FileType.detect(context.document.uri)) {
@@ -20,6 +21,8 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
       return Blocks.provideJsonCompletion(context);
     case FileType.entity:
       return Entities.provideJsonCompletion(context);
+    case FileType.item:
+      return Items.provideJsonCompletion(context);
     case FileType.loot_table:
       return LootTables.provideJsonCompletion(context);
     case FileType.manifest:

@@ -4,9 +4,9 @@ import { GetPossibleEntityTypes } from "../../../../minecraft/commands";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Context } from "../../../context/context";
 import { CompletionBuilder } from "../../builder/builder";
-import { CommandCompletionContext } from "../../context";
+import { CommandCompletionContext, CompletionContext } from "../../context";
 
-export function provideCompletion(context: Context<CommandCompletionContext>): void {
+export function provideCompletion(context: Context<CompletionContext>): void {
   context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
 
