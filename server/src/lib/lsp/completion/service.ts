@@ -83,8 +83,9 @@ export class CompletionService extends BaseService implements Partial<IService> 
       };
     } catch (err: any) {
       const code = ErrorCodes.CompletionService + (err.code ?? 0);
-
-      return new ResponseError<void>(code, `error on ${filename}, error: ` + JSON.stringify(err, undefined, 2));
+      
+      // Somehow just stringifying the error returns an empty object, so I make sure message and stack are always there
+      return new ResponseError<void>(code, `error on ${filename}, error: ` + JSON.stringify({...err, message: err.message, stack: err.stack}, undefined, 2));
     } finally {
       this.logger.debug(`exiting on: ${filename}`);
       workDoneProgress.done();
