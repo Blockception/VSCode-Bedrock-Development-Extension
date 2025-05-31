@@ -15,7 +15,7 @@ export function getJsonPath(cursor: number, text: string | TextDocument): Path {
   const pos = jsonc.getLocation(text, cursor);
 
   return {
-    property: pos.path[pos.path.length - 1].toString(),
+    property: (pos.path[pos.path.length - 1] ?? '').toString(),
     path: pos.path.join("/"),
     isProperty: !pos.isAtPropertyKey,
   };
