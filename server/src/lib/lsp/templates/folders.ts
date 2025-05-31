@@ -35,20 +35,20 @@ class _internalContext implements Folders {
     this.context = context;
 
     this.ws = "";
-    const ws = context.database.WorkspaceData.getFirst();
+    const ws = context.database.workspaceData.getFirst();
     if (ws) this.ws = ws;
 
     if ((this._path = path)) {
-      const ws = context.database.WorkspaceData.getFolder(path);
+      const ws = context.database.workspaceData.getFolder(path);
       if (ws) this.ws = ws;
 
-      this.bp = context.database.ProjectData.behaviorPacks.get(path)?.folder;
-      this.rp = context.database.ProjectData.resourcePacks.get(path)?.folder;
+      this.bp = context.database.projectData.behaviorPacks.get(path)?.folder;
+      this.rp = context.database.projectData.resourcePacks.get(path)?.folder;
     }
 
-    if (!this.bp) this.bp = context.database.ProjectData.behaviorPacks.packs[0]?.folder;
-    if (!this.rp) this.rp = context.database.ProjectData.resourcePacks.packs[0]?.folder;
-    if (!this.wl) this.wl = context.database.ProjectData.worlds.packs[0]?.folder;
+    if (!this.bp) this.bp = context.database.projectData.behaviorPacks.packs[0]?.folder;
+    if (!this.rp) this.rp = context.database.projectData.resourcePacks.packs[0]?.folder;
+    if (!this.wl) this.wl = context.database.projectData.worlds.packs[0]?.folder;
   }
 
   BehaviorPack(): string {

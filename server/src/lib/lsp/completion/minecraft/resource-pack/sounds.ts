@@ -13,7 +13,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
   const generateV = (item: string) => `The vanilla sound: ${item}`;
 
-  context.builder.generate(context.database.ProjectData.resourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
+  context.builder.generate(context.database.projectData.resourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
   context.builder.generate(MinecraftData.vanilla.ResourcePack.sounds, generateV, Kinds.Completion.Sound);
 
   //Education data

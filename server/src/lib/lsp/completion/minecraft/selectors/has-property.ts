@@ -15,7 +15,7 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
   if (IsEditingValue(selector, pos)) {
     const propertyName = GetCurrentAttribute(selector, pos);
 
-    context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
+    context.database.projectData.behaviorPacks.entities.forEach((entity) => {
       entity.properties.forEach((property) => {
         if (property.name !== propertyName) return;
 
@@ -52,7 +52,7 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
     });
   }
 
-  context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
+  context.database.projectData.behaviorPacks.entities.forEach((entity) => {
     entity.properties.forEach((property) => {
       const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
 

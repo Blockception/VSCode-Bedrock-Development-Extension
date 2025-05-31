@@ -107,7 +107,7 @@ function provideAttributes(context: Context<CompletionContext>) {
  */
 function provideDefinitions(context: Context<CompletionContext>): void {
   const { builder, document, position, database } = context;
-  const projectData = database.ProjectData;
+  const projectData = database.projectData;
   const line = document.getLine(position.line);
 
   const index = line.indexOf("=");

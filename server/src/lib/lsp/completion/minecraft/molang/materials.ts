@@ -30,7 +30,7 @@ export function provideResourcePackCompletion(context: Context<CompletionContext
     case ResourcePack.FileType.animation_controller:
     case ResourcePack.FileType.render_controller:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Materials });
-      context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
+      context.database.projectData.resourcePacks.entities.forEach((entity) => {
         entity.molang.materials.defined.forEach((item) => {
           const label = prefixed ? `Material.${item}` : item;
           builder.add({
@@ -59,6 +59,6 @@ function provideMaterials(context: Context<CompletionContext>) {
 
   const gen = (item: ResourcePack.Material.Material) => `The material: ${item}\nDeclared in: ${item.location.uri}`;
 
-  builder.generate(context.database.ProjectData.resourcePacks.materials, gen);
+  builder.generate(context.database.projectData.resourcePacks.materials, gen);
   builder.generate(Vanilla.ResourcePack.Materials, (item) => `The vanilla material: ${item}`);
 }

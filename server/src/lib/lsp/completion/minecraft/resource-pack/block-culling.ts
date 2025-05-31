@@ -7,7 +7,7 @@ import { CompletionContext } from '../../context';
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-  builder.generate(context.database.ProjectData.resourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
+  builder.generate(context.database.projectData.resourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
 }
 
 export function provideJsonCompletion(context: Context<CompletionContext>): void {
@@ -19,7 +19,7 @@ const blockCullingRPJsonCompletion = new JsonPathCompletion({
   onCompletion: (context: Context<CompletionContext>) => {
     const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-    context.database.ProjectData.resourcePacks.models.forEach((model) => {
+    context.database.projectData.resourcePacks.models.forEach((model) => {
       builder.generate(model.bones, () => `Bone defined by ${model.id}`);
     });
   },

@@ -17,7 +17,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
       return;
 
     case PackType.resource_pack:
-      context.database.ProjectData.resourcePacks.entities.forEach((entity) =>
+      context.database.projectData.resourcePacks.entities.forEach((entity) =>
         GenerateDU(entity.molang.temps, context.builder, entity.id)
       );
   }

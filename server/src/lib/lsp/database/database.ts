@@ -1,12 +1,15 @@
+import { DatabaseParams, DatabaseQueryRequest } from "@blockception/shared";
 import { ParameterType } from "bc-minecraft-bedrock-command";
-import { ProjectData } from "bc-minecraft-bedrock-project";
+import { IDataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { WorkDoneProgressReporter } from "vscode-languageserver";
+import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import { CancellationToken, Location } from "vscode-languageserver-protocol";
 import { Processor, References } from "../../util";
 import { InternalContext } from "../diagnostics/context";
 import { IDocumentManager } from "../documents/manager";
+import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
 import { IService } from "../services/service";
 import { Options, ReferenceBuilder } from "./references";
 import { WorkspaceData } from "./workspace-data";
@@ -17,19 +20,18 @@ export interface forEachfn<T extends Types.BaseObject> {
   forEach(callbackfn: (value: T) => void): void;
 }
 
-export class Database implements Partial<IService> {
+export class Database extends BaseService implements Partial<IService> {
   readonly name: string = "database";
-  public logger: IExtendedLogger;
-  public ProjectData: ProjectData;
-  public WorkspaceData: WorkspaceData;
+  public projectData: ProjectData;
+  public workspaceData: WorkspaceData;
   public context: InternalContext;
 
-  constructor(logger: IExtendedLogger, documents: IDocumentManager) {
-    this.logger = logger.withPrefix("[database]");
+  constructor(logger: IExtendedLogger, extension: ExtensionContext) {
+    super(logger.withPrefix("[database]"), extension);
 
-    this.context = new InternalContext(this.logger, documents, () => this.ProjectData);
-    this.WorkspaceData = new WorkspaceData();
-    this.ProjectData = new ProjectData(this.context);
+    this.context = new InternalContext(this.logger, extension.documents, () => this.projectData);
+    this.workspaceData = new WorkspaceData();
+    this.projectData = new ProjectData(this.context);
   }
 
   /**
@@ -37,15 +39,15 @@ export class Database implements Partial<IService> {
    */
   clear(): void {
     this.logger.info("clearing database");
-    this.WorkspaceData.clear();
-    this.ProjectData = new ProjectData(this.context);
+    this.workspaceData.clear();
+    this.projectData = new ProjectData(this.context);
   }
 
   getPacks() {
     return [
-      ...this.ProjectData.behaviorPacks.packs,
-      ...this.ProjectData.resourcePacks.packs,
-      ...this.ProjectData.worlds.packs,
+      ...this.projectData.behaviorPacks.packs,
+      ...this.projectData.resourcePacks.packs,
+      ...this.projectData.worlds.packs,
     ];
   }
 
@@ -119,26 +121,26 @@ export class Database implements Partial<IService> {
 
       switch (item) {
         case ParameterType.animation:
-          this.ProjectData.resourcePacks.entities.forEach((entity) => {
+          this.projectData.resourcePacks.entities.forEach((entity) => {
             entity.animations.defined.forEach((anim) => {
               if (anim === id) out.push(entity);
             });
           });
-          this.ProjectData.resourcePacks.animations.forEach(AddIfIDMatch);
-          this.ProjectData.resourcePacks.animation_controllers.forEach(AddIfIDMatch);
+          this.projectData.resourcePacks.animations.forEach(AddIfIDMatch);
+          this.projectData.resourcePacks.animation_controllers.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.block:
-          this.ProjectData.behaviorPacks.blocks.forEach(AddIfIDMatch);
+          this.projectData.behaviorPacks.blocks.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.entity:
-          this.ProjectData.behaviorPacks.entities.forEach(AddIfIDMatch);
-          this.ProjectData.resourcePacks.entities.forEach(AddIfIDMatch);
+          this.projectData.behaviorPacks.entities.forEach(AddIfIDMatch);
+          this.projectData.resourcePacks.entities.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.event:
-          this.ProjectData.behaviorPacks.entities.forEach((entity) => {
+          this.projectData.behaviorPacks.entities.forEach((entity) => {
             entity.events.forEach((event) => {
               if (event === id) out.push(entity);
             });
@@ -146,36 +148,36 @@ export class Database implements Partial<IService> {
           break;
 
         case ParameterType.function:
-          this.ProjectData.behaviorPacks.functions.forEach(AddIfIDMatch);
+          this.projectData.behaviorPacks.functions.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.item:
-          this.ProjectData.behaviorPacks.items.forEach(AddIfIDMatch);
+          this.projectData.behaviorPacks.items.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.objective:
-          this.ProjectData.general.objectives.forEach(AddIfIDMatch);
+          this.projectData.general.objectives.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.particle:
-          this.ProjectData.resourcePacks.particles.forEach(AddIfIDMatch);
+          this.projectData.resourcePacks.particles.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.sound:
-          this.ProjectData.resourcePacks.sounds.forEach(AddIfIDMatch);
+          this.projectData.resourcePacks.sounds.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.structure:
-          this.ProjectData.behaviorPacks.structures.forEach(AddIfIDMatch);
-          this.ProjectData.general.structures.forEach(AddIfIDMatch);
+          this.projectData.behaviorPacks.structures.forEach(AddIfIDMatch);
+          this.projectData.general.structures.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tag:
-          this.ProjectData.general.tags.forEach(AddIfIDMatch);
+          this.projectData.general.tags.forEach(AddIfIDMatch);
           break;
 
         case ParameterType.tickingarea:
-          this.ProjectData.general.tickingAreas.forEach(AddIfIDMatch);
+          this.projectData.general.tickingAreas.forEach(AddIfIDMatch);
           break;
       }
     }
@@ -189,10 +191,10 @@ export class Database implements Partial<IService> {
     workDoneProgress?: WorkDoneProgressReporter
   ): Promise<void> | void {
     const packs = [
-      [this.ProjectData.general],
-      this.ProjectData.behaviorPacks.packs,
-      this.ProjectData.resourcePacks.packs,
-      this.ProjectData.worlds.packs,
+      [this.projectData.general],
+      this.projectData.behaviorPacks.packs,
+      this.projectData.resourcePacks.packs,
+      this.projectData.worlds.packs,
     ];
 
     return Processor.forEach(
@@ -201,5 +203,58 @@ export class Database implements Partial<IService> {
       token,
       workDoneProgress
     );
+  }
+
+  setupHandlers(connection: Connection): void {
+    this.addDisposable(connection.onRequest(DatabaseQueryRequest.type, this.queryDB.bind(this)));
+  }
+
+  dynamicRegister(register: BulkRegistration): void {
+    register.add(DatabaseQueryRequest.type, {});
+  }
+
+  private async queryDB(params: DatabaseParams): Promise<string[] | null> {
+    const t = DatabaseParams.splitType(params);
+    if (t === null) {
+      throw new Error(`Invalid type definition`);
+    }
+
+    const [pt, subt] = t;
+
+    let subset: IDataSet<Types.Identifiable>;
+    switch (pt) {
+      case "bp":
+        subset = this.projectData.behaviorPacks[subt];
+        break;
+
+      case "rp":
+        subset = this.projectData.resourcePacks[subt];
+        break;
+
+      default:
+        throw new Error("unknown pack type: " + pt);
+    }
+
+    if (subset === null || subset === undefined || typeof subset === "function") {
+      throw new Error("unknown type: " + params.type);
+    }
+
+    const ids: string[] = [];
+
+    if (params.filter) {
+      const r = new RegExp(params.filter, params.flags);
+
+      subset.forEach((item) => {
+        if (r.test(item.id)) {
+          ids.push(item.id);
+        }
+      });
+    } else {
+      subset.forEach((item) => {
+        ids.push(item.id);
+      });
+    }
+
+    return ids;
   }
 }

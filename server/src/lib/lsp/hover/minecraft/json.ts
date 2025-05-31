@@ -29,7 +29,7 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
   }
 
   //Check project data
-  const reference = database.ProjectData.find((item) => item.id === currentText);
+  const reference = database.projectData.find((item) => item.id === currentText);
 
   if (reference?.documentation) {
     return {

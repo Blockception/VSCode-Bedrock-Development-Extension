@@ -37,7 +37,7 @@ export class ConfigurationService extends BaseService implements Partial<IServic
       this.extension.settings = settings;
 
       //Update existing settings
-      const workspace = this.extension.database.WorkspaceData;
+      const workspace = this.extension.database.workspaceData;
       workspace.forEach((value, uri) => {
         workspace.set(uri, getProject(uri, this.extension.settings));
       });

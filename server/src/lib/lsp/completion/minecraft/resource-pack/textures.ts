@@ -9,7 +9,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The texture: ${item.id}`;
   const generateV = (item: string) => `The vanilla texture: ${item}`;
 
-  context.builder.generate(context.database.ProjectData.resourcePacks.textures, generateDoc, Kinds.Completion.Texture);
+  context.builder.generate(context.database.projectData.resourcePacks.textures, generateDoc, Kinds.Completion.Texture);
   context.builder.generate(MinecraftData.vanilla.ResourcePack.textures, generateV, Kinds.Completion.Texture);
 
   //Education data

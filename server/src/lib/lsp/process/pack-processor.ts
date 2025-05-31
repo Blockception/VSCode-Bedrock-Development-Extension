@@ -60,7 +60,7 @@ export class PackProcessor extends BaseService {
   }
 
   remove(pack: Pack) {
-    const pd = this.extension.database.ProjectData;
+    const pd = this.extension.database.projectData;
     pd.deleteFolder(pack.folder);
 
     this.removePack(pd.behaviorPacks.packs, pack.folder, pd.behaviorPacks.delete);
@@ -110,13 +110,13 @@ export class PackProcessor extends BaseService {
     }
 
     const project = getProject(folderPath, this.extension.settings);
-    this.extension.database.WorkspaceData.set(folder, project);
+    this.extension.database.workspaceData.set(folder, project);
 
     const manifests = MinecraftFormat.GetManifests(folder, project.ignores.patterns);
     const packs: Pack[] = [];
 
     manifests.forEach((m) => {
-      const pack = this.extension.database.ProjectData.addPack(m, project);
+      const pack = this.extension.database.projectData.addPack(m, project);
       if (pack === undefined) return;
 
       packs.push(pack);

@@ -8,13 +8,13 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The bp animation: ${item.id}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  builder.generate(context.database.ProjectData.behaviorPacks.animations, generateDoc);
+  builder.generate(context.database.projectData.behaviorPacks.animations, generateDoc);
 }
 
 export function provideDefinedAnimationCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  context.database.ProjectData.behaviorPacks.entities.forEach((item) => {
+  context.database.projectData.behaviorPacks.entities.forEach((item) => {
     builder.generate(item.animations.defined, (anim) => `Animation ${anim} defined  by ${item.id}`);
   });
 }

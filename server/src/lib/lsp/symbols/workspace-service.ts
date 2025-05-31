@@ -37,7 +37,7 @@ export class WorkspaceSymbolService extends BaseService implements Partial<IServ
     workDoneProgress: WorkDoneProgressReporter
   ): Promise<SymbolInformation[]> {
     const builder = new SymbolBuilder(params.query, token);
-    const data = this.extension.database.ProjectData;
+    const data = this.extension.database.projectData;
     workDoneProgress.begin("workspace symbols", 0, "", true);
 
     //General items

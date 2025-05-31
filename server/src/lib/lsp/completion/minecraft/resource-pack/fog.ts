@@ -8,7 +8,7 @@ import { CompletionContext } from '../../context';
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The fog: ${item.id}`;
 
-  context.builder.generate(context.database.ProjectData.resourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
+  context.builder.generate(context.database.projectData.resourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
 
   //Generate for vanilla data
   const generateV = (item: string) => `The vanilla fog: ${item}`;

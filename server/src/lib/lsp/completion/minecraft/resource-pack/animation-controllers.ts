@@ -12,7 +12,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The rp animation controller: ${item.id}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.AnimationControllers });
 
-  builder.generate(context.database.ProjectData.resourcePacks.animation_controllers, generateDoc);
+  builder.generate(context.database.projectData.resourcePacks.animation_controllers, generateDoc);
   builder.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc);
 
   //Education data

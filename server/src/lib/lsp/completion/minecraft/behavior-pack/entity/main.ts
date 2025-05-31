@@ -21,7 +21,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The entity definition: ${item.id}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
 
-  builder.generate(context.database.ProjectData.behaviorPacks.entities, generateDoc);
+  builder.generate(context.database.projectData.behaviorPacks.entities, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.entities, generateDoc);
 
   //Education data

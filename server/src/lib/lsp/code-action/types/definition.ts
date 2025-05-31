@@ -13,7 +13,7 @@ import { Vscode } from "../../../util";
 export function definition(builder: CodeActionBuilder, diag: Diagnostic, type: string): void {
   const document = builder.context.document;
   const value = document.getText(diag.range);
-  const ws = builder.context.database.WorkspaceData.getFolder(document.uri);
+  const ws = builder.context.database.workspaceData.getFolder(document.uri);
 
   if (!ws) {
     builder.context.logger.error(`Couldn't find workspace for: ${document.uri}`);
@@ -48,7 +48,7 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
   const document = builder.context.document;
   if (!document) return;
 
-  const ws = builder.context.database.WorkspaceData.getFolder(document.uri);
+  const ws = builder.context.database.workspaceData.getFolder(document.uri);
   const key = diag.code ?? "";
 
   if (typeof key === "undefined" || key === "") return;

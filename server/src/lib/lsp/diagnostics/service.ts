@@ -19,7 +19,7 @@ export class DiagnoserService extends BaseService implements Partial<IService> {
     logger = logger.withPrefix("[diagnoser]");
     super(logger, extension);
 
-    this._context = new InternalContext(logger, documents, () => extension.database.ProjectData);
+    this._context = new InternalContext(logger, documents, () => extension.database.projectData);
     this._diagnoser = new Diagnoser(this._context);
 
     this._context.onDiagnosingFinished((e) => this.set(e.doc, e.items));

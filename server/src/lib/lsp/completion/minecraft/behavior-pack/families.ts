@@ -7,7 +7,7 @@ import { CompletionBuilder } from "../../builder/builder";
 import { CommandCompletionContext, CompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
+  context.database.projectData.behaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
 
     context.builder.generate(entity.families, generateDoc, Kinds.Completion.Family);
@@ -28,7 +28,7 @@ export function provideCompletionTest(context: Context<CommandCompletionContext>
   const edu = IsEducationEnabled(context.document);
 
   if (types.length === 0) {
-    context.database.ProjectData.behaviorPacks.entities.forEach((entity) => convertTestEntity(entity, builder));
+    context.database.projectData.behaviorPacks.entities.forEach((entity) => convertTestEntity(entity, builder));
 
     MinecraftData.General.Entities.families.forEach((family) => {
       builder.add({
@@ -44,7 +44,7 @@ export function provideCompletionTest(context: Context<CommandCompletionContext>
     });
   } else {
     types.forEach((type) => {
-      const entity = context.database.ProjectData.behaviorPacks.entities.get(type);
+      const entity = context.database.projectData.behaviorPacks.entities.get(type);
       if (entity) convertTestEntity(entity, builder);
 
       const vanilla_entity = MinecraftData.ResourcePack.getEntity(type, edu);

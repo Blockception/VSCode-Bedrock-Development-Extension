@@ -13,7 +13,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateV = (item: string) => `The vanilla render controller: ${item}`;
 
   context.builder.generate(
-    context.database.ProjectData.resourcePacks.render_controllers,
+    context.database.projectData.resourcePacks.render_controllers,
     generateDoc,
     Kinds.Completion.RenderController
   );

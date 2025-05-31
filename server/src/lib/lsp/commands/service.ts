@@ -20,9 +20,7 @@ export class CommandService extends BaseService implements Partial<IService> {
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    const commandsIds = new Array(...this.manager.commands())
-      .filter(([, v]) => v.register === true)
-      .map(([id]) => id);
+    const commandsIds = new Array(...this.manager.commands()).filter(([, v]) => v.register === true).map(([id]) => id);
 
     capabilities.set("executeCommandProvider", {
       commands: commandsIds,

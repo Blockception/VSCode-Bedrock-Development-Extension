@@ -30,7 +30,7 @@ export function provideResourcePackCompletion(context: Context<CompletionContext
     case ResourcePack.FileType.animation_controller:
     case ResourcePack.FileType.render_controller:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Models });
-      context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
+      context.database.projectData.resourcePacks.entities.forEach((entity) => {
         entity.molang.geometries.defined.forEach((geo) => {
           const label = prefixed ? `Geometry.${geo}` : geo;
           builder.add({
@@ -56,6 +56,6 @@ function provideGeometries(context: Context<CompletionContext>) {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Models });
   const gen = (item: ResourcePack.Material.Material) => `The model: ${item}\nDeclared in: ${item.location.uri}`;
 
-  builder.generate(context.database.ProjectData.resourcePacks.models, gen);
+  builder.generate(context.database.projectData.resourcePacks.models, gen);
   builder.generate(Vanilla.ResourcePack.Models, (item) => `The vanilla model: ${item}`);
 }

@@ -14,7 +14,7 @@ import * as Textures from "./textures";
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The attachbles: ${item.id}`;
 
-  context.builder.generate(context.database.ProjectData.resourcePacks.attachables, generateDoc, Kinds.Completion.Item);
+  context.builder.generate(context.database.projectData.resourcePacks.attachables, generateDoc, Kinds.Completion.Item);
 }
 
 export function provideJsonCompletion(context: Context<CompletionContext>): void {
@@ -52,7 +52,7 @@ const attachableRpJsonCompletion = new JsonPathCompletion(
   {
     match: (path) => path.includes("minecraft:attachable/description/scripts/animate/"),
     onCompletion: (context: Context<CompletionContext>) => {
-      const data = context.database.ProjectData.resourcePacks.attachables.find(
+      const data = context.database.projectData.resourcePacks.attachables.find(
         (attachable) => attachable.location.uri === context.document.uri
       );
       if (data === undefined) return;

@@ -8,7 +8,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;
   const data = context.document.configuration();
 
-  builder.generate(context.database.ProjectData.general.tags, generateDocumentation, Kinds.Completion.Tag);
+  builder.generate(context.database.projectData.general.tags, generateDocumentation, Kinds.Completion.Tag);
   builder.generate(data.definitions.tag?.defined, generateDocumentation, Kinds.Completion.Tag);
 }
 
@@ -39,7 +39,7 @@ export function provideCompletionTest(context: Context<CompletionContext>): void
   builder.generate(data.definitions.tag?.defined, (tag) => `The defined tag: ${tag}`);
 
   //Add the tags to the list
-  context.database.ProjectData.general.tags.forEach((tag) => {
+  context.database.projectData.general.tags.forEach((tag) => {
     builder.add({
       label: tag.id,
       documentation: `Tests for the tag: '${tag.id}'`,

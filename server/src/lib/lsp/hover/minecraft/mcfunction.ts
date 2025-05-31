@@ -73,31 +73,31 @@ function GetHoverContent(
 
   switch (parameter.type) {
     case ParameterType.block:
-      return getDocumentation(text, range, database.ProjectData.behaviorPacks.blocks, additional);
+      return getDocumentation(text, range, database.projectData.behaviorPacks.blocks, additional);
 
     case ParameterType.entity:
-      return getDocumentation(text, range, database.ProjectData.behaviorPacks.entities, additional);
+      return getDocumentation(text, range, database.projectData.behaviorPacks.entities, additional);
 
     case ParameterType.function:
-      return getDocumentation(text, range, database.ProjectData.behaviorPacks.functions, additional);
+      return getDocumentation(text, range, database.projectData.behaviorPacks.functions, additional);
 
     case ParameterType.jsonRawText:
       return RawText.provideHover(range);
 
     case ParameterType.objective:
-      return getDocumentation(text, range, database.ProjectData.general.objectives, additional);
+      return getDocumentation(text, range, database.projectData.general.objectives, additional);
 
     case ParameterType.particle:
-      return getDocumentation(text, range, database.ProjectData.resourcePacks.particles, additional);
+      return getDocumentation(text, range, database.projectData.resourcePacks.particles, additional);
 
     case ParameterType.sound:
-      return getDocumentation(text, range, database.ProjectData.resourcePacks.sounds, additional);
+      return getDocumentation(text, range, database.projectData.resourcePacks.sounds, additional);
 
     case ParameterType.tag:
-      return getDocumentation(text, range, database.ProjectData.general.tags, additional);
+      return getDocumentation(text, range, database.projectData.general.tags, additional);
 
     case ParameterType.tickingarea:
-      return getDocumentation(text, range, database.ProjectData.general.tickingAreas, additional);
+      return getDocumentation(text, range, database.projectData.general.tickingAreas, additional);
   }
 
   const title = parameter.text;

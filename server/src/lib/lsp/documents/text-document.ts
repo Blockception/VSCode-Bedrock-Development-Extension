@@ -92,12 +92,12 @@ export class WrappedTextDocument implements TextDocument, MCProjectprovider {
   pack(): mcbe.Pack | undefined {
     if (this._pack) return this._pack;
 
-    return (this._pack = this._extension.database.ProjectData.get(this.uri));
+    return (this._pack = this._extension.database.projectData.get(this.uri));
   }
 
   /** @inheritdoc */
   configuration(): MCProject {
-    return this.pack()?.context ?? this._extension.database.WorkspaceData.getProject(this.uri, this._extension.settings);
+    return this.pack()?.context ?? this._extension.database.workspaceData.getProject(this.uri, this._extension.settings);
   }
 
   /** @inheritdoc */

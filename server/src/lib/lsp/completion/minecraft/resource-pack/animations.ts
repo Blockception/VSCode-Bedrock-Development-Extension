@@ -10,10 +10,10 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The rp animation: ${item.id}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  builder.generate(context.database.ProjectData.resourcePacks.animations, generateDoc);
-  builder.generate(context.database.ProjectData.resourcePacks.animation_controllers, generateDoc);
+  builder.generate(context.database.projectData.resourcePacks.animations, generateDoc);
+  builder.generate(context.database.projectData.resourcePacks.animation_controllers, generateDoc);
 
-  context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
+  context.database.projectData.resourcePacks.entities.forEach((entity) => {
     builder.generate(entity.animations.defined, (item) => `The entity animation: ${item}`);
   });
 
@@ -37,7 +37,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 export function provideDefinedAnimationCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
 
-  context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
+  context.database.projectData.resourcePacks.entities.forEach((entity) => {
     builder.generate(entity.animations.defined, () => `Animation defined by ${entity.id}`);
   });
   MinecraftData.vanilla.ResourcePack.entities.forEach((entity) => {

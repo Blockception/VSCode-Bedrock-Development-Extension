@@ -30,7 +30,7 @@ export class TemplateProcessor {
       filename: filename,
       folder: folder,
       attributes: attributes,
-      pack: this._context.database.ProjectData.get(folder)?.folder || "",
+      pack: this._context.database.projectData.get(folder)?.folder || "",
       templateID: templateId,
     };
 
@@ -84,12 +84,12 @@ export namespace TemplateProcessor {
     fallback?: TemplateFallback
   ): TemplateProcessor {
     fallback = fallback || errorFallback;
-    const ws = context.database.WorkspaceData.getFolder(folder);
+    const ws = context.database.workspaceData.getFolder(folder);
     if (ws === undefined) {
       throw new Error("No workspace found");
     }
 
-    const project = context.database.WorkspaceData.getProject(ws, context.settings);
+    const project = context.database.workspaceData.getProject(ws, context.settings);
     const attr = template.replace("-", ".");
     const filename = project.attributes[`template.${attr}.filename`] || fallback.filename();
     const file = project.attributes[`template.${attr}.file`];

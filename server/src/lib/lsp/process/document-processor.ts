@@ -53,7 +53,7 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
   }
 
   delete(uri: string) {
-    this.extension.database.ProjectData.deleteFile(uri);
+    this.extension.database.projectData.deleteFile(uri);
     this._diagnoser.clear({ uri });
   }
 
@@ -66,7 +66,7 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
 
     try {
       if (conf.ignores.patterns.length == 0 || !Glob.isMatch(document.uri, conf.ignores.patterns)) {
-        this.extension.database.ProjectData.process(document);
+        this.extension.database.projectData.process(document);
       } else {
         this.logger.info(`ignoring file ${document.uri}`);
       }

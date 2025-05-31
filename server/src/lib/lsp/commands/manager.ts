@@ -47,6 +47,11 @@ export class CommandManager implements ICommand {
     return this;
   }
 
+  /**
+   * 
+   * @param context 
+   * @returns 
+   */
   execute(context: Context<CommandContext>): any | Promise<any> {
     const com = this._commands.get(context.command);
     if (com === undefined) {

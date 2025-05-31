@@ -18,7 +18,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
     if (block) {
       let b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined;
 
-      if ((b = context.database.ProjectData.behaviorPacks.blocks.get(block))) provideDefaultCompletion(b, context);
+      if ((b = context.database.projectData.behaviorPacks.blocks.get(block))) provideDefaultCompletion(b, context);
       if ((b = vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu))))
         provideDefaultCompletion(b, context);
     }
@@ -28,12 +28,12 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
   }
 
   if (block) {
-    provideBlockCompletion(context.database.ProjectData.behaviorPacks.blocks.get(block), context);
+    provideBlockCompletion(context.database.projectData.behaviorPacks.blocks.get(block), context);
     return provideBlockCompletion(vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu)), context);
   }
 
   //return all
-  context.database.ProjectData.behaviorPacks.blocks.forEach((block) => provideStateCompletion(block.states, context));
+  context.database.projectData.behaviorPacks.blocks.forEach((block) => provideStateCompletion(block.states, context));
 
   provideStateCompletion(MinecraftData.General.Blocks.block_states, context);
 }

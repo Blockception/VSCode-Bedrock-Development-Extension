@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "bc-minecraft-bedrock-project": "^1.21.80-2",
+    "vscode-languageserver-protocol": "^3.17.5"
   }
 }

@@ -21,7 +21,7 @@ export async function internalRequest(
   if (!document) return undefined;
 
   const builder = new CodeLensBuilder(params, context.token);
-  const pd = context.database.ProjectData;
+  const pd = context.database.projectData;
   const items = config(pd);
 
   // Queue processor to batch all the data

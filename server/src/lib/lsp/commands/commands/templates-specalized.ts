@@ -73,7 +73,7 @@ function createAll(
   callback: (Folder: Pack, Builder: TemplateBuilder) => void
 ): Promise<void> {
   const builder = new TemplateBuilder(context);
-  const pd = context.database.ProjectData;
+  const pd = context.database.projectData;
 
   pd.behaviorPacks.packs.forEach((pack) => callback(pack, builder));
   pd.resourcePacks.packs.forEach((pack) => callback(pack, builder));

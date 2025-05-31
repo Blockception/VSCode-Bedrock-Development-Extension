@@ -7,7 +7,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The mcstructure: ${item.id}`;
 
   context.builder.generate(
-    context.database.ProjectData.behaviorPacks.structures,
+    context.database.projectData.behaviorPacks.structures,
     generateDoc,
     Kinds.Completion.Structure
   );

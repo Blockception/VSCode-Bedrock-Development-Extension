@@ -12,7 +12,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The block definition: ${item.id}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-  builder.generate(context.database.ProjectData.behaviorPacks.blocks, generateDoc);
+  builder.generate(context.database.projectData.behaviorPacks.blocks, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.blocks, generateDoc);
 
   //Education data

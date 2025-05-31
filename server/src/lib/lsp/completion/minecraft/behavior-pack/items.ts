@@ -11,10 +11,10 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;
 
   //Project data
-  builder.generate(context.database.ProjectData.behaviorPacks.items, generateDoc, Kinds.Completion.Item);
+  builder.generate(context.database.projectData.behaviorPacks.items, generateDoc, Kinds.Completion.Item);
 
   //spawn_eggs
-  context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
+  context.database.projectData.behaviorPacks.entities.forEach((entity) => {
     builder.add({ label:entity.id + "_spawn_egg", documentation: "The spawn egg for entity: " + entity.id, kind: Kinds.Completion.Entity});
   });
 
@@ -39,7 +39,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 
   //Custom block items
   builder.generate(
-    context.database.ProjectData.behaviorPacks.blocks,
+    context.database.projectData.behaviorPacks.blocks,
     (item: Identifiable) => `The block-item definition: ${item.id}`,
     Kinds.Completion.Block
   );

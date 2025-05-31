@@ -19,6 +19,6 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   };
 
   //From project data
-  builder.generate(context.database.ProjectData.general.objectives, generateDoc, Kinds.Completion.Objectives);
+  builder.generate(context.database.projectData.general.objectives, generateDoc, Kinds.Completion.Objectives);
   builder.generate(data.definitions.objective?.defined, generateDoc, Kinds.Completion.Objectives);
 }

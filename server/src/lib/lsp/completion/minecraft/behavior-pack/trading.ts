@@ -10,7 +10,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generatesDoc = (item: string) => `The vanilla trading table: ${item}`;
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Trading });
 
-  builder.generate(context.database.ProjectData.behaviorPacks.trading, generateDoc);
+  builder.generate(context.database.projectData.behaviorPacks.trading, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.trading, generatesDoc);
 
   //Education data

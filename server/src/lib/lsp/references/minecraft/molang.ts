@@ -53,14 +53,14 @@ function GetVariables(context: Context<any>, variable: string): Location[] {
     if (item.molang.variables.defined.includes(variable)) locations.push(item);
   };
 
-  database.ProjectData.behaviorPacks.animation_controllers.forEach(map);
-  database.ProjectData.behaviorPacks.animations.forEach(map);
-  database.ProjectData.behaviorPacks.entities.forEach(map);
+  database.projectData.behaviorPacks.animation_controllers.forEach(map);
+  database.projectData.behaviorPacks.animations.forEach(map);
+  database.projectData.behaviorPacks.entities.forEach(map);
 
-  database.ProjectData.resourcePacks.animation_controllers.forEach(map);
-  database.ProjectData.resourcePacks.animations.forEach(map);
-  database.ProjectData.resourcePacks.entities.forEach(map);
-  database.ProjectData.resourcePacks.render_controllers.forEach(map);
+  database.projectData.resourcePacks.animation_controllers.forEach(map);
+  database.projectData.resourcePacks.animations.forEach(map);
+  database.projectData.resourcePacks.entities.forEach(map);
+  database.projectData.resourcePacks.render_controllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
   return References.convertLocation(locations, documents);
@@ -73,14 +73,14 @@ function GetTemp(context: Context<any>, variable: string): Location[] {
     if (item.molang.temps.defined.includes(variable)) locations.push(item);
   };
 
-  database.ProjectData.behaviorPacks.animation_controllers.forEach(map);
-  database.ProjectData.behaviorPacks.animations.forEach(map);
-  database.ProjectData.behaviorPacks.entities.forEach(map);
+  database.projectData.behaviorPacks.animation_controllers.forEach(map);
+  database.projectData.behaviorPacks.animations.forEach(map);
+  database.projectData.behaviorPacks.entities.forEach(map);
 
-  database.ProjectData.resourcePacks.animation_controllers.forEach(map);
-  database.ProjectData.resourcePacks.animations.forEach(map);
-  database.ProjectData.resourcePacks.entities.forEach(map);
-  database.ProjectData.resourcePacks.render_controllers.forEach(map);
+  database.projectData.resourcePacks.animation_controllers.forEach(map);
+  database.projectData.resourcePacks.animations.forEach(map);
+  database.projectData.resourcePacks.entities.forEach(map);
+  database.projectData.resourcePacks.render_controllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
   return References.convertLocation(locations, documents);

@@ -8,6 +8,6 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;
   const data = context.document.configuration();
 
-  builder.generate(context.database.ProjectData.general.tickingAreas, generateDoc, Kinds.Completion.Tickingarea);
+  builder.generate(context.database.projectData.general.tickingAreas, generateDoc, Kinds.Completion.Tickingarea);
   builder.generate(data.definitions.tag?.defined, (item) => `The defined tickingarea: ${item}`, Kinds.Completion.Tickingarea);
 }

@@ -36,7 +36,7 @@ function generate_items(context: Context<CompletionContext>) {
   const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
   const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
-  builder.generate(context.database.ProjectData.behaviorPacks.loot_tables, generateDoc);
+  builder.generate(context.database.projectData.behaviorPacks.loot_tables, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
 
   //Education data

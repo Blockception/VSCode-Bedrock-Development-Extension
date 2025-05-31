@@ -53,7 +53,7 @@ export class TemplateFunctions {
   }
 
   getPack() {
-    return this._context.database.ProjectData.get(this._fcontent.pack);
+    return this._context.database.projectData.get(this._fcontent.pack);
   }
 
   getProject(): MCProject {

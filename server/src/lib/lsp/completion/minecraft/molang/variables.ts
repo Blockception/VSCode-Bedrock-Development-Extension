@@ -20,7 +20,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
       return;
 
     case PackType.resource_pack:
-      context.database.ProjectData.resourcePacks.entities.forEach((entity) =>
+      context.database.projectData.resourcePacks.entities.forEach((entity) =>
         entity.molang.variables.defined.forEach((item) => {
           builder.add({ label: item, documentation: `The molang variable: ${item}\nDeclared by '${entity.id}'` });
         })

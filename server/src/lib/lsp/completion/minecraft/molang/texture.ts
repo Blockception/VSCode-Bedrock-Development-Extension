@@ -12,7 +12,7 @@ export function provideCompletion(context: Context<CompletionContext>, prefixed:
 
     case PackType.resource_pack:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Texture });
-      context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
+      context.database.projectData.resourcePacks.entities.forEach((entity) => {
         entity.molang.textures.defined.forEach((item) => {
           const label = prefixed ? `Texture.${item}` : item;
           builder.add({

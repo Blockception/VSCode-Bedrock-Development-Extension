@@ -114,7 +114,7 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
 
     const result = await Processor.map(packs, (pack) => this._packProcessor.remove(pack), token);
 
-    return this.extension.database.WorkspaceData.remove(workspace.uri) || result;
+    return this.extension.database.workspaceData.remove(workspace.uri) || result;
   }
 
   async diagnose(workspace: WorkspaceFolder, token?: CancellationToken) {
