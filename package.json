@@ -437,6 +437,11 @@
         "title": "Show vanilla file",
         "command": "bc.minecraft.vanilla.show",
         "category": "Blockception"
+      },
+      {
+        "title": "Fill item/block id by name",
+        "command": "bc.minecraft.vanilla.fillIdByName",
+        "category": "Blockception"
       }
     ],
     "grammars": [
