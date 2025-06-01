@@ -781,10 +781,6 @@ export const LocalizationIDs: { [key: string]: string } = {
   zombie_villager_spawn_egg: "item.spawn_egg.entity.zombie_villager_v2.name",
 };
 
-function getLocalizationID(key: string): string | undefined {
-  return LocalizationIDs[key];
-}
-
 function getIdByLocalizationID(key: string): string | undefined {
   const id = Object.keys(LocalizationIDs).find((k) => LocalizationIDs[k] === key);
   return 'minecraft:' + (id ? id : key.replace('tile.', '').replace('item.', '').replace('.name', '').trim());
