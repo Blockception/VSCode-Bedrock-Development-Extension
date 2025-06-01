@@ -459,6 +459,11 @@
         "title": "Show docs",
         "command": "bc.minecraft.docs.show",
         "category": "Blockception"
+      },
+      {
+        "title": "Fill block/item ID by name",
+        "command": "bc.minecraft.id.fill",
+        "category": "Blockception"
       }
     ],
     "grammars": [
