@@ -44,6 +44,9 @@ export namespace Commands {
   export const ShowDocs: string = "bc.minecraft.docs.show";
 
   /** */
+  export const FillIdByName: string = "bc.minecraft.id.fill";
+
+  /** */
   export namespace Files {
     export const Append = "bc-files-append";
   }
