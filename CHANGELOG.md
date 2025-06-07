@@ -1,25 +1,36 @@
 # CHANGELOG
 ## Extension
-- feat: add more json completion
-- fix version
-- fix version
-- 8.0.34
-- updating blockception dependencies
-- 8.0.33
-- updating blockception dependencies
-- updating schemas and PR
-- made a smarter switch case
-- removing more files that shouldnt be included and organized the ignore
-- build(deps): bump the important group with 4 updates (#786)
-- build(deps-dev): bump the test group with 3 updates (#787)
-- build(deps): bump minecraft-bedrock-schemas from `9a916b5` to `64e084d` (#788)
-- build(deps-dev): bump the nodejs group with 2 updates (#784)
-- build(deps-dev): bump the test group with 3 updates (#785)
-- build(deps-dev): bump the test group with 2 updates (#783)
-- build(deps-dev): bump webpack from 5.99.5 to 5.99.6 in the nodejs group (#782)
-- build(deps-dev): bump typescript-eslint (#779)
-- build(deps-dev): bump the test group across 1 directory with 4 updates (#778)
-- build(deps): bump @types/vscode from 1.99.0 to 1.99.1 (#776)## Schemas
+- 8.0.38
+- refactor: new diagnoser
+- chore(upgrade): blockception dependencies
+- build(deps-dev): bump the test group with 4 updates (#806)
+- build(deps-dev): bump tar-fs from 2.1.2 to 2.1.3 (#807)
+- 8.0.37
+- chore(deps): updating blockception
+- updating schemas
+- build(deps): bump minecraft-bedrock-schemas from `6c6420b` to `caef874` (#805)
+- build(deps): bump the important group with 6 updates (#804)
+- build(deps-dev): bump @types/node in the nodejs group (#803)
+- feat: Add Fill ID by Name command (#802)
+- fix: ensure property is safely accessed in getJsonPath function (#800)
+- Update client.ts (#797)
+- build(deps-dev): bump globals from 16.1.0 to 16.2.0 (#799)
+- build(deps-dev): bump @types/node in the nodejs group (#798)
+- 8.0.36
+- build(deps): bump the nodejs group with 2 updates (#795)
+- build(deps-dev): bump @vscode/vsce from 3.4.1 to 3.4.2 (#796)
+- build(deps): bump bc-minecraft-bedrock-diagnoser in the important group (#794)## Schemas
+- - Added is_vehicle_family filter (#352)
+- fix
+- fixup
+- last upgrade?
+- maybe this will work
+- getting reall sick of this bullshit
+- upgrading docker image
+- upgrading version
+- fixing version
+- fix: sorted and moved lightning from bp to rp
+- 1.21.90 (#350)
 - 1.21.73-0
 - adding workflow merge
 - - Changed pattern to not require start to be "mystructure" (#348)
@@ -28,38 +39,37 @@
 - 1.21.80 (#343)
 - Fix BP entity snippet (#342)
 - Make first_valid an array (#341)
-- Updated float_wander (#340)
-- Improve texture set schema (#339)
-- there might be a collision with other json files
-- Updated for 1.21.70 along with other improvements (#337)
-- Update vscode-settings.json (#336)
-- Updated for 1.21.60 (#334)
-- formatted
-- Added foliage and grass appearance components (#333)
-- - Update block sounds list (#332)
-- Update default format_version to 1.21.50 (#331)
-- Updated to 1.21.50 (#330)
-- fix: damage_sensor | triggers | deals_damage accept string only (#328)## Diagnoser
-- 1.21.80-5
-- fixing snapshots
-- fixing function command
-- 1.21.80-4
-- updating blockception dependencies
-- adding more tests
-- 1.21.80-3
-- updating blockception dependencies
+- Updated float_wander (#340)## Diagnoser
+- 1.21.82-0
+- 1.21.81
+- refactoring setup (#375)
+- - Updated particle validation (#369)
+- - Check if client entity used on valid bp entity (#370)
+- - Check if attachable used on valid bp item (#371)
+- - Add info warning for if randomize/sequence only have on entry (#372)
+- - Fix subsensor check (#373)
+- 1.21.90 (#374)
+- 1.21.80-8
+- 1.21.80-7
+- chore(deps): updating blockception
+- Bump the important group with 3 updates (#366)
+- Bump @types/node from 22.15.21 to 22.15.29 in the nodejs group (#367)
+- Bump the test group with 4 updates (#368)
+- - Added feature rule checking (#365)
+- Bump @types/node from 22.15.19 to 22.15.21 in the nodejs group (#363)
+- Fix structures in root folder not being recognized (#364)
+- 1.21.80-6
+- Account for both ways of taming entities (#362)## Commands
 - 1.21.80-2
+- chore(deps): updating blockception
+- build(deps-dev): bump @types/node in the nodejs group (#218)
+- build(deps-dev): bump the test group with 4 updates (#217)
 - 1.21.80-1
-- 1.21.80-0
-- updating blockception dependencies
-- Bump the test group with 3 updates (#354)
-- Bump the important group with 2 updates (#353)
-- 1.21.73-1
-- simplified
-- updating mode diagnostics
-- Refactor/layout (#352)
-- adding files tests to ensure no exceptions are thrown (#351)
-- A lot of random updates (#350)## Commands
+- chore(deps): updated blockceptions dependencies
+- build(deps-dev): bump @types/node in the nodejs group (#216)
+- build(deps-dev): bump the nodejs group with 2 updates (#214)
+- build(deps-dev): bump the test group across 1 directory with 4 updates (#215)
+- build(deps-dev): bump @types/node in the nodejs group (#212)
 - 1.21.80-0
 - fixing function command
 - adding more tests
@@ -69,17 +79,18 @@
 - build(deps-dev): bump the test group with 3 updates (#211)
 - 1.21.62-1
 - adding in new types
-- simplifing the camera command
-- Adding easy mode for cameras
-- 1.21.62-0
-- 1.21.61
-- 1.21.61-0
-- build(deps-dev): bump @types/node in the nodejs group (#207)
-- build(deps-dev): bump the test group with 3 updates (#208)
-- build(deps-dev): bump the test group with 3 updates (#206)
-- build(deps-dev): bump the nodejs group with 3 updates (#201)
-- build(deps-dev): bump typescript-eslint in the test group (#204)
-- build(deps-dev): bump the test group across 1 directory with 3 updates (#203)## Molang
+- simplifing the camera command## Molang
+- 1.21.61-3
+- chore(deps): updating blockception
+- build(deps-dev): bump the test group with 4 updates (#218)
+- build(deps-dev): bump @types/node in the nodejs group (#219)
+- 1.21.90 (#217)
+- 1.21.61-2
+- chore(deps): updated blockceptions dependencies
+- build(deps-dev): bump @types/node in the nodejs group (#216)
+- build(deps-dev): bump the nodejs group with 2 updates (#214)
+- build(deps-dev): bump the test group with 3 updates (#215)
+- build(deps-dev): bump @types/node in the nodejs group (#213)
 - 1.21.61-1
 - updating blockception dependencies
 - build(deps): bump bc-minecraft-bedrock-types in the important group (#211)
@@ -88,18 +99,20 @@
 - 1.21.61-0
 - build(deps-dev): bump the test group with 3 updates (#209)
 - build(deps-dev): bump @types/node in the nodejs group (#208)
-- build(deps-dev): bump the test group with 3 updates (#207)
-- build(deps-dev): bump typescript-eslint in the test group (#206)
-- build(deps-dev): bump the nodejs group with 2 updates (#205)
-- build(deps-dev): bump the nodejs group across 1 directory with 3 updates
-- build(deps-dev): bump the test group across 1 directory with 3 updates (#204)
-- 1.21.60
-- chore(deps): updated blockceptions dependencies
-- - Updated for 1.21.70 (#202)
-- 1.21.60-1
-- chore(deps): updating blockceptions dependencies
-- build(deps-dev): bump the nodejs group with 2 updates (#193)
-- 1.21.60-0## Vanilla-Data
+- build(deps-dev): bump the test group with 3 updates (#207)## Vanilla-Data
+- 1.21.80-3
+- build(deps-dev): bump the test group with 4 updates (#246)
+- build(deps-dev): bump @types/node in the nodejs group (#245)
+- 1.21.80-2
+- [create-pull-request] automated change (#244)
+- 1.21.80-1
+- fix
+- Feature/atlas teim (#243)
+- build(deps-dev): bump @types/node in the nodejs group (#242)
+- build(deps-dev): bump the test group with 3 updates (#241)
+- build(deps-dev): bump the nodejs group with 2 updates (#240)
+- build(deps-dev): bump typescript-eslint in the test group (#239)
+- build(deps-dev): bump @types/node in the nodejs group (#238)
 - 1.21.80-0
 - [create-pull-request] automated change (#237)
 - 1.21.70-2
@@ -107,16 +120,3 @@
 - build(deps-dev): bump the test group with 3 updates (#236)
 - build(deps-dev): bump @types/node in the nodejs group (#235)
 - 1.21.70-1
-- build(deps-dev): bump the test group with 3 updates (#233)
-- build(deps-dev): bump @types/node in the nodejs group (#232)
-- build(deps-dev): bump the test group with 3 updates (#231)
-- build(deps-dev): bump typescript-eslint in the test group (#230)
-- build(deps-dev): bump the nodejs group with 2 updates (#229)
-- build(deps-dev): bump the nodejs group with 3 updates (#227)
-- build(deps-dev): bump the test group with 3 updates (#228)
-- 1.21.70-0
-- [create-pull-request] automated change (#226)
-- 1.21.46-2
-- 1.21.46-1
-- build(deps-dev): bump the nodejs group with 2 updates (#215)
-- 1.21.46-0
