@@ -1,5 +1,5 @@
 import { DiagnoserContext } from "bc-minecraft-bedrock-diagnoser";
-import { ProjectData } from "bc-minecraft-bedrock-project";
+import { MinecraftData, ProjectData } from "bc-minecraft-bedrock-project";
 import { MCIgnore, MCProject } from "bc-minecraft-project";
 import { Emitter } from "vscode-languageserver-protocol";
 import { Glob } from "../../files/glob";
@@ -62,7 +62,7 @@ export class InternalContext implements DiagnoserContext<TextDocument> {
   }
 
   /**@inheritdoc*/
-  getCache(): ProjectData {
-    return this.getCacheFn();
+  getProjectData(): MinecraftData {
+    return new MinecraftData(this.getCacheFn());
   }
 }
