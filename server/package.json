@@ -26,7 +26,7 @@
   "dependencies": {
     "@blockception/shared": "^0.0.1",
     "@daanv2/queue-processor": "^2.2.1",
-    "@types/vscode": "^1.100.0",
+    "@types/vscode": "^1.101.0",
     "bc-minecraft-bedrock-command": "^1.21.80-0",
     "bc-minecraft-bedrock-diagnoser": "^1.21.82-1",
     "bc-minecraft-bedrock-project": "^1.21.80-2",
