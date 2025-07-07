@@ -26,15 +26,15 @@
     "@blockception/shared": "^0.0.1",
     "bc-minecraft-bedrock-project": "^1.21.80-5",
     "bc-minecraft-bedrock-vanilla-data": "^1.21.80-4",
-    "node": "^24.1.0",
+    "node": "^24.3.0",
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.30",
+    "@types/node": "^24.0.10",
     "@types/vscode": "^1.101.0",
     "json-loader": "^0.5.7",
-    "ts-jest": "^29.3.4",
+    "ts-jest": "^29.4.0",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
