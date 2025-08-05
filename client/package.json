@@ -30,11 +30,11 @@
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.15.30",
     "@types/vscode": "^1.102.0",
     "json-loader": "^0.5.7",
-    "ts-jest": "^29.3.4",
+    "ts-jest": "^29.4.1",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
