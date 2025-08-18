@@ -1,5 +1,4 @@
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, ExecuteCommandParams } from "vscode-languageserver-protocol";
+import { CancellationToken, Connection, ExecuteCommandParams, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";

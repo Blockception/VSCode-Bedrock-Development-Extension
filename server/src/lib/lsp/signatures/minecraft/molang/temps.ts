@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver-types";
+import { SignatureHelp } from "vscode-languageserver";
 
 /**
  *

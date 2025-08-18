@@ -1,6 +1,5 @@
 import { Languages } from "@blockception/shared";
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, Hover, HoverParams } from "vscode-languageserver-protocol";
+import { CancellationToken, Connection, Hover, HoverParams, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";

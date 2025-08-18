@@ -1,6 +1,5 @@
 import { Identification } from "@blockception/shared";
-import { BulkRegistration, Connection } from "vscode-languageserver";
-import { DidChangeConfigurationNotification, DidChangeConfigurationParams } from "vscode-languageserver-protocol";
+import { BulkRegistration, Connection, DidChangeConfigurationNotification, DidChangeConfigurationParams } from "vscode-languageserver";
 import { getProject } from "../../project/mcprojects";
 import { ExtensionContext, Settings } from "../extension";
 import { IExtendedLogger } from "../logger/logger";

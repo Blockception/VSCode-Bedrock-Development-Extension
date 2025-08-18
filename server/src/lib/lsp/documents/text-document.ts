@@ -1,5 +1,5 @@
 import { MCProject } from "bc-minecraft-project";
-import { Range } from "vscode-languageserver-types";
+import { Range } from "vscode-languageserver";
 import { MCProjectprovider } from "../../project/interfaces";
 import { getFilename } from "../../util";
 import { ExtensionContext } from "../extension/context";

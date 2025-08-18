@@ -1,4 +1,4 @@
-import { CompletionItemKind } from "vscode-languageserver-types";
+import { CompletionItemKind } from "vscode-languageserver";
 import { Context } from "../../context/context";
 import { JsonPathCompletion } from "../builder";
 import { CompletionContext } from "../context";
