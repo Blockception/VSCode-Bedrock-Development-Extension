@@ -1,13 +1,13 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
 import { Location } from "bc-minecraft-bedrock-types/lib/types";
 import { MinecraftData, Types } from "bc-minecraft-bedrock-vanilla-data";
-import { MolangSet } from "bc-minecraft-molang/lib/src/Molang";
-import { CompletionItemKind } from "vscode-languageserver-types";
+import { MolangSet } from "bc-minecraft-molang";
+import { CompletionItemKind } from "vscode-languageserver";
 import { Kinds } from "../../../../constants";
 import { GetPossibleBlockID } from "../../../../minecraft/commands";
 import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from '../../../context/context';
-import { CommandCompletionContext } from '../../context';
+import { Context } from "../../../context/context";
+import { CommandCompletionContext } from "../../context";
 import { IsEditingValue } from "../selectors/attribute-values";
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
@@ -84,7 +84,7 @@ function vanillaBlockToBlock(block: Types.BehaviorPack.Block | undefined): Behav
   return {
     id: block.id,
     location: Location.empty(),
-    molang: MolangSet.create(),
+    molang: new MolangSet(),
     states: states,
   };
 }

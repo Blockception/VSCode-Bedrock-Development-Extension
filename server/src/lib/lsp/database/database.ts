@@ -1,8 +1,7 @@
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
-import { WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, Location } from "vscode-languageserver-protocol";
+import { CancellationToken, Location, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Processor, References } from "../../util";
 import { InternalContext } from "../diagnostics/context";
 import { IDocumentManager } from "../documents/manager";
@@ -108,7 +107,7 @@ export class Database implements Partial<IService> {
     workDoneProgress?: WorkDoneProgressReporter
   ): BaseObject[] {
     const out: BaseObject[] = [];
-    const AddIfIDMatch = (item: BaseObject) => {
+    const addIfIDMatch = (item: BaseObject) => {
       if (item.id === id) out.push(item);
     };
 
@@ -124,58 +123,58 @@ export class Database implements Partial<IService> {
               if (anim === id) out.push(entity);
             });
           });
-          this.ProjectData.resourcePacks.animations.forEach(AddIfIDMatch);
-          this.ProjectData.resourcePacks.animation_controllers.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.animations.forEach(addIfIDMatch);
+          this.ProjectData.resourcePacks.animation_controllers.forEach(addIfIDMatch);
           break;
 
         case ParameterType.block:
-          this.ProjectData.behaviorPacks.blocks.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.blocks.forEach(addIfIDMatch);
           break;
 
         case ParameterType.entity:
-          this.ProjectData.behaviorPacks.entities.forEach(AddIfIDMatch);
-          this.ProjectData.resourcePacks.entities.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.entities.forEach(addIfIDMatch);
+          this.ProjectData.resourcePacks.entities.forEach(addIfIDMatch);
           break;
 
         case ParameterType.event:
           this.ProjectData.behaviorPacks.entities.forEach((entity) => {
-            entity.events.forEach((event) => {
+            entity.events.defined.forEach((event) => {
               if (event === id) out.push(entity);
             });
           });
           break;
 
         case ParameterType.function:
-          this.ProjectData.behaviorPacks.functions.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.functions.forEach(addIfIDMatch);
           break;
 
         case ParameterType.item:
-          this.ProjectData.behaviorPacks.items.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.items.forEach(addIfIDMatch);
           break;
 
         case ParameterType.objective:
-          this.ProjectData.general.objectives.forEach(AddIfIDMatch);
+          this.ProjectData.general.objectives.forEach(addIfIDMatch);
           break;
 
         case ParameterType.particle:
-          this.ProjectData.resourcePacks.particles.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.particles.forEach(addIfIDMatch);
           break;
 
         case ParameterType.sound:
-          this.ProjectData.resourcePacks.sounds.forEach(AddIfIDMatch);
+          this.ProjectData.resourcePacks.sounds.forEach(addIfIDMatch);
           break;
 
         case ParameterType.structure:
-          this.ProjectData.behaviorPacks.structures.forEach(AddIfIDMatch);
-          this.ProjectData.general.structures.forEach(AddIfIDMatch);
+          this.ProjectData.behaviorPacks.structures.forEach(addIfIDMatch);
+          this.ProjectData.general.structures.forEach(addIfIDMatch);
           break;
 
         case ParameterType.tag:
-          this.ProjectData.general.tags.forEach(AddIfIDMatch);
+          this.ProjectData.general.tags.forEach(addIfIDMatch);
           break;
 
         case ParameterType.tickingarea:
-          this.ProjectData.general.tickingAreas.forEach(AddIfIDMatch);
+          this.ProjectData.general.tickingAreas.forEach(addIfIDMatch);
           break;
       }
     }
