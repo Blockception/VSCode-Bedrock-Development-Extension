@@ -1,6 +1,6 @@
 import { Types } from "bc-minecraft-bedrock-types";
 import { DocumentLocation } from "bc-minecraft-bedrock-types/lib/types";
-import { Location } from "vscode-languageserver-types";
+import { Location } from "vscode-languageserver";
 import { IDocumentManager } from "../lsp/documents/manager";
 
 export namespace References {

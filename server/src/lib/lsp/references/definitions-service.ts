@@ -1,5 +1,4 @@
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, DefinitionParams, Location } from "vscode-languageserver-protocol";
+import { CancellationToken, Connection, DefinitionParams, Location, WorkDoneProgressReporter } from "vscode-languageserver";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";

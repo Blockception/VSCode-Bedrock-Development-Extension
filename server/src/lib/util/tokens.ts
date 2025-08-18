@@ -1,4 +1,4 @@
-import { CancellationToken, Emitter } from "vscode-languageserver-protocol";
+import { CancellationToken, Emitter } from "vscode-languageserver";
 
 export namespace Tokens {
   export function combine(first?: CancellationToken, second?: CancellationToken): CancellationToken {

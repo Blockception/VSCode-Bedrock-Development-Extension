@@ -1,11 +1,9 @@
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
   CompletionItem,
   CompletionList,
-  CompletionParams,
-  ResponseError
-} from "vscode-languageserver-protocol";
+  CompletionParams, Connection, ResponseError, WorkDoneProgressReporter
+} from "vscode-languageserver";
 import { ErrorCodes } from "../../constants";
 import { getFilename } from "../../util";
 import { Context } from "../context/context";

@@ -1,7 +1,7 @@
 import { DiagnoserContext } from "bc-minecraft-bedrock-diagnoser";
 import { MinecraftData, ProjectData } from "bc-minecraft-bedrock-project";
 import { MCIgnore, MCProject } from "bc-minecraft-project";
-import { Emitter } from "vscode-languageserver-protocol";
+import { Emitter } from "vscode-languageserver";
 import { Glob } from "../../files/glob";
 import { getExtension, Vscode } from "../../util";
 import { DataCache } from "../caches";

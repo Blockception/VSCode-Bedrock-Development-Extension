@@ -1,18 +1,18 @@
 import {
-  TextDocumentEdit,
-  CreateFile,
-  RenameFile,
-  DeleteFile,
-  WorkspaceEdit,
-  CreateFileOptions,
-  TextEdit,
-  OptionalVersionedTextDocumentIdentifier,
   ApplyWorkspaceEditResult,
+  CreateFile,
+  CreateFileOptions,
+  DeleteFile,
+  OptionalVersionedTextDocumentIdentifier,
+  Range,
+  RenameFile,
+  TextDocumentEdit,
+  TextEdit,
+  WorkspaceEdit,
 } from "vscode-languageserver";
-import { Range } from "vscode-languageserver-types";
+import { exists } from '../../io/io';
 import { Fs, Vscode } from "../../util";
 import { IExtensionContext } from "../extension";
-import { exists } from '../../io/io';
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];

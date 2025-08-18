@@ -1,5 +1,5 @@
 import { MolangData, MolangFunction } from "bc-minecraft-molang";
-import { Hover, Range } from "vscode-languageserver-protocol";
+import { Hover, Range } from "vscode-languageserver";
 import { TextRange } from "../../../minecraft/json";
 import { Character } from "../../../util";
 import { Context } from "../../context/context";

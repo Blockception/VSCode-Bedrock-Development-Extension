@@ -1,6 +1,6 @@
 import { ParameterType } from "bc-minecraft-bedrock-command";
 import { OffsetWord } from "bc-vscode-words";
-import { Location, Range } from "vscode-languageserver-protocol";
+import { Location, Range } from "vscode-languageserver";
 import { getCurrentElement } from "../../../minecraft/json/functions";
 import { IsMolang } from "../../../minecraft/molang/functions";
 import { References } from "../../../util";

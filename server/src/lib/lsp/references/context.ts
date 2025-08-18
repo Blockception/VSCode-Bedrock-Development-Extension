@@ -1,10 +1,9 @@
-import { WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
   PartialResultParams,
   TextDocumentPositionParams,
-  WorkDoneProgressParams,
-} from "vscode-languageserver-protocol";
+  WorkDoneProgressParams, WorkDoneProgressReporter
+} from "vscode-languageserver";
 import { TextDocument } from "../documents";
 
 export interface ReferenceContext extends TextDocumentPositionParams, WorkDoneProgressParams, PartialResultParams {

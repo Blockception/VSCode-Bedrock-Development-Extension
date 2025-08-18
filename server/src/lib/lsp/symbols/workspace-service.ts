@@ -1,9 +1,4 @@
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import {
-  CancellationToken,
-  SymbolInformation,
-  WorkspaceSymbolParams
-} from "vscode-languageserver-protocol";
+import { CancellationToken, Connection, SymbolInformation, WorkDoneProgressReporter, WorkspaceSymbolParams } from "vscode-languageserver";
 import { Kinds } from "../../constants";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
