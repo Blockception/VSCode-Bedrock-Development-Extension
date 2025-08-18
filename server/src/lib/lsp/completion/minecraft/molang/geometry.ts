@@ -1,6 +1,7 @@
 import { BehaviorPack, PackType, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 import { Kinds } from "../../../../constants";
+import { getIdentifier, getScopeDefined } from "../../../../minecraft/molang";
 import { Context } from "../../../context/context";
 import { CompletionContext } from "../../context";
 
@@ -31,11 +32,11 @@ export function provideResourcePackCompletion(context: Context<CompletionContext
     case ResourcePack.FileType.render_controller:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Models });
       context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
-        entity.molang.geometries.defined.forEach((geo) => {
-          const label = prefixed ? `Geometry.${geo}` : geo;
+        getScopeDefined(entity.molang, "geometry").forEach((geo) => {
+          const identifier = getIdentifier(geo, prefixed);
           builder.add({
-            label,
-            documentation: `The defined geomtry: ${geo}\nDeclared by: ${entity.id}`,
+            label: identifier,
+            documentation: `The defined geomtry: ${identifier}\nDeclared by: ${entity.id}`,
           });
         });
       });

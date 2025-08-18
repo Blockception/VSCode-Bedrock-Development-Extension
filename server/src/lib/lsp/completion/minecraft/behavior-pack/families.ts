@@ -1,3 +1,4 @@
+import { Defined } from "bc-minecraft-bedrock-project";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { Kinds } from "../../../../constants";
 import { GetPossibleEntityTypes } from "../../../../minecraft/commands";
@@ -47,14 +48,21 @@ export function provideCompletionTest(context: Context<CommandCompletionContext>
       const entity = context.database.ProjectData.behaviorPacks.entities.get(type);
       if (entity) convertTestEntity(entity, builder);
 
-      const vanilla_entity = MinecraftData.ResourcePack.getEntity(type, edu);
+      const vanilla_entity = MinecraftData.BehaviorPack.getEntity(type, edu);
       if (vanilla_entity) convertTestEntity(vanilla_entity, builder);
     });
   }
 }
 
-function convertTestEntity(entity: { families?: string[]; id: string }, receiver: CompletionBuilder) {
-  entity.families?.forEach((family) => {
+interface Families {
+  id: string;
+  families: Defined | string[];
+}
+
+function convertTestEntity(entity: Families, receiver: CompletionBuilder) {
+  const families = Array.isArray(entity.families) ? entity.families : entity.families.defined;
+
+  families.forEach((family) => {
     receiver.add({
       label: family,
       documentation: `Test for the family: ${family}\n\rForm ${entity.id}`,

@@ -1,10 +1,11 @@
 import { PackType } from "bc-minecraft-bedrock-project";
-import { Data, Defined } from "bc-minecraft-molang";
-import { CompletionItemKind } from "vscode-languageserver-types";
+import { Data, ResourceReferenceNode, VariableNode } from "bc-minecraft-molang";
+import { CompletionItemKind } from "vscode-languageserver";
+import { getIdentifier, getScopeDefined } from "../../../../minecraft/molang";
 import { GetDataSet } from "../../../../minecraft/molang/getdataset";
-import { Context } from '../../../context/context';
+import { Context } from "../../../context/context";
 import { CompletionBuilder } from "../../builder/builder";
-import { CompletionContext } from '../../context';
+import { CompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const packType = PackType.detect(context.document.uri);
@@ -18,7 +19,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 
     case PackType.resource_pack:
       context.database.ProjectData.resourcePacks.entities.forEach((entity) =>
-        GenerateDU(entity.molang.temps, context.builder, entity.id)
+        generateDU(getScopeDefined(entity.molang, "temp", "t"), context.builder, entity.id)
       );
   }
 }
@@ -35,16 +36,17 @@ function Generate(
   });
 }
 
-function GenerateDU(
-  data: Defined<string>,
+function generateDU(
+  data: (ResourceReferenceNode | VariableNode)[],
   builder: CompletionBuilder,
   ownerid: string,
   kinds: CompletionItemKind = CompletionItemKind.Variable
 ): void {
-  data.defined.forEach((item) => {
+  data.forEach((item) => {
+    const identifier = getIdentifier(item);
     builder.add({
-      label: item,
-      documentation: `The molang temp variable: ${item}\nDeclared by '${ownerid}'`,
+      label: identifier,
+      documentation: `The molang temp variable: ${identifier}\nDeclared by '${ownerid}'`,
       kind: kinds,
     });
   });
