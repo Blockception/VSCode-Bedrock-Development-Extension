@@ -20,7 +20,7 @@ export namespace References {
       const document = documents.get(item.location.uri);
       if (!document) return;
 
-      const range = DocumentLocation.ToRange(item.location.position, document, item.id.length);
+      const range = DocumentLocation.toRange(item.location.position, document, item.id.length);
       return Location.create(document.uri, range);
     }
 
