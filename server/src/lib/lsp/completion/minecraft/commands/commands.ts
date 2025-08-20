@@ -13,12 +13,12 @@ import { CompletionContext } from "../../context";
 export function provideCompletion(context: Context<CompletionContext>): void {
   const edu = IsEducationEnabled(context.document);
 
-  SMap.forEach(CommandData.Vanilla, (data) => getCompletion(data, context.builder));
-  if (edu) SMap.forEach(CommandData.Edu, (data) => getCompletion(data, context.builder));
+  Object.values(CommandData.Vanilla, (data) => getCompletion(data, context.builder));
+  if (edu) Object.values(CommandData.Edu, (data) => getCompletion(data, context.builder));
 }
 
 export function provideExecuteSubcommandCompletion(context: Context<CompletionContext>): void {
-  SMap.forEach(CommandData.ExecuteSubcommands, (data) => getCompletion(data, context.builder));
+  Object.values(CommandData.ExecuteSubcommands, (data) => getCompletion(data, context.builder));
 }
 
 /**

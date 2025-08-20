@@ -1,7 +1,7 @@
 import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
 import { DocumentLocation, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/types";
 import { Defined, Using } from "bc-minecraft-molang";
-import { MolangFullSet, MolangSetOptional } from "bc-minecraft-molang/lib/src/Molang";
+import { MolangSet, MolangSet } from "bc-minecraft-molang/lib/src/Molang";
 import { CancellationToken } from "vscode-languageserver-protocol";
 import { Location } from "vscode-languageserver-types";
 import { IDocumentManager } from "../documents/manager";
@@ -92,9 +92,9 @@ export class ReferenceBuilder {
     });
   }
 
-  inMolang(holder: Base, id: string, molang: MolangSetOptional | undefined) {
+  inMolang(holder: Base, id: string, molang: MolangSet | undefined) {
     if (this.token?.isCancellationRequested || molang === undefined) return;
-    const upped = MolangFullSet.upgrade(molang);
+    const upped = MolangSet.upgrade(molang);
 
     this.inDefinedOrUsage(holder, id, upped.contexts);
     this.inDefinedOrUsage(holder, id, upped.geometries);
