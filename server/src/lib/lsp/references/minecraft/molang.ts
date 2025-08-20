@@ -49,7 +49,7 @@ export async function provideReferences(context: Context<ReferenceContext>, text
 function GetVariables(context: Context<any>, variable: string): Location[] {
   const { database, documents } = context;
   const locations: BaseObject[] = [];
-  const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
+  const map = (item: BaseObject & MolangCarrier) => {
     if (item.molang.variables.defined.includes(variable)) locations.push(item);
   };
 
@@ -69,7 +69,7 @@ function GetVariables(context: Context<any>, variable: string): Location[] {
 function GetTemp(context: Context<any>, variable: string): Location[] {
   const { database, documents } = context;
   const locations: BaseObject[] = [];
-  const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
+  const map = (item: BaseObject & MolangCarrier) => {
     if (item.molang.temps.defined.includes(variable)) locations.push(item);
   };
 

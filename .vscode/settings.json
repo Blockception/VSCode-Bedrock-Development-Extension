@@ -1,11 +1,16 @@
 {
   "editor.insertSpaces": false,
-  "typescript.preferences.quoteStyle": "single",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
   "npm.packageManager": "npm",
-  "prettier.printWidth": 150,
+
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.run": "onSave",
+  "eslint.lintTask.enable": true,
+
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
 
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -17,9 +22,5 @@
 
   "[markdown]": {
     "editor.wordWrap": "off"
-  },
-
-  "eslint.workingDirectories": [{ "mode": "auto" }],
-  "eslint.run": "onSave",
-  "eslint.lintTask.enable": true
+  }
 }
