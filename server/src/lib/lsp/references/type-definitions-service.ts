@@ -1,6 +1,5 @@
 import { Languages } from "@blockception/shared";
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CancellationToken, Definition, DefinitionLink, TypeDefinitionParams } from "vscode-languageserver-protocol";
+import { CancellationToken, Connection, Definition, DefinitionLink, TypeDefinitionParams, WorkDoneProgressReporter } from "vscode-languageserver";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";

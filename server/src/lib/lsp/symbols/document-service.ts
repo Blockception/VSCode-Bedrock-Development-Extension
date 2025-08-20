@@ -1,12 +1,13 @@
 import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/project/general/types";
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
+  Connection,
   DocumentSymbol,
   DocumentSymbolParams,
   SymbolInformation,
-  SymbolKind
-} from "vscode-languageserver-protocol";
+  SymbolKind,
+  WorkDoneProgressReporter,
+} from "vscode-languageserver";
 import { Kinds } from "../../constants";
 import { getFilename, Vscode } from "../../util";
 import { ExtensionContext } from "../extension";

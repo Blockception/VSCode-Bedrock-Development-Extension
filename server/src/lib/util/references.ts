@@ -1,6 +1,6 @@
 import { Types } from "bc-minecraft-bedrock-types";
 import { DocumentLocation } from "bc-minecraft-bedrock-types/lib/types";
-import { Location } from "vscode-languageserver-types";
+import { Location } from "vscode-languageserver";
 import { IDocumentManager } from "../lsp/documents/manager";
 
 export namespace References {
@@ -20,7 +20,7 @@ export namespace References {
       const document = documents.get(item.location.uri);
       if (!document) return;
 
-      const range = DocumentLocation.ToRange(item.location.position, document, item.id.length);
+      const range = DocumentLocation.toRange(item.location.position, document, item.id.length);
       return Location.create(document.uri, range);
     }
 

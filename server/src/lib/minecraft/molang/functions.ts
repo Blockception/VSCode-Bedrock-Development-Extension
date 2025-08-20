@@ -1,7 +1,9 @@
-import { CommandData } from 'bc-minecraft-bedrock-command';
+import { CommandData } from "bc-minecraft-bedrock-command";
+import { MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from "bc-minecraft-molang";
 import { Character } from "../../util";
 
-const MolangRegexp = /\b((query|math|variable|texture|temp|geometry|material|array|context|c|q|v|t)\.[A-Za-z_0-9]+|->)\b/im;
+const MolangRegexp =
+  /\b((query|math|variable|texture|temp|geometry|material|array|context|c|q|v|t)\.[A-Za-z_0-9]+|->)\b/im;
 // const MolangCommandRegexp = /^\/[a-z]+ /;
 
 /**
@@ -17,7 +19,7 @@ export function IsMolang(text: string): boolean {
   if (index < 0) index = text.length;
   let word = text.substring(0, index);
 
-  if (word.startsWith('/')) {
+  if (word.startsWith("/")) {
     word = word.substring(1, word.length);
 
     //command test
@@ -54,4 +56,35 @@ export function getPreviousWord(text: string, cursor: number): string {
   }
 
   return text.substring(Index + 1, endIndex);
+}
+
+export function isDefined(set: MolangSet | undefined, id: string) {
+  if (set === undefined) return false;
+
+  for (const item of set.assigned) {
+    const identifier = `${item.scope}.${item.names.join(".")}`;
+    if (identifier === id) return true;
+  }
+
+  return false;
+}
+
+export function getIdentifier(
+  item: { scope: string; names: string[] | [string] | [string, string] },
+  prefixed: boolean = true
+): string {
+  if (prefixed) {
+    return `${item.scope}.${item.names.join(".")}`;
+  }
+  return item.names.join(".");
+}
+
+export function getScopeDefined(set: MolangSet, ...scope: Array<VariableScope | ResourceScope>) {
+  const result: Array<ResourceReferenceNode | VariableNode> = [];
+
+  set.assigned.forEach((v) => {
+    if (scope.includes(v.scope)) result.push(v);
+  });
+
+  return result;
 }

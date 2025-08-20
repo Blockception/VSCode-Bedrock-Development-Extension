@@ -1,13 +1,16 @@
-import { MolangCarrier } from "bc-minecraft-bedrock-project";
 import { BaseObject } from "bc-minecraft-bedrock-types/lib/types/base-object";
-import { MolangSet } from "bc-minecraft-molang/lib/src/Molang/MolangSet";
+import { MolangSet } from "bc-minecraft-molang";
 import { OffsetWord } from "bc-vscode-words";
-import { Location } from "vscode-languageserver-protocol";
+import { Location } from "vscode-languageserver";
+import { isDefined } from "../../../minecraft/molang";
 import { References } from "../../../util";
 import { Context } from "../../context/context";
 import { ReferenceContext } from "../context";
 
-export async function provideReferences(context: Context<ReferenceContext>, text: OffsetWord): Promise<Location[] | undefined> {
+export async function provideReferences(
+  context: Context<ReferenceContext>,
+  text: OffsetWord
+): Promise<Location[] | undefined> {
   const { database } = context;
 
   const index = text.text.indexOf(".");
@@ -49,8 +52,8 @@ export async function provideReferences(context: Context<ReferenceContext>, text
 function GetVariables(context: Context<any>, variable: string): Location[] {
   const { database, documents } = context;
   const locations: BaseObject[] = [];
-  const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
-    if (item.molang.variables.defined.includes(variable)) locations.push(item);
+  const map = (item: BaseObject & { molang: MolangSet }) => {
+    if (isDefined(item.molang, variable)) locations.push(item);
   };
 
   database.ProjectData.behaviorPacks.animation_controllers.forEach(map);
@@ -69,8 +72,8 @@ function GetVariables(context: Context<any>, variable: string): Location[] {
 function GetTemp(context: Context<any>, variable: string): Location[] {
   const { database, documents } = context;
   const locations: BaseObject[] = [];
-  const map = (item: BaseObject & MolangCarrier<MolangSet>) => {
-    if (item.molang.temps.defined.includes(variable)) locations.push(item);
+  const map = (item: BaseObject & { molang: MolangSet }) => {
+    if (isDefined(item.molang, variable)) locations.push(item);
   };
 
   database.ProjectData.behaviorPacks.animation_controllers.forEach(map);

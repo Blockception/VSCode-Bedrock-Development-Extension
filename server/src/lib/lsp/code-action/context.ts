@@ -1,5 +1,4 @@
-import { WorkDoneProgressReporter } from 'vscode-languageserver';
-import { CancellationToken, CodeActionParams } from 'vscode-languageserver-protocol';
+import { CancellationToken, CodeActionParams, WorkDoneProgressReporter } from 'vscode-languageserver';
 import { TextDocument } from '../documents/text-document';
 
 export interface CodeActionContext extends Pick<CodeActionParams, "context" | "range"> {
