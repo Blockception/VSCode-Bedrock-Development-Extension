@@ -108,7 +108,7 @@ export class ReferenceBuilder {
     const doc = this.documents.get(holder.location.uri);
     if (doc === undefined) return;
 
-    const r = DocumentLocation.ToRange(item, doc, item.length);
+    const r = DocumentLocation.toRange(item, doc, item.length);
     this.locations.push(Location.create(doc.uri, r));
   }
 
@@ -116,7 +116,7 @@ export class ReferenceBuilder {
     const doc = this.documents.get(holder.location.uri);
     if (doc === undefined) return;
 
-    const r = DocumentLocation.ToRange(item, doc, length);
+    const r = DocumentLocation.toRange(item, doc, length);
     this.locations.push(Location.create(doc.uri, r));
   }
 }
