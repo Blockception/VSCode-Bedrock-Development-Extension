@@ -1,7 +1,7 @@
 import { ResourcePack } from "bc-minecraft-bedrock-project";
 import { Identifiable } from "bc-minecraft-bedrock-types/lib/types/identifiable";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { CompletionItemKind } from "vscode-languageserver-types";
+import { CompletionItemKind } from "vscode-languageserver";
 import { Kinds } from "../../../../constants";
 import { MinecraftFormat } from "../../../../minecraft/format";
 import { IsEducationEnabled } from "../../../../project/attributes";

@@ -1,6 +1,6 @@
 import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/types";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { CompletionItemKind, MarkupContent } from "vscode-languageserver-types";
+import { CompletionItemKind, MarkupContent } from "vscode-languageserver";
 import { TemplateCommands } from "../../../commands/commands/templates";
 import { Context } from "../../../context/context";
 import { CompletionContext } from "../../context";
@@ -123,7 +123,7 @@ function provideDefinitions(context: Context<CompletionContext>): void {
 
       case "family":
         return projectData.behaviorPacks.entities.forEach((entity) =>
-          entity.families.forEach((family) => add(context, family))
+          entity.families.defined.forEach((family) => add(context, family))
         );
 
       case "function":

@@ -1,11 +1,10 @@
-import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
+import { BehaviorPack, Defined, ResourcePack, Using } from "bc-minecraft-bedrock-project";
+import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/project/general/types";
 import { DocumentLocation, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/types";
-import { Defined, Using } from "bc-minecraft-molang";
-import { MolangFullSet, MolangSetOptional } from "bc-minecraft-molang/lib/src/Molang";
-import { CancellationToken } from "vscode-languageserver-protocol";
-import { Location } from "vscode-languageserver-types";
+import { MolangSet } from "bc-minecraft-molang";
+import { CancellationToken, Location } from "vscode-languageserver";
+import { getIdentifier } from "../../minecraft/molang";
 import { IDocumentManager } from "../documents/manager";
-import { GeneralInfo } from 'bc-minecraft-bedrock-project/lib/src/project/general/types';
 
 type Base = Identifiable & Locatable;
 type Carriers = Base & Partial<Items>;
@@ -21,7 +20,6 @@ type Items = BehaviorPack.Animation.Animation &
   ResourcePack.Animation.Animation &
   ResourcePack.AnimationController.AnimationController &
   ResourcePack.Attachable.Attachable &
-  ResourcePack.Block.Block &
   ResourcePack.Entity.Entity &
   ResourcePack.Fog.Fog &
   ResourcePack.Material.Material &
@@ -51,16 +49,15 @@ export class ReferenceBuilder {
   }
 
   findReference<T extends Carriers>(item: T, id: string) {
-    console.log(item.id);
     if (item.id === id) {
       this.locations.push(item);
     }
 
-    this.inArrays(item, id, item.events);
-    this.inArrays(item, id, item.families);
-    this.inArrays(item, id, item.groups);
-    this.inArrays(item, id, item.bones);
-    this.inArrays(item, id, item.events);
+    this.inDefinedOrUsage(item, id, item.events);
+    this.inDefinedOrUsage(item, id, item.families);
+    this.inDefinedOrUsage(item, id, item.groups);
+    this.inDefinedOrUsage(item, id, item.bones);
+    this.inDefinedOrUsage(item, id, item.events);
     this.inDefinedOrUsage(item, id, item.animations);
     this.inDefinedOrUsage(item, id, item.particles);
     this.inDefinedOrUsage(item, id, item.sounds);
@@ -69,14 +66,14 @@ export class ReferenceBuilder {
     this.inNamed(item, id, item.states);
   }
 
-  inDefinedOrUsage(holder: Base, id: string, items: Partial<Defined<string> | Using<string>> | undefined) {
+  inDefinedOrUsage(holder: Base, id: string, items: Partial<Defined | Using> | undefined) {
     if (this.token?.isCancellationRequested) return;
 
-    if (this.options.defined && Defined.is<string>(items)) this.inArrays(holder, id, items.defined);
-    if (this.options.usage && Using.is<string>(items)) this.inArrays(holder, id, items.using);
+    if (this.options.defined && Defined.is(items)) this.inSet(holder, id, items.defined);
+    if (this.options.usage && Using.is(items)) this.inSet(holder, id, items.using);
   }
 
-  inArrays(holder: Base, id: string, items: string[] | undefined) {
+  inSet(holder: Base, id: string, items: Set<string> | undefined) {
     if (this.token?.isCancellationRequested) return;
 
     items?.forEach((i) => {
@@ -87,29 +84,39 @@ export class ReferenceBuilder {
   inNamed(holder: Base, id: string, items: { name: string }[] | undefined) {
     if (this.token?.isCancellationRequested) return;
 
-    items?.forEach((o) => {
-      if (o.name === id) return this.add(holder, o.name);
-    });
+    items?.filter((o) => o.name === id).forEach((o) => this.add(holder, o.name));
   }
 
-  inMolang(holder: Base, id: string, molang: MolangSetOptional | undefined) {
+  inMolang(holder: Base, id: string, molang: MolangSet | undefined) {
     if (this.token?.isCancellationRequested || molang === undefined) return;
-    const upped = MolangFullSet.upgrade(molang);
 
-    this.inDefinedOrUsage(holder, id, upped.contexts);
-    this.inDefinedOrUsage(holder, id, upped.geometries);
-    this.inDefinedOrUsage(holder, id, upped.materials);
-    this.inDefinedOrUsage(holder, id, upped.queries);
-    this.inDefinedOrUsage(holder, id, upped.temps);
-    this.inDefinedOrUsage(holder, id, upped.textures);
-    this.inDefinedOrUsage(holder, id, upped.variables);
+    molang.using.forEach((i) => this.checkMolang(holder, id, i));
+    molang.assigned.forEach((i) => this.checkMolang(holder, id, i));
+    molang.functions.forEach((i) => this.checkMolang(holder, id, i));
+  }
+
+  private checkMolang(holder: Base, id: string, item: { scope: string; names: string[]; position: number }) {
+    if (!id.startsWith(item.scope)) return;
+
+    const identifier = getIdentifier(item);
+    if (identifier === id) {
+      this.addItem(holder, item.position, identifier.length);
+    }
   }
 
   add(holder: Base, item: string): void {
     const doc = this.documents.get(holder.location.uri);
     if (doc === undefined) return;
 
-    const r = DocumentLocation.ToRange(item, doc, item.length);
+    const r = DocumentLocation.toRange(item, doc, item.length);
+    this.locations.push(Location.create(doc.uri, r));
+  }
+
+  addItem(holder: Base, item: DocumentLocation, length: number): void {
+    const doc = this.documents.get(holder.location.uri);
+    if (doc === undefined) return;
+
+    const r = DocumentLocation.toRange(item, doc, length);
     this.locations.push(Location.create(doc.uri, r));
   }
 }

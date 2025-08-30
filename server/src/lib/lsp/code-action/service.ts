@@ -1,11 +1,9 @@
-import { Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
   CancellationToken,
   CodeAction,
   CodeActionParams,
-  Command,
-  Diagnostic
-} from "vscode-languageserver-protocol";
+  Command, Connection, Diagnostic, WorkDoneProgressReporter
+} from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";

@@ -1,6 +1,6 @@
 import { Command, ParameterType } from "bc-minecraft-bedrock-command";
 import { OffsetWord } from "bc-vscode-words";
-import { Location } from "vscode-languageserver-types";
+import { Location } from "vscode-languageserver";
 import { IsEducationEnabled } from "../../../project/attributes";
 import { References } from "../../../util";
 import { Context } from "../../context/context";

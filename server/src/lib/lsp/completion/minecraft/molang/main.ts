@@ -1,6 +1,6 @@
 import { Languages } from "@blockception/shared";
 import { PackType } from "bc-minecraft-bedrock-project";
-import { CompletionItemKind } from "vscode-languageserver-types";
+import { CompletionItemKind } from "vscode-languageserver";
 import { getPreviousWord, IsMolang } from "../../../../minecraft/molang/functions";
 import { Context } from "../../../context/context";
 import { CompletionContext } from "../../context";

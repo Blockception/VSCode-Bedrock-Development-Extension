@@ -1,6 +1,6 @@
+import { Defined } from 'bc-minecraft-bedrock-project';
 import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/types";
-import { CancellationToken, WorkDoneProgressReporter } from "vscode-languageserver";
-import { CompletionItem, CompletionItemKind } from "vscode-languageserver-types";
+import { CancellationToken, CompletionItem, CompletionItemKind, WorkDoneProgressReporter } from "vscode-languageserver";
 
 export type GenerateFunction<T> = (item: T) => string;
 
@@ -40,16 +40,16 @@ export interface CompletionBuilder {
    * @param query The query to filter the dataset
    */
   generate<T extends Identifiable | string>(
-    dataset: IForEach<T> | undefined,
+    dataset: IForEach<T> | Defined | undefined,
     generatefn: GenerateFunction<T>
   ): CompletionItem[];
   generate<T extends Identifiable | string>(
-    dataset: IForEach<T> | undefined,
+    dataset: IForEach<T> | Defined | undefined,
     generatefn: GenerateFunction<T>,
     kind: CompletionItemKind
   ): CompletionItem[];
   generate<T extends Identifiable | string>(
-    dataset: IForEach<T> | undefined,
+    dataset: IForEach<T> | Defined | undefined,
     generatefn: GenerateFunction<T>,
     kind: CompletionItemKind | undefined,
     query: string | undefined
