@@ -19,17 +19,17 @@ export function generateSignature(
   item: MolangFunction,
   parameters: OffsetWord[]
 ): SignatureInformation {
-  const out: SignatureInformation = {
+  const out = {
     label: `${scope}.${item.id}`,
     activeParameter: parameters.length,
     documentation: item.documentation ?? `${scope}.${item.id}`,
-    parameters: [],
+    parameters: [] as SignatureInformation["parameters"],
   };
 
   if (parameters.length > 0) {
     const last = parameters[parameters.length - 1];
     if (Offset.isAfter(last, cursor)) {
-      out.activeParameter = out.activeParameter!! + 1;
+      out.activeParameter = out.activeParameter + 1;
     }
   }
 
