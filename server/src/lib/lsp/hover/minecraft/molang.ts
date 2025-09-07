@@ -16,7 +16,12 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
   return provideHoverAt(context, line, range, offset);
 }
 
-export function provideHoverAt(context: Pick<Context<HoverContext>, "document">, currentText: string, textRange: TextRange, cursor: number): Hover | undefined {
+export function provideHoverAt(
+  context: Pick<Context<HoverContext>, "document">,
+  currentText: string,
+  textRange: TextRange,
+  cursor: number
+): Hover | undefined {
   let startIndex = cursor - textRange.start;
   let dotIndex = -1;
 
@@ -101,8 +106,8 @@ export function provideHoverSpecific(
 }
 
 function findGen(data: string, range: Range | undefined = undefined, items: MolangFunction[]): Hover | undefined {
-  for (let I = 0; I < items.length; I++) {
-    const item = items[I];
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
 
     if (item.id === data && item.documentation) {
       let doc = `${item.id}  \n\n${item.documentation}`;
@@ -113,8 +118,18 @@ function findGen(data: string, range: Range | undefined = undefined, items: Mola
       if (item.deprecated) {
         doc += `\n\n**Deprecated**: ${item.deprecated}`;
       }
+      let syntax = item.id;
+      if (item.parameters) {
+        syntax += `(${item.parameters.map(i => `<${i.id}>`).join(', ')})`
+      }
 
-      return { contents: { value: doc, kind: "markdown" }, range: range };
+      return {
+        contents: {
+          value: `${syntax}\n---\n${doc}`,
+          kind: "markdown",
+        },
+        range: range,
+      };
     }
   }
 
