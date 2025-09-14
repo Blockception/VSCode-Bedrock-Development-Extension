@@ -116,11 +116,15 @@ function findGen(data: string, range: Range | undefined = undefined, items: Mola
         doc += `\n\n**Parameters**:\n\n${item.parameters.map((p) => `- ${p.id}\n`).join("")}`;
       }
       if (item.deprecated) {
-        doc += `\n\n**Deprecated**: ${item.deprecated}`;
+        if (item.deprecated.startsWith("query") || item.deprecated.startsWith("math")) {
+          doc = "\n\n**Deprecated**: replace with: " + item.deprecated;
+        } else {
+          doc = "\n\n**Deprecated**: " + item.deprecated;
+        }
       }
       let syntax = item.id;
       if (item.parameters) {
-        syntax += `(${item.parameters.map(i => `<${i.id}>`).join(', ')})`
+        syntax += `(${item.parameters.map((i) => `<${i.id}>`).join(", ")})`;
       }
 
       return {

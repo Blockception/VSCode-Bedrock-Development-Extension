@@ -9,7 +9,14 @@ export function generateMolangFunction(
   kinds: CompletionItemKind = CompletionItemKind.Function
 ): void {
   let syntax = data.id;
-  let doc = data.deprecated ? data.deprecated : data.documentation ?? `The molang query: ${data.id}`;
+  let doc = data.documentation ?? `The molang query: ${data.id}`;
+  if (data.deprecated) {
+    if (data.deprecated.startsWith("query") || data.deprecated.startsWith("math")) {
+      doc = "deprecated: replace with: " + data.deprecated;
+    } else {
+      doc = "deprecated: " + data.deprecated;
+    }
+  }
 
   if (data.parameters && data.parameters.length > 0) {
     syntax += "(" + data.parameters.map((p) => p.id).join(", ") + ")";
