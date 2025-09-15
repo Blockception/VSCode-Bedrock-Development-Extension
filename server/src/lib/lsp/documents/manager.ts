@@ -1,10 +1,4 @@
-import {
-  CancellationToken,
-  Connection,
-  TextDocuments,
-  TextDocumentSyncKind
-} from "vscode-languageserver";
-import { FileOperationFilter } from "vscode-languageserver-protocol/lib/common/protocol.fileOperations";
+import { CancellationToken, Connection, TextDocuments, TextDocumentSyncKind } from "vscode-languageserver";
 import { URI } from "vscode-uri";
 import { Processor } from "../../util";
 import { ExtensionContext } from "../extension";
@@ -61,7 +55,7 @@ export class DocumentManager
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    const filters: FileOperationFilter[] = [
+    const filters = [
       { pattern: { glob: "**/*.{mcfunction}", options: { ignoreCase: true } } },
       { pattern: { glob: "**/*.{json,jsonc}", options: { ignoreCase: true } } },
       { pattern: { glob: "**/*.{.mcignore,.mcattributes,.mcdefinitions}", options: { ignoreCase: true } } },

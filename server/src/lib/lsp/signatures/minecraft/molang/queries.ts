@@ -1,59 +1,23 @@
-import { MolangData, MolangFunction } from "bc-minecraft-molang";
-import { SignatureHelp, SignatureInformation } from "vscode-languageserver";
-import { SignatureCarrier } from "../../carrier";
+import { MolangData } from "bc-minecraft-molang";
+import { OffsetWord } from "bc-vscode-words";
+import { SignatureHelp } from "vscode-languageserver";
+import { generateSignatures } from "./general";
 
 /**
  *
  * @param fn
  * @param doc
  */
-export function provideSignature(fn: string | undefined): SignatureHelp | undefined {
+export function provideSignature(fn: string | undefined, cursor: number, parameters: OffsetWord[]): SignatureHelp | undefined {
   if (!fn) {
     return QuerySignature;
   }
 
-  const sign: SignatureHelp = {
+  return {
     activeParameter: 1,
     activeSignature: 0,
-    signatures: [],
+    signatures: generateSignatures("query", cursor, MolangData.General.Queries, parameters, fn),
   };
-
-  GenerateItems(MolangData.General.Queries, fn, sign.signatures);
-
-  return sign;
-}
-
-function GenerateItems(items: MolangFunction[], query: string, receiver: SignatureInformation[]) {
-  for (let I = 0; I < items.length; I++) {
-    const item = items[I];
-    if (item.id === query) {
-      receiver.push(SignatureCarrier.get(items[I], GenerateItem));
-    }
-  }
-}
-
-function GenerateItem(item: MolangFunction): SignatureInformation {
-  const out = {
-    label: item.id,
-    activeParameter: 0,
-    documentation: item.documentation ?? "query",
-    parameters: [
-      { label: "query", documentation: "query" },
-      { label: item.id, documentation: item.documentation },
-    ],
-  };
-
-  if (item.parameters) {
-    out.parameters[1].label += "(";
-
-    out.parameters = out.parameters.concat(
-      item.parameters.map((p) => {
-        return { label: p.id, documentation: p.documentation };
-      })
-    );
-  }
-
-  return out;
 }
 
 const QuerySignature: SignatureHelp = {

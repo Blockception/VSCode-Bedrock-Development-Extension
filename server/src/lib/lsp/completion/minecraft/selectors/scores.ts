@@ -13,7 +13,7 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
     return Objectives.provideCompletion(context);
   }
 
-  if (Offset.IsWithin(selector, pos) || charBefore === "=") {
+  if (Offset.isWithin(selector, pos) || charBefore === "=") {
     return provideRange(context);
   }
 

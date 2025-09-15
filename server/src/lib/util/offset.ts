@@ -9,8 +9,17 @@ export namespace Offset {
    * @param word
    * @param pos
    */
-  export function IsWithin(word: OffsetWord, pos: number): boolean {
+  export function isWithin(word: OffsetWord, pos: number): boolean {
     return pos >= word.offset && pos < word.offset + word.text.length;
+  }
+
+  /**
+   *
+   * @param word
+   * @param pos
+   */
+  export function isAfter(word: OffsetWord, pos: number): boolean {
+    return pos >= word.offset + word.text.length;
   }
 
   export function charAt(word: OffsetWord, pos: number): string {
