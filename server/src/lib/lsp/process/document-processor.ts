@@ -1,9 +1,8 @@
-import { Connection, TextDocumentChangeEvent } from "vscode-languageserver";
 import {
-  CreateFilesParams,
+  Connection, CreateFilesParams,
   DeleteFilesParams,
-  RenameFilesParams
-} from "vscode-languageserver-protocol";
+  RenameFilesParams, TextDocumentChangeEvent
+} from "vscode-languageserver";
 import { Glob } from "../../files/glob";
 import { DiagnoserService } from "../diagnostics/service";
 import { ContentType } from "../documents/manager";

@@ -1,9 +1,9 @@
 import { Data } from "bc-minecraft-molang";
-import { CompletionItemKind } from "vscode-languageserver-types";
+import { CompletionItemKind } from "vscode-languageserver";
 import { GetDataSet } from "../../../../minecraft/molang/getdataset";
-import { Context } from '../../../context/context';
+import { Context } from "../../../context/context";
 import { CompletionBuilder } from "../../builder/builder";
-import { CompletionContext } from '../../context';
+import { CompletionContext } from "../../context";
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const data = GetDataSet(context.document.uri);

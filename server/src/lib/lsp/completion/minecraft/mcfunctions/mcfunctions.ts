@@ -1,5 +1,5 @@
 import { Command } from "bc-minecraft-bedrock-command";
-import { CompletionItemKind } from "vscode-languageserver-types";
+import { CompletionItemKind } from "vscode-languageserver";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Context } from "../../../context/context";
 import { CommandCompletionContext, CompletionContext } from "../../context";

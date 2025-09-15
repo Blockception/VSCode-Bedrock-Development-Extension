@@ -1,5 +1,4 @@
 import { CommandData, CommandInfo } from "bc-minecraft-bedrock-command";
-import { SMap } from "bc-minecraft-bedrock-project";
 import { Kinds } from "../../../../constants";
 import { IsEducationEnabled } from "../../../../project/attributes";
 import { Context } from "../../../context/context";
@@ -13,12 +12,12 @@ import { CompletionContext } from "../../context";
 export function provideCompletion(context: Context<CompletionContext>): void {
   const edu = IsEducationEnabled(context.document);
 
-  SMap.forEach(CommandData.Vanilla, (data) => getCompletion(data, context.builder));
-  if (edu) SMap.forEach(CommandData.Edu, (data) => getCompletion(data, context.builder));
+  Object.values(CommandData.Vanilla).forEach((data) => getCompletion(data, context.builder));
+  if (edu) Object.values(CommandData.Edu).forEach((data) => getCompletion(data, context.builder));
 }
 
 export function provideExecuteSubcommandCompletion(context: Context<CompletionContext>): void {
-  SMap.forEach(CommandData.ExecuteSubcommands, (data) => getCompletion(data, context.builder));
+  Object.values(CommandData.ExecuteSubcommands).forEach((data) => getCompletion(data, context.builder));
 }
 
 /**

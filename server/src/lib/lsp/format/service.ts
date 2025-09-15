@@ -1,12 +1,10 @@
 import { Languages } from "@blockception/shared";
-import { BulkRegistration, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
 import {
-  CancellationToken,
-  DocumentFormattingParams,
+  BulkRegistration, CancellationToken, Connection, DocumentFormattingParams,
   DocumentFormattingRequest,
   DocumentRangeFormattingParams,
-  TextEdit,
-} from "vscode-languageserver-protocol";
+  TextEdit, WorkDoneProgressReporter
+} from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";

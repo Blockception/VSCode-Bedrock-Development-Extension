@@ -8,7 +8,7 @@ describe("Offset", () => {
     expect(word.offset).toEqual(0);
 
     const test = (value: number, actual: boolean) => {
-      expect(Offset.IsWithin(word, value)).toEqual(actual);
+      expect(Offset.isWithin(word, value)).toEqual(actual);
     };
 
     test(0, true);

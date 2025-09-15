@@ -1,12 +1,11 @@
 import { Languages } from "@blockception/shared";
-import { BulkRegistration, Connection } from "vscode-languageserver";
 import {
-  Range,
+  BulkRegistration, Connection, Range,
   SemanticTokensParams,
   SemanticTokensRangeParams,
   SemanticTokensRegistrationType,
   SemanticTokens as VSSemanticsTokens
-} from "vscode-languageserver-protocol";
+} from "vscode-languageserver";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";
 import { BaseService } from "../services/base";

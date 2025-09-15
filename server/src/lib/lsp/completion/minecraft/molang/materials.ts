@@ -1,6 +1,7 @@
 import { BehaviorPack, PackType, ResourcePack } from "bc-minecraft-bedrock-project";
 import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 import { Kinds } from "../../../../constants";
+import { getIdentifier, getScopeDefined } from "../../../../minecraft/molang";
 import { Context } from "../../../context/context";
 import { CompletionContext } from "../../context";
 
@@ -31,8 +32,8 @@ export function provideResourcePackCompletion(context: Context<CompletionContext
     case ResourcePack.FileType.render_controller:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Materials });
       context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
-        entity.molang.materials.defined.forEach((item) => {
-          const label = prefixed ? `Material.${item}` : item;
+        getScopeDefined(entity.molang, "material").forEach((item) => {
+          const label = getIdentifier(item, prefixed);
           builder.add({
             label,
             documentation: `The defined material: ${item}\nDeclared by: ${entity.id}`,

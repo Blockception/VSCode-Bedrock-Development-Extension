@@ -1,8 +1,7 @@
-import { Offset } from "../../../../util";
 import { OffsetWord } from "bc-vscode-words";
 import { Position, SignatureHelp } from "vscode-languageserver";
-import { TextDocument } from "../../../documents/text-document";
 import { CreateMolangSetWords } from "../../../../minecraft/molang/words";
+import { TextDocument } from "../../../documents/text-document";
 
 import * as Contexts from "./contexts";
 import * as Geometry from "./geometries";
@@ -37,11 +36,10 @@ export function provideDocSignature(doc: TextDocument, cursor: Position): Signat
 export function provideSignature(text: OffsetWord, cursor: number): SignatureHelp | undefined {
   const words = CreateMolangSetWords(text.text, text.offset);
 
-  for (let I = 0; I < words.length; I++) {
-    const word = words[I];
-    if (Offset.IsWithin(word, cursor)) {
-      return provideWordSignature(text);
-    }
+  let lastIndex = words.length - 1;
+  for (; lastIndex >= 0; lastIndex--) {
+    const r = provideWordSignature(words[lastIndex], cursor, words.slice(lastIndex + 1) ?? []);
+    if (r) return r;
   }
 
   return undefined;
@@ -52,7 +50,7 @@ export function provideSignature(text: OffsetWord, cursor: number): SignatureHel
  * @param text
  * @returns
  */
-export function provideWordSignature(text: OffsetWord): SignatureHelp | undefined {
+export function provideWordSignature(text: OffsetWord, cursor: number, parameters: OffsetWord[]): SignatureHelp | undefined {
   const index = text.text.indexOf(".");
   let main: string | undefined = undefined;
   let sub: string | undefined = undefined;
@@ -71,11 +69,11 @@ export function provideWordSignature(text: OffsetWord): SignatureHelp | undefine
 
     case "q":
     case "query":
-      return Query.provideSignature(sub);
+      return Query.provideSignature(sub, cursor, parameters);
 
     case "m":
     case "math":
-      return Math.provideSignature(sub);
+      return Math.provideSignature(sub, cursor, parameters);
 
     case "geometry":
       return Geometry.provideSignature();

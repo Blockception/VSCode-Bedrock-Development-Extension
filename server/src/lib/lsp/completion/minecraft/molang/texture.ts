@@ -1,5 +1,6 @@
 import { PackType } from "bc-minecraft-bedrock-project";
 import { Kinds } from "../../../../constants";
+import { getIdentifier, getScopeDefined } from "../../../../minecraft/molang";
 import { Context } from "../../../context/context";
 import { CompletionContext } from "../../context";
 
@@ -13,11 +14,11 @@ export function provideCompletion(context: Context<CompletionContext>, prefixed:
     case PackType.resource_pack:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Texture });
       context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
-        entity.molang.textures.defined.forEach((item) => {
-          const label = prefixed ? `Texture.${item}` : item;
+        getScopeDefined(entity.molang, "texture").forEach((item) => {
+          const label = getIdentifier(item, prefixed);
           builder.add({
             label,
-            documentation: `The defined texture: ${item}\nDeclared by: ${entity.id}`,
+            documentation: `The defined texture: ${label}\nDeclared by: ${entity.id}`,
           });
         });
       });

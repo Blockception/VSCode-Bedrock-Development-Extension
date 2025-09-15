@@ -1,6 +1,5 @@
 import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
-import { Connection } from "vscode-languageserver";
-import { DeleteFilesParams, Diagnostic } from "vscode-languageserver-protocol";
+import { Connection, DeleteFilesParams, Diagnostic } from "vscode-languageserver";
 import { getFilename } from "../../util";
 import { TextDocument } from "../documents";
 import { IDocumentManager } from "../documents/manager";
