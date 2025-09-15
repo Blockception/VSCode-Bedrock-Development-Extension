@@ -58,7 +58,7 @@
     "@types/node": "^24.3.1",
     "@vscode/vsce": "^3.6.0",
     "eslint": "^9.35.0",
-    "eslint-plugin-jest": "^28.13.3",
+    "eslint-plugin-jest": "^29.0.1",
     "globals": "^16.4.0",
     "json-loader": "^0.5.7",
     "ts-jest": "^29.4.1",
