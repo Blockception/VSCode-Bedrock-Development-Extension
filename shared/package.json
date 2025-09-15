@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "@types/jest": "^30.0.0",
-    "@types/node": "^22.15.30"
+    "@types/node": "^24.4.0"
   }
 }
