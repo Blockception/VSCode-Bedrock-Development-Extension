@@ -23,6 +23,7 @@
 - build(deps): bump @types/vscode from 1.101.0 to 1.102.0 (#831) 
 
 ## Schemas
+- build(deps-dev): bump @types/node in the nodejs group (#379)
 - build(deps-dev): bump @types/node in the nodejs group (#377)
 - updated node to 24
 - Add NonMSAA option (#375)
@@ -41,10 +42,12 @@
 - fix: remove incorrect type definitions in features (#353)
 - - Added is_vehicle_family filter (#352)
 - fix
-- fixup
-- last upgrade? 
+- fixup 
 
 ## Diagnoser
+- fix: , -> . for identifiers
+- fix: removing stray ()
+- fix: swapping user <-> resource for animations for correct checks
 - feat: polishing couple more diagnoatics
 - Bump @types/node from 24.3.1 to 24.4.0 in the nodejs group (#411)
 - feat: adding in item parsing for namespaces and variants
@@ -61,10 +64,7 @@
 - fix: object is undefined
 - fix: ensuring not an object is passed as id
 - chore(deps): updating blockceptions dependencies
-- fix: to many errors where thrown
-- Bump the important group with 2 updates (#404)
-- refactor: last fixes
-- refactor: reworking some things 
+- fix: to many errors where thrown 
 
 ## Commands
 - build(deps-dev): bump @types/node in the nodejs group (#245)
@@ -111,6 +111,7 @@
 - adding static function 
 
 ## Vanilla-Data
+- - Added missing funcs related to biome data (#282)
 - build(deps-dev): bump @types/node in the nodejs group (#280)
 - feat: updating publish
 - chore: upgrading dependencies
@@ -129,5 +130,4 @@
 - build(deps-dev): bump the test group with 3 updates (#252)
 - build(deps-dev): bump @types/node in the nodejs group (#253)
 - build(deps-dev): bump the test group with 4 updates (#250)
-- build(deps-dev): bump the nodejs group with 2 updates (#249)
-- build(deps-dev): bump the test group with 2 updates (#248) 
+- build(deps-dev): bump the nodejs group with 2 updates (#249) 
