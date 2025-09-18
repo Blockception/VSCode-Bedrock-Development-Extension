@@ -22,7 +22,7 @@ export class PackProcessor extends BaseService {
   async process(pack: Pack, token?: CancellationToken): Promise<void> {
     const start = Date.now();
     const name = getBasename(Fs.FromVscode(pack.folder));
-    const reporter = await ProgressBar.create(this.extension, `pack: ${name}`);
+    const reporter = await ProgressBar.create(this.extension, `processing pack: ${name}`);
     reporter.sendMessage("processing");
     this.logger.info(`processing pack: ${name}`, {
       uri: pack.folder,
