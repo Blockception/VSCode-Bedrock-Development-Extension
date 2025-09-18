@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Extension
+- refactor: better notification check
+- feat: adding molang deprecated code actions
 - chore: auto updating package lock (#878)
 - feat: updating molang code (#849)
 - build(deps-dev): bump globals from 16.3.0 to 16.4.0 (#877)
@@ -18,9 +20,7 @@
 - build(deps-dev): bump @types/picomatch from 4.0.1 to 4.0.2 (#839)
 - build(deps): bump minecraft-bedrock-schemas from `0967f07` to `cd9e499` (#841)
 - build(deps): bump the important group with 7 updates (#834)
-- build(deps): bump picomatch and @types/picomatch (#836)
-- build(deps-dev): bump form-data from 4.0.2 to 4.0.4 (#833)
-- build(deps): bump @types/vscode from 1.101.0 to 1.102.0 (#831) 
+- build(deps): bump picomatch and @types/picomatch (#836) 
 
 ## Schemas
 - build(deps-dev): bump @types/node in the nodejs group (#379)
@@ -45,6 +45,7 @@
 - fixup 
 
 ## Diagnoser
+- feat: adding the start of extended information
 - fix: , -> . for identifiers
 - fix: removing stray ()
 - fix: swapping user <-> resource for animations for correct checks
@@ -63,8 +64,7 @@
 - Bump actions/checkout from 4 to 5 in the all group (#409)
 - fix: object is undefined
 - fix: ensuring not an object is passed as id
-- chore(deps): updating blockceptions dependencies
-- fix: to many errors where thrown 
+- chore(deps): updating blockceptions dependencies 
 
 ## Commands
 - build(deps-dev): bump @types/node in the nodejs group (#245)
