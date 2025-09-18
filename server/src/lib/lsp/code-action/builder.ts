@@ -35,7 +35,7 @@ export class CodeActionBuilder {
   }
 
   /** */
-  push(item: Command | CodeAction | undefined): Command | CodeAction | undefined {
+  push<T extends Command | CodeAction | undefined>(item: T): T {
     if (item) {
       this.out.push(item);
     }
@@ -59,7 +59,7 @@ export class CodeActionBuilder {
   }
 
   /**
-   *
+   * Creates a new action, with the given title
    * @param title
    * @returns
    */

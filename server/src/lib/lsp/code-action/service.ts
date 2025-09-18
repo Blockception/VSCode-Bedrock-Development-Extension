@@ -2,7 +2,10 @@ import {
   CancellationToken,
   CodeAction,
   CodeActionParams,
-  Command, Connection, Diagnostic, WorkDoneProgressReporter
+  Command,
+  Connection,
+  Diagnostic,
+  WorkDoneProgressReporter,
 } from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";
@@ -17,6 +20,7 @@ import { attributes } from "./types";
 
 import * as BehaviorPack from "./minecraft/behavior-pack/main";
 import * as Minecraft from "./minecraft/code-actions";
+import * as Molang from "./minecraft/molang/main";
 import * as ResourcePack from "./minecraft/resource-pack/main";
 
 export class CodeActionService extends BaseService implements Partial<IService> {
@@ -92,6 +96,10 @@ export class CodeActionService extends BaseService implements Partial<IService> 
 
       case "minecraft":
         Minecraft.onCodeAction(builder, diag);
+        break;
+
+      case "molang":
+        Molang.onCodeAction(builder, diag);
         break;
 
       case "mcfunction":
