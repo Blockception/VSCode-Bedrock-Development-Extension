@@ -30,7 +30,7 @@
     "vscode-languageclient": "^9.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.15.30",
     "@types/vscode": "^1.104.0",
     "json-loader": "^0.5.7",
